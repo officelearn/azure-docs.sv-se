@@ -12,12 +12,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 11/20/2019
-ms.openlocfilehash: d065439839ba5db479305ae81c61892cb5cf5e70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9bbd2e3376f1da3fdf5b10d654a331ce258be5cf
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929457"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422093"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 (Common Data Service) eller Dynamics CRM med hjälp av Azure Data Factory
 
@@ -60,7 +60,7 @@ Den här Dynamics-kopplingen är byggd ovanpå [Dynamics XRM-verktyg](https://do
 >[!TIP]
 >Om du vill kopiera data från **Dynamics 365 Finance and Operations**kan du använda Dynamics [AX-kopplingen](connector-dynamics-ax.md).
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -324,7 +324,7 @@ Om du vill kopiera data till Dynamics stöds följande egenskaper i avsnittet ko
 | ignoreraNullValues | Anger om null-värden ska ignoreras från indata (utom nyckelfält) under en skrivåtgärd.<br/>Tillåtna värden är **sanna** och **falska**.<br>- **Sant**: Lämna data i målobjektet oförändrade när du gör en upsert/update-åtgärd. Infoga ett definierat standardvärde när du gör en infogad åtgärd.<br/>- **Falskt**: Uppdatera data i målobjektet till NULL när du utför en upsert/update-åtgärd. Infoga ett NULL-värde när du gör en infogad åtgärd. | Nej (standard är falskt) |
 
 >[!NOTE]
->Standardvärdet för diskbänken "**writeBatchSize**" och kopieringsaktiviteten "**[parallelCopies](copy-activity-performance.md#parallel-copy)**" för Dynamics-diskbänken är båda 10. Därför skickas 100 poster till Dynamics samtidigt.
+>Standardvärdet för diskbänken "**writeBatchSize**" och kopieringsaktiviteten "**[parallelCopies](copy-activity-performance-features.md#parallel-copy)**" för Dynamics-diskbänken är båda 10. Därför skickas 100 poster till Dynamics samtidigt.
 
 För Dynamics 365 online finns det en gräns [på 2 samtidiga batchanrop per organisation](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations). Om den gränsen överskrids genereras ett fel för server upptagen innan den första begäran någonsin körs. Att hålla "writeBatchSize" mindre eller lika med 10 skulle undvika sådan begränsning av samtidiga samtal.
 

@@ -1,14 +1,14 @@
 ---
-title: Distribuera till Azure Kubernetes-tjänsten med hjälp av Jenkins och det blå/gröna distributions mönstret
+title: Distribuera till Azure Kubernetes-tjänsten med Jenkins och det blå/gröna distributionsmönstret
 description: Lär dig att distribuera till Azure Kubernetes Service (AKS) med hjälp av Jenkins och distributionsmönstret blå/grön.
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, blue green deployment, kontinuerlig leverans, cd
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.openlocfilehash: 9d6551f910bd99322f844b44130ebb03732df83c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78251480"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Distribuera till Azure Kubernetes Service (AKS) med hjälp av Jenkins och distributionsmönstret blå/grön
@@ -26,7 +26,7 @@ I den här självstudien utför du följande åtgärder:
 > * Konfigurera ett Kubernetes-kluster manuellt
 > * Skapa och kör ett Jenkins-jobb
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 - [GitHub-konto](https://github.com): du behöver ett GitHub-konto för att kunna klona lagringsplatsexemplet.
 - [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest): du använder Azure CLI 2.0 för att skapa Kubernetes-klustret.
 - [Chocolatey](https://chocolatey.org): en pakethanterare som du använder för att installera kubectl.
@@ -113,10 +113,10 @@ Du kan ställa in en blå/grön distribution i AKS manuellt eller med ett konfig
 #### <a name="set-up-the-kubernetes-cluster-via-the-sample-setup-script"></a>Konfigurera Kubernetes-klustret via exempelskriptet för konfiguration
 1. Redigera filen **deploy/aks/setup/setup.sh** och ersätta följande platshållare med lämpliga värden för din miljö: 
 
-   - **&lt;ditt-resursgruppnamn>**
-   - **&lt;ditt-kubernetes-klusternamn>**
-   - **&lt;din-plats>**
-   - **&lt;ditt-dns-namnssuffix>**
+   - **&lt;din resursgrupp-grupp-namn>**
+   - **&lt;din-kubernetes-kluster-namn>**
+   - **&lt;din plats>**
+   - **&lt;ditt-dns-namn-suffix>**
 
      ![Skärmbild av skriptet setup.sh i bash, med flera platshållare markerade](./media/jenkins-aks-blue-green-deployment/edit-setup-script.png)
 
@@ -143,7 +143,7 @@ Du kan ställa in en blå/grön distribution i AKS manuellt eller med ett konfig
     kubectl apply -f  test-endpoint-green.yml
     ```
 
-1. Uppdatera DNS-namnet för den offentliga slutpunkten och testslutpunkterna. När du skapar ett Kubernetes-kluster skapar du också en [ytterligare resursgrupp](https://github.com/Azure/AKS/issues/3) med namngivningsmönstret **MC_&lt;ditt-resursgruppnamn> _&lt; ditt-kubernetes-klusternamn>_ &lt;din-plats>** .
+1. Uppdatera DNS-namnet för den offentliga slutpunkten och testslutpunkterna. När du skapar ett Kubernetes-kluster skapar du också en [ytterligare resursgrupp](https://github.com/Azure/AKS/issues/3) med namngivningsmönstret **MC_&lt;ditt-resursgruppnamn>_&lt; ditt-kubernetes-klusternamn>_&lt;din-plats>**.
 
     Leta rätt på de offentliga IP-adresserna i resursgruppen.
 
@@ -214,7 +214,7 @@ I det här avsnittet lär du dig att förbereda Jenkins-servern för kompilering
     1. Välj **Hantera Jenkins > Hantera plugin-program > Tillgängligt**.
     1. Leta reda på och installera plugin-programmet Azure Container Service.
 
-1. Lägg till autentiseringsuppgifter för att hantera resurser i Azure. Om du inte redan har plugin-programmet installerar du plugin-programmet för **Azure Credential** .
+1. Lägg till autentiseringsuppgifter för att hantera resurser i Azure. Om du inte redan har plugin-programmet installerar du plugin-programmet **För Azure-autentiseringsuppgifter.**
 
 1. Lägg till dina autentiseringsuppgifter för Azure Service Principal som typen **Microsoft Azure Service Principal**.
 
@@ -282,7 +282,7 @@ az group delete -y --no-wait -n <your-resource-group-name>
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om du stöter på buggar med Jenkins-plugin-programmet kan du rapportera problemet i [Jenkins JIRA](https://issues.jenkins-ci.org/) för en viss komponent.
+Om du stöter på några buggar med Jenkins plugins, lämna in ett problem i [Jenkins JIRA](https://issues.jenkins-ci.org/) för den specifika komponenten.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med TruNarrative | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory single sign-on (SSO) integration med TruNarrative | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och TruNarrative.
 services: active-directory
 documentationCenter: na
@@ -16,140 +16,140 @@ ms.date: 02/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 38cad1262d9da836b23f9042734e13aa533cd69e
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78207563"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trunarrative"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med TruNarrative
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trunarrative"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med TruNarrative
 
 I den här självstudien får du lära dig hur du integrerar TruNarrative med Azure Active Directory (Azure AD). När du integrerar TruNarrative med Azure AD kan du:
 
 * Kontroll i Azure AD som har åtkomst till TruNarrative.
-* Gör det möjligt för användarna att logga in automatiskt till TruNarrative med sina Azure AD-konton.
-* Hantera dina konton på en central plats – Azure Portal.
+* Gör att användarna automatiskt loggas in på TruNarrative med sina Azure AD-konton.
+* Hantera dina konton på en central plats - Azure-portalen.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande objekt:
+För att komma igång behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* TruNarrative för enkel inloggning (SSO) aktive rad.
+* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
+* TruNarrative enkel inloggning (SSO) aktiverad prenumeration.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
 
-* TruNarrative stöder **SP** -INITIERAd SSO
+* TruNarrative stöder **SP** initierade SSO
 
-* När du har konfigurerat TruNarrative kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* När du har konfigurerat TruNarrative kan du framtvinga sessionskontroll, vilket skyddar exfiltration och infiltration av organisationens känsliga data i realtid. Sessionskontrollen sträcker sig från villkorlig åtkomst. [Lär dig hur du framtvingar sessionskontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 
 ## <a name="adding-trunarrative-from-the-gallery"></a>Lägga till TruNarrative från galleriet
 
 Om du vill konfigurera integreringen av TruNarrative i Azure AD måste du lägga till TruNarrative från galleriet i listan över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
-1. Navigera till **företags program** och välj sedan **alla program**.
-1. Välj **nytt program**om du vill lägga till ett nytt program.
-1. I avsnittet **Lägg till från galleriet** , skriver du **TruNarrative** i sökrutan.
-1. Välj **TruNarrative** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
+1. Navigera till **företagsprogram** och välj sedan **Alla program**.
+1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
+1. Skriv **TruNarrative** i sökrutan i avsnittet **Lägg till från galleriet.**
+1. Välj **TruNarrative** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-trunarrative"></a>Konfigurera och testa enkel inloggning med Azure AD för TruNarrative
+## <a name="configure-and-test-azure-ad-single-sign-on-for-trunarrative"></a>Konfigurera och testa en azure AD-inloggning för TruNarrative
 
-Konfigurera och testa Azure AD SSO med TruNarrative med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i TruNarrative.
+Konfigurera och testa Azure AD SSO med TruNarrative med en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i TruNarrative.
 
-Om du vill konfigurera och testa Azure AD SSO med TruNarrative, slutför du följande Bygg stenar:
+Om du vill konfigurera och testa Azure AD SSO med TruNarrative slutför du följande byggblock:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    * **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    * **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-1. **[Konfigurera TRUNARRATIVE SSO](#configure-trunarrative-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-    * **[Skapa TruNarrative test User](#create-trunarrative-test-user)** -om du vill ha en motsvarighet till B. Simon i TruNarrative som är länkad till Azure AD-representation av användare.
-1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
+    * **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa azure AD-enkel inloggning med B.Simon.
+    * **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** - så att B.Simon kan använda azure AD-enkel inloggning.
+1. **[Konfigurera TruNarrative SSO](#configure-trunarrative-sso)** - för att konfigurera de enskilda inloggningsinställningarna på programsidan.
+    * **[Skapa TruNarrative testanvändare](#create-trunarrative-test-user)** - att ha en motsvarighet till B.Simon i TruNarrative som är kopplad till Azure AD-representationen av användaren.
+1. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
+Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
-1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **TruNarrative** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
-1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. Leta reda på avsnittet Hantera på sidan Hantera på sidan **TruNarrative** [Azure-portalen](https://portal.azure.com/)och välj **enkel inloggning**. **Manage**
+1. På sidan **Välj en enda inloggningsmetod** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
+1. Ange värdena för följande fält i avsnittet **Grundläggande SAML-konfiguration:**
 
-    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<SUBDOMAIN>.trunarrative.cloud`
+    a. Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<SUBDOMAIN>.trunarrative.cloud`
 
-    b. I rutan **Identifierare** skriver du en URL med följande mönster: `https://<SUBDOMAIN>.trunarrative.cloud`
+    b. Skriv en URL med följande mönster i rutan **Identifierare:**`https://<SUBDOMAIN>.trunarrative.cloud`
 
-    c. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<SUBDOMAIN>.trunarrative.cloud/IdP/sso.aspx`
+    c. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<SUBDOMAIN>.trunarrative.cloud/IdP/sso.aspx`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL, identifierare och svars-URL. Kontakta [TruNarrative client support team](mailto:helpdesk@trunarrative.com) för att hämta dessa värden. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [TruNarrative Client supportteam](mailto:helpdesk@trunarrative.com) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
+1. På sidan **Konfigurera enkel inloggning med SAML** i avsnittet **SAML-signeringscertifikat** hittar du **XML för federationsmetadata** och väljer **Hämta** för att hämta certifikatet och spara det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-1. I avsnittet **Konfigurera TruNarrative** kopierar du lämpliga URL: er baserat på ditt krav.
+1. Kopiera lämpliga webbadresser i avsnittet **Konfigurera TruNarrative** baserat på dina krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
+I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B.Simon.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **Ny användare** överst på skärmen.
-1. I **användar** egenskaperna följer du de här stegen:
+1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
+1. Välj **Ny användare** högst upp på skärmen.
+1. Gör så här i egenskaperna **Användare:**
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Ange **.** username@companydomain.extension Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till TruNarrative.
+I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till TruNarrative.
 
-1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
-1. I listan program väljer du **TruNarrative**.
-1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
+1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
+1. Välj **TruNarrative**i programlistan .
+1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
 
 ## <a name="configure-trunarrative-sso"></a>Konfigurera TruNarrative SSO
 
-Om du vill konfigurera enkel inloggning på **TruNarrative** sida måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för TruNarrative](mailto:helpdesk@trunarrative.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **TruNarrative-sidan** måste du skicka den nedladdade **XML-koden för federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [TruNarrative-supportteamet](mailto:helpdesk@trunarrative.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-### <a name="create-trunarrative-test-user"></a>Skapa TruNarrative test användare
+### <a name="create-trunarrative-test-user"></a>Skapa trunarrative testanvändare
 
-I det här avsnittet skapar du en användare som heter B. Simon i TruNarrative. Arbeta med TruNarrative support team för att lägga till användare i TruNarrative-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter B.Simon i TruNarrative. Arbeta med TruNarrative supportteam för att lägga till användarna i TruNarrative-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 
 ## <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen TruNarrative på åtkomst panelen, bör du loggas in automatiskt på den TruNarrative som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på panelen TruNarrative på åtkomstpanelen bör du automatiskt loggas in på den TruNarrative som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
@@ -157,4 +157,4 @@ När du klickar på panelen TruNarrative på åtkomst panelen, bör du loggas in
 
 - [Prova TruNarrative med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är sessionskontroll i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

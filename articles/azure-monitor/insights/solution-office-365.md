@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/08/2019
-ms.openlocfilehash: 0018ae55ab74e691577a34a397c15355587e0fac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: 5aa025fb366634e796abfb2eb9c0035d9b87dc3c
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663274"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437049"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Hanteringslösning för Office 365 i Azure (förhandsversion)
 
@@ -20,7 +20,7 @@ ms.locfileid: "77663274"
 
 > [!IMPORTANT]
 > ## <a name="solution-update"></a>Uppdatering av lösning
-> Den här lösningen har ersatts av [office 365-lösningen](../../sentinel/connect-office-365.md) för allmän tillgänglighet i [Azure Sentinel](../../sentinel/overview.md) och azure [AD-rapporterings- och övervakningslösningen](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Tillsammans tillhandahåller de en uppdaterad version av den tidigare Azure Monitor Office 365-lösningen med en förbättrad konfigurationsupplevelse. Du kan fortsätta att använda den befintliga lösningen fram till den 30 april 2020.
+> Den här lösningen har ersatts av [office 365-lösningen](../../sentinel/connect-office-365.md) för allmän tillgänglighet i [Azure Sentinel](../../sentinel/overview.md) och azure [AD-rapporterings- och övervakningslösningen](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Tillsammans tillhandahåller de en uppdaterad version av den tidigare Azure Monitor Office 365-lösningen med en förbättrad konfigurationsupplevelse. Du kan fortsätta att använda den befintliga lösningen fram till den 30 juli 2020.
 > 
 > Azure Sentinel är en molnbaserad säkerhetsinformations- och händelsehanteringslösning som matar in loggar och tillhandahåller ytterligare SIEM-funktioner, inklusive identifieringar, undersökningar, jakt- och maskininlärningsdrivna insikter. Med Azure Sentinel får du nu information om Office 365 SharePoint-aktivitet och Exchange-hanteringsloggar.
 > 
@@ -53,7 +53,7 @@ ms.locfileid: "77663274"
 > | where TimeGenerated >= ago(1d) 
 > | where OfficeWorkload == "AzureActiveDirectory"                      
 > | where Operation == 'UserLoginFailed'
-> | summarize count() by UserId 
+> | summarize count() by UserId    
 > ```
 > 
 > ```Kusto
@@ -82,10 +82,10 @@ ms.locfileid: "77663274"
 > ### <a name="q-do-i-need-azure-sentinel-to-connect-the-azure-ad-logs"></a>F: Behöver jag Azure Sentinel för att ansluta Azure AD-loggarna?
 > Du kan konfigurera [Azure AD-loggar integrering med Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), som inte är relaterad till Azure Sentinel-lösningen. Azure Sentinel tillhandahåller en inbyggd anslutningsapp och innehåll utanför boxen för Azure AD-loggar. Mer information finns i frågan nedan om säkerhetsorienterat innehåll utanför boxen.
 >
-> ###   <a name="q-what-are-the-differences-when-connecting-azure-ad-logs-from-azure-sentinel-and-azure-monitor"></a>F: Vilka är skillnaderna när du ansluter Azure AD-loggar från Azure Sentinel och Azure Monitor?
+> ###    <a name="q-what-are-the-differences-when-connecting-azure-ad-logs-from-azure-sentinel-and-azure-monitor"></a>F: Vilka är skillnaderna när du ansluter Azure AD-loggar från Azure Sentinel och Azure Monitor?
 > Azure Sentinel och Azure Monitor ansluter till Azure AD-loggar baserat på samma [Azure AD-rapporterings- och övervakningslösning](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Azure Sentinel tillhandahåller en inbyggd anslutningsapp med ett klick som ansluter samma data och tillhandahåller övervakningsinformation.
 >
-> ###   <a name="q-what-do-i-need-to-change-when-moving-to-the-new-azure-ad-reporting-and-monitoring-tables"></a>F: Vad behöver jag ändra när jag flyttar till de nya Azure AD-rapporterings- och övervakningstabellerna?
+> ###    <a name="q-what-do-i-need-to-change-when-moving-to-the-new-azure-ad-reporting-and-monitoring-tables"></a>F: Vad behöver jag ändra när jag flyttar till de nya Azure AD-rapporterings- och övervakningstabellerna?
 > Alla frågor som använder Azure AD-data, inklusive frågor i aviseringar, instrumentpaneler och allt innehåll som du har skapat med Office 365 Azure AD-data, måste återskapas med hjälp av de nya tabellerna.
 >
 > Azure Sentinel och Azure AD tillhandahåller inbyggt innehåll som du kan använda när du flyttar till Azure AD-rapporterings- och övervakningslösningen. Mer information finns i nästa fråga om säkerhetsorienterat innehåll och [hur du använder Azure Monitor-arbetsböcker för Azure Active Directory-rapporter](../../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md). 
@@ -103,7 +103,7 @@ ms.locfileid: "77663274"
 > ### <a name="q-does-azure-sentinel-provide-additional-connectors-as-part-of-the-solution"></a>F: Tillhandahåller Azure Sentinel ytterligare anslutningsappar som en del av lösningen?
 > Ja, se [Azure Sentinel ansluta datakällor](../../sentinel/connect-data-sources.md).
 > 
-> ###   <a name="q-what-will-happen-on-april-30-do-i-need-to-offboard-beforehand"></a>F: Vad händer den 30 april? Måste jag gå överbord i förväg?
+> ###    <a name="q-what-will-happen-on-april-30-do-i-need-to-offboard-beforehand"></a>F: Vad händer den 30 april? Måste jag gå överbord i förväg?
 > 
 > - Du kan inte ta emot data från **Office365-lösningen.** Lösningen kommer inte längre att vara tillgänglig på Marketplace
 > - För Azure Sentinel-kunder inkluderas log analytics-arbetsytelösningen **Office365** i Azure Sentinel **SecurityInsights-lösningen.**
@@ -315,7 +315,7 @@ Dessa poster skapas när ändringar eller tillägg görs i Azure Active Director
 | ActorContextId | GUIDEN av organisationen som skådespelaren hör hemma till. |
 | SkådespelareIpAddress | Aktörens IP-adress i IPV4- eller IPV6-adressformat. |
 | InterSystemsId | GUID som spårar åtgärderna mellan komponenter i Office 365-tjänsten. |
-| IntraSystemId |   GUID som genereras av Azure Active Directory för att spåra åtgärden. |
+| IntraSystemId |     GUID som genereras av Azure Active Directory för att spåra åtgärden. |
 | SupportTicketId | Kundsupportbiljett-ID för åtgärden i "act-on-behalf-of"-situationer. |
 | TargetContextId | GUID för den organisation som den riktade användaren tillhör. |
 
@@ -330,7 +330,7 @@ Dessa poster skapas från datacentersäkerhetsgranskningsdata.
 | HöjdApprovedTime | Tidsstämpeln för när höjden godkändes. |
 | HöjdApprover | Namnet på en Microsoft-chef. |
 | HöjdUndersättning | Den varaktighet som höjden var aktiv. |
-| HöjdRequestId |  En unik identifierare för höjdbegäran. |
+| HöjdRequestId |     En unik identifierare för höjdbegäran. |
 | HöjdRole | Rollen som höjden begärdes för. |
 | Höjdtid | Höjdens starttid. |
 | Start_Time | Starttiden för cmdlet-körningen. |
@@ -344,8 +344,8 @@ Dessa poster skapas när ändringar görs i Exchange-konfigurationen.
 |:--- |:--- |
 | OfficeWorkload (OfficeWorkload) | Exchange |
 | RecordType     | ExchangeAdmin |
-| Externtaccess |  Anger om cmdleten kördes av en användare i organisationen, av Microsofts datacenterpersonal eller ett datacentertjänstkonto eller av en delegerad administratör. Värdet False anger att cmdleten kördes av någon i organisationen. Värdet True anger att cmdleten kördes av datacenterpersonal, ett datacentertjänstkonto eller en delegerad administratör. |
-| ModifiedObjectResolvedName |  Det här är det användarvänliga namnet på objektet som har ändrats av cmdleten. Detta loggas bara om cmdleten ändrar objektet. |
+| Externtaccess |     Anger om cmdleten kördes av en användare i organisationen, av Microsofts datacenterpersonal eller ett datacentertjänstkonto eller av en delegerad administratör. Värdet False anger att cmdleten kördes av någon i organisationen. Värdet True anger att cmdleten kördes av datacenterpersonal, ett datacentertjänstkonto eller en delegerad administratör. |
+| ModifiedObjectResolvedName |     Det här är det användarvänliga namnet på objektet som har ändrats av cmdleten. Detta loggas bara om cmdleten ändrar objektet. |
 | OrganizationName | Namnet på hyresgästen. |
 | Ursprungsserver | Namnet på den server som cmdleten utfördes från. |
 | Parametrar | Namnet och värdet för alla parametrar som användes med cmdlet som identifieras i egenskapen Operations. |
@@ -366,7 +366,7 @@ Dessa poster skapas när ändringar eller tillägg görs i Exchange-postlådor.
 | KlientVersion | Versionen av e-postklienten . |
 | InternalLogonType | Reserverad för internt bruk. |
 | Logon_Type | Anger vilken typ av användare som kom åt postlådan och utförde åtgärden som loggades. |
-| InloggningUserDisplayName |    Det användarvänliga namnet på den användare som utförde åtgärden. |
+| InloggningUserDisplayName |     Det användarvänliga namnet på den användare som utförde åtgärden. |
 | LogonUserSid | SID för den användare som utförde åtgärden. |
 | MailboxGuid (Brevlåda) | Exchange GUID för den postlåda som användes. |
 | MailboxOwnerMasterAccountSid | Postlådeägarens kontos huvudkonto SID. |
@@ -419,7 +419,7 @@ Dessa egenskaper är gemensamma för alla SharePoint-poster.
 | EventSource (EventSource) | Identifierar att en händelse inträffade i SharePoint. Möjliga värden är SharePoint eller ObjectModel. |
 | ItemType | Den typ av objekt som har åtkomst eller ändrats. I tabellen ItemType finns information om vilka typer av objekt som finns. |
 | MaskinDomäninInfo | Information om enhetssynkroniseringsåtgärder. Den här informationen rapporteras endast om den finns i begäran. |
-| MachineId (maskin) |   Information om enhetssynkroniseringsåtgärder. Den här informationen rapporteras endast om den finns i begäran. |
+| MachineId (maskin) |     Information om enhetssynkroniseringsåtgärder. Den här informationen rapporteras endast om den finns i begäran. |
 | Site_ | GUID för den plats där filen eller mappen nås av användaren finns. |
 | Source_Name | Entiteten som utlöste den granskade åtgärden. Möjliga värden är SharePoint eller ObjectModel. |
 | Useragent | Information om användarens klient eller webbläsare. Denna information tillhandahålls av klienten eller webbläsaren. |
@@ -434,7 +434,7 @@ Dessa poster skapas när konfigurationsändringar görs i SharePoint.
 | OfficeWorkload (OfficeWorkload) | SharePoint |
 | OfficeWorkload (OfficeWorkload) | SharePoint |
 | CustomEvent | Valfri sträng för anpassade händelser. |
-| Event_Data |  Valfri nyttolast för anpassade händelser. |
+| Event_Data |     Valfri nyttolast för anpassade händelser. |
 | ModifiedProperties | Egenskapen ingår för administratörshändelser, till exempel att lägga till en användare som medlem i en webbplats eller en administratörsgrupp för webbplatssamlingen. Egenskapen innehåller namnet på egenskapen som har ändrats (till exempel gruppen Webbplatsadministratör), det nya värdet för den ändrade egenskapen (till exempel användaren som lades till som webbplatsadministratör) och det tidigare värdet för det ändrade objektet. |
 
 
@@ -452,9 +452,9 @@ Dessa poster skapas som svar på filåtgärder i SharePoint.
 | SharingType (Olikartade) | Den typ av delningsbehörigheter som har tilldelats användaren som resursen delades med. Den här användaren identifieras av parametern UserSharedWith. |
 | Site_Url | URL:en för den plats där filen eller mappen som användaren har åtkomst till finns. |
 | KällaFileExtension | Filtillägget för filen som användes av användaren. Den här egenskapen är tom om objektet som användes är en mapp. |
-| SourceFileName |  Namnet på den fil eller mapp som användaren har åtkomst till. |
+| SourceFileName |     Namnet på den fil eller mapp som användaren har åtkomst till. |
 | KällaRelativeUrl | URL:en för mappen som innehåller den fil som användaren har åtkomst till. Kombinationen av värdena för parametrarna SiteURL, SourceRelativeURL och SourceFileName är samma som värdet för egenskapen ObjectID, som är det fullständiga sökvägsnamnet för den fil som användaren använder. |
-| UserSharedWith |  Användaren som en resurs delades med. |
+| UserSharedWith |     Användaren som en resurs delades med. |
 
 
 

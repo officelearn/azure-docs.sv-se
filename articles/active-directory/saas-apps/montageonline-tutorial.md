@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med Montagelayout online | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Montagelayout online.
+title: 'Självstudiekurs: Azure Active Directory-integrering med Montage Online | Microsoft-dokument'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Montage Online.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,44 +16,44 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 89713d99b9a6d5f8b56d57c9cf6f184142510420
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160506"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-montage-online"></a>Självstudie: Azure Active Directory integrering med Montagelayout online
+# <a name="tutorial-azure-active-directory-integration-with-montage-online"></a>Självstudiekurs: Azure Active Directory-integrering med Montage Online
 
-I den här självstudien får du lära dig hur du integrerar Montagelayout online med Azure Active Directory (Azure AD).
-Att integrera Montagelayout online med Azure AD ger följande fördelar:
+I den här självstudien får du lära dig hur du integrerar Montage Online med Azure Active Directory (Azure AD).
+Genom att integrera Montage Online med Azure AD får du följande fördelar:
 
-* Du kan kontrol lera Azure AD som har åtkomst till Montagelayout online.
-* Du kan göra det möjligt för användarna att logga in automatiskt till montage online (enkel inloggning) med sina Azure AD-konton.
+* Du kan styra i Azure AD som har åtkomst till Montage Online.
+* Du kan aktivera dina användare så att de automatiskt loggas in på Montage Online (Enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Montagelayout online behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Montage Online behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Prenumeration på online-aktiverad enkel inloggning för montage
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Montage Online enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Montagelayout online stöder **SP** -INITIERAd SSO
+* Montage Online stöder **SP** initierade SSO
 
-## <a name="adding-montage-online-from-the-gallery"></a>Lägga till Montagelayout online från galleriet
+## <a name="adding-montage-online-from-the-gallery"></a>Lägga Montage Online från galleriet
 
-Om du vill konfigurera integreringen av Montagelayout online i Azure AD måste du lägga till Montagelayout online från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Montage Online i Azure AD måste du lägga till Montage Online från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Montagelayout online från galleriet:**
+**Så här lägger du till Montage Online från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -65,33 +65,33 @@ Om du vill konfigurera integreringen av Montagelayout online i Azure AD måste d
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I rutan Sök skriver du **Montagelayout online**, väljer **Montagelayout online** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
+4. Skriv **Montage Online**i sökrutan och välj **Montage Online** från resultatpanelen och klicka sedan på **Lägg** till-knappen för att lägga till programmet.
 
-     ![Montagelayout online i resultat listan](common/search-new-app.png)
+     ![Montage Online i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du enkel inloggning i Azure AD med Montagelayout online baserat på en test användare som kallas **Britta Simon**.
-För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Montagelayout online upprättas.
+I det här avsnittet konfigurerar och testar du azure AD enkel inloggning med Montage Online baserat på en testanvändare som heter **Britta Simon**.
+För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Montage Online upprättas.
 
-Om du vill konfigurera och testa enkel inloggning med Montagelayout online i Azure AD måste du slutföra följande Bygg stenar:
+Om du vill konfigurera och testa en enkel Azure AD-inloggning med Montage Online måste du slutföra följande byggstenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera enkel inloggning för Montagelayout online](#configure-montage-online-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+2. **[Konfigurera Montage Online Single Sign-On](#configure-montage-online-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Montagelayout online-test](#create-montage-online-test-user)** för att få en motsvarighet till Britta Simon i Montagelayout online som är länkat till Azure AD-representation av användare.
+5. **[Skapa Testanvändare](#create-montage-online-test-user)** för Montage Online – om du vill ha en motsvarighet till Britta Simon i Montage Online som är länkad till Azure AD-representationen av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera enkel inloggning med Montagelayout online i Azure AD:
+Så här konfigurerar du enkel Azure AD-inloggning med Montage Online:
 
-1. Välj **enkel inloggning**på sidan för integration **online** -programintegration i [Azure Portal](https://portal.azure.com/).
+1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **Montage** **Online-programintegration**.
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -103,28 +103,28 @@ Utför följande steg för att konfigurera enkel inloggning med Montagelayout on
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Information om enkel inloggning för montage online-domän och URL-adresser](common/sp-identifier.png)
+    ![Montage Online Domän och webbadresser enkel inloggningsinformation](common/sp-identifier.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster:
 
     För Produktionsmiljö: `https://<subdomain>.montageonline.co.nz/`
 
-    För test miljö: `https://build-<subdomain>.montageonline.co.nz/`
+    För testmiljö:`https://build-<subdomain>.montageonline.co.nz/`
 
-    b. Skriv en URL i text rutan **identifierare** :
+    b. Skriv en URL i textrutan **Identifierare:**
 
     För Produktionsmiljö: `MOL_Azure`
 
-    För test miljö: `MOL_Azure_Build`
+    För testmiljö:`MOL_Azure_Build`
 
     > [!NOTE] 
-    > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [montage online client support team](https://www.montage.co.nz/contact-us/) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Montage Online Client supportteam](https://www.montage.co.nz/contact-us/) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. I avsnittet **Konfigurera Montagelayout online** kopierar du lämpliga URL: er enligt ditt krav.
+6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera Montage Online.**
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -134,9 +134,9 @@ Utför följande steg för att konfigurera enkel inloggning med Montagelayout on
 
     c. Utloggnings-URL
 
-### <a name="configure-montage-online-single-sign-on"></a>Konfigurera enkel inloggning för Montagelayout online
+### <a name="configure-montage-online-single-sign-on"></a>Konfigurera montage online enkel inloggning
 
-Om du vill konfigurera enkel inloggning på **Montagelayout online** -sidan måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [montage online support team](https://www.montage.co.nz/contact-us/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Montage Online-sidan** måste du skicka det nedladdade **certifikatet (Base64)** och lämpliga kopierade url:er från Azure-portalen till [Montage Online-supportteamet](https://www.montage.co.nz/contact-us/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -146,7 +146,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -156,7 +156,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -165,17 +165,17 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Montagelayout online.
+I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Montage Online.
 
-1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Montagelayout online**.
+1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **Montage Online**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan program väljer du **Montagelayout online**.
+2. Välj **Montage Online**i programlistan .
 
-    ![Länken Montagelayout online i listan program](common/all-applications.png)
+    ![Länken Montage Online i programlistan](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -185,19 +185,19 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-montage-online-test-user"></a>Skapa en test användare för Montagelayout online
+### <a name="create-montage-online-test-user"></a>Skapa testanvändare för Montage Online
 
-I det här avsnittet skapar du en användare med namnet Britta Simon i Montagelayout online. Arbeta med [support teamet för Montagelayout](https://www.montage.co.nz/contact-us/) för att lägga till användarna i Montagelayout online-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i Montage Online. Arbeta med [Montage Online supportteam](https://www.montage.co.nz/contact-us/) för att lägga till användarna i Montage Online-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Montagelayout online på åtkomst panelen, bör du loggas in automatiskt på den Montagelayout online som du har konfigurerat SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på panelen Montage Online på åtkomstpanelen ska du automatiskt loggas in på montage online som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

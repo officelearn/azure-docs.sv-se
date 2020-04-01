@@ -3,12 +3,12 @@ title: Installera MARS-agenten (Microsoft Azure Recovery Services)
 description: Lär dig hur du installerar MARS-agenten (Microsoft Azure Recovery Services) för att säkerhetskopiera Windows-datorer.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: b9a6791709d5aff82d11bbf10e5f084fd8c1a000
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d3932b66dbc41ff2631e2cccbe716c0877a509d3
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247766"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422920"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Installera AZURE Backup MARS-agenten
 
@@ -36,6 +36,7 @@ Vilka data som är tillgängliga för säkerhetskopiering beror på var agenten 
 * Granska [vad som stöds och vad du kan säkerhetskopiera](backup-support-matrix-mars-agent.md) av MARS-agenten.
 * Se till att du har ett Azure-konto om du behöver säkerhetskopiera en server eller klient till Azure. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto på](https://azure.microsoft.com/free/) bara några minuter.
 * Verifiera internetåtkomsten på de datorer som du vill säkerhetskopiera.
+* Se till att användaren som utför installationen och konfigurationen av MARS-agenten har lokala administratörsbehörighet på den server som ska skyddas.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

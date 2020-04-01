@@ -1,18 +1,21 @@
 ---
 title: Förstå resurslåsning
 description: Lär dig mer om låsningsalternativen i Azure Blueprints för att skydda resurser när du tilldelar en skiss.
-ms.date: 02/27/2020
+ms.date: 03/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: b810e8d4ddd263f9e651704d1bf9b785ce0202db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 86897ae6665f7a339b51aaae5f1c00144d8b7309
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78199707"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437739"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Förstå resurslåsning i Azure Blueprints
 
 Skapandet av konsekventa miljöer i stor skala är bara verkligt värdefullt om det finns en mekanism för att upprätthålla denna konsekvens. I den här artikeln beskrivs hur resurslåsning fungerar i Azure Blueprints. Om du vill se ett exempel på resurslåsning och tillämpning av _neka tilldelningar_läser du självstudien [för att skydda nya resurser.](../tutorials/protect-new-resources.md)
+
+> [!NOTE]
+> Resurslås som distribueras av Azure Blueprints tillämpas endast på resurser som distribueras av skisstilldelningen. Befintliga resurser, till exempel de i resursgrupper som redan finns, har inte lås tillagda i dem.
 
 ## <a name="locking-modes-and-states"></a>Låsningslägen och låsningslägen
 

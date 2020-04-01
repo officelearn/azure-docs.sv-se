@@ -2,42 +2,41 @@
 title: Säkerhetshärdning i AKS virtuella datorvärdar
 description: Lär dig mer om säkerhetshärdningen i AKS VM-värdoperativsystemet
 services: container-service
-author: saudas
+author: mlearned
 ms.topic: article
 ms.date: 09/11/2019
-ms.author: saudas
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: d4105a9fba3c40c563198040afb811625727ead0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7552fc083c5ed340dc54c2a31160b0c8b4bd076
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77594388"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420904"
 ---
-# <a name="security-hardening-in-aks-virtual-machine-hosts"></a>Säkerhetshärdning i AKS virtuella datorvärdar 
+# <a name="security-hardening-for-aks-agent-node-host-os"></a>Säkerhetshärdning för AKS-agentnodvärd OS
 
 Azure Kubernetes Service (AKS) är en säker tjänst som uppfyller SOC-, ISO-, PCI DSS- och HIPAA-standarder. Den här artikeln beskriver säkerhetshärdningen som tillämpas på AKS virtuella datorvärdar. Mer information om AKS-säkerhet finns i [Säkerhetsbegrepp för program och kluster i Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/concepts-security).
 
-AKS-kluster distribueras på virtuella värddatorer, som kör ett säkerhetsoptimerat operativsystem. Den här värdoperativsystemet baseras för närvarande på en Ubuntu 16.04.LTS-avbildning med en uppsättning ytterligare säkerhetshärdningssteg (se Detaljer för säkerhetshärdning).   
+> [!Note]
+> Det här dokumentet är endast begränsat till Linux-agenter i AKS.
 
-Målet med säkerhetshärdade värd OS är att minska ytan av angrepp och tillåta distribution av behållare på ett säkert sätt. 
+AKS-kluster distribueras på virtuella värddatorer, som kör ett säkerhetsoptimerat operativsystem som används för behållare som körs på AKS. Den här värdoperativsystemet baseras på en **Ubuntu 16.04.LTS-avbildning** med ytterligare säkerhetshärdning och optimeringar (se Detaljer för säkerhetshärdning).
+
+Målet med säkerhetshärdade värd OS är att minska ytan av angrepp och optimera för distribution av behållare på ett säkert sätt.
 
 > [!Important]
-> Säkerhetshärdade OS är inte CIS benchmarked. Även om det finns överlappningar med CIS-riktmärken är målet inte att vara CIS-kompatibelt. Målet för värd OS härdning är att konvergera på en säkerhetsnivå som överensstämmer med Microsofts egna interna värd säkerhetsstandarder. 
+> Säkerhetshärdade OS är inte CIS benchmarked. Även om det finns överlappningar med CIS-riktmärken är målet inte att vara CIS-kompatibelt. Målet för värd OS härdning är att konvergera på en säkerhetsnivå som överensstämmer med Microsofts egna interna värd säkerhetsstandarder.
 
-## <a name="security-hardening-features"></a>Funktioner för säkerhetshärdning 
+## <a name="security-hardening-features"></a>Funktioner för säkerhetshärdning
 
-* AKS tillhandahåller ett säkerhetsoptimerat värd-OS som standard. Det finns inget aktuellt alternativ för att välja ett alternativt operativsystem. 
+* AKS tillhandahåller ett säkerhetsoptimerat värd-OS som standard. Det finns inget alternativ för att välja ett alternativt operativsystem.
 
 * Azure tillämpar dagliga korrigeringar (inklusive säkerhetskorrigeringar) på AKS virtuella datorvärdar. Några av dessa patchar kommer att kräva en omstart, medan andra inte. Du ansvarar för att schemalägga OMSTART AV AKS VM-värdomstartar efter behov. Mer information om hur du automatiserar AKS-korrigering finns [i korrigering av AKS-noder](https://docs.microsoft.com/azure/aks/node-updates-kured).
 
-Nedan följer en sammanfattning av bildhärdning arbete som genomförs i AKS-Engine för att producera den säkerhetsoptimerade värd OS. Arbetet har implementerats [i detta GitHub-projekt](https://github.com/Azure/aks-engine/projects/7).  
+## <a name="what-is-configured"></a>Vad är konfigurerat
 
-AKS-Engine marknadsför eller följer inte någon specifik säkerhetsstandard just nu, men CIS-gransknings-ID:n (Center for Internet Security) tillhandahålls i tillämpliga fall. 
-
-## <a name="whats-configured"></a>Vad är konfigurerat?
-
-| Cis  | Beskrivning av revisionen| 
+| Cis  | Beskrivning av revisionen|
 |---|---|
 | 1.1.1.1 |Se till att montering av cramfs filsystem är inaktiverad|
 | 1.1.1.2 |Se till att montering av freevxfs filsystem är inaktiverad|
@@ -78,9 +77,9 @@ AKS-Engine marknadsför eller följer inte någon specifik säkerhetsstandard ju
 
 ## <a name="additional-notes"></a>Ytterligare information
  
-* För att ytterligare minska angreppsytan har vissa onödiga drivrutiner för kärnmoduler inaktiverats i operativsystemet. 
+* För att ytterligare minska angreppsytan har vissa onödiga drivrutiner för kärnmoduler inaktiverats i operativsystemet.
 
-* Säkerhetshärdade OPERATIVSYSTEM stöds INTE utanför AKS-plattformen. 
+* Säkerhetshärdade OS är byggt och underhållet speciellt för AKS och stöds INTE utanför AKS-plattformen.
 
 ## <a name="next-steps"></a>Nästa steg  
 

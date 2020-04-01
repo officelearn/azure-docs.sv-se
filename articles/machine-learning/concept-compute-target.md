@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 11/04/2019
-ms.openlocfilehash: ec2d9152bf8d3d7c60f00e902f155212ee1b81cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: f9ca75943eaec2ae018b54145d872fc09294035e
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270425"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398185"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Vad är beräkningsmål i Azure Machine Learning? 
 
@@ -48,12 +48,14 @@ Lär dig [var och hur du distribuerar din modell till ett beräkningsmål](how-t
 
 En hanterad beräkningsresurs skapas och hanteras av Azure Machine Learning. Den här beräkningen är optimerad för maskininlärningsarbetsbelastningar. Azure Machine Learning-beräkningskluster och [beräkningsinstanser](concept-compute-instance.md) är de enda hanterade beräkningarna. Ytterligare hanterade beräkningsresurser kan läggas till i framtiden.
 
-Du kan skapa Azure Machine Learning-beräkningsinstanser (förhandsversion) eller beräkningskluster i:
+Du kan skapa Azure Machine Learning-beräkningsinstanser (förhandsversion) eller beräkningskluster från:
+* Azure Machine Learning-studio
+* Azure Portal
+* Klasserna Python SDK [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) och [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py)
+* [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets)
+* Resource Manager-mall
 
-| | Azure Machine Learning-studio | Azure Portal | SDK | Resource Manager-mall | CLI |
-|---| ----- | ----- | ----- | ----- | ----- |
-| Beräkninsinstans | ja | ja | ja | ja |  |
-| Beräkningskluster | ja | ja | ja | ja | ja |
+Du kan också skapa beräkningskluster med hjälp av [maskininlärningstillägget för Azure CLI](tutorial-train-deploy-model-cli.md#create-the-compute-target-for-training).
 
 När dessa beräkningsresurser skapas är de automatiskt en del av arbetsytan till skillnad från andra typer av beräkningsmål.
 

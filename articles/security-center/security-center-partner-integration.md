@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 23a00c766dbb38853c57c91e7f59ec364390c44b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f7a1eccd76313c5b3bc74a5b5ebdbcd202ca6841
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245387"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435757"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrera säkerhetslösningar i Azure Security Center
 Det här dokumentet hjälper dig att hantera säkerhetslösningar som redan är anslutna till Azure Security Center och lägga till nya.
@@ -36,7 +36,7 @@ Med Security Center är det enkelt att aktivera integrerade säkerhetslösningar
 För närvarande inkluderar integrerade säkerhetslösningar sårbarhetsbedömning av [Qualys](https://www.qualys.com/public-cloud/#azure) och [Rapid7](https://www.rapid7.com/products/insightvm/) och Microsoft Application Gateway Web Application Firewall.
 
 > [!NOTE]
-> Security Center installerar inte Microsoft Monitoring Agent på partnervirtiska enheter eftersom de flesta säkerhetsleverantörer förbjuder externa agenter som körs på sina enheter.
+> Security Center installerar inte Log Analytics-agenten på partnervirvliga enheter eftersom de flesta säkerhetsleverantörer förbjuder externa agenter som körs på sina enheter.
 >
 >
 
@@ -141,7 +141,7 @@ Se följande artikel för listan över [SIEMs som stöds](../azure-monitor/platf
 
 Här är några Splunk frågor som du kan använda för att hämta varningsdata:
 
-| **Beskrivning av fråga** | **Fråga** |
+| **Beskrivning av fråga** | **Söka i data** |
 |----|----|
 | All Alerts| index=huvudsakliga Microsoft.Säkerhet/platser/aviseringar|
 | Summera antalet åtgärder efter deras namn| index=huvudsakliga sourcetype="amal:security" \| \| tabelloperationName statistik antal av operationName|

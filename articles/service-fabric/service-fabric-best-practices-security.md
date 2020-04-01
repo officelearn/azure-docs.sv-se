@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: dcdc338bdcdb2c04f6b8894ccb358bc773b95c07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa8bb41684271c7d4ebe90e31ce8019994fc1f41
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79258933"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478753"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric-säkerhet 
 
@@ -208,7 +208,7 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 [Vi rekommenderar att du implementerar en konfiguration av branschstandard som är allmänt känd och väl beprövad, till exempel Microsofts säkerhetsbaslinjer, i stället för att skapa en baslinje själv.](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines) Ett alternativ för att etablera dessa på dina skaluppsättningar för virtuella datorer är att använda DSC-tilläggshanteraren (Azure Desired State Configuration) för att konfigurera de virtuella datorerna när de är online, så att de kör produktionsprogrammet.
 
 ## <a name="azure-firewall"></a>Azure Firewall
-[Azure Firewall är en hanterad, molnbaserad nätverkssäkerhetstjänst som skyddar dina Azure Virtual Network-resurser. Det är en helt tillståndskänslig brandvägg som en tjänst med inbyggd hög tillgänglighet och obegränsad molnskalbarhet.](https://docs.microsoft.com/azure/firewall/overview) Detta gör det möjligt att begränsa utgående HTTP/S-trafik till en angiven lista över fullständigt kvalificerade domännamn (FQDN) inklusive jokertecken. Den här funktionen kräver inte SSL-avslutning. Dess rekommenderade att du utnyttja [Azure Firewall FQDN-taggar](https://docs.microsoft.com/azure/firewall/fqdn-tags) för Windows-uppdateringar, och att aktivera nätverkstrafik till Microsoft Windows Update slutpunkter kan flöda genom din brandvägg. [Distribuera Azure-brandväggen med hjälp av en mall](https://docs.microsoft.com/azure/firewall/deploy-template) innehåller ett exempel för Microsoft.Network/azureFirewalls resursmallsdefinition. Brandväggsregler som är gemensamma för Service Fabric-program är att tillåta följande för ditt virtuella klusternätverk:
+[Azure Firewall är en hanterad, molnbaserad nätverkssäkerhetstjänst som skyddar dina Azure Virtual Network-resurser. Det är en helt tillståndskänslig brandvägg som en tjänst med inbyggd hög tillgänglighet och obegränsad molnskalbarhet.](https://docs.microsoft.com/azure/firewall/overview) Detta gör det möjligt att begränsa utgående HTTP/S-trafik till en angiven lista över fullständigt kvalificerade domännamn (FQDN) inklusive jokertecken. Den här funktionen kräver inte TLS/SSL-avslutning. Dess rekommenderade att du utnyttja [Azure Firewall FQDN-taggar](https://docs.microsoft.com/azure/firewall/fqdn-tags) för Windows-uppdateringar, och att aktivera nätverkstrafik till Microsoft Windows Update slutpunkter kan flöda genom din brandvägg. [Distribuera Azure-brandväggen med hjälp av en mall](https://docs.microsoft.com/azure/firewall/deploy-template) innehåller ett exempel för Microsoft.Network/azureFirewalls resursmallsdefinition. Brandväggsregler som är gemensamma för Service Fabric-program är att tillåta följande för ditt virtuella klusternätverk:
 
 - *download.microsoft.com
 - *servicefabric.azure.com
@@ -221,7 +221,7 @@ Dessa brandväggsregler kompletterar dina tillåtna utgående nätverkssäkerhet
 
 ## <a name="windows-defender"></a>Windows Defender 
 
-Som standard installeras Windows Defender antivirus på Windows Server 2016. Mer information finns i [Windows Defender Antivirus på Windows Server 2016](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016). Användargränssnittet installeras som standard på vissa SKU:er, men det krävs inte. Om du vill minska prestandapåverkan och omkostnader för resursförbrukning som windows defender ådrar sig, och om dina säkerhetsprinciper gör att du kan utesluta processer och sökvägar för programvara med öppen källkod, deklarerar du följande tilläggsresurs för skalningsuppsättning för virtuell dator Egenskaper för hanterarens mall för att utesluta ditt Service Fabric-kluster från genomsökningar:
+Som standard installeras Windows Defender antivirus på Windows Server 2016. Mer information finns i [Windows Defender Antivirus på Windows Server 2016](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016). Användargränssnittet installeras som standard på vissa SKU:er, men det krävs inte. Om du vill minska prestandapåverkan och resursförbrukning som Windows Defender ådrar sig, och om dina säkerhetsprinciper gör att du kan utesluta processer och sökvägar för programvara med öppen källkod, deklarerar du följande mallegenskaper för resurshanteraren för resurshanteraren för virtuell datorskaleuppsättningstillägg för att utesluta ditt Service Fabric-kluster från genomsökningar:
 
 
 ```json

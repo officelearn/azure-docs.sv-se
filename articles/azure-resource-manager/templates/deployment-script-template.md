@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 03/30/2020
 ms.author: jgao
-ms.openlocfilehash: 7ff91545b1b7ab1920f437e0c3a5410270efaac5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ef1c3d3fe0fd1ecad95e027b06ce14fd70d4d3f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153258"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437880"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Använda distributionsskript i mallar (förhandsgranskning)
 
@@ -42,7 +42,7 @@ Fördelarna med distributionsskript:
 - **En användartilldelad hanterad identitet med deltagarens roll i målresursgruppen**. Den här identiteten används för att köra distributionsskript. Om du vill utföra åtgärder utanför resursgruppen måste du bevilja ytterligare behörigheter. Tilldela till exempel identiteten till prenumerationsnivån om du vill skapa en ny resursgrupp.
 
   > [!NOTE]
-  > Distributionsskriptmotorn skapar ett lagringskonto och en behållarinstans i bakgrunden.  En användartilldelad hanterad identitet med deltagarens roll på prenumerationsnivå krävs om prenumerationen inte har registrerat Azure Storage-kontot (Microsoft.Storage) och Azure-behållarinstansen (Microsoft.ContainerInstance) resurs Leverantörer.
+  > Distributionsskriptmotorn skapar ett lagringskonto och en behållarinstans i bakgrunden.  En användartilldelad hanterad identitet med deltagarens roll på prenumerationsnivå krävs om prenumerationen inte har registrerat azure storage-kontot (Microsoft.Storage) och Azure-behållarinstansleverantörerna (Microsoft.ContainerInstance).
 
   Information om hur du skapar en identitet finns i [Skapa en användartilldelad hanterad identitet med hjälp av Azure-portalen](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)eller [med hjälp av Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)eller med Hjälp av Azure [PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). Du behöver identitets-ID:n när du distribuerar mallen. Identitetens format är:
 
@@ -62,7 +62,7 @@ Fördelarna med distributionsskript:
   az identity show -g jgaoidentity1008rg -n jgaouami --query id
   ```
 
-  # <a name="powershell"></a>[Powershell](#tab/PowerShell)
+  # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
   ```azurepowershell-interactive
   $idGroup = Read-Host -Prompt "Enter the resource group name for the managed identity"
@@ -101,6 +101,12 @@ Följande json är ett exempel.  Det senaste mallschemat hittar du [här](/azure
     "forceUpdateTag": 1,
     "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
     "arguments": "[concat('-name ', parameters('name'))]",
+    "environmentVariables": [
+      {
+        "name": "someSecret",
+        "secureValue": "if this is really a secret, don't put it here... in plain text..."
+      }
+    ],
     "scriptContent": "
       param([string] $name)
       $output = 'Hello {0}' -f $name
@@ -126,6 +132,7 @@ Information om egenskapsvärde:
 - **forceUpdateTag**: Om du ändrar det här värdet mellan malldistributioner tvingas distributionsskriptet att köras igen. Använd funktionen newGuid() eller utcNow() som måste anges som standardvärde för en parameter. Mer information finns i [Kör skript mer än en gång](#run-script-more-than-once).
 - **azPowerShellVersion**/**azCliVersion**: Ange vilken modulversion som ska användas. En lista över PowerShell- och CLI-versioner som stöds finns i [Förutsättningar](#prerequisites).
 - **argument**: Ange parametervärdena. Värdena avgränsas med blanksteg.
+- **environmentVariables**: Ange vilka miljövariabler som ska överföras till skriptet. Mer information finns i [Utveckla distributionsskript](#develop-deployment-scripts).
 - **scriptContent**: Ange skriptinnehåll. Om du vill köra `primaryScriptUri` ett externt skript använder du i stället. Exempel finns [i Använda infogat skript](#use-inline-scripts) och [Använd externt skript](#use-external-scripts).
 - **primaryScriptUri**: Ange en offentligt tillgänglig url till det primära distributionsskriptet med filtillägg som stöds.
 - **supportingScriptUris**: Ange en matris med offentligt tillgängliga webbadresser `ScriptContent` `PrimaryScriptUri`till stödfiler som anropas i antingen eller .
@@ -234,7 +241,7 @@ Du kan styra hur PowerShell svarar på fel som inte avslutas med hjälp av [**va
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Skicka säkrade strängar till distributionsskript
 
-Genom att ställa in miljövariabler i dina containerinstanser kan du skapa en dynamisk konfiguration av programmet eller skriptet som körs av containern. Distributionsskript hanterar icke-säkra och säkra miljövariabler på samma sätt som Azure Container Instance. Mer information finns [i Ange miljövariabler i behållarinstanser](../../container-instances/container-instances-environment-variables.md#secure-values).
+Med inställning av miljövariabler (EnvironmentVariable) i behållarinstanserna kan du tillhandahålla dynamisk konfiguration av programmet eller skriptet som körs av behållaren. Distributionsskript hanterar icke-säkra och säkra miljövariabler på samma sätt som Azure Container Instance. Mer information finns [i Ange miljövariabler i behållarinstanser](../../container-instances/container-instances-environment-variables.md#secure-values).
 
 ## <a name="debug-deployment-scripts"></a>Felsöka distributionsskript
 

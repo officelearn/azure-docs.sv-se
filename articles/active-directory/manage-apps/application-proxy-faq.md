@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 8bb77a217546f1abe2c28925e32464b8d61702b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 31587777ba22dd8b4cebf81f0ff98979bb30fade
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481287"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410720"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Vanliga frågor och svar om Vanliga frågor och svar om Active Directory-programproxy (Azure AD)
 
@@ -113,7 +113,7 @@ Nej, det här scenariot stöds inte eftersom Programproxy avslutar TLS-trafik.
 
 Se [Publicera fjärrskrivbord med Azure AD Application Proxy](application-proxy-integrate-with-remote-desktop-services.md).
 
-### <a name="can-i-use-kerberos-constrained-delegation-in-the-remote-desktop-gateway-publishing-scenario"></a>Kan jag använda Kerberos Constrained Delegation i publiceringsscenariot för fjärrskrivbordsgateway?
+### <a name="can-i-use-kerberos-constrained-delegation-single-sign-on---windows-integrated-authentication-in-the-remote-desktop-gateway-publishing-scenario"></a>Kan jag använda Kerberos Constrained Delegation (Single Sign-On - Windows Integrated Authentication) i publiceringsscenariot för fjärrskrivbordsgateway?
 
 Nej, det här scenariot stöds inte.  
 
@@ -121,7 +121,7 @@ Nej, det här scenariot stöds inte.
 
 Ja, det är väntat. Scenariot för förautentisering kräver en ActiveX-kontroll som inte stöds i webbläsare från tredje part.
 
-### <a name="is-the-remote-desktop-web-client-supported"></a>Stöds webbklienten för fjärrskrivbord?
+### <a name="is-the-remote-desktop-web-client-html5-supported"></a>Stöds HTML5 (Remote Desktop Web Client)?
 
 Nej, det här scenariot stöds för närvarande inte. Följ vårt Feedbackforum för [UserVoice](https://aka.ms/aadapuservoice) för uppdateringar om den här funktionen.
 
@@ -135,6 +135,10 @@ Ja, det är väntat. Om användarens dator är Azure AD-ansluten loggar använda
 
 Se [Aktivera fjärråtkomst till SharePoint med Azure AD Application Proxy](application-proxy-integrate-with-sharepoint-server.md).
 
+### <a name="can-i-use-the-sharepoint-mobile-app-ios-android-to-access-a-published-sharepoint-server"></a>Kan jag använda SharePoint-mobilappen (iOS/ Android) för att komma åt en publicerad SharePoint-server?
+
+[SharePoint-mobilappen](https://docs.microsoft.com/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) stöder inte Azure Active Directory-förautentisering för närvarande.
+
 ## <a name="active-directory-federation-services-ad-fs-publishing"></a>Ad FS-publicering (Active Directory Federation Services) 
 
 ### <a name="can-i-use-azure-ad-application-proxy-as-ad-fs-proxy-like-web-application-proxy"></a>Kan jag använda Azure AD Application Proxy som AD FS-proxy (som Proxy för webbprogram)?
@@ -147,7 +151,7 @@ Nej. Azure AD Application Proxy är utformad för att fungera med Azure AD och u
 
 För närvarande är WebSocket-protokollstöd fortfarande i offentlig förhandsversion och det kanske inte fungerar för andra program. Vissa kunder har haft blandad framgång med WebSocket-protokollet med andra program. Om du testar sådana scenarier, skulle vi gärna höra dina resultat. Vänligen skicka oss aadapfeedback@microsoft.comdin feedback på .
 
-Funktioner (Eventlogs, PowerShell och Fjärrskrivbordstjänster) i WAC (Windows Admin Center) eller Webbklient för fjärrskrivbord fungerar inte via Azure AD Application Proxy för närvarande.
+Funktioner (Eventlogs, PowerShell och Fjärrskrivbordstjänster) i WAC (Windows Admin Center) eller HTML5 (Remote Desktop Web Client) fungerar inte via Azure AD Application Proxy för närvarande.
 
 ## <a name="link-translation"></a>Länköversättning
 

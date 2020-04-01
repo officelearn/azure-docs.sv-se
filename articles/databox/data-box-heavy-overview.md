@@ -9,12 +9,12 @@ ms.subservice: heavy
 ms.topic: overview
 ms.date: 08/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 362b7457538a16d389c3cc40fc44da19b073c0b0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2f1f01a8cfa25c222848e7cc5c86dc3532eba348
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "70142923"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437779"
 ---
 # <a name="what-is-azure-data-box-heavy"></a>Vad är Azure Data Box – tung?
 
@@ -116,7 +116,7 @@ Den senaste informationen om regiontillgänglighet för Data Box Heavy finns i [
 
 Gör så här för att registrera dig för Data Box Heavy:
 
-1. Logga in på Azure-portalen på: https://portal.azure.com.
+1. [Logga in på Azure-portalen](https://portal.azure.com).
 2. Klicka på **+ Skapa en resurs** för att skapa en ny resurs. Sök efter **Azure Data Box**. Välj **Azure Data Box**-tjänsten.
 3. Klicka på **Skapa**.
 4. Välj den prenumeration som du vill använda för Data Box Heavy. Välj den region där du vill distribuera Data Box – tung-resursen. I alternativet **Data Box – tung** klickar du på **Registrera dig**.

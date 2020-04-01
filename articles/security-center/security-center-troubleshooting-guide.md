@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 1c751fc31ba9066cf49eabbb86d37eda230c9c98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5a85f8ae1564d724b826c809261e56577f4783a
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062892"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435535"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Felsökningsguide för Azure Security Center
 
 Den här guiden riktar sig till de som arbetar med IT, informationssäkerhetsanalytiker och molnadministratörer i organisationer som använder Azure Security Center och behöver felsöka Security Center-relaterade problem.
 
-Security Center använder Microsoft Monitoring Agent för att samla in och lagra data. Mer information finns under [plattformsmigrering i Azure Security Center](security-center-platform-migration.md). Informationen i den här artikeln representerar Security Centers funktionalitet efter övergången till Microsoft Monitoring Agent.
+Security Center använder Log Analytics-agenten för att samla in och lagra data. Mer information finns under [plattformsmigrering i Azure Security Center](security-center-platform-migration.md). Informationen i den här artikeln representerar Security Center-funktionen efter övergången till Log Analytics-agenten.
 
 ## <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -52,23 +52,23 @@ Den mesta felsökningen i Security Center kommer att ske genom att först gransk
 
 Granskningsloggen innehåller alla skrivåtgärder (PUT, POST, DELETE) som utförs på dina resurser, men omfattar inte läsåtgärder (GET).
 
-## <a name="microsoft-monitoring-agent"></a>Microsoft Monitoring Agent
+## <a name="log-analytics-agent"></a>Log Analytics-agent
 
-Security Center använder Microsoft Monitoring Agent – det här är samma agent som används av Azure Monitor-tjänsten – för att samla in säkerhetsdata från dina virtuella Azure-datorer. När datainsamling är aktiverat och agenten är korrekt installerad i måldatorn, ska de här processerna köras:
+Security Center använder Log Analytics-agenten – det här är samma agent som används av Azure Monitor-tjänsten – för att samla in säkerhetsdata från dina virtuella Azure-datorer. När datainsamling är aktiverat och agenten är korrekt installerad i måldatorn, ska de här processerna köras:
 
 * HealthService.exe
 
-Om du öppnar konsolen för tjänsthantering (services.msc) kan du även se att tjänsten Microsoft Monitoring Agent körs enligt nedan:
+Om du öppnar konsolen för hantering av tjänster (services.msc) visas även tjänsten Log Analytics-agent som körs enligt nedan:
 
 ![Tjänster](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
 
-Om du vill se vilken version av agenten du har kan du öppna **Aktivitetshanteraren**i fliken **processer**, leta upp tjänsten **Microsoft Monitoring Agent**, högerklicka på den och klicka på **Egenskaper**. Filversionen visas på fliken **Information** enligt nedan:
+Om du vill se vilken version av agenten du har öppnar du **Aktivitetshanteraren**på fliken **Processer** leta reda på **Log Analytics-agenttjänsten**, högerklickar på den och klickar på **Egenskaper**. Filversionen visas på fliken **Information** enligt nedan:
 
 ![Fil](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
 
-## <a name="microsoft-monitoring-agent-installation-scenarios"></a>Scenarier för installation av Microsoft Monitoring Agent
+## <a name="log-analytics-agent-installation-scenarios"></a>Installationsscenarier för logganalysagent
 
-Det finns två installationsscenarier som kan ge olika resultat när du installerar Microsoft Monitoring Agent på datorn. Scenarier som stöds är:
+Det finns två installationsscenarier som kan ge olika resultat när du installerar Log Analytics-agenten på datorn. Scenarier som stöds är:
 
 * **Agent som installeras automatiskt av Security Center**: i det här scenariot kommer du att kunna visa aviseringarna på båda platser, Security Center och Loggsökning. Du får e-postmeddelanden till den e-postadress som har konfigurerats i säkerhetsprincipen för den prenumeration som resursen tillhör.
 
@@ -83,16 +83,16 @@ Det finns två installationsscenarier som kan ge olika resultat när du installe
 
 | Övervakningstillstånd | Beskrivning | Lösningsanvisningar |
 |---|---|---|
-| Väntande agentinstallation | Installationen av Microsoft Monitoring Agent körs fortfarande.  Installationen kan ta upp till några timmar. | Vänta tills den automatiska installationen är slutförd. |
-| Energisparläge inaktiverat | Den virtuella datorn har stoppats.  Du kan bara installera Microsoft Monitoring Agent på en virtuell dator som körs. | Starta om den virtuella datorn. |
-| Azure VM-agent saknas eller är ogiltig | Microsoft Monitoring Agent är inte installerat ännu.  En giltig agent för virtuella Azure-datorer krävs för att Security Center ska installera tillägget. | Installera, installera om eller uppgradera agenten för virtuella Azure-datorer på den virtuella datorn. |
-| VM-status inte är redo för installation  | Microsoft Monitoring Agent har inte installerats ännu eftersom den virtuella datorn inte är redo för installation. Den virtuella datorn är inte redo för installation på grund av ett problem med VM-agenten eller VM-etableringen. | Kontrollera den virtuella datorns status. Återgå till **Virtual Machines** i portalen och välj den virtuella datorn för att få statusinformation. |
-|Installationen misslyckades – allmänt fel | Microsoft Monitoring Agent installerades men misslyckades på grund av ett fel. | [Installera tillägget manuellt](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) eller avinstallera tillägget så försöker Security Center att installera det igen. |
-| Installationen misslyckades – den lokala agenten är redan installerad | Installationen av Microsoft Monitoring Agent misslyckades. Security Center identifierade en lokal agent (Log Analytics eller System Center Operations Manager) som redan är installerad på den virtuella datorn. För att undvika konfiguration av flera värdar, där den virtuella datorn rapporterar till två separata arbetsytor, stoppades installationen av Microsoft Monitoring Agent. | Det finns två sätt att lösa detta: [att installera tillägget manuellt](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) och ansluta det till önskad arbetsyta. Du kan även ange den önskade arbetsytan som standardarbetsyta och aktivera automatisk etablering av agenten.  Se [aktivera automatisk etablering](security-center-enable-data-collection.md). |
-| Agenten kan inte ansluta till arbetsytan | Microsoft Monitoring Agent installerades men misslyckades på grund av ett fel med nätverksanslutningen.  Kontrollera att du har internetåtkomst eller att en giltig HTTP-proxy har konfigurerats för agenten. | Se felsöka nätverkskrav för övervakningsagenten. |
-| Agenten ansluten till arbetsyta som saknas eller är okänd | Security Center identifierade att Microsoft Monitoring Agent som är installerat på den virtuella datorn är ansluten till en arbetsyta som den inte har åtkomst till. | Det kan hända i två fall. Arbetsytan togs bort eller finns inte längre. Installera om agenten med rätt arbetsyta eller avinstallera agenten och tillåt att Security Center slutför sin automatiska etableringsinstallation. Det andra fallet är när arbetsytan är en del av en prenumeration som Security Center inte har behörighet till. Security Center kräver att prenumerationer tillåter att Microsoft Security Resource Provider får åtkomst till dem. Aktivera genom att registrera prenumerationen på Microsoft Security Resource Provider. Du kan göra det via API, PowerShell, portalen eller helt enkelt genom att filtrera prenumerationen i Security Centers **översiktsinstrumentpanel**. Mer information finns i [Resursproviders och resurstyper](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). |
+| Väntande agentinstallation | Installationen av Log Analytics-agenten körs fortfarande.  Installationen kan ta upp till några timmar. | Vänta tills den automatiska installationen är slutförd. |
+| Energisparläge inaktiverat | Den virtuella datorn har stoppats.  Log Analytics-agenten kan bara installeras på en virtuell dator som körs. | Starta om den virtuella datorn. |
+| Azure VM-agent saknas eller är ogiltig | Log Analytics-agenten har inte installerats ännu.  En giltig agent för virtuella Azure-datorer krävs för att Security Center ska installera tillägget. | Installera, installera om eller uppgradera agenten för virtuella Azure-datorer på den virtuella datorn. |
+| VM-status inte är redo för installation  | Log Analytics-agenten är inte installerad ännu eftersom den virtuella datorn inte är klar för installation. Den virtuella datorn är inte redo för installation på grund av ett problem med VM-agenten eller VM-etableringen. | Kontrollera den virtuella datorns status. Återgå till **Virtual Machines** i portalen och välj den virtuella datorn för att få statusinformation. |
+|Installationen misslyckades – allmänt fel | Log Analytics-agenten installerades men misslyckades på grund av ett fel. | [Installera tillägget manuellt](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) eller avinstallera tillägget så försöker Security Center att installera det igen. |
+| Installationen misslyckades – den lokala agenten är redan installerad | Installationen av Log Analytics-agenten misslyckades. Security Center identifierade en lokal agent (Log Analytics eller System Center Operations Manager) som redan är installerad på den virtuella datorn. För att undvika konfiguration med flera mål, där den virtuella datorn rapporterar till två separata arbetsytor, har installationen av Log Analytics-agenten stoppats. | Det finns två sätt att lösa detta: [att installera tillägget manuellt](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) och ansluta det till önskad arbetsyta. Du kan även ange den önskade arbetsytan som standardarbetsyta och aktivera automatisk etablering av agenten.  Se [aktivera automatisk etablering](security-center-enable-data-collection.md). |
+| Agenten kan inte ansluta till arbetsytan | Log Analytics-agenten installerad men misslyckades på grund av nätverksanslutningen.  Kontrollera att du har internetåtkomst eller att en giltig HTTP-proxy har konfigurerats för agenten. | Se felsöka nätverkskrav för övervakningsagenten. |
+| Agenten ansluten till arbetsyta som saknas eller är okänd | Security Center identifierade att Log Analytics-agenten som är installerad på den virtuella datorn är ansluten till en arbetsyta som den inte har åtkomst till. | Det kan hända i två fall. Arbetsytan togs bort eller finns inte längre. Installera om agenten med rätt arbetsyta eller avinstallera agenten och tillåt att Security Center slutför sin automatiska etableringsinstallation. Det andra fallet är när arbetsytan är en del av en prenumeration som Security Center inte har behörighet till. Security Center kräver att prenumerationer tillåter att Microsoft Security Resource Provider får åtkomst till dem. Aktivera genom att registrera prenumerationen på Microsoft Security Resource Provider. Du kan göra det via API, PowerShell, portalen eller helt enkelt genom att filtrera prenumerationen i Security Centers **översiktsinstrumentpanel**. Mer information finns i [Resursproviders och resurstyper](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). |
 | Agenten svarar inte eller saknar ID | Security Center kan inte hämta säkerhetsdata som genomsökts från den virtuella datorn, trots att agenten är installerad. | Agenten rapporterar inga data, inte heller pulsslag. Agenten kan vara skadad eller så är det något som blockerar trafiken. Eller så rapporterar agenten data men saknar ett Azure-resurs-ID så det är omöjligt att matcha data med Den virtuella Azure-datorn. Mer om du vill felsöka Linux finns i [Felsökningsguide för Log Analytics Agent för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). Om du vill felsöka i Windows läser du [Felsökning av virtuella Windows-datorer](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines). |
-| Agenten har inte installerats | Datainsamling är inaktiverat. | Aktivera datainsamling i säkerhetsprincipen eller installera Microsoft Monitoring Agent manuellt. |
+| Agenten har inte installerats | Datainsamling är inaktiverat. | Aktivera datainsamling i säkerhetsprincipen eller installera Log Analytics-agenten manuellt. |
 
 ## <a name="troubleshooting-monitoring-agent-network-requirements"></a>Felsöka nätverkskrav för övervakningsagenten <a name="mon-network-req"></a>
 

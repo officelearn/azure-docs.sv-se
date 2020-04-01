@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7b049c04913d3415074f46b9d90ec34be874a2da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 25eda0ae2b0d873fe9850e5b886489a5f2590e69
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136714"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410617"
 ---
 # <a name="connection-strings"></a>Anslutningssträngar
 
@@ -148,7 +148,7 @@ I det här exemplet anger den här anslutningssträngen explicita åsidosättnin
 
 Anslutningssträngar stöds i följande SDK-versioner:
 - .NET och .NET Core v2.12.0
-- Java v2.5.1
+- Java v2.5.1 och Java 3.0
 - Javascript v2.3.0
 - NodeJS v1.5.0
 - Python v1.0.0
@@ -161,7 +161,7 @@ En anslutningssträng kan anges med antingen kod, miljövariabel eller konfigura
 
 - Anslutningssträng:`APPLICATIONINSIGHTS_CONNECTION_STRING`
 
-### <a name="net-sdk-example"></a>.Net SDK-exempel
+# <a name="netnetcore"></a>[.NET/.NetCore](#tab/net)
 
 TelemetriKonfiguration.ConnectionString:https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
 
@@ -194,10 +194,10 @@ NetCore config.json:
 ```
 
 
-### <a name="java-sdk-example"></a>Exempel på Java SDK
+# <a name="java"></a>[Java](#tab/java)
 
 
-Java uttryckligen ange:
+Java (v2.5.x) Uttryckligen Inställd:
 ```java
 TelemetryConfiguration.getActive().setConnectionString("InstrumentationKey=00000000-0000-0000-0000-000000000000");
 ```
@@ -210,7 +210,7 @@ ApplicationInsights.xml
 </ApplicationInsights>
 ```
 
-### <a name="javascript-sdk-example"></a>Exempel på Javascript SDK
+# <a name="javascript"></a>[JavaScript](#tab/js)
 
 Viktigt: Javascript stöder inte användning av miljövariabler.
 
@@ -239,7 +239,7 @@ appInsights.loadAppInsights();
 appInsights.trackPageView();
 ```
 
-### <a name="node-sdk-example"></a>Exempel på Nod SDK
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 ```javascript
 const appInsights = require("applicationinsights");
@@ -247,7 +247,7 @@ appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;");
 appInsights.start();
 ```
 
-### <a name="python-sdk-example"></a>Python SDK-exempel
+# <a name="python"></a>[Python](#tab/python)
 
 Vi rekommenderar användare att ställa in miljövariabeln.
 

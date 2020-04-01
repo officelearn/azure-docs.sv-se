@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 60beccc2f2679a18903b74b84f48afebfb3b69da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 45276884d59ac8d1d876e2225ac02bb51c3f74fc
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257759"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437731"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor och svar om Azure-brandväggen
 
@@ -133,7 +133,7 @@ Påtvingad tunnelning stöds. Mer information finns i [Azure Firewall forced tun
 
 Azure-brandväggen måste ha direkt Internet-anslutning. Om din AzureFirewallSubnet lär sig en standardväg till ditt lokala nätverk via BGP måste du åsidosätta detta med en UDR 0.0.0/0 med **NextHopType-värdet** som **Internet** för att upprätthålla direkt Internet-anslutning.
 
-Om konfigurationen kräver tvångstunneler till ett lokalt nätverk och du kan bestämma mål-IP-prefixen för dina Internetdestinationer, kan du konfigurera dessa områden med det lokala nätverket som nästa hopp via en användardefinierad väg på AzureFirewallSubnet. Du kan också använda BGP för att definiera dessa vägar.
+Om din konfiguration kräver tvångstunnelering till ett lokalt nätverk och du kan bestämma mål-IP-prefixen för dina Internet-destinationer, kan du konfigurera dessa intervall med det lokala nätverket som nästa hopp via en användardefinierad väg på AzureFirewallSubnet. Du kan också använda BGP för att definiera dessa vägar.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Finns det några begränsningar för brandväggsresurser?
 
@@ -209,3 +209,7 @@ $fw.ThreatIntelWhitelist.IpAddress = @("ip1", "ip2", …)
 
 Set-AzFirewall -AzureFirewall $fw
 ```
+
+## <a name="why-can-a-tcp-ping-and-similar-tools-successfully-connect-to-a-target-fqdn-even-when-no-rule-on-azure-firewall-allows-that-traffic"></a>Varför kan en TCP-ping och liknande verktyg ansluta till ett mål FQDN även när ingen regel på Azure Firewall tillåter den trafiken?
+
+En TCP-ping ansluter faktiskt inte till målet FQDN. Detta beror på att Azure Firewall transparent proxy lyssnar på port 80/443 för utgående trafik. TCP-ping upprättar en anslutning till brandväggen, som sedan släpper paketet och loggar anslutningen. Det här beteendet har ingen säkerhetspåverkan. Men för att undvika förvirring undersöker vi potentiella ändringar av detta beteende. 

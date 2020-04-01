@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Skapa och hantera virtuella Linux-datorer med Azure CLI
+title: Självstudiekurs - Skapa och hantera virtuella Linux-datorer med Azure CLI
 description: I den här självstudien lär du dig hur du använder Azure CLI för att skapa och hantera virtuella Linux-datorer i Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b7660d2bcb6f2bb8b738ed92401937c0b988fef2
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: e5474387933404c29536759d383a4f2c85236949
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034423"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80060204"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Självstudie: Skapa och hantera virtuella Linux-datorer med Azure CLI
 
@@ -33,9 +33,9 @@ Med virtuella Azure-datorer får du en fullständigt konfigurerbar och flexibel 
 > * Ändra storlek på en virtuell dator
 > * Visa och förstå tillstånd för virtuella datorer
 
-I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
+Den här självstudien använder CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som ständigt uppdateras till den senaste versionen. Om du vill öppna Cloud Shell väljer du **Prova det** överst i alla kodblock.
 
-Om du väljer att installera och använda CLI:t lokalt för den här självstudien måste du köra Azure CLI version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
@@ -43,17 +43,17 @@ Skapa en resursgrupp med kommandot [az group create](https://docs.microsoft.com/
 
 En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas före den virtuella datorn. I det här exemplet skapas en resursgrupp med namnet *myResourceGroupVM* i regionen *eastus*. 
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupVM --location eastus
 ```
 
-Resursgruppen som anges när du skapar eller ändrar en VM visas i hela den här självstudien.
+Resursgruppen som anges när du skapar eller ändrar en virtuell dator visas i hela den här självstudien.
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
 Skapa en virtuell dator med kommandot [az vm create](https://docs.microsoft.com/cli/azure/vm). 
 
-När du skapar en virtuell dator finns flera tillgängliga alternativ, som t.ex. avbildning av operativsystemet, bestämning av diskstorlek och administrativa autentiseringsuppgifter. I följande exempel skapas en virtuell dator med namnet *myVM* som kör en Ubuntu Server. Ett användarkonto med namnet *azureuser* skapas på den virtuella datorn och om inte SSH-nycklar finns genereras de på standardplatsen för nyckeln ( *~/.ssh*):
+När du skapar en virtuell dator finns flera tillgängliga alternativ, som t.ex. avbildning av operativsystemet, bestämning av diskstorlek och administrativa autentiseringsuppgifter. I följande exempel skapas en virtuell dator med namnet *myVM* som kör en Ubuntu Server. Ett användarkonto med namnet *azureuser* skapas på den virtuella datorn och om inte SSH-nycklar finns genereras de på standardplatsen för nyckeln (*~/.ssh*):
 
 ```azurecli-interactive
 az vm create \
@@ -66,7 +66,7 @@ az vm create \
 
 Det kan ta några minuter att skapa den virtuella datorn. När den virtuella datorn skapats visar Azure CLI information om den virtuella datorn. Skriv upp `publicIpAddress` eftersom adressen kan användas för att komma åt den virtuella datorn. 
 
-```azurecli-interactive 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -79,7 +79,7 @@ Det kan ta några minuter att skapa den virtuella datorn. När den virtuella dat
 }
 ```
 
-## <a name="connect-to-vm"></a>Ansluta till VM
+## <a name="connect-to-vm"></a>Ansluta till virtuell dator
 
 Du kan nu ansluta till den virtuella datorn via SSH i Azure Cloud Shell eller från den lokala datorn. Byt ut IP-adressen i exemplet mot den `publicIpAddress` du skrev upp i föregående steg.
 
@@ -105,7 +105,7 @@ az vm image list --output table
 
 Kommandot returnerar de populäraste avbildningarna av virtuella datorer på Azure.
 
-```bash
+```output
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
 -------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
 WindowsServer  MicrosoftWindowsServer  2016-Datacenter     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest     Win2016Datacenter    latest
@@ -129,7 +129,7 @@ az vm image list --offer CentOS --all --output table
 
 Delvisa utdata:
 
-```azurecli-interactive 
+```output
 Offer             Publisher         Sku   Urn                                     Version
 ----------------  ----------------  ----  --------------------------------------  -----------
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.201501         6.5.201501
@@ -142,7 +142,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207     
 
 Om du vill distribuera en virtuell dator med en specifik avbildning, antecknar du värdet i *Urn*-kolumnen vilken består av utgivare, erbjudande, SKU och eventuellt ett versionsnummer för att [identifiera](cli-ps-findimage.md#terminology) avbildningen. När en avbildning anges kan avbildningens versionsnummer ersättas med ”latest” (senaste), vilket väljer den senaste versionen av distributionen. I det här exemplet används argumentet `--image` för att ange den senaste versionen av en CentOS 6.5-avbildning.  
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
 ```
 
@@ -157,7 +157,7 @@ I följande tabell kategoriseras storlekarna i användningsfall.
 | Typ                     | Normala storlekar           |    Beskrivning       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Generellt syfte](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Balanserat förhållande mellan processor och minne. Perfekt för utveckling eller test samt små till medelstora lösningar för program och data.  |
-| [Beräkningsoptimerad](sizes-compute.md)   | Fsv2          | Högt förhållande mellan processor och minne. Bra för program med medelhög trafik, nätverkstillämpningar och batchprocesser.        |
+| [Beräkningsoptimerad](sizes-compute.md)   | Fsv2 (på andra sätt)          | Högt förhållande mellan processor och minne. Bra för program med medelhög trafik, nätverkstillämpningar och batchprocesser.        |
 | [Minnesoptimerad](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Högt förhållande mellan minne och kärna. Utmärkt för relationsdatabaser, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
 | [Lagringsoptimerad](sizes-storage.md)      | Lsv2, Ls              | Högt diskgenomflöde och I/O. Perfekt för stordata, SQL- och NoSQL-databaser.                                                         |
 | [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Virtuella specialdatorer som är avsedda för tung grafisk rendering och videoredigering.       |
@@ -174,7 +174,7 @@ az vm list-sizes --location eastus --output table
 
 Delvisa utdata:
 
-```azurecli-interactive 
+```output
   MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
 ------------------  ------------  ----------------------  ---------------  ----------------  ----------------------
                  2          3584  Standard_DS1                          1           1047552                    7168
@@ -199,7 +199,7 @@ Delvisa utdata:
 
 I föregående exempel angavs inte en storlek vilket ger en standardstorlek på den virtuella datorn. En storlek för den virtuella datorn kan väljas när den skapas med kommandot [az vm create](/cli/azure/vm) och argumentet `--size`. 
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create \
     --resource-group myResourceGroupVM \
     --name myVM3 \
@@ -221,7 +221,8 @@ Kontrollera om önskad storlek är tillgänglig i det aktuella Azure-klustret in
 ```azurecli-interactive 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
-Om önskad storlek är tillgänglig kan storleken på den virtuella datorn ändras från att vara igång, men den startas om under åtgärden. Använd kommandot [az vm resize]( /cli/azure/vm) för att ändra storleken.
+
+Om önskad storlek är tillgänglig kan storleken på den virtuella datorn ändras medan den är igång, men den startas om under åtgärden. Använd kommandot [az vm resize]( /cli/azure/vm) för att ändra storleken.
 
 ```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
@@ -229,23 +230,23 @@ az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_
 
 Om önskad storlek inte finns i det aktuella klustret måste den virtuella datorn frigöras innan åtgärden för att ändra storlek kan utföras. Använd kommandot [az vm deallocate]( /cli/azure/vm) för att stoppa och frigöra den virtuella datorn. När den virtuella datorn startas igen kan alla data på den temporära disken tas bort. Den offentliga IP-adressen ändras också om inte en statisk IP-adress används. 
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm deallocate --resource-group myResourceGroupVM --name myVM
 ```
 
 När datorn är frigjord kan storleksändringen utföras. 
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_GS1
 ```
 
 När storleksändringen utförts kan den virtuella datorn startas.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm start --resource-group myResourceGroupVM --name myVM
 ```
 
-## <a name="vm-power-states"></a>Energisparlägen för VM
+## <a name="vm-power-states"></a>Energinivåer för VM
 
 En virtuell Azure-dator kan ha en av många energinivåer. Det här tillståndet motsvarar aktuellt tillstånd för den virtuella datorn i hypervisor-programmet. 
 
@@ -258,14 +259,14 @@ En virtuell Azure-dator kan ha en av många energinivåer. Det här tillståndet
 | Stoppas | Anger att den virtuella datorn stoppas. | 
 | Stoppad | Anger att den virtuella datorn har stoppats. Virtuella datorer i ett stoppat tillstånd kan fortfarande medföra debitering.  |
 | Frigör | Anger att den virtuella datorn frigörs. |
-| Frigjord | Anger att den virtuella datorn är frånkopplad från hypervisor-programmet, men att den fortfarande är tillgänglig i kontrollplanet. Virtuella datorer med tillståndet Frigjord medför inte några beräkningsavgifter. |
+| Frigjord | Anger att den virtuella datorn är frånkopplad från hypervisor-programmet, men att den fortfarande är tillgänglig i kontrollplanet. Virtuella datorer med tillståndet Frigjord medför inte några debiteringar. |
 | - | Anger att energinivån för den virtuella datorn är okänd. |
 
 ### <a name="find-the-power-state"></a>Hitta energinivån
 
 Om du vill hämta tillståndet för en viss virtuell dator, använder du kommandot [az vm get instance-view](/cli/azure/vm). Du måste ange ett giltigt namn för en virtuell dator och resursgrupp. 
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm get-instance-view \
     --name myVM \
     --resource-group myResourceGroupVM \
@@ -274,7 +275,7 @@ az vm get-instance-view \
 
 Resultat:
 
-```azurecli-interactive 
+```output
 ode                DisplayStatus    Level
 ------------------  ---------------  -------
 PowerState/running  VM running       Info
@@ -288,19 +289,19 @@ Under livscykeln för en virtuell dator kan du vilja utföra administrativa uppg
 
 Det här kommandot returnerar de privata och offentliga IP-adresserna för en virtuell dator.  
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm list-ip-addresses --resource-group myResourceGroupVM --name myVM --output table
 ```
 
 ### <a name="stop-virtual-machine"></a>Stoppa en virtuell dator
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm stop --resource-group myResourceGroupVM --name myVM
 ```
 
 ### <a name="start-virtual-machine"></a>Starta en virtuell dator
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm start --resource-group myResourceGroupVM --name myVM
 ```
 
@@ -308,7 +309,7 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 Om en resursgrupp tas bort, tas även alla resurser som ingår i gruppen bort, som den virtuella datorn, virtuellt nätverk och disken. Parametern `--no-wait` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs. Parametern `--yes` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroupVM --no-wait --yes
 ```
 
@@ -326,4 +327,4 @@ I den här självstudien har du lärt dig om grundläggande VM-skapande och hant
 Gå vidare till nästa självstudie om du vill lära dig mer om diskar i virtuella dator.  
 
 > [!div class="nextstepaction"]
-> [Skapa och hantera diskar i virtuella datorer](./tutorial-manage-disks.md)
+> [Skapa och hantera VM-diskar](./tutorial-manage-disks.md)

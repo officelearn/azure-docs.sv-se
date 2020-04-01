@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: aec8048c7ef2eb0d944cdd2a863e23578f4f87e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db36033ea524603416f16db27f40d5eefb8bf613
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77561688"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437105"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Felsökningsguide för Azure Storage Explorer
 
@@ -76,7 +76,7 @@ Det finns flera inbyggda RBAC-roller som kan ge de behörigheter som behövs fö
 Certifikatfel uppstår vanligtvis i någon av följande situationer:
 
 - Appen är ansluten via en _transparent proxy_, vilket innebär att en server (till exempel företagsservern) fångar upp HTTPS-trafik, dekrypterar den och krypterar den sedan med hjälp av ett självsignerat certifikat.
-- Du kör ett program som injicerar ett självsignerat SSL-certifikat i de HTTPS-meddelanden som du får. Exempel på program som injicerar certifikat är antivirus- och nätverkstrafikinspektionsprogram.
+- Du kör ett program som injicerar ett självsignerat TLS/SSL-certifikat i de HTTPS-meddelanden som du får. Exempel på program som injicerar certifikat är antivirus- och nätverkstrafikinspektionsprogram.
 
 När Storage Explorer ser ett självsignerat eller ej anförtrott certifikat vet den inte längre om det mottagna HTTPS-meddelandet har ändrats. Om du har en kopia av det självsignerade certifikatet kan du instruera Storage Explorer att lita på det genom att följa dessa steg:
 

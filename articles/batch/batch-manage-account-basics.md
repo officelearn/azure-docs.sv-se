@@ -11,15 +11,15 @@ ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 03/30/2020
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4df2ec0439e659fd8dc1448c6209c9718114791
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ecae47f6aa0ab3f179632467b7da7805f06162d6
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79479798"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397271"
 ---
 # <a name="manage-your-batch-account"></a>Hantera ditt batchkonto
 
@@ -33,13 +33,13 @@ Du kan köra flera Batch-arbetsbelastningar i samma Batch-konto eller distribuer
 
 Med batch-kontot kan du köra storskaliga globala och högpresterande datorjobb (HPC) effektivt i Azure. Inom kontot du hanterar:
 
-- de program du kör
+- De program du kör
 
-- fördelningen av pooler och noder inom pooler
+- Allokering av pooler och noder i pooler
 
-- antal och typer av uppgifter 
+- Antal och typer av uppgifter 
 
-- datainmatning och utdata. Du behöver inte installera ytterligare programvara för att hantera uppgifter.
+- Indata och utdata. Du behöver inte installera ytterligare programvara för att hantera uppgifter.
 
 - När du skapar batchkontot uppmanas du att tilldela det ett namn. Det här namnet är dess ID och när det har tilldelats kan det inte ändras.
 

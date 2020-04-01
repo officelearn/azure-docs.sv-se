@@ -6,13 +6,13 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/27/2020
-ms.openlocfilehash: a8b382663b56d7481da876979e33194fb0ac533d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: e69f3d7350d0da9f364983eae0935532b576bd76
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77925805"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411460"
 ---
 # <a name="onboard-update-management-solution-using-azure-resource-manager-template"></a>Uppdaterad hanteringslösning med Azure Resource Manager-mall
 
@@ -25,7 +25,7 @@ Du kan använda [Azure Resource Manager-mallar](../azure-resource-manager/templa
 
 Mallen automatiserar inte introduktionen av en eller flera virtuella Azure- eller icke-Azure-datorer.
 
-Om du redan har ett Log Analytics-arbetsyta och automation-konto distribuerat i en region som stöds i din prenumeration är de inte länkade och arbetsytan inte redan har lösningen Update Management distribuerad, med den här mallen skapas länken och distribuerar lösningen för uppdateringshantering. 
+Om du redan har ett Log Analytics-arbetsyta och automationskonto distribuerat i en region som stöds i din prenumeration är de inte länkade och arbetsytan inte redan har lösningen Update Management distribuerad, med den här mallen skapas länken och distribuerar lösningen för uppdateringshantering. 
 
 ## <a name="api-versions"></a>API-versioner
 
@@ -56,6 +56,7 @@ Följande parametrar i mallen anges med ett standardvärde för log analytics-ar
 
 * sku - standardvärden till den nya prisnivån per GB som släpptes i april 2018-prismodellen
 * lagring av data - standardvärden till trettio dagar
+* kapacitetsreservation - standardvärdet till 100 GB
 
 >[!WARNING]
 >Om du skapar eller konfigurerar en Log Analytics-arbetsyta i en prenumeration som har valt den nya prismodellen april 2018 är den enda giltiga log analytics-prisnivån **PerGB2018**.
@@ -79,7 +80,7 @@ Följande parametrar i mallen anges med ett standardvärde för log analytics-ar
                 "description": "Workspace name"
             }
         },
-        "pricingTier": {
+        "sku": {
             "type": "string",
             "allowedValues": [
                 "pergb2018",
@@ -168,7 +169,8 @@ Följande parametrar i mallen anges med ett standardvärde för log analytics-ar
             "apiVersion": "2017-03-15-preview",
             "location": "[parameters('location')]",
             "properties": {
-                "sku": { 
+                "sku": {
+                    "Name": "[parameters('sku')]",
                     "name": "CapacityReservation",
                     "capacityReservationLevel": 100
                 },
@@ -231,13 +233,13 @@ Följande parametrar i mallen anges med ett standardvärde för log analytics-ar
     }
     ```
 
-2. Redigera mallen för att uppfylla dina krav.
+2. Redigera mallen för att uppfylla dina krav. Överväg att skapa en [Resource Manager-parameterfil](../azure-resource-manager/templates/parameter-files.md) i stället för att skicka parametrar som infogade värden.
 
 3. Spara den här filen som deployUMSolutiontemplate.json i en lokal mapp.
 
 4. Nu är det dags att distribuera den här mallen. Du kan använda antingen PowerShell eller Azure CLI. När du uppmanas att ange ett jobbyte- och Automation-kontonamn anger du ett namn som är globalt unikt för alla Azure-prenumerationer.
 
-    **Powershell**
+    **PowerShell**
 
     ```powershell
     New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deployUMSolutiontemplate.json

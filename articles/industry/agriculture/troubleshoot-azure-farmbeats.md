@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: a429a1e454e73a1a9d544e308e5b2d60052d91a9
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 7a31eece6629558b14b614853addce59642e698b
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349780"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422725"
 ---
 # <a name="troubleshoot"></a>Felsöka
 
@@ -38,7 +38,9 @@ Så här hämtar du **filen deployer.log:**
 **Korrigerande åtgärder:**
 
 1. Gå till din FarmBeats Datahub-resursgrupp.   
+
 2. Välj **eventhubben** (DatafeedEventHubNamespace) och kontrollera sedan antalet inkommande meddelanden.
+
 3. Gör något av följande:   
    - Om det inte finns *några inkommande meddelanden*kontaktar du enhetspartnern.  
    - Om det finns *inkommande* farmbeatssupport@microsoft.commeddelanden kontaktar du . Bifoga dina Datahub- och Acceleratorloggar och hämtade telemetri.
@@ -52,6 +54,7 @@ Om du vill förstå hur du hämtar loggar går du till avsnittet ["Samla in logg
 **Korrigerande åtgärder:**
 
 1. Se till att du har gjort partnerregistreringen korrekt - du kan kontrollera detta genom att gå till din datahub swagger, navigera till / Partner API, Gör en Get och kontrollera om partnern är registrerad. Om inte, följ [stegen här](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) för att lägga till partner.
+
 2. Kontrollera att du har använt rätt telemetrimeddelandeformat:
 
 ```json
@@ -83,9 +86,12 @@ Om du vill förstå hur du hämtar loggar går du till avsnittet ["Samla in logg
 
 1. Gå till partner-API:et i Datahub Swagger.
 2. Välj **Hämta** > **Prova det** > **Kör**.
-3. Observera partner-ID:t för den sensorpartner du är intresserad av.
-4. Gå tillbaka till partner-API:et och välj **Get/\<ID>**.
-5. Ange partner-ID från steg 3 och välj sedan **Kör**.
+
+> [!NOTE]
+> Partner-ID:et för den sensorpartner du är intresserad av.
+
+3. Gå tillbaka till partner-API:et och välj **Get/\<ID>**.
+4. Ange partner-ID från steg 3 och välj sedan **Kör**.
 
    API-svaret bör ha anslutningssträngen För händelsehubbar.
 

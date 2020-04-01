@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 87c3a3a904705b9fcb702c4745c4c80a4b447e69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e50d6d0623e87dfa68a7cc9744c3f595ff0179c6
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476730"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396372"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Anpassa användargränssnittet för ditt program med hjälp av en anpassad princip i Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Slutför stegen i [Komma igång med anpassade principer](custom-policy-get-start
 
 [!INCLUDE [active-directory-b2c-html-how-to](../../includes/active-directory-b2c-html-how-to.md)]
 
-## <a name="4-modify-the-extensions-file"></a>4. Ändra tilläggsfilen
+### <a name="4-modify-the-extensions-file"></a>4. Ändra tilläggsfilen
 
 Om du vill konfigurera anpassning av användargränssnittet **kopierar du ContentDefinition** och dess underordnade element från basfilen till tilläggsfilen.
 
@@ -60,9 +60,9 @@ Om du vill konfigurera anpassning av användargränssnittet **kopierar du Conten
 
 1. Spara tilläggsfilen.
 
-## <a name="5-upload-and-test-your-updated-custom-policy"></a>5. Ladda upp och testa din uppdaterade anpassade policy
+### <a name="5-upload-and-test-your-updated-custom-policy"></a>5. Ladda upp och testa din uppdaterade anpassade policy
 
-### <a name="51-upload-the-custom-policy"></a>5.1 Ladda upp den anpassade principen
+#### <a name="51-upload-the-custom-policy"></a>5.1 Ladda upp den anpassade principen
 
 1. Kontrollera att du använder katalogen som innehåller din Azure AD B2C-klient genom att välja **katalog + prenumerationsfilter** i den övre menyn och välja den katalog som innehåller din klient.
 1. Sök efter och välj **Azure AD B2C**.
@@ -70,7 +70,7 @@ Om du vill konfigurera anpassning av användargränssnittet **kopierar du Conten
 1. Välj **Ladda upp anpassad princip**.
 1. Ladda upp tilläggsfilen som du tidigare har ändrat.
 
-### <a name="52-test-the-custom-policy-by-using-run-now"></a>5.2 Testa den anpassade principen med hjälp av **Kör nu**
+#### <a name="52-test-the-custom-policy-by-using-run-now"></a>5.2 Testa den anpassade principen med hjälp av **Kör nu**
 
 1. Välj den princip som du har laddat upp och välj sedan **Kör nu**.
 1. Du bör kunna registrera dig med hjälp av en e-postadress.

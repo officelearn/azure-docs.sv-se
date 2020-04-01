@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 08/28/2019
 ms.author: labrenne
-ms.openlocfilehash: 2cff6a0e48fc7bf58a642f509fcda6b114e002ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95f27d913cd288c186bae1a6375212b072f50bb4
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022944"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422439"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Använda galleriet Delad bild för att skapa en anpassad pool
 
@@ -38,6 +38,9 @@ Om du använder en delad avbildning som konfigurerats för ditt scenario kan det
 * **Bildversionering och gruppering för enklare hantering.** Bildgrupperingsdefinitionen innehåller information om varför bilden skapades, vilket operativsystem den är till för och information om hur du använder bilden. Gruppering av bilder möjliggör enklare bildhantering. Mer information finns i [Bilddefinitioner](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
 ## <a name="prerequisites"></a>Krav
+
+> [!NOTE]
+> Du måste autentisera med Azure AD. Om du använder delad nyckelautentisering får du ett autentiseringsfel.  
 
 * **Ett Azure Batch-konto.** Information om hur du skapar ett batchkonto finns i snabbstarten Batch med [Azure-portalen](quick-create-portal.md) eller [Azure CLI](quick-create-cli.md).
 
@@ -86,6 +89,9 @@ När du har skapat den hanterade avbildningen måste du skapa ett delat bildgall
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Skapa en pool från en delad avbildning med Azure CLI
 
 Om du vill skapa en pool från din `az batch pool create` delade avbildning med Hjälp av Azure CLI använder du kommandot. Ange det delade bild-ID:t `--image` i fältet . Kontrollera att OS-typen och SKU matchar de versioner som anges av`--node-agent-sku-id`
+
+> [!NOTE]
+> Du måste autentisera med Azure AD. Om du använder delad nyckelautentisering får du ett autentiseringsfel.  
 
 ```azurecli
 az batch pool create \

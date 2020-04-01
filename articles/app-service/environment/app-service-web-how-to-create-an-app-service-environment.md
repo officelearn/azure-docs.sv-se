@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 752334e3d594b1f95786aecaca134b74c4e264d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89dc96370f65ff20d7f8be38ff78d6c1664305d3
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74688694"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477792"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Skapa en apptjänstmiljö v1 
 
@@ -45,7 +45,7 @@ Om du vill skapa en apptjänstmiljö v1 kan du söka i Azure Marketplace for ***
 3. Markera eller ange en ny resursgrupp. Resursgruppen som används för ASE måste vara samma som används för ditt virtuella nätverk. Om du väljer ett befintligt virtuella nätverk uppdateras resursgruppsvalet för DITT ASE för att återspegla det i ditt virtuella nätverk.
    
     ![][2]
-4. Gör dina virtuella nätverks- och platsval. Du kan välja att skapa ett nytt virtuella nätverk eller välja ett befintligt virtuella nätverk. Om du väljer ett nytt virtuella nätverk kan du ange ett namn och en plats. Det nya virtuella nätverket har adressintervallet 192.168.250.0/23 och ett undernät med namnet **standard** som definieras som 192.168.250.0/24. Du kan också helt enkelt välja ett befintligt virtuella nätverk för Klassiska eller Resource Manager. VALET AV VIP-typ avgör om din ASE kan nås direkt från internet (externt) eller om det använder en intern belastningsutjämnare (ILB). Mer information om dem finns [i Använda en intern belastningsutjämnare med en apptjänstmiljö][ILBASE]. Om du väljer en VIP-typ av extern kan du välja hur många externa IP-adresser som systemet skapas med för IPSSL-ändamål. Om du väljer Internt måste du ange den underdomän som ase ska använda. ASE kan distribueras till virtuella nätverk som använder *antingen* offentliga adressintervall *eller* RFC1918-adressutrymmen (dvs. privata adresser). För att kunna använda ett virtuellt nätverk med ett offentligt adressintervall måste du skapa det virtuella nätverket i förväg. När du väljer ett befintligt virtuella nätverk måste du skapa ett nytt undernät när ASE skapas. **Du kan inte använda ett förskapadt undernät i portalen. Du kan skapa en ASE med ett befintligt undernät om du skapar din ASE med hjälp av en resurshanterares mall.** Om du vill skapa en ASE från en mall använder du informationen här, [Skapa en App Service-miljö från mall][ILBAseTemplate] och [här, Skapa en ILB App Service Environment från mall][ASEfromTemplate].
+4. Gör dina virtuella nätverks- och platsval. Du kan välja att skapa ett nytt virtuella nätverk eller välja ett befintligt virtuella nätverk. Om du väljer ett nytt virtuella nätverk kan du ange ett namn och en plats. Det nya virtuella nätverket har adressintervallet 192.168.250.0/23 och ett undernät med namnet **standard** som definieras som 192.168.250.0/24. Du kan också helt enkelt välja ett befintligt virtuella nätverk för Klassiska eller Resource Manager. VALET AV VIP-typ avgör om din ASE kan nås direkt från internet (externt) eller om det använder en intern belastningsutjämnare (ILB). Mer information om dem finns [i Använda en intern belastningsutjämnare med en apptjänstmiljö][ILBASE]. Om du väljer en VIP-typ av extern kan du välja hur många externa IP-adresser som systemet skapas med för IP SSL-ändamål. Om du väljer Internt måste du ange den underdomän som ase ska använda. ASE kan distribueras till virtuella nätverk som använder *antingen* offentliga adressintervall *eller* RFC1918-adressutrymmen (dvs. privata adresser). För att kunna använda ett virtuellt nätverk med ett offentligt adressintervall måste du skapa det virtuella nätverket i förväg. När du väljer ett befintligt virtuella nätverk måste du skapa ett nytt undernät när ASE skapas. **Du kan inte använda ett förskapadt undernät i portalen. Du kan skapa en ASE med ett befintligt undernät om du skapar din ASE med hjälp av en resurshanterares mall.** Om du vill skapa en ASE från en mall använder du informationen här, [Skapa en App Service-miljö från mall][ILBAseTemplate] och [här, Skapa en ILB App Service Environment från mall][ASEfromTemplate].
 
 ### <a name="details"></a>Information
 En ASE skapas med 2 frontändar och 2 arbetare. Front ends fungerar som HTTP/HTTPS-slutpunkter och skickar trafik till arbetarna som är de roller som är värdar för dina appar. Du kan justera kvantiteten när ASE har skapats och även ställa in regler för automatisk skalning på dessa resurspooler. Mer information om manuell skalning, hantering och övervakning av en App Service-miljö finns här: [Så här konfigurerar du en apptjänstmiljö][ASEConfig] 

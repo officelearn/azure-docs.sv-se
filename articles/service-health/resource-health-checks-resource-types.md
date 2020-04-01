@@ -3,12 +3,12 @@ title: Resurstyper som stöds via Azure Resource Health | Microsoft-dokument
 description: Resurstyper som stöds via Azure Resource-hälsotillståndet
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 3ba7b308c0c7671df8a652194830cb910cb89acc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5cc80147730fdc97b1181690f6e70fc538d4afcc
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79258309"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478899"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Resurstyper och hälsokontroller i Azure-resurshälsa
 Nedan finns en fullständig lista över alla kontroller som utförs via resurshälsa efter resurstyper.
@@ -47,6 +47,11 @@ Nedan finns en fullständig lista över alla kontroller som utförs via resursh�
 |Utförda kontroller|
 |---|
 |<ul><li>Kan kontot nås inifrån datacentret?</li><li>Är Cognitive Services Resource Provider tillgänglig?</li><li>Är cognitivetjänsten tillgänglig i rätt region?</li><li>Kan läsåtgärder utföras på lagringskontot som innehåller resursmetadata?</li><li>Har API-anropskvoten uppnåtts?</li><li>Har läsgränsen för API-anrop uppnåtts?</li></ul>|
+
+## <a name="microsoftcomputehostgroupshosts"></a>Microsoft.compute/hostgroups/hosts
+|Utförda kontroller|
+|---|
+|<ul><li>Är värden igång</li><li>Är värdhårdvaran försämrad?</li><li>Är värdaffären placerad?</li><li>Har värdmaskinvarutjänsten läkt till annan maskinvara?</li></ul>|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.compute/virtualmachines
 |Utförda kontroller|

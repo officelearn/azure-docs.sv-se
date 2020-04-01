@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 8b79e0fb24c15d2e9f16640e90d62f7df5c21f32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 903881a1d15c1f043e381f50e5b69d661cd08192
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74233706"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476434"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Så här fungerar förtroenderelationer för resursskogar i Azure Active Directory Domain Services
 
@@ -114,7 +114,7 @@ Många transaktioner mellan domäner och mellan skogar är beroende av domän- e
 
 När en begäran om autentisering refereras till en domän måste domänkontrollanten i den domänen avgöra om det finns en förtroenderelation med den domän som begäran kommer från. Förtroendets riktning och om förtroendet är transitivt eller icke-transitivt måste också bestämmas innan den autentiserar användaren för åtkomst till resurser i domänen. Autentiseringsprocessen som sker mellan betrodda domäner varierar beroende på vilket autentiseringsprotokoll som används. Kerberos V5- och NTLM-protokollen bearbetar referenser för autentisering till en domän på ett annat sätt
 
-### <a name="kerberos-v5-referral-processing"></a>Kerberos V5-värvningsbearbetning
+### <a name="kerberos-v5-referral-processing"></a>Kerberos V5 remiss bearbetning
 
 Kerberos V5-autentiseringsprotokollet är beroende av net-inloggningstjänsten på domänkontrollanter för klientautentisering och auktoriseringsinformation. Kerberos-protokollet ansluter till ett KDC (Key Distribution Center) och Active Directory-kontoarkivet för sessionsbiljetter.
 
@@ -130,7 +130,7 @@ Om klienten använder Kerberos V5 för autentisering begär den en biljett till 
     * Om ja skickar du en hänvisning till nästa domän till klienten i förtroendesökvägen.
     * Om nej skickar du ett meddelande som nekats inloggning till klienten.
 
-### <a name="ntlm-referral-processing"></a>Bearbetning av NTLM-hänvisning
+### <a name="ntlm-referral-processing"></a>BEARBETNING AV NTLM-hänvisningar
 
 NTLM-autentiseringsprotokollet är beroende av net-inloggningstjänsten på domänkontrollanter för klientautentisering och auktoriseringsinformation. Det här protokollet autentiserar klienter som inte använder Kerberos-autentisering. NTLM använder förtroenden för att skicka autentiseringsbegäranden mellan domäner.
 

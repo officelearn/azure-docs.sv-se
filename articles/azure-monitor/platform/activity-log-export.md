@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: edaa585ffb3448a80b021aa924a9d654ac829931
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12c750f96b8852cdd6a6039ebfa750c2ee792a6b
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79096292"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396720"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportera Azure Activity-logg till lagrings- eller Azure-händelsehubbar
 
 > [!IMPORTANT]
-> Metoden för att skicka Azure Activity-loggen till Azure Storage och Azure Event Hubs har ändrats till [diagnostikinställningar](diagnostic-settings.md). I den här artikeln beskrivs den äldre metoden som håller på att vara inaktuell. Se Uppdatera till [Azure Activity loggsamling och export](diagnostic-settings-legacy.md) för en jämförelse.
+> Metoden för att skicka Azure Activity-loggen till Azure Storage och Azure Event Hubs har ändrats till [diagnostikinställningar](diagnostic-settings.md). I den här artikeln beskrivs den äldre metoden som håller på att vara inaktuell. Se Uppdatera för att [samla in och analysera Azure Activity-loggen i Azure Monitor](activity-log-collect.md) för en jämförelse.
 
 
-[Azure-aktivitetsloggen](platform-logs-overview.md) ger insikt i händelser på prenumerationsnivå som har inträffat i din Azure-prenumeration. Förutom att visa aktivitetsloggen i Azure-portalen eller kopiera den till en Log Analytics-arbetsyta där den kan analyseras med andra data som samlas in av Azure Monitor, kan du skapa en loggprofil för att arkivera aktivitetsloggen till ett Azure-lagringskonto eller strömma den till ett Händelsehubben.
+[Azure-aktivitetsloggen](platform-logs-overview.md) ger insikt i händelser på prenumerationsnivå som har inträffat i din Azure-prenumeration. Förutom att visa aktivitetsloggen i Azure-portalen eller kopiera den till en Log Analytics-arbetsyta där den kan analyseras med andra data som samlas in av Azure Monitor, kan du skapa en loggprofil för att arkivera aktivitetsloggen till ett Azure-lagringskonto eller strömma den till en eventhub.
 
 ## <a name="archive-activity-log"></a>Arkiv aktivitetslogg
 Arkivering av aktivitetsloggen till ett lagringskonto är användbart om du vill behålla loggdata längre än 90 dagar (med full kontroll över bevarandeprincipen) för granskning, statisk analys eller säkerhetskopiering. Om du bara behöver behålla dina händelser i 90 dagar eller mindre behöver du inte konfigurera arkivering till ett lagringskonto, eftersom aktivitetslogghändelser lagras på Azure-plattformen i 90 dagar.
@@ -40,7 +40,7 @@ Lagringskontot behöver inte vara i samma prenumeration som prenumerationen som 
 > [!TIP]
 > Se [Konfigurera Azure Storage-brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) för att ge åtkomst till ett lagringskonto bakom ett säkert virtuellt nätverk.
 
-### <a name="event-hubs"></a>Händelsehubbar
+### <a name="event-hubs"></a>Event Hubs
 Om du skickar aktivitetsloggen till en händelsehubb måste du [skapa en händelsehubb](../../event-hubs/event-hubs-create.md) om du inte redan har en. Om du tidigare strömmade aktivitetslogghändelser till det här namnområdet för eventhubbar kommer händelsehubben att återanvändas.
 
 Principen för delad åtkomst definierar de behörigheter som direktuppspelningsmekanismen har. För att strömma till händelsehubbar krävs behörigheter för hantera, skicka och lyssna. Du kan skapa eller ändra principer för delad åtkomst för namnområdet Event Hubs i Azure-portalen under fliken Konfigurera för namnområdet Event Hubs.

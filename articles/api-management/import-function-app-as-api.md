@@ -1,5 +1,5 @@
 ---
-title: Importera en Azure-Funktionsapp som ett API i API Management
+title: Importera en Azure-funktionsapp som ett API i API Management
 titleSuffix: Azure API Management
 description: Den här självstudien visar hur du importerar en Azure-funktionsapp till Azure API Management som API.
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
 ms.openlocfilehash: cec1d3e07800dd3093ca79a87cafcf5fceafbf2f
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77209196"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importera en Azure-funktionsapp som API i Azure API Management | Microsoft Docs
@@ -26,7 +26,7 @@ Azure API Management har funktioner för att importera Azure-funktionsappar som 
 
 Den här artikeln visar hur du importerar en Azure-funktionsapp som API i Azure API Management. Vi beskriver också testprocessen.
 
-Du lär dig hur du:
+Du lär dig att göra följande:
 
 > [!div class="checklist"]
 > * Importera en Azure-funktionsapp som API
@@ -35,14 +35,14 @@ Du lär dig hur du:
 > * Testa API:et i Azure Portal
 > * Testa API:et i utvecklarportalen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Slutför snabbstarten [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
 * Se till att du har en Azure Funktions-app i din prenumeration. Mer information finns i [Skapa en Azure-funktionsapp](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Det måste innehålla funktioner med HTTP-utlösare och inställningar för auktoriseringsnivå inställda på *Anonym* eller *Funktion*.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="add-new-api-from-azure-function-app"></a> Importera en Azure-funktionsapp som nytt API
+## <a name="import-an-azure-function-app-as-a-new-api"></a><a name="add-new-api-from-azure-function-app"></a> Importera en Azure-funktionsapp som nytt API
 
 Följ stegen nedan och skapa ett nytt API från en Azure-funktionsapp.
 
@@ -77,7 +77,7 @@ Följ stegen nedan och skapa ett nytt API från en Azure-funktionsapp.
 
 8. Klicka på **Skapa**.
 
-## <a name="append-azure-function-app-to-api"></a> Lägg till Azure-funktionsapp till befintligt API
+## <a name="append-azure-function-app-to-an-existing-api"></a><a name="append-azure-function-app-to-api"></a> Lägg till Azure-funktionsapp till befintligt API
 
 Följ stegen nedan för att lägga till Azure-funktionsapp till befintligt API.
 
@@ -111,14 +111,14 @@ Följ stegen nedan för att lägga till Azure-funktionsapp till befintligt API.
 
     ![Lägg till från funktionsapp](./media/import-function-app-as-api/append-04.png)
 
-## <a name="authorization"></a>Auktoriseringsregeln
+## <a name="authorization"></a><a name="authorization"></a>Tillstånd
 
 Import av en Azure-funktionsapp genererar automatiskt:
 
-* Värd nyckel i Funktionsapp med namnet APIM-{namnet på*din Azure API Management*-tjänstinstans},
-* Namngivet värde i Azure API Management-instansen med namnet {*ditt Azure Funktionsapp instance Name*}-Key, som innehåller den skapade värd nyckeln.
+* Värdnyckel i funktionsappen med namnet apim-{*ditt Azure API Management-tjänstinstansnamn*},
+* Namngivet värde i Azure API Management-instansen med namnet {*ditt Azure Function App-förekomstnamn*}-key, som innehåller den skapade värdnyckeln.
 
-För API: er som skapats efter 4 april 2019, skickas värd nyckeln i HTTP-begäranden från API Management till Funktionsapp i en rubrik. Äldre API: er skickar värd nyckeln som [en frågeparameter](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Det här beteendet kan ändras via `PATCH Backend` [REST API anrop](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) på den *Server dels* enhet som är kopplad till Funktionsapp.
+För API:er som skapats efter den 4 april 2019 skickas värdnyckeln i HTTP-begäranden från API Management till funktionsappen i ett huvud. Äldre API:er skickar värdnyckeln som [en frågeparameter](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Detta kan ändras `PATCH Backend` via [REST API-anropet](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) på *serverdentiteten* som är associerad med funktionsappen.
 
 > [!WARNING]
 > Om du tar bort eller ändrar värdet för antingen värdnyckeln för Azure-funktionsappen eller det namngivna Azure API Management-värdet bryts kommunikationen mellan tjänsterna. Värdena synkroniseras inte automatiskt.
@@ -143,7 +143,7 @@ För API: er som skapats efter 4 april 2019, skickas värd nyckeln i HTTP-begär
 
 ![Lägg till från funktionsapp](./media/import-function-app-as-api/keys-01.png)
 
-## <a name="test-in-azure-portal"></a>Testa det nya API: et i Azure Portal
+## <a name="test-the-new-api-in-the-azure-portal"></a><a name="test-in-azure-portal"></a>Testa det nya API:et i Azure-portalen
 
 Du kan anropa åtgärder direkt från Azure-portalen. Azure-portalen är ett praktiskt sätt att visa och testa åtgärderna i ett API.  
 
@@ -153,7 +153,7 @@ Du kan anropa åtgärder direkt från Azure-portalen. Azure-portalen är ett pra
 
 3. Välj en åtgärd.
 
-    Sidan visar fält för frågeparametrar och fält för sidhuvudena. Ett av huvudena är **Ocp-Apim-Subscription-Key**, för prenumerationsnyckeln till den produkt som är associerad med det här API:et. Om du skapade API Management-instansen är du redan administratör, vilket innebär att nyckeln fylls i automatiskt. 
+    Sidan visar fält för frågeparametrar och fält för sidhuvudena. Ett av rubrikerna är **Ocp-Apim-Subscription-Key**för prenumerationsnyckeln för produkten som är associerad med det här API:et. Om du skapade API Management-instansen är du redan administratör, vilket innebär att nyckeln fylls i automatiskt. 
 
 4. Välj **Skicka**.
 

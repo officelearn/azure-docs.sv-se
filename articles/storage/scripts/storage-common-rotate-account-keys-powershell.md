@@ -1,22 +1,23 @@
 ---
-title: Rotera åtkomst nycklar för lagrings konton med PowerShell
+title: Rotera åtkomstnycklar för lagringskonto med PowerShell
 titleSuffix: Azure Storage
 description: Skapa ett Azure Storage-konto och hämta och rotera sedan en av kontoåtkomstnycklarna.
 services: storage
 author: tamram
-ms.custom: mvc
 ms.service: storage
+ms.subservice: blobs
+ms.devlang: powershell
 ms.topic: sample
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 54a7a6cb89c88726853a39ab5b2a61e1f0cde0b5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 52ebed3de093f15d8188ee5fec49d75d5a4a206d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894929"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80060812"
 ---
-# <a name="rotate-storage-account-access-keys-with-powershell"></a>Rotera åtkomst nycklar för lagrings konton med PowerShell
+# <a name="rotate-storage-account-access-keys-with-powershell"></a>Rotera åtkomstnycklar för lagringskonto med PowerShell
 
 Det här skriptet skapar ett Azure Storage-konto, visar de primära åtkomstnycklarna för det nya lagringskontot och förnyar (roterar) sedan nycklarna.
 

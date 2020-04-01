@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/21/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: d08ce1c382d173ac98a0e61e6117ed50b958ba44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c733538a4e730a95008a8ec1e4d50c20d6ce24ec
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76119847"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420768"
 ---
-# <a name="upgrade-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell-preview"></a>Uppgradera ett IPv4-program till IPv6 i virtuellt Azure-nätverk – PowerShell (förhandsversion)
+# <a name="upgrade-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell"></a>Uppgradera ett IPv4-program till IPv6 i virtuellt Azure-nätverk – PowerShell
 
 Den här artikeln visar hur du lägger till IPv6-anslutning till ett befintligt IPv4-program i ett virtuellt Azure-nätverk med en standardbelastningsutjämnare och offentlig IP. Uppgraderingen på plats omfattar:
 - IPv6-adressutrymme för det virtuella nätverket och undernätet
@@ -28,8 +28,7 @@ Den här artikeln visar hur du lägger till IPv6-anslutning till ett befintligt 
 - Virtuella datorer med nätverkskort som har både en IPv4 + IPv6-konfiguration
 - IPv6 Public IP så att belastningsutjämnaren har Internet-vända IPv6-anslutning
 
-> [!Important]
-> IPv6-stöd för Azure Virtual Network är för närvarande i offentlig förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -37,27 +36,6 @@ Om du väljer att installera och använda PowerShell lokalt kräver den här art
 
 ## <a name="prerequisites"></a>Krav
 
-### <a name="register-the-service"></a>Registrera tjänsten
-
-Innan du distribuerar ett program med dubbla stackar i Azure måste du konfigurera prenumerationen för den här förhandsversionen med hjälp av följande Azure PowerShell:
-
-Registrera dig enligt följande:
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
-Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
-```
-Det tar upp till 30 minuter innan funktionsregistreringen är klar. Du kan kontrollera din registreringsstatus genom att köra följande Azure PowerShell-kommando: Kontrollera registreringen på följande sätt:
-```azurepowershell
-Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
-Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
-```
-När registreringen är klar kör du följande kommando:
-
-```azurepowershell
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-### <a name="create-a-standard-load-balancer"></a>Skapa en Standard Load Balancer
 Den här artikeln förutsätter att du har distribuerat en standardbelastningsutjämning enligt beskrivningen i [Snabbstart: Skapa en standardbelastningsutjämnare - Azure PowerShell](../load-balancer/quickstart-create-standard-load-balancer-powershell.md).
 
 ## <a name="retrieve-the-resource-group"></a>Hämta resursgruppen
@@ -176,8 +154,7 @@ Du kan visa det virtuella nätverket IPv6 med dubbla stackar i Azure-portalen p�
 
   ![IPv6 virtuellt nätverk med dubbla staplar i Azure](./media/ipv6-add-to-existing-vnet-powershell/ipv6-dual-stack-vnet.png)
 
-> [!NOTE]
-> Det virtuella nätverket IPv6 för Azure är tillgängligt i Azure-portalen i skrivskyddad för den här förhandsversionen.
+
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

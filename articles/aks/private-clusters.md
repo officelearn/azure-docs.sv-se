@@ -4,12 +4,12 @@ description: Lär dig hur du skapar ett AKS-kluster (Private Azure Kubernetes Se
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: cdefcfe460a97f647afa05947e92fae0c4d07001
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 87f52c5a749b531e5b0656e0b30ff0fe9c1a57bf
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79499300"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398050"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Skapa ett privat Azure Kubernetes-tjänstkluster
 
@@ -80,6 +80,18 @@ Som nämnts är VNet-peering ett sätt att komma åt ditt privata kluster. Om du
 7. Välj **Peerings**i den vänstra rutan .  
 8. Välj **Lägg till**, lägg till det virtuella nätverket för den virtuella datorn och skapa sedan peering.  
 9. Gå till det virtuella nätverket där du har den virtuella datorn, välj **Peerings,** välj AKS virtuella nätverk och skapa sedan peering. Om adressintervallen i AKS virtuella nätverk och den virtuella datorns virtuella nätverk kolliderar, misslyckas peering. Mer information finns i [Virtual Network peering][virtual-network-peering].
+
+## <a name="hub-and-spoke-with-custom-dns"></a>Hubb och talade med anpassad DNS
+
+[Hub- och ekrararkitekturer](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) används ofta för att distribuera nätverk i Azure. I många av dessa distributioner konfigureras DNS-inställningar i eker-virtuella nätverk för att referera till en central DNS-vidarebefordrare för att möjliggöra lokal och Azure-baserad DNS-lösning. När du distribuerar ett AKS-kluster till en sådan nätverksmiljö finns det vissa särskilda överväganden som måste beaktas.
+
+![Privat klusternav och eker](media/private-clusters/aks-private-hub-spoke.png)
+
+1. När ett privat kluster etableras skapas som standard en privat slutpunkt (1) och en privat DNS-zon (2) i den klusterhanterade resursgruppen. Klustret använder en A-post i den privata zonen för att matcha IP-adressen för den privata slutpunkten för kommunikation till API-servern.
+
+2. Den privata DNS-zonen är endast länkad till det virtuella nätverk som klusternoderna är kopplade till (3). Det innebär att den privata slutpunkten endast kan lösas av värdar i det länkade virtuella nätverket. I scenarier där ingen anpassad DNS är konfigurerad på VNet (standard) fungerar detta utan problem som värdar punkt på 168.63.129.16 för DNS som kan matcha poster i den privata DNS-zonen på grund av länken.
+
+3. I scenarier där det virtuella nätverket som innehåller klustret har anpassade DNS-inställningar (4) misslyckas klusterdistributionen om inte den privata DNS-zonen är länkad till det virtuella nätverket som innehåller anpassade DNS-resolvers (5). Den här länken kan skapas manuellt när den privata zonen har skapats under klusteretablering eller via automatisering när zonen identifieras med hjälp av Azure-princip eller andra händelsebaserade distributionsmekanismer (till exempel Azure Event Grid och Azure Functions).
 
 ## <a name="dependencies"></a>Beroenden  
 

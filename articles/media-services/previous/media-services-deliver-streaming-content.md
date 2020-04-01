@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b1d0c070a9196eaa9a2706a607baa9a2926e2db4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 615a6afb0f7a3e133603db10e7c79add3322070c
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67051759"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476704"
 ---
 # <a name="publish-media-services-content-using-net"></a>Publicera Media Services-innehåll med .NET  
 > [!div class="op_single_selector"]
-> * [Resten](media-services-rest-deliver-streaming-content.md)
+> * [REST](media-services-rest-deliver-streaming-content.md)
 > * [.NET](media-services-deliver-streaming-content.md)
-> * [Portal](media-services-portal-publish.md)
+> * [Portalen](media-services-portal-publish.md)
 > 
 > 
 
@@ -108,7 +108,7 @@ Utgångarna:
 
 
 > [!NOTE]
-> Du kan också strömma ditt innehåll via en SSL-anslutning. För att göra den här metoden, se till att dina strömmande webbadresser börjar med HTTPS. För närvarande stöder AMS inte SSL med anpassade domäner.
+> Du kan också strömma ditt innehåll via en TLS-anslutning. För att göra den här metoden, se till att dina strömmande webbadresser börjar med HTTPS. För närvarande stöder AMS inte TLS med anpassade domäner.
 > 
 > 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: fd044d4f32aefc00e1b04f7060e0fc0dc74fd6c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 914551bab47ad9db4e0bca4d53226fbae74b92f3
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72882353"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411677"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Arbeta med data med hjälp av Azure Storage Explorer
 
@@ -215,14 +215,14 @@ Det finns några skäl till att det här felet visas, de två vanligaste är:
 
 + Du ligger bakom en *transparent proxy*, vilket innebär att någon (till exempel din IT-avdelning) fångar upp HTTPS-trafik, dekrypterar den och sedan krypterar den med ett självsignerat certifikat.
 
-+ Du kör programvara, till exempel antivirusprogram, som infogar ett självsignerat SSL-certifikat till de HTTPS-meddelanden du får.
++ Du kör programvara, till exempel antivirusprogram, som injicerar ett självsignerat TLS/SSL-certifikat i de HTTPS-meddelanden du får.
 
 När Storage Explorer påträffar ett sådant ”självsignerade certifikat” kan den inte längre veta om HTTPS-meddelandet den får har manipulerats eller inte. Om du har en kopia av det självsignerade certifikatet kan du berätta för Storage Explorer att lita på det. Om du är osäker på vem som infogat certifikatet kan du försöka att hitta det själv genom att göra följande:
 
-1. Installera öppen SSL
+1. Installera OpenSSL
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (någon av de enklare versionerna är ok)
      - Mac och Linux: ska ingå i ditt operativsystem
-2. Kör öppen SSL
+2. Kör OpenSSL
     - Windows: Gå till installationskatalogen, sedan **/bin/**, dubbelklicka på **openssl.exe**.
     - Mac och Linux: kör **openssl** från en terminal
 3. Kör `s_client -showcerts -connect microsoft.com:443`

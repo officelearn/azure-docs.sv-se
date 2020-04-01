@@ -1,6 +1,6 @@
 ---
 title: Felsöka autentiseringsfel när du använder RDP för att ansluta till Azure VM | Microsoft-dokument
-description: ''
+description: Lär dig hur du felsöker autentiseringsfel som uppstår när du använder RDP (Remote Desktop Protocol) för att ansluta till en virtuell Azure-dator (VM).
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: b7a561907e3f1968eb9adead3606822d7a1321c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03356c0b4a93f4befdbc529523e58642137a8887
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266980"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420819"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Felsöka autentiseringsfel när du använder RDP för att ansluta till virtuella Azure-datorer
 

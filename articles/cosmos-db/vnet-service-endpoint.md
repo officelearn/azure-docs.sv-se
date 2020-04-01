@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: af1032de9aabac45ad7a86cfe1f36ed2c04c0f71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1c5bdd1d210a1933699cad52dbf123b50048e01
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75444626"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421318"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Åtkomst till Azure Cosmos DB från virtuella nätverk (VNet)
 
@@ -50,7 +50,7 @@ Auktoriseringen validerar behörigheten för VNet-resursåtgärd även om använ
 Endast virtuellt nätverk och deras undernät som läggs till i Azure Cosmos-kontot har åtkomst. Deras peered virtuella nätverk kan inte komma åt kontot förrän undernäten i peer-indelade virtuella nätverk läggs till i kontot.
 
 ### <a name="what-is-the-maximum-number-of-subnets-allowed-to-access-a-single-cosmos-account"></a>Vad är det maximala antalet undernät som får komma åt ett enda Cosmos-konto? 
-För närvarande kan du ha högst 64 undernät tillåtna för ett Azure Cosmos-konto.
+För närvarande kan du ha högst 256 undernät tillåtna för ett Azure Cosmos-konto.
 
 ### <a name="can-i-enable-access-from-vpn-and-express-route"></a>Kan jag aktivera åtkomst från VPN och Express Route? 
 För att komma åt Azure Cosmos-konto via Express-vägen från lokalt måste du aktivera Microsoft-peering. När du har placerat IP-brandväggen eller reglerna för åtkomst till virtuella nätverk kan du lägga till de offentliga IP-adresser som används för Microsoft-peering på ip-brandväggen för Azure Cosmos-kontot för att tillåta åtkomst till Azure Cosmos-kontot på lokala tjänster. 

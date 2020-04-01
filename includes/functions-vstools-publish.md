@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/06/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: dee7d778c4a1c1f37ddab7b9d072f83a22acbc60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a4fbb3803f2eed4f961792a29a6bf8a327ea208
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80056644"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80501588"
 ---
 1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**.
 
@@ -38,12 +38,12 @@ ms.locfileid: "80056644"
     | **Prenumeration** | Din prenumeration | Den Azure-prenumeration som ska användas. Acceptera den här prenumerationen eller välj en ny i listrutan. |
     | **[Resursgrupp](../articles/azure-resource-manager/management/overview.md)** | Namn på resursgruppen |  Resursgruppen där funktionsappen ska skapas. Välj en befintlig resursgrupp i listrutan eller välj **Nytt** för att skapa en ny resursgrupp.|
     | **[Hosting Plan](../articles/azure-functions/functions-scale.md)** | Namn på din värdplan | Välj **Ny** om du vill konfigurera en serverlös plan. Se till att välja **Förbrukning** under **Storlek**. När du publicerar projektet i en funktionsapp som körs i en [förbrukningsplan](../articles/azure-functions/functions-scale.md#consumption-plan)betalar du bara för körningar av din funktionsapp. Andra hosting planer medför högre kostnader. Om du kör i en annan plan än **Förbrukning**måste du hantera [skalningen av funktionsappen](../articles/azure-functions/functions-scale.md). Välj en **plats** i en [region](https://azure.microsoft.com/regions/) nära dig eller andra tjänster som dina funktioner har åtkomst till.  |
-    | **[Azure-lagring](../articles/storage/common/storage-account-create.md)** | Allmänt lagringskonto | Ett Azure Storage-konto krävs av funktionskörningen. Välj **Ny** om du vill konfigurera ett allmänt lagringskonto. Du kan också välja ett befintligt konto som uppfyller kraven för [lagringskonto](../articles/azure-functions/functions-scale.md#storage-account-requirements).  |
+    | **[Azure Storage](../articles/storage/common/storage-account-create.md)** | Allmänt lagringskonto | Ett Azure Storage-konto krävs av funktionskörningen. Välj **Ny** om du vill konfigurera ett allmänt lagringskonto. Du kan också välja ett befintligt konto som uppfyller kraven för [lagringskonto](../articles/azure-functions/functions-scale.md#storage-account-requirements).  |
 
     ![Dialogrutan Skapa App Service](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
 5. Välj **Skapa** om du vill skapa en funktionsapp och dess relaterade resurser i Azure med dessa inställningar och distribuera din funktionsprojektkod. 
 
-6. När distributionen är klar gör du en anteckning om **värdet för webbplatsens URL,** som är adressen till din funktionsapp i Azure.
+6. Välj Publicera och när distributionen är klar, anteckna **värdet för url-platsen,** som är adressen till din funktionsapp i Azure.
 
     ![Meddelande som anger att publiceringen lyckades](./media/functions-vstools-publish/functions-visual-studio-publish-complete.png)

@@ -12,16 +12,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 209b4136678e6f04666b4a2b6180f4768bf6afc4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0d50ddbbeeaed48c14d07c42588efcbb20bb7d79
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500828"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411161"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Vad är tjänsten Azure SQL Database?
 
-Azure SQL Database är en relationell databas för allmänt syfte som tillhandahålls som en hanterad tjänst. Med den kan du skapa ett högtillgänge och högpresterande datalagringslager för program och lösningar i Azure. SQL Database kan vara rätt val för en mängd moderna molnprogram eftersom det gör att du kan bearbeta både relationsdata och [icke-relationsstrukturer](sql-database-multi-model-features.md), till exempel diagram, JSON, spatial och XML.
+Azure SQL Database är en fullständigt hanterad PaaS-databasmotor (plattform som en tjänst) som hanterar de flesta databashanteringsfunktioner, till exempel uppgradering, korrigering, säkerhetskopiering och övervakning utan användarmedverkan. Azure SQL Database körs alltid på den senaste stabila versionen av SQL Server Database-motorn och ett uppdaterat operativsystem med 99,99 % tillgänglighet. Med PaaS-funktioner som är inbyggda i Azure SQL-databasen kan du fokusera på de domänspecifika databasadministrations- och optimeringsaktiviteter som är viktiga för ditt företag.
+
+Med Azure SQL Database kan du skapa ett högtillgänge och högpresterande datalagringslager för program och lösningar i Azure. SQL Database kan vara rätt val för en mängd moderna molnprogram eftersom det gör att du kan bearbeta både relationsdata och [icke-relationsstrukturer](sql-database-multi-model-features.md), till exempel diagram, JSON, spatial och XML.
 
 Den är baserad på den senaste stabila versionen av [Microsoft SQL Server-databasmotorn](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). Du kan använda avancerade frågebearbetningsfunktioner, till exempel [högpresterande minnesteknik](sql-database-in-memory.md) och [intelligent frågebearbetning](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). Faktum är att de senaste funktionerna i SQL Server först släpps till SQL Database och sedan till SQL Server själv. Du får de senaste SQL Server-funktionerna utan omkostnader för korrigering eller uppgradering, testad i miljontals databaser. 
 
@@ -68,7 +70,7 @@ SQL Database erbjuder följande inköpsmodeller:
 Azure SQL Database erbjuder tre tjänstnivåer som är utformade för olika typer av program:
 - [Tjänstnivå för allmänt syfte/standard](sql-database-service-tier-general-purpose.md) som utformats för vanliga arbetsbelastningar. Det erbjuder budgetorienterade balanserade beräknings- och lagringsalternativ.
 - [Business Critical/Premium-tjänstnivå](sql-database-service-tier-business-critical.md) utformad för OLTP-program med hög transaktionsfrekvens och i/o med lägsta latens. Det ger högsta motståndskraft mot fel med hjälp av flera isolerade repliker.
-- [Hyperskala](sql-database-service-tier-hyperscale.md) tjänstnivå utformad för mycket stora OLTP-databas och möjligheten att automatiskt skala lagring och skala beräkna smidigt.    
+- [Hyperskala](sql-database-service-tier-hyperscale.md) tjänstnivå utformad för mycket stora OLTP-databas och möjligheten att automatiskt skala lagring och skala beräkning smidigt.    
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Elastiska pooler som maximerar resursutnyttjandet
 
@@ -107,7 +109,7 @@ Azure tillhandahåller [inbyggda verktyg för prestandaövervakning](sql-databas
 
 ## <a name="availability-capabilities"></a>Kapacitet för tillgänglighet
 
-I en traditionell SQL Server-miljö har du i allmänhet minst två datorer lokalt konfigurerade. Dessa maskiner har exakta, synkront underhållna, kopior av data för att skydda mot ett fel på en enda maskin eller komponent. Den här miljön ger hög tillgänglighet, men den skyddar inte mot en naturkatastrof som förstör ditt datacenter.
+Azure SQL Database gör det möjligt för ditt företag att fortsätta fungera under avbrott. I en traditionell SQL Server-miljö har du i allmänhet minst två datorer lokalt konfigurerade. Dessa maskiner har exakta, synkront underhållna, kopior av data för att skydda mot ett fel på en enda maskin eller komponent. Den här miljön ger hög tillgänglighet, men den skyddar inte mot en naturkatastrof som förstör ditt datacenter.
 
 Haveriberedskap förutsätter att en katastrofal händelse är geografiskt lokaliserad nog att ha en annan dator eller uppsättning datorer med en kopia av dina data långt borta. I SQL Server kan du använda Alltid på tillgänglighetsgrupper som körs i async-läge för att få den här funktionen. Människor vill ofta inte vänta på att replikeringen ska ske så långt bort innan de genomför en transaktion, så det finns risk för dataförlust när du gör oplanerade redundans.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2019
 ms.author: memildin
-ms.openlocfilehash: 60a88e667918533f2c507846fa75b0e036ba5262
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd84058c8421d144678c91fac3e5671511d0fd4a
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77921291"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435506"
 ---
 # <a name="upgrade-to-standard-tier-for-enhanced-security"></a>Uppgradera till standardnivå för ökad säkerhet
 Azure Security Center har en enhetlig säkerhetshantering och avancerat skydd mot hot för arbetsbelastningar som körs i Azure, lokalt och i andra moln. Det ger synlighet och kontroll över hybridmolnarbetsbelastningar, aktivt försvar som minskar din exponering för hot och intelligent identifiering som hjälper dig att hålla jämna steg med snabbt föränderliga cyberattacker.
@@ -29,7 +29,7 @@ Security Center finns på två nivåer:
 - Den **kostnadsfria** nivån är aktiverad på alla dina Azure-prenumerationer när du besöker Azure Security Center-instrumentpanelen i Azure-portalen för första gången, eller om den är aktiverad programmässigt via API. Den kostnadsfria nivån ger säkerhetsprincip, kontinuerlig säkerhetsbedömning och användbara säkerhetsrekommendationer som hjälper dig att skydda dina Azure-resurser.
 - **Standardnivån** utökar funktionerna på den kostnadsfria nivån till arbetsbelastningar som körs i privata och andra offentliga moln, vilket ger enhetlig säkerhetshantering och hotskydd över dina hybridmolnarbetsbelastningar. Standardnivån lägger också till hotskyddsfunktioner, som använder inbyggda beteendeanalyser och maskininlärning för att identifiera attacker och zero-day-kryphål, åtkomst- och programkontroller för att minska exponeringen för nätverksattacker och skadlig kod med mera. Dessutom lägger standardnivå till sårbarhetssökning för dina virtuella datorer. Du kan prova standardnivån gratis. Security Center-standarden stöder Azure-resurser, inklusive virtuella datorer, skalningsuppsättningar för virtuella datorer, App Service, SQL-servrar och lagringskonton. Om du har Standard för Azure Security Center kan du välja bort support baserat på resurstyp. 
 
-De flesta av de kostnadsfria säkerhetsbedömningarna för virtuella datorer, liksom många av säkerhetsaviseringarna på standardnivå, kräver installation av MMA-funktionen (Microsoft Monitoring Agent). Du kan aktivera automatisk etablering på Security Center för att automatiskt distribuera agenten för dina virtuella Azure-datorer.
+De flesta av de kostnadsfria nivåsäkerhetsbedömningarna för virtuella datorer, liksom många av säkerhetsaviseringarna på standardnivå, kräver installation av log analytics-agentfunktionen. Du kan aktivera automatisk etablering på Security Center för att automatiskt distribuera agenten för dina virtuella Azure-datorer.
 
 ## <a name="try-standard-tier-free-for-30-days"></a>Prova standardnivån gratis i 30 dagar
 Standardnivån är gratis under de första 30 dagarna. I slutet av 30 dagar, om du väljer att fortsätta använda tjänsten, kommer vi automatiskt att börja ta betalt för användning.

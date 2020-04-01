@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
-ms.openlocfilehash: ad7d171cb115729e174090c1c80915abbde5999f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b905c75e920577e46017caeb456f8237421086b2
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80238736"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421214"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse via Open Hub med Azure Data Factory
 
@@ -189,7 +189,7 @@ Om du vill kopiera data från SAP BW Open Hub stöds följande egenskaper i käl
 >[!TIP]
 >Om din Open Hub-tabell bara innehåller data som genereras av ett enda begärande-ID, till exempel, gör du alltid fullständig belastning och skriver över befintliga data i tabellen, eller om du bara kör DTP en gång för test, kom ihåg att avmarkera alternativet "excludeLastRequest" för att kopiera data ut.
 
-För att påskynda datainläsningen [`parallelCopies`](copy-activity-performance.md#parallel-copy) kan du ställa in kopieringsaktiviteten för att läsa in data från SAP BW Open Hub parallellt. Om du till `parallelCopies` exempel anger fyra kör Data Factory samtidigt fyra RFC-anrop och varje RFC-anrop hämtar en del data från din SAP BW Open Hub-tabell som partitioneras av DTP-begärande-ID och paket-ID. Detta gäller när antalet unika DTP-begärande-ID + paket-ID är större än värdet för `parallelCopies`. När du kopierar data till filbaserat datalager, är det också recommanded att skriva till en mapp som flera filer (ange bara mappnamn), i vilket fall prestanda är bättre än att skriva till en enda fil.
+För att påskynda datainläsningen [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) kan du ställa in kopieringsaktiviteten för att läsa in data från SAP BW Open Hub parallellt. Om du till `parallelCopies` exempel anger fyra kör Data Factory samtidigt fyra RFC-anrop och varje RFC-anrop hämtar en del data från din SAP BW Open Hub-tabell som partitioneras av DTP-begärande-ID och paket-ID. Detta gäller när antalet unika DTP-begärande-ID + paket-ID är större än värdet för `parallelCopies`. När du kopierar data till filbaserat datalager, är det också recommanded att skriva till en mapp som flera filer (ange bara mappnamn), i vilket fall prestanda är bättre än att skriva till en enda fil.
 
 **Exempel:**
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 30696c5dcb3353ea468aa78dbc107dae4d292edb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4dfc6793bba473c4046863937baa292dde7bf421
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334450"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478700"
 ---
 # <a name="data-structures-in-azure-maps-mobility-service"></a>Datastrukturer i Azure Maps Mobility Service
 
@@ -31,13 +31,13 @@ Det `metroID` är ett storstadsområde id som kan användas för att ringa [Get 
 
 ## <a name="stop-ids"></a>Stoppa ID:er
 
-Transitstopp kan refereras till av två typer av ID:n, [GFTS-ID (General Transit Feed Specification)](https://gtfs.org/) och Azure Maps stop ID. GFTS-ID kallas stopKey och Azure Maps stop ID kallas stopID. När du ofta refererar till transitstopp uppmanas du att använda stopp-ID:n för Azure Maps. stopID är stabilare och sannolikt att förbli densamma så länge det fysiska stoppet finns. GTFS-stopp-ID uppdateras oftare. GTFS-stopp-ID kan till exempel uppdateras per GTFS-providerbegäran eller när en ny GTFS-version släpps. Även om det fysiska stoppet inte hade någon förändring kan GTFS-stopp-ID ändras.
+Transitstopp kan refereras till av två typer av ID:n, [GFTS-ID (General Transit Feed Specification)](http://gtfs.org/) och Azure Maps stop ID. GFTS-ID kallas stopKey och Azure Maps stop ID kallas stopID. När du ofta refererar till transitstopp uppmanas du att använda stopp-ID:n för Azure Maps. stopID är stabilare och sannolikt att förbli densamma så länge det fysiska stoppet finns. GTFS-stopp-ID uppdateras oftare. GTFS-stopp-ID kan till exempel uppdateras per GTFS-providerbegäran eller när en ny GTFS-version släpps. Även om det fysiska stoppet inte hade någon förändring kan GTFS-stopp-ID ändras.
 
 Till att börja med kan du begära transitstopp i närheten med [Get Närliggande transit-API](https://aka.ms/AzureMapsMobilityNearbyTransit).
 
 ## <a name="line-groups-and-lines"></a>Radgrupper och rader
 
-Mobilitetstjänsten använder en parallell datamodell för linjer och linjegrupper. Den här modellen används för att bättre hantera ändringar som ärvts från [GTFS-rutter](https://gtfs.org/) och trips-data.
+Mobilitetstjänsten använder en parallell datamodell för linjer och linjegrupper. Den här modellen används för att bättre hantera ändringar som ärvts från [GTFS-rutter](http://gtfs.org/) och trips-data.
 
 
 ### <a name="line-groups"></a>Radgrupper

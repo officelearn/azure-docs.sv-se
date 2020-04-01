@@ -3,12 +3,12 @@ title: Översikt över Recovery Services-valv
 description: En översikt och jämförelse mellan Recovery Services-valv och Azure Backup-valv.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 94a3e5a0865bcc8c0a9ecb866ca013f20a558e1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6a359287533c9ffdd688b5285b24b9c70fa7b7f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673244"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436966"
 ---
 # <a name="recovery-services-vaults-overview"></a>Översikt över Recovery Services-valv
 
@@ -32,11 +32,19 @@ Recovery Services-valv baseras på Azure Resource Manager-modellen för Azure, m
 
 - **Omedelbar återställning för virtuella IaaS-datorer:** Med hjälp av Recovery Services-valv kan du återställa filer och mappar från en IaaS-vm utan att återställa hela den virtuella datorn, vilket möjliggör snabbare återställningstider. Omedelbar återställning för virtuella IaaS-datorer är tillgänglig för både virtuella Datorer i Windows och Linux. [Läs mer](backup-instant-restore-capability.md)
 
+## <a name="storage-settings-in-the-recovery-services-vault"></a>Lagringsinställningar i valvet för Återställningstjänster
+
+Ett Recovery Services-valv är en entitet som lagrar säkerhetskopior och återställningspunkter som skapats över tid. Valvet för återställningstjänster innehåller också de principer för säkerhetskopiering som är associerade med skyddade virtuella datorer.
+
+Azure Backup hanterar automatiskt lagring för valvet. Se hur [lagringsinställningarna kan ändras](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy).
+
+Mer information om lagringsredundans finns i de här artiklarna om [geo](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs) och [lokal](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs) redundans.
+
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Hantera dina Recovery Services-valv i portalen
 
 Det är enkelt att skapa och hantera Recovery Services-valv i Azure-portalen eftersom säkerhetskopieringstjänsten integreras i andra Azure-tjänster. Den här integreringen innebär att du kan skapa eller hantera ett Recovery Services-valv *i samband med måltjänsten*. Om du till exempel vill visa återställningspunkterna för en virtuell dator väljer du den virtuella datorn och klickar på **Säkerhetskopiering** på Operations-menyn.
 
-![Valv för återställningstjänster vm-information om återställningstjänster](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
+![Återställningstjänster valv detaljer VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
 
 Om den virtuella datorn inte har konfigurerat säkerhetskopian uppmanas du att konfigurera säkerhetskopiering. Om säkerhetskopiering har konfigurerats visas information om säkerhetskopiering om den virtuella datorn, inklusive en lista över återställningspunkter.  
 

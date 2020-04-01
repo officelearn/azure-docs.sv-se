@@ -3,12 +3,12 @@ title: Säkerhetskopiera filer och mappar - vanliga frågor
 description: Behandlar vanliga frågor om säkerhetskopiering av filer och mappar med Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: adcbf5c3b404de46634423f8f59c4798d44bebe0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55819ce7ec5196812d935a21c096c132144d78af
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79273428"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421306"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Vanliga frågor om säkerhetskopiering av filer och mappar
 
@@ -57,6 +57,10 @@ Säkerhetskopieringsdata skickas till datacentret i valvet där servern är regi
 ### <a name="does-the-mars-agent-support-windows-server-2012-deduplication"></a>Stöder MARS-agenten Windows Server 2012-deduplicering?
 
 Ja. MARS-agenten konverterar deduplicerade data till normala data när den förbereder säkerhetskopieringen. Den optimerar sedan data för säkerhetskopiering, krypterar data och skickar sedan krypterade data till valvet.
+
+### <a name="do-i-need-administrator-permissions-to-install-and-configure-the-mars-agent"></a>Behöver jag administratörsbehörighet för att installera och konfigurera MARS-agenten?
+
+Ja, installationen av MARS-agenten och konfigurationen av säkerhetskopior med MARS-konsolen behöver användaren som lokal administratör på den skyddade servern.
 
 ## <a name="manage-backups"></a>Hantera säkerhetskopior
 

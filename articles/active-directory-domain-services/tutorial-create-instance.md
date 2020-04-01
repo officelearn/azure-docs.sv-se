@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/15/2020
+ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 14b3292a08e9bb0a60710053cd0b7ffc9d0db115
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1bd5248e0a6a6c7c569c85e8c1af3e30f8b7f9e4
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79239177"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474208"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Självstudiekurs: Skapa och konfigurera en Azure Active Directory Domain Services-instans
 
@@ -29,7 +29,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Skapa en Azure AD DS-instans
 > * Aktivera hashsynkronisering för lösenord
 
-Om du inte har en Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -104,8 +104,8 @@ Fyll i fälten i *fönstret Grunderna* i Azure-portalen för att skapa en Azure 
 
 Om du snabbt vill skapa en Azure AD DS-hanterad domän kan du välja **Granska + skapa** för att acceptera ytterligare standardkonfigurationsalternativ. Följande standardvärden konfigureras när du väljer det här alternativet för att skapa:
 
-* Skapar ett virtuellt nätverk med namnet *aadds-vnet* som använder IP-adressintervallet *10.0.1.0/24*.
-* Skapar ett undernät med namnet *aadds-undernät* med IP-adressintervallet *10.0.1.0/24*.
+* Skapar ett virtuellt nätverk med namnet *aadds-vnet* som använder IP-adressintervallet *10.0.2.0/24*.
+* Skapar ett undernät med namnet *aadds-undernät* med IP-adressintervallet *10.0.2.0/24*.
 * Synkroniserar *alla* användare från Azure AD till den Hanterade Azure AD DS-domänen.
 
 Välj **Granska + skapa** om du vill acceptera dessa standardkonfigurationsalternativ.
@@ -136,7 +136,7 @@ Med Azure AD DS har distribuerats konfigurerar du nu det virtuella nätverket s�
 
 1. Fliken **Översikt** för den hanterade domänen visar några **obligatoriska konfigurationssteg**. Det första konfigurationssteget är att uppdatera DNS-serverinställningarna för det virtuella nätverket. När DNS-inställningarna är korrekt konfigurerade visas inte längre det här steget.
 
-    Adresserna i listan är domänkontrollanter som ska användas i det virtuella nätverket. I det här exemplet är dessa adresser *10.0.1.4* och *10.0.1.5*. Du kan senare hitta dessa IP-adresser på fliken **Egenskaper.**
+    Adresserna i listan är domänkontrollanter som ska användas i det virtuella nätverket. I det här exemplet är dessa adresser *10.0.2.4* och *10.0.2.5*. Du kan senare hitta dessa IP-adresser på fliken **Egenskaper.**
 
     ![Konfigurera DNS-inställningar för ditt virtuella nätverk med IP-adresserna för Azure AD Domain Services](./media/tutorial-create-instance/configure-dns.png)
 

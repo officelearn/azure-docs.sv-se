@@ -3,12 +3,12 @@ title: Övervaka din Node.js-tjänster med Azure Application Insights | Microsof
 description: Övervaka prestanda- och diagnostiseringsproblem i Node.js-tjänster med Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 320ec62e642155002e42c59d4656f51673249eb1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 38336e3faf3764233dd94bffbfb24421e054496a
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670023"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411581"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Övervaka dina Node-js-tjänster och -appar med Application Insights
 
@@ -16,11 +16,11 @@ ms.locfileid: "77670023"
 
 För att ta emot, lagra, och utforska dina övervakade data inkluderar du SKD:t i koden och konfigurerar en motsvarande Application Insights-resurs i Azure. SDK:t skickar data till den resursen för ytterligare analys och undersökning.
 
-Node.js-SDK:n kan automatiskt övervaka inkommande och utgående HTTP-begäran, undantag och vissa systemmått. Från och med version 0.20 kan SDK även övervaka vissa vanliga paket från tredje part, MongoDB, MySQL och Redis. Alla händelser som relaterar till en inkommande HTTP-begäran korreleras för snabbare felsökning.
+Node.js-SDK:n kan automatiskt övervaka inkommande och utgående HTTP-begäran, undantag och vissa systemmått. Från och med version 0.20 kan SDK också övervaka några vanliga [tredjepartspaket](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers#currently-supported-modules), som MongoDB, MySQL och Redis. Alla händelser som relaterar till en inkommande HTTP-begäran korreleras för snabbare felsökning.
 
 Med TelemetryClient API kan du manuellt instrumentera och övervaka ytterligare aspekter av din app och ditt system. Vi beskriver TelemetryClient-API:n mer ingående senare i den här artikeln.
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 Utför följande uppgifter för att konfigurera övervakning för en app eller tjänst.
 

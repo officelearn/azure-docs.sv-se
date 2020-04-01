@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
-ms.openlocfilehash: dfb133f9aa3dd9b76f8b4ea4c6188cfaf9a67b75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 371c2186d44469a22b138255fb513761a9be4437
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77444119"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478215"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Skapa ett labb för att lära ut datavetenskap med Python- och Jupyter-anteckningsböcker
 
@@ -34,10 +34,10 @@ Aktivera inställningarna som beskrivs i tabellen nedan för labbkontot. Mer inf
 
 | Inställning av labbkonto | Instruktioner |
 | ------------------- | ------------ |
-| Marketplace-bild | Aktivera [data science-datorn – Windows 2016-avbildningen](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) för användning i ditt labbkonto. |
+| Marketplace-bild | Aktivera [data science-datorn – Windows 2019-avbildningen](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) för användning i ditt labbkonto. |
 
 >[!TIP]
->Den här artikeln fokuserar på att konfigurera en malldator som använder operativsystemet Windows Server.  Det är också möjligt att konfigurera en datavetenskapsklass med Python- och Jupyter-anteckningsböcker med [datavetenskap virtuell dator för Linux (CentOS)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm) eller [Data Science Virtual Machine för Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) bilder från Azure Marketplace.
+>Den här artikeln fokuserar på att konfigurera en malldator som använder operativsystemet Windows Server.  Det är också möjligt att konfigurera en datavetenskapsklass med Python- och Jupyter-anteckningsböcker med [Ubuntu-avbildningar (Data Science Virtual Machine for Linux)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) från Azure Marketplace.
 
 ### <a name="lab-settings"></a>Labbinställningar
 
@@ -50,7 +50,7 @@ Använd inställningarna i tabellen nedan när du konfigurerar ett klassrumslabb
 
 ## <a name="template-machine"></a>Mallmaskin
 
-Data [Science Virtual Machine - Windows 2016-avbildningen](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) innehåller de ramverk och verktyg för djupinlärning som krävs för den här typen av klass.  Bilden innehåller Jupyter notebooks och Visual Studio Code.  [Jupyter Bärbara datorer](http://jupyter-notebook.readthedocs.io) är ett webbprogram som gör det möjligt för dataforskare att ta rådata, köra beräkningar och se resultaten alla i samma miljö.  För vår mallmaskin kommer webbapplikationen att köras lokalt.  [Visual Studio Code](https://code.visualstudio.com/) är en IDE som ger en rik interaktiv upplevelse när du skriver och testar en anteckningsbok.  Mer information finns i [Arbeta med Jupyter-anteckningsböcker i Visual Studio-kod](https://code.visualstudio.com/docs/python/jupyter-support).
+Data [Science Virtual Machine - Windows 2019-avbildningen](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) innehåller de nödvändiga ramverk och verktyg för djupinlärning som krävs för den här typen av klass.  Bilden innehåller Jupyter notebooks och Visual Studio Code.  [Jupyter Bärbara datorer](http://jupyter-notebook.readthedocs.io) är ett webbprogram som gör det möjligt för dataforskare att ta rådata, köra beräkningar och se resultaten alla i samma miljö.  För vår mallmaskin kommer webbapplikationen att köras lokalt.  [Visual Studio Code](https://code.visualstudio.com/) är en IDE som ger en rik interaktiv upplevelse när du skriver och testar en anteckningsbok.  Mer information finns i [Arbeta med Jupyter-anteckningsböcker i Visual Studio-kod](https://code.visualstudio.com/docs/python/jupyter-support).
 
 Den återstående uppgiften att ställa in klassen är att tillhandahålla lokala anteckningsböcker.  Instruktioner om hur du använder azure machine learning-exemplen finns i [hur du konfigurerar en miljö med Jupyter-anteckningsböcker](../../machine-learning/how-to-configure-environment.md#jupyter).  Du kan också ange egna anteckningsböcker på mallen.  Anteckningsböckerna kopieras till alla elevdatorer när mallen publiceras.
 

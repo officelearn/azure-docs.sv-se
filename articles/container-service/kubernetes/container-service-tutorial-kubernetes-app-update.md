@@ -8,22 +8,22 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: e65ca30e4f15b6f69f39160c67813047c40ce8ee
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78274131"
 ---
 # <a name="deprecated-update-an-application-in-kubernetes"></a>(INAKTUELL) Uppdatera ett program i Kubernetes
 
 > [!TIP]
-> Den uppdaterade versionen av den här självstudien som använder Azure Kubernetes-tjänsten finns i [Självstudier: uppdatera ett program i Azure Kubernetes service (AKS)](../../aks/tutorial-kubernetes-app-update.md).
+> Den uppdaterade versionen som används i den här självstudien som använder Azure Kubernetes-tjänsten finns [i Självstudiekurs: Uppdatera ett program i Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-app-update.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 När ett program har distribuerats i Kubernetes kan du uppdatera det genom att ange en ny containeravbildning eller avbildningsversion. När du gör det mellanlagras uppdateringen så att endast en del av distributionen uppdateras samtidigt. Den här mellanlagrade uppdateringen gör att programmet kan fortsätta att köras under uppdateringen. Det ger också en mekanism för återställning om ett distributionsfel inträffar. 
 
-I den här självstudien, som är del sex av sju, uppdateras Azure Vote-exempelappen. Uppgifter som du kan slutföra inkluderar:
+I den här självstudien, som är del sex av sju, uppdateras Azure Vote-exempelappen. Här är några av uppgifterna:
 
 > [!div class="checklist"]
 > * Uppdatera klientdelens programkod
@@ -37,11 +37,11 @@ I senare självstudier konfigureras Log Analytics för att övervaka Kubernetes-
 
 I tidigare självstudier paketerades ett program i en behållaravbildning, avbildningen laddades upp till Azure Container Registry och ett Kubernetes-kluster skapades. Programmet kördes därefter i Kubernetes-klustret. 
 
-En programlagringsplats klonades också, med programmets källkod och en färdig Docker Compose-fil som används i den här självstudien. Verifiera att du har skapat en klon av lagringsplatsen och att du har ändrat kataloger i den klonade katalogen. Inuti finns en katalog med namnet `azure-vote` och en fil med namnet `docker-compose.yml`.
+En programlagringsplats klonades också, med programmets källkod och en färdig Docker Compose-fil som används i den här självstudien. Verifiera att du har skapat en klon av lagringsplatsen och att du har ändrat kataloger i den klonade katalogen. Inuti finns en katalog som heter `azure-vote` och en fil med namnet `docker-compose.yml`.
 
 Om du inte har slutfört dessa steg och vill följa med återgår du till [Självstudie 1 – Skapa containeravbildningar](./container-service-tutorial-kubernetes-prepare-app.md). 
 
-## <a name="update-application"></a>Uppdatera program
+## <a name="update-application"></a>Uppdatera programmet
 
 För den här självstudien görs en ändring av programmet, och det uppdaterade programmet distribueras till Kubernetes-klustret. 
 

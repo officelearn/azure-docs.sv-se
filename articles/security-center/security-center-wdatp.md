@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: 13852acb39a420e2f0da84e18bef4df823c1fa78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5136a00421aebaa72998b1dfcdf75feb935851c6
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78206273"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435446"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Avancerat skydd mot Microsoft Defender med Azure Security Center
 
@@ -62,7 +62,7 @@ Om du vill använda servrar till Security Center klickar du på **Gå till Azure
 1. I området **Onboarding** markerar eller skapar du en arbetsyta där data ska lagras. <br>
 2. Om du inte kan se alla dina arbetsytor kan det bero på brist på behörigheter, kontrollera att arbetsytan är inställd på Azure Security Standard-nivå. Mer information finns i [Uppgradera till Security Centers standardnivå för ökad säkerhet](security-center-pricing.md).
     
-3. Välj **Lägg till servrar** om du vill visa instruktioner om hur du installerar Microsoft Monitoring Agent. 
+3. Välj **Lägg till servrar** om du vill visa instruktioner om hur du installerar Log Analytics-agenten. 
 
 4. Efter introduktion kan du övervaka datorerna under **Beräkning och appar**.
 

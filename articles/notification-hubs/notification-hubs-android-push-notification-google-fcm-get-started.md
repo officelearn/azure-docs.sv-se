@@ -573,4 +573,4 @@ I den här självstudien använde du Firebase Cloud Messaging för att sända me
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
 [Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
-[Azure-portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: ec1507e09a183f8d466a456b70151861f5f0e82c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e79f4c791d0252c719846da3aa8024b0e622dca
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80159446"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477014"
 ---
 # <a name="load-balancer-health-probes"></a>Hälsoavsökningar för Load Balancer
 
@@ -66,7 +66,7 @@ De angivna tidsgräns- och intervallvärdena avgör om en instans ska markeras s
 
 Vi kan illustrera beteendet ytterligare med ett exempel. Om du har ställt in antalet avsökningssvar på 2 och intervallet till 5 sekunder betyder det att 2 time-out-avbrott för sonden måste observeras inom 10 sekunders intervall.  Eftersom tidpunkten för en avsökning inte synkroniseras när ditt program kan ändra tillstånd, kan vi binda tiden för att identifiera genom två scenarier:
 
-1. Om ditt program börjar producera ett time-out-sondsvar strax innan den första sonden anländer, tar det att upptäcka dessa händelser 10 sekunder (2 x 5 sekunder) plus hur länge programmet börjar signalera en time-out till när den första sonden anländer.  Du kan anta att den här identifieringen tar drygt 10 sekunder.
+1. Om ditt program börjar producera ett time-out-sondsvar strax innan den första avsökningen anländer, tar det 10 sekunder (2 x 5 sekunder) att upptäcka dessa händelser( 2 x 5 sekunder) plus hur länge programmet börjar signalera en time-out till när den första avsökningen anländer.  Du kan anta att den här identifieringen tar drygt 10 sekunder.
 2. Om ditt program börjar producera en time out-sondsvar strax efter att den första avsökningen anländer, kommer identifieringen av dessa händelser inte att påbörjas förrän nästa sond anländer (och time out) plus ytterligare 10 sekunder (2 x 5 sekunder).  Du kan anta att den här identifieringen tar knappt 15 sekunder.
 
 I det här exemplet, när identifiering har inträffat, kommer plattformen att ta sedan en liten tid att reagera på den här ändringen.  Detta innebär en beroende på 
@@ -76,7 +76,10 @@ I det här exemplet, när identifiering har inträffat, kommer plattformen att t
 3. när detektionen har kommunicerats över plattformen 
 
 Du kan anta att reaktionen på en time out-sondsvar tar mellan minst drygt 10 sekunder och högst drygt 15 sekunder att reagera på en ändring av signalen från programmet.  Detta exempel ges för att illustrera vad som sker, men det är inte möjligt att förutse en exakt varaktighet utöver den ovan grova vägledning som illustreras i detta exempel.
- 
+
+>[!NOTE]
+>Hälsoavsökningen avsöker alla löpinstanser i serverdapoolen. Om en instans stoppas kommer den inte att avsökas förrän den har startats igen.
+
 ## <a name="probe-types"></a><a name="types"></a>Avsökningstyper
 
 Det protokoll som används av hälsoavsökningen kan konfigureras till något av följande:
@@ -232,7 +235,7 @@ För UDP-belastningsutjämning bör du generera en anpassad hälsoavsökningssig
 
 När du använder [HA Ports belastningsutjämningsregler](load-balancer-ha-ports-overview.md) med [standardbelastningsutjämning](load-balancer-standard-overview.md)är alla portar belastningsbalanserade och ett enda hälsoavsökningssvar måste återspegla status för hela instansen.
 
-Översätt eller proxy inte en hälsoavsökning genom den instans som tar emot hälsoavsökningen till en annan instans i ditt virtuella nätverk eftersom den här konfigurationen kan leda till kaskadfel i ditt scenario.  Tänk på följande scenario: en uppsättning tredjepartsinstallationer distribueras i serverdelspoolen för en load balancer-resurs för att tillhandahålla skalning och redundans för apparaterna och hälsoavsökningen är konfigurerad för att avsöka en port som den tredjepartsinstallationen proxyservrar eller översätts till andra virtuella datorer bakom apparaten.  Om du avsöker samma port som du använder för att översätta eller proxybegäranden till andra virtuella datorer bakom installationen, markeras alla avsökningssvar från en enda virtuell dator bakom apparaten som markerar själva apparaten som död. Den här konfigurationen kan leda till ett kaskadfel i hela programscenariot som ett resultat av en enda serverdelsslutpunkt bakom installationen.  Utlösaren kan vara ett intermittent avsökningsfel som gör att belastningsutjämnaren markerar det ursprungliga målet (apparatinstansen) och i sin tur kan inaktivera hela ditt programscenario. Undersök i stället själva apparatens hälsa. Valet av avsökningen för att bestämma hälsosignalen är en viktig faktor för nätverksvirta enheter (NVA) scenarier och du måste kontakta din programleverantör för vad lämplig hälsosignal är för sådana scenarier.
+Översätt eller proxy inte en hälsoavsökning genom den instans som tar emot hälsoavsökningen till en annan instans i ditt virtuella nätverk eftersom den här konfigurationen kan leda till kaskadfel i ditt scenario.  Tänk på följande scenario: en uppsättning tredjepartsinstallationer distribueras i serverdelspoolen för en load balancer-resurs för att tillhandahålla skala och redundans för apparaterna och hälsoavsökningen är konfigurerad för att avsöka en port som den tredjepartsinstallationen proxyservrar eller översätts till andra virtuella datorer bakom installationen.  Om du avsöker samma port som du använder för att översätta eller proxybegäranden till andra virtuella datorer bakom installationen, markeras alla avsökningssvar från en enda virtuell dator bakom apparaten som markerar själva apparaten som död. Den här konfigurationen kan leda till ett kaskadfel i hela programscenariot som ett resultat av en enda serverdelsslutpunkt bakom installationen.  Utlösaren kan vara ett intermittent avsökningsfel som gör att belastningsutjämnaren markerar det ursprungliga målet (apparatinstansen) och i sin tur kan inaktivera hela ditt programscenario. Undersök i stället själva apparatens hälsa. Valet av avsökningen för att bestämma hälsosignalen är en viktig faktor för nätverksvirta enheter (NVA) scenarier och du måste kontakta din programleverantör för vad lämplig hälsosignal är för sådana scenarier.
 
 Om du inte tillåter [käll-IP](#probesource) för avsökningen i brandväggsprinciperna misslyckas hälsoavsökningen eftersom den inte kan nå din instans.  Belastningsutjämnaren markerar i sin tur din instans på grund av hälsoavsökningsfelet.  Den här felkonfigurationen kan orsaka att ditt belastningsbalanserade programscenario misslyckas.
 

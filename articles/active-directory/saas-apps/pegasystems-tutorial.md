@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory integrering med PEGA-system | Microsoft Docs'
-description: I den här självstudien får du lära dig hur du konfigurerar enkel inloggning mellan Azure Active Directory-och PEGA-system.
+title: 'Självstudiekurs: Azure Active Directory-integrering med Pega Systems | Microsoft-dokument'
+description: I den här självstudien får du lära dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Pega Systems.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,119 +16,119 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: bd54466e054055ff84cd5bb2b28c5cc074ac0017
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72026802"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Självstudier: Azure Active Directory integrering med PEGA-system
+# <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Självstudiekurs: Azure Active Directory-integrering med Pega Systems
 
-I den här självstudien får du lära dig att integrera PEGA-system med Azure Active Directory (Azure AD).
+I den här självstudien får du lära dig hur du integrerar Pega-system med Azure Active Directory (Azure AD).
 
 Den här integrationen ger följande fördelar:
 
-* Du kan använda Azure AD för att kontrol lera vem som har åtkomst till PEGA-system.
-* Du kan göra det möjligt för användarna att logga in automatiskt till PEGA-system (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats: Azure Portal.
+* Du kan använda Azure AD för att styra vem som har åtkomst till Pega Systems.
+* Du kan aktivera dina användare så att de automatiskt loggas in på Pega Systems (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats: Azure-portalen.
 
 Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med PEGA-system måste du ha:
+Om du vill konfigurera Azure AD-integrering med Pega Systems måste du ha:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du registrera dig för en [utvärderings version](https://azure.microsoft.com/pricing/free-trial/)på en månad.
-* En PEGA system prenumeration som har enkel inloggning aktive rad.
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du registrera dig för en [månads utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
+* En Pega Systems-prenumeration som har enkel inloggning aktiverad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning i Azure AD i en test miljö.
+I den här självstudien konfigurerar och testar du Azure AD enkel inloggning i en testmiljö.
 
-* PEGA-system har stöd för SP-initierad och IdP-initierad SSO.
+* Pega Systems stöder SP-initierad och IdP-initierad SSO.
 
-## <a name="add-pega-systems-from-the-gallery"></a>Lägg till PEGA system från galleriet
+## <a name="add-pega-systems-from-the-gallery"></a>Lägg till Pega Systems från galleriet
 
-Om du vill konfigurera integrering av PEGA-system i Azure AD måste du lägga till PEGA-system från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Pega Systems i Azure AD måste du lägga till Pega Systems från galleriet i listan över hanterade SaaS-appar.
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **Azure Active Directory**i den vänstra rutan:
+1. Välj **Azure Active Directory**i [Azure-portalen](https://portal.azure.com)i den vänstra rutan:
 
     ![Välj Azure Active Directory](common/select-azuread.png)
 
-2. Gå till **Företagsprogram** > **Alla program**.
+2. Gå till **Enterprise-program** > **Alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Om du vill lägga till ett program väljer du **nytt program** överst i fönstret:
+3. Om du vill lägga till ett program väljer du **Nytt program** högst upp i fönstret:
 
-    ![Välj nytt program](common/add-new-app.png)
+    ![Välj Nytt program](common/add-new-app.png)
 
-4. I rutan Sök anger du **PEGA-system**. Välj **PEGA system** i Sök resultaten och välj sedan **Lägg till**.
+4. Ange **Pega Systems**i sökrutan . Välj **Pega Systems** i sökresultaten och välj sedan **Lägg till**.
 
      ![Sökresultat](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa enkel inloggning med Azure AD med PEGA-system med hjälp av en test användare som heter Britta Simon.
-Om du vill aktivera enkel inloggning måste du upprätta en relation mellan en Azure AD-användare och motsvarande användare i PEGA-system.
+I det här avsnittet konfigurerar och testar du Azure AD enkel inloggning med Pega Systems med hjälp av en testanvändare som heter Britta Simon.
+Om du vill aktivera enkel inloggning måste du upprätta en relation mellan en Azure AD-användare och motsvarande användare i Pega Systems.
 
-Du måste utföra följande steg för att konfigurera och testa enkel inloggning med PEGA-system i Azure AD:
+Om du vill konfigurera och testa en enkel Azure AD-inloggning med Pega Systems måste du utföra följande steg:
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** för att aktivera funktionen för dina användare.
-2. **[Konfigurera enkel inloggning för PEGA-system](#configure-pega-systems-single-sign-on)** på program sidan.
-3. **[Skapa en Azure AD test-användare](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** för att aktivera enkel inloggning med Azure AD för användaren.
-5. **[Skapa ett PEGA Systems test användare](#create-a-pega-systems-test-user)** som är länkad till användarens Azure AD-representation.
-6. **[Testa enkel inloggning](#test-single-sign-on)** för att verifiera att konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)** för att aktivera funktionen för dina användare.
+2. **[Konfigurera Pega Systems enkel inloggning på](#configure-pega-systems-single-sign-on)** programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** för att testa Azure AD enkel inloggning.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** för att aktivera azure AD-enkel inloggning för användaren.
+5. **[Skapa en Pega Systems-testanvändare](#create-a-pega-systems-test-user)** som är länkad till Azure AD-representationen för användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** för att kontrollera att konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet ska du aktivera enkel inloggning med Azure AD i Azure Portal.
+I det här avsnittet aktiverar du enkel Azure AD-inloggning i Azure-portalen.
 
-Utför följande steg för att konfigurera enkel inloggning för Azure AD med PEGA-system:
+Så här konfigurerar du en enkel Azure AD-inloggning med Pega Systems:
 
-1. I [Azure Portal](https://portal.azure.com/)på sidan **PEGA Systems** program integration väljer du **enkel inloggning**:
+1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **Pega** **Systems-programintegration:**
 
-    ![Välj enkel inloggning](common/select-sso.png)
+    ![Välj Enkel inloggning](common/select-sso.png)
 
-2. I dialog rutan **Välj metod för enkel inloggning** väljer du **SAML/WS-utfodras** läge för att aktivera enkel inloggning:
+2. I dialogrutan **Välj en enda inloggningsmetod** väljer du **SAML/WS-Fed-läge** för att aktivera enkel inloggning:
 
-    ![Välj en metod för enkel inloggning](common/select-saml-option.png)
+    ![Välj en enda inloggningsmetod](common/select-saml-option.png)
 
-3. På sidan **Konfigurera enkel inloggning med SAML** väljer du ikonen **Redigera** för att öppna dialog rutan **grundläggande SAML-konfiguration** :
+3. På sidan Konfigurera enkel inloggning med SAML väljer du ikonen **Redigera** för att öppna dialogrutan **Grundläggande SAML-konfiguration:** **Set up Single Sign-On with SAML**
 
-    ![Redigera ikon](common/edit-urls.png)
+    ![Redigera-ikonen](common/edit-urls.png)
 
-4. I dialog rutan **grundläggande SAML-konfiguration** kan du utföra följande steg om du vill konfigurera programmet i IDP-initierat läge.
+4. Gör följande steg om du vill konfigurera programmet i IdP-initierat läge i dialogrutan **Grundläggande SAML-konfiguration.**
 
-    ![Dialog rutan grundläggande SAML-konfiguration](common/idp-intiated.png)
+    ![Dialogrutan Grundläggande SAML-konfiguration](common/idp-intiated.png)
 
-    1. I rutan **identifierare** anger du en URL i det här mönstret:
+    1. Ange en URL i det här mönstret i rutan **Identifierare:**
 
        `https://<customername>.pegacloud.io:443/prweb/sp/<instanceID>`
 
-    1. I rutan **svars-URL** anger du en URL i följande mönster:
+    1. Ange en URL i det här mönstret i rutan **Svara url:**
 
        `https://<customername>.pegacloud.io:443/prweb/PRRestService/WebSSO/SAML/AssertionConsumerService`
 
-5. Om du vill konfigurera programmet i SP-initierat läge väljer du **Ange ytterligare URL: er** och utför följande steg.
+5. Om du vill konfigurera programmet i SP-initierat läge väljer du **Ange ytterligare webbadresser** och utför följande steg.
 
-    ![Information om enkel inloggning för PEGA Systems-domäner och URL: er](common/both-advanced-urls.png)
+    ![Pega Systems domän och webbadresser enkel inloggningsinformation](common/both-advanced-urls.png)
 
-    1. I rutan **inloggnings-URL** anger du URL-värdet för inloggning.
+    1. Ange värdet för inloggningsadressen i rutan **Logga in på WEBBADRESS.**
 
-    1. I rutan **relä tillstånd** anger du en URL i följande mönster: `https://<customername>.pegacloud.io/prweb/sso`
+    1. Ange en URL i det här mönstret i rutan **Återbelänad tillstånd:**`https://<customername>.pegacloud.io/prweb/sso`
 
     > [!NOTE]
-    > De värden som anges här är plats hållare. Du måste använda den faktiska identifieraren, svars-URL: en, inloggnings-URL: en och URL: en för Relay status. Du kan hämta ID-och svars-URL-värden från ett PEGA-program, som beskrivs senare i den här självstudien. Kontakta [PEGA Systems support team](https://www.pega.com/contact-us)för att hämta värdet för relä status. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > De värden som anges här är platshållare. Du måste använda url:en för faktisk identifierare, svar, logga in på URL och relätillstånds-URL. Du kan hämta url-värden för identifierare och svara från ett Pega-program, vilket förklaras senare i den här självstudien. Kontakta [Pega Systems supportteam](https://www.pega.com/contact-us)för att få värdet för relätillstånd. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-6. PEGA Systems-programmet måste ha SAML-försäkran som ett särskilt format. För att få dem i rätt format måste du lägga till anpassade mappningar för attribut i konfigurationen för SAML-token. Följande skärm bild visar standardattributen. Välj **redigerings** ikonen för att öppna dialog rutan **användarattribut** :
+6. Pega Systems-programmet behöver SAML-påståendena för att vara i ett visst format. För att få dem i rätt format måste du lägga till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. Följande skärmbild visar standardattributen. Välj ikonen **Redigera** för att öppna dialogrutan **Användarattribut:**
 
     ![Användarattribut](common/edit-attribute.png)
 
-7. Förutom de attribut som visas i föregående skärm bild, kräver PEGA Systems applikationen några fler attribut att skickas tillbaka i SAML-svaret. I avsnittet **användar anspråk** **i dialog rutan användarattribut utför** du följande steg för att lägga till dessa SAML-token:
+7. Förutom de attribut som visas i föregående skärmdump kräver Pega Systems-programmet några fler attribut som ska skickas tillbaka i SAML-svaret. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** gör du följande steg för att lägga till dessa SAML-tokenattribut:
 
     
    - `uid`
@@ -142,9 +142,9 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med PE
    - `Phone`
 
     > [!NOTE]
-    > Dessa värden är bara aktuella för din organisation. Ange lämpliga värden.
+    > Dessa värden är specifika för din organisation. Ange lämpliga värden.
 
-    1. Välj **Lägg till nytt anspråk** för att öppna dialog rutan **hantera användar anspråk** :
+    1. Välj **Lägg till ett nytt anspråk** om du vill öppna dialogrutan Hantera **användarens anspråk:**
 
     ![Välj Lägg till nytt anspråk](common/new-save-attribute.png)
 
@@ -152,107 +152,107 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med PE
 
     1. I textrutan **Namn** anger du det attributnamn som visas för den raden.
 
-    1. Lämna rutan **namn område** tom.
+    1. Lämna **rutan Namnområde** tom.
 
-    1. För **källan**väljer du **attribut**.
+    1. För **källan**väljer du **Attribut**.
 
-    1. I listan **källattribut** väljer du det attributvärde som visas för den raden.
+    1. I attributlistan **Källa** väljer du det attributvärde som visas för den raden.
 
-    1. Välj **OK**.
+    1. Välj **Ok**.
 
     1. Välj **Spara**.
 
-8. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du länken **Hämta** bredvid XML för **federationsmetadata**, enligt dina krav och sparar certifikatet på datorn:
+8. På sidan **Konfigurera enkel inloggning med SAML** i avsnittet **SAML-signeringscertifikat** väljer du länken **Hämta bredvid** **FEDERATION Metadata XML**enligt dina krav och sparar certifikatet på datorn:
 
     ![Länk för nedladdning av certifikat](common/metadataxml.png)
 
-9. I avsnittet **Konfigurera PEGA system** kopierar du lämpliga URL: er baserat på dina krav.
+9. I avsnittet **Konfigurera Pega Systems** kopierar du lämpliga webbadresser baserat på dina behov.
 
-    ![Kopiera URL: en för konfigurationen](common/copy-configuration-urls.png)
+    ![Kopiera konfigurationsadresserna](common/copy-configuration-urls.png)
 
-    1. **Inloggnings-URL**.
+    1. **Inloggningsadress**.
 
     1. **Azure AD-identifierare**.
 
-    1. **Utloggnings-URL**.
+    1. **Url för utloggning**.
 
-### <a name="configure-pega-systems-single-sign-on"></a>Konfigurera enkel inloggning för PEGA-system
+### <a name="configure-pega-systems-single-sign-on"></a>Konfigurera Pega Systems enkel inloggning
 
-1. Om du vill konfigurera enkel inloggning på **PEGA system** -sidan loggar du in på PEGA-portalen med ett administratörs konto i ett annat webbläsarfönster.
+1. Om du vill konfigurera enkel inloggning på **Pega Systems-sidan** loggar du in på Pega-portalen med ett administratörskonto i ett annat webbläsarfönster.
 
-2. Välj **skapa** > **sysadmin** > **autentiseringstjänst**:
+2. Välj **Skapa** > **autentiseringstjänst för****SysAdmin:** > 
 
     ![Välj autentiseringstjänst](./media/pegasystems-tutorial/tutorial_pegasystems_admin.png)
     
-3. Utför följande steg på skärmen **skapa autentiseringstjänst** .
+3. Slutför följande steg på skärmen **Skapa autentiseringstjänst.**
 
-    ![Fönstret Skapa autentiseringstjänst](./media/pegasystems-tutorial/tutorial_pegasystems_admin1.png)
+    ![Skärmen Skapa autentiseringstjänst](./media/pegasystems-tutorial/tutorial_pegasystems_admin1.png)
 
-    1. I listan **typ** väljer du **SAML 2,0**.
+    1. Välj **SAML 2.0**i listan **Typ** .
 
-    1. I rutan **namn** anger du ett namn (till exempel **Azure AD SSO**).
+    1. Ange **Name** vilket namn som helst (till exempel **Azure AD SSO**).
 
-    1. Ange en beskrivning i rutan **kort beskrivning** .  
+    1. Ange en beskrivning i rutan **Kort beskrivning.**  
 
-    1. Välj **skapa och öppna**.
+    1. Välj **Skapa och öppna**.
     
-4. I avsnittet **information om identitets leverantör (IdP)** väljer du **Importera IDP metadata** och bläddrar till den metadatafil som du laddade ned från Azure Portal. Klicka på **Skicka** för att läsa in metadata:
+4. I informationsavsnittet **Identitetsprovider (IdP)** väljer du **Importera IdP-metadata** och bläddrar till metadatafilen som du hämtade från Azure-portalen. Klicka på **Skicka** om du vill läsa in metadata:
 
-    ![Avsnittet information om identitets leverantör (IdP)](./media/pegasystems-tutorial/tutorial_pegasystems_admin2.png)
+    ![Informationsavsnitt för IdP(Identity Provider)](./media/pegasystems-tutorial/tutorial_pegasystems_admin2.png)
     
-    Importen fyller i IdP-data så som visas här:
+    Importen fyller i IdP-data som visas här:
 
     ![Importerade IdP-data](./media/pegasystems-tutorial/tutorial_pegasystems_admin3.png)
     
-6. Slutför följande steg i avsnittet **tjänst leverantör (SP) inställningar** .
+6. Gör följande i avsnittet **Service Provider (SP).**
 
-    ![Inställningar för tjänst leverantör](./media/pegasystems-tutorial/tutorial_pegasystems_admin4.png)
+    ![Inställningar för tjänsteleverantörer](./media/pegasystems-tutorial/tutorial_pegasystems_admin4.png)
 
-    1. Kopiera **entitetens identifierings** värde och klistra in det i rutan **identifierare** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
+    1. Kopiera värdet **för entitetsidentifiering** och klistra in det i rutan **Identifierare** i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    1. Kopiera plats värdet för **intygs mottagar tjänsten (ACS)** och klistra in det i rutan **svars-URL** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
+    1. Kopiera **platsvärdet för kontroll konsumenttjänsten (ACS)** och klistra in det i rutan **Svara URL** i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    1. Välj **inaktivera signering av förfrågningar**.
+    1. Välj **Inaktivera signering av begäran**.
 
 7. Välj **Spara**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en test användare med namnet Britta Simon i Azure Portal.
+I det här avsnittet ska du skapa en testanvändare med namnet Britta Simon i Azure-portalen.
 
-1. I Azure Portal väljer du **Azure Active Directory** i den vänstra rutan, väljer **användare**och väljer sedan **alla användare**:
+1. I Azure-portalen väljer du **Azure Active Directory** i den vänstra rutan, väljer **Användare**och väljer sedan **Alla användare:**
 
     ![Välj alla användare](common/users.png)
 
-2. Välj **ny användare** överst på skärmen:
+2. Välj **Ny användare** högst upp på skärmen:
 
-    ![Välj ny användare](common/new-user.png)
+    ![Välj Ny användare](common/new-user.png)
 
-3. Utför följande steg i dialog rutan **användare** .
+3. Gör följande i dialogrutan **Användare.**
 
-    ![Dialog rutan användare](common/user-properties.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
     a. I rutan **Namn** anger du **BrittaSimon**.
   
-    b. I rutan **användar namn** anger du **brittasimon @ \<yourcompanydomain >. \<extension >** . (Till exempel BrittaSimon@contoso.com.)
+    b. I rutan **Användarnamn** anger du **brittasimon@\<ditt företag>.\< förlängning>**. (Till exempel BrittaSimon@contoso.com.)
 
-    c. Välj **Visa lösen ord**och skriv sedan ned värdet i rutan **lösen ord** .
+    c. Välj **Visa lösenord**och skriv sedan ned värdet i rutan **Lösenord.**
 
     d. Välj **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera Britta Simon för att använda enkel inloggning med Azure genom att ge henne till gång till PEGA-system.
+I det här avsnittet ska du aktivera Britta Simon för att använda Azure enkel inloggning genom att ge henne åtkomst till Pega Systems.
 
-1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan PEGA- **system**.
+1. I Azure-portalen väljer du **Enterprise-program**, väljer **Alla program**och väljer sedan **Pega Systems**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer du **PEGA system**.
+2. Välj **Pega Systems**i listan över program .
 
-    ![Lista över program](common/all-applications.png)
+    ![Lista över ansökningar](common/all-applications.png)
 
-3. I den vänstra rutan väljer **du användare och grupper**:
+3. Välj Användare och **grupper**i den vänstra rutan:
 
     ![Välj Användare och grupper](common/users-groups-blade.png)
 
@@ -260,25 +260,25 @@ I det här avsnittet ska du aktivera Britta Simon för att använda enkel inlogg
 
     ![Välj Lägg till användare](common/add-assign-user.png)
 
-5. I dialog rutan **användare och grupper** väljer du **Britta Simon** i listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i användarlistan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan. Klicka på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett rollvärde i SAML- påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll.** Klicka på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** väljer du **Tilldela**.
 
-### <a name="create-a-pega-systems-test-user"></a>Skapa en test användare för PEGA Systems
+### <a name="create-a-pega-systems-test-user"></a>Skapa en Pega Systems-testanvändare
 
-Därefter måste du skapa en användare med namnet Britta Simon i PEGA-system. Arbeta med [PEGA Systems support-teamet](https://www.pega.com/contact-us) för att skapa användare.
+Därefter måste du skapa en användare som heter Britta Simon i Pega Systems. Arbeta med [Pega Systems supportteam](https://www.pega.com/contact-us) för att skapa användare.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-Nu måste du testa konfigurationen för enkel inloggning med Azure AD med hjälp av åtkomst panelen.
+Nu måste du testa din Azure AD-konfiguration med enkel inloggning med hjälp av åtkomstpanelen.
 
-När du väljer panelen PEGA Systems på åtkomst panelen, bör du loggas in automatiskt på PEGA Systems-instansen som du ställer in SSO för. Mer information finns i [komma åt och använda appar på portalen Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen Pega Systems på åtkomstpanelen bör du automatiskt loggas in i den Pega Systems-instans som du ställer in SSO för. Mer information finns i [Komma åt och använda appar på portalen Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Självstudier för att integrera SaaS-program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

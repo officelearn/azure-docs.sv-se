@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 48a2ed5e4774ac07b4b8fa72a5ee0be86811cfb2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3431576acbb01a0cc3a5f372460b28be05bf7ce7
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79298741"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437471"
 ---
 # <a name="sensor-partner-integration"></a>Sensorpartnerintegration
 
@@ -42,7 +42,7 @@ Telemetridata mappas till ett kanoniskt meddelande som publiceras på Azure Even
 
 **API-utveckling**
 
-API:erna innehåller teknisk dokumentation för Swagger. Mer information om API:erna och deras motsvarande begäranden eller svar finns i [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
+API:erna innehåller teknisk dokumentation för Swagger. Mer information om API:erna och deras motsvarande begäranden eller svar finns i [Swagger](https://aka.ms/FarmBeatsSwagger).
 
 **Autentisering**
 
@@ -150,8 +150,8 @@ FarmBeats Datahub har följande API:er som gör det möjligt för enhetspartner 
   Produktkod  | Produktkod eller modellnamn eller nummer. Till exempel RS-CO2-N01.  |
   SensorÅtgärder > namn  | Sensormåttets namn. Endast gemener stöds. För mätningar från olika djup anger du djupet. Till exempel soil_moisture_15cm. Det här namnet måste vara förenligt med telemetridata. |
   SensorÅtgärder > DataType  | Telemetridatatyp. För närvarande stöds dubbel. |
-  SensorÅtgärder > typ  | Mättyp för sensortelemetridata. Följande är de systemdefinierade typerna: AmbientTemperature, CO2, Djup, Elektriskkonduktivitet, LeafWetness, Längd, LiquidLevel, Nitrat, O2, PH, Fosfat, PointInTime, Kalium, Tryck, RainGauge, RelativeHumidity, Salthalt, SoilMoisture, SoilTemperature, SolarRadiation, Stat, TimeDuration, UVRadiation, UVIndex, Volym, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. Mer information finns i API:et /ExtendedType.
-  SensorÅtgärder > enhet | Enhet av sensortelemetridata. Följande är de systemdefinierade enheterna: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Grad, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Procent, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond och InchesPerHour. Mer information finns i API:et /ExtendedType.
+  SensorÅtgärder > typ  | Mättyp för sensortelemetridata. Följande är de systemdefinierade typerna: AmbientTemperature, CO2, Djup, ElektriskKonduktivitet, LeafWetness, Längd, LiquidLevel, Nitrat, O2, PH, Fosfat, PointInTime, Kalium, Tryck, RainGauge, RelativeHumidity, Salthalt, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volym, WindDirection, WindRun, WindSpeed, Evaranpotspiration, PAR. Mer information finns i API:et /ExtendedType.
+  SensorÅtgärder > enhet | Enhet av sensortelemetridata. Följande är de systemdefinierade enheterna: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Procent, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond och InchesPerHour. Mer information finns i API:et /ExtendedType.
   SensorÅtgärder > AggregationType  | Antingen ingen, genomsnittlig, högsta, lägsta eller StandardDeviation.
   SensorÅtgärder > djup  | Sensorns djup i centimeter. Till exempel mätning av fukt 10 cm under marken.
   SensorÅtgärder > Beskrivning  | Ge en meningsfull beskrivning av mätningen.
@@ -188,7 +188,7 @@ FarmBeats Datahub har följande API:er som gör det möjligt för enhetspartner 
 
 ### <a name="add-new-types-and-units"></a>Lägga till nya typer och enheter
 
-FarmBeats stöder att lägga till nya sensormåtttyper och enheter. Mer information om /ExtendedType-API:et finns i [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
+FarmBeats stöder att lägga till nya sensormåtttyper och enheter. Mer information om /ExtendedType-API:et finns i [Swagger](https://aka.ms/FarmBeatsSwagger).
 
 ## <a name="telemetry-specifications"></a>Specifikationer för telemetri
 
@@ -230,11 +230,11 @@ Det kanoniska meddelandeformatet är följande:
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         }
       ]
     }

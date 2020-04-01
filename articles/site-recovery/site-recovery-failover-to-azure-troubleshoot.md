@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 6de37daa0b9e0ebc711a5dacbdce352e3675a3db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54e44a12f593d2074eefe5b2ff890863db3199f7
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79257750"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478950"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Felsöka fel när det misslyckas över virtuell VMware-dator eller fysisk dator till Azure
 
@@ -128,7 +128,7 @@ Detta är normalt inte en anledning till oro och kan vanligtvis ignoreras för o
 
 Det här problemet anges när du inte kan se datalagret i Azure portalen när du försöker reprotera den virtuella datorn som har upplevt en redundans. Detta beror på att huvudmålet inte känns igen som en virtuell dator under vCenters som läggs till i Azure Site Recovery.
 
-Mer information om hur du skyddar en vitual-dator igen finns i [Reprotect- och redundansdatorer till en lokal plats efter redundans till Azure](vmware-azure-reprotect.md).
+Mer information om hur du skyddar en virtuell dator igen finns i [Reprotect och redundansdatorer till en lokal plats efter redundans till Azure](vmware-azure-reprotect.md).
 
 Så här löser du problemet:
 
@@ -138,7 +138,7 @@ Skapa huvudmålet manuellt i vCenter som hanterar källmaskinen. Datalagret komm
 > 
 > Identifierings- och uppdateringsinfrastrukturåtgärder kan ta upp till 30 minuter att slutföra. 
 
-## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>Linux Master Target registrering med CS misslyckas med ett SSL-fel 35 
+## <a name="linux-master-target-registration-with-cs-fails-with-a-tls-error-35"></a>Linux Master Target registrering med CS misslyckas med ett TLS-fel 35 
 
 Azure Site Recovery Master Target-registreringen med konfigurationsservern misslyckas på grund av att den autentiserade proxyn aktiveras på huvudmålet. 
  

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/02/2019
-ms.openlocfilehash: e98ff7fd914bb86cae256bb1bf6c19086758d463
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 65e51258b3a24b14b5171968645e88420e92dd5a
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371548"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421077"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Kopiera data från en SAP-tabell med hjälp av Azure Data Factory
 
@@ -62,7 +62,7 @@ Om du vill använda den här SAP-tabellkopplingen måste du:
   - Auktorisering för användning av RFC-mål (Remote Function Call).
   - Behörigheter till körningsaktiviteten för S_SDSAUTH auktoriseringsobjektet.
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -230,7 +230,7 @@ Så här kopierar du data från en SAP-tabell:
 <br/>
 >`partitionOnInt` Som `partitionOption` exempel beräknas antalet rader i varje partition med den här formeln: `partitionUpperBound` (totala rader som faller mellan och `partitionLowerBound`)/`maxPartitionsNumber`.<br/>
 <br/>
->Om du vill läsa in datapartitioner parallellt för [`parallelCopies`](copy-activity-performance.md#parallel-copy) att påskynda kopieringen styrs den parallella graden av inställningen på kopieringsaktiviteten. Om du till `parallelCopies` exempel anger fyra genererar och kör Data Factory samtidigt fyra frågor baserat på det angivna partitionsalternativet och inställningarna, och varje fråga hämtar en del data från SAP-tabellen. Vi rekommenderar `maxPartitionsNumber` starkt att göra en `parallelCopies` multipel av värdet på fastigheten. När du kopierar data till filbaserat datalager, är det också recommanded att skriva till en mapp som flera filer (ange bara mappnamn), i vilket fall prestanda är bättre än att skriva till en enda fil.
+>Om du vill läsa in datapartitioner parallellt för [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) att påskynda kopieringen styrs den parallella graden av inställningen på kopieringsaktiviteten. Om du till `parallelCopies` exempel anger fyra genererar och kör Data Factory samtidigt fyra frågor baserat på det angivna partitionsalternativet och inställningarna, och varje fråga hämtar en del data från SAP-tabellen. Vi rekommenderar `maxPartitionsNumber` starkt att göra en `parallelCopies` multipel av värdet på fastigheten. När du kopierar data till filbaserat datalager, är det också recommanded att skriva till en mapp som flera filer (ange bara mappnamn), i vilket fall prestanda är bättre än att skriva till en enda fil.
 
 I `rfcTableOptions`kan du använda följande vanliga SAP-frågeoperatorer för att filtrera raderna:
 

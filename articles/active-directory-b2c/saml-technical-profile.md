@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8c81d2bc499c3d9cae262ef62be2dac2d7280be7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 83a13e0b1bb4d55b889d96e42c8f3f18ce0f2b73
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78183847"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408925"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en SAML-teknisk profil i en anpassad Azure Active Directory B2C-princip
 
@@ -90,11 +90,32 @@ I följande exempel visas avsnittet Azure AD B2C-kryptering av teknisk profil i 
 
 **Elementet OutputClaims** innehåller en lista över anspråk som returneras `AttributeStatement` av SAML-identitetsprovidern under avsnittet . Du kan behöva mappa namnet på anspråket som definieras i din policy till det namn som definierats i identitetsleverantören. Du kan också inkludera anspråk som inte returneras av identitetsprovidern så länge du anger `DefaultValue` attributet.
 
-Om du vill läsa SAML-påståendet **NamedId** in **Subject** som ett `assertionSubjectName`normaliserat anspråk anger du anspråket **PartnerClaimType** på . Kontrollera att **NameId** är det första värdet i kontroll-XML. När du definierar mer än ett påstående väljer Azure AD B2C ämnesvärdet från det senaste påståendet.
+### <a name="subject-name-output-claim"></a>Anspråk på utdata för ämnesnamn
 
-**Elementet OutputClaimsTransformations** kan innehålla en samling **OutputClaimsTransformation-element** som används för att ändra utdataanspråken eller generera nya.
+Om du vill läsa SAML-kontrollnamnet **NameId** i **ämnet** som ett normaliserat `SPNameQualifier` anspråk anger du anspråket **PartnerClaimType** till värdet för attributet. Om `SPNameQualifier`attributet inte presenteras anger du anspråksmålet **PartnerClaimType** till `NameQualifier` värdet för attributet. 
 
-I följande exempel visas de anspråk som returneras av Facebook-identitetsleverantören:
+
+SAML påstående: 
+
+```XML
+<saml:Subject>
+  <saml:NameID SPNameQualifier="http://your-idp.com/unique-identifier" Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient">david@contoso.com</saml:NameID>
+    <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+      <SubjectConfirmationData InResponseTo="_cd37c3f2-6875-4308-a9db-ce2cf187f4d1" NotOnOrAfter="2020-02-15T16:23:23.137Z" Recipient="https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer" />
+    </SubjectConfirmation>
+  </saml:SubjectConfirmation>
+</saml:Subject>
+```
+
+Anspråk på utflöde:
+
+```XML
+<OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="http://your-idp.com/unique-identifier" />
+```
+
+Om `SPNameQualifier` båda `NameQualifier` eller attribut inte visas i SAML-påståendet ställer du `assertionSubjectName`in anspråket **PartnerClaimType** på . Kontrollera att **NameId** är det första värdet i kontroll-XML. När du definierar mer än ett påstående väljer Azure AD B2C ämnesvärdet från det senaste påståendet.
+
+I följande exempel visas de anspråk som returneras av en SAML-identitetsprovider:
 
 - **UtfärdarenUserId-anspråk** mappas till **påståendetSubjectName-anspråk.**
 - Anspråket **first_name** mappas till **påståendet givenName.**
@@ -118,6 +139,8 @@ Den tekniska profilen returnerar också anspråk som inte returneras av identite
   <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
 </OutputClaims>
 ```
+
+**Elementet OutputClaimsTransformations** kan innehålla en samling **OutputClaimsTransformation-element** som används för att ändra utdataanspråken eller generera nya.
 
 ## <a name="metadata"></a>Metadata
 

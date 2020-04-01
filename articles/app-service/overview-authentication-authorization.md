@@ -1,22 +1,22 @@
 ---
 title: Autentisering och auktorisering
-description: Ta reda på mer om den inbyggda autentiserings- och auktoriseringssupporten i Azure App Service och hur den kan skydda din app mot obehörig åtkomst.
+description: Ta reda på mer om den inbyggda autentiserings- och auktoriseringssupporten i Azure App Service och Azure Functions och hur det kan skydda din app mot obehörig åtkomst.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: mahender
-ms.custom: seodec18
-ms.openlocfilehash: 825d113bbe081ba6fb85da19ff6449824db92d10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: f16b10f13c945dd7f1ae4fdc3f4e02dcd7c5a018
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475399"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437946"
 ---
-# <a name="authentication-and-authorization-in-azure-app-service"></a>Autentisering och auktorisering i Azure App Service
+# <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autentisering och auktorisering i Azure App Service och Azure Functions
 
 > [!NOTE]
-> För närvarande stöds inte AAD V2 (inklusive MSAL) för Azure App Services och Azure Functions. Kom tillbaka för uppdateringar.
+> För närvarande stöds inte [Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) (inklusive [MSAL)](../active-directory/develop/msal-overview.md)för Azure App Service och Azure Functions. Kom tillbaka för uppdateringar.
 >
 
 Azure App Service tillhandahåller inbyggt stöd för autentisering och auktorisering, så att du kan logga in användare och komma åt data genom att skriva minimal eller ingen kod i din webbapp, RESTful API och mobila serverdel, och även [Azure Functions](../azure-functions/functions-overview.md). I den här artikeln beskrivs hur App Service förenklar autentisering och auktorisering för din app.
@@ -24,7 +24,7 @@ Azure App Service tillhandahåller inbyggt stöd för autentisering och auktoris
 Säker autentisering och auktorisering kräver djup förståelse för säkerhet, inklusive federation, kryptering, [JSON-webbtoken (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) hantering, [bidragstyper](https://oauth.net/2/grant-types/)och så vidare. App Service tillhandahåller dessa verktyg så att du kan lägga mer tid och energi på att ge affärsnytta till din kund.
 
 > [!IMPORTANT]
-> Du behöver inte använda App Service för AuthN/AuthO. Du kan använda de medföljande säkerhetsfunktionerna i webbramverket eller skriva egna verktyg. Tänk dock på att [Chrome 80 gör bryta ändringar i implementeringen av SameSite för cookies](https://www.chromestatus.com/feature/5088147346030592) (utgivningsdatum runt mars 2020) och anpassad fjärrautentisering eller andra scenarier som är beroende av flerwebbplatser cookie-post kan brytas när klientwebbwebbläsare i Chrome uppdateras. Lösningen är komplex eftersom den behöver ha stöd för olika SameSite-beteenden för olika webbläsare. 
+> Du behöver inte använda den här funktionen för autentisering och auktorisering. Du kan använda de medföljande säkerhetsfunktionerna i webbramverket eller skriva egna verktyg. Tänk dock på att [Chrome 80 gör bryta ändringar i implementeringen av SameSite för cookies](https://www.chromestatus.com/feature/5088147346030592) (utgivningsdatum runt mars 2020) och anpassad fjärrautentisering eller andra scenarier som är beroende av flerwebbplatser cookie-post kan brytas när klientwebbwebbläsare i Chrome uppdateras. Lösningen är komplex eftersom den behöver ha stöd för olika SameSite-beteenden för olika webbläsare. 
 >
 > Den ASP.NET Core 2.1 och högre versioner som är värd apptjänsten är redan korrigerade för denna bryta förändring och hantera Chrome 80 och äldre webbläsare på lämpligt sätt. Dessutom distribueras samma korrigeringsfil för ASP.NET Framework 4.7.2 i App Service-instanserna under hela januari 2020. Mer information, inklusive hur du vet om din app har tagit emot korrigeringsfilen finns i [Azure App Service SameSite cookie update](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
@@ -46,11 +46,11 @@ Den här modulen hanterar flera saker för din app:
 
 Modulen körs separat från programkoden och konfigureras med hjälp av appinställningar. Inga SDK:er, specifika språk eller ändringar i programkoden krävs. 
 
-### <a name="user-claims"></a>Användaranspråk
+### <a name="userapplication-claims"></a>Anspråk på användare/program
 
-För alla språkramverk gör App Service användarens anspråk tillgängliga för din kod genom att injicera dem i begäranhetsrubrikerna. För ASP.NET 4.6-appar fyller App-tjänsten [i ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) med den autentiserade användarens anspråk, så att `[Authorize]` du kan följa standardkodmönstret för .NET, inklusive attributet. På samma sätt fyller App Service `_SERVER['REMOTE_USER']` variabeln för PHP-appar. För Java-appar är anspråken [tillgängliga från Tomcat servlet](containers/configure-language-java.md#authenticate-users-easy-auth).
+För alla språkramverk gör App Service anspråken i den inkommande token (oavsett om det kommer från en autentrad slutanvändare eller ett klientprogram) tillgängliga för din kod genom att injicera dem i begäranhuvudena. För ASP.NET 4.6-appar fyller App-tjänsten [i ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) med den autentiserade användarens anspråk, så att `[Authorize]` du kan följa standardkodmönstret för .NET, inklusive attributet. På samma sätt fyller App Service `_SERVER['REMOTE_USER']` variabeln för PHP-appar. För Java-appar är anspråken [tillgängliga från Tomcat servlet](containers/configure-language-java.md#authenticate-users-easy-auth).
 
-För [Azure](../azure-functions/functions-overview.md) `ClaimsPrincipal.Current` Functions är inte hydratiserad för .NET-kod, men du kan fortfarande hitta användarens anspråk i begäranhetsrubrikerna.
+För [Azure](../azure-functions/functions-overview.md) `ClaimsPrincipal.Current` Functions fylls inte i för .NET-kod, men du kan fortfarande hitta `ClaimsPrincipal` användaranspråken i begäranhetsrubrikerna, eller hämta objektet från begärandekontexten eller till och med via en bindningsparameter. Mer information finns i [Hur du arbetar med klientidentiteter.](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities)
 
 Mer information finns i [Åtkomst till användaranspråk](app-service-authentication-how-to.md#access-user-claims).
 
@@ -63,7 +63,7 @@ AppTjänsten tillhandahåller en inbyggd tokenbutik, som är en databas med toke
 
 Du måste vanligtvis skriva kod för att samla in, lagra och uppdatera dessa token i ditt program. Med token store hämtar du bara [token](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) när du behöver dem och [be App Service att uppdatera dem](app-service-authentication-how-to.md#refresh-identity-provider-tokens) när de blir ogiltiga. 
 
-ID-token, åtkomsttoken och uppdatera token som cachelagrats för den autentiserade sessionen och de är endast tillgängliga för den associerade användaren.  
+ID-token, åtkomsttoken och uppdateringstoken cachelagras för den autentiserade sessionen och de är endast tillgängliga för den associerade användaren.  
 
 Om du inte behöver arbeta med token i appen kan du inaktivera tokenarkivet.
 
@@ -93,7 +93,7 @@ Autentiseringsflödet är detsamma för alla leverantörer, men skiljer sig bero
 - Med provider SDK: Programmet signerar användare till providern manuellt och skickar sedan autentiseringstoken till App Service för validering. Detta är vanligtvis fallet med webbläsarlösa appar, som inte kan presentera leverantörens inloggningssida för användaren. Programkoden hanterar inloggningsprocessen, så den kallas även _klientstyrd flöde_ eller _klientflöde_. Det här fallet gäller REST-API:er, [Azure Functions](../azure-functions/functions-overview.md)och JavaScript-webbläsarklienter samt webbläsarappar som behöver mer flexibilitet i inloggningsprocessen. Det gäller även för inbyggda mobilappar som loggar in användare med hjälp av leverantörens SDK.
 
 > [!NOTE]
-> Samtal från en betrodd webbläsarapp i App Service anropar ett annat REST API i App Service eller [Azure Functions](../azure-functions/functions-overview.md) kan autentiseras med hjälp av det serverstyrda flödet. Mer information finns [i Anpassa autentisering och auktorisering i App Service](app-service-authentication-how-to.md).
+> Samtal från en betrodd webbläsarapp i App Service till ett annat REST API i App Service eller [Azure Functions](../azure-functions/functions-overview.md) kan autentiseras med hjälp av det serverstyrda flödet. Mer information finns [i Anpassa autentisering och auktorisering i App Service](app-service-authentication-how-to.md).
 >
 
 Tabellen nedan visar stegen i autentiseringsflödet.

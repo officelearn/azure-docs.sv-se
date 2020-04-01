@@ -5,33 +5,33 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: d8c3357325eadefec7bb97faba5d600e9c6793a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6637627d48df8f9b6126debc215aac9bceb76f6b
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276717"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80419566"
 ---
 # <a name="azure-functions-networking-options"></a>Nätverksalternativ för Azure Functions
 
-I den här artikeln beskrivs de nätverksfunktioner som är tillgängliga i värdalternativen för Azure Functions. Alla följande nätverksalternativ ger dig viss möjlighet att komma åt resurser utan att använda internetririgerbara adresser eller begränsa internetåtkomsten till en funktionsapp.
+I den här artikeln beskrivs de nätverksfunktioner som är tillgängliga i värdalternativen för Azure Functions. Alla följande nätverksalternativ ger dig viss möjlighet att komma åt resurser utan att använda internet-routable adresser eller att begränsa internettillgång till en funktion app.
 
 Värdmodellerna har olika nivåer av nätverksisolering tillgängliga. Om du väljer rätt kan du uppfylla kraven på nätverksisolering.
 
 Du kan vara värd för funktionsappar på ett par olika sätt:
 
-* Det finns en uppsättning planalternativ som körs på en infrastruktur för flera innehavare, med olika nivåer av virtuella nätverksanslutnings- och skalningsalternativ:
-    * [Förbrukningsplanen](functions-scale.md#consumption-plan), som skalas dynamiskt som svar på belastning och erbjuder minimala alternativ för nätverksisolering.
-    * [Premium-planen](functions-scale.md#premium-plan), som också skalas dynamiskt, samtidigt som den erbjuder mer omfattande nätverksisolering.
-    * Azure [App Service-planen](functions-scale.md#app-service-plan), som fungerar i en fast skala och erbjuder liknande nätverksisolering som Premium-planen.
+* Du kan välja mellan planalternativ som körs på en infrastruktur med flera liggande uppgifter, med olika nivåer av virtuella nätverksanslutnings- och skalningsalternativ:
+    * [Förbrukningsplanen](functions-scale.md#consumption-plan) skalas dynamiskt som svar på belastning och erbjuder minimala alternativ för nätverksisolering.
+    * [Premium-planen](functions-scale.md#premium-plan) skalas också dynamiskt och erbjuder mer omfattande nätverksisolering.
+    * Azure [App Service-planen](functions-scale.md#app-service-plan) fungerar i en fast skala och erbjuder nätverksisolering som liknar Premium-planen.
 * Du kan köra funktioner i en [apptjänstmiljö](../app-service/environment/intro.md). Den här metoden distribuerar din funktion till ditt virtuella nätverk och erbjuder fullständig nätverkskontroll och isolering.
 
 ## <a name="matrix-of-networking-features"></a>Matris för nätverksfunktioner
 
 |                |[Konsumtionsplan](functions-scale.md#consumption-plan)|[Premiumplan](functions-scale.md#premium-plan)|[App Service plan](functions-scale.md#app-service-plan)|[App Service-miljön](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
-|[Inkommande IP-begränsningar & privat platsåtkomst](#inbound-ip-restrictions)|✅Ja|✅Ja|✅Ja|✅Ja|
-|[Integrering med virtuellt nätverk](#virtual-network-integration)|❌Nej|✅Ja (regionalt)|✅Ja (regional och gateway)|✅Ja|
+|[Inkommande IP-begränsningar och privat åtkomst till webbplatsen](#inbound-ip-restrictions)|✅Ja|✅Ja|✅Ja|✅Ja|
+|[Integrering av virtuella nätverk](#virtual-network-integration)|❌Nej|✅Ja (regionalt)|✅Ja (regional och gateway)|✅Ja|
 |[Virtuella nätverksutlösare (icke-HTTP)](#virtual-network-triggers-non-http)|❌Nej| ✅Ja |✅Ja|✅Ja|
 |[Hybridanslutningar](#hybrid-connections) (endast Windows)|❌Nej|✅Ja|✅Ja|✅Ja|
 |[Utgående IP-begränsningar](#outbound-ip-restrictions)|❌Nej| ✅Ja|✅Ja|✅Ja|
@@ -51,7 +51,7 @@ Privat webbplatsåtkomst avser att göra din app endast tillgänglig från ett p
 
 * Privat webbplatsåtkomst är tillgänglig i [abonnemangen För Premium,](./functions-premium-plan.md) [Förbrukning](functions-scale.md#consumption-plan)och [App Service](functions-scale.md#app-service-plan) när tjänstslutpunkter har konfigurerats.
     * Tjänstslutpunkter kan konfigureras per app under **Plattformsfunktioner** > **Konfigurera** > **åtkomstbegränsningar** > **Konfigurera åtkomstbegränsningar**. Virtuella nätverk kan nu väljas som regeltyp.
-    * Mer information finns i [slutpunkter för virtuella nätverkstjänster](../virtual-network/virtual-network-service-endpoints-overview.md).
+    * Mer information finns i [slutpunkter för virtuella nätverkstjänster.](../virtual-network/virtual-network-service-endpoints-overview.md)
     * Tänk på att med tjänstslutpunkter har din funktion fortfarande full utgående åtkomst till Internet, även med virtual network integration konfigurerad.
 * Privat platsåtkomst är också tillgänglig i en App Service-miljö som är konfigurerad med en intern belastningsutjämnare (ILB). Mer information finns i [Skapa och använda en intern belastningsutjämnare med en App Service Environment](../app-service/environment/create-ilb-ase.md).
 
@@ -59,14 +59,15 @@ Mer information om hur du konfigurerar privat platsåtkomst finns i [Upprätta p
 
 ## <a name="virtual-network-integration"></a>Virtual Network-integration
 
-Med integrering av virtuella nätverk kan funktionsappen komma åt resurser i ett virtuellt nätverk. Azure Functions stöder två typer av integrering av virtuella nätverk:
+Med integrering av virtuella nätverk kan funktionsappen komma åt resurser i ett virtuellt nätverk.
+Azure Functions stöder två typer av integrering av virtuella nätverk:
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
 Integrering av virtuella nätverk i Azure Functions använder delad infrastruktur med App Service-webbappar. Mer information om de två typerna av integrering av virtuella nätverk finns i:
 
 * [Regional integrering av virtuella nätverk](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
-* [Gateway krävs virtuell nätverksintegrering](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
+* [Integrering av gatewayer krävs](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
 Mer information om hur du konfigurerar integrering av virtuella nätverk finns i [Integrera en funktionsapp med ett virtuellt Azure-nätverk](functions-create-vnet.md).
 
@@ -74,37 +75,38 @@ Mer information om hur du konfigurerar integrering av virtuella nätverk finns i
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-regional.md)]
 
-## <a name="connecting-to-service-endpoint-secured-resources"></a>Ansluta till tjänstslutpunktssäkrade resurser
+## <a name="connect-to-service-endpoint-secured-resources"></a>Säkra resurser för anslutning till tjänstens slutpunkt
 
 Om du vill ha en högre säkerhetsnivå kan du begränsa ett antal Azure-tjänster till ett virtuellt nätverk med hjälp av tjänstslutpunkter. Du måste sedan integrera din funktionsapp med det virtuella nätverket för att komma åt resursen. Den här konfigurationen stöds på alla planer som stöder integrering av virtuella nätverk.
 
-[Läs mer om slutpunkter för virtuella nätverkstjänster.](../virtual-network/virtual-network-service-endpoints-overview.md)
+Mer information finns i [Slutpunkter för virtuella nätverkstjänster](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-## <a name="restricting-your-storage-account-to-a-virtual-network"></a>Begränsa ditt lagringskonto till ett virtuellt nätverk
+## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Begränsa ditt lagringskonto till ett virtuellt nätverk
 
-När du skapar en funktionsapp måste du skapa eller länka till ett Azure Storage-konto med allmänt syfte som stöder Blob-, kö- och Tabelllagring. Du kan för närvarande inte använda några begränsningar för virtuella nätverk för det här kontot. Om du konfigurerar en slutpunkt för en virtuell nätverkstjänst på det lagringskonto som du använder för funktionsappen, bryter den appen.
+När du skapar en funktionsapp måste du skapa eller länka till ett Azure Storage-konto med allmänt syfte som stöder Blob-, kö- och Tabelllagring. Du kan för närvarande inte använda några begränsningar för virtuella nätverk för det här kontot. Om du konfigurerar en slutpunkt för en virtuell nätverkstjänst på det lagringskonto som du använder för funktionsappen, kommer den konfigurationen att bryta din app.
 
-[Läs mer om krav på lagringskonto.](./functions-create-function-app-portal.md#storage-account-requirements)
+Mer information finns i [Krav på lagringskonto](./functions-create-function-app-portal.md#storage-account-requirements).
 
-## <a name="using-key-vault-references"></a>Använda Key Vault-referenser 
+## <a name="use-key-vault-references"></a>Använda Key Vault-referenser
 
-Med Key Vault-referenser kan du använda hemligheter från Azure Key Vault i ditt Azure Functions-program utan att kräva några kodändringar. Azure Key Vault är en tjänst som tillhandahåller centraliserad hemligheter hantering, med full kontroll över åtkomstprinciper och granskningshistorik.
+Du kan använda Azure Key Vault-referenser för att använda hemligheter från Azure Key Vault i ditt Azure Functions-program utan att kräva några kodändringar. Azure Key Vault är en tjänst som tillhandahåller centraliserad hemligheter hantering, med full kontroll över åtkomstprinciper och granskningshistorik.
 
-För närvarande fungerar inte [Key Vault-referenser](../app-service/app-service-key-vault-references.md) om key vault-valvet är skyddat med tjänstslutpunkter. Om du vill ansluta till ett Key Vault med hjälp av integrering av virtuella nätverk måste du anropa nyckelvalvet i programkoden.
+För närvarande fungerar inte [Key Vault-referenser](../app-service/app-service-key-vault-references.md) om nyckelvalvet är skyddat med tjänstslutpunkter. Om du vill ansluta till ett nyckelvalv med hjälp av integrering av virtuella nätverk måste du anropa Key Vault i programkoden.
 
 ## <a name="virtual-network-triggers-non-http"></a>Virtuella nätverksutlösare (icke-HTTP)
 
-För närvarande kan du använda icke-HTTP-utlösarfunktioner från ett virtuellt nätverk på ett av två sätt: 
-+ Kör din funktionsapp i en Premium-plan och aktivera stöd för virtual network trigger.
+För närvarande kan du använda icke-HTTP-utlösarfunktioner från ett virtuellt nätverk på ett av två sätt:
+
++ Kör din funktionsapp i en Premium-plan och aktivera stöd för virtuella nätverksutlösare.
 + Kör din funktionsapp i en App Service-plan eller App Service Environment.
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Premium-plan med virtuella nätverksutlösare
 
-När du kör i en Premium-plan kan du ansluta icke-HTTP-utlösarfunktioner till tjänster som körs i ett virtuellt nätverk. För att kunna göra detta måste du aktivera stöd för stöd för virtuell nätverksutlösare för funktionsappen. **Supportinställningen för virtuell nätverksutlösare** finns i [Azure-portalen](https://portal.azure.com) under **Funktionsappinställningar**.
+När du kör en Premium-plan kan du ansluta icke-HTTP-utlösarfunktioner till tjänster som körs i ett virtuellt nätverk. För att kunna göra detta måste du aktivera stöd för stöd för virtuell nätverksutlösare för funktionsappen. **Supportinställningen för virtual network trigger** finns i [Azure-portalen](https://portal.azure.com) under **Funktionsappinställningar**.
 
-![VNETToggle](media/functions-networking-options/virtual-network-trigger-toggle.png)
+![Växla virtuellt nätverk](media/functions-networking-options/virtual-network-trigger-toggle.png)
 
-Du kan också aktivera utlösare av virtuella nätverk med följande Azure CLI-kommando:
+Du kan också aktivera utlösare av virtuella nätverk med hjälp av följande Azure CLI-kommando:
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
@@ -121,13 +123,13 @@ Virtuella nätverksutlösare stöds i version 2.x och högre av funktionskörnin
 |[Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)| 2.0.0 eller högre|
 
 > [!IMPORTANT]
-> När du aktiverar stöd för virtuella nätverksutlösare skalar endast utlösartyperna ovan dynamiskt med ditt program. Du kan fortfarande använda utlösare som inte anges ovan, men de skalas inte utöver antalet förvärmda instanser. Se [utlösare och bindningar](./functions-triggers-bindings.md#supported-bindings) för hela listan över utlösare.
+> När du aktiverar stöd för virtuell nätverksutlösare skalas endast de utlösartyper som visas i föregående tabell dynamiskt med ditt program. Du kan fortfarande använda utlösare som inte finns i tabellen, men de skalas inte utöver antalet förvärmda instanser. För hela listan över [utlösare, se Utlösare och bindningar](./functions-triggers-bindings.md#supported-bindings).
 
-### <a name="app-service-plan-and-app-service-environment-with-virtual-network-triggers"></a>App Service Plan och App Service Environment med virtuella nätverksutlösare
+### <a name="app-service-plan-and-app-service-environment-with-virtual-network-triggers"></a>App Service plan och App Service Environment med virtuella nätverksutlösare
 
-När funktionsappen körs i antingen en appserviceplan eller en apptjänstmiljö kan du använda icke-HTTP-utlösarfunktioner. För att dina funktioner ska kunna utlösas korrekt måste du vara ansluten till ett virtuellt nätverk med åtkomst till resursen som definierats i utlösaranslutningen. 
+När funktionsappen körs i antingen en App Service-plan eller i en apptjänstmiljö kan du använda icke-HTTP-utlösarfunktioner. För att dina funktioner ska kunna utlösas korrekt måste du vara ansluten till ett virtuellt nätverk med åtkomst till resursen som definierats i utlösaranslutningen.
 
-Anta till exempel att du vill konfigurera Azure Cosmos DB så att den bara accepterar trafik från ett virtuellt nätverk. I det här fallet måste du distribuera din funktionsapp i en App Service-plan som tillhandahåller integrering av virtuella nätverk med det virtuella nätverket. Detta gör att en funktion kan utlösas av den Azure Cosmos DB-resursen. 
+Anta till exempel att du vill konfigurera Azure Cosmos DB så att den bara accepterar trafik från ett virtuellt nätverk. I det här fallet måste du distribuera din funktionsapp i en App Service-plan som tillhandahåller integrering av virtuella nätverk med det virtuella nätverket. Integrering gör att en funktion kan utlösas av den Azure Cosmos DB-resursen.
 
 ## <a name="hybrid-connections"></a>Hybridanslutningar
 
@@ -138,15 +140,15 @@ Som används i Azure Functions korrelerar varje hybridanslutning till en enda TC
 Mer information finns i [Dokumentationen till App Service för hybridanslutningar](../app-service/app-service-hybrid-connections.md). Samma konfigurationssteg stöder Azure Functions.
 
 >[!IMPORTANT]
-> Hybridanslutningar stöds bara i Windows-abonnemang. Linux stöds inte
+> Hybridanslutningar stöds bara i Windows-abonnemang. Linux stöds inte.
 
 ## <a name="outbound-ip-restrictions"></a>Utgående IP-begränsningar
 
 Utgående IP-begränsningar är tillgängliga i en Premium-plan, App Service-plan eller App Service Environment. Du kan konfigurera utgående begränsningar för det virtuella nätverket där apptjänstmiljön distribueras.
 
-När du integrerar en funktionsapp i en Premium-plan eller en App Service-plan med ett virtuellt nätverk kan appen fortfarande ringa utgående samtal till internet som standard. Genom att lägga `WEBSITE_VNET_ROUTE_ALL=1`till en programinställning tvingar du all utgående trafik att skickas till det virtuella nätverket, där nätverkssäkerhetsgruppsregler kan användas för att begränsa trafiken.
+När du integrerar en funktionsapp i en Premium-plan eller en App Service-plan med ett virtuellt nätverk kan appen fortfarande ringa utgående samtal till internet som standard. Genom att lägga `WEBSITE_VNET_ROUTE_ALL=1`till programinställningen tvingar du all utgående trafik att skickas till det virtuella nätverket, där nätverkssäkerhetsgruppsregler kan användas för att begränsa trafiken.
 
-## <a name="troubleshooting"></a>Felsökning 
+## <a name="troubleshooting"></a>Felsökning
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 

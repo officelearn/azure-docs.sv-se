@@ -1,22 +1,22 @@
 ---
 title: Konfigurera Twitter-autentisering
-description: Lär dig hur du konfigurerar Twitter-autentisering som identitetsleverantör för apptjänstappen.
+description: Lär dig hur du konfigurerar Twitter-autentisering som identitetsprovider för appen AppTjänst eller Azure Functions.
 ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
 ms.topic: article
 ms.date: 02/28/2020
-ms.custom: seodec18
-ms.openlocfilehash: 794f671b36b5aeb9f19cf5d80e488500cedb1098
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 3f85f30e0a64b6e39b905fc05503a445aa5876ba
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78207155"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80438002"
 ---
-# <a name="configure-your-app-service-app-to-use-twitter-login"></a>Konfigurera appen App Service så att den använder Twitter-inloggning
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-twitter-login"></a>Konfigurera appen App Service eller Azure Functions för att använda Twitter-inloggning
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Den här artikeln visar hur du konfigurerar Azure App Service för att använda Twitter som autentiseringsleverantör.
+Den här artikeln visar hur du konfigurerar Azure App Service eller Azure Functions för att använda Twitter som autentiseringsleverantör.
 
 För att slutföra proceduren i den här artikeln behöver du ett Twitter-konto som har en verifierad e-postadress och telefonnummer. Om du vill skapa ett nytt Twitter-konto går du till [twitter.com].
 
@@ -69,5 +69,5 @@ Du är nu redo att använda Twitter för autentisering i din app.
 
 [Twitter Utvecklare]: https://go.microsoft.com/fwlink/p/?LinkId=268300
 [twitter.com]: https://go.microsoft.com/fwlink/p/?LinkID=268287
-[Azure-portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md

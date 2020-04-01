@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell exempel – skapa en fullständig skalnings uppsättning för virtuella datorer
-description: Det här skriptet skapar en skalnings uppsättning för virtuella datorer som kör Windows Server 2016, där enskilda resurser konfigureras och skapas.
+title: Azure PowerShell-exempel – skapa en fullständig skaluppsättning för virtuella datorer
+description: Det här skriptet skapar en skalningsuppsättning för virtuella datorer med Windows Server 2016, där enskilda resurser konfigureras och skapas.
 author: cynthn
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
@@ -9,15 +9,15 @@ ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 522dc1e24b8d3c4abd7b24dd3e0901e02b78992d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76278696"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>Skapa en fullständig VM-skalningsuppsättning med PowerShell
 
-Det här skriptet skapar en VM-skalningsuppsättning som kör Windows Server 2016. Enskilda resurser konfigureras och skapas i stället för att använda de [inbyggda alternativen för att skapa resurser som finns här i New-AzVmss](powershell-sample-create-simple-scale-set.md). När skriptet har körts får du åtkomst till de virtuella datorinstanserna via RDP.
+Det här skriptet skapar en VM-skalningsuppsättning som kör Windows Server 2016. Enskilda resurser konfigureras och skapas i stället för att använda de [inbyggda resursskapande alternativen som finns här i New-AzVmss](powershell-sample-create-simple-scale-set.md). När skriptet har körts får du åtkomst till de virtuella datorinstanserna via RDP.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

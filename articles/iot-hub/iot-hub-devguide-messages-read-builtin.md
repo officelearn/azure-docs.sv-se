@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: e7b8f8a33b741a8dcf2d1a68ae3cf86d6e3687eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a2674ca0f4808cb6f01781565e57369ca5d3ac37
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284608"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478782"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Läsa meddelanden från enhet till moln från den inbyggda slutpunkten
 
@@ -24,7 +24,7 @@ Som standard dirigeras meddelanden till den inbyggda tjänstinriktade slutpunkte
 | **Antal partitioner** | Ange den här egenskapen när du skapar för att definiera antalet [partitioner](../event-hubs/event-hubs-features.md#partitions) för händelsematning från enhet till moln. |
 | **Kvarhållningstid**  | Den här egenskapen anger hur länge i dagar meddelanden behålls av IoT Hub. Standard är en dag, men det kan ökas till sju dagar. |
 
-IoT Hub tillåter datalagring i de inbyggda eventhubbar i högst 7 dagar. Du kan ställa in kvarhållningstiden när du skapar din IoT Hub. Datalagringstiden i IoT Hub beror på din IoT-hubbnivå och enhetstyp. När det gäller storlek kan de inbyggda händelsehubbar behålla meddelanden med den maximala meddelandestorleken upp till minst 24 timmars kvot. Till exempel för 1 S1 enhet IoT Hub ger tillräckligt med lagringsutrymme för att behålla minst 400K meddelanden med 4k storlek vardera. Om dina enheter skickar mindre meddelanden kan de behållas längre (upp till 7 dagar) beroende på hur mycket lagringsutrymme som förbrukas. Vi garanterar att uppgifterna behålls för den angivna lagringstiden som ett minimum.
+IoT Hub tillåter datalagring i de inbyggda eventhubbar i högst 7 dagar. Du kan ställa in kvarhållningstiden när du skapar din IoT Hub. Datalagringstiden i IoT Hub beror på din IoT-hubbnivå och enhetstyp. När det gäller storlek kan de inbyggda händelsehubbar behålla meddelanden med den maximala meddelandestorleken upp till minst 24 timmars kvot. Till exempel för 1 S1 enhet IoT Hub ger tillräckligt med lagringsutrymme för att behålla minst 400K meddelanden med 4k storlek vardera. Om dina enheter skickar mindre meddelanden kan de behållas längre (upp till 7 dagar) beroende på hur mycket lagringsutrymme som förbrukas. Vi garanterar att uppgifterna behålls för den angivna lagringstiden som ett minimum. Meddelanden upphör att gälla och kommer inte att vara tillgängliga när kvarhållningstiden har passerat. 
 
 IoT Hub kan du också hantera konsumentgrupper på den inbyggda slutpunkten för mottagning av enhet till moln. Du kan ha upp till 20 konsumentgrupper för varje IoT Hub.
 
@@ -62,9 +62,9 @@ De SDK:er som du kan använda för att ansluta till den inbyggda händelsenav-ko
 
 | Språk | SDK | Exempel | Anteckningar |
 | -------- | --- | ------ | ----- |
-| .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Quickstart](quickstart-send-telemetry-dotnet.md) | Använder information om händelsehubbar |
- Java | https://github.com/Azure/azure-event-hubs-java | [Quickstart](quickstart-send-telemetry-java.md) | Använder information om händelsehubbar |
-| Node.js | https://github.com/Azure/azure-event-hubs-node | [Quickstart](quickstart-send-telemetry-node.md) | Använder anslutningssträng för IoT Hub |
+| .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Snabbstart](quickstart-send-telemetry-dotnet.md) | Använder information om händelsehubbar |
+ Java | https://github.com/Azure/azure-event-hubs-java | [Snabbstart](quickstart-send-telemetry-java.md) | Använder information om händelsehubbar |
+| Node.js | https://github.com/Azure/azure-event-hubs-node | [Snabbstart](quickstart-send-telemetry-node.md) | Använder anslutningssträng för IoT Hub |
 | Python | https://github.com/Azure/azure-event-hubs-python | https://github.com/Azure/azure-event-hubs-python/blob/master/examples/iothub_recv.py | Använder anslutningssträng för IoT Hub |
 
 De produktintegreringar som du kan använda med den inbyggda händelsenavet-kompatibla slutpunkten som IoT Hub exponerar inkluderar:

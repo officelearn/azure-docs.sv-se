@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 874c685491774e2a318ae0a8b7394945a51b2f7f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 68e234b9db269c30dc9f24106ae1942c01304da7
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79244516"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422508"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Kopiera data från och till Oracle med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -55,7 +55,7 @@ Specifikt stöder den här Oracle-anslutningen:
 
 Integrationskörningen ger en inbyggd Oracle-drivrutin. Därför behöver du inte installera en drivrutin manuellt när du kopierar data från och till Oracle.
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -213,7 +213,7 @@ Om du vill kopiera data från Oracle anger `OracleSource`du källtypen i kopieri
 |:--- |:--- |:--- |
 | typ | Egenskapen type property för kopians `OracleSource`aktivitet måste anges till . | Ja |
 | orakelLäsareQuery | Använd den anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`.<br>När du aktiverar partitionerad belastning måste du koppla motsvarande inbyggda partitionsparametrar i frågan. Exempel på exempel finns i avsnittet [Parallellkopia från Oracle.](#parallel-copy-from-oracle) | Inga |
-| partitionOptions | Anger de datapartitionsalternativ som används för att läsa in data från Oracle. <br>Tillåtna värden är: **Inga** (standard), **PhysicalPartitionsOfTable** och **DynamicRange**.<br>När ett partitionsalternativ är aktiverat (det vill ha), `None`styrs graden av parallellitet till samtidig inläsning av data från en Oracle-databas av [`parallelCopies`](copy-activity-performance.md#parallel-copy) inställningen på kopieringsaktiviteten. | Inga |
+| partitionOptions | Anger de datapartitionsalternativ som används för att läsa in data från Oracle. <br>Tillåtna värden är: **Inga** (standard), **PhysicalPartitionsOfTable** och **DynamicRange**.<br>När ett partitionsalternativ är aktiverat (det vill ha), `None`styrs graden av parallellitet till samtidig inläsning av data från en Oracle-databas av [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) inställningen på kopieringsaktiviteten. | Inga |
 | partitionSätta | Ange gruppen för inställningarna för datapartitionering. <br>Använd när partitionsalternativet `None`inte är . | Inga |
 | partitionNames (partitionNames) | Listan över fysiska partitioner som måste kopieras. <br>Använd när partitionsalternativet är `PhysicalPartitionsOfTable`. Om du använder en fråga för `?AdfTabularPartitionName` att hämta källdata ansluter du WHERE-satsen. Ett exempel finns i avsnittet [Parallellkopia från Oracle.](#parallel-copy-from-oracle) | Inga |
 | partitionColumnName | Ange namnet på källkolumnen **i heltalstyp** som ska användas av områdespartitionering för parallellkopia. Om inget anges identifieras den primära nyckeln i tabellen automatiskt och används som partitionskolumn. <br>Använd när partitionsalternativet är `DynamicRange`. Om du använder en fråga för `?AdfRangePartitionColumnName` att hämta källdata ansluter du WHERE-satsen. Ett exempel finns i avsnittet [Parallellkopia från Oracle.](#parallel-copy-from-oracle) | Inga |
@@ -300,7 +300,7 @@ Data Factory Oracle-anslutningen tillhandahåller inbyggd datapartitionering fö
 
 ![Skärmbild av partitionsalternativ](./media/connector-oracle/connector-oracle-partition-options.png)
 
-När du aktiverar partitionerad kopia kör Data Factory parallella frågor mot Oracle-källan för att läsa in data efter partitioner. Den parallella graden [`parallelCopies`](copy-activity-performance.md#parallel-copy) styrs av inställningen på kopieringsaktiviteten. Om du till `parallelCopies` exempel anger fyra genererar och kör Data Factory samtidigt fyra frågor baserat på det angivna partitionsalternativet och inställningarna, och varje fråga hämtar en del data från Oracle-databasen.
+När du aktiverar partitionerad kopia kör Data Factory parallella frågor mot Oracle-källan för att läsa in data efter partitioner. Den parallella graden [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) styrs av inställningen på kopieringsaktiviteten. Om du till `parallelCopies` exempel anger fyra genererar och kör Data Factory samtidigt fyra frågor baserat på det angivna partitionsalternativet och inställningarna, och varje fråga hämtar en del data från Oracle-databasen.
 
 Du föreslås aktivera parallellkopiering med datapartitionering, särskilt när du läser in stora mängder data från Oracle-databasen. Följande är föreslagna konfigurationer för olika scenarier. När du kopierar data till filbaserat datalager rekommenderas att skriva till en mapp som flera filer (ange bara mappnamn), i vilket fall prestandan är bättre än att skriva till en enda fil.
 

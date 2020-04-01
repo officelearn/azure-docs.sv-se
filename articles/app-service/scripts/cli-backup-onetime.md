@@ -1,5 +1,5 @@
 ---
-title: 'CLI: säkerhetskopiera en app'
+title: 'CLI: Säkerhetskopiera en app'
 description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du säkerhetskopierar en app.
 author: msangapu-msft
 tags: azure-service-management
@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 12/07/2017
 ms.author: msangapu
 ms.reviewer: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: ed9975d33259678defd34582e00294def7ce3467
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: fd310e81c6a86e651e27518acfdefa66980fa938
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74686840"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80059144"
 ---
 # <a name="back-up-an-app-using-cli"></a>Säkerhetskopiera en app med CLI
 

@@ -3,21 +3,24 @@ title: Konfigurera Micro Focus CICS BankDemo för Micro Focus Enterprise Develop
 description: Kör Micro Focus BankDemo-programmet på virtuella Azure-datorer (VMs) för att lära dig att använda Micro Focus Enterprise Server och Enterprise Developer.
 author: sread
 ms.author: sread
-ms.date: 04/02/2019
+ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 4491fc137c2c85e2be605f5e58fde6fd422efbbe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db9d6bab2f383102434512aa63d7566cff1f579b
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67621341"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411079"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Konfigurera Micro Focus CICS BankDemo för Micro Focus Enterprise Developer 4.0 på Azure
 
 När du konfigurerar Micro Focus Enterprise Server 4.0 och Enterprise Developer 4.0 på Azure kan du testa distributioner av IBM z/OS-arbetsbelastningar. Den här artikeln visar hur du konfigurerar CICS BankDemo, ett exempelprogram som medföljer Enterprise Developer.
 
 CICs står för Customer Information Control System, den transaktionsplattform som används av många av de online stordator applikationer. BankDemo-programmet är bra för att lära sig hur Enterprise Server och Enterprise Developer fungerar och hur du hanterar och distribuerar ett verkligt program komplett med grön skärm terminaler.
+
+> [!NOTE]
+> Kommer snart: Instruktioner för hur du konfigurerar [Micro Focus Enterprise Server 5.0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) på virtuella Azure-datorer.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -272,5 +275,5 @@ Grattis! Du kör nu ett CICS-program i Azure med Micro Focus Enterprise Server.
 - [Köra Enterprise Server i Docker-behållare på Azure](run-enterprise-server-container.md)
 - [Stordatormigrering - Portal](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)
 - [Virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
-- [Troubleshooting](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/) (Felsökning)
+- [Felsökning](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
 - [Avmystifiera stordator till Azure-migrering](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 77a451cb9f6598bbe7013f4215cfa7cab40186bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4f2b192765aab4c7cf18c62988ae2f6080b4b17c
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79037543"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436890"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Använda Apache Beeline-klienten med Apache Hive
 
@@ -65,7 +65,7 @@ Så här hittar du JDBC-webbadressen från Ambari:
 
 ### <a name="over-public-or-private-endpoints"></a>Över offentliga eller privata slutpunkter
 
-När du ansluter till ett kluster med hjälp av offentliga eller privata slutpunkter måste du ange namnet på klustrets inloggningskonto (standard) `admin`och lösenord. Till exempel använda Beeline från ett klientsystem för att ansluta till `clustername.azurehdinsight.net` adressen. Den här anslutningen `443`görs över porten och krypteras med SSL.
+När du ansluter till ett kluster med hjälp av offentliga eller privata slutpunkter måste du ange namnet på klustrets inloggningskonto (standard) `admin`och lösenord. Till exempel använda Beeline från ett klientsystem för att ansluta till `clustername.azurehdinsight.net` adressen. Den här anslutningen `443`görs över porten och krypteras med TLS/SSL.
 
 Ersätt `clustername` med namnet på HDInsight-klustret. Ersätt `admin` med klusterinloggningskontot för klustret. För ESP-kluster använder du hela UPN user@domain.com(till exempel). Ersätt `password` med lösenordet för klusterinloggningskontot.
 

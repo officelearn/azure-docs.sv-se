@@ -8,22 +8,25 @@ ms.author: edprice
 manager: edprice
 editor: edprice
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 03/30/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: a5426c3cd7552b24739f9a20e01d5a4b42bd383c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b3fa5faccf17df17bc4f7cc2d8b023b868fdbe1
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68834568"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411199"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Installera Micro Focus Enterprise Server 4.0 och Enterprise Developer 4.0 på Azure
 
 Den här artikeln visar hur du konfigurerar [Micro Focus Enterprise Server 4.0](https://www.microfocus.com/documentation/enterprise-developer/es30/) och Micro Focus Enterprise Developer [4.0](https://www.microfocus.com/documentation/enterprise-developer/ed_30/) på Azure.
 
 En gemensam arbetsbelastning på Azure är en utvecklings- och testmiljö. Det här scenariot är vanligt eftersom det är så kostnadseffektivt och enkelt att distribuera och riva. Med Enterprise Server har Micro Focus skapat en av de största plattformarna för rehosting i stordatorn. Du kan köra z/OS-arbetsbelastningar på en billigare x86-plattform på Azure med antingen Windows eller Linux virtuella datorer (VIRTUELLA datorer).
+
+> [!NOTE]
+> Kommer snart: Instruktioner för hur du konfigurerar [Micro Focus Enterprise Server 5.0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) på virtuella Azure-datorer.
 
 Den här konfigurationen använder virtuella Azure-datorer som kör Windows Server 2016-avbildningen från Azure Marketplace med Microsoft SQL Server 2017 redan installerat. Den här inställningen gäller även för Azure Stack.
 

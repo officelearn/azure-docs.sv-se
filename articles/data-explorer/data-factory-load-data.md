@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 860b1a579d9c8cee6c6e80ae4c4e7fdd7949d5c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e17a004ff866f3915000fb72b6770757062cf83
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71300589"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422903"
 ---
 # <a name="copy-data-to-azure-data-explorer-by-using-azure-data-factory"></a>Kopiera data till Azure Data Explorer med hjälp av Azure Data Factory 
 
@@ -29,7 +29,7 @@ När du läser in data i Azure Data Explorer ger Data Factory följande fördela
 * **Hög prestanda**: Datainläsningshastigheten är upp till 1 gigabyte per sekund (GBps) i Azure Data Explorer. Mer information finns i [Kopiera aktivitetsprestanda](/azure/data-factory/copy-activity-performance).
 
 I den här artikeln använder du datafabrikskopieringsdataverktyget för att läsa in data från Amazon Simple Storage Service (S3) i Azure Data Explorer. Du kan följa en liknande process för att kopiera data från andra datalager, till exempel:
-* [Azure Blob-lagring](/azure/data-factory/connector-azure-blob-storage)
+* [Azure Blob Storage](/azure/data-factory/connector-azure-blob-storage)
 * [Azure SQL Database](/azure/data-factory/connector-azure-sql-database)
 * [Azure SQL-datalager](/azure/data-factory/connector-azure-sql-data-warehouse)
 * [Google BigQuery](/azure/data-factory/connector-google-bigquery)
@@ -59,7 +59,7 @@ I den här artikeln använder du datafabrikskopieringsdataverktyget för att lä
    | **Namn** | Ange ett globalt unikt namn för datafabriken i rutan. Om du får ett felmeddelande *anger Datafabriksnamn \"\" LoadADXDemo inte*ett annat namn för datafabriken. Regler om namngivning av datafabriksartefakter finns i [Namngivningsregler för Data Factory](/azure/data-factory/naming-rules).|
    | **Prenumeration** | I listrutan väljer du den Azure-prenumeration som du vill skapa datafabriken i. |
    | **Resursgrupp** | Välj **Skapa ny**och ange sedan namnet på en ny resursgrupp. Om du redan har en resursgrupp väljer du **Använd befintlig**. |
-   | **Version** | Välj **V2**i listrutan . |  
+   | **Version** | Välj **V2**i listrutan . |    
    | **Location** | Välj plats för datafabriken i listrutan. Endast platser som stöds visas i listan. De datalager som används av datafabriken kan finnas på andra platser eller regioner. |
 
 1. Välj **Skapa**.
@@ -78,7 +78,7 @@ Du kan läsa in data från många typer av [datalager](/azure/data-factory/copy-
 
 Du kan läsa in dina data på något av följande sätt:
 
-* I användargränssnittet i Azure Data Factory i den vänstra rutan väljer du **ikonen Författare,** som visas i avsnittet "Skapa en datafabrik" i [Skapa en datafabrik med hjälp av Azure Data Factory UI](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory).
+* Välj ikonen **Författare** i det vänstra fönstret i azure data factory. Detta visas i avsnittet "Skapa en datafabrik" i [Skapa en datafabrik med hjälp av Azure Data Factory UI](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory).
 * I azure data fabrikskopieringsdata, som visas i [Använd verktyget Kopiera data för att kopiera data](/azure/data-factory/quickstart-create-data-factory-copy-data-tool).
 
 ### <a name="copy-data-from-amazon-s3-source"></a>Kopiera data från Amazon S3 (källa)
@@ -142,6 +142,9 @@ Du kan läsa in dina data på något av följande sätt:
 
 Den nya Azure Data Explorer-länkade tjänsten skapas för att kopiera data till måltabellen för Azure Data Explorer (sink) som anges i det här avsnittet.
 
+> [!NOTE]
+> Använd [kommandoaktiviteten i Azure Data Factory för att köra Azure Data Explorer-kontrollkommandon](data-factory-command-activity.md) `.set-or-replace`och använda något av [de intag från frågekommandona,](/azure/kusto/management/data-ingestion/ingest-from-query)till exempel .
+
 #### <a name="create-the-azure-data-explorer-linked-service"></a>Skapa den länkade azure data explorer-tjänsten
 
 Så här skapar du den länkade Azure Data Explorer-tjänsten:
@@ -160,7 +163,7 @@ Så här skapar du den länkade Azure Data Explorer-tjänsten:
 
    a. Ange ett namn för den länkade Azure Data Explorer-tjänsten i rutan **Namn.**
 
-   b. Gör något av följande under **Kontovalsmetod:** 
+   b. Under **Kontovalsmetod**väljer du något av följande alternativ: 
 
     * Välj **Från Azure-prenumeration** och välj sedan din **Azure-prenumeration** och ditt **kluster**i listrutorna. 
 
@@ -186,7 +189,7 @@ Så här skapar du den länkade Azure Data Explorer-tjänsten:
 
 #### <a name="configure-the-azure-data-explorer-data-connection"></a>Konfigurera dataanslutningen för Azure Data Explorer
 
-När du har skapat den länkade tjänstanslutningen öppnas fönstret **Måldatalager** och anslutningen som du skapade är tillgänglig för användning. Gör följande om du vill konfigurera anslutningen:
+När du har skapat den länkade tjänstanslutningen öppnas fönstret **Måldatalager** och anslutningen som du skapade är tillgänglig för användning. Så här konfigurerar du anslutningen:
 
 1. Välj **Nästa**.
 

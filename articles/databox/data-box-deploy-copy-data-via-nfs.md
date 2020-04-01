@@ -1,5 +1,5 @@
 ---
-title: Självstudie för att kopiera data till Azure Data Box via NFS | Microsoft Docs
+title: Självstudiekurs för att kopiera data till Azure Data Box via NFS| Microsoft-dokument
 description: Lär dig hur du kopierar data till Azure Data Box via NFS
 services: databox
 author: alkohli
@@ -8,32 +8,33 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: c74ed93383ea880900a5428a6f24b5b44a3ff135
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f0a4bb23d8a868e7c11153748259eba23a0cca38
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79239240"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79501816"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Självstudie: kopiera data till Azure Data Box via NFS
+# <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Självstudiekurs: Kopiera data till Azure Data Box via NFS
 
-Den här självstudien beskriver hur du ansluter till och kopierar data från värddatorn med det lokala webbgränssnittet.
+I den här självstudien beskrivs hur du ansluter till och kopierar data från värddatorn med det lokala webbgränssnittet.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Förutsättningar
+>
+> * Krav
 > * Ansluta till Data Box
 > * Kopiera data till Data Box
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du börjar ska du kontrollera att:
+Innan du börjar bör du kontrollera att:
 
 1. Du har slutfört [Självstudie: Konfigurera Azure Data Box](data-box-deploy-set-up.md).
 2. Du har fått din Data Box och att orderstatusen i portalen är **Levererad**.
 3. Du har en värddator som har de data du vill kopiera över till Data Box. Värddatorn måste
-    - Köra ett [operativsystem som stöds](data-box-system-requirements.md).
+    - Kör ett [operativsystem som stöds](data-box-system-requirements.md).
     - Vara ansluten till en höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en anslutning på 10 GbE inte är tillgänglig kan en datalänk på 1 GbE användas, men i så fall påverkas kopieringshastigheten. 
 
 ## <a name="connect-to-data-box"></a>Ansluta till Data Box
@@ -59,7 +60,7 @@ Om du använder en Linux-värddator utför du stegen nedan för att konfigurera 
 
     ![Konfigurera NFS-klientåtkomst 1](media/data-box-deploy-copy-data/nfs-client-access.png)
 
-2. Ange NFS-klientens IP-adress och klicka på **Add**. Du kan konfigurera åtkomst för flera NFS genom att upprepa det här steget. Klicka på **OK**
+2. Ange NFS-klientens IP-adress och klicka på **Add**. Du kan konfigurera åtkomst för flera NFS genom att upprepa det här steget. Klicka på **OK**.
 
     ![Konfigurera NFS-klientåtkomst 2](media/data-box-deploy-copy-data/nfs-client-access2.png)
 
@@ -83,17 +84,17 @@ Om du använder en Linux-värddator utför du stegen nedan för att konfigurera 
 
 När du är ansluten till Data Box-resurser är nästa steg att kopiera data. Granska följande innan du kopierar data:
 
-- Se till att du kopierar data till resurser som motsvarar lämplig dataformat. Kopiera exempelvis blockblobdata till resursen för blockblobobjekt. Kopiera virtuella hårddiskar till sidblobar. Om dataformatet inte matchar lämplig resurstyp misslyckas datauppladdningen till Azure i ett senare skede.
--  När du kopierar data ser du till att datastorleken överensstämmer med storleksbegränsningarna som beskrivs i avsnittet om [Azure Storage- och Data Box-gränser](data-box-limits.md). 
-- Om data som laddas upp av Data Box samtidigt överförs av andra program utanför Data Box, kan detta resultera i att uppladdningsjobbet misslyckas samt att data skadas.
-- Vi rekommenderar att du inte använda både SMB och NFS samtidigt eller kopierar samma data till samma mål i slutet på Azure. I sådana fall kan slutresultatet inte fastställas.
-- **Skapa alltid en mapp för de filer som du vill kopiera under resursen och kopiera sedan filerna till den mappen**. Mappen som skapas under blockblob- och sidblobresurser representerar en container som data laddas upp som blobar till. Du kan inte kopiera filer direkt till *root*-mappen i lagringskontot.
-- Om du matar in Skift läges känslig katalog och fil namn från en NFS-resurs till NFS på Data Box-enhet: 
-    - Ärendet bevaras i namnet.
-    - Filerna är inte Skift läges känsliga.
-    
-    Om du t. ex. kopierar `SampleFile.txt` och `Samplefile.Txt`bevaras ärendet i namnet när det kopieras till Data Box-enhet, men den andra filen skriver över det första som dessa betraktas som en fil.
+* Se till att du kopierar data till resurser som motsvarar lämplig dataformat. Kopiera exempelvis blockblobdata till resursen för blockblobobjekt. Kopiera virtuella hårddiskar till sidblobar. Om dataformatet inte matchar lämplig resurstyp misslyckas datauppladdningen till Azure i ett senare skede.
+*  När du kopierar data ser du till att datastorleken överensstämmer med storleksbegränsningarna som beskrivs i avsnittet om [Azure Storage- och Data Box-gränser](data-box-limits.md). 
+* Om data som laddas upp av Data Box samtidigt överförs av andra program utanför Data Box, kan detta resultera i att uppladdningsjobbet misslyckas samt att data skadas.
+* Vi rekommenderar att du inte använda både SMB och NFS samtidigt eller kopierar samma data till samma mål i slutet på Azure. I sådana fall kan slutresultatet inte fastställas.
+* **Skapa alltid en mapp för de filer som du vill kopiera under resursen och kopiera sedan filerna till den mappen**. Mappen som skapas under blockblob- och sidblobresurser representerar en container som data laddas upp som blobar till. Du kan inte kopiera filer direkt till *root*-mappen i lagringskontot.
+* Om du intag av skiftlägeskänsliga katalog- och filnamn från en NFS-resurs till NFS i datarutan:
+  * Ärendet bevaras i namnet.
+  * Filerna är skiftlägesokänsliga.
 
+    Om du till `SampleFile.txt` exempel `Samplefile.Txt`kopierar och bevaras ärendet i namnet när det kopieras till Data Box, men den andra filen skriver över den första eftersom dessa betraktas som samma fil.
+* Se till att du behåller en kopia av källdata tills du kan bekräfta att datarutan har överfört dina data till Azure Storage.
 
 Om du använder en Linux-värddator använder du en kopieringsverktyg som liknar Robocopy. Några av alternativen som är tillgängliga i Linux är [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) eller [Ultracopier](https://ultracopier.first-world.info/).  
 
@@ -134,7 +135,7 @@ Om du använder rsync-alternativet för en flertrådig kopia följer du dessa ri
      Vi rekommenderar att du börjar med 16 parallella kopior och öka antalet trådar beroende på tillgängliga resurser.
 
 > [!IMPORTANT]
-> Följande Linux-filtyper stöds inte: symboliska länkar, paketfiler, blockera filer, Sockets och pipes. Dessa filtyper resulterar i problem under **Förbered för att skicka** steget.
+> Följande Linux-filtyper stöds inte: symboliska länkar, teckenfiler, blockfiler, sockets och pipes. Dessa filtyper resulterar i fel under steget **Förbered leverans.**
 
 Öppna målmappen för att visa och verifiera de kopierade filerna. Om det uppstod fel under kopieringsprocessen laddar du ned felfilerna för felsökning. Mer information finns i [Visa felloggar under datakopiering till Data Box](data-box-logs.md#view-error-log-during-data-copy). En detaljerad lista över fel i samband med datakopieringen finns i [Felsöka problem med Data Box](data-box-troubleshoot.md).
 
@@ -148,7 +149,7 @@ För att säkerställa dataintegriteten beräknas kontrollsumman infogat när da
 I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 
 > [!div class="checklist"]
-> * Förutsättningar
+> * Krav
 > * Ansluta till Data Box
 > * Kopiera data till Data Box
 

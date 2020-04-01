@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: ff4079263fd7afb02e132a798997687fad7e9961
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d27c648980338b3a9e12bd618eb4620fe9988fd7
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78206987"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436886"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Vanliga frågor och svar om Apache Kafka i Azure HDInsight
 
@@ -50,7 +50,7 @@ Med [Esp (Enterprise Security Package)](../domain-joined/apache-domain-joined-ar
 
 ## <a name="is-my-data-encrypted-can-i-use-my-own-keys"></a>Är mina data krypterade? Kan jag använda mina egna nycklar?
 
-Alla Kafka-meddelanden på de hanterade diskarna krypteras med [Azure Storage Service Encryption (SSE)](../../storage/common/storage-service-encryption.md). Data-in-transit (till exempel data som överförs från klienter till mäklare och tvärtom) krypteras inte som standard. Det är möjligt att kryptera sådan trafik genom [att ställa in SSL på egen hand.](./apache-kafka-ssl-encryption-authentication.md) Dessutom kan HDInsight du hantera sina egna nycklar för att kryptera data i vila. Mer information finns i [Kryptering av kundhanterad nyckeldisk](../disk-encryption.md), för mer information.
+Alla Kafka-meddelanden på de hanterade diskarna krypteras med [Azure Storage Service Encryption (SSE)](../../storage/common/storage-service-encryption.md). Data-in-transit (till exempel data som överförs från klienter till mäklare och tvärtom) krypteras inte som standard. Det är möjligt att kryptera sådan trafik genom [att ställa in TLS på egen hand](./apache-kafka-ssl-encryption-authentication.md). Dessutom kan HDInsight du hantera sina egna nycklar för att kryptera data i vila. Mer information finns i [Kryptering av kundhanterad nyckeldisk](../disk-encryption.md), för mer information.
 
 ## <a name="how-do-i-connect-clients-to-my-cluster"></a>Hur ansluter jag klienter till mitt kluster?
 
@@ -96,5 +96,5 @@ Använd Azure-övervakaren för att analysera dina [Kafka-loggar](./apache-kafka
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera SSL-kryptering (Secure Sockets Layer) och autentisering för Apache Kafka i Azure HDInsight](./apache-kafka-ssl-encryption-authentication.md)
+* [Konfigurera TLS-kryptering och autentisering för Apache Kafka i Azure HDInsight](./apache-kafka-ssl-encryption-authentication.md)
 * [Använd MirrorMaker för att replikera Apache Kafka-ämnen med Kafka i HDInsight](./apache-kafka-mirroring.md)

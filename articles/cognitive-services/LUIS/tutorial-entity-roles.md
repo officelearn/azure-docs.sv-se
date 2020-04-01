@@ -1,26 +1,18 @@
 ---
 title: 'Självstudiekurs: Kontextuella data med roller - LUIS'
-titleSuffix: Azure Cognitive Services
 description: Hitta relaterade data baserat på kontext. Till exempel är ett ursprung och målplatser för en fysisk flytt från en byggnad och ett kontor till en annan byggnad och ett annat kontor relaterade.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: cd646ef061a0be06a9b1a56b72a4f35d9796aa63
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 03/30/2020
+ms.openlocfilehash: fdb463896e531619ea7ebe7c384729763dc84138
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75447895"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475819"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Självstudiekurs: Extrahera kontextuellt relaterade data från ett uttryck
 
-I den här självstudien hittar du relaterade datadelar baserat på kontext. Exempel kan vara en ursprungsplats och målplatser för en transport från en stad till en annan. Båda datadelarna kan krävas, och de är relaterade till varandra.
+I den här självstudien hittar du relaterade datadelar baserat på kontext. Till exempel ursprungs- och destinationsplatser för en överföring från en stad till en annan. Båda datadelarna kan krävas, och de är relaterade till varandra.
 
 En roll kan användas med valfri fördefinierad eller anpassad entitetstyp och användas i både exempelyttranden och mönster.
 
@@ -49,24 +41,26 @@ En roll bör användas när entitetsdata för att extrahera:
 
 ## <a name="create-a-new-app"></a>Skapa en ny app
 
-1. Logga in på LUIS-portalen [https://preview.luis.ai](https://preview.luis.ai)med URL:en till .
+1. Logga in på [ **LUIS-förhandsgranskningsportalen** ](https://preview.luis.ai).
 
-1. Välj **Skapa ny app,** ange namnet `HumanResources` och behåll standardkulturen, **engelska**. Lämna beskrivningen tom.
-
-1. Välj **Done** (Klar).
+1. Välj **+ Ny app för** `HumanResources` konversation , ange namnet och behåll standardkulturen, **engelska**. Lämna beskrivnings- och förutsägelseresursen tom. Välj **Done** (Klar).
 
 ## <a name="create-an-intent-to-move-employees-between-cities"></a>Skapa en avsikt att flytta medarbetare mellan städer
 
+En avsikt används för att klassificera användaryttranden baserat på användarens avsikt, bestämd från den naturliga språktexten.
+
+För att klassificera ett uttryck behöver avsikten exempel på användaryttranden som ska klassificeras med den här avsikten.
+
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. Välj **Create new intent** (Skapa ny avsikt).
+1. Välj **+ Skapa**.
 
 1. Ange `MoveEmployeeToCity` i popup-dialogrutan och välj sedan **Done** (Klar).
 
     > [!div class="mx-imgBorder"]
     > ![Skärmbild på dialogrutan Create new intent (Skapa ny avsikt)](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
 
-1. Lägg till exempel på yttranden i avsikten.
+1. Lägg till flera exempel yttranden till denna avsikt som du förväntar dig att en användare att fråga.
 
     |Exempel på yttranden|
     |--|
@@ -85,24 +79,29 @@ En roll bör användas när entitetsdata för att extrahera:
 
 ## <a name="add-prebuilt-entity-geographyv2"></a>Lägg till fördefinierad entitetsgeografiV2
 
-Den fördefinierade entiteten, geographyV2, extraherar platsinformation, inklusive stadsnamn. Eftersom yttrandena har två ortnamn, som relaterar till varandra i sitt sammanhang, använder du roller för att extrahera det sammanhanget.
+Den fördefinierade entiteten, **geographyV2**, extraherar platsinformation, inklusive ortnamn. Eftersom yttrandena har två ortnamn, som relaterar till varandra i sitt sammanhang, använder du roller för att extrahera det sammanhanget.
 
 1. Välj **Entiteter** från navigeringen på vänster sida.
 
-1. Välj **Lägg till fördefinierad entitet**och välj `geo` sedan i sökfältet för att filtrera de fördefinierade entiteterna.
+1. Välj **+ Lägg till fördefinierad entitet**och ange `geo` sedan i sökfältet för att filtrera de fördefinierade entiteterna.
 
     > [!div class="mx-imgBorder"]
     > ![Lägg till geografiV2 fördefinierad entitet till app](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
 
 1. Markera kryssrutan och välj **Klar**.
+
+## <a name="add-roles-to-prebuilt-entity"></a>Lägga till roller i fördefinierad entitet
+
 1. I listan **Entiteter** väljer du **geographyV2** för att öppna den nya entiteten.
-1. Lägg till `Origin`två `Destination`roller och .
+1. Om du vill **+** lägga till en roll `Origin`markerar `Destination`du och lägger till följande två roller: och .
 
     > [!div class="mx-imgBorder"]
     > ![Lägga till roller i fördefinierad entitet](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 
+## <a name="label-entity-roles-in-example-utterances"></a>Märk entitetsroller i exempelyttningar
+
 1. Välj **Avsikter** från navigering på vänster sida och välj sedan avsikten **MoveEmployeeToCity.** Lägg märke till att ortnamnen är märkta med den fördefinierade entiteten **geographyV2**.
-1. Välj **paletten Entitet**i kontextverktygsfältet .
+1. I kontextverktygsfältet väljer du **entitetspaletten** med _pennikonen_.
 
     > [!div class="mx-imgBorder"]
     > ![Välj entitetspalett i verktygsfältet Innehåll](media/tutorial-entity-roles/intent-detail-context-toolbar-select-entity-palette.png)
@@ -122,18 +121,21 @@ Den fördefinierade entiteten, geographyV2, extraherar platsinformation, inklusi
 
 ## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Träna appen så att avsiktsändringarna kan testas
 
-[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+Om du vill träna appen väljer du **Träna**. Utbildningen tillämpar ändringarna, till exempel de nya entiteterna och de märkta yttrandena, på den aktiva modellen.
 
-## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicera appen så att frågor kan köras mot den tränade modellen från slutpunkten
+## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publicera appen för att komma åt den från HTTP-slutpunkten
 
-[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
+
 
 ## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Hämta avsikts- och entitetsförutsägelser från slutpunkten
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
 
-1. Gå till slutet av webbadressen i adressfältet och ange `Please move Carl Chamerlin from Tampa to Portland`. Den senaste frågesträngparametern är `q`, uttrycksfrågan . **query** Det här uttrycket är inte samma sak som någon av de märkta `MoveEmployee` yttrandena så det är ett bra test och bör returnera avsikten med den extraherade entiteten.
+1. Gå till slutet av webbadressen i _YOUR_QUERY_HERE_ adressfältet och `Please move Carl Chamerlin from Tampa to Portland`ersätt YOUR_QUERY_HERE med .
+
+Det här uttrycket är inte samma sak som någon av de märkta `MoveEmployee` yttrandena så det är ett bra test och bör returnera avsikten med den extraherade entiteten.
 
     ```json
     {
@@ -171,11 +173,9 @@ Den fördefinierade entiteten, geographyV2, extraherar platsinformation, inklusi
     }
     ```
 
-    Rätt avsikt förutses och entitetsmatrisen har både ursprungs- och målrollerna i motsvarande **entitetsegenskap.**
+    The correct intent is predicted and the entities array has both the origin and destination roles in the corresponding **entities** property.
 
-## <a name="clean-up-resources"></a>Rensa resurser
-
-[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](includes/quickstart-tutorial-cleanup-resources.md)]
 
 ## <a name="related-information"></a>Relaterad information
 

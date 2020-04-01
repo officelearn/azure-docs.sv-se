@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cba97b84f77bd4e2d4cfd97601fa4f8637105eb4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1c4bbd98682d964cfdf72031c7d6cb77cf42a809
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051411"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396074"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Om anspråkslösare i Azure Active Directory B2C-anpassade principer
 
@@ -76,7 +76,7 @@ I följande avsnitt listas tillgängliga anspråkslösare.
 | {OIDC:Prompt} | Parametern `prompt` för frågesträngen. | inloggning |
 | {OIDC:RedirectUri} |Parametern `redirect_uri` för frågesträngen. | https://jwt.ms |
 | {OIDC:Resource} |Parametern `resource` för frågesträngen. | Ej tillämpligt |
-| {OIDC:scope} |Parametern `scope` för frågesträngen. | Openid |
+| {OIDC:Scope} |Parametern `scope` för frågesträngen. | Openid |
 | {OIDC:Användarnamn}| [Resursägarens lösenordsautentiseringsuppgifter flödar](ropc-custom.md) användarens användarnamn.| emily@contoso.com| 
 
 ### <a name="context"></a>Kontext
@@ -162,7 +162,7 @@ I följande exempel visas en RESTful teknisk profil med det här scenariot:
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userLanguage" DefaultValue="{Culture:LCID}" AlwaysUseDefaultValue="true" />
     <InputClaim ClaimTypeReferenceId="policyName" DefaultValue="{Policy:PolicyId}" AlwaysUseDefaultValue="true" />
-    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="{OIDC:scope}" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="{OIDC:Scope}" AlwaysUseDefaultValue="true" />
     <InputClaim ClaimTypeReferenceId="clientId" DefaultValue="{OIDC:ClientId}" AlwaysUseDefaultValue="true" />
   </InputClaims>
   <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
@@ -175,7 +175,7 @@ Med hjälp av anspråkslösare kan du fylla i inloggningsnamnet eller direktinst
 
 ### <a name="dynamic-ui-customization"></a>Anpassning av dynamiskt användargränssnitt
 
-Med Azure AD B2C kan du skicka frågesträngparametrar till slutpunkterna för HTML-innehållsdefinition för att dynamiskt återge sidinnehållet. Detta gör det till exempel möjligt att ändra bakgrundsavbildningen på sign-up- eller inloggningssidan för Azure AD B2C baserat på en anpassad parameter som du skickar från ditt webb- eller mobilappprogram. Mer information finns i [Dynamiskt konfigurera användargränssnittet med hjälp av anpassade principer i Azure Active Directory B2C](custom-policy-ui-customization.md). Du kan också lokalisera HTML-sidan baserat på en språkparameter eller ändra innehållet baserat på klient-ID.
+Med Azure AD B2C kan du skicka frågesträngparametrar till slutpunkterna för HTML-innehållsdefinition för att dynamiskt återge sidinnehållet. Med den här funktionen kan du till exempel ändra bakgrundsavbildningen på registrerings- eller inloggningssidan för Azure AD B2C baserat på en anpassad parameter som du skickar från ditt webb- eller mobilappprogram. Mer information finns i [Dynamiskt konfigurera användargränssnittet med hjälp av anpassade principer i Azure Active Directory B2C](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri). Du kan också lokalisera HTML-sidan baserat på en språkparameter eller ändra innehållet baserat på klient-ID.
 
 Följande exempel skickas i frågesträngparametern **CampaignId** `Hawaii`med värdet `en-US`, en **språkkod** för och en **app** som representerar klient-ID:
 

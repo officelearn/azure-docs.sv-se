@@ -11,49 +11,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/17/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: b9021784216f02fb117f6e63e150b37b07755912
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 396c37d4c8de6a890102e435c5ec6cc70b598638
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239858"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421025"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli-preview"></a>Distribuera ett IPv6-program med dubbla staplar med basic load balancer - CLI (förhandsversion)
+# <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli"></a>Distribuera ett IPv6-program med dubbla staplar med basic load balancer - CLI
 
-Den här artikeln visar hur du distribuerar ett IPv4 + IPv6-program med grundläggande belastningsutjämnare med Azure CLI som innehåller ett virtuellt nätverk med dubbla staplar med ett undernät med dubbla staplar, en grundläggande belastningsutjämnare med dubbla frontendkonfigurationer (IPv4 + IPv6), virtuella datorer med nätverkskort med nätverkskort med nätverkskort med dubbla staplar som har en dubbel IP-konfiguration, regler för säkerhetsgrupp för dubbla nätverk och dubbla offentliga IP-adresser.
+Den här artikeln visar hur du distribuerar ett IPv4 + IPv6-program med grundläggande belastningsutjämnare med Azure CLI som innehåller ett virtuellt nätverk med dubbla staplar med ett undernät med dubbla staplar, en grundläggande belastningsutjämnare med dubbla (IPv4 + IPv6) frontendkonfigurationer, virtuella datorer med nätverkskort som har en dubbel IP-konfiguration, regler för säkerhetsgrupp med dubbla nätverk och dubbla offentliga IP-adresser.
 
 Information om hur du distribuerar ett IPV4 + IPv6-program med standardbelastningsutjämning finns i [Distribuera ett IPv6-program med dubbla staplar med Standard belastningsutjämnare med Azure CLI](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md).
 
-> [!Important]
-> IPv6 dual stack för Azure Virtual Network är för närvarande i offentlig förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) nu.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Om du bestämmer dig för att installera och använda Azure CLI lokalt i stället kräver den här snabbstarten att du använder Azure CLI version 2.0.49 eller senare. Kör `az --version` för att hitta den installerade versionen. Se [Installera Azure CLI](/cli/azure/install-azure-cli) för installations- eller uppgraderingsinformation.
-
-## <a name="prerequisites"></a>Krav
-Om du vill använda funktionen IPv6 för Azure virtuellt nätverk måste du konfigurera prenumerationen med Azure CLI på följande sätt:
-
-```azurecli
-az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-Det tar upp till 30 minuter innan funktionsregistreringen är klar. Du kan kontrollera din registreringsstatus genom att köra följande Azure CLI-kommando:
-
-```azurecli
-az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-
-När registreringen är klar kör du följande kommando:
-
-```azurecli
-az provider register --namespace Microsoft.Network
-```
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -387,8 +365,6 @@ Du kan visa det virtuella nätverket IPv6 med dubbla stackar i Azure-portalen p�
 
   ![IPv6 virtuellt nätverk med dubbla staplar i Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
 
-> [!NOTE]
-> Det virtuella nätverket IPv6 för Azure är tillgängligt i Azure-portalen i skrivskyddad för den här förhandsversionen.
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

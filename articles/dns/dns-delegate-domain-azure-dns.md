@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: värd för din domän och under domän – Azure DNS'
-description: I den här artikeln får du lära dig hur du konfigurerar Azure DNS att vara värd för dina DNS-zoner.
+title: 'Självstudiekurs: Vara värd för din domän och underdomän - Azure DNS'
+description: I den här artikeln kan du lära dig hur du konfigurerar Azure DNS så att den är värd för dina DNS-zoner.
 services: dns
 author: rohinkoul
 ms.service: dns
@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
 ms.openlocfilehash: 8f29a2bbe0eb392927dd111b13e2260111ddd18e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238974"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Självstudie: Använda Azure DNS som värd för din domän
@@ -21,7 +21,7 @@ Du kan använda Azure DNS för att vara värd för din DNS-domän och hantera di
 Anta exempelvis att du köper domänen contoso.net från en domännamnsregistrator och sedan skapar en zon med namnet contoso.net i Azure DNS. Eftersom du är ägare till domänen erbjuder sig registratorn att konfigurera namnserverposterna (NS) för din domän. Registratorn lagrar NS-posterna i den överordnade .net-zonen. Internetanvändare över hela världen omdirigeras sedan till din Azure DNS-zon när de försöker matcha DNS-poster i contoso.net.
 
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en DNS-zon.
@@ -30,17 +30,17 @@ I den här guiden får du lära dig att:
 > * Kontrollera att delegeringen fungerar.
 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Du måste ha ett domän namn tillgängligt för att kunna testa med att du kan vara värd för Azure DNS. Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
+Du måste ha ett domännamn tillgängligt för att testa med det som du kan vara värd för i Azure DNS . Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
 
-Exempel domänen som används för den här självstudien är contoso.net, men Använd ditt eget domän namn.
+Exempeldomänen som används för den här självstudien är contoso.net, men använd ditt eget domännamn.
 
 ## <a name="create-a-dns-zone"></a>Skapa en DNS-zon
 
-1. Gå till [Azure Portal](https://portal.azure.com/) för att skapa en DNS-zon. Sök efter och välj **DNS-zoner**.
+1. Gå till [Azure-portalen](https://portal.azure.com/) för att skapa en DNS-zon. Sök efter och välj **DNS-zoner**.
 
    ![DNS-zon](./media/dns-delegate-domain-azure-dns/openzone650.png)
 
@@ -52,7 +52,7 @@ Exempel domänen som används för den här självstudien är contoso.net, men A
    |**Namn**|[ditt domännamn] |Det domännamn som du har köpt. Den här självstudien använder contoso.net som ett exempel.|
    |**Prenumeration**|[Din prenumeration]|Välj den prenumeration där du vill skapa zonen.|
    |**Resursgrupp**|**Skapa ny:** contosoRG|Skapa en resursgrupp. Resursgruppens namn måste vara unikt inom den prenumeration du valde.<br>Platsen för resursgruppen har ingen inverkan på DNS-zonen. Platsen för DNS-zonen är alltid ”global” och visas inte.|
-   |**Plats**|USA, östra||
+   |**Location**|USA, östra||
 
 ## <a name="retrieve-name-servers"></a>Hämta namnservrar
 
@@ -60,7 +60,7 @@ Innan du kan delegera din DNS-zon till Azure DNS måste du känna till namnservr
 
 1. I Azure Portal klickar du på **Alla resurser** i rutan **Favoriter** för den DNS-zon du skapade. På sidan **Alla resurser** väljer du din DNS-zon. Om den prenumeration som du valde redan har flera resurser kan du ange ditt domännamn i rutan **Filtrera efter namn** för att enkelt få åtkomst till programgatewayen. 
 
-1. Hämta namnservrarna på sidan DNS-zon. I det här exemplet har zonen contoso.net tilldelats namnservrarna *ns1-01.azure-dns.com*, *ns2-01.azure-dns.net*, *ns3-01.azure-dns.org* samt *ns4-01.azure-dns.info*:
+1. Hämta namnservrarna på sidan DNS-zon. I det här exemplet har zonen contoso.net tilldelats namnservrar *ns1-01.azure-dns.com*, *ns2-01.azure-dns.net*, *ns3-01.azure-dns.org*och *ns4-01.azure-dns.info:*
 
    ![Lista över namnservrar](./media/dns-delegate-domain-azure-dns/viewzonens500.png)
 

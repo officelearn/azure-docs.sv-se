@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/25/2020
-ms.openlocfilehash: 950bbc17af920f104f31af4d324f5546ff29217e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 822a981b84919670aa476567625cdf914206eaa8
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257962"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422186"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera och omvandla data i Azure Synapse Analytics (tidigare Azure SQL Data Warehouse) med hjälp av Azure Data Factory 
 
@@ -45,7 +45,7 @@ För kopieringsaktivitet stöder den här Azure Synapse Analytics-kopplingen des
 > Om du kopierar data med hjälp av Azure Data Factory Integration Runtime konfigurerar du en [Azure SQL-serverbrandvägg](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) så att Azure-tjänster kan komma åt servern.
 > Om du kopierar data med hjälp av en självvärd integreringskörning konfigurerar du Azure SQL-serverbrandväggen så att det tillåter lämpligt IP-intervall. Det här intervallet innehåller datorns IP som används för att ansluta till Azure Synapse Analytics.
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 > [!TIP]
 > För att uppnå bästa prestanda kan du använda PolyBase för att läsa in data i Azure Synapse Analytics. Avsnittet [Använd PolyBase för att läsa in data i Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-sql-data-warehouse) innehåller information. En genomgång med ett användningsfall finns [i Ladda 1 TB till Azure Synapse Analytics under 15 minuter med Azure Data Factory](load-azure-sql-data-warehouse.md).
@@ -485,7 +485,7 @@ Om kraven inte uppfylls kontrollerar Azure Data Factory inställningarna och fal
 
 ### <a name="staged-copy-by-using-polybase"></a>Iscensatt kopia med hjälp av PolyBase
 
-När källdata inte är kompatibla med PolyBase aktiverar du datakopiering via en tillfällig mellanlagring av Azure Blob-lagringsinstans (det kan inte vara Azure Premium Storage). I det här fallet konverterar Azure Data Factory automatiskt data för att uppfylla kraven för dataformat i PolyBase. Sedan anropas PolyBase för att läsa in data i SQL Data Warehouse. Slutligen rensas dina tillfälliga data från blob-lagringen. Se [Stegvis kopia](copy-activity-performance.md#staged-copy) för information om hur du kopierar data via en mellanlagring av Azure Blob-lagringsinstans.
+När källdata inte är kompatibla med PolyBase aktiverar du datakopiering via en tillfällig mellanlagring av Azure Blob-lagringsinstans (det kan inte vara Azure Premium Storage). I det här fallet konverterar Azure Data Factory automatiskt data för att uppfylla kraven för dataformat i PolyBase. Sedan anropas PolyBase för att läsa in data i SQL Data Warehouse. Slutligen rensas dina tillfälliga data från blob-lagringen. Se [Stegvis kopia](copy-activity-performance-features.md#staged-copy) för information om hur du kopierar data via en mellanlagring av Azure Blob-lagringsinstans.
 
 Om du vill använda den här funktionen skapar du en [Azure Blob Storage-länkad tjänst](connector-azure-blob-storage.md#linked-service-properties) som refererar till Azure-lagringskontot med interim blob-lagring. Ange sedan `enableStaging` `stagingSettings` egenskaperna och för kopieringsaktiviteten enligt följande kod.
 
@@ -613,7 +613,7 @@ Att använda COPY-sats stöder följande konfiguration:
 2. Formatinställningarna är med följande:
 
    1. För **Parkett:** `compression` kan inte vara **någon komprimering,** **Snappy**eller **GZip**.
-   2. För **ORC:** `compression` kan inte vara **någon komprimering,** **zlib**eller **Snappy**.
+   2. För **ORC:** `compression` kan inte **```zlib```** vara någon **komprimering**, eller **Snappy**.
    3. För **avgränsad text:**
       1. `rowDelimiter`uttryckligen anges som **ett tecken** eller "**\r\n**", stöds inte standardvärdet.
       2. `nullValue`lämnas som standard eller är inställd på **tom sträng** ("").
@@ -705,7 +705,7 @@ Inställningar som är specifika för Azure Synapse Analytics är tillgängliga 
 
 * SQL-exempel:```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
-**Batchstorlek:** Ange en batchstorlek för att segmenta stora data i läsningar.
+**Batchstorlek:** Ange en batchstorlek för att segmenta stora data i läsningar. I dataflöden använder ADF den här inställningen för att ställa in Spark columnar-cachelagring. Det här är ett alternativfält som använder Spark som standard om det lämnas tomt.
 
 **Isoleringsnivå**: Standardvärdet för SQL-källor vid mappning av dataflöde läss inte. Du kan ändra isoleringsnivån här till ett av dessa värden:
 * Läs bekräftad

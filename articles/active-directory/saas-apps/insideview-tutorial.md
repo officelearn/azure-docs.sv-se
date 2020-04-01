@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med InsideView | Microsoft Docs'
-description: I de här självstudierna lär du dig att konfigurera enkel inloggning mellan Azure Active Directory och InsideView.
+title: 'Självstudiekurs: Azure Active Directory-integrering med InsideView | Microsoft-dokument'
+description: I den här självstudien får du lära dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och InsideView.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,180 +16,180 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
 ms.openlocfilehash: 2149b8410104b39652b176895a31b42e094265f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67100095"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Självstudier: Azure Active Directory-integrering med InsideView
+# <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Självstudiekurs: Azure Active Directory-integrering med InsideView
 
-I de här självstudierna lär du dig att integrera InsideView med Azure Active Directory (AD Azure).
-Den här integrationen har följande fördelar:
+I den här självstudien får du lära dig hur du integrerar InsideView med Azure Active Directory (Azure AD).
+Den här integrationen ger följande fördelar:
 
-* Du kan använda Azure AD för att kontrollera vem som har åtkomst till InsideView.
-* Du kan aktivera användarna att logga in automatiskt till InsideView (enkel inloggning) med sina Azure AD-konton.
+* Du kan använda Azure AD för att styra vem som har åtkomst till InsideView.
+* Du kan aktivera dina användare så att de automatiskt loggas in på InsideView (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats: Azure-portalen.
 
 Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med InsideView, måste du ha:
+Om du vill konfigurera Azure AD-integrering med InsideView måste du ha:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/).
-* En InsideView-prenumeration med enkel inloggning aktiverat.
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
+* En InsideView-prenumeration som har enkel inloggning aktiverad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien får du konfigurera och testa Azure AD enkel inloggning i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD enkel inloggning i en testmiljö.
 
 * InsideView stöder IdP-initierad SSO.
 
 ## <a name="add-insideview-from-the-gallery"></a>Lägg till InsideView från galleriet
 
-Om du vill konfigurera integrering av InsideView i Azure AD, som du behöver lägga till InsideView från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av InsideView i Azure AD måste du lägga till InsideView från galleriet i listan över hanterade SaaS-appar.
 
-1. I den [Azure-portalen](https://portal.azure.com), i den vänstra rutan väljer **Azure Active Directory**:
+1. Välj **Azure Active Directory**i [Azure-portalen](https://portal.azure.com)i den vänstra rutan:
 
     ![Välj Azure Active Directory](common/select-azuread.png)
 
-2. Gå till **företagsprogram** > **alla program**:
+2. Gå till **Enterprise-program** > **Alla program:**
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Om du vill lägga till ett program, Välj **nytt program** överst i fönstret:
+3. Om du vill lägga till ett program väljer du **Nytt program** högst upp i fönstret:
 
-    ![Välj nytt program](common/add-new-app.png)
+    ![Välj Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger **InsideView**. Välj **InsideView** i sökresultatet och välj sedan **Lägg till**.
+4. Skriv **InsideView**i sökrutan . Välj **InsideView** i sökresultaten och välj sedan **Lägg till**.
 
     ![Sökresultat](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med InsideView med hjälp av en användare med namnet Britta Simon.
-Om du vill aktivera enkel inloggning, måste du upprätta en relation mellan en Azure AD-användare och motsvarande användare i InsideView.
+I det här avsnittet konfigurerar och testar du Azure AD enkel inloggning med InsideView med hjälp av en testanvändare som heter Britta Simon.
+Om du vill aktivera enkel inloggning måste du upprätta en relation mellan en Azure AD-användare och motsvarande användare i InsideView.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med InsideView, måste du slutföra de här stegen:
+Om du vill konfigurera och testa en enkel Azure AD-inloggning med InsideView måste du utföra följande steg:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  att aktivera funktionen för dina användare.
-2. **[Konfigurera InsideView enkel inloggning](#configure-insideview-single-sign-on)**  på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  att testa Azure AD enkel inloggning.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  att aktivera Azure AD enkel inloggning för användaren.
-5. **[Skapa en testanvändare InsideView](#create-an-insideview-test-user)**  som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  att kontrollera att konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)** för att aktivera funktionen för dina användare.
+2. **[Konfigurera InsideView enkel inloggning på](#configure-insideview-single-sign-on)** programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** för att testa Azure AD enkel inloggning.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** för att aktivera azure AD-enkel inloggning för användaren.
+5. **[Skapa en InsideView-testanvändare](#create-an-insideview-test-user)** som är länkad till Azure AD-representationen för användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** för att kontrollera att konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen.
+I det här avsnittet aktiverar du enkel Azure AD-inloggning i Azure-portalen.
 
-Konfigurera Azure AD enkel inloggning med InsideView genom att göra följande:
+Så här konfigurerar du en enkel Azure AD-inloggning med InsideView:
 
-1. I den [Azure-portalen](https://portal.azure.com/), på sidan InsideView application integration väljer **enkel inloggning**:
+1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **InsideView-programintegration:**
 
     ![Välj enkel inloggning](common/select-sso.png)
 
-2. I den **väljer du en metod för enkel inloggning** dialogrutan **SAML/WS-Fed** läge för att aktivera enkel inloggning:
+2. I dialogrutan **Välj en enda inloggningsmetod** väljer du **SAML/WS-Fed-läge** för att aktivera enkel inloggning:
 
-    ![Välj en metod för enkel inloggning](common/select-saml-option.png)
+    ![Välj en enda inloggningsmetod](common/select-saml-option.png)
 
-3. På den **ange in enkel inloggning med SAML** väljer den **redigera** ikonen för att öppna den **SAML grundkonfiguration** dialogrutan:
+3. På sidan Konfigurera enkel inloggning med SAML väljer du ikonen **Redigera** för att öppna dialogrutan **Grundläggande SAML-konfiguration:** **Set up Single Sign-On with SAML**
 
-    ![Ikonen Redigera](common/edit-urls.png)
+    ![Redigera-ikonen](common/edit-urls.png)
 
-4. I den **SAML grundkonfiguration** dialogrutan rutan, vidta följande steg.
+4. Gör följande i dialogrutan **Grundläggande SAML-konfiguration.**
 
-    ![Dialogrutan för grundläggande SAML-konfiguration](common/idp-reply.png)
+    ![Dialogrutan Grundläggande SAML-konfiguration](common/idp-reply.png)
 
-    I den **svars-URL** anger en URL i det här mönstret:
+    Ange en URL i det här mönstret i rutan **Svara url:**
 
     `https://my.insideview.com/iv/<STS Name>/login.iv`
 
     > [!NOTE]
-    > Det här värdet är en platshållare. Du måste använda faktiska svars-URL. Kontakta den [InsideView supportteamet](mailto:support@insideview.com) att hämta värdet. Du kan också referera till de mönster som visas i den **SAML grundkonfiguration** dialogrutan i Azure-portalen.
+    > Det här värdet är en platshållare. Du måste använda den faktiska svarsadressen. Kontakta [InsideView-supportteamet](mailto:support@insideview.com) för att få värdet. Du kan också referera till de mönster som visas i dialogrutan **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** väljer den **hämta** länka bredvid **certifikat (Raw)** enligt krav och spara certifikatet på datorn:
+5. På sidan **Konfigurera enkel inloggning med SAML** i avsnittet **SAML-signeringscertifikat** väljer du länken **Hämta bredvid** **Certifikat (Raw)** enligt dina krav och sparar certifikatet på datorn:
 
     ![Länk för nedladdning av certifikat](common/certificateraw.png)
 
-6. I den **konfigurera InsideView** avsnittet, kopiera de lämpliga URL: er, baserat på dina krav:
+6. I avsnittet **Konfigurera InsideView** kopierar du lämpliga webbadresser baserat på dina krav:
 
-    ![Kopiera URL: er för konfiguration](common/copy-configuration-urls.png)
+    ![Kopiera konfigurationsadresserna](common/copy-configuration-urls.png)
 
-    1. **Inloggnings-URL**.
+    1. **Inloggningsadress**.
 
     1. **Azure AD-identifierare**.
 
-    1. **URL för utloggning**.
+    1. **Url för utloggning**.
 
-### <a name="configure-insideview-single-sign-on"></a>Konfigurera InsideView enkel inloggning
+### <a name="configure-insideview-single-sign-on"></a>Konfigurera enkel inloggning på InsideView
 
-1. I ett nytt webbläsarfönster, loggar du in din InsideView företagets webbplats som en administratör.
+1. Logga in på webbplatsen InsideView som administratör i ett nytt webbläsarfönster.
 
-1. Längst ned i fönstret Välj **Admin**, **SingleSignOn inställningar**, och sedan **lägga till SAML**.
+1. Högst upp i fönstret väljer du **Admin**, **SingleSignOn-inställningar**och sedan **Lägg till SAML**.
    
-   ![SAML enkel inloggning inställningar](./media/insideview-tutorial/ic794135.png "SAML enkel inloggning-inställningar")
+   ![SAML-inställningar för enkel inloggning](./media/insideview-tutorial/ic794135.png "SAML-inställningar för enkel inloggning")
 
-1. I den **lägga till en ny SAML** avsnittet, vidta följande steg.
+1. Gör följande i avsnittet **Lägg till en ny SAML.**
 
-    ![Lägg till en ny SAML-avsnitt](./media/insideview-tutorial/ic794136.png "Lägg till en ny SAML-avsnitt")
+    ![Lägga till ett nytt SAML-avsnitt](./media/insideview-tutorial/ic794136.png "Lägga till ett nytt SAML-avsnitt")
 
-    1. I den **STS Name** anger du ett namn för din konfiguration.
+    1. Ange ett namn för konfigurationen i rutan **STS-namn.**
 
-    1. I den **SamlP/WS-Fed oombedda EndPoint** rutan, klistra in den **inloggnings-URL** värde som du kopierade från Azure-portalen.
+    1. I rutan **SamlP/WS-Fed Oönskad endpoint** klistrar du in värdet **för inloggnings-URL** som du kopierade från Azure-portalen.
 
-    1. Öppna Raw certifikatet som du laddade ned från Azure-portalen. Kopiera innehållet i certifikatet till Urklipp och klistra in innehållet i den **STS Certificate** box.
+    1. Öppna Raw-certifikatet som du hämtade från Azure-portalen. Kopiera innehållet i certifikatet till Urklipp och klistra sedan in innehållet i **sts-certifikatet.**
 
-    1. I den **Crm användarmappning för Id** anger **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
+    1. I rutan Mappning av **CRM-användar-ID** anger du **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
-    1. I den **Crm e-mappning** anger **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
+    1. Ange i rutan **Crm-e-postmappning** **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
-    1. I den **Crm förnamn mappning** anger **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname** .
+    1. Ange i rutan Mappning **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**av **CRM-förnamn** .
 
-    1. I den **Crm lastName mappning** anger **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname** .  
+    1. Ange i rutan Mappning **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**av **Crm-efternamn** .  
 
     1. Välj **Spara**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet skapar du en användare med namnet Britta Simon i Azure-portalen.
+I det här avsnittet ska du skapa en testanvändare med namnet Britta Simon i Azure-portalen.
 
-1. I Azure-portalen väljer du **Azure Active Directory** i den vänstra rutan väljer **användare**, och välj sedan **alla användare**:
+1. I Azure-portalen väljer du **Azure Active Directory** i den vänstra rutan, väljer **Användare**och väljer sedan **Alla användare:**
 
     ![Välj alla användare](common/users.png)
 
-2. Välj **ny användare** överst i fönstret:
+2. Välj **Ny användare** högst upp i fönstret:
 
-    ![Välj ny användare](common/new-user.png)
+    ![Välj Ny användare](common/new-user.png)
 
-3. I den **användaren** dialogrutan rutan, vidta följande steg.
+3. Gör följande i dialogrutan **Användare.**
 
-    ![Användardialogrutan](common/user-properties.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
     1. I rutan **Namn** anger du **BrittaSimon**.
   
-    1. I den **användarnamn** anger **BrittaSimon @\<företagsdomänen >.\< tillägget >** . (Till exempel BrittaSimon@contoso.com.)
+    1. I rutan **Användarnamn** anger du **BrittaSimon@\<ditt företag>.\< förlängning>**. (Till exempel BrittaSimon@contoso.com.)
 
-    1. Välj **visa lösenord**, och sedan skriva ned det värde som är i den **lösenord** box.
+    1. Välj **Visa lösenord**och skriv sedan ned värdet i rutan **Lösenord.**
 
     1. Välj **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera Britta Simon att använda Azure enkel inloggning ger användarens företagsidentitet åtkomst InsideView.
+I det här avsnittet ska du aktivera Britta Simon för att använda Azure enkel inloggning genom att ge henne åtkomst till InsideView.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**, och välj sedan **InsideView**.
+1. I Azure-portalen väljer du **Enterprise-program**, väljer **Alla program**och väljer sedan **InsideView**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **InsideView**.
+2. Välj **InsideView**i listan över program .
 
-    ![Lista över program](common/all-applications.png)
+    ![Lista över ansökningar](common/all-applications.png)
 
-3. I den vänstra rutan väljer **användare och grupper**:
+3. Välj Användare och **grupper**i den vänstra rutan:
 
     ![Välj Användare och grupper](common/users-groups-blade.png)
 
@@ -197,30 +197,30 @@ I det här avsnittet ska du aktivera Britta Simon att använda Azure enkel inlog
 
     ![Välj Lägg till användare](common/add-assign-user.png)
 
-5. I den **användare och grupper** dialogrutan **Britta Simon** i listan och klicka sedan på den **Välj** knappen längst ned i fönstret.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i användarlistan och klickar sedan på knappen **Välj** längst ned i fönstret.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran i den **Välj roll** dialogrutan väljer du rätt roll för användaren i listan. Klicka på den **Välj** knappen längst ned i fönstret.
+6. Om du förväntar dig ett rollvärde i SAML- påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll.** Klicka på knappen **Välj** längst ned i fönstret.
 
 7. I dialogrutan **Lägg till tilldelning** väljer du **Tilldela**.
 
-### <a name="create-an-insideview-test-user"></a>Skapa en InsideView testanvändare
+### <a name="create-an-insideview-test-user"></a>Skapa en InsideView-testanvändare
 
-Om du vill aktivera Azure AD-användare att logga in på InsideView som du behöver lägga till dem i InsideView. Du måste lägga till dem manuellt.
+Om du vill att Azure AD-användare ska kunna logga in på InsideView måste du lägga till dem i InsideView. Du måste lägga till dem manuellt.
 
-För att skapa användare eller kontakter i InsideView, kontakta den [InsideView supportteamet](mailto:support@insideview.com).
+Om du vill skapa användare eller kontakter i InsideView kontaktar du [Supportteamet för InsideView](mailto:support@insideview.com).
 
 > [!NOTE]
-> Du kan använda valfri användare verktyg för skapande av konto eller API tillhandahålls av InsideView att etablera användarkonton i Azure AD.
+> Du kan använda alla verktyg för att skapa användarkonton eller API som tillhandahålls av InsideView för att etablera Azure AD-användarkonton.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-Nu ska du testa Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+Nu måste du testa din Azure AD-konfiguration med enkel inloggning med hjälp av åtkomstpanelen.
 
-När du väljer panelen InsideView i åtkomstpanelen, bör det vara loggas in automatiskt till InsideView-instansen som du ställer in enkel inloggning. Läs mer om åtkomstpanelen [öppna och använda appar på portalen Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen InsideView på åtkomstpanelen bör du automatiskt loggas in i den InsideView-instans som du konfigurerar SSO för. Mer information om Åtkomstpanelen finns i [Komma till åtkomst och använda appar på portalen Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Självstudier för att integrera SaaS-program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

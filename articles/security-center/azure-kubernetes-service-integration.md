@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: d1cd4691586b27282d221a19c5fb7a1af034ed6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d5c74ac760b5746d37468d692c2a46d5aedbee72
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80125162"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436180"
 ---
 # <a name="azure-kubernetes-services-integration-with-security-center"></a>Azure Kubernetes Services-integrering med Security Center
 
@@ -35,7 +35,7 @@ Tillsammans utgör dessa två verktyg det bästa molnbaserade Kubernetes-säkerh
 
 Genom att använda de två tjänsterna tillsammans finns följande:
 
-* **Säkerhetsrekommendationer** - Security Center identifierar dina AKS-resurser och kategoriserar dem: från kluster till enskilda virtuella datorer. Du kan sedan visa säkerhetsrekommendationer per resurs. Mer information finns i behållarrekommendationerna i [referenslistan med rekommendationer](recommendations-reference.md#recs-computeapp). 
+* **Säkerhetsrekommendationer** - Security Center identifierar dina AKS-resurser och kategoriserar dem: från kluster till enskilda virtuella datorer. Du kan sedan visa säkerhetsrekommendationer per resurs. Mer information finns i behållarrekommendationerna i [referenslistan med rekommendationer](recommendations-reference.md#recs-containers). 
 
 * **Miljöhärdning** - Security Center övervakar ständigt konfigurationen av kubernetes-kluster och Docker-konfigurationer. Den genererar sedan säkerhetsrekommendationer som återspeglar branschstandarder.
 

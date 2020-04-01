@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.subservice: change-inventory-management
 ms.custom: mvc
 ms.openlocfilehash: 136521799dbc928a03c339ecc1cef6fdd3d029b2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239667"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Identifiera vilken programvara som är installerad på dina datorer med och utan Azure
 
 I den här självstudien får du lära dig hur du upptäcker vilken programvara som är installerad i din miljö. Du kan samla in och visa inventeringar för program, filer, Linux-daemons, Windows-tjänster och Windows-registernycklar på dina datorer. Om du spårar konfigurationerna för dina datorer kan du identifiera driftproblem i miljön och bättre förstå datorernas tillstånd.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 > * Aktivera lösningen
@@ -27,7 +27,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Visa installerade program
 > * Sök inventeringsloggar för installerad programvara
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -45,11 +45,11 @@ Först måste du aktivera Ändringsspårning och Inventering för den här själ
 
 Gå till ditt Automation-konto och välj **Inventering** under **KONFIGURATIONSHANTERING**.
 
-Välj Log Analytics-arbetsytan och Automation-kontot och klicka på **Aktivera** för att aktivera lösningen. Det tar upp till 15 minuter att aktivera lösningen.
+Välj arbetsytan Log Analytics och Automation-kontot och klicka på **Aktivera** för att aktivera lösningen. Det tar upp till 15 minuter att aktivera lösningen.
 
 ![Publicering av konfigurationsbanderoll för Inventering](./media/automation-tutorial-installed-software/enableinventory.png)
 
-Aktivera lösningen genom att konfigurera platsen, Log Analytics-arbetsytan och Automation-kontot som ska användas. Klicka sedan på **Aktivera**. Om fälten är nedtonade betyder det att en annan automatiseringslösning är aktiverad för den virtuella datorn. Samma arbetsyta och Automation-konto måste användas.
+Om du vill aktivera lösningen konfigurerar du arbetsytan, logganalysarbetsytan och Automation-konto som ska användas och klickar på **Aktivera**. Om fälten är nedtonade betyder det att en annan automatiseringslösning är aktiverad för den virtuella datorn. Samma arbetsyta och Automation-konto måste användas.
 
 En [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)-arbetsyta används för att samla in data som genereras av funktioner och tjänster som Inventering.
 Arbetsytan tillhandahåller en enda plats för att granska och analysera data från flera källor.

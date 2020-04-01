@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/13/2019
+ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e3a240901ffca2c126e2b61eaee0cf287cc31d6e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 595762e6e8f22dddff30f1cff8c4bb79e89624b1
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127503"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473846"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Felsöka klienten för fjärrskrivbord
 
@@ -21,21 +21,15 @@ I den här artikeln beskrivs vanliga problem med fjärrskrivbordsklienten och hu
 
 ## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Fjärrskrivbordsklienten för Windows 7 eller Windows 10 slutar svara eller kan inte öppnas
 
-Använd följande PowerShell-cmdlets för att rensa oob-klientregister (out-of-band).
+Från och med version 1.2.790 kan du återställa användardata från sidan Om eller med ett kommando.
 
-```PowerShell
-Remove-ItemProperty 'HKCU:\Software\Microsoft\Terminal Server Client\Default' - Name FeedURLs
+Använd följande kommando för att ta bort användardata, återställa standardinställningar och avsluta prenumerationen på alla arbetsytor.
 
-#Remove RdClientRadc registry key
-Remove-Item 'HKCU:\Software\Microsoft\RdClientRadc' -Recurse
-
-#Remove all files under %appdata%\RdClientRadc
-Remove-Item C:\Users\pavithir\AppData\Roaming\RdClientRadc\* -Recurse
+```cmd
+msrdcw.exe /reset [/f]
 ```
 
-Navigera till **%AppData%\RdClientRadc** och ta bort allt innehåll.
-
-Avinstallera och installera om fjärrskrivbordsklienten för Windows 7 och Windows 10.
+Om du använder en tidigare version av fjärrskrivbordsklienten rekommenderar vi att du avinstallerar och installerar om klienten.
 
 ## <a name="web-client-wont-open"></a>Webbklienten öppnas inte
 

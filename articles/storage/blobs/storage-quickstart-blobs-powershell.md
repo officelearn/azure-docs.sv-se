@@ -7,14 +7,14 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 02/26/2020
+ms.date: 03/31/2020
 ms.author: tamram
-ms.openlocfilehash: 479145f4d42c0708c109ab582e76e3691971c6ad
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3b005bc359b3c1b0cafe663b7ce2b599b10973a1
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061407"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474012"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>Snabbstart: Ladda upp, ladda ned och lista blobbar med PowerShell
 
@@ -28,7 +28,7 @@ Du behöver en Azure-prenumeration för att få åtkomst till Azure Storage. Om 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Den här snabbstarten kräver Azure PowerShell-modulen Az version 0.7 eller senare. Kör `Get-InstalledModule -Name Az -AllVersions | select Name,Version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
+Den här snabbstarten kräver Azure PowerShell-modulen Az version 0.7 eller senare. Kör `Get-InstalledModule -Name Az -AllVersions | select Name,Version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul).
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-powershell](../../../includes/storage-quickstart-tutorial-intro-include-powershell.md)]
 
@@ -36,7 +36,7 @@ Den här snabbstarten kräver Azure PowerShell-modulen Az version 0.7 eller sena
 
 Blobar laddas alltid upp till en container. Du kan ordna grupper av blobar på samma sätt som du ordnar filer i mappar på datorn.
 
-Ange containernamnet och skapa sedan containern med hjälp av [New-AzStorageContainer](/powershell/module/az.storage/new-AzStoragecontainer). Ange behörigheten för `blob` att tillåta offentlig åtkomst av filerna. Containerns namn i det här exemplet är *quickstartblobs*.
+Ange containernamnet och skapa sedan containern med hjälp av [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer). Ange behörigheten för `blob` att tillåta offentlig åtkomst av filerna. Containerns namn i det här exemplet är *quickstartblobs*.
 
 ```powershell
 $containerName = "quickstartblobs"
@@ -47,7 +47,7 @@ New-AzStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. VHD-filer som stöder virtuella IaaS-datorer är sidblobar. Använd tilläggsblobar för loggning, till exempel när du vill skriva till en fil och sedan fortsätta att lägga till mer information. De flesta filer som lagras i Blob Storage är blockblobar. 
 
-Om du vill ladda upp en fil till en blockblob ska du hämta en referens för containern och sedan hämta en referens för blockbloben i den containern. När du har en blobreferensen kan du ladda upp data till den med hjälp av [Set-AzStorageBlobContent](/powershell/module/az.storage/set-AzStorageblobcontent). Den här åtgärden skapar bloben om den inte finns eller skriver över bloben om den finns.
+Om du vill ladda upp en fil till en blockblob ska du hämta en referens för containern och sedan hämta en referens för blockbloben i den containern. När du har en blobreferensen kan du ladda upp data till den med hjälp av [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent). Den här åtgärden skapar bloben om den inte finns eller skriver över bloben om den finns.
 
 I följande exempel laddas *Image001.jpg* och *Image002.png* upp från mappen *D:\\_TestImages* på den lokala disken till containern som du skapade.
 
@@ -69,7 +69,7 @@ Ladda upp så många filer som du vill innan du fortsätter.
 
 ## <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 
-Hämta en lista över blobar i containern med hjälp av [Get-AzStorageBlob](/powershell/module/az.storage/get-AzStorageblob). Det här exemplet visar bara namnen på de blobar som har laddats upp.
+Hämta en lista över blobar i containern med hjälp av [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob). Det här exemplet visar bara namnen på de blobar som har laddats upp.
 
 ```powershell
 Get-AzStorageBlob -Container $ContainerName -Context $ctx | select Name
@@ -77,7 +77,7 @@ Get-AzStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 ## <a name="download-blobs"></a>Ladda ned blobbar
 
-Ladda ned blobarna till den lokala disken. För varje blob du vill ladda ned anger du namnet och anropar [Get-AzStorageBlobContent](/powershell/module/az.storage/get-AzStorageblobcontent).
+Ladda ned blobarna till den lokala disken. För varje blob du vill ladda ned anger du namnet och anropar [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent).
 
 I det här exemplet hämtas blobbar till *D:\\_TestImages\Hämtar* på den lokala disken. 
 

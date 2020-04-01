@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 25bc25d9ec12804cc20baa558dce67fb3f8269a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb9a02532c3651aca544ed946f40bdcff9e9be83
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77149220"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411775"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Konfigurera en point-to-site-anslutning till ett VNet med RADIUS-autentisering: PowerShell
 
@@ -31,9 +31,9 @@ Den här artikeln hjälper dig att konfigurera en P2S-konfiguration med autentis
 
 Punkt-till-plats-anslutningar kräver inte någon VPN-enhet eller en offentlig IP-adress. P2S skapar VPN-anslutningen via antingen SSTP (Secure Socket Tunneling Protocol), OpenVPN eller IKEv2.
 
-* SSTP är en SSL-baserad VPN-tunnel som endast stöds på Windows-klientplattformar. Den kan ta sig förbi brandväggar, vilket gör den till ett utmärkt alternativ för att ansluta till Azure var som helst. På serversidan stöder vi SSTP version 1.0, 1.1 och 1.2. Klienten avgör vilken version som ska användas. För Windows 8.1 och senare, använder SSTP version 1.2 som standard.
+* SSTP är en TLS-baserad VPN-tunnel som endast stöds på Windows-klientplattformar. Den kan ta sig förbi brandväggar, vilket gör den till ett utmärkt alternativ för att ansluta till Azure var som helst. På serversidan stöder vi SSTP version 1.0, 1.1 och 1.2. Klienten avgör vilken version som ska användas. För Windows 8.1 och senare, använder SSTP version 1.2 som standard.
 
-* OpenVPN® Protocol, ett SSL/TLS-baserat VPN-protokoll. En SSL VPN-lösning kan penetrera brandväggar, eftersom de flesta brandväggar öppnar TCP-port 443 utgående, som SSL använder. OpenVPN kan användas för att ansluta från Android, iOS (version 11.0 och högre), Windows, Linux och Mac-enheter (OSX-versioner 10.13 och senare).
+* OpenVPN® Protocol, ett SSL/TLS-baserat VPN-protokoll. En TLS VPN-lösning kan penetrera brandväggar, eftersom de flesta brandväggar öppnar TCP-port 443 utgående, som TLS använder. OpenVPN kan användas för att ansluta från Android, iOS (version 11.0 och högre), Windows, Linux och Mac-enheter (OSX-versioner 10.13 och senare).
 
 * IKEv2 VPN, en standardbaserad IPsec VPN-lösning. IKEv2 VPN kan användas för att ansluta från Mac-enheter (OSX-versionerna 10.11 och senare).
 
@@ -268,7 +268,7 @@ Information om felsökning av en P2S-anslutning finns i [Felsöka Azure point-to
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
 
-## <a name="faq"></a><a name="faq"></a>Faq
+## <a name="faq"></a><a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 Den här vanliga frågor och svar gäller P2S med RADIUS-autentisering
 

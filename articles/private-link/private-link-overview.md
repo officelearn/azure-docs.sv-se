@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 02/27/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3218a2de890124915d62afa86fd5f3dca1e72b2e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f75f8392b01e69760171c13c0e6d3b2e22b20dea
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80063085"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421195"
 ---
 # <a name="what-is-azure-private-link"></a>Vad är Azure Privat Link? 
 Med Azure Private Link kan du komma åt Azure PaaS Services (till exempel Azure Storage och SQL Database) och Azure-värd för kundägda/partnertjänster via en [privat slutpunkt](private-endpoint-overview.md) i ditt virtuella nätverk.
@@ -47,7 +47,7 @@ Azure Private Link ger följande fördelar:
 |  | Azure Data Lake Storage Gen2        |  Alla offentliga regioner      | Allmän tillgänglighet (GA) <br/> [Läs mer](/azure/storage/common/storage-private-endpoints)  |
 |  |  Azure SQL Database         | Alla offentliga regioner      |   Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
 |  |Azure Synapse Analytics (SQL Data Warehouse)| Alla offentliga regioner |Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
-|  |Azure Cosmos DB|  ÖSTRA USA, ÖSTRA USA2, VÄSTRA USA, VÄSTRA USA2, CENTRALA USA, SÖDRA CENTRALA USA, VÄSTRA CENTRALA USA, NORRA CENTRALA USA, NORDEUROPA, VÄSTEUROPA  |Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
+|  |Azure Cosmos DB|  Alla offentliga regioner |Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
 |  |  Azure-databas för PostgreSQL - Enkel server         | Alla offentliga regioner      |   Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
 |  |  Azure Database for MySQL         | Alla offentliga regioner      |   Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
 |  |  Azure-databas för MariaDB         | Alla offentliga regioner      |   Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |

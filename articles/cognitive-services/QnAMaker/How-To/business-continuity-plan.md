@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: f920a789f1ec631c5d70863b10d8364b3eb81b6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2100426923418104c31933bf9d1406a6441d3841
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77650477"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410918"
 ---
 # <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>Skapa en kontinuitetsplan för qnA Maker-tjänsten
 
@@ -33,7 +33,7 @@ Den höga idén som representeras ovan är följande:
 
 4. När de primära och sekundära stackarna har ställts in använder du [traffic manager](https://docs.microsoft.com/azure/traffic-manager/) för att konfigurera de två slutpunkterna och ställa in en routningsmetod.
 
-5. Du måste skapa ett SSL-certifikat (Secure Sockets Layer) för slutpunkten för trafikhanteraren. [Bind SSL-certifikatet](https://docs.microsoft.com/azure/app-service/configure-ssl-bindings) i dina App-tjänster.
+5. Du måste skapa ett TLS (Transport Layer Security), tidigare kallat SSL (Secure Sockets Layer), för slutpunkten för trafikhanteraren. [Bind TLS/SSL-certifikatet](https://docs.microsoft.com/azure/app-service/configure-ssl-bindings) i dina App-tjänster.
 
 6. Slutligen använder du slutpunkten för trafikhanteraren i din Bot eller App.
 

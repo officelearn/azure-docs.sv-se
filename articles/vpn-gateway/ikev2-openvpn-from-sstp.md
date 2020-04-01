@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/22/2020
+ms.date: 03/30/2020
 ms.author: alzam
-ms.openlocfilehash: 60c3a7f4f12993f475b3d03fd0915971d7673a5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5500d993a4bf3c664f14182d983f9abed8ebb08a
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80143110"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398369"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>Övergång till OpenVPN-protokoll eller IKEv2 från SSTP
 
@@ -33,7 +33,7 @@ Point-to-site VPN kan använda något av följande protokoll:
 >IKEv2 och OpenVPN för P2S är endast tillgängliga för resurshanterarens distributionsmodell. De är inte tillgängliga för den klassiska distributionsmodellen. Grundläggande gateway SKU stöder inte IKEv2- eller OpenVPN-protokoll. Om du använder den grundläggande SKU måste du ta bort och återskapa en produktion SKU Virtual Network Gateway.
 >
 
-## <a name="migrating-from-sspt-to-ikev2-or-openvpn"></a>Migrera från SSPT till IKEv2 eller OpenVPN
+## <a name="migrating-from-sstp-to-ikev2-or-openvpn"></a>Migrera från SSTP till IKEv2 eller OpenVPN
 
 Det kan finnas fall när du vill stödja mer än 128 samtidigA P2S-anslutning till en VPN-gateway men använder SSTP. I så fall måste du gå till IKEv2 eller OpenVPN-protokollet.
 

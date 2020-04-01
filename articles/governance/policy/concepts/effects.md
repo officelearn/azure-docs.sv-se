@@ -3,12 +3,12 @@ title: Förstå hur effekter fungerar
 description: Azure Principdefinitioner har olika effekter som avgör hur efterlevnad hanteras och rapporteras.
 ms.date: 03/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 631c941173a500a4159a37c7c31107b9a6eab872
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0330cb5c732921efda3627dec92e486657097d82
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239974"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422445"
 ---
 # <a name="understand-azure-policy-effects"></a>Förstå Azure-principeffekter
 
@@ -19,7 +19,7 @@ Dessa effekter stöds för närvarande i en principdefinition:
 - [Lägg till](#append)
 - [Granska](#audit)
 - [AuditIfNotExists](#auditifnotexists)
-- [Förneka](#deny)
+- [Neka](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
 - [EnforceOPAConstraint](#enforceopaconstraint) (förhandsgranskning)
@@ -432,15 +432,15 @@ Exempel: Utvärderar SQL Server-databaser för att avgöra om transparentDataEnc
 
 ## <a name="enforceopaconstraint"></a>EnforceOPAConstraint
 
-Den här effekten används med `Microsoft.Kubernetes.Data`ett principdefinitionsläge på . *mode* Den används för att skicka gatekeeper v3-åtkomstkontrollregler som definierats med [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) till [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) till Kubernetes-kluster på Azure.
+Den här effekten används med `Microsoft.Kubernetes.Data`ett principdefinitionsläge på . *mode* Den används för att skicka gatekeeper v3-regler för åtkomstkontroll som definierats med [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) till [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) till självhanterade Kubernetes-kluster på Azure.
 
 > [!NOTE]
-> [Azure Policy för Kubernetes](aks-engine.md) är i förhandsversion och stöder endast inbyggda principdefinitioner.
+> [Azure Policy för AKS Engine](aks-engine.md) finns i offentlig förhandsversion och stöder endast inbyggda principdefinitioner.
 
 ### <a name="enforceopaconstraint-evaluation"></a>EnforceOPAConstraint utvärdering
 
 Åtkomstkontrollanten för öppna principagenten utvärderar alla nya begäranden i klustret i realtid.
-Var 15:e minut slutförs en fullständig genomsökning av klustret och resultaten rapporteras till Azure Policy.
+Var femte minut slutförs en fullständig genomsökning av klustret och resultaten rapporteras till Azure Policy.
 
 ### <a name="enforceopaconstraint-properties"></a>Egenskaper för EnforceOPAConstraint
 
@@ -455,7 +455,7 @@ Egenskapen **Details** för effekten EnforceOPAConstraint har de underegenskaper
 
 ### <a name="enforceopaconstraint-example"></a>FramtvingaOPAConstraint-exempel
 
-Exempel: Gatekeeper v3-behörighetskontrollregel för att ange behållare-CPU- och minnesresursgränser i Kubernetes.
+Exempel: Gatekeeper v3-behörighetskontrollregel för att ange behållare-CPU- och minnesresursgränser i AKS Engine.
 
 ```json
 "if": {
@@ -490,8 +490,8 @@ Exempel: Gatekeeper v3-behörighetskontrollregel för att ange behållare-CPU- o
 
 Den här effekten används med `Microsoft.ContainerService.Data`ett principdefinitionsläge på . *mode* Det används för att passera Gatekeeper v2-regler för antagningskontroll som definierats med [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) to [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) på Azure [Kubernetes Service](../../../aks/intro-kubernetes.md).
 
-> [!IMPORTANT]
-> [Azure Policy för Kubernetes](rego-for-aks.md) är i förhandsversion och stöder endast inbyggda principdefinitioner. Inbyggda principer finns i kategorin **Kubernetes.** **Effekten EnforceRegoPolicy** och relaterade **kubernetes-tjänstkategoriprinciper** är _inaktuella_. Använd i stället den uppdaterade [Effekten EnforceOPAConstraint.](#enforceopaconstraint)
+> [!NOTE]
+> [Azure Policy för AKS](rego-for-aks.md) finns i begränsad förhandsversion och stöder endast inbyggda principdefinitioner
 
 ### <a name="enforceregopolicy-evaluation"></a>TvingaregoPolicy-utvärdering
 

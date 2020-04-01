@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2020
+ms.date: 03/27/2020
 ms.author: shvija
-ms.openlocfilehash: 808e813ad90626acec893a021634566f091c895f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 0546adb6131479a8f5d2e7e31819483200586839
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76904481"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397324"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Tillgänglighet och konsekvens i Event Hubs
 
@@ -36,12 +36,63 @@ Brewers sats definierar konsekvens och tillgänglighet enligt följande:
 Event Hubs bygger ovanpå en partitionerad datamodell. Du kan konfigurera antalet partitioner i händelsehubben under installationen, men du kan inte ändra det här värdet senare. Eftersom du måste använda partitioner med eventhubbar måste du fatta ett beslut om tillgänglighet och konsekvens för ditt program.
 
 ## <a name="availability"></a>Tillgänglighet
-Det enklaste sättet att komma igång med Event Hubs är att använda standardbeteendet. Om du skapar ett nytt **[EventHubClient-objekt](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** och använder metoden **[Skicka](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** fördelas dina händelser automatiskt mellan partitioner i händelsehubben. Detta gör det möjligt för den största upptiden.
+Det enklaste sättet att komma igång med Event Hubs är att använda standardbeteendet. 
+
+#### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure.Messaging.EventHubs (5.0.0 eller senare)](#tab/latest)
+Om du skapar ett nytt **[EventHubProducerClient-objekt](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient?view=azure-dotnet)** och använder **[metoden SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync?view=azure-dotnet)** distribueras dina händelser automatiskt mellan partitioner i händelsehubben. Detta gör det möjligt för den största upptiden.
+
+#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft.Azure.EventHubs (4.1.0 eller tidigare)](#tab/old)
+Om du skapar ett nytt **[EventHubClient-objekt](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** och använder metoden **[Skicka](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** fördelas dina händelser automatiskt mellan partitioner i händelsehubben. Detta gör det möjligt för den största upptiden.
+
+---
 
 För användningsfall som kräver maximal upptid är den här modellen att föredra.
 
 ## <a name="consistency"></a>Konsekvens
-I vissa fall kan ordning och reda på händelser vara viktigt. Du kanske till exempel vill att backend-systemet ska bearbeta ett uppdateringskommando innan ett borttagningskommando. I det här fallet kan du antingen ställa in `PartitionSender` partitionsnyckeln på en händelse eller använda ett objekt för att bara skicka händelser till en viss partition. Detta säkerställer att när dessa händelser läss från partitionen, de läss i ordning.
+I vissa fall kan ordning och reda på händelser vara viktigt. Du kanske till exempel vill att backend-systemet ska bearbeta ett uppdateringskommando innan ett borttagningskommando. I det här fallet kan du antingen ange partitionsnyckeln på en händelse eller använda ett `PartitionSender` objekt (om du använder det gamla Microsoft.Azure.Messaging-biblioteket) för att bara skicka händelser till en viss partition. Detta säkerställer att när dessa händelser läss från partitionen, de läss i ordning. Om du använder **Azure.Messaging.EventHubs-biblioteket** och mer information läser du [Migrera kod från PartitionSender till EventHubProducerClient för publicering av händelser till en partition](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition).
+
+#### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure.Messaging.EventHubs (5.0.0 eller senare)](#tab/latest)
+
+```csharp
+var connectionString = "<< CONNECTION STRING FOR THE EVENT HUBS NAMESPACE >>";
+var eventHubName = "<< NAME OF THE EVENT HUB >>";
+
+await using (var producerClient = new EventHubProducerClient(connectionString, eventHubName))
+{
+    var batchOptions = new CreateBatchOptions() { PartitionId = "my-partition-id" };
+    using EventDataBatch eventBatch = await producerClient.CreateBatchAsync(batchOptions);
+    eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes("First")));
+    eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes("Second")));
+    
+    await producerClient.SendAsync(eventBatch);
+}
+```
+
+#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft.Azure.EventHubs (4.1.0 eller tidigare)](#tab/old)
+
+```csharp
+var connectionString = "<< CONNECTION STRING FOR THE EVENT HUBS NAMESPACE >>";
+var eventHubName = "<< NAME OF THE EVENT HUB >>";
+
+var connectionStringBuilder = new EventHubsConnectionStringBuilder(connectionString){ EntityPath = eventHubName }; 
+var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
+PartitionSender partitionSender = eventHubClient.CreatePartitionSender("my-partition-id");
+try
+{
+    EventDataBatch eventBatch = partitionSender.CreateBatch();
+    eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes("First")));
+    eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes("Second")));
+
+    await partitionSender.SendAsync(eventBatch);
+}
+finally
+{
+    await partitionSender.CloseAsync();
+    await eventHubClient.CloseAsync();
+}
+```
+
+---
 
 Med den här konfigurationen bör du tänka på att om den partition som du skickar till inte är tillgänglig får du ett felmeddelande. Som en jämförelsepunkt, om du inte har en tillhörighet till en enda partition, skickar eventhubbar-tjänsten händelsen till nästa tillgängliga partition.
 

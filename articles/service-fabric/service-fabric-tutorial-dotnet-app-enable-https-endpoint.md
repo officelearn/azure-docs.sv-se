@@ -1,14 +1,14 @@
 ---
-title: Lägg till en HTTPS-slutpunkt med Kestrel
+title: Lägga till en HTTPS-slutpunkt med Kestrel
 description: I den här självstudien lär du dig hur du lägger till en HTTPS-slutpunkt i en klientwebbtjänst i ASP.NET Core med hjälp av Kestrel och hur du distribuerar programmet till ett kluster.
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 077c2ab67efa51542baa3048eb678fa22b0bc2eb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238932"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Självstudie: Lägga till en HTTPS-slutpunkt i en klienttjänst i webb-API:t för ASP.NET Core med hjälp av Kestrel
@@ -31,17 +31,17 @@ I den här självstudieserien får du lära du dig att:
 > * [Distribuera programmet till ett fjärrkluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * Lägga till en HTTPS-slutpunkt i en klienttjänst i ASP.NET Core
 > * [Konfigurera CI/CD med hjälp av Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-> * [konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
+> * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Installera Visual Studio 2019](https://www.visualstudio.com/) version 15,5 eller senare med arbets belastningarna **Azure Development** och **ASP.net och webb utveckling** .
+* om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [Installera Visual Studio 2019](https://www.visualstudio.com/) version 15.5 eller senare med **Azure-utvecklings-** och **ASP.NET- och webbutvecklingsarbetsbelastningar.**
 * [Installera Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>Hämta ett certifikat eller skapa ett självsignerat utvecklingscertifikat
@@ -153,7 +153,7 @@ serviceContext =>
 Lägg även till följande metod så att Kestrel kan hitta certifikatet i `Cert:\LocalMachine\My`-lagret med hjälp av ämnet.  
 
 Ersätt ”&lt;your_CN_value&gt;” med ”mytestcert” om du har skapat ett självsignerat certifikat med föregående PowerShell-kommando. Använd annars CN för ditt certifikat.
-Tänk på att när det gäller lokal distribution för att `localhost` det föredras att använda "CN = localhost" för att undvika undantag för autentisering.
+Tänk på att när det `localhost` gäller lokal distribution är det bättre att använda "CN=localhost" för att undvika autentiseringsund undantag.
 
 ```csharp
 private X509Certificate2 GetHttpsCertificateFromStore()
@@ -176,7 +176,7 @@ private X509Certificate2 GetHttpsCertificateFromStore()
 
 ## <a name="give-network-service-access-to-the-certificates-private-key"></a>Ge NETWORK SERVICE åtkomst till certifikatets privata nyckel
 
-I föregående steg importerade du certifikatet till `Cert:\LocalMachine\My`-lagret på utvecklingsdatorn.  Nu ska du uttryckligen ge kontot som kör tjänsten (nätverks tjänsten som standard) åtkomst till certifikatets privata nyckel. Du kan göra det här steget manuellt (med verktyget certlm. msc), men det är bättre att köra ett PowerShell-skript automatiskt genom att [Konfigurera ett start skript](service-fabric-run-script-at-service-startup.md) i **SetupEntryPoint** i tjänst manifestet.
+I föregående steg importerade du certifikatet till `Cert:\LocalMachine\My`-lagret på utvecklingsdatorn.  Nu uttryckligen ge kontot som kör tjänsten (NETWORK SERVICE, som standard) tillgång till certifikatets privata nyckel. Du kan göra det här steget manuellt (med verktyget certlm.msc), men det är bättre att automatiskt köra ett PowerShell-skript genom [att konfigurera ett startskript](service-fabric-run-script-at-service-startup.md) i **InstallationsentryPoint** för tjänstmanifestet.
 
 ### <a name="configure-the-service-setup-entry-point"></a>Konfigurera tjänstens konfigurationsstartpunkt
 
@@ -335,9 +335,9 @@ I avsnittet **ServiceManifestImport** för VotingWebPkg ska du sedan konfigurera
 
 ## <a name="run-the-application-locally"></a>Kör programmet lokalt
 
-I Solution Explorer väljer du **röstnings** programmet och anger egenskapen för **program-URL** till "https:\//localhost: 443".
+I Solution Explorer väljer du **programmet Röstning** och anger egenskapen **Application URL** till "https:\//localhost:443".
 
-Spara alla filer och tryck på F5 för att köra programmet lokalt.  När programmet har distribuerats öppnas en webbläsare till https:\//localhost: 443. Om du använder ett självsignerat certifikat visas en varning om att datorn inte har förtroende för den här webbplatsens säkerhet.  Fortsätt till webbsidan.
+Spara alla filer och tryck på F5 för att köra programmet lokalt.  När programmet har distribuerats öppnas en\/webbläsare för https: /localhost:443. Om du använder ett självsignerat certifikat visas en varning om att datorn inte har förtroende för den här webbplatsens säkerhet.  Fortsätt till webbsidan.
 
 ![Röstningsprogrammet][image2]
 
@@ -345,13 +345,13 @@ Spara alla filer och tryck på F5 för att köra programmet lokalt.  När progra
 
 Innan du distribuerar programmet till Azure ska du installera certifikatet i `Cert:\LocalMachine\My`-lagret för alla de fjärranslutna klusternoderna.  Tjänster kan flyttas till olika noder i klustret.  När klientwebbtjänsten startar på en klusternod kommer startskriptet att leta upp certifikatet och konfigurera åtkomstbehörigheter.
 
-Exportera först certifikatet till en PFX-fil. Öppna programmet certlm.msc och gå till **Personligt**>**Certifikat**.  Högerklicka på certifikatet *mytestcert* och välj **Alla aktiviteter**>**Exportera**.
+Exportera först certifikatet till en PFX-fil. Öppna certlm.msc-programmet och navigera till **personliga**>**certifikat**.  Högerklicka på certifikatet *mytestcert* och välj **Alla aktiviteter**>**Exportera**.
 
 ![Exportera certifikatet][image4]
 
 I exportguiden väljer du **Ja, exportera den privata nyckeln** och sedan formatet PFX (Personal Information Exchange).  Exportera filen till *C:\Users\sfuser\votingappcert.pfx*.
 
-Sedan installerar du certifikatet på fjärrklustret med hjälp av [de här angivna PowerShell-skripten](./scripts/service-fabric-powershell-add-application-certificate.md).
+Installera sedan certifikatet i fjärrklustret med hjälp av [dessa powershell-skript](./scripts/service-fabric-powershell-add-application-certificate.md).
 
 > [!Warning]
 > Ett självsignerat certifikat räcker för utveckling och testning. För produktionsprogram ska du använda ett certifikat från en [certifikatutfärdare (CA)](https://wikipedia.org/wiki/Certificate_authority) istället för ett självsignerat certifikat.
@@ -385,7 +385,7 @@ $slb | Set-AzLoadBalancer
 
 Spara alla filer, växla från Debug till Release och tryck på F6 för att bygga om programmet.  Högerklicka på **Voting** i Solution Explorer och välj **Publicera**. Välj klustrets slutpunkt för anslutning som du skapade i [Distribuera ett program till ett kluster](service-fabric-tutorial-deploy-app-to-party-cluster.md), eller välj ett annat kluster.  Klicka på **Publicera** så att programmet publiceras till fjärrklustret.
 
-När programmet distribuerats öppnar du en webbläsare och går till [https://mycluster.region.cloudapp.azure.com:443](https://mycluster.region.cloudapp.azure.com:443) (uppdatera webbadressen med klustrets slutpunkt för anslutning). Om du använder ett självsignerat certifikat visas en varning om att datorn inte har förtroende för den här webbplatsens säkerhet.  Fortsätt till webbsidan.
+När programmet distribueras öppnar du en [https://mycluster.region.cloudapp.azure.com:443](https://mycluster.region.cloudapp.azure.com:443) webbläsare och navigerar till (uppdatera URL:en med anslutningsslutpunkten för klustret). Om du använder ett självsignerat certifikat visas en varning om att datorn inte har förtroende för den här webbplatsens säkerhet.  Fortsätt till webbsidan.
 
 ![Röstningsprogrammet][image3]
 

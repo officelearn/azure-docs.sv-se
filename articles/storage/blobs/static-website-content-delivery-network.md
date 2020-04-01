@@ -7,16 +7,16 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 01/22/2020
-ms.openlocfilehash: aaf61ccbb3577036c614aa6196d2af57124550fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8eeff5187d27cb75b9e55eba8311dede8970bc4a
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76908558"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435222"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integrera en statisk webbplats med Azure CDN
 
-Du kan aktivera [CDN (Azure Content Delivery Network)](../../cdn/cdn-overview.md) för att cachelagra innehåll från en [statisk webbplats](storage-blob-static-website.md) som finns i ett Azure-lagringskonto. Du kan använda Azure CDN för att konfigurera den anpassade domänslutpunkten för din statiska webbplats, etablera anpassade SSL-certifikat och konfigurera anpassade omskrivningsregler. Konfiguration av Azure CDN resulterar i ytterligare avgifter men ger konsekvent korta svarstider till din webbplats från hela världen. Azure CDN ger även SSL-kryptering med ditt eget certifikat. 
+Du kan aktivera [CDN (Azure Content Delivery Network)](../../cdn/cdn-overview.md) för att cachelagra innehåll från en [statisk webbplats](storage-blob-static-website.md) som finns i ett Azure-lagringskonto. Du kan använda Azure CDN för att konfigurera den anpassade domänslutpunkten för din statiska webbplats, etablera anpassade TLS/SSL-certifikat och konfigurera anpassade omskrivningsregler. Konfiguration av Azure CDN resulterar i ytterligare avgifter men ger konsekvent korta svarstider till din webbplats från hela världen. Azure CDN tillhandahåller också TLS-kryptering med ditt eget certifikat. 
 
 Information om priser för Azure CDN finns i [Azure CDN-priser](https://azure.microsoft.com/pricing/details/cdn/).
 

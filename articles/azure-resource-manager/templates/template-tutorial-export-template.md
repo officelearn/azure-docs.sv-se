@@ -5,12 +5,12 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5a0d373fdf75f19c8fc1082593c15c14770f79c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f95efbaedc2718c968062c47427ab7765756bde7
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369905"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408557"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Självstudiekurs: Använda exporterad mall från Azure-portalen
 
@@ -84,7 +84,7 @@ Använd antingen Azure CLI eller Azure PowerShell för att distribuera en mall.
 
 Om du inte har skapat resursgruppen läser du [Skapa resursgrupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **variabeln templateFile** till sökvägen till mallfilen, vilket visas i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -108,6 +108,9 @@ az deployment group create \
 ```
 
 ---
+
+> [!NOTE]
+> Om distributionen misslyckades använder du **felsökningsväxeln** med distributionskommandot för att visa felsökningsloggarna.  Du kan också använda **den utförliga** växeln för att visa de fullständiga felsökningsloggarna.
 
 ## <a name="verify-deployment"></a>Verifiera distributionen
 

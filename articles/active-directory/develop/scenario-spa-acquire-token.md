@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
-ms.openlocfilehash: d5d48a2fc7aca184cf8b6e7761584a8800ca5151
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 393c3a06a2366a7d6947faf8bbfe038d6c5982fc
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77160074"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80419665"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Ensidigt program: Skaffa en token för att anropa ett API
 
@@ -42,7 +42,7 @@ Du kan ange de API-scope som du vill att åtkomsttoken ska inkludera när den sk
 
 ## <a name="acquire-a-token-with-a-pop-up-window"></a>Skaffa en token med ett popup-fönster
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Följande kod kombinerar det tidigare beskrivna mönstret med metoderna för en popup-upplevelse:
 
@@ -76,20 +76,40 @@ MSAL-vinkelomslaget tillhandahåller HTTP-interceptor, som automatiskt hämtar �
 Du kan ange scope för API:er i konfigurationsalternativet. `protectedResourceMap` `MsalInterceptor`kommer att begära dessa scope när token automatiskt hämtas.
 
 ```javascript
-//In app.module.ts
+// app.module.ts
 @NgModule({
-  imports: [ MsalModule.forRoot({
-                clientID: 'your_app_id',
-                protectedResourceMap: {"https://graph.microsoft.com/v1.0/me", ["user.read", "mail.send"]}
-            })]
-         })
-
-providers: [ ProductService, {
-        provide: HTTP_INTERCEPTORS,
-        useClass: MsalInterceptor,
-        multi: true
+  declarations: [
+    // ...
+  ],
+  imports: [
+    // ...
+    MsalModule.forRoot({
+      auth: {
+        clientId: 'Enter_the_Application_Id_Here',
+      }
+    },
+    {
+      popUp: !isIE,
+      consentScopes: [
+        'user.read',
+        'openid',
+        'profile',
+      ],
+      protectedResourceMap: [
+        ['https://graph.microsoft.com/v1.0/me', ['user.read']]
+      ]
+    })
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MsalInterceptor,
+      multi: true
     }
-   ],
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 ```
 
 För att lyckas och misslyckas med det tysta tokeninhämtningen tillhandahåller MSAL Angular motringningar som du kan prenumerera på. Det är också viktigt att komma ihåg att avsluta prenumerationen.
@@ -103,7 +123,7 @@ För att lyckas och misslyckas med det tysta tokeninhämtningen tillhandahåller
 
 ngOnDestroy() {
    this.broadcastService.getMSALSubject().next(1);
-   if(this.subscription) {
+   if (this.subscription) {
      this.subscription.unsubscribe();
    }
  }
@@ -115,7 +135,7 @@ Alternativt kan du uttryckligen hämta token med hjälp av metoderna acquire-tok
 
 ## <a name="acquire-a-token-with-a-redirect"></a>Skaffa en token med en omdirigering
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Följande mönster beskrivs som beskrivits tidigare men visas med en omdirigeringsmetod för att hämta token interaktivt. Du måste registrera den omdirigerade motringningen som tidigare nämnts.
 
@@ -149,16 +169,16 @@ Du kan använda valfria anspråk för följande ändamål:
 
 - Inkludera ytterligare anspråk i token för ditt program.
 - Ändra beteendet för vissa anspråk som Azure AD returnerar i token.
-- Lägg till och komma åt anpassade anspråk för ditt program. 
+- Lägg till och komma åt anpassade anspråk för ditt program.
 
 Om du vill `IdToken`begära valfria anspråk i kan `claimsRequest` du `AuthenticationParameters.ts` skicka ett stringifierat anspråksobjekt till fältet för klassen.
 
 ```javascript
-"optionalClaims":  
+"optionalClaims":
    {
       "idToken": [
             {
-                  "name": "auth_time", 
+                  "name": "auth_time",
                   "essential": true
              }
       ],

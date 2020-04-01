@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 456f379e2b3c2ff411b196d45aef4663fddb0fe6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fda49ae31d7598497a3128a846a3f4e12e84ffe1
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245413"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435909"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Pensionering av Security Center-funktioner (juli 2019)
 
@@ -43,7 +43,7 @@ Den här artikeln innehåller detaljerad information för varje pensionerad funk
 
 ## <a name="events-dashboard"></a>Instrumentpanelen Händelser<a name="menu_events"></a>
 
-Security Center använder Microsoft Monitoring Agent för att samla in olika säkerhetsrelaterade konfigurationer och händelser från dina datorer. Den lagrar dessa händelser i dina arbetsytor. Med [instrumentpanelen för händelser](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) kan du visa dessa data och ge dig en startpunkt till Log Analytics.
+Security Center använder Log Analytics-agent för att samla in olika säkerhetsrelaterade konfigurationer och händelser från dina datorer. Den lagrar dessa händelser i dina arbetsytor. Med [instrumentpanelen för händelser](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) kan du visa dessa data och ge dig en startpunkt till Log Analytics.
 
 Vi har dragit tillbaka instrumentpanelen för händelser som visades när du valde en arbetsyta:
 

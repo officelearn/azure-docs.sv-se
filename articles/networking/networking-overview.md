@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: 90eddea839d2f6ae5235ac6a391b40dd667ab401
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c6b845eda1df39ccf5e4b2b1d6a615f3bc932b66
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257843"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80474933"
 ---
 # <a name="azure-networking-services-overview"></a>Översikt över Azure-nätverkstjänster
 
@@ -27,16 +27,16 @@ Nätverkstjänsterna i Azure tillhandahåller en mängd olika nätverksfunktione
 
 ## <a name="connectivity-services"></a><a name="connect"></a>Anslutningstjänster
  
-I det här avsnittet beskrivs tjänster som tillhandahåller anslutning mellan Azure-resurser, anslutning från ett lokalt nätverk till Azure-resurser och gren för att förgrena sig anslutning i Azure - Virtual Network (VNet), Virtual WAN, ExpressRoute, VPN Gateway, NAT Gateway för virtuellt nätverk, Azure DNS, Azure Peering-tjänst och Azure Bastion.
+I det här avsnittet beskrivs tjänster som tillhandahåller anslutning mellan Azure-resurser, anslutning från ett lokalt nätverk till Azure-resurser och gren för att förgrena sig anslutning i Azure - Virtual Network (VNet), Virtual WAN, ExpressRoute, VPN Gateway, Virtual Network NAT Gateway, Azure DNS, Azure Peering service och Azure Bastion.
 
 |Tjänst|Varför använda?|Scenarier|
 |---|---|---|
 |[Virtuellt nätverk](#vnet)|Gör det möjligt för Azure-resurser att kommunicera säkert med varandra, internet och lokala nätverk.| <p>[Filtrera nätverkstrafik](../virtual-network/tutorial-filter-network-traffic.md)</p> <p>[Dirigera nätverkstrafik](../virtual-network/tutorial-create-route-table-portal.md)</p> <p>[Begränsa nätverksåtkomst till resurser](../virtual-network/tutorial-restrict-network-access-to-resources.md)</p> <p>[Ansluta virtuella nätverk](../virtual-network/tutorial-connect-virtual-networks-portal.md)</p>|
-|[ExpressRoute (ort)](#expressroute)|Utökar dina lokala nätverk till Microsoft-molnet via en privat anslutning som underlättas av en anslutningsleverantör.|<p>[Skapa och ändra en ExpressRoute-krets](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)</p> <p>[Skapa och ändra peering för en ExpressRoute-krets](../expressroute/expressroute-howto-routing-portal-resource-manager.md)</p> <p>[Länka ett VNet till en ExpressRoute-krets](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)</p> <p>[Konfigurera och hantera flödesfilter för ExpressRoute-kretsar](../expressroute/how-to-routefilter-portal.md)</p>|
-|[VPN-gateway](#vpngateway)|Skickar krypterad trafik mellan ett virtuellt Azure-nätverk och en lokal plats via det offentliga Internet.|<p>[Anslutningar från plats till plats](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[Anslutningar mellan virtuella nätverk](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[Point-to-site-anslutningar](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
+|[ExpressRoute](#expressroute)|Utökar dina lokala nätverk till Microsoft-molnet via en privat anslutning som underlättas av en anslutningsleverantör.|<p>[Skapa och ändra en ExpressRoute-krets](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)</p> <p>[Skapa och ändra peering för en ExpressRoute-krets](../expressroute/expressroute-howto-routing-portal-resource-manager.md)</p> <p>[Länka ett VNet till en ExpressRoute-krets](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)</p> <p>[Konfigurera och hantera flödesfilter för ExpressRoute-kretsar](../expressroute/how-to-routefilter-portal.md)</p>|
+|[VPN Gateway](#vpngateway)|Skickar krypterad trafik mellan ett virtuellt Azure-nätverk och en lokal plats via det offentliga Internet.|<p>[Plats-till-plats-anslutningar](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[Anslutningar mellan virtuella nätverk](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[Punkt-till-plats-anslutningar](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
 |[Virtuellt WAN](#virtualwan)|Optimerar och automatiserar filialanslutning till och via Azure. Azure-regioner fungerar som nav som du kan välja att ansluta dina grenar till.|<p>[Anslutning mellan plats och plats](../virtual-wan/virtual-wan-site-to-site-portal.md), [ExpressRoute-anslutningar](../virtual-wan/virtual-wan-expressroute-portal.md)</p>|
 |[Azure DNS](#dns)|Värdar DNS-domäner som ger namnmatchning med hjälp av Microsoft Azure-infrastruktur.|<p>[Använd Azure DNS som värd för din domän](../dns/dns-delegate-domain-azure-dns.md)</p><p>[Skapa DNS-poster för en webbapp](../dns/dns-web-sites-custom-domain.md)</p> <p>[Skapa en aliaspost för Traffic Manager](../dns/tutorial-alias-tm.md)</p> <p>[Skapa en aliaspost för offentlig IP-adress](../dns/tutorial-alias-pip.md)</p> <p>[Skapa en aliaspost för zonresurspost](../dns/tutorial-alias-rr.md)</p>|
-|[Azure Bastion](#bastion)|Konfigurera säker och sömlös RDP/SSH-anslutning till dina virtuella datorer direkt i Azure-portalen via SSL. När du ansluter via Azure Bastion behöver dina virtuella datorer inte en offentlig IP-adress|<p>[Skapa en Azure Bastion-värd](../bastion/bastion-create-host-portal.md)</p><p>[Ansluta med SSH till en virtuell Linux-dator](../bastion/bastion-connect-vm-ssh.md)</p><p>[Ansluta med RDP till en Virtuell Windows-dator](../bastion/bastion-connect-vm-rdp.md)</p>|
+|[Azure Bastion](#bastion)|Konfigurera säker och sömlös RDP/SSH-anslutning till dina virtuella datorer direkt i Azure-portalen via TLS. När du ansluter via Azure Bastion behöver dina virtuella datorer inte en offentlig IP-adress|<p>[Skapa en Azure Bastion-värd](../bastion/bastion-create-host-portal.md)</p><p>[Ansluta med SSH till en virtuell Linux-dator](../bastion/bastion-connect-vm-ssh.md)</p><p>[Ansluta med RDP till en Virtuell Windows-dator](../bastion/bastion-connect-vm-rdp.md)</p>|
 |[NAT-gateway för virtuellt nätverk](#nat)|Skapa en NAT-gateway för att tillhandahålla utgående anslutning för en virtuell dator.|<p>[Skapa en NAT-gateway](../virtual-network/quickstart-create-nat-gateway-portal.md)</p>|
 |[Azure Peering-tjänst (förhandsversion)](#azurepeeringservice)|Samarbeta med tjänsteleverantörer för optimal och tillförlitlig routning till Microsoft-molnet via det offentliga nätverket.|<p>[Registrera Azure Peering-tjänst](../peering-service/azure-portal.md)</p>|
 ||||
@@ -52,12 +52,12 @@ Azure Virtual Network (VNet) är den grundläggande byggstenen för ditt privata
 
 Mer information finns i [Vad är Virtuellt Azure-nätverk?](../virtual-network/virtual-networks-overview.md).
 
-### <a name="expressroute"></a><a name="expressroute"></a>ExpressRoute (ort)
+### <a name="expressroute"></a><a name="expressroute"></a>ExpressRoute
 Med ExpressRoute kan du utöka dina lokala nätverk till Microsoft-molnet via en privat anslutning som underlättas av en anslutningsleverantör. Den här anslutningen är privat. Trafiken går inte via Internet. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster, till exempel Microsoft Azure, Office 365 och Dynamics 365.  Mer information finns i [Vad är ExpressRoute?](../expressroute/expressroute-introduction.md).
 
 ![Azure ExpressRoute](./media/networking-overview/expressroute-connection-overview.png)
 
-### <a name="vpn-gateway"></a><a name="vpngateway"></a>VPN-gateway
+### <a name="vpn-gateway"></a><a name="vpngateway"></a>VPN Gateway
 VPN Gateway hjälper dig att skapa krypterade korslokala anslutningar till ditt virtuella nätverk från lokala platser eller skapa krypterade anslutningar mellan virtuella nätverk. Det finns olika konfigurationer tillgängliga för VPN Gateway-anslutningar, till exempel plats-till-plats, punkt-till-plats eller VNet till VNet.
 Följande diagram illustrerar flera VPN-anslutningar från plats till plats till samma virtuella nätverk.
 
@@ -74,7 +74,7 @@ Azure Virtual WAN är en nätverkstjänst som tillhandahåller optimerad och aut
 Azure DNS är en värdtjänst för DNS-domäner som ger namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Genom att använda Azure som värd för dina domäner kan du hantera dina DNS-poster med hjälp av samma autentiseringsuppgifter, API:er, verktyg och fakturering som för dina andra Azure-tjänster. Mer information finns i [Vad är Azure DNS?](../dns/dns-overview.md)
 
 ### <a name="azure-bastion"></a><a name="bastion"></a>Azure Bastion
-Azure Bastion-tjänsten är en ny fullständigt plattformshanterad PaaS-tjänst som du etablerar i ditt virtuella nätverk. Det ger säker och sömlös RDP/SSH-anslutning till dina virtuella datorer direkt i Azure-portalen via SSL. När du ansluter via Azure Bastion behöver dina virtuella datorer inte någon offentlig IP-adress. Mer information finns i [Vad är Azure Bastion?](../bastion/bastion-overview.md).
+Azure Bastion-tjänsten är en ny fullständigt plattformshanterad PaaS-tjänst som du etablerar i ditt virtuella nätverk. Det ger säker och sömlös RDP/SSH-anslutning till dina virtuella datorer direkt i Azure-portalen via TLS. När du ansluter via Azure Bastion behöver dina virtuella datorer inte någon offentlig IP-adress. Mer information finns i [Vad är Azure Bastion?](../bastion/bastion-overview.md).
 
 ![Azure Bastion-arkitektur](./media/networking-overview/architecture.png)
 
@@ -88,7 +88,7 @@ Azure Peering-tjänsten förbättrar kundanslutningen till Microsofts molntjäns
 
 ## <a name="application-protection-services"></a><a name="protect"></a>Programskyddstjänster
 
-I det här avsnittet beskrivs nätverkstjänster i Azure som skyddar dina nätverksresurser – Skydda dina program med hjälp av någon eller en kombination av dessa nätverkstjänster i Azure - Private Link, DDoS-skydd, Brandvägg, Nätverkssäkerhetsgrupper, Webb Programbrandväggen och slutpunkter för virtuella nätverk.
+I det här avsnittet beskrivs nätverkstjänster i Azure som skyddar dina nätverksresurser – Skydda dina program med hjälp av någon eller en kombination av dessa nätverkstjänster i Azure – Privat länk, DDoS-skydd, Brandvägg, Nätverkssäkerhetsgrupper, brandvägg för webbprogram och slutpunkter för virtuella nätverk.
 
 |Tjänst|Varför använda?|Scenario|
 |---|---|---|
@@ -99,7 +99,7 @@ I det här avsnittet beskrivs nätverkstjänster i Azure som skyddar dina nätve
 |[Tjänstslutpunkter för virtuellt nätverk](#serviceendpoints)|Gör att du kan begränsa nätverksåtkomsten till vissa Azure-tjänstresurser till ett virtuellt nätverksundernät|[Begränsa nätverksåtkomst till PaaS-resurser](../virtual-network/tutorial-restrict-network-access-to-resources-powershell.md)|
 [Private Link](#privatelink)|Gör att du kan komma åt Azure PaaS Services (till exempel Azure Storage och SQL Database) och Azure värd kundägda /partnertjänster via en privat slutpunkt i ditt virtuella nätverk.|<p>[Skapa en privat slutpunkt](../private-link/create-private-endpoint-portal.md)</p><p>[Skapa en Private Link-tjänst](../private-link/create-private-link-service-portal.md)</p>|
 |||
-### <a name="ddos-protection"></a><a name="ddosprotection"></a>DDoS-skydd 
+### <a name="ddos-protection"></a><a name="ddosprotection"></a>DDoS Protection 
 [Azure DDoS Protection](../virtual-network/manage-ddos-protection.md) ger motåtgärder mot de mest sofistikerade DDoS-hoten. Tjänsten ger förbättrade DDoS-begränsningsfunktioner för dina program och resurser som distribueras i dina virtuella nätverk. Dessutom har kunder som använder Azure DDoS Protection tillgång till DDoS Rapid Response-stöd för att engagera DDoS-experter under en aktiv attack.
 
 ![DDoS Protection](./media/networking-overview/ddos-protection.png)
@@ -141,14 +141,14 @@ I det här avsnittet beskrivs nätverkstjänster i Azure som hjälper till att l
 
 |Tjänst|Varför använda?|Scenario|
 |---|---|---|
-|[Content Delivery Network](#cdn)|Levererar innehåll med hög bandbredd till användarna. CDN lagrar cachelagrat innehåll på edge-servrar på POP-platser (point-of-presence) som ligger nära slutanvändare, för att minimera svarstiden|<p>[Lägga till CDN i en webbapp](../cdn/cdn-add-to-web-app.md)</p> <p>[- Komma åt lagringsblobar med en anpassad Azure CDN-domän via HTTPS](..//cdn/cdn-storage-custom-domain-https.md)</p> <p>[Lägga till en anpassad domän i din Azure CDN-slutpunkt](../cdn/cdn-map-content-to-custom-domain.md)</p> <p>[Konfigurera HTTPS på en anpassad Azure CDN-domän](../cdn/cdn-custom-ssl.md?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate)</p>|
+|[Nätverk för innehållsleverans](#cdn)|Levererar innehåll med hög bandbredd till användarna. CDN lagrar cachelagrat innehåll på edge-servrar på POP-platser (point-of-presence) som ligger nära slutanvändare, för att minimera svarstiden|<p>[Lägga till CDN i en webbapp](../cdn/cdn-add-to-web-app.md)</p> <p>[- Komma åt lagringsblobar med en anpassad Azure CDN-domän via HTTPS](..//cdn/cdn-storage-custom-domain-https.md)</p> <p>[Lägga till en anpassad domän i din Azure CDN-slutpunkt](../cdn/cdn-map-content-to-custom-domain.md)</p> <p>[Konfigurera HTTPS på en anpassad Azure CDN-domän](../cdn/cdn-custom-ssl.md?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate)</p>|
 |[Azure Front Door Service](#frontdoor)|Gör att du kan definiera, hantera och övervaka den globala routningen för din webbtrafik genom att optimera för bästa prestanda och omedelbar global redundans för hög tillgänglighet.|<p>[Lägga till en anpassad domän i din Azure Front Door Service](../frontdoor/front-door-custom-domain.md)</p> <p>[Konfigurera HTTPS på en anpassad Front Door-domän](../frontdoor/front-door-custom-domain-https.md)</p><p>[Konfigurera princip för brandvägg för geofiltrering av webbprogram](../frontdoor/front-door-tutorial-geo-filtering.md)|
-|[Trafikchef](#trafficmanager)|Distribuerar trafik baserat på DNS till tjänster i globala Azure-regioner, samtidigt som hög tillgänglighet och svarstider ger hög tillgänglighet och svarstider|<p> [Dirigera trafik för låg latens](../traffic-manager/tutorial-traffic-manager-improve-website-response.md)</p><p>[Dirigera trafik till en slutpunkt för prioritet](../traffic-manager/traffic-manager-configure-priority-routing-method.md)</p><p> [Styra trafiken med viktade slutpunkter](../traffic-manager/tutorial-traffic-manager-weighted-endpoint-routing.md)</p><p>[Rutttrafik baserat på slutpunktens geografiska läge](../traffic-manager/traffic-manager-configure-geographic-routing-method.md)</p> <p> [Dirigera trafik utifrån användarens undernät](../traffic-manager/tutorial-traffic-manager-subnet-routing.md)</p>|
-|[Belastningsutjämnare](#loadbalancer)|Ger regional belastningsutjämning genom att dirigera trafik över tillgänglighetszoner och till dina virtuella nätverk. Ger intern belastningsutjämning genom att dirigera trafik över och mellan dina resurser för att skapa ditt regionala program.|<p> [Belastningsutjämna Internettrafik till virtuella datorer](../load-balancer/tutorial-load-balancer-standard-manage-portal.md)</p> <p>[Belastningsjämnad trafik över virtuella datorer i ett virtuellt nätverk](../load-balancer/tutorial-load-balancer-basic-internal-portal.md)<p>[Portera vidarebefordra trafik till en viss port på specifika virtuella datorer](../load-balancer/tutorial-load-balancer-port-forwarding-portal.md)</p><p> [Konfigurera regler för belastningsutjämning och utgående](../load-balancer/configure-load-balancer-outbound-cli.md)</p>|
-|[Application Gateway](#applicationgateway)|Azure Application Gateway är en lastbalanserare för webbtrafik som gör det möjligt för dig att hantera trafik till dina webbappar.|<p>[Dirigera webbtrafik med Azure Application Gateway](../application-gateway/quick-create-portal.md)</p><p>[Konfigurera en programgateway med SSL-avslutning](../application-gateway/create-ssl-portal.md)</p><p>[Skapa en programgateway med webbadressbaserad omdirigering](../application-gateway/create-url-route-portal.md) </p>|
+|[Traffic Manager](#trafficmanager)|Distribuerar trafik baserat på DNS till tjänster i globala Azure-regioner, samtidigt som hög tillgänglighet och svarstider ger hög tillgänglighet och svarstider|<p> [Dirigera trafik för låg latens](../traffic-manager/tutorial-traffic-manager-improve-website-response.md)</p><p>[Dirigera trafik till en slutpunkt för prioritet](../traffic-manager/traffic-manager-configure-priority-routing-method.md)</p><p> [Styra trafiken med viktade slutpunkter](../traffic-manager/tutorial-traffic-manager-weighted-endpoint-routing.md)</p><p>[Rutttrafik baserat på slutpunktens geografiska läge](../traffic-manager/traffic-manager-configure-geographic-routing-method.md)</p> <p> [Dirigera trafik utifrån användarens undernät](../traffic-manager/tutorial-traffic-manager-subnet-routing.md)</p>|
+|[Lastbalanserare](#loadbalancer)|Ger regional belastningsutjämning genom att dirigera trafik över tillgänglighetszoner och till dina virtuella nätverk. Ger intern belastningsutjämning genom att dirigera trafik över och mellan dina resurser för att skapa ditt regionala program.|<p> [Belastningsutjämna Internettrafik till virtuella datorer](../load-balancer/tutorial-load-balancer-standard-manage-portal.md)</p> <p>[Belastningsjämnad trafik över virtuella datorer i ett virtuellt nätverk](../load-balancer/tutorial-load-balancer-basic-internal-portal.md)<p>[Portera vidarebefordra trafik till en viss port på specifika virtuella datorer](../load-balancer/tutorial-load-balancer-port-forwarding-portal.md)</p><p> [Konfigurera regler för belastningsutjämning och utgående](../load-balancer/configure-load-balancer-outbound-cli.md)</p>|
+|[Application Gateway](#applicationgateway)|Azure Application Gateway är en lastbalanserare för webbtrafik som gör det möjligt för dig att hantera trafik till dina webbappar.|<p>[Dirigera webbtrafik med Azure Application Gateway](../application-gateway/quick-create-portal.md)</p><p>[Självstudiekurs: Konfigurera en programgateway med TLS-avslutning med Azure-portalen](../application-gateway/create-ssl-portal.md)</p><p>[Skapa en programgateway med webbadressbaserad omdirigering](../application-gateway/create-url-route-portal.md) </p>|
 |
 
-### <a name="content-delivery-network"></a><a name="cdn"></a>Content Delivery Network
+### <a name="content-delivery-network"></a><a name="cdn"></a>Nätverk för innehållsleverans
 Med CDN får utvecklare en global lösning för snabb innehållsleverans med hög bandbredd till användarna eftersom innehållet cachelagras på fysiska noder på strategiska platser runt om i världen. Mer information om Azure CDN finns i [Azure Content Delivery Network](../cdn/cdn-overview.md)
 
 ![Azure CDN](./media/networking-overview/cdn-overview.png)
@@ -157,7 +157,7 @@ Med CDN får utvecklare en global lösning för snabb innehållsleverans med hö
 Med Azure Front Door Service kan du definiera, hantera och övervaka global routning av din webbtrafik, genom att optimera för bästa prestanda och omedelbar global redundans för hög tillgänglighet. Med Front Door kan du transformera dina globala (för flera regioner) konsument- och företagsprogram till robusta, högpresterande och anpassade moderna program, API:er och innehåll som når en global publik med Azure. Mer information finns i [Azure Front Door](../frontdoor/front-door-overview.md).
 
 
-### <a name="traffic-manager"></a><a name="trafficmanager"></a>Trafikchef
+### <a name="traffic-manager"></a><a name="trafficmanager"></a>Traffic Manager
 
 Azure Traffic Manager är en lastbalanserare för DNS-baserad trafik som hjälper dig att distribuera trafiken optimalt till tjänster i globala Azure-regioner, med hög tillgänglighet och korta svarstider. Traffic Manager innehåller en rad trafikdirigeringsmetoder för att distribuera trafik, till exempel prioritet, viktad, prestanda, geografiskt, multivärde eller undernät. Mer information om trafikroutningsmetoder finns i [Routningsmetoder för Trafikhanteraren](../traffic-manager/traffic-manager-routing-methods.md).
 
@@ -167,7 +167,7 @@ I följande diagram visas slutpunktsprioritetbaserad routning med Traffic Manage
 
 Mer information om Traffic Manager finns i [Vad är Azure Traffic Manager?](../traffic-manager/traffic-manager-overview.md)
 
-### <a name="load-balancer"></a><a name="loadbalancer"></a>Belastningsutjämnare
+### <a name="load-balancer"></a><a name="loadbalancer"></a>Lastbalanserare
 Azure Load Balancer ger högpresterande, låg latens Layer 4 belastningsutjämning för alla UDP och TCP-protokoll. Den hanterar inkommande och utgående anslutningar. Du kan konfigurera offentliga och interna belastningsbalanserade slutpunkter. Du kan definiera regler för att mappa inkommande anslutningar till backend-pooldestinationer med hjälp av hälsosökningsalternativ för TCP och HTTP för att hantera tjänstens tillgänglighet. Mer information om belastningsutjämnare finns i [översiktsartikeln för belastningsutjämnaren.](../load-balancer/load-balancer-overview.md)
 
 Följande bild visar ett Internetface-program med flera nivåer som använder både externa och interna belastningsutjämnare:
@@ -188,7 +188,7 @@ I det här avsnittet beskrivs nätverkstjänster i Azure som hjälper dig att ö
 |Tjänst|Varför använda?|Scenario|
 |---|---|---|
 |[Network Watcher](#networkwatcher)|Hjälper till att övervaka och felsöka anslutningsproblem, hjälper till att diagnostisera VPN-, NSG- och routningsproblem, samla in paket på den virtuella datorn, automatiserar utlösande diagnostikverktyg med Hjälp av Azure Functions och Logic Apps|<p>[Diagnostisera problem med VM-trafikfilter](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md)</p><p>[Diagnostisera problem med VM-routning](../network-watcher/diagnose-vm-network-routing-problem.md)</p><p>[Övervaka kommunikation mellan virtuella datorer](../network-watcher/connection-monitor.md)</p><p>[Diagnostisera kommunikationsproblem mellan nätverk](../network-watcher/diagnose-communication-problem-between-networks.md)</p><p>[Logga nätverkstrafik till och från en virtuell dator](../network-watcher/network-watcher-nsg-flow-logging-portal.md)</p>|
-|[ExpressRoute-övervakare](#expressroutemonitor)|Ger realtidsövervakning av nätverksprestanda, tillgänglighet och användning, hjälper till med automatisk identifiering av nätverkstopologi, ger snabbare felisolering, upptäcker tillfälliga nätverksproblem, hjälper till att analysera historiska nätverksprestanda egenskaper, stöder multi-prenumeration|<p>[Konfigurera övervakare av nätverksprestanda för ExpressRoute](../expressroute/how-to-npm.md)</p><p>[Övervakning, mått och aviseringar i ExpressRoute](../expressroute/expressroute-monitoring-metrics-alerts.md)</p>|
+|[ExpressRoute-övervakare](#expressroutemonitor)|Ger realtidsövervakning av nätverksprestanda, tillgänglighet och användning, hjälper till med automatisk identifiering av nätverkstopologi, ger snabbare felisolering, upptäcker tillfälliga nätverksproblem, hjälper till att analysera historiska nätverksprestandaegenskaper, stöder flerabonnemang|<p>[Konfigurera övervakare av nätverksprestanda för ExpressRoute](../expressroute/how-to-npm.md)</p><p>[Övervakning, mått och aviseringar i ExpressRoute](../expressroute/expressroute-monitoring-metrics-alerts.md)</p>|
 |[Azure Monitor](#azuremonitor)|Hjälper dig att förstå hur dina program fungerar och identifierar proaktivt problem som påverkar dem och vilka resurser de är beroende av.|<p>[Mått och aviseringar i Traffic Manager](../traffic-manager/traffic-manager-metrics-alerts.md)</p><p>[Azure-diagnostik för standardbelastningsutjämning](../load-balancer/load-balancer-standard-diagnostics.md)</p><p>[Övervaka Azure Firewall-loggar och mått](../firewall/tutorial-diagnostics.md)</p><p>[Övervakning och loggning i Azures brandvägg för webbaserade program](../frontdoor/waf-front-door-monitor.md)</p>|
 |[TRYCK PÅ Virtuellt nätverk](#vnettap)|Tillhandahåller kontinuerlig strömning av nätverkstrafik för virtuella datorer till paketinsamlare, möjliggör lösningar för hantering av nätverks- och programprestanda och säkerhetsanalysverktyg|[Skapa en VNet TAP-resurs](../virtual-network/tutorial-tap-virtual-network-cli.md)|
 |

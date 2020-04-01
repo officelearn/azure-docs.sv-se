@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 93b10d56ae34ebdfe78dd20705634dea58721274
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 692834903899448707200b24a955301e29e14f90
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79257282"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478467"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Hantera konfigurationsservern för VMware VM/fysisk serverkatastrofåterställning
 
@@ -270,9 +270,9 @@ Du kan också ta bort konfigurationsservern med PowerShell.
 3. Om du vill generera lösphrase-filen kör du **genpassphrase.exe -v > MobSvc.lösphrase**.
 4. Lösenfrasen lagras i filen som finns på **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
 
-## <a name="renew-ssl-certificates"></a>Förnya SSL-certifikat
+## <a name="renew-tlsssl-certificates"></a>Förnya TLS/SSL-certifikat
 
-Konfigurationsservern har en inbyggd webbserver som dirigerar aktiviteter för Mobilitetstjänsten, processservrar och huvudmålservrar som är anslutna till den. Webbservern använder ett SSL-certifikat för att autentisera klienter. Certifikatet upphör att gälla efter tre år och kan förnyas när som helst.
+Konfigurationsservern har en inbyggd webbserver som dirigerar aktiviteter för Mobilitetstjänsten, processservrar och huvudmålservrar som är anslutna till den. Webbservern använder ett TLS/SSL-certifikat för att autentisera klienter. Certifikatet upphör att gälla efter tre år och kan förnyas när som helst.
 
 ### <a name="check-expiry"></a>Kontrollera utgångsdatum
 

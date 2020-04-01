@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/13/2019
-ms.openlocfilehash: a04ca3768ade6058c59393591c252bc4347a3663
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: c2690ad7cc4dcaa295bfb08b8c0396438ada0807
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79275209"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437531"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Övervaka lösningar i Azure Monitor
 Övervakningslösningar utnyttjar tjänster i Azure för att ge ytterligare insikt i driften av ett visst program eller en viss tjänst. Den här artikeln innehåller en kort översikt över övervakningslösningar i Azure och information om hur du använder och installerar dem.
@@ -83,11 +83,7 @@ Alla övervakningslösningar kräver en [Log Analytics-arbetsyta](../platform/ma
 * Om en lösning kräver ett Automation-konto måste log analytics-arbetsytan och automationskontot vara länkade till varandra. En Log Analytics-arbetsyta kan bara länkas till ett Automation-konto och ett Automation-konto kan bara länkas till en Log Analytics-arbetsyta.
 * För att kunna länkas måste log analytics-arbetsytan och automationskontot finnas i samma resursgrupp och region. Undantaget är en arbetsyta i östra USA region och Automation konto i östra USA 2.
 
-### <a name="create-a-link-between-a-log-analytics-workspace-and-automation-account"></a>Skapa en länk mellan en Log Analytics-arbetsyta och Automation-konto
-Hur du anger logganalysarbetsytan och automationskontot beror på installationsmetoden för din lösning.
-
-* När du installerar en lösning via Azure Marketplace uppmanas du att ange ett arbetsyte- och Automation-konto. Länken mellan dem skapas om de inte redan är länkade.
-* För lösningar utanför Azure Marketplace måste du länka log analytics-arbetsytan och automationskontot innan du installerar lösningen. Du kan göra detta genom att välja en lösning på Azure Marketplace och välja log analytics-arbetsytan och automationskontot. Du behöver inte installera lösningen eftersom länken skapas så snart logganalysarbetsytan och automationskontot har valts. När länken har skapats kan du använda den logganalysarbetsytan och automationskontot för alla lösningar.
+När du installerar en lösning via Azure Marketplace uppmanas du att ange ett arbetsyte- och Automation-konto. Länken mellan dem skapas om de inte redan är länkade.
 
 ### <a name="verify-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Verifiera länken mellan en Log Analytics-arbetsyta och Automation-konto
 Du kan verifiera länken mellan en Log Analytics-arbetsyta och ett Automation-konto med hjälp av följande procedur.

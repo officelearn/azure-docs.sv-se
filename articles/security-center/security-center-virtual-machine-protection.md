@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: bcf92838483fbb6b54802cc0d44cc44ea086d705
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93dde2e873a00303dcb8563caed4d56dbf11cc12
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79282645"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435636"
 ---
 # <a name="protect-your-machines-and-applications"></a>Skydda dina maskiner och applikationer
 När Azure Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som hjälper dig att konfigurera de nödvändiga kontrollerna för att härda och skydda dina resurser.
@@ -84,10 +84,10 @@ Här ser du säkerhetsinformationen för den virtuella datorn eller datorn. Län
 
 
 
-### <a name="virtual-machine-scale-sets"></a><a name="vmscale-sets"></a>Skaluppsättningar för virtuella datorer
-Security Center identifierar automatiskt om du har skalningsuppsättningar och rekommenderar att du installerar Microsoft Monitoring Agent på dem.
+### <a name="virtual-machine-scale-sets"></a><a name="vmscale-sets"></a>Skalningsuppsättningar för virtuella datorer
+Security Center identifierar automatiskt om du har skalningsuppsättningar och rekommenderar att du installerar Log Analytics-agenten på dem.
 
-Så här installerar du Microsoft Monitoring Agent: 
+Så här installerar du Log Analytics-agenten: 
 
 1. Välj rekommendation **Installera övervakningsagenten på skalningsuppsättningen för virtuella datorer**. Du får en lista över oövervakade skaluppsättningar.
 
@@ -95,7 +95,7 @@ Så här installerar du Microsoft Monitoring Agent:
 
    ![Installera MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
-Så här anger du att nya skalningsuppsättningar automatiskt ska installeras Microsoft Monitoring Agent:
+Så här anger du nya skalningsuppsättningar för att automatiskt installera Log Analytics-agenten:
 1. Gå till Azure-principen och klicka på **Definitioner**.
 
 1. Sök efter principen **Deploy Log Analytics agent för Windows virtuella dator skalningsuppsättningar** och klicka på den.
@@ -104,7 +104,7 @@ Så här anger du att nya skalningsuppsättningar automatiskt ska installeras Mi
 
 1. Ange **arbetsytan Scope** och **Log Analytics** och klicka på **Tilldela**.
 
-Om du vill ange alla befintliga skalningsuppsättningar för att installera Microsoft Monitoring Agent går du till **Reparation** i Azure-principen och tillämpar den befintliga principen på befintliga skalningsuppsättningar.
+Om du vill ange alla befintliga skalningsuppsättningar för att installera Log Analytics-agenten går du till **Reparation** i Azure-principen och tillämpar den befintliga principen på befintliga skalningsuppsättningar.
 
 
 
@@ -195,7 +195,7 @@ När du klickar på en av de virtuella datorer som kör docker visas information
 
 Security Center söker igenom dina Docker-konfigurationer och ger dig insyn i felkonfigurationer genom att tillhandahålla en lista över alla misslyckade regler som har utvärderats. Security Center innehåller riktlinjer som hjälper dig att lösa dessa problem snabbt och spara tid. Security Center utvärderar Docker-konfigurationer och ger dig det senaste tillståndet kontinuerligt.
 
-![fliken behållare](./media/security-center-container-recommendations/container-cis-benchmark.png)
+![fliken behållare](./media/security-center-virtual-machine-recommendations/container-cis-benchmark.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

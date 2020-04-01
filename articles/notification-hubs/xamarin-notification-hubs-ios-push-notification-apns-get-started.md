@@ -217,7 +217,7 @@ Push-meddelanden skickas vanligtvis via en serverdelstjänst, till exempel Mobil
 I de här självstudierna har du skickat meddelanden till alla iOS-enheter som är registrerade hos serverdelen. Information om hur du skickar meddelanden till specifika iOS-enheter finns i följande självstudiekurs:
 
 > [!div class="nextstepaction"]
->[Push-meddelanden till specifika enheter](notification-hubs-ios-xplat-segmented-apns-push-notification.md)
+>[Skicka push-meddelanden till specifika enheter](notification-hubs-ios-xplat-segmented-apns-push-notification.md)
 
 <!-- Images. -->
 [6]: ./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png
@@ -238,4 +238,4 @@ I de här självstudierna har du skickat meddelanden till alla iOS-enheter som �
 [Apple Push Notification Service]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [Apple Push Notification Service fwlink]: https://go.microsoft.com/fwlink/p/?LinkId=272584
 [GitHub]: https://github.com/xamarin/mobile-samples/tree/master/Azure/NotificationHubs
-[Azure-portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

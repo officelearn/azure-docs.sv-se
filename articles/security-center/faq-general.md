@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: f9043ae1414b63f25583d52100774f3e87754a74
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54263a8be900ed381d8450b460e5cf9e6117ac54
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77661847"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436120"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Vanliga frågor och svar – Allmänna frågor om Azure Security Center
 
 ## <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
 Azure Security Center hjälper dig att förebygga, identifiera och svara på hot med ökad insyn i och kontroll över säkerheten för dina resurser. Härifrån kan du övervaka och hantera principer för alla prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
 
-Security Center använder Microsoft Monitoring Agent för att samla in och lagra data. Detaljerad information finns i [Datainsamling i Azure Security Center](security-center-enable-data-collection.md).
+Security Center använder Log Analytics-agenten för att samla in och lagra data. Detaljerad information finns i [Datainsamling i Azure Security Center](security-center-enable-data-collection.md).
 
 
 ## <a name="how-do-i-get-azure-security-center"></a>Hur skaffar jag Azure Security Center?

@@ -4,12 +4,12 @@ description: Lär dig hur du säkerhetskopierar en Exchange-server till Azure Ba
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 9e623b1bdce93c340ccd0e61f9f5145e7154beff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d7d28d813df82a5e1ea0fe424bba2ef5a9a2684
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78295852"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421336"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Säkerhetskopiera en Exchange-server till Azure med Azure Backup Server
 
@@ -34,7 +34,7 @@ Så här installerar du MABS-skyddsagenten på Exchange-servern:
 4. Markera den Exchange-serverdatabas som du vill skydda och klicka på **Nästa**.
 
    > [!NOTE]
-   > Om du skyddar Exchange 2013 kontrollerar du [förutsättningarna för Exchange 2013](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/dn751029(v=sc.12)).
+   > Om du skyddar Exchange 2013 kontrollerar du [förutsättningarna för Exchange 2013](https://docs.microsoft.com/system-center/dpm/back-up-exchange?view=sc-dpm-2016).
    >
    >
 
@@ -53,7 +53,7 @@ Så här installerar du MABS-skyddsagenten på Exchange-servern:
     När du har valt det här alternativet körs konsekvenskontroll för säkerhetskopiering på MABS för att undvika I/O-trafik som genereras genom att köra **kommandot eseutil** på Exchange-servern.
 
    > [!NOTE]
-   > Om du vill använda det här alternativet måste du kopiera filerna Ese.dll och Eseutil.exe till C:\Program Files\Microsoft Azure Backup\DPM\DPM\bin-katalogen på MAB-servern. Annars utlöses följande fel:  
+   > Om du vill använda det här alternativet måste du kopiera filerna Ese.dll och Eseutil.exe till C:\Program Files\Microsoft Azure Backup\DPM\DPM\bin-katalogen på MABS-servern. Annars utlöses följande fel:  
    > ![eseutil fel](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
@@ -66,7 +66,7 @@ Så här installerar du MABS-skyddsagenten på Exchange-servern:
    >
 10. Konfigurera målen för **säkerhetskopiering på kort sikt**och klicka sedan på **Nästa**.
 11. Granska det tillgängliga diskutrymmet och klicka sedan på **Nästa**.
-12. Välj den tidpunkt då MAB-servern ska skapa den första replikeringen och klicka sedan på **Nästa**.
+12. Välj den tidpunkt då MABS-servern ska skapa den första replikeringen och klicka sedan på **Nästa**.
 13. Markera alternativen för konsekvenskontroll och klicka sedan på **Nästa**.
 14. Välj den databas som du vill säkerhetskopiera till Azure och klicka sedan på **Nästa**. Ett exempel:
 

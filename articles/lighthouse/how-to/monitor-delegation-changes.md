@@ -1,14 +1,14 @@
 ---
 title: Övervaka delegeringsändringar i hanteringsklienten
 description: Lär dig hur du övervakar delegeringsaktivitet från kundklienter till din hantering av klienten.
-ms.date: 03/16/2020
+ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 99aa05cb73326e441c0473855c27dc71212cf415
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82c41c392210e088c85af510b9698e0140f660e5
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79478232"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421910"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Övervaka delegeringsändringar i hanteringsklienten
 
@@ -73,7 +73,7 @@ När du har skapat tjänstens huvudkonto och tilldelat rollen Övervakningsläsa
 
 När du har skapat ett nytt huvudkonto för tjänsten med övervakningsläsare åtkomst till rotomfånget för din hanterande klient kan du använda det för att fråga och rapportera om delegeringsaktivitet i din klientorganisation. 
 
-I exemplet nedan används Azure PowerShell för att fråga de senaste 1 dagarnas aktivitet och rapporter om eventuella tillagda eller borttagna delegeringar (eller försök som inte lyckades). Den frågar [efter klientaktivitetsloggdata](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) och konstruerar sedan följande värden för att rapportera om delegeringar som läggs till eller tas bort:
+[Det här Azure PowerShell-skriptet](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/tools/monitor-delegation-changes) kan användas för att fråga de senaste 1 aktivitetsdagarna och rapporter om alla tillagda eller borttagna delegeringar (eller försök som inte lyckades). Den frågar [efter klientaktivitetsloggdata](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) och konstruerar sedan följande värden för att rapportera om delegeringar som läggs till eller tas bort:
 
 - **DelegatedResourceId**: ID för den delegerade prenumerationen eller resursgruppen
 - **CustomerTenantId**: Kundens klient-ID

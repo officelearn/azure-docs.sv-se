@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e42be651de6fc70f5fe075a1bc1bee8010b886d7
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 447f92102a23119e5d07a589a93f8768033b67a4
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78274351"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473558"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Snabbstart: Skaffa en token och anropa Microsoft Graph API med konsolappens identitet
 
@@ -82,7 +82,7 @@ Den här snabbstarten kräver [.NET Core 2.2](https://www.microsoft.com/net/down
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
     
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-visual-studio-project"></a>Steg 3: Konfigurera ditt Visual Studio-projekt

@@ -1,45 +1,45 @@
 ---
-title: Exempel på Jupyter Notebooks med NOAA-data
+title: Exempel på jupyter-anteckningsböcker med NOAA-data
 titleSuffix: Azure Open Datasets
-description: Använd exempel Jupyter Notebooks för Azure Open data uppsättningar för att lära dig hur du läser in öppna data uppsättningar och använder dem för att utöka demonstrations data. Tekniker inkluderar användning av Spark-och Pandas för att bearbeta data.
+description: Använd exempelvis Jupyter-anteckningsböcker för Azure Open Dataset för att lära dig hur du läser in öppna datauppsättningar och använder dem för att berika demodata. Tekniker inkluderar användning av Spark och Pandor för att bearbeta data.
 ms.service: open-datasets
 ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 11/04/2019
 ms.openlocfilehash: 8b96a35db91a282be1fb5e4c6143e6bd0a0203f2
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73606150"
 ---
-# <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Exempel på Jupyter Notebooks visar hur du kan utöka data med öppna data uppsättningar 
-Exemplet Jupyter Notebooks för Azure Open data uppsättningar visar hur du läser in öppna data uppsättningar och använder dem för att utöka demonstrations data. Tekniker inkluderar användning av Apache Spark-och Pandas för att bearbeta data.
+# <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Exempel på jupyter-anteckningsböcker visar hur du berikar data med öppna datauppsättningar 
+Exemplet Jupyter-anteckningsböcker för Azure Open Dataset visar hur du läser in öppna datauppsättningar och använder dem för att berika demodata. Tekniker inkluderar användning av Apache Spark och Pandor för att bearbeta data.
 
 >[!IMPORTANT]
->När du arbetar i en miljö som inte är Spark-miljö kan öppna data uppsättningar bara hämta en månads data i taget med vissa klasser för att undvika MemoryError med stora data mängder.
+>När du arbetar i en icke-Spark-miljö tillåter Open Dataset nedladdning endast en månad data åt gången med vissa klasser för att undvika MemoryError med stora datauppsättningar.
 
-## <a name="load-noaa-integrated-surface-database-isd-data"></a>Läsa in NOAA ISD-data (Integrated Surface Database) 
+## <a name="load-noaa-integrated-surface-database-isd-data"></a>Ladda IN ISD-data (Integrated Surface Database) 
 |Notebook-fil        | Beskrivning                                    |
 |----------------|------------------------------------------------|
-|[Läs in en senaste månad med väder data till en Pandas-dataframe](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-access/02-weather-to-pandas-dataframe.ipynb) | Lär dig hur du läser in historiska väder data i dina favorit Pandas-dataframe. |
-|[Läs in en senaste månad med väder data till en spark-dataframe](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-access/01-weather-to-spark-dataframe.ipynb) | Lär dig hur du läser in historiska väder data i din favorit Spark-dataframe.  |
+|[Ladda en månad med väderdata i en Pandas-dataram](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-access/02-weather-to-pandas-dataframe.ipynb) | Lär dig hur du läser in historiska väderdata i din favoritpandas dataram. |
+|[Ladda en månad med väderdata i en Spark-dataram](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-access/01-weather-to-spark-dataframe.ipynb) | Lär dig hur du läser in historiska väderdata i din favorit spark-dataram.  |
 
-## <a name="join-demo-data-with-noaa-isd-data"></a>Koppla demonstrations data med NOAA ISD-data 
+## <a name="join-demo-data-with-noaa-isd-data"></a>Gå med i demodata med NOAA ISD-data 
 |Notebook-fil        | Beskrivning                                    |
 |----------------|------------------------------------------------|
-|[Delta i demonstrations data med väder data – Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/02-weather-join-in-pandas.ipynb) | Delta i en demonstrations data uppsättning på en månad med sensor platser med väder läsningar i en Pandas dataframe.  |
-|[Delta i demonstrations data med väder data – Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/01-weather-join-in-spark.ipynb) | Delta i en demo uppsättning med sensor platser med väder läsningar i en spark-dataframe. |
+|[Gå med i demodata med väderdata - Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/02-weather-join-in-pandas.ipynb) | Gå med i en 1-månaders demodatauppsättning av sensorplatser med väderavläsningar i en Pandas-dataram.  |
+|[Gå med i demodata med väderdata – Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/01-weather-join-in-spark.ipynb) | Gå med i en demodatauppsättning med sensorplatser med väderavläsningar i en Spark-dataram. |
 
-## <a name="join-nyc-taxi-data-with-noaa-isd-data"></a>Delta i NYC taxi-data med NOAA ISD-data 
+## <a name="join-nyc-taxi-data-with-noaa-isd-data"></a>Gå med i NYC-taxidata med NOAA ISD-data 
 |Notebook-fil        | Beskrivning                                    |
 |----------------|------------------------------------------------|
-|[Taxi rese data som berikas med väder data – Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/04-nyc-taxi-join-weather-in-pandas.ipynb) | Läs in NYCs gröna taxi data (över 1 månad) och utöka den med väder data i en Pandas-dataframe. Det här exemplet åsidosätter metoden `get_pandas_limit` och balanserar data inläsnings prestanda med data mängden.|
-|[Taxi rese data som är omfattande med väder data – Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/03-nyc-taxi-join-weather-in-spark.ipynb) | Läs in NYCs gröna taxi data och utöka dem med väder data i Spark dataframe.  |
+|[Taxi resa data berikad med väderdata - Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/04-nyc-taxi-join-weather-in-pandas.ipynb) | Ladda NYC grön taxi data (över 1 månad) och berika den med väderdata i en Pandas dataframe. Det här exemplet `get_pandas_limit` åsidosätter metoden och balanserar datainläsningsprestanda med mängden data.|
+|[Taxi resa data berikad med väderdata - Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/03-nyc-taxi-join-weather-in-spark.ipynb) | Ladda NYC grön taxi data och berika den med väderdata, i Spark dataram.  |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Självstudie: Regressions modellering med automatiserad maskin inlärning och en öppen data uppsättning](/azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
-* [Python SDK för öppna data uppsättningar](/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py)
-* [Azure Open data uppsättnings katalog](https://azure.microsoft.com/services/open-datasets/catalog/)
+* [Självstudiekurs: Regressionsmodellering med automatiserad maskininlärning och en öppen datauppsättning](/azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
+* [Python SDK för öppna datauppsättningar](/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py)
+* [Azure Open Datasets-katalog](https://azure.microsoft.com/services/open-datasets/catalog/)

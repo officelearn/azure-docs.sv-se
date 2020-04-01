@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/20/2019
+ms.date: 03/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 8605dae05b7f5270513b645367248090006c04a8
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: b08253104eeb61f6bb09fde507473d235a996494
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384916"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422645"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Snabbstart: Skapa ett tjänstbussnamnområde och en kö med hjälp av en Azure Resource Manager-mall
 
@@ -63,9 +63,27 @@ Med den här mallen distribuerar du ett servicebussnamnområde med en kö.
 
 [Service Bus köer](service-bus-queues-topics-subscriptions.md#queues) erbjuder First In, First Out (FIFO) meddelande leverans till en eller flera konkurrerande konsumenter.
 
-Klicka på följande knapp för att köra distributionen automatiskt:
+Om du vill köra distributionen automatiskt klickar du på följande knapp: Skapa en ny resursgrupp för distributionen så att du enkelt kan rensa senare.
 
 [![Distribuera till Azure](./media/service-bus-resource-manager-namespace-queue/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-queue%2Fazuredeploy.json)
+
+## <a name="verify-the-deployment"></a>Verifiera distributionen
+
+1. Välj **Meddelanden** högst upp om du vill se status för distributionen. Vänta tills distributionen lyckas. Välj sedan **Gå till resursgrupp** i meddelandemeddelandet för att navigera till sidan för resursgruppen som innehåller namnområdet Service Bus. 
+
+    ![Meddelande från distribution](./media/service-bus-resource-manager-namespace-queue/notification.png)
+2. Bekräfta att du ser namnområdet Service Bus i listan över resurser. 
+
+    ![Resursgrupp - namnområde](./media/service-bus-resource-manager-namespace-queue/resource-group-namespace.png)
+3. Välj namnområdet i listan om du vill visa sidan **Service Bus Namespace.** 
+
+## <a name="cleanup-resources"></a>Rensa resurser
+
+1. Navigera till sidan **Resursgrupp** för resursgruppen i Azure-portalen.
+2. Välj **Ta bort resursgrupp** i verktygsfältet. 
+3. Skriv namnet på resursgruppen och välj **Ta bort**. 
+
+    ![Resursgrupp - ta bort](./media/service-bus-resource-manager-namespace-queue/resource-group-delete.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ee3b5bd3278412949074b77f9d1c53d63a467280
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 403ca480bcf0743d81e375c122c888db96bbf543
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78189403"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408704"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Utvecklaranteckningar för anpassade principer i Azure Active Directory B2C
 
@@ -59,68 +59,82 @@ Utvecklare som konsumerar den anpassade principfunktionen bör följa följande 
 
 Anpassade funktioner för policy/Identity Experience Framework är under ständig och snabb utveckling. Följande tabell är ett index över funktioner och komponenttillgänglighet.
 
-### <a name="identity-providers-tokens-protocols"></a>Identitetsleverantörer, tokens, protokoll
+
+### <a name="protocols-and-authorization-flows"></a>Protokoll och auktoriseringsflöden
 
 | Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
 |-------- | :-----------: | :-------: | :--: | ----- |
-| IDP-OpenIDConnect |  |  | X | Till exempel Google+.  |
-| IDP-OAUTH2 |  |  | X | Till exempel Facebook.  |
-| IDP-OAUTH1 (Twitter) |  | X |  | Till exempel Twitter. |
-| IDP-OAUTH1 (ex-twitter) |  |  |  | Stöds inte |
-| IDP-SAML |  |   | X | Till exempel Salesforce, ADFS. |
-| IDP-WSFED | X |  |  |  |
-| Förlitar sig part OAUTH1 |  |  |  | Stöds inte. |
-| Förlitande part OAUTH2 |  |  | X |  |
-| Förlitande part OIDC |  |  | X |  |
-| Förlitande part SAML |  |X  |  |  |
-| Förlitande part WSFED | X |  |  |  |
-| REST API med grundläggande och certifikatautentisering |  |  | X | Till exempel Azure Logic Apps. |
+| [OAuth2-auktoriseringskod](authorization-code-flow.md) |  |  | X |  |
+| OAuth2-auktoriseringskod med PKCE |  |  | X | Endast mobila applikationer  |
+| [OAuth2 implicit flöde](implicit-flow-single-page-application.md) |  |  | X |  |
+| [OAuth2-resursägare lösenord autentiseringsuppgifter](ropc-custom.md) |  | X |  |  |
+| [OIDC Anslut](openid-connect.md) |  |  | X |  |
+| [SAML2 (AV )](connect-with-saml-service-providers.md)  |  |X  |  | POST- och omdirigeringsbindningar. |
+| OAuth1 |  |  |  | Stöds inte. |
+| WSFED (WSFED) | X |  |  |  |
 
-### <a name="component-support"></a>Stöd för komponenter
+### <a name="identify-providers-federation"></a>Identifiera providers federation 
+
+| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
+|-------- | :-----------: | :-------: | :--: | ----- |
+| [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | Till exempel Google+.  |
+| [OAuth2](oauth2-technical-profile.md) |  |  | X | Till exempel Facebook.  |
+| [OAuth1](oauth1-technical-profile.md) |  | X |  | Till exempel Twitter. |
+| [SAML2 (AV )](saml-technical-profile.md) |  |   | X | Till exempel Salesforce, ADFS. |
+| WSFED (WSFED)| X |  |  |  |
+
+
+### <a name="rest-api-integration"></a>INTEGRERING AV REST API
+
+| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
+|-------- | :-----------: | :-------: | :--: | ----- |
+| [REST API med grundläggande auth](secure-rest-api.md#http-basic-authentication) |  |  | X |  |
+| [REST API med klientcertifikat auth](secure-rest-api.md#https-client-certificate-authentication) |  |  | X |  |
+| [REST API med OAuth2 bärare auth](secure-rest-api.md#oauth2-bearer-authentication) |  | X |  |  |
+
+### <a name="component-support"></a>Stöd för komponent
 
 | Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Azure Multi Factor-autentisering |  |  | X |  |
-| Azure Active Directory som lokal katalog |  |  | X |  |
+| [Autentisering av telefonfaktor](phone-factor-technical-profile.md) |  |  | X |  |
+| [Azure MFA-autentisering](multi-factor-auth-technical-profile.md) |  | X |  |  |
+| [Engångslösenord](one-time-password-technical-profile.md) |  | X |  |  |
+| [Azure Active Directory](active-directory-technical-profile.md) som lokal katalog |  |  | X |  |
 | Undersystem för Azure-e-post för e-postverifiering |  |  | X |  |
-| Stöd för flera språk|  |  | X |  |
-| Predikat valideringar |  |  | X | Till exempel lösenordskomplexitet. |
-| Använda e-postleverantörer från tredje part |  |X  |  |  |
+| [E-postleverantörer från tredje part](custom-email.md) |  |X  |  |  |
+| [Stöd för flera språk](localization.md)|  |  | X |  |
+| [Predikatvalider](predicates.md) |  |  | X | Till exempel lösenordskomplexitet. |
+| [Visa kontroller](display-controls.md) |  |X  |  |  |
 
-### <a name="content-definition"></a>Definition av innehåll
+
+### <a name="page-layout-versions"></a>Sidlayoutversioner
 
 | Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Felsida, api.error |  |  | X |  |
-| Urvalssida för IDP, api.idpselections |  |  | X |  |
-| IDP-val för registrering, api.idpselections.signup |  |  | X |  |
-| Glömt lösenord, api.localaccountpasswordreset |  |  | X |  |
-| Inloggning för lokalt konto, api.localaccountsignin |  |  | X |  |
-| Registrering av lokalt konto, api.localaccountsignup |  |  | X |  |
-| MFA sida, api.phonefactor |  |  | X |  |
-| Självförsäkrad social konto registrering, api.selfasserted |  |  | X |  |
-| Självpåförd profiluppdatering, api.selfasserted.profileupdate |  |  | X |  |
-| Enhetlig registrerings- eller inloggningssida, api.signuporsignin, med parametern "disableSignup" |  |  | X |  |
-| JavaScript / Sidlayout |  | X |  |  |
+| [2.0.0](page-layout.md#200) |  | X |  |  |
+| [1.2.0](page-layout.md#120) |  | X |  |  |
+| [1.1.0](page-layout.md#110) |  |  | X |  |
+| [1.0.0](page-layout.md#100) |  |  | X |  |
+| [Support för JavaScript](javascript-samples.md) |  | X |  |  |
 
 ### <a name="app-ief-integration"></a>App-IEF-integrering
 
 | Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Parameter för frågesträng domain_hint |  |  | X | Tillgänglig som anspråk, kan skickas till IDP. |
-| Parameter för frågesträng login_hint |  |  | X | Tillgänglig som anspråk, kan skickas till IDP. |
-| Sätt in JSON i UserJourney via client_assertion | X |  |  | Kommer att vara föråldrad. |
-| Infoga JSON i UserJourney som id_token_hint |  | X |  | Gå framåt strategi för att passera JSON. |
-| Skicka IDP TOKEN till programmet |  | X |  | Till exempel från Facebook till app. |
+| Parameter för frågesträng`domain_hint` |  |  | X | Tillgänglig som anspråk, kan skickas till IDP. |
+| Parameter för frågesträng`login_hint` |  |  | X | Tillgänglig som anspråk, kan skickas till IDP. |
+| Sätt in JSON i användarens färd via`client_assertion` | X |  |  | Kommer att vara föråldrad. |
+| Infoga JSON i användarfärden som`id_token_hint` |  | X |  | Gå framåt strategi för att passera JSON. |
+| [Skicka identitetsprovidertoken till programmet](idp-pass-through-custom.md) |  | X |  | Till exempel från Facebook till app. |
 
 ### <a name="session-management"></a>Hantering av sessionssessioner
 
 | Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| SSO-sessionsleverantör |  |  | X |  |
-| Leverantör av extern inloggningssession |  |  | X |  |
-| SAML SSO-sessionsleverantör |  |  | X |  |
-| Standardleverantör för SSO-sessions |  |  | X |  |
+| [Standardleverantör för SSO-session](custom-policy-reference-sso.md#defaultssosessionprovider) |  |  | X |  |
+| [Extern inloggningssessionsleverantör](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
+| [SAML SSO-sessionsleverantör](custom-policy-reference-sso.md#samlssosessionprovider) |  |  | X |  |
+
 
 ### <a name="security"></a>Säkerhet
 
@@ -128,16 +142,19 @@ Anpassade funktioner för policy/Identity Experience Framework är under ständi
 |-------- | :-----------: | :-------: | :--: | ----- |
 | Principnycklar- Generera, Manuell, Ladda upp |  |  | X |  |
 | Policynycklar- RSA/Cert, Hemligheter |  |  | X |  |
-| Ladda upp principen |  |  | X |  |
+
 
 ### <a name="developer-interface"></a>Gränssnitt för utvecklare
 
 | Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Azure Portal-IEF UX |  |  | X |  |
-| Programinsikter UserJourney Loggar |  | X |  | Används för felsökning under utveckling.  |
-| Programinsikter Händelseloggar (via orchestration steg) |  | X |  | Används för att övervaka användarflöden i produktionen. |
+| Ladda upp principen |  |  | X |  |
+| [Programstatistik användare färdloggar](troubleshoot-with-application-insights.md) |  | X |  | Används för felsökning under utveckling.  |
+| [Händelseloggar för Application Insights](application-insights-technical-profile.md) |  | X |  | Används för att övervaka användarflöden i produktionen. |
+
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [anpassade principer och skillnaderna med användarflöden](custom-policy-overview.md).
+- Kontrollera de [Microsoft Graph-åtgärder som är tillgängliga för Azure AD B2C](microsoft-graph-operations.md)
+- Läs mer om [anpassade principer och skillnaderna med användarflöden](custom-policy-overview.md).

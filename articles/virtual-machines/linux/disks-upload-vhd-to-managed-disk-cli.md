@@ -1,37 +1,34 @@
 ---
-title: Ladda upp en virtuell hårddisk med Azure CLI
+title: Ladda upp en virtuell hårddisk till Azure eller kopiera en disk mellan regioner - Azure CLI
 description: Lär dig hur du laddar upp en virtuell hårddisk till en Azure-hanterad disk och kopierar en hanterad disk över regioner, med hjälp av Azure CLI, via direkt överföring.
 services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
-ms.date: 03/13/2020
+ms.date: 03/27/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: d89a4279d425e4b12e92aae81edfd6c1514c3eef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6813206aebe67e4e6d2afd0d9c78d03f0c20c952
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062668"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420949"
 ---
-# <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Ladda upp en virtuell hårddisk till Azure med Azure CLI
+# <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Ladda upp en virtuell hårddisk till Azure eller kopiera en hanterad disk till en annan region - Azure CLI
 
-I den här artikeln beskrivs hur du laddar upp en virtuell hårddisk från den lokala datorn till en Azure-hanterad disk. Tidigare var du tvungen att följa en mer involverad process som inkluderade mellanlagring av data i ett lagringskonto och hantera det lagringskontot. Nu behöver du inte längre hantera ett lagringskonto eller iscensätta data i det för att ladda upp en virtuell hårddisk. I stället skapar du en tom hanterad disk och överför en vhd direkt till den. Detta förenklar uppladdning lokala virtuella datorer till Azure och gör att du kan ladda upp en vhd upp till 32 TiB direkt till en stor hanterad disk.
-
-Om du tillhandahåller en säkerhetskopieringslösning för virtuella IaaS-datorer i Azure rekommenderar vi att du använder direktöverföring för att återställa kundsäkerhetskopior till hanterade diskar. Om du laddar upp en virtuell hårddisk från en dator extern till Azure beror hastigheterna på din lokala bandbredd. Om du använder en virtuell Azure-dator kommer din bandbredd att vara samma som vanliga hårddiskar.
-
-För närvarande stöds direktuppladdning för vanliga hårddiskar, standard-SSD- och premium-SSD-hanterade diskar. Det stöds ännu inte för ultra-SSD.It is not yet supported for ultra SSDs.
+[!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
 
 ## <a name="prerequisites"></a>Krav
 
 - Ladda ner den senaste [versionen av AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Installera Azure CLI](/cli/azure/install-azure-cli).
-- En vhd-fil, lagras lokalt
-- Om du tänker ladda upp en virtuell hårddisk från lokalt: En fast storlek vhd som [har förberetts för Azure](../windows/prepare-for-upload-vhd-image.md), lagras lokalt.
+- Om du tänker ladda upp en virtuell hårddisk från lokalt: En fast storlek VHD som [har förberetts för Azure](../windows/prepare-for-upload-vhd-image.md), lagras lokalt.
 - Eller en hanterad disk i Azure, om du tänker utföra en kopieringsåtgärd.
 
-## <a name="create-an-empty-managed-disk"></a>Skapa en tom hanterad disk
+## <a name="getting-started"></a>Komma igång
+
+Om du föredrar att ladda upp diskar via ett GUI kan du göra det med Hjälp av Azure Storage Explorer. Mer information finns i: [Använda Azure Storage Explorer för att hantera Azure-hanterade diskar](disks-use-storage-explorer-managed-disks.md)
 
 Om du vill överföra din virtuella hårddisk till Azure måste du skapa en tom hanterad disk som är konfigurerad för den här uppladdningsprocessen. Innan du skapar en finns det ytterligare information som du bör känna till om dessa diskar.
 
@@ -40,24 +37,29 @@ Den här typen av hanterad disk har två unika tillstånd:
 - ReadToUpload, vilket innebär att disken är redo att ta emot en överföring men ingen [säker åtkomstsignatur](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS) har genererats.
 - ActiveUpload, vilket innebär att disken är redo att ta emot en uppladdning och SAS har genererats.
 
-I något av dessa lägen faktureras den hanterade disken med standardpriser för [hårddiskar](https://azure.microsoft.com/pricing/details/managed-disks/), oavsett vilken typ av disk det är. Till exempel kommer en P10 att faktureras som en S10. Detta kommer att `revoke-access` vara sant tills anropas på den hanterade disken, vilket krävs för att koppla disken till en virtuell dator.
+> [!NOTE]
+> I något av dessa lägen faktureras den hanterade disken med standardpriser för [hårddiskar](https://azure.microsoft.com/pricing/details/managed-disks/), oavsett vilken typ av disk det är. Till exempel kommer en P10 att faktureras som en S10. Detta kommer att `revoke-access` vara sant tills anropas på den hanterade disken, vilket krävs för att koppla disken till en virtuell dator.
 
-Innan du kan skapa en tom standard hdd för uppladdning, måste du ha filstorleken på den virtuella hårddisken du vill ladda upp, i byte. För att få det `wc -c <yourFileName>.vhd` kan `ls -al <yourFileName>.vhd`du använda antingen eller . Det här värdet används när parametern **--upload-size-bytes** anges.
+## <a name="create-an-empty-managed-disk"></a>Skapa en tom hanterad disk
+
+Innan du kan skapa en tom standard hdd för uppladdning, behöver du filstorleken på den virtuella hårddisken du vill ladda upp, i byte. För att få det `wc -c <yourFileName>.vhd` kan `ls -al <yourFileName>.vhd`du använda antingen eller . Det här värdet används när parametern **--upload-size-bytes** anges.
 
 Skapa en tom standard hdd för uppladdning genom att ange både **parametern --for-upload** och parametern **--upload-size-bytes** i en [disk skapa](/cli/azure/disk#az-disk-create) cmdlet:
 
+Ersätt `<yourdiskname>` `<yourresourcegroupname>`, `<yourregion>` , med värden som du väljer. Parametern `--upload-size-bytes` innehåller ett exempelvärde `34359738880`på , ersätt det med ett värde som är lämpligt för dig.
+
 ```azurecli
-az disk create -n mydiskname -g resourcegroupname -l westus2 --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
+az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
 ```
 
-Om du vill ladda upp antingen en premium SSD eller en vanlig SSD, ersätta **standard_lrs** med antingen **premium_LRS** eller **standardssd_lrs**. Ultra SSD stöds ännu inte.
+Om du vill ladda upp antingen en premium SSD eller en vanlig SSD, ersätta **standard_lrs** med antingen **premium_LRS** eller **standardssd_lrs**. Ultra diskar stöds inte för nu.
 
-Du har nu skapat en tom hanterad disk som är konfigurerad för överföringsprocessen. Om du vill ladda upp en virtuell hårddisk till disken behöver du en skrivbar SAS, så att du kan referera till den som mål för din uppladdning.
+Nu när du har skapat en tom hanterad disk som är konfigurerad för uppladdningsprocessen kan du ladda upp en virtuell hårddisk till den. Om du vill ladda upp en virtuell hårddisk till disken behöver du en skrivbar SAS, så att du kan referera till den som mål för din uppladdning.
 
-Om du vill skapa en skrivbar SAS för den tomma hanterade disken använder du följande kommando:
+Om du vill generera en skrivbar SAS `<yourdiskname>` `<yourresourcegroupname>`för den tomma hanterade disken ersätter du och använder sedan följande kommando:
 
 ```azurecli
-az disk grant-access -n mydiskname -g resourcegroupname --access-level Write --duration-in-seconds 86400
+az disk grant-access -n <yourdiskname> -g <yourresourcegroupname> --access-level Write --duration-in-seconds 86400
 ```
 
 Exempel returnerat värde:
@@ -68,7 +70,7 @@ Exempel returnerat värde:
 }
 ```
 
-## <a name="upload-vhd"></a>Ladda upp vhd
+## <a name="upload-a-vhd"></a>Ladda upp en virtuell hårddisk
 
 Nu när du har en SAS för den tomma hanterade disken kan du använda den för att ange den hanterade disken som mål för ditt uppladdningskommando.
 
@@ -82,8 +84,10 @@ AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 
 När överföringen är klar och du inte längre behöver skriva några fler data till disken återkallar du SAS.After the upload is complete, and you no longer need to write any more data to the disk, revoke the SAS. Om du återkallar SAS ändras tillståndet för den hanterade disken och du kan koppla disken till en virtuell dator.
 
+Ersätt `<yourdiskname>` `<yourresourcegroupname>`och använd sedan följande kommando för att göra disken användbar:
+
 ```azurecli
-az disk revoke-access -n mydiskname -g resourcegroupname
+az disk revoke-access -n <yourdiskname> -g <yourresourcegroupname>
 ```
 
 ## <a name="copy-a-managed-disk"></a>Kopiera en hanterad disk

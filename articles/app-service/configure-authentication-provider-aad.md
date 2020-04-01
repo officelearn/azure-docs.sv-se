@@ -1,22 +1,26 @@
 ---
 title: Konfigurera Azure AD-autentisering
-description: Lär dig hur du konfigurerar Azure Active Directory-autentisering som identitetsprovider för apptjänstappen.
+description: Lär dig hur du konfigurerar Azure Active Directory-autentisering som identitetsprovider för appen AppTjänst eller Azure Functions.
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 09/03/2019
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: fdad1f820d006c39fa135a29a5ec7377c47591f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b42f0966288e4ee72b689ddce6313a41e91f13e
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80046450"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80438035"
 ---
-# <a name="configure-your-app-service-app-to-use-azure-ad-login"></a>Konfigurera appen App Service så att den använder Azure AD-inloggning
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Konfigurera appen App Service eller Azure Functions så att den använder Azure AD-inloggning
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Den här artikeln visar hur du konfigurerar Azure App Service för att använda Azure Active Directory (Azure AD) som autentiseringsprovider.
+Den här artikeln visar hur du konfigurerar Azure App Service eller Azure Functions för att använda Azure Active Directory (Azure AD) som autentiseringsprovider.
+
+> [!NOTE]
+> För närvarande stöds inte [Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) (inklusive [MSAL)](../active-directory/develop/msal-overview.md)för Azure App Service och Azure Functions. Kom tillbaka för uppdateringar.
+>
 
 Följ de här metodtipsen när du konfigurerar din app och autentisering:
 
@@ -72,7 +76,8 @@ Utför följande steg:
 1. I **Omdirigera URI**väljer `<app-url>/.auth/login/aad/callback`du **Webb** och skriver . Till exempel `https://contoso.azurewebsites.net/.auth/login/aad/callback`. 
 1. Välj **Skapa**.
 1. När appregistreringen har skapats kopierar **du program-ID:t och** **katalog-ID :t** för senare.
-1. Välj **Branding**. Ange URL:en för appen App Service på **startsidan**och välj **Spara**.
+1. Välj **Autentisering**. Under **Implicit beviljande**aktiverar du **ID-token** för att tillåta OpenID Connect-användarloggningar från App Service.
+1. (Valfritt) Välj **Branding**. Ange URL:en för appen App Service på **startsidan**och välj **Spara**.
 1. Välj Visa en**API-uppsättning** **Expose an API** > . Klistra in url:en till apptjänstappen och välj **Spara**.
 
    > [!NOTE]
@@ -96,7 +101,7 @@ Utför följande steg:
     |Field|Beskrivning|
     |-|-|
     |Klientorganisations-ID| Använd **program-ID:t (klient)för** appregistreringen. |
-    |Utfärdar-ID| Använd `https://login.microsoftonline.com/<tenant-id>`och ersätt * \<klient-ID>* med **katalog-ID (klient)** för appregistreringen. |
+    |Url till utfärdare| Använd `https://login.microsoftonline.com/<tenant-id>`och ersätt * \<klient-ID>* med **katalog-ID (klient)** för appregistreringen. Det här värdet används för att omdirigera användare till rätt Azure AD-klientorganisation, samt för att hämta lämpliga metadata för att fastställa lämpliga tokensigneringsnycklar och tokenutfärdare anspråksvärde till exempel. |
     |Klienthemlighet (valfritt)| Använd klienthemligheten som du skapade i appregistreringen.|
     |Tillåtna tokenmålningar| Om detta är en moln- eller serverapp och du vill tillåta autentiseringstoken från en webbapp lägger du till **webbappens program-ID-URI** här. Det konfigurerade **klient-ID:et** anses *alltid* implicit vara en tillåten målgrupp. |
 
@@ -106,21 +111,21 @@ Nu är du redo att använda Azure Active Directory för autentisering i apptjän
 
 ## <a name="configure-a-native-client-application"></a>Konfigurera ett inbyggt klientprogram
 
-Du kan registrera inbyggda klienter så att autentisering tillåts med hjälp av ett klientbibliotek, till exempel **Active Directory Authentication Library**.
+Du kan registrera inbyggda klienter så att autentisering till webb-API finns i appen med hjälp av ett klientbibliotek, till exempel **Active Directory Authentication Library**.
 
 1. I [Azure-portalen]väljer du **Active Directory** > **App registreringar** > **Ny registrering**.
 1. På sidan **Registrera ett program** anger du ett **namn** för din appregistrering.
 1. I **Omdirigera URI**väljer du **Offentlig klient (mobilt &-skrivbordet)** och skriver URL:en `<app-url>/.auth/login/aad/callback`. Till exempel `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 
     > [!NOTE]
-    > För ett Windows-program använder du [paketet SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) som URI istället.
+    > För ett Microsoft Store-program använder du [paketet SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) som URI i stället.
 1. Välj **Skapa**.
 1. När appregistreringen har skapats kopierar du värdet **för Application (client) ID**.
 1. Välj **API-behörigheter** > **Lägg till en behörighet** > **Mina API:er**.
 1. Välj den appregistrering som du skapade tidigare för apptjänstappen. Om du inte ser appregistreringen kontrollerar du att du har lagt till **user_impersonation** omfattning i [Skapa en appregistrering i Azure AD för apptjänstappen](#register).
 1. Välj **user_impersonation**och välj sedan **Lägg till behörigheter**.
 
-Du har nu konfigurerat ett inbyggt klientprogram som kan komma åt appen App Service.
+Du har nu konfigurerat ett inbyggt klientprogram som kan komma åt apptjänstappen för en användares räkning.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Nästa steg
 
@@ -128,4 +133,4 @@ Du har nu konfigurerat ett inbyggt klientprogram som kan komma åt appen App Ser
 
 <!-- URLs. -->
 
-[Azure-portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/

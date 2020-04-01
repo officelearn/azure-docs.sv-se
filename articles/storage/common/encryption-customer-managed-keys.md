@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 6a3447a88aea1087c7ec327a956044ea94e793e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6b5712094b9821dfa041cd5ba8617e86f7231bde
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79410043"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478016"
 ---
 # <a name="use-customer-managed-keys-with-azure-key-vault-to-manage-azure-storage-encryption"></a>Använda kundhanterade nycklar med Azure Key Vault för att hantera Azure Storage-kryptering
 
@@ -51,7 +51,7 @@ Kundhanterade nycklar kan endast aktiveras på befintliga lagringskonton. Nyckel
 
 När du konfigurerar en kundhanterad nyckel radbryts rotdatakrypteringsnyckeln för kontot med den kundhanterade nyckeln i det associerade nyckelvalvet. Aktivera kundhanterade nycklar påverkar inte prestanda och börjar gälla omedelbart.
 
-När du ändrar nyckeln som används för Azure Storage-kryptering genom att aktivera eller inaktivera kundhanterade nycklar, uppdatera nyckelversionen eller ange en annan nyckel, ändras inte krypteringen av rotnyckeln, men data i ditt Azure Storage-konto ändras inte måste krypteras på ett omorgan.
+När du ändrar nyckeln som används för Azure Storage-kryptering genom att aktivera eller inaktivera kundhanterade nycklar, uppdatera nyckelversionen eller ange en annan nyckel, behöver krypteringen av rotnyckeln ändras, men data i ditt Azure Storage-konto behöver inte krypteras på nytt.
 
 När du aktiverar eller inaktiverar kundhanterade nycklar, eller när du ändrar nyckeln eller nyckelversionen, ändras skyddet av rotkrypteringsnyckeln, men data i ditt Azure Storage-konto behöver inte krypteras på nytt.
 
@@ -68,7 +68,7 @@ Mer information om hur du använder kundhanterade nycklar med Azure Key Vault f�
 
 Om du vill aktivera kundhanterade nycklar på ett lagringskonto måste du använda ett Azure Key Vault för att lagra dina nycklar. Du måste aktivera egenskaperna **Mjuk borttagning** **och Rensa inte** på nyckelvalvet.
 
-Endast RSA-nycklar i storlek 2048 stöds med Azure Storage-kryptering. Mer information om nycklar finns i **Key Vault-nycklar** i [Om Azure Key Vault-nycklar, hemligheter och certifikat](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+Endast 2048-bitars RSA- och RSA-HSM-nycklar stöds med Azure Storage-kryptering. Mer information om nycklar finns i **Key Vault-nycklar** i [Om Azure Key Vault-nycklar, hemligheter och certifikat](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ## <a name="rotate-customer-managed-keys"></a>Rotera kundhanterade nycklar
 

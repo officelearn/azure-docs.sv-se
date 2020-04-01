@@ -1,6 +1,6 @@
 ---
 title: Publicera Windows-datorer till Azure Security Center
-description: Den här snabbstarten visar hur du etablerar Microsoft Monitoring Agent på en Windows-dator.
+description: Den här snabbstarten visar hur du etablerar Log Analytics-agenten på en Windows-dator.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 417d8379d019a9ef0da41638cba4a1f9cb7b8bc2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2840b6636c2b511ab57a8bae8adf411f4d8a27d2
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73686498"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435927"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Snabbstart: Publicera Windows-datorer till Azure Security Center
-När du har publicerat dina Azure-prenumerationer kan du aktivera Security Center for resurser som körs utanför Azure, till exempel lokalt eller i andra moln, genom att etablera Microsoft Monitoring Agent.
+När du har liksom azure-prenumerationer kan du aktivera Security Center för resurser som körs utanför Azure, till exempel lokalt eller i andra moln, genom att etablera Log Analytics-agenten.
 
-Den här snabbstarten visar hur du installerar Microsoft Monitoring Agent på en Windows-dator.
+Den här snabbstarten visar hur du installerar Log Analytics-agenten på en Windows-dator.
 
 ## <a name="prerequisites"></a>Krav
 Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
@@ -41,7 +41,7 @@ Innan du startar den här snabbstarten måste du ha standardnivån i Security Ce
 3. På huvudmenyn i Security Center väljer du **Komma igång**.
 4. Välj fliken **Kom igång**.
 
-   ![Komma igång][3]
+   ![Kom igång][3]
 
 5. Klicka på **Konfigurera** under **Lägg till datorer som inte är Azure-datorer**. En lista över dina Log Analytics-arbetsytor visas. Om det är tillämpligt innehåller listan standardarbetsytan som har skapats för dig av Security Center när automatisk etablering aktiverades. Välj den här arbetsytan eller någon annan arbetsyta som du vill använda.
 
@@ -72,7 +72,7 @@ Nu måste du installera den hämtade filen på måldatorn.
 9. På sidan **Klar att installera** kontrollerar du valen och väljer sedan **Installera**.
 10. På sidan **Konfigurationen har slutförts** väljer du **Slutför**
 
-När du är klar visas **Microsoft Monitoring Agent** i **Kontrollpanelen**. Du kan granska konfigurationen där och bekräfta att agenten är ansluten.
+När du är klar visas **Log Analytics-agenten** på **Kontrollpanelen**. Du kan granska konfigurationen där och bekräfta att agenten är ansluten.
 
 Mer information om att installera och konfigurera agenten finns i dokumentationen om att [ansluta Windows-datorer](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
 
@@ -93,10 +93,10 @@ Så här tar du bort agenten:
 
 1. Öppna **Kontrollpanelen**.
 2. Öppna **Program och funktioner**.
-3. I **Program och funktioner** väljer du **Microsoft Monitoring Agent** och klickar på **Avinstallera**.
+3. I **Program och funktioner**väljer du Log **Analytics-agent** och klickar på **Avinstallera**.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här snabbstarten etablerar du Microsoft Monitoring Agent på en Windows-dator. Om du vill läsa mer om hur du använder Security Center fortsätter du till självstudien om konfiguration av en säkerhetsprincip och utvärderar resursers säkerhet.
+I den här snabbstarten har du etablerat Log Analytics-agenten på en Windows-dator. Om du vill läsa mer om hur du använder Security Center fortsätter du till självstudien om konfiguration av en säkerhetsprincip och utvärderar resursers säkerhet.
 
 > [!div class="nextstepaction"]
 > [Självstudie: Definiera och utvärdera säkerhetsprinciper](tutorial-security-policy.md)

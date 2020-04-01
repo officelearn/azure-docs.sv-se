@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: 0bf70b73098427847c73b4dd962d56d44fe6ee2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 554a4c64700bb189b4b9f085bd7c259312a36b4b
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283216"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80410939"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Introduktionsdatorer för hantering av Azure Automation State Configuration
 
@@ -107,7 +107,7 @@ Du kan vara ombord på Linux-servrar som körs lokalt eller i andra molnmiljöer
 
      `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 
-   - Information om hur du hittar registreringsnyckeln och registreringsadressen för ditt Automation-konto läser du avsnittet [Onboarding på ett säkert sätt med hjälp av](#onboarding-securely-using-registration) registreringsavsnittet om den här artikeln.
+   - Information om hur du hittar registreringsnyckeln och registreringsadressen för ditt Automation-konto läser du registreringsavsnittet [på ett säkert sätt med hjälp](#onboarding-securely-using-registration) av registreringsavsnittet i den här artikeln.
 
 3. Om standardvärdena För LCM (PowerShell DSC Local Configuration Manager) inte matchar ditt användningsfall, eller om du vill använda datorer som bara rapporterar till Azure Automation State Configuration, följer du steg 4-7. Annars går du direkt till steg 7.
 

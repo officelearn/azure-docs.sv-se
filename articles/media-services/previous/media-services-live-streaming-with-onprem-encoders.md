@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f6366f162cb09898b694b14440718401c57c0adf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c0d19d68d016a47762fb5d2646ea6ccf74d3ef75
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79251042"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476553"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Arbeta med kanaler som får multibitrate live stream från lokala kodare
 
@@ -112,7 +112,7 @@ En kanal innehåller en indataslutpunkt (inmatnings-URL) som du anger i live-kod
 
 Du kan hämta de intjest webbadresserna när du skapar kanalen. För att du ska få dessa webbadresser behöver **Running** kanalen inte vara i körläge. När du är redo att börja skicka data till kanalen måste kanalen vara i **körläge.** När kanalen har börjat inta data kan du förhandsgranska flödet via förhandsgranskningsadressen.
 
-Du har möjlighet att inta en fragmenterad MP4 -livestream (Smooth Streaming) via en SSL-anslutning. Om du vill börja använda via SSL måste du uppdatera intvalnings-URL:en till HTTPS. För närvarande kan du inte inta RTMP via SSL.
+Du har möjlighet att inta en fragmenterad MP4 -livestream (Smooth Streaming) via en TLS-anslutning. Om du vill börja använda över TLS kontrollerar du att den intöste URL:en uppdateras till HTTPS. För närvarande kan du inte inta RTMP via TLS.
 
 #### <a name="keyframe-interval"></a><a id="keyframe_interval"></a>Nyckelbildruta intervall
 När du använder en lokal live-kodare för att generera flerbitriga dataström anger nyckelruteintervallet varaktigheten för gruppen med bilder (GOP) som används av den externa kodaren. När kanalen har tagit emot den här inkommande strömmen kan du leverera din livestream till klientuppspelningsprogram i något av följande format: Smooth Streaming, Dynamic Adaptive Streaming over HTTP (DASH) och HTTP Live Streaming (HLS). När du gör live streaming, HLS är alltid paketerad dynamiskt. Som standard beräknar Media Services automatiskt HLS-segmentets förpackningsförhållande (fragment per segment) baserat på nyckelbildsintervallet som tas emot från den aktiva kodaren.

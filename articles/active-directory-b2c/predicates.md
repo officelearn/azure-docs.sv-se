@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cc61ef5980a8019514f05c1db47f2300fff3603b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: 887c9432f04cce775e045bb6da83f0af4a4a4bce
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78187244"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396896"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predikat och predikatvalidationer
 
@@ -45,7 +45,7 @@ Elementet **Predikat** måste visas direkt efter elementet **ClaimsSchema** i el
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Id | Ja | En identifierare som används för predikatet. Andra element kan använda den här identifieraren i principen. |
-| Metod | Ja | Den metodtyp som ska användas för validering. Möjliga värden: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters**eller **IsDateRange**. Värdet **IsLengthRange** kontrollerar om längden på ett stränganspråksvärde ligger inom intervallet för de minsta och högsta parametrar som angetts. **Värdet MatchesRegex** kontrollerar om ett stränganspråksvärde matchar ett reguljärt uttryck. Värdet **IncludesCharacters** kontrollerar om ett stränganspråksvärde innehåller en teckenuppsättning. Värdet **IsDateRange** kontrollerar om ett datumanspråksvärde ligger mellan ett intervall med angivna minimi- och maximiparametrar. |
+| Metod | Ja | Den metodtyp som ska användas för validering. Möjliga värden: [IsLengthRange](#islengthrange), [MatchesRegex](#matchesregex), [IncludesCharacters](#includescharacters)eller [IsDateRange](#isdaterange).  |
 | Hjälptext | Inga | Ett felmeddelande för användare om kontrollen misslyckas. Den här strängen kan lokaliseras med hjälp av [språkanpassningen](localization.md) |
 
 **Predikatelementet** innehåller följande element:
@@ -67,7 +67,19 @@ Elementet **Parametrar** innehåller följande element:
 | ------- | ----------- | ----------- |
 | Id | 1:1 | Parameterns identifierare. |
 
-I följande exempel `IsLengthRange` visas en `Minimum` `Maximum` metod med parametrarna och som anger strängens längdområde:
+### <a name="predicate-methods"></a>Predikatmetoder
+
+#### <a name="islengthrange"></a>IsLengthRange (olikartade)
+
+Metoden IsLengthRange kontrollerar om längden på ett stränganspråksvärde ligger inom intervallet för de minsta och högsta parametrar som angetts. Predikatelementet stöder följande parametrar:
+
+| Parameter | Krävs | Beskrivning |
+| ------- | ----------- | ----------- |
+| Maximal | Ja | Det maximala antalet tecken som kan anges. |
+| Minimum | Ja | Det minsta antalet tecken som måste anges. |
+
+
+I följande exempel visas en IsLengthRange-metod med parametrarna `Minimum` och `Maximum` som anger strängens längdintervall:
 
 ```XML
 <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">
@@ -77,6 +89,14 @@ I följande exempel `IsLengthRange` visas en `Minimum` `Maximum` metod med param
   </Parameters>
 </Predicate>
 ```
+
+#### <a name="matchesregex"></a>MatcherRegex
+
+Metoden MatchesRegex kontrollerar om ett stränganspråksvärde matchar ett reguljärt uttryck. Predikatelementet stöder följande parametrar:
+
+| Parameter | Krävs | Beskrivning |
+| ------- | ----------- | ----------- |
+| RegelbundnaExpression | Ja | Det reguljära uttrycksmönstret som ska matchas. |
 
 I följande exempel `MatchesRegex` visas en `RegularExpression` metod med parametern som anger ett reguljärt uttryck:
 
@@ -88,6 +108,14 @@ I följande exempel `MatchesRegex` visas en `RegularExpression` metod med parame
 </Predicate>
 ```
 
+#### <a name="includescharacters"></a>InkluderarTecken
+
+Metoden IncludesCharacters kontrollerar om ett stränganspråksvärde innehåller en teckenuppsättning. Predikatelementet stöder följande parametrar:
+
+| Parameter | Krävs | Beskrivning |
+| ------- | ----------- | ----------- |
+| Teckenuppsättning | Ja | Den uppsättning tecken som kan anges. Gemener, `A-Z`versaler, siffror `0-9`eller en lista med symboler, `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!`till exempel . `a-z` |
+
 I följande exempel `IncludesCharacters` visas en `CharacterSet` metod med parametern som anger teckenuppsättningen:
 
 ```XML
@@ -98,7 +126,16 @@ I följande exempel `IncludesCharacters` visas en `CharacterSet` metod med param
 </Predicate>
 ```
 
-I följande exempel `IsDateRange` visas en `Minimum` `Maximum` metod med parametrarna och `yyyy-MM-dd` som `Today`anger datumintervallet med formatet och .
+#### <a name="isdaterange"></a>IsDateRange
+
+Metoden IsDateRange kontrollerar om ett datumanspråksvärde ligger mellan ett intervall med angivna minimi- och maximiparametrar. Predikatelementet stöder följande parametrar:
+
+| Parameter | Krävs | Beskrivning |
+| ------- | ----------- | ----------- |
+| Maximal | Ja | Det största möjliga datum som kan anges. Formatet på datumet följer `yyyy-mm-dd` konventionen, `Today`eller . |
+| Minimum | Ja | Minsta möjliga datum som kan anges. Formatet på datumet följer `yyyy-mm-dd` konventionen, `Today`eller .|
+
+I följande exempel `IsDateRange` visas en `Minimum` `Maximum` metod med parametrarna och `yyyy-mm-dd` som `Today`anger datumintervallet med formatet och .
 
 ```XML
 <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 1970-01-01 and today.">
@@ -388,3 +425,7 @@ I anspråkstypen lägger du till **elementet PredicateValidationReference** och 
   <PredicateValidationReference Id="CustomDateRange" />
 </ClaimType>
  ```
+
+## <a name="next-steps"></a>Nästa steg
+
+- Lär dig hur du [konfigurerar lösenordskomplexitet med hjälp av anpassade principer i Azure Active Directory B2C](custom-policy-password-complexity.md) med predikatvalningar.

@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: apimpm
 ms.openlocfilehash: 57803ec9889cb6a19dae6d6d1070d8381577aff0
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77468396"
 ---
 # <a name="import-an-openapi-specification"></a>Importera en OpenAPI-specifikation
@@ -31,15 +31,15 @@ I den här artikeln kan du se hur du:
 > [!div class="checklist"]
 > * Importerar en OpenAPI-specifikation för serverdels-API
 > * Testa API:et i Azure Portal
-> * Testa API:et i utvecklarportalen
+> * Testa API:et i Developer-portalen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"> </a>Importera och publicera ett Server dels-API
+## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importera och publicera ett serverdels-API
 
 1. Välj **API: er** under **API-HANTERING**.
 2. Välj **OpenAPI-specifikation** i listan **Lägg till ett nytt API**.
@@ -57,14 +57,14 @@ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-start
     |**Beskrivning**|Ange en valfri beskrivning av API: et.|Om du trycker på fliken när du har angett tjänstens URL fyller APIM i det här fältet baserat på vad som finns i JSON.|
     |**API URL-suffix**|*konferens*|Suffixet läggs till i API-hanteringstjänstens bas-URL. API Management skiljer API:erna åt med hjälp av deras suffix, och suffixet måste därför vara unikt för alla API:er för en viss utgivare.|
     |**URL-schema**|*HTTPS*|Fastställer vilka protokoll som kan användas för att få åtkomst till API:et. |
-    |**Produkter**|*Obegränsat*| Du kan publicera API:et genom att associera det med en produkt. Om du vill lägga till det nya API:et till en produkt anger du produktnamnet. Det här steget kan du upprepa flera gånger för om du ska lägga till API:et till flera produkter.<br/>Produkter är associationer med en eller flera API:er. Du kan inkludera flera API:er och erbjuda dem till utvecklare via utvecklarportalen. Utvecklare måste först prenumerera på en produkt för att få åtkomst till API:n. När de prenumererar få de en prenumerationsnyckel som går att använda till alla API:er i produkten. Om du har skapat APIM-instansen är du redan administratör, så du prenumererar på alla produkter som standard.<br/> Som standard medföljer två exempelprodukter varje API Management-instans: **Starter** och **Unlimited**. |
+    |**Produkter**|*Unlimited*| Du kan publicera API:et genom att associera det med en produkt. Om du vill lägga till det nya API:et till en produkt anger du produktnamnet. Det här steget kan du upprepa flera gånger för om du ska lägga till API:et till flera produkter.<br/>Produkter är associationer med en eller flera API:er. Du kan inkludera flera API:er och erbjuda dem till utvecklare via utvecklarportalen. Utvecklare måste först prenumerera på en produkt för att få åtkomst till API:n. När de prenumererar få de en prenumerationsnyckel som går att använda till alla API:er i produkten. Om du har skapat APIM-instansen är du redan administratör, så du prenumererar på alla produkter som standard.<br/> Som standard medföljer två exempelprodukter varje API Management-instans: **Starter** och **Unlimited**. |
 
 4. Välj **Skapa**.
 
 > [!NOTE]
-> Begränsningar för API-import finns dokumenterade i [en annan artikel](api-management-api-import-restrictions.md).
+> Api-importbegränsningarna dokumenteras i [en annan artikel](api-management-api-import-restrictions.md).
 
-## <a name="test-the-new-api-in-the-azure-portal"></a>Testa det nya API: et i Azure Portal
+## <a name="test-the-new-api-in-the-azure-portal"></a>Testa det nya API:et i Azure-portalen
 
 ![Testa API-karta](./media/api-management-get-started/01-import-first-api-01.png)
 

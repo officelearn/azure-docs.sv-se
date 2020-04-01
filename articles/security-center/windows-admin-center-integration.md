@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 5467794bf246fab4ff7ded9c445dbeee0c4093b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cbbdf724b9d7fe4948553e7526410b994f491b49
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79139631"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435266"
 ---
 # <a name="integrate-azure-security-center-with-windows-admin-center"></a>Integrera Azure Security Center med Administrationscenter för Windows
 
@@ -48,7 +48,7 @@ Genom att kombinera dessa två verktyg blir Security Center din enda glasruta f�
     * Servern har en arbetsyta att rapportera till och en associerad prenumeration.
     * Security Centers standardnivålogganalyslösning är aktiverad på arbetsytan. Den här lösningen tillhandahåller Security Centers standardnivåfunktioner för *alla* servrar och virtuella datorer som rapporterar till den här arbetsytan.
     * Security Centers standardnivåpriser för virtuell dator är aktiverat för prenumerationen.
-    * Microsoft Monitoring Agent (MMA) installeras på servern och konfigureras för att rapportera till den valda arbetsytan. Om servern redan rapporterar till en annan arbetsyta är den konfigurerad att rapportera till den nyligen valda arbetsytan också.
+    * Log Analytics-agenten är installerad på servern och konfigurerad för att rapportera till den valda arbetsytan. Om servern redan rapporterar till en annan arbetsyta är den konfigurerad att rapportera till den nyligen valda arbetsytan också.
 
     > [!NOTE]
     > Det kan ta lite tid efter introduktionen för rekommendationer att visas. Beroende på serveraktiviteten kanske du inte får *några* aviseringar. Om du vill generera testvarningar för att testa att aviseringarna fungerar korrekt följer du anvisningarna i [valideringsproceduren](security-center-alert-validation.md)för aviseringar .

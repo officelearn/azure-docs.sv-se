@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 03/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2fce8a7a6f6d345b83c639bd69ecd70271621e9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b344886e89a10a027cba169e92056a6dda443d8d
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283165"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421947"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager-resursprovideråtgärder
 
@@ -65,7 +65,7 @@ Microsofts övervakningsstatistik
 > | Åtgärd | microsoft.aadiam/diagnosticsettingscategories/read microsoft.aadiam/diagnosticsettingscategories/read microsoft.aadiam/diagnosticsettingscategories/read microsoft. | Läsa en diagnostikinställningskategori |
 > |  | **metricDefinitions** |  |
 > | Åtgärd | microsoft.aadiam/metricDefinitions/read | Läsa måttdefinitioner på klientnivå |
-> |  | **metrics** |  |
+> |  | **Statistik** |  |
 > | Åtgärd | microsoft.aadiam/metrics/read | Läsa mått på klientnivå |
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
@@ -4992,7 +4992,7 @@ Azure-tjänst: [Azure-övervakare](../azure-monitor/index.yml)
 > | Åtgärd | Microsoft.Insights/MetricDefinitions/providers/Microsoft.Insights/Read | Läsa måttdefinitioner |
 > |  | **Metricnamespaces** |  |
 > | Åtgärd | Microsoft.Insights/Metricnamespaces/Read | Läsa måttnamnområden |
-> |  | **Statistik** |  |
+> |  | **Mått** |  |
 > | Åtgärd | Microsoft.Insights/Metrics/Read | Läs mått |
 > |  | **Mått/Microsoft.Insights** |  |
 > | Åtgärd | Microsoft.Insights/Metrics/Microsoft.Insights/Read | Läs mått |
@@ -5046,7 +5046,7 @@ Azure-tjänst: [Azure-övervakare](../azure-monitor/index.yml)
 > | Åtgärd | Microsoft.Insights/Arbetsböcker/läs | Läsa en arbetsbok |
 > |  | **DatainsamlingRules/Data** |  |
 > | DataÅtgärd | Microsoft.Insights/DataCollectionRules/Data/Write | Skicka data till en regel för datainsamling |
-> |  | **Statistik** |  |
+> |  | **Mått** |  |
 > | DataÅtgärd | Microsoft.Insights/Metrics/Write | Skriv mått |
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
@@ -8333,7 +8333,7 @@ Azure-tjänst: [Azure Resource Manager](../azure-resource-manager/index.yml)
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
-Azure-tjänst: [Schemaläggare](../scheduler/index.md)
+Azure-tjänst: [Schemaläggare](../scheduler/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: 357075caaf91769026deb839e038e5d42fb63a38
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 60f85a30815bc1bace409b50af6332bb6622d7ca
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80054688"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477979"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Hantera logganalysarbetsyta med Azure Resource Manager-mallar
 
@@ -48,6 +48,9 @@ I följande tabell visas API-versionen för de resurser som används i det här 
 
 I följande exempel skapas en arbetsyta med hjälp av en mall från den lokala datorn. JSON-mallen är konfigurerad för att endast kräva namn och plats för den nya arbetsytan. Den använder värden som angetts för andra arbetsyteparametrar, till exempel [åtkomstkontrollläge,](design-logs-deployment.md#access-control-mode)prisnivå, kvarhållning och kapacitetsreservationsnivå.
 
+> [!WARNING]
+> Följande mall skapar en Log Analytics-arbetsyta och konfigurerar datainsamling. Detta kan ändra dina faktureringsinställningar. Granska [Hantera användning och kostnader med Azure Monitor-loggar](manage-cost-storage.md) för att förstå fakturering för data som samlas in på en Log Analytics-arbetsyta innan du använder den i din Azure-miljö.
+
 För kapacitetsreservation definierar du en vald kapacitetsreservation för `CapacityReservation` intag av data `capacityReservationLevel`genom att ange SKU och ett värde i GB för egenskapen . I följande lista beskrivs värden och beteenden som stöds när du konfigurerar dem.
 
 - När du har angett reservationsgränsen kan du inte ändra till en annan SKU inom 31 dagar.
@@ -75,7 +78,7 @@ För kapacitetsreservation definierar du en vald kapacitetsreservation för `Cap
               "description": "Specifies the name of the workspace."
             }
         },
-      "pricingTier": {
+      "sku": {
         "type": "string",
         "allowedValues": [
           "pergb2018",
@@ -131,7 +134,7 @@ För kapacitetsreservation definierar du en vald kapacitetsreservation för `Cap
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-          "name": "[parameters('pricingTier')]"
+                    "name": "[parameters('sku')]"
                 },
                 "retentionInDays": 120,
                 "features": {
@@ -145,15 +148,15 @@ För kapacitetsreservation definierar du en vald kapacitetsreservation för `Cap
     }
     ```
 
-> [Information] för kapacitetsreservationsinställningar använder du dessa egenskaper under "sku":
+   >[!NOTE]
+   >För inställningar för kapacitetsreservation, använd dessa egenskaper under "sku":
+   >* "namn": "CapacityReservation",
+   >* "kapacitetReservationLevel": 100
 
->   "namn": "CapacityReservation",
+2. Redigera mallen för att uppfylla dina krav. Överväg att skapa en [Resource Manager-parameterfil](../../azure-resource-manager/templates/parameter-files.md) i stället för att skicka parametrar som infogade värden. Läs [mallreferensen för Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) för att ta reda på vilka egenskaper och värden som stöds. 
 
->   "kapacitetReservationLevel": 100
-
-
-2. Redigera mallen för att uppfylla dina krav. Läs [mallreferensen för Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) för att ta reda på vilka egenskaper och värden som stöds. 
 3. Spara den här filen som **deploylaworkspacetemplate.json** i en lokal mapp.
+
 4. Nu är det dags att distribuera den här mallen. Du använder antingen PowerShell eller kommandoraden för att skapa arbetsytan och anger arbetsytans namn och plats som en del av kommandot. Arbetsytans namn måste vara globalt unikt för alla Azure-prenumerationer.
 
    * För PowerShell används följande kommandon från mappen som innehåller mallen:
@@ -197,7 +200,7 @@ Följande mallexempel illustrerar hur du:
         "description": "Workspace name"
       }
     },
-    "pricingTier": {
+    "sku": {
       "type": "string",
       "allowedValues": [
         "PerGB2018",
@@ -306,7 +309,7 @@ Följande mallexempel illustrerar hur du:
           "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
         },
         "sku": {
-          "name": "[parameters('pricingTier')]"
+          "name": "[parameters('sku')]"
         }
       },
       "resources": [
@@ -605,7 +608,7 @@ Följande mallexempel illustrerar hur du:
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').customerId]"
     },
-    "pricingTier": {
+    "sku": {
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').sku.name]"
     },

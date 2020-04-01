@@ -1,30 +1,30 @@
 ---
 title: Skala ett Service Fabric-kluster i Azure
-description: I den här självstudien får du lära dig hur du skalar ett Service Fabric kluster i Azure ut och i och hur du rensar överblivna resurser.
+description: I den här självstudien får du lära dig hur du skalar ett Service Fabric-kluster i Azure ut och in och hur du rensar överblivna resurser.
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: f1b813576a94541cdc2ab0a67fea71b6f49696c5
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78251796"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Självstudie: Skala ut ett Service Fabric-kluster i Azure
 
-Den här självstudien är del tre i en serie och visar hur du skalar ditt befintliga kluster och i. När du är klar kommer du att veta hur du skalar ditt kluster och hur du rensar överblivna resurser.  Mer information om hur du skalar ett kluster som körs i Azure finns i [skalnings Service Fabric kluster](service-fabric-cluster-scaling.md).
+Den här självstudien är del tre i en serie och visar hur du skalar ut och in ditt befintliga kluster. När du är klar kommer du att veta hur du skalar ditt kluster och hur du rensar överblivna resurser.  Mer information om hur du skalar ett kluster som körs i Azure finns i [Scaling Service Fabric-kluster](service-fabric-cluster-scaling.md).
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Lägga till och ta bort noder (skala ut och skala in)
 > * Lägga till och ta bort nodtyper (skala ut och skala in)
-> * Öka Node-resurser (skala upp)
+> * Öka nodresurserna (skala upp)
 
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
-> * Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) på Azure med hjälp av en mall
+> * Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i Azure med hjälp av en mall
 > * [Övervaka ett kluster](service-fabric-tutorial-monitor-cluster.md)
 > * Skala in eller ut ett kluster
 > * [uppgradera körningen för ett kluster](service-fabric-tutorial-upgrade-cluster.md)
@@ -33,61 +33,61 @@ I den här självstudieserien får du lära du dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
 * Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i Azure
 
-## <a name="important-considerations-and-guidelines"></a>Viktiga överväganden och rikt linjer
+## <a name="important-considerations-and-guidelines"></a>Viktiga överväganden och riktlinjer
 
-Vill du ändra program arbets belastningar med tiden? de befintliga tjänsterna behöver mer (eller färre) resurser?  [Lägg till eller ta bort noder](#add-nodes-to-or-remove-nodes-from-a-node-type) från en nodtyp för att öka eller minska kluster resurserna.
+Programarbetsbelastningar förändras med tiden, behöver dina befintliga tjänster mer (eller mindre) resurser?  [Lägga till eller ta bort noder](#add-nodes-to-or-remove-nodes-from-a-node-type) från en nodtyp för att öka eller minska klusterresurser.
 
-Behöver du lägga till fler än 100 noder i klustret?  En enskild Service Fabric nodtyp/skalnings uppsättning får inte innehålla fler än 100 noder/VM: ar.  Om du vill skala ett kluster bortom 100 noder [lägger du till ytterligare nodtyper](#add-nodes-to-or-remove-nodes-from-a-node-type).
+Behöver du lägga till mer än 100 noder i klustret?  En enda service fabric-nodtyp/skalningsuppsättning kan inte innehålla mer än 100 noder/virtuella datorer.  Om du vill skala ett kluster efter 100 noder [lägger du till ytterligare nodtyper](#add-nodes-to-or-remove-nodes-from-a-node-type).
 
-Har ditt program flera tjänster och behöver de vara offentliga eller Internet riktade?  Typiska program innehåller en frontend Gateway-tjänst som tar emot indata från en klient och en eller flera backend-tjänster som kommunicerar med klient dels tjänsterna. I det här fallet rekommenderar vi att du [lägger till minst två nodtyper](#add-nodes-to-or-remove-nodes-from-a-node-type) till klustret.  
+Har din ansökan har flera tjänster, och gör någon av dem måste vara offentliga eller internet inför?  Typiska program innehåller en frontend gateway-tjänst som tar emot indata från en klient och en eller flera backend-tjänster som kommunicerar med frontend-tjänsterna. I det här fallet rekommenderar vi att du [lägger till minst två nodtyper](#add-nodes-to-or-remove-nodes-from-a-node-type) i klustret.  
 
-Har dina tjänster olika infrastruktur behov, till exempel större RAM-minne eller högre CPU-cykler? Ditt program innehåller till exempel en frontend-tjänst och en backend-tjänst. Frontend-tjänsten kan köras på mindre virtuella datorer (VM-storlekar som D2) som har portar öppna för Internet. Server dels tjänsten är dock en beräknings intensiv och måste köras på större virtuella datorer (med VM-storlekar som D4, D6, D15) som inte är Internet-riktade. I det här fallet rekommenderar vi att du [lägger till två eller flera nodtyper](#add-nodes-to-or-remove-nodes-from-a-node-type) i klustret. Detta gör att varje nodtyp kan ha distinkta egenskaper som Internet anslutning eller storlek på virtuell dator. Antalet virtuella datorer kan också skalas oberoende av varandra.
+Har dina tjänster olika infrastrukturbehov såsom större RAM eller högre CPU-cykler? Ditt program innehåller till exempel en frontend-tjänst och en backend-tjänst. Front-end-tjänsten kan köras på mindre virtuella datorer (VM-storlekar som D2) som har portar öppna för internet. Backend-tjänsten är dock beräkningsintensiv och måste köras på större virtuella datorer (med VM-storlekar som D4, D6, D15) som inte är internetvända. I det här fallet rekommenderar vi att du [lägger till två eller flera nodtyper](#add-nodes-to-or-remove-nodes-from-a-node-type) i klustret. På så sätt kan varje nodtyp ha olika egenskaper som internetanslutning eller vm-storlek. Antalet virtuella datorer kan också skalas oberoende av sig.
 
-När du skalar ett Azure-kluster bör du ha följande rikt linjer i åtanke:
+Tänk på följande när du skalar ett Azure-kluster:
 
-* En enskild Service Fabric nodtyp/skalnings uppsättning får inte innehålla fler än 100 noder/VM: ar.  Om du vill skala ett kluster bortom 100 noder lägger du till ytterligare nodtyper.
-* Primära nodtyper som kör produktions arbets belastningar bör ha en [hållbarhets nivå][durability] på guld eller silver och har alltid fem eller fler noder.
-* Icke-primära nodtyper som kör tillstånds känsliga produktions arbets belastningar bör alltid ha fem eller fler noder.
-* Icke-primära nodtyper som kör tillstånds lösa produktions arbets belastningar bör alltid ha två eller flera noder.
-* Alla nodtyper för [hållbarhets nivån][durability] guld eller silver bör alltid ha fem eller fler noder.
-* Om du skalar i (tar bort noder från) en typ av primär nod, bör du aldrig minska antalet instanser till mindre än vad [Tillförlitlighets nivån][reliability] kräver.
+* En enda service fabric-nodtyp/skalningsuppsättning kan inte innehålla mer än 100 noder/virtuella datorer.  Om du vill skala ett kluster efter 100 noder lägger du till ytterligare nodtyper.
+* Primära nodtyper som kör produktionsarbetsbelastningar bör ha en [hållbarhetsnivå][durability] för guld eller silver och alltid ha fem eller fler noder.
+* Icke-primära nodtyper som kör tillståndskänsliga produktionsarbetsbelastningar bör alltid ha fem eller fler noder.
+* Icke-primära nodtyper som kör tillståndslösa produktionsarbetsbelastningar bör alltid ha två eller flera noder.
+* Alla nodtyper av [hållbarhetsnivå för][durability] guld eller silver bör alltid ha fem eller fler noder.
+* Om skalning i (ta bort noder från) en primär nodtyp, bör du aldrig minska antalet instanser till mindre än vad [tillförlitlighetsnivån][reliability] kräver.
 
-Mer information finns i [kluster kapacitets vägledning](service-fabric-cluster-capacity.md).
+Mer information finns i [vägledningen för klusterkapacitet](service-fabric-cluster-capacity.md).
 
 ## <a name="export-the-template-for-the-resource-group"></a>Exportera mallen för resursgruppen
 
-När du har skapat ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) och konfigurerat resurs gruppen, exporterar du Resource Manager-mallen för resurs gruppen. Genom att exportera mallen kan du automatisera framtida distributioner av klustret och dess resurser, eftersom mallen innehåller all fullständig infrastruktur.  Mer information om hur du exporterar mallar finns i [hantera Azure Resource Manager resurs grupper med hjälp av Azure Portal](/azure/azure-resource-manager/manage-resource-groups-portal).
+När du har skapat ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) och konfigurerat resursgruppen framgångsrikt exporterar du resurshanterarens mall för resursgruppen. Genom att exportera mallen kan du automatisera framtida distributioner av klustret och dess resurser eftersom mallen innehåller hela infrastrukturen.  Mer information om hur du exporterar mallar finns i [Hantera Azure Resource Manager-resursgrupper med hjälp av Azure-portalen](/azure/azure-resource-manager/manage-resource-groups-portal).
 
-1. I [Azure Portal](https://portal.azure.com)går du till resurs gruppen som innehåller klustret (**sfclustertutorialgroup**om du följer den här självstudien). 
+1. Gå till resursgruppen som innehåller**klustret ( sfclustertutorialgroup**i [Azure-portalen,](https://portal.azure.com)om du följer den här självstudien). 
 
-2. I det vänstra fönstret väljer du **distributioner**eller så väljer du länken under **distributioner**. 
+2. Välj **Distributioner**i den vänstra rutan eller välj länken under **Distributioner**. 
 
 3. Välj den senaste lyckade distributionen i listan.
 
-4. I den vänstra rutan väljer du **mall** och väljer sedan **Ladda ned** för att exportera mallen som en zip-fil.  Spara mallen och parametrarna på den lokala datorn.
+4. I den vänstra rutan väljer du **Mall** och väljer sedan **Hämta** för att exportera mallen som en ZIP-fil.  Spara mallen och parametrarna på den lokala datorn.
 
 ## <a name="add-nodes-to-or-remove-nodes-from-a-node-type"></a>Lägga till noder i eller ta bort noder från en nodtyp
 
-Att skala in och ut eller vågrät skalning ändrar antalet noder i klustret. När du skalar in eller ut lägger du till fler virtuella dator instanser i skalnings uppsättningen. Dessa instanser blir de noder som används i Service Fabric. Service Fabric vet när fler instanser läggs till i skalningsuppsättningen (genom utskalning) och reagerar automatiskt. Du kan skala klustret när som helst, även när arbets belastningar körs på klustret.
+Skala in och ut, eller vågrät skalning, ändrar antalet noder i klustret. När du skalar in eller ut lägger du till fler instanser av virtuella datorer i skalningsuppsättningen. Dessa instanser blir de noder som används i Service Fabric. Service Fabric vet när fler instanser läggs till i skalningsuppsättningen (genom utskalning) och reagerar automatiskt. Du kan skala klustret när som helst, även när arbetsbelastningar körs i klustret.
 
 ### <a name="update-the-template"></a>Uppdatera mallen
 
-[Exportera en mall och parameter fil](#export-the-template-for-the-resource-group) från resurs gruppen för den senaste distributionen.  Öppna filen *Parameters. JSON* .  Om du har distribuerat klustret med hjälp av [exempel mal len][template] i den här självstudien finns det tre olika nodtyper i klustret och tre parametrar som anger antalet noder för varje nodtyp: *nt0InstanceCount*, *nt1InstanceCount*och *nt2InstanceCount*.  Parametern *nt1InstanceCount* anger till exempel antalet instanser för den andra nodtypen och anger antalet virtuella datorer i den associerade skalnings uppsättningen för den virtuella datorn.
+[Exportera en mall- och parameterfil](#export-the-template-for-the-resource-group) från resursgruppen för den senaste distributionen.  Öppna *filen parameters.json.*  Om du har distribuerat klustret med hjälp av [exempelmallen][template] i den här självstudien finns det tre nodtyper i klustret och tre parametrar som anger antalet noder för varje *nodtyp: nt0InstanceCount*, *nt1InstanceCount*och *nt2InstanceCount*.  Parametern *nt1InstanceCount* anger till exempel instansantalet för den andra nodtypen och anger antalet virtuella datorer i den associerade skalningsuppsättningen för virtuella datorer.
 
-Så genom att uppdatera värdet för *nt1InstanceCount* ändrar du antalet noder i den andra nodtypen.  Kom ihåg att du inte kan skala upp en nodtyp till fler än 100 noder.  Icke-primära nodtyper som kör tillstånds känsliga produktions arbets belastningar bör alltid ha fem eller fler noder. Icke-primära nodtyper som kör tillstånds lösa produktions arbets belastningar bör alltid ha två eller flera noder.
+Genom att uppdatera värdet *för nt1InstanceCount* ändrar du därför antalet noder i den andra nodtypen.  Kom ihåg att du inte kan skala ut en nodtyp till mer än 100 noder.  Icke-primära nodtyper som kör tillståndskänsliga produktionsarbetsbelastningar bör alltid ha fem eller fler noder. Icke-primära nodtyper som kör tillståndslösa produktionsarbetsbelastningar bör alltid ha två eller flera noder.
 
-Om du skalar i och tar bort noder från, [måste du][durability] [ta bort de nodernas status manuellt](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  För silver-och Gold-hållbarhets nivån görs de här stegen automatiskt av plattformen.
+Om du skalar in, tar bort noder från, en nodtyp av [bronshållbarhetsnivå][durability] måste du [manuellt ta bort tillståndet för dessa noder](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  För Silver- och Gold-hållbarhetsnivån görs dessa steg automatiskt av plattformen.
 
 ### <a name="deploy-the-updated-template"></a>Distribuera den uppdaterade mallen
-Spara ändringarna i *mallarna Template. JSON* och *Parameters. JSON* .  Kör följande kommando för att distribuera den uppdaterade mallen:
+Spara alla ändringar i *template.json-* och *parameters.json-filerna.*  Om du vill distribuera den uppdaterade mallen kör du följande kommando:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
@@ -97,17 +97,17 @@ Eller följande Azure CLI-kommando:
 az group deployment create --resource-group sfclustertutorialgroup --template-file c:\temp\template.json --parameters c:\temp\parameters.json
 ```
 
-## <a name="add-a-node-type-to-the-cluster"></a>Lägg till en nodtyp i klustret
+## <a name="add-a-node-type-to-the-cluster"></a>Lägga till en nodtyp i klustret
 
-Varje nodtyp som definieras i ett Service Fabric kluster som körs i Azure har kon figurer ATS som en [separat skalnings uppsättning för virtuella datorer](service-fabric-cluster-nodetypes.md). Varje nodtyp kan sedan hanteras separat. Du kan skala upp eller ned varje nodtyp oberoende av varandra, ha olika uppsättningar portar öppna och använda olika kapacitets mått. Du kan också självständigt ändra OS-SKU: n som körs på varje klusternod, men Observera att du inte kan ha en blandning av Windows och Linux som körs i exempel klustret. En enskild nodtyp/skalnings uppsättning får inte innehålla fler än 100 noder.  Du kan skala ett kluster vågrätt till över 100 noder genom att lägga till ytterligare nodtyper/skalnings uppsättningar. Du kan skala klustret när som helst, även när arbets belastningar körs på klustret.
+Varje nodtyp som definieras i ett Service Fabric-kluster som körs i Azure ställs in som en [separat skaluppsättning för virtuella datorer](service-fabric-cluster-nodetypes.md). Varje nodtyp kan sedan hanteras separat. Du kan självständigt skala varje nodtyp uppåt eller nedåt, ha olika uppsättningar portar öppna och använda olika kapacitetsmått. Du kan också självständigt ändra OS SKU som körs på varje klusternod, men observera att du inte kan ha en blandning av Windows och Linux som körs i exempelklustret. En enskild nodtyp/skalningsuppsättning får inte innehålla mer än 100 noder.  Du kan skala ett kluster vågrätt till mer än 100 noder genom att lägga till ytterligare nodtyper/skaluppsättningar. Du kan skala klustret när som helst, även när arbetsbelastningar körs i klustret.
 
 ### <a name="update-the-template"></a>Uppdatera mallen
 
-[Exportera en mall och parameter fil](#export-the-template-for-the-resource-group) från resurs gruppen för den senaste distributionen.  Öppna filen *Parameters. JSON* .  Om du har distribuerat klustret med hjälp av [exempel mal len][template] i den här självstudien finns det tre olika nodtyper i klustret.  I det här avsnittet lägger du till en fjärde nodtyp genom att uppdatera och distribuera en Resource Manager-mall. 
+[Exportera en mall- och parameterfil](#export-the-template-for-the-resource-group) från resursgruppen för den senaste distributionen.  Öppna *filen parameters.json.*  Om du har distribuerat klustret med hjälp av [exempelmallen][template] i den här självstudien finns det tre nodtyper i klustret.  I det här avsnittet lägger du till en fjärde nodtyp genom att uppdatera och distribuera en Resource Manager-mall. 
 
-Förutom den nya nodtypen lägger du också till den associerade skalnings uppsättningen för virtuella datorer (som körs i ett separat undernät i det virtuella nätverket) och nätverks säkerhets gruppen.  Du kan välja att lägga till nya eller befintliga offentliga IP-adresser och resurser för Azure Load Balancer för den nya skalnings uppsättningen.  Den nya nodtypen har en [hållbarhets nivå][durability] för silver och storlek på "Standard_D2_V2".
+Förutom den nya nodtypen lägger du även till den associerade skalningsuppsättningen för virtuella datorer (som körs i ett separat undernät i det virtuella nätverket) och nätverkssäkerhetsgruppen.  Du kan välja att lägga till nya eller befintliga offentliga IP-adress och Azure belastningsutjämna resurser för den nya skalningsuppsättningen.  Den nya nodtypen har en [hållbarhetsnivå][durability] av Silver och storleken på "Standard_D2_V2".
 
-Lägg till följande nya parametrar i filen *Template. JSON* :
+Lägg till följande nya parametrar i *filen template.json:*
 ```json
 "nt3InstanceCount": {
     "defaultValue": 5,
@@ -122,7 +122,7 @@ Lägg till följande nya parametrar i filen *Template. JSON* :
 },
 ```
 
-Lägg till följande nya variabler i filen *Template. JSON* :
+Lägg till följande nya variabler i *filen template.json:*
 ```json
 "lbID3": "[resourceId('Microsoft.Network/loadBalancers',concat('LB','-', parameters('clusterName'),'-',variables('vmNodeType3Name')))]",
 "lbIPConfig3": "[concat(variables('lbID3'),'/frontendIPConfigurations/LoadBalancerIPConfig')]",
@@ -144,7 +144,7 @@ Lägg till följande nya variabler i filen *Template. JSON* :
 "subnet3Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet3Name'))]",
 ```
 
-I filen *Template. JSON* lägger du till ett nytt undernät i den virtuella nätverks resursen:
+Lägg till ett nytt undernät i den virtuella nätverksresursen i filen *template.json:*
 ```json
 {
     "type": "Microsoft.Network/virtualNetworks",
@@ -181,7 +181,7 @@ I filen *Template. JSON* lägger du till ett nytt undernät i den virtuella nät
 },
 ```
 
-Lägg till en ny offentlig IP-adress och belastnings Utjämnings resurser i filen *Template. JSON* :
+Lägg till nya offentliga IP-adress- och belastningsutjämnresurser i filen *template.json:*
 ```json
 {
     "type": "Microsoft.Network/publicIPAddresses",
@@ -362,7 +362,7 @@ Lägg till en ny offentlig IP-adress och belastnings Utjämnings resurser i file
 },
 ```
 
-I filen *Template. JSON* lägger du till en ny nätverks säkerhets grupp och resurser för skalnings uppsättning för virtuella datorer.  Egenskapen NodeTypeRef i Service Fabric tilläggs egenskaperna för den virtuella datorns skal uppsättning mappar den angivna nodtypen till skalnings uppsättningen.
+Lägg till nya nätverkssäkerhetsgrupp och skaluppsättningsresurser för virtuella datorer i filen *template.json.*  Egenskapen NodeTypeRef i tillägget Service Fabric-egenskaperna för den virtuella datorns skalningsuppsättning mappar den angivna nodtypen till skalningsuppsättningen.
 
 ```json
 {
@@ -746,7 +746,7 @@ I filen *Template. JSON* lägger du till en ny nätverks säkerhets grupp och re
 },
 ```
 
-Uppdatera kluster resursen i filen *Template. JSON* och Lägg till en ny nodtyp:
+Uppdatera klusterresursen i *filen template.json* och lägg till en ny nodtyp:
 ```json
 {
     "type": "Microsoft.ServiceFabric/clusters",
@@ -782,7 +782,7 @@ Uppdatera kluster resursen i filen *Template. JSON* och Lägg till en ny nodtyp:
 }                
 ```
 
-Lägg till följande nya parametrar och värden i filen *Parameters. JSON* :
+Lägg till följande parametrar och värden i filen *parameters.json:*
 ```json
 "nt3InstanceCount": {
     "Value": 5    
@@ -793,7 +793,7 @@ Lägg till följande nya parametrar och värden i filen *Parameters. JSON* :
 ```
 
 ### <a name="deploy-the-updated-template"></a>Distribuera den uppdaterade mallen
-Spara ändringarna i *mallarna Template. JSON* och *Parameters. JSON* .  Kör följande kommando för att distribuera den uppdaterade mallen:
+Spara alla ändringar i *template.json-* och *parameters.json-filerna.*  Om du vill distribuera den uppdaterade mallen kör du följande kommando:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
@@ -804,12 +804,12 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 ```
 
 ## <a name="remove-a-node-type-from-the-cluster"></a>Ta bort en nodtyp från klustret
-När du har skapat ett Service Fabric-kluster kan du skala ett kluster vågrätt genom att ta bort en nodtyp (skalnings uppsättning för virtuell dator) och alla dess noder. Du kan skala klustret när som helst, även när arbets belastningar körs på klustret. När klustret skalas, skalas programmen automatiskt.
+När du har skapat ett Service Fabric-kluster kan du skala ett kluster vågrätt genom att ta bort en nodtyp (skaluppsättning för virtuell dator) och alla dess noder. Du kan skala klustret när som helst, även när arbetsbelastningar körs i klustret. När klustret skalas skalas även dina program automatiskt.
 
 > [!WARNING]
-> Att använda Remove-AzServiceFabricNodeType för att ta bort en nodtyp från ett produktions kluster bör inte användas regelbundet. Det är ett farligt kommando eftersom det tar bort den virtuella datorns skalnings uppsättnings resurs bakom nodtypen. 
+> Det rekommenderas inte att använda Ta bort AzServiceFabricNodeType för att ta bort en nodtyp från ett produktionskluster som används ofta. Det är ett farligt kommando eftersom det tar bort den virtuella datorn skala uppsättning resurs bakom nodtypen. 
 
-Om du vill ta bort nodtypen kör du cmdleten [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) .  Nodtypen måste vara silver eller guld [hållbarhets nivå][durability] cmdleten tar bort den skalnings uppsättning som är associerad med nodtypen och tar lite tid att slutföra.  Kör sedan cmdleten [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) på var och en av noderna som ska tas bort, vilket tar bort nodens tillstånd och tar bort noderna från klustret. Om det finns tjänster på noderna flyttas tjänsterna först till en annan nod. Om kluster hanteraren inte kan hitta en nod för repliken/tjänsten är åtgärden försenad/blockerad.
+Om du vill ta bort nodtypen kör du cmdleten [Remove-AzServiceFabricNodeType.](/powershell/module/az.servicefabric/remove-azservicefabricnodetype)  Nodtypen måste vara [hållbarhetsnivå][durability] för silver eller guld Cmdlet tar bort skalningsuppsättningen som är associerad med nodtypen och tar lite tid att slutföra.  Kör sedan cmdleten [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) på var och en av noderna som ska tas bort, vilket tar bort nodtillståndet och tar bort noderna från klustret. Om det finns tjänster på noderna flyttas tjänsterna först ut till en annan nod. Om klusterhanteraren inte kan hitta en nod för repliken/tjänsten försenas/blockeras åtgärden.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"
@@ -832,25 +832,25 @@ Foreach($node in $nodes)
 }
 ```
 
-## <a name="increase-node-resources"></a>Öka nodens resurser 
-När du har skapat ett Service Fabric-kluster kan du skala en typ av klusternod lodrätt (ändra resurserna för noderna) eller uppgradera operativ systemet för de virtuella datorernas nodtyper.  
+## <a name="increase-node-resources"></a>Öka nodresurserna 
+När du har skapat ett Service Fabric-kluster kan du skala en klusternodtyp lodrätt (ändra nodernas resurser) eller uppgradera operativsystemet för de virtuella datorerna för nodtyp.  
 
 > [!WARNING]
-> Vi rekommenderar att du inte ändrar VM-SKU: n för en skalnings uppsättning/nodtyp om den inte körs vid silver tålighet eller större. Att ändra den virtuella datorns SKU-storlek är en dataförstörande infrastruktur åtgärd på plats. Utan någon möjlighet att fördröja eller övervaka den här ändringen är det möjligt att åtgärden kan leda till data förlust för tillstånds känsliga tjänster eller orsaka andra oförutsedda drifts problem, även för tillstånds lösa arbets belastningar.
+> Vi rekommenderar att du inte ändrar VM SKU för en skalningsuppsättning/nodtyp om den inte körs vid Silver hållbarhet eller större. Att ändra VM SKU-storleken är en datadestruktiv infrastrukturåtgärd på plats. Utan viss möjlighet att fördröja eller övervaka den här ändringen är det möjligt att åtgärden kan orsaka dataförlust för tillståndskänsliga tjänster eller orsaka andra oförutsedda driftproblem, även för tillståndslösa arbetsbelastningar.
 
 > [!WARNING]
-> Vi rekommenderar att du inte ändrar VM-SKU: n för den primära nodtypen, som är en farlig åtgärd och som inte stöds.  Om du behöver mer kluster kapacitet kan du lägga till fler VM-instanser eller ytterligare nodtyper.  Om detta inte är möjligt kan du skapa ett nytt kluster och [återställa program tillstånd](service-fabric-reliable-services-backup-restore.md) (om det är tillämpligt) från det gamla klustret.  Om detta inte är möjligt kan du [ändra VM-SKU: n för den primära nodtypen](service-fabric-scale-up-node-type.md).
+> Vi rekommenderar att du inte ändrar VM SKU för den primära nodtypen, vilket är en farlig åtgärd och stöds inte.  Om du behöver mer klusterkapacitet kan du lägga till fler VM-instanser eller ytterligare nodtyper.  Om det inte är möjligt kan du skapa ett nytt kluster och [återställa programtillstånd](service-fabric-reliable-services-backup-restore.md) (om tillämpligt) från det gamla klustret.  Om det inte är möjligt kan du [ändra VM SKU för den primära nodtypen](service-fabric-scale-up-node-type.md).
 
 ### <a name="update-the-template"></a>Uppdatera mallen
 
-[Exportera en mall och parameter fil](#export-the-template-for-the-resource-group) från resurs gruppen för den senaste distributionen.  Öppna filen *Parameters. JSON* .  Om du har distribuerat klustret med hjälp av [exempel mal len][template] i den här självstudien finns det tre olika nodtyper i klustret.  
+[Exportera en mall- och parameterfil](#export-the-template-for-the-resource-group) från resursgruppen för den senaste distributionen.  Öppna *filen parameters.json.*  Om du har distribuerat klustret med hjälp av [exempelmallen][template] i den här självstudien finns det tre nodtyper i klustret.  
 
-Storleken på de virtuella datorerna i den andra nodtypen anges i parametern *vmNodeType1Size* .  Ändra värdet för parametern *vmNodeType1Size* från Standard_D2_V2 till [Standard_D3_V2](../virtual-machines/dv2-dsv2-series.md), vilket dubblerar resurserna för varje VM-instans.
+Storleken på de virtuella datorerna i den andra nodtypen anges i parametern *vmNodeType1Size.*  Ändra parametervärdet *vmNodeType1Size* från Standard_D2_V2 till [Standard_D3_V2](../virtual-machines/dv2-dsv2-series.md), vilket fördubblar resurserna för varje VM-instans.
 
-VM-SKU: n för alla tre nodtyper anges i parametern *vmImageSku* .  Återigen bör det vara försiktig med att ändra VM-SKU: n för en nodtyp och rekommenderas inte för den primära nodtypen.
+VM SKU för alla tre nodtyper anges i parametern *vmImageSku.*  Återigen bör ändring av VM SKU av en nodtyp närmas med försiktighet och rekommenderas inte för den primära nodtypen.
 
 ### <a name="deploy-the-updated-template"></a>Distribuera den uppdaterade mallen
-Spara ändringarna i *mallarna Template. JSON* och *Parameters. JSON* .  Kör följande kommando för att distribuera den uppdaterade mallen:
+Spara alla ändringar i *template.json-* och *parameters.json-filerna.*  Om du vill distribuera den uppdaterade mallen kör du följande kommando:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
@@ -867,7 +867,7 @@ I den här självstudiekursen lärde du dig att:
 > [!div class="checklist"]
 > * Lägga till och ta bort noder (skala ut och skala in)
 > * Lägga till och ta bort nodtyper (skala ut och skala in)
-> * Öka Node-resurser (skala upp)
+> * Öka nodresurserna (skala upp)
 
 Fortsätt sedan till nästa självstudie för att lära dig hur du uppgraderar körningen för ett kluster.
 > [!div class="nextstepaction"]
@@ -879,7 +879,7 @@ Fortsätt sedan till nästa självstudie för att lära dig hur du uppgraderar k
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
 
 > * Lägga till och ta bort nodtyper (skala ut och skala in)
-> * Öka Node-resurser (skala upp)
+> * Öka nodresurserna (skala upp)
 
 Fortsätt sedan till nästa självstudie för att lära dig hur du uppgraderar körningen för ett kluster.
 > [!div class="nextstepaction"]

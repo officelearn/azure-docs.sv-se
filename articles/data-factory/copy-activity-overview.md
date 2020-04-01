@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 39885782b55dca9c73f10990269d912f9b5727fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: edb80c604951a140d21e3775eec3f1dc6d55af73
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257979"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421418"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Kopiera aktivitet i Azure Data Factory
 
@@ -134,10 +134,10 @@ Följande mall för en kopieringsaktivitet innehåller en fullständig lista öv
 | källa | Ange kopierakälltypen och motsvarande egenskaper för att hämta data.<br/>Mer information finns i avsnittet "Kopiera aktivitetsegenskaper" i kopplingsartikeln som visas i [Datalager och format som stöds](#supported-data-stores-and-formats). | Ja |
 | Diskbänken | Ange kopierarkänningstypen och motsvarande egenskaper för att skriva data.<br/>Mer information finns i avsnittet "Kopiera aktivitetsegenskaper" i kopplingsartikeln som visas i [Datalager och format som stöds](#supported-data-stores-and-formats). | Ja |
 | translator | Ange explicita kolumnmappningar från källa till mottagare. Den här egenskapen gäller när standardkopieringsbeteendet inte uppfyller dina behov.<br/>Mer information finns [i Schemamappning i kopieringsaktivitet](copy-activity-schema-and-type-mapping.md). | Inga |
-| dataIntegrationUnits | Ange ett mått som representerar hur mycket ström som [Azure-integreringen](concepts-integration-runtime.md) körs för datakopiering. Dessa enheter var tidigare kända som moln datarörelseenheter (DMU). <br/>Mer information finns i [Dataintegrationsenheter](copy-activity-performance.md#data-integration-units). | Inga |
-| parallelCopies (parallelCopies) | Ange den parallellitet som du vill att kopieringsaktiviteten ska använda när data läses från källan och skriver data till diskhon.<br/>Mer information finns i [Parallellkopia](copy-activity-performance.md#parallel-copy). | Inga |
+| dataIntegrationUnits | Ange ett mått som representerar hur mycket ström som [Azure-integreringen](concepts-integration-runtime.md) körs för datakopiering. Dessa enheter var tidigare kända som moln datarörelseenheter (DMU). <br/>Mer information finns i [Dataintegrationsenheter](copy-activity-performance-features.md#data-integration-units). | Inga |
+| parallelCopies (parallelCopies) | Ange den parallellitet som du vill att kopieringsaktiviteten ska använda när data läses från källan och skriver data till diskhon.<br/>Mer information finns i [Parallellkopia](copy-activity-performance-features.md#parallel-copy). | Inga |
 | Bevara | Ange om metadata/ACL:er ska bevaras under datakopiering. <br/>Mer information finns i [Bevara metadata](copy-activity-preserve-metadata.md). |Inga |
-| enableStaging<br/>mellanlagringsinställningar | Ange om interimsdata ska fasas i Blob-lagring i stället för att direkt kopiera data från källa till mottagare.<br/>Information om användbara scenarier och konfigurationsinformation finns i [Stegvis kopia](copy-activity-performance.md#staged-copy). | Inga |
+| enableStaging<br/>mellanlagringsinställningar | Ange om interimsdata ska fasas i Blob-lagring i stället för att direkt kopiera data från källa till mottagare.<br/>Information om användbara scenarier och konfigurationsinformation finns i [Stegvis kopia](copy-activity-performance-features.md#staged-copy). | Inga |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Välj hur du ska hantera inkompatibla rader när du kopierar data från källa till diskho.<br/>Mer information finns i [Feltolerans](copy-activity-fault-tolerance.md). | Inga |
 
 ## <a name="monitoring"></a>Övervakning

@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 3c80a206af74eb370470c38a7af9c7f1fe840406
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 59b8abf59212d9cfb0719b6b76e9542249ee4c41
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78198158"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472698"
 ---
-# <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Självstudie: Använd en virtuell Linux-dator och en python-app för att lagra hemligheter i Azure Key Vault
+# <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Självstudiekurs: Använd en Virtuell Linux- och Python-app för att lagra hemligheter i Azure Key Vault
 
 Med Azure Key Vault kan du skydda hemligheter, till exempel API-nycklar och databasanslutningssträngar som behövs för att komma åt dina program, tjänster samt IT-resurser.
 
@@ -33,17 +33,17 @@ I den här självstudien konfigurerar du en Azure-webbapp till att läsa informa
 
 Innan du fortsätter behöver du känna till [grundbegreppen om nyckelvalv](basic-concepts.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Git](https://git-scm.com/downloads).
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 * [Azure CLI version 2.0.4 eller senare](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) eller Azure Cloud Shell.
 
 [!INCLUDE [Azure Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="understand-managed-service-identity"></a>Förstå Hanterad tjänstidentitet
 
-Azure Key Vault lagrar autentiseringsuppgifter på ett säkert sätt så att de inte ingår i din kod. För att hämta dem behöver du autentisera till Azure Key Vault. För att autentisera till Key Vault behöver du dock autentiseringsuppgifter. Det är ett klassiskt bootstrap-problem. Via Azure och Azure Active Directory (Azure AD) tillhandahåller Hanterad tjänstidentitet (MSI) en bootstrap-identitet som gör det enklare att komma igång.
+Azure Key Vault kan lagra autentiseringsuppgifter på ett säkert sätt så att de inte finns i din kod. För att hämta dem behöver du autentisera till Azure Key Vault. För att autentisera till Key Vault behöver du dock autentiseringsuppgifter. Det är ett klassiskt bootstrap-problem. Via Azure och Azure Active Directory (Azure AD) tillhandahåller Hanterad tjänstidentitet (MSI) en bootstrap-identitet som gör det enklare att komma igång.
 
 När du aktiverar MSI för en Azure-tjänst som Virtual Machines, App Service eller Functions skapar Azure ett tjänsthuvudnamn för instansen av tjänsten i Azure AD. Det lägger in autentiseringsuppgifterna för tjänstens huvudnamn i instansen av tjänsten.
 
@@ -76,9 +76,9 @@ Du använder den här resursgruppen i hela självstudien.
 
 I nästa steg skapar du ett nyckelvalv i den resursgrupp som du skapade i föregående steg. Ange följande information:
 
-* Namn på nyckel valv: namnet måste vara en sträng med 3-24 tecken och får bara innehålla 0-9, a-z, A-Z och bindestreck (-).
+* Nyckelvalvets namn: Namnet måste vara en sträng med 3-24 tecken och får endast innehålla 0-9, a-z, A-Ö och bindestreck (-).
 * Namn på resursgrupp.
-* Plats: **USA, västra**.
+* Plats: **Västra USA**.
 
 ```azurecli-interactive
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
@@ -100,7 +100,7 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 Skapa en virtuell dator med hjälp av kommandot `az vm create`.
 
-Följande exempel skapar virtuell dator med namnet **myVM** och lägger till ett användarkonto med namnet **azureuser**. Parametern `--generate-ssh-keys` genererar automatiskt en SSH-nyckel och placerar den på standardnyckelplatsen ( **~/.ssh**). Om du i stället vill skapa en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
+Följande exempel skapar virtuell dator med namnet **myVM** och lägger till ett användarkonto med namnet **azureuser**. Parametern `--generate-ssh-keys` genererar automatiskt en SSH-nyckel och placerar den på standardnyckelplatsen (**~/.ssh**). Om du i stället vill skapa en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \
@@ -113,7 +113,7 @@ az vm create \
 
 Det tar några minuter att skapa den virtuella datorn och stödresurser. Utdataresultatet i följande exempel anger att den virtuella datorn har skapats:
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -138,7 +138,7 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 
 Kommandots utdata är som följer.
 
-```azurecli
+```output
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}

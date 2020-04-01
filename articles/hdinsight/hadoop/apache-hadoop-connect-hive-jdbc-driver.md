@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 7d1a77800093ae01bc4eb1e1269d1e9a60f9ce26
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8129239f152f6b359b930e56466052da12ef4d42
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77616665"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437036"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Fråga Apache Hive via JDBC-drivrutinen i HDInsight
 
@@ -31,7 +31,7 @@ Mer information om Hive JDBC-gränssnittet finns i [HiveJDBCInterface](https://c
 
 ## <a name="jdbc-connection-string"></a>JDBC-anslutningssträng
 
-JDBC-anslutningar till ett HDInsight-kluster på Azure görs över port 443 och trafiken är skyddad med SSL. Den offentliga gatewayen som klustren sitter bakom omdirigerar trafiken till den port som HiveServer2 faktiskt lyssnar på. Följande anslutningssträng visar det format som ska användas för HDInsight:
+JDBC-anslutningar till ett HDInsight-kluster på Azure görs över port 443 och trafiken är skyddad med TLS/SSL. Den offentliga gatewayen som klustren sitter bakom omdirigerar trafiken till den port som HiveServer2 faktiskt lyssnar på. Följande anslutningssträng visar det format som ska användas för HDInsight:
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 

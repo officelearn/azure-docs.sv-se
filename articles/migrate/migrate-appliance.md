@@ -3,12 +3,12 @@ title: Azure Migrate-installation
 description: Ger en översikt över Azure Migrate-installationen som används vid serverutvärdering och migrering.
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.openlocfilehash: 1bb3372467919f1471fa9577cd60e9cecaf1750d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bccf4738d46b65f2d149eafc8e69591141d7d073
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336951"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437591"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 
@@ -79,14 +79,14 @@ I följande tabell sammanfattas Azure Migrate-installationskraven för VMware.
 Azure Migrate-enheten behöver anslutning till internet.
 
 - När du distribuerar installationen gör Azure Migrate en anslutningskontroll till webbadresserna som sammanfattas i tabellen nedan.
-- Om du använder en URL-baserad proxy för att ansluta till internet, tillåta åtkomst till dessa webbadresser och se till att proxyn löser alla CNAME-poster som tas emot när webbadresserna slås upp.
+- Om du använder en URL-baserad proxy för att ansluta till internet måste du tillåta åtkomst till dessa webbadresser och se till att proxyn löser alla CNAME-poster som tas emot när webbadresserna slås upp.
 
 **URL** | **Detaljer**  
 --- | --- |
 *.portal.azure.com  | Navigera till Azure Portal.
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Logga in på din Azure-prenumeration.
-*.microsoftonline.com <br/> *.microsoftonline-p.com | Skapa Active Directory-appar för att kunna kommunicera med Azure Migrate.
-management.azure.com | Skapa Active Directory-appar för att kunna kommunicera med Azure Migrate-tjänsten.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Skapa Azure Active Directory (AD)-appar för att installationen ska kunna kommunicera med Azure Migrate.
+management.azure.com | Skapa Azure AD-appar för att installationen ska kommunicera med Azure Migrate-tjänsten.
 dc.services.visualstudio.com | Ladda upp apploggar som används för intern övervakning.
 *.vault.azure.net | Hantera hemligheter i Azure Key Vault.
 aka.ms/* | Ge tillgång till aka länkar. Används för Azure Migrate-installationer.

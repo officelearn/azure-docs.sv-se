@@ -5,18 +5,18 @@ author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: 318b3e3f774a4381434fd56154f4c0d95c28c7a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 717a09d8377a7b95fe24300cc65222f307e7419f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79479523"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437528"
 ---
 # <a name="references"></a>Referenser
 
 I den här artikeln beskrivs Azure FarmBeats API:er.
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 
 Azure FarmBeats API:er ger jordbruksföretag ett standardiserat RESTful-gränssnitt med JSON-baserade svar som hjälper dig att dra nytta av Azure FarmBeats-funktioner, till exempel:
 
@@ -162,7 +162,7 @@ Azure FarmBeats API:er kan nås av en användare eller en appregistrering i Azur
     - Gå tillbaka till **Översikt**och välj länken bredvid **Hantera program i lokal katalog**.
     - Gå till **Egenskaper** för att fånga **objekt-ID**.
 
-4. Gå till din [Datahub Swagger](https://<yourdatahub>.azurewebsites.net/swagger/index.html) och gör följande:
+4. Gå till din Datahub Swagger<yourdatahub>(https:// .azurewebsites.net/swagger/index.html) och gör följande:
     - Gå till **Api:et för rolltilldelning**.
     - Utför ett POST för att skapa ett **RollAssignment-objekt** för **det objekt-ID** som du just skapade.
 

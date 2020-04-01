@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: 5aaaf539c07a7ba2c2463d5bfd1f452853f52379
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b471fbb62862cd48ebbb239d65b563aa109ef629
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77603683"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435482"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatisera introduktion av Azure Security Center med PowerShell
 
@@ -29,13 +29,13 @@ Med Introduktion till Azure Security Center med PowerShell kan du programmera in
 
 Den här artikeln innehåller ett exempel på PowerShell-skript som kan ändras och användas i din miljö för att distribuera Security Center över dina prenumerationer. 
 
-I det här exemplet aktiverar vi Security Center på en prenumeration med ID: d07c0080-170c-4c24-861d-9c817742786c och tillämpar de rekommenderade inställningarna som ger en hög skyddsnivå genom att implementera standardnivån för Security Center, som tillhandahåller avancerade funktioner för skydd och upptäckt av hot:
+I det här exemplet aktiverar vi Security Center på en prenumeration med ID: d07c0080-170c-4c24-861d-9c817742786c och tillämpar de rekommenderade inställningarna som ger en hög skyddsnivå genom att implementera standardnivån för Security Center, som ger avancerade funktioner för skydd mot hot och identifiering:
 
 1. Ange [standardskyddsnivån för Säkerhetscenter](https://azure.microsoft.com/pricing/details/security-center/). 
  
-2. Ange arbetsytan Log Analytics som Microsoft Monitoring Agent ska skicka de data som samlas in på de virtuella datorer som är associerade med prenumerationen – i det här exemplet en befintlig användardefinierad arbetsyta (myWorkspace).
+2. Ange arbetsytan Log Analytics som Log Analytics-agenten skickar de data som samlas in på de virtuella datorer som är associerade med prenumerationen – i det här exemplet en befintlig användardefinierad arbetsyta (myWorkspace).
 
-3. Aktivera Security Centers automatiska agentetablering som [distribuerar Microsoft Monitoring Agent](security-center-enable-data-collection.md#auto-provision-mma).
+3. Aktivera Security Centers automatiska agentetablering som [distribuerar Log Analytics-agenten](security-center-enable-data-collection.md#auto-provision-mma).
 
 5. Ange organisationens [CISO som säkerhetskontakt för Säkerhetscentervarningar och anmärkningsvärda händelser](security-center-provide-security-contact-details.md).
 
@@ -68,7 +68,7 @@ De här stegen bör utföras innan du kör cmdlets för Säkerhetscenter:
         Set-AzSecurityWorkspaceSetting -Name "default" -Scope
         "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"
 
-4.  Installation av Microsoft Monitoring Agent automatiskt på dina virtuella Azure-datorer:
+4.  Installation av logganalysagenten för automatisk etablering på dina virtuella Azure-datorer:
     
         Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
     

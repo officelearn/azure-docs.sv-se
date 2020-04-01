@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aa2e2fb4eb6e269f45494db6d87eef40182971a2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 37d1c181c18f69c040040da2be138eaad3a61693
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346934"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396860"
 ---
 # <a name="secure-your-restful-services"></a>Säkra dina RESTful-tjänster 
 
@@ -186,6 +186,8 @@ Följande är ett exempel på en RESTful teknisk profil som konfigurerats med et
 
 ## <a name="oauth2-bearer-authentication"></a>OAuth2-bärares autentisering 
 
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
+
 Autentisering av innehavartoken definieras i [OAuth2.0 Auktoriseringsram: Bärare tokenanvändning (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). I innehavartokenautentisering skickar Azure AD B2C en HTTP-begäran med en token i auktoriseringshuvudet.
 
 ```http
@@ -196,6 +198,7 @@ En innehavartoken är en ogenomskinlig sträng. Det kan vara en JWT-åtkomsttoke
 
 - **Bärare token**. För att kunna skicka innehavartoken i den vilsamma tekniska profilen måste din policy först hämta innehavartoken och sedan använda den i den tekniska PROFILEN RESTful.  
 - **Statisk bärare token**. Använd den här metoden när REST API-åtkomsten utfärdar en långsiktig åtkomsttoken. Om du vill använda en statisk bärare token, skapa en principnyckel och göra en referens från RESTful teknisk profil till din principnyckel. 
+
 
 ## <a name="using-oauth2-bearer"></a>Använda OAuth2 Bearer  
 

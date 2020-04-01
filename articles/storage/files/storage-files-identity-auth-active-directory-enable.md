@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: rogarana
-ms.openlocfilehash: deead728812a34c6f432f59666cd22ba79f5409e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: HT
+ms.openlocfilehash: b7820bc3d1b14e87064e4120edcffb6762041db9
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281297"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411490"
 ---
 # <a name="enable-active-directory-authentication-over-smb-for-azure-file-shares"></a>Aktivera Active Directory-autentisering över SMB för Azure-filresurser
 
@@ -67,11 +67,7 @@ Azure Files AD-autentisering (förhandsversion) är tillgänglig i [de flesta of
 
 Ad-autentisering för Azure-filer är inte tillgängligt i:
 - USA, västra
-- USA, västra 2
-- USA, östra
-- USA, östra 2
-- Europa, västra
-- Europa, norra
+
 
 ## <a name="workflow-overview"></a>Översikt över arbetsflöden
 
@@ -219,4 +215,4 @@ Update-AzStorageAccountADObjectPassword `
 Mer information om Azure-filer och hur du använder AD över SMB finns i följande resurser:
 
 - [Översikt över Azure Files identitetsbaserad autentiseringsstöd för SMB-åtkomst](storage-files-active-directory-overview.md)
-- [Faq](storage-files-faq.md)
+- [VANLIGA FRÅGOR OCH SVAR](storage-files-faq.md)

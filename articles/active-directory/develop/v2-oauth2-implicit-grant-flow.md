@@ -17,12 +17,12 @@ ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6e3f021fd888bbb408fa66964c54d22f0d68e84e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 53d498f4aed8ec86cc57c35824a9fb8aa471dc1d
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297701"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80419670"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsofts identitetsplattform och implicita bidragsflöde
 
@@ -32,7 +32,7 @@ Med slutpunkten för Microsoft-identitetsplattformen kan du logga in användare 
 * Många auktoriseringsservrar och identitetsleverantörer stöder inte CORS-begäranden.
 * Helsideswebbläsare omdirigerar bort från appen blir särskilt invasiva för användarupplevelsen.
 
-För dessa program (AngularJS, Ember.js, React.js och så vidare) stöder Microsofts identitetsplattform OAuth 2.0 Implicit Grant-flödet. Det implicita flödet beskrivs i [OAuth 2.0-specifikationen](https://tools.ietf.org/html/rfc6749#section-4.2). Dess främsta fördel är att det gör att appen kan hämta token från Microsofts identitetsplattform utan att utföra ett serverautentiseringsutbyte för server. På så sätt kan appen logga in användaren, underhålla sessionen och hämta token till andra webb-API:er som finns i klientens JavaScript-kod. Det finns några viktiga säkerhetsaspekter att ta hänsyn till när du använder det implicita flödet specifikt kring [klient-](https://tools.ietf.org/html/rfc6749#section-10.3) och [användarpersonifiering](https://tools.ietf.org/html/rfc6749#section-10.3).
+För dessa program (Angular, Ember.js, React.js och så vidare) stöder Microsofts identitetsplattform OAuth 2.0 Implicit Grant-flödet. Det implicita flödet beskrivs i [OAuth 2.0-specifikationen](https://tools.ietf.org/html/rfc6749#section-4.2). Dess främsta fördel är att det gör att appen kan hämta token från Microsofts identitetsplattform utan att utföra ett serverautentiseringsutbyte för server. På så sätt kan appen logga in användaren, underhålla sessionen och hämta token till andra webb-API:er som finns i klientens JavaScript-kod. Det finns några viktiga säkerhetsaspekter att ta hänsyn till när du använder det implicita flödet specifikt kring [klient-](https://tools.ietf.org/html/rfc6749#section-10.3) och [användarpersonifiering](https://tools.ietf.org/html/rfc6749#section-10.3).
 
 I den här artikeln beskrivs hur du programmerar direkt mot protokollet i ditt program.  När det är möjligt rekommenderar vi att du använder de Microsoft Authentication Libraries (MSAL) som stöds i stället för att [hämta token och anropa skyddade webb-API:er](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Ta också en titt på [exempelapparna som använder MSAL](sample-v2-code.md).
 
@@ -58,7 +58,7 @@ För närvarande är den metod som föredras för att skydda anrop till ett webb
 
 Det implicita beviljandeflödet utfärdar inte uppdateringstoken, främst av säkerhetsskäl. En uppdateringstoken är inte lika snävt begränsad som åtkomsttoken, vilket ger mycket mer kraft och orsakar därmed mycket mer skada om den läcker ut. I det implicita flödet levereras token i URL:en, därav risken för avlyssning är högre än i auktoriseringskodsbidraget.
 
-Ett JavaScript-program har dock en annan mekanism till sitt förfogande för att förnya åtkomsttoken utan att upprepade gånger fråga användaren om autentiseringsuppgifter. Programmet kan använda en dold iframe för att utföra nya tokenbegäranden mot auktoriseringsslutpunkten för Azure AD: så länge webbläsaren fortfarande har en aktiv session (läs: har en sessionscookie) mot Azure AD-domänen kan autentiseringsbegäran utan att användaren behöver interagera.
+Ett JavaScript-program har dock en annan mekanism till sitt förfogande för att förnya åtkomsttoken utan att upprepade gånger fråga användaren om autentiseringsuppgifter. Programmet kan använda en dold iframe för att utföra nya tokenbegäranden mot auktoriseringsslutpunkten för Azure AD: så länge webbläsaren fortfarande har en aktiv session (läs: har en sessionscookie) mot Azure AD-domänen kan autentiseringsbegäran framgångsrikt inträffa utan behov av användarinteraktion.
 
 Den här modellen ger JavaScript-programmet möjlighet att självständigt förnya åtkomsttoken och till och med hämta nya för ett nytt API (förutsatt att användaren tidigare samtyckt till dem). På så sätt undviker du den extra bördan av att förvärva, underhålla och skydda en artefakt med högt värde, till exempel en uppdateringstoken. Artefakten som gör den tysta förnyelsen möjlig, Azure AD-sessionscookien, hanteras utanför programmet. En annan fördel med den här metoden är att en användare kan logga ut från Azure AD, med hjälp av något av de program som är inloggade på Azure AD och som körs på någon av webbläsarflikarna. Detta resulterar i borttagning av Azure AD-sessionscookien och JavaScript-programmet förlorar automatiskt möjligheten att förnya token för den utloggade användaren.
 
@@ -161,7 +161,7 @@ error=access_denied
 
 Nu när du har signerat användaren i din ensidiga app kan du tyst få åtkomsttoken för att anropa webb-API:er som skyddas av Microsofts identitetsplattform, till exempel [Microsoft Graph](https://developer.microsoft.com/graph). Även om du redan har `token` fått en token med hjälp av response_type kan du använda den här metoden för att hämta token till ytterligare resurser utan att behöva omdirigera användaren för att logga in igen.
 
-I det normala OpenID Connect/OAuth-flödet gör du detta genom `/token` att göra en begäran till slutpunkten för Microsoft-identitetsplattformen. Slutpunkten för Microsoft-identitetsplattform stöder dock inte CORS-begäranden, så det är uteslutet att göra AJAX-anrop för att hämta och uppdatera token. I stället kan du använda det implicita flödet i en dold iframe för att hämta nya token för andra webb-API:er: 
+I det normala OpenID Connect/OAuth-flödet gör du detta genom `/token` att göra en begäran till slutpunkten för Microsoft-identitetsplattformen. Slutpunkten för Microsoft-identitetsplattform stöder dock inte CORS-begäranden, så det är uteslutet att göra AJAX-anrop för att hämta och uppdatera token. I stället kan du använda det implicita flödet i en dold iframe för att hämta nya token för andra webb-API:er:
 
 ```
 // Line breaks for legibility only
@@ -170,7 +170,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=token
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read 
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &response_mode=fragment
 &state=12345
 &nonce=678910

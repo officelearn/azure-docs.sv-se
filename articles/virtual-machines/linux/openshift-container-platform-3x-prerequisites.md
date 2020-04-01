@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: b2b34a6fdf96613c5bc372e585598fabbe43d53d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8767a6ee6218223280ea6219e22540c53d1e89be
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80066609"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80409122"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Vanliga förutsättningar för distribution av OpenShift Container Platform 3.11 i Azure
 
@@ -143,15 +143,15 @@ Mer information om tjänstens huvudnamn finns i [Skapa ett Azure-tjänsthuvudnam
 
 ## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Förutsättningar gäller endast för Resource Manager-mall
 
-Hemligheter måste skapas för SSH privat nyckel **(sshPrivateKey**), Azure AD klient hemlighet **(aadClientSecret),** OpenShift admin lösenord **(openshiftPassword),** och Red Hat Subscription Manager lösenord eller aktiveringsnyckel **(rhsmPasswordOrActivationKey**).  Dessutom, om anpassade SSL-certifikat används, måste ytterligare sex hemligheter skapas - **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**och **masterkeyfile**.  Dessa parametrar kommer att förklaras mer i detalj.
+Hemligheter måste skapas för SSH privat nyckel **(sshPrivateKey**), Azure AD klient hemlighet **(aadClientSecret),** OpenShift admin lösenord **(openshiftPassword),** och Red Hat Subscription Manager lösenord eller aktiveringsnyckel **(rhsmPasswordOrActivationKey**).  Om anpassade TLS/SSL-certifikat används måste dessutom ytterligare sex hemligheter skapas - **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercerte**och **masterkeyfile**.  Dessa parametrar kommer att förklaras mer i detalj.
 
 Mallen refererar till specifika hemliga namn så att du **måste** använda de fetstilta namnen ovan (skiftlägeskänsliga).
 
 ### <a name="custom-certificates"></a>Anpassade certifikat
 
-Som standard distribuerar mallen ett OpenShift-kluster med självsignerade certifikat för OpenShift-webbkonsolen och routningsdomänen. Om du vill använda anpassade SSL-certifikat anger du routingCertType till "custom" och 'masterCertType' till 'custom'.  Du behöver filerna CA, Cert och Key i PEM-format för certifikaten.  Det är möjligt att använda anpassade certifikat för det ena men inte det andra.
+Som standard distribuerar mallen ett OpenShift-kluster med självsignerade certifikat för OpenShift-webbkonsolen och routningsdomänen. Om du vill använda anpassade TLS/SSL-certifikat anger du routingCertType till "anpassad" och "masterCertType" till "anpassad".  Du behöver filerna CA, Cert och Key i PEM-format för certifikaten.  Det är möjligt att använda anpassade certifikat för det ena men inte det andra.
 
-Du måste lagra dessa filer i Key Vault hemligheter.  Använd samma Key Vault som det som används för den privata nyckeln.  I stället för att kräva ytterligare 6 indata för de hemliga namnen är mallen hårdkodad för att använda specifika hemliga namn för var och en av SSL-certifikatfilerna.  Lagra certifikatdata med hjälp av informationen från följande tabell.
+Du måste lagra dessa filer i Key Vault hemligheter.  Använd samma Key Vault som det som används för den privata nyckeln.  I stället för att kräva ytterligare 6 indata för de hemliga namnen är mallen hårdkodad för att använda specifika hemliga namn för var och en av TLS/SSL-certifikatfilerna.  Lagra certifikatdata med hjälp av informationen från följande tabell.
 
 | Hemligt namn      | Certifikatfil   |
 |------------------|--------------------|

@@ -1,5 +1,5 @@
 ---
-title: 'CLI: kontinuerlig distribution från GitHub'
+title: 'CLI: Kontinuerlig distribution från GitHub'
 description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du skapar en app med CI/CD från GitHub.
 author: msangapu-msft
 tags: azure-service-management
@@ -8,19 +8,19 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 09/02/2019
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 829f1507bdf69522f1baf5af1c8d92455608334f
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 0578ea7f677e1abaa5687295fc7bc871e6db2d3f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688485"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80044788"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-from-github-using-cli"></a>Skapa en App Service-app med kontinuerlig distribution från GitHub med CLI
 
 Det här exempelskriptet skapar en app i App Service med dess relaterade resurser och ställer sedan in kontinuerlig distribution från en GitHub-lagringsplats. Mer information om GitHub-distribution utan kontinuerlig distribution finns i [Skapa en app och distribuera kod från GitHub](cli-deploy-github.md). För det här exemplet behöver du följande:
 
-* En GitHub-lagringsplats med programkod som du har administratörsbehörighet för. Om du vill hämta automatiska versioner strukturerar du lagrings platsen enligt tabellen [Förbered din lagrings plats](../deploy-continuous-deployment.md#prepare-your-repository) .
+* En GitHub-lagringsplats med programkod som du har administratörsbehörighet för. Om du vill hämta automatiska versioner strukturerar du databasen enligt tabellen [Förbered databasen.](../deploy-continuous-deployment.md#prepare-your-repository)
 * En [personlig åtkomsttoken (PAT)](https://help.github.com/articles/creating-an-access-token-for-command-line-use) för ditt GitHub-konto.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

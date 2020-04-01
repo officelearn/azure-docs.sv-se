@@ -1,6 +1,6 @@
 ---
 title: Felsöka anslutningsproblem för Azure VM-fjärrskrivbord efter händelse-ID | Microsoft-dokument
-description: ''
+description: Använd händelse-ID:n för att felsöka olika problem som förhindrar en RDP-anslutning (Remote Desktop Protocol) till en virtuell virtuell dator (Virtuell dator).
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 166648402eec7f8033c090a3f7862a902bae4be6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2073d5f91b26cd2ae53e3291a6d1dad4d711b66d
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71154193"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437066"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Felsöka Azure VM RDP-anslutningsfel efter händelse-ID 
 
@@ -63,7 +63,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Nyckelord:**      Klassiska <br />
 **Användare:**          Ej mycket <br />
 **Dator:**      *dator* <br />
-**Beskrivning:** Värdservern för fjärrskrivbordssessionen kunde inte ersätta det självsignerade certifikat som har upphört att gälla för värdserver för fjärrskrivbordssession på SSL-anslutningar. Relevant statuskod nekades Access.
+**Beskrivning:** Värdservern för fjärrskrivbordssessionen kunde inte ersätta det självsignerade certifikat som har upphört att gälla för värdserver för fjärrskrivbordssession på TLS-anslutningar. Relevant statuskod nekades Access.
 
 **Loggnamn:**      System <br />
 **Källa:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
@@ -74,7 +74,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Nyckelord:**      Klassiska <br />
 **Användare:**          Ej mycket <br />
 **Dator:**      *dator* <br />
-**Beskrivning:** Värdservern för fjärrskrivbordssessionen har inte kunnat skapa ett nytt självsignerat certifikat som ska användas för värdserverautentisering för fjärrskrivbordssession på SSL-anslutningar, det finns redan relevant statuskod.
+**Beskrivning:** Värdservern för fjärrskrivbordssessionen har inte kunnat skapa ett nytt självsignerat certifikat som ska användas för värdserverautentisering för fjärrskrivbordssession på TLS-anslutningar, det finns redan relevant statuskod.
 
 **Loggnamn:**      System <br />
 **Källa:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
@@ -85,7 +85,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Nyckelord:**      Klassiska <br />
 **Användare:**          Ej mycket <br />
 **Dator:**      *dator* <br />
-**Beskrivning:** Värdservern för fjärrskrivbordssessionen kunde inte skapa ett nytt självsignerat certifikat som ska användas för värdserverautentisering för fjärrskrivbordssession på SSL-anslutningar. Relevant statuskod var Keyset finns inte
+**Beskrivning:** Värdservern för fjärrskrivbordssessionen kunde inte skapa ett nytt självsignerat certifikat som ska användas för värdserverautentisering för fjärrskrivbordssession på TLS-anslutningar. Relevant statuskod var Keyset finns inte
 
 Du kan också söka efter SCHANNEL-felhändelserna 36872 och 36870 genom att köra följande kommandon:
 
@@ -103,7 +103,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Sökord:**       <br />
 **Användare:**          System <br />
 **Dator:**      *dator* <br />
-**Beskrivning:** Ett allvarligt fel uppstod när den privata nyckeln för SSL-serverautentiseringsautentisering skulle komma åt. Felkoden som returneras från den kryptografiska modulen är 0x8009030D.  <br />
+**Beskrivning:** Ett allvarligt fel uppstod när du försökte komma åt den privata nyckeln för TLS-servern. Felkoden som returneras från den kryptografiska modulen är 0x8009030D.  <br />
 Det interna feltillståndet är 10001.
 
 ### <a name="cause"></a>Orsak
@@ -186,9 +186,9 @@ Om du inte kan förnya certifikatet gör du så här för att försöka ta bort 
 
 Försök komma åt den virtuella datorn med hjälp av RDP igen.
 
-#### <a name="update-secure-sockets-layer-ssl-certificate"></a>Uppdatera SSL-certifikat (Secure Sockets Layer)
+#### <a name="update-tlsssl-certificate"></a>Uppdatera TLS/SSL-certifikat
 
-Om du konfigurerar den virtuella datorn så att det använder ett SSL-certifikat kör du följande kommando för att hämta tumavtrycket. Kontrollera sedan om det är samma som certifikatets tumavtryck:
+Om du konfigurerar den virtuella datorn så att det använder ett TLS/SSL-certifikat kör du följande kommando för att hämta tumavtrycket. Kontrollera sedan om det är samma som certifikatets tumavtryck:
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SSLCertificateSHA1Hash

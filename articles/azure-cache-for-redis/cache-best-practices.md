@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 71056fd04069b861b37a595b1a4f2a8bba4a01ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 105a3996753a1d1c2d71846cc8bad574e4498acf
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75689965"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478619"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Bästa praxis för Azure Cache for Redis 
 Genom att följa dessa metodtips kan du maximera prestanda och kostnadseffektiv användning av din Azure-cache för Redis-instans.
@@ -52,7 +52,7 @@ Det finns flera saker som rör minnesanvändning i Redis-serverinstansen som du 
  * [Sallad (Java)](https://gist.github.com/warrenzhu25/181ccac7fa70411f7eb72aff23aa8a6a#file-azure-redis-lettuce-best-practices-md)
  * [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
  * [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
- * [Php](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
+ * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
  * [Asp.Net leverantör av sessionstillstånd](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
 
 
@@ -67,7 +67,7 @@ Tyvärr finns det inget enkelt svar.  Varje program måste bestämma vilka åtg�
 Om du vill testa hur koden fungerar under felförhållanden kan du överväga att använda [funktionen Starta om](cache-administration.md#reboot). Omstart kan du se hur anslutningen blips påverkar ditt program.
 
 ## <a name="performance-testing"></a>Prestandatestning
- * **Börja med `redis-benchmark.exe` ** att använda för att få en känsla för eventuellt dataflöde / latens innan du skriver din egen perf tester.  Redis-benchmark dokumentation [finns här](https://redis.io/topics/benchmarks).  Observera att redis-benchmark inte stöder SSL, så du måste [aktivera icke-SSL-porten via portalen](cache-configure.md#access-ports) innan du kör testet.  [En windows-kompatibel version av redis-benchmark.exe finns här](https://github.com/MSOpenTech/redis/releases)
+ * **Börja med `redis-benchmark.exe` ** att använda för att få en känsla för eventuellt dataflöde / latens innan du skriver din egen perf tester.  Redis-benchmark dokumentation [finns här](https://redis.io/topics/benchmarks).  Observera att redis-benchmark inte stöder TLS, så du måste [aktivera icke-TLS-porten via portalen](cache-configure.md#access-ports) innan du kör testet.  [En windows-kompatibel version av redis-benchmark.exe finns här](https://github.com/MSOpenTech/redis/releases)
  * Klientens virtuella dator som används för testning bör vara **i samma region** som din Redis-cacheinstans.
  * **Vi rekommenderar att du använder Dv2 VM-serien** för din klient eftersom de har bättre hårdvara och ger bästa resultat.
  * Kontrollera att klientens virtuella dator du använder har **minst lika mycket beräkning och bandbredd* som cachen som testas. 

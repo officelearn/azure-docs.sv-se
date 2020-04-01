@@ -2,14 +2,14 @@
 title: Förbereda virtuella virtuella hyper-v-datorer för utvärdering/migrering med Azure Migrate
 description: Lär dig hur du förbereder för utvärdering/migrering av virtuella hyper-virtuella datorer med Azure Migrate.
 ms.topic: tutorial
-ms.date: 03/23/2020
+ms.date: 03/31/2020
 ms.custom: mvc
-ms.openlocfilehash: 5760cf667a02384b8f68cc85540264a1b5702747
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: d14ae4282afb610d025d08419a69c6d10c2f1d08
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80336710"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436237"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Förbereda för bedömning och migrering av virtuella hyper-virtuella datorer till Azure
 
@@ -95,8 +95,9 @@ Du kan förbereda Hyper-V för vm-bedömning manuellt eller använda ett konfigu
 - Konfigurera PowerShell-omvärdering på varje värd, så att Azure Migrate-enheten kan köra PowerShell-kommandon på värden, via en WinRM-anslutning.
 - Delegera autentiseringsuppgifter om VM-diskar finns på fjärr-SMB-resurser.
 - Konfigurera ett konto som enheten ska använda för att identifiera virtuella datorer på Hyper-V-värdar.
-- Konfigurera Hyper-V-integrationstjänster på varje virtuell dator som du vill identifiera och utvärdera.
+- Konfigurera Hyper-V-integrationstjänster på varje virtuell dator som du vill identifiera och utvärdera. Standardinställningarna när du aktiverar Integrationstjänster är tillräckliga för Azure Migrate.
 
+    ![Aktivera integrationstjänster](./media/tutorial-prepare-hyper-v/integrated-services.png)
 
 
 ## <a name="prepare-with-a-script"></a>Förbered med ett skript
@@ -112,7 +113,7 @@ Skriptet gör följande:
 - Kontrollerar att värden kör en version av Hyper-V som stöds och hyper-V-rollen.
 - Aktiverar WinRM-tjänsten och öppnar portarna 5985 (HTTP) och 5986 (HTTPS) på värden (behövs för metadatasamling).
 - Aktiverar PowerShell-ommotning på värden.
-- Kontrollerar att Hyper-V-integrationstjänsten är aktiverad på alla virtuella datorer som hanteras av värden.
+- Kontrollerar att Hyper-V-integrationstjänsterna är aktiverat på alla virtuella datorer som hanteras av värden.
 - Aktiverar CredSSP på värden om det behövs.
 
 Kör skriptet på följande sätt:

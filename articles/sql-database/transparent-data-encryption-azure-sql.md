@@ -1,6 +1,6 @@
 ---
 title: Transparent datakryptering
-description: En översikt över transparent datakryptering för SQL Database och SQL Analytics i Azure Synapse. Dokumentet täcker dess fördelar och alternativ för konfiguration, som inkluderar tjänsthanterad transparent datakryptering och Bring Your Own Key.
+description: En översikt över transparent datakryptering för SQL Database och Synapse SQL i Azure Synapse Analytics. Dokumentet täcker dess fördelar och alternativ för konfiguration, som inkluderar tjänsthanterad transparent datakryptering och Bring Your Own Key.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,18 +12,18 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/06/2020
-ms.openlocfilehash: 5bbb537ef6545852423bf5315b7636671c598fdc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 982a59f1eb8717e2fe2d86728cdae731c919aaf0
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255644"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80476962"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-azure-synapse"></a>Transparent datakryptering för SQL Database och Azure Synapse
 
-Transparent datakryptering (TDE) hjälper till att skydda Azure SQL Database, Azure SQL Managed Instance och Azure Synapse mot hotet om skadlig offlineaktivitet genom att kryptera data i vila. TDE utför realtidskryptering och realtidsdekryptering av databasen, tillhörande säkerhetskopior och transaktionsloggfiler i vila, utan att några ändringar krävs i programmet. Som standard är transparent datakryptering aktiverat för alla nyligen distribuerade Azure SQL-databaser. Det går inte att använda TDE för att kryptera den logiska **huvuddatabasen** i SQL Database.  **Huvuddatabasen** innehåller objekt som behövs för att utföra TDE-åtgärderna i användardatabaserna.
+Transparent datakryptering (TDE) hjälper till att skydda Azure SQL Database, Azure SQL Managed Instance och Synapse SQL i Azure Synapse Analytics mot hotet om skadlig offlineaktivitet genom att kryptera data i vila. TDE utför realtidskryptering och realtidsdekryptering av databasen, tillhörande säkerhetskopior och transaktionsloggfiler i vila, utan att några ändringar krävs i programmet. Som standard är transparent datakryptering aktiverat för alla nyligen distribuerade Azure SQL-databaser. Det går inte att använda TDE för att kryptera den logiska **huvuddatabasen** i SQL Database.  **Huvuddatabasen** innehåller objekt som behövs för att utföra TDE-åtgärderna i användardatabaserna.
 
-TDE måste aktiveras manuellt för äldre databaser i Azure SQL Database, Azure SQL Managed Instance eller Azure Azure Synapse.
+TDE måste aktiveras manuellt för äldre databaser i Azure SQL Database, Azure SQL Managed Instance eller Azure Synapse.
 Hanterade instansdatabaser som skapats genom återställning ärver krypteringsstatus från källdatabasen.
 
 Transparent datakryptering krypterar lagringen av en hel databas med hjälp av en symmetrisk nyckel som kallas databaskrypteringsnyckeln. Den här krypteringsnyckeln för databasen skyddas av det genomskinliga datakrypteringsskyddet. Protector är antingen ett tjänsthanterade certifikat (tjänsthanterad transparent datakryptering) eller en asymmetrisk nyckel som lagras i Azure Key Vault (Bring Your Own Key). Du anger det transparenta datakrypteringsskyddet på servernivå för Azure SQL Database och Azure Synapse och instansnivå för Azure SQL Managed Instance. Termen *server* refererar både till server och instans i hela det här dokumentet, om inte annat anges.
@@ -72,7 +72,7 @@ Det enda undantaget är när du exporterar till och från en SQL-databas. Transp
 
 
 ## <a name="manage-transparent-data-encryption"></a>Hantera transparent datakryptering
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 Hantera transparent datakryptering i Azure-portalen.
 
 Om du vill konfigurera transparent datakryptering via Azure-portalen måste du vara ansluten som Azure-ägare, deltagare eller SQL Security Manager.
@@ -85,7 +85,7 @@ Du anger den genomskinliga nyckeln för datakryptering, även känd som det geno
 
 ![Transparent datakryptering med stöd för Bring Your Own Key](./media/transparent-data-encryption-azure-sql/tde-byok-support.png)
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Hantera transparent datakryptering med powershell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -127,7 +127,7 @@ Anslut till databasen med hjälp av en inloggning som är administratör eller m
 
 Du kan inte växla det genomskinliga datakrypteringsskyddet till en nyckel från Key Vault med hjälp av Transact-SQL. Använd PowerShell eller Azure-portalen.
 
-# <a name="rest-api"></a>[REST API](#tab/azure-RESTAPI)
+# <a name="rest-api"></a>[REST-API](#tab/azure-RESTAPI)
 Hantera transparent datakryptering med hjälp av REST API.
 
 Om du vill konfigurera transparent datakryptering via REST API måste du vara ansluten som Azure-ägare, deltagare eller SQL Security Manager.

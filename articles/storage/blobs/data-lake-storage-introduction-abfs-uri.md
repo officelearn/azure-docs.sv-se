@@ -8,12 +8,12 @@ ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: 04df30c2a97e865d23999df26768b38cb38be607
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa0f67e0d72ee5710a42b6de744ddae98e20220a
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68855563"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437131"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Använda Azure Data Lake Storage Gen2 URI
 
@@ -27,7 +27,7 @@ Om det datasjölagringsgenm2-konto som du vill ta itu med **inte anges** som sta
 
 <pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.windows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
-1. **Schemaidentifierare** `abfs` : Protokollet används som schemaidentifierare. Du har möjlighet att ansluta till eller utan en SSL-anslutning (Secure Socket Layer). Används `abfss` för att ansluta med en säker anslutning av socketlager.
+1. **Schemaidentifierare** `abfs` : Protokollet används som schemaidentifierare. Du har möjlighet att ansluta till eller utan en Anslutningspunkt (Transport Layer Security), som tidigare kallades SSL (Secure Sockets Layer), som tidigare kallades SSL (Secure Sockets Layer). Används `abfss` för att ansluta till en TLS-anslutning.
 
 2. **Filsystem**: Den överordnade platsen som innehåller filerna och mapparna. Detta är samma som behållare i Azure Storage Blobs-tjänsten.
 

@@ -3,14 +3,14 @@ title: Frågeloggar för Azure Update Management
 description: I den här artikeln beskrivs hur du frågar efter loggarna för uppdateringshantering på logganalysarbetsytan.
 services: automation
 ms.subservice: update-management
-ms.date: 03/11/2020
+ms.date: 03/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: f31168d47f31d8e740c95cb3d9e449f473cc78dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 863016bbeda9b4aec3bf2b4e12830bd30098150f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79216850"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437849"
 ---
 # <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Frågeuppdateringsposter för uppdateringshantering i Azure Monitor-loggar
 
@@ -144,7 +144,7 @@ En post med `UpdateSummary` en typ av skapas som ger uppdateringssammanfattning 
 | CriticalUpdatesMissing | Antal kritiska uppdateringar som saknas som är tillämpliga. | 
 | ManagementGroupName | Namn på hanteringsgruppen för Operations Manager eller Log Analytics-arbetsytan. |
 | NETRuntimeVersion | Version av .NET Framework installerat på Windows-datorn. |
-| OldestMissingSecurityUpdateBucket | Värden är:<br> *Senaste*<br> *30 dagar sedan*<br> *60 dagar sedan*<br> *Äldre* | 
+| OldestMissingSecurityUpdateBucket | Värden är:<br> *Senaste* om värdet är mindre än 30 dagar<br> *30 dagar sedan*<br> *60 dagar sedan*<br> *90 dagar sedan*<br> *120 dagar sedan*<br> *150 dagar sedan*<br> *180 dagar sedan*<br> *Äldre* när värdet är större än 180 dagar | 
 | OldestMissingSecurityUpdateInDays | Totalt antal dagar för den äldsta uppdateringen som identifierats som tillämpligt och som inte har installerats. |
 | OsVersion | Versionen av operativsystemet. |
 | OtherUpdatesMissing | Antal upptäckta uppdateringar saknas. |

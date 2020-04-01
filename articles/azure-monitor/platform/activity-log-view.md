@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 9df7593a9fd191d3a734fba5e81fb1aecba08345
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2423d04ead9040cce53d847d24efe75be680d94
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79275053"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397309"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>Visa och hämta Azure Activity-logghändelser
 
@@ -142,7 +142,7 @@ az monitor activity-log list --resource-provider Microsoft.Web \
     --end-time 2016-03-16T00:00:00Z
 ```
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 Använd [AZURE Monitor REST API](https://docs.microsoft.com/rest/api/monitor/) för att hämta aktivitetsloggen från en REST-klient. Följande är några vanliga exempel.
 
 Hämta aktivitetsloggar med filter:
@@ -168,35 +168,6 @@ Hämta aktivitetsloggar utan filter eller välj:
 ```HTTP
 GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01
 ```
-
-
-## <a name="activity-logs-analytics-monitoring-solution"></a>Övervakningslösning för Aktivitetsloggar Analytics
-Övervakningslösningen för Azure Log Analytics innehåller flera loggfrågor och vyer för att analysera aktivitetsloggposterna på din Log Analytics-arbetsyta.
-
-### <a name="prerequisites"></a>Krav
-Du måste skapa en diagnostikinställning för att kunna skicka aktivitetsloggen för din prenumeration till en Log Analytics-arbetsyta. Se [Samla in Azure-plattformsloggar i Log Analytics-arbetsytan i Azure Monitor](resource-logs-collect-workspace.md).
-
-### <a name="install-the-solution"></a>Installera lösningen
-Använd proceduren i [Installera en övervakningslösning](../insights/solutions.md#install-a-monitoring-solution) för att installera **lösningen för Aktivitetslogganalys.** Det krävs ingen ytterligare konfiguration.
-
-### <a name="use-the-solution"></a>Använd lösningen
-Klicka på Loggar högst upp på **sidan Aktivitetslogg** för att öppna [övervakningslösningen aktivitetslogganalys](activity-log-collect.md) för prenumerationen. **Logs** Eller få tillgång till alla övervakningslösningar på din **prenumerationsövervakare-meny** i Azure-portalen. Välj **Mer** i avsnittet **Insikter** om du vill öppna sidan **Översikt** med lösningspanelerna. Panelen **Azure Activity Logs** visar antalet **AzureActivity-poster** på arbetsytan.
-
-![Panel för Azure-aktivitetsloggar](media/collect-activity-logs/azure-activity-logs-tile.png)
-
-
-Klicka på panelen **Azure-aktivitetsloggar** för att öppna vyn **Azure-aktivitetsloggar.** Vyn innehåller visualiseringsdelarna i följande tabell. Varje del listar upp till 10 objekt som matchar de delarnas villkor för det angivna tidsintervallet. Du kan köra en loggfråga som returnerar alla matchande poster genom att klicka på **Visa alla** längst ned i delen.
-
-![Instrumentpanelen Azure Activity Logs](media/collect-activity-logs/activity-log-dash.png)
-
-| Visualiseringsdel | Beskrivning |
-| --- | --- |
-| Azure-aktivitetsloggposter | Visar ett stapeldiagram över de översta summorna för Azure Activity Log-postsumman för det datumintervall som du har valt och visar en lista över de 10 främsta aktivitetssamtalen. Klicka på stapeldiagrammet om `AzureActivity`du vill köra en loggsökning efter . Klicka på ett uppringarobjekt om du vill köra en loggsökning som returnerar alla aktivitetsloggtransaktioner för objektet. |
-| Aktivitetsloggar efter status | Visar ett ringdiagram för Azure Activity Log-status för det valda datumintervallet och en lista över de tio bästa statusposterna. Klicka på diagrammet om du `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`vill köra en loggfråga för . Klicka på ett statusobjekt om du vill köra en loggsökning som returnerar alla aktivitetsloggtransaktioner för den statusposten. |
-| Aktivitetsloggar efter resurs | Visar det totala antalet resurser med aktivitetsloggar och listar de tio största resurserna med postantal för varje resurs. Klicka på det totala området `AzureActivity | summarize AggregatedValue = count() by Resource`för att köra en loggsökning för , som visar alla Azure-resurser som är tillgängliga för lösningen. Klicka på en resurs om du vill köra en loggfråga som returnerar alla aktivitetsposter för den resursen. |
-| Aktivitetsloggar efter resursprovider | Visar det totala antalet resursleverantörer som producerar aktivitetsloggar och listar de tio bästa. Klicka på det totala området `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`för att köra en loggfråga för , som visar alla Azure-resursleverantörer. Klicka på en resursprovider om du vill köra en loggfråga som returnerar alla aktivitetsposter för providern. |
-
-
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -12,17 +12,17 @@ ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
 ms.openlocfilehash: 1a3651f82d7818ad105c0a8a7b5fd9fcf073b4a1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239814"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Läs in data stegvis från en Azure SQL-databas till Azure Blob Storage med hjälp av PowerShell
+# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Inläsning av data stegvis från en Azure SQL-databas till Azure Blob-lagring med PowerShell
 
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta-data från en tabell i en Azure SQL-databas till Azure Blob Storage.
 
-I de här självstudierna går du igenom följande steg:
+I den här självstudiekursen får du göra följande:
 
 > [!div class="checklist"]
 > * Förbered datalagringen för att lagra värdet för vattenstämpeln.
@@ -46,22 +46,22 @@ Här är några viktiga steg för att skapa den här lösningen:
 2. **Förbered datalagringen för att lagra värdet för vattenstämpeln**.   
     I den här självstudien lagrar du storleksgränsen i en SQL-databas.
 
-3. **Skapa en pipeline med följande arbetsflöde**:
+3. **Skapa en pipeline med följande arbetsflöde:**
 
     Pipelinen i den här lösningen har följande aktiviteter:
 
     * Skapa två sökningsaktiviteter. Använd den första sökningsaktiviteten för att hämta det sista vattenstämpelvärdet. Använd den andra sökningsaktiviteten för att hämta det nya vattenstämpelvärdet. Vattenstämpelvärdena skickas till kopieringsaktiviteten.
-    * Skapa en kopieringsaktivitet som kopierar raderna från källdatalagringen med värdet för vattenstämpelkolumnen som är större än det gamla värdet och mindre än det nya. Sedan kopieras deltadata från källdatalagringen till Blob-lagring som en ny fil.
+    * Skapa en {0}kopieringsaktivitet{0} som kopierar raderna från källdatalagringen med värdet för vattenstämpelkolumnen som är större än det gamla värdet och mindre än det nya. Sedan kopieras deltadata från källdatalagringen till Blob-lagring som en ny fil.
     * Skapa en StoredProcedure-aktivitet som uppdaterar vattenstämpelvärdet för den pipeline som körs nästa gång.
 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure SQL Database**. Du använder databasen som källa för datalagringen. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
+* **Azure SQL-databas**. Du använder databasen som källa för datalagringen. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
 * **Azure Storage**. Du kan använda blob-lagringen som mottagare för datalagringen. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett lagringskonto](../storage/common/storage-account-create.md). Skapa en container med namnet adftutorial. 
 * **Azure PowerShell**. Följ instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps).
 
@@ -175,7 +175,7 @@ END
     ```powershell
     $dataFactoryName = "ADFIncCopyTutorialFactory";
     ```
-5. Skapa data fabriken genom att köra följande **set-AzDataFactoryV2-** cmdlet:
+5. Om du vill skapa datafabriken kör du följande **Set-AzDataFactoryV2** cmdlet:
 
     ```powershell       
     Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName
@@ -197,7 +197,7 @@ Observera följande punkter:
 Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I det här avsnittet kan du skapa länkade tjänster till dina lagringskonton och din SQL-databas.
 
 ### <a name="create-a-storage-linked-service"></a>Skapa en länkad lagringstjänst
-1. Skapa en JSON-fil med namnet AzureStorageLinkedService.json i mappen C:\ADF med följande innehåll. (Skapa mappen ADF om den inte redan finns.) Ersätt `<accountName>` och `<accountKey>` med namnet och nyckeln för ditt lagrings konto innan du sparar filen.
+1. Skapa en JSON-fil med namnet AzureStorageLinkedService.json i mappen C:\ADF med följande innehåll. (Skapa mappen ADF om den inte redan finns.) Ersätt `<accountName>` `<accountKey>` och med namn och nyckel för ditt lagringskonto innan du sparar filen.
 
     ```json
     {
@@ -212,7 +212,7 @@ Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager o
     ```
 2. Växla till mappen ADF i PowerShell.
 
-3. Kör cmdleten **set-AzDataFactoryV2LinkedService** för att skapa den länkade tjänsten AzureStorageLinkedService. I följande exempel skickar du värden för parametrarna *ResourceGroupName* och *DataFactoryName*:
+3. Kör **cmdleten Set-AzDataFactoryV2LinkedService** för att skapa den länkade tjänsten AzureStorageLinkedService. I följande exempel skickar du värden för *resourcegroupname-* och *DataFactoryName-parametrarna:*
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -228,7 +228,7 @@ Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager o
     ```
 
 ### <a name="create-a-sql-database-linked-service"></a>Skapa en länkad tjänst till SQL-databas
-1. Skapa en JSON-fil med namnet AzureSQLDatabaseLinkedService.json i mappen C:\ADF med följande innehåll. (Skapa mappen ADF om den inte redan finns.) Ersätt &lt;Server&gt;, &lt;Database&gt;, &lt;användar-ID&gt;och &lt;lösen ord&gt; med namnet på din server, databas, användar-ID och lösen ord innan du sparar filen.
+1. Skapa en JSON-fil med namnet AzureSQLDatabaseLinkedService.json i mappen C:\ADF med följande innehåll. (Skapa mappen ADF om den inte redan finns.) Ersätt &lt;&gt; &lt;server,&gt; &lt;databas,&gt;användar-ID och &lt;lösenord&gt; med namnet på servern, databasen, användar-ID och lösenord innan du sparar filen.
 
     ```json
     {
@@ -243,7 +243,7 @@ Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager o
     ```
 2. Växla till mappen ADF i PowerShell.
 
-3. Kör cmdleten **set-AzDataFactoryV2LinkedService** för att skapa den länkade tjänsten AzureSQLDatabaseLinkedService.
+3. Kör cmdleten **Set-AzDataFactoryV2LinkedService** för att skapa den länkade tjänsten AzureSQLDatabaseLinkedService.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -284,7 +284,7 @@ I det här steget skapar du databaser för att representera käll- och mottagard
     ```
     I den här självstudien använder du tabellnamnet data_source_table. Ersätt det om du använder en tabell med ett annan namn.
 
-2. Kör cmdleten **set-AzDataFactoryV2Dataset** för att skapa data uppsättningen SourceDataset.
+2. Kör **cmdlet set-AzDataFactoryV2Dataset** för att skapa datauppsättningen SourceDataset.
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
@@ -327,7 +327,7 @@ I det här steget skapar du databaser för att representera käll- och mottagard
     > [!IMPORTANT]
     > Det här kodfragmentet förutsätter att du har en blobcontainer med namnet adftutorial i din blob-lagring. Skapa containern om den inte finns, eller ställ in den för namnet på en befintlig. Utdatamappen `incrementalcopy` skapas automatiskt om den inte finns i containern. I den här självstudien genereras filnamnet dynamiskt med uttrycket `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
 
-2. Kör cmdleten **set-AzDataFactoryV2Dataset** för att skapa data uppsättningen SinkDataset.
+2. Kör **cmdlet set-AzDataFactoryV2Dataset** för att skapa datauppsättningen SinkDataset.
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
@@ -363,7 +363,7 @@ I det här steget skapar du en datauppsättning för att lagra ett värde för e
         }
     }    
     ```
-2.  Kör cmdleten **set-AzDataFactoryV2Dataset** för att skapa data uppsättningen WatermarkDataset.
+2.  Kör **cmdlet set-AzDataFactoryV2Dataset** för att skapa datauppsättningen WatermarkDataset.
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
@@ -495,7 +495,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     ```
 
 
-2. Kör cmdleten **set-AzDataFactoryV2Pipeline** för att skapa pipelinen IncrementalCopyPipeline.
+2. Kör **cmdleten Set-AzDataFactoryV2Pipeline** för att skapa pipelinen IncrementalCopyPipeline.
 
    ```powershell
    Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
@@ -513,12 +513,12 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
 
 ## <a name="run-the-pipeline"></a>Köra en pipeline
 
-1. Kör pipeline-IncrementalCopyPipeline med cmdleten **Invoke-AzDataFactoryV2Pipeline** . Ersätt platshållarna med din egen grupp och datafabrikens namn.
+1. Kör pipeline incrementalCopyPipeline med hjälp av cmdleten **Invoke-AzDataFactoryV2Pipeline.** Ersätt platshållarna med din egen grupp och datafabrikens namn.
 
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ```
-2. Kontrol lera status för pipelinen genom att köra cmdleten **Get-AzDataFactoryV2ActivityRun** tills du ser att alla aktiviteter körs. Ersätt platshållarna med din egen lämpliga tid för parametern *RunStartedAfter* och *RunStartedBefore*. I den här självstudien använder du *-RunStartedAfter "2017/09/14"* och *-RunStartedBefore "2017/09/15"* .
+2. Kontrollera status för pipelinen genom att köra cmdleten **Get-AzDataFactoryV2ActivityRun** tills du ser alla aktiviteter som körs. Ersätt platshållarna med din egen lämpliga tid för parametern *RunStartedAfter* och *RunStartedBefore*. I den här självstudien använder du *-RunStartedAfter "2017/09/14"* och *-RunStartedBefore "2017/09/15"*.
 
     ```powershell
     Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
@@ -633,12 +633,12 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     6 | newdata | 2017-09-06 02:23:00.000
     7 | newdata | 2017-09-07 09:01:00.000
     ```
-2. Kör pipelinen IncrementalCopyPipeline igen genom att använda cmdleten **Invoke-AzDataFactoryV2Pipeline** . Ersätt platshållarna med din egen grupp och datafabrikens namn.
+2. Kör pipelinen IncrementalCopyPipeline igen med hjälp av cmdleten **Invoke-AzDataFactoryV2Pipeline.** Ersätt platshållarna med din egen grupp och datafabrikens namn.
 
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ```
-3. Kontrol lera status för pipelinen genom att köra cmdleten **Get-AzDataFactoryV2ActivityRun** tills du ser att alla aktiviteter körs. Ersätt platshållarna med din egen lämpliga tid för parametern *RunStartedAfter* och *RunStartedBefore*. I den här självstudien använder du *-RunStartedAfter "2017/09/14"* och *-RunStartedBefore "2017/09/15"* .
+3. Kontrollera status för pipelinen genom att köra cmdleten **Get-AzDataFactoryV2ActivityRun** tills du ser alla aktiviteter som körs. Ersätt platshållarna med din egen lämpliga tid för parametern *RunStartedAfter* och *RunStartedBefore*. I den här självstudien använder du *-RunStartedAfter "2017/09/14"* och *-RunStartedBefore "2017/09/15"*.
 
     ```powershell
     Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
@@ -733,4 +733,4 @@ I den här självstudiekursen fick du:
 I den här självstudien kopierade en pipeline data från en enskild tabell i en SQL-databas till Blob-lagring. Fortsätt till följande självstudie för att lära dig hur du kopierar data från flera tabeller till en lokal SQL Server-databas till en SQL-databas.
 
 > [!div class="nextstepaction"]
->[Läs in data stegvis från flera tabeller i SQL Server till Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
+>[Läs in data stegvist från flera tabeller i SQL Server till Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)

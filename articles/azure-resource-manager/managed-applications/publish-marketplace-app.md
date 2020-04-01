@@ -5,14 +5,14 @@ author: tfitzmac
 ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 73d4ccbda854d631248daef439aa3bd232d42e06
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: a42ee5d6f7f40d391acb743ef85f671f25804749
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75650263"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79473004"
 ---
-# <a name="azure-managed-applications-in-the-marketplace"></a>Azure-hanterade program på Marketplace
+# <a name="tutorial-publish-azure-managed-applications-in-the-marketplace"></a>Självstudiekurs: Publicera Azure-hanterade program på Marketplace
 
 Leverantörer kan använda Azure-hanterade program för att erbjuda sina lösningar till alla Azure Marketplace-kunder. Sådana leverantörer kan omfatta leverantörer av hanterade tjänster (MSP), oberoende programvaruleverantörer (ISV) och systemintegrerare (SIs). Med hanterade program sänks kundens kostnader för underhåll och service. Leverantörerna säljer infrastruktur och programvara på marknadsplatsen. De kan koppla tjänster och driftstöd till sina hanterade program. Mer information finns i [Översikt över hanterade program](overview.md).
 
@@ -22,9 +22,9 @@ I den här artikeln beskrivs hur du publicerar ett program på marknadsplatsen o
 
 För att kunna slutföra detta måste du redan ha en ZIP-fil för din definition för hanterade program. Mer information finns i [Skapa tjänstkatalogprogram](publish-service-catalog-app.md).
 
-Det finns flera företags krav. De är:
+Det finns flera affärsförutnyror. De är:
 
-* Företaget eller dess dotter bolag måste finnas i ett land/en region där försäljningen stöds av Marketplace.
+* Ditt företag eller dess dotterbolag måste vara beläget i ett land/en region där försäljningen stöds av marknadsplatsen.
 * Din produkt måste vara licensierad på ett sätt som fungerar med de faktureringsmodeller som används på marknadsplatsen.
 * Du måste tillhandahålla teknisk support för kunderna på ett kommersiellt rimligt sätt. Supporten kan vara gratis, betald eller bestå av community-support.
 * Du måste licensiera din programvara och eventuell tillhörande programvara från tredje part.
@@ -32,7 +32,7 @@ Det finns flera företags krav. De är:
 * Acceptera avtalsvillkoren för deltagare och utgivare på Azure Marketplace.
 * Acceptera användningsvillkoren, Microsofts sekretesspolicy och Microsoft Azure Certified-programavtalet.
 
-Du måste också ha ett Marketplace-konto. Information om hur du skapar ett konto finns i [så här skapar du ett kommersiellt marknads plats konto i Partner Center](../../marketplace/partner-center-portal/create-account.md).
+Du måste också ha ett Marketplace-konto. Om du vill skapa ett konto läser du [Så här skapar du ett kommersiellt Marketplace-konto i Partner Center](../../marketplace/partner-center-portal/create-account.md).
 
 ## <a name="create-a-new-azure-application-offer"></a>Skapa ett nytt erbjudande för Azure-program
 
@@ -44,7 +44,7 @@ Ett erbjudande för ett hanterat program motsvarar ett produktklasserbjudande fr
 
 1. Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/).
 
-1. Gå till navigeringsfönstret till vänster och välj **+ Nytt erbjudande** > **Azure-program**.
+1. Välj **+ Nytt erbjudande** > **Azure Applications**i navigeringsfönstret till vänster .
 
 1. I vyn **Redigerare** kan du se de formulär du behöver. De olika formulären beskrivs längre fram i den här artikeln.
 
@@ -70,7 +70,7 @@ En SKU är den minsta köpbara enheten i ett erbjudande. Du kan använda en SKU 
 
 En SKU visas under det överordnade erbjudandet på Marketplace. Det visas som en egen köpbar enhet i Azure Portal.
 
-1. Välj **SKU:er** > **Ny SKU**.
+1. Välj **SKU Ny** > **SKU**.
 
 1. Ange ett **SKU-ID**. Ett SKU-ID är en unik identifierare för en SKU i ett erbjudande. ID:t visas i produktens webbadresser, Resource Manager-mallar och faktureringsrapporter. Det får bara innehålla gemena alfanumeriska tecken och bindestreck (-). ID:t får inte avslutas med ett bindestreck och får innehålla högst 50 tecken. När ett erbjudande lanseras är det här fältet låst. Du kan ha flera SKU:er i ett erbjudande. Du behöver en SKU för varje avbildning som du tänker publicera.
 
@@ -83,20 +83,20 @@ En SKU visas under det överordnade erbjudandet på Marketplace. Det visas som e
    * **Beskrivning**: Ange en detaljerad beskrivning av SKU:n.
    * **SKU-typ**: Tillåtna värden är *Hanterat program* och *Lösningsmallar*. I det här fallet väljer du *Hanterat program*.
    * **Tillgänglighet för land/region**: Välj de länder/regioner där det hanterade programmet är tillgängligt.
-   * **Priser**: Ange ett pris för hanteringen av programmet. Välj de tillgängliga länderna/regionerna innan du anger priset.
+   * **Priser**: Ange ett pris för hanteringen av programmet. Välj tillgängliga länder/regioner innan du anger priset.
 
 1. Lägg till ett nytt paket. Fyll i avsnittet **Paketinformation** i följande formulär:
 
    Fyll i följande fält:
 
    * **Version**: Ange versionen för det paket du laddar upp. Versionsformatet ska vara `{number}.{number}.{number}{number}`.
-   * **Paketfil (.zip)** : Det här paketet innehåller två nödvändiga filer som komprimerats i ett .zip-paket. En av filerna är Resource Manager-mallen som definierar de resurser som ska distribueras för det hanterade programmet. Den andra filen definierar [användargränssnittet](create-uidefinition-overview.md) för konsumenter som distribuerar det hanterade programmet via portalen. I användargränssnittet anger du element som ger konsumenterna möjlighet att ange parametervärden.
-   * **Klient-ID**: klient-ID för det konto som ska få åtkomst.
-   * **Aktivera JIT-åtkomst**: Välj **Ja** om du vill aktivera [just-in-Time-åtkomstkontroll](request-just-in-time-access.md) för kontot. När den är aktive rad begär du åtkomst till konsumentens konto under en angiven tids period. Om du vill kräva att användare av ditt hanterade program ger ditt konto permanent åtkomst väljer du **Nej**.
-   * Vill du **Anpassa tillåtna kund åtgärder?** : Välj **Ja** om du vill ange vilka åtgärder som konsumenter kan utföra på de hanterade resurserna.
-   * **Tillåtna kund åtgärder**: om du väljer **Ja** för den föregående inställningen kan du ange vilka åtgärder som tillåts för konsumenter genom att använda [neka-tilldelningar för Azure-resurser](../../role-based-access-control/deny-assignments.md).
+   * **Paketfil (.zip)**: Det här paketet innehåller två nödvändiga filer som komprimerats i ett .zip-paket. En av filerna är Resource Manager-mallen som definierar de resurser som ska distribueras för det hanterade programmet. Den andra filen definierar [användargränssnittet](create-uidefinition-overview.md) för konsumenter som distribuerar det hanterade programmet via portalen. I användargränssnittet anger du element som ger konsumenterna möjlighet att ange parametervärden.
+   * **Klient-ID:** Klient-ID för kontot för att få åtkomst.
+   * **Aktivera JIT-åtkomst:** Välj **Ja** för att aktivera åtkomstkontroll för [just-in-time](request-just-in-time-access.md) för kontot. När det är aktiverat begär du åtkomst till konsumentens konto under en angiven tidsperiod. Om du vill att konsumenter av din hanterade ansökan ska ge kontot permanent åtkomst väljer du **Nej**.
+   * **Anpassa tillåtna kundåtgärder?**: Välj **Ja** för att ange vilka åtgärder som konsumenter kan utföra på de hanterade resurserna.
+   * **Tillåtna kundåtgärder**: Om du väljer **Ja** för föregående inställning kan du ange vilka åtgärder som är tillåtna för konsumenter genom att neka [tilldelningar för Azure-resurser](../../role-based-access-control/deny-assignments.md).
 
-     Information om tillgängliga åtgärder finns i [Azure Resource Manager Resource Provider-åtgärder](../../role-based-access-control/resource-provider-operations.md). Om du till exempel vill tillåta att användare startar om virtuella datorer, lägger du till `Microsoft.Compute/virtualMachines/restart/action` i de tillåtna åtgärderna. Åtgärden `*/read` tillåts automatiskt så att du inte behöver ta med den inställningen.
+     Tillgängliga åtgärder finns i [Azure Resource Manager-resursprovideråtgärder](../../role-based-access-control/resource-provider-operations.md). Om du till exempel vill tillåta `Microsoft.Compute/virtualMachines/restart/action` konsumenter att starta om virtuella datorer lägger du till de tillåtna åtgärderna. Åtgärden `*/read` tillåts automatiskt så att du inte behöver inkludera den inställningen.
    * **PrincipalId**: den här egenskapen är Azure Active Directory-ID (Azure AD-ID) för en användare, en användargrupp eller ett program som beviljas åtkomst till resurser i kundens prenumeration. Rolldefinitionen beskriver behörigheterna.
    * **Rolldefinition**: Den här egenskapen är en lista med alla inbyggda RBAC-roller (rollbaserade åtkomstkontroller) som tillhandahålls av Azure AD. Välj den roll som är mest lämplig för hantering av resurserna för kundens räkning.
    * **Principinställningar**: Använd [Azure Policy](../../governance/policy/overview.md) på det hanterade programmet och ange efterlevnadskrav för de distribuerade lösningarna. Välj vilka principer du vill använda bland de tillgängliga alternativen. I fältet **Principparametrar** anger du en JSON-sträng med parametervärdena. Du kan läsa om principdefinitioner och parametervärdenas format i [Azure Policy-exempel](../../governance/policy/samples/index.md).
@@ -111,7 +111,7 @@ I Marketplace-formulär anges fält som visas på [Azure Marketplace](https://az
 
 ### <a name="preview-subscription-ids"></a>ID:n för prenumerationer i förhandsversion
 
-Ange en lista över ID:n för Azure-prenumerationer som har åtkomst till erbjudandet när det har publicerats. Du kan använda de här vitlistade prenumerationerna för en förhandstestning av erbjudandet innan du gör det live. Du kan kompilera en lista över tillåtna till 100 prenumerationer i Partner portalen.
+Ange en lista över ID:n för Azure-prenumerationer som har åtkomst till erbjudandet när det har publicerats. Du kan använda de här vitlistade prenumerationerna för en förhandstestning av erbjudandet innan du gör det live. Du kan kompilera en tillåtslista med upp till 100 prenumerationer i partnerportalen.
 
 ### <a name="suggested-categories"></a>Föreslagna kategorier
 
@@ -131,7 +131,7 @@ På fliken **Prenumerationer + priser** för det hanterade programmet visas föl
 
 ![Marketplace-prenumerationer](./media/publish-marketplace-app/publishvm15.png)
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure Portal
 
 I sammanfattningen av det hanterade programmet visas följande fält:
 
@@ -172,6 +172,6 @@ När du har fyllt i alla avsnitt väljer du **Publicera** för att påbörja pro
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om vad som händer när du har klickat på **publicera**finns i [publicera Azure-program erbjudande](../../marketplace/cloud-partner-portal/azure-applications/cpp-publish-offer.md)
+* Information om vad som händer när du har klickat på **Publicera**finns i [Publicera Azure-programerbjudande](../../marketplace/cloud-partner-portal/azure-applications/cpp-publish-offer.md)
 * En introduktion till hanterade program finns i [Managed application overview](overview.md) (Översikt över hanterade program).
 * Information om hur du publicerar en tjänstkatalog för hanterade program finns i [Skapa och publicera en tjänstkatalog för hanterade program](publish-service-catalog-app.md).

@@ -1,50 +1,50 @@
 ---
-title: 'Mönster: distribuera resurser med en princip definition'
-description: Detta Azure Policy mönster innehåller ett exempel på hur du distribuerar resurser med en princip definition.
+title: 'Mönster: Distribuera resurser med en principdefinition'
+description: Det här Azure-principmönstret är ett exempel på hur du distribuerar resurser med en principdefinition.
 ms.date: 01/31/2020
 ms.topic: sample
 ms.openlocfilehash: a8b6528afbd21c7c667e48965574c9b48c403654
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77172676"
 ---
-# <a name="azure-policy-pattern-deploy-resources"></a>Azure Policy mönster: distribuera resurser
+# <a name="azure-policy-pattern-deploy-resources"></a>Azure Princip-mönster: distribuera resurser
 
-Med [deployIfNotExists](../concepts/effects.md#deployifnotexists) -effekterna kan du distribuera en [Azure Resource Manager-mall](../../../azure-resource-manager/templates/overview.md) när du skapar eller uppdaterar en resurs som inte är kompatibel. Den här metoden kan föredras för att använda [neka](../concepts/effects.md#deny) -åtgärden eftersom den gör att resurser kan fortsätta att skapas, men se till att ändringarna blir kompatibla.
+[Effekten deployIfNotExists](../concepts/effects.md#deployifnotexists) gör det möjligt att distribuera en [Azure Resource Manager-mall](../../../azure-resource-manager/templates/overview.md) när du skapar eller uppdaterar en resurs som inte är kompatibel. Den här metoden kan föredras framför att använda [neka](../concepts/effects.md#deny) effekten eftersom det låter resurser fortsätta att skapas, men säkerställer att ändringarna görs för att göra dem kompatibla.
 
-## <a name="sample-policy-definition"></a>Exempel på princip definition
+## <a name="sample-policy-definition"></a>Exempel på principdefinition
 
-Den här princip definitionen använder **fält** operatorn för att utvärdera `type` av resurs som skapats eller uppdaterats. När resursen är en _Microsoft. Network/virtualNetworks_söker principen efter en nätverks övervakare på platsen för den nya eller uppdaterade resursen. Om det inte finns någon matchande nätverks övervakare distribueras Resource Manager-mallen för att skapa den resurs som saknas.
+Den här principdefinitionen använder `type` fältoperatorn för att utvärdera resursen som skapats eller uppdaterats. **field** När resursen är en _Microsoft.Network/virtualNetworks_söker principen efter en nätverksbevakare på den nya eller uppdaterade resursens plats. Om en matchande nätverksbevakare inte finns distribueras Resource Manager-mallen för att skapa den resurs som saknas.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json":::
 
 ### <a name="explanation"></a>Förklaring
 
-#### <a name="existencecondition"></a>existenceCondition
+#### <a name="existencecondition"></a>existensVillkor
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="18-23":::
 
-**Egenskaperna. policyRule. then. information** block visar Azure policy vad som ska sökas efter den skapade eller uppdaterade resursen i **egenskaperna. policyRule. if** -block. I det här exemplet måste en nätverks övervakare i resurs gruppen **networkWatcherRG** finnas med **fält** `location` som motsvarar platsen för den nya eller uppdaterade resursen. Med hjälp av funktionen `field()` får **existenceCondition** åtkomst till egenskaper för den nya eller uppdaterade resursen, särskilt egenskapen `location`.
+**Properties.policyRule.then.details-blocket** talar om för Azure Policy vad du ska leta efter som är relaterade till den skapade eller uppdaterade resursen i **properties.policyRule.if-blocket.** I det här exemplet måste en nätverksbevakare i **field** `location` **resursgruppsnätverketWatcherRG** finnas med ett fält som är lika med platsen för den nya eller uppdaterade resursen. Med `field()` hjälp av funktionen kan **förekomstenKonditionen** komma åt egenskaper `location` för den nya eller uppdaterade resursen, särskilt egenskapen.
 
-#### <a name="roledefinitionids"></a>roleDefinitionIds
+#### <a name="roledefinitionids"></a>rollDefinitionIds
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="24-26":::
 
-**RoleDefinitionIds** _mat ris_ egenskap i **egenskaperna. policyRule. then. information** -blocket anger princip definitionen som ger den hanterade identiteten behörighet att distribuera den inkluderade Resource Manager-mallen. Den här egenskapen måste anges till att omfatta roller som har de behörigheter som krävs för mallen, men bör använda begreppet "princip för minsta behörighet" och endast ha de nödvändiga åtgärderna och inget annat.
+Egenskapen **roleDefinitionIds** _array_ i **properties.policyRule.then.details-blocket** anger principdefinitionen vilka rättigheter den hanterade identiteten behöver för att distribuera den inkluderade Resource Manager-mallen. Den här egenskapen måste anges så att den innehåller roller som har de behörigheter som krävs av malldistributionen, men bör använda begreppet "princip med lägsta behörighet" och bara ha nödvändiga åtgärder och inget mer.
 
 #### <a name="deployment-template"></a>Distributionsmall
 
-**Distributions** delen av princip definitionen har ett **egenskaps** block som definierar de tre huvud komponenterna:
+**Distributionsdelen** av principdefinitionen har ett **egenskapsblock** som definierar de tre kärnkomponenterna:
 
-- **läge** – den här egenskapen anger mallens [distributions läge](../../../azure-resource-manager/templates/deployment-modes.md) .
+- **läge** - Den här egenskapen anger [distributionsläget](../../../azure-resource-manager/templates/deployment-modes.md) för mallen.
 
-- **mall** – den här egenskapen inkluderar själva mallen. I det här exemplet anger **platsen** för den nya nätverks övervaknings resursen platsen.
+- **mall** - Den här egenskapen innehåller själva mallen. I det här exemplet anger **parametern platsmall** platsen för den nya nätverksbevakarresursen.
 
   :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="30-44":::
   
-- **parametrar** – den här egenskapen definierar parametrar som har angetts för **mallen**. Parameter namnen måste matcha vad som definieras i **mallen**. I det här exemplet heter parametern **plats** som ska matchas. Värdet för **plats** använder `field()` funktionen igen för att hämta värdet för den utvärderade resursen, vilket är det virtuella nätverket i **policyRule. if** -block.
+- **parametrar** - Den här egenskapen definierar parametrar som anges i **mallen**. Parameternamnen måste matcha vad som definieras i **mallen**. I det här exemplet heter parametern **plats** att matcha. Värdet **för lagerställe** `field()` använder funktionen igen för att hämta värdet för den utvärderade resursen, som är det virtuella nätverket i **policyRule.if-blocket.**
 
   :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="45-49":::
 

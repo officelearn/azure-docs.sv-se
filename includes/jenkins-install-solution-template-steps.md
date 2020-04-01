@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 03/03/2020
 ms.author: tarcher
 ms.openlocfilehash: e9b8ad7a7fcc499f8760b56e6a737be8a6a9e06c
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79199820"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration
 * Åtkomst till SSH på datorns kommandorad (som Bash-gränssnitt eller [PuTTY](https://www.putty.org/))
@@ -25,7 +25,7 @@ Jenkins har stöd för en modell där Jenkins-servern delegerar arbete till en e
 
 ## <a name="connect-to-jenkins"></a>Ansluta till Jenkins
 
-Navigera till den virtuella datorn (till exempel `http://jenkins2517454.eastus.cloudapp.azure.com/`) i webbläsaren. Jenkins-konsolen går inte att komma åt via osäker HTTP så det medföljer anvisningar på sidan om hur du får åtkomst till Jenkins-konsolen säkert från datorn med hjälp av en SSH-tunnel.
+Navigera till din virtuella dator `http://jenkins2517454.eastus.cloudapp.azure.com/`(till exempel) i webbläsaren. Jenkins-konsolen går inte att komma åt via osäker HTTP så det medföljer anvisningar på sidan om hur du får åtkomst till Jenkins-konsolen säkert från datorn med hjälp av en SSH-tunnel.
 
 ![Låsa upp Jenkins](./media/jenkins-install-solution-template-steps/jenkins-ssh-instructions.png)
 
@@ -83,7 +83,7 @@ Gå till `complete/build/libs` och kontrollera att `gs-spring-boot-0.1.0.jar` fi
 
 Om du stöter på buggar med Jenkins-lösningsmallen kan du rapportera problemet på [Jenkins-GitHub-lagringsplatsen](https://github.com/azure/jenkins/issues).
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 > [!div class="nextstepaction"]
 > [Lägga till virtuella Azure-datorer som Jenkins-agenter](/azure/jenkins/jenkins-azure-vm-agents)

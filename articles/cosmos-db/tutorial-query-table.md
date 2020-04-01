@@ -1,6 +1,6 @@
 ---
 title: Hur frågar man efter tabelldata SQL i Azure Cosmos DB?
-description: Lär dig hur du frågar data som lagras i Azure Cosmos DB Tabell-API-kontot med hjälp av OData-filter och LINQ-frågor
+description: Lär dig hur du frågar data som lagras i Azure Cosmos DB Table API-konto med hjälp av OData-filter och LINQ-frågor
 author: sakash279
 ms.author: akshanka
 ms.service: cosmos-db
@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 05/21/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 8f31ace0045dad2f038a1eded52a41ffb1932f99
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76770486"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Självstudie: Fråga Azure Cosmos DB med hjälp av tabell-API
 
 Azure Cosmos DB [Table-API](table-introduction.md) stöder OData- och [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service)-frågor mot nyckel-/värdedata (tabell).  
 
-I den här artikeln beskrivs följande uppgifter: 
+Den här artikeln beskriver följande uppgifter: 
 
 > [!div class="checklist"]
 > * Fråga data med tabell-API
@@ -43,12 +43,12 @@ För att de här frågorna ska fungera måste du ha ett konto i Azure Cosmos DB 
 ## <a name="query-on-partitionkey-and-rowkey"></a>Fråga om PartitionKey och RowKey
 Eftersom egenskaperna PartitionKey och RowKey utformar en entitets primärnyckel kan du använda följande specialsyntax för att identifiera entiteten: 
 
-**Fråga**
+**Söka i data**
 
 ```
 https://<mytableendpoint>/People(PartitionKey='Harp',RowKey='Walter')  
 ```
-**Results**
+**Resultat**
 
 | PartitionKey | RowKey | E-post | PhoneNumber |
 | --- | --- | --- | --- |
@@ -66,7 +66,7 @@ När du skapar en filtersträng ska du tänka på följande regler:
 
 Här är en exempelfråga som visar hur du filtrerar via PartitionKey och e-postegenskaperna med ett OData-`$filter`.
 
-**Fråga**
+**Söka i data**
 
 ```
 https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and%20Email%20eq%20'Ben@contoso.com'
@@ -74,7 +74,7 @@ https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and
 
 Mer information om hur du skapar filteruttryck för olika datatyper finns i [Fråga tabeller och entiteter](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities).
 
-**Results**
+**Resultat**
 
 | PartitionKey | RowKey | E-post | PhoneNumber |
 | --- | --- | --- | --- |

@@ -1,5 +1,5 @@
 ---
-title: Skapa behållar avbildningar på Service Fabric i Azure
+title: Skapa behållaravbildningar på Service Fabric i Azure
 description: I den här självstudiekursen lär du dig hur du skapar containeravbildningar för ett Service Fabric-program med flera containrar.
 author: suhuruli
 ms.topic: tutorial
@@ -7,15 +7,15 @@ ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: fe06da759a1ad42ef5cef888f98c440cdfb9569c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78252788"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Självstudie: Skapa containeravbildningar i ett Service Fabric-kluster i Linux
 
-Den här självstudien ingår i en serie som visar hur du använder containrar i ett Linux Service Fabric-kluster. I den här självstudien förbereds ett program med flera container för användning med Service Fabric. I efterföljande självstudier används de här avbildningarna som en del i ett Service Fabric-program. I den här självstudiekursen får du lära du dig att:
+Den här självstudien ingår i en serie som visar hur du använder containrar i ett Linux Service Fabric-kluster. I den här självstudien förbereds ett program med flera container för användning med Service Fabric. I efterföljande självstudier används de här avbildningarna som en del i ett Service Fabric-program. I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 > * klona programmets källkod från GitHub
@@ -28,10 +28,10 @@ I den här självstudieserien får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa containeravbildningar för Service Fabric
-> * [skapa och köra ett Service Fabric-program med containrar](service-fabric-tutorial-package-containers.md)
-> * [hantera redundans och skalning i Service Fabric](service-fabric-tutorial-containers-failover.md).
+> * [Skapa och köra ett Service Fabric-program med containrar](service-fabric-tutorial-package-containers.md)
+> * [Hantera redundans och skalning i Service Fabric](service-fabric-tutorial-containers-failover.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Linux-utvecklingsmiljö konfigurerad för Service Fabric. Följ instruktionerna [här](service-fabric-get-started-linux.md) för att konfigurera din Linux-miljö.
 * I den här självstudien krävs att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).
@@ -78,7 +78,7 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ## <a name="deploy-azure-container-registry"></a>Distribuera Azure Container Registry
 
-Kör först kommandot **AZ login** för att logga in på ditt Azure-konto.
+Kör först kommandot **az login** för att logga in på ditt Azure-konto.
 
 ```azurecli
 az login
@@ -98,7 +98,7 @@ Skapa en resursgrupp med kommandot **az group create**. I det här exemplet skap
 az group create --name <myResourceGroup> --location westus
 ```
 
-Skapa ett Azure-containerregister med kommandot **az acr create**. Ersätt \<acrName&gt; med namnet på containerregistret du vill skapa i din prenumeration. Det här namnet måste vara alfanumeriskt och unikt.
+Skapa ett Azure Container-register med kommandot **az acr create.** Ersätt \<acrName&gt; med namnet på containerregistret du vill skapa i din prenumeration. Det här namnet måste vara alfanumeriskt och unikt.
 
 ```azurecli
 az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
@@ -106,9 +106,9 @@ az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --
 
 I resten av den här självstudien använder vi acrName som platshållare för det containerregisternamn du väljer. Skriv ned det här värdet.
 
-## <a name="sign-in-to-your-container-registry"></a>Logga in på ditt behållar register
+## <a name="sign-in-to-your-container-registry"></a>Logga in i behållarregistret
 
-Logga in på din ACR-instans innan du skickar avbildningar till den. Använd kommandot **az acr login** till att slutföra åtgärden. Ange det unika namn du angav för containerregistret när det skapades.
+Logga in på ACR-instansen innan du trycker bilder till den. Använd kommandot **az acr login** till att slutföra åtgärden. Ange det unika namn du angav för containerregistret när det skapades.
 
 ```azurecli
 az acr login --name <acrName>

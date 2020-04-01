@@ -1,24 +1,24 @@
 ---
-title: Exponera dina funktioner med OpenAPI med hjälp av Azure API Management
+title: Exponera dina funktioner med OpenAPI med Azure API Management
 description: Skapa en OpenAPI-definition som gör det möjligt för andra appar och tjänster att anropa din funktion i Azure.
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 9465209467c83f7de075d16e724459c307d55bd3
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77210216"
 ---
-# <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Skapa en OpenAPI-definition för ett Server lös API med hjälp av Azure API Management
+# <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Skapa en OpenAPI-definition för ett serverlöst API med Azure API Management
 
-REST API: er beskrivs ofta med hjälp av en OpenAPI-definition. Den här definitionen innehåller information om vilka åtgärder som är tillgängliga i API:t och hur data om förfrågningar och svar för API:t ska vara strukturerade.
+REST API:er beskrivs ofta med en OpenAPI-definition. Den här definitionen innehåller information om vilka åtgärder som är tillgängliga i API:t och hur data om förfrågningar och svar för API:t ska vara strukturerade.
 
-I den här självstudien skapar du en funktion som avgör om en nödreparation på en vindturbin är kostnadseffektiv. Sedan skapar du en OpenAPI-definition för Function-appen med hjälp av [Azure API Management](../api-management/api-management-key-concepts.md) så att funktionen kan anropas från andra appar och tjänster.
+I den här självstudien skapar du en funktion som avgör om en nödreparation på en vindturbin är kostnadseffektiv. Du skapar sedan en OpenAPI-definition för funktionsappen med [Azure API Management](../api-management/api-management-key-concepts.md) så att funktionen kan anropas från andra appar och tjänster.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * skapar en funktion i Azure
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="create-a-function-app"></a>Skapa en funktionsapp
 
-Du måste ha en funktionsapp som värd för körning av dina funktioner. Med en Function-app kan du gruppera funktioner som en logisk enhet för enklare hantering, distribution, skalning och delning av resurser.
+Du måste ha en funktionsapp som värd för körning av dina funktioner. Med en funktionsapp kan du gruppera funktioner som en logisk enhet för enklare hantering, distribution, skalning och delning av resurser.
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -36,20 +36,20 @@ Du måste ha en funktionsapp som värd för körning av dina funktioner. Med en 
 
 Den här självstudien använder en HTTP-utlöst funktion som tar två parametrar:
 
-* Beräknad tid för att göra en turbin-reparation i timmar.
-* Kapaciteten för turbinen i kilowatt. 
+* Den beräknade tiden för att göra en turbin reparation, i timmar.
+* Turbinens kapacitet, i kilowatt. 
 
-Funktionen beräknar sedan hur mycket en reparation skulle kosta och hur mycket intäkter turbinen kan generera under en 24-timmarsperiod. För att skapa funktionen HTTP-utlöst i [Azure Portal](https://portal.azure.com):
+Funktionen beräknar sedan hur mycket en reparation skulle kosta och hur mycket intäkter turbinen kan generera under en 24-timmarsperiod. Så här skapar du funktionen HTTP-utlöst i [Azure-portalen:](https://portal.azure.com)
 
-1. Expandera funktionsappen och välj knappen **+** bredvid **Funktioner**. Välj **i portal** > **Fortsätt**.
+1. Expandera funktionsappen **+** och välj knappen bredvid **Funktioner**. Välj**Fortsätt** **i portalen** > .
 
-1. Välj **Fler mallar...** och välj sedan **Slutför och Visa mallar**
+1. Välj **Fler mallar...** och välj sedan **Slutför och visa mallar**
 
-1. Välj HTTP-utlösare, skriv `TurbineRepair` som funktions **namn**, Välj `Function` för **[Autentiseringsnivå](functions-bindings-http-webhook-trigger.md#http-auth)** och välj sedan **skapa**.  
+1. Välj HTTP-utlösare, `TurbineRepair` skriv för funktionen **Namn**, välj `Function` för **[autentiseringsnivå](functions-bindings-http-webhook-trigger.md#http-auth)** och välj sedan **Skapa**.  
 
     ![Skapa HTTP-funktion för OpenAPI](media/functions-openapi-definition/select-http-trigger-openapi.png)
 
-1. Ersätt innehållet i skript filen Run. CSX C# med följande kod och välj sedan **Spara**:
+1. Ersätt innehållet i skriptfilen run.csx C# med följande kod och välj sedan **Spara:**
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -104,7 +104,7 @@ Funktionen beräknar sedan hur mycket en reparation skulle kosta och hur mycket 
 
     Den här funktionskoden returnerar meddelandet `Yes` eller `No` som indikation på om en nödreparation är kostnadseffektiv, intäktsmöjligheten som turbinen representerar och kostnaden för att reparera turbinen.
 
-1. Testa funktionen genom att klicka på **test** längst till höger för att expandera fliken test. Ange följande värde för **begär ande texten**och klicka sedan på **Kör**.
+1. Om du vill testa funktionen klickar du på **Testa** längst till höger **Request body**för att expandera **Run**testfliken.
 
     ```json
     {
@@ -121,49 +121,49 @@ Funktionen beräknar sedan hur mycket en reparation skulle kosta och hur mycket 
     {"message":"Yes","revenueOpportunity":"$7200","costToFix":"$1600"}
     ```
 
-Nu har du en funktion som avgör om en nödreparation är kostnadseffektiv. Därefter genererar du en OpenAPI-definition för Function-appen.
+Nu har du en funktion som avgör om en nödreparation är kostnadseffektiv. Därefter genererar du en OpenAPI-definition för funktionsappen.
 
 ## <a name="generate-the-openapi-definition"></a>Generera OpenAPI-definitionen
 
 Nu är du redo att generera OpenAPI-definitionen.
 
-1. Välj Function-appen, Välj **API Management** i **plattforms funktioner**och välj **Skapa ny** under **API Management**.
+1. Välj funktionsappen och välj **API-hantering** i **Plattformsfunktioner**och välj **Skapa ny** under **API Management**.
 
-    ![Välj API Management i plattforms funktioner](media/functions-openapi-definition/select-all-settings-openapi.png)
+    ![Välj API-hantering i plattformsfunktioner](media/functions-openapi-definition/select-all-settings-openapi.png)
 
-1. Använd API Management inställningar som anges i tabellen nedanför bilden.
+1. Använd API Management-inställningarna som anges i tabellen under bilden.
 
     ![Skapa ny API Management-tjänst](media/functions-openapi-definition/new-apim-service-openapi.png)
 
     | Inställning      | Föreslaget värde  | Beskrivning                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Namn** | Globalt unikt namn | Ett namn genereras baserat på namnet på din Function-app. |
-    | **Prenumeration** | Din prenumeration | Prenumerationen som den här nya resursen skapas under. |  
-    | **[Resursgrupp](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Samma resurs som din Function-app, som ska ställas in för dig. |
-    | **Plats** | USA, västra | Välj platsen för västra USA. |
-    | **Organisationens namn** | Contoso | Namnet på organisationen som används i Developer-portalen och för e-postaviseringar. |
-    | **E-postadress för administratör** | din e-post | E-post som tog emot system meddelanden från API Management. |
-    | **prisnivå** | Konsumtion (för hands version) | Förbruknings nivån är i för hands version och är inte tillgänglig i alla regioner. Fullständig pris information finns på sidan med [API Management priser](https://azure.microsoft.com/pricing/details/api-management/) |
+    | **Namn** | Globalt unikt namn | Ett namn genereras baserat på namnet på din funktionsapp. |
+    | **Prenumeration** | Din prenumeration | Prenumerationen som den nya resursen skapas under. |  
+    | **[Resursgrupp](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Samma resurs som din funktionsapp, som bör komma i set åt dig. |
+    | **Location** | USA, västra | Välj plats för västra USA. |
+    | **Organisationens namn** | Contoso | Namnet på den organisation som används i utvecklarportalen och för e-postmeddelanden. |
+    | **E-postadress för administratör** | din e-post | E-post som fått systemmeddelanden från API Management. |
+    | **Prisnivå** | Förbrukning (förhandsgranskning) | Förbrukningsnivån är i förhandsversion och är inte tillgänglig i alla regioner. Fullständig prisinformation finns på [prissidan](https://azure.microsoft.com/pricing/details/api-management/) för API Management |
 
-1. Välj **skapa** för att skapa API Management-instansen, vilket kan ta flera minuter.
+1. Välj **Skapa** om du vill skapa API Management-instansen, vilket kan ta flera minuter.
 
-1. Välj **aktivera Application Insights** för att skicka loggar till samma plats som funktions programmet, Godkänn sedan de återstående standardvärdena och välj **Link API**.
+1. Välj **Aktivera programstatistik** för att skicka loggar till samma plats som funktionsprogrammet, acceptera sedan de återstående standardinställningarna och välj **Länk-API**.
 
-1. **Import Azure Functions** öppnas med funktionen **TurbineRepair** markerad. Välj **Välj** för att fortsätta.
+1. **Import Azure Functions** öppnas med funktionen **TurbineRepair** markerad. Klicka på **Välj** för att fortsätta.
 
-    ![Importera Azure Functions till API Management](media/functions-openapi-definition/import-function-openapi.png)
+    ![Importera Azure-funktioner till API Management](media/functions-openapi-definition/import-function-openapi.png)
 
-1. På sidan **skapa från Funktionsapp** godkänner du standardvärdena och väljer **skapa**
+1. På sidan **Skapa från funktionsapp** godkänner du standardinställningarna och väljer **Skapa**
 
-    ![Skapa från Funktionsapp](media/functions-openapi-definition/create-function-openapi.png)
+    ![Skapa från funktionsapp](media/functions-openapi-definition/create-function-openapi.png)
 
-API: et har nu skapats för funktionen.
+API:et har nu skapats för funktionen.
 
-## <a name="test-the-api"></a>Testa API: et
+## <a name="test-the-api"></a>Testa API:et
 
-Innan du använder OpenAPI-definitionen bör du kontrol lera att API: et fungerar.
+Innan du använder OpenAPI-definitionen bör du kontrollera att API:et fungerar.
 
-1. På fliken **test** i funktionen väljer du **post** åtgärd.
+1. Välj **POST-åtgärd** på fliken **Test** för din funktion.
 
 1. Ange värden för **timmar** och **kapacitet**
 
@@ -174,15 +174,15 @@ Innan du använder OpenAPI-definitionen bör du kontrol lera att API: et fungera
     }
     ```
 
-1. Klicka på **Skicka**och Visa http-svaret.
+1. Klicka på **Skicka**och visa HTTP-svaret.
 
-    ![API för test funktion](media/functions-openapi-definition/test-function-api-openapi.png)
+    ![API för testfunktion](media/functions-openapi-definition/test-function-api-openapi.png)
 
 ## <a name="download-the-openapi-definition"></a>Hämta OpenAPI-definitionen
 
-Om ditt API fungerar som förväntat kan du ladda ned OpenAPI-definitionen.
+Om ditt API fungerar som förväntat kan du hämta OpenAPI-definitionen.
 
-1. Välj **Hämta openapi-definition** överst på sidan.
+1. Välj **Hämta OpenAPI-definition** högst upp på sidan.
    
    ![Ladda ned OpenAPI-definition](media/functions-openapi-definition/download-definition.png)
 
@@ -192,7 +192,7 @@ Om ditt API fungerar som förväntat kan du ladda ned OpenAPI-definitionen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har använt API Management integration för att generera en OpenAPI definition av dina funktioner. Nu kan du redigera definitionen i API Management i portalen. Du kan också [läsa mer om API Management](../api-management/api-management-key-concepts.md).
+Du har använt API Management-integrering för att generera en OpenAPI-definition av dina funktioner. Du kan nu redigera definitionen i API Management i portalen. Du kan också [läsa mer om API Management](../api-management/api-management-key-concepts.md).
 
 > [!div class="nextstepaction"]
 > [Redigera OpenAPI-definitionen i API Management](../api-management/edit-api.md)

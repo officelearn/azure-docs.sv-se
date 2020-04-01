@@ -1,55 +1,55 @@
 ---
 title: Lägga till och hantera SSL-certifikat
-description: Skapa ett kostnads fritt certifikat, importera ett App Service certifikat, importera ett Key Vault certifikat eller köp ett App Service-certifikat i Azure App Service.
+description: Skapa ett kostnadsfritt certifikat, importera ett App Service-certifikat, importera ett Key Vault-certifikat eller köpa ett App Service-certifikat i Azure App Service.
 tags: buy-ssl-certificates
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
 ms.openlocfilehash: 120caf459a7a8ca4e60d5e447a1e4130c0bce389
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239765"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Lägg till ett SSL-certifikat i Azure App Service
 
-Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här artikeln visar hur du skapar, överför eller importerar ett privat certifikat eller ett offentligt certifikat till App Service. 
+[Azure App Service](overview.md) tillhandahåller en mycket skalbar, självkorrigering webbhotell. I den här artikeln visas hur du skapar, laddar upp eller importerar ett privat certifikat eller ett offentligt certifikat till App Service. 
 
-När certifikatet har lagts till i din App Service app eller [Function-app](https://docs.microsoft.com/azure/azure-functions/)kan du [skydda ett anpassat DNS-namn med det](configure-ssl-bindings.md) eller [använda det i din program kod](configure-ssl-certificate-in-code.md).
+När certifikatet har lagts till i app- eller [funktionsappen](https://docs.microsoft.com/azure/azure-functions/)för App Service kan du [skydda ett anpassat DNS-namn med det](configure-ssl-bindings.md) eller använda det i [programkoden](configure-ssl-certificate-in-code.md).
 
-I följande tabell visas de alternativ som du har för att lägga till certifikat i App Service:
+I följande tabell visas de alternativ du har för att lägga till certifikat i App Service:
 
 |Alternativ|Beskrivning|
 |-|-|
-| Skapa ett kostnads fritt App Service-hanterat certifikat (förhands granskning) | Ett privat certifikat som är enkelt att använda om du bara behöver skydda din `www` [anpassade domän](app-service-web-tutorial-custom-domain.md) eller någon annan icke-blott domän i App Service. |
-| Köp ett App Service-certifikat | Ett privat certifikat som hanteras av Azure. Den kombinerar den automatiserade certifikat hanteringen och flexibiliteten i förnyelse-och export alternativen. |
-| Importera ett certifikat från Key Vault | Användbart om du använder [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) för att hantera dina [PKCS12-certifikat](https://wikipedia.org/wiki/PKCS_12). Se [krav för privata certifikat](#private-certificate-requirements). |
-| Ladda upp ett privat certifikat | Om du redan har ett privat certifikat från en tredje part kan du ladda upp det. Se [krav för privata certifikat](#private-certificate-requirements). |
-| Ladda upp ett offentligt certifikat | Offentliga certifikat används inte för att skydda anpassade domäner, men du kan läsa in dem i koden om du behöver dem för att få åtkomst till fjär resurser. |
+| Skapa ett kostnadsfritt hanterat certifikat för apptjänst (förhandsversion) | Ett privat certifikat som är enkelt att använda `www` om du bara behöver skydda din [anpassade domän](app-service-web-tutorial-custom-domain.md) eller en icke-naken domän i App Service. |
+| Köpa ett apptjänstcertifikat | Ett privat certifikat som hanteras av Azure. Den kombinerar enkelheten i automatiserad certifikathantering och flexibiliteten i förnyelse- och exportalternativ. |
+| Importera ett certifikat från Key Vault | Användbart om du använder [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) för att hantera dina [PKCS12-certifikat](https://wikipedia.org/wiki/PKCS_12). Se [Privata certifikatkrav](#private-certificate-requirements). |
+| Ladda upp ett privat certifikat | Om du redan har ett privat certifikat från en tredjepartsleverantör kan du ladda upp det. Se [Privata certifikatkrav](#private-certificate-requirements). |
+| Ladda upp ett offentligt certifikat | Offentliga certifikat används inte för att skydda anpassade domäner, men du kan läsa in dem i koden om du behöver dem för att komma åt fjärrresurser. |
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att följa den här instruktions guiden:
+Så här följer du den här guiden:
 
-- [Skapa en app service-app](/azure/app-service/).
-- Endast ledigt certifikat: mappa en under domän (till exempel `www.contoso.com`) för att App Service med en [CNAME-post](app-service-web-tutorial-custom-domain.md#map-a-cname-record).
+- [Skapa en apptjänstapp](/azure/app-service/).
+- Endast gratis certifikat: mappa en underdomän (till `www.contoso.com`exempel) till App Service med en [CNAME-post](app-service-web-tutorial-custom-domain.md#map-a-cname-record).
 
-## <a name="private-certificate-requirements"></a>Krav för privata certifikat
+## <a name="private-certificate-requirements"></a>Krav på privata certifikat
 
 > [!NOTE]
-> Azure Web Apps har **inte** stöd för AES256 och alla PFX-filer bör krypteras med TripleDES.
+> Azure Web Apps stöder **inte** AES256 och alla pfx-filer ska krypteras med TripleDES.
 
-Det [kostnads fria app service-hanterade certifikatet](#create-a-free-certificate-preview) eller [app Services certifikatet](#import-an-app-service-certificate) uppfyller redan kraven i App Service. Om du väljer att överföra eller importera ett privat certifikat till App Service måste certifikatet uppfylla följande krav:
+Det [kostnadsfria apptjänsthanterade certifikatet](#create-a-free-certificate-preview) eller [App Service-certifikatet](#import-an-app-service-certificate) uppfyller redan kraven i App Service. Om du väljer att ladda upp eller importera ett privat certifikat till App Service måste certifikatet uppfylla följande krav:
 
-* Exporterad som en [lösenordsskyddad PFX-fil](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions)
+* Exporteras som en [lösenordsskyddad PFX-fil](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions)
 * Innehålla en privat nyckel som är minst 2 048 bitar lång
 * Innehålla alla mellanliggande certifikat i certifikatkedjan
 
 För att skydda en anpassad domän i en SSL-bindning har certifikatet ytterligare krav:
 
-* Innehåller en [utökad nyckel användning](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Extensions_informing_a_specific_usage_of_a_certificate) för SERVERAUTENTISERING (OID = 1.3.6.1.5.5.7.3.1)
+* Innehåller en [utökad nyckelanvändning](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Extensions_informing_a_specific_usage_of_a_certificate) för serverautentisering (OID = 1.3.6.1.5.5.7.3.1)
 * Vara signerat av en betrodd certifikatutfärdare
 
 > [!NOTE]
@@ -57,157 +57,157 @@ För att skydda en anpassad domän i en SSL-bindning har certifikatet ytterligar
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
-## <a name="create-a-free-certificate-preview"></a>Skapa ett kostnads fritt certifikat (förhands granskning)
+## <a name="create-a-free-certificate-preview"></a>Skapa ett kostnadsfritt certifikat (förhandsgranskning)
 
-Det kostnads fria App Service-hanterade certifikatet är en lösning för att skydda ditt anpassade DNS-namn i App Service. Det är ett fullständigt fungerande SSL-certifikat som hanteras av App Service och förnyas automatiskt. Det kostnads fria certifikatet levereras med följande begränsningar:
+Det kostnadsfria hanterade certifikatet för App Service är en nyckelfärdig lösning för att skydda ditt anpassade DNS-namn i App Service. Det är ett fullt fungerande SSL-certifikat som hanteras av App Service och förnyas automatiskt. Det kostnadsfria certifikatet har följande begränsningar:
 
-- Har inte stöd för certifikat med jokertecken.
-- Stöder inte blott-domäner.
+- Stöder inte jokerteckencertifikat.
+- Stöder inte nakna domäner.
 - Kan inte exporteras.
 - Stöder inte DNS A-poster.
 
 > [!NOTE]
-> Det kostnads fria certifikatet utfärdas av DigiCert. För vissa toppnivå domäner måste du uttryckligen tillåta DigiCert som en certifikat utfärdare genom att skapa en [CAA-domän post](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) med värdet: `0 issue digicert.com`.
+> Det kostnadsfria certifikatet utfärdas av DigiCert. För vissa toppdomäner måste du uttryckligen tillåta DigiCert som certifikatutfärdare genom att `0 issue digicert.com`skapa en [CAA-domänpost](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) med värdet: .
 > 
 
-Så här skapar du ett kostnads fritt App Service-hanterat certifikat:
+Så här skapar du ett kostnadsfritt hanterat apptjänstcertifikat:
 
-I <a href="https://portal.azure.com" target="_blank">Azure Portal</a>väljer du **app Services** >  **\<App-Name >** på menyn till vänster.
+Välj App**\<Services->** **App Services** > på <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>på den vänstra menyn .
 
-Välj **TLS/SSL-inställningar** > **privata nyckel certifikat (. pfx)** i den vänstra navigeringen i appen, > **Skapa App Service hanterat certifikat**.
+Välj **TLS/SSL-inställningar** > **för privata nyckelcertifikat (.pfx)** > Skapa**apptjänsthanterade certifikat**från den vänstra navigeringen i appen .
 
-![Skapa ett kostnads fritt certifikat i App Service](./media/configure-ssl-certificate/create-free-cert.png)
+![Skapa kostnadsfritt certifikat i App Service](./media/configure-ssl-certificate/create-free-cert.png)
 
-En icke-blott domän som är korrekt mappad till din app med en CNAME-post visas i dialog rutan. Välj den anpassade domän som du vill skapa ett kostnads fritt certifikat för och välj **skapa**. Du kan bara skapa ett certifikat för varje anpassad domän som stöds.
+Alla icke-nakna domäner som är korrekt mappade till din app med en CNAME-post visas i dialogrutan. Välj den anpassade domänen för att skapa ett kostnadsfritt certifikat för och välj **Skapa**. Du kan bara skapa ett certifikat för varje anpassad domän som stöds.
 
-När åtgärden har slutförts visas certifikatet i listan med certifikat för **privat nyckel** .
+När åtgärden är klar visas certifikatet i listan **Privata nyckelcertifikat.**
 
-![Ett kostnads fritt certifikat har skapats](./media/configure-ssl-certificate/create-free-cert-finished.png)
+![Skapa ledigt certifikat klart](./media/configure-ssl-certificate/create-free-cert-finished.png)
 
 > [!IMPORTANT] 
-> Om du vill skydda en anpassad domän med det här certifikatet måste du fortfarande skapa en certifikat bindning. Följ stegen i [skapa bindning](configure-ssl-bindings.md#create-binding).
+> Om du vill skydda en anpassad domän med det här certifikatet måste du fortfarande skapa en certifikatbindning. Följ stegen i [Skapa bindning](configure-ssl-bindings.md#create-binding).
 >
 
-## <a name="import-an-app-service-certificate"></a>Importera en App Service Certificate
+## <a name="import-an-app-service-certificate"></a>Importera ett apptjänstcertifikat
 
-Om du köper en App Service Certificate från Azure, hanterar Azure följande aktiviteter:
+Om du köper ett App Service-certifikat från Azure hanterar Azure följande uppgifter:
 
-- Tar hand om inköps processen från GoDaddy.
-- Utför domän verifiering av certifikatet.
+- Tar hand om köpprocessen från GoDaddy.
+- Utför domänverifiering av certifikatet.
 - Underhåller certifikatet i [Azure Key Vault](../key-vault/key-vault-overview.md).
-- Hanterar certifikat förnyelse (se [Förnya certifikat](#renew-certificate)).
-- Synkronisera certifikatet automatiskt med de importerade kopiorna i App Service appar.
+- Hanterar förnyelse av certifikat (se [Förnya certifikat](#renew-certificate)).
+- Synkronisera certifikatet automatiskt med de importerade kopiorna i App Service-appar.
 
-Om du vill köpa ett App Service certifikat går du till [Starta certifikat ordning](#start-certificate-order).
+Om du vill köpa ett App Service-certifikat går du till [Starta certifikatorder](#start-certificate-order).
 
-Om du redan har ett arbets App Service certifikat kan du:
+Om du redan har ett fungerande App Service-certifikat kan du:
 
 - [Importera certifikatet till App Service](#import-certificate-into-app-service).
-- [Hantera certifikatet](#manage-app-service-certificates), till exempel förnya, uppdatera nycklar och exportera det.
+- [Hantera certifikatet](#manage-app-service-certificates), till exempel förnya, nyckela över och exportera det.
 
-### <a name="start-certificate-order"></a>Starta certifikat ordning
+### <a name="start-certificate-order"></a>Starta certifikatordning
 
-Starta en App Service certifikat ordning på <a href="https://portal.azure.com/#create/Microsoft.SSL" target="_blank">sidan App Service Certificate skapa</a>.
+Starta en apptjänstcertifikatorder på <a href="https://portal.azure.com/#create/Microsoft.SSL" target="_blank">sidan Skapa apptjänstcertifikat</a>.
 
-![Starta App Service certifikat Köp](./media/configure-ssl-certificate/purchase-app-service-cert.png)
+![Starta köp av apptjänstcertifikat](./media/configure-ssl-certificate/purchase-app-service-cert.png)
 
-Använd följande tabell som hjälp för att konfigurera certifikatet. Klicka på **Skapa** när du är klar.
+Använd följande tabell för att konfigurera certifikatet. Klicka på **Skapa** när du är klar.
 
 | Inställning | Beskrivning |
 |-|-|
-| Namn | Ett eget namn på ditt App Service certifikat. |
-| Värddator namn för blott-domän | Ange rot domänen här. Det utfärdade certifikatet skyddar *både* rot domänen och under domänen `www`. I det utfärdade certifikatet innehåller fältet eget namn rot domänen och fältet Alternativt namn på certifikat mottagare innehåller `www`-domänen. Om du bara vill skydda en under domän anger du det fullständigt kvalificerade domän namnet för under domänen här (till exempel `mysubdomain.contoso.com`).|
-| Prenumeration | Den prenumeration som ska innehålla certifikatet. |
-| Resursgrupp | Den resurs grupp som ska innehålla certifikatet. Du kan använda en ny resurs grupp eller välja samma resurs grupp som App Service-appen, till exempel. |
-| Certifikat-SKU | Bestämmer vilken typ av certifikat som ska skapas, om ett standard certifikat eller ett [jokertecken](https://wikipedia.org/wiki/Wildcard_certificate). |
+| Namn | Ett eget namn på ditt App Service-certifikat. |
+| Naken domännamn värd | Ange rotdomänen här. Det utfärdade certifikatet skyddar *både* rotdomänen och underdomänen. `www` I det utfärdade certifikatet innehåller fältet Gemensamt namn rotdomänen och fältet `www` Ämnesalternativnamn innehåller domänen. Om du bara vill skydda en underdomän anger du det fullständigt kvalificerade `mysubdomain.contoso.com`domännamnet för underdomänen här (till exempel ).|
+| Prenumeration | Prenumerationen som ska innehålla certifikatet. |
+| Resursgrupp | Resursgruppen som ska innehålla certifikatet. Du kan använda en ny resursgrupp eller välja samma resursgrupp som apptjänstappen, till exempel. |
+| Certifikat SKU | Bestämmer vilken typ av certifikat som ska skapas, oavsett om det är ett standardcertifikat eller ett [jokerteckencertifikat](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Juridiska villkor | Klicka för att bekräfta att du godkänner de juridiska villkoren. Certifikaten hämtas från GoDaddy. |
 
 ### <a name="store-in-azure-key-vault"></a>Lagra i Azure Key Vault
 
-När certifikat köpet har slutförts finns det några fler steg du måste slutföra innan du kan börja använda det här certifikatet. 
+När certifikatinköpsprocessen är klar finns det några fler steg som du måste slutföra innan du kan börja använda det här certifikatet. 
 
-Välj certifikatet på sidan [app service certifikat](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) och klicka sedan på **certifikat konfiguration** > **steg 1: lagra**.
+Markera certifikatet på sidan [App servicecertifikat](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) och klicka sedan på Steg 1 **för certifikatkonfiguration:** > **Store**.
 
-![Konfigurera Key Vault lagring av App Service certifikat](./media/configure-ssl-certificate/configure-key-vault.png)
+![Konfigurera Key Vault-lagring av App Service-certifikat](./media/configure-ssl-certificate/configure-key-vault.png)
 
-[Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) är en Azure-tjänst som hjälper till att skydda kryptografiska nycklar och hemligheter som används av moln program och-tjänster. Det är det lagrings utrymme som du väljer för App Service certifikat.
+[Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) är en Azure-tjänst som hjälper till att skydda kryptografiska nycklar och hemligheter som används av molnprogram och tjänster. Det är lagring val för App Service-certifikat.
 
-På sidan **Key Vault status** klickar du på **Key Vault lagrings plats** för att skapa ett nytt valv eller välja ett befintligt valv. Om du väljer att skapa ett nytt valv använder du följande tabell som hjälp för att konfigurera valvet och klicka på Skapa. Skapa den nya Key Vault inuti samma prenumeration och resurs grupp som din App Service-app.
+På sidan Status för **Nyckelvalv** klickar du på **Databasen För nyckelvalv** för att skapa ett nytt valv eller välja ett befintligt valv. Om du väljer att skapa ett nytt valv använder du följande tabell för att konfigurera valvet och klickar på Skapa. Skapa det nya Key Vault i samma prenumerations- och resursgrupp som apptjänstappen.
 
 | Inställning | Beskrivning |
 |-|-|
-| Namn | Ett unikt namn som består av alfanumeriska tecken och bindestreck. |
-| Resursgrupp | Som en rekommendation väljer du samma resurs grupp som ditt App Service certifikat. |
-| plats. | Välj samma plats som App Service-appen. |
-| Prisnivå | Mer information finns [Azure Key Vault pris information](https://azure.microsoft.com/pricing/details/key-vault/). |
-| Åtkomstprinciper| Definierar program och tillåten åtkomst till valv resurserna. Du kan konfigurera den senare genom att följa stegen i [bevilja flera program åtkomst till ett nyckel valv](../key-vault/key-vault-group-permissions-for-apps.md). |
-| Virtual Network åtkomst | Begränsa valv åtkomst till vissa virtuella Azure-nätverk. Du kan konfigurera den senare genom att följa stegen i [konfigurera Azure Key Vault brand väggar och virtuella nätverk](../key-vault/key-vault-network-security.md) |
+| Namn | Ett unikt namn som består av alfanumeriska tecken och streck. |
+| Resursgrupp | Som en rekommendation väljer du samma resursgrupp som ditt App Service-certifikat. |
+| Location | Välj samma plats som apptjänstappen. |
+| Prisnivå | Information finns i [prisinformation för Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
+| Åtkomstprinciper| Definierar programmen och den tillåtna åtkomsten till arkivresurserna. Du kan konfigurera den senare, i följande steg på [Bevilja flera program åtkomst till ett nyckelvalv](../key-vault/key-vault-group-permissions-for-apps.md). |
+| Virtuell nätverksåtkomst | Begränsa åtkomsten till valvet till vissa virtuella Azure-nätverk. Du kan konfigurera den senare, i anslutning till stegen vid [Konfigurera Azure Key Vault-brandväggar och virtuella nätverk](../key-vault/key-vault-network-security.md) |
 
-När du har valt valvet stänger du sidan **Key Vault-lagringsplats** . **Steg 1: Store** -alternativet ska visa en grön bock markering för lyckad. Låt sidan vara öppen för nästa steg.
+När du har valt valvet stänger du sidan **Databas för Nyckelvalv.** **Alternativet Steg 1: Store** bör visa en grön bock för att lyckas. Håll sidan öppen för nästa steg.
 
-### <a name="verify-domain-ownership"></a>Verifiera domän ägarskap
+### <a name="verify-domain-ownership"></a>Verifiera domänägarskap
 
-På sidan samma **certifikat konfiguration** som du använde i det sista steget klickar du på **steg 2: verifiera**.
+Klicka på **Steg 2: Verifiera**från samma **sida för certifikatkonfiguration** som du använde i det sista steget.
 
-![Verifiera domän för App Service certifikat](./media/configure-ssl-certificate/verify-domain.png)
+![Verifiera domän för App Service-certifikat](./media/configure-ssl-certificate/verify-domain.png)
 
-Välj **App Service verifiering**. Eftersom du redan har mappat domänen till din webbapp (se [krav](#prerequisites)) är den redan verifierad. Klicka bara på **Verifiera** för att slutföra det här steget. Klicka på knappen **Uppdatera** tills meddelande **certifikatet är domän verifierat** visas.
+Välj **Verifiering av apptjänst**. Eftersom du redan har mappat domänen till din webbapp (se [Förutsättningar)](#prerequisites)är den redan verifierad. Klicka bara på **Verifiera** för att avsluta det här steget. Klicka på knappen **Uppdatera** tills **meddelandecertifikatet är Domänverifierat** visas.
 
 > [!NOTE]
-> Fyra typer av domän verifierings metoder stöds: 
+> Fyra typer av domänverifieringsmetoder stöds: 
 > 
-> - **App Service** – det enklaste alternativet när domänen redan är mappad till en app service-app i samma prenumeration. Det drar nytta av det faktum att App Service-appen redan har verifierat domänens ägarskap.
-> - **Domän** – verifiera en [App Service-domän som du har köpt från Azure](manage-custom-dns-buy-domain.md). Azure lägger automatiskt till verifierings-TXT-posten åt dig och slutför processen.
-> - **E-post** – verifiera domänen genom att skicka ett e-postmeddelande till domän administratören. Instruktioner finns när du väljer alternativet.
-> - **Manuellt** – verifiera domänen genom att antingen använda en HTML-sida (endast**standard** certifikat) eller en DNS TXT-post. Instruktioner finns när du väljer alternativet.
+> - **Apptjänst** - Det mest praktiska alternativet när domänen redan är mappad till en App Service-app i samma prenumeration. Den drar nytta av det faktum att App Service-appen redan har verifierat domänägarskapet.
+> - **Domän** - Verifiera en [App Service-domän som du har köpt från Azure](manage-custom-dns-buy-domain.md). Azure lägger automatiskt till verifieringsposten för TXT åt dig och slutför processen.
+> - **E-post** - Verifiera domänen genom att skicka ett e-postmeddelande till domänadministratören. Instruktioner ges när du väljer alternativet.
+> - **Manual** - Verifiera domänen med antingen en HTML-sida **(** standardcertifikat) eller en DNS TXT-post. Instruktioner ges när du väljer alternativet.
 
 ### <a name="import-certificate-into-app-service"></a>Importera certifikat till App Service
 
-I <a href="https://portal.azure.com" target="_blank">Azure Portal</a>väljer du **app Services** >  **\<App-Name >** på menyn till vänster.
+Välj App**\<Services->** **App Services** > på <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>på den vänstra menyn .
 
-Välj **TLS/SSL-inställningar** > **privata nyckel certifikat (. pfx)**  > **Importera App Service Certificate**i det vänstra navigerings fältet.
+Välj **TLS/SSL-inställningar** > **för privata nyckelcertifikat (.pfx)** > Import App Service**Certificate**från den vänstra navigeringen i appen .
 
-![Importera App Service certifikat i App Service](./media/configure-ssl-certificate/import-app-service-cert.png)
+![Importera App Service-certifikat i App Service](./media/configure-ssl-certificate/import-app-service-cert.png)
 
 Välj det certifikat som du just har köpt och välj **OK**.
 
-När åtgärden har slutförts visas certifikatet i listan med certifikat för **privat nyckel** .
+När åtgärden är klar visas certifikatet i listan **Privata nyckelcertifikat.**
 
-![Import av App Service certifikat avslutad](./media/configure-ssl-certificate/import-app-service-cert-finished.png)
+![Import App Service-certifikatet har slutförts](./media/configure-ssl-certificate/import-app-service-cert-finished.png)
 
 > [!IMPORTANT] 
-> Om du vill skydda en anpassad domän med det här certifikatet måste du fortfarande skapa en certifikat bindning. Följ stegen i [skapa bindning](configure-ssl-bindings.md#create-binding).
+> Om du vill skydda en anpassad domän med det här certifikatet måste du fortfarande skapa en certifikatbindning. Följ stegen i [Skapa bindning](configure-ssl-bindings.md#create-binding).
 >
 
 ## <a name="import-a-certificate-from-key-vault"></a>Importera ett certifikat från Key Vault
 
 Om du använder Azure Key Vault för att hantera dina certifikat kan du importera ett PKCS12-certifikat från Key Vault till App Service så länge det [uppfyller kraven](#private-certificate-requirements).
 
-I <a href="https://portal.azure.com" target="_blank">Azure Portal</a>väljer du **app Services** >  **\<App-Name >** på menyn till vänster.
+Välj App**\<Services->** **App Services** > på <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>på den vänstra menyn .
 
-Välj **TLS/SSL-inställningar** > **privata nyckel certifikat (. pfx)** i den vänstra navigeringen i appen, > **Importera Key Vault certifikat**.
+Välj **TLS/SSL-inställningar** > **för privata nyckelcertifikat (.pfx)** > Import Key**Vault-certifikat**från den vänstra navigeringen i appen .
 
-![Importera Key Vault certifikat i App Service](./media/configure-ssl-certificate/import-key-vault-cert.png)
+![Importera Key Vault-certifikat i App Service](./media/configure-ssl-certificate/import-key-vault-cert.png)
 
-Använd följande tabell för att få hjälp att välja certifikatet.
+Använd följande tabell för att välja certifikatet.
 
 | Inställning | Beskrivning |
 |-|-|
-| Prenumeration | Den prenumeration som Key Vault tillhör. |
+| Prenumeration | Prenumerationen som Key Vault tillhör. |
 | Key Vault | Valvet med det certifikat som du vill importera. |
-| Certifikat | Välj i listan över PKCS12-certifikat i valvet. Alla PKCS12-certifikat i valvet visas med deras tumavtrycken, men alla stöds inte i App Service. |
+| Certifikat | Välj från listan över PKCS12-certifikat i valvet. Alla PKCS12-certifikat i valvet visas med tumavtryck, men alla stöds inte i App Service. |
 
-När åtgärden har slutförts visas certifikatet i listan med certifikat för **privat nyckel** . Om importen Miss lyckas med ett fel uppfyller certifikatet inte [kraven för App Service](#private-certificate-requirements).
+När åtgärden är klar visas certifikatet i listan **Privata nyckelcertifikat.** Om importen misslyckas med ett fel uppfyller certifikatet inte [kraven för App Service](#private-certificate-requirements).
 
-![Import av Key Vault certifikat avslutad](./media/configure-ssl-certificate/import-app-service-cert-finished.png)
+![Importera Key Vault-certifikatet klart](./media/configure-ssl-certificate/import-app-service-cert-finished.png)
 
 > [!IMPORTANT] 
-> Om du vill skydda en anpassad domän med det här certifikatet måste du fortfarande skapa en certifikat bindning. Följ stegen i [skapa bindning](configure-ssl-bindings.md#create-binding).
+> Om du vill skydda en anpassad domän med det här certifikatet måste du fortfarande skapa en certifikatbindning. Följ stegen i [Skapa bindning](configure-ssl-bindings.md#create-binding).
 >
 
 ## <a name="upload-a-private-certificate"></a>Ladda upp ett privat certifikat
 
-När du har fått ett certifikat från din certifikat leverantör följer du stegen i det här avsnittet för att göra det klart för App Service.
+När du har skaffat ett certifikat från certifikatleverantören följer du stegen i det här avsnittet för att göra det klart för App Service.
 
 ### <a name="merge-intermediate-certificates"></a>Sammanfoga mellanliggande certifikat
 
@@ -239,7 +239,7 @@ Skapa en fil för det sammanfogade certifikatet med namnet _mergedcertificate.cr
 
 Exportera det sammanfogade SSL-certifikatet med den privata nyckel som certifikatbegärandet genererades med.
 
-Om du genererade din certifikatbegäran med hjälp av OpenSSL, har du skapat en privat nyckelfil. Kör följande kommando för att exportera certifikatet till PFX. Ersätt platshållarna _&lt;private-key-file>_ och _&lt;merged-certificate-file>_ med sökvägarna till din privata nyckel och din sammanfogade certifikatfil.
+Om du genererade din certifikatbegäran med hjälp av OpenSSL, har du skapat en privat nyckelfil. Kör följande kommando för att exportera certifikatet till PFX. Ersätt platshållarna _ &lt;privat-nyckel-fil>_ och _ &lt;sammanslagna certifikat-fil>_ med sökvägar till din privata nyckel och den kopplade certifikatfilen.
 
 ```bash
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
@@ -251,84 +251,84 @@ Om du använder IIS eller _Certreq.exe_ till att generera din certifikatbegäran
 
 ### <a name="upload-certificate-to-app-service"></a>Ladda upp certifikat till App Service
 
-Nu är du klar med att ladda upp certifikatet till App Service.
+Nu är du redo att ladda upp certifikatet till App Service.
 
-I <a href="https://portal.azure.com" target="_blank">Azure Portal</a>väljer du **app Services** >  **\<App-Name >** på menyn till vänster.
+Välj App**\<Services->** **App Services** > på <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>på den vänstra menyn .
 
-Välj **TLS/SSL-inställningar** > **privat nyckel certifikat (. pfx)**  > **uppladdnings certifikat**i det vänstra navigerings fältet.
+Välj **TLS/SSL-inställningar** > **för privata nyckelcertifikat (.pfx)** > ladda upp**certifikat**(från den vänstra navigeringen i din app).
 
 ![Ladda upp privat certifikat i App Service](./media/configure-ssl-certificate/upload-private-cert.png)
 
-I **PFX-certifikatsfil** väljer du din PFX-fil. I **Certifikatslösenord** skriver du lösenordet som du skapade när du exporterade PFX-filen. När du är färdig klickar du på **överför**. 
+I **PFX-certifikatsfil** väljer du din PFX-fil. I **Certifikatslösenord** skriver du lösenordet som du skapade när du exporterade PFX-filen. När du är klar klickar du på **Ladda upp**. 
 
-När åtgärden har slutförts visas certifikatet i listan med certifikat för **privat nyckel** .
+När åtgärden är klar visas certifikatet i listan **Privata nyckelcertifikat.**
 
-![Uppladdningen av certifikat avslutad](./media/configure-ssl-certificate/create-free-cert-finished.png)
+![Ladda upp certifikatet klart](./media/configure-ssl-certificate/create-free-cert-finished.png)
 
 > [!IMPORTANT] 
-> Om du vill skydda en anpassad domän med det här certifikatet måste du fortfarande skapa en certifikat bindning. Följ stegen i [skapa bindning](configure-ssl-bindings.md#create-binding).
+> Om du vill skydda en anpassad domän med det här certifikatet måste du fortfarande skapa en certifikatbindning. Följ stegen i [Skapa bindning](configure-ssl-bindings.md#create-binding).
 >
 
 ## <a name="upload-a-public-certificate"></a>Ladda upp ett offentligt certifikat
 
-Offentliga certifikat stöds i *. cer* -format. 
+Offentliga certifikat stöds i *.cer-formatet.* 
 
-I <a href="https://portal.azure.com" target="_blank">Azure Portal</a>väljer du **app Services** >  **\<App-Name >** på menyn till vänster.
+Välj App**\<Services->** **App Services** > på <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>på den vänstra menyn .
 
-Gå till den vänstra navigeringen i appen och klicka på **TLS/SSL-inställningar** > **offentliga certifikat (. cer)**  > **Ladda upp certifikat för offentlig nyckel**.
+Från den vänstra navigeringen i din app klickar du på **TLS/SSL-inställningar** > **Offentliga certifikat (.cer)** > Ladda upp offentligt**nyckelcertifikat**.
 
-I **namn**anger du ett namn för certifikatet. I **CER-certifikatfil**väljer du CER-filen.
+Skriv ett namn på certifikatet i **Namn.** Välj din CER-fil **i CER-certifikatfilen.**
 
 Klicka på **Överför**.
 
-![Ladda upp ett offentligt certifikat i App Service](./media/configure-ssl-certificate/upload-public-cert.png)
+![Ladda upp offentligt certifikat i App Service](./media/configure-ssl-certificate/upload-public-cert.png)
 
-När certifikatet har laddats upp kopierar du tumavtrycket för certifikatet och ser [till att det blir tillgängligt för certifikatet](configure-ssl-certificate-in-code.md#make-the-certificate-accessible).
+När certifikatet har laddats upp kopierar du certifikatets tumavtryck och [läser Göra certifikatet tillgängligt](configure-ssl-certificate-in-code.md#make-the-certificate-accessible).
 
-## <a name="manage-app-service-certificates"></a>Hantera App Service certifikat
+## <a name="manage-app-service-certificates"></a>Hantera App Service-certifikat
 
-I det här avsnittet visas hur du hanterar ett App Service-certifikat som du har köpt i [Importera ett app service certifikat](#import-an-app-service-certificate).
+I det här avsnittet visas hur du hanterar ett App Service-certifikat som du köpte i [Importera ett App Service-certifikat](#import-an-app-service-certificate).
 
-- [Nyckel förnyelse certifikat](#rekey-certificate)
+- [Rekey certifikat](#rekey-certificate)
 - [Förnya certifikat](#renew-certificate)
-- [Exportera certifikat](#export-certificate)
+- [Exportera certifikatet](#export-certificate)
 - [Ta bort certifikat](#delete-certificate)
 
-### <a name="rekey-certificate"></a>Nyckel förnyelse certifikat
+### <a name="rekey-certificate"></a>Rekey certifikat
 
-Om du tror att certifikatets privata nyckel har komprometterats kan du uppdatera ditt certifikat. Välj certifikatet på sidan [app service certifikat](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) och välj sedan nyckel uppdatering **och synkronisera** i det vänstra navigerings fältet.
+Om du tror att certifikatets privata nyckel har komprometterats kan du återstå certifikatet. Välj certifikatet på sidan [App servicecertifikat](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) och välj sedan **Nycklar och synkronisera** från den vänstra navigeringen.
 
-Starta processen genom att klicka på **nyckel förnyelse** . Den här processen kan ta 1-10 minuter att slutföra.
+Klicka på **Nyckel igen** för att starta processen. Denna process kan ta 1-10 minuter att slutföra.
 
-![Nyckel förnyelse ett App Service-certifikat](./media/configure-ssl-certificate/rekey-app-service-cert.png)
+![Åter nyckel ett apptjänstcertifikat](./media/configure-ssl-certificate/rekey-app-service-cert.png)
 
-Omnyckelering av certifikatet rullar certifikatet med ett nytt certifikat utfärdat av certifikat utfärdaren.
+Om du vill återställa certifikatet rullas certifikatet med ett nytt certifikat utfärdat från certifikatutfärdaren.
 
-När uppdaterings åtgärden har slutförts klickar du på **Synkronisera**. Synkroniseringsåtgärden uppdaterar automatiskt värd namns bindningarna för certifikatet i App Service utan att orsaka avbrott i dina appar.
+När omnyckelåtgärden är klar klickar du på **Synkronisera**. Synkroniseringsåtgärden uppdaterar automatiskt värdnamnsbindningarna för certifikatet i App Service utan att orsaka några driftstopp för dina appar.
 
 > [!NOTE]
-> Om du inte klickar på **Synkronisera**synkroniserar App Service automatiskt ditt certifikat inom 48 timmar.
+> Om du inte klickar på **Synkronisera**synkroniseras ditt certifikat automatiskt inom 48 timmar.
 
 ### <a name="renew-certificate"></a>Förnya certifikat
 
-Om du vill aktivera automatisk förnyelse av certifikatet väljer du certifikatet på sidan [app service certifikat](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) och klickar sedan på **Inställningar för automatisk förnyelse** i det vänstra navigerings fältet. App Service certifikat har som standard en giltighets tid på ett år.
+Om du vill aktivera automatisk förnyelse av certifikatet när som helst markerar du certifikatet på sidan [Apptjänstcertifikat](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) och klickar sedan på **Inställningar för Automatisk förnyelse** i den vänstra navigeringen. Som standard har App Service-certifikat en giltighetstid på ett år.
 
-Välj **på** och klicka på **Spara**. Certifikat kan börja förnyas automatiskt 60 dagar före förfallo datum om du har aktiverat automatisk förnyelse.
+Välj **På** och klicka på **Spara**. Certifikat kan börja förnyas automatiskt 60 dagar före förfallodatumet om du har aktiverat automatisk förnyelse.
 
-![Förnya App Service certifikat automatiskt](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
+![Förnya App Service-certifikat automatiskt](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
 
-Om du vill förnya certifikatet manuellt i stället klickar du på **manuell förnyelse**. Du kan begära att förnya ditt certifikat 60 dagar manuellt innan det upphör att gälla.
+Om du vill förnya certifikatet manuellt i stället klickar du på **Manuell förnyelse**. Du kan begära att ditt certifikat förnyas manuellt 60 dagar före utgångsdatumet.
 
-När förnyelse åtgärden är klar klickar du på **Synkronisera**. Synkroniseringsåtgärden uppdaterar automatiskt värd namns bindningarna för certifikatet i App Service utan att orsaka avbrott i dina appar.
+När förnya åtgärden är klar klickar du på **Synkronisera**. Synkroniseringsåtgärden uppdaterar automatiskt värdnamnsbindningarna för certifikatet i App Service utan att orsaka några driftstopp för dina appar.
 
 > [!NOTE]
-> Om du inte klickar på **Synkronisera**synkroniserar App Service automatiskt ditt certifikat inom 48 timmar.
+> Om du inte klickar på **Synkronisera**synkroniseras ditt certifikat automatiskt inom 48 timmar.
 
 ### <a name="export-certificate"></a>Exportera certifikatet
 
-Eftersom en App Service Certificate är en [Key Vault hemlighet](../key-vault/about-keys-secrets-and-certificates.md#key-vault-secrets), kan du exportera en PFX-kopia av den och använda den för andra Azure-tjänster eller utanför Azure.
+Eftersom ett App Service-certifikat är en [Key Vault-hemlighet](../key-vault/about-keys-secrets-and-certificates.md#key-vault-secrets)kan du exportera en PFX-kopia av det och använda den för andra Azure-tjänster eller utanför Azure.
 
-Om du vill exportera App Service Certificate som en PFX-fil kör du följande kommandon i [Cloud Shell](https://shell.azure.com). Du kan också köra det lokalt om du har [installerat Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Ersätt plats hållarna med de namn som du använde när du [skapade App Service-certifikatet](#start-certificate-order).
+Om du vill exportera App Service-certifikatet som en PFX-fil kör du följande kommandon i [Cloud Shell](https://shell.azure.com). Du kan också köra den lokalt om du [har installerat Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Ersätt platshållarna med de namn som du använde när du [skapade App Service-certifikatet](#start-certificate-order).
 
 ```azurecli-interactive
 secretname=$(az resource show \
@@ -345,19 +345,19 @@ az keyvault secret download \
     --encoding base64
 ```
 
-Den hämtade *appservicecertificate. pfx* -filen är en RAW PKCS12-fil som innehåller både offentliga och privata certifikat. I varje prompt använder du en tom sträng för import lösen ordet och PEM-pass frasen.
+Den hämtade *filen appservicecertificate.pfx* är en rå PKCS12-fil som innehåller både offentliga och privata certifikat. I varje fråga använder du en tom sträng för importlösenordet och PEM-lösenfrasen.
 
 ### <a name="delete-certificate"></a>Ta bort certifikat 
 
-Att ta bort ett App Service certifikat är slutgiltigt och oåterkalleligt. Borttagning av en App Service Certificate resurs resulterar i att certifikatet återkallas. Alla bindningar i App Service med det här certifikatet blir ogiltiga. För att förhindra oavsiktlig borttagning sätter Azure ett lås på certifikatet. Om du vill ta bort ett App Service-certifikat måste du först ta bort borttagnings låset för certifikatet.
+Borttagning av ett App Service-certifikat är slutgiltigt och oåterkalleligt. Borttagning av en apptjänstcertifikatresurs resulterar i att certifikatet återkallas. Alla bindningar i App Service med det här certifikatet blir ogiltiga. För att förhindra oavsiktlig borttagning lägger Azure ett lås på certifikatet. Om du vill ta bort ett App Service-certifikat måste du först ta bort borttagningslåset på certifikatet.
 
-Välj certifikatet på sidan [app service certifikat](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) och välj sedan **Lås** i det vänstra navigerings fältet.
+Markera certifikatet på sidan [App servicecertifikat](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) och välj sedan **Lås** i den vänstra navigeringen.
 
-Hitta låset på certifikatet med lås typen **ta bort**. Till höger om det väljer du **ta bort**.
+Hitta låset på ditt certifikat med låstypen **Ta bort**. Till höger om det väljer du **Ta bort**.
 
-![Ta bort lås för App Service certifikat](./media/configure-ssl-certificate/delete-lock-app-service-cert.png)
+![Ta bort lås för App Service-certifikat](./media/configure-ssl-certificate/delete-lock-app-service-cert.png)
 
-Nu kan du ta bort App Service-certifikatet. Välj **översikt** > **ta bort**i det vänstra navigerings fältet. I bekräftelse dialog rutan skriver du in certifikat namnet och väljer **OK**.
+Nu kan du ta bort App Service-certifikatet. Välj **Översikt** > **Ta bort**i den vänstra navigeringen . Skriv certifikatnamnet i bekräftelsedialogrutan och välj **OK**.
 
 ## <a name="automate-with-scripts"></a>Automatisera med skript
 
@@ -373,6 +373,6 @@ Nu kan du ta bort App Service-certifikatet. Välj **översikt** > **ta bort**i d
 
 * [Skydda ett anpassat DNS-namn med en SSL-bindning](configure-ssl-bindings.md)
 * [Använda HTTPS](configure-ssl-bindings.md#enforce-https)
-* [Framtvinga TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [Använd ett SSL-certifikat i program koden](configure-ssl-certificate-in-code.md)
-* [Vanliga frågor och svar: App Service certifikat](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [Använda TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
+* [Använda ett SSL-certifikat i programkoden](configure-ssl-certificate-in-code.md)
+* [Vanliga frågor och svar : App Service-certifikat](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

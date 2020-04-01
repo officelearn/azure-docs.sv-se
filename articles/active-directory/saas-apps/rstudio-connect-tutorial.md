@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med RStudio ansluta | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och RStudio ansluta.
+title: 'Självstudiekurs: Azure Active Directory-integrering med RStudio Connect | Microsoft-dokument'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och RStudio Connect.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,46 +17,46 @@ ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c9a9b49f75ad377a9377a2311ed16c17ca3d749e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67092577"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Självstudier: Azure Active Directory-integrering med RStudio ansluta
+# <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Självstudiekurs: Azure Active Directory-integrering med RStudio Connect
 
-I den här självstudien får du lära dig hur du integrerar RStudio ansluta med Azure Active Directory (AD Azure).
-Integrera RStudio ansluta med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar RStudio Connect med Azure Active Directory (Azure AD).
+Genom att integrera RStudio Connect med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till RStudio ansluta.
-* Du kan aktivera användarna vara automatiskt loggat in på RStudio ansluta (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan styra i Azure AD som har åtkomst till RStudio Connect.
+* Du kan aktivera dina användare så att de automatiskt loggas in på RStudio Connect (Enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med RStudio ansluta, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med RStudio Connect behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* RStudio ansluta. Det finns en [45 dagars kostnadsfri utvärderingsversion.](https://www.rstudio.com/products/connect/)
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* RStudio Connect. Det finns en [45 dagars gratis utvärdering.](https://www.rstudio.com/products/connect/)
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för RStudio ansluta **SP och IDP** -initierad SSO
+* RStudio Connect stöder **SP och IDP** initierad SSO
 
-* Har stöd för RStudio ansluta **Just In Time** etableringen av användare
+* RStudio Connect stöder just in time-användaretablering **Just In Time**
 
-## <a name="adding-rstudio-connect-from-the-gallery"></a>Att lägga till RStudio ansluta från galleriet
+## <a name="adding-rstudio-connect-from-the-gallery"></a>Lägga till RStudio Connect från galleriet
 
-Om du vill konfigurera integreringen av RStudio ansluta till Azure AD, som du behöver lägga till RStudio ansluta från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av RStudio Connect i Azure AD måste du lägga till RStudio Connect från galleriet i listan över hanterade SaaS-appar.
 
-**Om du vill lägga till RStudio ansluta från galleriet, utför du följande steg:**
+**Så här lägger du till RStudio Connect från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -64,37 +64,37 @@ Om du vill konfigurera integreringen av RStudio ansluta till Azure AD, som du be
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **RStudio ansluta**väljer **RStudio ansluta** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. Skriv **RStudio Connect**i sökrutan och välj **RStudio Connect** från resultatpanelen och klicka sedan på **Lägg** till för att lägga till programmet.
 
-    ![RStudio ansluta i resultatlistan](common/search-new-app.png)
+    ![RStudio Connect i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med RStudio ansluta baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i RStudio ansluta upprättas.
+I det här avsnittet konfigurerar och testar du azure AD-enkel inloggning med RStudio Connect baserat på en testanvändare som heter **Britta Simon**.
+För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i RStudio Connect upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med RStudio Connect, måste du utföra följande byggblock:
+Om du vill konfigurera och testa en enkel Azure AD-inloggning med RStudio Connect måste du slutföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera RStudio ansluta enkel inloggning](#configure-rstudio-connect-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa RStudio ansluta testanvändare](#create-rstudio-connect-test-user)**  – du har en motsvarighet för Britta Simon RStudio ansluter som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera RStudio Connect Enkel inloggning](#configure-rstudio-connect-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa RStudio Connect-testanvändare](#create-rstudio-connect-test-user)** – om du vill ha en motsvarighet till Britta Simon i RStudio Connect som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med RStudio ansluta:
+Så här konfigurerar du enkel Azure AD-inloggning med RStudio Connect:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **RStudio ansluta** application integration markerar **enkel inloggning**.
+1. Välj Enkel inloggning på sidan **RStudio** Connect-programintegrering på **Azure-portalen**. [Azure portal](https://portal.azure.com/)
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -104,36 +104,36 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med RStudio
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. På den **SAML grundkonfiguration** om du vill konfigurera programmet i **IDP** initierade läge, utför följande steg och ersätta `<example.com>` med RStudio ansluta servern Adress och port:
+4. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet Grundläggande `<example.com>` **SAML-konfiguration** utför du följande steg och ersätter med din RStudio Connect Server-adress och port:
 
-    ![RStudio ansluta domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
+    ![RStudio Connect-domän och webbadresser med enkel inloggning](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<example.com>/__login__/saml`
+    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://<example.com>/__login__/saml`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<example.com>/__login__/saml/acs`
+    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<example.com>/__login__/saml/acs`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![RStudio ansluta domän och URL: er med enkel inloggning för information](common/metadata-upload-additional-signon.png)
+    ![RStudio Connect-domän och webbadresser med enkel inloggning](common/metadata-upload-additional-signon.png)
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<example.com>/`
+    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<example.com>/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. De fastställs från RStudio ansluta serveradressen (`https://example.com` i exemplen ovan). Kontakta den [RStudio ansluta supportteamet](mailto:support@rstudio.com) om du har problem. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. De bestäms från RStudio Connect`https://example.com` Server-adressen (i exemplen ovan). Kontakta [RStudio Connect-supportteamet](mailto:support@rstudio.com) om du har problem. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-6. RStudio ansluta programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. RStudio ansluta program som förväntar **nameidentifier** mappas med **user.mail**, så måste du redigera attribut mappar genom att klicka på **redigera** ikon och ändra den attributmappning.
+6. Ditt RStudio Connect-program förväntar sig SAML-påståenden i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. RStudio Connect-programmet förväntar sig att **namnidentifieraren** mappas med **user.mail**, så du måste redigera attributmappningen genom att klicka på **Redigera-ikonen** och ändra attributmappningen.
 
     ![image](common/edit-attribute.png)
 
 7. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
-    ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
+    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
-### <a name="configure-rstudio-connect-single-sign-on"></a>Konfigurera RStudio ansluta enkel inloggning
+### <a name="configure-rstudio-connect-single-sign-on"></a>Konfigurera enkel inloggning för RStudio Connect
 
-Konfigurera enkel inloggning på för **RStudio ansluta**, måste du använda den **Appfederationsmetadata** och **serveradress** använde ovan. Detta görs i konfigurationsfilen RStudio ansluta på `/etc/rstudio-connect.rstudio-connect.gcfg`.
+Om du vill konfigurera enkel inloggning för **RStudio Connect**måste du använda **url:en och** **serveradressen för** App Federation som används ovan. Detta görs i konfigurationsfilen för `/etc/rstudio-connect.rstudio-connect.gcfg`RStudio Connect på .
 
-Det här är en exempel-konfigurationsfil:
+Det här är en exempelkonfigurationsfil:
 
 ```
 [Server]
@@ -158,9 +158,9 @@ IdPAttributeProfile = azure
 SSOInitiated = IdPAndSP
 ```
 
-Store din **serveradress** i den `Server.Address` värde, och **Appfederationsmetadata** i den `SAML.IdPMetaData` värde.
+Lagra **serveradressen** `Server.Address` i värdet och **url:en för appfederationens metadata** i `SAML.IdPMetaData` värdet.
 
-Om du har problem med konfiguration kan du läsa den [RStudio ansluta administratörshandboken](https://docs.rstudio.com/connect/admin/authentication.html#authentication-saml) eller e-post den [RStudio supportteamet](mailto:support@rstudio.com) om du behöver hjälp.
+Om du har problem med konfigurationen kan du läsa [RStudio Connect-administratörsguiden](https://docs.rstudio.com/connect/admin/authentication.html#authentication-saml) eller skicka e-post till [RStudio-supportteamet](mailto:support@rstudio.com) för hjälp.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -170,7 +170,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -180,23 +180,23 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **Användarnamn** `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till RStudio ansluta.
+I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till RStudio Connect.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **RStudio ansluta**.
+1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **RStudio Connect**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **RStudio ansluta**.
+2. Välj **RStudio Connect**i programlistan .
 
-    ![RStudio ansluta länken i listan med program](common/all-applications.png)
+    ![Länken RStudio Connect i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -208,19 +208,19 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-rstudio-connect-test-user"></a>Skapa RStudio ansluta testanvändare
+### <a name="create-rstudio-connect-test-user"></a>Skapa RStudio Connect-testanvändare
 
-I det här avsnittet skapas en användare som kallas Britta Simon i RStudio ansluta. RStudio ansluta stöder just-in-time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i RStudio ansluta, skapas en ny när du försöker komma åt RStudio ansluta.
+I det här avsnittet skapas en användare som heter Britta Simon i RStudio Connect. RStudio Connect stöder just-in-time-etablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i RStudio Connect skapas en ny när du försöker komma åt RStudio Connect.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen RStudio ansluta i åtkomstpanelen, bör det vara loggas in automatiskt att ansluta RStudio som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen RStudio Connect på åtkomstpanelen bör du automatiskt loggas in på den RStudio Connect som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

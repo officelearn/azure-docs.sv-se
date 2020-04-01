@@ -4,12 +4,12 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 64290aad2d9f98006a715b480be8cb96965abbaf
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 046a4bc9abb936ca6f9fcecd0f660a723edb092b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187351"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80117024"
 ---
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -17,7 +17,7 @@ Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). En Azure
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -27,7 +27,7 @@ Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm).
 
 Följande exempel skapar en virtuell dator som heter *myVM*, och SSH-nycklar skapas om de inte redan finns på en standardnyckelplats. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`. Kommandot anger även *azureuser* som ett administratörsanvändarnamn. Du använder det här namnet senare för att ansluta till den virtuella datorn. 
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
@@ -38,7 +38,7 @@ az vm create \
 
 När den virtuella datorn har skapats visar Azure CLI information som ser ut ungefär som i följande exempel. Anteckna `publicIpAddress`. Den här adressen används för att komma åt den virtuella datorn i senare steg.
 
-```azurecli-interactive 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -57,9 +57,10 @@ När den virtuella datorn har skapats visar Azure CLI information som ser ut ung
 
 Som standard tillåts enbart SSH-anslutningar till virtuella Linux-datorer distribuerade i Azure. Eftersom den här virtuella datorn kommer att vara en webbserver behöver du öppna port 80 från Internet. Använd kommandot [az vm open-port](/cli/azure/vm) för att öppna önskad port.  
  
-```azurecli-interactive 
+```azurecli-interactive
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
+
 ## <a name="ssh-into-your-vm"></a>SSH till den virtuella datorn
 
 

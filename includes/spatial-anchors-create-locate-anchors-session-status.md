@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: bb75ea0f8eb3fcf85a06cadd68ae111d51369891
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76694415"
 ---
-Som tidigare beskrivits måste du ha tillräckligt med miljö data innan du försöker skapa en ny moln rums fäst punkt. Det innebär att `ReadyForCreateProgress` måste vara över 1, men vi rekommenderar att du väntar tills `RecommendedForCreateProgress` är över 1 för att göra det.
+Som beskrivits tidigare behöver du tillräckligt med miljödata som samlas in innan du försöker skapa ett nytt molnrumsankare. Det `ReadyForCreateProgress` innebär måste vara över 1, men `RecommendedForCreateProgress` vi rekommenderar att du väntar tills är över 1 för att göra det.

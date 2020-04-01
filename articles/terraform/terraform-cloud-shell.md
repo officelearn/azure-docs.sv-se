@@ -1,32 +1,32 @@
 ---
-title: Självstudie – konfigurera Azure Cloud Shell för terraform
-description: I den här självstudien använder du terraform med Azure Cloud Shell för att förenkla autentisering och konfiguration av mallar.
-keywords: Azure DevOps terraform Cloud Shell
+title: Självstudiekurs - Konfigurera Azure Cloud Shell för Terraform
+description: I den här självstudien använder du Terraform med Azure Cloud Shell för att förenkla autentisering och mallkonfiguration.
+keywords: azure devops terraform moln skal
 ms.topic: tutorial
 ms.date: 03/09/2020
 ms.openlocfilehash: 3a9db1143ba07b549a271d53d610e0a4853467c6
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78945335"
 ---
-# <a name="tutorial-configure-azure-cloud-shell-for-terraform"></a>Självstudie: Konfigurera Azure Cloud Shell för terraform
+# <a name="tutorial-configure-azure-cloud-shell-for-terraform"></a>Självstudiekurs: Konfigurera Azure Cloud Shell för Terraform
 
-Terraform fungerar bra från en bash-kommando rad i macOS, Windows eller Linux. Det finns vissa unika fördelar med att köra dina terraform-konfigurationer i bash-upplevelsen av [Azure Cloud Shell](/azure/cloud-shell/overview) . Den här självstudien visar hur du skriver terraform-skript som distribueras till Azure med hjälp av Cloud Shell.
+Terraform fungerar bra från en Bash-kommandorad i macOS, Windows eller Linux. Att köra dina Terraform-konfigurationer i Bash-upplevelsen av [Azure Cloud Shell](/azure/cloud-shell/overview) har några unika fördelar. Den här självstudien visar hur du skriver Terraform-skript som distribueras till Azure med hjälp av Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="automatic-credential-configuration"></a>Automatisk konfiguration av autentiseringsuppgifter
 
-Terraform är installerat och direkt tillgängligt i Cloud Shell. Terraform-skript autentiseras med Azure när du är inloggad på Cloud Shell för att hantera infrastrukturen utan ytterligare konfiguration. Automatisk autentisering kringgår två manuella processer:
-- Skapa ett huvud namn för Active Directory tjänsten
-- Konfigurera Azure terraform-providerns variabler
+Terraform är installerat och direkt tillgängligt i Cloud Shell. Terraform-skript autentiserar med Azure när de loggas in i Cloud Shell för att hantera infrastruktur utan ytterligare konfiguration. Automatisk autentisering kringgår två manuella processer:
+- Skapa ett huvudnamn för Active Directory-tjänsten
+- Konfigurera variablerna för Azure Terraform-providern
 
 
-## <a name="use-modules-and-providers"></a>Använda moduler och providers
+## <a name="use-modules-and-providers"></a>Använda moduler och leverantörer
 
-Azure terraform-moduler kräver autentiseringsuppgifter för att komma åt och ändra Azure-resurser. Om du vill använda terraform-moduler i Cloud Shell lägger du till följande kod:
+Azure Terraform-moduler kräver autentiseringsuppgifter för att komma åt och ändra Azure-resurser. Om du vill använda Terraform-moduler i Cloud Shell lägger du till följande kod:
 
 
 ```hcl
@@ -39,16 +39,16 @@ provider "azurerm" {
 }
 ```
 
-Cloud Shell överför de värden som krävs för `azurerm`-providern via miljövariabler när du använder något av `terraform` CLI-kommandona.
+Cloud Shell skickar obligatoriska `azurerm` värden för leverantören via miljövariabler när du använder något av `terraform` CLI-kommandona.
 
 ## <a name="other-cloud-shell-developer-tools"></a>Andra utvecklingsverktyg för Cloud Shell
 
-Filer och shelltillstånd finns kvar i Azure Storage mellan Cloud Shell-sessioner. Använd [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) för att kopiera och ladda upp filer till Cloud Shell från den lokala datorn.
+Filer och shelltillstånd finns kvar i Azure Storage mellan Cloud Shell-sessioner. Använd [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) för att kopiera och ladda upp filer till Cloud Shell från din lokala dator.
 
-Azure CLI är tillgängligt i Cloud Shell och är ett utmärkt verktyg för att testa konfigurationer och kontrol lera ditt arbete när `terraform apply` eller `terraform destroy` har slutförts.
+Azure CLI är tillgängligt i Cloud Shell och är ett bra `terraform apply` verktyg `terraform destroy` för att testa konfigurationer och kontrollera ditt arbete efter eller avsluta.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa ett litet virtuellt dator kluster med modul registret](terraform-create-vm-cluster-module.md)
+> [Skapa ett litet vm-kluster med hjälp av modulregistret](terraform-create-vm-cluster-module.md)

@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Använd en anpassad VM-avbildning i en skalnings uppsättning med Azure PowerShell
+title: Självstudiekurs - Använda en anpassad VM-avbildning i en skalningsuppsättning med Azure PowerShell
 description: Läs hur du använder Azure PowerShell för att skapa en anpassad virtuell datoravbildning som du kan använda för att distribuera en VM-skalningsuppsättning
 author: cynthn
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: daef03b411a451fc3e5b73e46091672810b0f9bd
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76278297"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Självstudie: Skapa och använd en anpassad avbildning för VM-skalningsuppsättningar med Azure PowerShell
@@ -25,7 +25,7 @@ När du skapar en skalningsuppsättning, kan du ange en avbildning som ska anvä
 > * Skapa en anpassad virtuell datoravbildning från den virtuella källdatorn
 > * Distribuera en skalningsuppsättning som använder den anpassade virtuella datoravbildningen
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
@@ -105,8 +105,8 @@ $image = New-AzImageConfig -Location "EastUS" -SourceVirtualMachineId $vm.ID
 New-AzImage -Image $image -ImageName "myImage" -ResourceGroupName "myResourceGroup"
 ```
 
-## <a name="configure-the-network-security-group-rules"></a>Konfigurera regler för nätverks säkerhets grupper
-Innan du skapar skalnings uppsättningen måste du konfigurera regler för att associera nätverks säkerhets grupper för att tillåta åtkomst till HTTP, RDP och fjärr kommunikation 
+## <a name="configure-the-network-security-group-rules"></a>Konfigurera reglerna för nätverkssäkerhetsgruppen
+Innan du skapar skalningsuppsättningen måste vi konfigurera de associerade reglerna för nätverkssäkerhetsgruppen så att åtkomsten till HTTP, RDP och Remoting 
 
 ```azurepowershell-interactive
 $rule1 = New-AzNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 80

@@ -1,5 +1,5 @@
 ---
-title: Självstudie – distribuera LEMP på en virtuell Linux-dator i Azure
+title: Självstudiekurs - Distribuera LEMP på en virtuell Linux-dator i Azure
 description: I den här självstudiekursen lär du dig hur du installerar LEMP-stacken på en virtuell Linux-dator i Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,16 +15,16 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 1de2e70ccafbbde49e764437bfe8ce94602747b6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6d603dbf2746608f499ba37b4f17b533b64bc941
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034457"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154363"
 ---
 # <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>Självstudier: Installera en LEMP-webbserver på en virtuell Linux-dator i Azure
 
-I den här artikeln får du veta hur du distribuerar en NGINX-webbserver, MySQL och PHP (LEMP-stacken) på en virtuell Ubuntu-dator i Azure. LEMP-stacken är ett alternativ till den populära [LAMP-stacken](tutorial-lamp-stack.md) som du också kan installera i Azure. Om du vill se LEMP-servern i praktiken kan du installera och konfigurera en WordPress-webbplats. I den här guiden får du lära dig hur man:
+I den här artikeln får du veta hur du distribuerar en NGINX-webbserver, MySQL och PHP (LEMP-stacken) på en virtuell Ubuntu-dator i Azure. LEMP-stacken är ett alternativ till den populära [LAMP-stacken](tutorial-lamp-stack.md) som du också kan installera i Azure. Om du vill se LEMP-servern i praktiken kan du installera och konfigurera en WordPress-webbplats. I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en virtuell Ubuntu-dator (L:et i LEMP-stacken)
@@ -35,9 +35,9 @@ I den här artikeln får du veta hur du distribuerar en NGINX-webbserver, MySQL 
 
 Den här installationen är avsedd för snabbtester och konceptbevis.
 
-I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
+Den här självstudien använder CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som ständigt uppdateras till den senaste versionen. Om du vill öppna Cloud Shell väljer du **Prova det** överst i alla kodblock.
 
-Om du väljer att installera och använda CLI:t lokalt för den här självstudien måste du köra Azure CLI version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
 
@@ -170,10 +170,10 @@ Under den här kursen distribuerade du en LEMP-server i Azure. Du har lärt dig 
 > * Verifiera installation och konfiguration
 > * Installera WordPress på LEMP-stacken
 
-Gå vidare till nästa självstudiekurs där du får lära dig att skydda webbservrar med SSL-certifikat.
+Gå vidare till nästa självstudiekurs om du vill lära dig hur du skyddar webbservrar med TLS/SSL-certifikat.
 
 > [!div class="nextstepaction"]
-> [Säker webbserver med SSL](tutorial-secure-web-server.md)
+> [Säker webbserver med TLS](tutorial-secure-web-server.md)
 
 [2]: ./media/tutorial-lemp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lemp-stack/nginx.png

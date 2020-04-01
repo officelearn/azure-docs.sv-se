@@ -1,5 +1,5 @@
 ---
-title: Självstudie – använda Azure Security Center för virtuella Linux-datorer i Azure
+title: Självstudiekurs - Använda Azure Security Center för virtuella Linux-datorer i Azure
 description: I den här självstudiekursen lär du dig mer om funktionerna i Azure Security Center, som hjälper dig att skydda dina virtuella Linux-datorer i Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,10 +16,10 @@ ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 5c5a8bc06c676121c20f6e1f83a26dd9343e6847
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77605518"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Självstudier: Övervaka virtuella Linux-datorer i Azure Security Center
@@ -50,7 +50,7 @@ Innan du kan få en överblick över säkerhetskonfigurationerna för virtuella 
 
 1. Gå till instrumentpanelen i Security Center, klicka på **Säkerhetsprincip** och markera sedan din prenumeration. 
 2. För **Datainsamling** i **Automatisk etablering** väljer du **På**.
-3. För **Standardkonfiguration för arbetsyta** lämnar du värdet **Använd arbetsyta/arbetsytor som skapats av Security Center (standard)** .
+3. För **Standardkonfiguration för arbetsyta** lämnar du värdet **Använd arbetsyta/arbetsytor som skapats av Security Center (standard)**.
 4. Under **Säkerhetshändelser** behåller du standardalternativet **Vanliga**.
 4. Klicka på **Spara** längst upp på sidan. 
 
@@ -103,14 +103,14 @@ I takt med att rekommendationerna åtgärdats markeras de som lösta.
 
 ## <a name="view-detected-threats"></a>Visa identifierade hot
 
-Utöver konfigurationsrekommendationer för resurserna visas även aviseringar om identifierade säkerhetshot. Funktionen för säkerhetsvarningar sammanställer de data som samlas in från varje virtuell dator, Azures nätverksloggar och anslutna partnerlösningar i syfte att upptäcka säkerhetshot mot Azure-resurserna. Mer detaljerad information om Security Center hot identifierings funktioner finns i [Security Center identifiera hot?](../../security-center/security-center-alerts-overview.md#detect-threats).
+Utöver konfigurationsrekommendationer för resurserna visas även aviseringar om identifierade säkerhetshot. Funktionen för säkerhetsvarningar sammanställer de data som samlas in från varje virtuell dator, Azures nätverksloggar och anslutna partnerlösningar i syfte att upptäcka säkerhetshot mot Azure-resurserna. Mer detaljerad information om hotidentifieringsfunktioner i Security Center finns i [Hur identifierar Security Center hot?](../../security-center/security-center-alerts-overview.md#detect-threats).
 
 Om du vill kunna använda funktionen för säkerhetsvarningar måste du uppgradera prisnivån för Security Center från *Kostnadsfri* till *Standard*. Om du uppgraderar till en högre prisnivå kan du använda dig av en **kostnadsfri utvärderingsversion**. 
 
 Så här ändrar du prisnivån:  
 
 1. Gå till instrumentpanelen i Security Center, klicka på **Säkerhetsprincip** och markera sedan din prenumeration.
-2. Välj **Prisnivå**.
+2. Välj **prisnivå**.
 3. Välj **Standard** och klicka sedan på **Spara** längst upp på bladet.
 
 

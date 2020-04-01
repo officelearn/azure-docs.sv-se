@@ -9,10 +9,10 @@ ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
 ms.openlocfilehash: 85ae76d9dcb0b4a1f95992c2f5da48a81fb12677
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77661660"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Skapa en autoskalningsinställning för Azure-resurser baserat på prestanda eller ett schema
@@ -21,19 +21,19 @@ Med autoskalningsinställningar kan du lägga till/ta bort instanser av tjänste
 
 I den här självstudien kommer du att: 
 > [!div class="checklist"]
-> * Skapa en webbapp i och en App Service-plan
-> * Konfigurera autoskalningsregler för inskalning och utskalning baserat på antalet förfrågningar som en webbapp tar emot
+> * skapa en webbapp i och en App Service-plan
+> * konfigurera autoskalningsregler för ut- och inskalning baserat på antalet förfrågningar som en webbapp tar emot
 > * utlösa en utskalningsåtgärd och se antalet förekomster öka
 > * utlösa en inskalningsåtgärd och se antalet förekomster minska
 > * Rensa dina resurser
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
-## <a name="create-a-web-app-and-app-service-plan"></a>Skapa en webbapp i och en App Service-plan
+## <a name="create-a-web-app-and-app-service-plan"></a>skapa en webbapp i och en App Service-plan
 1. Klicka på alternativet **Skapa en resurs** i det vänstra navigeringsfönstret.
 2. Sök efter och välj objektet *Webbapp* och klicka på **Skapa**.
 3. Välj ett appnamn, som *MyTestScaleWebApp*. Skapa den nya resursgruppen ”myResourceGroup” eller placera den i valfri resursgrupp.
@@ -126,7 +126,7 @@ Om utskalningsvillkoret i inställningen vi just skapade ska lösas ut måste we
 
 2. Läs in sidan fler än 10 gånger i snabb följd.
 
-3. Välj alternativet **Övervaka** i det vänstra navigeringsfönstret. När sidan lästs in väljer du fliken **Autoskalning**.
+3. Välj alternativet **Övervaka** i det vänstra navigeringsfönstret. När sidan har läses in väljer du fliken **Automatisk skalning.**
 
 4. Välj App Service-planen du använt i den här självstudien från listan.
 
@@ -145,7 +145,7 @@ Inskalningsvillkoret i inställningen löses ut om webbappen tar emot färre än
 
 2. Läs in Azure Portal.
 
-3. Välj alternativet **Övervaka** i det vänstra navigeringsfönstret. När sidan lästs in väljer du fliken **Autoskalning**.
+3. Välj alternativet **Övervaka** i det vänstra navigeringsfönstret. När sidan har läses in väljer du fliken **Automatisk skalning.**
 
 4. Välj App Service-planen du använt i den här självstudien från listan.
 
@@ -174,7 +174,7 @@ Inskalningsvillkoret i inställningen löses ut om webbappen tar emot färre än
 I den här kursen har du:  
 > [!div class="checklist"]
 > * skapat en webbapp och en App Service-plan
-> * Konfigurerade autoskalningsregler för inskalning och utskalning baserat på antalet förfrågningar som en webbapp tar emot
+> * konfigurerat autoskalningsregler för ut- och inskalning baserat på antalet förfrågningar som en webbapp tar emot
 > * löst ut en utskalningsåtgärd och sett antalet förekomster öka
 > * löst ut en inskalningsåtgärd och sett antalet förekomster minska
 > * rensat dina resurser.

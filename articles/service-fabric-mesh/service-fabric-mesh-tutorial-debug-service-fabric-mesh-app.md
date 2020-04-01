@@ -1,5 +1,5 @@
 ---
-title: Felsöka en Azure Service Fabric nät-webbapp som körs lokalt
+title: Felsöka en Azure Service Fabric Mesh-webbapp som körs lokalt
 description: I den här självstudien får du felsöka ett Azure Service Fabric Mesh-program som körs i ett lokalt kluster.
 author: dkkapur
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 10/31/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: c36d45919ae8a17026fc91f8e9040f3bb11d3eb0
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75494954"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Självstudie: felsök ett Service Fabric Mesh-program som körs i ditt lokala utvecklingskluster
@@ -71,7 +71,7 @@ Gör din första felsökningskörning (F5) mycket snabbare genom att följa inst
 
 Det har uppstått ett problem som gör att anropet till `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` inte ansluter till tjänsten. Detta kan inträffa när värdens IP-adress ändras. Lösning:
 
-1. Ta bort appen från det lokala klustret (i Visual Studio **Build** (Skapa)  > **Clean Solution** (Rensa lösning)).
+1. Ta bort appen från det lokala klustret (i Visual Studio, **Build** > **Clean Solution**).
 2. Från Service Fabric Local Cluster Manager väljer du **Stop Local CLuster** (Stoppa lokalt kluster) och sedan **Start Local Cluster** (Starta lokalt kluster).
 3. Distribuera om appen (i Visual Studio **F5**).
 

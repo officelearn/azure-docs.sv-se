@@ -1,6 +1,6 @@
 ---
-title: Självstudie för att använda funktions flaggor i en våren Boot app-Azure App konfiguration | Microsoft Docs
-description: I den här självstudien får du lära dig hur du implementerar funktions flaggor i våren Boot Apps.
+title: Självstudiekurs för att använda funktionsflaggor i en Spring Boot-app - Azure App Configuration | Microsoft-dokument
+description: I den här självstudien får du lära dig hur du implementerar funktionsflaggor i Spring Boot-appar.
 services: azure-app-configuration
 documentationcenter: ''
 author: mrm9084
@@ -15,29 +15,29 @@ ms.date: 09/26/2019
 ms.author: mametcal
 ms.custom: mvc
 ms.openlocfilehash: d519ac44d617f725aa9b3d3f11671122bd9477bc
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78944318"
 ---
-# <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Självstudie: använda funktions flaggor i en våren Boot-app
+# <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Självstudiekurs: Använda funktionsflaggor i en spring boot-app
 
-Biblioteken för våren Boot Core Feature Management innehåller stöd för att implementera funktions flaggor i ett våren Boot-program. Med de här biblioteken kan du lägga till funktions flaggor i koden.
+Spring Boot Core Feature Management bibliotek ger stöd för att genomföra funktionen flaggor i en Spring Boot ansökan. Med de här biblioteken kan du deklarativt lägga till funktionsflaggor i koden.
 
-Biblioteken för funktions hantering hanterar även livscykler i funktions flaggor i bakgrunden. Till exempel, biblioteks uppdaterings-och cache-flaggan eller garanterar att ett flagg tillstånd kan inte ändras under ett begär ande anrop. Dessutom erbjuder vår start bibliotek integreringar, inklusive åtgärder för MVC-kontrollant, vägar och mellanprogram.
+Funktionshanteringsbiblioteken hanterar också funktionsflagglivscykler bakom kulisserna. Biblioteken uppdaterar och cacheföreskar tillstånd, eller garanterar att ett flaggtillstånd inte kan ändras under ett begärandeanrop. Dessutom erbjuder Spring Boot-biblioteket integrationer, inklusive MVC-styrenhetsåtgärder, rutter och mellanprogram.
 
-Med [funktionen Lägg till funktions flaggor i snabb starten för en fjäder Boot-app](./quickstart-feature-flag-spring-boot.md) visas flera sätt att lägga till funktions flaggor i ett våren Boot-program. I den här självstudien beskrivs dessa metoder i detalj.
+[Snabbstarten för lägg till funktionsflaggor i en spring boot-app](./quickstart-feature-flag-spring-boot.md) visar flera sätt att lägga till funktionsflaggor i ett Spring Boot-program. Den här självstudien förklarar dessa metoder mer i detalj.
 
 I den här självstudien får du lära dig hur man:
 
 > [!div class="checklist"]
-> * Lägg till funktions flaggor i huvud delar av ditt program för att kontrol lera funktions tillgänglighet.
-> * Integrera med app-konfiguration när du använder den för att hantera funktions flaggor.
+> * Lägg till funktionsflaggor i viktiga delar av programmet för att styra funktionens tillgänglighet.
+> * Integrera med appkonfiguration när du använder den för att hantera funktionsflaggor.
 
-## <a name="set-up-feature-management"></a>Konfigurera funktions hantering
+## <a name="set-up-feature-management"></a>Konfigurera funktionshantering
 
-Funktionen våren Boot Feature Manager `FeatureManager` hämtar funktions flaggor från ramverkets inbyggda konfigurations system. Det innebär att du kan definiera programmets funktions flaggor genom att använda valfri konfigurations källa som har stöd för start, inklusive den lokala filen *bootstrap. yml* eller miljövariabler. `FeatureManager` förlitar sig på beroende inmatning. Du kan registrera funktions hanterings tjänsterna genom att använda standard konventioner:
+Spring Boot-funktionshanteraren `FeatureManager` får funktionsflaggor från ramverkets inbyggda konfigurationssystem. Därför kan du definiera programmets funktionsflaggor med hjälp av valfri konfigurationskälla som Spring Boot stöder, inklusive de lokala *bootstrap.yml-fil-* eller miljövariablerna. `FeatureManager`beroendeinjektion. Du kan registrera funktionshanteringstjänsterna med hjälp av standardkonventioner:
 
 ```java
 private FeatureManager featureManager;
@@ -47,11 +47,11 @@ public HelloController(FeatureManager featureManager) {
 }
 ```
 
-Vi rekommenderar att du behåller funktions flaggor utanför programmet och hanterar dem separat. Om du gör det kan du när som helst ändra flaggans tillstånd och ändringarna börjar gälla i programmet direkt. Med app Configuration får du en central plats för att ordna och kontrol lera alla funktions flaggor via ett dedikerat Portal gränssnitt. App-konfigurationen levererar också flaggorna till ditt program direkt via sina klient bibliotek för sin våren-start.
+Vi rekommenderar att du håller funktionsflaggor utanför programmet och hanterar dem separat. På så sätt kan du ändra flaggtillstånd när som helst och få dessa ändringar att träda i kraft i programmet direkt. Appkonfiguration är en centraliserad plats för att organisera och styra alla dina funktionsflaggor via ett dedikerat portalgränssnitt. Appkonfiguration levererar också flaggorna till ditt program direkt via dess Spring Boot-klientbibliotek.
 
-Det enklaste sättet att ansluta ditt våren Boot-program till app-konfigurationen är via konfigurationsprovidern:
+Det enklaste sättet att ansluta ditt Spring Boot-program till appkonfiguration är via konfigurationsleverantören:
 
-### <a name="spring-cloud-11x"></a>Våren Cloud 1.1. x
+### <a name="spring-cloud-11x"></a>Vårmoln 1.1.x
 
 ```xml
 <dependency>
@@ -61,7 +61,7 @@ Det enklaste sättet att ansluta ditt våren Boot-program till app-konfiguration
 </dependency>
 ```
 
-### <a name="spring-cloud-12x"></a>Våren Cloud 1.2. x
+### <a name="spring-cloud-12x"></a>Vårmoln 1.2.x
 
 ```xml
 <dependency>
@@ -71,13 +71,13 @@ Det enklaste sättet att ansluta ditt våren Boot-program till app-konfiguration
 </dependency>
 ```
 
-## <a name="feature-flag-declaration"></a>Deklaration för funktions flagga
+## <a name="feature-flag-declaration"></a>Flagga deklaration för funktion
 
-Varje funktions flagga har två delar: ett namn och en lista med ett eller flera filter som används för att utvärdera om en funktions status är *aktiv* (det vill säga när värdet är `True`). Ett filter definierar ett användnings fall för när en funktion ska aktive ras.
+Varje funktionsflagga har två delar: ett namn och en lista med ett *on* eller flera filter som används `True`för att utvärdera om en funktions tillstånd är aktiverat (det vill säga när dess värde är ). Ett filter definierar ett användningsfall för när en funktion ska aktiveras.
 
-När en funktions flagga har flera filter, så genomsöks filter listan i ordning tills ett av filtren bestämmer att funktionen ska aktive ras. Nu är funktions flaggan *på*och eventuella kvarvarande filter resultat hoppas över. Om inget filter anger att funktionen ska aktive ras, är funktions flaggan *avstängd*.
+När en funktionsflagga har flera filter genomdäms filterlistan i ordning tills ett av filtren bestämmer att funktionen ska aktiveras. Då är funktionsflaggan *aktiverad*och eventuella återstående filterresultat hoppas över. Om inget filter anger att funktionen ska aktiveras är funktionsflaggan *inaktiverad*.
 
-Funktions hanteraren stöder *Application. yml* som en konfigurations källa för funktions flaggor. I följande exempel visas hur du ställer in funktions flaggor i en YAML-fil:
+Funktionshanteraren stöder *application.yml* som en konfigurationskälla för funktionsflaggor. I följande exempel visas hur du ställer in funktionsflaggor i en YAML-fil:
 
 ```yml
 feature-management:
@@ -92,15 +92,15 @@ feature-management:
             value: 50
 ```
 
-Per konvention används `feature-management` avsnittet i det här YML-dokumentet för inställningar för funktions flagga. I föregående exempel visas tre funktions flaggor med de filter som definierats i egenskapen `EnabledFor`:
+Av konvention `feature-management` används avsnittet i detta YML-dokument för funktionsflagginställningar. I föregående exempel visas tre funktionsflaggor med filter definierade i egenskapen: `EnabledFor`
 
-* `feature-a` är *på*.
-* `feature-b` är *avstängd*.
-* `feature-c` anger ett filter med namnet `Percentage` med en `parameters`-egenskap. `Percentage` är ett konfigurerbart filter. I det här exemplet anger `Percentage` en sannolikhet på 50 procent för att `feature-c` flagga ska vara *på*.
+* `feature-a`är *på*.
+* `feature-b`är *avstängd*.
+* `feature-c`anger ett filter `Percentage` som `parameters` namnges med en egenskap. `Percentage`är ett konfigurerbart filter. I det `Percentage` här exemplet anger en 50-procentig sannolikhet för att `feature-c` flaggan ska vara *på*.
 
-## <a name="feature-flag-checks"></a>Funktions flagga kontrollerar
+## <a name="feature-flag-checks"></a>Kontroller av funktionsflagga
 
-Det grundläggande mönstret för funktions hantering är att först kontrol lera om en funktions flagga har angetts till *på*. I så fall kör funktions hanteraren de åtgärder som funktionen innehåller. Exempel:
+Det grundläggande mönstret för funktionshantering är att först kontrollera om en funktionsflagga är inställd *på*. Om så är fallet kör funktionshanteraren sedan de åtgärder som funktionen innehåller. Ett exempel:
 
 ```java
 private FeatureManager featureManager;
@@ -112,7 +112,7 @@ if (featureManager.isEnabledAsync("feature-a").block()) {
 
 ## <a name="dependency-injection"></a>Beroendeinmatning
 
-I våren boot kan du komma åt funktions hanteraren `FeatureManager` via beroende inmatning:
+I Spring Boot kan du `FeatureManager` komma åt funktionshanteraren genom beroendeinjektion:
 
 ```java
 @Controller
@@ -126,9 +126,9 @@ public class HomeController {
 }
 ```
 
-## <a name="controller-actions"></a>Åtgärder för styrenhet
+## <a name="controller-actions"></a>Åtgärder för kontrollant
 
-I MVC-styrenheter använder du attributet `@FeatureGate` för att kontrol lera om en speciell åtgärd är aktive rad. Följande `Index`s åtgärd kräver *`feature-a` innan den* kan köras:
+I MVC-styrenheter använder `@FeatureGate` du attributet för att styra om en viss åtgärd är aktiverad. Följande `Index` åtgärd `feature-a` måste vara *aktiverad* innan den kan köras:
 
 ```java
 @GetMapping("/")
@@ -138,11 +138,11 @@ public String index(Model model) {
 }
 ```
 
-När en MVC-styrenhet eller-åtgärd blockeras eftersom kontroll funktions flaggan är *inaktive rad*, anropas ett registrerat `IDisabledFeaturesHandler`-gränssnitt. Standard `IDisabledFeaturesHandler`-gränssnittet returnerar en 404-statuskod till klienten utan svars text.
+När en MVC-styrenhet eller åtgärd blockeras eftersom `IDisabledFeaturesHandler` kontrollfunktionsflaggan är *inaktiverad*anropas ett registrerat gränssnitt. Standardgränssnittet `IDisabledFeaturesHandler` returnerar en 404-statuskod till klienten utan svarstext.
 
 ## <a name="mvc-filters"></a>MVC-filter
 
-Du kan konfigurera MVC-filter så att de aktive ras baserat på status för en funktions flagga. Följande kod lägger till ett MVC-filter med namnet `FeatureFlagFilter`. Det här filtret utlöses endast i MVC-pipeline om `feature-a` har Aktiver ATS.
+Du kan ställa in MVC-filter så att de aktiveras baserat på tillståndet för en funktionsflagga. Följande kod lägger till ett `FeatureFlagFilter`MVC-filter med namnet . Det här filtret utlöses endast i `feature-a` MVC-pipelinen om det är aktiverat.
 
 ```java
 @Component
@@ -166,7 +166,7 @@ public class FeatureFlagFilter implements Filter {
 
 ## <a name="routes"></a>Vägar
 
-Du kan använda funktions flaggor för att omdirigera vägar. Följande kod kommer att omdirigera en användare från `feature-a` är aktive rad:
+Du kan använda funktionsflaggor för att omdirigera rutter. Följande kod omdirigerar en `feature-a` användare från är aktiverad:
 
 ```java
 @GetMapping("/redirect")
@@ -183,7 +183,7 @@ public String getOldFeature() {
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du implementerar funktions flaggor i ditt våren Boot-startprogram med hjälp av `spring-cloud-azure-feature-management-web`-biblioteken. Mer information om stöd för funktions hantering i vår start-och app-konfiguration finns i följande resurser:
+I den här självstudien lärde du dig hur du `spring-cloud-azure-feature-management-web` implementerar funktionsflaggor i spring boot-programmet med hjälp av biblioteken. Mer information om stöd för funktionshantering i Spring Boot och App Configuration finns i följande resurser:
 
-* [Exempel kod för vår start funktion flagga](/azure/azure-app-configuration/quickstart-feature-flag-spring-boot)
+* [Exempelkod för fjädrarstart funktionens flagga](/azure/azure-app-configuration/quickstart-feature-flag-spring-boot)
 * [Hantera funktionsflaggor](./manage-feature-flags.md)

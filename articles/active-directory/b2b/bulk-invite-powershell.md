@@ -1,6 +1,6 @@
 ---
-title: Självstudie för Mass inbjudan av B2B-samarbets användare – Azure Active Directory | Microsoft Docs
-description: I den här självstudien får du lära dig hur du använder PowerShell och en CSV-fil för att skicka mass inbjudningar till externa Azure AD B2B-samarbets gäst användare.
+title: Självstudiekurs för massinbjudande B2B-samarbetsanvändare – Azure Active Directory | Microsoft-dokument
+description: I den här självstudien får du lära dig hur du använder PowerShell och en CSV-fil för att skicka massinbjudningar till externa Azure AD B2B-samarbetsgästanvändare.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,13 +12,13 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 89e24d9ff76184c36aee5c14f15f9713b30f6f1d
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77172662"
 ---
-# <a name="tutorial-use-powershell-to-bulk-invite-azure-ad-b2b-collaboration-users"></a>Självstudie: Använd PowerShell för att skicka inbjudan till Azure AD B2B Collaboration-användare
+# <a name="tutorial-use-powershell-to-bulk-invite-azure-ad-b2b-collaboration-users"></a>Självstudiekurs: Använd PowerShell för att bjuda in Azure AD B2B-samarbetsanvändare i grupp
 
 Om du använder Azure Active Directory (Azure AD) B2B-samarbete för att arbeta med externa partners, kan du bjuda in flera gästanvändare till din organisation samtidigt. I den här självstudien lär du dig hur du använder PowerShell för att skicka massinbjudningar till externa användare. Närmare bestämt kan du göra följande:
 
@@ -27,9 +27,9 @@ Om du använder Azure Active Directory (Azure AD) B2B-samarbete för att arbeta 
 > * Skicka inbjudningar genom att köra ett PowerShell-skript
 > * Verifiera att användarna har lagts till i katalogen
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="install-the-latest-azureadpreview-module"></a>Installera den senaste AzureADPreview-modulen
 
@@ -126,7 +126,7 @@ Kontrollera att de inbjudna användarna har lagts till i Azure AD genom att kör
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
 
-Du bör se de användare som du har bjudit in i listan, med en User Principal Name (UPN) i formatet *emailaddress*#EXT #\@- *domän*. Till exempel *lstokes_fabrikam. com # ext #\@contoso.onmicrosoft.com*, där contoso.onmicrosoft.com är organisationen som du skickade inbjudningarna från.
+Du bör se de användare som du har bjudit in i listan med ett användarnamn (UPN) i formatet *e-postadress*#EXT#\@*domän*. Till exempel *\@lstokes_fabrikam.com#EXT# contoso.onmicrosoft.com*, där contoso.onmicrosoft.com är den organisation som du skickade inbjudningarna från.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

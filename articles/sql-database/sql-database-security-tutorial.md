@@ -1,6 +1,6 @@
 ---
 title: Skydda en enkel databas eller en pooldatabas
-description: En själv studie kurs som lär dig om tekniker och funktioner för att skydda en databas med en eller flera databaser i Azure SQL Database.
+description: En självstudiekurs som lär dig om tekniker och funktioner för att skydda en enda eller poolad databas i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,15 +11,15 @@ ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: 9e3c5c12157a007bcad59a78b4623ff4d5a0041f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238834"
 ---
-# <a name="tutorial-secure-a-single-or-pooled-database"></a>Självstudie: skydda en enskild databas eller en databas i en pool
+# <a name="tutorial-secure-a-single-or-pooled-database"></a>Självstudiekurs: Skydda en enda eller poolad databas
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 > - Skapa brandväggsregler på servernivå och databasnivå
@@ -40,9 +40,9 @@ Med Azure SQL Database kan du skydda data i en enkel databas eller en pooldataba
 Mer information finns i artiklarna [Säkerhetsöversikt för Azure SQL Database](/azure/sql-database/sql-database-security-index) och [Funktioner](sql-database-security-overview.md).
 
 > [!TIP]
-> Följande Microsoft Learn modul hjälper dig att lära dig kostnads fritt om hur du [skyddar dina Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
+> Följande Microsoft Learn-modul hjälper dig att lära dig gratis om hur du [skyddar din Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna slutföra den här självstudien behöver du följande:
 
@@ -50,7 +50,7 @@ För att kunna slutföra den här självstudien behöver du följande:
 - En Azure SQL-server och -databas
   - Skapa dem med [Azure-portalen](sql-database-single-database-get-started.md), [CLI](sql-database-cli-samples.md), eller [PowerShell](sql-database-powershell-samples.md)
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -90,7 +90,7 @@ Nu kan du ansluta till valfri databas på servern med IP-adressen eller IP-adres
 
 ### <a name="setup-database-firewall-rules"></a>Konfigurera brandväggsregler för databaser
 
-Brandväggsregler på databasnivå gäller endast för enskilda databaser. Databasen behåller dessa regler under en redundansväxling av servern. Brandväggsregler på databasnivå kan bara konfigureras med instruktioner för Transact-SQL (T-SQL), och bara efter att du har konfigurerat en brandväggsregel på servernivå.
+Brandväggsregler på databasnivå gäller endast för enskilda databaser. Databasen behåller dessa regler under en server redundans. Brandväggsregler på databasnivå kan bara konfigureras med instruktioner för Transact-SQL (T-SQL), och bara efter att du har konfigurerat en brandväggsregel på servernivå.
 
 Så här konfigurerar du en brandväggsregel på databasnivå:
 
@@ -117,7 +117,7 @@ Kontrollera att du använder den lämpliga hanterade domänen med Azure Active D
 
 Så här anger du Azure AD-administratör:
 
-1. I Azure Portal väljer du **Active Directory admin**på **SQL Server** -sidan. Välj sedan **Ange administratör**.
+1. Välj Active Directory-administratör på **SQL-serversidan** i **Azure-portalen**. Välj sedan **Ange administratör**.
 
     ![Välj active directory](./media/sql-database-security-tutorial/admin-settings.png)  
 
@@ -131,7 +131,7 @@ Så här anger du Azure AD-administratör:
     > [!IMPORTANT]
     > Rollbaserad åtkomstkontroll (RBAC) gäller enbart för portalen och sprids inte till SQL Server.
 
-1. Längst upp på sidan **Active Directory-administratör** väljer du **Spara**.
+1. Högst upp på **administrationssidan i Active Directory** väljer du **Spara**.
 
     Processen med att ändra administratör kan ta några minuter. Sedan visas den nya administratören i rutan **Active Directory-administratör**.
 
@@ -145,11 +145,11 @@ Information om hur du konfigurerar Azure AD finns i:
 - [Microsoft Azure har nu stöd för federation med Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Administrera Azure AD-katalogen](../active-directory/fundamentals/active-directory-administer.md)
 - [Hantera Azure AD med hjälp av PowerShell](/powershell/azure/overview?view=azureadps-2.0)
-- [Portar och protokoll som krävs för hybrididentitet](../active-directory/hybrid/reference-connect-ports.md)
+- [Hybrididentitet krävs portar och protokoll](../active-directory/hybrid/reference-connect-ports.md)
 
 ## <a name="manage-database-access"></a>Hantera databasåtkomst
 
-Hantera åtkomst till databasen genom att lägga till användare i databasen eller tillåta användaråtkomst med säkra anslutningssträngar. Anslutningssträngar är användbara för externa program. Mer information finns i [Hantera inloggningar och användar konton](sql-database-manage-logins.md) och [AD-autentisering](sql-database-aad-authentication.md).
+Hantera åtkomst till databasen genom att lägga till användare i databasen eller tillåta användaråtkomst med säkra anslutningssträngar. Anslutningssträngar är användbara för externa program. Mer information finns i [Hantera inloggningar och användarkonton](sql-database-manage-logins.md) och [AD-autentisering](sql-database-aad-authentication.md).
 
 Välj autentiseringstyp för databasen för att lägga till användare:
 
@@ -264,7 +264,7 @@ Om avvikande aktiviteter identifieras får du ett e-postmeddelande med informati
 
 ### <a name="auditing"></a>Granskning
 
-Gransknings funktionen spårar databas händelser och skriver händelser till en Gransknings logg i antingen Azure Storage, Azure Monitor loggar eller till en händelsehubben. Granskning kan hjälpa dig att upprätthålla regelefterlevnad, förstå databasaktiviteter och få insyn i avvikelser och fel som kan tyda på potentiella säkerhetsöverträdelser.
+Granskningsfunktionen spårar databashändelser och skriver händelser till en granskningslogg i antingen Azure-lagring, Azure Monitor-loggar eller till en händelsehubb. Granskning kan hjälpa dig att upprätthålla regelefterlevnad, förstå databasaktiviteter och få insyn i avvikelser och fel som kan tyda på potentiella säkerhetsöverträdelser.
 
 Så här aktiverar du granskning:
 
@@ -286,7 +286,7 @@ Så här aktiverar du granskning:
        - **Log Analytics**, som automatiskt lagrar händelser för frågor eller ytterligare analys
 
            > [!NOTE]
-           > En **Log Analytics arbets yta** krävs för att stödja avancerade funktioner som analys, anpassade aviserings regler och Excel eller Power BI exporter. Utan en arbetsyta är endast frågeredigeraren tillgänglig.
+           > En **Log Analytics-arbetsyta** krävs för att stödja avancerade funktioner som analys, anpassade varningsregler och Excel- eller Power BI-exporter. Utan en arbetsyta är endast frågeredigeraren tillgänglig.
 
        - **Event Hub**, som tillåter att händelser dirigeras för användning i andra program
 
@@ -349,4 +349,4 @@ I den här självstudien har du lärt dig att förbättra säkerheten för din d
 I nästa självstudie får du lära dig hur du implementerar en geo-distribution.
 
 > [!div class="nextstepaction"]
->[Implementera en geodistribuerad databas](sql-database-implement-geo-distributed-database.md)
+>[Implementera en geo-distribuerad databas](sql-database-implement-geo-distributed-database.md)

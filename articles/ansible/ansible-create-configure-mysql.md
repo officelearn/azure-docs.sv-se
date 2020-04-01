@@ -1,41 +1,41 @@
 ---
-title: Självstudie – konfigurera databaser i Azure Database for MySQL med Ansible
+title: Självstudiekurs - Konfigurera databaser i Azure Database för MySQL med Ansible
 description: Lär dig hur du använder Ansible för att skapa och konfigurera en Azure Database for MySQL-server
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 9cd574417733518b993bb242c2c168aba338e34a
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78247872"
 ---
-# <a name="tutorial-configure-databases-in-azure-database-for-mysql-using-ansible"></a>Självstudie: konfigurera databaser i Azure Database for MySQL med Ansible
+# <a name="tutorial-configure-databases-in-azure-database-for-mysql-using-ansible"></a>Självstudiekurs: Konfigurera databaser i Azure Database för MySQL med Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
-[Azure Database for MySQL](/azure/mysql/overview) är en Relations databas tjänst baserad på MySQL Community Edition. Med Azure Database for MySQL kan du hantera MySQL-databaser i dina webbappar.
+[Azure Database for MySQL](/azure/mysql/overview) är en relationsdatabastjänst baserad på MySQL Community Edition. Med Azure Database for MySQL kan du hantera MySQL-databaser i dina webbappar.
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
-> * Skapa en MySql-Server
+> * Skapa en MySql-server
 > * Skapa en MySql-databas
-> * Konfigurera en brand Väggs regel så att en extern app kan ansluta till servern
-> * Anslut till MySql-servern från Azure Cloud Shell
+> * Konfigurera en brandväggsregel så att en extern app kan ansluta till servern
+> * Ansluta till mySql-servern från Azure Cloud Shell
 > * Fråga dina tillgängliga MySQL-servrar
-> * Visa en lista över alla databaser på dina anslutna servrar
+> * Lista alla databaser i anslutna servrar
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Spelbok-koden i det här avsnittet skapar en Azure-resurs grupp. En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.  
+Spelbokskoden i det här avsnittet skapar en Azure-resursgrupp. En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.  
 
 Spara följande spelbok som `rg.yml`:
 
@@ -51,12 +51,12 @@ Spara följande spelbok som `rg.yml`:
         location: "{{ location }}"
 ```
 
-Se följande anmärkningar innan du kör Spelbok:
+Innan du kör spelboken läser du följande anmärkningar:
 
-* En resurs grupp med namnet `myResourceGroup` skapas.
-* Resurs gruppen skapas på `eastus` plats:
+* En resursgrupp `myResourceGroup` med namnet skapas.
+* Resursgruppen skapas på `eastus` platsen:
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook rg.yml
@@ -64,9 +64,9 @@ ansible-playbook rg.yml
 
 ## <a name="create-a-mysql-server-and-database"></a>Skapa en MySQL-server och en databas
 
-Spelbok-koden i det här avsnittet skapar en MySQL-server och en Azure Database for MySQL-instans. Den nya MySQL-servern är en gen 5-grundläggande syftes server med en vCore och heter `mysqlserveransible`. Databas instansen heter `mysqldbansible`.
+Spelbokskoden i det här avsnittet skapar en MySQL-server och en Azure-databas för MySQL-instans. Den nya MySQL-servern är en Gen 5 Basic `mysqlserveransible`Purpose-server med en vCore och heter . Databasinstansen `mysqldbansible`heter .
 
-Mer information om pris nivåer finns i [Azure Database for MySQL pris nivåer](/azure/mysql/concepts-pricing-tiers). 
+Mer information om prisnivåer finns i [Azure Database for MySQL-prisnivåer](/azure/mysql/concepts-pricing-tiers). 
 
 Spara följande spelbok som `mysql_create.yml`:
 
@@ -100,12 +100,12 @@ Spara följande spelbok som `mysql_create.yml`:
         name: "{{ mysqldb_name }}"
 ```
 
-Se följande anmärkningar innan du kör Spelbok:
+Innan du kör spelboken läser du följande anmärkningar:
 
-* I avsnittet `vars` måste värdet för `mysqlserver_name` vara unikt.
-* I avsnittet `vars` ersätter du `<server_admin_password>` med ett lösen ord.
+* I `vars` avsnittet måste värdet `mysqlserver_name` av vara unikt.
+* Ersätt `vars` `<server_admin_password>` med ett lösenord i avsnittet.
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook mysql_create.yml
@@ -113,9 +113,9 @@ ansible-playbook mysql_create.yml
 
 ## <a name="configure-a-firewall-rule"></a>Konfigurera en brandväggsregel
 
-En brand Väggs regel på server nivå gör att en extern app kan ansluta till servern via Azure MySQL-tjänstens brand vägg. Exempel på externa appar är kommando rads verktyget `mysql` och MySQL Workbench.
+Med en brandväggsregel på servernivå kan en extern app ansluta till servern via Azure MySQL-tjänstbrandväggen. Exempel på externa `mysql` appar är kommandoradsverktyget och MySQL Workbench.
 
-Spelbok-koden i det här avsnittet skapar en brand Väggs regel med namnet `extenalaccess` som tillåter anslutningar från valfri extern IP-adress. 
+Spelbokskoden i det här avsnittet `extenalaccess` skapar en brandväggsregel med namnet som tillåter anslutningar från en extern IP-adress. 
 
 Spara följande spelbok som `mysql_firewall.yml`:
 
@@ -141,13 +141,13 @@ Spara följande spelbok som `mysql_firewall.yml`:
           endIpAddress: "255.255.255.255"
 ```
 
-Se följande anmärkningar innan du kör Spelbok:
+Innan du kör spelboken läser du följande anmärkningar:
 
-* I avsnittet kopplingsvariabler ersätter du `startIpAddress` och `endIpAddress`. Använd intervallet av IP-adresser som motsvarar intervallet som du ska ansluta till.
+* Ersätt `startIpAddress` och `endIpAddress`. Använd det intervall av IP-adresser som motsvarar det intervall som du ansluter från.
 * Anslutningar till Azure Database för MySQL kommunicerar via port 3306. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 3306 inte tillåts. I så fall kan du inte ansluta till servern såvida inte IT-avdelningen öppnar port 3306.
-* Spelbok använder `azure_rm_resource`-modulen, som tillåter direkt användning av REST API.
+* Spelboken använder `azure_rm_resource` modulen, som möjliggör direkt användning av REST API.
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook mysql_firewall.yml
@@ -155,7 +155,7 @@ ansible-playbook mysql_firewall.yml
 
 ## <a name="connect-to-the-server"></a>Ansluta till servern
 
-I det här avsnittet använder du Azure Cloud Shell för att ansluta till den server som du skapade tidigare.
+I det här avsnittet använder du Azure Cloud Shell för att ansluta till servern som du skapade tidigare.
 
 1. Öppna shell.azure.com genom att välja nedan.
 
@@ -167,13 +167,13 @@ I det här avsnittet använder du Azure Cloud Shell för att ansluta till den se
     mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
     ```
 
-1. Ange följande kommando i kommando tolken för att fråga Server statusen:
+1. I prompten anger du följande kommando för att fråga serverns status:
 
     ```sql
     mysql> status
     ```
     
-    Om allt går bra ser du utdata som liknar följande resultat:
+    Om allt går bra visas utdata som liknar följande resultat:
     
     ```output
     demo@Azure:~$ mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
@@ -217,7 +217,7 @@ I det här avsnittet använder du Azure Cloud Shell för att ansluta till den se
     
 ## <a name="query-mysql-servers"></a>Fråga MySQL-servrar
 
-Spelbok-koden i det här avsnittet frågar MySQL-servrar i `myResourceGroup` och listar databaserna på de servrar som hittas.
+Spelbokskoden i det här avsnittet frågar `myResourceGroup` in MySQL-servrar och listar databaserna på de hittade servrarna.
 
 Spara följande spelbok som `mysql_query.yml`:
 
@@ -247,13 +247,13 @@ Spara följande spelbok som `mysql_query.yml`:
         var: mysqldatabasefacts
 ```
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook mysql_query.yml
 ```
 
-När du har kört Spelbok visas utdata som liknar följande resultat:
+När du har kört spelboken visas utdata som liknar följande resultat:
 
 ```json
 "servers": [
@@ -315,7 +315,7 @@ Du ser även följande utdata för MySQL-databasen:
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort de resurser som skapats i den här artikeln när de inte längre behövs. 
+När det inte längre behövs tar du bort de resurser som skapas i den här artikeln. 
 
 Spara följande spelbok som `cleanup.yml`:
 
@@ -330,7 +330,7 @@ Spara följande spelbok som `cleanup.yml`:
         state: absent
 ```
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook cleanup.yml

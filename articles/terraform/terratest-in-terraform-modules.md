@@ -1,19 +1,19 @@
 ---
-title: Självstudie – testa terraform-moduler i Azure med Terratest
+title: Självstudiekurs - Testa Terraform-moduler i Azure med Terratest
 description: Lär dig hur du använder Terratest för att testa Terraform-modulerna.
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 687a793af2b9b75efe463b042d121c32f18974d6
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79370805"
 ---
-# <a name="tutorial-test-terraform-modules-in-azure-using-terratest"></a>Självstudie: testa terraform-moduler i Azure med Terratest
+# <a name="tutorial-test-terraform-modules-in-azure-using-terratest"></a>Självstudiekurs: Testa Terraform-moduler i Azure med Terratest
 
 > [!NOTE]
-> Exempel koden i den här artikeln fungerar inte med version 0,12 (och senare).
+> Exempelkoden i den här artikeln fungerar inte med version 0.12 (och senare).
 
 Du kan använda Azure Terraform-moduler för att skapa återanvändbara, sammansättningsbara och testningsbara komponenter. Terraform-moduler innehåller inkapsling som är användbar för att implementera infrastruktur som kodprocesser.
 
@@ -26,7 +26,7 @@ Vi tittade på alla de mest populära testningsinfrastrukturerna och valde [Terr
 - **Alla testfall skrivs i Go**. De flesta utvecklare som använder Terraform är Go-utvecklare. Om du är Go-utvecklare behöver du inte lära dig något annat programmeringsspråk för att använda Terratest. Dessutom är Go och Terraform de enda beroenden som krävs för att du ska kunna köra testfall i Terratest.
 - **Den här infrastrukturen är mycket utökningsbar**. Du kan utöka ytterligare funktioner ovanpå Terratest, till exempel Azure-specifika funktioner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här praktiska artikeln är plattformsoberoende. Du kan köra de kodexempel som vi använder i den här artikeln på Windows, Linux eller MacOS. 
 
@@ -324,7 +324,7 @@ output "homepage" {
 
 Vi använder Terratest och klassiska Go-testfunktioner igen i integreringstestfilen `./test/hello_world_example_test.go`.
 
-Till skillnad från enhetstester skapar integreringstester verkliga resurser i Azure. Därför måste du vara noga med att undvika namnkonflikter. (Särskild uppmärksamhet på några globalt unika namn som lagrings konto namn.) Det första steget i test logiken är därför att skapa slumpmässiga `websiteName` med hjälp av funktionen `UniqueId()` som tillhandahålls av Terratest. Den här funktionen genererar ett slumpmässigt namn som innehåller gemener, versaler eller siffror. `tfOptions` gör så att alla Terraform-kommandon inriktas på mappen `./examples/hello-world/`. Det ser även till att `website_name` ställs in på det slumpmässiga `websiteName`.
+Till skillnad från enhetstester skapar integreringstester verkliga resurser i Azure. Därför måste du vara noga med att undvika namnkonflikter. (Var särskilt uppmärksam på vissa globalt unika namn som namn på lagringskonto.) Därför är det första steget i testlogiken `websiteName` att `UniqueId()` generera en randomiserad med hjälp av funktionen som tillhandahålls av Terratest. Den här funktionen genererar ett slumpmässigt namn som innehåller gemener, versaler eller siffror. `tfOptions` gör så att alla Terraform-kommandon inriktas på mappen `./examples/hello-world/`. Det ser även till att `website_name` ställs in på det slumpmässiga `websiteName`.
 
 Sedan körs `terraform init`, `terraform apply` och `terraform output` en i taget. Vi använder en annan hjälpfunktion, `HttpGetWithCustomValidation()`, som tillhandahålls av Terratest. Vi använder hjälpfunktionen för att se till att HTML laddas upp till den utdata-URL `homepage` som returneras av `terraform output`. Vi jämför HTTP GET-statuskoden med `200` och letar efter vissa nyckelord i HTML-innehållet. Slutligen ”utlovas” det att `terraform destroy` körs genom att `defer`-funktionen i Go används.
 
@@ -395,7 +395,7 @@ go test
 Integreringstester tar mycket längre tid än enhetstester (två minuter för ett integreringsfall jämfört med en minut för fem enhetsfall). Men det är ditt beslut om du vill använda enhetstester eller integreringstester i ett scenario. Normalt föredrar vi att använda enhetstester för komplex logik med hjälp av Terraform HCL-funktioner. Vi använder vanligtvis integreringstester för slutpunkt till slutpunkt-perspektivet för användare.
 
 ## <a name="use-mage-to-simplify-running-terratest-cases"></a>Använda mage för att förenkla körning av Terratest-fall 
-Körning av test fall i Azure Cloud Shell kräver att olika kommandon körs i olika kataloger. För att göra den här processen mer effektiv introducerar vi build-systemet i vårt projekt. I det här avsnittet använder vi ett Go-byggsystem, mage, för jobbet.
+Köra testfall i Azure Cloud Shell kräver att du kör olika kommandon i olika kataloger. För att göra denna process mer effektiv introducerar vi byggsystemet i vårt projekt. I det här avsnittet använder vi ett Go-byggsystem, mage, för jobbet.
 
 Det enda som krävs av mage är en `magefile.go` i projektets rotkatalog (markerad med `(+)` i följande exempel):
 
@@ -520,9 +520,9 @@ Med mage kan du även dela stegen med hjälp av Go-paketsystemet. I det fallet k
 
 **Valfritt: Konfigurera miljövariabler för tjänsthuvudnamn att köra acceptanstester**
  
-I stället för att köra `az login` före tester kan du slutföra Azure-autentisering genom att konfigurera miljövariablerna för tjänsthuvudnamn. Terraform publicerar en [lista över miljövariabelnamn](https://www.terraform.io/docs/providers/azurerm/index.html#testing). (Endast de fyra första av dessa miljövariabler krävs.) Terraform publicerar också detaljerade instruktioner som förklarar hur du [hämtar värdet för de här miljövariablerna](https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html).
+I stället för att köra `az login` före tester kan du slutföra Azure-autentisering genom att konfigurera miljövariablerna för tjänsthuvudnamn. Terraform publicerar en [lista över miljövariabelnamn](https://www.terraform.io/docs/providers/azurerm/index.html#testing). (Endast de första fyra av dessa miljövariabler krävs.) Terraform publicerar också detaljerade instruktioner som förklarar hur du [får värdet av dessa miljövariabler](https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Terratest GitHub-sida](https://github.com/gruntwork-io/terratest).
+> [Terratest GitHub sida](https://github.com/gruntwork-io/terratest).

@@ -1,19 +1,19 @@
 ---
-title: Självstudie – Skapa ett Azure VM-kluster med terraform med hjälp av modulen register
-description: I den här självstudien använder du terraform-moduler för att skapa ett Windows-kluster för virtuella datorer i Azure
-keywords: registret DevOps terraform VM Virtual Machine Cluster module
+title: Självstudiekurs - Skapa ett Azure VM-kluster med Terraform med hjälp av modulregistret
+description: I den här självstudien använder du Terraform-moduler för att skapa ett Windows-kluster för virtuella datorer i Azure
+keywords: azure devops terraform vm virtuell dator kluster modul register
 ms.topic: tutorial
 ms.date: 03/09/2020
 ms.openlocfilehash: 9faeee9bb2f0fb6dc148a3868f6fc0dae3833a2a
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78945279"
 ---
-# <a name="tutorial-create-an-azure-vm-cluster-with-terraform-using-the-module-registry"></a>Självstudie: skapa ett Azure VM-kluster med terraform med hjälp av modulen register
+# <a name="tutorial-create-an-azure-vm-cluster-with-terraform-using-the-module-registry"></a>Självstudiekurs: Skapa ett Azure VM-kluster med Terraform med hjälp av modulregistret
 
-Den här artikeln ger dig instruktioner för att skapa ett litet kluster med virtuella datorer med Terraform-modulen [Azure Compute](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2). I den här självstudiekursen får du lära du dig att: 
+Den här artikeln ger dig instruktioner för att skapa ett litet kluster med virtuella datorer med Terraform-modulen [Azure Compute](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2). I den här guiden får du lära du dig hur man: 
 
 > [!div class="checklist"]
 > * Konfigurera autentisering med Azure
@@ -103,4 +103,4 @@ Kör `terraform apply` för etablera de virtuella datorerna på Azure.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Bläddra i listan över Azure terraform-moduler](https://registry.terraform.io/modules/Azure)
+> [Bläddra i listan över Azure Terraform-moduler](https://registry.terraform.io/modules/Azure)

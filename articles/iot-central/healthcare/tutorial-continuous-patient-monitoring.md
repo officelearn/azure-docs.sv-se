@@ -1,6 +1,6 @@
 ---
-title: Skapa en app för kontinuerlig övervakning av patienter med Azure IoT Central | Microsoft Docs
-description: Lär dig att bygga ett kontinuerligt program för patient övervakning med hjälp av Azure IoT Central programmallar.
+title: Skapa en kontinuerlig patientövervakningsapp med Azure IoT Central | Microsoft-dokument
+description: Lär dig att skapa ett kontinuerligt patientövervakningsprogram med hjälp av Azure IoT Central-programmallar.
 author: philmea
 ms.author: philmea
 ms.date: 09/24/2019
@@ -9,120 +9,120 @@ ms.service: iot-central
 services: iot-central
 manager: eliotgra
 ms.openlocfilehash: 35ac39109bfcb4dc63b738c947d2ad8caf8ac0a6
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77021295"
 ---
-# <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Självstudie: Distribuera och genom gång av en kontinuerlig app-mall för patient övervakning
+# <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Självstudiekurs: Distribuera och gå igenom en kontinuerlig appmall för patientövervakning
 
 
 
-Den här självstudien visar dig som Solution Builder och hur du kommer igång genom att distribuera en IoT Central kontinuerlig övervaknings program mal len för patienter. Du får lära dig hur du distribuerar mallen, vad som ingår i rutan och vad du kan göra härnäst.
+Den här självstudien visar hur du som lösningsbyggare kommer igång genom att distribuera en IoT Central kontinuerlig patientövervakningsprogrammall. Du får lära dig hur du distribuerar mallen, vad som ingår i rutan och vad du kan göra härnäst.
 
-I den här guiden får du lära dig hur man:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Skapa en Programmall
-> * Gå igenom program mal len
+> * Skapa en programmall
+> * Gå igenom programmallen
 
-## <a name="create-an-application-template"></a>Skapa en Programmall
+## <a name="create-an-application-template"></a>Skapa en programmall
 
-Gå till [webbplatsen för Azure IoT Central Application Manager](https://apps.azureiotcentral.com/). Välj **Bygg** i det vänstra navigerings fältet och klicka sedan på fliken **hälso vård** . 
+Navigera till [Azure IoT Central application manager webbplats](https://apps.azureiotcentral.com/). Välj **Skapa** i det vänstra navigeringsfältet och klicka sedan på fliken **Sjukvård.** 
 
 >[!div class="mx-imgBorder"] 
->![-hälsovård för App Manager](media/app-manager-health.png)
+>![App chef Healthcare](media/app-manager-health.png)
 
-Klicka på knappen **skapa app** för att börja skapa ditt program och logga sedan in med ett Microsoft personal-, arbets-eller skol konto. Det tar dig till sidan **nytt program** .
+Klicka på knappen **Skapa app** om du vill börja skapa programmet och logga sedan in med ett personligt Microsoft-konto, ett arbets- eller skolkonto. Den tar dig till sidan **Nytt program.**
 
-![Skapa program hälso vård](media/app-manager-health-create.png)
+![Skapa applikation Healthcare](media/app-manager-health-create.png)
 
-![Skapa fakturerings information för program hälso vård](media/app-manager-health-create-billinginfo.png)
+![Skapa faktureringsinformation för sjukvårdstjänst](media/app-manager-health-create-billinginfo.png)
 
 Så här skapar du ditt program:
 
-1. Azure IoT Central föreslår automatiskt ett program namn baserat på mallen som du har valt. Du kan acceptera namnet eller ange ett eget vänligt program namn, till exempel **kontinuerlig övervakning av patienter**. Azure IoT Central genererar också ett unikt URL-prefix åt dig baserat på programmets namn. Du är kostnads fri att ändra detta URL-prefix till något mer minnes värt om du vill.
+1. Azure IoT Central föreslår automatiskt ett programnamn baserat på den mall du har valt. Du kan acceptera det här namnet eller ange ditt eget programnamn, till exempel **Kontinuerlig patientövervakning**. Azure IoT Central genererar också ett unikt URL-prefix för dig baserat på programnamnet. Du kan ändra det här URL-prefixet till något mer minnesvärt om du vill.
 
-2. Du kan välja om du vill skapa programmet med hjälp av den *kostnads fria* pris planen eller någon av *standard* pris avtalen. Program som du skapar med hjälp av den kostnads fria planen är kostnads fria i sju dagar innan de går ut och ger upp till fem kostnads fria enheter. Du kan när som helst flytta ett program från den kostnads fria planen till en standard pris plan innan den upphör att gälla. Om du väljer den kostnads fria planen måste du ange din kontakt information och välja om du vill få information och tips från Microsoft. Program som du skapar med hjälp av en standard plan stöder upp till två kostnads fria enheter och kräver att du anger din prenumerations information för Azure för fakturering.
+2. Du kan välja om du vill skapa programmet med hjälp av den *kostnadsfria* prisplanen eller någon av standardprisplanerna. *standard* Program som du skapar med den kostnadsfria planen är gratis i sju dagar innan de löper ut och tillåter upp till fem kostnadsfria enheter. Du kan flytta ett program från den kostnadsfria planen till en standardprisplan när som helst innan den löper ut. Om du väljer det kostnadsfria abonnemanget måste du ange dina kontaktuppgifter och välja om du vill få information och tips från Microsoft. Program som du skapar med hjälp av en standardplan stöder upp till två kostnadsfria enheter och kräver att du anger din Azure-prenumerationsinformation för fakturering.
 
-3. Klicka på **skapa** längst ned på sidan för att distribuera programmet.
+3. Välj **Skapa** längst ned på sidan för att distribuera programmet.
 
-## <a name="walk-through-the-application-template"></a>Gå igenom program mal len
+## <a name="walk-through-the-application-template"></a>Gå igenom programmallen
 
 ### <a name="dashboards"></a>Instrumentpaneler
 
-När du har distribuerat app-mallen hamnar du först på **lamna instrument panel för patient övervakning**. Lamna sjukvård är ett fiktivt sjukhus system som innehåller två sjukhus: Sparbanken sjukhus och Burkville sjukhus. På instrument panelen för den här operatorn för Sparbanken kommer du att se information och telemetri om enheterna i den här mallen tillsammans med en uppsättning kommandon, jobb och åtgärder som du kan vidta. Från instrument panelen kan du:
+När du har distribuerat appmallen landar du först på **Lamnas övervakningsinstrumentpanel för patient.** Lamna Healthcare är ett fiktivt sjukhussystem som innehåller två sjukhus: Woodgrove Hospital och Burkville Hospital. På den här operatörsinstrumentpanelen för Woodgrove Hospital ser du information och telemetri om enheterna i den här mallen tillsammans med en uppsättning kommandon, jobb och åtgärder som du kan vidta. Från instrumentpanelen kan du:
 
-* Se telemetri och egenskaper för enheten, till exempel enhetens **batteri nivå** eller dess **anslutnings** status.
+* Se enhetstelemetri och egenskaper som **enhetens batterinivå** eller **dess anslutningsstatus.**
 
-* Visa **våningsplanet** och platsen för den smarta viktigare korrigerings enheten.
+* Visa **planlösningen** och placeringen av Smart Vitals Patch-enheten.
 
-* **Reetablering** av den smarta viktiga korrigerings filen för en ny patient.
+* **Återetablera** Smart Vitals Patch för en ny patient.
 
-* Se ett exempel på en **instrument panel** för en leverantör som ett sjukhus lag kan se för att spåra sina patienter.
+* Se ett exempel på en **leverantörsinstrumentpanel** som ett sjukhusvårdsteam kan se för att spåra sina patienter.
 
-* Ändra enhetens **patient status** för att ange om enheten används för ett pågående eller ett fjärrscenario.
-
->[!div class="mx-imgBorder"] 
->![lamna](media/lamna-in-patient.png)
-
-Du kan också klicka på **gå till instrument panelen för fjär patienter** för att se den andra operatorn för instrument panelen som används för Burkville sjukhus. Den här instrument panelen innehåller en liknande uppsättning åtgärder, telemetri och information. Dessutom kan du se att flera enheter används och att du kan **Uppdatera den inbyggda program varan** på var och en.
+* Ändra **enhetens patientstatus** för att ange om enheten används för ett patient- eller fjärrscenario.
 
 >[!div class="mx-imgBorder"] 
->![lamna fjärr](media/lamna-remote.png)
+>![Lamna patient](media/lamna-in-patient.png)
 
-På båda instrument panelerna kan du alltid länka tillbaka till den här dokumentationen.
-
-### <a name="device-templates"></a>Enhets mallar
-
-Om du klickar på fliken **enhets mallar** ser du att det finns två olika enhets typer som är en del av mallen:
-
-* **Smart Vital-korrigering**: den här enheten representerar en korrigering som mäter olika typer av viktiga tecken. Den kan användas för att övervaka patienter i och utanför sjukhus. Om du klickar på mallen, ser du att förutom att skicka enhets data, till exempel batteri nivå och enhets temperatur, så skickar korrigeringen även patient hälso data, till exempel andnings frekvensen och blod trycket.
-
-* **Smart Knee-klammer**: den här enheten representerar en Knee-klammer som patienter kan använda vid återställning från en Knee. Om du klickar på den här mallen ser du funktioner som rörelse-och accelerations intervall, förutom enhets data.
+Du kan också klicka på **Gå till fjärrpatient instrumentpanelen** för att se den andra operatören instrumentpanelen som används för Burkville Hospital. Den här instrumentpanelen innehåller en liknande uppsättning åtgärder, telemetri och information. Dessutom kan du se flera enheter som används och har möjlighet att **uppdatera firmware** på varje.
 
 >[!div class="mx-imgBorder"] 
->![Smart Vital patch av enhets mal len](media/smart-vitals-device-template.png)
+>![Lamna fjärrkontroll](media/lamna-remote.png)
 
-Om du klickar på fliken **enhets grupper** ser du också att dessa enhets mallar automatiskt har enhets grupper skapade.
+På båda instrumentpanelerna kan du alltid länka tillbaka till den här dokumentationen.
+
+### <a name="device-templates"></a>Enhetsmallar
+
+Om du klickar på fliken **Enhetsmallar** ser du att det finns två olika enhetstyper som ingår i mallen:
+
+* **Smart Vitals Patch**: Den här enheten representerar en patch som mäter olika typer av vitala tecken. Det kan användas för att övervaka patienter i och utanför sjukhuset. Om du klickar på mallen ser du att förutom att skicka enhetsdata som batterinivå och enhetstemperatur skickar plåstret också patienthälsodata som andningsfrekvens och blodtryck.
+
+* **Smart Knä Stag:** Denna enhet representerar ett knä stag som patienter kan använda när återhämta sig från en knäledsplastik. Om du klickar på den här mallen ser du funktioner som rörelseomfång och acceleration, förutom enhetsdata.
+
+>[!div class="mx-imgBorder"] 
+>![Mall för smart vitala korrigeringsenheter](media/smart-vitals-device-template.png)
+
+Om du klickar på fliken **Enhetsgrupper** ser du också att dessa enhetsmallar automatiskt har enhetsgrupper skapade för dem.
 
 ### <a name="rules"></a>Regler
 
-När du hoppar till fliken regler visas tre regler som finns i program mal len:
+När du hoppar till fliken Regler visas tre regler som finns i programmallen:
 
-* **Klammerns temperatur hög**: den här regeln utlöses när enhetens temperatur på den smarta Knee-klammern är större än 95&deg;F över ett 5-minuters fönster. Du kan använda den här regeln för att meddela patient-och sjukvårds teamet, och att fjärrlagra enheten.
+* **Stag temperatur hög:** Denna regel utlöses när enheten temperaturen på Smart&deg;Knee Brace är större än 95 F under en 5-minuters fönster. Du kan använda den här regeln för att varna patienten och vårdteamet och kyla ner enheten på distans.
 
-* **Identifierad**: den här regeln utlöses om en patient befinner sig. Du kan använda den här regeln för att konfigurera en åtgärd för att distribuera ett drifts team för att hjälpa patienten som har fallit.
+* **Fall detekteras**: Denna regel utlöses om en patient faller upptäcks. Du kan använda den här regeln för att konfigurera en åtgärd för att distribuera ett operativt team för att hjälpa patienten som har fallit.
 
-* **Korrigerings batteri låg**: den här regeln utlöses när batteri nivån på enheten hamnar under 10%. Du kan använda den här regeln för att utlösa en avisering till patienten att debitera enheten.
+* **Patch batteri låg:** Denna regel utlöses när batterinivån på enheten går under 10%. Du kan använda den här regeln för att utlösa ett meddelande till patienten att ladda deras enhet.
 
 >[!div class="mx-imgBorder"] 
->hög regel för ![klammerparentes](media/brace-temp-rule.png)
+>![Hög regel för stagtemperatur](media/brace-temp-rule.png)
 
 ### <a name="devices"></a>Enheter
 
-Klicka på fliken **enheter** och välj sedan en instans av den **smarta Knee-klammern**. Du ser att det finns tre vyer för att utforska information om den specifika enhet som du har valt. Dessa vyer skapas och publiceras när du skapar enhets mal len för enheten, vilket innebär att de kommer att vara konsekventa över alla enheter som du ansluter eller simulerar.
+Klicka på fliken **Enheter** och välj sedan en förekomst av **smart knästöd**. Du kommer att se att det finns tre vyer för att utforska information om den enhet som du har valt. Dessa vyer skapas och publiceras när du skapar enhetsmallen för enheten, vilket innebär att de är konsekventa på alla enheter som du ansluter eller simulerar.
 
-I vyn **instrument panel** får du en översikt över telemetri och egenskaper som kommer från den enhet som är inriktad på operatör.
+**Instrumentpanelsvyn** ger en översikt över telemetri och egenskaper som kommer från enheten som är operatörsorienterad.
 
-På fliken **Egenskaper** kan du redigera moln egenskaper och egenskaper för läsa/skriva enhet.
+På fliken **Egenskaper** kan du redigera molnegenskaper och läsa/skriva enhetsegenskaper.
 
-På fliken **kommandon** kan du köra kommandon som har modeller ATS som en del av din enhets mall.
+På fliken **Kommandon** kan du köra kommandon som har modellerats som en del av enhetsmallen.
 
 >[!div class="mx-imgBorder"] 
->![Knee klammerparentes](media/knee-brace-dashboard.png)
+>![Knästödsvyer](media/knee-brace-dashboard.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte kommer att fortsätta att använda det här programmet kan du ta bort programmet genom att gå till **Administration > program inställningar** och klicka på **ta bort**.
+Om du inte ska fortsätta att använda det här programmet tar du bort programmet genom att besöka **Administration > Programinställningar och** klicka på Ta **bort**.
 
 >[!div class="mx-imgBorder"] 
->![ta bort app](media/admin-delete.png)
+>![Ta bort app](media/admin-delete.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gå vidare till nästa artikel om du vill lära dig hur du skapar en instrument panel för provider som ansluter till ditt IoT Central-program.
+Gå vidare till nästa artikel om du vill lära dig hur du skapar en instrumentpanel för leverantörer som ansluter till ditt IoT Central-program.
 
 > [!div class="nextstepaction"]
-> [Bygg en instrument panel för Provider](howto-health-data-triage.md)
+> [Skapa en instrumentpanel för en leverantör](howto-health-data-triage.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Migrera händelse data till SQL Data Warehouse – Azure Event Hubs'
-description: 'Självstudie: den här själv studie kursen visar hur du samlar in data från din händelsehubben till ett SQL Data Warehouse med hjälp av en Azure-funktion som utlöses av ett event Grid.'
+title: 'Självstudiekurs: Migrera händelsedata till SQL Data Warehouse - Azure Event Hubs'
+description: 'Självstudiekurs: Den här självstudien visar hur du samlar in data från händelsehubben i ett SQL-informationslager med hjälp av en Azure-funktion som utlöses av ett händelserutnät.'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: ''
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.date: 01/15/2020
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 43668fe1f465a5db74e63b8b1c1ae6cb328d2092
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 28fa9dddda94845511ead7d8fb7481aff6b6b044
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77914134"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80130852"
 ---
-# <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Självstudie: Migrera insamlade Event Hubs data till en SQL Data Warehouse med Event Grid och Azure Functions
+# <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Självstudiekurs: Migrera hämtade händelsehubbar data till ett SQL Data Warehouse med eventrutnät och Azure-funktioner
 
 Event Hubs [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) är det enklaste sättet att automatiskt leverera strömmade data i Event Hubs till Azure Blob-lagring eller Azure Data Lake-lagring. Du kan sedan bearbeta och leverera data till andra lagringsmål, som SQL Data Warehouse eller Cosmos DB. I den här självstudien lär du dig att samla in data från din händelsehubb till ett SQL Data Warehouse med en Azure-funktion som utlöses av ett [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) (händelserutnät).
 
@@ -26,7 +26,7 @@ Event Hubs [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capt
 *   Sedan skapar du en Azure Event Grid-prenumeration med Event Hubs-namnområdet som källa och Azure Function-slutpunkten som mål.
 *   När en ny Avro-fil skickas till blob-lagring i Azure Storage av funktionen Event Hubs Capture, meddelar Event Grid blob-lagringens URI till Azure Function. Därefter migreras data av Function från blob-lagringen till ett SQL Data Warehouse.
 
-I de här självstudierna gör du följande: 
+I den här självstudien gör du följande: 
 
 > [!div class="checklist"]
 > * Distribuera infrastrukturen
@@ -35,16 +35,16 @@ I de här självstudierna gör du följande:
 > * Strömma exempeldata till Event Hub. 
 > * Verifiera insamlade data i SQL Data Warehouse
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 - [Visual studio 2019](https://www.visualstudio.com/vs/). Vid installationen kontrollerar du att du installerar följande arbetsbelastningar: .NET-skrivbordsutveckling, Azure-utveckling, ASP.NET- och webbutveckling, Node.js-utveckling och Python-utveckling
-- Hämta [git-exemplet](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/EventHubsCaptureEventGridDemo) som exempel lösningen innehåller följande komponenter:
+- Hämta [Git-exemplet](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/EventHubsCaptureEventGridDemo) Exempellösningen innehåller följande komponenter:
     - *WindTurbineDataGenerator* – en enkel utgivare som skickar exempeldata från en vindturbin till en Capture-aktiverad händelsehubb
     - *FunctionDWDumper* – en Azure-funktion som tar emot ett Event Grid-meddelande när en Avro-fil hämtas till blob-lagring i Azure Storage. Den tar emot blobbens URI-sökväg, läser innehållet och skickar data till ett SQL Data Warehouse.
 
-    Det här exemplet använder det senaste Azure. Messaging. EventHubs-paketet. Du kan hitta det gamla exemplet som använder Microsoft. Azure. EventHubs-paketet [här](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo). 
+    Det här exemplet använder det senaste Azure.Messaging.EventHubs-paketet. Du hittar det gamla exemplet som använder Paketet Microsoft.Azure.EventHubs [här](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo). 
 
 ### <a name="deploy-the-infrastructure"></a>Distribuera infrastrukturen
 Använd Azure PowerShell eller Azure CLI för att distribuera den infrastruktur som behövs för den här självstudien med hjälp av den här [Azure Resource Manager-mallen](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json). Den här mallen skapar följande resurser:
@@ -93,7 +93,7 @@ New-AzResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri ht
 
 
 ### <a name="create-a-table-in-sql-data-warehouse"></a>Skapa en tabell i SQL Data Warehouse 
-Skapa en tabell i SQL-informationslagret genom att köra skriptet [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) med [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md), [SQL Server Management Studio](../sql-data-warehouse/sql-data-warehouse-query-ssms.md) eller Frågeredigeraren i portalen. 
+Skapa en tabell i SQL-informationslagret genom att köra skriptet [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) med [Visual Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-visual-studio.md), [SQL Server Management Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-ssms.md) eller Frågeredigeraren i portalen. 
 
 ```sql
 CREATE TABLE [dbo].[Fact_WindTurbineMetrics] (
@@ -108,7 +108,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 ## <a name="publish-code-to-the-functions-app"></a>Publicera kod till Functions-appen
 
-1. Öppna lösningen *EventHubsCaptureEventGridDemo. SLN* i Visual Studio 2019.
+1. Öppna lösningen *EventHubsCaptureEventGridDemo.sln* i Visual Studio 2019.
 
 1. Högerklicka på *FunctionEGDWDumper* i Solution Explorer och välj **Publicera**.
 
@@ -158,7 +158,7 @@ Nu har du konfigurerat Event Hub, SQL-informationslagret, Azure-funktionsappen o
 
    ![Välj nyckel](./media/store-captured-data-data-warehouse/show-root-key.png)
 
-3. Kopiera **Anslutningssträng – primär nyckel**
+3. Kopiera **anslutningssträng - primärnyckel**
 
    ![Kopiera nyckel](./media/store-captured-data-data-warehouse/copy-key.png)
 

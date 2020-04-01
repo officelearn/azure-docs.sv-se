@@ -9,12 +9,12 @@ author: peterclu
 ms.author: peterclu
 ms.date: 03/12/2020
 ms.openlocfilehash: 900eea5b7807b718274690bc34a32213bfe7ea7c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79204075"
 ---
 > [!NOTE]
-> Funktionen Notebooks (för hands version) i Studio (klassisk) stängs av den 13 april 2020. Efter april-13 tas fliken antecknings böcker bort tillsammans med eventuella sparade antecknings böcker. Anvisningar om hur du kan hämta dina antecknings böcker finns i [den här artikeln](../articles/machine-learning/studio/download-notebooks-data.md).
+> Funktionen Anteckningsböcker (förhandsversion) i Studio (klassisk) stängs av den 13 april 2020. Efter den 13 april tas fliken Anteckningsböcker bort tillsammans med alla sparade anteckningsböcker. Instruktioner om hur du kan hämta dina anteckningsböcker finns i [den här artikeln](../articles/machine-learning/studio/download-notebooks-data.md).
       

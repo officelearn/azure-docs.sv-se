@@ -1,20 +1,20 @@
 ---
-title: Lista över inbyggda princip definitioner
-description: Visa en lista över inbyggda princip definitioner för Azure Policy. Kategorierna omfattar taggar, regelefterlevnad, Key Vault, Kubernetes, gäst konfiguration och mycket annat.
+title: Lista över inbyggda principdefinitioner
+description: Lista inbyggda principdefinitioner för Azure Policy. Kategorier inkluderar taggar, regelefterlevnad, Nyckelvalv, Kubernetes, Gästkonfiguration med mera.
 ms.date: 02/15/2020
 ms.topic: sample
 ms.openlocfilehash: 06c913bdccd8b35970a195f6ee658ce7b1d97a7b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239744"
 ---
-# <a name="azure-policy-built-in-policy-definitions"></a>Azure Policy inbyggda princip definitioner
+# <a name="azure-policy-built-in-policy-definitions"></a>Azure Princip inbyggda principdefinitioner
 
-Den här sidan är ett index över Azure Policy inbyggda princip definitioner.
+Den här sidan är ett index över azure-princip inbyggda principdefinitioner.
 
-Namnet på de inbyggda länkarna till princip definitionen i Azure Portal. Använd länken i kolumnen **källa** för att visa källan på [Azure policy GitHub-lagrings platsen](https://github.com/Azure/azure-policy). De inbyggda programmen grupperas efter egenskapen **Category** i **metadata**. Om du vill gå till en viss **kategori**använder du menyn på höger sida av sidan. Annars använder du <kbd>Ctrl</kbd>-<kbd>F</kbd> för att använda webbläsarens Sök funktion.
+Namnet på varje inbyggd länkar till principdefinitionen i Azure-portalen. Använd länken i kolumnen **Källa** för att visa källan på [Azure Policy GitHub repo](https://github.com/Azure/azure-policy). De inbyggda grupperas efter kategoriegenskapen i **metadata**. **category** Om du vill gå till en viss **kategori**använder du menyn till höger på sidan. Annars använder du <kbd>Ctrl</kbd>-<kbd>F</kbd> för att använda webbläsarens sökfunktion.
 
 [!INCLUDE [azure-policy-samples-policies-index](../../../../includes/azure-policy-samples-policies-index.md)]
 

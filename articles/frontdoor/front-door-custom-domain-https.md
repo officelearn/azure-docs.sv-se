@@ -1,6 +1,6 @@
 ---
-title: Självstudie – Konfigurera HTTPS på en anpassad domän för Azure Front Door Service | Microsoft Docs
-description: I den här kursen får du lära dig hur du aktiverar och inaktiverar HTTPS på din Azure Front Door Service-konfiguration för en anpassad domän.
+title: Självstudiekurs - Konfigurera HTTPS på en anpassad domän för Azure Front Door | Microsoft-dokument
+description: I den här självstudien får du lära dig hur du aktiverar och inaktiverar HTTPS på din Azure Front Door-konfiguration för en anpassad domän.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 40ec859802da2f00154e750ea717da3da0f46568
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: fae4206e555c85fe0555ce1c4366cd57dd386f1e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512886"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79471837"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Självstudiekurs: Konfigurera HTTPS på en anpassad Front Door-domän
 
 Den här självstudien visar hur du aktiverar HTTPS-protokollet för en anpassad domän som är associerad med din Front Door i avsnittet om klientdelsvärdar. Med HTTPS-protokollet på din anpassade domän (till exempel https:\//www.contoso.com) ser du till att dina känsliga data levereras på ett säkert sätt via TLS-/SSL-kryptering när de skickas över Internet. När webbläsaren är ansluten till en webbplats via HTTPS valideras webbplatsens säkerhetscertifikat och verifierar att det är utfärdat av en giltig certifikatutfärdare. Den här processen ger trygghet och skyddar dina webbprogram mot attacker.
 
-Azure Front Door Service stöder HTTPS på ett Front Door-standardvärdnamn, som standard. Om du till exempel skapar en Front Door (såsom https:\//contoso.azurefd.net) aktiveras HTTPS automatiskt för begäranden som görs till https://contoso.azurefd.net. Men när du publicerar den anpassade domänen ”www.contoso.com” behöver du dessutom aktivera HTTPS för den här klientdelsvärden.   
+Azure Front Door stöder HTTPS på ett standardvärdnamn för ytterdörren som standard. Om du till exempel skapar en Front Door (såsom https:\//contoso.azurefd.net) aktiveras HTTPS automatiskt för begäranden som görs till https://contoso.azurefd.net. Men när du publicerar den anpassade domänen ”www.contoso.com” behöver du dessutom aktivera HTTPS för den här klientdelsvärden.   
 
 Några viktiga attribut i den anpassade HTTPS-funktionen är:
 
@@ -50,12 +50,12 @@ Innan du kan slutföra stegen i den här kursen måste du först skapa en Front 
 
 ## <a name="ssl-certificates"></a>SSL-certifikat
 
-Om du vill aktivera protokollet HTTPS för säker leverans av innehåll i en anpassad Front Door-domän måste du använda ett SSL-certifikat. Du kan välja att använda ett certifikat som hanteras av Azure Front Door Service eller använda ett eget certifikat.
+Om du vill aktivera protokollet HTTPS för säker leverans av innehåll i en anpassad Front Door-domän måste du använda ett SSL-certifikat. Du kan välja att använda ett certifikat som hanteras av Azure Front Door eller använda ditt eget certifikat.
 
 
 ### <a name="option-1-default-use-a-certificate-managed-by-front-door"></a>Alternativ 1 (standard): Använd ett certifikat som hanteras av Front Door
 
-När du använder ett certifikat som hanteras av Azure Front Door Service kan du aktivera HTTPS med några få klick. Azure Front Door Service hanterar alla certifikathanteringsuppgifter, till exempel anskaffning och förnyelse. När du har aktiverat funktionen startar processen omedelbart. Om den anpassade domänen redan har mappats till klientdelsstandardvärden för Front Door (`{hostname}.azurefd.net`) krävs ingen ytterligare åtgärd. Front Door behandlar stegen och slutför din begäran automatiskt. Men om din anpassade domän mappas någon annanstans, måste du använda e-post för att verifiera att du äger domänen.
+När du använder ett certifikat som hanteras av Azure Front Door kan HTTPS-funktionen aktiveras med bara några klick. Azure Front Door hanterar helt certifikathanteringsuppgifter som upphandling och förnyelse. När du har aktiverat funktionen startar processen omedelbart. Om den anpassade domänen redan har mappats till klientdelsstandardvärden för Front Door (`{hostname}.azurefd.net`) krävs ingen ytterligare åtgärd. Front Door behandlar stegen och slutför din begäran automatiskt. Men om din anpassade domän mappas någon annanstans, måste du använda e-post för att verifiera att du äger domänen.
 
 Följ dessa steg om du vill aktivera HTTPS på en anpassad domän:
 
@@ -72,26 +72,26 @@ Följ dessa steg om du vill aktivera HTTPS på en anpassad domän:
 
 ### <a name="option-2-use-your-own-certificate"></a>Alternativ 2: Använda ditt eget certifikat
 
-Du kan använda ditt eget certifikat för att aktivera HTTPS. Detta görs via en integrering med Azure Key Vault där du kan lagra certifikaten säkert. Azure Front Door Service använder denna säkerhetsmekanism för att hämta certifikatet, och det krävs några ytterligare steg. När du skapar ett SSL-certifikat måste du skapa det med en tillåten certifikatutfärdare (CA). Om du använder en icke-tillåten certifikatutfärdare kan din begäran avvisas. En lista över tillåtna certifikatutfärdare finns i [Allowed certificate authorities for enabling custom HTTPS on Azure Front Door Service](front-door-troubleshoot-allowed-ca.md) (Tillåtna certifikatutfärdare för att aktivera anpassad HTTPS på Azure Front Door Service).
+Du kan använda ditt eget certifikat för att aktivera HTTPS. Detta görs via en integrering med Azure Key Vault där du kan lagra certifikaten säkert. Azure Front Door använder den här säkra mekanismen för att hämta ditt certifikat och det kräver några ytterligare steg. När du skapar ett SSL-certifikat måste du skapa det med en tillåten certifikatutfärdare (CA). Om du använder en icke-tillåten certifikatutfärdare kan din begäran avvisas. En lista över tillåtna certifikatutfärdare finns i [Tillåtna certifikatutfärdare för att aktivera anpassad HTTPS på Azure Front Door](front-door-troubleshoot-allowed-ca.md).
 
 #### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Förbered ditt Azure Key Vault-konto och certifikat
  
 1. Azure Key Vault: Du måste ha ett aktivt Azure Key Vault-konto under samma prenumeration som den Front Door där du vill aktivera anpassad HTTPS. Skapa ett Azure Key Vault-konto om du inte redan har ett.
 
 > [!WARNING]
-> Azures frontend-tjänst har för närvarande endast stöd för Key Vault konton i samma prenumeration som konfigurationen av den främre dörren. Om du väljer ett Key Vault under en annan prenumeration än din Front Door inträffar ett fel.
+> Azure Front Door stöder för närvarande endast Key Vault-konton i samma prenumeration som front door-konfigurationen. Om du väljer ett Key Vault under en annan prenumeration än din Front Door inträffar ett fel.
 
-2. Azure Key Vault-certifikat: Om du redan har ett certifikat kan du ladda upp det direkt till ditt Azure Key Vault-konto. Du kan också skapa ett nytt certifikat direkt via Azure Key Vault från en av partnercertifikatutfärdarna som Azure Key Vault integreras med. Ladda upp certifikatet som ett **certifikat** objekt, i stället för en **hemlighet**.
-
-> [!IMPORTANT]
-> Du måste överföra certifikatet i PFX-format **utan** lösen ords skydd.
-
-#### <a name="register-azure-front-door-service"></a>Registrera Azure Front Door Service
-
-Registrera tjänstens huvudnamn för Azure Front Door Service som en app i din Azure Active Directory via PowerShell.
+2. Azure Key Vault-certifikat: Om du redan har ett certifikat kan du ladda upp det direkt till ditt Azure Key Vault-konto. Du kan också skapa ett nytt certifikat direkt via Azure Key Vault från en av partnercertifikatutfärdarna som Azure Key Vault integreras med. Ladda upp certifikatet som ett **certifikatobjekt** i stället för ett **hemligt**.
 
 > [!NOTE]
-> Den här åtgärden kräver globala administratörs behörigheter och behöver bara utföras **en gång** per klient.
+> För ditt eget SSL-certifikat stöder Ytterdörren inte certifikat med EC-krypteringsalgoritmer.
+
+#### <a name="register-azure-front-door"></a>Registrera Azure ytterdörr
+
+Registrera tjänstens huvudnamn för Azure Front Door som en app i din Azure Active Directory via PowerShell.
+
+> [!NOTE]
+> Den här åtgärden kräver globala administratörsbehörigheter och behöver endast utföras **en gång** per klient.
 
 1. Om det behövs installerar du [Azure PowerShell](/powershell/azure/install-az-ps) i PowerShell på den lokala datorn.
 
@@ -99,23 +99,23 @@ Registrera tjänstens huvudnamn för Azure Front Door Service som en app i din A
 
      `New-AzADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
 
-#### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>Bevilja Azure Front Door Service åtkomst till ditt nyckelvalv
+#### <a name="grant-azure-front-door-access-to-your-key-vault"></a>Bevilja Azure Front Door åtkomst till ditt nyckelvalv
  
-Ge Azures tjänst för front dörr behörighet att komma åt certifikaten i ditt Azure Key Vault-konto.
+Bevilja Azure Front Door-behörighet att komma åt certifikaten i ditt Azure Key Vault-konto.
 
 1. I nyckelvalvskonto under INSTÄLLNINGAR väljer du **Åtkomstprinciper** och sedan **Lägg till nytt** för att skapa en ny princip.
 
-2. I **Välj huvudkonto** söker du efter **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037** och väljer **Microsoft.Azure.Frontdoor**. Klicka på **Välj**.
+2. I **Välj huvudkonto** söker du efter **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037** och väljer **Microsoft.Azure.Frontdoor**. Klicka på **Markera**.
 
-3. I **hemliga behörigheter**väljer du **Hämta** för att tillåta front dörr att hämta certifikatet.
+3. I **Hemliga behörigheter**väljer du **Hämta** för att tillåta ytterdörren att hämta certifikatet.
 
-4. I **certifikat behörigheter**väljer du **Hämta** för att tillåta front dörren att hämta certifikatet.
+4. I **Certifikatbehörigheter**väljer du **Hämta** för att tillåta ytterdörren att hämta certifikatet.
 
 5. Välj **OK**. 
 
-    Azure frontend-tjänsten kan nu komma åt den här Key Vault och de certifikat som lagras i den här Key Vault.
+    Azure Front Door kan nu komma åt det här nyckelvalvet och certifikaten som lagras i det här nyckelvalvet.
  
-#### <a name="select-the-certificate-for-azure-front-door-service-to-deploy"></a>Välj det certifikat som Azure Front Door Service ska distribuera
+#### <a name="select-the-certificate-for-azure-front-door-to-deploy"></a>Välj certifikat för Azure Front Door att distribuera
  
 1. Gå tillbaka till din Front Door i portalen. 
 
@@ -125,9 +125,9 @@ Ge Azures tjänst för front dörr behörighet att komma åt certifikaten i ditt
 
 3. Under Certifikathanteringstyp väljer du **Använd mitt eget certifikat**. 
 
-4. Azure Front Door Service kräver att prenumerationen för Key Vault-kontot är densamma som för Front Door. Välj nyckelvalv, certifikat (hemlighet) och certifikatversion.
+4. Azure Front Door kräver att prenumerationen på Key Vault-kontot är densamma som för din ytterdörr. Välj nyckelvalv, certifikat (hemlighet) och certifikatversion.
 
-    Azure Front Door Service visar följande information: 
+    I Azure Front Door visas följande information: 
     - Nyckelvalvskonton för ditt prenumerations-ID. 
     - Certifikaten (hemligheterna) i det valda nyckelvalvet. 
     - Tillgängliga certifikatversioner. 
@@ -153,7 +153,7 @@ CNAME-posten ska ha följande format, där *Namn* är namnet på ditt anpassade 
 
 Mer information om CNAME-poster finns i [Skapa CNAME DNS-posten](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
 
-Om din CNAME-post har rätt format verifierar DigiCert automatiskt det anpassade domännamnet och skapar ett dedikerat certifikat för domännamnet. DigitCert skickar ingen bekräftelse via e-post och du behöver inte godkänna din begäran. Certifikatet är giltigt i ett år och förnyas automatiskt innan det upphör att gälla. Gå vidare till [Vänta på spridning](#wait-for-propagation). 
+Om din CNAME-post har rätt format verifierar DigiCert automatiskt det anpassade domännamnet och skapar ett dedikerat certifikat för domännamnet. DigitCert skickar ingen bekräftelse via e-post och du behöver inte godkänna din begäran. Certifikatet är giltigt i ett år och kommer att förnyas automatiskt innan det upphör att gälla. Gå vidare till [Vänta på spridning](#wait-for-propagation). 
 
 Den automatiska verifieringen tar vanligtvis några minuter. Öppna ett supportärende om domänen inte har verifierats inom en timme.
 
@@ -176,7 +176,7 @@ webmaster@&lt;dittdomännamn.com&gt;
 hostmaster@&lt;dittdomännamn.com&gt;  
 postmaster@&lt;dittdomännamn.com&gt;  
 
-Inom ett par minuter får du ett e-postmeddelande som ser ut ungefär som i följande exempel och som ber dig godkänna begäran. Om du använder ett skräp post filter lägger du till admin@digicert.com i listan över tillåtna. Kontakta Microsoft-supporten om du inte får ett e-postmeddelande inom 24 timmar.
+Inom ett par minuter får du ett e-postmeddelande som ser ut ungefär som i följande exempel och som ber dig godkänna begäran. Om du använder ett skräppostfilter lägger du admin@digicert.com till listan över tillåta. Kontakta Microsoft-supporten om du inte får ett e-postmeddelande inom 24 timmar.
 
 När du klickar på godkännandelänken dirigeras du till ett formulär för godkännande online. Följ instruktionerna i formuläret. Du har två verifieringsalternativ:
 
@@ -184,7 +184,7 @@ När du klickar på godkännandelänken dirigeras du till ett formulär för god
 
 - Du kan bara godkänna det specifika värdnamn som används i den här begäran. Ytterligare godkännande krävs för efterföljande begäranden.
 
-Efter godkännandet slutför DigiCert skapandet av certifikatet för det anpassade domännamnet. Certifikatet är giltigt i ett år och förnyas automatiskt innan det upphör att gälla.
+Efter godkännandet slutför DigiCert skapandet av certifikatet för det anpassade domännamnet. Certifikatet är giltigt i ett år och förnyas automatiskt innan det har gått ut.
 
 ## <a name="wait-for-propagation"></a>Vänta på spridning
 
@@ -224,7 +224,7 @@ I föregående steg aktiverade du HTTPS-protokollet på en anpassad domän. Om d
 
 ### <a name="disable-the-https-feature"></a>Inaktivera HTTPS-funktionen 
 
-1. I [Azure-portalen](https://portal.azure.com) bläddrar du till din **Azure Front Door Service**-konfiguration.
+1. I [Azure-portalen](https://portal.azure.com)bläddrar du till din **Azure Front Door-konfiguration.**
 
 2. I listan över klientdelsvärdar klickar du på den anpassade domänen som du vill inaktivera HTTPS för.
 
@@ -244,15 +244,15 @@ I följande tabell visas åtgärdsförloppet när du inaktiverar HTTPS. När du 
 | 2 Avetablering av certifikat | Tar bort certifikat |
 | 3 Slutfört | Certifikatet har tagits bort |
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 1. *Vem är certifikatleverantör och vilken typ av certifikat används?*
 
     Ett dedikerat/enskilt certifikat som tillhandahålls av Digicert används för din anpassade domän. 
 
-2. *Använder du IP- eller SNI-baserad TLS/SSL?*
+2. *Använder du IP-baserad eller SNI-baserad TLS/SSL?*
 
-    Azure Front Door Service använder SNI TLS/SSL.
+    Azure Front Door använder SNI TLS/SSL.
 
 3. *Vad händer om jag inte får domänverifieringsmeddelandet från DigiCert?*
 
@@ -269,5 +269,5 @@ I följande tabell visas åtgärdsförloppet när du inaktiverar HTTPS. När du 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig att [skapa en Front Door](quickstart-create-front-door.md).
+- Läs hur du [skapar en Front Door](quickstart-create-front-door.md).
 - Läs [hur Front Door fungerar](front-door-routing-architecture.md).

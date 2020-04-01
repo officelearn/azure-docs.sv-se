@@ -1,6 +1,6 @@
 ---
 title: Exempel på Azure CLI-skript – Lägga till ett program i Batch
-description: Det här exempel skriptet visar hur du lägger till ett program som ska användas med en Azure Batch-pool eller en aktivitet.
+description: Det här exempelskriptet visar hur du lägger till ett program som kan användas med en Azure Batch-pool eller en uppgift.
 services: batch
 documentationcenter: ''
 author: LauraBrenner
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: labrenne
 ms.openlocfilehash: b19f5dbe27ba0ecabdca6557e4e8e1996fbef78a
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77017130"
 ---
 # <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>CLI-exempel: Lägga till ett program i ett Azure Batch-konto

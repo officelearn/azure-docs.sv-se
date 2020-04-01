@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: skapa en Azure DNS Ali Aset-post för att referera till en offentlig Azure-IP-adress'
+title: 'Självstudiekurs: Skapa en Azure DNS-aliaspost för att referera till en offentlig Azure-IP-adress'
 description: Den här självstudien visar hur du konfigurerar en Azure DNS-aliaspost för att referera till en offentlig IP-adress i Azure.
 services: dns
 author: rohinkoul
@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
 ms.openlocfilehash: d4517314742f3ec8e9968d20745ffb697d96f324
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77149940"
 ---
 # <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Självstudie: Konfigurera en aliaspost för att referera till en offentlig IP-adress i Azure 
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en nätverksinfrastruktur.
@@ -25,9 +25,9 @@ I den här guiden får du lära dig att:
 > * Testa aliasposten.
 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Du måste ha ett domännamn tillgängligt som du kan ha i Azure DNS för att testa med. Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
 
 Anvisningar för att vara värd för din domän i Azure DNS finns i [Självstudie: var värd för din domän i Azure DNS](dns-delegate-domain-azure-dns.md).
@@ -36,16 +36,16 @@ Den exempeldomän som används i den här självstudien är contoso.com, men du 
 
 ## <a name="create-the-network-infrastructure"></a>Skapa nätverksinfrastrukturen
 Skapa först ett virtuellt nätverk och ett undernät för att placera dina webbservrar i.
-1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+1. Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
 2. Längst upp till vänster i portalen väljer du **Skapa en resurs**. Ange *resursgrupp* i sökrutan och skapa en resursgrupp med namnet **RG-DNS-Alias-pip**.
-3. Välj **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
+3. Välj **Skapa ett virtuellt nätverk för** > **resursnätverk** > **Virtual network**.
 4. Skapa ett virtuellt nätverk med namnet **VNet-Server**. Placera det i resursgruppen **RG-DNS-Alias-pip** och ge undernätet namnet **SN-Web**.
 
 ## <a name="create-a-web-server-virtual-machine"></a>Skapa en virtuell webbserverdator
-1. Välj **Skapa en resurs** > **Windows Server 2016 VM**.
+1. Välj **Skapa en resurs Windows** > **Server 2016 VM**.
 2. Ange **Web-01** som namn och placera den virtuella datorn i resursgruppen **RG-DNS-Alias-TM**. Ange ett användarnamn och ett lösenord, och välj **OK**.
 3. För **Storlek** väljer du en SKU med 8 GB RAM.
-4. Som **Inställningar** väljer du det virtuella nätverket **VNet-Servers** och undernätet **SN-Web**. För offentliga inkommande portar väljer du **HTTP** > **HTTPS** > **RDP (3389)** och sedan **OK**.
+4. Som **Inställningar** väljer du det virtuella nätverket **VNet-Servers** och undernätet **SN-Web**. För inkommande portar för offentliga inkommande portar väljer du **HTTP** > **HTTPS** > **RDP (3389)** och väljer sedan **OK**.
 5. På sidan **Sammanfattning** väljer du **Skapa**.
 
 Den här proceduren tar några minuter att slutföra.
@@ -54,7 +54,7 @@ Den här proceduren tar några minuter att slutföra.
 
 Installera IIS på **Web-01**.
 
-1. Anslut till **Web-01** och logga in.
+1. Anslut till **Web-01**och logga in.
 2. På instrumentpanelen **Serverhanteraren** väljer du **Lägg till roller och funktioner**.
 3. Välj **Nästa** tre gånger. Välj **Webbserver (IIS)** på sidan **Serverroller**.
 4. Välj **Lägg till funktioner** och sedan **Nästa**.
@@ -67,7 +67,7 @@ Installera IIS på **Web-01**.
 Skapa en aliaspost som pekar på den offentliga IP-adressen.
 
 1. Välj din Azure DNS-zon för att öppna zonen.
-2. Välj **Uppsättning av poster**.
+2. Välj **Postuppsättning**.
 3. I textrutan **Namn** väljer du **web01**.
 4. Lämna **Typ** som en **A**-post.
 5. Välj kryssrutan **Aliaspostuppsättning**.

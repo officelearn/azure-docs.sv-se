@@ -1,7 +1,7 @@
 ---
-title: 'Själv studie kurs om bild klassificering: Distribuera modeller'
+title: 'Självstudiekurs för bildklassificering: Distribuera modeller'
 titleSuffix: Azure Machine Learning
-description: Den här självstudien visar hur du använder Azure Machine Learning för att distribuera en bild klassificerings modell med scikit – lära dig i en python Jupyter Notebook. Den här självstudien är den andra delen i en serie med två delar.
+description: Den här självstudien, den andra i en serie i två delar, visar hur du använder Azure Machine Learning för att distribuera en bildklassificeringsmodell med scikit-learn i en Python Jupyter-anteckningsbok.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,17 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 071a8dd40d87e5df6fc5c65b789bb63b515dc60a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 81e02492f7e79b87e1513a910afe4719908adbbb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116498"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80159100"
 ---
-# <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Självstudie: Distribuera en bild klassificerings modell i Azure Container Instances
+# <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Självstudiekurs: Distribuera en avbildningsklassificeringsmodell i Azure Container-instanser
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Självstudien är **del två i en självstudieserie i två delar**. I den [föregående självstudien](tutorial-train-models-with-aml.md) tränade du maskininlärningsmodeller och registrerade sedan en modell på din arbetsyta i molnet.  
-
-Nu är du redo att distribuera modellen som en webbtjänst i [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). En webbtjänst är en avbildning, i det här fallet en Docker-avbildning. Den kapslar in bedömningslogiken och själva modellen. 
+Självstudien är **del två i en självstudieserie i två delar**. I den [föregående självstudien](tutorial-train-models-with-aml.md) tränade du maskininlärningsmodeller och registrerade sedan en modell på din arbetsyta i molnet.  Nu är du redo att distribuera modellen som en webbtjänst. En webbtjänst är en avbildning, i det här fallet en Docker-avbildning. Den kapslar in bedömningslogiken och själva modellen. 
 
 I den här delen av självstudien använder du Azure Machine Learning för följande uppgifter:
 
@@ -36,21 +34,21 @@ I den här delen av självstudien använder du Azure Machine Learning för följ
 Container Instances är en bra lösning för testning och för att förstå arbetsflödet. För skalbara produktionsdistributioner kan du använda Azure Kubernetes Service. Mer information finns i [Hur och var man distribuerar](how-to-deploy-and-where.md).
 
 >[!NOTE]
-> Koden i den här artikeln har testats med Azure Machine Learning SDK-version 1.0.41.
+> Koden i den här artikeln testades med Azure Machine Learning SDK version 1.0.41.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du vill köra antecknings boken börjar du med att slutföra modell utbildningen i [Självstudier (del 1): träna en bild klassificerings modell](tutorial-train-models-with-aml.md).   Öppna sedan antecknings boken *img-klassificering-part2-Deploy. ipynb* i dina klonade *självstudier/data klassificering-mnist-* datamapp.
+Om du vill köra anteckningsboken slutför du först modellutbildningen i [Självstudiekurs (del 1): Träna en bildklassificeringsmodell](tutorial-train-models-with-aml.md).   Öppna sedan anteckningsboken *img-classification-part2-deploy.ipynb* i den klonade *självstudien/bildklassificeringsmappen mnist-data.*
 
-Den här själv studie kursen finns också på [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) om du vill använda den i din egen [lokala miljö](how-to-configure-environment.md#local).  Kontrol lera att du har installerat `matplotlib` och `scikit-learn` i din miljö. 
+Den här självstudien är också tillgänglig på [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) om du vill använda den på din egen [lokala miljö](how-to-configure-environment.md#local).  Kontrollera att du `matplotlib` `scikit-learn` har installerat och i din miljö. 
 
 > [!Important]
-> Resten av den här artikeln innehåller samma innehåll som du ser i antecknings boken.  
+> Resten av den här artikeln innehåller samma innehåll som du ser i anteckningsboken.  
 >
-> Växla till antecknings boken för Jupyter nu om du vill läsa den samtidigt som du kör koden.
-> Om du vill köra en enda kod cell i en bärbar dator klickar du på cellen kod och trycker på **SKIFT + RETUR**. Du kan också köra hela antecknings boken genom att välja **Kör alla** från det översta verktygsfältet.
+> Växla till Jupyter-anteckningsboken nu om du vill läsa tillsammans när du kör koden.
+> Om du vill köra en en enda kodcell i en anteckningsbok klickar du på kodcellen och trycker på **Skift+Retur**. Du kan också köra hela anteckningsboken genom att välja **Kör alla** i det övre verktygsfältet.
 
-## <a name="start"></a>Konfigurera miljön
+## <a name="set-up-the-environment"></a><a name="start"></a>Konfigurera miljön
 
 Börja med att konfigurera en testmiljö.
 
@@ -227,7 +225,7 @@ def run(raw_data):
 
 ### <a name="create-environment-file"></a>Skapa en miljöfil
 
-Därefter skapar du en miljöfil med namnet **myenv.yml**, som anger alla skriptets paketberoenden. Filen används för att säkerställa att alla dessa beroenden är installerade i Docker-avbildningen. Modellen måste innehålla `scikit-learn` och `azureml-sdk`. Alla anpassade miljöfiler måste ange azureml-defaults med version > = 1.0.45 som ett pip-beroende. Det här paketet innehåller de funktioner som krävs för att vara värd för modellen som en webb tjänst.
+Därefter skapar du en miljöfil med namnet **myenv.yml**, som anger alla skriptets paketberoenden. Filen används för att säkerställa att alla dessa beroenden är installerade i Docker-avbildningen. Modellen måste innehålla `scikit-learn` och `azureml-sdk`. Alla anpassade miljöfiler måste lista azureml-defaults med verion >= 1.0.45 som ett pipberoende. Det här paketet innehåller de funktioner som behövs för att vara värd för modellen som en webbtjänst.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies
@@ -274,7 +272,7 @@ Konfigurera avbildningen och distribuera. Följande kod går igenom de här steg
 1. Starta en container i Container Instances genom att använda avbildningen.
 1. Hämta webbtjänstens HTTP-slutpunkt.
 
-Observera att om du definierar en egen miljö fil måste du ange azureml-defaults med version > = 1.0.45 som ett pip-beroende. Det här paketet innehåller de funktioner som krävs för att vara värd för modellen som en webb tjänst.
+Observera att om du definierar din egen miljöfil måste du ange azureml-standardvärden med version >= 1.0.45 som pipberoende. Det här paketet innehåller de funktioner som behövs för att vara värd för modellen som en webbtjänst.
 
 ```python
 %%time
@@ -299,7 +297,6 @@ Hämta bedömningswebbtjänstens HTTP-slutpunkt, som accepterar REST-klientanrop
 ```python
 print(service.scoring_uri)
 ```
-
 
 ## <a name="test-the-deployed-service"></a>Testa den distribuerade tjänsten
 
@@ -387,7 +384,7 @@ service.delete()
 
 ## <a name="next-steps"></a>Nästa steg
 
-+ Lär dig mer om alla [distributions alternativ för Azure Machine Learning](how-to-deploy-and-where.md).
++ Lär dig mer om alla [distributionsalternativ för Azure Machine Learning](how-to-deploy-and-where.md).
 + Lär dig att [skapa klienter för webbtjänsten](how-to-consume-web-service.md).
 +  [Göra förutsägelser kring stora mängder data](how-to-use-parallel-run-step.md) asynkront.
 + Övervaka dina Azure Machine Learning-modeller med [Application Insights](how-to-enable-app-insights.md).

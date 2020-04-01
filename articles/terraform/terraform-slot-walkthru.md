@@ -1,23 +1,23 @@
 ---
-title: Självstudie – etablera infrastruktur med Azures distributions fack med terraform
-description: I den här självstudien använder du terraform med distributions platser för Azure Provider
-keywords: distributions platser för Azure DevOps terraform
+title: Självstudiekurs - Etablera infrastruktur med Azure-distributionsplatser med Terraform
+description: I den här självstudien använder du Terraform med Distributionsplatser för Azure-provider
+keywords: azure devops terraform distributionsplatser
 ms.topic: tutorial
 ms.date: 03/09/2020
 ms.openlocfilehash: ddd4d84ee8bf4ab1e90dd68da185cdd9075fe1e0
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78943493"
 ---
-# <a name="tutorial-provision-infrastructure-with-azure-deployment-slots-using-terraform"></a>Självstudie: etablera infrastruktur med Azure-distributions platser med terraform
+# <a name="tutorial-provision-infrastructure-with-azure-deployment-slots-using-terraform"></a>Självstudiekurs: Etablera infrastruktur med Azure-distributionsplatser med Terraform
 
 Du kan använda [distributionsfack för Terraform](/azure/app-service/deploy-staging-slots) för att växla mellan olika versioner av din app. Den möjligheten hjälper dig minimera effekten av brutna distributioner. 
 
-I den här artikeln visas ett exempel på hur du kan använda distributionsfack genom att guida dig genom distributionen av två appar via GitHub och Azure. En app lagras på produktionsplatsen. Den andra appen lagras på en mellanlagringsplats. (Namnen "produktion" och "mellanlagring" är godtyckliga. De kan vara vad som passar bäst för ditt scenario.) När du har konfigurerat dina distributions platser använder du terraform för att växla mellan de två platserna vid behov.
+I den här artikeln visas ett exempel på hur du kan använda distributionsfack genom att guida dig genom distributionen av två appar via GitHub och Azure. En app lagras på produktionsplatsen. Den andra appen lagras på en mellanlagringsplats. (Namnen "produktion" och "mellanlagring" är godtyckliga. De kan vara vad som är lämpligt för ditt scenario.) När du har konfigurerat distributionsplatserna använder du Terraform för att växla mellan de två platserna efter behov.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
@@ -107,7 +107,7 @@ I den här artikeln visas ett exempel på hur du kan använda distributionsfack 
     }
     ```
 
-1. Spara filen ( **&lt;Ctrl > S**) och avsluta redigeraren ( **&lt;Ctrl > Q**).
+1. Spara filen (**&lt;Ctrl>S**) och avsluta redigeraren (**&lt;Ctrl>Q**).
 
 1. Nu när du har skapat filen kan du kontrollera dess innehåll.
 
@@ -199,7 +199,7 @@ När du har förgrenat testprojektets lagringsplats konfigurerar du distribution
 
 1. På fliken **Distributionsalternativet** väljer du **OK**.
 
-Nu har du distribuerat produktions platsen. Om du vill distribuera mellanlagringsplatsen utför du föregående steg med följande ändringar:
+Nu har du distribuerat produktionsplatsen. Så här distribuerar du mellanlagringsplatsen med följande ändringar:
 
 - I steg 3 väljer du resursen **slotAppServiceSlotOne**.
 
@@ -221,15 +221,15 @@ I föregående avsnitt konfigurerade du två platser – **slotAppService** och 
 
     ![Välj webbadressen på översiktsfliken för att återge appen](./media/terraform-slot-walkthru/resource-url.png)
 
-1. Beroende på vald app visas följande resultat:
-    - **slotAppService** -webbapp – blå sida med en sid rubrik för **plats demonstrations app 1**. 
-    - **slotAppServiceSlotOne** -webbapp – grön sida med en sid rubrik för **plats demonstrations program 2**.
+1. Beroende på vilken app du har valt visas följande resultat:
+    - **slotAppService** webbapp - Blå sida med en sidrubrik **slot Demo App 1**. 
+    - **slotAppServiceSlotOne** webbapp - Grön sida med en sidrubrik **på Slot Demo App 2**.
 
     ![Förhandsgranska apparna för att testa att de har distribuerats korrekt](./media/terraform-slot-walkthru/app-preview.png)
 
 ## <a name="swap-the-two-deployment-slots"></a>Växla mellan de två distributionsfacken
 
-Gör så här för att testa växling av de två distributions platserna:
+Så här testar du att byta ut de två distributionsplatserna:
  
 1. Växla till fliken i webbläsaren med **slotAppService** (appen med den blå sidan). 
 
@@ -268,7 +268,7 @@ Gör så här för att testa växling av de två distributions platserna:
     }
     ```
 
-1. Spara filen ( **&lt;Ctrl > S**) och avsluta redigeraren ( **&lt;Ctrl > Q**).
+1. Spara filen (**&lt;Ctrl>S**) och avsluta redigeraren (**&lt;Ctrl>Q**).
 
 1. Initiera Terraform.
 
@@ -288,7 +288,7 @@ Gör så här för att testa växling av de två distributions platserna:
     terraform apply
     ```
 
-1. Återgå till webbläsaren när terraform har växlat platser. Uppdatera sidan. 
+1. När Terraform har bytt ut kortplatserna går du tillbaka till webbläsaren. Uppdatera sidan. 
 
 Webbappen på mellanlagringsplatsen **slotAppServiceSlotOne** har växlat med produktionsplatsen och återges nu i grönt. 
 
@@ -305,4 +305,4 @@ När appen har växlats visas den ursprungliga konfigurationen.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Lär dig mer om hur du använder terraform i Azure](/azure/terraform)
+> [Läs mer om hur du använder Terraform i Azure](/azure/terraform)

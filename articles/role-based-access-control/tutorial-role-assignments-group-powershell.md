@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: bevilja grupp åtkomst till Azure-resurser med RBAC och Azure PowerShell'
-description: Lär dig hur du beviljar en grupp åtkomst till Azure-resurser med hjälp av rollbaserad åtkomst kontroll (RBAC) och Azure PowerShell i den här självstudien.
+title: 'Självstudiekurs: Bevilja gruppåtkomst till Azure-resurser med RBAC och Azure PowerShell'
+description: Lär dig hur du beviljar en grupp åtkomst till Azure-resurser med hjälp av rollbaserad åtkomstkontroll (RBAC) och Azure PowerShell i den här självstudien.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -14,28 +14,28 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.openlocfilehash: 2f001e781640704cfcee161b3de75b3f4cae1423
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77138244"
 ---
-# <a name="tutorial-grant-a-group-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Självstudie: bevilja en grupp åtkomst till Azure-resurser med RBAC och Azure PowerShell
+# <a name="tutorial-grant-a-group-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Självstudiekurs: Bevilja en grupp åtkomst till Azure-resurser med RBAC och Azure PowerShell
 
-[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är metoden som du använder när du hanterar åtkomst till Azure-resurser. I den här självstudien kommer du at ge en grupp åtkomst för att visa allt i en prenumeration och hantera allt innehåll i en resursgrupp med hjälp av Azure PowerShell.
+[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är det du använder för att hantera åtkomst till Azure-resurser. I den här självstudien kommer du at ge en grupp åtkomst för att visa allt i en prenumeration och hantera allt innehåll i en resursgrupp med hjälp av Azure PowerShell.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Beviljar åtkomst för en grupp med olika omfång
 > * Visar åtkomst
 > * Tar bort åtkomst
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna genomföra den här kursen behöver du följande:
 
@@ -49,7 +49,7 @@ För att skapa åtkomst i RBAC skapar du rolltilldelningar. En rolltilldelning b
 | Säkerhetsobjekt | Rolldefinition | Omfång |
 | --- | --- | --- |
 | Grupp<br>(RBAC-kursgrupp) | [Läsare](built-in-roles.md#reader) | Prenumeration |
-| Grupp<br>(RBAC-kursgrupp)| [Deltagare](built-in-roles.md#contributor) | Resursgrupp<br>(rbac-tutorial-resource-group) |
+| Grupp<br>(RBAC-kursgrupp)| [Deltagare](built-in-roles.md#contributor) | Resursgrupp<br>(rbac-tutorial-resource-user) |
 
    ![Rolltilldelningar för en grupp](./media/tutorial-role-assignments-group-powershell/rbac-role-assignments.png)
 
@@ -70,7 +70,7 @@ Om du vill tilldela en roll behöver du en användare, grupp eller tjänstens hu
    11111111-1111-1111-1111-111111111111 RBAC Tutorial Group
    ```
 
-Om du inte har behörighet att skapa grupper kan du prova [självstudien: ge en användare åtkomst till Azure-resurser med RBAC och Azure PowerShell](tutorial-role-assignments-user-powershell.md) i stället.
+Om du inte har behörighet att skapa grupper kan du prova [självstudien: Bevilja en användare åtkomst till Azure-resurser med RBAC och Azure PowerShell](tutorial-role-assignments-user-powershell.md) i stället.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -237,7 +237,7 @@ Om du vill bevilja åtkomst för gruppen använder du kommandot [New-AzRoleAssig
 
 ## <a name="optional-list-access-using-the-azure-portal"></a>(Valfritt) Visa åtkomst med hjälp av Azure Portal
 
-1. Om du vill se rolltilldelningen i Azure-portalen kan du visa **åtkomstkontroll (IAM)** -bladet för prenumerationen.
+1. Om du vill se rolltilldelningen i Azure-portalen kan du visa **åtkomstkontroll (IAM)**-bladet för prenumerationen.
 
     ![Rolltilldelningar för en grupps prenumerationsomfång](./media/tutorial-role-assignments-group-powershell/role-assignments-subscription.png)
 
@@ -247,7 +247,7 @@ Om du vill bevilja åtkomst för gruppen använder du kommandot [New-AzRoleAssig
 
 ## <a name="remove-access"></a>Tar bort åtkomst
 
-Om du vill ta bort åtkomst för användare, grupper och program använder du [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) för att ta bort en rolltilldelning.
+Ta bort åtkomst för användare, grupper och program med [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) för att ta bort en rolltilldelning.
 
 1. Använd följande kommando för att ta bort rolltilldelningen Deltagare från gruppens resursgruppomfång.
 
@@ -269,7 +269,7 @@ Om du vill ta bort åtkomst för användare, grupper och program använder du [R
 
 Om du vill rensa resurserna som har skapats med den här självstudien kan du ta bort resursgruppen och gruppen.
 
-1. Ta bort resursgruppen med hjälp av kommandot [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
+1. Om du vill ta bort resursgruppen använder du kommandot [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
     ```azurepowershell
     Remove-AzResourceGroup -Name "rbac-tutorial-resource-group"

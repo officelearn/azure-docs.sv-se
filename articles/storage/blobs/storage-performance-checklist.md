@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: e4103f8360f6fa80470b0f8002a61f8ac903bd8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b94725d4d3eb9fd6f13a39d00486b4ab085b9ef9
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255436"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80473945"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Checklista för prestanda och skalbarhet för Blob-lagring
 
@@ -125,7 +125,7 @@ Bandbredd och nätverkslänkens kvalitet spelar viktiga roller i programmets pre
 
 #### <a name="throughput"></a>Dataflöde
 
-För bandbredd är problemet ofta klientens funktioner. Större Azure-instanser har nätverkskort med större kapacitet, så du bör överväga att använda en större instans eller fler virtuella datorer om du behöver högre nätverksgränser från en enda dator. Om du använder Azure Storage från ett lokalt program gäller samma regel: förstå klientenhetens nätverksfunktioner och nätverksanslutningen till Azure Storage-platsen och förbättra dem efter behov eller designa din att arbeta inom deras kapacitet.
+För bandbredd är problemet ofta klientens funktioner. Större Azure-instanser har nätverkskort med större kapacitet, så du bör överväga att använda en större instans eller fler virtuella datorer om du behöver högre nätverksgränser från en enda dator. Om du använder Azure Storage från ett lokalt program gäller samma regel: förstå klientenhetens nätverksfunktioner och nätverksanslutningen till Azure Storage-platsen och antingen förbättra dem efter behov eller utforma ditt program så att det fungerar inom deras funktioner.
 
 #### <a name="link-quality"></a>Länkkvalitet
 
@@ -267,7 +267,7 @@ Om du snabbt vill ladda upp blobbar bestämmer du först om du ska ladda upp en 
 Om du snabbt vill ladda upp en enda stor blob kan ett klientprogram ladda upp sina block eller sidor parallellt, med tanke på skalbarhetsmålen för enskilda blobbar och lagringskontot som helhet. Azure Storage-klientbiblioteken har stöd för att ladda upp parallellt. Du kan till exempel använda följande egenskaper för att ange antalet samtidiga begäranden som tillåts i .NET eller Java. Klientbibliotek för andra språk som stöds ger liknande alternativ.
 
 - För .NET anger du egenskapen [BlobRequestOptions.ParallelOperationThreadCount.](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)
-- För Java/Android anropar du metoden [BlobRequestOptions.setConcurrentRequestCount(final Integer concurrentRequestCount).](/java/api/com.microsoft.azure.storage.blob._blob_request_options.setconcurrentrequestcount)
+- För Java/Android anropar du metoden [BlobRequestOptions.setConcurrentRequestCount(final Integer concurrentRequestCount).](/java/api/com.microsoft.azure.storage.blob.blobrequestoptions.setconcurrentrequestcount)
 
 ### <a name="upload-many-blobs-quickly"></a>Ladda upp många blobbar snabbt
 

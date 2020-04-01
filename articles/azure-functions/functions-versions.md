@@ -3,12 +3,12 @@ title: Översikt över Azure Functions runtime-versioner
 description: Azure Functions stöder flera versioner av körningen. Lär dig skillnaderna mellan dem och hur du väljer den som är rätt för dig.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 21a7b25087efd5d4adf2154c935636c263df9afd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e90752e89be7e381b06f8a87f76f123f0e4a8e3a
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276561"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422486"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Översikt över Azure Functions runtime-versioner
 
@@ -18,7 +18,7 @@ Huvudversionerna av Azure Functions-körningen är relaterade till den version a
 | --------------- | ------------- | ------------ |
 | 3.x | Allmän tillgänglighet (GA) | .NET-kärna 3.1 | 
 | 2.x | Allmän tillgänglighet (GA) | .NET Core 2.2 |
-| 1.x | GA<sup>2 (PÅ ANDRA)</sup> | .NET-ramverket 4,6<sup>3</sup> |
+| 1.x | GA<sup>2 (PÅ ANDRA)</sup> | .NET-ramverket 4.7.2<sup>3</sup> |
 
 <sup>1</sup> GA-versioner stöds för produktionsscenarier.   
 <sup>2</sup> Version 1.x är i underhållsläge. Förbättringar tillhandahålls endast i senare versioner.   

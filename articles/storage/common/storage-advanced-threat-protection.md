@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 02/04/2020
+ms.date: 03/31/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 27860b8761c565c45a604253efdff5f77606606e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 195f4b5057c0e2d644ab44cc4c32e97c8662d36d
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061305"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422787"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Konfigurera avancerat hotskydd för Azure Storage
 
@@ -24,7 +24,7 @@ Avancerat hotskydd för Azure Storage ger ett extra lager av säkerhetsinformati
 Säkerhetsaviseringar utlöses när avvikelser i aktivitet inträffar. Dessa säkerhetsaviseringar är integrerade med [Azure Security Center](https://azure.microsoft.com/services/security-center/)och skickas även via e-post till prenumerationsadministratörer, med information om misstänkt aktivitet och rekommendationer om hur du undersöker och åtgärdar hot.
 
 > [!NOTE]
-> Avancerat hotskydd för Azure Storage är för närvarande endast tillgängligt för Blob-lagring. Den är inte tillgänglig i Azure-myndigheter och suveräna molnregioner. Information om priser, inklusive en kostnadsfri utvärderingsversion på 30 dagar, finns på [prissidan för Azure Security Center]( https://azure.microsoft.com/pricing/details/security-center/).
+> Avancerat hotskydd för Azure Storage är för närvarande endast tillgängligt för Blob-lagring. Den här tjänsten är tillgänglig i amerikanska myndighetsmoln, men inga andra suveräna eller Azure-myndigheters molnregioner. Information om priser, inklusive en kostnadsfri utvärderingsversion på 30 dagar, finns på [prissidan för Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 Avancerat skydd mot hot för Azure Storage intar diagnostikloggar med läs-, skriv- och borttagningsbegäranden till Blob-lagring för hotidentifiering. Om du vill undersöka aviseringarna från avancerat hotskydd kan du visa relaterad lagringsaktivitet med Lagringsanalys. Mer information finns i **Konfigurera loggning** i [Övervaka ett lagringskonto i Azure-portalen](storage-monitor-storage-account.md#configure-logging).
 
@@ -32,7 +32,7 @@ Avancerat skydd mot hot för Azure Storage intar diagnostikloggar med läs-, skr
 
 Du kan konfigurera avancerat hotskydd på något av flera sätt, som beskrivs i följande avsnitt.
 
-### <a name="portal"></a>[Portal](#tab/azure-portal)
+### <a name="portal"></a>[Portalen](#tab/azure-portal)
 
 1. Starta [Azure-portalen](https://portal.azure.com/).
 1. Navigera till ditt Azure Storage-konto. Under **Inställningar**väljer du **Avancerad säkerhet**.
@@ -80,14 +80,14 @@ Använd en Azure-princip för att aktivera avancerat skydd mot hot över lagring
 
     ![Sidan Principdefinitioner](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
-### <a name="rest-api"></a>[REST API](#tab/rest-api)
+### <a name="rest-api"></a>[REST-API](#tab/rest-api)
 
 Använd Rest API-kommandon för att skapa, uppdatera eller hämta den avancerade inställningen för skydd mot hot för ett visst lagringskonto.
 
 * [Avancerat hotskydd - Skapa](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
 * [Avancerat skydd mot hot - Få](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
 
-### <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Använd följande PowerShell-cmdlets:
 

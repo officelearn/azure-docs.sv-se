@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om Azure Migrate-apparat
 description: Få svar på vanliga frågor om Azure Migrate-installationen.
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 2ef7de3b31cb11a71ec9379232fc5ff1022cf666
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a08423637f255b973f52616f53172ef6e48d0804
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336978"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437602"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrera-apparat: Vanliga frågor
 
@@ -94,6 +94,9 @@ Nej. Det finns en 1:1-mappning mellan en [Azure Migrate-installation](migrate-ap
 
 ## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Kan ett Azure Migrate-projekt ha flera enheter?
 Ett projekt kan ha flera apparater anslutna till sig. En apparat kan dock bara associeras med ett projekt. 
+
+## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>Kan Azure Migrate-enheten/replikeringsverktyget ansluta till samma vCenter?
+Ja. Du kan lägga till både Azure Migrate-enheten (används för utvärdering och agentlös VMware-migrering) och replikeringsverktyget (som används för agentbaserad migrering av virtuella datorer med VMware) till samma vCenter-server.
 
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Hur många virtuella datorer eller servrar kan jag upptäcka med en apparat?

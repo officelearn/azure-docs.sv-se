@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Predictix sortimentet planering | Microsoft Docs'
-description: I de här självstudierna lär du dig att konfigurera enkel inloggning mellan Azure Active Directory och Predictix sortimentet planering.
+title: 'Självstudiekurs: Azure Active Directory-integrering med Predictix sortimentsplanering | Microsoft-dokument'
+description: I den här självstudien får du lära dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Predictix Sortimentsplanering.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,95 +16,95 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: bc3ea2f6fddc233a69d96c0c885ab310ed1e77c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67094152"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Självstudier: Azure Active Directory-integrering med Predictix sortimentet planering
+# <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Självstudiekurs: Azure Active Directory-integrering med Predictix-sortimentsplanering
 
-I de här självstudierna lär du dig att integrera Predictix sortimentet planera med Azure Active Directory (AD Azure).
-Den här integrationen har följande fördelar:
+I den här självstudien får du lära dig hur du integrerar Predictix-sortimentsplanering med Azure Active Directory (Azure AD).
+Den här integrationen ger följande fördelar:
 
-* Du kan använda Azure AD för att kontrollera vem som har åtkomst till Predictix sortimentet planera.
-* Du kan aktivera användarna att logga in automatiskt till Predictix sortimentet planera (enkel inloggning) med sina Azure AD-konton.
+* Du kan använda Azure AD för att styra vem som har åtkomst till Predictix Sortimentsplanering.
+* Du kan aktivera dina användare så att de automatiskt loggas in på Predictix Sortimentsplanering (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats: Azure-portalen.
 
 Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Om du inte har någon Azure-prenumeration [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Predictix sortimentet planering, måste du ha:
+Om du vill konfigurera Azure AD-integrering med Predictix sortimentsplanering måste du ha:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
-* En Predictix sortimentet planera prenumeration som har enkel inloggning aktiverat.
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
+* En Predictix Sortimentsplaneringsprenumeration som har enkel inloggning aktiverad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien får du konfigurera och testa Azure AD enkel inloggning i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD enkel inloggning i en testmiljö.
 
-* Planera för Predictix sortimentet stöder SP-initierad SSO.
+* Predictix Sortimentsplanering stöder SP-initierad SSO.
 
-## <a name="add-predictix-assortment-planning-from-the-gallery"></a>Lägg till Predictix sortimentet planera från galleriet
+## <a name="add-predictix-assortment-planning-from-the-gallery"></a>Lägg till Predictix-sortimentsplanering från galleriet
 
-Om du vill konfigurera integrering av Predictix sortimentet planering i Azure AD, som du behöver lägga till Predictix sortimentet planera från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Predictix-sortimentsplanering i Azure AD måste du lägga till Predictix-sortimentsplanering från galleriet i listan över hanterade SaaS-appar.
 
-1. I den [Azure-portalen](https://portal.azure.com), i den vänstra rutan väljer **Azure Active Directory**:
+1. Välj **Azure Active Directory**i [Azure-portalen](https://portal.azure.com)i den vänstra rutan:
 
     ![Välj Azure Active Directory](common/select-azuread.png)
 
-2. Gå till **företagsprogram** > **alla program**:
+2. Gå till **Enterprise-program** > **Alla program:**
 
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Om du vill lägga till ett program, Välj **nytt program** överst i fönstret:
+3. Om du vill lägga till ett program väljer du **Nytt program** högst upp i fönstret:
 
-    ![Välj nytt program](common/add-new-app.png)
+    ![Välj Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger **Predictix sortimentet planera**. Välj **Predictix sortimentet planera** i sökresultatet och välj sedan **Lägg till**.
+4. Ange **Predictix sortimentsplanering i**sökrutan . Välj **Predictix Sortimentsplanering** i sökresultaten och välj sedan **Lägg till**.
 
      ![Sökresultat](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Predictix sortimentet planering med hjälp av en användare med namnet Britta Simon.
-Om du vill aktivera enkel inloggning, måste du upprätta en relation mellan en Azure AD-användare och motsvarande användaren vid planering av Predictix sortimentet.
+I det här avsnittet konfigurerar och testar du Azure AD enkel inloggning med Predictix Sortimentsplanering med hjälp av en testanvändare som heter Britta Simon.
+Om du vill aktivera enkel inloggning måste du upprätta en relation mellan en Azure AD-användare och motsvarande användare i Predictix Sortimentsplanering.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Predictix sortimentet planering, måste du slutföra de här stegen:
+Om du vill konfigurera och testa en enkel Azure AD-inloggning med Predictix-sortimentsplanering måste du utföra följande steg:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  att aktivera funktionen för dina användare.
-2. **[Konfigurera Predictix sortimentet planera enkel inloggning](#configure-predictix-assortment-planning-single-sign-on)**  på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  att testa Azure AD enkel inloggning.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  att aktivera Azure AD enkel inloggning för användaren.
-5. **[Skapa en testanvändare Predictix sortimentet planera](#create-a-predictix-assortment-planning-test-user)**  som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  att kontrollera att konfigurationen fungerar.
+1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)** för att aktivera funktionen för dina användare.
+2. **[Konfigurera enkel inloggning för Predictix-sortimentsplanering på](#configure-predictix-assortment-planning-single-sign-on)** programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** för att testa Azure AD enkel inloggning.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** för att aktivera azure AD-enkel inloggning för användaren.
+5. **[Skapa en Predictix-testanvändare för sortimentsplanering](#create-a-predictix-assortment-planning-test-user)** som är länkad till Azure AD-representationen för användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** för att kontrollera att konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen.
+I det här avsnittet aktiverar du enkel Azure AD-inloggning i Azure-portalen.
 
-Om du vill konfigurera Azure AD enkel inloggning med Predictix sortimentet planering, göra följande:
+Så här konfigurerar du en enkel Azure AD-inloggning med Predictix-sortimentsplanering:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Predictix sortimentet planera** application integration markerar **enkel inloggning**:
+1. Välj [Azure portal](https://portal.azure.com/)Enkel inloggning på sidan Programintegrering av Programmet För **Azure-portalen på**sidan **Programintegrering av Predictix-sortimentsplanering:**
 
-    ![Välj enkel inloggning](common/select-sso.png)
+    ![Välj Enkel inloggning](common/select-sso.png)
 
-2. I den **väljer du en metod för enkel inloggning** dialogrutan **SAML/WS-Fed** läge för att aktivera enkel inloggning:
+2. I dialogrutan **Välj en enda inloggningsmetod** väljer du **SAML/WS-Fed-läge** för att aktivera enkel inloggning:
 
-    ![Välj en metod för enkel inloggning](common/select-saml-option.png)
+    ![Välj en enda inloggningsmetod](common/select-saml-option.png)
 
-3. På den **ange in enkel inloggning med SAML** väljer den **redigera** ikonen för att öppna den **SAML grundkonfiguration** dialogrutan:
+3. På sidan Konfigurera enkel inloggning med SAML väljer du ikonen **Redigera** för att öppna dialogrutan **Grundläggande SAML-konfiguration:** **Set up Single Sign-On with SAML**
 
-    ![Ikonen Redigera](common/edit-urls.png)
+    ![Redigera-ikonen](common/edit-urls.png)
 
-4. I den **SAML grundkonfiguration** dialogrutan rutan, utför följande steg.
+4. Gör följande i dialogrutan **Grundläggande SAML-konfiguration.**
 
-    ![Dialogrutan för grundläggande SAML-konfiguration](common/sp-identifier.png)
+    ![Dialogrutan Grundläggande SAML-konfiguration](common/sp-identifier.png)
 
-    1. I den **inloggnings-URL** anger en URL i det här mönstret:
+    1. Ange en WEBBADRESS i det här mönstret i rutan **Logga in på webbadress:**
 
        | |
         |--|
@@ -112,7 +112,7 @@ Om du vill konfigurera Azure AD enkel inloggning med Predictix sortimentet plane
         | `https://<sub-domain>.dev.ap.predictix.com/`|
         | |
 
-    1. I den **identifierare (entitets-ID)** anger en URL i det här mönstret:
+    1. Ange en URL i det här mönstret i rutan **Identifierare (entitets-ID):**
 
         | |
         |--|
@@ -121,63 +121,63 @@ Om du vill konfigurera Azure AD enkel inloggning med Predictix sortimentet plane
         | |
 
     > [!NOTE]
-    > Dessa värden är platshållare. Du måste använda faktiska inloggnings-URL och identifierare. Kontakta den [Predictix sortimentet planera supportteamet](https://www.infor.com/support) att hämta värdena. Du kan också referera till de mönster som visas i den **SAML grundkonfiguration** dialogrutan i Azure-portalen.
+    > Dessa värden är platshållare. Du måste använda den faktiska inloggnings-URL:en och identifieraren. Kontakta [supportteamet för Predikixsortimentsplanering](https://www.infor.com/support) för att få värdena. Du kan också referera till de mönster som visas i dialogrutan **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** väljer den **hämta** länka bredvid **certifikat (Base64)** enligt krav och spara certifikatet på datorn:
+5. På sidan **Konfigurera enkel inloggning med SAML** i avsnittet **SAML-signeringscertifikat** väljer du länken **Hämta bredvid** **Certifikat (Base64)** enligt dina krav och sparar certifikatet på datorn:
 
     ![Länk för nedladdning av certifikat](common/certificatebase64.png)
 
-6. I den **konfigurera Predictix sortimentet planera** avsnittet, kopiera de lämpliga URL: er, baserat på dina krav:
+6. Kopiera lämpliga webbadresser i avsnittet **Konfigurera Predictix-sortimentsplanering** baserat på dina krav:
 
-    ![Kopiera URL: er för konfiguration](common/copy-configuration-urls.png)
+    ![Kopiera konfigurationsadresserna](common/copy-configuration-urls.png)
 
-    1. **Inloggnings-URL**.
+    1. **Inloggningsadress**.
 
     1. **Azure AD-identifierare**.
 
-    1. **URL för utloggning**.
+    1. **Url för utloggning**.
 
-### <a name="configure-predictix-assortment-planning-single-sign-on"></a>Konfigurera Predictix sortimentet planera enkel inloggning
+### <a name="configure-predictix-assortment-planning-single-sign-on"></a>Konfigurera enkel inloggning för Predictix-sortimentsplanering
 
-Om du vill konfigurera enkel inloggning på sida Predictix sortimentet planering du behöver skicka det certifikat som du hämtade och URL: er som du kopierade från Azure portal för att den [Predictix sortimentet planera supportteamet](https://www.infor.com/support). Det här laget säkerställer SAML SSO-anslutningen är korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på sidan Predictix-sortimentsplanering måste du skicka certifikatet som du hämtade och webbadresserna som du kopierade från Azure-portalen till [supportteamet för Förutsägelseix sortimentsplanering](https://www.infor.com/support). Det här teamet ser till att SAML SSO-anslutningen är korrekt inställd på båda sidor.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet skapar du en användare med namnet Britta Simon i Azure-portalen.
+I det här avsnittet ska du skapa en testanvändare med namnet Britta Simon i Azure-portalen.
 
-1. I Azure-portalen väljer du **Azure Active Directory** i den vänstra rutan väljer **användare**, och välj sedan **alla användare**:
+1. I Azure-portalen väljer du **Azure Active Directory** i den vänstra rutan, väljer **Användare**och väljer sedan **Alla användare:**
 
     ![Välj alla användare](common/users.png)
 
-2. Välj **ny användare** överst på skärmen:
+2. Välj **Ny användare** högst upp på skärmen:
 
-    ![Välj ny användare](common/new-user.png)
+    ![Välj Ny användare](common/new-user.png)
 
-3. I den **användaren** dialogrutan rutan, vidta följande steg.
+3. Gör följande i dialogrutan **Användare.**
 
-    ![Användardialogrutan](common/user-properties.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
     1. I rutan **Namn** anger du **BrittaSimon**.
   
-    1. I den **användarnamn** anger **BrittaSimon @\<företagsdomänen >.\< tillägget >** . (Till exempel BrittaSimon@contoso.com.)
+    1. I rutan **Användarnamn** anger du **BrittaSimon@\<ditt företag>.\< förlängning>**. (Till exempel BrittaSimon@contoso.com.)
 
-    1. Välj **Show lösenord**, och sedan skriva ned det värde som är i den **lösenord** box.
+    1. Välj **Visa lösenord**och skriv sedan ned värdet i rutan **Lösenord.**
 
     1. Välj **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera Britta Simon att använda Azure AD enkel inloggning ger användarens företagsidentitet åtkomst Predictix sortimentet planera.
+I det här avsnittet ska du aktivera Britta Simon för att använda azure AD enkel inloggning genom att ge henne åtkomst till Predictix sortimentsplanering.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**, och välj sedan **Predictix sortimentet planera**.
+1. I Azure-portalen väljer du **Enterprise-program**, väljer **Alla program**och väljer sedan **Predictix sortimentsplanering**.
 
     ![Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Predictix sortimentet planera**.
+2. Välj **Predictix sortimentsplanering**i listan över program .
 
-    ![Lista över program](common/all-applications.png)
+    ![Lista över ansökningar](common/all-applications.png)
 
-3. I den vänstra rutan väljer **användare och grupper**:
+3. Välj Användare och **grupper**i den vänstra rutan:
 
     ![Välj Användare och grupper](common/users-groups-blade.png)
 
@@ -185,28 +185,28 @@ I det här avsnittet ska du aktivera Britta Simon att använda Azure AD enkel in
 
     ![Välj Lägg till användare](common/add-assign-user.png)
 
-5. I den **användare och grupper** dialogrutan **Britta Simon** i listan och klicka sedan på den **Välj** längst ned på skärmen.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i användarlistan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran i den **Välj roll** dialogrutan väljer du rätt roll för användaren i listan. Klicka på den **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett rollvärde i SAML- påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll.** Klicka på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** väljer du **Tilldela**.
 
-### <a name="create-a-predictix-assortment-planning-test-user"></a>Skapa en Predictix sortimentet planera testanvändare
+### <a name="create-a-predictix-assortment-planning-test-user"></a>Skapa en Testanvändare för Förutsägelseix-sortimentsplanering
 
-Därefter måste du skapa en användare med namnet Britta Simon vid planering av Predictix sortimentet. Arbeta med den [Predictix sortimentet planera supportteamet](https://www.infor.com/support) att lägga till användare. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+Därefter måste du skapa en användare som heter Britta Simon i Predictix sortimentsplanering. Arbeta med [supportteamet för Predikixsortimentsplanering](https://www.infor.com/support) för att lägga till användare. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 > [!NOTE]
-> Azure AD-kontoinnehavare tar emot ett e-postmeddelande och väljer en länk för att bekräfta kontot innan det blir aktiv.
+> Azure AD-kontoinnehavaren tar emot ett e-postmeddelande och väljer en länk för att bekräfta kontot innan det blir aktivt.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-Nu ska du testa Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+Nu måste du testa din Azure AD-konfiguration med enkel inloggning med hjälp av åtkomstpanelen.
 
-När du väljer panelen Predictix sortimentet planering i åtkomstpanelen, bör det vara loggas in automatiskt till Predictix sortimentet planera-instansen som du ställer in enkel inloggning. Mer information finns i [öppna och använda appar på portalen Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen Predikixsortimentsplanering på åtkomstpanelen bör du automatiskt loggas in i instansen Predictix-sortimentsplanering som du ställer in SSO för. Mer information finns i [Komma åt och använda appar på portalen Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Självstudier för att integrera SaaS-program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

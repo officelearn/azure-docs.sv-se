@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 8317a13b9ef87679836f55627268deefa4500dce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0dbad1a94479430426dae47df7ca3a3ecd9dc980
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245478"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436199"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Vanliga frågor – Frågor om datainsamling, agenter och arbetsytor
 
-Security Center samlar in data från dina virtuella Azure-datorer ( Virtual Machine scale sets, IaaS-behållare och icke-Azure-datorer (inklusive lokala datorer) för att övervaka säkerhetsproblem och hot. Data samlas in med Microsoft Monitoring Agent, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till din arbetsyta för analys.
+Security Center samlar in data från dina virtuella Azure-datorer ( Virtual Machine scale sets, IaaS-behållare och icke-Azure-datorer (inklusive lokala datorer) för att övervaka säkerhetsproblem och hot. Data samlas in med log analytics-agenten, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till arbetsytan för analys.
 
 
 ## <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Faktureras jag för Azure Monitor-loggar på de arbetsytor som skapats av Security Center?
@@ -41,11 +41,11 @@ Mer information om priser finns i [Security Center-priser](https://azure.microso
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 
-## <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-microsoft-monitoring-agent-installation"></a>Vad kvalificerar en virtuell dator för automatisk etablering av Microsoft Monitoring Agent-installationen?
+## <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-log-analytics-agent-installation"></a>Vad kvalificerar en virtuell dator för automatisk etablering av Log Analytics-agentinstallationen?
 
 Virtuella datorer med Windows eller Linux IaaS kvalificerar sig om:
 
-- Tillägget Microsoft Monitoring Agent är inte installerat på den virtuella datorn.
+- Agenttillägget Log Analytics är inte installerat på den virtuella datorn.
 - Den virtuella datorn är i körläge.
 - Windows eller Linux [Azure Virtual Machine Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) är installerad.
 - Den virtuella datorn används inte som en installation, till exempel brandvägg för webbprogram eller nästa generations brandvägg.
@@ -55,7 +55,7 @@ Virtuella datorer med Windows eller Linux IaaS kvalificerar sig om:
 
 **Det rekommenderas inte att ta bort standardarbetsytan.** Security Center använder standardarbetsytorna för att lagra säkerhetsdata från dina virtuella datorer. Om du tar bort en arbetsyta kan Security Center inte samla in dessa data och vissa säkerhetsrekommendationer och varningar är inte tillgängliga.
 
-Om du vill återställa tar du bort Microsoft Monitoring Agent på de virtuella datorer som är anslutna till den borttagna arbetsytan. Security Center installerar om agenten och skapar nya standardarbetsytor.
+Om du vill återställa tar du bort Log Analytics-agenten på de virtuella datorer som är anslutna till den borttagna arbetsytan. Security Center installerar om agenten och skapar nya standardarbetsytor.
 
 ## <a name="how-can-i-use-my-existing-log-analytics-workspace"></a>Hur kan jag använda min befintliga Log Analytics-arbetsyta?
 
@@ -77,7 +77,7 @@ Så här väljer du en befintlig Log Analytics-arbetsyta:
 
 1. Välj **Spara**. Du kommer att bli tillfrågad om du vill konfigurera om övervakade virtuella datorer.
 
-    - Välj **Nej** om du vill att de nya arbetsyteinställningarna **ska gälla endast för nya virtuella datorer**. De nya arbetsyteinställningarna gäller endast för nya agentinstallationer. nyupptäckta virtuella datorer som inte har Microsoft Monitoring Agent installerat.
+    - Välj **Nej** om du vill att de nya arbetsyteinställningarna **ska gälla endast för nya virtuella datorer**. De nya arbetsyteinställningarna gäller endast för nya agentinstallationer. nyupptäckta virtuella datorer som inte har Log Analytics-agenten installerad.
     - Välj **Ja** om du vill att de nya arbetsyteinställningarna **ska gälla på alla virtuella datorer**. Dessutom återansluts varje virtuell dator som är ansluten till en säkerhetscenter som skapas till den nya målarbetsytan.
 
     > [!NOTE]
@@ -85,7 +85,7 @@ Så här väljer du en befintlig Log Analytics-arbetsyta:
 
     - Om du vill avbryta åtgärden väljer du **Avbryt**.
 
-## <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>Vad händer om Microsoft Monitoring Agent redan har installerats som ett tillägg på den virtuella datorn?<a name="mmaextensioninstalled"></a>
+## <a name="what-if-the-log-analytics-agent-was-already-installed-as-an-extension-on-the-vm"></a>Vad händer om Log Analytics-agenten redan har installerats som ett tillägg på den virtuella datorn?<a name="mmaextensioninstalled"></a>
 
 När övervakningsagenten installeras som ett tillägg tillåter tilläggskonfigurationen rapportering till endast en enda arbetsyta. Security Center åsidosätter inte befintliga anslutningar till användararbetsytor. Security Center lagrar säkerhetsdata från en virtuell dator på en arbetsyta som redan är ansluten, förutsatt att lösningen "Säkerhet" eller "SecurityCenterFree" har installerats på den. Security Center kan uppgradera tilläggsversionen till den senaste versionen i den här processen.
 
@@ -93,9 +93,9 @@ Mer information finns [i Automatisk etablering vid en befintlig agentinstallatio
 
 
 
-## <a name="what-if-a-microsoft-monitoring-agent-is-directly-installed-on-the-machine-but-not-as-an-extension-direct-agent"></a>Vad händer om en Microsoft Monitoring Agent är direkt installerad på datorn men inte som ett tillägg (Direct Agent)?<a name="directagentinstalled"></a>
+## <a name="what-if-a-log-analytics-agent-is-directly-installed-on-the-machine-but-not-as-an-extension-direct-agent"></a>Vad händer om en Log Analytics-agent är direkt installerad på datorn men inte som ett tillägg (Direct Agent)?<a name="directagentinstalled"></a>
 
-Om Microsoft Monitoring Agent installeras direkt på den virtuella datorn (inte som ett Azure-tillägg) installerar Security Center tillägget Microsoft Monitoring Agent och kan uppgradera Microsoft Monitoring-agenten till den senaste versionen.
+Om Log Analytics-agenten installeras direkt på den virtuella datorn (inte som ett Azure-tillägg) installerar Security Center agenttillägget Log Analytics och kan uppgradera Log Analytics-agenten till den senaste versionen.
 
 Agenten som installerats fortsätter att rapportera till sina redan konfigurerade arbetsytor och rapporterar dessutom till arbetsytan som konfigurerats i Security Center (Multi-homing stöds på Windows-datorer).
 
@@ -103,13 +103,13 @@ Om den konfigurerade arbetsytan är en användararbetsyta (inte Säkerhetscenter
 
 För Linux-datorer stöds agent multi-homing ännu inte - om en befintlig agentinstallation upptäcks kommer automatisk etablering inte att ske och maskinens konfiguration inte kommer att ändras.
 
-För befintliga datorer på prenumerationer som finns ombord på Security Center före den 17 mars 2019, när en befintlig agent kommer att identifieras, installeras inte Tillägget för Microsoft Monitoring Agent och datorn påverkas inte. För dessa datorer, se rekommendationen "Lös hälsoproblem för övervakningsagenten på dina datorer" för att lösa agentinstallationsproblemen på dessa datorer
+För befintliga datorer på prenumerationer som finns ombord på Security Center före den 17 mars 2019, när en befintlig agent identifieras, installeras inte tillägget Log Analytics-agent och datorn påverkas inte. För dessa datorer, se rekommendationen "Lös hälsoproblem för övervakningsagenten på dina datorer" för att lösa agentinstallationsproblemen på dessa datorer
 
 Mer information finns i nästa avsnitt [Vad händer om en System Center Operations Manager eller OMS direct agent redan är installerad på min virtuella dator?](#scomomsinstalled)
 
 ## <a name="what-if-a-system-center-operations-manager-agent-is-already-installed-on-my-vm"></a>Vad händer om en System Center Operations Manager-agent redan är installerad på min virtuella dator?<a name="scomomsinstalled"></a>
 
-Säkerhetscenter installerar tillägget Microsoft Monitoring Agent sida vid sida till den befintliga System Center Operations Manager-agenten. Den befintliga agenten fortsätter att rapportera till System Center Operations Manager-servern normalt. Observera att Operations Manager-agenten och Microsoft Monitoring Agent delar vanliga körningsbibliotek, som uppdateras till den senaste versionen under den här processen. Om version 2012 av Operations Manager-agenten är installerad ska du inte aktivera automatisk etablering (hanterbarhetsfunktioner kan gå förlorade när Operations Manager-servern också är version 2012).
+Säkerhetscenter installerar log analytics-agenttillägget sida vid sida till den befintliga System Center Operations Manager-agenten. Den befintliga agenten fortsätter att rapportera till System Center Operations Manager-servern normalt. Observera att Operations Manager-agenten och Log Analytics-agenten delar vanliga körningsbibliotek, som uppdateras till den senaste versionen under den här processen. Om version 2012 av Operations Manager-agenten är installerad ska du inte aktivera automatisk etablering (hanterbarhetsfunktioner kan gå förlorade när Operations Manager-servern också är version 2012).
 
 
 ## <a name="what-is-the-impact-of-removing-these-extensions"></a>Vad är effekten av att ta bort dessa tillägg?
@@ -136,24 +136,24 @@ Du kan inaktivera automatisk etablering för dina prenumerationer i säkerhetspr
 
 Du kanske vill välja bort automatisk etablering om följande gäller dig:
 
-- Automatisk agentinstallation av Security Center gäller för hela prenumerationen. Du kan inte använda automatisk installation på en delmängd av virtuella datorer. Om det finns viktiga virtuella datorer som inte kan installeras med Microsoft Monitoring Agent bör du välja bort automatisk etablering.
-- Installation av TILLÄGGET Microsoft Monitoring Agent (MMA) uppdaterar agentens version. Detta gäller för en direktagent och en System Center Operations Manager-agent (i den senare delar Operations Manager och MMA gemensamma körningsbibliotek - som kommer att uppdateras i processen). Om den installerade Operations Manager-agenten är version 2012 och uppgraderas kan hanterbarhetsfunktioner gå förlorade när Operations Manager-servern också är version 2012. Överväg att välja bort automatisk etablering om den installerade Operations Manager-agenten är version 2012.
-- Om du har en anpassad arbetsyta utanför prenumerationen (en centraliserad arbetsyta) bör du välja bort automatisk etablering. Du kan installera tillägget Microsoft Monitoring Agent manuellt och ansluta den till arbetsytan utan att Säkerhetscenter åsidosätter anslutningen.
+- Automatisk agentinstallation av Security Center gäller för hela prenumerationen. Du kan inte använda automatisk installation på en delmängd av virtuella datorer. Om det finns viktiga virtuella datorer som inte kan installeras med Log Analytics-agenten bör du välja bort automatisk etablering.
+- Installationen av tillägget Log Analytics-agent uppdaterar agentens version. Detta gäller för en direktagent och en System Center Operations Manager-agent (i den senare delar Operations Manager och Log Analytics-agenten gemensamma körningsbibliotek – som kommer att uppdateras i processen). Om den installerade Operations Manager-agenten är version 2012 och uppgraderas kan hanterbarhetsfunktioner gå förlorade när Operations Manager-servern också är version 2012. Överväg att välja bort automatisk etablering om den installerade Operations Manager-agenten är version 2012.
+- Om du har en anpassad arbetsyta utanför prenumerationen (en centraliserad arbetsyta) bör du välja bort automatisk etablering. Du kan installera tillägget Log Analytics-agent manuellt och ansluta den till arbetsytan utan att Säkerhetscenter åsidosätter anslutningen.
 - Om du vill undvika att skapa flera arbetsytor per prenumeration och du har en egen anpassad arbetsyta i prenumerationen har du två alternativ:
 
    1. Du kan välja bort automatisk etablering. Efter migreringen ställer du in standardinställningarna för arbetsytan enligt beskrivningen i [Hur kan jag använda min befintliga Log Analytics-arbetsyta?](#how-can-i-use-my-existing-log-analytics-workspace)
 
-   1. Du kan också tillåta att migreringen slutförs, att Microsoft Monitoring Agent installeras på de virtuella datorerna och de virtuella datorer som är anslutna till den skapade arbetsytan. Välj sedan en egen anpassad arbetsyta genom att ange standardinställningen för arbetsytan med att välja att konfigurera om de redan installerade agenterna. Mer information finns i [Hur kan jag använda min befintliga Log Analytics-arbetsyta?](#how-can-i-use-my-existing-log-analytics-workspace)
+   1. Du kan också tillåta att migreringen slutförs, log analytics-agenten installeras på de virtuella datorerna och de virtuella datorer som är anslutna till den skapade arbetsytan. Välj sedan en egen anpassad arbetsyta genom att ange standardinställningen för arbetsytan med att välja att konfigurera om de redan installerade agenterna. Mer information finns i [Hur kan jag använda min befintliga Log Analytics-arbetsyta?](#how-can-i-use-my-existing-log-analytics-workspace)
 
 
 ## <a name="what-are-the-implications-of-opting-out-of-automatic-provisioning"></a>Vilka är konsekvenserna av att välja bort automatisk etablering?
 
-När migreringen är klar kan Security Center inte samla in säkerhetsdata från den virtuella datorn och vissa säkerhetsrekommendationer och aviseringar är inte tillgängliga. Om du avanmäler dig installerar du Microsoft Monitoring Agent manuellt. Se [rekommenderade steg när du väljer bort](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
+När migreringen är klar kan Security Center inte samla in säkerhetsdata från den virtuella datorn och vissa säkerhetsrekommendationer och aviseringar är inte tillgängliga. Om du avanmäler dig installerar du Log Analytics-agenten manuellt. Se [rekommenderade steg när du väljer bort](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
 
 
 ## <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>Vilka är de rekommenderade stegen när du väljer bort automatisk etablering?
 
-Installera tillägget Microsoft Monitoring Agent manuellt så att Security Center kan samla in säkerhetsdata från dina virtuella datorer och ge rekommendationer och aviseringar. Mer information om installation finns i [agentinstallation för Windows VM](../virtual-machines/extensions/oms-windows.md) eller [agentinstallation för Virtuella Linux-datorer.](../virtual-machines/extensions/oms-linux.md)
+Installera tillägget Log Analytics-agenten manuellt så att Security Center kan samla in säkerhetsdata från dina virtuella datorer och ge rekommendationer och aviseringar. Mer information om installation finns i [agentinstallation för Windows VM](../virtual-machines/extensions/oms-windows.md) eller [agentinstallation för Virtuella Linux-datorer.](../virtual-machines/extensions/oms-linux.md)
 
 Du kan ansluta agenten till en befintlig anpassad arbetsyta eller Security Center skapad arbetsyta. Om en anpassad arbetsyta inte har lösningarna "Säkerhet" eller "SecurityCenterFree" aktiverat måste du använda en lösning. Om du vill använda väljer du den anpassade arbetsytan eller prenumerationen och tillämpar en prisnivå via sidan **Säkerhetsprincip – Prisnivå.**
 
@@ -164,18 +164,18 @@ Security Center aktiverar rätt lösning på arbetsytan baserat på den valda pr
 
 ## <a name="how-do-i-remove-oms-extensions-installed-by-security-center"></a>Hur tar jag bort OMS-tillägg som installerats av Security Center?<a name="remove-oms"></a>
 
-Du kan ta bort Microsoft Monitoring Agent manuellt. Detta rekommenderas inte eftersom det begränsar rekommendationer och aviseringar i Security Center.
+Du kan ta bort Log Analytics-agenten manuellt. Detta rekommenderas inte eftersom det begränsar rekommendationer och aviseringar i Security Center.
 
 > [!NOTE]
 > Om datainsamling är aktiverat installerar Security Center om agenten när du har tagit bort den.  Du måste inaktivera datainsamling innan agenten tas bort manuellt. Se Hur stoppar jag installation av automatisk agent och skapandet av arbetsytor? instruktioner om hur du inaktiverar datainsamling.
 
 Så här tar du bort agenten manuellt:
 
-1.  Öppna **Log Analytics**i portalen .
+1.    Öppna **Log Analytics**i portalen .
 
-1.  Välj en arbetsyta på sidan Logganalys:
+1.    Välj en arbetsyta på sidan Logganalys:
 
-1.  Markera de virtuella datorer som du inte vill övervaka och välj **Koppla från**.
+1.    Markera de virtuella datorer som du inte vill övervaka och välj **Koppla från**.
 
    ![Ta bort agenten][3]
 
@@ -197,7 +197,7 @@ Du kan aktivera datainsamling för din Azure-prenumeration i säkerhetsprincipen
 
 ## <a name="what-happens-when-data-collection-is-enabled"></a>Vad händer när datainsamling är aktiverat?
 
-När automatisk etablering är aktiverad etablerar Security Center Microsoft Monitoring Agent på alla azure-virtuella datorer som stöds och alla nya som skapas. Automatisk etablering rekommenderas men manuell agentinstallation är också tillgänglig. [Lär dig att installera tillägget Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
+När automatisk etablering är aktiverad etablerar Security Center Log Analytics-agenten på alla azure-virtuella datorer som stöds och alla nya som skapas. Automatisk etablering rekommenderas men manuell agentinstallation är också tillgänglig. [Läs om hur du installerar tillägget Log Analytics agent](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
 
 Agenten aktiverar processskapande händelse 4688 och *CommandLine-fältet* i händelse 4688. Nya processer som skapas på den virtuella datorn registreras av EventLog och övervakas av Security Centers identifieringstjänster. Mer information om information om information som registrerats för varje ny process finns [i beskrivningsfält i 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). Agenten samlar också in de 4688 händelser som skapats på den virtuella datorn och lagrar dem i sökning.
 
@@ -208,7 +208,7 @@ När Security Center upptäcker misstänkt aktivitet på den virtuella datorn me
 
 ## <a name="will-security-center-work-using-an-oms-gateway"></a>Fungerar Security Center med en OMS-gateway?
 
-Ja. Azure Security Center använder Azure Monitor för att samla in data från virtuella Azure-datorer och -servrar med hjälp av Microsoft Monitoring Agent.
+Ja. Azure Security Center använder Azure Monitor för att samla in data från virtuella Azure-datorer och -servrar med hjälp av Log Analytics-agenten.
 För att samla in data måste varje virtuell dator och server ansluta till Internet med HTTPS. Anslutningen kan vara direkt, med hjälp av en proxy eller via [OMS Gateway](../azure-monitor/platform/gateway.md).
 
 

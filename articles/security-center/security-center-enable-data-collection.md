@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 5236fd89ed99ca14bb7fc24e40ef79e12e5177d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61d0a57c541837ab3aebf65e47d757f7ecbe7e40
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245504"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435983"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Datainsamling i Azure Security Center
 Security Center samlar in data från dina virtuella Azure-datorer , skalningsuppsättningar för virtuella datorer, IaaS-behållare och icke-Azure-datorer (inklusive lokala) för att övervaka säkerhetsproblem och hot. Data samlas in med log analytics-agenten, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till arbetsytan för analys. Exempel på sådana data är: operativsystemtyp och version, operativsystemloggar (Windows-händelseloggar), processer som körs, datornamn, IP-adresser och inloggade användare. Log Analytics-agenten kopierar också kraschdumpfiler till din arbetsyta.
@@ -306,7 +306,7 @@ Du kan installera Log Analytics-agenten manuellt så att Security Center kan sam
 
 - Så här identifierar du problem med oövervakade virtuella datorer och datorer:
 
-    En virtuell dator eller dator övervakas inte av Security Center om datorn inte kör tillägget Microsoft Monitoring Agent. En dator kan ha en lokal agent redan installerad, till exempel OMS direct agent eller System Center Operations Manager-agenten. Datorer med dessa agenter identifieras som oövervakade eftersom dessa agenter inte stöds fullt ut i Security Center. För att kunna utnyttja Security Center fullt ut krävs tillägget Microsoft Monitoring Agent.
+    En virtuell dator eller dator övervakas inte av Security Center om datorn inte kör agenttillägget Log Analytics. En dator kan ha en lokal agent redan installerad, till exempel OMS direct agent eller System Center Operations Manager-agenten. Datorer med dessa agenter identifieras som oövervakade eftersom dessa agenter inte stöds fullt ut i Security Center. För att fullt ut kunna dra nytta av alla Security Centers funktioner krävs tillägget Log Analytics-agent.
 
     Mer information om orsakerna till att Security Center inte kan övervaka virtuella datorer och datorer som initierats för automatisk etablering finns i [Hälsoproblem för övervakningsagenten](security-center-troubleshooting-guide.md#mon-agent).
 

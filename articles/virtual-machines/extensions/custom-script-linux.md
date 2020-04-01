@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: b75b232c048a1ea49256b12ce1b65c4bd87a1cf0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 75970783a9408df0a8c128fb9540606e4e4a62f3
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535450"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80478170"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Använda version 2 av Azures tillägg för anpassat skript med virtuella Linux-datorer
 Custom Script Extension Version 2 hämtar och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfiguration efter distribution, programvaruinstallation eller annan konfigurations-/hanteringsuppgift. Du kan hämta skript från Azure Storage eller en annan tillgänglig internetplats, eller så kan du ange dem till tilläggets körning. 
@@ -209,6 +209,8 @@ CustomScript använder följande algoritm för att köra ett skript.
  1. köra skriptet med _/bin/sh -c /var/lib/waagent/custom-script/#/script.sh.
 
 ####  <a name="property-managedidentity"></a>Fastighetsförmedling: hanteradIdentity
+> [!NOTE]
+> Den här egenskapen **får** endast anges i skyddade inställningar.
 
 CustomScript (version 2.1 och framåt) stöder [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) för nedladdning av filer från webbadresser som anges i inställningen "fileUris". Det gör att CustomScript kan komma åt privata azure storage-blobbar eller behållare utan att användaren behöver skicka hemligheter som SAS-token eller lagringskontonycklar.
 
@@ -466,4 +468,3 @@ info:    vm extension get command OK
 
 ## <a name="next-steps"></a>Nästa steg
 Mer om du vill se koden, aktuella problem och versioner finns i [custom-script-extension-linux repo](https://github.com/Azure/custom-script-extension-linux).
-

@@ -1,17 +1,17 @@
 ---
-title: Självstudie – distribuera container app till container instance
+title: Självstudiekurs - Distribuera behållarapp till behållarinstans
 description: Självstudie om Azure Container Instances del 3 av 3 – Distribuera ett containerprogram till Azure Container Instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 757b41bd69d69deb901e3b5b9a633dce3b9e133a
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78249962"
 ---
-# <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Självstudie: Distribuera ett behållar program till Azure Container Instances
+# <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Självstudiekurs: Distribuera ett behållarprogram till Azure Container-instanser
 
 Det här är den sista självstudien i en serie med tre delar. Tidigare i serien [skapades en behållaravbildning](container-instances-tutorial-prepare-app.md) som sedan [push-överfördes till Azure Container Registry](container-instances-tutorial-prepare-acr.md). I den här artikeln slutför vi serien genom att distribuera behållaren till Azure Container Instances.
 
@@ -32,9 +32,9 @@ I det här avsnittet använder du Azure CLI för att distribuera den avbildning 
 
 ### <a name="get-registry-credentials"></a>Hämta autentiseringsuppgifter för registret
 
-När du distribuerar en avbildning som finns i ett privat Azure Container Registry som den som skapades i den [andra själv studie kursen](container-instances-tutorial-prepare-acr.md)måste du ange autentiseringsuppgifter för att få åtkomst till registret. 
+När du distribuerar en avbildning som finns i ett privat Azure-behållarregister som det som skapades i den [andra självstudien](container-instances-tutorial-prepare-acr.md)måste du ange autentiseringsuppgifter för att komma åt registret. 
 
-En bästa praxis för många scenarier är att skapa och konfigurera ett Azure Active Directory tjänstens huvud namn med *pull* -behörighet till registret. Se [autentisera med Azure Container Registry från Azure Container instances](../container-registry/container-registry-auth-aci.md) för exempel skript för att skapa ett huvud namn för tjänsten med de behörigheter som krävs. Anteckna *tjänstens huvud namn* och *lösen ord för tjänstens huvud namn*. Du använder dessa autentiseringsuppgifter för att komma åt registret när du distribuerar behållaren.
+En bra metod för många scenarier är att skapa *pull* och konfigurera ett Azure Active Directory-tjänsthuvudnamn med pull-behörigheter till registret. Se [Autentisera med Azure Container Registry från Azure Container Instances](../container-registry/container-registry-auth-aci.md) för exempelskript för att skapa ett tjänsthuvudnamn med nödvändiga behörigheter. Ta del av *tjänstens huvud-ID* och *tjänstens huvudlösenord*. Du använder dessa autentiseringsuppgifter för att komma åt registret när du distribuerar behållaren.
 
 Du behöver också det fullständiga namnet på containerregistrets inloggningsserver (ersätt `<acrName>` med namnet på ditt register):
 
@@ -44,7 +44,7 @@ az acr show --name <acrName> --query loginServer
 
 ### <a name="deploy-container"></a>Distribuera containern
 
-Använd nu kommandot [AZ container Create][az-container-create] för att distribuera behållaren. Ersätt `<acrLoginServer>` med det värde som du fick från föregående kommando. Ersätt `<service-principal-ID>` och `<service-principal-password>` med det ID och det lösenord för tjänstens huvudnamn som du skapade för att komma åt registret. Ersätt `<aciDnsLabel>` med önskat DNS-namn.
+Nu kan använda kommandot [az container create][az-container-create] för att distribuera behållaren. Ersätt `<acrLoginServer>` med det värde som du fick från föregående kommando. Ersätt `<service-principal-ID>` och `<service-principal-password>` med det ID och det lösenord för tjänstens huvudnamn som du skapade för att komma åt registret. Ersätt `<aciDnsLabel>` med önskat DNS-namn.
 
 ```azurecli
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <service-principal-ID> --registry-password <service-principal-password> --dns-name-label <aciDnsLabel> --ports 80
@@ -54,23 +54,23 @@ Inom några sekunder bör du få ett första svar från Azure. Värdet `--dns-na
 
 ### <a name="verify-deployment-progress"></a>Verifiera distributionens fortskridande
 
-Om du vill visa status för distributionen använder du [AZ container show][az-container-show]:
+Du kan se statusen för distributionen med [az container show][az-container-show]:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query instanceView.state
 ```
 
-Upprepa kommandot [AZ container show][az-container-show] tills statusen ändras från *väntar* till *körning*, vilket bör ta under en minut. När containern *Körs* fortsätter du till nästa steg.
+Upprepa kommandot [az container show][az-container-show] tills status ändras från *Väntar* till *Körs*, vilket bör ta mindre än en minut. När containern *Körs* fortsätter du till nästa steg.
 
 ## <a name="view-the-application-and-container-logs"></a>Visa program- och containerloggar
 
-När distributionen har slutförts visar du behållarens fullständigt kvalificerade domän namn (FQDN) med kommandot [AZ container show][az-container-show] :
+När distributionen är klar kan du visa behållarens fullständiga domännamn (FQDN) med kommandot [az container show][az-container-show]:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-Exempel:
+Ett exempel:
 ```output
 "aci-demo.eastus.azurecontainer.io"
 ```
@@ -95,7 +95,7 @@ listening on port 80
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre behöver någon av resurserna som du skapade i den här själv studie serien kan du köra kommandot [AZ Group Delete][az-group-delete] för att ta bort resurs gruppen och alla resurser den innehåller. Det här kommandot tar bort containerregistret som du skapade, den container som körs och alla relaterade resurser.
+Om du inte längre behöver någon av de resurser som du skapade i den här självstudieserien, kan du köra kommandot [az group delete][az-group-delete] för att ta bort resursgruppen och alla resurser som den innehåller. Det här kommandot tar bort containerregistret som du skapade, den container som körs och alla relaterade resurser.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

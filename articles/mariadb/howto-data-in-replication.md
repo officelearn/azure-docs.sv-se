@@ -5,19 +5,21 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 51b800dde140affd222f2bdb341c0fbf3a57d8cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 3/30/2020
+ms.openlocfilehash: 332feffead74174ba0b9b278d8de1c5957d5b9e6
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530163"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422476"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Konfigurera datainsamling i Azure Database för MariaDB
 
 I den här artikeln beskrivs hur du konfigurerar data-in Replication i Azure Database för MariaDB genom att konfigurera huvud- och replikservrarna. Den här artikeln förutsätter att du har viss tidigare erfarenhet av MariaDB-servrar och databaser.
 
 Om du vill skapa en replik i Azure Database for MariaDB-tjänsten synkroniserar Data-in Replication data från en lokal huvudserver, i virtuella datorer eller i molndatabastjänster.
+
+Granska [begränsningarna och kraven](concepts-data-in-replication.md#limitations-and-considerations) för data-in-replikering innan du utför stegen i den här artikeln.
 
 > [!NOTE]
 > Om huvudservern är version 10.2 eller nyare rekommenderar vi att du ställer in datareplikering med hjälp av [globalt transaktions-ID](https://mariadb.com/kb/en/library/gtid/).
@@ -36,11 +38,21 @@ Om du vill skapa en replik i Azure Database for MariaDB-tjänsten synkroniserar 
     
     Användarkonton replikeras inte från huvudservern till replikservern. Om du vill ge användaråtkomst till replikservern måste du manuellt skapa alla konton och motsvarande privilegier på den nyligen skapade Azure-databasen för MariaDB-servern.
 
+3. Lägg till huvudserverns IP-adress i replikens brandväggsregler. 
+
+   Uppdatera brandväggsregler med hjälp av [Azure-portalen](howto-manage-firewall-portal.md) eller [Azure CLI](howto-manage-firewall-cli.md).
+
 ## <a name="configure-the-master-server"></a>Konfigurera huvudservern
 
 Följande steg förbereder och konfigurerar MariaDB-servern som finns lokalt, i en virtuell dator eller i en molndatabastjänst för datareplikering. MariaDB-servern är huvudansvarig i Data-in Replication.
 
-1. Aktivera binär loggning.
+1. Granska [huvudserverkraven](concepts-data-in-replication.md#requirements) innan du fortsätter. 
+
+   Kontrollera till exempel att huvudservern tillåter både inkommande och utgående trafik på port 3306 och att huvudservern har en **offentlig IP-adress**, DNS är allmänt tillgänglig eller har ett fullständigt kvalificerat domännamn (FQDN). 
+   
+   Testa anslutningen till huvudservern genom att försöka ansluta från ett verktyg som mySQL-kommandoraden som finns på en annan dator eller från [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) som är tillgängligt i Azure-portalen.
+
+2. Aktivera binär loggning.
     
     Om du vill se om binär loggning är aktiverad på bakgrunden anger du följande kommando:
 
@@ -52,7 +64,7 @@ Följande steg förbereder och konfigurerar MariaDB-servern som finns lokalt, i 
 
    Om `log_bin` värdet `OFF`returneras redigerar du filen `log_bin=ON` **my.cnf** så att den aktiverar binär loggning. Starta om servern för att ändringen ska börja gälla.
 
-2. Konfigurera huvudserverinställningar.
+3. Konfigurera huvudserverinställningar.
 
     Data-in Replication kräver `lower_case_table_names` att parametern är konsekvent mellan huvud- och replikservrarna. Parametern `lower_case_table_names` är `1` inställd på som standard i Azure Database för MariaDB.
 
@@ -60,7 +72,7 @@ Följande steg förbereder och konfigurerar MariaDB-servern som finns lokalt, i 
    SET GLOBAL lower_case_table_names = 1;
    ```
 
-3. Skapa en ny replikeringsroll och ställ in behörigheter.
+4. Skapa en ny replikeringsroll och ställ in behörigheter.
 
    Skapa ett användarkonto på huvudservern som är konfigurerad med replikeringsbehörighet. Du kan skapa ett konto med hjälp av SQL-kommandon eller MySQL Workbench. Om du planerar att replikera med SSL måste du ange detta när du skapar användarkontot.
    
@@ -105,7 +117,7 @@ Följande steg förbereder och konfigurerar MariaDB-servern som finns lokalt, i 
    ![Replikeringslav](./media/howto-data-in-replication/replicationslave.png)
 
 
-4. Ställ in huvudservern i skrivskyddat läge.
+5. Ställ in huvudservern i skrivskyddat läge.
 
    Innan du dumpar en databas måste servern placeras i skrivskyddat läge. I skrivskyddat läge kan befälhavaren inte bearbeta några skrivtransaktioner. Schemalägg skrivskyddat fönster under en lågbelastningstid för att undvika påverkan på verksamheten.
 
@@ -114,7 +126,7 @@ Följande steg förbereder och konfigurerar MariaDB-servern som finns lokalt, i 
    SET GLOBAL read_only = ON;
    ```
 
-5. Hämta det aktuella binära loggfilsnamnet och förskjutningen.
+6. Hämta det aktuella binära loggfilsnamnet och förskjutningen.
 
    Om du vill ta reda på det [`show master status`](https://mariadb.com/kb/en/library/show-master-status/)aktuella binära loggfilsnamnet och förskjutningen kör du kommandot .
     
@@ -127,7 +139,7 @@ Följande steg förbereder och konfigurerar MariaDB-servern som finns lokalt, i 
 
    Observera det binära filnamnet, eftersom det kommer att användas i senare steg.
    
-6. Hämta GTID-positionen (tillval, som behövs för replikering med GTID).
+7. Hämta GTID-positionen (tillval, som behövs för replikering med GTID).
 
    Kör funktionen [`BINLOG_GTID_POS`](https://mariadb.com/kb/en/library/binlog_gtid_pos/) för att hämta GTID-positionen för motsvarande binlogfilnamn och förskjutning.
   
@@ -196,7 +208,7 @@ Följande steg förbereder och konfigurerar MariaDB-servern som finns lokalt, i 
 
        ```sql
        SET @cert = '-----BEGIN CERTIFICATE-----
-       PLACE YOUR PUBLIC KEY CERTIFICATE'S CONTEXT HERE
+       PLACE YOUR PUBLIC KEY CERTIFICATE\'S CONTEXT HERE
        -----END CERTIFICATE-----'
        ```
 

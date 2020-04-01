@@ -5,12 +5,12 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 79e337b411f9d115d93050ebeee346a526913d39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dcdbbb325e6589669abe6cf3d25ac5191e29118b
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371739"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411736"
 ---
 # <a name="tutorial-add-a-resource-to-your-arm-template"></a>Självstudiekurs: Lägga till en resurs i ARM-mallen
 
@@ -26,7 +26,7 @@ Du måste ha Visual Studio-kod med tillägget Resource Manager Tools och antinge
 
 Om du vill lägga till en lagringskontodefinition i den befintliga mallen tittar du på den markerade JSON i följande exempel. I stället för att försöka kopiera delar av mallen kopierar du hela filen och ersätter mallen med dess innehåll.
 
-Ersätt **{provide-unique-name}** med ett unikt lagringskontonamn.
+Ersätt **{provide-unique-name}** (inklusive de lockiga hakparenteserna) med ett unikt lagringskontonamn.
 
 > [!IMPORTANT]
 > Namnet på lagringskontot måste vara unikt i Azure. Namnet får bara ha gemener eller siffror. Det kan inte vara längre än 24 tecken. Du kan prova ett namngivningsmönster som att använda **store1** som prefix och sedan lägga till dina initialer och dagens datum. Namnet du använder kan till exempel se ut som **store1abc09092019**.
@@ -61,7 +61,7 @@ Du kan distribuera mallen för att skapa lagringskontot. Ge distributionen ett a
 
 Om du inte har skapat resursgruppen läser du [Skapa resursgrupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **variabeln templateFile** till sökvägen till mallfilen, vilket visas i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -82,6 +82,9 @@ az deployment group create \
 ```
 
 ---
+
+> [!NOTE]
+> Om distributionen misslyckades använder du **felsökningsväxeln** med distributionskommandot för att visa felsökningsloggarna.  Du kan också använda **den utförliga** växeln för att visa de fullständiga felsökningsloggarna.
 
 Två möjliga distributionsfel som kan uppstå:
 

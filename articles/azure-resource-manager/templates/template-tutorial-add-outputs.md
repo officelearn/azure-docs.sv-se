@@ -5,12 +5,12 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5d8966c492bd77eaa4d18c8a8b9ac524b8864027
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 150801fe66da1ea8c6f10d437c6d7616a77b544e
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371747"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411010"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>Självstudiekurs: Lägga till utdata i arm-mallen
 
@@ -52,7 +52,7 @@ Du är redo att distribuera mallen och titta på det returnerade värdet.
 
 Om du inte har skapat resursgruppen läser du [Skapa resursgrupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **variabeln templateFile** till sökvägen till mallfilen, vilket visas i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -89,6 +89,9 @@ I utdata för distributionskommandot visas ett objekt som liknar:
     "file": "https://storeluktbfkpjjrkm.file.core.windows.net/"
 }
 ```
+
+> [!NOTE]
+> Om distributionen misslyckades använder du **felsökningsväxeln** med distributionskommandot för att visa felsökningsloggarna.  Du kan också använda **den utförliga** växeln för att visa de fullständiga felsökningsloggarna.
 
 ## <a name="review-your-work"></a>Granska ditt arbete
 

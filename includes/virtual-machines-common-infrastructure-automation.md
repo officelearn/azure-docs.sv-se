@@ -4,19 +4,19 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 9cbc48d8bca2f7491d0464be1c5bd64054927dc9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2eb503b58f1679d138b6a1dd9304896be098ad6
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77608719"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80419228"
 ---
 För att skapa och hantera virtuella Azure-datorer (VMs) på ett konsekvent sätt i stor skala, är någon form av automatisering vanligtvis önskas. Det finns många verktyg och lösningar som gör att du kan automatisera den kompletta livscykeln för distribution och hantering av Azure-infrastruktur. Den här artikeln introducerar några av de verktyg för automatisering av infrastruktur som du kan använda i Azure. Dessa verktyg passar ofta in i något av följande metoder:
 
 - Automatisera konfigurationen av virtuella datorer
-    - Verktyg inkluderar [Ansible](#ansible), [Chef](#chef)och [Puppet](#puppet).
+    - Verktygen omfattar [mallen](#azure-resource-manager-template) [Ansible](#ansible), [Chef](#chef), [Puppet](#puppet)och Azure Resource Manager .
     - Verktyg som är specifika för [vm-anpassning omfattar moln-init](#cloud-init) för virtuella Linux-datorer, [PowerShell Desired State Configuration (DSC)](#powershell-dsc)och [Azure Custom Script Extension](#azure-custom-script-extension) för alla virtuella Azure-datorer.
- 
+
 - Automatisera infrastrukturhantering
     - Verktygen inkluderar [Packer](#packer) för att automatisera anpassade VM-avbildningsversioner och [Terraform](#terraform) för att automatisera infrastrukturbyggprocessen.
     - [Azure Automation](#azure-automation) kan utföra åtgärder i din Azure- och lokala infrastruktur.
@@ -56,7 +56,8 @@ Lär dig att:
 
 Cloud-init fungerar med olika distributioner. Du använder till exempel inte **apt-get install** eller **yum install** när du vill installera ett paket. I stället definierar du en lista med paket att installera. Cloud-init använder automatiskt rätt pakethanteringsverktyg för den distribution du valt.
 
-Vi arbetar aktivt med våra godkända Linux-distributioner för att ha moln-init-aktiverade avbildningar tillgängliga på Azure-marknadsplatsen. Dessa avbildningar gör att dina molninitdistributioner och konfigurationer fungerar sömlöst med virtuella datorer och skalningsuppsättningar för virtuella datorer. Läs mer om cloud-init på Azure:
+Vi arbetar aktivt med våra godkända Linux-distributioner för att ha moln-init-aktiverade avbildningar tillgängliga på Azure-marknadsplatsen. Dessa avbildningar gör att dina molninitdistributioner och konfigurationer fungerar sömlöst med virtuella datorer och skalningsuppsättningar för virtuella datorer.
+Läs mer om cloud-init på Azure:
 
 - [Molninit-stöd för virtuella Linux-datorer i Azure](../articles/virtual-machines/linux/using-cloud-init.md)
 - [Prova en självstudiekurs om automatisk VM-konfiguration med cloud-init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
@@ -75,7 +76,7 @@ Lär dig att:
 
 
 ## <a name="azure-custom-script-extension"></a>Anpassade Azure-skripttillägg
-Azure Custom Script Extension för [Linux](../articles/virtual-machines/linux/extensions-customscript.md) eller [Windows](../articles/virtual-machines/windows/extensions-customscript.md) hämtar och kör skript på virtuella Azure-datorer. Du kan använda tillägget när du skapar en virtuell dator, eller när som helst efter att den virtuella datorn används. 
+Azure Custom Script Extension för [Linux](../articles/virtual-machines/linux/extensions-customscript.md) eller [Windows](../articles/virtual-machines/windows/extensions-customscript.md) hämtar och kör skript på virtuella Azure-datorer. Du kan använda tillägget när du skapar en virtuell dator, eller när som helst efter att den virtuella datorn används.
 
 Skript kan hämtas från Azure-lagring eller någon offentlig plats, till exempel en GitHub-databas. Med tillägget Anpassat skript kan du skriva skript på alla språk som körs på källdatorns virtuella dator. Dessa skript kan användas för att installera program eller konfigurera den virtuella datorn som önskas. För att skydda autentiseringsuppgifter kan känslig information som lösenord lagras i en skyddad konfiguration. Dessa autentiseringsuppgifter dekrypteras bara inuti den virtuella datorn.
 
@@ -130,6 +131,17 @@ Lär dig att:
 
 - [Skapa en utvecklingsinfrastruktur på en Virtuell Linux-dator i Azure med Jenkins, GitHub och Docker](../articles/jenkins/tutorial-jenkins-github-docker-cicd.md).
 
+
+## <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
+[Azure Resource Manager](../articles/azure-resource-manager/templates/overview.md) är distributions- och hanteringstjänsten för Azure. Det ger ett hanteringslager som gör att du kan skapa, uppdatera och ta bort resurser i din Azure-prenumeration. Du använder hanteringsfunktioner, till exempel åtkomstkontroll, lås och taggar, för att skydda och organisera dina resurser efter distributionen.
+
+Lär dig att:
+
+- [Distribuera spot-virtuella datorer med hjälp av en Resource Manager-mall](../articles/virtual-machines/linux/spot-template.md).
+- [Distribuera en virtuell Azure-dator med C#och en Resource Manager-mall](../articles/virtual-machines/windows/csharp-template.md).
+- [Skapa en virtuell Windows-dator från en Resource Manager-mall](../articles/virtual-machines/windows/ps-template.md).
+- [Hämta mallen för en virtuell dator](../articles/virtual-machines/windows/download-template.md).
+- [Skapa en Azure Image Builder-mall](../articles/virtual-machines/linux/image-builder-json.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Det finns många olika alternativ för att använda infrastrukturautomationsverktyg i Azure. Du har friheten att använda den lösning som bäst passar dina behov och din miljö. För att komma igång och prova några av de verktyg som är inbyggda i Azure, se hur du automatiserar anpassningen av en [Linux](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md) eller [Windows](../articles/virtual-machines/windows/tutorial-automate-vm-deployment.md) VM.

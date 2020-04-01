@@ -1,19 +1,19 @@
 ---
-title: 'Självstudie: utforma en Azure Database for MariaDB – Azure CLI'
+title: 'Självstudiekurs: Utforma en Azure-databas för MariaDB - Azure CLI'
 description: Den här självstudien beskriver hur du skapar och hanterar en Azure Database for MariaDB-server och en databas med Azure CLI från kommandoraden.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 91283b453e71e476d247e752b24e9eec0047a814
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 455d7a0c1b3826060ade1083ec6eea99e397574b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74776828"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79534855"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Självstudie: Utforma en Azure Database for MariaDB med Azure CLI
 
@@ -22,15 +22,15 @@ Azure Database for MariaDB är en relationsdatabastjänst i Microsoft-molnet som
 > [!div class="checklist"]
 > * Skapa en Azure Database for MariaDB
 > * Konfigurera serverbrandväggen
-> * Använda [kommandoradsverktyget mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) till att skapa en databas
-> * Läs in exempeldata
+> * Använda [kommandoradsverktyget mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) för att skapa en databas
+> * Läsa in exempeldata
 > * Söka i data
 > * Uppdatera data
 > * Återställa data
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-Du kan använda Azure Cloud Shell i webbläsaren eller [installera Azure CLI]( /cli/azure/install-azure-cli) lokalt när du ska köra kodblocken i den här självstudiekursen.
+Du kan använda Azure Cloud Shell i webbläsaren eller [installera Azure CLI]( /cli/azure/install-azure-cli) på din egen dator för att köra kodblocken i den här självstudien.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -122,7 +122,7 @@ mysql -h mydemoserver.database.windows.net -u myadmin@mydemoserver -p
 ```
 
 ## <a name="create-a-blank-database"></a>Skapa en tom databas
-När du är ansluten till servern ska du skapa en tom databas.
+När du är ansluten till servern skapar du en tom databas.
 ```sql
 mysql> CREATE DATABASE mysampledb;
 ```
@@ -170,7 +170,7 @@ SELECT * FROM inventory;
 ```
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Återställa en databas till en tidigare tidpunkt
-Anta att du har tagit bort den här tabellen av misstag. Det här är något som inte är helt enkelt att ångra. Med Azure Database for MariaDB kan du gå tillbaka till valfri tidpunkt under de senaste 35 dagarna och återställa tidpunkten på en ny server. Du kan använda den nya servern till att återställa dina data. Följande steg återställer exempelservern till en tidpunkt innan tabellen lades till.
+Anta att du har tagit bort den här tabellen av misstag. Det kan du lätt åtgärda genom återställning. Med Azure Database for MariaDB kan du gå tillbaka till valfri tidpunkt under de senaste 35 dagarna och återställa tidpunkten på en ny server. Du kan använda den nya servern till att återställa dina data. Följande steg återställer exempelservern till en tidpunkt innan tabellen lades till.
 
 Du behöver följande information vid återställningen:
 
@@ -201,8 +201,8 @@ I de här självstudierna lärde du dig att:
 > [!div class="checklist"]
 > * Skapa en Azure Database for MariaDB-server
 > * Konfigurera serverbrandväggen
-> * Använda [kommandoradsverktyget mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) till att skapa en databas
-> * Läs in exempeldata
+> * Använda [kommandoradsverktyget mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) för att skapa en databas
+> * Läsa in exempeldata
 > * Söka i data
 > * Uppdatera data
 > * Återställa data

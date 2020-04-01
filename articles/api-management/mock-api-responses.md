@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 6841695cca5d3864e6823085520d8e9162e54043
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70067946"
 ---
 # <a name="mock-api-responses"></a>Simulera API-svar
@@ -27,7 +27,7 @@ API på serverdelen kan importeras till ett APIM API eller skapas och hanteras m
 + Om API-fasaden utformas först och implementeringen av serverdelen kommer senare. Eller om serverdelen utvecklas parallellt.
 + Om serverdelen tillfälligt inte fungerar eller inte går att skala.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa ett test-API 
@@ -37,7 +37,7 @@ I den här guiden får du lära dig att:
 
 ![Svar från simulerade åtgärder](./media/mock-api-responses/mock-api-responses01.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 + Förstå [begreppet principer i Azure API Management](api-management-howto-policies.md).
@@ -85,7 +85,7 @@ Stegen i det här avsnittet visar hur du skapar ett tomt API utan serverdel. Det
 
 ![Aktivera simulerade svar](./media/mock-api-responses/03-MockAPIResponses-03-EnableMocking.png)
 
-1. Välj det API som du skapade i stege ”Skapa ett test-API”.
+1. Välj det API som du skapade i steget ”Skapa ett test-API”.
 2. Välj den teståtgärd som du lade till.
 3. I fönstret till höger klickar du på fliken **Design**.
 4. I fönstret **Inkommande bearbetning** klickar du på **+ Lägg till princip**.

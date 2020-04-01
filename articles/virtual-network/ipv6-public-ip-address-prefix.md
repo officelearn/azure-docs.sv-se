@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/15/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 8254a7d86d5cadc2ddc03940f4ab2d08de74bd86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 096dbcb6b6a732bd21622658f6f30c5158a821c5
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72965180"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420527"
 ---
-# <a name="reserved-public-ipv6-address-prefix-preview"></a>Reserverat offentligt IPv6-adressprefix (förhandsversion)
+# <a name="reserved-public-ipv6-address-prefix"></a>Reserverad offentlig IPv6-adressprefix
 
 I Azure är virtuella nätverk (IPv4+IPv6) (IPv4+IPv6) och virtuella datorer som standard säkra eftersom de inte har någon Internet-anslutning. Du kan enkelt lägga till en IPv6-Internetanslutning till dina Azure Load Balancers och virtuella datorer med offentliga IPv6-adresser som du hämtar från Azure.
 
@@ -30,8 +30,7 @@ Alla offentliga IPs som du reserverar är associerade med en Azure-region som du
 
 Förutom att reservera enskilda IPv6-adresser kan du reservera sammanhängande intervall för Azure IPv6-adresser (kallas IP-prefix) för din användning.  I likhet med enskilda IP-adresser associeras reserverade prefix med en Azure-region som du väljer och med din Azure-prenumeration. Reservera ett förutsägbart, sammanhängande intervall av adresser har många användningsområden. Du kan till exempel förenkla *IP-vitlistning* av dina Azure-värdprogram av ditt företag och dina kunder, eftersom dina statiska IP-intervall lätt kan programmeras in i lokala brandväggar.  Du kan skapa enskilda offentliga IP-adresser från ip-prefixet efter behov och när du tar bort dessa enskilda offentliga IP-adresser *returneras* de till ditt reserverade intervall så att du kan återanvända dem senare. Alla IP-adresser i IP-prefixet är reserverade för din exklusiva användning tills du tar bort prefixet.
 
-> [!Important]
-> IPv6 för Azure Virtual Network är för närvarande i offentlig förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 ## <a name="ipv6-prefix-sizes"></a>IPv6-prefixstorlekar
 Följande offentliga IP-prefixstorlekar är tillgängliga:

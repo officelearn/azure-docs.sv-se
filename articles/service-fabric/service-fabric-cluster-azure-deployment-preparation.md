@@ -3,12 +3,12 @@ title: Planera en Azure Service Fabric-klusterdistribution
 description: Lär dig mer om att planera och förbereda för en distribution av Service Fabric-kluster till Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 1762a6975448301957579b3437a8af5c89b3accd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad6a7a6ea9a90bea4a3b6bc553da67a46144dc03
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78193484"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422286"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planera och förbereda för en klusterdistribution
 
@@ -86,6 +86,16 @@ Efemära OS-diskar är inte en specifik Service Fabric-funktion, utan snarare en
             }
         }
     ```
+
+> [!NOTE]
+> Användarprogram bör inte ha något beroende/fil/artefakt på OS-disken, eftersom OS-disken skulle gå förlorad vid en OS-uppgradering.
+> Därför rekommenderas det inte att använda [PatchOrchestrationApplication](https://github.com/microsoft/Service-Fabric-POA) med efemära diskar.
+>
+
+> [!NOTE]
+> Befintliga icke-efemära VMSS kan inte uppgraderas på plats för att använda tillfälliga diskar.
+> Om du vill migrera måste användare [lägga](./virtual-machine-scale-set-scale-node-type-scale-out.md) till en ny nodeType med tillfälliga diskar, flytta arbetsbelastningarna till den nya nodeType-& [ta bort](./service-fabric-how-to-remove-node-type.md) den befintliga nodeTypen.
+>
 
 Mer information och ytterligare konfigurationsalternativ finns i [Efemära OS-diskar för virtuella Azure-datorer](../virtual-machines/windows/ephemeral-os-disks.md) 
 

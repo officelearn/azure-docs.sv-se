@@ -5,12 +5,12 @@ author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ace76b9a13f44c14e348a0338ca01dd6b3948ce3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b05bccf10ef5f273a74ca49e02162fd0408230f
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369927"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411713"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Självstudiekurs: Skapa och distribuera din första ARM-mall
 
@@ -79,7 +79,7 @@ Grattis, du har skapat din första mall.
 
 Om du vill börja arbeta med Azure PowerShell/Azure CLI loggar du in med dina Azure-autentiseringsuppgifter.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Connect-AzAccount
@@ -96,7 +96,7 @@ az login
 
 När du distribuerar en mall anger du en resursgrupp som ska innehålla resurserna. Innan du kör distributionskommandot skapar du resursgruppen med antingen Azure CLI eller Azure PowerShell. Välj flikarna i följande kodavsnitt för att välja mellan Azure PowerShell och Azure CLI. CLI-exemplen i den här artikeln är skrivna för Bash-skalet.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup `
@@ -118,14 +118,14 @@ az group create \
 
 Om du vill distribuera mallen använder du antingen Azure CLI eller Azure PowerShell. Använd den resursgrupp som du skapade. Ge distributionen ett namn så att du enkelt kan identifiera den i distributionshistoriken. För enkelhetens skull kan du också skapa en variabel som lagrar sökvägen till mallfilen. Den här variabeln gör det enklare för dig att köra distributionskommandona eftersom du inte behöver skriva om sökvägen varje gång du distribuerar.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $templateFile = "{provide-the-path-to-the-template-file}"
 New-AzResourceGroupDeployment `
   -Name blanktemplate `
   -ResourceGroupName myResourceGroup `
-  -TemplateFile $templateFile
+  -TemplateFile $templateFile 
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -144,7 +144,7 @@ az deployment group create \
 
 Distributionskommandot returnerar resultat. Leta `ProvisioningState` efter om distributionen lyckades.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ![Etableringstillstånd för PowerShell-distribution](./media/template-tutorial-create-first-template/resource-manager-deployment-provisioningstate.png)
 
@@ -153,6 +153,9 @@ Distributionskommandot returnerar resultat. Leta `ProvisioningState` efter om di
 ![Etableringstillstånd för Azure CLI-distribution](./media/template-tutorial-create-first-template/azure-cli-provisioning-state.png)
 
 ---
+
+> [!NOTE]
+> Om distributionen misslyckades använder du **felsökningsväxeln** med distributionskommandot för att visa felsökningsloggarna.  Du kan också använda **den utförliga** växeln för att visa de fullständiga felsökningsloggarna.
 
 ## <a name="verify-deployment"></a>Verifiera distributionen
 

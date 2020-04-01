@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2dc78c25c2cf63a510b9451c8d694795cd8a91eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 72264755d5f0379f0ffb07852f48885126a36898
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060949"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411593"
 ---
 # <a name="use-azure-files-with-linux"></a>Använda Azure Files med Linux
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Linux-distributioner med [SMB-kärnklienten](https://wiki.samba.org/index.php/LinuxCIFS). Den här artikeln visar två sätt att montera en `mount` Azure-filresurs: på begäran `/etc/fstab`med kommandot och vidstart genom att skapa en post i .
@@ -194,10 +194,57 @@ När du är klar med Azure-filresursen kan du använda `sudo umount $mntPath` f�
     > [!Note]  
     > Ovanstående monteringskommando monteras med SMB 3.0. Om din Linux-distribution inte stöder SMB 3.0 med kryptering eller om den bara stöder SMB 2.1, får du bara montera från en Azure VM inom samma region som lagringskontot. Om du vill montera din Azure-filresurs på en Linux-distribution som inte stöder SMB 3.0 med kryptering måste du [inaktivera kryptering under överföringen för lagringskontot](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
+### <a name="using-autofs-to-automatically-mount-the-azure-file-shares"></a>Använda autofs för att automatiskt montera Azure-filresursen/-aktierna
+
+1. **Kontrollera att autofs-paketet är installerat.**  
+
+    Autofs-paketet kan installeras med pakethanteraren på valfri Linux-distribution. 
+
+    På **Ubuntu-** och **Debianbaserade** distributioner använder du `apt` pakethanteraren:
+    ```bash
+    sudo apt update
+    sudo apt install autofs
+    ```
+    På **Fedora**, **Red Hat Enterprise Linux 8 +** och **CentOS 8 +** använder du `dnf` pakethanteraren:
+    ```bash
+    sudo dnf install autofs
+    ```
+    På äldre versioner av **Red Hat Enterprise** `yum` Linux och **CentOS**använder du pakethanteraren:
+    ```bash
+    sudo yum install autofs 
+    ```
+    På **openSUSE**använder `zypper` du pakethanteraren:
+    ```bash
+    sudo zypper install autofs
+    ```
+2. **Skapa en monteringspunkt för resursen:**
+   ```bash
+    sudo mkdir /fileshares
+    ```
+3. **Skapa en ny anpassad konfigurationsfil för autofs**
+    ```bash
+    sudo vi /etc/auto.fileshares
+    ```
+4. **Lägg till följande poster i /etc/auto.fileshares**
+   ```bash
+   echo "$fileShareName -fstype=cifs,credentials=$smbCredentialFile :$smbPath"" > /etc/auto.fileshares
+   ```
+5. **Lägg till följande post i /etc/auto.master**
+   ```bash
+   /fileshares /etc/auto.fileshares --timeout=60
+   ```
+6. **Starta om autofs**
+    ```bash
+    sudo systemctl restart autofs
+    ```
+7.  **Komma åt mappen som är avsedd för resursen**
+    ```bash
+    cd /fileshares/$filesharename
+    ```
 ## <a name="securing-linux"></a>Säkra Linux
 För att kunna montera en Azure-filresurs på Linux måste port 445 vara tillgänglig. Många organisationer blockerar port 445 på grund av säkerhetsrisker med SMB 1. SMB 1, även känd som CIFS (Common Internet File System), är ett äldre filsystemprotokoll som ingår i många Linux-distributioner. SMB 1 är ett inaktuellt, ineffektivt och framför allt oskyddat protokoll. Den goda nyheten är att Azure Files inte stöder SMB 1, och börjar med Linux kernel version 4.18, Linux gör det möjligt att inaktivera SMB 1. Vi [rekommenderar](https://aka.ms/stopusingsmb1) alltid starkt att inaktivera SMB 1 på dina Linux-klienter innan du använder SMB-filresurser i produktion.
 
-Från och med Linux kernel 4.18, `cifs` SMB-kärnmodulen, som kallas av äldre skäl, exponerar en `disable_legacy_dialects`ny modulparameter (ofta kallad *parm* av olika externa dokument), kallad . Även om det infördes i Linux kernel 4.18, har vissa leverantörer bakåtporterat den här ändringen till äldre kärnor som de stöder. För enkelhetens skull, i följande tabell detaljer tillgängligheten för denna modul parameter på vanliga Linux-distributioner.
+Från och med Linux kernel 4.18, `cifs` SMB-kärnmodulen, som kallas av äldre skäl, exponerar en ny `disable_legacy_dialects`modulparameter (ofta kallad *parm* av olika externa dokumentationer), som kallas . Även om det infördes i Linux kernel 4.18, har vissa leverantörer bakåtporterat den här ändringen till äldre kärnor som de stöder. För enkelhetens skull, i följande tabell detaljer tillgängligheten för denna modul parameter på vanliga Linux-distributioner.
 
 | Distribution | Kan inaktivera SMB 1 |
 |--------------|-------------------|
@@ -281,6 +328,6 @@ Azure Files for Linux-användares grupp är ett forum där du kan dela feedback 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Azure Files finns på följande länkar:
 
-* [Planera för en Azure Files-distribution](storage-files-planning.md)
-* [Faq](../storage-files-faq.md)
-* [Troubleshooting](storage-troubleshoot-linux-file-connection-problems.md) (Felsökning)
+* [Planera för distribution av Azure Files](storage-files-planning.md)
+* [VANLIGA FRÅGOR OCH SVAR](../storage-files-faq.md)
+* [Felsökning](storage-troubleshoot-linux-file-connection-problems.md)

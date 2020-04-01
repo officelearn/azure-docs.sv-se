@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: e62f6f8df51c6acf4e2ad8e28e431d264c2c99e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a4ae2932f8d294ecf71de0ae405204a1f4d7b4d
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79037249"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436950"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Använda Azure-lagring med Azure HDInsight-kluster
 
@@ -40,7 +40,7 @@ Det går inte att dela en blob-behållare som standardfilsystem för flera klust
 
 ## <a name="access-files-from-within-cluster"></a>Komma åt filer från klustret
 
-Det finns flera sätt att komma åt filerna i DataSjölagring från ett HDInsight-kluster. URI-schemat ger okrypterad åtkomst (med prefixet *wasb:*) och SSL-krypterad åtkomst (med *wasbs*). Vi rekommenderar att du använder *wasbs* när det är möjligt, även för åtkomst till data som finns i samma region i Azure.
+Det finns flera sätt att komma åt filerna i DataSjölagring från ett HDInsight-kluster. URI-schemat ger okrypterad åtkomst (med *wasb:* prefix) och TLS-krypterad åtkomst (med *wasbs*). Vi rekommenderar att du använder *wasbs* när det är möjligt, även för åtkomst till data som finns i samma region i Azure.
 
 * **Via det fullständiga namnet**. Med den här metoden kan du ange den fullständiga sökvägen till filen som du vill öppna.
 
@@ -128,7 +128,7 @@ Microsoft tillhandahåller följande verktyg för att arbeta med Azure Storage:
 
 | Verktyg | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure-portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
 | [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
 | [AzKopia](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |

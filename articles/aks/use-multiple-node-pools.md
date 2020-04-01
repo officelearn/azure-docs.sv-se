@@ -4,12 +4,12 @@ description: Lär dig hur du skapar och hanterar flera nodpooler för ett kluste
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: 2045cb9a175bead3abf5b53120b9fe381a17b04b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 607419787bc0bab243d6cc2b8cbaa0ec22921e87
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80047728"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80422318"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Skapa och hantera flera nodpooler för ett kluster i Azure Kubernetes Service (AKS)
 
@@ -33,8 +33,8 @@ Följande begränsningar gäller när du skapar och hanterar AKS-kluster som st�
 * AKS-klustret måste använda standard SKU-belastningsutjämnaren för att använda flera nodpooler, funktionen stöds inte med grundläggande SKU-belastningsutjämnare.
 * AKS-klustret måste använda skaluppsättningar för virtuella datorer för noderna.
 * Namnet på en nodpool får bara innehålla gemener alfanumeriska tecken och måste börja med en gemen bokstav. För Linux-nodpooler måste längden vara mellan 1 och 12 tecken, för Windows-nodpooler måste längden vara mellan 1 och 6 tecken.
-* Alla nodpooler måste finnas i samma virtuella nätverk och undernät.
-* När du skapar flera nodpooler vid klusterskapande tid måste alla Kubernetes-versioner som används av nodpooler matcha versionsuppsättningen för kontrollplanet. Den här versionen kan uppdateras när klustret har etablerats med hjälp av per nodpoolåtgärder.
+* Alla nodpooler måste finnas i samma virtuella nätverk.
+* När du skapar flera nodpooler vid klusterskapande tid måste alla Kubernetes-versioner som används av nodpooler matcha versionsuppsättningen för kontrollplanet. Detta kan uppdateras när klustret har etablerats med hjälp av per nodpoolåtgärder.
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 
@@ -120,6 +120,29 @@ Följande exempelutdata visar att *mynodepool* har skapats med tre noder i nodpo
 
 > [!TIP]
 > Om ingen *VmSize* anges när du lägger till en nodpool är standardstorleken *Standard_DS2_v3* för Windows-nodpooler och *Standard_DS2_v2* för Linux-nodpooler. Om ingen *OrchestratorVersion* anges, är det standard samma version som kontrollplanet.
+
+### <a name="add-a-node-pool-with-a-unique-subnet-preview"></a>Lägga till en nodpool med ett unikt undernät (förhandsgranskning)
+
+En arbetsbelastning kan kräva att dela upp ett klusters noder i separata pooler för logisk isolering. Den här isoleringen kan stödjas med separata undernät som är dedikerade till varje nodpool i klustret. Detta kan hantera krav som att ha icke-sammanhängande virtuellt nätverksadressutrymme för att dela mellan nodpooler.
+
+#### <a name="limitations"></a>Begränsningar
+
+* Alla undernät som har tilldelats nodepools måste tillhöra samma virtuella nätverk.
+* Systempoddar måste ha åtkomst till alla noder i klustret för att tillhandahålla kritiska funktioner som DNS-upplösning via coreDNS.
+* Tilldelning av ett unikt undernät per nodpool är begränsad till Azure CNI under förhandsversionen.
+* Det går inte att använda nätverksprinciper med ett unikt undernät per nodpool under förhandsversionen.
+
+Om du vill skapa en nodpool med ett dedikerat undernät skickar du undernätsresurs-ID:n som en ytterligare parameter när du skapar en nodpool.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name mynodepool \
+    --node-count 3 \
+    --kubernetes-version 1.15.5
+    --vnet-subnet-id <YOUR_SUBNET_RESOURCE_ID>
+```
 
 ## <a name="upgrade-a-node-pool"></a>Uppgradera en nodpool
 
@@ -695,18 +718,22 @@ az group deployment create \
 
 Det kan ta några minuter att uppdatera AKS-klustret beroende på vilka inställningar och åtgärder som du definierar i Resource Manager-mallen.
 
-## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>Tilldela en offentlig IP per nod i en nodpool
+## <a name="assign-a-public-ip-per-node-for-a-node-pool-preview"></a>Tilldela en offentlig IP per nod för en nodpool (förhandsgranskning)
 
 > [!WARNING]
 > Under förhandsversionen av tilldelningen av en offentlig IP per nod kan den inte användas med *standardbelastningsutjämnar-SKU:n i AKS* på grund av möjliga belastningsutjämna regler som står i konflikt med vm-etablering. Som ett resultat av den här begränsningen stöds inte Windows-agentpooler med den här förhandsgranskningsfunktionen. I förhandsgranskningen måste du använda *SKU för grundläggande belastningsutjämning* om du behöver tilldela en offentlig IP per nod.
 
-AKS-noder kräver inte sina egna offentliga IP-adresser för kommunikation. Vissa scenarier kan dock kräva att noder i en nodpool har egna offentliga IP-adresser. Ett exempel är spel, där en konsol måste göra en direkt anslutning till en virtuell dator i molnet för att minimera hopp. Det här scenariot kan uppnås genom att registrera dig för en separat förhandsgranskningsfunktion, Node Public IP (preview).
+AKS-noder kräver inte sina egna offentliga IP-adresser för kommunikation. Scenarier kan dock kräva att noder i en nodpool tar emot sina egna offentliga IP-adresser. Ett vanligt scenario är för spelarbetsbelastningar, där en konsol måste upprätta en direkt anslutning till en virtuell dator i molnet för att minimera hopp. Det här scenariot kan uppnås på AKS genom att registrera dig för en förhandsgranskningsfunktion, Node Public IP (preview).
+
+Registrera dig för noden Public IP-funktionen genom att utfärda följande Azure CLI-kommando.
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-När du har registrerat dig har du distribuerat en Azure Resource Manager-mall enligt samma instruktioner som [ovan](#manage-node-pools-using-a-resource-manager-template) och lägga till egenskapen `enableNodePublicIP` boolean value till agentPoolProfiles. Ange värdet `true` till som standard är `false` det inställt som om det inte angavs. Den här egenskapen är en egenskap för endast skapa tid och kräver en minsta API-version av 2019-06-01. Detta kan tillämpas på både Linux- och Windows-nodpooler.
+När du har registrerat dig har du distribuerat [above](#manage-node-pools-using-a-resource-manager-template) en Azure Resource `enableNodePublicIP` Manager-mall enligt samma instruktioner som ovan och lägga till den booleska egenskapen i agentPoolProfiles. Ange värdet `true` till som standard är `false` det inställt som om det inte angavs. 
+
+Den här egenskapen är en egenskap för endast skapa tid och kräver en minsta API-version av 2019-06-01. Detta kan tillämpas på både Linux- och Windows-nodpooler.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

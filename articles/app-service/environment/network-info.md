@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: fb931c309b5f85902d8abc9cc6da45576bff4041
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4aec7fa78292f224952dd2ae929d2b8bfd97ab9b
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259830"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477686"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Nätverksöverväganden för en App Service-miljö #
 
@@ -109,7 +109,7 @@ Om du ändrar DNS-inställningen för det virtuella nätverk som din ASE befinne
 Förutom ASE funktionella beroenden, det finns några extra objekt relaterade till portalen erfarenhet. Vissa funktioner i Azure-portalen är beroende av direkt åtkomst till _SCM-webbplatsen_. För varje app i Azure App Service finns det två webbadresser. Den första webbadressen är att komma åt din app. Den andra webbadressen är att komma åt SCM webbplats, som också kallas _Kudu konsolen_. Funktioner som använder SCM webbplats inkluderar:
 
 -   Webbjobb
--   Funktioner
+-   Functions
 -   Logga strömning
 -   Kudu
 -   Tillägg
@@ -138,7 +138,7 @@ Alla dessa IP-adresser visas i Azure-portalen från ASE-användargränssnittet. 
 
 ### <a name="app-assigned-ip-addresses"></a>Apptilldelade IP-adresser ###
 
-Med en extern ASE kan du tilldela IP-adresser till enskilda appar. Du kan inte göra det med en ILB ASE. Mer information om hur du konfigurerar appen så att den har en egen IP-adress finns i [Skydda ett anpassat DNS-namn med en SSL-bindning i Azure App Service](../configure-ssl-bindings.md).
+Med en extern ASE kan du tilldela IP-adresser till enskilda appar. Du kan inte göra det med en ILB ASE. Mer information om hur du konfigurerar appen så att den har en egen IP-adress finns i [Skydda ett anpassat DNS-namn med en TLS/SSL-bindning i Azure App Service](../configure-ssl-bindings.md).
 
 När en app har en egen IP-baserad SSL-adress reserverar ASE två portar för att mappa till den IP-adressen. En port är för HTTP-trafik och den andra porten är för HTTPS. Dessa portar visas i ASE-användargränssnittet i avsnittet IP-adresser. Trafiken måste kunna nå dessa portar från VIP eller apparna är otillgängliga. Det här kravet är viktigt att komma ihåg när du konfigurerar NSG(Network Security Groups).
 

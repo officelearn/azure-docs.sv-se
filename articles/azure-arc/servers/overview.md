@@ -9,12 +9,12 @@ ms.author: magoedte
 keywords: azure automation, DSC, powershell, önskad tillståndskonfiguration, uppdateringshantering, ändringsspårning, lager, runbooks, python, grafisk, hybrid
 ms.date: 03/24/2020
 ms.topic: overview
-ms.openlocfilehash: 85a6f8dcb9f551d81a607adc9ae482f4025d804f
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 5ffe845178fffc252e95794bfb58801c9bff16a7
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366351"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411228"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>Vad är Azure Arc för servrar (förhandsversion)
 
@@ -147,7 +147,7 @@ Azure Connected Machine-agenten för Windows och Linux kan uppgraderas till den 
 
 ### <a name="agent-status"></a>Agentstatus
 
-Den anslutna datorn agent skickar ett regelbundet pulsslag meddelande till tjänsten var 5 minuter. Om en inte tas emot på 15 minuter betraktas datorn som offline och statusen ändras automatiskt till **Frånkopplad** i portalen. När du tar emot ett efterföljande pulsslagsmeddelande från agenten ansluten dator ändras dess status automatiskt till **Ansluten**.
+Den anslutna datorn agent skickar ett regelbundet pulsslag meddelande till tjänsten var 5 minuter. Om tjänsten slutar ta emot dessa pulsslagsmeddelanden från en dator betraktas den datorn som offline och statusen ändras automatiskt till **Frånkopplad** i portalen inom 15 till 30 minuter. När du tar emot ett efterföljande pulsslagsmeddelande från agenten ansluten dator ändras dess status automatiskt till **Ansluten**.
 
 ## <a name="install-and-configure-agent"></a>Installera och konfigurera agent
 

@@ -2,15 +2,15 @@
 title: Självstudiekurs - lägg till parametrar i mallen
 description: Lägg till parametrar i azure Resource Manager-mallen för att göra den återanvändbar.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b4f8d5098fc9cf2f91139979cae430594edac5af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: de7ec961672db2f3120e00f1a42b33f71e7ab092
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369859"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437820"
 ---
 # <a name="tutorial-add-parameters-to-your-arm-template"></a>Självstudiekurs: Lägg till parametrar i ARM-mallen
 
@@ -44,7 +44,7 @@ Nu distribuerar vi mallen. I följande exempel distribueras mallen med Azure CLI
 
 Om du inte har skapat resursgruppen läser du [Skapa resursgrupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **variabeln templateFile** till sökvägen till mallfilen, vilket visas i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -90,7 +90,7 @@ Den tidigare mallen har alltid distribuerat ett Standard_LRS lagringskonto. Du k
 
 Du är redo att sätta in igen. Eftersom standard-SKU:n är inställd **på Standard_LRS**behöver du inte ange något värde för den parametern.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -112,13 +112,16 @@ az deployment group create \
 
 ---
 
+> [!NOTE]
+> Om distributionen misslyckades använder du **felsökningsväxeln** med distributionskommandot för att visa felsökningsloggarna.  Du kan också använda **den utförliga** växeln för att visa de fullständiga felsökningsloggarna.
+
 Om du vill se flexibiliteten i mallen ska vi distribuera igen. Den här gången ställer SKU-parametern till **Standard_GRS**. Du kan antingen skicka in ett nytt namn för att skapa ett annat lagringskonto eller använda samma namn för att uppdatera ditt befintliga lagringskonto. Båda alternativen fungerar.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
-  -Name usedefaultsku `
+  -Name usenondefaultsku `
   -ResourceGroupName myResourceGroup `
   -TemplateFile $templateFile `
   -storageName "{your-unique-name}" `
@@ -129,7 +132,7 @@ New-AzResourceGroupDeployment `
 
 ```azurecli
 az deployment group create \
-  --name usedefaultsku \
+  --name usenondefaultsku \
   --resource-group myResourceGroup \
   --template-file $templateFile \
   --parameters storageSKU=Standard_GRS storageName={your-unique-name}
@@ -139,7 +142,7 @@ az deployment group create \
 
 Slutligen ska vi köra ytterligare ett test och se vad som händer när du passerar i en SKU som inte är en av de tillåtna värdena. I det här fallet testar vi scenariot där en användare av mallen tycker **att grundläggande** är en av de SKU: er.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `

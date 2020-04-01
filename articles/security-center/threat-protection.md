@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: e348180eb94c1703ceecf2f2b00ab942ba5ff0ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 395f4b5481fcf2028d6bfe736e58c3174a0c80b2
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536334"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80435351"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Skydd mot hot i Azure Security Center
 
@@ -73,9 +73,9 @@ Azure Security Center integreras med Azure-tjänster för att övervaka och skyd
 
 Security Center samlar in granskningsposter från Linux-datorer med hjälp av **granskade**, en av de vanligaste Linux-granskningsramverken. granskas i huvudlinjen kärnan. 
 
-* <a name="linux-auditd"></a> **Linux-granskningsaviseringar och MMA-integrering (Microsoft Monitoring Agent)** – Det granskade systemet består av ett delsystem på kärnnivå som ansvarar för övervakning av systemanrop. De filtreras med en angiven regeluppsättning och meddelanden skrivs för dem till en socket. Security Center integrerar funktioner från det granskade paketet i Microsoft Monitoring Agent (MMA). Den här integreringen möjliggör insamling av granskade händelser i alla Linux-distributioner som stöds, utan några förutsättningar.  
+* **Linux-granskningsaviseringar och Log Analytics-agentintegration** <a name="linux-auditd"></a> - Det granskade systemet består av ett delsystem på kärnnivå som ansvarar för övervakning av systemanrop. De filtreras med en angiven regeluppsättning och meddelanden skrivs för dem till en socket. Security Center integrerar funktioner från det granskade paketet i Log Analytics-agenten. Den här integreringen möjliggör insamling av granskade händelser i alla Linux-distributioner som stöds, utan några förutsättningar.
 
-    granskade poster samlas in, berikas och aggregeras till händelser med hjälp av Linux MMA-agenten. Security Center lägger kontinuerligt till nya analyser som använder Linux-signaler för att upptäcka skadliga beteenden på moln och lokala Linux-datorer. I likhet med Windows-funktioner sträcker sig dessa analyser över misstänkta processer, tvivelaktiga inloggningsförsök, inläsning av kärnmoduler och andra aktiviteter. Dessa aktiviteter kan tyda på att en maskin antingen är under attack eller har brutits.  
+    granskade poster samlas in, berikas och sammanställs till händelser med hjälp av Log Analytics-agenten för Linux-agenten. Security Center lägger kontinuerligt till nya analyser som använder Linux-signaler för att upptäcka skadliga beteenden på moln och lokala Linux-datorer. I likhet med Windows-funktioner sträcker sig dessa analyser över misstänkta processer, tvivelaktiga inloggningsförsök, inläsning av kärnmoduler och andra aktiviteter. Dessa aktiviteter kan tyda på att en maskin antingen är under attack eller har brutits.  
 
     En lista över Linux-aviseringar finns i [referenstabellen med aviseringar](alerts-reference.md#alerts-linux).
 

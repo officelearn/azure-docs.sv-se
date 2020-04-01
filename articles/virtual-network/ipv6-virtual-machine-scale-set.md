@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/29/2019
+ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: b90910614bcd86a54198b1a0961a3378427ea87e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a751fa193c8dd530707f790af0292d536a6f47d
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73164996"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80420465"
 ---
-# <a name="deploy-virtual-machine-scale-sets-with-ipv6-in-azure-preview"></a>Distribuera skalningsuppsättningar för virtuella datorer med IPv6 i Azure (förhandsversion)
+# <a name="deploy-virtual-machine-scale-sets-with-ipv6-in-azure"></a>Distribuera skalningsuppsättningar för virtuella datorer med IPv6 i Azure
 
 Den här artikeln visar hur du distribuerar en virtuell stack (IPv4 + IPv6) virtual machine scale set med en extern belastningsutjämnad med dubbla staplar i ett virtuellt Azure-nätverk. Processen för att skapa en IPv6-kompatibel virtuell datorskalauppsättning är nästan identisk med processen för att skapa enskilda virtuella datorer som beskrivs [här](ipv6-configure-standard-load-balancer-template-json.md). Du börjar med de steg som liknar de som beskrivs för enskilda virtuella datorer:
-1.  Skapa offentliga IPv4- och IPv6-adresser.
-2.  Skapa en belastningsutjämnare med dubbla staplar.  
-3.  Skapa NSG-regler (Network Security Group).  
+1.    Skapa offentliga IPv4- och IPv6-adresser.
+2.    Skapa en belastningsutjämnare med dubbla staplar.  
+3.    Skapa NSG-regler (Network Security Group).  
 
 Det enda steget som skiljer sig från enskilda virtuella datorer är att skapa nätverksgränssnittskonfigurationen (NIC) som använder skalningsuppsättningsresursen för den virtuella datorn: networkProfile/networkInterfaceConfigurations. JSON-strukturen liknar den för Microsoft.Network/networkInterfaces-objektet som används för enskilda virtuella datorer med tillägget att ange nätverkskortet och IPv4 IpConfiguration som det primära gränssnittet med det **"primära":** true-attributet som visas i följande exempel:
 

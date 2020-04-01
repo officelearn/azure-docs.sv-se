@@ -1,32 +1,54 @@
 ---
 title: Konfigurera Azure Active Directory-autentisering
-description: Lär dig hur du ansluter till SQL Database, hanterad instans och SQL Data Warehouse med hjälp av Azure Active Directory Authentication – efter att ha konfigurerat Azure AD.
+description: Lär dig hur du ansluter till SQL Database, hanterad instans och Azure Synapse Analytics med hjälp av Azure Active Directory Authentication – efter att ha konfigurerat Azure AD.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: data warehouse
+ms.custom: azure-synapse
 ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 01/07/2020
-ms.openlocfilehash: 881c7076d5131746c730757a07da6fb938429c38
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/27/2020
+ms.openlocfilehash: 0e244ea185011bbb7d9f0facad399bb9b577bbc2
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80125039"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80419850"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Konfigurera och hantera Azure Active Directory-autentisering med SQL
 
-Den här artikeln visar hur du skapar och fyller i Azure AD och sedan använder Azure AD med Azure [SQL Database](sql-database-technical-overview.md), [hanterad instans](sql-database-managed-instance.md)och SQL Data [Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). En översikt finns i [Azure Active Directory Authentication](sql-database-aad-authentication.md).
+Den här artikeln visar hur du skapar och fyller i Azure AD och sedan använder Azure AD med Azure [SQL Database (SQL DB)](sql-database-technical-overview.md), [hanterad instans (MI)](sql-database-managed-instance.md)och [Azure Synapse Analytics (tidigare Azure SQL Data Warehouse)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). En översikt finns i [Azure Active Directory Authentication](sql-database-aad-authentication.md).
 
 > [!NOTE]
-> Den här artikeln gäller Azure SQL-server och både SQL Database- och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
+> Den här artikeln gäller Azure SQL-server och både SQL Database och Azure Synapse. För enkelhetens skull används SQL Database när du refererar till både SQL Database och Azure Synapse.
 
 > [!IMPORTANT]  
 > Det går inte att ansluta till SQL Server som körs på en Virtuell Azure-dator med ett Azure Active Directory-konto. Använd ett Active Directory-konto i domänen i stället.
+
+## <a name="azure-ad-authentication-methods"></a>Azure AD-autentiseringsmetoder
+
+Azure AD-autentisering stöder följande autentiseringsmetoder:
+
+- Azure AD-molnidentiteter
+- Azure AD-hybrididentiteter som stöder:
+  - Molnautentisering med två alternativ i kombination med sömlös enkel inloggning (SSO)
+    - Azure AD-lösenord hash-autentisering
+    - Azure AD-direktautentisering
+  - Federerad autentisering
+
+Mer information om Azure AD-autentiseringsmetoder och vilken du vill välja finns i artikeln:
+- [Välj rätt autentiseringsmetod för azure Active Directory-hybrididentitetslösningen](../active-directory/hybrid/choose-ad-authn.md)
+
+Mer information om Azure AD-hybrididentiteter, inställningar och synkronisering finns i följande artiklar:
+
+- Autentisering av lösenord hash - [Implementera synkronisering av lösenordsh hash med Azure AD Connect-synkronisering](../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)
+- Direktautentisering - [Azure Active Directory Direktautentisering](../active-directory/hybrid/how-to-connect-pta-quick-start.md)
+- Federerad autentisering – [distribuera Active Directory Federation Services i Azure](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs) och Azure AD Connect och [federation](../active-directory/hybrid/how-to-connect-fed-whatis.md)
+
+Alla ovanstående autentiseringsmetoder stöds för SQL DB (enskilda databas- och databaspooler), hanterad instans och Azure Synapse.
 
 ## <a name="create-and-populate-an-azure-ad"></a>Skapa och fylla i en Azure AD
 
@@ -45,7 +67,7 @@ Mer information finns i [Integrera dina lokala identiteter med Azure Active Dire
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>Skapa en Azure AD-administratör för Azure SQL-server
 
-Varje Azure SQL-server (som är värd för en SQL Database eller SQL Data Warehouse) börjar med ett enda serveradministratörskonto som är administratör för hela Azure SQL-servern. En andra SQL Server-administratör måste skapas, det vill säga ett Azure AD-konto. Det här huvudnamnet skapas som en innesluten databasanvändare i huvuddatabasen. Som administratörer är serveradministratörskontona medlemmar i **den db_owner** rollen i varje användardatabas och anger varje användardatabas som **dbo-användare.** Mer information om serveradministratörskontona finns [i Hantera databaser och inloggningar i Azure SQL Database](sql-database-manage-logins.md).
+Varje Azure SQL-server (som är värd för en SQL-databas eller Azure Synapse) börjar med ett enda serveradministratörskonto som är administratör för hela Azure SQL-servern. En andra SQL Server-administratör måste skapas, det vill säga ett Azure AD-konto. Det här huvudnamnet skapas som en innesluten databasanvändare i huvuddatabasen. Som administratörer är serveradministratörskontona medlemmar i **den db_owner** rollen i varje användardatabas och anger varje användardatabas som **dbo-användare.** Mer information om serveradministratörskontona finns [i Hantera databaser och inloggningar i Azure SQL Database](sql-database-manage-logins.md).
 
 När du använder Azure Active Directory med geo-replikering måste Azure Active Directory-administratören konfigureras för både de primära och de sekundära servrarna. Om en server inte har en Azure Active Directory-administratör visas Azure Active Directory-inloggningar och användare får ett "Kan inte ansluta" till serverfel.
 
@@ -176,7 +198,7 @@ Som bästa praxis för befintliga Azure AD-administratörer för MI som skapats 
 
 ### <a name="powershell-for-sql-managed-instance"></a>PowerShell för SQL-hanterad instans
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Om du vill köra PowerShell-cmdletar måste du ha Azure PowerShell installerat och körs. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
 
@@ -232,13 +254,13 @@ Mer information om CLI-kommandon finns i [az sql mi](/cli/azure/sql/mi).
 ## <a name="provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server"></a>Etablera en Azure Active Directory-administratör för din Azure SQL Database-server
 
 > [!IMPORTANT]
-> Följ bara dessa steg om du etablerar en Azure SQL Database-server eller Data Warehouse.
+> Följ bara dessa steg om du etablerar en Azure SQL Database-server eller Azure Synapse Analytics.
 
 Följande två procedurer visar hur du etablerar en Azure Active Directory-administratör för din Azure SQL-server i Azure-portalen och med hjälp av PowerShell.
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. På [Azure-portalen](https://portal.azure.com/) väljer du din anslutning i det övre högra hörnet för att visa en lista över möjliga Active Directories. Välj rätt Active Directory som standard-Azure AD. Det här steget länkar prenumerationsassocierad Active Directory till Azure SQL-servern, vilket gör att samma prenumeration används för både Azure AD och SQL Server. (Azure SQL-servern kan vara värd för antingen Azure SQL Database eller Azure SQL Data Warehouse.)
+1. På [Azure-portalen](https://portal.azure.com/) väljer du din anslutning i det övre högra hörnet för att visa en lista över möjliga Active Directories. Välj rätt Active Directory som standard-Azure AD. Det här steget länkar prenumerationsassocierad Active Directory till Azure SQL-servern, vilket gör att samma prenumeration används för både Azure AD och SQL Server. (Azure SQL-servern kan vara värd för antingen Azure SQL Database eller Azure Synapse.)
 
     ![choose-ad][8]
 
@@ -255,7 +277,7 @@ Följande två procedurer visar hur du etablerar en Azure Active Directory-admin
 
     ![SQL-servrar anger Active Directory-administratör](./media/sql-database-aad-authentication/sql-servers-set-active-directory-admin.png)  
 
-5. på sidan **Lägg till administratör** söker du efter en användare, väljer den användare eller den grupp som ska vara administratör och väljer sedan **Välj**. (Active Directory-administratörssidan visar alla medlemmar och grupper för din Active Directory. Användare eller grupper som är nedtonade kan inte väljas eftersom de inte stöds som Azure AD-administratörer. (Se listan över administratörer som stöds i avsnittet **Azure AD-funktioner och begränsningar** i Använd Azure Active [Directory-autentisering för autentisering med SQL Database eller SQL Data Warehouse](sql-database-aad-authentication.md).) Rollbaserad åtkomstkontroll (RBAC) gäller endast för portalen och sprids inte till SQL Server.
+5. på sidan **Lägg till administratör** söker du efter en användare, väljer den användare eller den grupp som ska vara administratör och väljer sedan **Välj**. (Active Directory-administratörssidan visar alla medlemmar och grupper för din Active Directory. Användare eller grupper som är nedtonade kan inte väljas eftersom de inte stöds som Azure AD-administratörer. (Se listan över administratörer som stöds i avsnittet **Azure AD-funktioner och begränsningar** i Använd Azure Active [Directory-autentisering för autentisering med SQL Database eller Azure Synapse](sql-database-aad-authentication.md).) Rollbaserad åtkomstkontroll (RBAC) gäller endast för portalen och sprids inte till SQL Server.
 
     ![Välj Azure Active Directory-administratör](./media/sql-database-aad-authentication/select-azure-active-directory-admin.png)  
 
@@ -270,22 +292,22 @@ Processen med att ändra administratör kan ta några minuter. Sedan visas den n
 
 Om du senare vill ta bort en administratör väljer du **Ta bort administratör**högst upp på **administrationssidan** i Active Directory och väljer sedan **Spara**.
 
-### <a name="powershell-for-azure-sql-database-and-azure-sql-data-warehouse"></a>PowerShell för Azure SQL Database och Azure SQL Data Warehouse
+### <a name="powershell-for-azure-sql-database-and-azure-synapse"></a>PowerShell för Azure SQL Database och Azure Synapse
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Om du vill köra PowerShell-cmdletar måste du ha Azure PowerShell installerat och körs. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview). Om du vill etablera en Azure AD-administratör kör du följande Azure PowerShell-kommandon:
 
 - Anslut-AzAccount
 - Välj-azabonnemang
 
-Cmdlets som används för att etablera och hantera Azure AD-administratör för Azure SQL Database och Azure SQL Data Warehouse:
+Cmdlets som används för att etablera och hantera Azure AD-administratör för Azure SQL Database och Azure Synapse:
 
 | Cmdlet-namn | Beskrivning |
 | --- | --- |
-| [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Etablerar en Azure Active Directory-administratör för Azure SQL-server eller Azure SQL Data Warehouse. (Måste vara från den aktuella prenumerationen) |
-| [Ta bort-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Tar bort en Azure Active Directory-administratör för Azure SQL-server eller Azure SQL Data Warehouse. |
-| [Få-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator) |Returnerar information om en Azure Active Directory-administratör som för närvarande är konfigurerad för Azure SQL-servern eller Azure SQL Data Warehouse. |
+| [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Etablerar en Azure Active Directory-administratör för Azure SQL-server eller Azure Synapse. (Måste vara från den aktuella prenumerationen) |
+| [Ta bort-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Tar bort en Azure Active Directory-administratör för Azure SQL-server eller Azure Synapse. |
+| [Få-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator) |Returnerar information om en Azure Active Directory-administratör som för närvarande är konfigurerad för Azure SQL-servern eller Azure Synapse. |
 
 Använd PowerShell-kommandot get-help för att se mer information för vart och ett av dessa kommandon. Till exempel `get-help Set-AzSqlServerActiveDirectoryAdministrator`.
 
@@ -328,10 +350,10 @@ Du kan etablera en Azure AD-administratör genom att anropa följande CLI-komman
 
 | Kommando | Beskrivning |
 | --- | --- |
-|[az sql server ad-admin skapa](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) | Etablerar en Azure Active Directory-administratör för Azure SQL-server eller Azure SQL Data Warehouse. (Måste vara från den aktuella prenumerationen) |
-|[az sql server ad-admin delete az sql server ad-admin delete az sql server ad-admin delete az sql](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) | Tar bort en Azure Active Directory-administratör för Azure SQL-server eller Azure SQL Data Warehouse. |
-|[az sql server ad-admin lista](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) | Returnerar information om en Azure Active Directory-administratör som för närvarande är konfigurerad för Azure SQL-servern eller Azure SQL Data Warehouse. |
-|[az sql server ad-admin uppdatering](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-update) | Uppdaterar Active Directory-administratören för en Azure SQL-server eller Azure SQL Data Warehouse. |
+|[az sql server ad-admin skapa](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) | Etablerar en Azure Active Directory-administratör för Azure SQL-server eller Azure Synapse. (Måste vara från den aktuella prenumerationen) |
+|[az sql server ad-admin delete az sql server ad-admin delete az sql server ad-admin delete az sql](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) | Tar bort en Azure Active Directory-administratör för Azure SQL-server eller Azure Synapse. |
+|[az sql server ad-admin lista](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) | Returnerar information om en Azure Active Directory-administratör som för närvarande är konfigurerad för Azure SQL-servern eller Azure Synapse. |
+|[az sql server ad-admin uppdatering](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-update) | Uppdaterar Active Directory-administratören för en Azure SQL-server eller Azure Synapse. |
 
 Mer information om CLI-kommandon finns i [az sql server](/cli/azure/sql/server).
 
@@ -342,7 +364,7 @@ Mer information om CLI-kommandon finns i [az sql server](/cli/azure/sql/server).
 
 ## <a name="configure-your-client-computers"></a>Konfigurera klientdatorerna
 
-På alla klientdatorer, från vilka dina program eller användare ansluter till Azure SQL Database eller Azure SQL Data Warehouse med Hjälp av Azure AD-identiteter, måste du installera följande programvara:
+På alla klientdatorer, från vilka dina program eller användare ansluter till Azure SQL Database eller Azure Synapse med Hjälp av Azure AD-identiteter, måste du installera följande programvara:
 
 - .NET Framework 4.6 [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx)eller senare från .
 - Azure Active Directory Authentication Library för SQL Server (*ADAL. DLL*). Nedan finns hämtningslänkarna för att installera den senaste SSMS-, ODBC- och OLE DB-drivrutinen som innehåller *ADAL. DLL-bibliotek.*
@@ -365,7 +387,7 @@ Du kan uppfylla dessa krav genom att:
 Azure Active Directory-autentisering kräver att databasanvändare skapas som användare av oberoende databas. En användare av oberoende databas baserad på en Azure AD-identitet är en databasanvändare som inte har någon inloggning i huvuddatabasen, och som mappas till en identitet i den Azure AD-katalog som är associerad med databasen. Azure AD-identiteten kan vara antingen ett enskilt användarkonto eller en grupp. Mer information om användare av oberoende databas finns i avsnittet om [användare av oberoende databas – så gör du din databas portabel](https://msdn.microsoft.com/library/ff929188.aspx).
 
 > [!NOTE]
-> Databasanvändare (med undantag för administratörer) kan inte skapas med hjälp av Azure-portalen. RBAC-roller sprids inte till SQL Server, SQL Database eller SQL Data Warehouse. Azure RBAC-roller används för att hantera Azure-resurser och gäller inte för databasbehörigheter. Till exempel beviljar rollen **SQL Server-deltagare** inte åtkomst för att ansluta till SQL Database eller SQL Data Warehouse. Åtkomstbehörigheten måste beviljas direkt i databasen med hjälp av Transact-SQL-instruktioner.
+> Databasanvändare (med undantag för administratörer) kan inte skapas med hjälp av Azure-portalen. RBAC-roller sprids inte till SQL Server, SQL Database eller Azure Synapse. Azure RBAC-roller används för att hantera Azure-resurser och gäller inte för databasbehörigheter. SQL Server **Contributor-rollen** ger till exempel inte åtkomst till anslutning till SQL-databasen eller Azure Synapse. Åtkomstbehörigheten måste beviljas direkt i databasen med hjälp av Transact-SQL-instruktioner.
 
 > [!WARNING]
 > Specialtecken som kolon `:` eller et-tecken `&` stöds inte när de ingår i användarnamn i instruktionerna T-SQL CREATE LOGIN och CREATE USER.
@@ -417,7 +439,7 @@ Ett federerat domänanvändarkonto som importeras till en hanterad domän som en
 > [!NOTE]
 > Azure AD-användare markeras i databasmetadata med typen E (EXTERNAL_USER) och för grupper med typen X (EXTERNAL_GROUPS). Mer information finns i [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 
-## <a name="connect-to-the-user-database-or-data-warehouse-by-using-ssms-or-ssdt"></a>Ansluta till användardatabasen eller informationslagret med hjälp av SSMS eller SSDT  
+## <a name="connect-to-the-user-database-or-azure-synapse-by-using-ssms-or-ssdt"></a>Ansluta till användardatabasen eller Azure Synapse med hjälp av SSMS eller SSDT  
 
 Om du vill bekräfta att Azure AD-administratören är korrekt konfigurerad ansluter du till **huvuddatabasen** med azure AD-administratörskontot.
 Om du vill etablera en Azure AD-baserad databasanvändare (förutom serveradministratören som äger databasen) ansluter du till databasen med en Azure AD-identitet som har åtkomst till databasen.
@@ -427,35 +449,41 @@ Om du vill etablera en Azure AD-baserad databasanvändare (förutom serveradmini
 
 ## <a name="using-an-azure-ad-identity-to-connect-using-ssms-or-ssdt"></a>Använda en Azure AD-identitet för att ansluta med SSMS eller SSDT
 
-Följande procedurer visar hur du ansluter till en SQL-databas med en Azure AD-identitet med hjälp av SQL Server Management Studio eller SQL Server Database Tools.
+Följande procedurer visar hur du ansluter till en SQL-databas med en Azure AD-identitet med hjälp av SQL Server Management Studio eller SQL Server Database Tools. 
 
 ### <a name="active-directory-integrated-authentication"></a>Active Directory-integrerad autentisering
 
-Använd den här metoden om du är inloggad i Windows med dina Azure Active Directory-autentiseringsuppgifter från en federerad domän.
+Använd den här metoden om du är inloggad i Windows med dina Azure Active Directory-autentiseringsuppgifter från en federerad domän eller en hanterad domän som är konfigurerad för sömlös enkel inloggning för genomgångs- och lösenordshh-autentisering. Mer information finns i [Azure Active Directory Seamless Single Sign-On](../active-directory/hybrid/how-to-connect-sso.md).
 
-1. Starta Hanteringsstudion eller dataverktygen och välj **Active Directory - Integrated**i dialogrutan Anslut till **server** (eller Anslut **till databasmotor)** i rutan **Autentisering** . Inget lösenord behövs eller kan anges eftersom dina befintliga autentiseringsuppgifter visas för anslutningen.
+1. Starta Hanteringsstudion eller dataverktygen och välj **Azure Active Directory - Integrated**i dialogrutan Anslut till **server** (eller Anslut **till databasmotor)** i rutan **Autentisering** . Inget lösenord behövs eller kan anges eftersom dina befintliga autentiseringsuppgifter visas för anslutningen.
 
     ![Välj AD-integrerad autentisering][11]
 
-2. Välj knappen **Alternativ** och skriv namnet på den användardatabas som du vill ansluta till i rutan Anslut till databas på sidan **Anslutningsegenskaper.** **Connect to database** (ALTERNATIVET **AD-domännamn eller klient-ID**" stöds endast för **Universell med MFA-anslutningsalternativ,** annars är det nedtonat.)  
+2. Välj knappen **Alternativ** och skriv namnet på den användardatabas som du vill ansluta till i rutan Anslut till databas på sidan **Anslutningsegenskaper.** **Connect to database** Mer information finns i artikeln [Multifaktor AAD auth](sql-database-ssms-mfa-authentication.md#azure-ad-domain-name-or-tenant-id-parameter) om skillnaderna mellan anslutningsegenskaperna för SSMS 17.x och 18.x. 
 
     ![Markera databasnamnet][13]
 
-## <a name="active-directory-password-authentication"></a>Active Directory-lösenordsautentisering
+### <a name="active-directory-password-authentication"></a>Active Directory-lösenordsautentisering
 
 Använd den här metoden när du ansluter till ett Azure AD-huvudnamn med den Azure AD-hanterade domänen. Du kan också använda den för federerade konton utan åtkomst till domänen, till exempel när du arbetar på distans.
 
-Använd den här metoden för att autentisera till SQL DB/DW med Azure AD för inbyggda eller federerade Azure AD-användare. En inbyggd användare är en som uttryckligen skapas i Azure AD och autentiseras med användarnamn och lösenord, medan en federerad användare är en Windows-användare vars domän är federerad med Azure AD. Den senare metoden (med hjälp av & lösenord) kan användas när en användare vill använda sina Windows-autentiseringsuppgifter, men deras lokala dator är inte ansluten till domänen (till exempel med hjälp av en fjärråtkomst). I det här fallet kan en Windows-användare ange sitt domänkonto och lösenord och autentisera till SQL DB/DW med federerade autentiseringsuppgifter.
+Använd den här metoden för att autentisera till SQL DB eller MI med Azure AD-identitetsanvändare endast för molnet, eller de som använder Azure AD-hybrididentiteter. Den här metoden stöder användare som vill använda sina Windows-autentiseringsuppgifter, men deras lokala dator är inte ansluten till domänen (till exempel med fjärråtkomst). I det här fallet kan en Windows-användare ange sitt domänkonto och lösenord och autentisera till SQL DB, MI eller Azure Synapse.
 
-1. Starta Hanteringsstudion eller dataverktygen och välj **Active Directory - Lösenord**i dialogrutan Anslut till **server** (eller Anslut **till databasmotor)** i rutan **Autentisering** .
+1. Starta Hanteringsstudion eller dataverktygen och välj **Azure Active Directory - Password**i dialogrutan Anslut till **server** (eller Anslut **till databasmotor)** i rutan **Autentisering** .
 
-2. Skriv **User name** ditt Azure Active Directory-användarnamn i formatet **användarnamn\@domain.com**. Användarnamn måste vara ett konto från Azure Active Directory eller ett konto från en domän federerar med Azure Active Directory.
+2. Skriv **User name** ditt Azure Active Directory-användarnamn i formatet **användarnamn\@domain.com**. Användarnamn måste vara ett konto från Azure Active Directory eller ett konto från en hanterad eller federerad domän med Azure Active Directory.
 
-3. Skriv ditt användarlösenord för Azure Active Directory-kontot eller det federerade domänkontot i rutan **Lösenord.**
+3. Skriv ditt användarlösenord för Azure Active Directory-kontot eller det hanterade/federerade domänkontot i rutan **Lösenord.**
 
     ![Välj AD-lösenordsautentisering][12]
 
 4. Välj knappen **Alternativ** och skriv namnet på den användardatabas som du vill ansluta till i rutan Anslut till databas på sidan **Anslutningsegenskaper.** **Connect to database** (Se bilden i föregående alternativ.)
+
+### <a name="active-directory-interactive-authentication"></a>Interaktiv autentisering i Active Directory
+
+Använd den här metoden för interaktiv autentisering med eller utan MFA (Multifaktor authentication), med lösenord som begärs interaktivt. Den här metoden kan användas för att autentisera till SQL DB, MI och Azure Synapse för Azure AD-identitetsanvändare endast för molnet, eller de som använder Azure AD-hybrididentiteter.
+
+Mer information finns i [Använda Multifaktor AAD-autentisering med Azure SQL Database och Azure Synapse Analytics (SSMS-stöd för MFA)](sql-database-ssms-mfa-authentication.md).
 
 ## <a name="using-an-azure-ad-identity-to-connect-from-a-client-application"></a>Använda en Azure AD-identitet för att ansluta från ett klientprogram
 
@@ -463,9 +491,14 @@ Följande procedurer visar hur du ansluter till en SQL-databas med en Azure AD-i
 
 ### <a name="active-directory-integrated-authentication"></a>Active Directory-integrerad autentisering
 
-Om du vill använda integrerad Windows-autentisering måste domänens Active Directory vara federerat med Azure Active Directory. Klientprogrammet (eller en tjänst) som ansluter till databasen måste köras på en domänansluten dator under en användares domänautentiseringsuppgifter.
+Om du vill använda integrerad Windows-autentisering måste domänens Active Directory vara federerat med Azure Active Directory, eller vara en hanterad domän som är konfigurerad för sömlös enkel inloggning för genomströmnings- eller lösenordshh-autentisering. Mer information finns i [Azure Active Directory Seamless Single Sign-On](../active-directory/hybrid/how-to-connect-sso.md).
 
-Om du vill ansluta till en databas med integrerad autentisering och en Azure AD-identitet måste nyckelordet Authentication i databasanslutningssträngen anges till Active Directory Integrated. Följande C#-kodexempel använder ADO .NET.
+> [!NOTE]
+> [MSAL.NET (Microsoft.Identity.Client)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap) för integrerad Windows-autentisering stöds inte för sömlös enkel inloggning för genomgångs- och lösenordshh-autentisering.
+
+Klientprogrammet (eller en tjänst) som ansluter till databasen måste köras på en domänansluten dator under en användares domänautentiseringsuppgifter.
+
+Om du vill ansluta till en databas med integrerad autentisering och en Azure `Active Directory Integrated`AD-identitet måste nyckelordet Authentication i databasanslutningssträngen anges till . Följande C#-kodexempel använder ADO .NET.
 
 ```csharp
 string ConnectionString = @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Integrated; Initial Catalog=testdb;";
@@ -477,7 +510,7 @@ Nyckelordet anslutningssträng `Integrated Security=True` stöds inte för anslu
 
 ### <a name="active-directory-password-authentication"></a>Active Directory-lösenordsautentisering
 
-Om du vill ansluta till en databas med integrerad autentisering och en Azure AD-identitet måste nyckelordet Authentication anges till Active Directory-lösenord. Anslutningssträngen måste innehålla nyckelord och värden för användar-ID/UID och lösenord/PWD. Följande C#-kodexempel använder ADO .NET.
+Om du vill ansluta till en databas med azure AD-identitetsanvändarkonton för molnet, eller `Active Directory Password`de som använder Azure AD-hybrididentiteter, måste nyckelordet Authentication ställas in på . Anslutningssträngen måste innehålla nyckelord och värden för användar-ID/UID och lösenord/PWD. Följande C#-kodexempel använder ADO .NET.
 
 ```csharp
 string ConnectionString =
@@ -490,7 +523,7 @@ Läs mer om Azure AD-autentiseringsmetoder med hjälp av de demokodsexempel som 
 
 ## <a name="azure-ad-token"></a>Azure AD-token
 
-Med den här autentiseringsmetoden kan medelnivåtjänster ansluta till Azure SQL Database eller Azure SQL Data Warehouse genom att hämta en token från Azure Active Directory (AAD). Det möjliggör avancerade scenarier, inklusive certifikatbaserad autentisering. Du måste utföra fyra grundläggande steg för att kunna använda Azure AD-tokenautentisering:
+Med den här autentiseringsmetoden kan tjänst på mellannivå hämta [JSON Web Tokens (JWT)](../active-directory/develop/id-tokens.md) för att ansluta till Azure SQL Database eller Azure Synapse genom att hämta en token från Azure Active Directory (AAD). Den här metoden möjliggör olika programscenarier, inklusive tjänstidentiteter, tjänstobjektnamn och program med hjälp av certifikatbaserad autentisering. Du måste utföra fyra grundläggande steg för att kunna använda Azure AD-tokenautentisering:
 
 1. Registrera ditt program med Azure Active Directory och hämta klient-ID:et för din kod.
 2. Skapa en databasanvändare som representerar programmet. (Slutförd tidigare i steg 6.)

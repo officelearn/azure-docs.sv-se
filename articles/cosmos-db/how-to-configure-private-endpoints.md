@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: thweiss
-ms.openlocfilehash: 944341b1ef88c7e3d64a74536720eb9fb1d17321
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a6a1560e169c51256c198868dc7293a020189f4
+ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80152748"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80421428"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Konfigurera Azure Private Link för ett Azure Cosmos-konto
 
@@ -24,7 +24,7 @@ Du kan ansluta till ett Azure Cosmos-konto som konfigurerats med Private Link me
 I den här artikeln beskrivs stegen för att skapa en privat slutpunkt. Det förutsätter att du använder den automatiska godkännandemetoden.
 
 > [!NOTE]
-> Stöd för privata slutpunkter är för närvarande allmänt tillgängligt i regioner som stöds endast för gatewayanslutningsläge. För direktläge är det tillgängligt som en förhandsgranskningsfunktion.
+> Stöd för privata slutpunkter är för närvarande endast allmänt tillgängligt för gateway-anslutningsläge. För direktläge är det tillgängligt som en förhandsgranskningsfunktion.
 
 ## <a name="create-a-private-endpoint-by-using-the-azure-portal"></a>Skapa en privat slutpunkt med hjälp av Azure-portalen
 
@@ -639,14 +639,9 @@ Du kan använda samma steg när du tar bort en region. När du har tagit bort re
 
 Följande begränsningar gäller när du använder Privat länk med ett Azure Cosmos-konto:
 
-* Private Link-stöd för Azure Cosmos-konton och virtuella nätverk är endast tillgängligt i specifika regioner. En lista över regioner som stöds finns i avsnittet [Tillgängliga regioner](../private-link/private-link-overview.md#availability) i artikeln Privat länk. 
-
-  > [!NOTE]
-  > Om du vill skapa en privat slutpunkt kontrollerar du att både det virtuella nätverket och Azure Cosmos-kontot finns i regioner som stöds.
-
 * När du använder Privat länk med ett Azure Cosmos-konto med hjälp av en direktlägesanslutning kan du bara använda TCP-protokollet. HTTP-protokollet stöds ännu inte.
 
-* Stöd för privata slutpunkter är för närvarande allmänt tillgängligt i regioner som stöds endast för gatewayanslutningsläge. För direktläge är det tillgängligt som en förhandsgranskningsfunktion.
+* Stöd för privata slutpunkter är för närvarande endast allmänt tillgängligt för gateway-anslutningsläge. För direktläge är det tillgängligt som en förhandsgranskningsfunktion.
 
 * När du använder Azure Cosmos DB:s API för MongoDB-konton stöds en privat slutpunkt endast för konton på serverversion 3.6 (det vill säga konton som använder slutpunkten i formatet `*.mongo.cosmos.azure.com`). Private Link stöds inte för konton på serverversion 3.2 (det vill `*.documents.azure.com`än konton som använder slutpunkten i formatet ). Om du vill använda Privat länk bör du migrera gamla konton till den nya versionen.
 

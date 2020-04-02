@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1401cbe1920c7c6df804aadbba1751612ba9cf06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be12bce8fa29076621bec35228838a4ebdd97433
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79126790"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545877"
 ---
 # <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Lokalisera användargränssnittet för ditt program med hjälp av en anpassad princip i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Med språkanpassning i Azure Active Directory B2C (Azure AD B2C) kan du anpassa olika språk som passar dina kunders behov. Microsoft tillhandahåller översättningar för 36 språk, men du kan också tillhandahålla egna översättningar för alla språk. Även om din upplevelse endast tillhandahålls för ett enda språk kan du anpassa all text på sidorna. 
+Med språkanpassning i Azure Active Directory B2C (Azure AD B2C) kan du anpassa olika språk som passar dina kunders behov. Microsoft tillhandahåller översättningar för [36 språk,](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-language-customization#supported-languages)men du kan också tillhandahålla egna översättningar för alla språk. Även om din upplevelse endast tillhandahålls för ett enda språk kan du anpassa all text på sidorna. 
 
 I den här artikeln visas hur du stöder flera språk eller språk i principen för användarresor. Lokalisering kräver tre steg: konfigurera den explicita listan över språk som stöds, tillhandahålla språkspecifika strängar och samlingar och redigera [innehållsdefinitionen](contentdefinitions.md) för sidan. 
 

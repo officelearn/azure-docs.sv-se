@@ -1,28 +1,23 @@
 ---
 title: ta med fil
 description: ta med fil
-services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 7cfa6e9810057493cc3007eec7fd1668a70c727e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d56964b7415e4ca5903950cd46c02b3c27f62d5e
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77179020"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547421"
 ---
 Med hjälp av Spot virtuella datorer kan du dra nytta av vår outnyttjade kapacitet till en betydande kostnadsbesparingar. När som helst när Azure behöver tillbaka kapaciteten kommer Azure-infrastrukturen att ta bort spot-datorer. Därför är spot-virtuella datorer bra för arbetsbelastningar som kan hantera avbrott som batchbearbetningsjobb, utvecklings-/testmiljöer, stora beräkningsarbetsbelastningar med mera.
 
 Mängden tillgänglig kapacitet kan variera beroende på storlek, region, tid på dygnet och mycket mer. När du distribuerar spot-virtuella datorer allokerar Azure de virtuella datorerna om det finns kapacitet tillgänglig, men det finns inget serviceavtal för dessa virtuella datorer. En spot-vm ger inga garantier för hög tillgänglighet. När som helst när Azure behöver tillbaka kapaciteten kommer Azure-infrastrukturen att vräkas Spot-virtuella datorer med 30 sekunders varsel. 
 
-> [!IMPORTANT]
-> Spot-instanser är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## <a name="eviction-policy"></a>Policy för vräkning
 

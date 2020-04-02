@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 03/24/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 758e6123fd09df1e3f8b2e883a729b9fec4328d1
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 8bcf59ee863bb2fd2a3213480372ad215c2fc00d
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80367296"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528595"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Hantera och underhålla den anslutna maskinagenten
 
@@ -61,6 +61,9 @@ Installationsguiden identifierar om det finns en tidigare version och sedan auto
 ### <a name="linux-agent"></a>Linux-agent
 
 För att uppdatera agenten på en Linux-dator till den senaste versionen, innebär det två kommandon. Ett kommando för att uppdatera det lokala paketindexet med listan över de senaste tillgängliga paketen från databaserna och ett kommando för att uppgradera det lokala paketet. 
+
+> [!NOTE]
+> Om du vill uppgradera *root* agenten måste du ha root-åtkomstbehörigheter eller med ett konto som har förhöjda rättigheter med Sudo.
 
 #### <a name="upgrade-ubuntu"></a>Uppgradera Ubuntu
 
@@ -112,13 +115,11 @@ För att uppdatera agenten på en Linux-dator till den senaste versionen, inneb�
 
 ## <a name="remove-the-agent"></a>Ta bort agenten
 
-Använd någon av följande procedurer för att avinstallera Windows- eller Linux-agenten med hjälp av kommandoraden eller installationsguiden som beskrivs i det här avsnittet. Innan du avinstallerar agenten kopplar du först från datorn från Azure Arc för servrar (förhandsversion) genom att slutföra följande steg: 
-
-1. Öppna Azure Arc för servrar (förhandsversion) genom att gå till [Azure-portalen](https://aka.ms/hybridmachineportal).
-
-2. Välj maskinen i listan, välj ellipsen (**...**) och välj sedan **Ta bort**.
+Utför någon av följande metoder för att avinstallera Windows- eller Linux Connected Machine-agenten från datorn. Om du tar bort agenten avregistrerar du inte datorn med Arc för servrar (förhandsversion), det här är en separat process som du utför när du inte längre behöver hantera datorn i Azure.
 
 ### <a name="windows-agent"></a>Windows-agent
+
+Båda följande metoder tar bort agenten, men de tar inte bort mappen *C:\Program\AzureConnectedMachineAgent* på datorn.
 
 #### <a name="uninstall-from-control-panel"></a>Avinstallera från Kontrollpanelen
 
@@ -158,6 +159,9 @@ Om du vill avinstallera agenten manuellt från kommandotolken eller använda en 
 
 ### <a name="linux-agent"></a>Linux-agent
 
+> [!NOTE]
+> Om du vill avinstallera *root* agenten måste du ha root-åtkomstbehörigheter eller med ett konto som har förhöjda rättigheter med Sudo.
+
 För att avinstallera Linux-agenten beror kommandot som ska användas på Operativsystemet Linux.
 
 - För Ubuntu kör du följande kommando:
@@ -177,3 +181,11 @@ För att avinstallera Linux-agenten beror kommandot som ska användas på Operat
     ```bash
     sudo zypper remove azcmagent
     ```
+
+## <a name="unregister-machine"></a>Avregistrera dator
+
+Om du planerar att sluta hantera datorn med stödtjänster i Azure utför du följande steg för att avregistrera datorn med Arc för servrar (förhandsversion). Du kan utföra dessa steg antingen före eller efter att du har tagit bort agenten ansluten dator från maskinen.
+
+1. Öppna Azure Arc för servrar (förhandsversion) genom att gå till [Azure-portalen](https://aka.ms/hybridmachineportal).
+
+2. Välj maskinen i listan, välj ellipsen (**...**) och välj sedan **Ta bort**.

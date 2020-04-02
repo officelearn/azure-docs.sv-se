@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 6ee339cb709a5d825b39b4accf294761c99ee41a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b54905e201ee7a6dbf4c6837960a6e0b63057ea9
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79282983"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549043"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Tjänstbegränsningar i Azure Cognitive Search
 
@@ -30,7 +30,7 @@ Maximala gränser för lagring, arbetsbelastningar och kvantiteter av index och 
 > [!NOTE]
 > Från och med den 1 juli är alla nivåer allmänt tillgängliga, inklusive lagringsoptimerade nivån. Alla priser finns på sidan [Prisinformation.](https://azure.microsoft.com/pricing/details/search/)
 
-  S3 High Density (S3 HD) är konstruerad för specifika arbetsbelastningar: [flerargsinnehavare](search-modeling-multitenant-saas-applications.md) och stora mängder små index (en miljon dokument per index, tre tusen index per tjänst). Den här nivån tillhandahåller inte [indexeringsfunktionen](search-indexer-overview.md). På S3 HD måste datainmatning utnyttja push-metoden med hjälp av API-anrop för att skicka data från källa till index. 
+  S3 High Density (S3 HD) är konstruerad för specifika arbetsbelastningar: [flerargsinnehavare](search-modeling-multitenant-saas-applications.md) och stora mängder små index (tre tusen index per tjänst). Den här nivån tillhandahåller inte [indexeringsfunktionen](search-indexer-overview.md). På S3 HD måste datainmatning utnyttja push-metoden med hjälp av API-anrop för att skicka data från källa till index. 
 
 > [!NOTE]
 > En tjänst etableras på en viss nivå. Hoppande nivåer för att få kapacitet innebär att etablera en ny tjänst (det finns ingen uppgradering på plats). Mer information finns i [Välj en SKU eller nivå](search-sku-tier.md). Mer information om hur du justerar kapaciteten inom en tjänst som du redan har etablerat finns i [Skala resursnivåer för fråge- och indexeringsarbetsbelastningar](search-capacity-planning.md).
@@ -61,38 +61,16 @@ Maximala gränser för lagring, arbetsbelastningar och kvantiteter av index och 
 
 <sup>2</sup> Att ha ett mycket stort antal element i komplexa samlingar per dokument orsakar för närvarande hög lagringsanvändning. Detta är ett känt problem. Under tiden är en gräns på 3000 en säker övre gräns för alla tjänstnivåer. Den här gränsen tillämpas endast för indexeringsåtgärder som använder den tidigaste allmänt`2019-05-06`tillgängliga (GA)API-versionen som stöder komplexa typfält ( ) och framåt. Om du inte vill bryta klienter som använder tidigare API-versioner för förhandsversionen (som stöder komplexa typfält) kommer vi inte att tillämpa den här gränsen för indexeringsåtgärder som använder dessa api-versioner för förhandsversionen. Observera att api-versioner för förhandsversioner inte är avsedda att användas för produktionsscenarier och vi rekommenderar starkt att kunderna flyttar till den senaste GA API-versionen.
 
+> [!NOTE]
+> Även om den maximala kapaciteten för ett enskilt index vanligtvis begränsas av tillgänglig lagring, finns det maximala övre gränser för det totala antalet dokument som kan lagras i ett enda index. Denna gräns är cirka 24 miljarder dokument per index för söktjänsterna Basic, S1, S2 och S3 och 2 miljarder dokument per index för S3HD-söktjänster. Varje element i en komplex samling räknas som separata dokument för dessa gränser.
+
 <a name="document-limits"></a>
 
 ## <a name="document-limits"></a>Begränsningar för dokument 
 
-Från och med oktober 2018 finns det inte längre några dokumentgränser för någon ny tjänst som skapats på någon fakturerbar nivå (Basic, S1, S2, S3, S3 HD) i någon region. De flesta regioner har haft obegränsade antalet dokument sedan november/december 2017, men det fanns några regioner som fortsatte att införa dokumentgränser efter detta datum. Beroende på när och var du har skapat en söktjänst kanske du kör en tjänst som fortfarande omfattas av dokumentgränser.
+Från och med oktober 2018 finns det inte längre några gränser för antal dokument för någon ny tjänst som skapats på någon fakturerbar nivå (Basic, S1, S2, S3, S3 HD) i någon region. Äldre tjänster som skapats före oktober 2018 kan fortfarande omfattas av dokumenträkningsgränser.
 
 Om du vill ta reda på om tjänsten har dokumentgränser använder du [REST-API:et FÖR GET Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics). Dokumentgränser återspeglas i svaret, med `null` inga gränser.
-
-> [!NOTE]
-> Även om det inte finns några SKU-specifika dokumentgränser, är varje index fortfarande föremål för en maximal säker gräns för att säkerställa tjänstens stabilitet. Denna gräns kommer från Lucene. Varje Azure Cognitive Search-dokument indexeras internt som ett eller flera Lucene-dokument. Antalet Lucene-dokument per sökdokument beror på det totala antalet element i komplexa samlingsfält. Varje element indexeras som ett separat Lucene-dokument. Ett dokument med tre element i ett komplext samlingsfält indexeras till exempel som 4 Lucene-dokument - 1 för själva dokumentet och 3 för elementen. Det maximala antalet Lucene-dokument är ungefär 25 miljarder per index.
-
-### <a name="regions-previously-having-document-limits"></a>Regioner som tidigare har dokumentgränser
-
-Om portalen anger en dokumentgräns skapades tjänsten antingen före slutet av 2017 eller så skapades den på ett datacenter med kluster med lägre kapacitet för azure Cognitive Search-tjänster:
-
-+ Australien, östra
-+ Asien, östra
-+ Indien, centrala
-+ Japan, västra
-+ USA, västra centrala
-
-För tjänster som omfattas av dokumentgränser gäller följande maximigränser:
-
-|  Kostnadsfri | Basic | S1 | S2 | S3 | S3&nbsp;HD |
-|-------|-------|----|----|----|-------|
-|  10 000 |1&nbsp;miljon |15 miljoner per partition eller 180 miljoner per tjänst |60 miljoner per partition eller 720 miljoner per tjänst |120 miljoner per partition eller 1,4 miljarder per tjänst |1 miljon per index eller 200 miljoner per partition |
-
-Om tjänsten har begränsningar som blockerar dig skapar du en ny tjänst och publicerar sedan om allt innehåll till den tjänsten. Det finns ingen mekanism för att sömlöst återetablera din tjänst på ny maskinvara bakom kulisserna.
-
-> [!Note] 
-> För S3 High Density-tjänster som skapats efter slutet av 2017 har 200 miljoner dokument per partition tagits bort, men gränsen på 1 miljon dokument per index kvarstår.
-
 
 ### <a name="document-size-limits-per-api-call"></a>Begränsningar av dokumentstorlek per API-anrop
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 55bfb5030d0a168e7556240212fcd5f3be30a289
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e0f0f311b7ec8adae6ddb25e01046141adadfa4
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335367"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548544"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Komma igång med Azure Maps Android SDK
 
@@ -267,6 +267,29 @@ Här är ett exempel på Azure Maps med språket inställt på "fr-FR" och regio
 </center>
 
 En fullständig lista över språk och regionala vyer som stöds dokumenteras [här](supported-languages.md).
+
+## <a name="navigating-the-map"></a>Navigera på kartan
+
+Det finns flera olika sätt på vilka kartan kan zoomas, panoreras, roteras och kastas. Följande beskriver alla olika sätt att navigera på kartan.
+
+**Zooma kartan**
+
+- Tryck på kartan med två fingrar och nyp ihop för att zooma ut eller sprida fingrarna isär för att zooma in.
+- Dubbeltryck på kartan för att zooma in en nivå.
+- Dubbeltryck med två fingrar för att zooma ut kartan en nivå.
+- Tryck två gånger; Vid andra tryck håller du fingret på kartan och drar uppåt för att zooma in eller nedåt för att zooma ut.
+
+**Panorera kartan**
+
+- Tryck på kartan och dra i valfri riktning.
+
+**Rotera kartan**
+
+- Tryck på kartan med två fingrar och rotera.
+
+**Pitcha kartan**
+
+- Tryck på kartan med två fingrar och dra dem uppåt eller nedåt tillsammans.
 
 ## <a name="next-steps"></a>Nästa steg
 

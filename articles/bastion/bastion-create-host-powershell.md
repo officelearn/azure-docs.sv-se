@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: c3e4c2f2bac45f2e366764473a34b0536bb4cc44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 43d834f0c834696cd4a836466c9663fe7c31a392
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76990461"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520501"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-powershell"></a>Skapa en Azure Bastion-värd med Azure PowerShell
 
@@ -35,7 +35,7 @@ Det här avsnittet hjälper dig att skapa en ny Azure Bastion-resurs med Azure P
    ```azurepowershell-interactive
    $subnetName = "AzureBastionSubnet"
    $subnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
-   $vnet = New-AzVirtualNetwork -Name "myVnet" -ResourceGroupName " myBastionRG " -Location "westeurope" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
+   $vnet = New-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myBastionRG" -Location "westeurope" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
    ```
 
 2. Skapa en offentlig IP-adress för Azure Bastion. Den offentliga IP:n är den offentliga IP-adressen som den Bastion-resurs som RDP/SSH kommer att nås på (över port 443). Den offentliga IP-adressen måste finnas i samma region som den Bastion-resurs som du skapar.
@@ -47,7 +47,7 @@ Det här avsnittet hjälper dig att skapa en ny Azure Bastion-resurs med Azure P
 3. Skapa en ny Azure Bastion-resurs i AzureBastionSubnet i ditt virtuella nätverk. Det tar cirka 5 minuter för Bastion-resursen att skapa och distribuera.
 
    ```azurepowershell-interactive
-   $bastion = New-AzBastion -ResourceGroupName " myBastionRG " -Name "myBastion" -PublicIpAddress $publicip -VirtualNetwork $vnet
+   $bastion = New-AzBastion -ResourceGroupName "myBastionRG" -Name "myBastion" -PublicIpAddress $publicip -VirtualNetwork $vnet
    ```
 
 ## <a name="next-steps"></a>Nästa steg

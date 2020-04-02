@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 03/31/2020
 ms.author: b-juche
-ms.openlocfilehash: b2000c3fd3d64793f797e997d8f3c10eaed5d7aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ad9e13667791c38a8bf8be01919bcdbd0032102
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409613"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519593"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Skapa en SMB-volym för Azure NetApp Files
 
@@ -74,6 +74,14 @@ Ett undernät måste delegeras till Azure NetApp Files.
 
     Se [Utforma webbplatsens topologi](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) om AD-webbplatser och tjänster. 
     
+* Azure NetApp Files stöder DES, Kerberos AES 128 och Kerberos AES 256-krypteringstyper (från de minst säkra till de säkraste). De användarautentiseringsuppgifter som används för att ansluta till Active Directory måste ha det högsta motsvarande kontoalternativet aktiverat som matchar de funktioner som är aktiverade för Active Directory.   
+
+    Om Active Directory till exempel bara har AES-128-funktionen måste du aktivera kontoalternativet AES-128 för användarautentiseringsuppgifterna. Om Active Directory har AES-256-funktionen måste du aktivera kontoalternativet AES-256 (som också stöder AES-128). Om Active Directory inte har någon Kerberos-krypteringskapacitet använder Azure NetApp Files DES som standard.  
+
+    Du kan aktivera kontoalternativen i egenskaperna för MMC-konsolen Active Directory – användare och datorer:   
+
+    ![MMC för Active Directory – användare och datorer](../media/azure-netapp-files/ad-users-computers-mmc.png)
+
 Se Vanliga frågor om Azure NetApp Files [SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs) om ytterligare AD-information. 
 
 ## <a name="decide-which-domain-services-to-use"></a>Bestäm vilka domäntjänster som ska användas 

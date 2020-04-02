@@ -2,13 +2,13 @@
 title: 'Självstudiekurs: extrahera strukturerade data med maskininlärd entitet - LUIS'
 description: Extrahera strukturerade data från ett uttryck med hjälp av den maskininlärda entiteten. Om du vill öka extraktionsnoggrannheten lägger du till delkomponenter med deskriptorer och begränsningar.
 ms.topic: tutorial
-ms.date: 03/31/2020
-ms.openlocfilehash: f521e634c129aaf03ee341328721bd89723e8264
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.date: 04/01/2020
+ms.openlocfilehash: 52bf2fb0b9f37e0c731a46c0aaf8b6c5e7f0e911
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478339"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545859"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learned-entities-in-language-understanding-luis"></a>Självstudiekurs: Extrahera strukturerade data från användarutseende med maskininlärda entiteter i Språkförståelse (LUIS)
 
@@ -215,7 +215,7 @@ Testa appen med **Test** hjälp av den interaktiva testpanelen. Med den här pro
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Gå till slutet av WEBBADRESSEN i adressen och ersätt _YOUR_QUERY_HERE_ med samma fråga som du angav på den interaktiva testpanelen.
+1. Gå till slutet av WEBBADRESSEN i adressfältet och ersätt _YOUR_QUERY_HERE_ med samma fråga som du angav på den interaktiva testpanelen.
 
     `deliver a medium veggie pizza`
 

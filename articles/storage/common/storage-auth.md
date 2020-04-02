@@ -10,12 +10,12 @@ ms.date: 02/24/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b0f2ad7566d0204871a9c6441315d6201662d92b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 53eca8a0b9e7cc9abb8f89cd56fca5df28f2de0f
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77616292"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521935"
 ---
 # <a name="authorizing-access-to-data-in-azure-storage"></a>Auktorisera åtkomst till data i Azure Storage
 
@@ -33,7 +33,7 @@ I följande tabell beskrivs de alternativ som Azure Storage erbjuder för att go
 
 Varje auktoriseringsalternativ beskrivs kortfattat nedan:
 
-- **Azure Active Directory (Azure AD) integration** för blobbar och köer. Azure AD tillhandahåller rollbaserad åtkomstkontroll (RBAC) för detaljerad kontroll över en klients åtkomst till resurser i ett lagringskonto. Mer information om Azure AD-integrering för blobbar och köer finns i [Auktorisera åtkomst till Azure-blobbar och köer med Azure Active Directory](storage-auth-aad.md).
+- **Azure Active Directory (Azure AD) integration** för blobbar och köer. Azure AD tillhandahåller rollbaserad åtkomstkontroll (RBAC) för kontroll över en klients åtkomst till resurser i ett lagringskonto. Mer information om Azure AD-integrering för blobbar och köer finns i [Auktorisera åtkomst till Azure-blobbar och köer med Azure Active Directory](storage-auth-aad.md).
 
 - **Azure Active Directory Domain Services (Azure AD DS) autentisering** för Azure-filer. Azure Files stöder identitetsbaserad auktorisering via Server Message Block (SMB) via Azure AD DS. Du kan använda RBAC för finkornig kontroll över en klients åtkomst till Azure Files-resurser i ett lagringskonto. Mer information om Azure Files-autentisering med domäntjänster finns i vår [översikt](../files/storage-files-active-directory-overview.md).
 

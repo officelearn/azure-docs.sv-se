@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: 7273c7b1dbf5eb6c855b95a8661f38bd4bd14af7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b5dce0b43fac7cfd0e974f26451338ca1541f8f
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73839051"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528423"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Snabbstart: Konfigurera Azure VM för att ansluta till en hanterad Azure SQL-databas-instans
 
@@ -120,7 +120,7 @@ Följande steg visar hur du ansluter till den nya virtuella datorn med hjälp av
 
 4. Stäng formuläret **Anslut till virtuell dator.**
 5. Öppna den hämtade RDP-filen för att ansluta till den virtuella datorn.
-6. När du uppmanas till det väljer du **Anslut**. På en Mac-dator behöver du en RDP-klient som denna [Fjärrskrivbordsklient](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) från Mac App Store.
+6. När du uppmanas till det väljer du **Anslut**. På en Mac-dator behöver du en RDP-klient som denna [Fjärrskrivbordsklient](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12) från Mac App Store.
 
 7. Ange det användarnamn och lösenord som du angav när du skapade den virtuella datorn och välj sedan **OK**.
 

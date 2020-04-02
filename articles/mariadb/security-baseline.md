@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d9cff47c61fc08305427b25f949884b1ef089fd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ca3a79b0d31cc18b8ff77f02ce4ce3d517d7a638
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289672"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548686"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Azure Security Baseline för Azure Database för MariaDB
 
@@ -894,9 +894,9 @@ Så här tillhandahåller du Key Vault-autentisering med en hanterad identitet:h
 
 **Vägledning**: Azure Database för MariaDB-server stöder för närvarande inte Azure Active Directory-autentisering för att komma åt databaser.  När du skapar Azure Database för MariaDB-servern anger du autentiseringsuppgifter för en administratörsanvändare. Den här administratören kan användas för att skapa ytterligare MariaDB-användare.  
 
-För virtuella Azure-datorer eller webbprogram som körs på Azure App Service som används för att komma åt din Azure-databas för MariaDB-server använder du Hanterad tjänstidentitet tillsammans med Azure Key Vault för att lagra och hämta autentiseringsuppgifter för Azure Database för MariaDB Server.  Kontrollera att Key Vault Soft Delete är aktiverat.
+För virtuella Azure-datorer eller webbprogram som körs på Azure App Service som används för att komma åt din Azure-databas för MariaDB-server använder du Hanterad tjänstidentitet tillsammans med Azure Key Vault för att lagra och hämta autentiseringsuppgifter för Azure Database för MariaDB-server.  Kontrollera att Key Vault Soft Delete är aktiverat.
 
-Använd hanterade identiteter för att tillhandahålla Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory (AD). Med hanterade identiteter kan du autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan några autentiseringsuppgifter i koden. Konfigurerar hanterade identiteter: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmHow för att integrera med Azure-hanterade identiteter:https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+Använd hanterade identiteter för att tillhandahålla Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory (AD). Med hanterade identiteter kan du autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan några autentiseringsuppgifter i koden. Konfigurerar hanterade identiteter: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm. Så här integrerar du https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identitymed Azure-hanterade identiteter: .
 
 
 

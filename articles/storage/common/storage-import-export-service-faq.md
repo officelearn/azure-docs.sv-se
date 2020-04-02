@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: dcf9a278bfc0ede844f8eb59e3a256e40a47c57d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 904f93aa705a4e327f29bbec109bdf3b937f6c70
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282434"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519489"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure Import/Export-tjänst: Vanliga frågor och svar
 
@@ -99,15 +99,17 @@ Du kan skicka enheter till Azure-datacentret med alla kända bärare som FedEx, 
 > [!NOTE]
 > Datacenter i Indien kräver ett deklarationsbrev på ditt brevhuvud (leverans challan) för att returnera enheterna. Om du vill ordna det nödvändiga inträdespasset måste du också boka hämtningen med din valda operatör och dela informationen med datacentret.
 
-### <a name="are-there-any-restrictions-with-shipping-my-drive-internationally"></a>Finns det några begränsningar med frakt min enhet internationellt?
+### <a name="are-there-any-restrictions-with-shipping-and-returning-my-drive-internationally"></a>Finns det några begränsningar med frakt och returnera min enhet internationellt?
 
 Observera att de fysiska medier som du skickar kan behöva passera internationella gränser. Du ansvarar för att dina fysiska medier och data importeras och/eller exporteras i enlighet med gällande lagar. Innan du skickar det fysiska mediet kontrollerar du med dina rådgivare att dina media och data kan skickas lagligt till det identifierade datacentret. Detta kommer att bidra till att säkerställa att den når Microsoft i tid.
+
+När uppladdningen är klar kan processen för att returnera enheter till en internationell adress ta längre tid än de typiska 2-3 dagar som behövs för lokal leverans. Under scenen som anges i Azure-portalen som förpackning säkerställer Data Box-teamet att korrekt dokumentation tillhandahålls för att säkerställa att sändningen uppfyller de olika internationella import- och exportkraven.
 
 ### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>Finns det några särskilda krav för att leverera mina diskar till ett datacenter?
 
 Kraven beror på de specifika Azure-datacenterbegränsningarna.
 
-- Det finns några platser som kräver ett Microsoft datacenter-inkommande ID-nummer som ska skrivas på paketet av säkerhetsskäl. Innan du skickar dina enheter eller diskar till datacentret kontaktar du Azure DataBox Operations (adbops@microsoft.com) för att hämta det här numret. Utan detta nummer kommer paketet att avvisas.
+- Det finns några webbplatser, som Australien, Tyskland och Uk South, som kräver ett Microsoft datacenter inbound ID-nummer som ska skrivas på paketet av säkerhetsskäl. Innan du skickar dina enheter eller diskar till datacentret kontaktar du Azure DataBox Operations (adbops@microsoft.com) för att hämta det här numret. Utan detta nummer kommer paketet att avvisas.
 - Datacenter i Indien kräver personliga uppgifter om drivrutinen, till exempel myndighets-ID-kortet eller bevisetr. (till exempel PAN, AADHAR, DL), namn, kontakt och bilskyltsnummer för att få ett gate-ingångspass. Informera operatören om dessa krav för att undvika leveransförseningar.
 
 ### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>När du skapar ett jobb är leveransadressen en annan plats än min lagringskontoplats. Vad ska jag göra?

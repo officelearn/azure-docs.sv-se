@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ed64ee3d0e024c32be08ed4e010a6933033c3f87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e96f9484c103ebe75e21705b94cf35b9e16c54f
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476526"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529337"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Azure Disk Encryption-scenarier på virtuella Windows-datorer
 
@@ -251,6 +251,8 @@ Azure Disk Encryption fungerar inte för följande scenarier, funktioner och tek
 - Efemära OPERATIVSYSTEM diskar.
 - Kryptering av delade/distribuerade filsystem som (men inte begränsat till) DFS, GFS, DRDB och CephFS.
 - Flytta en krypterad virtuella datorer till en annan prenumeration.
+- Gen2 virtuella datorer (se: [Stöd för virtuella generationer på Azure )](generation-2.md#generation-1-vs-generation-2-capabilities)
+- Virtuella datorer i Lsv2-serien (se: [Lsv2-serien](../lsv2-series.md))
 
 ## <a name="next-steps"></a>Nästa steg
 

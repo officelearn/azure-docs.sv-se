@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
-ms.openlocfilehash: fb6094ec418d2b212759bddd2c4d49c7e6193849
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ed8e5eaa0ff9b58f80473b052aacfb9f01d45055
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73690696"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529210"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Ansluta till SQL Database med C och C++
 
@@ -28,7 +28,7 @@ Se till att du har följande objekt:
 
 * Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för en [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * [Visual Studio](https://www.visualstudio.com/downloads/). Du måste installera C++ språkkomponenter för att kunna skapa och köra det här exemplet.
-* [Visual Studio Linux Utveckling](https://visualstudiogallery.msdn.microsoft.com/725025cf-7067-45c2-8d01-1e0fd359ae6e). Om du utvecklar på Linux, måste du också installera Visual Studio Linux förlängning.
+* [Visual Studio Linux Utveckling](https://docs.microsoft.com/cpp/linux/?view=vs-2019). Om du utvecklar på Linux, måste du också installera Visual Studio Linux förlängning.
 
 ## <a name="azure-sql-database-and-sql-server-on-virtual-machines"></a><a id="AzureSQL"></a>Azure SQL Database och SQL Server på virtuella datorer
 Azure SQL bygger på Microsoft SQL Server och är utformat för att ge en tjänst med hög tillgänglighet, prestanda och skalbar. Det finns många fördelar med att använda SQL Azure via din egen databas som körs lokalt. Med SQL Azure behöver du inte installera, konfigurera, underhålla eller hantera databasen, utan bara innehållet och strukturen i databasen. Typiska saker som vi oroar oss för med databaser som feltolerans och redundans är alla inbyggda.

@@ -1,22 +1,15 @@
 ---
 title: 'Självstudiekurs: Granska slutpunktsyttranden - LUIS'
-titleSuffix: Azure Cognitive Services
 description: I den här självstudien kan du förbättra appförutsägelser genom att verifiera eller korrigera yttranden som tas emot via LUIS HTTP-slutpunkten som LUIS är osäker på. I vissa yttranden kan avsikten behöva verifieras och i vissa kan du behöva verifiera entiteter.
 services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 06f51ca83449b39861e7565cc9accc29efbece3f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/01/2020
+ms.openlocfilehash: 307c18d3326cb1a64b884463a571985a015834ed
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76843981"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548732"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Självstudiekurs: Åtgärda osäkra förutsägelser genom att granska slutpunktsyttranden
 I den här självstudien kan du förbättra appförutsägelser genom att verifiera eller korrigera yttranden, som tas emot via LUIS HTTPS-slutpunkten, som LUIS är osäker på. Du bör granska slutpunktsyttranden som en vanlig del av ditt schemalagda LUIS-underhåll.
@@ -46,15 +39,11 @@ Använd följande steg för att importera en app.
 
 1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
-1. Importera FILEN .json till en ny app i [luis-portalen.](https://preview.luis.ai)
+[!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
-1. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `review`.
+## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Träna appen för att tillämpa entitetsändringarna i appen
 
-    > [!TIP]
-    > Kloning till en ny version är en bra metod innan du ändrar appen. När du är klar med en version exporterar du versionen (som en .json- eller .lu-fil) och kontrollerar filen i källkontrollsystemet.
-
-
-1. Om du vill träna appen väljer du **Träna**.
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publicera appen för att komma åt den från HTTP-slutpunkten
 
@@ -66,7 +55,7 @@ I den här appen har du avsikter och entiteter men du har ingen slutpunktsanvän
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Använd slutpunkten för att lägga till följande talindata.
+1. Gå till slutet av webbadressen i adressfältet och ersätt _YOUR_QUERY_HERE_ med yttrandena i följande tabell. För varje uttryck skickar du uttryck och får resultatet. Ersätt sedan uttryck i slutet med nästa uttryck.
 
     |Slutpunktsutseende|Justerad avsikt|
     |--|--|
@@ -110,9 +99,9 @@ Granska slutpunktsyttrandena för korrekt justerad avsikt. Det finns en enda gru
 
 Om du vill kontrollera att de korrekt justerade exempelyttrandena har förbättrat appens förutsägelse provar du ett uttryck nära det korrigerade uttrycket.
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Gå till slutet av URL:en i adressen och ange `Are there any natural language processing jobs in my department right now?`. Den senaste frågesträngparametern är `q`, uttrycksfrågan . **query**
+1. Gå till slutet av webbadressen i _YOUR_QUERY_HERE_ adressfältet och `Are there any natural language processing jobs in my department right now?`ersätt YOUR_QUERY_HERE med .
 
    ```json
     {

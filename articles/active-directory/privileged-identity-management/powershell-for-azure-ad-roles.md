@@ -16,12 +16,12 @@ ms.date: 02/26/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 364b0268be99685b18db175ffbabd9350531d500
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5fa241a261b8dcb21dd39b5dacacac9aa4889304
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80048878"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519654"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>PowerShell för Azure AD-roller i privilegierad identitetshantering
 
@@ -96,6 +96,8 @@ Schemat, som definierar början- och sluttiden för tilldelningen, är ett objek
     $schedule.Type = "Once"
     $schedule.StartDateTime = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ")
     $schedule.endDateTime = "2020-07-25T20:49:11.770Z"
+> [!Note]
+> Om värdet endDateTime är inställt på null anger det en permanent tilldelning.
 
 ## <a name="activate-a-role-assignment"></a>Aktivera en rolltilldelning
 

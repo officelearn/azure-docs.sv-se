@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6a1ea5e09dc70b2c523bf23b28f726cbe2c0818d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7df3c07518a9211bd1abf785e3f4954c41ebffc
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062677"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529453"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Azure Disk Encryption-scenarier på virtuella Linux-datorer
 
@@ -407,6 +407,7 @@ Azure Disk Encryption fungerar inte för följande Linux-scenarier, funktioner o
 - Kryptering av delade/distribuerade filsystem som (men inte begränsat till): DFS, GFS, DRDB och CephFS.
 - Flytta en krypterad virtuell dator till en annan prenumeration.
 - Kernel Crash Dump (kdump).
+- Virtuella datorer i Lsv2-serien (se: [Lsv2-serien](../lsv2-series.md))
 
 ## <a name="next-steps"></a>Nästa steg
 

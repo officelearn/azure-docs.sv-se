@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: f1fdb9dffbe06430ea7e3eb9339e23f5239e4e36
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bb78d84aa0f9a2832b6599edeac9d50e0e226437
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76310840"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546344"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrera till detaljerad rollbaserad åtkomst för klusterkonfigurationer
 
@@ -131,8 +131,8 @@ Uppdatera till [version 1.0.0](https://pypi.org/project/azure-mgmt-hdinsight/1.0
 
 Uppdatera till [version 1.0.0](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/1.0.0/jar) eller senare av HDInsight SDK för Java. Minimala kodändringar kan krävas om du använder en metod som påverkas av dessa ändringar:
 
-- [`ConfigurationsInner.get`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.get)returnerar **inte längre känsliga parametrar** som lagringsnycklar (kärnplats) eller HTTP-autentiseringsuppgifter (gateway).
-- [`ConfigurationsInner.update`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.update)är nu föråldrad.
+- `ConfigurationsInner.get`returnerar **inte längre känsliga parametrar** som lagringsnycklar (kärnplats) eller HTTP-autentiseringsuppgifter (gateway).
+- `ConfigurationsInner.update`är nu föråldrad.
 
 ### <a name="sdk-for-go"></a>SDK för go
 
@@ -193,9 +193,9 @@ Klusterkonfigurationer ligger nu bakom detaljerad rollbaserad åtkomstkontroll o
 
 ### <a name="why-do-i-see-insufficient-privileges-to-complete-the-operation-when-running-the-azure-cli-command-to-assign-the-hdinsight-cluster-operator-role-to-another-user-or-service-principal"></a>Varför visas "Otillräckliga privilegier för att slutföra åtgärden" när jag kör Azure CLI-kommandot för att tilldela hdinsight-klusteroperatörsrollen till en annan användare eller tjänsthuvudnamn?
 
-Förutom att ha rollen Ägare måste användaren eller tjänstens huvudnamn som kör kommandot ha tillräcklig AAD-behörighet för att slå upp objekt-ID:t för förvärvaren. Det här meddelandet anger otillräckliga AAD-behörigheter. Prova att `-–assignee` ersätta `–assignee-object-id` argumentet med och ange objekt-ID för förvärvaren som parameter i stället för namnet (eller huvud-ID i fråga om en hanterad identitet). Mer information finns i avsnittet valfria parametrar i [den az-rolltilldelningen](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) som skapar dokumentation.
+Förutom att ha ägarrollen måste användaren eller tjänstens huvudnamn som kör kommandot ha tillräcklig Azure AD-behörighet för att slå upp objekt-ID:t för förvärvaren. Det här meddelandet anger otillräckliga Azure AD-behörigheter. Prova att `-–assignee` ersätta `–assignee-object-id` argumentet med och ange objekt-ID för förvärvaren som parameter i stället för namnet (eller huvud-ID i fråga om en hanterad identitet). Mer information finns i avsnittet valfria parametrar i [den az-rolltilldelningen](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) som skapar dokumentation.
 
-Om detta fortfarande inte fungerar kontaktar du AAD-administratören för att få rätt behörighet.
+Om detta fortfarande inte fungerar kontaktar du din Azure AD-administratör för att hämta rätt behörigheter.
 
 ### <a name="what-will-happen-if-i-take-no-action"></a>Vad händer om jag inte vidtar några åtgärder?
 

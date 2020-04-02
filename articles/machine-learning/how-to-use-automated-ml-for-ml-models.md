@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 03/10/2020
-ms.openlocfilehash: 9999d74bf6bef3e8351460add7efc8bdbfcd1045
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aa85e80f1a90191a0a34a6962437c27a9d57ef65
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270035"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547557"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Skapa, granska och distribuera automatiserade maskininlärningsmodeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -33,7 +33,7 @@ Konfigurera [dina automatiserade maskininlärningsexperiment](how-to-configure-a
 
 * En Azure Machine Learning-arbetsyta med en typ av **Enterprise Edition**. Se [Skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).  Information om hur du uppgraderar en befintlig arbetsyta till Enterprise Edition finns i [Uppgradera till Enterprise-utgåvan](how-to-manage-workspace.md#upgrade).
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 1. Logga in på Azure https://ml.azure.comMachine Learning på . 
 
@@ -178,17 +178,27 @@ Automatiserad maskininlärning erbjuder förbearbetning och dataskyddsräckor au
 
 ### <a name="data-guardrails"></a>Data skyddsräcken
 
-Data guardrails används automatiskt för att hjälpa dig att identifiera potentiella problem med dina data (t.ex. saknade värden, klassobalans) och hjälpa till att vidta korrigerande åtgärder för bättre resultat. Det finns många bästa metoder som finns tillgängliga och kan tillämpas för att uppnå tillförlitliga resultat. 
-
-I följande tabell beskrivs de databevakningsräcken som för närvarande stöds och de associerade statusar som användare kan stöta på när de skickar in sina experiment.
+Data skyddsräcken används när automatisk featurization är aktiverat eller validering är inställd på auto. Data guardrails hjälper dig att identifiera potentiella problem med dina data (t.ex. saknade värden, klassobalans) och hjälpa till att vidta korrigerande åtgärder för bättre resultat. Det finns många bästa metoder som finns tillgängliga och kan tillämpas för att uppnå tillförlitliga resultat. Användare kan granska databevakningsräcken i studion på fliken **Data guardrails** i en automatiserad ML-körning eller genom att ställa ```show_output=True``` in ett experiment med Python SDK. I följande tabell beskrivs de databevakningsräcken som för närvarande stöds och de associerade statusar som användare kan stöta på när de skickar in sina experiment.
 
 Skyddsräcke|Status|Villkor&nbsp;&nbsp;för utlösare
 ---|---|---
-Värden som saknas&nbsp;&nbsp; |**Passerade** <br> <br> **Fast**|    Inget värde saknas i&nbsp;någon av indatakolumnerna <br> <br> Vissa kolumner har värden som saknas
-Korsvalidering|**Klar**|Om ingen explicit valideringsuppsättning tillhandahålls
-Identifiering&nbsp;av&nbsp;&nbsp;hög kardinalitetsfunktion|    **Passerade** <br> <br>**Klar**|    Inga höga kardinalitetsfunktioner upptäcktes <br><br> Kolumner med hög kardinalitetsindata upptäcktes
-Identifiering av klassbalans    |**Passerade** <br><br><br>**Larmade** |Klasserna är balanserade i träningsdata; En datauppsättning anses vara balanserad om varje klass har god representation i datauppsättningen, mätt i antal och förhållandet mellan prover <br> <br> Klasserna i träningsdata är obalanserade
-Konsekvens i tidsserier|**Passerade** <br><br><br><br> **Fast** |<br> De valda {horizon, lag, rolling window}-värdena analyserades och inga potentiella problem utanför minnet upptäcktes. <br> <br>De valda värdena {horisont, fördröjning, rullande fönster} analyserades och kan leda till att experimentet tar. Fördröjnings- eller rullningsfönstret har stängts av.
+Saknade funktionsvärden imputering |**Passerade** <br><br><br> **Klar**| Inga saknade funktionsvärden upptäcktes i dina träningsdata. Läs mer om [värdeimputering som saknas.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Saknade funktionsvärden upptäcktes i dina träningsdata och tillräknades.
+Hantering av hög kardinalitetsfunktion |**Passerade** <br><br><br> **Klar**| Dina ingångar analyserades och inga funktioner med hög kardinalitet upptäcktes. Läs mer om [identifiering av hög kardinalitetsfunktion.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Hög kardinalitet funktioner upptäcktes i dina ingångar och hanterades.
+Delningshantering för validering |**Klar**| *Valideringskonfigurationen var inställd på "auto" och träningsdata innehöll **mindre** än 20 000 rader.* <br> Varje iteration av den tränade modellen validerades genom korsvalidering. Läs mer om [valideringsdata.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data) <br><br> *Valideringskonfigurationen var inställd på "auto" och träningsdata innehöll **mer** än 20 000 rader.* <br> Indata har delats upp i en träningsdatauppsättning och en valideringsdatauppsättning för validering av modellen.
+Identifiering av klassbalansering |**Passerade** <br><br><br><br> **Larmade** | Dina indata analyserades och alla klasser är balanserade i dina träningsdata. En datauppsättning anses vara balanserad om varje klass har god representation i datauppsättningen, mätt i antal och förhållandet mellan prov. <br><br><br> Obalanserade klasser upptäcktes i dina indata. För att åtgärda modell bias fixa balansering problemet. Läs mer om [obalanserade data.](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml#imbalance)
+Identifiering av minnesproblem |**Passerade** <br><br><br><br> **Klar** |<br> De valda {horizon, lag, rolling window}-värdena analyserades och inga potentiella problem utanför minnet upptäcktes. Läs mer om [prognoskonfigurationer i tidsserier.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) <br><br><br>De valda värdena {horisont, fördröjning, rullande fönster} analyserades och kan leda till att experimentet tar. Fördröjnings- eller rullande fönsterkonfigurationer har inaktiverats.
+Frekvensdetektering |**Passerade** <br><br><br><br> **Klar** |<br> Tidsserien analyserades och alla datapunkter är i linje med den identifierade frekvensen. <br> <br> Tidsserien analyserades och datapunkter som inte stämmer överens med den identifierade frekvensen upptäcktes. Dessa datapunkter togs bort från datauppsättningen. Läs mer om [dataförberedelser för prognostisering i tidsserier.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data)
+
+#### <a name="data-guardrail-states"></a>Data Guardrail stater
+Data guardrails kommer att visa en av tre stater: "Godkänd", "Klar eller "Varnad".
+
+Status| Beskrivning
+----|----
+Passerade| Inga dataproblem upptäcktes och ingen användaråtgärd krävs. 
+Klart| Ändringar har tillämpats på dina data. Vi uppmuntrar användare att granska de korrigerande åtgärder som Automated ML vidtog för att se till att ändringarna överensstämmer med de förväntade resultaten. 
+Larmade| Ett dataproblem som inte kunde åtgärdas upptäcktes. Vi uppmuntrar användare att ändra och åtgärda problemet. 
+
+Tidigare version av Automated ML visade ett fjärde tillstånd: "Fast". Nyare experiment kommer inte att visa detta tillstånd, och alla skyddsräcken som visade "Fast" tillstånd kommer nu att visa "Klar".   
 
 ## <a name="run-experiment-and-view-results"></a>Kör experiment- och visningsresultat
 

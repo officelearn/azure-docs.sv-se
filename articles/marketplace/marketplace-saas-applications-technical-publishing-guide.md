@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: kevidal
-ms.openlocfilehash: 2c1cb755b62812336a306994f6820573130815e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 641297ea74a08dea163cf768b8e9b245348824a4
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288367"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80544287"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Publiceringsguiden för SaaS-programerbjudanden
 
@@ -25,8 +25,8 @@ SaaS-program är tillgängliga i båda Azure Storefronts I följande tabell besk
 
 | Alternativ för skyltfönster | Lista | Rättegång/Transact |  
 | --- | --- | --- |  
-| AppSource | Ja (Kontakta mig) | Ja (PowerBI/Dynamics) |
-| Azure-marknadsplats | Inga | Ja (SaaS-appar) |   
+| AppSource | Ja | Ja |
+| Azure-marknadsplats | Inga | Ja |   
 
 **Lista:**  Publiceringsalternativet Notering består av en kontaktperson-erbjudandetyp och används när ett deltagande på utvärderings- eller transaktionsnivå inte är möjligt. Fördelen med detta tillvägagångssätt är att det gör det möjligt för utgivare med en lösning på marknaden att omedelbart börja ta emot leads som kan förvandlas till affärer för att öka din verksamhet.  
 **Utvärdering/transaktion:**  Kunden har möjlighet att direkt köpa eller begära en provperiod för din lösning. Genom att tillhandahålla en utvärderingsupplevelse ökar engagemangsnivån som erbjuds kunderna och gör det möjligt för kunderna att utforska din lösning innan de köper. Med en trial-upplevelse får du bättre chanser till marknadsföring i skyltfönster, och du bör förvänta dig fler och rikare leads från kundengagemang. Utvärderingsversioner måste innehålla kostnadsfri support åtminstone under hela provperioden.  
@@ -95,7 +95,7 @@ Dessutom tillhandahåller Azure Active Directory en webbplats för att söka eft
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Använda Azure Active Directory för att aktivera utvärderingsversioner  
 
-Microsoft autentiserar alla Marketplace-användare med Azure AD, så när en autentrad användare klickar igenom utvärderingsversionen på Marketplace och omdirigeras till utvärderingsmiljön kan du etablera användaren direkt i en utvärderingsversion utan att kräva en ytterligare inloggningssteg. Den token som din app tar emot från Azure AD under autentisering innehåller värdefull användarinformation som du kan använda för att skapa ett användarkonto i din app, så att du kan automatisera etableringsupplevelsen och öka sannolikheten för konvertering. Mer information om token finns i [Exempeltoken](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
+Microsoft autentiserar alla Marketplace-användare med Azure AD, så när en autentrad användare klickar igenom utvärderingsversionen på Marketplace och omdirigeras till utvärderingsmiljön kan du etablera användaren direkt i en utvärderingsversion utan att kräva ytterligare inloggningssteg. Den token som din app tar emot från Azure AD under autentisering innehåller värdefull användarinformation som du kan använda för att skapa ett användarkonto i din app, så att du kan automatisera etableringsupplevelsen och öka sannolikheten för konvertering. Mer information om token finns i [Exempeltoken](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
 
 Använda Azure AD för att aktivera 1-klicksautentisering till din app eller Utvärderingsversion gör följande:  
 * Effektiviserar kundupplevelsen från Marketplace till Utvärderingsversion.  

@@ -12,12 +12,12 @@ ms.date: 10/22/2018
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bd305d2943d1b12756171748f28d32300081d71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 42337fe958a881ee263d16c866dda69f13fe09c1
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443397"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519613"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Konfigurera hur slutanvändare samtycker till program
 
@@ -143,9 +143,53 @@ Du kan använda Azure AD PowerShell Preview-modulen[(AzureADPreview)](https://do
     }
     ```
 
+## <a name="configure-risk-based-step-up-consent"></a>Konfigurera riskbaserat step-up-samtycke
+
+Riskbaserat step-up-samtycke bidrar till att minska användarnas exponering för skadliga appar som gör [olagliga samtyckesförfrågningar.](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants) Om Microsoft upptäcker en riskabel begäran om slutanvändares medgivande kräver begäran ett "step-up" för att administratörsmedgivandet i stället ska kunna godkännas. Den här funktionen är aktiverad som standard, men det resulterar bara i en beteendeändring när slutanvändarens medgivande är aktiverat.
+
+När en riskfylld medgivandebegäran identifieras visas ett meddelande om att administratörsgodkännande behövs. Om [arbetsflödet för administratörsförfrågan](configure-admin-consent-workflow.md) är aktiverat kan användaren skicka begäran till en administratör för vidare granskning direkt från samtyckesprompten. Om det inte är aktiverat visas följande meddelande:
+
+* **AADSTS90094:** &lt;clientAppDisplayName&gt; behöver behörighet för att komma åt resurser i organisationen som bara en administratör kan bevilja. Be en administratör att bevilja behörighet till den här appen innan du använder den.
+
+I det här fallet loggas en granskningshändelse också med en kategori av "ApplicationManagement", Aktivitetstyp för "Samtycke till ansökan" och Statusorsaken till "Riskfyllt program upptäckt".
+
+> [!IMPORTANT]
+> Administratörer bör [utvärdera alla begäranden](manage-consent-requests.md#evaluating-a-request-for-tenant-wide-admin-consent) om godkännande noggrant innan de godkänner, särskilt när Microsoft har upptäckt risker.
+
+### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>Inaktivera eller återaktivera riskbaserat step-up-samtycke med PowerShell
+
+Du kan använda Azure AD PowerShell Preview-modulen[(AzureADPreview)](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)för att inaktivera steget upp till administratörssamtycke som krävs i fall där Microsoft upptäcker risker eller för att återaktivera den om den tidigare inaktiverats.
+
+Detta kan göras med samma steg som visas ovan för [att konfigurera gruppägare med hjälp av PowerShell](#configure-group-owner-consent-using-powershell), men ersätter ett annat inställningsvärde. Det finns tre skillnader i steg: 
+
+1. Förstå inställningsvärdena för riskbaserat step-up-samtycke:
+
+    | Inställning       | Typ         | Beskrivning  |
+    | ------------- | ------------ | ------------ |
+    | _BlockUserConsentForRiskyApps_   | Boolean |  Flagga som anger om användarens medgivande kommer att blockeras när en riskfylld begäran upptäcks. |
+
+2. Ersätt följande värde i steg 3:
+
+    ```powershell
+    $riskBasedConsentEnabledValue = $settings.Values | ? { $_.Name -eq "BlockUserConsentForRiskyApps" }
+    ```
+3. Ersätt något av följande i steg 5:
+
+    ```powershell
+    # Disable risk-based step-up consent entirely
+    $riskBasedConsentEnabledValue.Value = "False"
+    ```
+
+    ```powershell
+    # Re-enable risk-based step-up consent, if disabled previously
+    $riskBasedConsentEnabledValue.Value = "True"
+    ```
+
 ## <a name="next-steps"></a>Nästa steg
 
 [Konfigurera arbetsflödet för administratörsgodkännande](configure-admin-consent-workflow.md)
+
+[Läs om hur du hanterar samtycke till program och utvärderar begäranden om samtycke](manage-consent-requests.md)
 
 [Bevilja administratör för hela klienten till ett program](grant-admin-consent.md)
 

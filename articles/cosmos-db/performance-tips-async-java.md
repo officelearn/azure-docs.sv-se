@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 89df941eb6ebaad6e078c278f1ed883db5528c7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b892b1f4ff73679ab425d0e97f5361e0f3712252
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77152573"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549190"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Prestandatips för Azure Cosmos DB och Async Java
 
@@ -34,7 +34,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" överväga f�
     Hur en klient ansluter till Azure Cosmos DB har viktiga konsekvenser för prestanda, särskilt när det gäller svarstid på klientsidan. *ConnectionMode* är en nyckelkonfigurationsinställning som är tillgänglig för att konfigurera klienten *ConnectionPolicy*. För Async Java SDK är de två tillgängliga ConnectionModes:  
       
     * [Gateway (standard)](/java/api/com.microsoft.azure.cosmosdb.connectionmode)  
-    * [Direkt](/java/api/com.microsoft.azure.cosmosdb.connectionmode)
+    * [Direct](/java/api/com.microsoft.azure.cosmosdb.connectionmode)
 
     Gateway-läge stöds på alla SDK-plattformar och det är det konfigurerade alternativet som standard. Om dina program körs i ett företagsnätverk med strikta brandväggsbegränsningar är gateway-läge det bästa valet eftersom det använder standard-HTTPS-porten och en enda slutpunkt. Prestanda kompromissen är dock att Gateway-läge innebär ytterligare ett nätverkshopp varje gång data läss eller skrivs till Azure Cosmos DB. På grund av detta ger direktläget bättre prestanda på grund av färre nätverkshopp.
 
@@ -112,7 +112,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" överväga f�
 
         + **Använd flertrådning i ditt program för effektiv TCP-dataöverföring** - När du har gjort en begäran bör ditt program prenumerera för att ta emot data på en annan tråd. Om du inte gör det tvingar du oavsiktlig "halv duplex"-åtgärd och de efterföljande begärandena blockeras i väntan på den tidigare begärans svar.
 
-        + **Utför beräkningsintensiva arbetsbelastningar på en dedikerad tråd** - Av liknande orsaker till föregående tips är åtgärder som komplex databehandling bäst placerade i en separat tråd. En begäran som hämtar data från ett annat datalager (till exempel om tråden använder Azure Cosmos DB- och Spark-datalager samtidigt) kan uppleva ökad latens och det rekommenderas att skapa ytterligare en tråd som väntar på ett svar från den andra datalager.
+        + **Utför beräkningsintensiva arbetsbelastningar på en dedikerad tråd** - Av liknande orsaker till föregående tips är åtgärder som komplex databehandling bäst placerade i en separat tråd. En begäran som hämtar data från ett annat datalager (till exempel om tråden använder Azure Cosmos DB- och Spark-datalager samtidigt) kan uppleva ökad latens och det rekommenderas att skapa ytterligare en tråd som väntar på ett svar från det andra datalagret.
 
             + Det underliggande nätverks-IO i Async Java SDK hanteras av Netty, se dessa [tips för att undvika kodningsmönster som blockerar Netty IO trådar](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread).
 
@@ -230,9 +230,9 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" överväga f�
     * - nofile 100000
     ```
 
-* **Använd inbyggd SSL-implementering för netty**
+* **Använd inbyggd TLS/SSL-implementering för netty**
 
-    Netty kan använda OpenSSL direkt för SSL-implementeringsstack för att uppnå bättre prestanda. I avsaknad av denna konfiguration netty kommer att falla tillbaka till Javas standard SSL-implementering.
+    Netty kan använda OpenSSL direkt för TLS-implementeringsstack för att uppnå bättre prestanda. I avsaknad av denna konfiguration netty kommer att falla tillbaka till Javas standard TLS-implementering.
 
     på Ubuntu:
     ```bash

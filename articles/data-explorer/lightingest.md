@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.openlocfilehash: 99517e45892cd7a6167ae83ff3058edae1377b10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 95d943685cf511acb88f9e48d36a9dd43b0a27d2
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80109568"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548007"
 ---
 # <a name="install-and-use-lightingest"></a>Installera och använd LightIngest
 
@@ -22,6 +22,9 @@ Verktyget kan hämta källdata från en lokal mapp eller från en Azure blob-lag
 ## <a name="prerequisites"></a>Krav
 
 * LightIngest - ladda ner det som en del av [Paketet Microsoft.Azure.Kusto.Tools NuGet](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Tools/)
+
+    ![Belysningaste nedladdningen](media/lightingest/lightingest-download-area.png)
+
 * WinRAR - ladda ner den från [www.win-rar.com/download.html](http://www.win-rar.com/download.html)
 
 ## <a name="install-lightingest"></a>Installera LightIngest
@@ -44,16 +47,20 @@ Verktyget kan hämta källdata från en lokal mapp eller från en Azure blob-lag
     >
     >![Hjälp om kommandoraden](media/lightingest/lightingest-cmd-line-help.png)
 
-1. Ange `LightIngest` följt av anslutningssträngen till Azure Data Explorer-klustret som hanterar inmatningen.
+1. Ange `ingest-` följt av anslutningssträngen till Azure Data Explorer-klustret som hanterar inmatningen.
     Bifoga anslutningssträngen med dubbla citattecken och följ [specifikationen för Kusto-anslutningssträngar](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto).
 
     Ett exempel:
     ```
-    LightIngest "Data Source=https://{Cluster name and region}.kusto.windows.net;AAD Federated Security=True"  -db:{Database} -table:Trips -source:"https://{Account}.blob.core.windows.net/{ROOT_CONTAINER};{StorageAccountKey}" -pattern:"*.csv.gz" -format:csv -limit:2 -ignoreFirst:true -cr:10.0 -dontWait:true
+    ingest-{Cluster name and region}.kusto.windows.net;AAD Federated Security=True -db:{Database} -table:Trips -source:"https://{Account}.blob.core.windows.net/{ROOT_CONTAINER};{StorageAccountKey}" -pattern:"*.csv.gz" -format:csv -limit:2 -ignoreFirst:true -cr:10.0 -dontWait:true
     ```
 
-* Den rekommenderade metoden `LightIngest` är att arbeta med slutpunkten för intag vid `https://ingest-{yourClusterNameAndRegion}.kusto.windows.net`. På så sätt kan Azure Data Explorer-tjänsten hantera inmatningsbelastningen och du kan enkelt återställa från tillfälliga fel. Du kan dock `LightIngest` också konfigurera för att arbeta`https://{yourClusterNameAndRegion}.kusto.windows.net`direkt med motorns slutpunkt ( ).
-* För optimal intag prestanda, är det viktigt för LightIngest `LightIngest` att känna till rådata storlek och så kommer att uppskatta den okomprimerade storleken på lokala filer. Det `LightIngest` kanske dock inte kan uppskattas av den råa storleken på komprimerade blobbar på rätt sätt utan att först hämta dem. När du intar komprimerade blobbar anger `rawSizeBytes` du därför egenskapen på blobmetadata till okomprimerad datastorlek i byte.
+* Den rekommenderade metoden är att LightIngest ska arbeta `https://ingest-{yourClusterNameAndRegion}.kusto.windows.net`med slutpunkten för intag vid . På så sätt kan Azure Data Explorer-tjänsten hantera inmatningsbelastningen och du kan enkelt återställa från tillfälliga fel. Du kan dock också konfigurera LightIngest så att`https://{yourClusterNameAndRegion}.kusto.windows.net`den fungerar direkt med motorns ändpunkt ( ).
+
+> [!Note]
+> Om du intas direkt med motorns slutpunkt behöver `ingest-`du inte inkludera , men det kommer inte att finnas en DM-funktion för att skydda motorn och förbättra intag framgång.
+
+* För optimal intag prestanda, det är viktigt för LightIngest att veta rådata storlek och så LightIngest kommer att uppskatta den okomprimerade storleken på lokala filer. LightIngest kanske dock inte kan uppskatta den råa storleken på komprimerade blobbar utan att först hämta dem. När du intar komprimerade blobbar anger `rawSizeBytes` du därför egenskapen på blobmetadata till okomprimerad datastorlek i byte.
 
 ## <a name="general-command-line-arguments"></a>Allmänna kommandoradsargument
 
@@ -66,21 +73,27 @@ Verktyget kan hämta källdata från en lokal mapp eller från en Azure blob-lag
 |-prefix               |             |sträng  |Valfri  |När källdata som ska förtäras finns på blob-lagring delas det här URL-prefixet av alla blobbar, exklusive behållarnamnet. <br>Om data till exempel `MyContainer/Dir1/Dir2`finns i ska prefixet vara `Dir1/Dir2`. Omslutande i dubbla citattecken rekommenderas |
 |-mönster              |             |sträng  |Valfri  |Mönster som källfiler/blobbar plockas med. Stöder jokertecken. Till exempel `"*.csv"`. Rekommenderas att bifoga i dubbla citattecken |
 |-zipMönster           |             |sträng  |Valfri  |Reguljärt uttryck som ska användas när du väljer vilka filer i ett ZIP-arkiv som ska användas.<br>Alla andra filer i arkivet ignoreras. Till exempel `"*.csv"`. Det rekommenderas att omge den i dubbla citattecken |
-|-format               |-f           |sträng  |Valfri  |Källdataformat. Måste vara ett av de [format som stöds](https://docs.microsoft.com/azure/kusto/management/data-ingestion/#supported-data-formats) |
+|-format               |-f           |sträng  |Valfri  |Källdataformat. Måste vara ett av de [format som stöds](https://docs.microsoft.com/azure/data-explorer/ingestion-supported-formats) |
 |-intagMappingPath |-mappingPath |sträng  |Valfri  |Sökväg till kolumnmappningsfil för inmatning (obligatoriskt för Json- och Avro-format). Se [datamappningar](https://docs.microsoft.com/azure/kusto/management/mappings) |
 |-intagMappingRef  |-mappingRef  |sträng  |Valfri  |Namn på en förskapad inmatningskolumnmappning (obligatoriskt för Json- och Avro-format). Se [datamappningar](https://docs.microsoft.com/azure/kusto/management/mappings) |
 |-creationTimePattern  |             |sträng  |Valfri  |Används för att extrahera egenskapen CreationTime från filen eller blob-sökvägen när den är klar. Se [Använda argumentet CreationTimePattern](#using-creationtimepattern-argument) |
 |-ignoreraFirstRow       |-ignoreraFörsta |bool    |Valfri  |Om den är inställd ignoreras den första posten för varje fil/blob (till exempel om källdata har rubriker) |
 |-tagg                  |             |sträng  |Valfri  |[Taggar](https://docs.microsoft.com/azure/kusto/management/extents-overview#extent-tagging) som ska associeras med de intjesterade data. Flera förekomster är tillåtna |
-|-dontWait             |             |bool    |Valfri  |Om den är inställd på "true", väntar inte på att intag ska slutföras. Användbart vid intag av stora mängder filer/blobbar |
+|-dontWait             |             |bool    |Valfri  |Om den är inställd på "true" väntar du inte på att inmatningen ska slutföras. Användbart vid intag av stora mängder filer/blobbar |
 
 ### <a name="using-creationtimepattern-argument"></a>Använda argumentet CreationTimePattern
 
-Argumentet `-creationTimePattern` extraherar egenskapen CreationTime från filen eller blob-sökvägen. Mönstret behöver inte återspegla hela objektsökvägen, bara det avsnitt som omsluter den tidsstämpel som du vill använda.
-Argumentets värde skall innehålla tre avsnitt:
+Argumentet `-creationTimePattern` extraherar egenskapen CreationTime från filen eller blob-sökvägen. Mönstret behöver inte återspegla hela objektsökvägen, bara det avsnitt som omger den tidsstämpel som du vill använda.
+
+Argumentvärdena måste innehålla:
 * Konstant test omedelbart före tidsstämpeln, innesluten i enstaka citattecken
 * Tidsstämpelformatet i [standard-.NET DateTime-notation](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)
-* Konstant text omedelbart efter tidsstämpeln Om blobnamn till exempel slutar med "historicalvalues19840101.parkquet" (tidsstämpeln är fyra siffror för året, två siffror för `-creationTimePattern` månaden och två siffror för dagen i månaden), är motsvarande värde för argumentet "historicalvalues'yyyYMMdd'.parquet".
+* Konstant text omedelbart efter tidsstämpeln. Om blob-namn till `historicalvalues19840101.parquet` exempel slutar med (tidsstämpeln är fyra siffror för året, två siffror för månaden och två `-creationTimePattern` siffror för dagen i månaden) är motsvarande värde för argumentet:
+
+```
+ingest-{Cluster name and region}.kusto.windows.net;AAD Federated Security=True -db:{Database} -table:Trips -source:"https://{Account}.blob.core.windows.net/{ROOT_CONTAINER};{StorageAccountKey}" -creationTimePattern:"'historicalvalues'yyyyMMdd'.parquet'"
+ -pattern:"*.csv.gz" -format:csv -limit:2 -ignoreFirst:true -cr:10.0 -dontWait:true
+```
 
 ### <a name="command-line-arguments-for-advanced-scenarios"></a>Kommandoradsargument för avancerade scenarier
 
@@ -96,7 +109,7 @@ Argumentets värde skall innehålla tre avsnitt:
 |-devTracing           |-spår       |sträng  |Valfri  |Om den är inställd skrivs diagnostikloggar till `RollingLogs` en lokal katalog (som standard i den aktuella katalogen eller kan ändras genom att ange växelvärdet) |
 
 ## <a name="blob-metadata-properties"></a>Egenskaper för Blobmetadata
-När den används med `LightIngest` Azure-blobbar använder du vissa blobmetadataegenskaper för att öka inmatningsprocessen.
+När LightIngest används med Azure-blobbar använder du vissa blobmetadataegenskaper för att öka inmatningsprocessen.
 
 |Egenskapen Metadata                            | Användning                                                                           |
 |---------------------------------------------|---------------------------------------------------------------------------------|

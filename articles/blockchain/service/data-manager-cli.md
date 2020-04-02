@@ -1,15 +1,15 @@
 ---
 title: Konfigurera Blockchain Data Manager med Azure CLI - Azure Blockchain Service
 description: Skapa och hantera en Blockchain Data Manager för Azure Blockchain-tjänst med Azure CLI
-ms.date: 11/04/2019
+ms.date: 03/30/2020
 ms.topic: article
-ms.reviewer: chroyal
-ms.openlocfilehash: a8061aad6d6a1513de70e7c2bc57aa109c666611
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: ravastra
+ms.openlocfilehash: 5ceca96f760ab62ca7f3df9ad26139b9b4a3e5be
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74455935"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529594"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Konfigurera Blockchain Data Manager med Azure-portalen
 
@@ -26,7 +26,7 @@ Om du vill konfigurera en Blockchain Data Manager-instans:
 ## <a name="prerequisites"></a>Krav
 
 * Installera den senaste [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) `az login`CLI och logga in med .
-* Fullständig [snabbstart: Använd Visual Studio-kod för att ansluta till ett Azure Blockchain Service-konsortiumnätverk](connect-vscode.md)
+* Fullständig [snabbstart: Använd Visual Studio-kod för att ansluta till ett Azure Blockchain Service-konsortiumnätverk](connect-vscode.md). Azure Blockchain Service *Standard-nivå* rekommenderas när du använder Blockchain Data Manager.
 * Skapa ett [ämne för händelserutnät](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * Lär dig mer om [händelsehanterare i Azure Event Grid](../../event-grid/event-handlers.md)
 

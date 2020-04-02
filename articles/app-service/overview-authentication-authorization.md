@@ -5,18 +5,23 @@ ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: mahender
-ms.custom: fasttrack-edit
-ms.openlocfilehash: f16b10f13c945dd7f1ae4fdc3f4e02dcd7c5a018
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.custom:
+- seodec18
+- fasttrack-edit
+ms.openlocfilehash: 0fe436b1da551bbc8a0064cb3cfdff864d8f9eb8
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437946"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520684"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autentisering och auktorisering i Azure App Service och Azure Functions
 
 > [!NOTE]
 > För närvarande stöds inte [Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) (inklusive [MSAL)](../active-directory/develop/msal-overview.md)för Azure App Service och Azure Functions. Kom tillbaka för uppdateringar.
+>
+> [!NOTE]
+> För närvarande stöder ASP.NET Core för närvarande inte att fylla den aktuella användaren med autentiserings-/auktoriseringsfunktionen.
 >
 
 Azure App Service tillhandahåller inbyggt stöd för autentisering och auktorisering, så att du kan logga in användare och komma åt data genom att skriva minimal eller ingen kod i din webbapp, RESTful API och mobila serverdel, och även [Azure Functions](../azure-functions/functions-overview.md). I den här artikeln beskrivs hur App Service förenklar autentisering och auktorisering för din app.
@@ -132,11 +137,17 @@ Med det här alternativet behöver du inte skriva någon autentiseringskod i app
 > [!CAUTION]
 > Att begränsa åtkomsten på det här sättet gäller alla samtal till din app, vilket kanske inte är önskvärt för appar som vill ha en allmänt tillgänglig startsida, som i många ensidiga program.
 
+> [!NOTE]
+> Autentisering/auktorisering var tidigare känt som Easy Auth.
+>
+
 ## <a name="more-resources"></a>Fler resurser
 
 [Självstudiekurs: Autentisera och auktorisera användare från på ett i Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)  
 [Självstudiekurs: Autentisera och auktorisera användare från på ett i Azure App Service för Linux](containers/tutorial-auth-aad.md)  
 [Anpassa autentisering och auktorisering i App Service](app-service-authentication-how-to.md)
+[.NET Core-integrering av Azure AppService EasyAuth (tredje part)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
+[Få Azure App Service-autentisering att fungera med .NET Core (tredje part)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
 
 Providerspecifika how-to-guider:
 

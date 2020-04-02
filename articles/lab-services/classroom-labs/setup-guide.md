@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/18/2020
 ms.author: spelluru
-ms.openlocfilehash: d58e11551c2857c269e8985e81f84138f6d389ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b87107545761e10c6fb648e54064fbafbdbacd52
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370817"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546013"
 ---
 # <a name="classroom-lab-setup-guide"></a>Installationsguide för klassrumslabb
 
@@ -79,7 +79,7 @@ Lab Services använder en prismodell för användningsbaserad betalning, vilket 
 Deltagarna tilldelas var sin egen virtuella dator som har tilldelats dem under labbets livstid.  De kan välja att:
 
 - Spara direkt till den virtuella datorn.
-- Spara i en extern databas, till exempel OneDrive, GitHub, etc.
+- Spara på en extern plats, till exempel OneDrive, GitHub, etc.
 
 Om du vill använda OneDrive kan du välja att konfigurera detta automatiskt för deltagare på deras virtuella labbdator.  Ytterligare information om detta finns nedan.
 
@@ -133,7 +133,7 @@ När du förstår kraven för klassens labb är du redo att konfigurera det.  F�
         > [!NOTE]
         > Beroende på vilken typ av operativsystem du har installerat kan det ta flera minuter att starta en virtuell dator.  För att säkerställa att en virtuell labbdator är klar för användning under dina schemalagda timmar rekommenderar vi att du startar virtuella datorer 30 minuter i förväg för att säkerställa att virtuella datorer körs och är klara för användning.
 
-   - [Ange kvoter för användare](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users) och [ange ytterligare kvoter för en viss användare](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-additional-quota-for-a-specific-user)
+   - [Ange kvoter för användare](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users) och [ange ytterligare kvoter för en viss användare](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-additional-quotas-for-specific-users)
   
    - [Aktivera automatisk avstängning vid frånkoppling](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
 

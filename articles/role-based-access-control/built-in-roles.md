@@ -15,12 +15,12 @@ ms.date: 03/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: ba07a0b0d3be0366179bba14c786fafad8753dd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2fe3b94463da07304f2c853910ac5d2a6771d070
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280702"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545644"
 ---
 # <a name="azure-built-in-roles"></a>Azure inbyggda roller
 
@@ -124,7 +124,7 @@ Följande tabell innehåller en kort beskrivning och det unika ID:t för varje i
 > | [Rapportör för kontot För rumsliga ankare](#spatial-anchors-account-contributor) | Gör att du kan hantera rumsliga ankare i ditt konto, men inte ta bort dem | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
 > | [Ägare av kontot För rumsliga ankare](#spatial-anchors-account-owner) | Gör att du kan hantera rumsliga ankare i ditt konto, inklusive att ta bort dem | 70bbe301-9835-447d-afdd-19eb3167307c |
 > | [Rumsliga ankare kontoläsare](#spatial-anchors-account-reader) | Gör att du kan hitta och läsa egenskaper för rumsliga ankare i ditt konto | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
-> | **Integration** |  |  |
+> | **Integrering** |  |  |
 > | [API-hanteringstjänstdeltagare](#api-management-service-contributor) | Kan hantera tjänsten och API:erna | 312a565d-c81f-4fd8-895a-4e21e48d571c |
 > | [Rollen Operatör för API-hanteringstjänster](#api-management-service-operator-role) | Kan hantera tjänsten men inte API:erna | e022efe7-f5ba-4159-bbe4-b44f577e9b61 |
 > | [Rollen för tjänstläsare för API-hantering](#api-management-service-reader-role) | Skrivskyddad åtkomst till tjänst och API:er | 71522526-b88f-4d52-b57f-d31fc3546d0d |
@@ -1093,7 +1093,7 @@ Gör att du kan hantera Traffic Manager-profiler, men du kan inte styra vem som 
 }
 ```
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 
 ### <a name="avere-contributor"></a>Avere Bidragsgivare
@@ -4644,7 +4644,7 @@ Kan hantera tjänsten men inte API:erna
 > | Microsoft.ApiManagement/service/managedeployments/action | Ändra SKU/-enheter, lägga till/ta bort regionala distributioner av API Management Service |
 > | Microsoft.ApiManagement/service/read | Läsa metadata för en API Management Service-instans |
 > | Microsoft.ApiManagement/service/restore/action | Återställa API Management Service från den angivna behållaren i ett användarkonto som tillhandahålls av användaren |
-> | Microsoft.ApiManagement/service/updatecertificate/action | Ladda upp SSL-certifikat för en API Management Service |
+> | Microsoft.ApiManagement/service/updatecertificate/action | Ladda upp TLS/SSL-certifikat för en API Management Service |
 > | Microsoft.ApiManagement/service/updatehostname/åtgärd | Konfigurera, uppdatera eller ta bort anpassade domännamn för en API Management Service |
 > | Microsoft.ApiManagement/service/write | Skapa eller uppdatera API Management Service-instans |
 > | Microsoft.Auktorisering/*/läs | Läsa roller och rolltilldelningar |

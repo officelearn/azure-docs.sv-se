@@ -7,26 +7,26 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: f290b08d1f625600d03c9540b28c289e9b449471
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: e73ba110128f6d4f0bea008840b06572d7aee140
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475155"
+ms.locfileid: "80517928"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Samförsäljningsalternativ i Partner center
 
-Att tillhandahålla information på fliken Samsälja är helt valfritt. Det krävs för att uppnå Co-sell Ready och IP Co-sell Ready status. Informationen du anger kommer att användas av Microsofts säljteam för att lära dig mer om din lösning när du utvärderar dess lämplighet för kundernas behov. Den är inte tillgänglig direkt för kunder. Mer information finns i [sälja via Microsoft](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer#sell-through-microsoft).
+Att tillhandahålla information på fliken Samsälja är helt valfritt. Det krävs för att uppnå Co-sell Ready och IP Co-sell Ready status. Informationen du anger kommer att användas av Microsofts säljteam för att lära dig mer om din lösning när du utvärderar dess lämplighet för kundernas behov. Den är inte tillgänglig direkt för kunder. Mer information finns i [sälja via Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
 
 Medsåldraralternativet i Partner Center är för närvarande tillgängligt för vissa erbjudandetyper. Stöd för ytterligare erbjudandetyper kommer att göras tillgängligt över tid.
 
 | **Typ av erbjudande** | **Samsälja sida tillgänglig i Partner Center** |
 |    -----------------------    |    -----------------------------  |
-| Programvara som en tjänst (SaaS) |     Allmän tillgänglighet runt april 2020     |
+| Programvara som en tjänst (SaaS) |     Allmän tillgänglighet april 2020      |
 | Dynamics 365 för kundengagemang & PowerApps      |     Tillgängligt nu      |
 | Dynamics 365 for Operations     |     Tillgängligt nu       |
-| Dynamics 365 Business Central      |  Allmän tillgänglighet runt april 2020    |
-| Azure Application     |     Allmän tillgänglighet runt april 2020     |
+| Dynamics 365 Business Central      |  Allmän tillgänglighet april 2020     |
+| Azure Application     |     Allmän tillgänglighet april 2020     |
 | Virtuell Azure-dator      |     Kommer att tillkännages       |
 | Azure-behållare     |     Kommer att tillkännages       |
 | Konsulttjänst      |     Kommer att tillkännages       |
@@ -66,8 +66,7 @@ Du kan ställa säkerheter som Microsoft kan använda för att utvärdera dina k
 
 | **Dokument**    | **Beskrivning**  |
 | :------------------- | :-------------------|
-| *Kunden en-personsökare* | Kundklar beskrivning av ditt erbjudande. Microsofts säljteam kan dela den här informationen med kunder för att avgöra om ditt erbjudande passar bra och för att säkerställa att det är redo för kunden. <br> <br> Använd någon av de relevanta mallarna som finns i Partnercenter: <br> <ul> <li> Mall för ensidig person i Microsoft Azure </li> <li> Mall för en personsökare i Microsoft Dynamics 365 </li> <li> Mall för en personsökare i Office 365 </li> <li> Windows 10-mall med en personsökare </li> </ul>
- |
+| *Kunden en-personsökare* | Kundklar beskrivning av ditt erbjudande. Microsofts säljteam kan dela den här informationen med kunder för att avgöra om ditt erbjudande passar bra och för att säkerställa att det är redo för kunden. <br> <br> Använd någon av de relevanta mallarna som finns i Partnercenter: <br> <ul> <li> Mall för ensidig person i Microsoft Azure </li> <li> Mall för en personsökare i Microsoft Dynamics 365 </li> <li> Mall för en personsökare i Office 365 </li> <li> Windows 10-mall med en personsökare </li> </ul> |
 | *Kundpresentation* | Skjut däck för att pitcha din lösning och dess värdeerbjudande. Efter att ha sett till att ditt erbjudande är kundklart kan Microsofts säljteam dela presentationen med kunder för att artikulera det värde som båda företagen tillför när de distribuerar en gemensam lösning. Presentationen ska omfatta vad din lösning gör, hur den kan hjälpa kunderna, vilka branscher lösningen är till för och hur den kan jämföras med konkurrerande lösningar. <br> <br> Använd mallen som är tillgänglig i Partnercenter.|
 | *Kundfallstudie* | Den här informationen visar en potentiell kund hur du och Microsoft har distribuerat den här lösningen i tidigare fall. <br> <br> Använd mallen som är tillgänglig i Partnercenter. |
 | *Verifierbara kundvinster (valfritt)* | Specifika exempel på kundframgångar efter att din lösning har distribuerats. |

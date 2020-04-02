@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: d4304abf0ca089fbbea86f12cd03dea836db612e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f44be4e1d3d1186f0122bd4669ae800ab42e31d6
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77368348"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521295"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Ge åtkomst till Azure Event Hubs
 Varje gång du publicerar eller använder händelser/data från en händelsehubb försöker klienten komma åt Event Hubs-resurser. Varje begäran till en säker resurs måste auktoriseras så att tjänsten kan se till att klienten har de behörigheter som krävs för att publicera/använda data. 
@@ -39,7 +39,7 @@ SAS-resurser (Shared Access Signatures) för Event Hubs ger begränsad delegerad
 
 Att auktorisera användare eller program med en OAuth 2.0-token som returneras av Azure AD ger överlägsen säkerhet och användarvänlighet över SIGNATURER för delad åtkomst (SAS). Med Azure AD behöver du inte lagra åtkomsttoken med din kod och riskera potentiella säkerhetsproblem. Även om du kan fortsätta att använda SIGNATURER för delad åtkomst (SAS) för att bevilja finkornig åtkomst till Event Hubs-resurser, erbjuder Azure AD liknande funktioner utan att behöva hantera SAS-token eller oroa dig för att återkalla en komprometterad SAS. 
 
-Som standard är alla Event Hubs-resurser säkrade och är endast tillgängliga för kontoägaren. Även om du kan använda någon av de auktoriseringsstrategier som beskrivs ovan för att ge klienter åtkomst till Event Hub-resurser. Endast eventhubbar-resurser som skapats med Azure Resource Manager-distributionsmodell stöder Azure AD-auktorisering. Microsoft rekommenderar att du använder Azure AD när det är möjligt för maximal säkerhet och användarvänlighet.
+Som standard är alla Event Hubs-resurser säkrade och är endast tillgängliga för kontoägaren. Även om du kan använda någon av de auktoriseringsstrategier som beskrivs ovan för att ge klienter åtkomst till Event Hub-resurser. Microsoft rekommenderar att du använder Azure AD när det är möjligt för maximal säkerhet och användarvänlighet.
 
 Mer information om auktorisering med SAS finns i [Auktorisera åtkomst till eventhubbar-resurser med signaturer för delad åtkomst](authorize-access-shared-access-signature.md).
 

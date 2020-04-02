@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: f0e74a366e8dbb515f2f50748eb4a5c76088a723
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 8f4703330190d3907e9a6e3aead8892fe69e7c13
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398031"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521221"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Säkerhetsrekommendationer - en referensguide
 
@@ -105,7 +105,7 @@ Ditt säkra resultat baseras på antalet rekommendationer för Säkerhetscenter 
 |**Variabler för automationskonto ska krypteras**|Aktivera kryptering av variabelt medel för Automation-konto när känsliga data lagras.<br>(Relaterad princip: Kryptering ska aktiveras på variabeln Automation-konto)|Hög|N|Beräkningsresurser (automatiseringskonto)|
 |**Diskkryptering bör tillämpas på virtuella datorer**|Kryptera dina virtuella datordiskar med Azure Disk Encryption både för Virtuella Windows- och Linux-datorer. Azure Disk Encryption (ADE) utnyttjar bitlockerfunktionen i Branschstandard i Windows och DM-Crypt-funktionen i Linux för att tillhandahålla OS- och datadiskkryptering för att skydda och skydda dina data och hjälpa dig att uppfylla dina organisatoriska säkerhets- och efterlevnadsåtaganden i kundens Azure-nyckelvalv. När ditt efterlevnads- och säkerhetskrav kräver att du krypterar data från till med hjälp av krypteringsnycklarna, inklusive kryptering av den tillfälliga (lokalt anslutna tillfälliga) disken, använder du Azure-diskkryptering. Alternativt krypteras hanterade diskar som standard som standard med Azure Storage Service Encryption där krypteringsnycklarna är Microsoft-hanterade nycklar i Azure. Om detta uppfyller dina efterlevnads- och säkerhetskrav kan du använda standardkrypteringen för hanterade disker för att uppfylla dina krav.<br>(Relaterad princip: Diskkryptering ska tillämpas på virtuella datorer)|Hög|N|Dator|
 |**Virtuella datorer ska migreras till nya Azure Resource Manager-resurser**|Använd Azure Resource Manager för dina virtuella datorer för att tillhandahålla säkerhetsförbättringar som: stronger access control (RBAC), bättre granskning, Resurshanteraren-baserad distribution och styrning, åtkomst till hanterade identiteter, åtkomst till nyckelvalv för hemligheter, Azure AD-baserad autentisering och stöd för taggar och resursgrupper för enklare säkerhetshantering.<br>(Relaterad princip: Virtuella datorer ska migreras till nya Azure Resource Manager-resurser)|Låg|N|Dator|
-|**Lösning för sårbarhetsbedömning bör installeras på dina virtuella datorer**|Installera en lösning för sårbarhetsbedömning på dina virtuella datorer<br>(Relaterad princip: Sårbarhetsbedömning bör installeras på virtuella datorer)|Medel|N|Dator|
+|**Lösning för sårbarhetsbedömning bör installeras på dina virtuella datorer**|Installera en lösning för sårbarhetsbedömning på dina virtuella datorer<br>(Relaterad princip: Sårbarheter bör åtgärdas med en sårbarhetsbedömningslösning)|Medel|N|Dator|
 |**Sårbarheter bör åtgärdas med en sårbarhetsbedömningslösning**|Virtuella datorer för vilka en sårbarhetsbedömning tredjepartslösning distribueras utvärderas kontinuerligt mot program- och os-sårbarheter. När sådana sårbarheter hittas är dessa tillgängliga för mer information som en del av rekommendationen.<br>(Relaterad princip: Sårbarheter bör åtgärdas med en sårbarhetsbedömningslösning)|Hög|N|Dator|
 |**Sårbarheter i säkerhetskonfigurationen på dina datorer bör åtgärdas**|Åtgärda säkerhetsproblem i säkerhetskonfigurationen på dina datorer för att skydda dem från attacker.<br>(Relaterad princip: Sårbarheter i säkerhetskonfigurationen på dina datorer bör åtgärdas)|Låg|N|Dator|
 |**Säkerhetsproblem i behållarens säkerhetskonfigurationer bör åtgärdas**|Åtgärda säkerhetsproblem i säkerhetskonfigurationen på datorer med Docker installerat för att skydda dem från attacker.<br>(Relaterad princip: Säkerhetsproblem i behållarens säkerhetskonfigurationer bör åtgärdas)|Hög|N|Dator|

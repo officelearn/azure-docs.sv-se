@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: ad8c05b3347ed4741d574a5e6bcc1d928db08411
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad2a34691a00f217db6cf6835eefed18c8862d32
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79366844"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547924"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Hantera runbooks i Azure Automation
 
@@ -128,6 +128,19 @@ $RGName = "ResourceGroup"
 Publish-AzAutomationRunbook -AutomationAccountName $automationAccountName `
 -Name $runbookName -ResourceGroupName $RGName
 ```
+
+### <a name="schedule-a-runbook-in-the-azure-portal"></a>Schemalägga en runbook i Azure-portalen
+
+När runbooken har publicerats kan du schemalägga den för drift.
+
+1. Öppna runbooken i Azure-portalen.
+2. Välj **Scheman** under **Resurser**.
+3. Välj **Lägg till ett schema**.
+4. I fönstret Schemakörning väljer du **Länka ett schema till runbooken**.
+5. Välj **Skapa ett nytt schema** i fönstret Schema.
+6. Ange ett namn, en beskrivning och andra parametrar i fönstret Nytt schema. 
+7. När schemat har skapats markerar du det och klickar på **OK**. Det bör nu kopplas till din runbook.
+8. Leta efter ett e-postmeddelande i postlådan för att meddela dig om runbook-statusen.
 
 ## <a name="next-steps"></a>Nästa steg
 

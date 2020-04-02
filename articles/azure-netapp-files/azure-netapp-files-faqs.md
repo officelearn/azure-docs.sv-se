@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 04/01/2020
 ms.author: b-juche
-ms.openlocfilehash: 79c23c49cbf3c869b41e5a2dbfc6ec0aaa93e4ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 59453dbb9617f5a2ddbdca08709747b11a688560
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258183"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547092"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Vanliga frågor om Azure NetApp-filer
 
@@ -144,6 +144,11 @@ Azure NetApp Files stöder Windows Server 2008r2SP1-2019-versioner av Active Dir
 ### <a name="why-does-the-available-space-on-my-smb-client-not-show-the-provisioned-size"></a>Varför visar inte det tillgängliga utrymmet på min SMB-klient den etablerade storleken?
 
 Volymstorleken som rapporteras av SMB-klienten är den maximala storleken som Azure NetApp Files-volymen kan växa till. Storleken på Azure NetApp Files-volymen som visas på SMB-klienten återspeglar inte kvoten eller storleken på volymen. Du kan hämta storleken eller kvoten för Azure NetApp Files via Azure-portalen eller API:et.
+
+### <a name="does-azure-netapp-files-support-kerberos-encryption"></a>Stöder Azure NetApp Files Kerberos-kryptering?
+
+Ja, som standard stöder Azure NetApp Files både AES-128- och AES-256-kryptering för trafik mellan tjänsten och de riktade Active Directory-domänkontrollanterna. Se [Skapa en SMB-volym för Azure NetApp-filer](azure-netapp-files-create-volumes-smb.md) för krav. 
+
 <!--
 ### Does Azure NetApp Files support LDAP signing? 
 

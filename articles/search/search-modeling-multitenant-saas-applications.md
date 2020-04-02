@@ -8,12 +8,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d37abd1b5d212c3d920cb68b6236029b2112ae24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8e453336005f3389f67e9571fac438bfc340c1b
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74113269"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549016"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Designmönster för SaaS-program med flera trogna och Azure Cognitive Search
 Ett program med flera innehavare är ett program som tillhandahåller samma tjänster och funktioner till valfritt antal klienter som inte kan se eller dela data för någon annan klient. I det här dokumentet beskrivs strategier för klientisolering för program med flera innehavare som skapats med Azure Cognitive Search.
@@ -51,7 +51,7 @@ I Azure Cognitive Search s S3-prisnivå finns det ett alternativ för HD-läget 
 
 S3 HD gör det möjligt för många små index som ska packas under ledning av en enda söktjänst genom att handla möjligheten att skala ut index med hjälp av partitioner för möjligheten att vara värd för fler index i en enda tjänst.
 
-Konkret kan en S3-tjänst ha mellan 1 och 200 index som tillsammans skulle kunna vara värd för upp till 1,4 miljarder dokument. En S3 HD å andra sidan skulle tillåta enskilda index att bara gå upp till 1 miljon dokument, men det kan hantera upp till 1000 index per partition (upp till 3000 per tjänst) med en total dokumenträkning på 200 miljoner per partition (upp till 600 miljoner per tjänst).
+En S3-tjänst är utformad för att vara värd för ett fast antal index (högst 200) och låta varje index skalas i storlek horisontellt när nya partitioner läggs till i tjänsten. Om du lägger till partitioner i S3 HD-tjänster ökar det maximala antalet index som tjänsten kan vara värd för. Den idealiska maximala storleken för ett enskilt S3HD-index är cirka 50 - 80 GB, även om det inte finns någon hård storleksgräns för varje index som införts av systemet.
 
 ## <a name="considerations-for-multitenant-applications"></a>Överväganden för multitenant applikationer
 Multitenant program måste effektivt fördela resurser mellan hyresgästerna samtidigt som en viss nivå av integritet mellan de olika hyresgästerna. Det finns några saker att tänka på när du utformar arkitekturen för ett sådant program:
@@ -78,7 +78,7 @@ I en index-per-klientmodell upptar flera klienter en enda Azure Cognitive Search
 
 Klienter uppnår dataisolering eftersom alla sökbegäranden och dokumentåtgärder utfärdas på indexnivå i Azure Cognitive Search. I programskiktet finns det behov av medvetenhet om att rikta de olika hyresgästernas trafik till rätt index samtidigt som man hanterar resurser på servicenivå över alla klienter.
 
-Ett viktigt attribut för index-per-klient-modellen är möjligheten för programutvecklaren att överteckna kapaciteten för en söktjänst bland programmets klienter. Om klienterna har en ojämn arbetsbelastningsfördelning kan den optimala kombinationen av klienter fördelas över en söktjänsts index för att rymma ett antal mycket aktiva, resursintensiva klienter samtidigt som de betjänar en lång svans på mindre aktiva hyresgäster. Avvägningen är modellens oförmåga att hantera situationer där varje klient samtidigt är mycket aktiv.
+Ett viktigt attribut för index-per-klient-modellen är möjligheten för programutvecklaren att överteckna kapaciteten för en söktjänst bland programmets klienter. Om klienterna har en ojämn fördelning av arbetsbelastningen kan den optimala kombinationen av klienter fördelas över en söktjänsts index för att rymma ett antal mycket aktiva, resursintensiva klienter samtidigt som de betjänar en lång svans av mindre aktiva klienter. Avvägningen är modellens oförmåga att hantera situationer där varje klient samtidigt är mycket aktiv.
 
 Index-per-klient-modellen utgör grunden för en modell för rörlig kostnad, där en hel Azure Cognitive Search-tjänst köps i förskott och sedan fylls med klienter. Detta gör det möjligt att ange outnyttjad kapacitet för utvärderingsversioner och kostnadsfria konton.
 

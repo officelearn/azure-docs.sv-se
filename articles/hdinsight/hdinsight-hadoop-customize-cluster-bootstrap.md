@@ -1,19 +1,19 @@
 ---
 title: Anpassa Azure HDInsight-klusterkonfigurationer med bootstrap
-description: Lär dig hur du anpassar HDInsight-klusterkonfigurationen programmässigt med hjälp av .Net-, PowerShell- och Resource Manager-mallar.
+description: Lär dig hur du anpassar HDInsight-klusterkonfigurationen programmässigt med hjälp av .NET-, PowerShell- och Resource Manager-mallar.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 11/21/2019
-ms.openlocfilehash: e641340ac04415ee4a20cda2bc09bbdbef9802a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 796dbc53d1adf310028e06dea319b9a60d5cf54b
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272531"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529354"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Anpassa HDInsight-kluster med Bootstrap
 
@@ -125,6 +125,18 @@ Du kan använda bootstrap i Resource Manager-mallen:
 ```
 
 ![Hadoop anpassar kluster bootstrap Azure Resource Manager-mall](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+
+Exempel på Resource Manager-mallkodavsnitt för att växla konfiguration i spark2-standarder för att regelbundet rensa händelseloggar från lagring.  
+
+```json
+"configurations": {
+    "spark2-defaults": {
+        "spark.history.fs.cleaner.enabled": "true",
+        "spark.history.fs.cleaner.interval": "7d",
+        "spark.history.fs.cleaner.maxAge": "90d"
+    }
+}
+```
 
 ## <a name="see-also"></a>Se även
 

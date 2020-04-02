@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: spelluru
-ms.openlocfilehash: d17026dba26b3c1cb846d60967180c29563c425d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82773ab6decfe15ee1a9d839a1f10a158ae72c42
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74545591"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521325"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autentisera åtkomst till eventhubbar-resurser med hjälp av SIGNATURER för delad åtkomst (SAS)
 Med SAS (Shared Access Signature) får du detaljerad kontroll över vilken typ av åtkomst du beviljar till de klienter som har signaturen för delad åtkomst. Här är några av de kontroller som du kan ställa in i en SAS: 
@@ -33,7 +33,7 @@ Den här artikeln handlar om att autentisera åtkomsten till Event Hubs-resurser
 
 
 ## <a name="configuring-for-sas-authentication"></a>Konfigurera för SAS-autentisering
-Du kan konfigurera eventhubs-behörighetsregeln för delad åtkomst på ett namnområde för eventhubbar eller en entitet (händelsenavinstans eller Kafka-ämne i ett händelsehubbar för Kafka-aktiverat namnområde). Det går inte att konfigurera en regel för delad åtkomstbehörighet för en konsumentgrupp, men du kan använda regler som konfigurerats på ett namnområde eller entitet för att skydda åtkomsten till konsumentgruppen. 
+Du kan konfigurera eventhubs-behörighetsregeln för delad åtkomst på ett namnområde för eventhubbar eller en entitet (händelsenavinstans eller Kafka-ämne i en händelsehubb). Det går inte att konfigurera en regel för delad åtkomstbehörighet för en konsumentgrupp, men du kan använda regler som konfigurerats på ett namnområde eller entitet för att skydda åtkomsten till konsumentgruppen. 
 
 Följande bild visar hur auktoriseringsreglerna gäller för exempelentiteter. 
 

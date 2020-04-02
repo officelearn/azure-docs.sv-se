@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: a1dbabafe32e013d526ed88a83e446ee765cdb7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3b738d95b5b777f1cf0329fb3c1bc3e2860421e
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76045879"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545972"
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
 ## <a name="overview"></a>Översikt
@@ -138,7 +138,7 @@ I Programdiagnostik kan du gruppera händelser på följande vis:
 -   Programfel (visar undantagshändelser)
 -   Prestanda (visar prestandahändelser)
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 Avsnittet innehåller ytterligare information om viktiga funktioner i Azure-lagringssäkerhet och sammanfattande information om dessa funktioner.
 
 ### <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
@@ -233,11 +233,11 @@ Microsoft [Azure Application Gateway](../../application-gateway/overview.md) til
 
 ![Application Gateway](./media/overview/azure-security-fig2.png)
 
-Det gör att du kan optimera web farm produktivitet genom att avlasta CPU-intensiv SSL-avslutning till Application Gateway (även känd som "SSL avlastning" eller "SSL överbrygga"). Det ger också andra Layer 7 routningsfunktioner, inklusive round-robin-distribution av inkommande trafik, cookie-baserad sessionstillhörighet, URL-sökvägsbaserad routning och möjligheten att vara värd för flera webbplatser bakom en enda Application Gateway. Azure Application Gateway är en Layer 7-lastbalanserare.
+Det gör att du kan optimera web farm produktivitet genom att avlasta CPU-intensiva TLS uppsägning till Application Gateway (även känd som "TLS avlastning" eller "TLS överbrygga"). Det ger också andra Layer 7 routningsfunktioner, inklusive round-robin-distribution av inkommande trafik, cookie-baserad sessionstillhörighet, URL-sökvägsbaserad routning och möjligheten att vara värd för flera webbplatser bakom en enda Application Gateway. Azure Application Gateway är en Layer 7-lastbalanserare.
 
 Den tillhandahåller redundans och prestandabaserad routning av HTTP-begäranden mellan olika servrar, oavsett om de finns i molnet eller lokalt.
 
-Ansökan ger många Application Delivery Controller (ADC) funktioner inklusive HTTP belastningsutjämning, cookie-baserad session tillhörighet, [Secure Sockets Layer (SSL)](../../application-gateway/tutorial-restrict-web-traffic-powershell.md) avlastning, anpassade hälsa sonder, stöd för flera plats, och många andra.
+Ansökan ger många Application Delivery Controller (ADC) funktioner inklusive HTTP belastningsutjämning, cookie-baserad session tillhörighet, [TLS avlastning,](../../application-gateway/tutorial-restrict-web-traffic-powershell.md)anpassade hälsa sonder, stöd för flera plats, och många andra.
 
 ### <a name="web-application-firewall"></a>Brandvägg för webbaserade program
 Brandvägg för webbprogram är en funktion i [Azure Application Gateway](../../application-gateway/overview.md) som skyddar webbprogram som använder ADC-funktioner (Application Delivery Control). Brandvägg för webbaserade program gör detta genom att skydda dem mot de flesta av de 10 vanligaste OWASP-säkerhetsproblemen.
@@ -323,7 +323,7 @@ Korrigeringsuppdateringar utgör grunden för att hitta och åtgärda potentiell
 [Security Center](../../security-center/security-center-intro.md) hjälper dig att förebygga, identifiera och svara på hot och ger dig ökad insyn i och kontroll över säkerheten för dina Azure-resurser. Den ger integrerad säkerhetsövervakning och principhantering i dina Azure-prenumerationer, hjälper till att identifiera hot som annars kan gå obemärkt förbi och fungerar med ett brett ekosystem av säkerhetslösningar.
 
 ## <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
-Skydda system, program och data börjar med identitetsbaserade åtkomstkontroller. De identitets- och åtkomsthanteringsfunktioner som är inbyggda i Microsofts affärsprodukter och -tjänster hjälper till att skydda din organisation och personliga information från obehörig åtkomst samtidigt som den görs tillgänglig för legitima användare när och var de än är de behöver det.
+Skydda system, program och data börjar med identitetsbaserade åtkomstkontroller. De identitets- och åtkomsthanteringsfunktioner som är inbyggda i Microsofts affärsprodukter och -tjänster hjälper till att skydda din organisation och personliga information från obehörig åtkomst samtidigt som den görs tillgänglig för legitima användare när och var de behöver den.
 
 ### <a name="secure-identity"></a>Säker identitet
 Microsoft använder flera säkerhetsrutiner och tekniker i sina produkter och tjänster för att hantera identitet och åtkomst.

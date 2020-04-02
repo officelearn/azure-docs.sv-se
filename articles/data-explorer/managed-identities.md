@@ -7,25 +7,25 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: f9592f5d2666684e0cf5eef687b1e69cfb55066c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 900bf815917a4b7c9841860d663a2183b1ab71b3
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065573"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529678"
 ---
 # <a name="configure-managed-identities-for-your-azure-data-explorer-cluster"></a>Konfigurera hanterade identiteter för ditt Azure Data Explorer-kluster
 
 En [hanterad identitet från Azure Active Directory](/azure/active-directory/managed-identities-azure-resources/overview) gör att klustret enkelt kan komma åt andra AAD-skyddade resurser, till exempel Azure Key Vault. Identiteten hanteras av Azure-plattformen och kräver inte att du etablerar eller roterar några hemligheter. Den här artikeln visar hur du skapar en hanterad identitet för Azure Data Explorer-kluster. Konfiguration av hanterade identiteter stöds för närvarande endast för att [aktivera kundhanterade nycklar för klustret](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault).
 
 > [!Note]
-> Hanterade identiteter för Azure Data Explorer fungerar inte som förväntat om din app migreras mellan prenumerationer eller klienter. Appen måste skaffa en ny identitet, vilket kan göras genom att [inaktivera](#remove-a-system-assigned-identity) och [återaktivera](#add-a-system-assigned-identity) funktionen. Åtkomstprinciper för underordnade resurser måste också uppdateras för att använda den nya identiteten.
+> Hanterade identiteter för Azure Data Explorer fungerar inte som förväntat om ditt Azure Data Explorer-kluster migreras över prenumerationer eller klienter. Appen måste skaffa en ny identitet, vilket kan göras genom att [inaktivera](#disable-a-system-assigned-identity) och [återaktivera](#add-a-system-assigned-identity) funktionen. Åtkomstprinciper för underordnade resurser måste också uppdateras för att använda den nya identiteten.
 
 ## <a name="add-a-system-assigned-identity"></a>Lägga till en systemtilldelad identitet
                                                                                                     
 Tilldela en systemtilldelad identitet som är knuten till klustret och tas bort om klustret tas bort. Ett kluster kan bara ha en systemtilldelad identitet. Skapa ett kluster med en systemtilldelad identitet kräver ytterligare en egenskap som ska anges i klustret. Den systemtilldelade identiteten läggs till med C#, ARM-mallar eller Azure-portalen enligt beskrivningen nedan.
 
-# <a name="azure-portal"></a>[Azure-portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 ### <a name="add-a-system-assigned-identity-using-the-azure-portal"></a>Lägga till en systemtilldelad identitet med Azure-portalen
 
@@ -56,7 +56,7 @@ Tilldela en systemtilldelad identitet som är knuten till klustret och tas bort 
 
     ![System tilldelade identitet på](media/managed-identities/system-assigned-identity-on.png)
 
-# <a name="c"></a>[C#](#tab/c-sharp)
+# <a name="c"></a>[C #](#tab/c-sharp)
 
 ### <a name="add-a-system-assigned-identity-using-c"></a>Lägga till en systemtilldelad identitet med C #
 
@@ -164,13 +164,13 @@ När klustret skapas har det följande ytterligare egenskaper:
 
 ---
 
-## <a name="remove-a-system-assigned-identity"></a>Ta bort en systemtilldelad identitet
+## <a name="disable-a-system-assigned-identity"></a>Inaktivera en systemtilldelad identitet
 
 Om du tar bort en systemtilldelad identitet tas den också bort från AAD. Systemtilldelade identiteter tas också bort automatiskt från AAD när klusterresursen tas bort. En systemtilldelad identitet kan tas bort genom att inaktivera funktionen.  Den systemtilldelade identiteten tas bort med C#, ARM-mallar eller Azure-portalen enligt beskrivningen nedan.
 
-# <a name="azure-portal"></a>[Azure-portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-### <a name="remove-a-system-assigned-identity-using-the-azure-portal"></a>Ta bort en systemtilldelad identitet med Azure-portalen
+### <a name="disable-a-system-assigned-identity-using-the-azure-portal"></a>Inaktivera en systemtilldelad identitet med Azure-portalen
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. Välj **Inställningar** > **Identitet** i den vänstra rutan i portalen.
@@ -181,7 +181,7 @@ Om du tar bort en systemtilldelad identitet tas den också bort från AAD. Syste
 
     ![System tilldelade identitet av](media/managed-identities/system-assigned-identity.png)
 
-# <a name="c"></a>[C#](#tab/c-sharp)
+# <a name="c"></a>[C #](#tab/c-sharp)
 
 ### <a name="remove-a-system-assigned-identity-using-c"></a>Ta bort en systemtilldelad identitet med C #
 

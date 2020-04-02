@@ -1,30 +1,25 @@
 ---
-title: Skapa en skalningsuppsättning som använder virtuella Azure Spot-datorer (förhandsversion)
+title: Skapa en skalningsuppsättning som använder virtuella Azure Spot-datorer
 description: Lär dig hur du skapar Azure-skalningsuppsättningar för virtuella datorer som använder spot-datorer för att spara på kostnader.
 author: cynthn
-tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.topic: conceptual
-ms.date: 02/11/2020
+ms.topic: article
+ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 37e914fe6bafe9587be525faf3e01c897cdd8230
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a7bd22032a554c83a2ea2323ffdb3ae52dfe4faf
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77162692"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545941"
 ---
-# <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>Förhandsversion: Virtuella Azure Spot-datorer för skalningsuppsättningar för virtuella datorer 
+# <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Virtuella azure spot-datorer för skalningsuppsättningar för virtuella datorer 
 
 Med Hjälp av Azure Spot på skalningsuppsättningar kan du dra nytta av vår outnyttjade kapacitet till en betydande kostnadsbesparingar. När som helst när Azure behöver tillbaka kapaciteten kommer Azure-infrastrukturen att ta bort Spot-instanser. Därför är Spot-instanser bra för arbetsbelastningar som kan hantera avbrott som batchbearbetningsjobb, utvecklings-/testmiljöer, stora beräkningsarbetsbelastningar med mera.
 
 Mängden tillgänglig kapacitet kan variera beroende på storlek, region, tid på dygnet och mycket mer. När du distribuerar Spot-instanser på skalningsuppsättningar allokerar Azure instansen endast om det finns kapacitet tillgänglig, men det finns inget serviceavtal för dessa instanser. En spotskalauppsättning distribueras i en enda feldomän och erbjuder inga höga tillgänglighetsgarantier.
 
-> [!IMPORTANT]
-> Spot-instanser är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## <a name="pricing"></a>Prissättning
 
@@ -47,7 +42,7 @@ Användare kan välja att ta emot aviseringar via [Azure Scheduled Events](../vi
 ## <a name="deploying-spot-vms-in-scale-sets"></a>Distribuera spot-virtuella datorer i skalningsuppsättningar
 
 Om du vill distribuera spot-datorer i skalningsuppsättningar kan du ange den nya *prioritetsflaggan* till *Spot*. Alla virtuella datorer i skalningsuppsättningen ställs in på Spot. Om du vill skapa en skalningsuppsättning med punkt-virtuella datorer använder du någon av följande metoder:
-- [Azure-portal](#portal)
+- [Azure Portal](#portal)
 - [Azure CLI](#azure-cli)
 - [Azure PowerShell](#powershell)
 - [Azure Resource Manager-mallar](#resource-manager-templates)
@@ -172,6 +167,5 @@ Om du vill ta bort instansen när `evictionPolicy` den `Delete`har vräkts ändr
 **A.** Du kan lägga upp `azure-spot` och tagga din fråga med på [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har skapat en skalningsuppsättning med spot-datorer kan du prova att distribuera vår [mall för automatisk skalning med Spot](https://github.com/Azure/vm-scale-sets/tree/master/preview/lowpri).
 
 Läs prissidan för [den virtuella datorns skala för](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) prisinformation.

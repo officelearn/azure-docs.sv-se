@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: afc7a7406831568304c2ebd8d9a6c72b497e04e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a6540b5784a76acfc248fb15feb1aaf39420845
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75972886"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546934"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Bearbeta storskaliga datauppsättningar med hjälp av Data Factory och Batch
 > [!NOTE]
@@ -430,7 +430,7 @@ Det här avsnittet innehåller mer information om koden i metoden Kör.
     } while (continuationToken != null);
 
     ```
-   Mer information finns i dokumentationen för [metoden ListBlobsSegmented.](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobssegmented)
+   Mer information finns i dokumentationen för [metoden ListBlobsSegmented.](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented)
 
 1. Koden för att arbeta igenom uppsättningen blobbar går logiskt inom do-while-loopen. I metoden **Kör** skickar do-while-loopen listan över blobbar till en metod med namnet **Beräkna**. Metoden returnerar en strängvariabel med namnet **utdata** som är resultatet av att ha itererat genom alla blobbar i segmentet.
 

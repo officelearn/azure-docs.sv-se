@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 0aa71e4b78df8087093f183b146c525d2a8a0f99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 78275211b77cb34cf9aa92e44778e5d4d81fffed
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79366248"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521017"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funktioner & verktyg för Azure Cloud Shell
 
@@ -44,7 +44,7 @@ Filer utanför `$HOME` och datortillstånd sparas inte mellan sessioner. Använd
 
 ### <a name="azure-drive-azure"></a>Azure-enhet (Azure:)
 
-PowerShell i Cloud Shell startar`Azure:`dig i Azure-enhet ( ).
+PowerShell i Cloud Shell tillhandahåller`Azure:`Azure-enheten ( ). Du kan växla till `cd Azure:` Azure-enheten med och `cd  ~`tillbaka till din hemkatalog med .
 Azure-enheten möjliggör enkel identifiering och navigering av Azure-resurser som Beräkning, Nätverk, Lagring etc. som liknar filsystemnavigering.
 Du kan fortsätta att använda de välbekanta [Azure PowerShell-cmdlets för](https://docs.microsoft.com/powershell/azure) att hantera dessa resurser oavsett vilket enhet du befinner dig i.
 Alla ändringar som görs i Azure-resurserna, antingen gjorda direkt i Azure-portalen eller via Azure PowerShell-cmdlets, återspeglas i Azure-enheten.  Du kan `dir -Force` köra för att uppdatera dina resurser.
@@ -78,7 +78,7 @@ Cloud Shell innehåller förkonfigurerad autentisering för verktyg med öppen k
 |Bygg verktyg            |märke<br> maven<br> npm<br> Pip         |
 |Containrar             |[Docker-dator](https://github.com/docker/machine)<br> [Kubectl (på)](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Rodret](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
 |Databaser              |MySQL-klient<br> PostgreSql-klient<br> [sqlcmd-verktyg](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Annat                  |iPython-klient<br> [Molngjuteri CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible (Ansible)](https://www.ansible.com/microsoft-azure)<br> [Inspec](https://www.chef.io/inspec/)<br> [Marionettbult](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)|
+|Annat                  |iPython-klient<br> [Molngjuteri CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Kock Inspec](https://www.chef.io/inspec/)<br> [Marionettbult](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)|
 
 ## <a name="language-support"></a>Stöd för språk
 

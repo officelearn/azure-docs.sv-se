@@ -2,13 +2,13 @@
 title: Tagga resurser, resursgrupper och prenumerationer för logisk organisation
 description: Visar hur du använder taggar för att ordna Azure-resurser för fakturering och hantering.
 ms.topic: conceptual
-ms.date: 03/20/2020
-ms.openlocfilehash: ffc97df0923e26c3abf0eed8e7810f3b1dc61ed2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 76f9f61b3fe7002508bbd884f427efcfee698579
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132281"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548485"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Använda taggar för att organisera dina Azure-resurser och hanteringshierarki
 
@@ -20,7 +20,7 @@ Rekommendationer om hur du implementerar en taggningsstrategi finns i [Resursnam
 
 ## <a name="required-access"></a>Nödvändig åtkomst
 
-Om du vill använda taggar på en resurs måste du ha skrivbehörighet till resurstypen **Microsoft.Resources/tags.** Med rollen **Taggdeltagare** kan du använda taggar på en entitet utan att ha åtkomst till själva entiteten.
+Om du vill använda taggar på en resurs måste du ha skrivbehörighet till resurstypen **Microsoft.Resources/tags.** Med rollen [Taggdeltagare](../../role-based-access-control/built-in-roles.md#tag-contributor) kan du använda taggar på en entitet utan att ha åtkomst till själva entiteten. Rollen taggdeltagare kan för närvarande inte använda taggar på resurser eller resursgrupper via portalen. Den kan använda taggar på prenumerationer via portalen. Den stöder alla taggåtgärder via PowerShell och REST API.  
 
 Rollen [Deltagare](../../role-based-access-control/built-in-roles.md#contributor) ger också den åtkomst som krävs för att tillämpa taggar på alla entiteter. Om du bara vill använda taggar på endast en resurstyp använder du deltagarrollen för den resursen. Om du till exempel vill använda taggar på virtuella datorer använder du [deltagaren för virtuell dator](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
@@ -28,7 +28,7 @@ Rollen [Deltagare](../../role-based-access-control/built-in-roles.md#contributor
 
 ### <a name="apply-tags"></a>Använda taggar
 
-Azure PowerShell erbjuder två kommandon för att tillämpa taggar - [New-AzTag](/powershell/module/az.resources/new-aztag) och [Update-AzTag](/powershell/module/az.resources/update-aztag). Du måste ha Azure PowerShell 3.6.1 eller senare för att kunna använda dessa kommandon.
+Azure PowerShell erbjuder två kommandon för att tillämpa taggar - [New-AzTag](/powershell/module/az.resources/new-aztag) och [Update-AzTag](/powershell/module/az.resources/update-aztag). Du måste ha modulen Az.Resources 1.12.0 eller senare. Du kan kontrollera `Get-Module Az.Resources`din version med . Du kan installera modulen eller [installera Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 eller senare.
 
 **New-AzTag** ersätter alla taggar på resursen, resursgruppen eller prenumerationen. När du anropar kommandot skickar du in resurs-ID:n för den entitet som du vill tagga.
 
@@ -554,7 +554,7 @@ Följande mall lägger till taggarna från ett objekt i antingen en resursgrupp 
 
 [!INCLUDE [resource-manager-tag-resource](../../../includes/resource-manager-tag-resources.md)]
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 
 Om du vill arbeta med taggar via Azure REST API använder du:
 

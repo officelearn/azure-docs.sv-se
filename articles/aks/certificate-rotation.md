@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: zarhoads
-ms.openlocfilehash: f299b13baf5811b92bdc2e40b027868617d7574c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 00dcef4ae0f04fc7f550859238ae8c7e1ad19384
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79368527"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549075"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Rotera certifikat i Azure Kubernetes Service (AKS)
 
@@ -32,7 +32,7 @@ AKS genererar och använder följande certifikat, certifikatutfärdare och tjän
 * Varje kubelet skapar också en begäran om certifikatsignering (CSR), som är signerad av klustercertifikatutfärdaren, för kommunikation från kubelet till API-servern.
 * Arkivet för etcd-nyckelvärde har ett certifikat signerat av klustercertifikatutfärdaren för kommunikation från etcd till API-servern.
 * Värdearkivet med etcd skapar en certifikatutfärdare som signerar certifikat för att autentisera och auktorisera datareplikering mellan etcd-repliker i AKS-klustret.
-* API-aggregatorn använder klustercertifikatutfärdaren för att utfärda certifikat för kommunikation med andra API:er, till exempel Open Service Broker för Azure. API-aggregatorn kan också ha en egen certifikatutfärdare för att utfärda dessa certifikat, men använder för närvarande klustercertifikatutfärdaren.
+* API-aggregatorn använder klustercertifikatutfärdaren för att utfärda certifikat för kommunikation med andra API:er. API-aggregatorn kan också ha en egen certifikatutfärdare för att utfärda dessa certifikat, men använder för närvarande klustercertifikatutfärdaren.
 * Varje nod använder en SA-token (Service Account), som signeras av klustercauten.
 * Klienten `kubectl` har ett certifikat för kommunikation med AKS-klustret.
 

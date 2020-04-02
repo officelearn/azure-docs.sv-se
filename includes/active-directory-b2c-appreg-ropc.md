@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-ms.openlocfilehash: 03329252c0ed4231585d1717d9361a2aef35b36f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cea3245176e6c38137d68e3ad4b47477bedc78be
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78187020"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529157"
 ---
 Om du vill registrera ett program i din Azure AD B2C-klient kan du använda den aktuella **programupplevelsen** eller vår nya upplevelse av enhetliga **appregistreringar (förhandsversion).** [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregintro)
 
@@ -37,4 +37,10 @@ Om du vill registrera ett program i din Azure AD B2C-klient kan du använda den 
 1. Välj **Autentisering**under **Hantera**.
 1. Välj **Prova den nya upplevelsen** (om den visas).
 1. Under **Standardklienttyp**väljer du **Ja** för att behandla programmet som en offentlig klient. Den här inställningen krävs för ROPC-flödet.
+1. Välj **Spara**.
+1. Välj **Manifest** på menyn till vänster för att öppna manifestredigeraren. 
+1. Ange **attributet oauth2AllowImplicitFlow** till *true:*
+    ```json
+    "oauth2AllowImplicitFlow": true,
+    ```
 1. Välj **Spara**.

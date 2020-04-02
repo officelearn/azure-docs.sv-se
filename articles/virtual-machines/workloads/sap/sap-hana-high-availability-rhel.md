@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/28/2020
+ms.date: 03/31/2020
 ms.author: radeltch
-ms.openlocfilehash: 5e3512ce86bdf96a5e6cfcf0e4459b656a5ac5bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1ae2c3c949e8bdbf30c8bef496177d56cd2dcbd
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77565867"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521397"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Hög tillgänglighet för SAP HANA på virtuella Azure-datorer på Red Hat Enterprise Linux
 
@@ -263,9 +263,13 @@ I stegen i det här avsnittet används följande prefix:
    sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   Skapa de logiska volymerna. En linjär volym skapas `lvcreate` när `-i` du använder utan växeln. Vi föreslår att du skapar en stripe-volym för `-i` bättre I/O-prestanda, där argumentet ska vara antalet underliggande fysiska volymen. I det här dokumentet används två fysiska volymer `-i` för datavolymen, så växelargumentet är inställt på **2**. En fysisk volym används för loggvolymen, så ingen `-i` växel används uttryckligen. Använd `-i` växeln och ange den till numret på den underliggande fysiska volymen när du använder mer än en fysisk volym för varje data, logg eller delade volymer.
+   Skapa de logiska volymerna. En linjär volym skapas `lvcreate` när `-i` du använder utan växeln. Vi föreslår att du skapar en randig volym för bättre I/O-prestanda och anpassa randstorlekarna till de värden som dokumenteras i [SAP HANA VM-lagringskonfigurationer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). Argumentet `-i` ska vara antalet underliggande fysiska volymer `-I` och argumentet är randstorleken. I det här dokumentet används två fysiska volymer `-i` för datavolymen, så växelargumentet är inställt på **2**. Stripe-storleken för datavolymen är **256KiB**. En fysisk volym används för loggvolymen, så inga `-i` eller `-I` växlar används uttryckligen för loggvolymkommandona.  
 
-   <pre><code>sudo lvcreate <b>-i 2</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
+   > [!IMPORTANT]
+   > Använd `-i` växeln och ange den till numret på den underliggande fysiska volymen när du använder mer än en fysisk volym för varje data, logg eller delade volymer. Använd `-I` växeln för att ange stripe-storlek när du skapar en stripe-volym.  
+   > Se [SAP HANA VM-lagringskonfigurationer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) för rekommenderade lagringskonfigurationer, inklusive stripe-storlekar och antal diskar.  
+
+   <pre><code>sudo lvcreate <b>-i 2</b> <b>-I 256</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
    sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
    sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
    sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data

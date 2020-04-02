@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 04/01/2020
 ms.author: rogarana
-ms.openlocfilehash: b7820bc3d1b14e87064e4120edcffb6762041db9
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: dbcc204f71a9bfe4f48f51ab6af36014e130cb7f
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411490"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548956"
 ---
 # <a name="enable-active-directory-authentication-over-smb-for-azure-file-shares"></a>Aktivera Active Directory-autentisering över SMB för Azure-filresurser
 
@@ -63,11 +63,7 @@ Innan du aktiverar AD-autentisering för Azure-filresurser kontrollerar du att d
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
-Azure Files AD-autentisering (förhandsversion) är tillgänglig i [de flesta offentliga regioner](https://azure.microsoft.com/global-infrastructure/regions/).
-
-Ad-autentisering för Azure-filer är inte tillgängligt i:
-- USA, västra
-
+Azure Files AD-autentisering (förhandsversion) är tillgänglig i [alla regioner i Public Cloud](https://azure.microsoft.com/global-infrastructure/regions/).
 
 ## <a name="workflow-overview"></a>Översikt över arbetsflöden
 

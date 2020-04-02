@@ -15,12 +15,12 @@ ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 8aedc78772858815a18425fb1e6cb36a4600f647
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 09d5b7a126a1b8832bfe40e2e25dd4000d5d9155
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385103"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548294"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Felsöka Azure RBAC
 
@@ -80,7 +80,7 @@ $ras.Count
 
 ## <a name="access-denied-or-permission-errors"></a>Åtkomst nekad eller behörighetsfel
 
-- Om du får behörighetsfelet "Klienten med objekt-ID har inte behörighet att utföra åtgärd över scope (kod: AuthorizationFailed)" när du försöker skapa en resurs kontrollerar du att du för närvarande är inloggad med en användare som har tilldelats en roll som har skrivit behörighet till resursen i det valda scopet. Om du vill hantera virtuella datorer i en resursgrupp ska du till exempel ha rollen [Virtuell datordeltagare](built-in-roles.md#virtual-machine-contributor) på den resursgruppen (eller ett överordnat område). En lista med behörigheter för alla inbyggda roller finns i [Inbyggda roller för Azure-resurser](built-in-roles.md).
+- Om du får behörighetsfelet "Klienten med objekt-ID har inte behörighet att utföra åtgärd över scope (kod: AuthorizationFailed)" när du försöker skapa en resurs kontrollerar du att du för närvarande är inloggad med en användare som har tilldelats en roll som har skrivbehörighet till resursen i det valda scopet. Om du vill hantera virtuella datorer i en resursgrupp ska du till exempel ha rollen [Virtuell datordeltagare](built-in-roles.md#virtual-machine-contributor) på den resursgruppen (eller ett överordnat område). En lista med behörigheter för alla inbyggda roller finns i [Inbyggda roller för Azure-resurser](built-in-roles.md).
 - Om du får behörighetsfelet "Du har inte behörighet att skapa en supportbegäran" när du försöker skapa eller uppdatera en supportbiljett kontrollerar `Microsoft.Support/supportTickets/write` du att du för närvarande är inloggad med en användare som har tilldelats en roll som har behörighet, till exempel [Supportbegäran.](built-in-roles.md#support-request-contributor)
 
 ## <a name="role-assignments-with-unknown-security-principal"></a>Rolltilldelningar med Okänt säkerhetsobjekt
@@ -179,7 +179,7 @@ Dessa objekt kräver **skrivåtkomst** till **App Service-planen** som motsvarar
 
 Dessa objekt kräver **skrivåtkomst** till hela **resursgruppen** som innehåller din webbplats:  
 
-* SSL-certifikat och bindningar (SSL-certifikat kan delas mellan platser i samma resursgrupp och geografisk plats)  
+* TLS/SSL-certifikat och bindningar (TLS/SSL-certifikat kan delas mellan platser i samma resursgrupp och geografisk plats)  
 * Varningsregler  
 * Inställningar för automatisk skalning  
 * Komponenter för programinsikter  

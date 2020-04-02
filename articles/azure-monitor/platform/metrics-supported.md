@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 03/17/2020
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: e01ed9f784d77b3c425c60de31ab87f86dbb688b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 674321878cfce2d05189700a8b5118e233d9044d
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500594"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520713"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
 
@@ -24,6 +24,9 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 > *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och läggas till på per-kö-nivå. När måttet exporteras via diagnostikinställningar visas det dock som alla inkommande meddelanden i alla köer i händelsehubben.
 >
 > En lista över plattformsmått som kan exporteras via diagnostikinställningar finns i [den här artikeln](metrics-supported-export-diagnostic-settings.md).
+
+
+
 
 
 
@@ -101,15 +104,15 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |EventHubDroppedEvents|Händelser som tagits bort i Händelsehub|Antal|Totalt|Antal händelser som hoppas över på grund av att gränsen för köstorlek har uppnåtts|Location|
 |EventHubTotalBytesSent|Storleken på EventHub-händelser|Byte|Totalt|Total storlek på EventHub-händelser i byte|Location|
 |Begäranden|Begäranden|Antal|Totalt|Mått för gatewaybegäran med flera dimensioner|Plats,Värdnamn,LastErrorReason,BackendResponseCode,GatewayResponseCode,BackendResponseCodeCategory,GatewayResponseCodeCategory|
+|Nätverksanslutning|Nätverksanslutningsstatus för resurser (förhandsversion)|Antal|Totalt|Nätverksanslutningsstatus för beroende resurstyper från API Management-tjänsten|Plats,ResourceType|
 
 
 ## <a name="microsoftappconfigurationconfigurationstores"></a>Microsoft.AppKonfigurering/configurationStores
 
 |Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|HttpIncomingRequestCount|HttpIncomingRequestCount|Antal|Antal|Totalt antal inkommande http-begäranden.|Inget|
-|Det gick intehttpRequestCount|Det gick intehttpRequestCount|Antal|Antal|Det gick inte att göra http-begäranden.|Inget|
-|HttpIncomingRequestDuration|HttpIncomingRequestDuration|Antal|Medel|Svarstid på en http-begäran.|Inget|
+|HttpIncomingRequestCount|HttpIncomingRequestCount|Antal|Antal|Totalt antal inkommande http-begäranden.|Statuskod|
+|HttpIncomingRequestDuration|HttpIncomingRequestDuration|Antal|Medel|Svarstid på en http-begäran.|Statuskod|
 
 
 ## <a name="microsoftappplatformspring"></a>Microsoft.AppPlattform/Fjäder
@@ -171,21 +174,21 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |LämnarPoolNodeCount|Lämna antalet poolnoder|Antal|Totalt|Antal noder som lämnar poolen|Inget|
 |OanvändarbartNodeCount|Oersättlig nodantal|Antal|Totalt|Antal oanvändbara noder|Inget|
 |FöregripenNodeCount|Antal föregripna nod|Antal|Totalt|Antal föregripna noder|Inget|
-|TaskStartEvent|Aktivitetsstarthändelser|Antal|Totalt|Totalt antal aktiviteter som har startat|Inget|
-|TaskCompleteEvent|Aktiviteter som slutförts|Antal|Totalt|Totalt antal aktiviteter som har slutförts|Inget|
-|TaskFailEvent|Händelser för att misslyckas med aktivitet|Antal|Totalt|Totalt antal aktiviteter som har slutförts i ett misslyckat tillstånd|Inget|
-|PoolCreateEvent|Skapa händelser för pool|Antal|Totalt|Totalt antal pooler som har skapats|Inget|
-|PoolResizeStartEvent|Pool Ändra storlek på starthändelser|Antal|Totalt|Totalt antal ändrar storlek på poolen som har startats|Inget|
-|PoolResizeCompleteEvent|Pool Ändra storlek på slutförda händelser|Antal|Totalt|Totalt antal storleksstorlekar för poolen som har slutförts|Inget|
-|PoolDeleteStartEvent|Starta starthändelser för poolborttagning|Antal|Totalt|Totalt antal poolborttagningar som har startat|Inget|
-|PoolDeleteCompleteEvent|Pool Ta bort slutförda händelser|Antal|Totalt|Totalt antal poolborttagningar som har slutförts|Inget|
-|JobDeleteCompleteEvent|Slutföra händelser för jobbborttagning|Antal|Totalt|Totalt antal jobb som har tagits bort.|Inget|
-|JobDeleteStartEvent|Starthändelser för jobbborttagning|Antal|Totalt|Totalt antal jobb som har begärts att tas bort.|Inget|
-|JobDisableCompleteEvent|Jobb inaktiverar slutförd händelser|Antal|Totalt|Totalt antal jobb som har inaktiverats.|Inget|
-|JobbDisableStartevent|Jobb inaktivera starthändelser|Antal|Totalt|Totalt antal jobb som har begärts inaktiveras.|Inget|
-|JobbstartEvent|Jobbstarthändelser|Antal|Totalt|Totalt antal jobb som har startats.|Inget|
-|JobbtermineraKompileEvent|Slutföra händelser för jobb avsluta|Antal|Totalt|Totalt antal jobb som har avslutats.|Inget|
-|JobbtermineraStartEvent|Starthändelser för jobb avsluta|Antal|Totalt|Totalt antal jobb som har begärts att avslutas.|Inget|
+|TaskStartEvent|Aktivitetsstarthändelser|Antal|Totalt|Totalt antal aktiviteter som har startat|poolId,jobId|
+|TaskCompleteEvent|Aktiviteter som slutförts|Antal|Totalt|Totalt antal aktiviteter som har slutförts|poolId,jobId|
+|TaskFailEvent|Händelser för att misslyckas med aktivitet|Antal|Totalt|Totalt antal aktiviteter som har slutförts i ett misslyckat tillstånd|poolId,jobId|
+|PoolCreateEvent|Skapa händelser för pool|Antal|Totalt|Totalt antal pooler som har skapats|poolId (på)poolId|
+|PoolResizeStartEvent|Pool Ändra storlek på starthändelser|Antal|Totalt|Totalt antal ändrar storlek på poolen som har startats|poolId (på)poolId|
+|PoolResizeCompleteEvent|Pool Ändra storlek på slutförda händelser|Antal|Totalt|Totalt antal storleksstorlekar för poolen som har slutförts|poolId (på)poolId|
+|PoolDeleteStartEvent|Starta starthändelser för poolborttagning|Antal|Totalt|Totalt antal poolborttagningar som har startat|poolId (på)poolId|
+|PoolDeleteCompleteEvent|Pool Ta bort slutförda händelser|Antal|Totalt|Totalt antal poolborttagningar som har slutförts|poolId (på)poolId|
+|JobDeleteCompleteEvent|Slutföra händelser för jobbborttagning|Antal|Totalt|Totalt antal jobb som har tagits bort.|jobId (jobbId)|
+|JobDeleteStartEvent|Starthändelser för jobbborttagning|Antal|Totalt|Totalt antal jobb som har begärts att tas bort.|jobId (jobbId)|
+|JobDisableCompleteEvent|Jobb inaktiverar slutförd händelser|Antal|Totalt|Totalt antal jobb som har inaktiverats.|jobId (jobbId)|
+|JobbDisableStartevent|Jobb inaktivera starthändelser|Antal|Totalt|Totalt antal jobb som har begärts inaktiveras.|jobId (jobbId)|
+|JobbstartEvent|Jobbstarthändelser|Antal|Totalt|Totalt antal jobb som har startats.|jobId (jobbId)|
+|JobbtermineraKompileEvent|Slutföra händelser för jobb avsluta|Antal|Totalt|Totalt antal jobb som har avslutats.|jobId (jobbId)|
+|JobbtermineraStartEvent|Starthändelser för jobb avsluta|Antal|Totalt|Totalt antal jobb som har begärts att avslutas.|jobId (jobbId)|
 
 
 ## <a name="microsoftbatchaiworkspaces"></a>Microsoft.BatchAI/arbetsytor
@@ -417,6 +420,7 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 
 
 
+
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft.Cdn/cdnwebapplicationfirewallpolicies
 
 |Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
@@ -537,11 +541,12 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |DataIn|Data i|Byte|Totalt|Storleken på inkommande data i byte.|ApiName,OperationName,Region|
 |DataOut (DataOut)|Data ut|Byte|Totalt|Storleken på utgående data i byte.|ApiName,OperationName,Region|
 |Svarstid|Svarstid|Millisekunder|Medel|Svarstid i millisekunder.|ApiName,OperationName,Region|
+|TotaltTokenCalls|Totalt antal tokenanrop|Antal|Totalt|Totalt antal tokenanrop.|ApiName,OperationName,Region|
 |Teckenöversatta|Översatta tecken|Antal|Totalt|Totalt antal tecken i inkommande textbegäran.|ApiName,OperationName,Region|
 |TeckenTränade|Tecken tränade|Antal|Totalt|Totalt antal tecken som har tränats.|ApiName,OperationName,Region|
 |TalsessionUnderation|Varaktighet för talsession|Sekunder|Totalt|Talsessionens totala varaktighet i sekunder.|ApiName,OperationName,Region|
 |Totalt antal transaktioner|Totalt antal transaktioner|Antal|Totalt|Totalt antal transaktioner.|Inget|
-|TotaltTokenCalls|Totalt antal tokenanrop|Antal|Totalt|Totalt antal tokenanrop.|ApiName,OperationName,Region|
+|Bearbetadebilder|Bearbetade bilder|Antal|Totalt| Antal transaktioner för bildbehandling.|ApiName,FeatureName,Kanal,Region|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
@@ -556,16 +561,16 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |Diskskrivningsåtgärder/sek|Diskskrivningsåtgärder/sek|CountPerSecond|Medel|IOPS för diskskrivning|Inget|
 |Återstående CPU-krediter|Återstående CPU-krediter|Antal|Medel|Totalt antal krediter tillgängliga för burst|Inget|
 |Cpu-krediter förbrukas|Cpu-krediter förbrukas|Antal|Medel|Totalt antal krediter som förbrukas av den virtuella datorn|Inget|
-|Läsbyte per disk per sekund|Läsbyten för datadisk/sek (inaktuellt)|CountPerSecond|Medel|Byte/Sek som lästs från en enda disk under övervakningsperioden|SlotId (kortplats)|
-|Skrivbyte per disk per sekund|Skrivbyte för datadisk/sek (inaktuellt)|CountPerSecond|Medel|Byte/Sek skrivet till en enda disk under övervakningsperioden|SlotId (kortplats)|
-|Läsåtgärder per disk/sek|Läsåtgärder för datadiskar/sek (inaktuella)|CountPerSecond|Medel|Läsa IOPS från en enda disk under övervakningsperioden|SlotId (kortplats)|
-|Skrivåtgärder per disk/sek|Datadiskskrivningsoperationer/sek (inaktuell)|CountPerSecond|Medel|Skriva IOPS från en enda disk under övervakningsperioden|SlotId (kortplats)|
-|Per Disk QD|Datadisk QD (föråldrad)|Antal|Medel|Djup för datadiskkö(eller kölängd)|SlotId (kortplats)|
-|Os per disk läsbyten per sekund|Os-disklät byte/sek (inaktuellt)|CountPerSecond|Medel|Byte/Sek som lästs från en enda disk under övervakningsperioden för OS-disk|Inget|
-|OS per disk skrivbyten per sek|OS-diskskrivningsbyten/sek (inaktuella)|CountPerSecond|Medel|Byte/Sek skrivet till en enda disk under övervakningsperioden för OS-disk|Inget|
-|Os per diskläsningsoperationer/sek|Diskläsningsåtgärder för OS-disk/sek (inaktuell)|CountPerSecond|Medel|Läsa IOPS från en enda disk under övervakningsperioden för OS-disk|Inget|
-|OS per diskskrivningsoperationer/sek|OS-diskskrivningsåtgärder/sek (inaktuella)|CountPerSecond|Medel|Skriva IOPS från en enda disk under övervakningsperioden för OS-disk|Inget|
-|OS Per Disk QD|OS-disk QD (föråldrad)|Antal|Medel|OS-diskködjup(eller kölängd)|Inget|
+|Läsbyte per disk per sekund|Läsbyten för datadisk/sek [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/Sek som lästs från en enda disk under övervakningsperioden|SlotId (kortplats)|
+|Skrivbyte per disk per sekund|Skrivbyte för datadisk/sek [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/Sek skrivet till en enda disk under övervakningsperioden|SlotId (kortplats)|
+|Läsåtgärder per disk/sek|Läsåtgärder för datadiskar/sek [(inaktuella)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Läsa IOPS från en enda disk under övervakningsperioden|SlotId (kortplats)|
+|Skrivåtgärder per disk/sek|Datadiskskrivningsoperationer/sek [(inaktuell)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Skriva IOPS från en enda disk under övervakningsperioden|SlotId (kortplats)|
+|Per Disk QD|[Datadisk QD [(föråldrad)](portal-disk-metrics-deprecation.md)](portal-disk-metrics-deprecation.md)|Antal|Medel|Djup för datadiskkö(eller kölängd)|SlotId (kortplats)|
+|Os per disk läsbyten per sekund|Os-disklät byte/sek [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/Sek som lästs från en enda disk under övervakningsperioden för OS-disk|Inget|
+|OS per disk skrivbyten per sek|OS-diskskrivningsbyten/sek [(inaktuella)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/Sek skrivet till en enda disk under övervakningsperioden för OS-disk|Inget|
+|Os per diskläsningsoperationer/sek|Diskläsningsåtgärder för OS-disk/sek [(inaktuell)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Läsa IOPS från en enda disk under övervakningsperioden för OS-disk|Inget|
+|OS per diskskrivningsoperationer/sek|OS-diskskrivningsåtgärder/sek [(inaktuella)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Skriva IOPS från en enda disk under övervakningsperioden för OS-disk|Inget|
+|OS Per Disk QD|OS-disk QD [(föråldrad)](portal-disk-metrics-deprecation.md)|Antal|Medel|OS-diskködjup(eller kölängd)|Inget|
 |Läsbyte för datadisk per sekund|Läsbyte för datadisk per sekund (förhandsgranskning)|CountPerSecond|Medel|Byte/Sek som lästs från en enda disk under övervakningsperioden|Lun|
 |Skrivbyte för datadisk per sekund|Skrivbyte för datadisk/sek (förhandsgranskning)|CountPerSecond|Medel|Byte/Sek skrivet till en enda disk under övervakningsperioden|Lun|
 |Läsåtgärder för datadiskar/sek|Läsåtgärder för datadisk/sek (förhandsgranskning)|CountPerSecond|Medel|Läsa IOPS från en enda disk under övervakningsperioden|Lun|
@@ -578,8 +583,8 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |Ködjup för OS-disk|Os-diskködjup (förhandsgranskning)|Antal|Medel|OS-diskködjup(eller kölängd)|Inget|
 |Inkommande flöden|Inkommande flöden|Antal|Medel|Inkommande flöden är antalet strömflöden i inkommande riktning (trafik som går in i den virtuella datorn)|Inget|
 |Utgående flöden|Utgående flöden|Antal|Medel|Utgående flöden är antalet aktuella flöden i utgående riktning (trafik som går ut ur den virtuella datorn)|Inget|
-|Inkommande flöden Maximal skapandegrad|Inkommande flöden Maximal skapandegrad (förhandsversion)|CountPerSecond|Medel|Den maximala skapandehastigheten för inkommande flöden (trafik som går in i den virtuella datorn)|Inget|
-|Maximal skapandegrad för utgående flöden|Maximal genereringshastighet för utgående flöden (förhandsgranskning)|CountPerSecond|Medel|Den maximala skapandehastigheten för utgående flöden (trafik som går ut ur den virtuella datorn)|Inget|
+|Inkommande flöden Maximal skapandegrad|Inkommande flöden Maximal skapandegrad|CountPerSecond|Medel|Den maximala skapandehastigheten för inkommande flöden (trafik som går in i den virtuella datorn)|Inget|
+|Maximal skapandegrad för utgående flöden|Maximal skapandegrad för utgående flöden|CountPerSecond|Medel|Den maximala skapandehastigheten för utgående flöden (trafik som går ut ur den virtuella datorn)|Inget|
 |Lästräff för premiumdatadisk cache|Lästräff för premiumdatadisk cache (förhandsgranskning)|Procent|Medel|Lästräff för premiumdatadisk cache|Lun|
 |Premium Data Disk Cache Läs Miss|Premium Data Disk Cache Läs Miss (Preview)|Procent|Medel|Premium Data Disk Cache Läs Miss|Lun|
 |Premium OS Disk Cache Läs träff|Lästräff för Premium OS-diskcachen (förhandsgranskning)|Procent|Medel|Premium OS Disk Cache Läs träff|Inget|
@@ -601,16 +606,16 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |Diskskrivningsåtgärder/sek|Diskskrivningsåtgärder/sek|CountPerSecond|Medel|IOPS för diskskrivning|VMName|
 |Återstående CPU-krediter|Återstående CPU-krediter|Antal|Medel|Totalt antal krediter tillgängliga för burst|Inget|
 |Cpu-krediter förbrukas|Cpu-krediter förbrukas|Antal|Medel|Totalt antal krediter som förbrukas av den virtuella datorn|Inget|
-|Läsbyte per disk per sekund|Läsbyten för datadisk/sek (inaktuellt)|CountPerSecond|Medel|Byte/Sek som lästs från en enda disk under övervakningsperioden|SlotId (kortplats)|
-|Skrivbyte per disk per sekund|Skrivbyte för datadisk/sek (inaktuellt)|CountPerSecond|Medel|Byte/Sek skrivet till en enda disk under övervakningsperioden|SlotId (kortplats)|
-|Läsåtgärder per disk/sek|Läsåtgärder för datadiskar/sek (inaktuella)|CountPerSecond|Medel|Läsa IOPS från en enda disk under övervakningsperioden|SlotId (kortplats)|
-|Skrivåtgärder per disk/sek|Datadiskskrivningsoperationer/sek (inaktuell)|CountPerSecond|Medel|Skriva IOPS från en enda disk under övervakningsperioden|SlotId (kortplats)|
-|Per Disk QD|Datadisk QD (föråldrad)|Antal|Medel|Djup för datadiskkö(eller kölängd)|SlotId (kortplats)|
-|Os per disk läsbyten per sekund|Os-disklät byte/sek (inaktuellt)|CountPerSecond|Medel|Byte/Sek som lästs från en enda disk under övervakningsperioden för OS-disk|Inget|
-|OS per disk skrivbyten per sek|OS-diskskrivningsbyten/sek (inaktuella)|CountPerSecond|Medel|Byte/Sek skrivet till en enda disk under övervakningsperioden för OS-disk|Inget|
-|Os per diskläsningsoperationer/sek|Diskläsningsåtgärder för OS-disk/sek (inaktuell)|CountPerSecond|Medel|Läsa IOPS från en enda disk under övervakningsperioden för OS-disk|Inget|
-|OS per diskskrivningsoperationer/sek|OS-diskskrivningsåtgärder/sek (inaktuella)|CountPerSecond|Medel|Skriva IOPS från en enda disk under övervakningsperioden för OS-disk|Inget|
-|OS Per Disk QD|OS-disk QD (föråldrad)|Antal|Medel|OS-diskködjup(eller kölängd)|Inget|
+|Läsbyte per disk per sekund|Läsbyten för datadisk/sek [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/Sek som lästs från en enda disk under övervakningsperioden|SlotId (kortplats)|
+|Skrivbyte per disk per sekund|Skrivbyte för datadisk/sek [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/Sek skrivet till en enda disk under övervakningsperioden|SlotId (kortplats)|
+|Läsåtgärder per disk/sek|Läsåtgärder för datadiskar/sek [(inaktuella)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Läsa IOPS från en enda disk under övervakningsperioden|SlotId (kortplats)|
+|Skrivåtgärder per disk/sek|Datadiskskrivningsoperationer/sek [(inaktuell)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Skriva IOPS från en enda disk under övervakningsperioden|SlotId (kortplats)|
+|Per Disk QD|Datadisk QD [(föråldrad)](portal-disk-metrics-deprecation.md)|Antal|Medel|Djup för datadiskkö(eller kölängd)|SlotId (kortplats)|
+|Os per disk läsbyten per sekund|Os-disklät byte/sek [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/Sek som lästs från en enda disk under övervakningsperioden för OS-disk|Inget|
+|OS per disk skrivbyten per sek|OS-diskskrivningsbyten/sek [(inaktuella)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/Sek skrivet till en enda disk under övervakningsperioden för OS-disk|Inget|
+|Os per diskläsningsoperationer/sek|Diskläsningsåtgärder för OS-disk/sek [(inaktuell)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Läsa IOPS från en enda disk under övervakningsperioden för OS-disk|Inget|
+|OS per diskskrivningsoperationer/sek|OS-diskskrivningsåtgärder/sek [(inaktuella)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Skriva IOPS från en enda disk under övervakningsperioden för OS-disk|Inget|
+|OS Per Disk QD|OS-disk QD [(föråldrad)](portal-disk-metrics-deprecation.md)|Antal|Medel|OS-diskködjup(eller kölängd)|Inget|
 |Läsbyte för datadisk per sekund|Läsbyte för datadisk per sekund (förhandsgranskning)|CountPerSecond|Medel|Byte/Sek som lästs från en enda disk under övervakningsperioden|LUN,VMName|
 |Skrivbyte för datadisk per sekund|Skrivbyte för datadisk/sek (förhandsgranskning)|CountPerSecond|Medel|Byte/Sek skrivet till en enda disk under övervakningsperioden|LUN,VMName|
 |Läsåtgärder för datadiskar/sek|Läsåtgärder för datadisk/sek (förhandsgranskning)|CountPerSecond|Medel|Läsa IOPS från en enda disk under övervakningsperioden|LUN,VMName|
@@ -623,8 +628,8 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |Ködjup för OS-disk|Os-diskködjup (förhandsgranskning)|Antal|Medel|OS-diskködjup(eller kölängd)|VMName|
 |Inkommande flöden|Inkommande flöden|Antal|Medel|Inkommande flöden är antalet strömflöden i inkommande riktning (trafik som går in i den virtuella datorn)|VMName|
 |Utgående flöden|Utgående flöden|Antal|Medel|Utgående flöden är antalet aktuella flöden i utgående riktning (trafik som går ut ur den virtuella datorn)|VMName|
-|Inkommande flöden Maximal skapandegrad|Inkommande flöden Maximal skapandegrad (förhandsversion)|CountPerSecond|Medel|Den maximala skapandehastigheten för inkommande flöden (trafik som går in i den virtuella datorn)|VMName|
-|Maximal skapandegrad för utgående flöden|Maximal genereringshastighet för utgående flöden (förhandsgranskning)|CountPerSecond|Medel|Den maximala skapandehastigheten för utgående flöden (trafik som går ut ur den virtuella datorn)|VMName|
+|Inkommande flöden Maximal skapandegrad|Inkommande flöden Maximal skapandegrad|CountPerSecond|Medel|Den maximala skapandehastigheten för inkommande flöden (trafik som går in i den virtuella datorn)|VMName|
+|Maximal skapandegrad för utgående flöden|Maximal skapandegrad för utgående flöden|CountPerSecond|Medel|Den maximala skapandehastigheten för utgående flöden (trafik som går ut ur den virtuella datorn)|VMName|
 |Lästräff för premiumdatadisk cache|Lästräff för premiumdatadisk cache (förhandsgranskning)|Procent|Medel|Lästräff för premiumdatadisk cache|LUN,VMName|
 |Premium Data Disk Cache Läs Miss|Premium Data Disk Cache Läs Miss (Preview)|Procent|Medel|Premium Data Disk Cache Läs Miss|LUN,VMName|
 |Premium OS Disk Cache Läs träff|Lästräff för Premium OS-diskcachen (förhandsgranskning)|Procent|Medel|Premium OS Disk Cache Läs träff|VMName|
@@ -646,16 +651,16 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |Diskskrivningsåtgärder/sek|Diskskrivningsåtgärder/sek|CountPerSecond|Medel|IOPS för diskskrivning|Inget|
 |Återstående CPU-krediter|Återstående CPU-krediter|Antal|Medel|Totalt antal krediter tillgängliga för burst|Inget|
 |Cpu-krediter förbrukas|Cpu-krediter förbrukas|Antal|Medel|Totalt antal krediter som förbrukas av den virtuella datorn|Inget|
-|Läsbyte per disk per sekund|Läsbyten för datadisk/sek (inaktuellt)|CountPerSecond|Medel|Byte/Sek som lästs från en enda disk under övervakningsperioden|SlotId (kortplats)|
-|Skrivbyte per disk per sekund|Skrivbyte för datadisk/sek (inaktuellt)|CountPerSecond|Medel|Byte/Sek skrivet till en enda disk under övervakningsperioden|SlotId (kortplats)|
-|Läsåtgärder per disk/sek|Läsåtgärder för datadiskar/sek (inaktuella)|CountPerSecond|Medel|Läsa IOPS från en enda disk under övervakningsperioden|SlotId (kortplats)|
-|Skrivåtgärder per disk/sek|Datadiskskrivningsoperationer/sek (inaktuell)|CountPerSecond|Medel|Skriva IOPS från en enda disk under övervakningsperioden|SlotId (kortplats)|
-|Per Disk QD|Datadisk QD (föråldrad)|Antal|Medel|Djup för datadiskkö(eller kölängd)|SlotId (kortplats)|
-|Os per disk läsbyten per sekund|Os-disklät byte/sek (inaktuellt)|CountPerSecond|Medel|Byte/Sek som lästs från en enda disk under övervakningsperioden för OS-disk|Inget|
-|OS per disk skrivbyten per sek|OS-diskskrivningsbyten/sek (inaktuella)|CountPerSecond|Medel|Byte/Sek skrivet till en enda disk under övervakningsperioden för OS-disk|Inget|
-|Os per diskläsningsoperationer/sek|Diskläsningsåtgärder för OS-disk/sek (inaktuell)|CountPerSecond|Medel|Läsa IOPS från en enda disk under övervakningsperioden för OS-disk|Inget|
-|OS per diskskrivningsoperationer/sek|OS-diskskrivningsåtgärder/sek (inaktuella)|CountPerSecond|Medel|Skriva IOPS från en enda disk under övervakningsperioden för OS-disk|Inget|
-|OS Per Disk QD|OS-disk QD (föråldrad)|Antal|Medel|OS-diskködjup(eller kölängd)|Inget|
+|Läsbyte per disk per sekund|Läsbyten för datadisk/sek [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/Sek som lästs från en enda disk under övervakningsperioden|SlotId (kortplats)|
+|Skrivbyte per disk per sekund|Skrivbyte för datadisk/sek [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/Sek skrivet till en enda disk under övervakningsperioden|SlotId (kortplats)|
+|Läsåtgärder per disk/sek|Läsåtgärder för datadiskar/sek [(inaktuella)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Läsa IOPS från en enda disk under övervakningsperioden|SlotId (kortplats)|
+|Skrivåtgärder per disk/sek|Datadiskskrivningsoperationer/sek [(inaktuell)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Skriva IOPS från en enda disk under övervakningsperioden|SlotId (kortplats)|
+|Per Disk QD|Datadisk QD [(föråldrad)](portal-disk-metrics-deprecation.md)|Antal|Medel|Djup för datadiskkö(eller kölängd)|SlotId (kortplats)|
+|Os per disk läsbyten per sekund|Os-disklät byte/sek [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/Sek som lästs från en enda disk under övervakningsperioden för OS-disk|Inget|
+|OS per disk skrivbyten per sek|OS-diskskrivningsbyten/sek [(inaktuella)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/Sek skrivet till en enda disk under övervakningsperioden för OS-disk|Inget|
+|Os per diskläsningsoperationer/sek|Diskläsningsåtgärder för OS-disk/sek [(inaktuell)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Läsa IOPS från en enda disk under övervakningsperioden för OS-disk|Inget|
+|OS per diskskrivningsoperationer/sek|OS-diskskrivningsåtgärder/sek [(inaktuella)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Skriva IOPS från en enda disk under övervakningsperioden för OS-disk|Inget|
+|OS Per Disk QD|OS-disk QD [(föråldrad)](portal-disk-metrics-deprecation.md)|Antal|Medel|OS-diskködjup(eller kölängd)|Inget|
 |Läsbyte för datadisk per sekund|Läsbyte för datadisk per sekund (förhandsgranskning)|CountPerSecond|Medel|Byte/Sek som lästs från en enda disk under övervakningsperioden|Lun|
 |Skrivbyte för datadisk per sekund|Skrivbyte för datadisk/sek (förhandsgranskning)|CountPerSecond|Medel|Byte/Sek skrivet till en enda disk under övervakningsperioden|Lun|
 |Läsåtgärder för datadiskar/sek|Läsåtgärder för datadisk/sek (förhandsgranskning)|CountPerSecond|Medel|Läsa IOPS från en enda disk under övervakningsperioden|Lun|
@@ -668,8 +673,8 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |Ködjup för OS-disk|Os-diskködjup (förhandsgranskning)|Antal|Medel|OS-diskködjup(eller kölängd)|Inget|
 |Inkommande flöden|Inkommande flöden|Antal|Medel|Inkommande flöden är antalet strömflöden i inkommande riktning (trafik som går in i den virtuella datorn)|Inget|
 |Utgående flöden|Utgående flöden|Antal|Medel|Utgående flöden är antalet aktuella flöden i utgående riktning (trafik som går ut ur den virtuella datorn)|Inget|
-|Inkommande flöden Maximal skapandegrad|Inkommande flöden Maximal skapandegrad (förhandsversion)|CountPerSecond|Medel|Den maximala skapandehastigheten för inkommande flöden (trafik som går in i den virtuella datorn)|Inget|
-|Maximal skapandegrad för utgående flöden|Maximal genereringshastighet för utgående flöden (förhandsgranskning)|CountPerSecond|Medel|Den maximala skapandehastigheten för utgående flöden (trafik som går ut ur den virtuella datorn)|Inget|
+|Inkommande flöden Maximal skapandegrad|Inkommande flöden Maximal skapandegrad|CountPerSecond|Medel|Den maximala skapandehastigheten för inkommande flöden (trafik som går in i den virtuella datorn)|Inget|
+|Maximal skapandegrad för utgående flöden|Maximal skapandegrad för utgående flöden|CountPerSecond|Medel|Den maximala skapandehastigheten för utgående flöden (trafik som går ut ur den virtuella datorn)|Inget|
 |Lästräff för premiumdatadisk cache|Lästräff för premiumdatadisk cache (förhandsgranskning)|Procent|Medel|Lästräff för premiumdatadisk cache|Lun|
 |Premium Data Disk Cache Läs Miss|Premium Data Disk Cache Läs Miss (Preview)|Procent|Medel|Premium Data Disk Cache Läs Miss|Lun|
 |Premium OS Disk Cache Läs träff|Lästräff för Premium OS-diskcachen (förhandsgranskning)|Procent|Medel|Premium OS Disk Cache Läs träff|Inget|
@@ -734,6 +739,21 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |HyperVMemoryUtilization|Edge Compute - Minnesanvändning|Procent|Medel|Mängden RAM-minne som används|Instansnamn|
 
 
+## <a name="microsoftdatacatalogdatacatalogs"></a>Microsoft.DataCatalog/datakategoris
+
+|Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|TillgångsfördelningEfterklassificering|Tillgångsfördelning efter klassificering|Antal|Totalt|Anger antalet tillgångar med en viss klassificering som tilldelats, dvs.|Klassificering,Källa|
+|TillgångDistributionByStorageType|Tillgångsfördelning efter lagringstyp|Antal|Totalt|Anger antalet tillgångar med en viss lagringstyp.|StorageType (lagringstyp)|
+|AntalAvgörandenKlassificifications|Antal tillgångar med minst en klassificering|Antal|Medel|Anger antalet tillgångar med minst en taggklassificering.|Inget|
+|ScanCancelled|Genomsökningen har avbrutits|Antal|Totalt|Anger antalet avbrutna genomsökningar.|Inget|
+|ScanCom är slutfört|Genomsökningen har slutförts|Antal|Totalt|Anger antalet genomförda genomsökningar.|Inget|
+|ScanFailed|Det gick inte att skanna|Antal|Totalt|Anger att antalet genomsökningar misslyckades.|Inget|
+|ScanTimeTaken|Sök tid|Sekunder|Totalt|Anger den totala genomsökningstiden i sekunder.|Inget|
+|CatalogActiveUsers|Dagliga aktiva användare|Antal|Totalt|Antal aktiva användare dagligen|Inget|
+|KatalogUppsätt|Förbrukningsfördelning efter operation|Antal|Totalt|Ange hur många åtgärder användaren gör i katalogen, dvs Access, Sök, Ordlista.|Åtgärd|
+
+
 ## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafakta
 
 |Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
@@ -775,6 +795,7 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |JobbAUEndedSuccess|Framgångsrik AU-tid|Sekunder|Totalt|Total AU tid för framgångsrika jobb.|Inget|
 |JobbAUEndedFailure|Misslyckad AU-tid|Sekunder|Totalt|Total AU-tid för misslyckade jobb.|Inget|
 |JobbAUEndedKancelled|Inställd AU-tid|Sekunder|Totalt|Total AU-tid för inställda jobb.|Inget|
+|PlatsSteg|Jobb i scenen|Antal|Totalt|Antal jobb i varje steg.|Inget|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/konton
@@ -786,6 +807,18 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |DataLäs|Data läsa|Byte|Totalt|Totalt antal data som lästs från kontot.|Inget|
 |WriteRequests|Skriv förfrågningar|Antal|Totalt|Antal dataskrivningsbegäranden till kontot.|Inget|
 |ReadRequests (LäsRequests)|Läsa begäranden|Antal|Totalt|Antal dataläsningsbegäranden till kontot.|Inget|
+
+
+## <a name="microsoftdatashareaccounts"></a>Microsoft.DataShare/konton
+
+|Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|ShareCount (060/|Skickade aktier|Antal|Maximal|Antal skickade aktier på kontot|Resursnamn|
+|ShareSubscriptionCount|Mottagna aktier|Antal|Maximal|Antal erhållna aktier på kontot|ShareSubscriptionName|
+|EfterföljandeShareSynchronizations|Skickade ögonblicksbilder av lyckades med resurs|Antal|Antal|Antal skickade ögonblicksbilder av den skickade resursen i kontot|Inget|
+|Misslyckade Aktiesynkroniseringar|Misslyckade ögonblicksbilder av skickade delnings misslyckades|Antal|Antal|Antal misslyckade ögonblicksbilder av skickade delar i kontot|Inget|
+|EfterföljandeShareSubscriptionSynchronizations|Mottagna ögonblicksbilder av lyckades med resurs|Antal|Antal|Antal mottagna resursen lyckades ögonblicksbilder i kontot|Inget|
+|MisslyckadeShareSubscriptionSynchronizations|Mottagna ögonblicksbilder av delade misslyckades|Antal|Antal|Antal mottagna ögonblicksbilder av den mottagna resursen i kontot|Inget|
 
 
 ## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servrar
@@ -866,6 +899,23 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |network_bytes_ingress|Nätverk – inkommande|Byte|Totalt|Nätverk i aktiva anslutningar|Inget|
 
 
+## <a name="microsoftdbforpostgresqlsingleservers"></a>Microsoft.DBforPostgreSQL/singleservers
+
+|Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inget|
+|memory_percent|Minne procent|Procent|Medel|Minne procent|Inget|
+|Iops|IOPS|Antal|Medel|IO-operationer per sekund|Inget|
+|storage_percent|Lagringsprocent|Procent|Medel|Lagringsprocent|Inget|
+|storage_used|Användning av lagring|Byte|Medel|Användning av lagring|Inget|
+|active_connections|Aktiva anslutningar|Antal|Medel|Aktiva anslutningar|Inget|
+|network_bytes_egress|Nätverk – utgående|Byte|Totalt|Nätverk ut över aktiva anslutningar|Inget|
+|network_bytes_ingress|Nätverk – inkommande|Byte|Totalt|Nätverk i aktiva anslutningar|Inget|
+|connections_failed|Misslyckade anslutningar|Antal|Totalt|Misslyckade anslutningar|Inget|
+|connections_succeeded|Efterföljande anslutningar|Antal|Totalt|Efterföljande anslutningar|Inget|
+|maximum_used_transactionIDs|Maximalt använda transaktions-ID:n|Antal|Medel|Maximalt använda transaktions-ID:n|Inget|
+
+
 
 
 
@@ -898,8 +948,10 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |d2c.endpoints.latens.lagring|Routning: meddelandefördröjning för lagring|Millisekunder|Medel|Den genomsnittliga svarstiden (millisekunder) mellan meddelandeinträngning till IoT Hub och telemetrimeddelande inträngning i en lagringsslutpunkt.|Inget|
 |d2c.endpoints.egress.storage.bytes|Routning: data som levereras till lagring|Byte|Totalt|Mängden data (byte) IoT Hub-routning som levereras till lagringsslutpunkter.|Inget|
 |d2c.endpoints.egress.storage.blobbar|Routning: blobbar som levereras till lagring|Antal|Totalt|Antalet gånger IoT Hub-routning levererade blobbar till lagringsslutpunkter.|Inget|
-|EventGridDeliveries|Leveranser av eventrutnät(förhandsgranskning)|Antal|Totalt|Antalet IoT Hub-händelser som publicerats i Event Grid. Använd dimensionen Resultat för antalet lyckade och misslyckade begäranden. EventType-dimensionen visar typenhttps://aka.ms/ioteventgrid)av händelse ( .|ResourceId,Resultat,EventTyp|
+|EventGridDeliveries|Leveranser av eventrutnät (förhandsgranskning)|Antal|Totalt|Antalet IoT Hub-händelser som publicerats i Event Grid. Använd dimensionen Resultat för antalet lyckade och misslyckade begäranden. EventType-dimensionen visar typenhttps://aka.ms/ioteventgrid)av händelse ( .|ResourceId,Resultat,EventTyp|
 |EventGridLatency|Svarstid för händelserutnät (förhandsgranskning)|Millisekunder|Medel|Den genomsnittliga svarstiden (millisekunder) från när Iot Hub-händelsen genererades till när händelsen publicerades i Event Grid. Det här talet är ett genomsnitt mellan alla händelsetyper. Använd dimensionen EventType om du vill se svarstid för en viss typ av händelse.|ResourceId,EventType|
+|RoutingDeliveries|Routningsleveranser (förhandsgranskning)|Millisekunder|Totalt|Antalet gånger IoT Hub försökte leverera meddelanden till alla slutpunkter med routning. Om du vill se antalet lyckade eller misslyckade försök använder du dimensionen Resultat. Om du vill se orsaken till fel, till exempel ogiltig, bortfallen eller överbliven, använder du dimensionen FailureReasonCategory. Du kan också använda dimensionerna Slutpunktnamn och Slutpunktstyp för att förstå hur många meddelanden som levererades till dina olika slutpunkter. Måttvärdet ökar med ett för varje leveransförsök, inklusive om meddelandet levereras till flera slutpunkter eller om meddelandet levereras till samma slutpunkt flera gånger.|ResourceId,EndpointType,EndpointName,FailureReasonCategory,Result,RoutingSource|
+|RoutingDeliveryLatency|Svarstid för routningsleverans (förhandsgranskning)|Millisekunder|Medel|Den genomsnittliga svarstiden (millisekunder) mellan meddelandeinträngning till IoT Hub och telemetrimeddelande inträngning till en slutpunkt. Du kan använda dimensionerna Slutpunktnamn och Slutpunktstyp för att förstå svarstiden för dina olika slutpunkter.|ResourceId,EndpointType,EndpointName,RoutingSource|
 |d2c.twin.read.success|Lyckade tvillingläsningar från enheter|Antal|Totalt|Antalet lyckade enhetsinitierade tvillingläsningar.|Inget|
 |d2c.twin.read.failure|Misslyckade tvillingavläsningar från enheter|Antal|Totalt|Antalet misslyckade enhetsinitierade tvillingläsningar.|Inget|
 |d2c.twin.read.size|Svarsstorleken för dubbla läsningar från enheter|Byte|Medel|Medelvärdet, min och max för alla framgångsrika enhetsinitierade tvillingläsningar.|Inget|
@@ -949,6 +1001,8 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |AttestationAttempts|Attesteringsförsök|Antal|Totalt|Antal försök att intyga enheter|EtableringServiceName,Status,Protokoll|
 
 
+
+
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databasKonton
 
 |Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
@@ -956,32 +1010,62 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |Lägg till region|Region Tillagd|Antal|Antal|Region Tillagd|Region|
 |TillgängligtStora|Tillgänglig lagring|Byte|Totalt|Totalt tillgängligt lagringsutrymme rapporteras vid 5 minuters granularitet|Samlingsnamn,Databasnamn,Region|
 |CassandraAnslutningAr|Cassandra Anslutning Nedläggningar|Antal|Totalt|Antal Cassandra-anslutningar som stängdes, rapporterade vid en 1 minuts granularitet|APIType,region,ClosureReason|
+|CassandraKeyspaceDelete|Cassandra Keyspace borttaget|Antal|Antal|Cassandra Keyspace borttaget|ResourceName,ApiKind,ApiKindResourceType,OperationType|
+|CassandraKeyspaceDetgenomputUppdera|Cassandra Keyspace-dataflöde uppdaterat|Antal|Antal|Cassandra Keyspace-dataflöde uppdaterat|ResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|CassandraKeyspaceUppdå|Cassandra Keyspace Uppdaterad|Antal|Antal|Cassandra Keyspace Uppdaterad|ResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
 |CassandraRequest Laddar|Avgifter för begäran om cassandra|Antal|Totalt|Ru:er som förbrukas för Cassandra-begäranden som gjorts|APIType,Databasnamn,samlingsnamn,region,OperationsType,ResourceType|
 |CassandraRequests|Cassandra Förfrågningar|Antal|Antal|Antal cassandra-förfrågningar som gjorts|APIType,Databasnamn,samlingsnamn,region,OperationsType,ResourceType,ErrorCode|
+|CassandraTableDelete|Cassandra-tabell har tagits bort|Antal|Antal|Cassandra-tabell har tagits bort|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,OperationType|
+|CassandraTableThroughputUppdera|Cassandra-tabellgenomströmning uppdaterad|Antal|Antal|Cassandra-tabellgenomströmning uppdaterad|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|CassandraTableUppdera|Cassandra-tabellen uppdaterad|Antal|Antal|Cassandra-tabellen uppdaterad|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
 |Skapakonto|Skapat konto|Antal|Antal|Skapat konto|Inget|
 |DataUpparage|Dataanvändning|Byte|Totalt|Total dataanvändning som rapporteras vid 5 minuters granularitet|Samlingsnamn,Databasnamn,Region|
 |Ta bortkonto|Kontot har tagits bort|Antal|Antal|Kontot har tagits bort|Inget|
 |DokumentCount|Antal dokument|Antal|Totalt|Totalt antal dokument som rapporterats vid 5 minuters granularitet|Samlingsnamn,Databasnamn,Region|
 |DocumentQuota (dokumentquota)|Dokumentkvot|Byte|Totalt|Total lagringskvot som rapporterats vid 5 minuters granularitet|Samlingsnamn,Databasnamn,Region|
+|GremlinDatabaseDelete|Gremlin-databasen har tagits bort|Antal|Antal|Gremlin-databasen har tagits bort|ResourceName,ApiKind,ApiKindResourceType,OperationType|
+|GremlinDatabaseGenomgenomputUppdera|Gremlin-databasdataflöde uppdaterat|Antal|Antal|Gremlin-databasdataflöde uppdaterat|ResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|GremlinDatabasupdate|Gremlin-databasen uppdaterad|Antal|Antal|Gremlin-databasen uppdaterad|ResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|GremlinGraphDelete|Gremlin Graph borttagen|Antal|Antal|Gremlin Graph borttagen|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,OperationType|
+|GremlinGraphThroughputUppdera|Gremlin Graph Genomströmning Uppdaterad|Antal|Antal|Gremlin Graph Genomströmning Uppdaterad|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|GremlinGrafUppda|Gremlin Graph Uppdaterad|Antal|Antal|Gremlin Graph Uppdaterad|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
 |IndexUsage|Indexanvändning|Byte|Totalt|Total indexanvändning som rapporteras vid 5 minuters granularitet|Samlingsnamn,Databasnamn,Region|
 |MetadataRequests|Begäranden om metadata|Antal|Antal|Antal metadatabegäranden. Cosmos DB underhåller systemmetadatasamling för varje konto, som gör att du kan räkna upp samlingar, databaser, etc, och deras konfigurationer, gratis.|Databasnamn,samlingsnamn,region,statuskod,roll|
-|MongoRequest Ladda|Mongo begäran avgift|Antal|Totalt|Mongo-begärandeenheter förbrukas|Databasnamn,samlingsnamn,region,kommandonamn,felkod|
-|MongoRequests (|Mongo Förfrågningar|Antal|Antal|Antal Mongo-begäranden|Databasnamn,samlingsnamn,region,kommandonamn,felkod|
+|MongoCollectionDelete|Mongo-samling har tagits bort|Antal|Antal|Mongo-samling har tagits bort|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,OperationType|
+|MongoCollectionThroughputUppdera|Mongo Collection Dataflöde Uppdaterad|Antal|Antal|Mongo Collection Dataflöde Uppdaterad|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|MongoCollectionUppdera|Mongo-samlingen uppdaterad|Antal|Antal|Mongo-samlingen uppdaterad|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|MongoDBDatabaseUppbygga|Mongo-databasen uppdaterad|Antal|Antal|Mongo-databasen uppdaterad|ResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|MongoDatabaseDelete|Mongo-databasen har tagits bort|Antal|Antal|Mongo-databasen har tagits bort|ResourceName,ApiKind,ApiKindResourceType,OperationType|
+|MongoDatabaseGenomströmning|Mongo-databasdataflöde uppdaterat|Antal|Antal|Mongo-databasdataflöde uppdaterat|ResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|MongoRequest Ladda|Mongo begäran avgift|Antal|Totalt|Mongo-begärandeenheter förbrukas|Databasnamn,samlingsnamn,region,kommandonamn,felkod,status|
+|MongoRequests (|Mongo Förfrågningar|Antal|Antal|Antal Mongo-begäranden|Databasnamn,samlingsnamn,region,kommandonamn,felkod,status|
 |MongoRequestsCount (Olikartade)|Mongo-begärandehastighet|CountPerSecond|Medel|Antal Mongo-begäranden per sekund|Databasnamn,samlingsnamn,region,kommandonamn,felkod|
 |MongoRequestsDelete|Mångås ta bort begäranden|CountPerSecond|Medel|Mongo Delete-begäran per sekund|Databasnamn,samlingsnamn,region,kommandonamn,felkod|
 |MongoRequestsInsert|Begärandehastighet för Mongo-infogning|CountPerSecond|Medel|Antal Mongo Insert per sekund|Databasnamn,samlingsnamn,region,kommandonamn,felkod|
 |MongoRequestsQuery (Mån)|Mångo-frågebegäranden|CountPerSecond|Medel|Begäran om Mongo-fråga per sekund|Databasnamn,samlingsnamn,region,kommandonamn,felkod|
 |MongoRequestsUppdatera|Uppdateringsfrekvens för Mongo|CountPerSecond|Medel|Begäran om Mongo-uppdatering per sekund|Databasnamn,samlingsnamn,region,kommandonamn,felkod|
+|NormaliseradRUKonsumtion|Normaliserad RU-förbrukning|Procent|Maximal|Max RU-förbrukningsprocent per minut|Samlingsnamn,Databasnamn,Region|
 |EtableradGenomströmning|Etablerat dataflöde|Antal|Maximal|Etablerat dataflöde|Databasnamn,Samlingsnamn|
 |RegionFailover|Regionen gick över|Antal|Antal|Regionen gick över|Inget|
 |Ta bort Region|Region borttagen|Antal|Antal|Region borttagen|Region|
 |Replikeringslatens|P99 Replikeringssvarstid|Millisekunder|Medel|P99 Replikeringsfördröjning över käll- och målområden för geoaktiverat konto|Källregion,Målregion|
+|ServerSideLatency|Svarstid på serversidan|Millisekunder|Medel|Svarstid på serversidan|Databasnamn,samlingsnamn,region,connectionmode,operationtyp,PublicAPIType|
 |ServiceTillgänglighet|Tjänstens tillgänglighet|Procent|Medel|Kontoförfrågningar tillgänglighet på en timme, dag eller månad granularitet|Inget|
-|TotaltRequestUnits|Totalt antal enheter för begärande|Antal|Totalt|Begär enheter som förbrukats|Databasnamn,samlingsnamn,region,statuskod,OperationType|
-|TotalRequests|Totalt antal förfrågningar|Antal|Antal|Antal inst.|Databasnamn,samlingsnamn,region,statuskod,OperationType|
+|SqlContainerDelete|Sql-behållare har tagits bort|Antal|Antal|Sql-behållare har tagits bort|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,OperationType|
+|SqlContainerThroughputUpdate|Sql Container-dataflöde uppdaterat|Antal|Antal|Sql Container-dataflöde uppdaterat|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|SqlContainerUppdera|Sql-behållaren uppdaterad|Antal|Antal|Sql-behållaren uppdaterad|ResourceName,ChildResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|SqlDatabaseDelete|Sql-databas borttagen|Antal|Antal|Sql-databas borttagen|ResourceName,ApiKind,ApiKindResourceType,OperationType|
+|SqlDatabaseThroughputUpdate|Sql Database-dataflöde uppdaterat|Antal|Antal|Sql Database-dataflöde uppdaterat|ResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|SqlDatabaseUpdate|Sql-databasen har uppdaterats|Antal|Antal|Sql-databasen har uppdaterats|ResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|TableTableDelete|AzureTable-tabell har tagits bort|Antal|Antal|AzureTable-tabell har tagits bort|ResourceName,ApiKind,ApiKindResourceType,OperationType|
+|TableTableThroughputUpdate|AzureTable-tabelldataflöde uppdaterat|Antal|Antal|AzureTable-tabelldataflöde uppdaterat|ResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|TabellTabellUppdat|AzureTable-tabellen uppdaterad|Antal|Antal|AzureTable-tabellen uppdaterad|ResourceName,ApiKind,ApiKindResourceType,IsThroughputRequest|
+|TotaltRequestUnits|Totalt antal enheter för begärande|Antal|Totalt|Begär enheter som förbrukats|Databasnamn,samlingsnamn,region,statuskod,OperationType,status|
+|TotalRequests|Totalt antal förfrågningar|Antal|Antal|Antal inst.|Databasnamn,samlingsnamn,region,statuskod,OperationType,status|
 |UpdateAccountKeys|Kontonycklar uppdaterade|Antal|Antal|Kontonycklar uppdaterade|Keytype|
 |UpdateAccountNetworkSettings|Nätverksinställningar för konto har uppdaterats|Antal|Antal|Nätverksinställningar för konto har uppdaterats|Inget|
 |UpdateAccountReplicationSettings|Inställningar för kontoreplikering har uppdaterats|Antal|Antal|Inställningar för kontoreplikering har uppdaterats|Inget|
+|UpdateDiagnosticsSettings|Diagnostikinställningar för kontot har uppdaterats|Antal|Antal|Diagnostikinställningar för kontot har uppdaterats|DiagnosticSettingsName,ResourceGroupName|
 
 
 
@@ -1023,6 +1107,21 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |DroppedEventCount|Tappade händelser|Antal|Totalt|Totalt antal ignorerade händelser som matchar den här händelseprenumerationen|DropReason,EventSubscriptionName|
 |DeadLetteredCount (döddött)|Dead Lettered Händelser|Antal|Totalt|Totalt antal händelser med obeställda bokstäver som matchar den här händelseprenumerationen|DeadLetterReason,EventSubscriptionName|
 
+## <a name="microsofteventgridsystemtopics"></a>Microsoft.EventGrid/systemTopics
+
+|Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|PubliceraSuccessCount|Publicerade evenemang|Antal|Totalt|Totalt antal händelser som publicerats i det här avsnittet|Inget|
+|PubliceraFailCount|Publicera misslyckade händelser|Antal|Totalt|Totalt antal händelser kunde inte publiceras i det här avsnittet|ErrorType,Fel|
+|OmatchadHändelseCount|Omatchade händelser|Antal|Totalt|Totalt antal händelser som inte matchar någon av händelseprenumerationerna för det här avsnittet|Inget|
+|PubliceraUgessLatencyInMs|Publicera svarstid för lyckade uppgifter|Millisekunder|Totalt|Publicera lyckad svarstid i millisekunder|Inget|
+|MatchedEventCount|Matchade händelser|Antal|Totalt|Totalt antal händelser som matchas mot den här händelseprenumerationen|HändelseBeteckningNamn|
+|LeveransAttemptFailCount|Misslyckade händelser vid leverans|Antal|Totalt|Totalt antal händelser kunde inte levereras till den här händelseprenumerationen|Fel,errorType,eventSubscriptionName|
+|LeveransSuccessCount|Levererade händelser|Antal|Totalt|Totalt antal händelser som levererats till den här händelseprenumerationen|HändelseBeteckningNamn|
+|MålprocesseraVarningInM|Varaktighet för målbearbetning|Millisekunder|Medel|Varaktighet för målbearbetning i millisekunder|HändelseBeteckningNamn|
+|DroppedEventCount|Tappade händelser|Antal|Totalt|Totalt antal ignorerade händelser som matchar den här händelseprenumerationen|DropReason,EventSubscriptionName|
+|DeadLetteredCount (döddött)|Dead Lettered Händelser|Antal|Totalt|Totalt antal händelser med obeställda bokstäver som matchar den här händelseprenumerationen|DeadLetterReason,EventSubscriptionName|
+
 ## <a name="microsofteventgrideventsubscriptions"></a>Microsoft.EventGrid/eventAbonnemang
 
 |Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
@@ -1042,6 +1141,7 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |PubliceraFailCount|Publicera misslyckade händelser|Antal|Totalt|Totalt antal händelser kunde inte publiceras i det här avsnittet|ErrorType,Fel|
 |OmatchadHändelseCount|Omatchade händelser|Antal|Totalt|Totalt antal händelser som inte matchar någon av händelseprenumerationerna för det här avsnittet|Inget|
 |PubliceraUgessLatencyInMs|Publicera svarstid för lyckade uppgifter|Millisekunder|Totalt|Publicera lyckad svarstid i millisekunder|Inget|
+
 
 
 
@@ -1106,6 +1206,7 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |CapturedBytes|Fångade byte.|Byte|Totalt|Hämtade byte för Microsoft.EventHub.|Inget|
 |Processor|Processor|Procent|Maximal|CPU-användning för Event Hub-klustret i procent|Roll|
 |Tillgängligt Minne|Tillgängligt minne|Procent|Maximal|Tillgängligt minne för Event Hub-klustret i procent av det totala minnet.|Roll|
+|Storlek|Storleken på en EventHub i Bytes.|Byte|Medel|Storleken på en EventHub i Bytes.|Roll|
 
 
 ## <a name="microsofthdinsightclusters"></a>Microsoft.HDInsight/kluster
@@ -1126,9 +1227,6 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |Observeradkapacitet|Observerad kapacitet|Antal|Medel|Kapaciteten rapporteras till automatisk skalning när den kördes.|Inget|
 |ScaleActionsInitiated|Skala åtgärder som initierats|Antal|Totalt|Riktningen på skalningsåtgärden.|ScaleDirection|
 
-
-
-
 ## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Components
 
 |Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
@@ -1141,9 +1239,9 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |webbläsareTimings/mottagningUnder|Ta emot svarstid|Millisekunder|Medel|Tid mellan den första och sista byte, eller tills frånkoppling.|Inget|
 |webbläsareTimings/sendDuration|Skicka tid för begäran|Millisekunder|Medel|Tid mellan nätverksanslutning och mottagande av den första bytet.|Inget|
 |webbläsareTimings/totalUnderation|Inläsningstid för webbläsarsidan|Millisekunder|Medel|Tid från användarbegäran till DOM, formatmallar, skript och bilder läses in.|Inget|
-|beroenden/antal|Beroendeanrop|Antal|Antal|Antal anrop som gjorts av programmet till externa resurser.|beroende/typ,beroende/performanceBucket,dependency/success,dependency/target,operation/synthetic,cloud/roleInstance,cloud/roleName|
-|beroenden/varaktighet|Beroendevaraktighet|Millisekunder|Medel|Varaktigheten av anrop som görs av programmet till externa resurser.|beroende/typ,beroende/performanceBucket,dependency/success,dependency/target,operation/synthetic,cloud/roleInstance,cloud/roleName|
-|beroenden/misslyckades|Fel i beroendeanrop|Antal|Antal|Antal misslyckade beroendeanrop som gjorts av programmet till externa resurser.|beroende/typ,beroende/performanceBucket,dependency/success,dependency/target,operation/synthetic,cloud/roleInstance,cloud/roleName|
+|beroenden/antal|Beroendeanrop|Antal|Antal|Antal anrop som gjorts av programmet till externa resurser.|beroende/typ,beroende/performanceBucket,dependency/success,dependency/target,dependency/resultCode,operation/synthetic,cloud/roleInstance,cloud/roleName|
+|beroenden/varaktighet|Beroendevaraktighet|Millisekunder|Medel|Varaktigheten av anrop som görs av programmet till externa resurser.|beroende/typ,beroende/performanceBucket,dependency/success,dependency/target,dependency/resultCode,operation/synthetic,cloud/roleInstance,cloud/roleName|
+|beroenden/misslyckades|Fel i beroendeanrop|Antal|Antal|Antal misslyckade beroendeanrop som gjorts av programmet till externa resurser.|beroende/typ,beroende/performanceBucket,dependency/success,dependency/target,dependency/resultCode,operation/synthetic,cloud/roleInstance,cloud/roleName|
 |pageVisningar/antal|Sidvisningar|Antal|Antal|Antal sidvisningar.|operation/syntetiskt,moln/rollnamn|
 |pageVisningar/varaktighet|Inläsningstid för sidvy|Millisekunder|Medel|Inläsningstid för sidvy|operation/syntetiskt,moln/rollnamn|
 |performanceCounters/requestExecutionTime|HTTP-körningstid för HTTP-begäran|Millisekunder|Medel|Körningstid för den senaste begäran.|moln/rollIntance|
@@ -1164,6 +1262,20 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |undantag/server|Serverundantag|Antal|Antal|Antal undantag som inte har genererats i serverprogrammet.|klient/ärServer,moln/rollNamn,moln/rollInfance|
 |spår/antal|Traces|Antal|Antal|Antal spårdokument|trace/severityLevel,operation/synthetic,cloud/roleName,cloud/roleInstance|
 
+
+## <a name="microsoftiotcentraliotapps"></a>Microsoft.IoTCentral/IoTApps
+
+|Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|connectedDeviceCount|Totalt antal anslutna enheter|Antal|Medel|Antal enheter som är anslutna till IoT Central|Inget|
+|c2d.property.read.success|Lyckad enhetsegenskap läser från IoT Central|Antal|Totalt|Antalet lyckade egendom läser initierad från IoT Central|Inget|
+|c2d.property.read.failure|Misslyckad enhetsegenskap läser från IoT Central|Antal|Totalt|Antalet misslyckade egenskapsläsningar som initierats från IoT Central|Inget|
+|d2c.property.read.success|Lyckad enhetsegenskap läser från enheter|Antal|Totalt|Antalet lyckade egenskapsavläsningar som initierats från enheter|Inget|
+|d2c.property.read.failure|Misslyckad enhetsegenskap läser från enheter|Antal|Totalt|Antalet misslyckade egenskapsavläsningar som initierats från enheter|Inget|
+|c2d.property.update.success|Lyckade enhetsegenskapsuppdateringar från IoT Central|Antal|Totalt|Antalet lyckade egenskapsuppdateringar som initierats från IoT Central|Inget|
+|c2d.property.update.failure|Misslyckade enhetsegenskapsuppdateringar från IoT Central|Antal|Totalt|Antalet misslyckade egenskapsuppdateringar som initierats från IoT Central|Inget|
+|d2c.property.update.success|Lyckade enhetsegenskapsuppdateringar från enheter|Antal|Totalt|Antalet lyckade egenskapsuppdateringar som initierats från enheter|Inget|
+|d2c.property.update.failure|Misslyckade enhetsegenskapsuppdateringar från enheter|Antal|Totalt|Antalet misslyckade egenskapsuppdateringar som initierats från enheter|Inget|
 
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/valv
@@ -1189,10 +1301,10 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |Händelser BearbetasForEventHubs|Händelser som bearbetas (för event/IoT-hubbar)|Antal|Totalt|Antal händelser som bearbetas av klustret vid intag från Event/IoT Hub|EventStatus|
 |IntagResultat|Intag resultat|Antal|Antal|Antal intagsoperationer|IntagResultDetaljer|
 |Processor|Processor|Procent|Medel|CPU-utnyttjandenivå|Inget|
-|ContinuousExportNumOfRecordsExported|Kontinuerlig export – antal exporterade poster|Antal|Totalt|Antal exporterade poster, avfyrade för varje lagringsartefakt som skrivits under exportåtgärden|Inget|
+|ContinuousExportNumOfRecordsExported|Kontinuerlig export – antal exporterade poster|Antal|Totalt|Antal exporterade poster, avfyrade för varje lagringsartefakt som skrivits under exportåtgärden|ContinuousExportName,Databas|
 |ExportUtilisering|Exportutnyttjande|Procent|Maximal|Exportutnyttjande|Inget|
 |Kontinuerligt Exportera väntande konto|Kontinuerligt antal väntande export|Antal|Maximal|Antalet väntande kontinuerliga exportjobb som är klara för körning|Inget|
-|Kontinuerligt ExporteraMaxLatenessMinutes|Kontinuerlig export Max Lateness Minuter|Antal|Maximal|Max senthet i minuter av all kontinuerlig export väntar och redo för utförande|Inget|
+|Kontinuerligt ExporteraMaxLatenessMinutes|Kontinuerlig export Max lateness|Antal|Maximal|Förseningen (i minuter) som rapporteras av de kontinuerliga exportjobben i klustret|Inget|
 |Kontinuerligt ExporteraResult|Kontinuerligt exportresultat|Antal|Antal|Anger om kontinuerlig export lyckades eller misslyckades|ContinuousExportName,Resultat,Databas|
 |StreamingIngestDuration|Varaktighet för strömmande intning|Millisekunder|Medel|Streaming intagstid i millisekunder|Inget|
 |Strömmandedatatdata|Datahastighet för strömmande intning|Antal|Medel|Datahastighet för direktuppspelning (MB per sekund)|Inget|
@@ -1202,6 +1314,7 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |Totalt Antal RuttnadeQueries|Totalt antal begränsade frågor|Antal|Totalt|Totalt antal begränsade frågor|Inget|
 |Totalt AntalHundrastrottade Kommendanter|Totalt antal begränsade kommandon|Antal|Totalt|Totalt antal begränsade kommandon|Kommandotyp|
 |Totalt AntalExtents|Totalt antal omfattningar|Antal|Totalt|Totalt antal data omfattningar|Inget|
+|InstansCount|Antal instanser|Antal|Medel|Totalt antal instanser|Inget|
 
 
 ## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/arbetsflöden
@@ -1242,11 +1355,6 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |BillingUsageNativeOperation|Faktureringsanvändning för körning i inbyggda operationer|Antal|Totalt|Antal körningar som körs i inbyggda.|Inget|
 |BillingUsageStandardConnector|Faktureringsanvändning för standardappkörningar|Antal|Totalt|Antal standardappkörningar som faktureras.|Inget|
 |FaktureringUsageStorageKonsumtion|Faktureringsanvändning för körning av lagringsförbrukning|Antal|Totalt|Antal körningar för lagringsförbrukning som faktureras.|Inget|
-|BillingUsageNativeOperation|Faktureringsanvändning för körning i inbyggda operationer|Antal|Totalt|Antal körningar som körs i inbyggda.|Inget|
-|BillingUsageStandardConnector|Faktureringsanvändning för standardappkörningar|Antal|Totalt|Antal standardappkörningar som faktureras.|Inget|
-|FaktureringUsageStorageKonsumtion|Faktureringsanvändning för körning av lagringsförbrukning|Antal|Totalt|Antal körningar för lagringsförbrukning som faktureras.|Inget|
-
-
 
 ## <a name="microsoftlogicintegrationserviceenvironments"></a>Microsoft.Logic/integrationServiceMiljöer
 
@@ -1289,15 +1397,26 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 
 |Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
+|Avbrutna körningar|Avbrutna körningar|Antal|Totalt|Antal avbrutna körningar för den här arbetsytan|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Avbryt begärda körningar|Avbryt begärda körningar|Antal|Totalt|Antal körningar där avbokning begärdes för den här arbetsytan|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
 |Slutförda körningar|Slutförda körningar|Antal|Totalt|Antal slutförda körningar för den här arbetsytan|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
-|Startade körningar|Startade körningar|Antal|Totalt|Antal körningar som startats för den här arbetsytan|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
 |Misslyckade körningar|Misslyckade körningar|Antal|Totalt|Antalet körningar misslyckades för den här arbetsytan|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Slutföra körningar|Slutföra körningar|Antal|Totalt|Antal körningar som angetts för att slutföra den här arbetsytan|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Svarar inte körningar|Svarar inte körningar|Antal|Totalt|Antal körningar som inte svarar för den här arbetsytan|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Startar inte körningar|Startar inte körningar|Antal|Totalt|Antal körningar i inte startat tillstånd för den här arbetsytan|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Förbereda körningar|Förbereda körningar|Antal|Totalt|Antal körningar som förbereder sig för den här arbetsytan|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Etableringskörningar|Etableringskörningar|Antal|Totalt|Antal körningar som etablerar för den här arbetsytan|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Köade körningar|Köade körningar|Antal|Totalt|Antal körningar som står i kö för den här arbetsytan|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Startade körningar|Startade körningar|Antal|Totalt|Antal körningar som startats för den här arbetsytan|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Starta körningar|Starta körningar|Antal|Totalt|Antal körningar som startats för den här arbetsytan|Scenario,RunType,PublishedPipelineId,ComputeType,PipelineStepType|
+|Fel|Fel|Antal|Totalt|Antal körningsfel på den här arbetsytan|Scenario|
+|Varningar|Varningar|Antal|Totalt|Antal körningsvarningar på den här arbetsytan|Scenario|
 |Modellregistret lyckades|Modellregistret lyckades|Antal|Totalt|Antal modellregistreringar som lyckades på den här arbetsytan|Scenario|
 |Det gick inte att registrera modellregistret|Det gick inte att registrera modellregistret|Antal|Totalt|Antal modellregistreringar som misslyckades på den här arbetsytan|Scenario,StatusCode|
 |Modellut distribuera igång|Modellut distribuera igång|Antal|Totalt|Antal modelldistributioner som startats på den här arbetsytan|Scenario|
 |Modellut distribuera lyckades|Modellut distribuera lyckades|Antal|Totalt|Antal modelldistributioner som lyckades på den här arbetsytan|Scenario|
 |Det gick inte att distribuera modeller|Det gick inte att distribuera modeller|Antal|Totalt|Antal modelldistributioner som misslyckades på den här arbetsytan|Scenario,StatusCode|
-|Totalt antal noder|Totalt antal noder|Antal|Medel|Antal totala noder. Den här summan inkluderar några av aktiva noder, inaktiva noder, oanvändbara noder, föregripna noder, lämnar noder|Scenario,ClusterName|
+|Totalt antal noder|Totalt antal noder|Antal|Medel|Antal totala noder. Den här summan inkluderar några av aktiva noder, inaktiva noder, oanpassade noder, föregripna noder, lämnar noder|Scenario,ClusterName|
 |Aktiva noder|Aktiva noder|Antal|Medel|Antal Acitve-noder. Det här är noderna som aktivt kör ett jobb.|Scenario,ClusterName|
 |Inaktiva noder|Inaktiva noder|Antal|Medel|Antal inaktiva noder. Inaktiva noder är noder som inte kör några jobb men som kan acceptera nytt jobb om tillgängligt.|Scenario,ClusterName|
 |Oersättliga noder|Oersättliga noder|Antal|Medel|Antal oanvändbara noder. Outtämbara noder fungerar inte på grund av något olösligt problem. Azure kommer att återvinna dessa noder.|Scenario,ClusterName|
@@ -1344,13 +1463,21 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |StreamingPolicyCount|Antal streamingprinciper|Antal|Medel|Hur många direktuppspelningsprinciper som redan har skapats i det aktuella medietjänstkontot|Inget|
 |StreamingPolicyQuotaUsedPercentage|Datauppspelningsprincipkvot använd procent|Procent|Medel|Streamingprincip som används procent i aktuellt medietjänstkonto|Inget|
 
+
+## <a name="microsoftmixedrealityremoterenderingaccounts"></a>Microsoft.MixedReality/remoteRenderingAccounts
+
+|Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|TillgångarKonverterad|Konverterade tillgångar|Antal|Totalt|Totalt antal konverterade tillgångar|AppId,ResourceId,SDKVersion|
+|ActiveRenderingSessions|Aktiva renderingssessioner|Antal|Totalt|Totalt antal aktiva renderingssessioner|AppId,ResourceId,SessionType,SDKVersion|
+
 ## <a name="microsoftnetappnetappaccountscapacitypoolsvolumes"></a>Microsoft.NetApp/netAppAccounts/capacityPools/volymer
 
 |Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |Genomsnittligläsning|Genomsnittlig läsfördröjning|Millisekunder|Medel|Genomsnittlig lässvarstid i millisekunder per åtgärd|Inget|
 |AverageWriteLatency|Genomsnittlig skrivfördröjning|Millisekunder|Medel|Genomsnittlig skrivsvarstid i millisekunder per åtgärd|Inget|
-|VolumeLogicalSize|Logiskt volymstorlek|Byte|Medel|Logiskt storlek på volymen (använda byte)|Inget|
+|VolumeLogicalSize|Förbrukad volymstorlek|Byte|Medel|Logiskt storlek på volymen (använda byte)|Inget|
 |VolumeSnapshotSize|Storlek på ögonblicksbilder av volym|Byte|Medel|Storlek på alla ögonblicksbilder i volym|Inget|
 |ReadIops (läs)|Läs iops|CountPerSecond|Medel|Läs in/ut-åtgärder per sekund|Inget|
 |WriteIops|Skriv iops|CountPerSecond|Medel|Skriv in/ut-åtgärder per sekund|Inget|
@@ -1359,8 +1486,8 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 
 |Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|VolumePoolAllocatedUsed|Tilldelade volympooler|Byte|Medel|Allokerad använd storlek på poolen|Inget|
-|VolumePoolTotalLogicalSize|Total logisk storlek för volympool|Byte|Medel|Summan av den logiska storleken på alla volymer som tillhör poolen|Inget|
+|VolumePoolAllocatedUsed|Pool allokerad till volymstorlek|Byte|Medel|Allokerad använd storlek på poolen|Inget|
+|VolumePoolTotalLogicalSize|Förbrukad poolstorlek|Byte|Medel|Summan av den logiska storleken på alla volymer som tillhör poolen|Inget|
 
 ## <a name="microsoftnetworknetworkinterfaces"></a>Microsoft.Network/networkInterfaces
 
@@ -1383,7 +1510,6 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |SnatConnectionCount|Antal SNAT-anslutningar|Antal|Totalt|Totalt antal nya SNAT-anslutningar som skapats inom tidsperioden|FrontendIPAdress,BackendIPAddress,ConnectionState|
 |AllokeradeSnatPorts|Allokerade SNAT-portar (förhandsversion)|Antal|Totalt|Totalt antal SNAT-portar som tilldelats inom tidsperioden|FrontendIPAddress,BackendIPAddress,ProtocolType,IsAwaitingRemoval|
 |UsedSnatPorts|Används SNAT-portar (förhandsversion)|Antal|Totalt|Totalt antal SNAT-portar som används inom tidsperioden|FrontendIPAddress,BackendIPAddress,ProtocolType,IsAwaitingRemoval|
-
 
 ## <a name="microsoftnetworkdnszones"></a>Microsoft.Network/dnszones
 
@@ -1458,8 +1584,11 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |Misslyckade begärande|Misslyckade begäranden|Antal|Totalt|Antal misslyckade begäranden som Application Gateway har tjänat|BackendSettingsPool|
 |Svarsstatus|Svarsstatus|Antal|Totalt|Http-svarsstatus returnerad av Application Gateway|HttpStatusGroup|
 |CurrentConnections|Aktuella anslutningar|Antal|Totalt|Antal aktuella anslutningar som upprättats med Application Gateway|Inget|
+|NewConnectionsPerSecond|Nya anslutningar per sekund|CountPerSecond|Medel|Nya anslutningar per sekund som upprättats med Application Gateway|Inget|
 |CpuUtilization (CpuUtilization)|CPU-användning|Procent|Medel|Nuvarande CPU-användning av Application Gateway|Inget|
 |KapacitetEnheter|Enheter för strömkapacitet|Antal|Medel|Kapacitetsenheter förbrukas|Inget|
+|FixedBillableCapacityUnits|Enheter med fast utbytbar kapacitet|Antal|Medel|Minsta kapacitetsenheter som kommer att debiteras|Inget|
+|UppskattadeFakturerade ArbetsopacitetUnits|Uppskattade fakturerade kapacitetsenheter|Antal|Medel|Uppskattade kapacitetsenheter som kommer att debiteras|Inget|
 |ComputeUnits (beräkningsenheter)|Aktuella beräkningsenheter|Antal|Medel|Beräkningsenheter förbrukas|Inget|
 |BackendResponseStatus|Svarsstatus för backend|Antal|Totalt|Antalet HTTP-svarskoder som genereras av backend-medlemmarna. Detta inkluderar inte några svarskoder som genereras av Application Gateway.|BackendServer,BackendPool,BackendHttpSetting,HttpStatusGroup|
 |TlsProtocol (TlsProtocol)|TLS-protokoll för klient|Antal|Totalt|Antalet TLS- och icke-TLS-begäranden som initierats av klienten som upprättade anslutningen till Application Gateway. Om du vill visa TLS-protokolldistribution filtrerar du efter dimensionen TLS Protocol.|Lyssnare,TlsProtocol|
@@ -1473,6 +1602,7 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |MatchedCount|Brandvägg för webbprogram v1 Total regeldistribution|Antal|Totalt|Brandvägg för webbprogram v1 Total regelfördelning för inkommande trafik|Regelgrupp,RuleId|
 |BlockeradRäkning|Webbprogram Brandvägg v1 Blockerade begäranden regeldistribution|Antal|Totalt|Brandvägg för webbprogram v1 blockerade begäranden regeldistribution|Regelgrupp,RuleId|
 |BlockeradReqCount|Antal blockerade begäranden i webbprogram v1-blockerade begäranden|Antal|Totalt|Antal v1 blockerade begäranden för webbprogram v1|Inget|
+
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
 
@@ -1500,6 +1630,8 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |LineProtocol (LinjeProtokol)|LineProtocol (LinjeProtokol)|Antal|Medel|Linjeprotokollstatus för porten|Länk|
 |PortBitsInPerSecond|BitsInPerSecond|CountPerSecond|Medel|Bitar som inträder i Azure per sekund|Länk|
 |PortBitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Medel|Bitar som utgående azure per sekund|Länk|
+
+
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
 
@@ -1568,6 +1700,18 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |BackendHealthPercentage|Hälsoprocent för backend|Procent|Medel|Procentandelen lyckade hälsoavsökningar från HTTP/S-proxyn till serverings-|Backend, BackendPool|
 |WebApplicationFirewallRequestCount|Antal begäranden om brandvägg för webbprogram|Antal|Totalt|Antalet klientbegäranden som bearbetas av brandväggen för webbprogram|PolicyName,RuleName,Åtgärd|
 
+
+## <a name="microsoftnetworkprivatednszones"></a>Microsoft.Network/privateDnsZones
+
+|Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|FrågaVolym|Fråga volym|Antal|Totalt|Antal frågor som har serverats för en privat DNS-zon|Inget|
+|RecordSetCount (RecordSetCount)|Antal postuppsättningar|Antal|Maximal|Antal postuppsättningar i en privat DNS-zon|Inget|
+|RecordSetCapacityUtilization|Kapacitetsutnyttjande för postuppsättning|Procent|Maximal|Procent av postuppsättningskapacitet som används av en privat DNS-zon|Inget|
+|VirtualNetworkLinkCount|Antal länkar till virtuella nätverk|Antal|Maximal|Antal virtuella nätverk som är länkade till en privat DNS-zon|Inget|
+|VirtualNetworkLinkCapacityUtilisering|Kapacitetsutnyttjande för virtuell nätverkslänk|Procent|Maximal|Procent av virtual network link-kapacitet som används av en privat DNS-zon|Inget|
+|VirtualNetworkMedRegistrationLinkCount|Antal länkar för virtuell nätverksregistrering|Antal|Maximal|Antal virtuella nätverk som är länkade till en privat DNS-zon med automatisk registrering aktiverad|Inget|
+|VirtualNetworkMedRegistrationCapacityUtilization|Kapacitetsutnyttjande för virtuell nätverksregistrering|Procent|Maximal|Procent av virtual network link med automatisk registreringskapacitet som används av en privat DNS-zon|Inget|
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
@@ -1693,20 +1837,12 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |Average_Size lagras i växlingsfiler|Storlek lagras i växlingsfiler|Antal|Medel|Average_Size lagras i växlingsfiler|Dator,ObjectName,InstanceName,CounterPath,SourceSystem|
 |Average_Uptime|Upptid|Antal|Medel|Average_Uptime|Dator,ObjectName,InstanceName,CounterPath,SourceSystem|
 |Average_Users|Användare|Antal|Medel|Average_Users|Dator,ObjectName,InstanceName,CounterPath,SourceSystem|
-|Average_Avg. Disk s/läsning|Genomsnittlig disk sek/läs|Antal|Medel|Average_Avg. Disk s/läsning|Dator,ObjectName,InstanceName,CounterPath,SourceSystem|
-|Average_Avg. Disk s/skrivning|Genomsnittlig disk sek/skrivning|Antal|Medel|Average_Avg. Disk s/skrivning|Dator,ObjectName,InstanceName,CounterPath,SourceSystem|
 |längden Average_Current diskkö|Aktuell diskkölängd|Antal|Medel|längden Average_Current diskkö|Dator,ObjectName,InstanceName,CounterPath,SourceSystem|
-|Average_Disk Läser/sek|Diskläsningar/sek|Antal|Medel|Average_Disk Läser/sek|Dator,ObjectName,InstanceName,CounterPath,SourceSystem|
-|Average_Disk Överföringar/sek|Disköverföringar per sekund|Antal|Medel|Average_Disk Överföringar/sek|Dator,ObjectName,InstanceName,CounterPath,SourceSystem|
-|Average_Disk skriver/sek|Diskskrivningar per sekund|Antal|Medel|Average_Disk skriver/sek|Dator,ObjectName,InstanceName,CounterPath,SourceSystem|
-|Average_Free Megabyte|Gratis Megabyte|Antal|Medel|Average_Free Megabyte|Dator,ObjectName,InstanceName,CounterPath,SourceSystem|
-|Average_% ledigt utrymme|% ledigt utrymme|Antal|Medel|Average_% ledigt utrymme|Dator,ObjectName,InstanceName,CounterPath,SourceSystem|
 |Average_Available MBytes|Tillgängliga MBytes|Antal|Medel|Average_Available MBytes|Dator,ObjectName,InstanceName,CounterPath,SourceSystem|
 |Average_% genomförda byte som används|% genomförda byte som används|Antal|Medel|Average_% genomförda byte som används|Dator,ObjectName,InstanceName,CounterPath,SourceSystem|
 |Average_Bytes mottaget/sek|Mottagna byte per sekund|Antal|Medel|Average_Bytes mottaget/sek|Dator,ObjectName,InstanceName,CounterPath,SourceSystem|
 |Average_Bytes skickat/sek|Skickade byte per sekund|Antal|Medel|Average_Bytes skickat/sek|Dator,ObjectName,InstanceName,CounterPath,SourceSystem|
 |Average_Bytes Totalt/sek|Totalt antal byte per sekund|Antal|Medel|Average_Bytes Totalt/sek|Dator,ObjectName,InstanceName,CounterPath,SourceSystem|
-|Average_% processortid|% processortid|Antal|Medel|Average_% processortid|Dator,ObjectName,InstanceName,CounterPath,SourceSystem|
 |kölängd Average_Processor|Längden på processorkön|Antal|Medel|kölängd Average_Processor|Dator,ObjectName,InstanceName,CounterPath,SourceSystem|
 |Pulsslag|Pulsslag|Antal|Totalt|Pulsslag|Dator,OSType,Version,SourceComputerId|
 |Uppdatering|Uppdatering|Antal|Medel|Uppdatering|Dator,Produkt,Klassificering,UpdateState,Valfritt,Godkänd|
@@ -1727,6 +1863,7 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |IngåendeTrafficRate|Ingående trafikhastighet|BitsPerSecond|Medel|Inträngningstrafik i bitar per sekund|ConnectionId (på)-anslutning)|
 |EgressTrafficRate|Utgående trafikhastighet|BitsPerSecond|Medel|Utgående trafikhastighet i bitar per sekund|ConnectionId (på)-anslutning)|
 
+
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacity
 
 |Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
@@ -1736,6 +1873,22 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |qpu_high_utilization_metric|Hög användning av QPU|Antal|Totalt|QPU högt utnyttjande i sista minuten, 1 för hög QPU utnyttjande, annars 0|Inga dimensioner|
 |memory_metric|Minne|Byte|Medel|Memory. Räckvidd 0-3 GB för A1, 0-5 GB för A2, 0-10 GB för A3, 0-25 GB för A4, 0-50 GB för A5 och 0-100 GB för A6|Inga dimensioner|
 |memory_thrashing_metric|Minnesförslöing|Procent|Medel|Genomsnittligt minne stryk.|Inga dimensioner|
+
+
+## <a name="microsoftprojectbabylonaccounts"></a>Microsoft.ProjectBabylon/konton
+
+|Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|TillgångsfördelningEfterklassificering|Tillgångsfördelning efter klassificering|Antal|Totalt|Anger antalet tillgångar med en viss klassificering som tilldelats, dvs.|Klassificering,Källa,ResourceId|
+|TillgångDistributionByStorageType|Tillgångsfördelning efter lagringstyp|Antal|Totalt|Anger antalet tillgångar med en viss lagringstyp.|StorageType,ResourceId|
+|CatalogActiveUsers|Dagliga aktiva användare|Antal|Totalt|Antal aktiva användare dagligen|ResourceId|
+|KatalogUppsätt|Förbrukningsfördelning efter operation|Antal|Totalt|Ange hur många åtgärder användaren gör i katalogen, dvs Access, Sök, Ordlista.|Åtgärd,ResourceId|
+|AntalAvgörandenKlassificifications|Antal tillgångar med minst en klassificering|Antal|Medel|Anger antalet tillgångar med minst en taggklassificering.|ResourceId|
+|ScanCancelled|Genomsökningen har avbrutits|Antal|Totalt|Anger antalet avbrutna genomsökningar.|ResourceId|
+|ScanCom är slutfört|Genomsökningen har slutförts|Antal|Totalt|Anger antalet genomförda genomsökningar.|ResourceId|
+|ScanFailed|Det gick inte att skanna|Antal|Totalt|Anger att antalet genomsökningar misslyckades.|ResourceId|
+|ScanTimeTaken|Sök tid|Sekunder|Totalt|Anger den totala genomsökningstiden i sekunder.|ResourceId|
+
 
 
 
@@ -1849,8 +2002,8 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |dwu_used|DWU används|Antal|Maximal|DWU används. Gäller endast för informationslager.|Inget|
 |cache_hit_percent|Antal träffar i cacheminne|Procent|Maximal|Cache träff procent. Gäller endast för informationslager.|Inget|
 |cache_used_percent|Använd procent av cache|Procent|Maximal|Cache använd procentsats. Gäller endast för informationslager.|Inget|
-|sqlserver_process_core_percent|SQL Server-processkärna procent|Procent|Maximal|CPU-användningsprocent för SQL Server-processen, mätt med operativsystemet.|Inget|
-|sqlserver_process_memory_percent|Procent av SQL Server-processminne|Procent|Maximal|Procentandel av minnesanvändningen för SQL Server-processen, mätt med operativsystemet.|Inget|
+|sqlserver_process_core_percent|SQL Server-processkärna procent|Procent|Maximal|CPU-användning i procent av SQL DB-processen. Gäller inte för informationslager.|Inget|
+|sqlserver_process_memory_percent|Procent av SQL Server-processminne|Procent|Maximal|Minnesanvändning i procent av SQL DB-processen. Gäller inte för informationslager.|Inget|
 |tempdb_data_size|Tempdb-datafilstorlek Kilobyte|Antal|Maximal|Tempdb Data filstorlek Kilobytes. Gäller inte för informationslager.|Inget|
 |tempdb_log_size|Tempdb-loggfilstorlek Kilobyte|Antal|Maximal|Tempdb Loggfil storlek Kilobytes. Gäller inte för informationslager.|Inget|
 |tempdb_log_used_percent|Tempdb procent logg används|Procent|Maximal|Tempdb procent logg används. Gäller inte för informationslager.|Inget|
@@ -1860,9 +2013,23 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |app_memory_percent|Procentandel av appens minne|Procent|Medel|Procent av appens minne. Gäller för serverlösa databaser.|Inget|
 |allocated_data_storage|Tilldelat datautrymme|Byte|Medel|Allokerad datalagring. Gäller inte för informationslager.|Inget|
 |memory_usage_percent|Minnesprocent|Procent|Maximal|Minnesprocent. Gäller endast för informationslager.|Inget|
+|dw_backup_size_gb|Storlek för datalagring|Antal|Totalt|Datalagringsstorleken består av storleken på dina data och transaktionsloggen. Måttet räknas in i lagringsdelen av fakturan. Gäller endast för informationslager.|Inget|
+|dw_snapshot_size_gb|Lagringsstorlek för ögonblicksbilder|Antal|Totalt|Snapshot Storage Size är storleken på de inkrementella ändringar som fångas upp av ögonblicksbilder för att skapa användardefinierade och automatiska återställningspunkter. Måttet räknas in i lagringsdelen av fakturan. Gäller endast för informationslager.|Inget|
+|dw_geosnapshot_size_gb|Lagringsstorlek för haveriberedskap|Antal|Totalt|Lagringsstorlek för haveriberedskap återspeglas som "Lagring av haveriberedskap" i din faktura. Gäller endast för informationslager.|Inget|
+|wlg_allocation_relative_to_system_percent|Arbetsbelastningsgruppallokering efter systemprocent|Procent|Maximal|Allokerad procentandel av resurser i förhållande till hela systemet per arbetsbelastningsgrupp. Gäller endast för informationslager.|WorkloadGroupName,IsUserDedefinierad|
+|wlg_allocation_relative_to_wlg_effective_cap_percent|Arbetsbelastningsgruppallokering efter takresurs procent|Procent|Maximal|Allokerad procentandel av resurser i förhållande till de angivna takresurserna per arbetsbelastningsgrupp. Gäller endast för informationslager.|WorkloadGroupName,IsUserDedefinierad|
+|wlg_active_queries|Aktiva frågor för arbetsbelastningsgrupp|Antal|Totalt|Aktiva frågor inom arbetsbelastningsgruppen. Gäller endast för informationslager.|WorkloadGroupName,IsUserDedefinierad|
+|wlg_queued_queries|Arbetsbelastningsgrupp köade frågor|Antal|Totalt|Köade frågor inom arbetsbelastningsgruppen. Gäller endast för informationslager.|WorkloadGroupName,IsUserDedefinierad|
+|active_queries|Aktiva frågor|Antal|Totalt|Aktiva frågor i alla arbetsbelastningsgrupper. Gäller endast för informationslager.|Inget|
+|queued_queries|Köade frågor|Antal|Totalt|Köade frågor i alla arbetsbelastningsgrupper. Gäller endast för informationslager.|Inget|
+|wlg_active_queries_timeouts|Timeout för arbetsbelastningsgruppfråga|Antal|Totalt|Frågor som har tagit time out för arbetsbelastningsgruppen. Gäller endast för informationslager.|WorkloadGroupName,IsUserDedefinierad|
+|wlg_effective_min_resource_percent|Effektiv minresursprocent|Procent|Maximal|Minsta procentandel av de resurser som reserverats och isolerats för arbetsbelastningsgruppen, med beaktande av lägsta servicenivå. Gäller endast för informationslager.|WorkloadGroupName,IsUserDedefinierad|
+|wlg_effective_cap_resource_percent|Effektiv takresurs procent|Procent|Maximal|En hård gräns för procentandelen resurser som tillåts för arbetsbelastningsgruppen, med beaktande av effektiv minresursprocent som allokerats för andra arbetsbelastningsgrupper. Gäller endast för informationslager.|WorkloadGroupName,IsUserDedefinierad|
 |full_backup_size_bytes|Fullständig lagringsstorlek för säkerhetskopiering|Byte|Maximal|Kumulativ lagringsstorlek för hela säkerhetskopian. Gäller för vCore-baserade databaser. Gäller inte hyperskaladatabaser.|Inget|
 |diff_backup_size_bytes|Differentiell lagringsstorlek för säkerhetskopiering|Byte|Maximal|Kumulativ differentiell lagringsstorlek för säkerhetskopiering. Gäller för vCore-baserade databaser. Gäller inte hyperskaladatabaser.|Inget|
-|log_backup_size_bytes|Logga lagringsstorlek för säkerhetskopiering|Byte|Maximal|Ackumulerad lagringsstorlek för säkerhetskopiering av loggar. Gäller för vCore-baserade databaser. Gäller inte hyperskaladatabaser.|Inget|
+|log_backup_size_bytes|Logga lagringsstorlek för säkerhetskopiering|Byte|Maximal|Ackumulerad lagringsstorlek för säkerhetskopiering av loggar. Gäller för vCore-baserade och hyperskalliga databaser.|Inget|
+|snapshot_backup_size_bytes|Lagringsstorlek för säkerhetskopiering av ögonblicksbilder|Byte|Maximal|Kumulativ lagringsstorlek för säkerhetskopiering av ögonblicksbilder. Gäller hyperskaladatabaser.|Inget|
+|base_blob_size_bytes|Lagringsstorlek för basblobb|Byte|Maximal|Basblolob lagring storlek. Gäller hyperskaladatabaser.|Inget|
 
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servrar/elasticPools
@@ -1893,8 +2060,8 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |database_cpu_limit|CPU-gräns|Antal|Medel|CPU-gräns|DatabasResourceId|
 |cpu_used|PROCESSOR som används|Antal|Medel|PROCESSOR som används. Gäller för vCore-baserade elastiska pooler.|Inget|
 |database_cpu_used|PROCESSOR som används|Antal|Medel|PROCESSOR som används|DatabasResourceId|
-|sqlserver_process_core_percent|SQL Server-processkärna procent|Procent|Maximal|CPU-användningsprocent för SQL Server-processen, mätt med operativsystemet. Gäller elastiska pooler.|Inget|
-|sqlserver_process_memory_percent|Procent av SQL Server-processminne|Procent|Maximal|Procentandel av minnesanvändningen för SQL Server-processen, mätt med operativsystemet. Gäller elastiska pooler.|Inget|
+|sqlserver_process_core_percent|SQL Server-processkärna procent|Procent|Maximal|CPU-användning i procent av SQL DB-processen. Gäller elastiska pooler.|Inget|
+|sqlserver_process_memory_percent|Procent av SQL Server-processminne|Procent|Maximal|Minnesanvändning i procent av SQL DB-processen. Gäller elastiska pooler.|Inget|
 |tempdb_data_size|Tempdb-datafilstorlek Kilobyte|Antal|Maximal|Tempdb-datafilstorlek Kilobyte|Inget|
 |tempdb_log_size|Tempdb-loggfilstorlek Kilobyte|Antal|Maximal|Tempdb-loggfilstorlek Kilobyte|Inget|
 |tempdb_log_used_percent|Tempdb procent logg används|Procent|Maximal|Tempdb procent logg används|Inget|
@@ -2090,6 +2257,46 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |InputEventsSourcesBacklogged|Eftersläpade indatahändelser|Antal|Maximal|Eftersläpade indatahändelser|Logisknamn,PartitionId|
 |InputEventsSourcesPerSecond|Mottagna indatakällor|Antal|Totalt|Mottagna indatakällor|Logisknamn,PartitionId|
 
+## <a name="microsoftsynapseworkspaces"></a>Microsoft.Synapse/arbetsytor
+
+|Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|OrchestrationPipelineRunsEnded|Pipeline-körningar har avslutats|Antal|Totalt|Antal orchestration pipeline körningar som lyckades, misslyckades eller avbröts|Resultat,FailureType,Pipeline|
+|OrchestrationActivityRunsEnded|Aktivitetskörningar har avslutats|Antal|Totalt|Antal orkestreringsaktiviteter som lyckades, misslyckades eller avbröts|Resultat,FailureType,Aktivitet,ActivityType,Pipeline|
+|OrkestreringTriggersEnded|Utlösare har avslutats|Antal|Totalt|Antal orchestration-utlösare som lyckades, misslyckades eller avbröts|Resultat,FailureType,utlösare|
+|SQLOnDemandLoginAttempts|Inloggningsförsök|Antal|Totalt|Antal inloggningsförsök som lyckades eller misslyckades|Resultat|
+|SQLOnDemandQueriesEnded|Frågor har avslutats|Antal|Totalt|Antal frågor som lyckades, misslyckades eller avbröts|Resultat|
+|SQLOnDemandQueryProcessedBytes|Bearbetade data|Byte|Totalt|Mängden data som bearbetas av frågor|Inget|
+
+## <a name="microsoftsynapseworkspacesbigdatapools"></a>Microsoft.Synapse/arbetsytor/bigDataPools
+
+|Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|SparkJobsEnded|Avslutade program|Antal|Totalt|Antal avslutade ansökningar|JobType,JobbResultat|
+|KärnorKapacitet|Kärnor kapacitet|Antal|Maximal|Kärnor kapacitet|Inget|
+|MemoryCapacityGB|Minneskapacitet (GB)|Antal|Maximal|Minneskapacitet (GB)|Inget|
+
+## <a name="microsoftsynapseworkspacessqlpools"></a>Microsoft.Synapse/arbetsytor/sqlPools
+
+|Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|DWULimit (DWULimit)|DWU-gräns|Antal|Maximal|Sql-poolens mål på servicenivå|Inget|
+|DWUUsed|DWU används|Antal|Maximal|Representerar en representation på hög nivå av användning i SQL-poolen. Mätt med DWU-gräns * DWU-procent|Inget|
+|DWUUsedPercent|DWU används procent|Procent|Maximal|Representerar en representation på hög nivå av användning i SQL-poolen. Mätt genom att ta det maximala mellan CPU-procent och Data IO-procent|Inget|
+|AnslutningarBlockedByFirewall|Anslutningar blockerade av brandvägg|Antal|Totalt|Antal anslutningar som blockerats av brandväggsregler. Se över principer för åtkomstkontroll för DIN SQL-pool och övervaka dessa anslutningar om antalet är högt|Inget|
+|AdaptiveCacheHitPercent|Träffprocent för adaptiv cache|Procent|Maximal|Mäter hur väl arbetsbelastningar använder den adaptiva cachen. Använd det här måttet med cachehitprocentmåttet för att avgöra om du vill skala efter ytterligare kapacitet eller köra arbetsbelastningar igen för att hydratisera cachen|Inget|
+|AdaptivCacheUsedPercent|Anpassad cache använd procentandel|Procent|Maximal|Mäter hur väl arbetsbelastningar använder den adaptiva cachen. Använd det här måttet med det cacheminne som används procentmått för att avgöra om du vill skala efter ytterligare kapacitet eller köra arbetsbelastningar igen för att hydratisera cachen|Inget|
+|LocalTempDBUsedPercent|Lokal tempdb använd procentandel|Procent|Maximal|Lokal tempdb-användning över alla beräkningsnoder - värden avges var femte minut|Inget|
+|MinneAnvändarePercent|Använt minne procent|Procent|Maximal|Minnesanvändning för alla noder i SQL-poolen|Inget|
+|Anslutningar|Anslutningar|Antal|Totalt|Antal totalt antal inloggningar till SQL-poolen|Resultat|
+|WLGActiveQueries|Aktiva frågor för arbetsbelastningsgrupp|Antal|Totalt|De aktiva frågorna inom arbetsbelastningsgruppen. Om du använder det här måttet ofiltrerat och ospliterat visas alla aktiva frågor som körs på systemet|IsUserDedefinierad,WorkloadGroup|
+|WLGActiveQueriesTimeouts|Timeout för arbetsbelastningsgruppfråga|Antal|Totalt|Frågor för arbetsbelastningsgruppen som har time(out. Frågetidsutgångar som rapporteras av det här måttet är först när frågan har startat körs (den inkluderar inte väntetid på grund av låsning eller resursväntar)|IsUserDedefinierad,WorkloadGroup|
+|WLGAllocationBySystemPercent|Arbetsbelastningsgruppallokering efter systemprocent|Procent|Maximal|Den procentuella fördelningen av resurser i förhållande till hela systemet|IsUserDedefinierad,WorkloadGroup|
+|WLGAllocationByMaxResourcePercent|Arbetsbelastningsgruppallokering efter max resursprocent|Procent|Maximal|Visar den procentuella fördelningen av resurser i förhållande till resursprocenten För gällande tak per arbetsbelastningsgrupp. Det här måttet ger ett effektivt utnyttjande av arbetsbelastningsgruppen|IsUserDedefinierad,WorkloadGroup|
+|WLGEffectiveCapResourcePercent|Effektiv takresurs procent|Procent|Maximal|Den effektiva takresursprocenten för arbetsbelastningsgruppen. Om det finns andra arbetsbelastningsgrupper med min_percentage_resource > 0 sänks effective_cap_percentage_resource proportionellt|IsUserDedefinierad,WorkloadGroup|
+|wlg_effective_min_resource_percent|Effektiv minresursprocent|Procent|Minimum|Den effektiva minsta resursprocentinställningen tillåts med tanke på servicenivån och arbetsbelastningsgruppinställningarna. Den effektiva min_percentage_resource kan justeras högre på lägre servicenivåer|IsUserDedefinierad,WorkloadGroup|
+|WLGQueuedQueries|Arbetsbelastningsgrupp köade frågor|Antal|Totalt|Ackumulerat antal begäranden i kö efter att max samtidighetsgränsen har uppnåtts|IsUserDedefinierad,WorkloadGroup|
+
 ## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/miljöer
 
 |Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
@@ -2103,6 +2310,8 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |IngressReceivedMessagesCountLag|Ingress mottagna meddelanden Count Lag|Antal|Medel|Skillnaden mellan sekvensnumret för det senast köade meddelandet i händelsekällpartitionen och sekvensnumret för meddelanden som bearbetas i Ingress|Inget|
 |WarmStorageMaxProperties|Maxegenskaper för varm lagring|Antal|Maximal|Maximalt antal egenskaper som används av miljön för S1/S2 SKU och maximalt antal egenskaper som tillåts av Warm Store för PAYG SKU|Inget|
 |WarmStorageUsedProperties|Egenskaper för varm lagring används |Antal|Maximal|Antal egenskaper som används av miljön för S1/S2 SKU och antal egenskaper som används av Warm Store för PAYG SKU|Inget|
+
+
 
 ## <a name="microsofttimeseriesinsightsenvironmentseventsources"></a>Microsoft.TimeSeriesInsights/miljöer/eventsources
 
@@ -2171,7 +2380,7 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |TcpLastAck (en)|TCP Sista Ack|Antal|Medel|TCP Sista Ack|Instans|
 |TcpTimeWait (av TcpTimeWait)|TCP-tid vänta|Antal|Medel|TCP-tid vänta|Instans|
 
-## <a name="microsoftwebsites-excluding-functions"></a>Microsoft.Webbplatser (exklusive funktioner)
+## <a name="microsoftwebsites"></a>Microsoft.Webbplatser
 
 > [!NOTE]
 > **Filsystemanvändning** är ett nytt mått som distribueras globalt, inga data förväntas om du inte har vitlistats för privat förhandsgranskning.
@@ -2217,35 +2426,6 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |Gen2Kolleringar|Gen 2 Sophämtningar|Antal|Totalt|Gen 2 Sophämtningar|Instans|
 |Hälsokontrollerstatus|Status för hälsokontroll|Antal|Medel|Status för hälsokontroll|Instans|
 |FileSystemUsage|Användning av filsystem|Byte|Medel|Användning av filsystem|Inget|
-
-## <a name="microsoftwebsites-functions"></a>Microsoft.Webbplatser (funktioner)
-
-|Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
-|---|---|---|---|---|---|
-|ByteKom med|Data i|Byte|Totalt|Data i|Instans|
-|BytesSent|Data ut|Byte|Totalt|Data ut|Instans|
-|Http5xx (på sätt och vis)|Http-serverfel|Antal|Totalt|Http-serverfel|Instans|
-|MemoryWorkingSet|Arbetsminne|Byte|Medel|Arbetsminne|Instans|
-|AverageMemoryWorkingSet|Genomsnittligt arbetsminne|Byte|Medel|Genomsnittligt arbetsminne|Instans|
-|FunktionUtställningAr|Funktionskörningsenheter|MB / Millisekunder|Totalt|[Funktionskörningsenheter](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|Instans|
-|FunctionExecutionCount|Antal funktionskörningar|Antal|Totalt|Antal funktionskörningar|Instans|
-|PrivateBytes (PrivateBytes)|Privata byte|Byte|Medel|Privata byte|Instans|
-|IoReadBytesPerSecond|IO läs byte per sekund|BytesPerSecond|Totalt|IO läs byte per sekund|Instans|
-|IoWriteBytesPerSecond|IO skriv byte per sekund|BytesPerSecond|Totalt|IO skriv byte per sekund|Instans|
-|IotherBytesPerSecond|IO Andra byte per sekund|BytesPerSecond|Totalt|IO Andra byte per sekund|Instans|
-|IoReadOperationsPerSecond|IO läsa operationer per sekund|BytesPerSecond|Totalt|IO läsa operationer per sekund|Instans|
-|IoWriteOperationsPerSecond|IO-skrivåtgärder per sekund|BytesPerSecond|Totalt|IO-skrivåtgärder per sekund|Instans|
-|IotherOperationsPerSecond|IO Övriga transaktioner per sekund|BytesPerSecond|Totalt|IO Övriga transaktioner per sekund|Instans|
-|BegärandenInApplicationQueue|Begäranden i programkö|Antal|Medel|Begäranden i programkö|Instans|
-|Aktuella sammansättningar|Aktuella sammansättningar|Antal|Medel|Aktuella sammansättningar|Instans|
-|Totalt Antal Händer|Totalt antal appdomäner|Antal|Medel|Totalt antal appdomäner|Instans|
-|TotaltTillämtsTilldelning|Totalt antal appdomäner har tagits bort|Antal|Medel|Totalt antal appdomäner har tagits bort|Instans|
-|Gen0Kolleringar|Gen 0 Sophämtningar|Antal|Totalt|Gen 0 Sophämtningar|Instans|
-|Gen1Kolleringar|Gen 1 Sophämtningar|Antal|Totalt|Gen 1 Sophämtningar|Instans|
-|Gen2Kolleringar|Gen 2 Sophämtningar|Antal|Totalt|Gen 2 Sophämtningar|Instans|
-|Hälsokontrollerstatus|Status för hälsokontroll|Antal|Medel|Status för hälsokontroll|Instans|
-|FileSystemUsage|Användning av filsystem|Byte|Medel|Användning av filsystem|Inget|
-
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.webbplatser/platser
 

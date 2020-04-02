@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: sngun
-ms.openlocfilehash: 184fc65dae57292243be9abdca71a129512b3d0b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f5a0b0f71a72ea76940450f73354fda230e09c5c
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252060"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521050"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Övervaka Azure Cosmos DB-data med hjälp av diagnostikinställningar i Azure
 
@@ -34,25 +34,31 @@ Plattformsmått och aktivitetsloggar samlas in automatiskt, medan du måste skap
 
  * **DataPlaneRequests**: Välj det här alternativet för att logga backend-begäranden till alla API:er, som inkluderar SQL-, Graph-, MongoDB-, Cassandra- och Table API-konton i Azure Cosmos DB. Viktiga egenskaper att `Requestcharge`notera `statusCode` `clientIPaddress`är: `partitionID`, , och .
 
-    ```
+    ```json
     { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372","resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
     ```
 
-* **MongoRequests**: Välj det här alternativet för att logga användarinitierade begäranden från klientdelen för att hantera begäranden till Azure Cosmos DB:s API för MongoDB, den här loggtypen är inte tillgänglig för andra API-konton. MongoDB-begäranden visas i MongoRequests samt DataPlaneRequests. Viktiga egenskaper att `Requestcharge`notera `opCode`är: , .
+* **MongoRequests**: Välj det här alternativet för att logga användarinitierade begäranden från klientdelen för att betjäna begäranden till Azure Cosmos DB:s API för MongoDB. Den här loggtypen är inte tillgänglig för andra API-konton. Viktiga egenskaper att `Requestcharge`notera `opCode`är: , . När du aktiverar MongoRequests i diagnostikloggar, se till att stänga av DataPlaneRequests. Du skulle se en logg för varje begäran som görs på API: et.
 
-    ```
+    ```json
     { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
     ```
 
+* **CassandraRequests**: Välj det här alternativet för att logga användarinitierade begäranden från klientdelen för att betjäna begäranden till Azure Cosmos DB:s API för Cassandra. Den här loggtypen är inte tillgänglig för andra API-konton. De viktigaste egenskaperna `operationName`som `requestCharge` `piiCommandText`ska observeras är , , . När du aktiverar CassandraRequests i diagnostikloggar, se till att stänga av DataPlaneRequests. Du skulle se en logg för varje begäran som görs på API: et.
+
+   ```json
+   { "time": "2020-03-30T23:55:10.9579593Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "CassandraRequests", "operationName": "QuerySelect", "properties": {"activityId": "6b33771c-baec-408a-b305-3127c17465b6","opCode": "<empty>","errorCode": "-1","duration": "0.311900","requestCharge": "1.589237","databaseName": "system","collectionName": "local","retryCount": "<empty>","authorizationTokenType": "PrimaryMasterKey","address": "104.42.195.92","piiCommandText": "{"request":"SELECT key from system.local"}","userAgent": """"}}
+   ```
+
 * **QueryRuntimeStatistics**: Välj det här alternativet om du vill logga frågetexten som kördes. Den här loggtypen är endast tillgänglig för SQL API-konton.
 
-    ```
+    ```json
     { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
     ```
 
 * **PartitionKeyStatistics**: Välj det här alternativet för att logga statistik för partitionsnycklarna. Detta representeras för närvarande med lagringsstorleken (KB) för partitionsnycklarna. Se [felsökningsproblemen med hjälp av](#diagnostic-queries) azure diagnostic queries i den här artikeln. Till exempel frågor som använder "PartitionKeyStatistics". Loggen avges mot de tre första partitionsnycklarna som upptar de flesta datalagring. Den här loggen innehåller data som prenumerations-ID, regionnamn, databasnamn, samlingsnamn, partitionsnyckel och lagringsstorlek i KB.
 
-    ```
+    ```json
     { "time": "2019-10-11T02:33:24.2018744Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "PartitionKeyStatistics", "properties": {"subscriptionId": "<your_subscription_ID>","regionName": "West US 2","databaseName": "KustoQueryResults","collectionname": "CapacityMetrics","partitionkey": "["CapacityMetricsPartition.136"]","sizeKb": "2048270"}}
     ```
 

@@ -5,21 +5,21 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: include
-ms.date: 01/22/2020
+ms.date: 04/01/2020
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 0df38533afe97f010d1050c3ee2a4a69a54d4cc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0e8a5960da394b1eac1578d7f757b25995ff8faa
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334586"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80573148"
 ---
 | Resurs | Gräns |
 | --- | --- |
 | Dataflöde |30 Gbit/s<sup>1</sup> |
 |Regler|10,000. Alla regeltyper kombinerade.|
-|Högsta DNAT-regler|299|
+|Högsta DNAT-regler|298<br>Om en regels protokoll är konfigurerat för både TCP och UDP räknas det som två regler.|
 |Minsta AzureFirewallSubnet-storlek |/26|
 |Portintervall i nätverk och regler|0-64,000. Arbete pågår för att slappna av denna begränsning.|
 |Offentliga IP-adresser|100 maximalt (För närvarande läggs SNAT-portar till endast för de fem första offentliga IP-adresserna.)|

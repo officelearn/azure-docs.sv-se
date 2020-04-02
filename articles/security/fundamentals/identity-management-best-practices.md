@@ -3,7 +3,7 @@ title: Metodtips för Azure-identitet & åtkomstsäkerhet | Microsoft-dokument
 description: Den här artikeln innehåller en uppsättning metodtips för identitetshantering och åtkomstkontroll med hjälp av inbyggda Azure-funktioner.
 services: security
 documentationcenter: na
-author: barclayn
+author: terrylanfear
 manager: RKarlin
 editor: TomSh
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
-ms.author: barclayn
-ms.openlocfilehash: 52ef3a9b1df058d5d2e954b424094f9dbaeba15b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: terrylan
+ms.openlocfilehash: ffd9919092cdf2481767e58f10ba6525d56ca4a8
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73053346"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548458"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management och regelverk kring åtkomstkontroll och säkerhet
 
@@ -269,7 +269,7 @@ Utvärdera de konton som har tilldelats eller är berättigade till den globala 
 **Bästa praxis:** Kräv att alla kritiska administratörskonton ska vara lösenordslösa (föredras) eller kräva multifaktorautentisering.
 **Detalj:** Använd [Microsoft Authenticator-appen](/azure/active-directory/authentication/howto-authentication-phone-sign-in) för att logga in på ett Azure AD-konto utan att använda ett lösenord. Precis som [Windows Hello för företag](/windows/security/identity-protection/hello-for-business/hello-identity-verification)använder Microsoft Authenticator nyckelbaserad autentisering för att aktivera en användarautentiseringsidentifiering som är knuten till en enhet och använder biometrisk autentisering eller en PIN-kod.
 
-Kräv Azure Multi Factor-autentisering vid inloggning för alla enskilda användare som permanent tilldelas en eller flera av Azure AD-administratörsrollerna: Global administratör, Administratör för privilegierad roll, Exchange Online-administratör och SharePoint Online Administratör. Aktivera [multifaktorautentisering för dina administratörskonton](/azure/active-directory/authentication/howto-mfa-userstates) och se till att användare av administratörskonton har registrerat sig.
+Kräv Azure Multi-Factor-autentisering vid inloggning för alla enskilda användare som permanent tilldelas en eller flera av Azure AD-administratörsrollerna: Global administratör, Administratör för privilegierad roll, Exchange Online-administratör och SharePoint Online-administratör. Aktivera [multifaktorautentisering för dina administratörskonton](/azure/active-directory/authentication/howto-mfa-userstates) och se till att användare av administratörskonton har registrerat sig.
 
 **Bästa praxis**: Ha en administratörsarbetsstation för kritiska administratörskonton där produktionsuppgifter inte är tillåtna (till exempel surfning och e-post). Detta skyddar dina administratörskonton från angreppsvektorer som använder surfning och e-post och avsevärt minskar risken för en större incident.
 **Detalj**: Använd en administratörsarbetsstation. Välj en nivå av arbetsstationssäkerhet:

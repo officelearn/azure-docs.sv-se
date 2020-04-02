@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: 50501413a63921a9a34be1c04ed259990922b686
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae44ce77ce480cc1bc56ead5547e003d7d4bb39c
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70141473"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547590"
 ---
 # <a name="use-service-management-from-python"></a>Använda tjänsthantering från Python
 Den här guiden visar hur du programmässigt utför vanliga servicehanteringsuppgifter från Python. **Klassen ServiceManagementService** i [Azure SDK för Python](https://github.com/Azure/azure-sdk-for-python) stöder programmatisk åtkomst till en stor del av de tjänsthanteringsrelaterade funktioner som är tillgängliga i [Azure-portalen][management-portal]. Du kan använda den här funktionen för att skapa, uppdatera och ta bort molntjänster, distributioner, datahanteringstjänster och virtuella datorer. Den här funktionen kan vara användbar när du skapar program som behöver programmatisk åtkomst till tjänsthantering.
@@ -30,10 +30,10 @@ Api:et för Azure Service Management ger programmatisk åtkomst till en stor del
 Om du vill använda API:et för tjänsthantering måste du [skapa ett Azure-konto](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="concepts"></a><a name="Concepts"> </a>Begrepp
-Azure SDK för Python [radbryts API:et för tjänsthantering][svc-mgmt-rest-api], som är ett REST API. Alla API-åtgärder utförs via SSL och autentiseras ömsesidigt med hjälp av X.509 v3-certifikat. Hanteringstjänsten kan nås från en tjänst som körs i Azure. Den kan också nås direkt via Internet från alla program som kan skicka en HTTPS-begäran och få ett HTTPS-svar.
+Azure SDK för Python [radbryts API:et för tjänsthantering][svc-mgmt-rest-api], som är ett REST API. Alla API-åtgärder utförs via TLS och autentiseras ömsesidigt med hjälp av X.509 v3-certifikat. Hanteringstjänsten kan nås från en tjänst som körs i Azure. Den kan också nås direkt via Internet från alla program som kan skicka en HTTPS-begäran och få ett HTTPS-svar.
 
 ## <a name="installation"></a><a name="Installation"> </a>Installation
-Alla funktioner som beskrivs i `azure-servicemanagement-legacy` den här artikeln finns i paketet, som du kan installera med hjälp av pip. Mer information om installation (till exempel om du inte har tidigare i Python) finns i [Installera Python och Azure SDK](/azure/python/python-sdk-azure-install).
+Alla funktioner som beskrivs i `azure-servicemanagement-legacy` den här artikeln finns i paketet, som du kan installera med hjälp av pip. Mer information om installation (till exempel om du inte har tidigare i Python) finns i [Installera Python och Azure SDK](/azure/developer/python/azure-sdk-install).
 
 ## <a name="connect-to-service-management"></a><a name="Connect"> </a>Ansluta till tjänsthantering
 För att ansluta till slutpunkten för tjänsthantering behöver du ditt Azure-prenumerations-ID och ett giltigt hanteringscertifikat. Du kan få ditt prenumerations-ID via [Azure-portalen][management-portal].

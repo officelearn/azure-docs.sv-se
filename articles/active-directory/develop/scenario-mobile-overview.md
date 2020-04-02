@@ -1,6 +1,6 @@
 ---
 title: 'Skapa en mobilapp som anropar webb-API: er | Azure'
-titleSuffix: Microsoft identity platform
+titleSuffix: Microsoft identity platform | Azure
 description: Läs om hur du skapar en mobilapp som anropar webb-API:er (översikt)
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6675d67299091325fcc3e12572a906716bf5b88d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: acd44298e401aabaef03f5ddd84f37f32a3d8bcd
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77132425"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546097"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Scenario: Mobilprogram som anropar webb-API:er
 
@@ -53,13 +53,14 @@ En personlig och sömlös användarupplevelse är avgörande för mobilappar.  M
 - **Användarupplevelsen är nyckeln:** Tillåt användare att se värdet på din app innan du ber om inloggning. Begär endast de behörigheter som krävs.
 - **Stöd för alla användarkonfigurationer:** Många mobila företagsanvändare måste följa principer för villkorlig åtkomst och principer för enhetsefterlevnad. Var noga med att stödja dessa viktiga scenarier.
 - **Implementera enkel inloggning (SSO):** Genom att använda MSAL- och Microsoft-identitetsplattform kan du aktivera enkel inloggning via enhetens webbläsare eller Microsoft Authenticator (och Intune Company Portal på Android).
+- **Implementera läget delad enhet:** Aktivera ditt program så att det används i scenarier med delade enheter, till exempel sjukhus, tillverkning, detaljhandel och ekonomi. [Läs mer om att stödja läget för delade enheter](msal-shared-devices.md).
 
 ## <a name="specifics"></a>Detaljerna
 
 Tänk på följande när du skapar en mobilapp på Microsofts identitetsplattform:
 
 - Beroende på plattformen kan viss användarinteraktion krävas första gången som användare loggar in. IOS kräver till exempel att appar visar användarinteraktion när de använder SSO för första gången via Microsoft Authenticator (och Intune Company Portal på Android).
-- På iOS och Android kan MSAL använda en extern webbläsare för att logga in användare. Den externa webbläsaren kan visas ovanpå appen. Du kan anpassa konfigurationen så att den använder WebViews i appen i stället.
+- På iOS och Android kan MSAL använda en extern webbläsare för att logga in användare. Den externa webbläsaren kan visas ovanpå appen.
 - Använd aldrig en hemlighet i en mobilapplikation. I dessa program är hemligheter tillgängliga för alla användare.
 
 ## <a name="next-steps"></a>Nästa steg

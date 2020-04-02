@@ -1,27 +1,20 @@
 ---
-title: Använda CLI för att distribuera virtuella Azure Spot-datorer (förhandsversion)
+title: Använda CLI för att distribuera virtuella Azure Spot-datorer
 description: Lär dig hur du använder CLI för att distribuera virtuella Azure Spot-datorer för att spara kostnader.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2020
+ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 110e935671ab1d640b2ff3dc26c203b262e999fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b6a07bfbcf56f3ca78fa4991e7741a3d44c25b9
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77163100"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80544359"
 ---
-# <a name="preview-deploy-spot-vms-using-the-azure-cli"></a>Förhandsversion: Distribuera spot-datorer med Azure CLI
+# <a name="deploy-spot-vms-using-the-azure-cli"></a>Distribuera spot-datorer med Azure CLI
 
 Med hjälp av [virtuella Azure Spot-datorer](spot-vms.md) kan du dra nytta av vår outnyttjade kapacitet till en betydande kostnadsbesparingar. När som helst när Azure behöver tillbaka kapaciteten kommer Azure-infrastrukturen att ta bort spot-datorer. Därför är spot-virtuella datorer bra för arbetsbelastningar som kan hantera avbrott som batchbearbetningsjobb, utvecklings-/testmiljöer, stora beräkningsarbetsbelastningar med mera.
 
@@ -30,12 +23,6 @@ Priserna för spot-virtuella datorer varierar, baserat på region och SKU. Mer i
 Du har möjlighet att ställa in ett maxpris som du är villig att betala, per timme, för den virtuella datorn. Maxpriset för en spot-VM kan ställas in i US-dollar (USD), med upp till 5 decimaler. Värdet `0.98765`skulle till exempel vara ett maxpris på 0,98765 USD per timme. Om du ställer in `-1`maxpriset så kommer den virtuella datorn inte att vräkas baserat på priset. Priset för den virtuella datorn blir det aktuella priset för Spot eller priset för en vanlig virtuell dator, som någonsin är mindre, så länge det finns kapacitet och kvot tillgänglig. Mer information om hur du anger maxpriset finns i [Spot-virtuella datorer - Prissättning](spot-vms.md#pricing).
 
 Processen för att skapa en virtuell dator med Spot med Azure CLI är samma som beskrivs i [snabbstartsartikeln](/azure/virtual-machines/linux/quick-create-cli). Lägg bara till parametern "--priority Spot" `-1`och ge ett maxpris eller .
-
-> [!IMPORTANT]
-> Spot-instanser är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-
 
 
 ## <a name="install-azure-cli"></a>Installera Azure CLI

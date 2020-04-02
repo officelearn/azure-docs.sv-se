@@ -2,13 +2,14 @@
 title: Stöd för fysisk servermigrering i Azure Migrate
 description: Läs mer om stöd för fysisk servermigrering i Azure Migrate.
 ms.topic: conceptual
+ms.custom: fasttrack-edit
 ms.date: 01/07/2020
-ms.openlocfilehash: e55cf6dddbc8dafd33b444e4a0dbe378d807aea1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f8b94ab77a1eef8e771384f5d69da98a1d7ae6c
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79269554"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520290"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Stödmatris för fysisk servermigrering
 
@@ -43,7 +44,7 @@ Tabellen sammanfattar stöd för fysiska servrar som du vill migrera med hjälp 
 **Nätverk/lagring** | Den senaste informationen finns i [nätverks-](../site-recovery/vmware-physical-azure-support-matrix.md#network) och [lagringsförutsättningarna](../site-recovery/vmware-physical-azure-support-matrix.md#storage) för webbplatsåterställning. Azure Migrate innehåller identiska nätverks-/lagringskrav.
 **Krav för Azure** | Den senaste informationen finns i [Azure-nätverket,](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover) [lagrings-](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)och [beräkningskraven](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) för site recovery. Azure Migrate har identiska krav för fysisk servermigrering.
 **Mobilitetstjänst** | Mobilitetsserviceagenten måste installeras på varje dator som du vill migrera.
-**UEFI-start** | Den migrerade datorn i Azure konverteras automatiskt till en BIOS-start azure VM.<br/><br/> OS-disken ska ha upp till fyra partitioner och volymerna ska formateras med NTFS.
+**UEFI-start** | Den migrerade datorn i Azure konverteras automatiskt till en BIOS-start azure VM. Endast server som kör Windows Server 2012 och senare stöds.<br/><br/> OS-disken ska ha upp till fyra partitioner och volymerna ska formateras med NTFS.
 **Måldisk** | Datorer kan bara migreras till hanterade diskar (standard HDD, premium SSD) i Azure.
 **Diskstorlek** | 2 TB OS-disk; 8 TB för datadiskar.
 **Diskgränser** |  Upp till 63 diskar per dator.

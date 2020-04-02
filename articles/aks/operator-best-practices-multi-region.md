@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 894ec4e543f0c68cc652141d2c1578cda61d7f42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c1f0bb715b3c3bf9b3a3350ab11e26834aa84c8
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77594761"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528649"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Metodtips för kontinuitet och haveriberedskap i Azure Kubernetes Service (AKS)
 
@@ -59,7 +59,7 @@ Information om hur du ställer in slutpunkter och routning finns i [Konfigurera 
 
 ### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Layer 7-programroutning med Azure Front Door Service
 
-Traffic Manager använder DNS (lager 3) för att forma trafik. [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) tillhandahåller ett HTTP/HTTPS-routningsalternativ (layer 7). Ytterligare funktioner i Azure Front Door Service inkluderar SSL-avslutning, anpassad domän, brandvägg för webbprogram, URL-omskrivning och sessionstillhörighet. Granska behoven hos din programtrafik för att förstå vilken lösning som är mest lämplig.
+Traffic Manager använder DNS (lager 3) för att forma trafik. [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) tillhandahåller ett HTTP/HTTPS-routningsalternativ (layer 7). Ytterligare funktioner i Azure Front Door Service inkluderar TLS-avslutning, anpassad domän, brandvägg för webbprogram, URL-omskrivning och sessionstillhörighet. Granska behoven hos din programtrafik för att förstå vilken lösning som är mest lämplig.
 
 ### <a name="interconnect-regions-with-global-virtual-network-peering"></a>Koppla samman regioner med global virtuell nätverks peering
 
@@ -122,7 +122,7 @@ Den typiska strategin är att tillhandahålla en gemensam lagringsplats där pro
 Om du använder Azure Managed Disks kan du välja replikerings- och DR-lösningar som dessa:
 
 * [Velero på Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
-* [Återställning av Azure-webbplatser](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
+* [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
 
 ### <a name="application-based-asynchronous-replication"></a>Programbaserad asynkron replikering
 

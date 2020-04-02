@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: 9f694f3f0ec740d0a4e8dc4e6bf8845c408802c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61a85b2554bbd69541b3081f72525d2b7deed625
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75897850"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529237"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importera eller exportera en Azure SQL-databas utan att låta Azure-tjänster komma åt servern
 
@@ -61,7 +61,7 @@ Följande steg visar hur du ansluter till din virtuella dator med hjälp av en f
 
 4. Stäng formuläret **Anslut till virtuell dator.**
 5. Öppna den hämtade RDP-filen för att ansluta till den virtuella datorn.
-6. När du uppmanas till det väljer du **Anslut**. På en Mac-dator behöver du en RDP-klient som denna [Fjärrskrivbordsklient](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) från Mac App Store.
+6. När du uppmanas till det väljer du **Anslut**. På en Mac-dator behöver du en RDP-klient som denna [Fjärrskrivbordsklient](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12) från Mac App Store.
 
 7. Ange det användarnamn och lösenord som du angav när du skapade den virtuella datorn och välj sedan **OK**.
 

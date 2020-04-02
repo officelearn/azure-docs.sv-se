@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/13/2019
+ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 53bbee6dd75e045c2a7e95c88a0138c9859d12db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad36547b0cf9457d7ff4fdd919a0bb1362539eb5
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80374054"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80522728"
 ---
 Den här artikeln besvarar några vanliga frågor om Azure Managed Disks och Azure Premium SSD-diskar.
 
@@ -409,11 +409,11 @@ Det finns ingen nackdel med användningen av TRIM på Azure-diskar på antingen 
 
 **Vilka regioner stöder sprängningsfunktioner för tillämplig premium-SSD-diskstorlek?**
 
-Sprängningsfunktionen stöds för närvarande i Azure West Central US.
+Sprängningsfunktionen stöds för närvarande i alla regioner i Azure Public Cloud, med stöd för suveräna moln som kommer snart. 
 
 **Vilka regioner stöds 4/8/16 GiB Managed Disk storlekar (P1/P2/P3, E1/E2/E3) i?**
 
-Dessa nya diskstorlekar stöds för närvarande i Azure West Central US.
+Dessa nya diskstorlekar stöds för närvarande i alla regioner i Azure Public Cloud, med stöd för suveräna moln som kommer snart. 
 
 **Stöds P1/P2/P3-diskstorlekar för ohanterat diskar eller sidblobar?**
 

@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 01/21/2020
 ms.author: diberry
-ms.openlocfilehash: 850ab0ee89ee167886d8747a0c721bb643529e14
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ac6d72cbb69796851e58098138d51bb0988be4ec
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80052082"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520977"
 ---
 # <a name="what-is-personalizer"></a>Vad är Personanpassning?
 
@@ -59,7 +59,7 @@ Personalizer används förstärkning lärande för att välja den enskilt bästa
 
 Personalizer's **Rank** [API](https://go.microsoft.com/fwlink/?linkid=2092082) anropas varje _gång_ du presenterar innehåll, i realtid. Detta kallas en **händelse**, som noteras med ett _händelse-ID_.
 
-Personalizer's **Reward** [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) kan anropas i realtid eller försenas för att bättre passa din infrastruktur. Du bestämmer belöningspoängen baserat på dina affärsbehov. Det kan vara ett enda värde som 1 för gott och 0 för dåligt, eller ett nummer som produceras av en algoritm som du skapar med tanke på dina affärsmål och mått.
+Personalizer's **Reward** [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) kan anropas i realtid eller försenas för att bättre passa din infrastruktur. Du bestämmer belöningspoängen baserat på dina affärsbehov. Belöningspoängen är mellan 0 och 1. Det kan vara ett enda värde som 1 för gott och 0 för dåligt, eller ett nummer som produceras av en algoritm som du skapar med tanke på dina affärsmål och mått.
 
 ## <a name="personalizer-content-requirements"></a>Krav på personaliserarinnehåll
 

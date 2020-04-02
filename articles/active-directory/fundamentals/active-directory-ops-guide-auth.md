@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: bc5824fcb62477d4e6dc6c2b7390b1bfa916094f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b4ec003888d75a582d25feef8ed2ce010fa7996
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77368057"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546240"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Referensguide för Azure Active Directory-autentiseringsåtgärder
 
@@ -101,7 +101,7 @@ Om din lokala organisation saknar en strategi för återhämtning av avbrott ell
 
 ![synkroniseringsflöde för lösenord hash](./media/active-directory-ops-guide/active-directory-ops-img5.png)
 
-Information om hur du bättre förstår dina autentiseringsalternativ finns i [Välja rätt autentiseringsmetod för azure Active Directory-hybrididentitetslösningen](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
+Information om hur du bättre förstår dina autentiseringsalternativ finns i [Välja rätt autentiseringsmetod för azure Active Directory-hybrididentitetslösningen](https://docs.microsoft.com/azure/active-directory/hybrid/choose-ad-authn).
 
 ### <a name="programmatic-usage-of-credentials"></a>Programmatisk användning av autentiseringsuppgifter
 
@@ -115,7 +115,7 @@ Microsoft rekommenderar också att du kontaktar programägare för att förstå 
 
 ### <a name="on-premises-authentication"></a>Lokal autentisering
 
-Federerad autentisering med integrerad Windows-autentisering (IWA) eller SSO-hanterad autentisering (Seamless Single Sign-On) med synkronisering av lösenord hash- eller vidareströmning är den bästa användarupplevelsen när du är inne i företagsnätverket med siktlinje till lokala domänkontrollanter. Det minimerar autentiseringsuppgifter snabb trötthet och minskar risken för användare faller offer för phishing-attacker. Om du redan använder molnhanterad autentisering med PHS eller PTA, men användarna fortfarande måste skriva in sitt lösenord när de autentiserar lokalt, bör du omedelbart [distribuera Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso). Å andra sidan, om du för närvarande är federerad med planer på att så småningom migrera till molnhanterad autentisering, bör du implementera Sömlös SSO som en del av migreringsprojektet.
+Federerad autentisering med integrerad Windows-autentisering (IWA) eller SSO (Seamless Single Sign-On) hanterad autentisering med lösenordsh/H-synkronisering eller vidareströmningsautentisering är den bästa användarupplevelsen när du är inne i företagsnätverket med siktlinje till lokala domänkontrollanter. Det minimerar autentiseringsuppgifter snabb trötthet och minskar risken för användare faller offer för phishing-attacker. Om du redan använder molnhanterad autentisering med PHS eller PTA, men användarna fortfarande måste skriva in sitt lösenord när de autentiserar lokalt, bör du omedelbart [distribuera Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso). Å andra sidan, om du för närvarande är federerad med planer på att så småningom migrera till molnhanterad autentisering, bör du implementera Sömlös SSO som en del av migreringsprojektet.
 
 ### <a name="device-trust-access-policies"></a>Principer för åtkomst till enhetsförtroende
 
@@ -230,11 +230,11 @@ Om du redan äger Azure AD Premium P2-licenser som stöder användning av risker
 
 Microsoft Intune Application Management (MAM) ger möjlighet att driva dataskyddskontroller som lagringskryptering, PIN-kod, fjärrlagringsrensning etc. till kompatibla klientmobilprogram som Outlook Mobile. Dessutom kan principer för villkorlig åtkomst skapas för att [begränsa åtkomsten](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) till molntjänster som Exchange Online från godkända eller kompatibla appar.
 
-Om dina anställda installerar MAM-kompatibla program som Office-mobilappar för att komma åt företagsresurser som Exchange Online eller SharePoint Online, och du även stöder BYOD (ta med din egen enhet), rekommenderar vi att du distribuerar MAM-principer för program för att hantera programkonfigurationen på personligt ägda enheter utan MDM-registrering och sedan uppdatera dina principer för villkorlig åtkomst så att de endast tillåter åtkomst från MAM-kompatibla klienter.
+Om dina anställda installerar MAM-kompatibla program som Office-mobilappar för att komma åt företagsresurser som Exchange Online eller SharePoint Online, och du även stöder BYOD (ta med din egen enhet), rekommenderar vi att du distribuerar MAM-principer för program för att hantera programkonfigurationen på personligt ägda enheter utan MDM-registrering och sedan uppdaterar dina principer för villkorlig åtkomst så att de endast tillåter åtkomst från MAM-kompatibla klienter.
 
 ![Bevilja villkorad åtkomst](./media/active-directory-ops-guide/active-directory-ops-img12.png)
 
-Om anställda installerar MAM-kapabla program mot företagsresurser och åtkomsten är begränsad på Intune-hanterade enheter bör du överväga att distribuera MAM-principer för program för att hantera programkonfigurationen för personliga enheter och uppdatera principer för villkorlig åtkomst så att de bara tillåter åtkomst från MAM-kompatibla klienter.
+Om anställda installerar MAM-kompatibla program mot företagsresurser och åtkomsten är begränsad på Intune-hanterade enheter bör du överväga att distribuera MAM-principer för program för att hantera programkonfigurationen för personliga enheter och uppdatera principer för villkorlig åtkomst så att de endast tillåter åtkomst från MAM-kompatibla klienter.
 
 ### <a name="conditional-access-implementation"></a>Implementering av villkorlig åtkomst
 
@@ -329,7 +329,7 @@ Nedan finns de användar- och gruppinställningar som kan låsas om det inte fin
 #### <a name="user-settings"></a>Användarinställningar
 
 - **Externa användare** – externt samarbete kan ske organiskt i företaget med tjänster som Teams, Power BI, Sharepoint Online och Azure Information Protection. Om du har uttryckliga begränsningar för att styra det externa samarbetet som initierats av användaren rekommenderar vi att du aktiverar externa användare genom att använda hantering av [Azure AD-berättigande](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) eller en kontrollerad åtgärd, till exempel via supportavdelningen. Om du inte vill tillåta organiskt externt samarbete för tjänster kan du blockera medlemmar från att [bjuda in externa användare helt](https://docs.microsoft.com/azure/active-directory/b2b/delegate-invitations). Du kan också [tillåta eller blockera specifika domäner](https://docs.microsoft.com/azure/active-directory/b2b/allow-deny-list) i externa användaranbjudningar.
-- **Appregistreringar** – när appregistreringar är aktiverade kan slutanvändare själva registrera program och ge åtkomst till sina data. Ett typiskt exempel på appregistrering är användare som aktiverar Outlook-plugin-program eller röstassistenter som Alexa och Siri för att läsa sin e-post och kalender eller skicka e-postmeddelanden för deras räkning. Om kunden bestämmer sig för att inaktivera Appregistrering måste InfoSec- och IAM-teamen vara involverade i hanteringen av undantag (appregistreringar som behövs baserat på affärskrav), eftersom de skulle behöva registrera programmen med ett administratörskonto, och troligen kräver att utforma en process för att operationalisera processen.
+- **Appregistreringar** – när appregistreringar är aktiverade kan slutanvändare själva registrera program och ge åtkomst till sina data. Ett typiskt exempel på appregistrering är användare som aktiverar Outlook-plugin-program eller röstassistenter som Alexa och Siri för att läsa sin e-post och kalender eller skicka e-postmeddelanden för deras räkning. Om kunden bestämmer sig för att inaktivera Appregistrering måste InfoSec- och IAM-teamen vara involverade i hanteringen av undantag (appregistreringar som behövs baserat på affärskrav), eftersom de skulle behöva registrera programmen med ett administratörskonto och troligen kräva att du utformar en process för att operationalisera processen.
 - **Administrationsportal -** organisationer kan låsa Azure AD-bladet i Azure-portalen så att icke-administratörer inte kan komma åt Azure AD-hantering i Azure-portalen och bli förvirrade. Gå till användarinställningarna i Azure AD-hanteringsportalen för att begränsa åtkomsten:
 
 ![Begränsad åtkomst till administrationsportalen](./media/active-directory-ops-guide/active-directory-ops-img13.png)

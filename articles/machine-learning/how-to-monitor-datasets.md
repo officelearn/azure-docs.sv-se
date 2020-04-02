@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/04/2019
-ms.openlocfilehash: 401019c537cb0eb51fa6002637e170a79210f7d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a7a89b4ff1f6deb94c545e64b4584d7959d573a
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77617637"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546383"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Identifiera datadrift (förhandsgranskning) på datauppsättningar
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -77,7 +77,7 @@ Måldatauppsättningen måste ha `timeseries` egenskapen inställd på den genom
 
 #### <a name="python-sdk"></a>Python SDK
 
-Klassens [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) metod definierar tidsstämpelkolumnen för datauppsättningen. 
+Klassens [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) metod definierar tidsstämpelkolumnen för datauppsättningen. 
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -104,7 +104,7 @@ dset = dset.with_timestamp_columns('date')
 dset = dset.register(ws, 'target')
 ```
 
-Ett fullständigt exempel på `timeseries` hur du använder datauppsättningarnas egenskap finns i [exempelboken](https://aka.ms/azureml-tsd-notebook) eller [datauppsättningar SDK-dokumentationen](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-).
+Ett fullständigt exempel på `timeseries` hur du använder datauppsättningarnas egenskap finns i [exempelboken](https://aka.ms/azureml-tsd-notebook) eller [datauppsättningar SDK-dokumentationen](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
 #### <a name="azure-machine-learning-studio"></a>Azure Machine Learning-studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]

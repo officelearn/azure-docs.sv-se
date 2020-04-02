@@ -4,12 +4,12 @@ description: Lär dig hur du använder Azure AD i Azure Automation som leverant�
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 77476c67761a950430b39d5baddf2c6efd77f1a2
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 90338a1ffa79e6c2347832cb2e74633db02ec72d
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80479453"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548340"
 ---
 # <a name="use-azure-ad-in-azure-automation-to-authenticate-to-azure"></a>Använda Azure AD i Azure Automation för att autentisera till Azure
 

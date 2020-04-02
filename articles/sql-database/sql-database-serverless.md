@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 3/11/2020
-ms.openlocfilehash: 8a72d3dc7f7b3fddf66df8111b1e92116a62883a
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 00b9da150569db2972289468b1405e5087ee3321
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474023"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549147"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database serverlös
 
@@ -151,7 +151,7 @@ Svarstiden för autosvar och autopause en serverlös databas är i allmänhet or
 
 ### <a name="customer-managed-transparent-data-encryption-byok"></a>Kundhanterad transparent datakryptering (BYOK)
 
-Om du använder [klienthanterad transparent datakryptering](transparent-data-encryption-byok-azure-sql.md) (BYOK) och den serverlösa databasen pausas automatiskt när nyckelborttagning eller återkallning sker, förblir databasen i automatiskt pausat tillstånd.  I det här fallet, när databasen nästa gång återupptas, förblir databasen online tills dess status övergår till otillgänglig efter cirka 10 minuter eller mindre.  När databasen blir otillgänglig är återställningsprocessen densamma som för etablerade beräkningsdatabaser.  Om den serverlösa databasen är online när nyckelborttagning eller återkallning sker blir databasen också otillgänglig efter cirka 10 minuter eller mindre på samma sätt som med etablerade beräkningsdatabaser.
+Om du använder [klienthanterad transparent datakryptering](transparent-data-encryption-byok-azure-sql.md) (BYOK) och den serverlösa databasen pausas automatiskt när nyckelborttagning eller återkallning sker, förblir databasen i automatiskt pausat tillstånd.  I det här fallet, när databasen har återupptagits, blir databasen otillgänglig inom cirka 10 minuter.  När databasen blir otillgänglig är återställningsprocessen densamma som för etablerade beräkningsdatabaser.  Om den serverlösa databasen är online när nyckelborttagning eller återkallning sker blir databasen också otillgänglig efter cirka 10 minuter eller mindre på samma sätt som med etablerade beräkningsdatabaser.
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>Introduktion till serverlös beräkningsnivå
 

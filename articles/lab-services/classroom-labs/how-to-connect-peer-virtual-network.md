@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: spelluru
-ms.openlocfilehash: 56c31e03eeec0c81207dc402e864eadec2d768bd
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 224526efc2152e0b788c5cbc7f3bd60bb3363c1a
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474074"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545714"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Ansluta labbets nätverk med ett virtuellt peer-nätverk i Azure Lab Services 
 Den här artikeln innehåller information om peering ditt labbnätverk med ett annat nätverk. 
@@ -34,7 +34,7 @@ Du kan behöva ansluta labbets nätverk till ett virtuellt peer-nätverk i vissa
 Vissa lokala nätverk är anslutna till Azure Virtual Network antingen via [ExpressRoute](../../expressroute/expressroute-introduction.md) eller [Virtual Network Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md). Dessa tjänster måste ställas in utanför Azure Lab Services. Mer information om hur du ansluter ett lokalt nätverk till Azure med ExpressRoute finns i [Översikt över ExpressRoute](../../expressroute/expressroute-introduction.md). För lokal anslutning med hjälp av en virtuell nätverksgateway måste gatewayen, det angivna virtuella nätverket och labbkontot alla finnas i samma region.
 
 > [!NOTE]
-> När du skapar ett virtuellt Azure-nätverk som ska peeras med ett labbkonto är det viktigt att förstå hur det virtuella nätverkets region påverkar var klassrumslabb skapas.  Mer information finns i administratörsguidens avsnitt om [regioner\platser](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#regions-or-locations).
+> När du skapar ett virtuellt Azure-nätverk som ska peeras med ett labbkonto är det viktigt att förstå hur det virtuella nätverkets region påverkar var klassrumslabb skapas.  Mer information finns i administratörsguidens avsnitt om [regioner\platser](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#regionslocations).
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Konfigurera vid tidpunkten för skapandet av labbkonto
 När det nya labbkontot skapas kan du välja ett befintligt virtuellt nätverk som visas i listrutan **Peer-virtuellt nätverk** på fliken **Avancerat.** Det valda virtuella nätverket är anslutet (peer-peer) till labb som skapats under labbkontot. Alla virtuella datorer i labb som skapas efter att den här ändringen har åtkomst till resurserna i det peer-indelade virtuella nätverket. 

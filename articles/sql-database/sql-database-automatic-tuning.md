@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: d4762c86268353ff0464ff3919250cd86f0038d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: 7488fd5f8a572788933856f03bb0ad4351885704
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79214106"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518227"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Automatisk justering i Azure SQL Database
 
@@ -69,7 +69,7 @@ Automatiska justeringsalternativ som är tillgängliga i Azure SQL Database är:
 
 Automatisk justering för enskilda och poolade databaser använder rekommendationerna **SKAPA INDEX,** **DROP INDEX**och FORCE LAST **GOOD PLAN** för att optimera databasens prestanda. Mer information finns [i rekommendationer för databasrådgivare i Azure-portalen,](sql-database-advisor-portal.md)i [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction)och i [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
 
-Du kan antingen manuellt tillämpa justeringsrekommendationer med hjälp av Azure-portalen eller så kan du låta automatisk justering autonomt tillämpa justeringsrekommendationer för dig. Fördelarna med att låta systemet självständigt tillämpa tuning rekommendationer för dig är att det automatiskt validerar det finns en positiv vinst för arbetsbelastningen prestanda, och om det inte finns någon betydande prestandaförbättring upptäckt, kommer det automatiskt tillbaka justeringsrekommendationen. Observera att om frågor som påverkas av justeringsrekommendationer som inte körs ofta, kan valideringsfasen ta upp till 72 timmar avsiktligt.
+Du kan antingen manuellt tillämpa justeringsrekommendationer med hjälp av Azure-portalen eller så kan du låta automatisk justering autonomt tillämpa justeringsrekommendationer för dig. Fördelarna med att låta systemet självständigt tillämpa justeringsrekommendationer för dig är att det automatiskt validerar det finns en positiv vinst för arbetsbelastningens prestanda, och om det inte finns någon betydande prestandaförbättring upptäckt, kommer det automatiskt att återställa justeringsrekommendationen. Observera att om frågor som påverkas av justeringsrekommendationer som inte körs ofta, kan valideringsfasen ta upp till 72 timmar avsiktligt.
 
 Om du tillämpar justeringsrekommendationer via T-SQL är automatisk prestandavalidering och återföringsmekanismer inte tillgängliga. Rekommendationer som tillämpas på ett sådant sätt kommer att förbli aktiva och visas i listan över tuning rekommendationer för 24-48 timmar. innan systemet automatiskt drar tillbaka dem. Om du vill ta bort en rekommendation tidigare kan du ignorera den från Azure-portalen.
 
@@ -93,3 +93,4 @@ Automatisk justering för instansdatabaser i en hanterad instansdistribution st�
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information om inbyggd intelligens som används i automatisk justering finns i [Artificiell intelligens låtar Azure SQL-databaser](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
+- Mer information om hur automatisk justering fungerar under huven finns i [Indexera flera databaser automatiskt i Microsoft Azure SQL Database](https://www.microsoft.com/en-us/research/uploads/prod/2019/02/autoindexing_azuredb.pdf).

@@ -1,5 +1,5 @@
 ---
-title: 'Interoperabilitet i Azure backend-anslutningsfunktioner: Dataplananalys | Microsoft-dokument'
+title: 'Interoperabilitet i Azure : Dataplananalys'
 description: Den här artikeln innehåller dataplananalys av testinställningarna som du kan använda för att analysera interoperabilitet mellan ExpressRoute, en VPN från plats till plats och virtuell nätverks peering i Azure.
 documentationcenter: na
 services: networking
@@ -10,14 +10,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 815976c672272270e465610e17fef3aea79387f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe7b74b0d4d065d4f222fefbbdc4a1d434d1163b
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77526645"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518253"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Interoperabilitet i Azure backend-anslutningsfunktioner: Dataplananalys
+# <a name="interoperability-in-azure--data-plane-analysis"></a>Interoperabilitet i Azure : Dataplananalys
 
 I den här artikeln beskrivs dataplananalysen av [testinställningen][Setup]. Du kan också granska [testinställningskonfigurationen][Configuration] och [kontrollplansanalysen][Control-Analysis] av testkonfigurationen.
 

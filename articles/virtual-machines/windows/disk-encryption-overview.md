@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 05db717f5d3adc2429431503f588f2cc7f79aef6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e00fee8841a2d5a817a00b942bfe0733a80b2cfc
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266785"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546327"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Virtuella Azure-diskkryptering för virtuella Windows-datorer 
 
@@ -30,11 +30,13 @@ Du kan lära dig grunderna i Azure Disk Encryption för Windows på bara några 
 
 ## <a name="supported-vms-and-operating-systems"></a>Virtuella datorer och operativsystem som stöds
 
-### <a name="supported-vm-sizes"></a>VM-storlekar som stöds
+### <a name="supported-vms"></a>Virtuella datorer som stöds
 
 Virtuella datorer i Windows finns i en [rad olika storlekar](sizes-general.md). Azure Disk Encryption är inte tillgängligt på [virtuella datorer i Basic, A-serien](https://azure.microsoft.com/pricing/details/virtual-machines/series/)eller på virtuella datorer med mindre än 2 GB minne.
 
 Azure Disk Encryption är också tillgängligt för virtuella datorer med premiumlagring.
+
+Azure Disk Encryption är inte tillgängligt på [virtuella datorer i generation 2 )](generation-2.md#generation-1-vs-generation-2-capabilities)och virtuella datorer i [Lsv2-serien](../lsv2-series.md)). Fler undantag finns i [Azure Disk Encryption: Scenarier som inte stöds](disk-encryption-windows.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Operativsystem som stöds
 

@@ -3,16 +3,16 @@ title: Förhandsgranskning av begränsningar och kvoter IoT Plug and Play | Micr
 description: Förstå de gränser, kvoter och begränsning som gäller när du använder IoT Plug and Play Preview.
 author: miagdp
 ms.author: miag
-ms.date: 12/26/2019
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 48ecaaba6d956efd9da75d0582fa06d231cb3f80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cce99b7d9de09134fd01afb36c41bce3966e8536
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75531385"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518174"
 ---
 # <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>IoT Plug and Play Preview gränser, kvoter och begränsningar
 
@@ -27,19 +27,19 @@ För den offentliga förhandsversionen gäller följande begränsningar och kvot
 | Antal enhetsfunktioner (DCMs) eller gränssnitt som kan registreras per hubb | 1500 ||
 | Maximalt antal gränssnitt som kan registreras per enhet | 40 ||
 | Maximalt antal DCM:er som kan registreras per enhet | 1 ||
-| Maximal storlek på gränssnitt/DCM-fil | 512 tecken ||
+| Maximal storlek på gränssnitt/DCM-fil | 512 kB ||
 | Maximal storlek på ett gränssnittsnamn | 256 tecken ||
 | Maximal storlek på ett egenskapsnamn  | 64 byte, 7 nivåer på djupet (och `$iotin`den första nivån är reserverad för) | Tillåtna tecken: a-z, A-Ö, 0-9 (inte som det första tecknet) och understreck. |
 | Maximal storlek för ett egenskapsvärde | 512 byte ||
 | Maximal storlek för ett kommandonamn | 100 byte ||
 | Enhetens dubbla storlek | Samma som [IoT Hub Limits](../iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) ||
-| Lösning API-anrop över SKU (oavsett enheter) | 100 begäran/sekund ||
+| Lösning API-anrop över SKU (oavsett enheter) | 100 begäranden/sekund ||
 
 ## <a name="model-repository"></a>Modelldatabas
 
 För den offentliga förhandsversionen gäller följande begränsningar och kvoter för en modelldatabas:
 
-| Begränsningar, begränsningar och gasreglage| Värde |
+| Begränsningar, begränsningar och gasreglage | Värde |
 |-----|-----|
 | Antal företagsmodelldatabaser per Azure Active Directory-klient | 1 |
 | Antal auktoriseringsnycklar per modelldatabas | 10  |

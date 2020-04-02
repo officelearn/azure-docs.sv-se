@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 2/18/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 6ba48f3c40e45afa02e03a7589e968cca723118e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9bc191bb27ebb0bac631ef5cfa8ddc34bbd8214e
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79249521"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520892"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure-portalen
 En åtgärdsgrupp är en samling meddelandeinställningar som definieras av ägaren till en Azure-prenumeration. Azure Monitor och Service Health-aviseringar använder åtgärdsgrupper för att meddela användarna att en avisering har utlösts. Olika aviseringar kan använda samma åtgärdsgrupp eller olika åtgärdsgrupper beroende på användarens krav. Du kan konfigurera upp till 2 000 åtgärdsgrupper i en prenumeration.
@@ -52,7 +52,7 @@ Information om hur du använder Azure Resource Manager-mallar för att konfigure
 
     1. **Namn**: Ange en unik identifierare för den här åtgärden.
 
-    1. **Åtgärdstyp:** Välj E-post/SMS/Push/Voice, Logic App, Webhook, ITSM eller Automation Runbook.
+    1. **Åtgärdstyp:** Välj Automation Runbook, Azure-funktion, Azure Resource Manager-roll e-post,E-post/SMS/Push/Voice, ITSM, Logic App, Secure Webhook, Webhook.
 
     1. **Information:** Baserat på åtgärdstypen anger du ett telefonnummer, en e-postadress, webhook URI, Azure-app, ITSM-anslutning eller Automation-runbook. För ITSM-åtgärd anger du dessutom **arbetsobjekt** och andra fält som ITSM-verktyget kräver.
     

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: bc4694928eceed57692a0d4b0469543c1a8f9678
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/1/2020
+ms.openlocfilehash: 6ca09ab0578fb88e443d6e9e1f920c22457eb042
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79532764"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548470"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Begränsningar i Azure Database för MySQL
 I följande avsnitt beskrivs kapacitet, stöd för lagringsmotor, behörighetsstöd, stöd för datamanipuleringsuttalande och funktionsgränser i databastjänsten. Se även [allmänna begränsningar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) som gäller för MySQL-databasmotorn.
@@ -150,6 +150,10 @@ Läs [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-syst
 |Minnesoptimerad|8|16777216|1024|536870912|
 |Minnesoptimerad|16|16777216|1024|1073741824|
 |Minnesoptimerad|32|16777216|1024|1073741824|
+
+### <a name="time_zone"></a>time_zone
+
+Tidszonstabellerna kan fyllas i `mysql.az_load_timezone` genom att anropa den lagrade proceduren från ett verktyg som mysql-kommandoraden eller MySQL Workbench. Se [Azure-portalen](howto-server-parameters.md#working-with-the-time-zone-parameter) eller [Azure CLI-artiklarna](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) för hur du anropar den lagrade proceduren och anger tidszoner på global nivå eller sessionsnivå.
 
 ## <a name="storage-engine-support"></a>Stöd för lagringsmotor
 

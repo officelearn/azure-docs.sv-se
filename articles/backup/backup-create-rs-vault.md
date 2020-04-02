@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du skapar Recovery Servic
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: e722996f516d21445d8e0028df925ca44eb02bfc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 38f23ee458845b92c04af47307a2411b26c8ac81
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295022"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529388"
 ---
 # <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
@@ -90,6 +90,7 @@ För den här processen finns det priskonsekvenser som det är på lagringsnivå
 >- Granska [supportmatrisen](backup-support-matrix.md#cross-region-restore) för en lista över hanterade typer och regioner som stöds.
 >- Funktionen För återställning av korsregioner (CRR) är för närvarande endast tillgänglig i följande regioner: 
 >    - USA, västra centrala
+>    - USA, västra
 >    - USA, västra 2
 >    - USA, södra centrala
 >    - USA, östra
@@ -101,11 +102,14 @@ För den här processen finns det priskonsekvenser som det är på lagringsnivå
 >    - Australien, sydöstra
 >    - Indien, centrala
 >    - Indien, södra
+>    - Indien, västra
 >    - Japan, östra
 >    - Japan, västra
 >    - Sydostasien
 >    - Storbritannien, södra
 >    - Storbritannien, västra
+>    - Europa, västra
+>    - Europa, norra
 >    - Frankrike, centrala
 >    - Sydkorea, centrala
 >    - Sydkorea, södra

@@ -1,15 +1,15 @@
 ---
 title: Konfigurera Blockchain Data Manager med Azure Portal - Azure Blockchain Service
 description: Skapa och hantera Blockchain Data Manager för Azure Blockchain Service med Hjälp av Azure-portalen.
-ms.date: 11/04/2019
+ms.date: 03/30/2020
 ms.topic: article
-ms.reviewer: chroyal
-ms.openlocfilehash: 03c22a7a23f1579a846746f21ce048b3425399c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: ravastra
+ms.openlocfilehash: beacef0660a253c90afb507618e8a1742f0c9d2d
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79273168"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529602"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Konfigurera Blockchain Data Manager med Azure-portalen
 
@@ -22,7 +22,7 @@ Om du vill konfigurera en Blockchain Data Manager-instans:
 
 ## <a name="prerequisites"></a>Krav
 
-* Fullständig [snabbstart: Skapa en blockchain-medlem med Azure-portalen](create-member.md) eller [Snabbstart: Skapa en Blockchain Blockchain-tjänst-blockkedjemedlem med Azure CLI](create-member-cli.md)
+* Fullständig [snabbstart: Skapa en blockchain-medlem med Azure-portalen](create-member.md) eller [Snabbstart: Skapa en Azure Blockchain Service blockchain-medlem med Azure CLI](create-member-cli.md). Azure Blockchain Service *Standard-nivå* rekommenderas när du använder Blockchain Data Manager.
 * Skapa ett [ämne för händelserutnät](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * Lär dig mer om [händelsehanterare i Azure Event Grid](../../event-grid/event-handlers.md)
 

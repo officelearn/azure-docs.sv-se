@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 88daecdf4490ffd4eef45e6cd664a16f86bad113
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2cdafa9a36a5f906151ca6946e18ef82bc7f1e01
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76170288"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529426"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Konfigurera ditt labb i Azure DevTest Labs för att använda en fjärrskrivbordsgateway
 I Azure DevTest Labs kan du konfigurera en fjärrskrivbordsgateway för ditt labb för att säkerställa säker åtkomst till labbets virtuella datorer (VMs) utan att behöva exponera RDP-porten. Labbet är en central plats där labbanvändarna kan visa och ansluta till alla virtuella datorer som de har åtkomst till. Knappen **Anslut** på sidan **Virtuell dator** skapar en maskinspecifik RDP-fil som du kan öppna för att ansluta till datorn. Du kan anpassa och skydda RDP-anslutningen ytterligare genom att ansluta labbet till en fjärrskrivbordsgateway. 
@@ -43,7 +43,7 @@ Den här metoden är säkrare eftersom labbanvändaren autentiserar direkt till 
 Om du vill arbeta med funktionen För DevTest Labs-tokenautentisering finns det några konfigurationskrav för gateway-datorer, domännamnstjänster (DNS) och funktioner.
 
 ### <a name="requirements-for-remote-desktop-gateway-machines"></a>Krav för fjärrskrivbordsgatewaydatorer
-- SSL-certifikat måste vara installerat på gateway-datorn för att hantera HTTPS-trafik. Certifikatet måste matcha det fullständigt kvalificerade domännamnet (FQDN) för belastningsutjämnaren för gateway-servergruppen eller FQDN för själva datorn om det bara finns en dator. SSL-certifikat med jokertecken fungerar inte.  
+- TLS/SSL-certifikat måste vara installerat på gateway-datorn för att hantera HTTPS-trafik. Certifikatet måste matcha det fullständigt kvalificerade domännamnet (FQDN) för belastningsutjämnaren för gateway-servergruppen eller FQDN för själva datorn om det bara finns en dator. Jokertecken TLS/SSL-certifikat fungerar inte.  
 - Ett signeringscertifikat installerat på gateway-datorer. Skapa ett signeringscertifikat med hjälp av [create-signingCertificate.ps1-skriptet.](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1)
 - Installera modulen [Pluggbar autentisering](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) som stöder tokenautentisering för fjärrskrivbordsgatewayen. Ett exempel på en `RDGatewayFedAuth.msi` sådan modul är att levereras med [System Center Virtual Machine Manager (VMM) avbildningar](/system-center/vmm/install-console?view=sc-vmm-1807). Mer information om System Center finns i Dokumentation och [prisinformation för](https://www.microsoft.com/cloud-platform/system-center-pricing) [System Center](https://docs.microsoft.com/system-center/) .  
 - Gateway-servern kan hantera `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}`begäranden som gjorts till .
@@ -58,7 +58,7 @@ Azure-funktionen hanterar begäran `https://{function-app-uri}/app/host/{lab-mac
 
 ## <a name="requirements-for-network"></a>Krav för nätverk
 
-- DNS för FQDN som är associerat med SSL-certifikatet som är installerat på gateway-datorerna måste dirigera trafik till gateway-datorn eller belastningsutjämnaren för gateway-datorgruppen.
+- DNS för FQDN som är associerat med TLS/SSL-certifikatet som är installerat på gateway-datorerna måste dirigera trafik till gateway-datorn eller belastningsutjämnaren för gateway-datorgruppen.
 - Om labbdatorn använder privata IP-adresser måste det finnas en nätverkssökväg från gateway-datorn till labbdatorn, antingen genom att dela samma virtuella nätverk eller använda peer-virtuella virtuella nätverk.
 
 ## <a name="configure-the-lab-to-use-token-authentication"></a>Konfigurera labbet så att det använder tokenautentisering 
@@ -79,7 +79,7 @@ Konfigurera labbet så att det använder tokenautentiseringen med hjälp av föl
 1. Välj ditt **labb**i listan över labb.
 1. På labbets sida väljer du **Konfiguration och principer**.
 1. Välj **Labbinställningar**i avsnittet **Inställningar** på den vänstra menyn .
-1. I avsnittet **Fjärrskrivbord** anger du fullständigt kvalificerat domännamn (FQDN) eller IP-adressen för gateway-datorn för fjärrskrivbordstjänster eller servergruppen för fältet **Gateway-värdnamn.** Det här värdet måste matcha FQDN för SSL-certifikatet som används på gateway-datorer.
+1. I avsnittet **Fjärrskrivbord** anger du fullständigt kvalificerat domännamn (FQDN) eller IP-adressen för gateway-datorn för fjärrskrivbordstjänster eller servergruppen för fältet **Gateway-värdnamn.** Det här värdet måste matcha FQDN för TLS/SSL-certifikatet som används på gateway-datorer.
 
     ![Alternativ för fjärrskrivbord i labbinställningar](./media/configure-lab-remote-desktop-gateway/remote-desktop-options-in-lab-settings.png)
 1. Ange **Remote desktop** namnet på hemligheten som skapats tidigare för **gateway-token** hemligheten. Det här värdet är inte själva funktionsnyckeln, utan namnet på hemligheten i labbets nyckelvalv som innehåller funktionsnyckeln.
@@ -110,7 +110,7 @@ Här är ett exempel NSG som bara tillåter trafik som först går genom gateway
 Följ dessa steg för att konfigurera en exempellösning för servergruppen för fjärrskrivbordsgateway.
 
 1. Skapa ett signeringscertifikat.  Kör [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1). Spara tumavtrycket, lösenordet och Base64-kodningen för det skapade certifikatet.
-2. Skaffa ett SSL-certifikat. FQDN som är associerat med SSL-certifikatet måste vara för den domän som du styr. Spara tumavtrycket, lösenordet och Base64-kodningen för det här certifikatet. Använd följande kommandon för att få tumavtryck med PowerShell.
+2. Skaffa ett TLS/SSL-certifikat. FQDN som är associerat med TLS/SSL-certifikatet måste vara för den domän som du styr. Spara tumavtrycket, lösenordet och Base64-kodningen för det här certifikatet. Använd följande kommandon för att få tumavtryck med PowerShell.
 
     ```powershell
     $cer = New-Object System.Security.Cryptography.X509Certificates.X509Certificate;
@@ -132,9 +132,9 @@ Följ dessa steg för att konfigurera en exempellösning för servergruppen för
     - instanceCount – Antal gateway-datorer att skapa.  
     - alwaysOn – Anger om den skapade Azure Functions-appen ska behållas i ett varmt tillstånd eller inte. Om du behåller Azure Functions-appen undviker du fördröjningar när användare först försöker ansluta till sin virtuella labb-dator, men det har kostnadskonsekvenser.  
     - tokenLifetime – Hur länge den skapade token kommer att vara giltig. Formatet är HH:MM:SS.
-    - sslCertificate – Base64-kodningen av SSL-certifikatet för gateway-datorn.
-    - sslCertificatePassword – Lösenordet för SSL-certifikatet för gateway-datorn.
-    - sslCertificateThumbprint - Certifikatets tumavtryck för identifiering i ssl-certifikatets lokala certifikatarkiv.
+    - sslCertificate – Base64-kodningen för TLS/SSL-certifikatet för gateway-datorn.
+    - sslCertificatePassword – Lösenordet för TLS/SSL-certifikatet för gateway-datorn.
+    - sslCertificateThumbprint - Certifikatets tumavtryck för identifiering i det lokala certifikatarkivet för TLS/SSL-certifikatet.
     - signCertificate – Base64-kodningen för signering av certifikat för gateway-datorn.
     - signCertificatePassword – Lösenordet för signering av certifikat för gateway-datorn.
     - signCertificateThumbprint - Certifikatets tumavtryck för identifiering i det lokala certifikatarkivet för signeringscertifikatet.
@@ -157,7 +157,7 @@ Följ dessa steg för att konfigurera en exempellösning för servergruppen för
         - {utc-utgångsdatum} är det datum, i UTC, då SAS-token upphör att gälla och SAS-token kan inte längre användas för att komma åt lagringskontot.
 
     Registrera värdena för gatewayFQDN och gatewayIP från malldistributionutdata. Du måste också spara värdet på funktionsnyckeln för den nyskapade funktionen, som finns på fliken [Funktionsappinställningar.](../azure-functions/functions-how-to-use-azure-function-app-settings.md)
-5. Konfigurera DNS så att FQDN för SSL-cert dirigerar till IP-adressen för gatewayIP från föregående steg.
+5. Konfigurera DNS så att FQDN för TLS/SSL-cert dirigerar till IP-adressen för gatewayIP från föregående steg.
 
     När servergruppen för fjärrskrivbordsgateway har skapats och lämpliga DNS-uppdateringar har gjorts är den klar att användas av ett labb i DevTest Labs. Hemliga inställningar **för gatewayvärdnamn** och **gateway token** måste konfigureras för att använda gateway-datorer som du har distribuerat. 
 

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: takamath
-ms.openlocfilehash: e2dd642139ae082cc0d0838e61399c549d2d812a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 074d512767769fe434cd4a6d4f4e8e6a88f7ed2a
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74970807"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549125"
 ---
 # <a name="enable-browser-connection-on-lab-virtual-machines"></a>Aktivera webbläsaranslutning på virtuella labbdatorer 
 DevTest Labs integreras med [Azure Bastion](https://docs.microsoft.com/azure/bastion/), vilket gör att du kan ansluta till dina virtuella datorer via en webbläsare. Du måste först aktivera webbläsaranslutning på virtuella labbdatorer.
 
-Som ägare av ett labb kan du aktivera åtkomst till alla virtuella labbdatorer via en webbläsare. Du behöver inte ytterligare en klient, agent eller programvara. Azure Bastion tillhandahåller säker och sömlös RDP/SSH-anslutning till dina virtuella datorer direkt i Azure-portalen via SSL. När du ansluter via Azure Bastion behöver dina virtuella datorer inte en offentlig IP-adress. Mer information finns i [Vad är Azure Bastion?](../bastion/bastion-overview.md)
+Som ägare av ett labb kan du aktivera åtkomst till alla virtuella labbdatorer via en webbläsare. Du behöver inte ytterligare en klient, agent eller programvara. Azure Bastion tillhandahåller säker och sömlös RDP/SSH-anslutning till dina virtuella datorer direkt i Azure-portalen via TLS. När du ansluter via Azure Bastion behöver dina virtuella datorer inte en offentlig IP-adress. Mer information finns i [Vad är Azure Bastion?](../bastion/bastion-overview.md)
 
 
 Den här artikeln visar hur du aktiverar webbläsaranslutning på virtuella labbdatorer.

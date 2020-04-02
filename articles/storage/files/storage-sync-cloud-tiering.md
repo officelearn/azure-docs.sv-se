@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 11f9097fc4875f0a4300ac56dafe7af9a0b00c97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8a8502b40410df221886cde2fa5f3db15bf3eed
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79454626"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549162"
 ---
 # <a name="cloud-tiering-overview"></a>Översikt över molnnivådelning
 Molnnivådelning är en valfri funktion i Azure File Sync där filer som används ofta cachelagras lokalt på servern medan alla andra filer är nivåindelade till Azure-filer baserat på principinställningar. När en fil är nivåindelning ersätter filsystemet För Azure File Sync (StorageSync.sys) filen lokalt med en pekare eller en ã¤ljtig punkt. Reparspunkten representerar en URL till filen i Azure Files. En nivåindelad fil har både attributet "offline" och FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS attributuppsättningen i NTFS så att tredjepartsprogram kan identifiera nivåindelade filer på ett säkert sätt.
@@ -51,7 +51,22 @@ När det finns mer än en serverslutpunkt på en volym är tröskelvärdet för 
 
 <a id="date-tiering-policy"></a>
 ### <a name="how-does-the-date-tiering-policy-work-in-conjunction-with-the-volume-free-space-tiering-policy"></a>Hur fungerar nivåprincipen för datum tillsammans med nivåprincipen för ledigt utrymme på volymen? 
-När du aktiverar molnnivådelning på en serverslutpunkt anger du en princip för ledigt utrymme. Den har alltid företräde framför alla andra principer, inklusive datumprincipen. Du kan också aktivera en datumprincip för varje serverslutpunkt på den volymen, vilket innebär att endast filer som används (det vill säga läsa eller skrivas till) inom det intervall av dagar som den här principen beskriver kommer att hållas lokal, med alla föraktuella filer som är nivåindelad. Tänk på att principen om ledigt utrymme för volym alltid har företräde, och när det inte finns tillräckligt med ledigt utrymme på volymen för att behålla så många dagar som filerna är värda enligt datumprincipen fortsätter Azure File Sync att nivåinna de kallaste filerna tills volymen är fri utrymmesprocenten uppfylls.
+När du aktiverar molnnivådelning på en serverslutpunkt anger du en princip för ledigt utrymme. Den har alltid företräde framför alla andra principer, inklusive datumprincipen. Du kan också aktivera en datumprincip för varje serverslutpunkt på den volymen. Den här principen hanterar att endast filer som används (det vill vara lästa eller skrivna till) inom det intervall av dagar som den här principen beskriver kommer att hållas lokala. Filer som inte nås med det antal angivna dagarna kommer att nivåindelad. 
+
+Cloud Tiering använder den senaste åtkomsttiden för att avgöra vilka filer som ska nivåindelas. Filterdrivrutinen för molnnivåindelning (storagesync.sys) spårar senaste åtkomsttiden och loggar informationen i molnnivålagringsvärmearkivet. Du kan se värmearkivet med en lokal PowerShell-cmdlet.
+
+```powershell
+Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
+Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
+```
+
+> [!IMPORTANT]
+> Den senast besökta tidsstämpeln är inte en egenskap som spåras av NTFS och därför inte visas som standard i Utforskaren. Använd inte den senaste tidsstämpeln för en fil för att kontrollera om datumprincipen fungerar som förväntat. Den här tidsstämpeln spårar bara skriver, inte läsningar. Använd cmdleten som visas för att få den senast använda tidsstämpeln för den här utvärderingen.
+
+> [!WARNING]
+> Aktivera inte NTFS-funktionen för att spåra den senast besökta tidsstämpeln för filer och mappar. Den här funktionen är inaktiverad som standard eftersom den har en stor prestandapåverkan. Azure File Sync spårar senast använda tider automatiskt och mycket effektivt och använder inte den här NTFS-funktionen.
+
+Tänk på att principen om ledigt utrymme för volym alltid har företräde, och när det inte finns tillräckligt med ledigt utrymme på volymen för att behålla så många dagar som filerna är värda enligt datumprincipen fortsätter Azure File Sync att nivåinna de kallaste filerna tills volymen ledigt utrymme är uppfyllt.
 
 Anta till exempel att du har en datumbaserad nivåindelad princip på 60 dagar och en volymfri utrymmesprincip på 20 %. Om det, efter att datumprincipen har tillämpats, finns mindre än 20 % ledigt utrymme på volymen, kommer principen för ledigt utrymme att sparka in och åsidosätta datumprincipen. Detta kommer att resultera i att fler filer nivåindelad, så att mängden data som lagras på servern kan minskas från 60 dagars data till 45 dagar. Omvänt kommer den här principen att tvinga nivåindelning av filer som faller utanför ditt tidsintervall även om du inte har nått tröskelvärdet för ledigt utrymme – så en fil som är 61 dagar gammal kommer att nivåindelad även om volymen är tom.
 

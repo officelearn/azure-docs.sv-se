@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: d0e66cefac496f3a54690b17a1e3de705f39c7fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 861961bb66adc7ed9509eab973516a964cb67492
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80337003"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521058"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Standard Load Balancer-diagnostik med mått, aviseringar och resurshälsa
 
@@ -71,6 +71,21 @@ Api-vägledning för att hämta flerdimensionella måttdefinitioner och värden 
 
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Vanliga diagnostiska scenarier och rekommenderade vyer
 
+### <a name="configure-alerts-for-multi-dimensional-metrics"></a>Konfigurera aviseringar för flerdimensionella mått ###
+
+Azure Standard Load Balancer stöder enkelt konfigurerbara aviseringar för flerdimensionella mått. Konfigurera anpassade tröskelvärden för specifika mått för att utlösa aviseringar med varierande allvarlighetsgrad för att ge en beröringslös resursövervakningsupplevelse.
+
+Så här konfigurerar du varningar:
+1. Gå till varningsunderbladet för lastjämföraren
+1. Skapa en ny aviseringsregel
+    1.  Konfigurera varningsvillkor
+    1.  (Valfritt) Lägga till åtgärdsgrupp för automatisk reparation
+    1.  Tilldela allvarlighetsgrad, namn och beskrivning som möjliggör intuitiv reaktion
+
+
+  >[!NOTE]
+  >Konfigurationsfönstret för varningsvillkor visar tidsserier för signalhistorik. Det finns ett alternativ för att filtrera den här tidsserien efter dimensioner som Serverda IP. Detta filtrerar tidsseriediagrammet men **inte** själva aviseringen. Du kan inte konfigurera aviseringar för specifika serverd-IP-adresser.
+  
 #### <a name="is-the-data-path-up-and-available-for-my-load-balancer-vip"></a>Är datasökvägen uppe och tillgänglig för min belastningsutjämnare VIP?
 
 Vip-tillgänglighetsmåttet beskriver hälsotillståndet för datasökvägen i regionen till beräkningsvärden där dina virtuella datorer finns. Måttet är en återspegling av hälsotillståndet för Azure-infrastrukturen. Du kan använda måttet för att:

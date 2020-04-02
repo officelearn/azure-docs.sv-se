@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: a242da8cc98a21248c48a1b3981fa713706028ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4cef49f138b96848b8e59cb5b2d0b185d4568aa9
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064945"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521000"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autentisera ett program med Azure Active Directory för att komma åt eventhubbar-resurser
 Microsoft Azure tillhandahåller integrerad hantering av åtkomstkontroll för resurser och program som baseras på Azure Active Directory (Azure AD). En viktig fördel med att använda Azure AD med Azure Event Hubs är att du inte behöver lagra dina autentiseringsuppgifter i koden längre. I stället kan du begära en OAuth 2.0-åtkomsttoken från Microsoft Identity-plattformen. Resursnamnet som begär en `https://eventhubs.azure.net/` token är (För Kafka-klienter `https://<namespace>.servicebus.windows.net`är resursen att begära en token ). Azure AD autentiserar säkerhetsobjektet (en användare, grupp eller tjänsthuvudnamn) som kör programmet. Om autentiseringen lyckas returnerar Azure AD en åtkomsttoken till programmet och programmet kan sedan använda åtkomsttoken för att auktorisera begäran till Azure Event Hubs-resurser.
@@ -106,7 +106,7 @@ En lista över scenarier som det stöds att hämta token finns i avsnittet [Scen
 ## <a name="samples"></a>Exempel
 - [Exempel på Microsoft.Azure.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
-    Dessa exempel använder det gamla **Microsoft.Azure.EventHubs-biblioteket,** men du kan enkelt uppdatera det till det senaste **Azure.Messaging.EventHubs-biblioteket.** Information om hur du flyttar exemplet från att använda det gamla biblioteket till ett nytt finns i [guiden för att migrera från Microsoft.Azure.EventHubs till Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).
+    Dessa exempel använder det gamla **Microsoft.Azure.EventHubs-biblioteket,** men du kan enkelt uppdatera det till det senaste **Azure.Messaging.EventHubs-biblioteket.** Information om hur du flyttar exemplet från att använda det gamla biblioteket till ett nytt finns i [guiden för att migrera från Microsoft.Azure.EventHubs till Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 - [Exempel på Azure.Messaging.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
 
     Det här exemplet har uppdaterats för att använda det senaste **Azure.Messaging.EventHubs-biblioteket.**

@@ -1,6 +1,6 @@
 ---
 title: Använda Apache Flink för Apache Kafka - Azure Event Hubs | Microsoft-dokument
-description: Den här artikeln innehåller information om hur du ansluter Apache Flink till en Apache Kafka-aktiverad Azure-händelsehubb
+description: Den här artikeln innehåller information om hur du ansluter Apache Flink till en Azure-händelsehubb
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: db877279bcfa7e132841e342cfc25b66bb3ec384
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ab542e1328bb986f53d31e2eca75007cf1e0c75
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283607"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521788"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Använda Apache Flink med Azure Event Hubs för Apache Kafka
 Den här självstudien visar hur du ansluter Apache Flink till en händelsehubb utan att ändra dina protokollklienter eller köra egna kluster. Azure Event Hubs stöder [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html).
@@ -48,7 +48,7 @@ För att slutföra den här självstudien, se till att du har följande föruts�
 
 ## <a name="create-an-event-hubs-namespace"></a>Skapa ett Event Hubs-namnområde
 
-Ett namnområde för eventhubbar krävs för att skicka eller ta emot från valfri eventhubbar-tjänst. Se [Skapa Kafka-aktiverade händelsehubbar](event-hubs-create.md) för information om hur du hämtar en Event Hubs Kafka-slutpunkt. Kontrollera att du kopierar anslutningssträngen för händelsehubbar för senare användning.
+Ett namnområde för eventhubbar krävs för att skicka eller ta emot från valfri eventhubbar-tjänst. Se [Skapa en händelsehubb](event-hubs-create.md) för instruktioner om hur du skapar ett namnområde och en händelsehubb. Kontrollera att du kopierar anslutningssträngen för händelsehubbar för senare användning.
 
 ## <a name="clone-the-example-project"></a>Klona exempelprojektet
 
@@ -88,11 +88,11 @@ mvn clean package
 mvn exec:java -Dexec.mainClass="FlinkTestProducer"
 ```
 
-Producenten kommer nu att börja skicka händelser till Kafka-aktiverade Event Hub på ämne `test` och skriva ut händelserna till stdout.
+Producenten kommer nu att börja skicka händelser `test` till evenemangshubben i ämnet och skriva ut händelserna till stdout.
 
 ## <a name="run-flink-consumer"></a>Kör Flink-konsument
 
-Med hjälp av det angivna konsumentexemplet får du meddelanden från Kafka-aktiverade eventhubbar.
+Ta emot meddelanden från händelsehubben med hjälp av det angivna konsumentexemplet. 
 
 ### <a name="provide-an-event-hubs-kafka-endpoint"></a>Ange en slutpunkt för Händelsehubbar Kafka
 
@@ -136,7 +136,7 @@ Läs mer om Event Hubs och Event Hubs för Kafka i följande ämne:
 
 - [Läs om Event Hubs](event-hubs-what-is-event-hubs.md)
 - [Event Hubs för Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-- [Så skapar du Kafka-aktiverade händelsehubbar](event-hubs-create.md)
+- [Skapa en händelsehubb](event-hubs-create.md)
 - [Strömma till Event Hubs från Kafka-program](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 - [Spegla en Kafka-broker i en händelsehubb](event-hubs-kafka-mirror-maker-tutorial.md)
 - [Ansluta Apache Spark till en händelsehubb](event-hubs-kafka-spark-tutorial.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/09/2020
 ms.author: apimpm
-ms.openlocfilehash: dcc2c38238f707a5d43cde03502c589add9461b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 462a44f7766e0ec52ba7156d6de5ae5261e21376
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335928"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547369"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Använda Azure API Management med virtuella nätverk
 Med virtuella Azure-nätverk (VNET) kan du placera valfria Azure-resurser i ett dirigerbart icke-Internetbaserat nätverk som du kontrollerar åtkomsten till. Dessa nätverk kan sedan anslutas till dina lokala nätverk med hjälp av olika VPN-tekniker. Om du vill veta mer om Azure Virtual Networks börja med informationen här: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
@@ -102,7 +102,7 @@ Nedan följer en lista över vanliga felkonfigurationsproblem som kan uppstå n�
 * **Anpassad DNS-serverkonfiguration:** API-hanteringstjänsten är beroende av flera Azure-tjänster. När API Management finns i ett VNET med en anpassad DNS-server måste den matcha värdnamnen för dessa Azure-tjänster. Följ [den här](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) vägledningen om anpassade DNS-inställningar. Se porttabellen nedan och andra nätverkskrav som referens.
 
 > [!IMPORTANT]
-> Om du planerar att använda en anpassad DNS-server för VNET bör du konfigurera det **innan** du distribuerar en API Management-tjänst till det. Annars måste du uppdatera API Management-tjänsten varje gång du ändrar DNS-servern genom att köra [åtgärden Använd nätverkskonfiguration](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> Om du planerar att använda en anpassad DNS-server för VNET bör du konfigurera det **innan** du distribuerar en API Management-tjänst till det. Annars måste du uppdatera API Management-tjänsten varje gång du ändrar DNS-servern genom att köra [åtgärden Använd nätverkskonfiguration](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/ApiManagementService/ApplyNetworkConfigurationUpdates)
 
 * **Portar som krävs för API Management:** Inkommande och utgående trafik till undernätet där API Management distribueras kan styras med hjälp av [Nätverkssäkerhetsgrupp][Network Security Group]. Om någon av dessa portar inte är tillgängliga kanske API Management inte fungerar korrekt och kan bli otillgänglig. Att ha en eller flera av dessa portar blockerade är ett annat vanligt felkonfigurationsproblem när du använder API Management med ett VNET.
 
@@ -134,6 +134,8 @@ Nedan följer en lista över vanliga felkonfigurationsproblem som kan uppstå n�
 
 + **Mått och hälsoövervakning:** Utgående nätverksanslutning till Azure Monitoring-slutpunkter, som matchar under följande domäner:
 
++ **Regional tjänsttaggar**": NSG-regler som tillåter utgående anslutning till lagrings-, SQL- och EventHubs-tjänsttaggar kan använda de regionala versionerna av dessa taggar som motsvarar den region som innehåller API Management-instansen (till exempel Storage.WestUS för en API Management-instans i regionen Västra USA). I distributioner med flera regioner bör NSG i varje region tillåta trafik till tjänsttaggarna för den regionen.
+
     | Azure-miljö | Slutpunkter                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Azure, offentlig      | <ul><li>gcs.prod.monitoring.core.windows.net(**ny)**</li><li>prod.warmpath.msftcloudes.com( att**vara föråldrad)**</li><li>shoebox2.metrics.microsoftmetrics.com(**ny)**</li><li>shoebox2.metrics.nsatc.net(**att vara föråldrad)**</li><li>prod3.metrics.microsoftmetrics.com(**ny)**</li><li>prod3.metrics.nsatc.net( att**vara föråldrad)**</li><li>prod3-black.prod3.metrics.microsoftmetrics.com(**ny)**</li><li>prod3-black.prod3.metrics.nsatc.net( att**vara föråldrad)**</li><li>prod3-red.prod3.metrics.microsoftmetrics.com(**ny)**</li><li>prod3-red.prod3.metrics.nsatc.net( att**vara föråldrad)**</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com var `East US 2` är eastus2.warm.ingestion.msftcloudes.com</li></ul> |
@@ -161,7 +163,7 @@ Nedan följer en lista över vanliga felkonfigurationsproblem som kan uppstå n�
       - SMTP-relä
       - Utvecklarportalen CAPTCHA
 
-## <a name="troubleshooting"></a><a name="troubleshooting"> </a>Troubleshooting (Felsökning)
+## <a name="troubleshooting"></a><a name="troubleshooting"> </a>Felsökning
 * **Inledande installation:** När den första distributionen av API Management-tjänsten i ett undernät inte lyckas, rekommenderas att först distribuera en virtuell dator till samma undernät. Nästa fjärrskrivbord till den virtuella datorn och verifiera att det finns anslutning till en av varje resurs nedan i din azure-prenumeration
     * Azure Storage-blob
     * Azure SQL Database
@@ -170,7 +172,7 @@ Nedan följer en lista över vanliga felkonfigurationsproblem som kan uppstå n�
   > [!IMPORTANT]
   > När du har validerat anslutningen måste du ta bort alla resurser som distribueras i undernätet innan du distribuerar API-hantering till undernätet.
 
-* **Inkrementella uppdateringar**: När du gör ändringar i nätverket, se [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/networkstatus), för att kontrollera att API Management-tjänsten inte har förlorat åtkomst till någon av de kritiska resurserna, vilket den är beroende av. Anslutningsstatusen bör uppdateras var 15:e minut.
+* **Inkrementella uppdateringar**: När du gör ändringar i nätverket, se [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/networkstatus), för att kontrollera att API Management-tjänsten inte har förlorat åtkomst till någon av de kritiska resurserna, vilket den är beroende av. Anslutningsstatusen bör uppdateras var 15:e minut.
 
 * **Resursnavigeringslänkar:** När du distribuerar till Resource Manager-format vnet-undernät reserverar API Management undernätet genom att skapa en resursnavigeringslänk. Om undernätet redan innehåller en resurs från en annan provider **misslyckas**distributionen . När du flyttar en API Management-tjänst till ett annat undernät eller tar bort den tar vi också bort den resursnavigeringslänken.
 

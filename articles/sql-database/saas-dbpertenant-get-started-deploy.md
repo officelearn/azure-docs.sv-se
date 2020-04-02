@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 31f712f80ee2492e4bbaec99bd093d46f9d04e6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3182daa4ebf3becc824b600d1e487e12b875b275
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73824000"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529660"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Distribuera och utforska en SaaS-app med flera innehavare som använder mönstret databas per klient med SQL Database
 
@@ -128,7 +128,7 @@ Wingtip-programmet använder [*Azure Traffic Manager*](../traffic-manager/traff
 
     | URL-del        | Beskrivning       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | Händelsedelarna i Wingtip-appen.<br /><br /> *-DPT* skiljer *databas-per-hyresgäst* genomförandet av Wingtip Biljetter från andra implementeringar. Exempel är implementeringarna *för en app* per klient (*-sa*) eller *multitenant database* (*-mt).* |
+    | events.wingtip-dpt | Händelsedelarna i Wingtip-appen.<br /><br /> *-DPT* skiljer *databas-per-hyresgäst* genomförandet av Wingtip Biljetter från andra implementeringar. Exempel är implementeringarna *för en app* per klient (*-sa*) eller *multitenant database* (*-mt).* |
     | . * &lt;användare&gt;* | *af1* i exemplet. |
     | .trafficmanager.net/ | Traffic Manager, bas-URL. |
     | fabrikamjazzclub | Identifierar klienten som heter Fabrikam Jazz Club. |

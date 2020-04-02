@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 3/5/2020
 ms.subservice: alerts
-ms.openlocfilehash: e4dfc33756a287b6d2f6e41edded3332ca85241d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 62c1e29b668c3ef58b0e26e2749c55b913279425
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274936"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545682"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Resurser som stöds för måttaviseringar i Azure Monitor
 
@@ -42,7 +42,7 @@ Här är den fullständiga listan över Azure monitor-måttkällor som stöds av
 |Microsoft.ClassicStorage/storageAccounts/mmxclassic/tableServices Microsoft.ClassicStorage/storageAccounts/mmxclassic/tableServices Microsoft.ClassicStorage/storageAccounts/mmxclassic/tableServices Microsoft.|Inga|Ja| |
 |Microsoft.CognitiveServices/konton| Ej tillämpligt | Inga | [Cognitive Services](../../azure-monitor/platform/metrics-supported.md#microsoftcognitiveservicesaccounts)|
 |Microsoft.Compute/virtualMachines |Ja | Ja | [Virtuella datorer](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)|
-|Microsoft.Compute/virtualMachineScaleSets |Ej tillämpligt | Ja |[Skaluppsättningar för virtuella datorer](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)|
+|Microsoft.Compute/virtualMachineScaleSets |Ej tillämpligt | Ja |[Skalningsuppsättningar för virtuella datorer](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)|
 |Microsoft.ContainerInstance/containerGroups | Ja| Inga | [Containergrupper](../../azure-monitor/platform/metrics-supported.md#microsoftcontainerinstancecontainergroups)|
 |Microsoft.ContainerService/managedClusters | Ja | Inga | [Hanterade kluster](../../azure-monitor/platform/metrics-supported.md#microsoftcontainerservicemanagedclusters)|
 |Microsoft.DataBoxEdge/dataBoxEdgeDevices | Ja | Ja | |
@@ -56,7 +56,7 @@ Här är den fullständiga listan över Azure monitor-måttkällor som stöds av
 |Microsoft.EventGrid/domäner|Inga|Ja| |
 |Ämnen för Microsoft.EventGrid/Event |Ja | Inga |[Avsnitt om händelserutnät](../../azure-monitor/platform/metrics-supported.md#microsofteventgridtopics)|
 |Microsoft.EventHub/kluster |Ja| Inga |[Kluster för eventhubbar](../../azure-monitor/platform/metrics-supported.md#microsofteventhubclusters)|
-|Microsoft.EventHub/namnområden |Ja| Inga |[Händelsehubbar](../../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces)|
+|Microsoft.EventHub/namnområden |Ja| Inga |[Event Hubs](../../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces)|
 |Microsoft.KeyVault/valv| Inga |Inga |[Valv](../../azure-monitor/platform/metrics-supported.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/arbetsflöden |Ej tillämpligt | Inga |[Logic Apps](../../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows) |
 |Microsoft.MachineLearningServices/arbetsytor|Ja| Inga | [Maskininlärning](../../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
@@ -77,7 +77,7 @@ Här är den fullständiga listan över Azure monitor-måttkällor som stöds av
 |Microsoft.PowerBIDedicated/capacity | Ej tillämpligt | Inga | [Kapaciteter](../../azure-monitor/platform/metrics-supported.md#microsoftpowerbidedicatedcapacities)|
 |Microsoft.Search/searchServices |Ej tillämpligt|Inga | [Söktjänster](../../azure-monitor/platform/metrics-supported.md#microsoftsearchsearchservices)|
 |Microsoft.ServiceBus/namnområden |Ja| Inga |[Service Bus](../../azure-monitor/platform/metrics-supported.md#microsoftservicebusnamespaces)|
-|Microsoft.Sql/servrar/elasticPools |   Inga | Ja |
+|Microsoft.Sql/servrar/elasticPools |    Inga | Ja |
 |Microsoft.Sql/servrar/databaser    | Inga | Ja |
 |Microsoft.Storage/storageAccounts |Ja | Inga | [Lagringskonton](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccounts)|
 |Microsoft.Storage/storageRedovisning/-tjänster | Ja| Inga | [Blob Services,](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices) [Filtjänster,](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices) [Kötjänster](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices) och [Tabelltjänster](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountstableservices)|
@@ -86,7 +86,7 @@ Här är den fullständiga listan över Azure monitor-måttkällor som stöds av
 |Microsoft.Web/hostingMiljöer/multiRolePools | Ja | Inga | [Flerrollspooler för apptjänstmiljö](../../azure-monitor/platform/metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
 |Microsoft.Web/hostingMiljöer/workerPools | Ja | Inga | [Arbetspooler för apptjänstmiljö](../../azure-monitor/platform/metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
 |Microsoft.Web/serverfarms | Ja | Inga | [Planer för apptjänst](../../azure-monitor/platform/metrics-supported.md#microsoftwebserverfarms)|
-|Microsoft.Webbplatser | Ja | Inga | [Apptjänster](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-excluding-functions) och [-funktioner](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-functions)|
+|Microsoft.Webbplatser | Ja | Inga | [App Services](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites)|
 |Microsoft.webbplatser/platser | Ja | Inga | [Platser för apptjänst](../../azure-monitor/platform/metrics-supported.md#microsoftwebsitesslots)|
 
 ## <a name="payload-schema"></a>Schema för nyttolast

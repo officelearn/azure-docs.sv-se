@@ -16,12 +16,12 @@ ms.date: 03/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3deb87fec8241ad6126314f3f6ce5fb9600ad1fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 477bb5430214b497f90e3cb6d5df69f9fcf4035f
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128552"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546165"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Vad är berättigandehantering i Azure AD?
 
@@ -101,7 +101,7 @@ Följande diagram visar ett exempel på de olika elementen i rättighetshanterin
 
 Åtkomstpaket ersätter inte andra mekanismer för åtkomsttilldelning.  De är lämpligast i situationer som följande:
 
-- Medarbetare behöver tidsbegränsad åtkomst för en viss uppgift.  Du kan till exempel använda gruppbaserad licensiering och en dynamisk grupp för att säkerställa att alla anställda har en Exchange Online-postlåda och sedan använda åtkomstpaket för situationer där medarbetare behöver ytterligare åtkomst, till exempel för att läsa avdelningsresurser från en annan Institutionen.
+- Medarbetare behöver tidsbegränsad åtkomst för en viss uppgift.  Du kan till exempel använda gruppbaserad licensiering och en dynamisk grupp för att säkerställa att alla anställda har en Exchange Online-postlåda och sedan använda åtkomstpaket för situationer där medarbetare behöver ytterligare åtkomst, till exempel för att läsa avdelningsresurser från en annan avdelning.
 - Åtkomst måste godkännas av en anställds chef eller andra utsedda personer.
 - Avdelningarna vill hantera sina egna åtkomstpolicyer för sina resurser utan IT-engagemang.  
 - Två eller flera organisationer samarbetar i ett projekt, och därför måste flera användare från en organisation tas in via Azure AD B2B för att komma åt en annan organisations resurser.
@@ -132,15 +132,16 @@ Om du vill bättre förstå rättighetshantering och dess dokumentation kan du r
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-Specialiserade moln, till exempel Azure Government, Azure Germany och Azure China 21Vianet, är för närvarande inte tillgängliga för användning.
+Specialiserade moln, till exempel Azure Germany och Azure China 21Vianet, är för närvarande inte tillgängliga för användning.
 
 ### <a name="how-many-licenses-must-you-have"></a>Hur många licenser måste du ha?
 
-Kontrollera att katalogen har minst lika många Azure AD Premium P2-licenser som du har anställda som utför följande uppgifter:
+Kontrollera att din katalog har minst lika många Azure AD Premium P2-licenser som du har:
 
 - Medlemsanvändare som **kan** begära ett åtkomstpaket.
 - Medlems- och gästanvändare som begär ett åtkomstpaket.
 - Medlems- och gästanvändare som godkänner begäranden om ett åtkomstpaket.
+- Medlems- och gästanvändare som har en direkt tilldelning till ett åtkomstpaket.
 
 Azure AD Premium P2-licenser krävs **inte** för följande uppgifter:
 

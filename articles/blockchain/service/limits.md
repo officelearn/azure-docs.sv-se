@@ -1,15 +1,15 @@
 ---
 title: Begränsningar för Azure Blockchain-tjänsten
 description: Översikt över tjänsten och funktionsgränserna i Azure Blockchain Service
-ms.date: 11/22/2019
+ms.date: 03/30/2020
 ms.topic: conceptual
-ms.reviewer: janders
-ms.openlocfilehash: f4001ee520f3f3136d1bac5ca047c80526fc92e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.reviewer: ravastra
+ms.openlocfilehash: c728e617ac37795988cd596c7cb0c5025aac4ccf
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74455654"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529579"
 ---
 # <a name="limits-in-azure-blockchain-service"></a>Begränsningar i Azure Blockchain-tjänsten
 
@@ -24,7 +24,11 @@ Maximala gränser för transaktioner och validerarnoder beror på om du etablera
 | Basic | 10 | 1 |
 | Standard | 10 | 2 |
 
-Det går inte att ändra prisnivån mellan Basic och Standard när medlemmen har skapats.
+Ditt konsortienätverk bör ha minst två Standardnoder för Azure Blockchain-tjänst. Standardnivånoder innehåller två validerarnoder. Fyra validator noder krävs för att uppfylla [Istanbul bysantinska feltolerans konsensus](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus).
+
+Använd den grundläggande nivån är för utveckling, testning och bevis på begrepp. Använd standardnivån för distributioner av produktionsresultat. Du bör också använda *standardnivån* om du använder Blockchain Data Manager eller skickar en stor mängd privata transaktioner.
+
+Det går inte att ändra prisnivån mellan grundläggande och standard när medlemmen har skapats.
 
 ## <a name="storage-capacity"></a>Lagringskapacitet
 
@@ -50,7 +54,7 @@ Det går inte att minska redovisnings- och logglagringsstorleken.
 
 * **Medlemmar som tagits bort från konsortiet kan inte läggas till igen**
 
-    De måste i stället återinbjeras för att gå med i konsortiet och skapa en ny medlem. Deras befintliga medlemsresurs tas inte bort för att bevara historiska transaktioner.
+    De måste i stället återinbjeras för att gå med i konsortiet och skapa en ny medlem. Deras befintliga medlemsresurser tas inte bort för att bevara historiska transaktioner.
 
 * **Alla medlemmar i ett konsortium måste använda samma redovisningsversion**
 

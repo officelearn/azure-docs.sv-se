@@ -7,18 +7,18 @@ ms.reviewer: itsagui
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: c014ed2c25711677617d3bf8ff5d2f0f968a3b14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 180196f2c368207b76811700fd845406098600df
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80301049"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529441"
 ---
 # <a name="configure-customer-managed-keys-using-the-azure-portal"></a>Konfigurera kundhanterade nycklar med Azure-portalen
 
 > [!div class="op_single_selector"]
-> * [Portal](customer-managed-keys-portal.md)
-> * [C#](customer-managed-keys-csharp.md)
+> * [Portalen](customer-managed-keys-portal.md)
+> * [C #](customer-managed-keys-csharp.md)
 > * [Azure Resource Manager-mall](customer-managed-keys-resource-manager.md)
 
 [!INCLUDE [data-explorer-configure-customer-managed-keys](../../includes/data-explorer-configure-customer-managed-keys.md)]
@@ -46,7 +46,7 @@ Den här artikeln visar hur du aktiverar kryptering med kundhanterade nycklar me
 
     ![Spara kundhanterad nyckel](media/customer-managed-keys-portal/cmk-encryption-setting.png)
 
-Genom att aktivera kundhanterade nycklar för ditt Azure Data Explorer-kluster skapar du en systemtilldelad identitet för klustret om det inte finns någon. Dessutom tillhandahåller du de vybehörigheter som krävs för ditt Azure Data Explorer-kluster i det valda Nyckelvalvet och får egenskaperna Nyckelvalv. 
+Genom att aktivera kundhanterade nycklar för ditt Azure Data Explorer-kluster skapar du en systemtilldelad identitet för klustret om det inte finns någon. Dessutom tillhandahåller du de nödvändiga behörigheterna hämta, wrapKey och unwarpKey till azure data explorer-klustret i det valda Nyckelvalvet och hämta egenskaperna För nyckelvalvet. 
 
 > [!NOTE]
 > Välj **Av** om du vill ta bort den kundhanterade nyckeln när den har skapats.

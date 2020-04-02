@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 5620d1cdc7dc71bdac17057b9a13a74150b12d5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eb96cb32c05d2ba3fbd38e72c16540d947436117
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77612512"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519070"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Självstudiekurs: Skapa ett utgående skogsförtroende till en lokal domän i Azure Active Directory Domain Services (förhandsversion)
 
@@ -31,7 +31,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Skapa ett envägs utgående skogsförtroende i Azure AD DS
 > * Testa och verifiera förtroenderelationen för autentisering och resursåtkomst
 
-Om du inte har en Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -59,7 +59,7 @@ Innan du konfigurerar ett skogsförtroende i Azure AD DS kontrollerar du att nä
 
 * Använd privata IP-adresser. Lita inte på DHCP med dynamisk IP-adresstilldelning.
 * Undvik överlappande IP-adressutrymmen så att virtuell nätverks peering och routning kan kommunicera mellan Azure och lokala.
-* Ett virtuellt Azure-nätverk behöver ett gateway-undernät för att konfigurera en S2S-VPN- eller ExpressRoute-anslutning (Site-to-Site)
+* Ett virtuellt Azure-nätverk behöver ett gateway-undernät för att konfigurera en [Azure-site-to-site (S2S) VPN-][vpn-gateway] eller [ExpressRoute-anslutning][expressroute]
 * Skapa undernät med tillräckligt många IP-adresser för att stödja ditt scenario.
 * Kontrollera att Azure AD DS har ett eget undernät, dela inte det här virtuella nätverksundernätet med virtuella program-datorer och tjänster.
 * Peered virtuella nätverk är inte transitiva.
@@ -74,7 +74,7 @@ Om du vill lösa den hanterade Azure AD DS-domänen korrekt från den lokala mil
 1. Välj **Start | Administrativa verktyg | DNS**
 1. Högerklicka-DNS-server, till exempel *myAD01*, välj **Egenskaper**
 1. Välj **Vidarebefordrare**och **sedan Redigera** om du vill lägga till ytterligare vidarebefordrare.
-1. Lägg till IP-adresserna för den hanterade Azure AD DS-domänen, till exempel *10.0.1.4* och *10.0.1.5*.
+1. Lägg till IP-adresserna för den hanterade Azure AD DS-domänen, till exempel *10.0.2.4* och *10.0.2.5*.
 
 ## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>Skapa inkommande skogsförtroende i den lokala domänen
 
@@ -85,10 +85,6 @@ Om du vill konfigurera inkommande förtroende för den lokala AD DS-domänen slu
 1. Välj **Start | Administrativa verktyg | Active Directory domäner och förtroenden**
 1. Högervalsdomän, till exempel *onprem.contoso.com*, välj **Egenskaper**
 1. Välj fliken **Förtroenden** och sedan **Nytt förtroende**
-
-   > [!NOTE]
-   > Om du inte ser menyalternativet **Förtroenden** kontrollerar du under **Egenskaper** för *skogstypen*. Endast *resursskogar* kan skapa förtroenden. Om skogstypen är *Användare*kan du inte skapa förtroenden. Det finns för närvarande inget sätt att ändra skogstypen för en Azure AD DS-hanterad domän. Du måste ta bort och återskapa den hanterade domänen som en resursskog.
-
 1. Ange namn på Azure AD DS-domännamn, till exempel *aaddscontoso.com*och välj sedan **Nästa**
 1. Välj alternativet för att skapa ett **Skogsförtroende**och skapa sedan ett **enkelriktade sätt: inkommande** förtroende.
 1. Välj att skapa förtroendet för den **här domänen .** I nästa steg skapar du förtroendet för Azure-portalen för azure AD DS-hanterad domän.
@@ -104,12 +100,16 @@ Så här skapar du det utgående förtroendet för den Azure AD DS-hanterade dom
 
 1. Sök efter och välj **Azure AD Domain Services**i Azure-portalen och välj sedan din hanterade domän, till exempel *aaddscontoso.com*
 1. Välj **Förtroenden**på menyn till vänster i azure AD DS-hanterade domänen och välj sedan till **+ Lägg till** ett förtroende.
+
+   > [!NOTE]
+   > Om du inte ser menyalternativet **Förtroenden** kontrollerar du under **Egenskaper** för *skogstypen*. Endast *resursskogar* kan skapa förtroenden. Om skogstypen är *Användare*kan du inte skapa förtroenden. Det finns för närvarande inget sätt att ändra skogstypen för en Azure AD DS-hanterad domän. Du måste ta bort och återskapa den hanterade domänen som en resursskog.
+
 1. Ange ett visningsnamn som identifierar ditt förtroende och sedan det lokala betrodda skogs-DNS-namnet, till exempel *onprem.contoso.com*
 1. Ange samma förtroendelösenord som användes när du konfigurerade det inkommande skogsförtroendet för den lokala AD DS-domänen i föregående avsnitt.
-1. Tillhandahålla minst två DNS-servrar för den lokala AD DS-domänen, till exempel *10.0.2.4* och *10.0.2.5*
+1. Tillhandahålla minst två DNS-servrar för den lokala AD DS-domänen, till exempel *10.1.1.4* och *10.1.1.5*
 1. Spara det utgående skogsförtroendet **när** du är klar
 
-    [Skapa förtroende för utgående skog i Azure-portalen](./media/create-forest-trust/portal-create-outbound-trust.png)
+    ![Skapa förtroende för utgående skog i Azure-portalen](./media/tutorial-create-forest-trust/portal-create-outbound-trust.png)
 
 ## <a name="validate-resource-authentication"></a>Verifiera resursautentisering
 
@@ -126,11 +126,7 @@ I följande vanliga scenarier kan du verifiera att skogsförtroendet autentisera
 
 Du bör ha den virtuella windows server-datorn ansluten till Azure AD DS-resursdomänen. Använd den här virtuella datorn för att testa din lokala användare kan autentisera på en virtuell dator.
 
-1. Anslut till den virtuella datorn för Windows Server som är ansluten till Azure AD DS-resursskogen med fjärrskrivbord och dina Azure AD DS-administratörsbehörighet. Om du får ett NLA-fel (Network Level Authentication) kontrollerar du att användarkontot du använde inte är ett domänanvändarkonto.
-
-    > [!NOTE]
-    > Om du vill ansluta till dina virtuella datorer som är anslutna till Azure AD Domain Services på ett säkert sätt kan du använda [Azure Bastion Host Service](https://docs.microsoft.com/azure/bastion/bastion-overview) i Azure-regioner som stöds.
-
+1. Anslut till den virtuella datorn för Windows Server som är ansluten till Azure AD DS-resursskogen med [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) och dina Azure AD DS-administratörsbehörighet.
 1. Öppna en kommandotolk `whoami` och använd kommandot för att visa det unika namnet på den autentiserade användaren:
 
     ```console
@@ -152,10 +148,7 @@ Med hjälp av den virtuella datorn för Windows Server som är ansluten till Azu
 
 #### <a name="enable-file-and-printer-sharing"></a>Aktivera fil- och skrivardelning
 
-1. Anslut till den virtuella datorn för Windows Server som är ansluten till Azure AD DS-resursskogen med fjärrskrivbord och dina Azure AD DS-administratörsbehörighet. Om du får ett NLA-fel (Network Level Authentication) kontrollerar du att användarkontot du använde inte är ett domänanvändarkonto.
-
-    > [!NOTE]
-    > Om du vill ansluta till dina virtuella datorer som är anslutna till Azure AD Domain Services på ett säkert sätt kan du använda [Azure Bastion Host Service](https://docs.microsoft.com/azure/bastion/bastion-overview) i Azure-regioner som stöds.
+1. Anslut till den virtuella datorn för Windows Server som är ansluten till Azure AD DS-resursskogen med [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) och dina Azure AD DS-administratörsbehörighet.
 
 1. Öppna **Windows-inställningar**och sök sedan efter och välj **Nätverks- och delningscenter**.
 1. Välj alternativet ändra **avancerade delningsinställningar.**
@@ -221,3 +214,5 @@ Mer begreppsmässig information om skogstyper i Azure AD DS finns i [Vad är res
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance-advanced]: tutorial-create-instance-advanced.md
 [howto-change-sku]: change-sku.md
+[vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
+[expressroute]: ../expressroute/expressroute-introduction.md

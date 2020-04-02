@@ -10,12 +10,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: enewman
-ms.openlocfilehash: c52a1212d160adce3a0a0638164833bc2907a856
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1aaf588f61b329fa3b838b8a92f3e287897315b
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76515011"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521175"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guide för att konfigurera en Windows-malldator i Azure Lab Services
 
@@ -185,7 +185,7 @@ Vi rekommenderar att alla Microsoft Store-appar uppdateras till de senaste versi
 3. Välj **Hämta** och uppdateringar på rullgardinsmenyn.
 4. Klicka på **Hämta uppdateringsknapp.**
 
-Du kan också använda Powershell för att uppdatera Microsoft Store-program som redan är installerade.
+Du kan också använda PowerShell för att uppdatera Microsoft Store-program som redan är installerade.
 
 ```powershell
 (Get-WmiObject -Namespace "root\cimv2\mdm\dmmap" -Class "MDM_EnterpriseModernAppManagement_AppManagement01").UpdateScanMethod()
@@ -234,3 +234,6 @@ Installera andra appar som ofta används för undervisning via Windows Store-app
 ## <a name="conclusion"></a>Slutsats
 
 I den här artikeln visas valfria steg för att förbereda din virtuella Windows-mall för en effektiv klass.  I stegen ingår att installera OneDrive och installera Office 365, installera uppdateringar för Windows och installera uppdateringar för Microsoft Store-appar.  Vi diskuterade också hur du ställer in uppdateringar till ett schema som fungerar bäst för din klass.  
+
+## <a name="next-steps"></a>Nästa steg
+Se artikeln om hur du styr Windows avstängning beteende för att hantera kostnader: [Guide för att kontrollera Windows avstängning beteende](how-to-windows-shutdown.md)

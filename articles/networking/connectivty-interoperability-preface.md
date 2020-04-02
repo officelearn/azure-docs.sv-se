@@ -1,5 +1,5 @@
 ---
-title: 'Interoperabilitet i Azure-backend-anslutningsfunktioner: Testinställning | Microsoft-dokument'
+title: 'Interoperabilitet i Azure : Testinställning | Microsoft-dokument'
 description: I den här artikeln beskrivs en testkonfiguration som du kan använda för att analysera interoperabilitet mellan ExpressRoute, en VPN från plats till plats och virtuell nätverks peering i Azure.
 documentationcenter: na
 services: networking
@@ -10,14 +10,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 0cbd4b620a03ed26e95679cf7cb1abef277a9471
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3aec41a145d2c94a45a453393831902069b9c41b
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74873803"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518195"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-test-setup"></a>Interoperabilitet i Azure-backend-anslutningsfunktioner: Testkonfiguration
+# <a name="interoperability-in-azure--test-setup"></a>Interoperabilitet i Azure : Testinstallation
 
 I den här artikeln beskrivs en testkonfiguration som du kan använda för att analysera hur Azure-nätverkstjänster samverkar på kontrollplansnivå och dataplansnivå. Låt oss titta kort på Azure-nätverkskomponenter:
 

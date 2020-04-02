@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: tables
-ms.openlocfilehash: f1846fae4cbf473df688a2b184c307d72ab2f8d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 746044aa835df52e61c234c8b5ca61164fffbbc5
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76721480"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80545955"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Utföra Azure Table-lagringsåtgärder med Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -117,7 +117,7 @@ $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
 ## <a name="reference-cloudtable-property-of-a-specific-table"></a>Referens CloudTable-egenskap för en viss tabell
 
 > [!IMPORTANT]
-> Användning av CloudTable är obligatoriskt när du arbetar med **AzTable** PowerShell-modul. Anropa kommandot **Hämta AzTableTable** för att hämta referensen till det här objektet. Det här kommandot skapar också tabellen om den inte redan finns.
+> Användning av CloudTable är obligatoriskt när du arbetar med **AzTable** PowerShell-modul. Anropa kommandot **Get-AzStorageTable** för att hämta referensen till det här objektet. Det här kommandot skapar också tabellen om den inte redan finns.
 
 Om du vill utföra åtgärder i en tabell med **AzTable**behöver du en referens till CloudTable-egenskapen för en viss tabell.
 

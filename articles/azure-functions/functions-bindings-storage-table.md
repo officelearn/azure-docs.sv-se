@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: edeafb5730f06dac22fd9919ca42ea388d5fd0f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1aa3537679ee37cbc6085344d2f31ae4043d32bb
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79277185"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520680"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage-bindningar för Azure-funktioner
 
@@ -36,7 +36,7 @@ Tabelllagringsbindningarna finns i [paketet Microsoft.Azure.WebJobs.Extensions.S
 
 Använd indatabindningen för Azure Table-lagring för att läsa en tabell i ett Azure Storage-konto.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ### <a name="one-entity"></a>En enhet
 
@@ -310,7 +310,7 @@ Mer information om hur du använder CloudTable finns i [Komma igång med Azure T
 Om du försöker `CloudTable` binda till och få ett felmeddelande kontrollerar du att du har en referens till [rätt LagringSDK-version](#azure-storage-sdk-version-in-functions-1x).
 
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 I följande exempel visas en tabellinmatningsbindning i en *function.json-fil* och [JavaScript-kod](functions-reference-node.md) som använder bindningen. Funktionen använder en köutlösare för att läsa en enda tabellrad. 
 
@@ -474,7 +474,7 @@ public Person[] get(
 
 ## <a name="input---attributes-and-annotations"></a>Indata - attribut och anteckningar
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
  I [klassbibliotek för C#](functions-dotnet-class-library.md)använder du följande attribut för att konfigurera en tabellindatabindning:
 
@@ -536,7 +536,7 @@ Det lagringskonto som ska användas bestäms i följande ordning:
 
 Attribut stöds inte av C# Script.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Attribut stöds inte av JavaScript.
 
@@ -564,13 +564,13 @@ I följande tabell beskrivs de bindningskonfigurationsegenskaper som `Table` du 
 |**radNyckel** |**RowKey** | Valfri. Radnyckeln för den tabellentitet som ska läsas. Mer information om hur du använder den här egenskapen finns i [avsnittet](#input---usage) användning.| 
 |**Ta** |**Ta** | Valfri. Det maximala antalet entiteter som ska läsas i JavaScript. Mer information om hur du använder den här egenskapen finns i [avsnittet](#input---usage) användning.| 
 |**Filter** |**Filter** | Valfri. Ett OData-filteruttryck för tabellindata i JavaScript. Mer information om hur du använder den här egenskapen finns i [avsnittet](#input---usage) användning.| 
-|**Anslutning** |**Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen Lagring som ska användas för den här bindningen. Om appinställningsnamnet börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till `connection` exempel anger "MyStorage" söker körtiden Funktioner efter en appinställning med namnet "MyStorage". Om du `connection` lämnar tom använder körtiden Funktioner standardanslutningssträngen för `AzureWebJobsStorage`lagring i appinställningen som heter .|
+|**Anslutning** |**Anslutning** | Namnet på en appinställning som innehåller anslutningssträngen Lagring som ska användas för den här bindningen. Inställningen kan vara namnet på en "AzureWebJobs"-prefixad appinställning eller anslutningssträngnamn. Om ditt inställningsnamn till exempel är "AzureWebJobsMyStorage" kan du ange "MyStorage" här. Funktionskörningen söker automatiskt efter en appinställning med namnet "AzureWebJobsMyStorage". Om du `connection` lämnar tom använder körtiden Funktioner standardanslutningssträngen för `AzureWebJobsStorage`lagring i appinställningen som heter .|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="input---usage"></a>Inmatning - användning
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 * **Läsa en rad i**
 
@@ -596,7 +596,7 @@ I följande tabell beskrivs de bindningskonfigurationsegenskaper som `Table` du 
   > [!NOTE]
   > `IQueryable`stöds inte i [2-körningen Funktioner v2](functions-versions.md). Ett alternativ är att [använda en CloudTable paramName-metodparameter](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) för att läsa tabellen med hjälp av Azure Storage SDK. Om du försöker `CloudTable` binda till och få ett felmeddelande kontrollerar du att du har en referens till [rätt LagringSDK-version](#azure-storage-sdk-version-in-functions-1x).
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Ange `filter` egenskaper `take` och egenskaper. Ställ inte `partitionKey` in `rowKey`eller . Få tillgång till indatatabellentiteten (eller entiteterna) med . `context.bindings.<BINDING_NAME>` De de deserialiserade objekten har `RowKey` och `PartitionKey` egenskaper.
 
@@ -617,7 +617,7 @@ Använd en Azure Table Storage-utdatabindning för att skriva entiteter till en 
 > [!NOTE]
 > Den här utdatabindningen stöder inte uppdatering av befintliga entiteter. Använd `TableOperation.Replace` åtgärden [från Azure Storage SDK](../cosmos-db/tutorial-develop-table-dotnet.md#delete-an-entity) för att uppdatera en befintlig entitet.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som använder en HTTP-utlösare för att skriva en enda tabellrad. 
 
@@ -696,7 +696,7 @@ public class Person
 
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 I följande exempel visas en tabellutdatabindning i en *function.json-fil* och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen skriver flera tabellentiteter.
 
@@ -883,7 +883,7 @@ public class AddPersons {
 
 ## <a name="output---attributes-and-annotations"></a>Utdata - attribut och anteckningar
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 I [klassbibliotek för C#](functions-dotnet-class-library.md)använder du [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs).
 
@@ -921,7 +921,7 @@ Du kan `StorageAccount` använda attributet för att ange lagringskontot på kla
 
 Attribut stöds inte av C# Script.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Attribut stöds inte av JavaScript.
 
@@ -955,7 +955,7 @@ I följande tabell beskrivs de bindningskonfigurationsegenskaper som `Table` du 
 
 ## <a name="output---usage"></a>Utdata - användning
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 Öppna utdatatabellentiteten med `ICollector<T> paramName` `IAsyncCollector<T> paramName` hjälp `T` av `PartitionKey` `RowKey` en metodparameter eller där egenskaperna och finns där. Dessa egenskaper åtföljs ofta `ITableEntity` av att `TableEntity`implementera eller ärva .
 
@@ -967,7 +967,7 @@ Alternativt kan du `CloudTable` använda en metodparameter för att skriva till 
 
 Alternativt kan du `CloudTable` använda en metodparameter för att skriva till tabellen med hjälp av Azure Storage SDK. Om du försöker `CloudTable` binda till och få ett felmeddelande kontrollerar du att du har en referens till [rätt LagringSDK-version](#azure-storage-sdk-version-in-functions-1x).
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Öppna utdatahändelsen `context.bindings.<name>` `<name>` med hjälp av var `name` är det värde som anges i egenskapen *för function.json*.
 
@@ -995,7 +995,7 @@ Det finns två alternativ för att mata ut en tabelllagringsrad från en funktio
 |---|---|
 | Tabell | [Tabellfelkoder](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
 | Blob, Tabell, Kö | [Lagringsfelkoder](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
-| Blob, Tabell, Kö | [Troubleshooting](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) (Felsökning) |
+| Blob, Tabell, Kö | [Felsökning](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>Nästa steg
 

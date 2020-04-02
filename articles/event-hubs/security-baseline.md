@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f16f6ef38b221e525340858fc7ba131f8a1bdf5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10fc822f9f36512405dd4e3b5aba6270b53e163f
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289581"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549033"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Azure Security Baseline för eventhubbar
 
@@ -72,7 +72,7 @@ Förstå nätverkssäkerhet som tillhandahålls av Azure Security Center:https:/
 
 **Vägledning**: Aktivera DDoS Protection Standard i de virtuella nätverk som är associerade med dina händelsehubbar för att skydda mot distribuerade DDoS-attacker (Denial-of-Service). Använd Azure Security Center Integrated Threat Intelligence för att neka kommunikation med kända skadliga eller oanvända IP-adresser på Internet.
 
-KonfigureraR du DDoS-skydd:https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
+KonfigureraR du DDoS-skydd:[https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](/azure/virtual-network/manage-ddos-protection)
 
 Mer information om Azure Security Center Integrated Threat Intelligence:https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
@@ -106,7 +106,7 @@ https://azuremarketplace.microsoft.com/marketplace/?term=Firewall
 
 Så här lägger du till en brandväggsregel i händelsehubbar för en angiven IP-adress:
 
- https://docs.microsoft.com/azure/event-hubs/event-hubs-tutorial-virtual-networks-firewalls#add-firewall-for-specified-ip
+ https://docs.microsoft.com/azure/event-hubs/event-hubs-ip-filtering
 
 **Övervakning av Azure Security Center**: Ännu inte tillgänglig
 
@@ -140,7 +140,7 @@ Azure inbyggd princip för event hubbar namnområde:https://docs.microsoft.com/a
 
 
 
-Azure Princip-exempel för nätverk:https://docs.microsoft.com/azure/governance/policy/samples/#network
+Azure Princip-exempel för nätverk:https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network
 
 
 
@@ -373,10 +373,7 @@ Aktivera MFA i Azure:https://docs.microsoft.com/azure/active-directory/authentic
 
 **Vägledning**: Använd AZURE Active Directory (AD) Privilegierad identitetshantering (PIM) för generering av loggar och aviseringar när misstänkt eller osäker aktivitet inträffar i miljön. Använd Azure AD-riskidentifieringar för att visa aviseringar och rapporter om riskfyllda användarbeteenden. Om du vill logga ytterligare skickar du riskidentifieringsaviseringar för Azure Security Center i Azure Monitor och konfigurerar anpassade aviseringar/meddelanden med hjälp av åtgärdsgrupper.
 
-
-
 Så här distribuerar du PIM (Privilegierad identitetshantering):https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
-
 
 Förstå Azure AD-riskidentifieringar:https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
@@ -780,7 +777,7 @@ Konfigurera villkorlig åtkomst för att blockera åtkomst till Azure Resource M
 
 - Event Hub bör använda en slutpunkt för virtuella nätverkstjänster
 
-Azure Inbyggd princip för eventhubbar https://docs.microsoft.com/en-\ namnområde: oss/azure/governance/policy/samples/built-in-policies#event-hub
+Azure inbyggd princip för event hubbar namnområde:https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
 
 Så här visar du tillgängliga Azure-principalias:https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
@@ -961,7 +958,7 @@ Microsoft anti-malware är aktiverat på den underliggande värden som stöder A
 
 **Vägledning**: Konfigurera återställning av geokatastrofer för Azure-händelsehubbar. När hela Azure-regioner eller datacenter (om inga tillgänglighetszoner används) upplever driftstopp är det viktigt för databearbetning att fortsätta att fungera i en annan region eller datacenter. Geo-disaster recovery och Geo-replication är därför viktiga funktioner för alla företag. Azure Event Hubs stöder både geo-haveriberedskap och geo-replikering, på namnområdesnivå. 
 
-Förstå återställning av geokatastrofer för Azure Event Hubs:https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr#availability-zones-preview
+Förstå återställning av geokatastrofer för Azure Event Hubs:https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr#availability-zones
 
 **Övervakning av Azure Security Center**: För närvarande inte tillgänglig
 

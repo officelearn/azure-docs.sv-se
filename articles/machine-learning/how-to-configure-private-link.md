@@ -10,16 +10,18 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: c6593a2746e628c89e20f6ef92a1430bd294e4fe
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: fb70600ad245968377cdebd23a7b531e552bb546
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80438312"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529324"
 ---
-# <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Konfigurera Azure Private Link för en Azure Machine Learning-arbetsyta
+# <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Konfigurera Azure Private Link för en Azure Machine Learning-arbetsyta (förhandsversion)
 
-I det här dokumentet får du lära dig hur du använder Azure Private Link med din Azure Machine Learning-arbetsyta. Med Azure Private Link kan du ansluta till din arbetsyta med hjälp av en privat slutpunkt. Den privata slutpunkten är en uppsättning privata IP-adresser i det virtuella nätverket. Du kan sedan begränsa åtkomsten till arbetsytan så att den bara sker via de privata IP-adresserna. Private Link hjälper till att minska risken för dataexfiltration. Mer information om privata slutpunkter finns i artikeln [Azure Private Link.](/azure/private-link/private-link-overview)
+I det här dokumentet får du lära dig hur du använder Azure Private Link med din Azure Machine Learning-arbetsyta. Den här funktionen är för närvarande i förhandsversion och är tillgänglig i regionerna USA East, US West 2, US South Central. 
+
+Med Azure Private Link kan du ansluta till din arbetsyta med hjälp av en privat slutpunkt. Den privata slutpunkten är en uppsättning privata IP-adresser i det virtuella nätverket. Du kan sedan begränsa åtkomsten till arbetsytan så att den bara sker via de privata IP-adresserna. Private Link hjälper till att minska risken för dataexfiltration. Mer information om privata slutpunkter finns i artikeln [Azure Private Link.](/azure/private-link/private-link-overview)
 
 > [!IMPORTANT]
 > Azure Private Link påverkar inte Azure-kontrollplan (hanteringsåtgärder) som att ta bort arbetsytan eller hantera beräkningsresurser. Skapa, uppdatera eller ta bort ett beräkningsmål. Dessa åtgärder utförs över det offentliga Internet som vanligt.

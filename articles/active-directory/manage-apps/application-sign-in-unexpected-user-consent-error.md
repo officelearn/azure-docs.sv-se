@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dff3be9a9bc7fd897f340e5fe6a4775a4914810
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea14e02920cf7ba6c5e0a7b415cb92137c915576
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65824947"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519710"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Oväntat fel när du gör medgivande till ett program
 
@@ -33,8 +33,11 @@ Vissa villkor måste vara sanna för att en användare ska kunna godkänna de be
 
 ## <a name="requesting-not-authorized-permissions-error"></a>Begär inte auktoriserat behörighetsfel
 * **AADSTS90093:** &lt;clientAppDisplayName&gt; begär en eller flera behörigheter som du inte har behörighet att bevilja. Kontakta en administratör som kan godkänna det här programmet för din räkning.
+* **AADSTS90094:** &lt;clientAppDisplayName&gt; behöver behörighet för att komma åt resurser i organisationen som bara en administratör kan bevilja. Be en administratör att bevilja behörighet till den här appen innan du använder den.
 
 Det här felet uppstår när en användare som inte är företagsadministratör försöker använda ett program som begär behörigheter som bara en administratör kan bevilja. Det här felet kan lösas av en administratör som beviljar åtkomst till programmet på uppdrag av sin organisation.
+
+Det här felet kan också uppstå när en användare hindras från att godkänna ett program på grund av att Microsoft upptäcker att behörighetsbegäran är riskabel. I det här fallet loggas en granskningshändelse också med en kategori av "ApplicationManagement", Aktivitetstyp för "Samtycke till ansökan" och Statusorsaken till "Riskfyllt program upptäckt".
 
 ## <a name="policy-prevents-granting-permissions-error"></a>Princip förhindrar att behörighetsfel beviljas
 * **AADSTS90093:** En administratör &lt;för tenantDisplayName&gt; har angett en princip &lt;som&gt; hindrar dig från att bevilja namnet på appen de behörigheter som den begär. Kontakta en &lt;administratör för&gt;tenantDisplayName , som kan bevilja behörigheter till den här appen för din räkning.

@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 596dc334a412b3e0839d7661a23af771e5cd7394
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 891db5d17ddde681f75845fdca6c9252c5b32b86
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75366948"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520819"
 ---
 # <a name="authenticate-runbooks-with-amazon-web-services"></a>Autentisera runbooks med Amazon Web Services (AWS)
 
@@ -26,7 +26,7 @@ För att autentisera med AWS måste du ange en uppsättning AWS-autentiseringsup
 
 För att Azure Automation ska kunna kommunicera med AWS måste du först hämta dina AWS-autentiseringsuppgifter och lagra dem som tillgångar i Azure Automation. Utför följande steg som finns dokumenterade i AWS-dokumentet [Hantera åtkomstnycklar för ditt AWS-konto](https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html) om du behöver skapa en åtkomstnyckel och kopiera sedan **åtkomstnyckelns ID** och **den hemliga åtkomstnyckeln** (om du vill kan du hämta nyckelfilen och lagra den på en säker plats).
 
-När du har skapat och kopierat AWS-säkerhetsnycklarna måste du skapa en autentiseringstillgång med ett Azure Automation-konto för att lagra dem på ett säkert sätt och referera till dem med dina runbooks. Följ stegen i avsnittet: **Så här skapar du en ny autentiseringsartikel** i [autentiseringsuppgifterna i](shared-resources/credentials.md#to-create-a-new-credential-asset-with-the-azure-portal) Azure Automation och anger följande information:
+När du har skapat och kopierat AWS-säkerhetsnycklarna måste du skapa en autentiseringstillgång med ett Azure Automation-konto för att lagra dem på ett säkert sätt och referera till dem med dina runbooks. Följ stegen i avsnittet: **Så här skapar du en ny autentiseringsartikel** i [autentiseringsuppgifterna i](shared-resources/credentials.md#create-a-new-credential-asset-with-the-azure-portal) Azure Automation och anger följande information:
 
 1. I rutan **Namn** anger du **AWScred** eller lämpligt värde som följer din namngivningskonvention.
 2. Skriv ditt **Åtkomst-ID** och din **hemliga åtkomstnyckel** i rutan **Lösenord** och **Bekräfta lösenord** i rutan **Användarnamn.**

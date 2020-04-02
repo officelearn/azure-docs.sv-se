@@ -8,16 +8,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 04/01/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: c5f65adfe401f2f6e99234d08b8e8dabeff7d5db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1ee8e90d1d690315b2727a050e0383d7d28dc03
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264120"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546143"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Så här: Använd portalen för att skapa ett Azure AD-program och tjänsthuvudnamn som kan komma åt resurser
 
@@ -99,7 +99,7 @@ Exportera det här certifikatet till en fil med mmc-snapin-modulen [Hantera anv�
 
 1. Om du vill visa dina certifikat expanderar du den **personliga** katalogen under **Certifikat - Aktuell användare** i den vänstra rutan.
 1. Högerklicka på det certifikat du skapade, välj **Alla uppgifter >Exportera**.
-1. Följ guiden Exportera certifikat.  Exportera den privata nyckeln, ange ett lösenord för cert-filen och exportera till en fil.
+1. Följ guiden Exportera certifikat.  Exportera inte den privata nyckeln och exportera till en . CER-fil.
 
 Så här laddar du upp certifikatet:
 
@@ -148,7 +148,7 @@ Du måste ha tillräcklig behörighet för att registrera ett program med din Az
 1. Välj **Användarinställningar**i den vänstra rutan .
 1. Kontrollera inställningen **för appregistreringar.** Det här värdet kan bara anges av en administratör. Om den är inställd på **Ja**kan alla användare i Azure AD-klienten registrera en app.
 
-Om inställningen för appregistreringar är inställd på **Nej**kan endast användare med administratörsroll registrera dessa typer av program. Se [tillgängliga roller](../users-groups-roles/directory-assign-admin-roles.md#available-roles) och [rollbehörigheter](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) för att lära dig mer om tillgängliga administratörsroller och de specifika behörigheter i Azure AD som ges till varje roll. Om ditt konto har tilldelats användarrollen, men appregistreringsinställningen är begränsad till administratörsanvändare, ber du administratören att antingen tilldela dig en av administratörsrollerna som kan skapa och hantera alla aspekter av appregistreringar, eller för att göra det möjligt för användare att registrera Apps.
+Om inställningen för appregistreringar är inställd på **Nej**kan endast användare med administratörsroll registrera dessa typer av program. Se [tillgängliga roller](../users-groups-roles/directory-assign-admin-roles.md#available-roles) och [rollbehörigheter](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) för att lära dig mer om tillgängliga administratörsroller och de specifika behörigheter i Azure AD som ges till varje roll. Om ditt konto har tilldelats användarrollen, men appregistreringsinställningen är begränsad till administratörsanvändare, ber du administratören att antingen tilldela dig en av administratörsrollerna som kan skapa och hantera alla aspekter av appregistreringar eller för att göra det möjligt för användare att registrera appar.
 
 ### <a name="check-azure-subscription-permissions"></a>Kontrollera Azure-prenumerationsbehörigheter
 

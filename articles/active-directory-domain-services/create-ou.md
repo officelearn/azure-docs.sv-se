@@ -9,26 +9,29 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 7abbdf03e85f425f65a45e6640b82529c2b9c84f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b95a3e32bc2b8df3d02453e42fa9bbc3719134b
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77614073"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519163"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-ad-domain-services-managed-domain"></a>Skapa en organisationsenhet (OU) i en hanterad Azure AD-domäntjänst
 
 Med organisationsenheter i AD DS (Active Directory Domain Services) kan du logiskt gruppera objekt som användarkonton, tjänstkonton eller datorkonton. Du kan sedan tilldela administratörer till specifika ru:er och tillämpa grupprincip för att framtvinga riktade konfigurationsinställningar.
 
-Azure AD DS-hanterade domäner innehåller två inbyggda OUs - *AADDC-datorer* och *AADDC-användare*. *AADDC-datorernas* organisationsenhet innehåller datorobjekt för alla datorer som är anslutna till den hanterade domänen. *AADDC-användares* organisationsenhet innehåller användare och grupper som synkroniseras från Azure AD-klienten. När du skapar och kör arbetsbelastningar som använder Azure AD DS kan du behöva skapa tjänstkonton för program för att autentisera sig själva. Om du vill ordna dessa tjänstkonton skapar du ofta en anpassad organisationsenhet i den Hanterade Azure AD DS-domänen och skapar sedan tjänstkonton inom den organisationsenhetsenheten.
+Azure AD DS-hanterade domäner innehåller följande två inbyggda AU:
+
+* *AADDC-datorer* - innehåller datorobjekt för alla datorer som är anslutna till den hanterade domänen.
+* *AADDC-användare* - innehåller användare och grupper synkroniserade från Azure AD-klienten.
+
+När du skapar och kör arbetsbelastningar som använder Azure AD DS kan du behöva skapa tjänstkonton för program för att autentisera sig själva. Om du vill ordna dessa tjänstkonton skapar du ofta en anpassad organisationsenhet i den Hanterade Azure AD DS-domänen och skapar sedan tjänstkonton inom den organisationsenhetsenheten.
 
 I en hybridmiljö synkroniseras inte OUs som skapats i en lokal AD DS-miljö till Azure AD DS. Azure AD DS-hanterade domäner använder en platt organisationsenhetsstruktur. Alla användarkonton och grupper lagras i behållaren *AADDC-användare,* trots att de synkroniseras från olika lokala domäner eller skogar, även om du har konfigurerat en hierarkisk organisationsenhetsstruktur där.
 
 Den här artikeln visar hur du skapar en organisationsenhet i din Azure AD DS-hanterade domän.
-
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -68,19 +71,19 @@ Om du vill skapa en anpassad organisationsenhet använder du Administrationsverk
 1. Om du vill skapa och hantera ru:er väljer du **Administrationscenter** för Active Directory i listan över administrativa verktyg.
 1. I den vänstra rutan väljer du din Azure AD DS-hanterade domän, till exempel *aaddscontoso.com*. En lista över befintliga företags och resurser visas:
 
-    ![Välj din Azure AD DS-hanterade domän i Active Directory Administrationscenter](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
+    ![Välj din Azure AD DS-hanterade domän i Active Directory Administrationscenter](./media/create-ou/create-ou-adac-overview.png)
 
 1. Fönstret **Aktiviteter** visas till höger i Administrationscenter för Active Directory. Välj **Ny > organisationsenhet**under domänen, till exempel *aaddscontoso.com.*
 
-    ![Välj alternativet för att skapa en ny organisationsenhet i Active Directory Administrationscenter](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
+    ![Välj alternativet för att skapa en ny organisationsenhet i Active Directory Administrationscenter](./media/create-ou/create-ou-adac-new-ou.png)
 
 1. I dialogrutan **Skapa organisationsenhet** anger du ett **namn** för den nya organisationsenheten, till exempel *MyCustomOu*. Ange en kort beskrivning av organisationsenheten, till exempel *Anpassad organisationsenhet för tjänstkonton*. Om du vill kan du också ange fältet **Hanterad av** för organisationsenheten. Om du vill skapa den anpassade organisationsenheten väljer du **OK**.
 
-    ![Skapa en anpassad organisationsenhet från Administrationscenter för Active Directory](./media/active-directory-domain-services-admin-guide/create-ou-dialog.png)
+    ![Skapa en anpassad organisationsenhet från Administrationscenter för Active Directory](./media/create-ou/create-ou-dialog.png)
 
 1. Tillbaka i Active Directory Administrationscenter visas nu den anpassade organisationsenheten och är tillgänglig för användning:
 
-    ![Anpassad organisationsenhet som är tillgänglig för användning i Administrationscenter för Active Directory](./media/active-directory-domain-services-admin-guide/create-ou-done.png)
+    ![Anpassad organisationsenhet som är tillgänglig för användning i Administrationscenter för Active Directory](./media/create-ou/create-ou-done.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

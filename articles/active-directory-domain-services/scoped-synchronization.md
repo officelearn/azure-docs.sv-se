@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 11/26/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: cc126af67a0d8627d61e595cee56f3df8973340d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 160873fe889d7eccc7efd08b4767854a5b24c484
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77613039"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80518976"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services"></a>Konfigurera begränsad synkronisering från Azure AD till Azure Active Directory Domain Services
 
@@ -42,18 +42,20 @@ Du använder Azure-portalen eller PowerShell för att konfigurera de begränsade
 
 | Åtgärd | | |
 |--|--|--|
-| Skapa en Azure AD DS-hanterad domän och konfigurera begränsad synkronisering | [Azure-portal](#enable-scoped-synchronization-using-the-azure-portal) | [Powershell](#enable-scoped-synchronization-using-powershell) |
-| Ändra begränsad synkronisering | [Azure-portal](#modify-scoped-synchronization-using-the-azure-portal) | [Powershell](#modify-scoped-synchronization-using-powershell) |
-| Inaktivera begränsad synkronisering | [Azure-portal](#disable-scoped-synchronization-using-the-azure-portal) | [Powershell](#disable-scoped-synchronization-using-powershell) |
+| Skapa en Azure AD DS-hanterad domän och konfigurera begränsad synkronisering | [Azure Portal](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
+| Ändra begränsad synkronisering | [Azure Portal](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
+| Inaktivera begränsad synkronisering | [Azure Portal](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
-> Om du ändrar synkroniseringens omfattning kan Azure AD DS-hanterad domän synkronisera om alla data.
+> Om du ändrar synkroniseringens omfattning kan Azure AD DS-hanterad domän synkronisera om alla data. Följande gäller:
 > 
 >  * När du ändrar synkroniseringsomfånget för en Azure AD DS-hanterad domän sker en fullständig omsynkronisering.
 >  * Objekt som inte längre behövs i azure AD DS-hanterad domän tas bort. Nya objekt skapas i den hanterade domänen.
 >  * Omsynkronisering kan ta lång tid att slutföra. Synkroniseringstiden beror på antalet objekt som användare, grupper och gruppmedlemskap i Azure AD DS-hanterade domänen och Azure AD-katalogen. För stora kataloger med hundratusentals objekt kan omsynkronisering ta några dagar.
 
 ## <a name="enable-scoped-synchronization-using-the-azure-portal"></a>Aktivera begränsad synkronisering med Azure-portalen
+
+Så här aktiverar du scoped-synkronisering i Azure-portalen:
 
 1. Följ [självstudien för att skapa och konfigurera en Azure AD DS-instans](tutorial-create-instance-advanced.md). Slutför alla förutsättningar och distributionssteg förutom för synkroniseringsomfång.
 1. Välj Scoped i **synkroniseringssteget** och välj sedan Azure AD-grupperna som ska synkroniseras med Azure AD DS-instansen.
@@ -173,7 +175,7 @@ Write-Output "******************************************************************
 
 ## <a name="enable-scoped-synchronization-using-powershell"></a>Aktivera begränsad synkronisering med PowerShell
 
-Använd PowerShell för att slutföra den här uppsättningen steg. Se instruktionerna för att [aktivera Azure Active Directory Domain Services med PowerShell](powershell-create-instance.md). Ett par steg i den här artikeln ändras något för att konfigurera begränsad synkronisering.
+Använd PowerShell för att slutföra följande steg. Se instruktionerna för att [aktivera Azure Active Directory Domain Services med PowerShell](powershell-create-instance.md). Ett par steg i den här artikeln ändras något för att konfigurera begränsad synkronisering.
 
 1. Slutför följande uppgifter från artikeln för att aktivera Azure AD DS med PowerShell. Stanna vid steget för att faktiskt skapa den hanterade domänen. Du konfigurerar den begränsade synkronisering som du skapar den Azure AD DS-hanterade domänen.
 

@@ -7,12 +7,12 @@ ms.reviewer: dorcohen
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/15/2020
-ms.openlocfilehash: 796b37f98fed7e389fa71a15b5e6697a14db1a16
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 1b9d593b0f0895e2ba75fae7ab7e78ea883c8907
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397191"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521712"
 ---
 # <a name="microsoft-flow-connector-preview-usage-examples"></a>Exempel på användning av Microsoft Flow connector (förhandsversion)
 
@@ -24,8 +24,6 @@ Mer information finns i [Microsoft Flow connector (Preview)](flow.md).
 * [Skicka data till Power BI-datauppsättning](#push-data-to-power-bi-dataset)
 * [Villkorsstyrda frågor](#conditional-queries)
 * [Skicka flödesscheman för flera Azure Data Explorer-data](#email-multiple-azure-data-explorer-flow-charts)
-* [Skicka ett annat e-postmeddelande till olika kontakter](#send-a-different-email-to-different-contacts)
-* [Skapa en anpassad HTML-tabell](#create-a-custom-html-table)
 
 ## <a name="microsoft-flow-connector-and-sql"></a>Microsoft Flow-anslutning och SQL
 
@@ -101,23 +99,21 @@ Visualisera den här informationen som ett cirkeldiagram och skicka den till tea
 
 ## <a name="email-multiple-azure-data-explorer-flow-charts"></a>Skicka flödesscheman för flera Azure Data Explorer-data
 
-1. Skapa en ny Flow med "Återkommande" utlösare och definiera intervallet för flödet och frekvensen. 
+1. Skapa ett nytt flöde med upprepningsutlösaren och definiera intervallet för flödet och frekvensen. 
 1. Lägg till ett nytt steg med en eller flera Kusto - Kör fråga och visualisera resultatåtgärder. 
 
     ![Köra flera frågor i ett flöde](./media/flow-usage/flow-severalqueries.png)
 1. För varje Kusto - Kör fråga och visualisera resultatet definierar du följande fält:
-    * Kluster-URL (i fältet *Klusternamn)*
+    * Kluster-URL
     * Databasnamn
-    * Fråge- och diagramtyp (HTML-tabell/ cirkeldiagram/ tidsdiagram/stapeldiagram/ Ange anpassat värde).
+    * Fråga och diagramtyp (HTML-tabell, cirkeldiagram, tidsdiagram, stapeldiagram eller ange ett anpassat värde).
 
     ![Visualisera resultat med flera bifogade filer](./media/flow-usage/flow-visualizeresultsmultipleattachments.png)
 
-    > [!IMPORTANT]
-    > Ange kluster-URL:en i fälten *Klusternamn.*
-
-1. Lägga till en skicka en e-poståtgärd. 
-    * I fältet *Brödtext* infogar du den önskade brödtexten så att det visualiserade resultatet av frågan inkluderas i e-postmeddelandets brödtext.
-    * Om du vill lägga till en bifogad fil i e-postmeddelandet lägger du till Namn och innehåll för bifogade filer.
+1. Lägga till en skicka ett e-postmeddelande (v2) åtgärd: 
+    1. Välj kodvyikonen i brödtextavsnittet.
+    1. I fältet **Brödtext** infogar du den nödvändiga BodyHtml så att det visualiserade resultatet av frågan inkluderas i brödtexten i e-postmeddelandet.
+    1. Om du vill lägga till en bifogad fil i e-postmeddelandet lägger du till Namn och innehåll för bifogade filer.
     
     ![E-post flera bilagor](./media/flow-usage/flow-email-multiple-attachments.png)
 
@@ -128,68 +124,6 @@ Resultat:
 [![](./media/flow-usage/flow-resultsmultipleattachments.png "Results of multiple attachments")](./media/flow-usage/flow-resultsmultipleattachments.png#lightbox)
 
 [![](./media/flow-usage/flow-resultsmultipleattachments2.png "Results of multiple attachments")](./media/flow-usage/flow-resultsmultipleattachments2.png#lightbox)
-
-## <a name="send-a-different-email-to-different-contacts"></a>Skicka ett annat e-postmeddelande till olika kontakter
-
-Du kan använda Microsoft Flow för att skicka olika anpassade e-postmeddelanden till olika kontakter. E-postadresserna och e-postinnehållet är ett resultat av en Kusto-fråga.
-
-Exempel:
-
-![Dynamisk e-post med en Kusto-fråga](./media/flow-usage/flow-dynamicemailkusto.png)
-
-> [!IMPORTANT]
-> Ange kluster-URL:en i fältet *Klusternamn.*
-
-![Dynamisk e-post i flödesåtgärden](./media/flow-usage/flow-dynamicemail.png)
-
-## <a name="create-a-custom-html-table"></a>Skapa en anpassad HTML-tabell
-
-Du kan använda Microsoft Flow för att skapa och använda anpassade HTML-element, till exempel en anpassad HTML-tabell.
-
-I följande exempel visas hur du skapar en anpassad HTML-tabell. HTML-tabellen kommer att ha sina rader färgade efter loggnivå (samma som i Azure Data Explorer).
-
-Följ dessa instruktioner för att skapa ett liknande flöde:
-
-1. Skapa en ny kusto - kör fråge- och listresultat.
-
-    ![Lista resultat för en HTML-tabell](./media/flow-usage/flow-listresultforhtmltable.png)
-
-> [!IMPORTANT]
-> Ange kluster-URL:en i fältet *Klusternamn.*
-
-1. Loopa över frågeresultaten och skapa HTML-tabelltexten: 
-    1. Om du vill skapa en variabel som ska innehålla HTML-strängen väljer du **Nytt steg**
-    1. Välj **Lägg till en åtgärd** och sök efter variabler. 
-    1. Välj **variabler - Initiera variabel**. 
-    1. Initiera en strängvariabel enligt följande:
-
-    ![Initiera en variabel](./media/flow-usage/flow-initializevariable.png)
-
-1. Loop över resultaten:
-    1. Välj **Nytt steg**.
-    1. Välj **lägg till en åtgärd**.
-    1. Sök efter variabler. 
-    1. Välj **variabler - Lägg till i strängvariabeln**. 
-    1. Markera det variabelnamn som du initierade tidigare och skapa HTML-tabellraderna med frågeresultaten. 
-    När du väljer frågeresultat läggs Använd på var och en automatiskt till.
-
-    I exemplet nedan `if` används uttrycket för att definiera formatet för varje rad:
-
-    ```if(equals(items('Apply_to_each')?['Level'], 'Warning'), 'Yellow', if(equals(items('Apply_to_each')?['Level'], 'Error'), 'red', 'white'))```
-
-    [![](./media/flow-usage/flow-createhtmltableloopcontent.png "Create HTML table loop content")](./media/flow-usage/flow-createhtmltableloopcontent.png#lightbox)
-
-1. Skapa det fullständiga HTML-innehållet: 
-    1. Lägg till en ny åtgärd utanför Använd för varje. 
-    I följande exempel är åtgärden skicka ett e-postmeddelande.
-    1. Definiera HTML-tabellen med variabeln från föregående steg. 
-    1. Om du skickar ett e-postmeddelande väljer du **Visa avancerade alternativ** och väljer **Ja**under Är HTML .
-
-    ![E-post för anpassad HTML-tabell](./media/flow-usage/flow-customhtmltablemail.png)
-
-Resultat:
-
-![Anpassat e-postmeddelande med anpassad HTML-tabell](./media/flow-usage/flow-customhtmltableresult.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

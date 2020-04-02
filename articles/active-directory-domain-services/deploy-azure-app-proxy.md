@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/6/2019
+ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: c6e4e6a45fbbeab64184d8ae4b0684ba055d7735
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3fb731736941293a82baba86165a1205bd8a05c5
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77613980"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519038"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-ad-domain-services-managed-domain"></a>Distribuera Azure AD-programproxy för säker åtkomst till interna program i en hanterad Azure AD-domäntjänst
 
@@ -25,8 +25,6 @@ Med Azure AD Domain Services (Azure AD DS) kan du lyfta och flytta äldre progra
 Om du inte har tillgång till Azure AD Application Proxy tidigare och vill veta mer läser du Så här ger du [säker fjärråtkomst till interna program](../active-directory/manage-apps/application-proxy.md).
 
 Den här artikeln visar hur du skapar och konfigurerar en Azure AD Application Proxy-anslutningsapp för att ge säker åtkomst till program i en Azure AD DS-hanterad domän.
-
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

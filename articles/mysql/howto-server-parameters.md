@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: fc2b1bbe0a3249014e663d43ee4db87cab5eedcf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/1/2020
+ms.openlocfilehash: 715f1028597d76915d833b0ade66bc03d939030d
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063269"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546453"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Konfigurera serverparametrar i Azure Database för MySQL med hjälp av Azure-portalen
 
@@ -68,10 +68,10 @@ Andra serverparametrar som inte visas här är inställda på deras MySQL-standa
 
 ### <a name="populating-the-time-zone-tables"></a>Fylla i tidszonstabellerna
 
-Tidszonstabellerna på servern kan fyllas `az_load_timezone` i genom att anropa den lagrade proceduren från ett verktyg som MySQL-kommandoraden eller MySQL Workbench.
+Tidszonstabellerna på servern kan fyllas `mysql.az_load_timezone` i genom att anropa den lagrade proceduren från ett verktyg som MySQL-kommandoraden eller MySQL Workbench.
 
 > [!NOTE]
-> Om du kör `az_load_timezone` kommandot från MySQL Workbench kan du behöva stänga `SET SQL_SAFE_UPDATES=0;`av felsäkert uppdateringsläge först med .
+> Om du kör `mysql.az_load_timezone` kommandot från MySQL Workbench kan du behöva stänga `SET SQL_SAFE_UPDATES=0;`av felsäkert uppdateringsläge först med .
 
 ```sql
 CALL mysql.az_load_timezone();

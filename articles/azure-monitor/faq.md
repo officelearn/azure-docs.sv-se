@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/26/2020
-ms.openlocfilehash: 777e4e1f8fdd05345d949fe8c78b4a5b1953b8b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 306d847c2bc5af72d37dbf8bf472a5bae63e9fd5
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298250"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528508"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Vanliga frågor och svar i Azure Monitor
 
@@ -177,7 +177,7 @@ Ange en befintlig eller ny [åtgärdsgrupp](platform/action-groups.md) så att d
 
 
 ### <a name="what-are-the-firewall-requirements-for-azure-monitor-agents"></a>Vilka är brandväggskraven för Azure Monitor-agenter?
-Se [Krav på nätverksbrandvägg](platform/log-analytics-agent.md#network-firewall-requirements)för information om brandväggskrav.
+Se [Krav på nätverksbrandvägg](platform/log-analytics-agent.md#firewall-requirements)för information om brandväggskrav.
 
 
 ## <a name="visualizations"></a>Visualiseringar
@@ -682,7 +682,7 @@ Funktionen Azure Monitor för virtuella datorer kart baseras på Service Map, me
 * Du kan inte skapa nya servicemappningsmaskingrupper i Azure Monitor för virtuella datorer.  
 
 ### <a name="why-do-my-performance-charts-show-dotted-lines"></a>Varför visar mina resultatdiagram streckade linjer?
-Detta kan inträffa av några skäl.  I de fall där det finns en lucka i datainsamlingen visar vi linjerna som prickade.  Om du har ändrat dataprovtagningsfrekvensen för de aktiverade prestandaräknarna (standardinställningen är att samla in data var 60:e sekund) kan du se prickade linjer i diagrammet om du väljer ett smalt tidsintervall för diagrammet och samplingsfrekvensen är mindre än Skopans storlek som används i diagrammet (till exempel är samplingsfrekvensen var 10:e minut och varje skopa på sjökortet är 5 minuter).  Om du väljer ett bredare tidsintervall som ska visas bör diagramlinjerna visas som heldragna linjer i stället för punkter i det här fallet.
+Detta kan inträffa av några skäl.  I de fall där det finns en lucka i datainsamlingen visar vi linjerna som prickade.  Om du har ändrat dataprovtagningsfrekvensen för de aktiverade prestandaräknarna (standardinställningen är att samla in data var 60:e sekund) kan du se prickade linjer i diagrammet om du väljer ett smalt tidsintervall för diagrammet och samplingsfrekvensen är mindre än skopans storlek som används i diagrammet (till exempel är samplingsfrekvensen var 10:e minut och varje bucket på diagrammet är 5 minuter).  Om du väljer ett bredare tidsintervall som ska visas bör diagramlinjerna visas som heldragna linjer i stället för punkter i det här fallet.
 
 ### <a name="are-groups-supported-with-azure-monitor-for-vms"></a>Stöds grupper med Azure Monitor för virtuella datorer?
 Ja, när du har installerat beroendeagenten samlar vi in information från de virtuella datorerna för att visa grupper baserat på prenumeration, resursgrupp, skaluppsättningar för virtuella datorer och molntjänster.  Om du har använt Service Map och har skapat maskingrupper visas även dessa.  Datorgrupper visas också i gruppfiltret om du har skapat dem för arbetsytan som du visar. 

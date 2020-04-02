@@ -7,12 +7,12 @@ ms.reviewer: basaba
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/24/2020
-ms.openlocfilehash: 4dff471fa0f2194756409e01512ed223a1d46024
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 99c32122fc48aaea7428fa559d7289713849f34e
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80241444"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548905"
 ---
 # <a name="create-an-azure-data-explorer-cluster-in-your-virtual-network"></a>Skapa ett Azure Data Explorer-kluster i det virtuella nätverket
 
@@ -68,7 +68,7 @@ Så här skapar du nätverkssäkerhetsgruppen:
     | Namn | TillåtAzureDataExplorerManagement
     | | |
     
-1. Upprepa de två föregående stegen för alla inkommande och utgående beroenden enligt [beroenden för VNet-distribution](/azure/data-explorer/vnet-deloyment#dependencies-for-vnet-deployment). Alternativt kan utgående regler ersättas med en enda regel för att tillåta *Internet* för portarna 443 och 80.
+1. Upprepa de två föregående stegen för alla inkommande och utgående beroenden enligt [beroenden för VNet-distribution](/azure/data-explorer/vnet-deployment#dependencies-for-vnet-deployment). Alternativt kan utgående regler ersättas med en enda regel för att tillåta *Internet* för portarna 443 och 80.
     
     NSG-reglerna för inkommande och utgående beroenden ska se ut så här:
 
@@ -121,7 +121,7 @@ Så här skapar du det virtuella nätverket och undernätet:
     | | | |
 
     > [!NOTE]
-    > För produktionsarbetsbelastningar, planera din undernätsstorlek enligt [plan undernätsstorlek i ditt virtuella nätverk](/azure/data-explorer/vnet-deloyment#plan-subnet-size-in-your-vnet)
+    > För produktionsarbetsbelastningar, planera din undernätsstorlek enligt [plan undernätsstorlek i ditt virtuella nätverk](/azure/data-explorer/vnet-deployment#plan-subnet-size-in-your-vnet)
 
 1. Välj **Granska + skapa** för att granska din klusterinformation och **Skapa** för att etablera klustret.
 

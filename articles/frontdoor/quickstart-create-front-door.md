@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: a98a933113322509f6fda8678350e9415d0b4058
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2b44c0cdbe2d955efe20a5f9473a29bc9f500a07
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79471429"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521459"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Snabbstart: Skapa en Front Door för en global webbapp med hög tillgänglighet
 
@@ -34,52 +34,71 @@ Logga in på Azure Portal på https://portal.azure.com.
 ## <a name="prerequisites"></a>Krav
 Den här snabbstarten kräver att du har distribuerat två instanser av en webbapp som körs i olika Azure-regioner (*USA, östra* och *Europa, västra*). Båda webbprograminstanserna körs med aktiv/aktiv-läget. De innebär att båda två kan hantera trafik när som helst till skillnad från en konfiguration av typen aktiv eller vänteläge där den ena fungerar som en redundansväxling.
 
-1. Välj **Skapa en resurs** > **Webbapp** > **Web App** > **skapa**längst upp till vänster på skärmen .
+1. Välj Skapa en > **resurswebbapp** > **Web App**längst **Create a resource**upp till vänster på skärmen .
 2. I **Webbapp** anger eller väljer du följande information och anger standardinställningarna där de inte har angetts:
 
      | Inställning         | Värde     |
      | ---              | ---  |
-     | Namn           | Ange ett unikt namn för din webbapp  |
      | Resursgrupp          | Välj **Ny** och skriv sedan *myResourceGroupFD1* |
-     | App Service-plan/plats         | Välj **Ny**.  I App Service-planen anger du *myAppServicePlanEastUS* och väljer sedan **OK**. 
-     |      Location  |   USA, östra        |
-    |||
-
-3. Välj **Skapa**.
-4. En standardwebbplats skapas när webbappen har distribuerats.
-5. Upprepa steg 1–3 för att skapa en andra webbplats i en annan Azure-region med följande inställningar:
+     | Namn           | Ange ett unikt namn för din webbapp  |
+     | Körningsstack          | Välj en Runtime-stack för din app |
+     |      Region  |   USA, västra        |
+     | App Service-plan/plats         | Välj **Ny**.  I App Service-planen anger du *myAppServicePlanEastUS* och väljer sedan **OK**.| 
+     |SKU och storlek  | Välj **Ändra storlek** Välj Standard **S1 100 totalt ACU, 1,75 GB minne** |
+     
+3. Välj **Granska + Skapa**.
+4. Granska sammanfattningsinformationen för webbappen. Välj **Skapa**.
+5. Efter cirka 5 minuter skapas en standardwebbplats när webbappen har distribuerats.
+6. Upprepa steg 1–3 för att skapa en andra webbplats i en annan Azure-region med följande inställningar:
 
      | Inställning         | Värde     |
      | ---              | ---  |
-     | Namn           | Ange ett unikt namn för din webbapp  |
      | Resursgrupp          | Välj **Ny** och skriv sedan *myResourceGroupFD2* |
-     | App Service-plan/plats         | Välj **Ny**.  I App Service-planen anger du *myAppServicePlanWestEurope* och väljer sedan **OK**. 
-     |      Location  |   Europa, västra      |
-    |||
-
-
+     | Namn           | Ange ett unikt namn för din webbapp  |
+     | Körningsstack          | Välj en Runtime-stack för din app |
+     |      Region  |   Europa, västra      |
+     | App Service-plan/plats         | Välj **Ny**.  I App Service-planen anger du *myAppServicePlanWestEurope* och väljer sedan **OK**.|   
+     |SKU och storlek  | Välj **Ändra storlek** Välj Standard **S1 100 totalt ACU, 1,75 GB minne** |
+    
 ## <a name="create-a-front-door-for-your-application"></a>Skapa en Front Door för programmet
 ### <a name="a-add-a-frontend-host-for-front-door"></a>A. Lägga till en klientdelsvärd för Front Door
 Skapa en Front Door-konfiguration som dirigerar trafik för användare baserat på den kortaste svarstiden mellan två serverdelar.
 
-1. Välj Skapa en resurs Skapa en **resurs** > **Nätverksdörr** > **Front Door** > **skapa**längst upp till vänster på skärmen .
-2. I **Skapa en Front Door** börjar du med att lägga till den grundläggande informationen och ange en prenumeration där du vill att åtkomsten ska konfigureras. På samma sätt som för andra Azure-resurser måste du också ange en ResourceGroup och region för en resursgrupp om du skapar en ny. Slutligen måste du ange ett namn på din Front Door.
-3. När den grundläggande informationen har fyllts i är det första steget du behöver definiera **klientdelsvärden** för konfigurationen. Resultatet bör vara ett giltigt domännamn som `myappfrontend.azurefd.net`. Det här värdnamnet måste vara globalt unikt men Front Door tar hand om den verifieringen. 
+1. På den övre vänstra sidan av skärmen väljer du **Skapa en resurs** > **Nätverksdörr** > **Front Door**.
+2. Ange eller välj följande information i **Skapa en ytterdörr**och ange standardinställningar där ingen anges:
+
+     | Inställning         | Värde     |
+     | ---              | ---  |
+     |Prenumeration  | Välj den prenumeration som du vill att Ytterdörren ska skapas i.|
+     | Resursgrupp          | Välj **Nytt**och skriv sedan *myResourceGroupFD0* |
+     | Resursgruppsplats  |   USA, centrala        |
+     
+     > [!NOTE]
+     > Du behöver inte skapa en ny resursgrupp som du kan distribuera ytterdörren till.  Om du också kan välja en befintlig resursgrupp.
+     
+3. Klicka på **Nästa: Konfiguration**.
+4. Klicka på +-ikonen på frontends/domänkortet.  Ange för `<Your Initials>frontend` **Värdnamn** . Detta värdnamn måste vara globalt unikt, Ytterdörren tar hand om valideringen.
+5. Klicka på **Lägg till**.
 
 ### <a name="b-add-application-backend-and-backend-pools"></a>B. Lägg till serverdelen och serverdelspooler för programmet
 
-Därefter måste du konfigurera programmets serverdelar i en serverdelspool för att Front Door ska veta var ditt program finns. 
+Därefter måste du konfigurera dina frontends/domäner och programserverhend i en serverdelspool för att kunna veta var ditt program finns. 
 
-1. Klicka på ikonen ”+” för att lägga till en serverdelspool och ange därefter ett **namn** på serverdelspoolen, till exempel `myBackendPool`.
-2. Klicka på alternativet för att lägga till serverdelar och lägg till dina webbplatser som skapades tidigare.
-3. Välj **Typ av målvärd** som ”App Service”, välj prenumerationen där du skapade webbplatsen och välj sedan den första webbplatsen från **Målvärdsnamn**, det vill säga * myAppServicePlanEastUS.azurewebsites.net*.
+1. Klicka på ikonen +på Backend-poolkortet om du vill lägga till en backend-pool för **Namn** för backend-poolen anger du `myBackendPool`.
+2. Klicka sedan på **Lägg till en backend** för att lägga till dina webbplatser som skapats tidigare.
+3. Välj **Värdtyp för Backend** som "Apptjänst", välj den prenumeration där du skapade webbplatsen och välj sedan den första webbplatsen i listrutan **För namn på backend.Select Backend** host type as 'App Service', select the subscription in which you created the site and then choose the first web site from the Backend host name dropdown.
 4. Lämna de återstående fälten som de är för tillfället och klicka på **Lägg till**.
-5. Upprepa steg 2 till 4 för att lägga till den andra webbplatsen, det vill säga *myAppServicePlanWestEurope.azurewebsites.net*
-6. Du kan också välja att uppdatera inställningarna för hälsoavsökningar och belastningsutjämning för serverdapoolen, men standardvärdena bör också fungera. Klicka på **Lägg till**.
+5. Välj **Värdtyp för Backend** som "Apptjänst", välj den prenumeration där du skapade webbplatsen och välj sedan den andra webbplatsen i listrutan **För namn i Backend.Select Backend** host type as 'App Service', select the subscription in which you created the site and then choose the **second** web site from the Backend host name dropdown.
+6. Lämna de återstående fälten som de är för tillfället och klicka på **Lägg till**.
+7. Du kan också välja att uppdatera inställningarna för hälsoavsökningar och belastningsutjämning för serverdapoolen, men standardvärdena bör också fungera. I båda fallen klickar du på **Lägg till**.
 
 
 ### <a name="c-add-a-routing-rule"></a>C. Lägga till en hanteringsregel
-Till sist ska du klicka på ikonen ”+” vid Hanteringsregler för att konfigurera en hanteringsregel. Detta behövs för att mappa din serverdelsvärd till serverdelspoolen som i praktiken är konfigurerad som om en begäran kommer till `myappfrontend.azurefd.net` och därefter vidarebefordrar den till serverdelspoolen `myBackendPool`. Klicka på **Lägg till** att lägga till en hanteringsregel för din Front Door. Nu kan du skapa åtkomsten och klicka på **Granska och skapa**.
+1. Klicka slutligen på +-ikonen på routningsregler för att konfigurera en routningsregel. Detta behövs för att mappa din serverdelsvärd till serverdelspoolen som i praktiken är konfigurerad som om en begäran kommer till `myappfrontend.azurefd.net` och därefter vidarebefordrar den till serverdelspoolen `myBackendPool`. 
+2. För **Namn** ange 'LocationRule'.
+3. Klicka på **Lägg till** att lägga till en hanteringsregel för din Front Door. 
+4. Klicka på **Granska och skapa**.
+5. Granska inställningarna för skapandet av ytterdörren. Klicka på **Skapa**
 
 >[!WARNING]
 > Du **måste** se till att alla klientdelsvärdar i din Front Door har en hanteringsregel med en standardsökväg ('/\*') som är associerad med den. Det betyder att för alla dina hanteringsregler måste det finnas minst en hanteringsregel för alla dina klientdelsvärdar som har definierats på standardsökvägen ('/\*'). Om du inte gör det kan det resultera i att slutanvändartrafiken inte dirigeras korrekt.
@@ -91,7 +110,7 @@ När du har skapat en Front Door tar det några minuter innan konfigurationen di
 Om du vill testa hur Front Doors omedelbara globala redundans fungerar i praktiken går du till en av de webbplatser som du skapade och stoppar den. Baserat på inställningen för Hälsoavsökning som definierats för serverdelspoolen växlar vi omedelbart trafiken till den andra webbplatsdistributionen. Du kan också testa beteende genom att inaktivera serverdelen i serverdelspoolens konfiguration för Front Door. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort resursgrupperna, webbapparna och alla relaterade resurser när de inte längre behövs.
+När det inte längre behövs tar du bort resursgrupperna **myResourceGroupFD1,** **myResourceGroupFD2**och **myResourceGroupFD0:**
 
 ## <a name="next-steps"></a>Nästa steg
 I den här snabbstarten skapade du en Front Door där du kan dirigera användartrafik för webbprogram som kräver hög tillgänglighet och maximala prestanda. Mer information om att dirigera trafik finns i [Routningsmetoder](front-door-routing-methods.md) som används av Front Door.

@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 11b61612a261b32e2d15b5dc70005b18aa112ed4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b3949159d939a043fd4ccc820bc1cdad14da7751
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240347"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80528382"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Samla in data från en Windows-dator i en hybridmiljö med Azure Monitor
 
 [Azure Monitor](../overview.md) kan samla in data direkt från dina fysiska eller virtuella Windows-datorer i din miljö till en Log Analytics-arbetsyta för detaljerad analys och korrelation. Genom att installera [Log Analytics-agenten](../platform/log-analytics-agent.md) kan Azure Monitor samla in data från ett datacenter eller annan molnmiljö. Den här snabbstarten visar hur du konfigurerar och samlar in data från Windows-datorer med några enkla steg. Information om virtuella Azure Windows-datorer finns [i Samla in data om virtuella Azure-datorer](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
-Information om hur du förstår konfigurationen som stöds finns i [Windows-operativsystem](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) som stöds och [konfigurationen för nätverksbrandväggen](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
+Information om hur du förstår konfigurationen som stöds finns i [Windows-operativsystem](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) som stöds och [konfigurationen för nätverksbrandväggen](../../azure-monitor/platform/log-analytics-agent.md#firewall-requirements).
  
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 

@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 7e8a1793a329a863c9df97ae5ddcbee6cef10e8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4819eaf2a65cf542029cf36f262d0cea5be75f2e
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76964366"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521948"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta en Azure SSIS-integreringskörning till ett virtuellt nätverk
 
@@ -129,7 +129,7 @@ När du väljer ett undernät:
 
 Om du vill ta med egna statiska offentliga IP-adresser för Azure-SSIS IR när du ansluter till ett virtuellt nätverk kontrollerar du att de uppfyller följande krav:
 
-- Exakt två oanvända som inte redan är associerade med andra Azure-resurser ska anges. Den extra kommer att användas när vi regelbundet uppgraderar din Azure-SSIS IR.
+- Exakt två oanvända som inte redan är associerade med andra Azure-resurser ska anges. Den extra kommer att användas när vi regelbundet uppgraderar din Azure-SSIS IR. Observera att en offentlig IP-adress inte kan delas mellan dina aktiva Azure-SSIS IRs.
 
 - De bör båda vara statiska av standardtyp. Mer information finns [i SKU:er för offentlig IP-adress.](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku)
 
@@ -170,7 +170,7 @@ Om du behöver implementera en NSG för undernätet som används av din Azure-SS
 | Utgående | TCP | VirtualNetwork | * | Internet | 80 | (Valfritt) Noderna i din Azure-SSIS IR i det virtuella nätverket använder den här porten för att hämta en lista över återkallade certifikat från Internet. Om du blockerar den här trafiken kan prestandanedgradering uppstå när du startar IR och förlorar möjligheten att kontrollera listan över återkallade certifikat för certifikatanvändning. Om du vill begränsa målet ytterligare till vissa FQDN-nätverk läser du avsnittet **Använd Azure ExpressRoute eller UDR**|
 | Utgående | TCP | VirtualNetwork | * | SQL | 1433, 11000-11999 | (Valfritt) Den här regeln krävs endast när noderna för din Azure-SSIS IR i det virtuella nätverket har åtkomst till en SSISDB som finns värd för SQL Database-servern. Om anslutningsprincipen för SQL Database-servern är inställd på **Proxy** i stället för **Omdirigera**behövs endast port 1433. <br/><br/> Den här utgående säkerhetsregeln gäller inte för en SSISDB som finns hos din hanterade instans i det virtuella nätverket eller Azure Database-servern som konfigurerats med privat slutpunkt. |
 | Utgående | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 | (Valfritt) Den här regeln krävs endast när noderna för din Azure-SSIS IR i det virtuella nätverket har åtkomst till en SSISDB som finns värd för din hanterade instans i det virtuella nätverket eller Azure Database-servern som konfigurerats med privat slutpunkt. Om anslutningsprincipen för SQL Database-servern är inställd på **Proxy** i stället för **Omdirigera**behövs endast port 1433. |
-| Utgående | TCP | VirtualNetwork | * | Lagring | 445 | (Valfritt) Den här regeln krävs bara när du vill köra SSIS-paket som lagras i Azure-filer. |
+| Utgående | TCP | VirtualNetwork | * | Storage | 445 | (Valfritt) Den här regeln krävs bara när du vill köra SSIS-paket som lagras i Azure-filer. |
 ||||||||
 
 ### <a name="use-azure-expressroute-or-udr"></a><a name="route"></a>Använda Azure ExpressRoute eller UDR
@@ -191,10 +191,55 @@ Om din Azure-SSIS IR till `UK South` exempel finns på och du vill inspektera ut
 > [!NOTE]
 > Den här metoden medför en extra underhållskostnad. Kontrollera regelbundet IP-intervallet och lägg till nya IP-intervall i din UDR för att undvika att bryta Azure-SSIS IR. Vi rekommenderar att du kontrollerar IP-intervallet varje månad eftersom ip-adressen kommer att gälla i den nya IP-adressen varje månad. 
 
+Om du vill göra inställningarna för UDR-regler enklare kan du köra följande Powershell-skript för att lägga till UDR-regler för Azure Batch-hanteringstjänster:
+```powershell
+$Location = "[location of your Azure-SSIS IR]"
+$RouteTableResourceGroupName = "[name of Azure resource group that contains your Route Table]"
+$RouteTableResourceName = "[resource name of your Azure Route Table ]"
+$RouteTable = Get-AzRouteTable -ResourceGroupName $RouteTableResourceGroupName -Name $RouteTableResourceName
+$ServiceTags = Get-AzNetworkServiceTag -Location $Location
+$BatchServiceTagName = "BatchNodeManagement." + $Location
+$UdrRulePrefixForBatch = $BatchServiceTagName
+if ($ServiceTags -ne $null)
+{
+    $BatchIPRanges = $ServiceTags.Values | Where-Object { $_.Name -ieq $BatchServiceTagName }
+    if ($BatchIPRanges -ne $null)
+    {
+        Write-Host "Start to add rule for your route table..."
+        for ($i = 0; $i -lt $BatchIPRanges.Properties.AddressPrefixes.Count; $i++)
+        {
+            $UdrRuleName = "$($UdrRulePrefixForBatch)_$($i)"
+            Add-AzRouteConfig -Name $UdrRuleName `
+                -AddressPrefix $BatchIPRanges.Properties.AddressPrefixes[$i] `
+                -NextHopType "Internet" `
+                -RouteTable $RouteTable `
+                | Out-Null
+            Write-Host "Add rule $UdrRuleName to your route table..."
+        }
+        Set-AzRouteTable -RouteTable $RouteTable
+    }
+}
+else
+{
+    Write-Host "Failed to fetch service tags, please confirm that your Location is valid."
+}
+```
+
 För att brandväggsinstallationen ska tillåta utgående trafik måste du tillåta utgående till underportar som är samma som krav i NSG-utgående regler.
 -   Port 443 med destination som Azure Cloud-tjänster.
 
-    Om du använder Azure-brandväggen kan du ange nätverksregel med AzureCloud Service Tag, annars kan du tillåta mål som alla i brandväggsinstallationen.
+    Om du använder Azure-brandväggen kan du ange nätverksregel med AzureCloud Service Tag. För brandvägg av de andra typerna kan du antingen helt enkelt tillåta mål som alla för port 443 eller tillåta under FQDN baserat på vilken typ av Din Azure-miljö:
+    | Azure-miljö | Slutpunkter                                                                                                                                                                                                                                                                                                                                                              |
+    |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Azure, offentlig      | <ul><li><b>Azure Data Factory (hantering)</b></li><li style="list-style-type:none"><ul><li>\*.frontend.clouddatahub.net</li></ul></li><li><b>Azure-lagring (hantering)</b></li><li style="list-style-type:none"><ul><li>\*.blob.core.windows.net</li><li>\*.table.core.windows.net</li></ul></li><li><b>Azure-behållarregister (anpassad installation)</b></li><li style="list-style-type:none"><ul><li>\*.azurecr.io</li></ul></li><li><b>Händelsehubb (loggning)</b></li><li style="list-style-type:none"><ul><li>\*.servicebus.windows.net</li></ul></li><li><b>Microsoft Loggningstjänst (intern användning)</b></li><li style="list-style-type:none"><ul><li>gcs.prod.monitoring.core.windows.net</li><li>prod.warmpath.msftcloudes.com</li><li>azurewatsonanalysis-prod.core.windows.net</li></ul></li></ul> |
+    | Azure Government  | <ul><li><b>Azure Data Factory (hantering)</b></li><li style="list-style-type:none"><ul><li>\*.frontend.datamovement.azure.us</li></ul></li><li><b>Azure-lagring (hantering)</b></li><li style="list-style-type:none"><ul><li>\*.blob.core.usgovcloudapi.net</li><li>\*.table.core.usgovcloudapi.net</li></ul></li><li><b>Azure-behållarregister (anpassad installation)</b></li><li style="list-style-type:none"><ul><li>\*.azurecr.us</li></ul></li><li><b>Händelsehubb (loggning)</b></li><li style="list-style-type:none"><ul><li>\*.servicebus.usgovcloudapi.net</li></ul></li><li><b>Microsoft Loggningstjänst (intern användning)</b></li><li style="list-style-type:none"><ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>azurewatsonanalysis.usgovcloudapp.net</li></ul></li></ul> |
+    | Azure Kina 21Vianet     | <ul><li><b>Azure Data Factory (hantering)</b></li><li style="list-style-type:none"><ul><li>\*.frontend.datamovement.azure.cn</li></ul></li><li><b>Azure-lagring (hantering)</b></li><li style="list-style-type:none"><ul><li>\*.blob.core.chinacloudapi.cn</li><li>\*.table.core.chinacloudapi.cn</li></ul></li><li><b>Azure-behållarregister (anpassad installation)</b></li><li style="list-style-type:none"><ul><li>\*.azurecr.cn</li></ul></li><li><b>Händelsehubb (loggning)</b></li><li style="list-style-type:none"><ul><li>\*.servicebus.chinacloudapi.cn</li></ul></li><li><b>Microsoft Loggningstjänst (intern användning)</b></li><li style="list-style-type:none"><ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>azurewatsonanalysis.chinacloudapp.cn</li></ul></li></ul>
+
+    När det gäller FQDN:erna för Azure Storage, Azure Container Registry and Event Hub kan du också välja att aktivera följande tjänstslutpunkter för det virtuella nätverket så att nätverkstrafiken till dessa slutpunkter går via Azure-stamnätnätverket i stället för att dirigeras till brandväggsinstallationen:
+    -  Microsoft.Storage
+    -  Microsoft.Container-registret
+    -  Microsoft.EventHub
+
 
 -   Port 80 med destination som CRL-nedladdningsplatser.
 
@@ -219,7 +264,7 @@ För att brandväggsinstallationen ska tillåta utgående trafik måste du till�
     Om du använder Azure-brandväggen kan du ange nätverksregel med Storage Service Tag, annars kan du tillåta mål som specifik azure file storage url i brandväggsinstallationen.
 
 > [!NOTE]
-> Om du konfigurerar slutpunkter för tjänsten Virtuellt nätverk för Azure SQL och Lagring skickas till Microsoft Azure-stamnätet direkt till Microsoft Azure-stamnätet för Azure-SSIS IR och Azure SQL i samma region \ Azure Storage i samma region eller parkopplad region direkt i stället för brandväggsapparaten.
+> Om du konfigurerar slutpunkter för tjänsten För Azure SQL och Lagring dirigeras trafiken mellan Azure-SSIS IR och Azure SQL i samma region \ Azure Storage i samma region eller parkopplad region direkt till Microsoft Azure-stamnätsnätverket i stället för brandväggsinstallationen.
 
 Om du inte behöver möjlighet att inspektera utgående trafik i Azure-SSIS IR kan du helt enkelt använda vägen för att tvinga all trafik till nästa hoptyp **Internet:**
 
@@ -241,7 +286,7 @@ Azure-SSIS IR måste skapa vissa nätverksresurser under samma resursgrupp som d
 > [!NOTE]
 > Du kan nu ta med egna statiska offentliga IP-adresser för Azure-SSIS IR. I det här scenariot skapar vi endast Azure-belastningsutjämnaren och nätverkssäkerhetsgruppen under samma resursgrupp som dina statiska offentliga IP-adresser i stället för det virtuella nätverket.
 
-Dessa resurser skapas när din Azure-SSIS IR startar. De tas bort när din Azure-SSIS IR stoppas. Om du tar med egna statiska offentliga IP-adresser för Azure-SSIS IR tas de inte bort när din Azure-SSIS IR stoppas. Använd inte dessa nätverksresurser i dina andra resurser för att undvika att blockera din Azure-SSIS IR från att stoppas. 
+Dessa resurser skapas när din Azure-SSIS IR startar. De tas bort när din Azure-SSIS IR stoppas. Om du tar med egna statiska offentliga IP-adresser för Azure-SSIS IR tas dina egna statiska offentliga IP-adresser inte bort när din Azure-SSIS IR stoppas. Använd inte dessa nätverksresurser i dina andra resurser för att undvika att blockera din Azure-SSIS IR från att stoppas.
 
 Kontrollera att du inte har något resurslås på resursgruppen/prenumerationen som det virtuella nätverket/dina statiska offentliga IP-adresser tillhör. Om du konfigurerar ett skrivskyddat/borttagningslås misslyckas och stoppar azure-SSIS IR, eller så slutar det svara.
 
@@ -249,6 +294,8 @@ Se till att du inte har en Azure-princip som förhindrar att följande resurser 
 - Microsoft.Network/LoadBalancers 
 - Microsoft.Network/NetworkSecurityGroups 
 - Microsoft.Network/PublicIPAdresser 
+
+Kontrollera att resurskvoten för prenumerationen är tillräcklig för ovanstående tre nätverksresurser. För varje Azure-SSIS IR som skapas i virtuellt nätverk måste du reservera två kostnadsfria kvoter för var och en av ovanstående tre nätverksresurser. Den extra kvoten används när vi regelbundet uppgraderar din Azure-SSIS IR.
 
 ### <a name="faq"></a><a name="faq"></a>Faq
 
@@ -262,7 +309,7 @@ Se till att du inte har en Azure-princip som förhindrar att följande resurser 
 
   Du kan nu ta med egna statiska offentliga IP-adresser för Azure-SSIS IR. I det här fallet kan du lägga till dina IP-adresser i brandväggens tillåtlista för dina datakällor. Du kan också överväga andra alternativ nedan för att skydda dataåtkomst från din Azure-SSIS IR beroende på ditt scenario:
 
-  - Om datakällan är lokal, efter att ha anslutit ett virtuellt nätverk till ditt lokala nätverk och anslutit till ditt Azure-SSIS IR till det virtuella nätverksundernätet, kan du sedan lägga till det privata IP-adressintervallet för det undernätet i brandväggens tillåtlista för datakällan för datakällan .
+  - Om datakällan är lokal, efter att ha anslutit ett virtuellt nätverk till ditt lokala nätverk och anslutit till ditt Azure-SSIS IR till det virtuella nätverksundernätet, kan du sedan lägga till det privata IP-adressintervallet för det undernätet i brandväggens tillåtlista för din datakälla.
   - Om datakällan är en Azure-tjänst som stöder slutpunkter för virtuella nätverkstjänster kan du konfigurera en slutpunkt för en virtuell nätverkstjänst i ditt virtuella nätverksundernät och ansluta till ditt Azure-SSIS IR till det undernätet. Du kan sedan lägga till en virtuell nätverksregel med det undernätet i brandväggen för datakällan.
   - Om din datakälla är en molntjänst som inte är Azure kan du använda en UDR för att dirigera utgående trafik från din Azure-SSIS IR till en NVA/Azure-brandvägg via en statisk offentlig IP-adress. Du kan sedan lägga till den statiska offentliga IP-adressen för din NVA/Azure-brandvägg i brandväggens tillåt-lista för din datakälla.
   - Om inget av ovanstående alternativ uppfyller dina behov kan du [överväga att konfigurera en självvärd IR som proxy för din Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis). Du kan sedan lägga till den statiska offentliga IP-adressen för den dator som är värd för din egenvärderade IR i brandväggens tillåtlista för din datakälla.

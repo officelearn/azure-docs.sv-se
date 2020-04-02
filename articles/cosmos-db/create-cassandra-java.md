@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 5a21f36136c6f1d77a2e9cb9108f539c9fb39334
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4c93ffa7828710c26200408666c03a28fd7f3d3c
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77134866"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549293"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data"></a>Snabbstart: Skapa en Java-app för att hantera Azure Cosmos DB Cassandra API-data
 
@@ -66,7 +66,7 @@ Nu ska vi övergå till att arbeta med kod. Vi ska klona en Cassandra API-app fr
 
 Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string). Dessa utdrag är alla hämtade från *filen src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java.*  
 
-* Värd, port, användarnamn, lösenord och SSL-alternativ är inställda för Cassandra. Information om anslutningssträngen kommer från sidan med anslutningssträngen i Azure-portalen.
+* Alternativen Cassandra-värd,port, användarnamn, lösenord och TLS/SSL anges. Information om anslutningssträngen kommer från sidan med anslutningssträngen i Azure-portalen.
 
    ```java
    cluster = Cluster.builder().addContactPoint(cassandraHost).withPort(cassandraPort).withCredentials(cassandraUsername, cassandraPassword).withSSL(sslOptions).build();
@@ -168,9 +168,9 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
     `cassandra_password=2Ggkr662ifxz2Mg...==`
 
-5. Om du vill använda ett visst SSL-certifikat ersätter du `<SSL key store file location>` på rad 6 med platsen för SSL-certifikatet. Om inget värde anges kommer JDK-certifikatet som är installerat på <JAVA_HOME>/jre/lib/security/cacerts att användas. 
+5. På rad 6, om du vill använda ett specifikt `<SSL key store file location>` TLS/SSL-certifikat, ersätter du med platsen för TLS/SSL-certifikatet. Om inget värde anges kommer JDK-certifikatet som är installerat på <JAVA_HOME>/jre/lib/security/cacerts att användas. 
 
-6. Om du har ändrat rad 6 så att ett visst SSL-certifikat ska användas uppdaterar du rad 7 för att använda lösenordet för det certifikatet. 
+6. Om du har ändrat rad 6 för att använda ett specifikt TLS/SSL-certifikat uppdaterar du rad 7 för att använda lösenordet för certifikatet. 
 
 7. Spara filen *config.properties.*
 

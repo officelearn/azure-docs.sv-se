@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 11/07/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: d584b00caef628eb9dfd085b1fdce2bb7b353988
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c021e68f8b76d8b0d3e6e9ff21c242580f53313
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79220087"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520949"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Gränser för luis-modellen och -tangenterna
 LUIS har flera gränsområden. Den första är [modellgränsen](#model-boundaries), som styr avsikter, entiteter och funktioner i LUIS. Det andra området är [kvotgränser](#key-limits) baserade på nyckeltyp. Ett tredje gränsområde är [tangentbordskombinationen](#keyboard-controls) för att styra LUIS-webbplatsen. Ett fjärde område är [världsregionmappningen](luis-reference-regions.md) mellan LUIS-redigeringswebbplatsen och LUIS-slutpunkts-API:erna. [endpoint](luis-glossary.md#endpoint)
@@ -40,7 +40,7 @@ Om din app överskrider LUIS-modellens gränser och gränser bör du överväga 
 | [Förhandsgranska - Dynamiska listentiteter](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listor med ~1k per begäran om frågeförutsägelsförutsägels|
 | [Mönster](luis-concept-patterns.md)|500 mönster per applikation.<br>Den maximala längden på mönstret är 400 tecken.<br>3 Pattern.any enheter per mönster<br>Högst 2 kapslade valfria texter i mönster|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per applikation, 3 pattern.any enheter per mönster |
-| [Fraslista][phrase-list]|500 fraslistor. Icke-utbytbara fraslista har max 5.000 fraser. Utbytbara phraselist har max 50.000 fraser. Maximalt antal fraser per applicering av 500 000 fraser.|
+| [Fraslista][phrase-list]|500 fraslistor. 10 globala fraslistor på grund av modellen som en funktionsgräns. Icke-utbytbara fraslista har max 5.000 fraser. Utbytbara phraselist har max 50.000 fraser. Maximalt antal fraser per applicering av 500 000 fraser.|
 | [Fördefinierade enheter](./luis-prebuilt-entities.md) | ingen gräns|
 | [Lägga till entiteter för reguljära uttryck](./luis-concept-entity-types.md)|20 enheter<br>500 tecken max. per mönster för ett reguljärt uttryck|
 | [Roller](luis-concept-roles.md)|300 roller per program. 10 roller per entitet|

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 02/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: af15a7366fd07cecb376ff76ad383f784202a887
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 856410f2166ae442e8beadf36eac312748407b13
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77526830"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529738"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Självstudiekurs: Konfigurera en förhandsversion av Insikter i Azure Time Series Insights
 
@@ -30,7 +30,6 @@ I den här självstudiekursen får du lära du dig att:
 > * Kör ett lösningsacceleratorexempel för att sända data till förhandsversionen av Azure Time Series Insights-miljön.
 > * Utföra grundläggande analys av data.
 > * Definiera en typ av och hierarki för tidsseriemodell och associera dem med dina instanser.
-> * Använd Power BI-kontakten och visualisera data i Power BI.
 
 >[!TIP]
 > [IoT-lösningsacceleratorer](https://www.azureiotsolutions.com/Accelerators) tillhandahåller förkonfigurerade lösningar i företagsklass som du kan använda för att påskynda utvecklingen av anpassade IoT-lösningar.
@@ -359,3 +358,8 @@ Läs mer om Time Series-modeller:
 
 > [!div class="nextstepaction"]
 > [Datamodellering för Azure Time Series Insights (förhandsversion)](./time-series-insights-update-tsm.md)
+
+Läs mer om Ansluta din miljö till Power BI
+
+> [!div class="nextstepaction"]
+> [Visualisera data från Time Series Insights i Power BI](./how-to-connect-power-bi.md)

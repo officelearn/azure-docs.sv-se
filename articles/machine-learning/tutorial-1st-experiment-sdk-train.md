@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: aa90655ecb14abe38ec8fdfc6c18e7d292abbef3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c8f259d2d4df46470a042c3f65ac1b8e1f66b1dd
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238680"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546031"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Handledning: Träna din första ML-modell
 
@@ -28,7 +28,7 @@ I den här självstudien kommer du att lära dig följande:
 > [!div class="checklist"]
 > * Anslut arbetsytan och skapa ett experiment
 > * Ladda data och träna scikit-learn-modeller
-> * Visa träningsresultat i portalen
+> * Visa träningsresultat i studion
 > * Hämta den bästa modellen
 
 ## <a name="prerequisites"></a>Krav
@@ -124,32 +124,33 @@ Ovanstående kod åstadkommer följande:
 
 1. För varje alfahyperparametervärde i matrisen `alphas` skapas en ny körning i experimentet. Alfavärdet loggas för att skilja mellan varje körning.
 1. I varje körning instansieras en Ridge-modell, tränas och används för att köra förutsägelser. Rotvärdet-medelvärdet-kvadrat-fel beräknas för de faktiska kontra förväntade värdena och loggas sedan till körningen. Vid denna punkt körningen har metadata kopplade för både alfa värde och rmse noggrannhet.
-1. Därefter serialiseras modellen för varje körning och överförs till körningen. På så sätt kan du hämta modellfilen från körningen i portalen.
+1. Därefter serialiseras modellen för varje körning och överförs till körningen. På så sätt kan du hämta modellfilen från körningen i studion.
 1. I slutet av varje iteration avslutas `run.complete()`körningen genom att anropa .
 
-När utbildningen är klar `experiment` anropar du variabeln för att hämta en länk till experimentet i portalen.
+När utbildningen är klar `experiment` ringer du variabeln för att hämta en länk till experimentet i studion.
 
 ```python
 experiment
 ```
 
-<table style="width:100%"><tr><th>Namn</th><th>Arbetsyta</th><th>Rapportsida</th><th>Sidan Dokument</th></tr><tr><td>diabetes-experiment</td><td>ditt arbetsytenamn</td><td>Länk till Azure-portalen</td><td>Länk till dokumentation</td></tr></table>
+<table style="width:100%"><tr><th>Namn</th><th>Arbetsyta</th><th>Rapportsida</th><th>Sidan Dokument</th></tr><tr><td>diabetes-experiment</td><td>ditt arbetsytenamn</td><td>Länk till Azure Machine Learning studio</td><td>Länk till dokumentation</td></tr></table>
 
-## <a name="view-training-results-in-portal"></a>Visa träningsresultat i portalen
+## <a name="view-training-results-in-studio"></a>Visa träningsresultat i studion
 
-När du följer **portalen Länk till Azure** går du till huvudexperimentsidan. Här ser du alla enskilda körningar i experimentet. Alla anpassade loggade`alpha_value` värden `rmse`( och , i det här fallet) blir fält för varje körning och blir också tillgängliga för diagram och paneler högst upp på experimentsidan. Om du vill lägga till ett loggat mått i ett diagram eller en panel håller du muspekaren över det, klickar på redigeringsknappen och hittar det anpassade loggade måttet.
+Efter **länken till Azure Machine Learning-studion** tar dig till huvudexperimentsidan. Här ser du alla enskilda körningar i experimentet. Alla anpassade loggade`alpha_value` värden `rmse`( och , i det här fallet) blir fält för varje körning och blir också tillgängliga för diagram och paneler högst upp på experimentsidan. Om du vill lägga till ett loggat mått i ett diagram eller en panel håller du muspekaren över det, klickar på redigeringsknappen och hittar det anpassade loggade måttet.
 
 När du tränar modeller i skala över hundratals och tusentals separata körningar gör den här sidan det enkelt att se alla modeller du har tränat, särskilt hur de har tränats och hur dina unika mätvärden har förändrats med tiden.
 
-![Sidan Huvudexperiment i Portal](./media/tutorial-1st-experiment-sdk-train/experiment-main.png)
+:::image type="content" source="./media/tutorial-1st-experiment-sdk-train/experiment-main.png" alt-text="Huvudexperiment sida i studion.":::
 
-Om du klickar på en `RUN NUMBER` länk för körningsnummer i kolumnen kommer du till sidan för varje enskild körning. **Standardfliken Detaljer** visar mer detaljerad information om varje körning. Navigera till fliken **Utdata** och `.pkl` du ser filen för modellen som laddades upp till körningen under varje träningsiteration. Här kan du ladda ner modellfilen, i stället för att behöva omskola den manuellt.
 
-![Sidan Kör information i Portal](./media/tutorial-1st-experiment-sdk-train/model-download.png)
+Välj en länk för `RUN NUMBER` körningsnummer i kolumnen om du vill visa sidan för en enskild körning. **Standardfliken Detaljer** visar mer detaljerad information om varje körning. Navigera till fliken **Utdata + loggar** och `.pkl` du ser filen för modellen som laddades upp till körningen under varje träningsiteration. Här kan du ladda ner modellfilen, i stället för att behöva omskola den manuellt.
+
+:::image type="content" source="./media/tutorial-1st-experiment-sdk-train/model-download.png" alt-text="Kör informationssida i studion.":::
 
 ## <a name="get-the-best-model"></a>Få den bästa modellen
 
-Förutom att kunna ladda ner modellfiler från experimentet i portalen kan du också ladda ner dem programmässigt. Följande kod itererar genom varje körning i experimentet och kommer åt både de loggade körningsmåtten och körningsinformationen (som innehåller run_id). Detta håller reda på den bästa körningen, i det här fallet körningen med det lägsta rot-mean-squared-error.
+Förutom att kunna ladda ner modellfiler från experimentet i studion, kan du också ladda ner dem programmässigt. Följande kod itererar genom varje körning i experimentet och kommer åt både de loggade körningsmåtten och körningsinformationen (som innehåller run_id). Detta håller reda på den bästa körningen, i det här fallet körningen med det lägsta rot-mean-squared-error.
 
 ```python
 minimum_rmse_runid = None
@@ -214,7 +215,7 @@ I den här självstudien gjorde du följande uppgifter:
 > [!div class="checklist"]
 > * Kopplade din arbetsyta och skapade ett experiment
 > * Laddade data och utbildade scikit-learn-modeller
-> * Visade träningsresultat i portalen och hämtade modeller
+> * Visade träningsresultat i studion och hämtade modeller
 
 [Distribuera modellen](tutorial-deploy-models-with-aml.md) med Azure Machine Learning.
 Lär dig hur du utvecklar [automatiserade maskininlärningsexperiment.](tutorial-auto-train-models.md)

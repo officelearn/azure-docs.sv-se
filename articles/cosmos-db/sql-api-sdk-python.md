@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: 6bc636b751d12bdb576e54f26536ac0045839229
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 090446d286b38a0bfcbde4ed9e77235050b36417
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70137347"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547706"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK för SQL API: Versionsanteckningar och resurser
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "70137347"
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [Resten](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [Bulkutnrutören - .NET](sql-api-sdk-bulk-executor-dot-net.md)
@@ -84,7 +84,7 @@ ms.locfileid: "70137347"
 
 ### <a name="210"></a><a name="2.1.0"/>2.1.0
 * Lade till stöd för aggregeringsfrågor (ANTAL, MIN, MAX, SUMMA och AVG).
-* Lade till ett alternativ för att inaktivera SSL-verifiering när du kör mot Cosmos DB Emulator.
+* Lade till ett alternativ för att inaktivera TLS-verifiering när du kör mot Cosmos DB Emulator.
 * Tog bort begränsningen av beroende begäranden modulen vara exakt 2.10.0.
 * Sänkt minsta genomströmning på partitionerade samlingar från 10 100 RU/s till 2500 RU/s.
 * Lade till stöd för att aktivera skriptloggning under körning av lagrade procedurer.
@@ -102,7 +102,7 @@ ms.locfileid: "70137347"
 ### <a name="190"></a><a name="1.9.0"/>1.9.0
 * Lade till principstöd för återförsök för begränsade begäranden. (Begränsade begäranden får en för stor procentsats för begäran, felkod 429.) Som standard försöker Azure Cosmos DB nio gånger för varje begäran när felkod 429 påträffas, vilket bekräftar återförsökEfter tid i svarshuvudet. En fast återförsöksintervalltid kan nu ställas in som en del av egenskapen RetryOptions på ConnectionPolicy-objektet om du vill ignorera återförsökEfter tid som returneras av servern mellan återförsöken. Azure Cosmos DB väntar nu i högst 30 sekunder för varje begäran som begränsas (oavsett antal återförsök) och returnerar svaret med felkod 429. Den här gången kan också åsidosättas i egenskapen RetryOptions på ConnectionPolicy-objektet.
 * Cosmos DB returnerar nu x-ms-throttle-retry-count och x-ms-throttle-retry-wait-time-ms som svarshuvuden i varje begäran om att beteckna antalet återförsök och den sammanlagda tiden som begäran väntade mellan försöken.
-* Tog bort klassen RetryPolicy och motsvarande egenskap (retry_policy) som exponerades för klassen document_client och introducerade i stället en retryOptions-klass som exponerar egenskapen RetryOptions i klassen ConnectionPolicy som kan användas för att åsidosätta vissa av standardalternativ för återförsök.
+* Tog bort klassen RetryPolicy och motsvarande egenskap (retry_policy) som visas i klassen document_client och introducerade i stället en klassen RetryOptions som exponerar egenskapen RetryOptions i klassen ConnectionPolicy som kan användas för att åsidosätta några av standardalternativen för återförsök.
 
 ### <a name="180"></a><a name="1.8.0"/>1.8.0
 * Lade till stöd för databaskonton med flera regioner.

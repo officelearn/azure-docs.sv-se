@@ -3,12 +3,12 @@ title: Utvärdera virtuella VMware-datorer för migrering till Azure
 description: Beskriver hur du bedömer lokala virtuella datorer med VMware för migrering till Azure med Azure Migrate Server Assessment.
 ms.topic: tutorial
 ms.date: 03/23/2019
-ms.openlocfilehash: f33e56f7e0af920363475edfa7e86977c2efd1d9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 944b7c12a353a29a172576974261eece63ebf668
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80336733"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548751"
 ---
 # <a name="assess-vmware-vms-by-using-azure-migrate-server-assessment"></a>Utvärdera virtuella virtuella datorer med hjälp av Azure Migrate Server Assessment
 
@@ -163,7 +163,7 @@ Installationen måste ansluta till vCenter Server för att identifiera konfigura
 1. Ange namnet (FQDN) eller IP-adressen för vCenter Server-instansen i **Ange**information om vCenter Server. Du kan lämna standardporten eller ange en anpassad port där vCenter Server lyssnar.
 2. I **Användarnamn** och **Lösenord**anger du de autentiseringsuppgifter för vCenter Server-kontot som används för att identifiera virtuella datorer i vCenter Server-instansen. 
 
-    - Du bör ha konfigurerat ett konto med de behörigheter som krävs i [föregående självstudiekurs](/tutorial-prepare-vmware.md#set-up-an-account-for-assessment).
+    - Du bör ha konfigurerat ett konto med de behörigheter som krävs i [föregående självstudiekurs](tutorial-prepare-vmware.md#set-up-an-account-for-assessment).
     - Om du vill begränsa identifieringen till specifika VMware-objekt (vCenter Server datacenter, kluster, en mapp med kluster, värdar, en mapp med värdar eller enskilda virtuella datorer.), läser du instruktionerna i den [här artikeln](set-discovery-scope.md) för att begränsa kontot som används av Azure Migrate.
 
 3. Välj **Validera anslutning** för att kontrollera att enheten kan ansluta till vCenter Server.

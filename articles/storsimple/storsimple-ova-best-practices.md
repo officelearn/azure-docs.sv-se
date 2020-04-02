@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 5da0297dd97c8263bdc47f1d5a3d7d2d1f835e4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82608c98fc8ea15167b690547906c2238b1b3c04
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298839"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80544328"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Metodtips för StorSimple Virtual Array
 
@@ -161,8 +161,8 @@ Tänk på följande metodtips när du etablerar resurser eller volymer på den v
 
 * Filstorlekarna i förhållande till den etablerade storleken på en nivåindelad resurs kan påverka nivådelningsprestandan. Om du arbetar med stora filer kan det leda till en långsam nivå ut. När du arbetar med stora filer rekommenderar vi att den största filen är mindre än 3 % av resursstorleken.
 * Högst 16 volymer/resurser kan skapas på den virtuella matrisen. För storleksgränserna för lokalt fästa och nivåindelade volymer/resurser, se alltid [begränsningarna för StorSimple Virtual Array](storsimple-ova-limits.md).
-* När du skapar en volym, faktor i den förväntade dataförbrukningen samt framtida tillväxt. Volymen kan inte expanderas senare.
-* När volymen har skapats kan du inte krympa volymens storlek på StorSimple.
+* När du skapar en volym, faktor i den förväntade dataförbrukningen samt framtida tillväxt. Volymen eller resursen kan inte expanderas senare.
+* När volymen/resursen har skapats kan du inte krympa storleken på volymen/resursen på StorSimple.
 * När du skriver till en nivåindelad volym på StorSimple, när volymdata når ett visst tröskelvärde (i förhållande till det lokala utrymme som reserverats för volymen), begränsas IO. Fortsätter att skriva till denna volym saktar ner IO betydligt. Även om du kan skriva till en nivåindelad volym utöver dess etablerade kapacitet (vi hindrar inte aktivt användaren från att skriva utöver den etablerade kapaciteten), ser du ett varningsmeddelande om att du har övertecknat. När du ser aviseringen är det absolut nödvändigt att du vidtar åtgärder som att ta bort volymdata (volymexpansion stöds för närvarande inte).
 * När antalet tillåtna resurser/volymer är 16 och det maximala antalet aktier/volymer som kan bearbetas parallellt är också 16, har antalet aktier/volymer inte någon betydelse för dina RPO- och RTOs.
 

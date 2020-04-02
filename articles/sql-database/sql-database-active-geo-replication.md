@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/17/2020
-ms.openlocfilehash: fe006cebe9aab30a6aaa0bdf2bf3362a494f64d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b80b58d64ea27df95c2704243d8a89fa6ca12e2a
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77426283"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548515"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Skapa och använda aktiv geo-replikering
 
@@ -36,7 +36,7 @@ Om din primära databas av någon anledning misslyckas, eller helt enkelt behöv
 
 Du kan hantera replikering och redundans för en enskild databas eller en uppsättning databaser på en server eller i en elastisk pool med hjälp av aktiv georeplikering. Du kan göra det med hjälp av:
 
-- [Azure Portal](sql-database-geo-replication-portal.md)
+- [Azure-portalen](sql-database-geo-replication-portal.md)
 - [PowerShell: En databas](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
 - [PowerShell: Elastisk pool](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
 - [Transact-SQL: Enkel databas eller elastisk pool](/sql/t-sql/statements/alter-database-azure-sql-database)
@@ -146,7 +146,7 @@ Klienten som utför ändringarna måste ha nätverksåtkomst till den primära s
 
    ```sql
    create user geodrsetup for login geodrsetup
-   alter role geodrsetup dbmanager add member geodrsetup
+   alter role dbmanager add member geodrsetup
    ```
 
 1. Notera SID för den nya inloggningen med den här frågan: 

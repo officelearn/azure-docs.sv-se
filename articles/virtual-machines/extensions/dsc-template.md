@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: ef781653332984a7fb6d71ef91d53cbf77e6c91c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89bae60c30cfe82d38c61f385dbaef574b4152d8
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72437950"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547785"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Önskat tillståndskonfigurationstillägg med Azure Resource Manager-mallar
 
-I den här artikeln beskrivs Azure Resource Manager-mallen för [DSC-tilläggshanteraren (Desired State Configuration).](dsc-overview.md) Många av exemplen använder **RegistrationURL** (som tillhandahålls som en sträng) och **RegistrationKey** (tillhandahålls som en [PSCredential)](/dotnet/api/system.management.automation.pscredential)för att gå ombord med Azure Automation. Mer information om hur du hämtar dessa värden finns i [Onboarding-datorer för hantering av Azure Automation State Configuration - Säker registrering](/azure/automation/automation-dsc-onboarding#secure-registration).
+I den här artikeln beskrivs Azure Resource Manager-mallen för [DSC-tilläggshanteraren (Desired State Configuration).](dsc-overview.md) Många av exemplen använder **RegistrationURL** (som tillhandahålls som en sträng) och **RegistrationKey** (tillhandahålls som en [PSCredential)](/dotnet/api/system.management.automation.pscredential)för att gå ombord med Azure Automation. Mer information om hur du hämtar dessa värden finns i [Onboarding-datorer för hantering av Azure Automation State Configuration - Säker registrering](/azure/automation/automation-dsc-onboarding#onboarding-securely-using-registration).
 
 > [!NOTE]
 > Du kan stöta på lite olika schemaexempel. Ändringen i schemat inträffade i oktober 2016-versionen. Mer information finns i [Uppdatera från ett tidigare format](#update-from-a-previous-format).

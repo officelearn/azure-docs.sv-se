@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 17371e3bd426ea81b5e7e07610aac0073ea972c9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 70053fbc47a5ba85e7bb18ab762868973d014beb
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74157682"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548135"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Snabbstart: Sända realtidsmeddelanden från konsolapp
 
@@ -131,10 +131,17 @@ API | `1.0-preview` | `1.0`
 [Sänd till alla](#broadcast) | **&#x2713;** | **&#x2713;**
 [Sänd till en grupp](#broadcast-group) | **&#x2713;** | **&#x2713;**
 Sänd till vissa grupper | **&#x2713;** (inaktuellt) | `N / A`
-[Sänd till specifika användare](#send-user) | **&#x2713;** | **&#x2713;**
+[Skicka till en användare](#send-user) | **&#x2713;** | **&#x2713;**
 Skicka till vissa användare | **&#x2713;** (inaktuellt) | `N / A`
 [Lägga till användare i en grupp](#add-user-to-group) | `N / A` | **&#x2713;**
 [Ta bort en användare från en grupp](#remove-user-from-group) | `N / A` | **&#x2713;**
+[Kontrollera användarens existens](#check-user-existence) | `N / A` | **&#x2713;**
+[Ta bort en användare från alla grupper](#remove-user-from-all-groups) | `N / A` | **&#x2713;**
+[Skicka till en anslutning](#send-connection) | `N / A` | **&#x2713;**
+[Lägga till en anslutning till en grupp](#add-connection-to-group) | `N / A` | **&#x2713;**
+[Ta bort en anslutning från en grupp](#remove-connection-from-group) | `N / A` | **&#x2713;**
+[Stänga en klientanslutning](#close-connection) | `N / A` | **&#x2713;**
+[Service Health](#service-health) | `N / A` | **&#x2713;**
 
 <a name="broadcast"> </a>
 ### <a name="broadcast-to-everyone"></a>Sänd till alla
@@ -153,7 +160,7 @@ Version | API HTTP-metoden | URL för begäran | Begärandetext
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>` | Samma som ovan
 
 <a name="send-user"> </a>
-### <a name="sending-to-specific-users"></a>Skicka till specifika användare
+### <a name="sending-to-a-user"></a>Skicka till en användare
 
 Version | API HTTP-metoden | URL för begäran | Begärandetext
 --- | --- | --- | ---
@@ -165,14 +172,77 @@ Version | API HTTP-metoden | URL för begäran | Begärandetext
 
 Version | API HTTP-metoden | URL för begäran
 --- | --- | ---
-`1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
+`1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<user-id>`
 
 <a name="remove-user-from-group"> </a>
 ### <a name="removing-a-user-from-a-group"></a>Ta bort en användare från en grupp
 
 Version | API HTTP-metoden | URL för begäran
 --- | --- | ---
-`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<user-id>`
+
+<a name="check-user-existence"> </a>
+### <a name="check-user-existence-in-a-group"></a>Kontrollera användarnas existens i en grupp
+
+API-version | API HTTP-metoden | URL för begäran
+---|---|---
+`1.0` | `GET` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/users/<user-id>/groups/<group-name>`
+`1.0` | `GET` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<user-id>` 
+
+Statuskod för svar | Beskrivning
+---|---
+`200` | Användaren finns
+`404` | Användaren finns inte
+
+<a name="remove-user-from-all-groups"> </a>
+### <a name="remove-a-user-from-all-groups"></a>Ta bort en användare från alla grupper
+
+API-version | API HTTP-metoden | URL för begäran
+---|---|---
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/users/<user-id>/groups`
+
+<a name="send-connection"> </a>
+### <a name="send-message-to-a-connection"></a>Skicka meddelande till en anslutning
+
+API-version | API HTTP-metoden | URL för begäran | Begärandetext
+---|---|---|---
+`1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>` | `{ "target":"<method-name>", "arguments":[ ... ] }`
+
+<a name="add-connection-to-group"> </a>
+### <a name="add-a-connection-to-a-group"></a>Lägga till en anslutning till en grupp
+
+API-version | API HTTP-metoden | URL för begäran
+---|---|---
+`1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/connections/<connection-id>`
+`1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>/groups/<group-name>`
+
+<a name="remove-connection-from-group"> </a>
+### <a name="remove-a-connection-from-a-group"></a>Ta bort en anslutning från en grupp
+
+API-version | API HTTP-metoden | URL för begäran
+---|---|---
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/connections/<connection-id>`
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>/groups/<group-name>`
+
+<a name="close-connection"> </a>
+### <a name="close-a-client-connection"></a>Stänga en klientanslutning
+
+API-version | API HTTP-metoden | URL för begäran
+---|---|---
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>`
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>?reason=<close-reason>`
+
+<a name="service-health"> </a>
+### <a name="service-health"></a>Service Health
+
+API-version | API HTTP-metoden | URL för begäran
+---|---|---                             
+`1.0` | `GET` | `https://<instance-name>.service.signalr.net/api/v1/health`
+
+Statuskod för svar | Beskrivning
+---|---
+`200` | Service Bra
+`503` | Tjänsten är inte tillgänglig
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12a83c6381d3f068eecc2dda4838b981a8b59ab7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c3015ea26d81505c4f058846dbcb3b7858f79267
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80135841"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520128"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netvision-compas"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med Netvision Compas
 
@@ -69,7 +69,7 @@ Så här konfigurerar och testar du Azure AD SSO med Netvision Compas:
     1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa azure AD-enkel inloggning med B.Simon.
     1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** - så att B.Simon kan använda azure AD-enkel inloggning.
 1. **[Konfigurera Netvision Compas SSO](#configure-netvision-compas-sso)** - för att konfigurera de enskilda inloggningsinställningarna på programsidan.
-    1. **[Skapa Netvision Compas-testanvändare](#create-netvision-compas-test-user)** – om du vill ha en motsvarighet till B.Simon i Netvision Compas som är länkad till Azure AD-representationen av användaren.
+    1. **[Konfigurera Netvision Compas-testanvändare](#configure-netvision-compas-test-user)** – om du vill ha en motsvarighet till B.Simon i Netvision Compas som är länkad till Azure AD-representationen av användaren.
 1. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
@@ -95,13 +95,11 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Netvision Compas Client supportteam](mailto:contact@net.vision) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. På sidan **Konfigurera enkel inloggning med SAML** i avsnittet **SAML-signeringscertifikat** hittar du **Certifikat (Base64)** och väljer **Hämta** för att hämta certifikatet och spara det på datorn.
+1. På sidan **Konfigurera enkel inloggning med SAML** i avsnittet **SAML-signeringscertifikat** hittar du **XML för federationsmetadata** och väljer **Hämta** för att hämta metadatafilen och spara den på datorn.
 
-    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-1. Kopiera lämpliga webbadresser på avsnittet **Konfigurera Netvision Compas** baserat på dina behov.
 
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -135,17 +133,58 @@ I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning ge
 
 ## <a name="configure-netvision-compas-sso"></a>Konfigurera Netvision Compas SSO
 
-Om du vill konfigurera enkel inloggning på **Netvision Compas-sidan** måste du skicka det nedladdade **certifikatet (Base64)** och lämpliga kopierade url:er från Azure-portalen till [Netvision Compas supportteam](mailto:contact@net.vision). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+I det här avsnittet aktiverar du SAML SSO i **Netvision Compas**.
+1. Logga in på **Netvision Compas** med ett administrativt konto och få tillgång till administrationsområdet.
 
-### <a name="create-netvision-compas-test-user"></a>Skapa Netvision Compas-testanvändare
+    ![Admin-området](media/netvision-compas-tutorial/admin.png)
 
-I det här avsnittet skapar du en användare som heter B.Simon i Netvision Compas. Arbeta med [Netvision Compas supportteam](mailto:contact@net.vision) för att lägga till användarna i Netvision Compas-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+1. Leta reda på **området System** och välj **Identitetsleverantörer**.
+
+    ![Administratörs-ID:er](media/netvision-compas-tutorial/admin-idps.png)
+
+1. Välj åtgärden **Lägg till** för att registrera Azure AD som en ny IDP.
+
+    ![Lägg till IDP](media/netvision-compas-tutorial/idps-add.png)
+
+1. Välj **SAML** för **providertypen**.
+1. Ange meningsfulla värden för fälten **Visningsnamn** och **Beskrivning.**
+1. Tilldela **Netvision Compas-användare** till IDP genom att välja i listan **Tillgängliga användare** och sedan välja knappen Lägg till **markerad.** Användare kan också tilldelas IDP när de följer etableringsproceduren.
+1. För alternativet **Metadata** SAML klickar du på knappen **Välj fil** och väljer den metadatafil som tidigare sparats på datorn.
+1. Klicka på **Spara**.
+
+    ![Redigera IDP](media/netvision-compas-tutorial/idp-edit.png)
+
+
+### <a name="configure-netvision-compas-test-user"></a>Konfigurera Netvision Compas-testanvändare
+
+I det här avsnittet konfigurerar du en befintlig användare i **Netvision Compas** för att använda Azure AD för SSO.
+1. Följ **netvision Compas-proceduren** för användaretablering, enligt företagets definition eller redigera ett befintligt användarkonto.
+1. När du definierar användarens profil kontrollerar du att användarens **e-postadress (Personlig)** matchar Azure AD-användarnamnet: username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+
+    ![Redigera användare](media/netvision-compas-tutorial/user-config.png)
+
+Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ## <a name="test-sso"></a>Testa SSO 
 
-I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+I det här avsnittet testar du din Azure AD-konfiguration för enkel inloggning.
+
+### <a name="using-the-access-panel-idp-initiated"></a>Använda åtkomstpanelen (IDP initierad).
 
 När du klickar på panelen Netvision Compas på åtkomstpanelen ska du automatiskt loggas in på den Netvision Compas som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+### <a name="directly-accessing-netvision-compas-sp-initiated"></a>Direkt åtkomst till Netvision Compas (SP initierad).
+
+1. Gå till **Netvision Compas-URL:en.** Till exempel `https://tenant.compas.cloud`.
+1. Ange **Netvision Compas** användarnamn och välj **Nästa**.
+
+    ![Inloggad användare](media/netvision-compas-tutorial/login-user.png)
+
+1. **(valfritt)** Om användaren tilldelas flera IDPs inom **Netvision Compas**visas en lista över tillgängliga IDPs. Välj Azure AD IDP som konfigurerats tidigare i **Netvision Compas**.
+
+    ![Logga in välj](media/netvision-compas-tutorial/login-choose.png)
+
+1. Du omdirigeras till Azure AD för att utföra autentiseringen. När du har autentiserats ska du automatiskt loggas in på **Netvision Compas** som du ställer in SSO för.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

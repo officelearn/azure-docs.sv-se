@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 09/26/2019
 ms.author: manayar
-ms.openlocfilehash: e6201f9ac2e9b813de5a4622fc7996eb1202a164
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1e0f7c65504637cd79a3183ce9785c73b55f6a51
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76273694"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548564"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Vad är VM-skalningsuppsättningar?
 Med VM-skalningsuppsättningar i Azure kan du skapa och hantera grupper med identiska och belastningsutjämnade virtuella datorer. Antal VM-instanser kan automatiskt öka eller minska som svar på efterfrågan eller ett definierat schema. Skalningsuppsättningar tillhandahåller hög tillgänglighet för dina program, och låter dig centralt hantera, konfigurera och uppdatera ett stort antal virtuella datorer. Med VM-skalningsuppsättningar kan du skapa storskaliga tjänster för områden som beräkning, stordata och arbetsbelastningar i containrar.
@@ -27,7 +27,7 @@ VM-skalningsuppsättningar i Azure ger hanteringsmöjligheter för program som k
 - **Enkelt att skapa och hantera flera virtuella datorer**
     - När du har många virtuella datorer som kör ditt program är det viktigt att bibehålla en konsekvent konfiguration i din miljö. Om ditt program ska ha garanterat tillförlitliga prestanda måste den virtuella datorns storlek, diskkonfigurationen och programinstallationerna matcha för samtliga virtuella datorer.
     - Med skalningsuppsättningar skapas alla VM-instanser från samma grundläggande OS-avbildning och konfiguration. Med den här metoden kan du enkelt hantera hundratals virtuella datorer utan att behöva bekymra dig om ytterligare konfigurationsåtgärder eller nätverkshantering.
-    - Skalningsuppsättningar stöder användning av [Azure Load Balancer](../load-balancer/load-balancer-overview.md) för grundläggande nivå 4-trafikdistribution och [Azure Application Gateway](../application-gateway/application-gateway-introduction.md) för mer avancerad nivå 7-trafikdistribution och SSL-avslutning.
+    - Skalningsuppsättningar stöder användningen av [Azure-belastningsutjämnaren](../load-balancer/load-balancer-overview.md) för grundläggande trafikdistribution med lager 4 och [Azure Application Gateway](../application-gateway/application-gateway-introduction.md) för mer avancerad trafikdistribution av layer-7 och TLS-avslutning.
 
 - **Ger hög tillgänglighet och programåterhämtning**
     - Skalningsuppsättningar använder du för att köra flera instanser av ditt program. Om någon av dessa VM-instanser drabbas av problem har kunderna fortsatt åtkomst till ditt program via någon av de andra VM-instanserna, med minimalt driftstopp som följd.

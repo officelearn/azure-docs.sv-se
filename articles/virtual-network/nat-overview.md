@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2020
 ms.author: allensu
-ms.openlocfilehash: 4b34d4208d8686cdac3f8164d2cf7efb2d881346
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 50fc8b9cefe88a80f3f954ce363139b6a4a38589
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79409906"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548393"
 ---
 # <a name="what-is-virtual-network-nat"></a>Vad är NAT för virtuellt nätverk?
 
@@ -40,11 +40,11 @@ Virtual Network NAT (översättning av nätverksadresser) förenklar internetans
 
 ## <a name="static-ip-addresses-for-outbound-only"></a>Statiska IP-adresser för endast utgående
 
-Utgående anslutning kan definieras för varje undernät med NAT.  Flera undernät i samma virtuella nätverk kan ha olika NATs. Ett undernät konfigureras genom att ange vilken [NAT-gatewayresurs](./nat-gateway-resource.md) som ska användas. Alla UDP- och TCP-utgående flöden från alla instanser av virtuella datorer använder NAT. 
+Utgående anslutning kan definieras för varje undernät med NAT.  Flera undernät i samma virtuella nätverk kan ha olika NATs. Ett undernät konfigureras genom att ange vilken NAT-gatewayresurs som ska användas. Alla UDP- och TCP-utgående flöden från alla instanser av virtuella datorer använder NAT. 
 
-NAT är kompatibelt med vanliga [SKU-offentliga IP-adressresurser](./virtual-network-ip-addresses-overview-arm.md#standard) eller [offentliga IP-prefixresurser](./public-ip-address-prefix.md) eller en kombination av båda.  Du kan använda ett offentligt IP-prefix direkt eller distribuera prefixets offentliga IP-adresser över flera NAT-gatewayresurser. NAT kommer att träna all trafik till intervallet av IP-adresser för prefixet.  Alla IP-vitlistning av dina distributioner är nu enkelt.
+NAT är kompatibelt med vanliga SKU-offentliga IP-adressresurser eller offentliga IP-prefixresurser eller en kombination av båda.  Du kan använda ett offentligt IP-prefix direkt eller distribuera prefixets offentliga IP-adresser över flera NAT-gatewayresurser. NAT kommer att träna all trafik till intervallet av IP-adresser för prefixet.  Alla IP-vitlistning av dina distributioner är nu enkelt.
 
-All utgående trafik för undernätet bearbetas av NAT automatiskt utan någon kundkonfiguration.  Användardefinierade vägar är inte nödvändiga. NAT har företräde framför andra [utgående scenarier](../load-balancer/load-balancer-outbound-connections.md) och ersätter standardmålet för Internet för ett undernät.
+All utgående trafik för undernätet bearbetas av NAT automatiskt utan någon kundkonfiguration.  Användardefinierade vägar är inte nödvändiga. NAT har företräde framför andra utgående scenarier och ersätter standardmålet för Internet för ett undernät.
 
 ## <a name="on-demand-snat-with-multiple-ip-addresses-for-scale"></a>SNAT på begäran med flera IP-adresser för skala
 
@@ -60,9 +60,9 @@ Till skillnad från utgående SNAT har NAT inga begränsningar för vilken priva
 
 NAT är kompatibelt med följande standard-SKU-resurser:
 
-- [Lastbalanserare](../load-balancer/load-balancer-overview.md)
-- [Offentlig IP-adress](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
-- [Offentligt IP-prefix](../virtual-network/public-ip-address-prefix.md)
+- Lastbalanserare
+- Offentlig IP-adress
+- Offentligt IP-prefix
 
 När de används tillsammans med NAT tillhandahåller dessa resurser inkommande Internet-anslutning till dina undernät. NAT tillhandahåller all utgående Internetanslutning från undernäten.
 

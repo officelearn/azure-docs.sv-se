@@ -3,12 +3,12 @@ title: Azure-prenumerationsbegränsningar och kvoter
 description: Innehåller en lista över vanliga Azure-prenumerations- och tjänstbegränsningar, kvoter och begränsningar. Den här artikeln innehåller information om hur du ökar gränserna tillsammans med högsta värden.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 325f7b3d03435945779c1f42e13681dcfd9604b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 397d6a719f64a49208e651469fab9cf841ccd4ad
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334658"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521357"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumerations- och tjänstbegränsningar, kvoter och begränsningar
 
@@ -244,7 +244,11 @@ I följande tabell beskrivs funktionerna och gränserna för [tjänstnivåerna](
 
 ## <a name="media-services-limits"></a>Begränsningar av medietjänster
 
-[!INCLUDE [azure-mediaservices-limits](../../../includes/azure-mediaservices-limits.md)]
+[!INCLUDE [azure-mediaservices-limits](../../../includes/media-servieces-limits-quotas-constraints.md)]
+
+### <a name="media-services-v2-legacy"></a>Media Services v2 (äldre)
+
+För begränsningar som är specifika för Media Services v2 (äldre) finns i [Media Services v2 (äldre)](https://docs.microsoft.com/azure/media-services/previous/media-services-quotas-and-limitations)
 
 ## <a name="mobile-services-limits"></a>Begränsningar för mobila tjänster
 

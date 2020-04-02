@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: e2ba5301b81b1a6f5de696ab4587cd8ff43e3c68
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: 270ff3c3e8e4cffbb1f4b1987ee497530d0c0982
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462572"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546265"
 ---
 # <a name="adjust-capacity-in-azure-cognitive-search"></a>Justera kapaciteten i Azure Cognitive Search
 
@@ -38,7 +38,8 @@ En enda tjänst måste ha tillräckliga resurser för att hantera alla arbetsbel
 
 Som en allmän regel tenderar sökprogram att behöva fler repliker än partitioner, särskilt när tjänståtgärderna är partiska mot frågearbetsbelastningar. Avsnittet om [hög tillgänglighet](#HA) förklarar varför.
 
-Om du lägger till fler repliker eller partitioner ökar kostnaden för att köra tjänsten. Var noga med att kontrollera [priskalkylatorn](https://azure.microsoft.com/pricing/calculator/) för att förstå faktureringskonsekvenserna av att lägga till fler noder. [Diagrammet nedan](#chart) kan hjälpa dig att korsreferera antalet sökenheter som krävs för en viss konfiguration.
+> [!NOTE]
+> Om du lägger till fler repliker eller partitioner ökar kostnaden för att köra tjänsten och kan införa små variationer i hur resultaten ordnas. Var noga med att kontrollera [priskalkylatorn](https://azure.microsoft.com/pricing/calculator/) för att förstå faktureringskonsekvenserna av att lägga till fler noder. [Diagrammet nedan](#chart) kan hjälpa dig att korsreferera antalet sökenheter som krävs för en viss konfiguration. Mer information om hur ytterligare repliker påverkar frågebearbetning finns i [Beställa resultat](search-pagination-page-layout.md#ordering-results).
 
 ## <a name="how-to-allocate-replicas-and-partitions"></a>Så här allokerar du repliker och partitioner
 

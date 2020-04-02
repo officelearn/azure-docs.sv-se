@@ -1,6 +1,6 @@
 ---
 title: Använda Akka-strömmar för Apache Kafka – Azure Event Hubs| Microsoft-dokument
-description: Den här artikeln innehåller information om hur du ansluter Akka-strömmar till en Apache Kafka-aktiverad Azure-händelsehubb.
+description: Den här artikeln innehåller information om hur du ansluter Akka-strömmar till en Azure-händelsehubb.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 729e78959f93b1aa1563a049a64c553929c4f97e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c53fcc7b4b99e77237ba7ea9219aef4182f2af61
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283641"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521829"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Använda Akka Streams med Event Hubs för Apache Kafka
 Den här självstudien visar hur du ansluter Akka Streams till en händelsehubb utan att ändra dina protokollklienter eller köra egna kluster. Azure Event Hubs för Kafka stöder [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
@@ -49,7 +49,7 @@ För att slutföra den här självstudien, se till att du har följande föruts�
 
 ## <a name="create-an-event-hubs-namespace"></a>Skapa ett Event Hubs-namnområde
 
-Ett namnområde för eventhubbar krävs för att skicka eller ta emot från valfri eventhubbar-tjänst. Se [Skapa Kafka-aktiverade händelsehubbar](event-hubs-create.md) för information om hur du hämtar en Event Hubs Kafka-slutpunkt. Kontrollera att du kopierar anslutningssträngen för händelsehubbar för senare användning.
+Ett namnområde för eventhubbar krävs för att skicka eller ta emot från valfri eventhubbar-tjänst. Mer information finns i [Skapa en händelsehubb.](event-hubs-create.md) Kontrollera att du kopierar anslutningssträngen för händelsehubbar för senare användning.
 
 ## <a name="clone-the-example-project"></a>Klona exempelprojektet
 

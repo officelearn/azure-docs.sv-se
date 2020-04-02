@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 9bbd62bc05e03641c2abe9308d9238bef23877c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9184808b71cce03882022fd37967fe421e64062
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71104972"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548987"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Så gör du för att spara och konfigurera din API Management-tjänstkonfiguration med Git
 
@@ -223,7 +223,7 @@ Den slutliga `$ref-policy`inställningen mappas till den globala principutdragsf
 Mappen `apis` innehåller en mapp för varje API i tjänstinstansen, som innehåller följande objekt.
 
 * `apis\<api name>\configuration.json`- Detta är konfigurationen för API och innehåller information om serverda tjänsten URL och åtgärder. Detta är samma information som skulle returneras om du skulle `export=true` `application/json` ringa Hämta ett [specifikt API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apis/get) med i format.
-* `apis\<api name>\api.description.html`- Detta är beskrivningen av API och `description` motsvarar egenskapen för [API-entiteten](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
+* `apis\<api name>\api.description.html`- Detta är beskrivningen av API och `description` motsvarar egenskapen för [API-entiteten](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.entityproperty).
 * `apis\<api name>\operations\`- Den här `<operation name>.description.html` mappen innehåller filer som mappas till åtgärderna i API:et. Varje fil innehåller en beskrivning av en enskild åtgärd `description` i API:et, som mappar till egenskapen för [operationsentiteten](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) i REST API.Each file contains the description of a single operation in the API, which maps to the property of the operation entity in the REST API.
 
 ### <a name="groups-folder"></a>mappen grupper

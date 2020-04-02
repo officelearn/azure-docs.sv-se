@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/30/2020
-ms.openlocfilehash: 35dbd064a09a96dae58e1b15a6d8889bda45ee0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/30/2020
+ms.openlocfilehash: f103db1d0de7a9d538f56b8ade331dc856b26bce
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76899842"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80547029"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Välj en prisnivå för Azure Cognitive Search
 
@@ -41,7 +41,9 @@ Nivåer differentieras av:
 
 Den nivå du väljer avgör den fakturerbara hastigheten. Följande skärmbild från Azure-portalen visar tillgängliga nivåer, minus priser (som du hittar i portalen och på [prissidan](https://azure.microsoft.com/pricing/details/search/). **Gratis,** **Basic**och **Standard** är de vanligaste nivåerna.
 
-**Free** skapar en begränsad söktjänst i ett kluster som delas med andra prenumeranter. Du kan slutföra små projekt, inklusive snabbstarter och självstudier, men du kan inte skala tjänsten eller köra betydande arbetsbelastningar. **Basic** och **Standard** är de vanligaste fakturerbara nivåerna, med **Standard** som standard.
+**Free** skapar en begränsad söktjänst för mindre projekt, inklusive snabbstarter och självstudier. Internt, repliker och partitioner delas mellan flera abonnenter. Du kan inte skala en kostnadsfri tjänst eller köra betydande arbetsbelastningar.
+
+**Basic** och **Standard** är de vanligaste fakturerbara nivåerna, med **Standard** som standard. Med dedikerade resurser under din kontroll kan du distribuera större projekt, optimera prestanda och ställa in kapaciteten.
 
 ![Prisnivåer för Azure Cognitive Search](media/search-sku-tier/tiers.png "Prisnivåer för Azure Cognitive Search")
 
@@ -55,10 +57,10 @@ Du kan läsa mer om de olika nivåerna på [prissidan,](https://azure.microsoft.
 
 En lösning som bygger på Azure Cognitive Search kan medföra kostnader på följande sätt:
 
-+ Baskostnad för tjänsten vid minimal konfiguration (skapa en tjänst)
++ Fast kostnad för själva tjänsten, som kör 24x7, vid minsta konfiguration (en partition och replik)
 + Inkrementell kostnad vid uppskalning (lägga till repliker eller partitioner)
 + Bandbreddsavgifter (utgående dataöverföring) 
-+ Kognitiv sökning (bifoga Cognitive Services för AI-anrikning, Azure-lagring för kunskapslager)
++ Kognitiv sökning (bifoga Cognitive Services for AI-anrikning eller använda Azure-lagring för kunskapslager)
 
 ### <a name="service-costs"></a>Servicekostnader
 
@@ -106,13 +108,13 @@ De flesta kunder tar bara en del av den totala kapaciteten online, hålla resten
 
 Följande förslag kan hjälpa dig att hålla kostnaderna på ett minimum:
 
-- Skapa alla resurser i samma region, eller i så få regioner som möjligt, för att minimera eller eliminera bandbreddsavgifter.
++ Skapa alla resurser i samma region, eller i så få regioner som möjligt, för att minimera eller eliminera bandbreddsavgifter.
 
-- Konsolidera alla tjänster i en resursgrupp, till exempel Azure Cognitive Search, Cognitive Services och alla andra Azure-tjänster som används i din lösning. I Azure-portalen letar du reda på resursgruppen och använder **kommandona Kostnadshantering** för att få information om faktiska och beräknade utgifter.
++ Konsolidera alla tjänster i en resursgrupp, till exempel Azure Cognitive Search, Cognitive Services och alla andra Azure-tjänster som används i din lösning. I Azure-portalen letar du reda på resursgruppen och använder **kommandona Kostnadshantering** för att få information om faktiska och beräknade utgifter.
 
-- Överväg Azure Web App för ditt frontend-program så att begäranden och svaren håller sig inom datacentergränsen.
++ Överväg Azure Web App för ditt frontend-program så att begäranden och svaren håller sig inom datacentergränsen.
 
-- Skala upp för resursintensiva åtgärder som indexering och justera sedan nedåt för vanliga frågearbetsbelastningar. Börja med den minsta konfigurationen för Azure Cognitive Search (en SU som består av en partition och en replik) och övervaka sedan användaraktivitet för att identifiera användningsmönster som indikerar ett behov av mer kapacitet. Om det finns ett förutsägbart mönster kanske du kan synkronisera skala med aktivitet (du måste skriva kod för att automatisera detta).
++ Skala upp för resursintensiva åtgärder som indexering och justera sedan nedåt för vanliga frågearbetsbelastningar. Börja med den minsta konfigurationen för Azure Cognitive Search (en SU som består av en partition och en replik) och övervaka sedan användaraktivitet för att identifiera användningsmönster som indikerar ett behov av mer kapacitet. Om det finns ett förutsägbart mönster kanske du kan synkronisera skala med aktivitet (du måste skriva kod för att automatisera detta).
 
 Besök dessutom [fakturering och kostnadshantering](https://docs.microsoft.com/azure/billing/billing-getting-started) för inbyggda verktyg och funktioner som är relaterade till utgifter.
 
@@ -130,7 +132,6 @@ I Azure Cognitive Search är kapaciteten strukturerad som *repliker* och *partit
 
 > [!NOTE]
 > Alla standard- och lagringsoptimerade nivåer stöder [flexibla kombinationer av repliker och partitioner](search-capacity-planning.md#chart) så att du kan [optimera systemet för hastighet eller lagring](search-performance-optimization.md) genom att ändra balansen. Basic-nivån erbjuder upp till tre repliker för hög tillgänglighet men har bara en partition. Kostnadsfria nivåer ger inte dedikerade resurser: datorresurser delas av flera prenumeranter.
-
 
 ### <a name="evaluating-capacity"></a>Utvärdering av kapacitet
 
@@ -152,7 +153,7 @@ En metod för att uppskatta kapacitet är att börja med den kostnadsfria nivån
 
 + [Skapa en kostnadsfri tjänst](search-create-service-portal.md).
 + Förbered en liten, representativ datauppsättning.
-+ [Skapa ett första index i portalen](search-create-index-portal.md) och notera dess storlek. Funktioner och attribut påverkar lagringen. Om du till exempel lägger till förslagsföremän (typeahead) ökar lagringsbehovet. Med samma datauppsättning kan du prova att skapa flera versioner av ett index, med olika attribut på varje fält, för att se hur lagringskraven varierar. Mer information finns [i "Lagringskonsekvenser" i Skapa ett grundläggande index](search-what-is-an-index.md#index-size).
++ [Skapa ett första index i portalen](search-create-index-portal.md) och notera dess storlek. Funktioner och attribut påverkar lagringen. Om du till exempel lägger till förslagsföreare (sök-som-du-typ frågor) ökar lagringskraven. Med samma datauppsättning kan du prova att skapa flera versioner av ett index, med olika attribut på varje fält, för att se hur lagringskraven varierar. Mer information finns [i "Lagringskonsekvenser" i Skapa ett grundläggande index](search-what-is-an-index.md#index-size).
 
 Med en grov uppskattning i handen kan du fördubbla det beloppet till budget för två index (utveckling och produktion) och sedan välja din nivå därefter.
 
@@ -196,7 +197,7 @@ Funktionerna för kostnadsfri nivå och förhandsversion tillhandahåller inte [
 
 + Tillåt att mått bygger runt frågor och samlar in data kring användningsmönster (frågor under kontorstid, indexering under lågtrafik). Använd dessa data för att informera beslut om tillhandahållande av tjänster. Även om det inte är praktiskt vid en timme eller daglig kadens, kan du dynamiskt justera partitioner och resurser för att hantera planerade ändringar i frågevolymer. Du kan också hantera oplanerade men ihållande ändringar om nivåerna håller tillräckligt länge för att motivera att åtgärder vidtas.
 
-+ Kom ihåg att den enda nackdelen med underetablering är att du kanske måste riva en tjänst om de faktiska kraven är större än dina förutsägelser. För att undvika avbrott i tjänsten skapar du en ny tjänst på en högre nivå och kör den sida vid sida tills alla appar och begäranden är inriktade på den nya slutpunkten.
++ Kom ihåg att den enda nackdelen med under etablering är att du kanske måste riva en tjänst om de faktiska kraven är större än dina förutsägelser. För att undvika avbrott i tjänsten skapar du en ny tjänst på en högre nivå och kör den sida vid sida tills alla appar och begäranden är inriktade på den nya slutpunkten.
 
 ## <a name="next-steps"></a>Nästa steg
 

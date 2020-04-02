@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 3ded20f37a394e6adf726ad40c01aa36d41e4e8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e155758d19b45d977fcd087bff0ceb85898f8f8
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299353"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548307"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Metodtips för Azure för nätverkssäkerhet
 I den här artikeln beskrivs en samling metodtips för Azure för att förbättra nätverkssäkerheten. Dessa metodtips härleds från vår erfarenhet av Azure-nätverk och erfarenheter från kunder som du själv.
@@ -153,12 +153,12 @@ Vi rekommenderar att du använder belastningsutjämning när du kan och när det
 - Accepterar endast en säker anslutning, så okrypterad kommunikation till servern är inte ett acceptabelt alternativ.
 - Kräver att flera HTTP-begäranden på samma långvariga TCP-anslutning dirigeras eller belastningsutjämnas till olika backend-servrar.
 
-**Load-balancing alternativ**: Använd [Azure Application Gateway](/azure/application-gateway/application-gateway-introduction), en HTTP-webbtrafikbelastningsutjämningsfaktor. Application Gateway stöder ssl-kryptering och [SSL-avslutning](/azure/application-gateway/application-gateway-introduction) vid gatewayen. Webbservrar kan sedan avlastas från kryptering och dekryptering overhead och trafik som flyter okrypterad till backend-servrar.
+**Load-balancing alternativ**: Använd [Azure Application Gateway](/azure/application-gateway/application-gateway-introduction), en HTTP-webbtrafikbelastningsutjämningsfaktor. Application Gateway stöder end-to-end TLS-kryptering och [TLS-avslutning](/azure/application-gateway/application-gateway-introduction) vid gatewayen. Webbservrar kan sedan avlastas från kryptering och dekryptering overhead och trafik som flyter okrypterad till backend-servrar.
 
 **Scenario**: Du måste läsa in aldot för inkommande anslutningar från internet mellan dina servrar i ett virtuellt Azure-nätverk. Scenarier är när du:
 
 - Har tillståndslösa program som accepterar inkommande förfrågningar från Internet.
-- Kräver inte klibbiga sessioner eller SSL avlastning. Sticky sessioner är en metod som används med Application Load Balancing, för att uppnå servertillhörighet.
+- Kräver inte klibbiga sessioner eller TLS avlastning. Sticky sessioner är en metod som används med Application Load Balancing, för att uppnå servertillhörighet.
 
 **Load-balancing alternativ**: Använd Azure-portalen för att [skapa en extern belastningsutjämnare](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) som sprider inkommande begäranden över flera virtuella datorer för att ge en högre nivå av tillgänglighet.
 

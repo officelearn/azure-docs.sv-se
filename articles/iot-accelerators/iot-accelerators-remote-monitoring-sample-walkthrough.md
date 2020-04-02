@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: 33005bc286f7dc2c0ebed74bd9df0309e71346f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f501eb55f72811063ddf1d8e02a0ce2137d598f3
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73824841"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546316"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Översikt över acceleratorn för fjärrövervakningslösning
 
@@ -125,9 +125,6 @@ ASA-jobben levererar telemetrin från anslutna enheter till Time Series Insights
 ### <a name="azure-time-series-insights"></a>Azure Time Series Insights
 
 [Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/) lagrar telemetrin från de enheter som är anslutna till lösningsacceleratorn. Det gör det också möjligt att visualisera och fråga enhetstelemetri i lösningswebbgränssnittet.
-
-> [!NOTE]
-> Time Series Insights är för närvarande inte tillgängligt i Azure China-molnet. Nya snabbacceleratorer för fjärrövervakning i Azure China-molnet använder Cosmos DB för all lagring.
 
 ### <a name="configuration-microservice"></a>Mikrotjänst för konfiguration
 

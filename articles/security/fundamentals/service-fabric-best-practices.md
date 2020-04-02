@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 458a1d474e9a722a98ca068e1827cf0e1abf4b47
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: befe8945468d220a04ec7f0b515f22159cb72b0f
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75548827"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80549234"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Metodtips för Azure Service Fabric-säkerhet
 Det går snabbt, enkelt och kostnadseffektivt att distribuera ett program på Azure. Innan du distribuerar ditt molnprogram i produktion kan du läsa vår lista över viktiga och rekommenderade metodtips för att implementera säkra kluster i ditt program.
@@ -32,7 +32,7 @@ Vi rekommenderar följande metodtips för azure service fabric-säkerhet:
 -   Använd X.509-certifikat.
 -   Konfigurera säkerhetsprinciper.
 -   Implementera säkerhetskonfigurationen för Reliable Actors.
--   Konfigurera SSL för Azure Service Fabric.
+-   Konfigurera TLS för Azure Service Fabric.
 -   Använd nätverksisolering och säkerhet med Azure Service Fabric.
 -   Konfigurera Azure Key Vault för säkerhet.
 -   Tilldela användare till roller.
@@ -118,13 +118,13 @@ Varje aktör definieras som en förekomst av en aktörstyp, identisk med hur ett
 [Replikatorsäkerhetskonfigurationer](../../service-fabric/service-fabric-reliable-actors-kvsactorstateprovider-configuration.md) används för att skydda kommunikationskanalen som används under replikering. Den här konfigurationen förhindrar att tjänster ser varandras replikeringstrafik och säkerställer att data med högtillgänglig data är säkra. Som standard förhindrar ett tomt säkerhetskonfigurationsavsnitt replikeringssäkerhet.
 Repliktorkonfigurationer konfigurerar replikatorn som är ansvarig för att göra tillståndet aktörstillstånd mycket tillförlitligt.
 
-## <a name="configure-ssl-for-azure-service-fabric"></a>Konfigurera SSL för Azure-tjänstinfrastruktur
-Serverautentiseringsprocessen [autentiserar](../../service-fabric/service-fabric-cluster-creation-via-arm.md) slutpunkterna för klusterhantering till en hanteringsklient. Hanteringsklienten inser sedan att den talar med det verkliga klustret. Det här certifikatet tillhandahåller också en [SSL](../../service-fabric/service-fabric-cluster-creation-via-arm.md) för HTTPS-hanterings-API:et och för Service Fabric Explorer via HTTPS.
+## <a name="configure-tls-for-azure-service-fabric"></a>Konfigurera TLS för Azure-tjänstinfrastruktur
+Serverautentiseringsprocessen [autentiserar](../../service-fabric/service-fabric-cluster-creation-via-arm.md) slutpunkterna för klusterhantering till en hanteringsklient. Hanteringsklienten inser sedan att den talar med det verkliga klustret. Det här certifikatet tillhandahåller också en [TLS](../../service-fabric/service-fabric-cluster-creation-via-arm.md) för HTTPS-hanterings-API:et och för Service Fabric Explorer via HTTPS.
 Du måste skaffa ett anpassat domännamn för ditt kluster. När du begär ett certifikat från en certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamn som du använder för klustret.
 
-Om du vill konfigurera SSL för ett program måste du först skaffa ett SSL-certifikat som har signerats av en certifikatutfärdar. Certifikatutfärdaren är en betrodd tredje part som utfärdar certifikat för SSL-säkerhet. Om du inte redan har ett SSL-certifikat måste du skaffa ett från ett företag som säljer SSL-certifikat.
+Om du vill konfigurera TLS för ett program måste du först skaffa ett SSL/TLS-certifikat som har signerats av en certifikatutfärdar. Certifikatutfärdaren är en betrodd tredje part som utfärdar certifikat för TLS-säkerhet. Om du inte redan har ett SSL/TLS-certifikat måste du skaffa ett från ett företag som säljer SSL/TLS-certifikat.
 
-Certifikatet måste uppfylla följande krav för SSL-certifikat i Azure:
+Certifikatet måste uppfylla följande krav för SSL/TLS-certifikat i Azure:
 -   Certifikatet måste innehålla en privat nyckel.
 
 -   Certifikatet måste skapas för nyckelutbyte och kunna exporteras till en fil för personligt informationsutbyte (.pfx).
@@ -135,13 +135,13 @@ Certifikatet måste uppfylla följande krav för SSL-certifikat i Azure:
     - Begär ett certifikat från en certifikatutfärdar med ett ämnesnamn som matchar tjänstens anpassade domännamn. Om ditt eget domännamn till exempel är __contoso__**.com**ska certifikatet från certifikatutfärdaren ha ämnesnamnet **.contoso.com** eller __www__**.contoso.com**.
 
     >[!NOTE]
-    >Du kan inte hämta ett SSL-certifikat från en certifikatutfärdar för cloudapp.net-domänen. __cloudapp__**.net**
+    >Du kan inte hämta ett SSL/TLS-certifikat från en certifikatutfärdar för cloudapp.net-domänen. __cloudapp__**.net**
 
 -   Certifikatet måste använda minst 2 048-bitars kryptering.
 
 HTTP-protokollet är osäkert och föremål för avlyssningsattacker. Data som överförs via HTTP skickas som oformaterad text från webbläsaren till webbservern eller mellan andra slutpunkter. Angripare kan avlyssna och visa känsliga data som skickas via HTTP, till exempel kreditkortsuppgifter och kontoinloggningar. När data skickas eller publiceras via en webbläsare via HTTPS säkerställer SSL att känslig information krypteras och skyddas från avlyssning.
 
-Mer information om hur du använder SSL-certifikat finns i [Konfigurera SSL för Azure-program](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
+Mer information om hur du använder SSL/TLS-certifikat finns i [Konfigurera TLS för ett program i Azure](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
 
 ## <a name="use-network-isolation-and-security-with-azure-service-fabric"></a>Använda nätverksisolering och säkerhet med Azure Service Fabric
 Konfigurera ett 3 nodetype säkert kluster med hjälp av [Azure Resource Manager-mallen](../../azure-resource-manager/templates/template-syntax.md) som ett exempel. Kontrollera inkommande och utgående nätverkstrafik med hjälp av mallen och nätverkssäkerhetsgrupperna.

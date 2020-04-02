@@ -8,12 +8,12 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 2c9baa4c0e048419ece09b954cee1af21b1f0cc1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5a34ac2d1b7401d31ae518334aedc15c626b66a3
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77158017"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529496"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-eventhubs"></a>Använd Java för att skicka händelser till eller ta emot händelser från Azure Event Hubs (azure-eventhubs)
 
@@ -110,7 +110,7 @@ Skapa en unik händelse genom att omvandla en sträng till dess UTF-8 byte-kodni
         // handling different flavors of ingestion to Event Hubs here.
         final ScheduledExecutorService executorService = Executors.newScheduledThreadPool(4);
 
-        // Each EventHubClient instance spins up a new TCP/SSL connection, which is expensive.
+        // Each EventHubClient instance spins up a new TCP/TLS connection, which is expensive.
         // It is always a best practice to reuse these instances. The following sample shows this.
         final EventHubClient ehClient = EventHubClient.createSync(connStr.toString(), executorService);
 
@@ -144,7 +144,7 @@ Grattis! Du har nu skickat meddelanden till en händelsehubb.
 
 ### <a name="appendix-how-messages-are-routed-to-eventhub-partitions"></a>Tillägg: Så här dirigeras meddelanden till EventHub-partitioner
 
-Innan meddelanden hämtas av konsumenter måste de först publiceras till partitionerna av utgivarena. När meddelanden publiceras på händelsehubben synkront med metoden sendSync() på objektet com.microsoft.azure.eventhubs.EventHubClient kan meddelandet skickas till en viss partition eller distribueras till alla tillgängliga partitioner på ett avrundat robin-sätt, kan meddelandet skickas till en viss partition eller distribueras till alla tillgängliga partitioner på ett avrundat robin-sätt beroende på om partitionsnyckeln har angetts eller inte.
+Innan meddelanden hämtas av konsumenter måste de först publiceras till partitionerna av utgivarena. När meddelanden publiceras på händelsehubben synkront med metoden sendSync() på objektet com.microsoft.azure.eventhubs.EventHubClient kan meddelandet skickas till en viss partition eller distribueras till alla tillgängliga partitioner på ett avrundat robin-sätt beroende på om partitionsnyckeln har angetts eller inte.
 
 När en sträng som representerar partitionsnyckeln anges hasheras nyckeln för att avgöra vilken partition som ska skickas till.
 
@@ -384,7 +384,7 @@ Den här guiden använder en enda instans av EventProcessorHost. För att öka d
 
 ### <a name="publishing-messages-to-eventhub"></a>Publicera meddelanden till EventHub
 
-Innan meddelanden hämtas av konsumenter måste de först publiceras till partitionerna av utgivarena. Det är värt att notera att när meddelanden publiceras till händelsehubben synkront med metoden sendSync() på objektet com.microsoft.azure.eventhubs.EventHubClient kan meddelandet skickas till en viss partition eller distribueras till alla tillgängliga partitioner på ett round-robin-sätt beroende på om partitionsnyckeln har angetts eller inte.
+Innan meddelanden hämtas av konsumenter måste de först publiceras till partitionerna av utgivarena. Det är värt att notera att när meddelanden publiceras till händelsehubben synkront med metoden sendSync() på objektet com.microsoft.azure.eventhubs.EventHubClient kan meddelandet skickas till en viss partition eller distribueras till alla tillgängliga partitioner på ett avrundat robin-sätt beroende på om partitionsnyckeln har angetts eller inte.
 
 När en sträng som representerar partitionsnyckeln anges hasheras nyckeln för att avgöra vilken partition som händelsen ska skickas till.
 

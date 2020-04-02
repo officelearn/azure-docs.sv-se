@@ -7,103 +7,100 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/24/2020
-ms.openlocfilehash: 124f1ce3d30ce87d5e9d8fa027e5a7d6c0b3cb17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 8543894f3f518df6b9b0054973ca1683b82e38f1
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481610"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548994"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Så här arbetar du med sökresultat i Azure Cognitive Search
-Den här artikeln innehåller vägledning om hur du implementerar standardelement på en sökresultatsida, till exempel antal, dokumenthämtning, sorteringsorder och navigering. Sidrelaterade alternativ som bidrar med data eller information till sökresultaten anges i [sökdokumentbegäranden](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) som skickas till din Azure Cognitive Search-tjänst. 
 
-I REST API innehåller begäranden ett GET-kommando, sökväg och frågeparametrar som informerar tjänsten om vad som begärs och hur du formulerar svaret. I .NET SDK är motsvarande API [Klassen DocumentSearchResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1).
+I den här artikeln beskrivs hur du får ett frågesvar som kommer tillbaka med ett totalt antal matchande dokument, sidnumrerade resultat, sorterade resultat och träffmarkerade termer.
 
-Om du snabbt vill skapa en söksida för din klient kan du utforska följande alternativ:
+Strukturen för ett svar bestäms av parametrar i frågan: [Sökdokument](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) i REST API, eller [DocumentSearchResult-klassen](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) i .NET SDK.
 
-+ Använd [programgeneratorn](search-create-app-portal.md) i portalen för att skapa en HTML-sida med ett sökfält, fasterad navigering och resultatområde.
-+ Skapa en funktionell klient genom att följa med i självstudien [Skapa din första app i C#.](tutorial-csharp-create-first-app.md)
+## <a name="result-composition"></a>Resultatsammansättning
 
-Flera kodexempel inkluderar ett webbside-gränssnitt, som du hittar här: [New York City Jobs demoapp,](https://aka.ms/azjobsdemo) [JavaScript-exempelkod med en live demo-webbplats](https://github.com/liamca/azure-search-javascript-samples)och [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
+Ett sökdokument kan bestå av ett stort antal fält, men vanligtvis behövs bara ett fåtal för att representera varje dokument i resultatuppsättningen. Lägg `$select=<field list>` till i en frågebegäran för att ange vilka fält som ska visas i svaret. Ett fält måste tillskrivas som **hämtningsbart** i indexet för att inkluderas i ett resultat. 
 
-> [!NOTE]
-> En giltig begäran innehåller ett antal element, till exempel en `api-version`tjänst-URL och sökväg, HTTP-verb och så vidare. För korthet, trimmade vi exemplen för att markera bara syntax som är relevant för sidnumrering. Mer information om syntax för begäran finns i [Azure Cognitive Search REST API:er](https://docs.microsoft.com/rest/api/searchservice).
->
+Fält som fungerar bäst inkluderar de som kontrasterar och skiljer mellan dokument, vilket ger tillräckligt med information för att bjuda in ett klicksvar från användarens sida. På en e-handelsplats kan det vara ett produktnamn, beskrivning, varumärke, färg, storlek, pris och betyg. För det inbyggda exemplet på hotell-sample-index kan det vara fält i följande exempel:
 
-## <a name="total-hits-and-page-counts"></a>Totalt antal träffar och sidantal
-
-Att visa det totala antalet resultat som returneras från en fråga och sedan returnera dessa resultat i mindre segment är grundläggande för praktiskt taget alla söksidor.
-
-![][1]
-
-I Azure Cognitive Search `$count`använder `$top`du `$skip` parametrarna och parametrarna för att returnera dessa värden. I följande exempel visas en exempelbegäran för totala träffar på ett `@odata.count`index som kallas "onlinekatalog", returnerad som :
-
-    GET /indexes/online-catalog/docs?$count=true
-
-Hämta dokument i grupper om 15 och visa även den totala träffar, med början på första sidan:
-
-    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
-
-Sidnumrerande resultat `$top` `$skip`kräver `$top` både och , där anger hur `$skip` många artiklar som ska returneras i en batch och anger hur många artiklar som ska hoppa. I följande exempel visar varje sida de följande 15 objekten, som `$skip` indikeras av de inkrementella hoppen i parametern.
-
-    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
-
-    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=15&$count=true
-
-    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=30&$count=true
-
-## <a name="layout"></a>Layout
-
-På en sökresultatsida kanske du vill visa en miniatyrbild, en delmängd av fälten och en länk till en fullständig produktsida.
-
- ![][2]
-
-I Azure Cognitive Search `$select` använder du och en [begäran om sök-API](https://docs.microsoft.com/rest/api/searchservice/search-documents) för att implementera den här upplevelsen.
-
-Så här returnerar du en delmängd av fälten för en sida vid sida-layout:
-
-    GET /indexes/online-catalog/docs?search=*&$select=productName,imageFile,description,price,rating
-
-Avbildningar och mediefiler är inte direkt sökbara och bör lagras i en annan lagringsplattform, till exempel Azure Blob-lagring, för att minska kostnaderna. I indexet och dokumenten definierar du ett fält som lagrar URL-adressen för det externa innehållet. Du kan sedan använda fältet som en bildreferens. URL:en till bilden ska finnas i dokumentet.
-
-Om du vill hämta en produktbeskrivningssida för en **onClick-händelse** använder du [Uppslagsdokument](https://docs.microsoft.com/rest/api/searchservice/Lookup-Document) för att skicka in nyckeln till dokumentet som ska hämtas. Nyckelns datatyp är `Edm.String`. I det här exemplet är det *246810*.
-
-    GET /indexes/online-catalog/docs/246810
-
-## <a name="sort-by-relevance-rating-or-price"></a>Sortera efter relevans, betyg eller pris
-
-Sortera order som ofta är standard för relevans, men det är vanligt att göra alternativa sorteringsorder lättillgängliga så att kunderna snabbt kan blanda om befintliga resultat till en annan rangordning.
-
- ![][3]
-
-I Azure Cognitive Search baseras sortering på uttrycket, `$orderby` för `"Sortable": true.` alla `$orderby` fält som indexeras som en sats är ett OData-uttryck. Information om syntax finns i [OData-uttryckssyntax för filter och order-by-satser](query-odata-filter-orderby-syntax.md).
-
-Relevans är starkt förknippat med bedömningsprofiler. Du kan använda standardbedömningen, som bygger på textanalys och statistik för att rangordna ordning på alla resultat, med högre poäng som går till dokument med fler eller starkare matchningar på en sökterm.
-
-Alternativa sorteringsorder associeras vanligtvis med **onClick-händelser** som anropar tillbaka till en metod som skapar sorteringsordningen. Med tanke på det här sidelementet:
-
- ![][4]
-
-Du skapar en metod som accepterar det valda sorteringsalternativet som indata och returnerar en ordnad lista för de villkor som är associerade med det alternativet.
-
- ![][5]
+```http
+POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 
+    {  
+      "search": "sandy beaches",
+      "select": "HotelId, HotelName, Description, Rating, Address/City"
+      "count": true
+    }
+```
 
 > [!NOTE]
-> Standardbedömningen är tillräcklig för många scenarier, men vi rekommenderar att du baserar relevans på en anpassad bedömningsprofil i stället. En anpassad bedömningsprofil ger dig ett sätt att marknadsföra objekt som är mer fördelaktiga för ditt företag. Mer information finns [i Lägga till bedömningsprofiler.](index-add-scoring-profiles.md)
->
+> Om du vill inkludera bildfiler i ett resultat, till exempel ett produktfoto eller en logotyp, lagrar du dem utanför Azure Cognitive Search, men inkluderar ett fält i indexet för att referera till bild-URL:en i sökdokumentet. Exempel index som stöder bilder i resultaten inkluderar **realestate-sample-us** demo, med i denna [snabbstart,](search-create-app-portal.md)och [New York City Jobs demo app](https://aka.ms/azjobsdemo).
+
+## <a name="results-returned"></a>Resultat som returneras
+
+Som standard returnerar sökmotorn upp till de första 50 matchningarna, vilket bestäms av sökpoängen om frågan är fulltextsökning eller i en godtycklig ordning för exakta matchningsfrågor.
+
+Om du vill returnera ett `$top` annat `$skip` antal matchande dokument lägger du till och parametrar i frågebegäran. I följande lista förklaras logiken.
+
++ Lägg `$count=true` till för att få ett antal matchande dokument i ett index.
+
++ Returnera den första uppsättningen med 15 matchande dokument plus ett antal totalt antal matchningar:`GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
+
++ Returnera den andra uppsättningen, hoppa över de första 15 `$top=15&$skip=15`för att få nästa 15: . Gör samma sak för den tredje uppsättningen av 15:`$top=15&$skip=30`
+
+Resultaten av sidnumrerade frågor är inte garanterade att vara stabila om det underliggande indexet ändras. Växlingen ändrar `$skip` värdet för varje sida, men varje fråga är oberoende och fungerar på den aktuella vyn av data som den finns i indexet vid frågetid (med andra ord finns det ingen cachelagring eller ögonblicksbild av resultat, till exempel de som finns i en databas för allmänt ändamål).
+ 
+Följande är ett exempel på hur du kan få dubbletter. Anta ett index med fyra dokument:
+
+    { "id": "1", "rating": 5 }
+    { "id": "2", "rating": 3 }
+    { "id": "3", "rating": 2 }
+    { "id": "4", "rating": 1 }
+ 
+Anta nu att du vill att resultaten ska returneras två åt gången, sorterade efter betyg. Du skulle köra den här frågan för `$top=2&$skip=0&$orderby=rating desc`att få den första sidan med resultat: , producera följande resultat:
+
+    { "id": "1", "rating": 5 }
+    { "id": "2", "rating": 3 }
+ 
+Anta att ett femte dokument läggs till i indexet `{ "id": "5", "rating": 4 }`mellan frågeanrop: .  Kort därefter kör du en fråga för att `$top=2&$skip=2&$orderby=rating desc`hämta den andra sidan: och få dessa resultat:
+
+    { "id": "2", "rating": 3 }
+    { "id": "3", "rating": 2 }
+ 
+Observera att dokument 2 hämtas två gånger. Detta beror på att det nya dokumentet 5 har ett större värde för klassificering, så det sorteras före dokument 2 och landar på första sidan. Även om det här beteendet kan vara oväntat är det typiskt för hur en sökmotor beter sig.
+
+## <a name="ordering-results"></a>Ordna resultaten
+
+För fulltextsökningsfrågor rangordnas resultaten automatiskt efter ett sökresultat, beräknat baserat på termfrekvens och närhet i ett dokument, med högre poäng som går till dokument som har fler eller starkare matchningar på en sökterm. Sökpoäng förmedlar allmän känsla av relevans, i förhållande till andra dokument i samma resultatuppsättning, och är inte garanterade att vara konsekvent från en fråga till en annan.
+
+När du arbetar med frågor kan du märka små avvikelser i ordnade resultat. Det finns flera förklaringar till varför detta kan inträffa.
+
+| Villkor | Beskrivning |
+|-----------|-------------|
+| Datavolatilitet | Innehållet i ett index varierar när du lägger till, ändrar eller tar bort dokument. Termfrekvenser ändras när indexuppdateringar bearbetas med tiden, vilket påverkar sökpoängen för matchande dokument. |
+| Plats för frågekörning | För tjänster som använder flera repliker utfärdas frågor mot varje replik parallellt. Indexstatistiken som används för att beräkna en sökresultat beräknas per replik, med resultat kopplade och ordnade i frågesvaret. Repliker är mestadels speglar av varandra, men statistiken kan variera på grund av små skillnader i tillstånd. En replik kan till exempel ha tagit bort dokument som bidrar till deras statistik, som slogs samman från andra repliker. I allmänhet är skillnaderna i statistik per replik mer märkbara i mindre index. |
+| Bryta oavgjort mellan identiska sökpoäng | Avvikelser i ordnade resultat kan också uppstå när sökdokument har identiska poäng. I det här fallet, när du kör samma fråga igen, finns det ingen garanti för vilket dokument som visas först. |
+
+### <a name="consistent-ordering"></a>Konsekvent beställning
+
+Med tanke på flex i sökning scoring, kanske du vill utforska andra alternativ om konsekvens i resultatorder är ett programkrav. Den enklaste metoden är att sortera efter ett fältvärde, till exempel betyg eller datum. För scenarier där du vill sortera efter ett visst fält, till exempel [ `$orderby` ](query-odata-filter-orderby-syntax.md)en klassificering eller ett datum, kan du uttryckligen definiera ett uttryck som kan tillämpas på alla fält som är indexerade som **sorterbara**.
+
+Ett annat alternativ är att använda en [anpassad bedömningsprofil](index-add-scoring-profiles.md). Poängsättningsprofiler ger dig större kontroll över rangordningen av objekt i sökresultaten, med möjlighet att öka matchningar som finns i specifika fält. Den ytterligare poängsättningslogiken kan hjälpa till att åsidosätta mindre skillnader mellan repliker eftersom sökpoängen för varje dokument är längre ifrån varandra. Vi rekommenderar [rankningsalgoritmen](index-ranking-similarity.md) för den här metoden.
 
 ## <a name="hit-highlighting"></a>Träffmarkering
 
-Du kan använda formatering för att matcha termer i sökresultaten, vilket gör det enkelt att upptäcka matchningen. Instruktioner för träffmarkering finns på [frågebegäran](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+Med träffmarkering avses textformatering (till exempel fet eller gul markering) som används för att matcha termen i ett resultat, vilket gör det enkelt att upptäcka matchen. Instruktioner för träffmarkering finns på [frågebegäran](https://docs.microsoft.com/rest/api/searchservice/search-documents). Sökmotorn omsluter den matchande termen `highlightPreTag` i `highlightPostTag`taggar och , och koden hanterar svaret (till exempel med hjälp av ett fetstilt teckensnitt).
 
-Formatering tillämpas på hela termfrågor. Frågor om partiella termer, till exempel fuzzy search eller jokerteckensökning som resulterar i frågeexpansion i motorn, kan inte använda träffmarkering.
+Formatering tillämpas på hela termfrågor. I följande exempel är termerna "sandy", "sand", "stränder", "beach" som finns i fältet Beskrivning märkta för markering. Frågor om partiella termer, till exempel fuzzy search eller jokerteckensökning som resulterar i frågeexpansion i motorn, kan inte använda träffmarkering.
 
 ```http
-POST /indexes/hotels/docs/search?api-version=2019-05-06 
+POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 
     {  
-      "search": "something",  
-      "highlight": "Description"  
+      "search": "sandy beaches",  
+      "highlight": "Description"
     }
 ```
 
@@ -112,30 +109,11 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 >
 > När du skriver klientkod som implementerar träffmarkering bör du vara medveten om den här ändringen. Observera att detta inte påverkar dig om du inte skapar en helt ny söktjänst.
 
-## <a name="faceted-navigation"></a>Aspektbaserad navigering
+## <a name="next-steps"></a>Nästa steg
 
-Söknavigering är vanligt på en resultatsida, som ofta finns längst upp på en sida eller överst på en sida. I Azure Cognitive Search ger aspektbaserad navigering självstyrd sökning baserat på fördefinierade filter. Mer information finns [i Fasterad navigering i Azure Cognitive Search.](search-faceted-navigation.md)
+Om du snabbt vill skapa en söksida för klienten bör du tänka på följande alternativ:
 
-## <a name="filters-at-the-page-level"></a>Filter på sidnivå
++ [Application Generator](search-create-app-portal.md), i portalen, skapar en HTML-sida med ett sökfält, fasterad navigering och resultatområde som innehåller bilder.
++ [Skapa din första app i C#](tutorial-csharp-create-first-app.md) är en handledning som bygger en funktionell klient. Exempelkod visar sidnumrerade frågor, tryckmarkering och sortering.
 
-Om lösningsdesignen innehöll dedikerade söksidor för specifika typer av innehåll (till exempel ett online-butiksprogram som har avdelningar listade högst upp på sidan) kan du infoga ett [filteruttryck](search-filters.md) tillsammans med en **onClick-händelse** för att öppna en sida i förfiltrerade tillstånd.
-
-Du kan skicka ett filter med eller utan ett sökuttryck. Följande begäran filtrerar till exempel på varumärkesnamn och returnerar endast de dokument som matchar den.
-
-    GET /indexes/online-catalog/docs?$filter=brandname eq 'Microsoft' and category eq 'Games'
-
-Mer information om `$filter` uttryck finns i [Sökdokument (Azure Cognitive Search API).](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
-
-## <a name="see-also"></a>Se även
-
-- [REST-API:er för Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice)
-- [Index Verksamhet](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
-- [Dokumentåtgärder](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
-- [Fasterad navigering i Azure Cognitive Search](search-faceted-navigation.md)
-
-<!--Image references-->
-[1]: ./media/search-pagination-page-layout/Pages-1-Viewing1ofNResults.PNG
-[2]: ./media/search-pagination-page-layout/Pages-2-Tiled.PNG
-[3]: ./media/search-pagination-page-layout/Pages-3-SortBy.png
-[4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
-[5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
+Flera kodexempel inkluderar ett webbside-gränssnitt, som du hittar här: [New York City Jobs demoapp,](https://aka.ms/azjobsdemo) [JavaScript-exempelkod med en live demo-webbplats](https://github.com/liamca/azure-search-javascript-samples)och [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 1fddbe908ccebc1384dcccde0810366f1a6d5da7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 662619e101b45d1dd8b34ea97e31f214b254124a
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73796239"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521874"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Felsöka problem med peering i virtuella nätverk
 
@@ -234,6 +234,15 @@ LÃ¶s problemet genom att ta bort peering-pÃ¥ båda virtuella nätverken och 
 ### <a name="failed-to-peer-a-databricks-virtual-network"></a>Det gick inte att peer a Databricks virtuella nätverk
 
 LÃ¶s problemet genom att konfigurera den virtuella nätverks peering under **Azure Databricks**och ange sedan det virtuella målnätverket med hjälp av **Resource ID**. Mer information finns i [Peer a Databricks virtuella nätverk till ett virtuellt fjärrnätverk](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2).
+
+### <a name="the-remote-virtual-network-lacks-a-gateway"></a>Det virtuella fjärrnätverket saknar en gateway
+
+Det här problemet uppstår när du peer virtuella `Use Remote Gateways`nätverk från olika klienter och senare vill konfigurera . En begränsning av Azure-portalen är att den inte kan validera närvaron av en virtuell nätverksgateway i en annan klients virtuella nätverk.
+
+Det finns två sätt att lösa problemet:
+
+ * Ta bort peerings `Use Remote Gateways` och aktivera alternativet när du skapar en ny peering.
+ * Använd PowerShell eller CLI i stället för `Use Remote Gateways`Azure-portalen för att aktivera .
 
 ## <a name="next-steps"></a>Nästa steg
 

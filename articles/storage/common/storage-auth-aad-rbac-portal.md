@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/10/2020
+ms.date: 03/31/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ec32990513d9199c4aaccf1bcfcbf76f348f877b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d224bd9e9e7b1f8fc9eb45d85e78811d8642fc78
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75867508"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519568"
 ---
 # <a name="use-the-azure-portal-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Använd Azure-portalen för att tilldela en RBAC-roll för åtkomst till blob- och ködata
 
@@ -23,13 +23,13 @@ Azure Active Directory (Azure AD) godkänner åtkomsträttigheter till skyddade 
 
 När en RBAC-roll tilldelas ett Azure AD-säkerhetsobjekt beviljar Azure åtkomst till dessa resurser för det säkerhetsobjektet. Åtkomst kan begränsas till prenumerationsnivån, resursgruppen, lagringskontot eller en enskild behållare eller kö. Ett Azure AD-säkerhetsobjekt kan vara en användare, en grupp, ett programtjänsthuvudnamn eller en [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
 
-I den här artikeln beskrivs hur du använder Azure-portalen för att tilldela RBAC-roller. Azure-portalen tillhandahåller ett enkelt gränssnitt för att tilldela RBAC-roller och hantera åtkomst till dina lagringsresurser. Du kan också tilldela RBAC-roller för blob- och köresurser med hjälp av Azure-kommandoradsverktyg eller Azure Storage Management API:er. Mer information om RBAC-roller för lagringsresurser finns [i Autentisera åtkomst till Azure-blobbar och köer med Azure Active Directory](storage-auth-aad.md). 
+I den här artikeln beskrivs hur du använder Azure-portalen för att tilldela RBAC-roller. Azure-portalen tillhandahåller ett enkelt gränssnitt för att tilldela RBAC-roller och hantera åtkomst till dina lagringsresurser. Du kan också tilldela RBAC-roller för blob- och köresurser med hjälp av Azure-kommandoradsverktyg eller Azure Storage Management API:er. Mer information om RBAC-roller för lagringsresurser finns [i Autentisera åtkomst till Azure-blobbar och köer med Azure Active Directory](storage-auth-aad.md).
 
 ## <a name="rbac-roles-for-blobs-and-queues"></a>RBAC-roller för blobbar och köer
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>Fastställ resursomfattning 
+## <a name="determine-resource-scope"></a>Fastställ resursomfattning
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
@@ -52,11 +52,11 @@ I följande avsnitt beskrivs vart och ett av dessa steg mer i detalj.
 
 Innan du tilldelar en roll till ett säkerhetsobjekt måste du ta hänsyn till omfattningen av de behörigheter som du beviljar. Granska avsnittet [Bestäm resursomfattning](#determine-resource-scope) för att bestämma lämpligt scope.
 
-Proceduren som visas här tilldelar en roll som begränsas till en behållare, men du kan följa samma steg för att tilldela en roll som omfattas av en kö: 
+Proceduren som visas här tilldelar en roll som begränsas till en behållare, men du kan följa samma steg för att tilldela en roll som omfattas av en kö:
 
 1. Gå till ditt lagringskonto i [Azure-portalen](https://portal.azure.com)och visa **översikten** för kontot.
-1. Under Tjänster väljer du **Blobbar**. 
-1. Leta reda på den behållare som du vill tilldela en roll för och visa behållarens inställningar. 
+1. Under Tjänster väljer du **Blobbar**.
+1. Leta reda på den behållare som du vill tilldela en roll för och visa behållarens inställningar.
 1. Välj **Åtkomstkontroll (IAM)** om du vill visa åtkomstkontrollinställningar för behållaren. Välj fliken **Rolltilldelningar** om du vill visa listan över rolltilldelningar.
 
     ![Skärmbild som visar inställningar för kontroll av behållare](media/storage-auth-aad-rbac-portal/portal-access-control-for-storage.png)

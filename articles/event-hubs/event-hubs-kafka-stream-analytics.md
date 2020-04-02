@@ -13,17 +13,17 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 054b5c7d13df39de4fa57167e0363c0b4acf9b08
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4cabd63dc39590a9bf728528f3e7b3aa5d3f6b04
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80280753"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521762"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Självstudiekurs: Bearbeta Apache Kafka för händelser i händelsehubbar med hjälp av Stream-analyser 
 Den här artikeln visar hur du strömmar data till eventhubbar och bearbetar dem med Azure Stream Analytics. Den går igenom följande steg: 
 
-1. Skapa ett Kafka-aktiverat namnområde för händelsehubbar.
+1. Skapa ett Event Hubs-namnområde.
 2. Skapa en Kafka-klient som skickar meddelanden till händelsehubben.
 3. Skapa ett Stream Analytics-jobb som kopierar data från händelsehubben till en Azure-bloblagring. 
 
@@ -41,7 +41,7 @@ För att kunna slutföra den här snabbstarten behöver du följande:
 * Ett **Azure Storage-konto**. Om du inte har en, [skapa en](../storage/common/storage-account-create.md) innan du fortsätter vidare. Stream Analytics-jobbet i den här genomgången lagrar utdata i en Azure-bloblagring. 
 
 
-## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Skapa ett Kafka-aktiverat Event Hubs-namnområde
+## <a name="create-an-event-hubs-namespace"></a>Skapa ett Event Hubs-namnområde
 När du skapar **ett** standardnivånamnområde för händelsehubbar aktiveras Kafka-slutpunkten för namnområdet automatiskt. Du kan strömma händelser från dina program som använder Kafka-protokollet till standardnivåhändelsehubbar. Följ steg-för-steg-instruktioner i [skapa en händelsehubb med Azure-portalen](event-hubs-create.md) för att skapa ett **standardnivånamnområde** för eventhubbar. 
 
 > [!NOTE]
@@ -185,7 +185,7 @@ I den här artikeln lärde du dig att strömma till eventhubbar utan att ändra 
 
 - [Läs om Event Hubs](event-hubs-what-is-event-hubs.md)
 - [Event Hubs för Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-- [Så skapar du Kafka-aktiverade händelsehubbar](event-hubs-create.md)
+- [Skapa en händelsehubb](event-hubs-create.md)
 - [Strömma till Event Hubs från Kafka-program](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 - [Spegla en Kafka-broker i en händelsehubb](event-hubs-kafka-mirror-maker-tutorial.md)
 - [Ansluta Apache Spark till en händelsehubb](event-hubs-kafka-spark-tutorial.md)

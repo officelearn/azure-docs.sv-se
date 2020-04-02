@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: java-build-tools-set
-ms.openlocfilehash: ad3b38a12020c56c31e03879b3fbcb9a8dda25f1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d0f30272a4e605449c946ca402db4f3ba00735bc
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79136875"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80520531"
 ---
 # <a name="quickstart-use-java-and-mavengradle-to-create-and-publish-a-function-to-azure"></a>Snabbstart: Använda Java och Maven/Gradle för att skapa och publicera en funktion i Azure
 
@@ -67,13 +67,10 @@ Maven ber dig om värden som behövs för att slutföra generera projektet på d
 | **artifactId (artefaktId)** | Ett värde som är namnet på burken, utan versionsnummer. Exemplen i den `fabrikam-functions`här snabbstarten används . |
 | **Version** | Välj standardvärdet `1.0-SNAPSHOT`för . |
 | **Paket** | Ett värde som är Java-paketet för den genererade funktionskoden. Använd standardvärdet. Exemplen i den `com.fabrikam.functions`här snabbstarten används . |
-| **Appname** | Globalt unikt namn som identifierar din nya funktionsapp i Azure. Använd standard, som är _artifactId_ läggas med ett slumptal. Anteckna det här värdet, du behöver det senare. |
-| **appRegion** | Välj en [plats](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som kommer att användas i dina funktioner. Standardvärdet är `westus`. Kör det här [Azure CLI-kommandot] för att få en lista över alla regioner:<br/>`az account list-locations --query '[].{Name:name}' -o tsv` |
-| **resursGrupp** | Namn på den nya [resursgruppen](../azure-resource-manager/management/overview.md) där funktionsappen ska skapas. Använd `myResourceGroup`, som används av exempel i den här snabbstarten. En resursgrupp måste vara unik för din Azure-prenumeration.|
 
 Skriv `Y` eller tryck på Retur för att bekräfta.
 
-Maven skapar projektfilerna i en ny mapp med namnet _artifactId_, som i det här exemplet är `fabrikam-functions`. Kör följande kommando om du vill ändra katalogen till den skapade projektmappen.
+Maven skapar projektfilerna i en ny mapp med namnet **artifactId**, som i det här exemplet är `fabrikam-functions`. Kör följande kommando om du vill ändra katalogen till den skapade projektmappen.
 ```bash
 cd fabrikam-function
 ```
@@ -236,4 +233,4 @@ Du har skapat ett Java-funktionsprojekt med en HTTP-utlöst funktion, kört det 
 
 
 [Azure CLI]: /cli/azure
-[Azure-portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

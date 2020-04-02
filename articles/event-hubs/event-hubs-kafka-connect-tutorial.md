@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 94b7ff7d240716b513ebb124de84b622866623d3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4d48e284abf61e0209c2fc8b80a2db97620edfcf
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80283624"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521816"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integrera stöd för Apache Kafka Connect stöd i Azure Event Hubs (förhandsversion)
 När inmatning för företagsbehov ökar så ökas även kraven för inmatning av olika externa källor och kanalmottagare. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) innehåller sådana ramverk för att ansluta och importera/exportera data från/till externa system såsom MySQL, HDFS och filsystem via ett Kafka-kluster. Den här självstudien går igenom med Kafka Connect-ramverket med eventhubbar.
@@ -44,7 +44,7 @@ För att kunna slutföra den här genomgången behöver du följande:
 - Läs introduktionsartikeln [Event Hubs för Apache Kafka](https://docs.microsoft.com/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
 
 ## <a name="create-an-event-hubs-namespace"></a>Skapa ett Event Hubs-namnområde
-En Event Hubs-namnrymd krävs för att skicka och ta emot från Event Hubs-tjänster. Instruktioner om hur du skaffar en Event Hubs Kafka-slutpunkt finns i avsnittet om att [skapa en Kafka-aktiverad händelsehubb](event-hubs-create.md). Hämta Event Hubs-anslutningssträngen och fullständigt domännamn (FQDN) för senare användning. Anvisningar finns i avsnittet om att [hämta en Event Hubs-anslutningssträng](event-hubs-get-connection-string.md). 
+En Event Hubs-namnrymd krävs för att skicka och ta emot från Event Hubs-tjänster. Se [Skapa en händelsehubb](event-hubs-create.md) för instruktioner om hur du skapar ett namnområde och en händelsehubb. Hämta Event Hubs-anslutningssträngen och fullständigt domännamn (FQDN) för senare användning. Anvisningar finns i avsnittet om att [hämta en Event Hubs-anslutningssträng](event-hubs-get-connection-string.md). 
 
 ## <a name="clone-the-example-project"></a>Klona exempelprojektet
 Klona Azure Event Hubs-lagringsplatsen och navigera till undermappen tutorials/connect: 

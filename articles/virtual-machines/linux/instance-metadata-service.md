@@ -8,15 +8,15 @@ ms.service: virtual-machines-linux
 ms.subservice: monitoring
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 02/24/2020
+ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 3281b4dafa5436c9df760ac8aa3fc82f535b4286
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0971b542065972a8f150083245e4ed31e42e2c67
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78944871"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521632"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure-instansmetadatatjänst
 
@@ -689,11 +689,15 @@ openssl x509 -noout -issuer -in signer.pem
 openssl x509 -noout -subject -in intermediate.pem
 # Verify the issuer for the intermediate certificate
 openssl x509 -noout -issuer -in intermediate.pem
-# Verify the certificate chain
+# Verify the certificate chain, for Azure China 21Vianet the intermediate certificate will be from DigiCert Global Root CA
 openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
 ```
 
 I de fall där det mellanliggande certifikatet inte kan hämtas på grund av nätverksbegränsningar under valideringen kan det mellanliggande certifikatet fästas. Azure kommer dock att rulla över certifikaten enligt standard PKI-praxis. De fästa certifikaten måste uppdateras när överrullning sker. När en ändring för att uppdatera det mellanliggande certifikatet planeras uppdateras Azure-bloggen och Azure-kunder meddelas. Mellanliggande certifikat hittar du [här](https://www.microsoft.com/pki/mscorp/cps/default.htm). Mellanliggande certifikat för var och en av regionerna kan vara olika.
+
+> [!NOTE]
+>Det mellanliggande certifikatet för Azure China 21Vianet kommer att vara från DigiCert Global Root CA i stället för Baltimore.
+Även om du hade fäst mellanliggande certifikat för Azure Kina som en del av root chain authority change, måste mellanliggande certifikat uppdateras.
 
 ### <a name="storage-profile"></a>Lagringsprofil
 

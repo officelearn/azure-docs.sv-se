@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 8cb767e7d0616d806f8ced33a07e6de4db9d85ed
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 70f55891874b474de4120d8b41594fb9bee74e8d
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80280736"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521667"
 ---
 # <a name="connect-your-apache-spark-application-with-azure-event-hubs"></a>Ansluta ditt Apache Spark-program med Azure Event Hubs
 Den här självstudien hjälper dig att ansluta ditt Spark-program till eventhubbar för direktuppspelning i realtid. Den här integreringen möjliggör strömning utan att du behöver ändra protokollklienter eller köra dina egna Kafka- eller Zookeeper-kluster. Den här självstudien kräver Apache Spark v2.4+ och Apache Kafka v2.0+.
@@ -44,7 +44,7 @@ Kontrollera att du har följande innan du börjar den här självstudien:
 
 
 ## <a name="create-an-event-hubs-namespace"></a>Skapa ett Event Hubs-namnområde
-En Event Hubs-namnrymd krävs för att skicka och ta emot från Event Hubs-tjänster. Instruktioner om hur du skaffar en Event Hubs Kafka-slutpunkt finns i avsnittet om att [skapa en Kafka-aktiverad händelsehubb](event-hubs-create.md). Hämta Event Hubs-anslutningssträngen och fullständigt domännamn (FQDN) för senare användning. Anvisningar finns i avsnittet om att [hämta en Event Hubs-anslutningssträng](event-hubs-get-connection-string.md). 
+En Event Hubs-namnrymd krävs för att skicka och ta emot från Event Hubs-tjänster. Se [Skapa en händelsehubb](event-hubs-create.md) för instruktioner om hur du skapar ett namnområde och en händelsehubb. Hämta Event Hubs-anslutningssträngen och fullständigt domännamn (FQDN) för senare användning. Anvisningar finns i avsnittet om att [hämta en Event Hubs-anslutningssträng](event-hubs-get-connection-string.md). 
 
 ## <a name="clone-the-example-project"></a>Klona exempelprojektet
 Klona Azure Event Hubs-lagringsplatsen och navigera till undermappen `tutorials/spark`:
@@ -114,7 +114,7 @@ Läs mer om Event Hubs och Event Hubs för Kafka i följande ämne:
 
 - [Läs om Event Hubs](event-hubs-what-is-event-hubs.md)
 - [Event Hubs för Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-- [Så skapar du Kafka-aktiverade händelsehubbar](event-hubs-create.md)
+- [Skapa en händelsehubb](event-hubs-create.md)
 - [Strömma till Event Hubs från Kafka-program](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 - [Spegla en Kafka-broker i en händelsehubb](event-hubs-kafka-mirror-maker-tutorial.md)
 - [Ansluta Apache Flink till en händelsehubb](event-hubs-kafka-flink-tutorial.md)

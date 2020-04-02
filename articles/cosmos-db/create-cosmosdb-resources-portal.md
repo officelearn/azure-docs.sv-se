@@ -8,17 +8,17 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/05/2020
-ms.openlocfilehash: bc7e77cc498958b2f8f0c5b2d5ab2d59db97a235
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 79deb2f33a11e8ccb6f059bde7590b7cc0fe20c0
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240410"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521097"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Snabbstart: Skapa ett Azure Cosmos-konto, databas, behållare och objekt från Azure-portalen
 
 > [!div class="op_single_selector"]
-> * [Azure-portal](create-cosmosdb-resources-portal.md)
+> * [Azure Portal](create-cosmosdb-resources-portal.md)
 > * [.NET](create-sql-api-dotnet.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
@@ -40,7 +40,38 @@ En Azure-prenumeration eller ett kostnadsfritt utvärderingskonto för Azure Cos
 <a id="create-account"></a>
 ## <a name="create-an-azure-cosmos-db-account"></a>Skapa ett Azure Cosmos DB-konto
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+Gå till [Microsoft Azure-portalen](https://portal.azure.com/) för att skapa ett Azure Cosmos DB-konto. Sök efter och välj **Azure Cosmos DB**.
+
+   ![Azure Portal-databasfönstret](./media/create-cosmosdb-resources-portal/find-nosql-cosmosdb-marketplace.png)
+
+1. Välj **Lägg till**.
+1. Ange de grundläggande inställningarna för det nya Azure Cosmos-kontot på sidan **Skapa Azure Cosmos DB-konto**. 
+
+    |Inställning|Värde|Beskrivning |
+    |---|---|---|
+    |Prenumeration|Prenumerationens namn|Välj den Azure-prenumeration som ska användas för det här Azure Cosmos-kontot. |
+    |Resursgrupp|Namn på resursgrupp|Välj en resursgrupp eller välj **Skapa ny** och ange sedan ett unikt namn för den nya resursgruppen. |
+    |Kontonamn|Ett unikt namn|Ange ett namn som identifierar ditt Azure Cosmos-konto. Eftersom*documents.azure.com* läggs till det namn du anger för att skapa din URI måste du använda ett unikt namn.<br><br>Namnet får endast innehålla gemener, siffror och bindestreck (-). Det måste innehålla 3–31 tecken.|
+    |API|Typ av konto som skapas|Välj **Core (SQL)** för att skapa en dokumentdatabas och kör frågor med hjälp av SQL-syntax. <br><br>API:n avgör vilken typ av konto som skapas. Azure Cosmos DB innehåller fem API:er: Core (SQL) och MongoDB för dokumentdata, Gremlin för diagramdata, Azure Table och Cassandra. För närvarande måste du skapa ett separat konto för varje API. <br><br>[Läs mer om SQL API](introduction.md).|
+    |Tillämpa rabatt på kostnadsfri nivå|Ansök eller Gäller inte|Med Azure Cosmos DB-kostnadsfri nivå får du de första 400 RU/s och 5 GB lagringsutrymme som är gratis på ett konto. Läs mer om [den kostnadsfria nivån](https://azure.microsoft.com/pricing/details/cosmos-db/).|
+    |Location|Den region som är närmast dina användare|Välj en geografisk plats som värd för ditt Azure Cosmos DB-konto. Använd den plats som är närmast dina användare för att ge dem så snabb åtkomst till data som möjligt.|
+    |Typ av konto|Produktion eller icke-produktion|Välj **Produktion** om kontot ska användas för en produktionsarbetsbelastning. Välj **Icke-produktion** om kontot ska användas för icke-produktion, t.ex. Det här är en Azure-resurstagginställning som trimmar portalupplevelsen men inte påverkar det underliggande Azure Cosmos DB-kontot. Du kan ändra det här värdet när som helst.|
+
+
+> [!NOTE]
+> Du kan ha upp till en kostnadsfri nivå Azure Cosmos DB-konto per Azure-prenumeration och måste anmäla dig när du skapar kontot. Om du inte ser alternativet att tillämpa rabatten på den kostnadsfria nivån innebär det att ett annat konto i prenumerationen redan har aktiverats med den kostnadsfria nivån.
+   
+   ![Den nya kontosidan för Azure Cosmos DB](./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png)
+
+1. Välj **Granska + skapa**. Du kan hoppa över avsnitten **Nätverk** och **Taggar**.
+
+1. Granska kontoinställningarna och välj sedan **Skapa**. Det tar några minuter att skapa kontot. Vänta tills portalsidan visar meddelandet **Distributionen är klar**. 
+
+    ![Meddelandefönstret i Azure-portalen](./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png)
+
+1. Välj **Gå till resurs** för att gå till sidan för Azure Cosmos DB-kontot. 
+
+    ![Sidan för Azure Cosmos DB-kontot](./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png)
 
 <a id="create-container-database"></a>
 ## <a name="add-a-database-and-a-container"></a>Lägga till en databas och en behållare 

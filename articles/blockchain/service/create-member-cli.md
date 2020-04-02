@@ -1,15 +1,15 @@
 ---
 title: Skapa en Azure Blockchain-tjänstmedlem - Azure CLI
 description: Skapa en Azure Blockchain Service-medlem för ett blockchain-konsortium med Hjälp av Azure CLI.
-ms.date: 03/12/2020
+ms.date: 03/30/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
-ms.openlocfilehash: 0a3cf3d7c7f3dc0b8ece6fd6a466e42ae970b61c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 322b1884726b6dfe322560032ed1b8a98c600154
+ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214741"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80529627"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Snabbstart: Skapa en Blockchain-tjänstmedlem för Azure Blockchain-tjänst med Azure CLI
 
@@ -58,7 +58,7 @@ az resource create \
 | **lösenord** | Lösenordet för medlemmens standardtransaktionsnod. Använd lösenordet för grundläggande autentisering när du ansluter till blockchain-medlemmens offentliga slutpunkt för standardtransaktionsnod.
 | **Konsortium** | Namn på konsortiet att gå med i eller skapa. Mer information om konsortier finns i [Azure Blockchain Service consortium](consortium.md).
 | **konsortietOrd** | Lösenordet för konsortiekontot kallas även medlemskontots lösenord. Medlemskontots lösenord används för att kryptera den privata nyckeln för Ethereum-kontot som skapas för din medlem. Du använder medlemskontot och medlemskontots lösenord för konsortiehantering.
-| **skuNamn** | Nivåtyp. Använd S0 för Standard och B0 för Basic. Använd *basic-nivån* för utveckling, testning och bevis på begrepp. Använd *standardnivån* för distributioner av produktionsresultat.
+| **skuNamn** | Nivåtyp. Använd S0 för Standard och B0 för Basic. Använd *basic-nivån* för utveckling, testning och bevis på begrepp. Använd *standardnivån* för distributioner av produktionsresultat. Du bör också använda *standardnivån* om du använder Blockchain Data Manager eller skickar en stor mängd privata transaktioner. Det går inte att ändra prisnivån mellan grundläggande och standard när medlemmen har skapats.
 
 Det tar cirka 10 minuter att skapa blockchain-medlemmen och stödja resurser.
 

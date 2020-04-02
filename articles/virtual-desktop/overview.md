@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e62b3c551f41bca0055f35cf6bf62c59d921c73b
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.openlocfilehash: 01767e88714bfb4e134957298505edd218d462d3
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80294835"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546924"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop? 
 
@@ -43,7 +43,7 @@ Med Windows Virtual Desktop kan du konfigurera en skalbar och flexibel miljö:
 * Skapa en fullständig virtualiseringsmiljö för skrivbordet i din Azure-prenumeration utan att behöva köra några ytterligare gatewayservrar.
 * Publicera så många värdpooler som du behöver för att hantera dina olika arbetsbelastningar.
 * Ta med din egen avbildning för produktionsarbetsbelastningar eller testa från Azure Gallery.
-* Minska kostnaderna med poolade resurser med flera sessioner. Med den nya multisessionsfunktionen för Windows 10 Enterprise exklusivt för windows virtual desktop- och fjärrskrivbordssessionsvärd (RDSH) på Windows Server kan du avsevärt minska antalet virtuella datorer och operativsystem (OS) med omkostnader medan du fortfarande tillhandahålla samma resurser till användarna.
+* Minska kostnaderna med poolade resurser med flera sessioner. Med den nya multisessionsfunktionen för Windows 10 Enterprise exklusivt för windows virtual desktop och remote desktop session host (RDSH) roll på Windows Server kan du kraftigt minska antalet virtuella datorer och operativsystem (OS) omkostnader samtidigt som du tillhandahåller samma resurser till användarna.
 * Ge individuellt ägande via personliga (beständiga) skrivbord.
 
 Du kan distribuera och hantera virtuella skrivbord:
@@ -89,21 +89,38 @@ De virtuella Azure-datorer som du skapar för Windows Virtual Desktop måste var
 
 De virtuella Azure-datorer som du skapar för Windows Virtual Desktop måste ha åtkomst till följande webbadresser:
 
-|Adress|Utgående port|Syfte|
-|---|---|---|
-|*.wvd.microsoft.com|TCP-port 443|Trafikerar tjänste-|
-|*.blob.core.windows.net|TCP-port 443|Agent, SXS-stackuppdateringar och Agenttrafik|
-|*.core.windows.net|TCP-port 443|Agent trafik|
-|*.servicebus.windows.net|TCP-port 443|Agent trafik|
-|prod.warmpath.msftcloudes.com|TCP-port 443|Agent trafik|
-|catalogartifact.azureedge.net|TCP-port 443|Azure Marketplace|
-|kms.core.windows.net|TCP-port 1688|Windows 10-aktivering|
+|Adress|Utgående TCP-port|Syfte|Service Tag|
+|---|---|---|---|
+|*.wvd.microsoft.com|443|Trafikerar tjänste-|WindowsVirtualDesktop|
+|mrsglobalsteus2prod.blob.core.windows.net|443|Agent- och SXS-stackuppdateringar|AzureCloud|
+|*.core.windows.net|443|Agent trafik|AzureCloud|
+|*.servicebus.windows.net|443|Agent trafik|AzureCloud|
+|prod.warmpath.msftcloudes.com|443|Agent trafik|AzureCloud|
+|catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
+|kms.core.windows.net|1688|Windows-aktivering|Internet|
+
+
 
 >[!IMPORTANT]
 >Att öppna dessa webbadresser är viktigt för en tillförlitlig Windows Virtual Desktop-distribution. Att blockera åtkomst till dessa url:er stöds inte och påverkar tjänstens funktioner. Dessa url:er motsvarar bara Windows virtuella skrivbordsplatser och resurser och innehåller inte webbadresser för andra tjänster som Azure Active Directory.
 
+I följande tabell visas valfria url:er som dina virtuella Azure-datorer kan ha åtkomst till:
+
+|Adress|Utgående TCP-port|Syfte|Service Tag|
+|---|---|---|---|
+|*.microsoftonline.com|443|Autentisering till MS Online Services|Inget|
+|*.events.data.microsoft.com|443|Telemetritjänst|Inget|
+|www.msftconnecttest.com|443|Identifierar om operativsystemet är anslutet till internet|Inget|
+|*.prod.do.dsp.mp.microsoft.com|443|Windows Update|Inget|
+|login.windows.net|443|Logga in på MS Online Services, Office 365|Inget|
+|*.sfx.ms|443|Uppdateringar för OneDrive-klientprogram|Inget|
+|*.digicert.com|443|Kontroll av återkallade certifikat|Inget|
+
+
 >[!NOTE]
 >Windows Virtual Desktop har för närvarande ingen lista över IP-adressintervall som du kan vitlista för att tillåta nätverkstrafik. Vi stöder bara vitlistning av specifika webbadresser just nu.
+>
+>En lista över Office-relaterade URL:er, inklusive nödvändiga Azure Active Directory-relaterade URL:er, finns [i Url:er och IP-adressintervall för Office 365](/office365/enterprise/urls-and-ip-address-ranges).
 >
 >Du måste använda jokertecknet (*) för webbadresser som involverar servicetrafik. Om du föredrar att inte använda * för agentrelaterad trafik gör du så här för att hitta webbadresserna utan jokertecken:
 >
@@ -137,15 +154,15 @@ Följande klienter för fjärrskrivbord stöder Windows Virtual Desktop:
 
 Fjärrskrivbordsklienterna måste ha åtkomst till följande webbadresser:
 
-|Adress|Utgående port|Syfte|Klient(er)|
+|Adress|Utgående TCP-port|Syfte|Klient(er)|
 |---|---|---|---|
-|*.wvd.microsoft.com|TCP-port 443|Trafikerar tjänste-|Alla|
-|*.servicebus.windows.net|TCP-port 443|Felsöka data|Alla|
-|go.microsoft.com|TCP-port 443|Microsoft FWLinks|Alla|
-|aka.ms|TCP-port 443|Microsoft URL förkortare|Alla|
-|docs.microsoft.com|TCP-port 443|Dokumentation|Alla|
-|privacy.microsoft.com|TCP-port 443|Sekretesspolicy|Alla|
-|query.prod.cms.rt.microsoft.com|TCP-port 443|Klientuppdateringar|Windows-skrivbordet|
+|*.wvd.microsoft.com|443|Trafikerar tjänste-|Alla|
+|*.servicebus.windows.net|443|Felsöka data|Alla|
+|go.microsoft.com|443|Microsoft FWLinks|Alla|
+|aka.ms|443|Microsoft URL förkortare|Alla|
+|docs.microsoft.com|443|Dokumentation|Alla|
+|privacy.microsoft.com|443|Sekretesspolicy|Alla|
+|query.prod.cms.rt.microsoft.com|443|Klientuppdateringar|Windows-skrivbordet|
 
 >[!IMPORTANT]
 >Att öppna dessa webbadresser är viktigt för en tillförlitlig klientupplevelse. Att blockera åtkomst till dessa url:er stöds inte och påverkar tjänstens funktioner. Dessa URL:er motsvarar bara klientplatser och resurser och innehåller inte webbadresser för andra tjänster som Azure Active Directory.

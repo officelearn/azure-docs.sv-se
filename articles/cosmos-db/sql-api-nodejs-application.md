@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 7a01c436f31a8ce5b8071db3eda4cf5562c421c0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3c50e82647b22a18edee92f47abc1d136670cacc
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75441267"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80519678"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Självstudiekurs: Skapa en nod.js-webbapp med JavaScript SDK för att hantera ett SQL API-konto i Azure Cosmos DB 
 
@@ -83,7 +83,7 @@ Nu ska vi skapa ett grundläggande Hello World Node.js-projekt med Express-ramve
    npm start
    ```
 
-1. Du kan visa ditt nya program [http://localhost:3000](http://localhost:3000)genom att navigera i webbläsaren till .
+1. Du kan visa det nya programmet genom att öppna `http://localhost:3000` i webbläsaren.
    
    ![Lär dig använda Node.js – Skärmdump av programmet Hello World i ett webbläsarfönster](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
@@ -359,7 +359,7 @@ Nu när du har slutfört den första installationen och konfigurationen kommer d
 
 ## <a name="build-a-user-interface"></a><a name="_Toc395783181"></a>Skapa ett användargränssnitt
 
-Nu skapar vi användargränssnittet så att användare kan interagera med programmet. Det Express-program som vi skapade i föregående avsnitt använder **Jade** som visningsmotor.
+Nu ska vi bygga användargränssnittet så att en användare kan interagera med programmet. Det Express-program som vi skapade i föregående avsnitt använder **Jade** som visningsmotor.
 
 1. Filen **layout.jade** i katalogen **views** används som en global mall för andra **.jade**-filer. I det här steget ändrar du den så att den använder Twitter Bootstrap, vilket är en verktygslåda som används för att utforma webbplatser.  
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 02/27/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f75f8392b01e69760171c13c0e6d3b2e22b20dea
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 5b4347cb5032b7f3651d0d3fcb20dc5d416f9bee
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421195"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80546560"
 ---
 # <a name="what-is-azure-private-link"></a>Vad är Azure Privat Link? 
 Med Azure Private Link kan du komma åt Azure PaaS Services (till exempel Azure Storage och SQL Database) och Azure-värd för kundägda/partnertjänster via en [privat slutpunkt](private-endpoint-overview.md) i ditt virtuella nätverk.
@@ -53,15 +53,15 @@ Azure Private Link ger följande fördelar:
 |  |  Azure-databas för MariaDB         | Alla offentliga regioner      |   Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
 |  |  Azure Key Vault         | Alla offentliga regioner      |   Allmän tillgänglighet (GA)   <br/> [Läs mer](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
 |  |Azure Kubernetes-tjänst - Kubernetes API | Alla offentliga regioner      |   Allmän tillgänglighet (GA)   <br/> [Läs mer](https://docs.microsoft.com/azure/aks/private-clusters)   |
-|  |Azure Search | ÖSTRA USA, VÄSTRA US2, SÖDRA CENTRALA USA |   Förhandsversion    |
+|  |Azure Search | EAST US, VÄSTRA USA 2, SÖDRA CENTRALA USA |   Förhandsversion    |
 |  |Azure Container Registry | Alla offentliga regioner      |   Förhandsversion   |
 |  |Azure App Configuration | Alla offentliga regioner      |   Förhandsversion   |
-|  |Azure Backup | ÖSTRA USA, VÄSTRA US2, SÖDRA CENTRALA USA     |   Förhandsversion   |
+|  |Azure Backup | EAST US, VÄSTRA USA 2, SÖDRA CENTRALA USA     |   Förhandsversion   |
 |  |Azure Event Hub | Alla offentliga regioner      |   Förhandsversion    |
 |  |Azure Service Bus | Alla offentliga regioner      |   Förhandsversion   |
 |  |Azure Relay | Alla offentliga regioner      |   Förhandsversion   |
-|  |Azure Event Grid| Alla offentliga regioner      |   Förhandsversion   <br/> [Läs mer](https://docs.microsoft.com/azure/event-grid/network-security)   |
-|  |Azure Web Apps | ÖSTRA USA, VÄSTRA US2, SÖDRA CENTRALA USA      |   Förhandsversion   <br/> [Läs mer](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
+|  |Azure Event Grid| EAST US, VÄSTRA USA 2, SÖDRA CENTRALA USA      |   Förhandsversion   <br/> [Läs mer](https://docs.microsoft.com/azure/event-grid/network-security)   |
+|  |Azure Web Apps | EAST US, VÄSTRA USA 2, SÖDRA CENTRALA USA      |   Förhandsversion   <br/> [Läs mer](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
 
 De senaste meddelandena finns på [sidan Uppdateringar av Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 

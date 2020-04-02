@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 03/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b344886e89a10a027cba169e92056a6dda443d8d
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: c56e6729307a1cad998a060202f51cb8f29bf94a
+ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421947"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80548327"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager-resursprovideråtgärder
 
@@ -332,7 +332,7 @@ Azure-tjänst: [API-hantering](../api-management/index.yml)
 > | Åtgärd | Microsoft.ApiManagement/service/read | Läsa metadata för en API Management Service-instans |
 > | Åtgärd | Microsoft.ApiManagement/service/delete | Ta bort API Management Service-instans |
 > | Åtgärd | Microsoft.ApiManagement/service/updatehostname/åtgärd | Konfigurera, uppdatera eller ta bort anpassade domännamn för en API Management Service |
-> | Åtgärd | Microsoft.ApiManagement/service/updatecertificate/action | Ladda upp SSL-certifikat för en API Management Service |
+> | Åtgärd | Microsoft.ApiManagement/service/updatecertificate/action | Ladda upp TLS/SSL-certifikat för en API Management Service |
 > | Åtgärd | Microsoft.ApiManagement/service/backup/action | Api Management Service för säkerhetskopiering till den angivna behållaren i ett lagringskonto som tillhandahålls av användaren |
 > | Åtgärd | Microsoft.ApiManagement/service/restore/action | Återställa API Management Service från den angivna behållaren i ett användarkonto som tillhandahålls av användaren |
 > | Åtgärd | Microsoft.ApiManagement/service/managedeployments/action | Ändra SKU/-enheter, lägga till/ta bort regionala distributioner av API Management Service |

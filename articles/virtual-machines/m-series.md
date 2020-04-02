@@ -5,20 +5,20 @@ services: virtual-machines
 author: ayshakeen
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 02/05/2019
-ms.author: lahugh
-ms.openlocfilehash: e8952218675493710cbdd1f92661e9a9c077f34c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/31/2020
+ms.author: jushiman
+ms.openlocfilehash: 3e0552570d5bdb7f812852cd058710b833b7fdd4
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78164057"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521328"
 ---
 # <a name="m-series"></a>M-serien
 
-M-serien erbjuder ett högt vCPU-antal (upp till 128 virtuella processorer) och en stor mängd minne (upp till 3,8 TiB). Det är också idealiskt för extremt stora databaser eller andra program som drar nytta av höga vCPU-antal och stora mängder minne. M-seriens storlekar är baserade på Intel® Xeon® CPU E7-8890 v3 @ 2,50 GHz
+M-serien erbjuder ett högt vCPU-antal (upp till 128 virtuella processorer) och en stor mängd minne (upp till 3,8 TiB). Det är också idealiskt för extremt stora databaser eller andra program som drar nytta av höga vCPU-antal och stora mängder minne. M-seriens storlekar stöds både&reg; på Intel&reg; Xeon CPU E7-8890 v3 @ 2,50 GHz och på Intel&reg; Xeon&reg; Platinum 8280M 2,7 GHz (Cascade Lake).
 
-M-serien VM:s funktion Intel® teknik för flertrådsteknik
+M-serien VM har&reg; Intel Hyper-Threading Technology.
 
 ACU: 160–180
 

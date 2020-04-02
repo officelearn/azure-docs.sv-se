@@ -1,24 +1,26 @@
 ---
-title: Vanliga frågor och svar om Cloudyn i Azure | Microsoft Docs
+title: Vanliga frågor och svar om Cloudyn i Azure
 description: Den här artikeln innehåller svar på några vanliga frågor om Cloudyn.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
-ms.topic: troubleshooting
+ms.date: 03/12/2020
+ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 5c770d83d59edf0a56184f8eea0bda6b0603893c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: b1ec81ea135079defb390becc025f51cde2dad7f
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76770082"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411243"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Vanliga frågor och svar om Cloudyn
 
 Den här artikeln besvarar några vanliga frågor om Cloudyn. Om du har frågor om Cloudyn kan du ställa dem på [Vanliga frågor och svar om Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-cloudyn-cost-management?forum=Cloudyn).
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="how-can-i-resolve-common-indirect-enterprise-setup-problems"></a>Hur löser jag vanliga problem med indirekt Enterprise-konfiguration?
 
@@ -58,13 +60,13 @@ Om du inte kan visa några Optimizer-rekommendationsdata har du troligen konton 
 
 Så här aktiverar du ett konto:
 
-1.  Klicka på **Settings** (Inställningar) uppe till höger i Cloudyn-portalen och välj **Cloud Accounts** (Molnkonton).
-2.  På fliken Microsoft Azure konton letar du upp konton som har en **inaktiverad** prenumeration.
-3.  Till höger om ett konto som inte har inaktiverats klickar du på symbolen **redigera**, som liknar en penna.
-4.  Ditt klientorganisations-ID och avgifts-ID identifieras automatiskt. Klicka på **Nästa**.
-5.  Du omdirigeras till Azure-portalen. Logga in på portalen och auktorisera Cloudyn-insamlaren att få åtkomst till dina Azure-data.
-6.  Sedan omdirigeras du till sidan Kontohantering i Cloudyn och din prenumeration uppdateras med **aktiv** kontostatus. En grön bock visas.
-7.  Om du inte ser en grön bock för en eller flera av prenumerationerna betyder det att du inte har behörighet att skapa en läsarapp (CloudynCollector) för prenumerationen. En användare med högre behörighet för prenumerationen måste upprepa steg 3 och 4.  
+1.    Klicka på **Settings** (Inställningar) uppe till höger i Cloudyn-portalen och välj **Cloud Accounts** (Molnkonton).
+2.    På fliken Microsoft Azure konton letar du upp konton som har en **inaktiverad** prenumeration.
+3.    Till höger om ett konto som inte har inaktiverats klickar du på symbolen **redigera**, som liknar en penna.
+4.    Ditt klientorganisations-ID och avgifts-ID identifieras automatiskt. Klicka på **Nästa**.
+5.    Du omdirigeras till Azure Portal. Logga in på portalen och auktorisera Cloudyn-insamlaren att få åtkomst till dina Azure-data.
+6.    Sedan omdirigeras du till sidan för kontohantering i Cloudyn och din prenumeration uppdateras med kontostatusen **Aktiv**. En grön bock visas.
+7.    Om du inte ser en grön bock för en eller flera av prenumerationerna betyder det att du inte har behörighet att skapa en läsarapp (CloudynCollector) för prenumerationen. En användare med högre behörighet för prenumerationen måste upprepa steg 3 och 4.  
 
 När du har slutfört ovanstående steg kan du visa Optimizer-rekommendationer inom en till två dagar. Det kan dock ta upp till fem dagar innan fullständiga optimeringsdata är tillgängliga.
 
@@ -75,7 +77,7 @@ Först ska vi titta på det vanligaste scenariot som gör att användarkonton bl
 
 > Admin1 kan vara en Microsoft Cloud Solution Provider eller en Enterprise-avtalsanvändare. Organisationen är redo att börja använda Cloudyn.  Personen registrerar sig via Azure-portalen och loggar in på Cloudyn-portalen. Som den person som registrerar Cloudyn-tjänsten och loggar in på Cloudyn-portalen blir Admin1 den *primära administratören*. Admin1 skapar inte några användarkonton. Med hjälp av Cloudyn-portalen skapar dock denna person Azure-konton och konfigurerar en entitetshierarki. Admin1 informerar Admin2, en klientadministratör, att denne behöver registrera sig med Cloudyn och logga in på Cloudyn-portalen.
 >
-> Admin2 registrerar sig via Azure-portalen. Men när denna person försöker logga in på Cloudyn-portalen visas ett fel där det står att kontot är **inaktiverat**. Den primära administratören, Admin1, meddelas om inaktiveringen av kontot. Admin1 behöver aktivera Admin2-kontot och bevilja *entitetsåtkomst för administratör* för lämpliga entiteter, tillåta användarhanteringsåtkomst samt aktiva användarkontot.
+> Admin2 registrerar sig via Azure-portalen. Men när denna person försöker logga in på Cloudyn-portalen visas ett fel där det står att kontot är **inaktiverat**. Den primära administratören, Admin1, meddelas om inaktiveringen av kontot. Admin1 behöver aktivera Admin2-kontot och bevilja *entitetsåtkomst för administratörer* för lämpliga entiteter, tillåta användarhanteringsåtkomst samt aktivera användarkontot.
 
 
 Om du får en avisering med en begäran om att tillåta åtkomst för en användare behöver du aktivera användarkontot.
@@ -95,7 +97,7 @@ Vi rekommenderar att du skapar minst två Cloudyn-administratörskonton ifall et
 
 Om du inte kan logga in på Cloudyn-portalen ska du kontrollera att du använder rätt URL för att logga in på Cloudyn. Använd [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
-Undvik att använda Cloudyn-direkt-URL:en https://app.cloudyn.com.
+Undvik att använda Cloudyn-direkt-URL:en `https://app.cloudyn.com`.
 
 ## <a name="how-do-i-activate-unactivated-accounts-with-azure-credentials"></a>Hur aktiverar jag inaktiverade konton med Azure-autentiseringsuppgifter?
 

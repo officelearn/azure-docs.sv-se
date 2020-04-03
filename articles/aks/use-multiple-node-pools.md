@@ -4,12 +4,12 @@ description: Lär dig hur du skapar och hanterar flera nodpooler för ett kluste
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: 607419787bc0bab243d6cc2b8cbaa0ec22921e87
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 87f066ed17e5274439082956803d269bdd5853f5
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422318"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80616496"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Skapa och hantera flera nodpooler för ett kluster i Azure Kubernetes Service (AKS)
 
@@ -41,7 +41,7 @@ Följande begränsningar gäller när du skapar och hanterar AKS-kluster som st�
 För att komma igång, skapa ett AKS-kluster med en enda nodpool. I följande exempel används kommandot [az-grupp skapa][az-group-create] för att skapa en resursgrupp med namnet *myResourceGroup* i *regionen eastus.* Ett AKS-kluster med namnet *myAKSCluster* skapas sedan med kommandot [az aks create.][az-aks-create] En *--kubernetes-version* av *1.15.7* används för att visa hur du uppdaterar en nodpool i följande steg. Du kan ange valfri [Kubernetes-version som stöds][supported-versions].
 
 > [!NOTE]
-> SKU *för grundläggande* belastningsutjämnare **stöds inte** när du använder flera nodpooler. Som standard skapas AKS-kluster *Standard* med standardbelastningsutjämnaren SKU från Azure CLI och Azure-portalen.
+> SKU *för grundläggande* belastningsutjämnare **stöds inte** när du använder flera nodpooler. Som standard skapas AKS-kluster *Standard* med standardbelastningsutjämnaren SKU från Azure CLI- och Azure-portalen.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -420,7 +420,7 @@ Kubernetes-schemaläggaren kan använda taints och tolerationer för att begrän
 
 Mer information om hur du använder avancerade kubernetes-schemalagda funktioner finns [i Metodtips för avancerade schemaläggarfunktioner i AKS][taints-tolerations]
 
-I det här exemplet använder du en behäftning på din GPU-baserade nod med kommandot --nod-taints. Ange namnet på den GPU-baserade noden från `kubectl get nodes` utdata från föregående kommando. Fläcken används som en *nyckel:värde* och sedan ett schemaläggningsalternativ. I följande exempel används *sku=gpu-paret* och definierar poddar som annars har *noschedule-möjligheten:*
+I det här exemplet använder du en behäftning på din GPU-baserade nod med kommandot --nod-taints. Ange namnet på den GPU-baserade noden från `kubectl get nodes` utdata från föregående kommando. Fläcken används som ett *key=value* pair och sedan ett schemaläggningsalternativ. I följande exempel används *sku=gpu-paret* och definierar poddar som annars har *noschedule-möjligheten:*
 
 ```console
 az aks nodepool add --node-taints aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
@@ -480,7 +480,7 @@ Events:
   Normal  Started    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Started container
 ```
 
-Endast poddar som har denna färg tillämpas kan schemaläggas på noder i *gpunodepool*. Alla andra pod skulle schemaläggas i *nodepool1* nodpoolen. Om du skapar ytterligare nodpooler kan du använda ytterligare fläckar och tolerationer för att begränsa vilka poddar som kan schemaläggas på dessa nodresurser.
+Endast poddar som har denna tolerans tillämpas kan schemaläggas på noder i *gpunodepool*. Alla andra pod skulle schemaläggas i *nodepool1* nodpoolen. Om du skapar ytterligare nodpooler kan du använda ytterligare fläckar och tolerationer för att begränsa vilka poddar som kan schemaläggas på dessa nodresurser.
 
 ## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>Ange en befläcka, etikett eller tagg för en nodpool
 

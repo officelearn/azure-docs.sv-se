@@ -1,6 +1,6 @@
 ---
 title: SKAPA TABELL SOM SELECT (CTAS)
-description: Förklaring och exempel på CREATE TABLE AS SELECT (CTAS) i SQL Analytics för att utveckla lösningar.
+description: Förklaring och exempel på CREATE TABLE AS SELECT (CTAS) i Synapse SQL för att utveckla lösningar.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,24 +11,24 @@ ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
-ms.openlocfilehash: bb9ff52bd7d2e4cfd1a1df4d780a4c369380284f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e5dc8835a6d5f235cf269edd4e9f069c904e1b7e
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350605"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582151"
 ---
-# <a name="create-table-as-select-ctas-in-sql-analytics"></a>SKAPA TABELL SOM SELECT (CTAS) i SQL Analytics
+# <a name="create-table-as-select-ctas"></a>SKAPA TABELL SOM SELECT (CTAS)
 
-I den här artikeln beskrivs T-SQL-uttrycket SKAPA TABELL AS SELECT (CTAS) i SQL Analytics för att utveckla lösningar. Artikeln innehåller också kodexempel.
+I den här artikeln beskrivs T-SQL-uttrycket SKAPA TABELL AS SELECT (CTAS) i Synapse SQL för att utveckla lösningar. Artikeln innehåller också kodexempel.
 
 ## <a name="create-table-as-select"></a>CREATE TABLE AS SELECT
 
-[Create Table AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) (CTAS) är en av de viktigaste T-SQL-funktionerna som finns tillgängliga. CTAS är en parallell åtgärd som skapar en ny tabell baserat på utdata från en SELECT-sats. CTAS är det enklaste och snabbaste sättet att skapa och infoga data i en tabell med ett enda kommando.
+[Create Table AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (CTAS) är en av de viktigaste T-SQL-funktionerna som finns tillgängliga. CTAS är en parallell åtgärd som skapar en ny tabell baserat på utdata från en SELECT-sats. CTAS är det enklaste och snabbaste sättet att skapa och infoga data i en tabell med ett enda kommando.
 
 ## <a name="selectinto-vs-ctas"></a>Välj... INTO vs CTAS
 
-CTAS är en mer anpassningsbar version av [SELECT... INTO-uttalande.](/sql/t-sql/queries/select-into-clause-transact-sql)
+CTAS är en mer anpassningsbar version av [SELECT... INTO-uttalande.](/sql/t-sql/queries/select-into-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 Följande är ett exempel på en enkel SELECT... I:
 
@@ -123,7 +123,7 @@ DROP TABLE FactInternetSales_old;
 
 ## <a name="use-ctas-to-work-around-unsupported-features"></a>Använda CTAS för att komma runt funktioner som inte stöds
 
-Du kan också använda CTAS för att arbeta runt ett antal av de funktioner som inte stöds nedan. Den här metoden kan ofta vara till hjälp, eftersom inte bara koden är kompatibel, men den körs ofta snabbare på SQL Analytics. Denna prestanda är ett resultat av dess helt parallelliserade design. Scenarier inkluderar:
+Du kan också använda CTAS för att arbeta runt ett antal av de funktioner som inte stöds nedan. Den här metoden kan ofta vara till hjälp, eftersom inte bara din kod är kompatibel, men den körs ofta snabbare på Synapse SQL. Denna prestanda är ett resultat av dess helt parallelliserade design. Scenarier inkluderar:
 
 * ANSI ANSLUTER PÅ UPDATEs
 * ANSI JOINs på DELETEs
@@ -174,7 +174,7 @@ ON    [acs].[EnglishProductCategoryName]    = [fis].[EnglishProductCategoryName]
 AND    [acs].[CalendarYear]                = [fis].[CalendarYear];
 ```
 
-SQL Analytics stöder inte ANSI-kopplingar `FROM` i `UPDATE` satsen i ett uttryck, så du kan inte använda föregående exempel utan att ändra det.
+Synapse SQL stöder inte ANSI-kopplingar `FROM` i `UPDATE` satsen för ett uttryck, så du kan inte använda föregående exempel utan att ändra det.
 
 Du kan använda en kombination av en CTAS och en implicit koppling för att ersätta föregående exempel:
 
@@ -208,7 +208,7 @@ DROP TABLE CTAS_acs;
 
 ## <a name="ansi-join-replacement-for-delete-statements"></a>ANSI-koppling ersättning för borttagningssatser
 
-Ibland är den bästa metoden för att ta `DELETE` bort data att använda CTAS, särskilt för satser som använder ANSI-kopplingssyntax. Detta beror på att SQL Analytics inte `FROM` stöder ANSI-kopplingar till satsen i ett `DELETE` uttryck. I stället för att ta bort data markerar du de data som du vill behålla.
+Ibland är den bästa metoden för att ta `DELETE` bort data att använda CTAS, särskilt för satser som använder ANSI-kopplingssyntax. Detta beror på att Synapse SQL inte `FROM` stöder ANSI-kopplingar till satsen i ett `DELETE` uttryck. I stället för att ta bort data markerar du de data som du vill behålla.
 
 Följande är ett exempel på `DELETE` en konverterad sats:
 
@@ -412,7 +412,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 Du kan se att typkonsekvens och underhåll av nullability-egenskaper på en CTAS är en metod för teknisk utveckling. Det bidrar till att upprätthålla integriteten i dina beräkningar och säkerställer också att partitionsväxling är möjlig.
 
-CTAS är ett av de viktigaste uttrycken i SQL Analytics. Se till att du förstår det ordentligt. Se [CTAS-dokumentationen](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse).
+CTAS är en av de viktigaste uttalandena i Synapse SQL. Se till att du förstår det ordentligt. Se [CTAS-dokumentationen](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="next-steps"></a>Nästa steg
 

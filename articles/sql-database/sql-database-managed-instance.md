@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 01/21/2020
-ms.openlocfilehash: b9fdd1b25e53e1cdc8aa76564304a61adaa8d804
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: 06242af6cb00e3adebbc80da722898fb8e348e36
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79268787"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585357"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Vad är Azure SQL Database-hanterad instans?
 
@@ -67,7 +67,7 @@ De viktigaste funktionerna i hanterade instanser visas i följande tabell:
 | Stöd för Portal | Ja|
 | Inbyggd integrationstjänst (SSIS) | Nej - SSIS är en del av [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Inbyggd analystjänst (SSAS) | Nej - SSAS är separat [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
-| Inbyggd rapporteringstjänst (SSRS) | Nej - använd Power BI eller SSRS IaaS |
+| Inbyggd rapporteringstjänst (SSRS) | Nej – använd [Power BI-sidnumrerade rapporter](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) i stället eller vara värd för SSRS på Azure VM. Hanterad instans kan inte köra SSRS som en tjänst, men den kan vara värd för SSRS 2019-katalogdatabaser för en extern rapporteringsserver med SQL Server-autentisering. |
 |||
 
 ## <a name="vcore-based-purchasing-model"></a>Köpmodell baserad på virtuell kärna
@@ -247,7 +247,7 @@ Migrering av en krypterad databas till en hanterad instans stöds via Azure Data
 
 ## <a name="azure-active-directory-integration"></a>Azure Active Directory-integrering
 
-Distributionsalternativet för hanterade instanser stöder traditionella SQL-serverdatabasmotorinloggningar och inloggningar som är integrerade med Azure Active Directory (AAD). Azure AD-serverhuvudnamn (inloggningar) (**offentlig förhandsversion**) är Azure-molnversion av lokala databasinloggningar som du använder i din lokala miljö. Med Azure AD-serverobjekt (inloggningar) kan du ange användare och grupper från din Azure Active Directory-klient som verkliga instansomsbefattningar, som kan utföra alla instansnivåoperationer, inklusive flerdatabasfrågor inom samma hanterade Instans.
+Distributionsalternativet för hanterade instanser stöder traditionella SQL-serverdatabasmotorinloggningar och inloggningar som är integrerade med Azure Active Directory (AAD). Azure AD-serverhuvudnamn (inloggningar) (**offentlig förhandsversion**) är Azure-molnversion av lokala databasinloggningar som du använder i din lokala miljö. Med Azure AD-serverobjekt (inloggningar) kan du ange användare och grupper från din Azure Active Directory-klient som verkliga instansomsdöme, som kan utföra alla instansnivååtgärder, inklusive flerdatabasfrågor inom samma hanterade instans.
 
 En ny syntax introduceras för att skapa Azure AD-serverhuvudnamn (inloggningar), **FRÅN EXTERN LEVERANTÖR**. Mer information om syntaxen finns i <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">SKAPA INLOGGNING</a>och granska etablera en Azure [Active Directory-administratör för den hanterade](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) instansartikeln.
 

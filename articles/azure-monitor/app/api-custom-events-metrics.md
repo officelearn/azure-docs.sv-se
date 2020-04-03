@@ -3,12 +3,12 @@ title: API för programinsikter för anpassade händelser och mått | Microsoft-
 description: Infoga några rader kod i enheten eller skrivbordsappen, webbsidan eller tjänsten för att spåra användning och diagnostisera problem.
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.openlocfilehash: 4275d3ea3a340f0a4083ab929eb7f7872f3311e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 06bd8bd0958afd26e1256a010b08c908c59aaf7d
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295037"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585868"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API för Application Insights för anpassade händelser och mått
 
@@ -58,7 +58,7 @@ Hämta en `TelemetryClient` instans av (utom i JavaScript på webbsidor):
 
 För [ASP.NET Core-appar](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected) och [icke HTTP/Worker för .NET/.NET Core-appar](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected) rekommenderar `TelemetryClient` vi att du hämtar en instans av från behållaren för beroendeinjektion enligt beskrivningen i respektive dokumentation.
 
-Om du använder AzureFunctions v2+ eller Azure WebJobs v3+ – följer du det här dokumentet:https://docs.microsoft.com/azure/azure-functions/functions-monitoring#version-2x-3
+Om du använder AzureFunctions v2+ eller Azure WebJobs v3+ – följer du det här dokumentet:https://docs.microsoft.com/azure/azure-functions/functions-monitoring#version-2x-and-higher
 
 *C#*
 
@@ -113,7 +113,7 @@ Infoga `TrackEvent` samtal i koden för att räkna olika händelser. Hur ofta an
 
 I en spelapp skickar du till exempel en händelse när en användare vinner spelet:
 
-*Javascript*
+*JavaScript*
 
 ```javascript
 appInsights.trackEvent({name:"WinGame"});
@@ -257,7 +257,7 @@ För att skicka mått till Application Insights `TrackMetric(..)` kan du använd
 
 Så här skickar du ett enda måttvärde:
 
-*Javascript*
+*JavaScript*
 
  ```javascript
 appInsights.trackMetric("queueLength", 42.0);
@@ -299,7 +299,7 @@ Användar- och sessionsdata skickas som egenskaper tillsammans med sidvisningar,
 
 ### <a name="custom-page-views"></a>Anpassade sidvisningar
 
-*Javascript*
+*JavaScript*
 
 ```javascript
 appInsights.trackPageView("tab1");
@@ -338,7 +338,7 @@ I stället kan du antingen:
 * Ange en explicit varaktighet i [trackPageView-samtalet:](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/API.md#trackpageview) `appInsights.trackPageView("tab1", null, null, null, durationInMilliseconds);`.
 * Använd tidssamtalen `startTrackPage` `stopTrackPage`för sidvyn och .
 
-*Javascript*
+*JavaScript*
 
 ```javascript
 // To start timing a page:
@@ -471,7 +471,7 @@ try {
 }
 ```
 
-*Javascript*
+*JavaScript*
 
 ```javascript
 try
@@ -738,7 +738,7 @@ I en webbapp identifieras användare (som standard) av cookies. En användare ka
 
 Om användarna loggar in på din app kan du få en mer exakt räkning genom att ange det autentiserade användar-ID:t i webbläsarkoden:
 
-*Javascript*
+*JavaScript*
 
 ```javascript
 // Called when my app has identified the user.
@@ -792,7 +792,7 @@ För att måttvärden ska visas korrekt bör de vara större än eller lika med 
 
 Det finns vissa [begränsningar för antalet egenskaper, egenskapsvärden och mått](#limits) som du kan använda.
 
-*Javascript*
+*JavaScript*
 
 ```javascript
 appInsights.trackEvent
@@ -1114,7 +1114,7 @@ protected void Application_Start()
 }
 ```
 
-*Javascript*
+*JavaScript*
 
 ```javascript
 appInsights.config.instrumentationKey = myKey;
@@ -1188,7 +1188,7 @@ Information om hur länge data sparas finns i [Datalagring och sekretess](../../
 * [ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Windows Server-paket](https://github.com/Microsoft/applicationInsights-dotnet-server)
 * [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
-* [Nod.js SDK](https://github.com/Microsoft/ApplicationInsights-Node.js)
+* [Node.js SDK](https://github.com/Microsoft/ApplicationInsights-Node.js)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 
@@ -1204,4 +1204,4 @@ Information om hur länge data sparas finns i [Datalagring och sekretess](../../
 ## <a name="next-steps"></a><a name="next"></a>Nästa steg
 
 * [Sök händelser och loggar](../../azure-monitor/app/diagnostic-search.md)
-* [Troubleshooting](../../azure-monitor/app/troubleshoot-faq.md) (Felsökning)
+* [Felsökning](../../azure-monitor/app/troubleshoot-faq.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: c8eba538a7015648611e6054ce85b381dcfc9105
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a80fb97810fee04a4eb50c43178c168e66f29173
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76761006"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618733"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Aktivera diagnostikloggar för Service Bus
 
@@ -76,10 +76,10 @@ Följande hanteringsåtgärder fångas in i driftloggar:
 
 | Omfång | Åtgärd|
 |-------| -------- |
-| Namnområde | <ul> <li> Skapa namnområde</li> <li> Uppdatera namnområde </li> <li> Ta bort namnområde </li>  </ul> | 
-| Kö | <ul> <li> Skapa kö</li> <li> Uppdatera kö</li> <li> Ta bort kö </li> </ul> | 
-| Hjälpavsnitt | <ul> <li> Skapa ämne </li> <li> Uppdatera ämne </li> <li> Ta bort ämne </li> </ul> |
-| Prenumeration | <ul> <li> Skapa en prenumeration </li> <li> Uppdatera prenumeration </li> <li> Ta bort prenumeration </li> </ul> |
+| Namnområde | <ul> <li> Skapa namnområde</li> <li> Uppdatera namnområde </li> <li> Ta bort namnområde </li> <li> Uppdatera namnområde sharedaccess-princip </li> </ul> | 
+| Kö | <ul> <li> Skapa kö</li> <li> Uppdatera kö</li> <li> Ta bort kö </li> <li> Ta bort kö för ta bort automatiskt </li> </ul> | 
+| Hjälpavsnitt | <ul> <li> Skapa ämne </li> <li> Uppdatera ämne </li> <li> Ta bort ämne </li> <li> Ta bort ämne automatiskt </li> </ul> |
+| Prenumeration | <ul> <li> Skapa en prenumeration </li> <li> Uppdatera prenumeration </li> <li> Ta bort prenumeration </li> <li> Ta bort prenumeration automatiskt </li> </ul> |
 
 > [!NOTE]
 > För närvarande spåras inte *Läs-åtgärder* i driftloggarna.

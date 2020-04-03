@@ -1,6 +1,6 @@
 ---
 title: Använda etiketter för instrumentfrågor
-description: Tips om hur du använder etiketter för att instrumentera frågor i Azure SQL Data Warehouse för att utveckla lösningar.
+description: Tips om hur du använder etiketter för att instrumentera frågor i Synapse SQL-pool för att utveckla lösningar.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,19 +11,19 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 828e4a406cd0fb12877af44263ab1f338c20850c
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: c1a4ffcab3d10f1dc91ce036e995ae0026a0d718
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351684"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619021"
 ---
-# <a name="using-labels-to-instrument-queries-in-azure-sql-data-warehouse"></a>Använda etiketter för instrumentfrågor i Azure SQL Data Warehouse
-Tips om hur du använder etiketter för att instrumentera frågor i Azure SQL Data Warehouse för att utveckla lösningar.
+# <a name="using-labels-to-instrument-queries-in-synapse-sql-pool"></a>Använda etiketter för instrumentfrågor i Synapse SQL-pool
+I den här artikeln finns tips för att utveckla lösningar med hjälp av etiketter för att instrumentfrågor i SQL-pool.
 
 
 ## <a name="what-are-labels"></a>Vad är etiketter?
-SQL Data Warehouse stöder ett koncept som kallas frågeetiketter. Innan du går in på något djup, låt oss titta på ett exempel:
+SQL-poolen stöder ett koncept som kallas frågeetiketter. Innan du går in på något djup, låt oss titta på ett exempel:
 
 ```sql
 SELECT *
@@ -32,11 +32,13 @@ OPTION (LABEL = 'My Query Label')
 ;
 ```
 
-Den sista raden taggar strängen "Min frågeetikett" till frågan. Den här taggen är särskilt användbar eftersom etiketten är frågeduglig via DMVs. Att fråga efter etiketter är en mekanism för att hitta problemfrågor och hjälpa till att identifiera förloppet via en ELT-körning.
+Den sista raden taggar strängen "Min frågeetikett" till frågan. Den här taggen är användbar eftersom etiketten är frågeduglig via DMVs. 
 
-En bra namngivningskonvention hjälper verkligen. Om du till exempel startar etiketten med PROJEKT, FÖRFARANDE, UTDRAG ELLER KOMMENTAR kan du unikt identifiera frågan bland all kod i källkoden.
+Att fråga efter etiketter är en mekanism för att hitta problemfrågor och hjälpa till att identifiera förloppet via en ELT-körning.
 
-Följande fråga använder en dynamisk hanteringsvy för att söka efter etikett.
+En bra namngivningskonvention hjälper verkligen. Om du till exempel startar etiketten med PROJECT, PROCEDURE, STATEMENT eller COMMENT identifierar frågan unikt bland all kod i källkoden.
+
+Följande fråga använder en dynamisk hanteringsvy för att söka efter etikett:
 
 ```sql
 SELECT  *

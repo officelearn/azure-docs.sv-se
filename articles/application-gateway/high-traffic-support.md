@@ -7,18 +7,21 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: e3f8445f68ec959ce1bb0d1ba4029807bd25907a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 65f404b52a5fc06d8fa5bb5aad291e57fde8caba
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257435"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617203"
 ---
-# <a name="application-gateway-high-traffic-support"></a>Stöd för programgateway med hög trafik 
+# <a name="application-gateway-high-traffic-support"></a>Stöd för höga trafikvolymer i Application Gateway
 
-I den här artikeln beskrivs några förslag till riktlinjer som hjälper dig att konfigurera programgatewayen för att hantera extra trafik på grund av scenarier med stora trafikvolymer, till exempel COVID-19-situationen. Du kan använda Application Gateway with Web Application Firewall (WAF) för ett skalbart och säkert sätt att hantera trafik till dina webbprogram. 
+>[!NOTE]
+> I den här artikeln beskrivs några förslag till riktlinjer som hjälper dig att konfigurera programgatewayen för att hantera extra trafik på grund av hög trafikvolym som kan uppstå på grund av COVID-19-krisen.
 
-Följande förslag hjälper dig att konfigurera Application Gateway med WAF för att hantera extra trafik. 
+Du kan använda Application Gateway with Web Application Firewall (WAF) för ett skalbart och säkert sätt att hantera trafik till dina webbprogram.
+
+Följande förslag hjälper dig att konfigurera Application Gateway med WAF för att hantera extra trafik.
 
 ## <a name="use-the-v2-sku-over-v1-for-its-autoscaling-capabilities-and-performance-benefits"></a>Använd v2 SKU över v1 för dess funktioner för automatisk skalning och prestandafördelar
 V2 SKU erbjuder automatisk skalning för att säkerställa att programgatewayen kan skalas upp när trafiken ökar. Det erbjuder också andra betydande prestandafördelar, till exempel 5x bättre TLS-avlastningsprestanda, snabbare driftsättnings- och uppdateringstider, zonredundans och mer jämfört med v1. Mer information finns i vår [v2-dokumentation](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). 

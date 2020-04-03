@@ -4,12 +4,12 @@ description: Lär dig hur du använder Azure CLI för att skapa ett AKS-kluster 
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 31e8b5aceb356ca1415419650a9df3070462bde0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 05e32b6b0017e945044bc7593d4d6dbc543a5b64
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475535"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80616468"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Skapa och konfigurera ett AKS-kluster (Azure Kubernetes Services) för att använda virtuella noder med Azure CLI
 
@@ -19,7 +19,7 @@ Den här artikeln visar hur du skapar och konfigurerar virtuella nätverksresurs
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Virtuella noder möjliggör nätverkskommunikation mellan poddar som körs i ACI och AKS-klustret. För att tillhandahålla den här kommunikationen skapas ett virtuellt nätverksundernät och delegerade behörigheter tilldelas. Virtuella noder fungerar bara med AKS-kluster som skapats med hjälp av *avancerade* nätverk. Som standard skapas AKS-kluster med *grundläggande* nätverk. Den här artikeln visar hur du skapar ett virtuellt nätverk och undernät och distribuerar sedan ett AKS-kluster som använder avancerade nätverk.
+Virtuella noder möjliggör nätverkskommunikation mellan poddar som körs i Azure Container Instances (ACI) och AKS-klustret. För att tillhandahålla den här kommunikationen skapas ett virtuellt nätverksundernät och delegerade behörigheter tilldelas. Virtuella noder fungerar bara med AKS-kluster som skapats med hjälp av *avancerade* nätverk. Som standard skapas AKS-kluster med *grundläggande* nätverk. Den här artikeln visar hur du skapar ett virtuellt nätverk och undernät och distribuerar sedan ett AKS-kluster som använder avancerade nätverk.
 
 Om du inte tidigare har använt ACI registrerar du tjänsteleverantören med din prenumeration. Du kan kontrollera status för ACI-providerregistreringen med kommandot [az provider list,][az-provider-list] som visas i följande exempel:
 
@@ -30,9 +30,9 @@ az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" 
 *Microsoft.ContainerInstance-providern* ska rapportera som *registrerad*, vilket visas i följande exempelutdata:
 
 ```output
-Namespace                    RegistrationState
----------------------------  -------------------
-Microsoft.ContainerInstance  Registered
+Namespace                    RegistrationState    RegistrationPolicy
+---------------------------  -------------------  --------------------
+Microsoft.ContainerInstance  Registered           RegistrationRequired
 ```
 
 Om leverantören visar som *NotRegistered*registrerar du leverantören med hjälp av [det az-leverantörsregistret][az-provider-register] som visas i följande exempel:
@@ -155,7 +155,7 @@ Du distribuerar ett AKS-kluster till AKS-undernätet som skapats i ett tidigare 
 az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
 ```
 
-Använd kommandot [az aks create][az-aks-create] för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* och en enda nod. Ersätt `<subnetId>` med det ID som erhölls `<appId>` `<password>` i föregående steg och sedan och med 
+Använd kommandot [az aks create][az-aks-create] för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* och en enda nod. Ersätt `<subnetId>` med det ID som erhölls `<appId>` `<password>` i föregående steg och sedan och med de värden som samlats in i föregående avsnitt.
 
 ```azurecli-interactive
 az aks create \
@@ -302,7 +302,7 @@ Om du inte längre vill använda virtuella noder kan du inaktivera dem med komma
 
 Om det behövs [https://shell.azure.com](https://shell.azure.com) går du till för att öppna Azure Cloud Shell i din webbläsare.
 
-Ta först bort helloworld pod som körs på den virtuella noden:
+Ta först `aci-helloworld` bort podden som körs på den virtuella noden:
 
 ```console
 kubectl delete -f virtual-node.yaml

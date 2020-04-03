@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/26/2020
+ms.date: 4/2/2020
 ms.author: raiye
-ms.openlocfilehash: f265faef4e6520f5c74fce9a13b3d81118707025
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95c27cd906717d52a232b5ed85eba2b93bc6569d
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371129"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618281"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure Guest OS-versioner och SDK-kompatibilitetsmatris
 Ger dig aktuell information om de senaste Azure Guest OS-versionerna för Molntjänster. Den här informationen hjälper dig att planera uppgraderingsvägen innan ett gästoperativsystem inaktiveras. Om du konfigurerar dina roller för att använda *automatiska* gästoperativsystemuppdateringar enligt beskrivningen i [Azure Guest OS Update Settings][Azure Guest OS Update Settings]är det inte viktigt att du läser den här sidan.
@@ -41,6 +41,9 @@ Ger dig aktuell information om de senaste Azure Guest OS-versionerna för Molntj
 Osäker på hur du uppdaterar ditt gäst-OS? Kolla in [det här.][cloud updates]
 
 ## <a name="news-updates"></a>Nyhetsuppdateringar
+
+###### <a name="april-2-2020"></a>**Den 2 april 2020**
+March Guest OS har släppts. 
 
 ###### <a name="march-5-2020"></a>**Den 5 mars 2020**
 Februari Guest OS har släppt. 
@@ -122,8 +125,9 @@ September Guest OS har släppt.
 
 | Konfigurationssträng | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
+|  WA-GÄST-OS-6.17_202003-01  |  Den 2 april 2020  |  Inlägg 6,19  |  
 |  WA-GÄST-OS-6.16_202002-01  |  Den 5 mars 2020  |  Inlägg 6,18  |  
-|  WA-GÄST-OS-6.15_202001-01  |  den 24 januari 2020  |  Inlägg 6,17  |  
+|~~WA-GÄST-OS-6.15_202001-01~~|  den 24 januari 2020  |  Den 2 april 2020  |  
 |~~WA-GÄST-OS-6.14_201912-01~~| den 8 januari 2020 | Den 5 mars 2020 |  
 |~~WA-GÄST-OS-6.13_201911-01~~| den 5 december 2019 | den 24 januari 2020 |  
 |~~WA-GÄST-OS-6.12_201910-01~~| Den 1 november 2019 | den 8 januari 2020 |  
@@ -151,8 +155,9 @@ September Guest OS har släppt.
 
 | Konfigurationssträng | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
+|  WA-GÄST-OS-5.41_202003-01  |  Den 2 april 2020  |  Inlägg 5,43  |  
 |  WA-GÄST-OS-5.40_202002-01  |  Den 5 mars 2020  |  Inlägg 5,42  |  
-|  WA-GÄST-OS-5.39_202001-01  |  den 24 januari 2020  |  Inlägg 5,41  |  
+|~~WA-GÄST-OS-5.39_202001-01~~|  den 24 januari 2020  |  Den 2 april 2020  |  
 |~~WA-GÄST-OS-5.38_201912-01~~| den 8 januari 2020 | Den 5 mars 2020 |  
 |~~WA-GÄST-OS-5.37_201911-01~~| den 5 december 2019 | den 24 januari 2020 |  
 |~~WA-GÄST-OS-5.36_201910-01~~| Den 1 november 2019 | den 8 januari 2020 |  
@@ -177,8 +182,9 @@ September Guest OS har släppt.
 
 | Konfigurationssträng | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
+|  WA-GÄST-OS-4.76_202003-01  |  Den 2 april 2020  |  Inlägg 4,78  |  
 |  WA-GÄST-OS-4.75_202002-01  |  Den 5 mars 2020  |  Inlägg 4,77  |  
-|  WA-GÄST-OS-4.74_202001-01  |  den 24 januari 2020  |  Inlägg 4,76  |  
+|~~WA-GÄST-OS-4.74_202001-01~~|  den 24 januari 2020  |  Den 2 april 2020  |  
 |~~WA-GÄST-OS-4.73_201912-01~~| den 8 januari 2020 | Den 5 mars 2020 |  
 |~~WA-GÄST-OS-4.72_201911-01~~| den 5 december 2019 | den 24 januari 2020 |  
 |~~WA-GÄST-OS-4.71_201910-01~~| Den 1 november 2019 | den 8 januari 2020 |  
@@ -203,8 +209,9 @@ September Guest OS har släppt.
 
 | Konfigurationssträng | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
+|  WA-GÄST-OS-3.83_202003-01  |  Den 2 april 2020  |  Inlägg 3,85  |  
 |  WA-GÄST-OS-3.82_202002-01  |  Den 5 mars 2020  |  Inlägg 3,84  |  
-|  WA-GÄST-OS-3.81_202001-01  |  den 24 januari 2020  |  Inlägg 3,83  |  
+|~~WA-GÄST-OS-3.81_202001-01~~|  den 24 januari 2020  |  Den 2 april 2020  |  
 |~~WA-GÄST-OS-3.80_201912-01~~| den 8 januari 2020 | Den 5 mars 2020 |  
 |~~WA-GÄST-OS-3.79_201911-01~~| den 5 december 2019 | den 24 januari 2020 |  
 |~~WA-GÄST-OS-3.78_201910-01~~| Den 1 november 2019 | den 8 januari 2020 |  
@@ -229,8 +236,9 @@ September Guest OS har släppt.
 
 | Konfigurationssträng | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
+|  WA-GÄST-OS-2.96_202003-01  |  Den 2 april 2020  |  Inlägg 2,98  |  
 |  WA-GÄST-OS-2.95_202002-01  |  Den 5 mars 2020  |  Inlägg 2,97  |  
-|  WA-GÄST-OS-2.94_202001-01  |  den 24 januari 2020  |  Inlägg 2,96  |  
+|~~WA-GÄST-OS-2.94_202001-01~~|  den 24 januari 2020  |  Den 2 april 2020  |  
 |~~WA-GÄST-OS-2.93_201912-01~~| den 8 januari 2020 | Den 5 mars 2020 |  
 |~~WA-GÄST-OS-2.92_201911-01~~| den 5 december 2019 | den 24 januari 2020 |  
 |~~WA-GÄST-OS-2.91_201910-01~~| Den 1 november 2019 | den 8 januari 2020 |  

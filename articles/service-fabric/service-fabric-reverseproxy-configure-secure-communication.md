@@ -5,12 +5,12 @@ author: kavyako
 ms.topic: conceptual
 ms.date: 08/10/2017
 ms.author: kavyako
-ms.openlocfilehash: 4cfeaf34a39231ffa91ea970a61f66632bae40c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61a8d1e766ea576f7d2984add239b0da7e2e8183
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79282255"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617112"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Ansluta till en säker tjänst med omvänd proxy
 
@@ -77,7 +77,7 @@ Ange **ApplicationCertificateValidationPolicy** med värdet **Ingen** i avsnitte
 
    Om du vill ange listan över tjänstens gemensamma namn och utfärdartumavtryck lägger du till avsnittet [**ApplicationGateway/Http/ServiceCommonNameAndIssuer**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttpservicecommonnameandissuer) under **fabricSettings**, som visas nedan. Flera certifikat vanliga namn och utfärdare tumavtryck par kan läggas till i **parametrarna** array. 
 
-   Om den omvända slutpunktsproxyn ansluter till presenterar ett certifikat som är vanligt namn och utfärdartumavtryck matchar något av de värden som anges här, upprättas SSL-kanal. 
+   Om den omvända slutpunktsproxyn ansluter till visar ett certifikat som är vanligt namn och utfärdartumavtryck matchar något av de värden som anges här, upprättas en TLS-kanal.
    Efter att certifikatet inte har matchats misslyckas klientens begäran med statuskoden 502 (Bad Gateway). HTTP-statusraden innehåller också frasen "Ogiltigt SSL-certifikat". 
 
    ```json
@@ -143,7 +143,7 @@ Ange **ApplicationCertificateValidationPolicy** med värdet **Ingen** i avsnitte
    }
    ```
 
-   Om servercertifikatets tumavtryck visas i den här konfigurationsposten lyckas omvänd proxy SSL-anslutningen. Annars avslutas anslutningen och klientens begäran misslyckas med en 502 (Felaktig gateway). HTTP-statusraden innehåller också frasen "Ogiltigt SSL-certifikat".
+   Om servercertifikatets tumavtryck visas i den här konfigurationsposten lyckas omvänd proxy TLS-anslutningen. Annars avslutas anslutningen och klientens begäran misslyckas med en 502 (Felaktig gateway). HTTP-statusraden innehåller också frasen "Ogiltigt SSL-certifikat".
 
 ## <a name="endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints"></a>Slutpunktsvallogik när tjänster exponerar säkra och osäkra slutpunkter
 Service fabric stöder konfiguration av flera slutpunkter för en tjänst. Mer information finns [i Ange resurser i ett tjänstmanifest](service-fabric-service-manifest-resources.md).
@@ -173,12 +173,12 @@ Omvänd proxy väljer en av slutpunkterna för att vidarebefordra begäran baser
 > Om en klient har angett ett ListenerName som motsvarar en HTTP-slutpunkt(oskyddad) när den körs i **SecureOnlyMode**, om en klient har angett ett **ListenerName** som motsvarar en HTTP-slutpunkt(oskyddad) , misslyckas omvänd proxy begäran med en HTTP-statuskod på 404 (hittades inte).
 
 ## <a name="setting-up-client-certificate-authentication-through-the-reverse-proxy"></a>Ställa in klientcertifikatautentisering via omvänd proxy
-SSL-avslutning sker vid omvänd proxy och alla klientcertifikatdata går förlorade. Om tjänsterna ska utföra klientcertifikatautentisering anger du inställningen **ForwardClientCertificate** i avsnittet [**ApplicationGateway/Http.**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)
+TLS-avslutning sker vid omvänd proxy och alla klientcertifikatdata går förlorade. Om tjänsterna ska utföra klientcertifikatautentisering anger du inställningen **ForwardClientCertificate** i avsnittet [**ApplicationGateway/Http.**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp)
 
-1. När **ForwardClientCertificate** är inställt på **false**kommer omvänd proxy inte att begära klientcertifikatet under SSL-handskakningen med klienten.
+1. När **ForwardClientCertificate** är inställt på **false**kommer omvänd proxy inte att begära klientcertifikatet under tls-handskakningen med klienten.
 Det här är standardbeteendet.
 
-2. När **ForwardClientCertificate** är inställt på **true**begär omvänd proxy klientens certifikat under SSL-handskakningen med klienten.
+2. När **ForwardClientCertificate** är inställt på **true**begär omvänd proxy klientens certifikat under tls-handskakningen med klienten.
 Klientcertifikatdata vidarebefordras sedan i ett anpassat HTTP-huvud med namnet **X-Client-Certificate**. Huvudvärdet är den base64-kodade PEM-formatsträngen för klientens certifikat. Tjänsten kan lyckas/misslyckas med begäran med lämplig statuskod efter att ha inspekterat certifikatdata.
 Om klienten inte visar något certifikat vidarebefordrar omvänd proxy ett tomt huvud och låter tjänsten hantera ärendet.
 

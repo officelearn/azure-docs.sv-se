@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: cef3176c99cd57ae229b602feb3c825081fcfe3e
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 906c7728365cc902549bd46c57972e1c90af979c
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548373"
+ms.locfileid: "80607481"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer när de inte används i Azure Automation
 
@@ -114,7 +114,7 @@ Alla överordnade runbooks inkluderar _parametern WhatIf._ När den är inställ
 |AutoStop_Disable | ingen | Inaktiverar AutoStop-aviseringar och standardschema.|
 |AutoStop_VM_Child | WebHookData (Olikartade) | Anropad från den överordnade runbooken. Varningsregler anropar den här runbooken för att stoppa den klassiska virtuella datorn.|
 |AutoStop_VM_Child_ARM | WebHookData (Olikartade) |Anropad från den överordnade runbooken. Varningsregler anropar den här runbooken för att stoppa den virtuella datorn.  |
-|ScheduledStartStop_Base_Classic | CloudServiceName<br> Åtgärd: Start eller stopp<br> VMList  | Den här runbooken används för att utföra åtgärdsstart eller stopp i den klassiska VM-gruppen av Molntjänster.<br> VMList: Kommaavgränsad lista över virtuella datorer. Till exempel _vm1, vm2, vm3_. |
+|ScheduledStartStop_Base_Classic | CloudServiceName<br> Åtgärd: Start eller stopp<br> VMList  | Den här runbooken används för att utföra åtgärdsstart eller stopp i klass-VM-grupp av Molntjänster.<br> VMList: Kommaavgränsad lista över virtuella datorer. Till exempel _vm1, vm2, vm3_. |
 |ScheduledStartStop_Child | VMName <br> Åtgärd: Start eller stopp <br> ResourceGroupName | Anropad från den överordnade runbooken. Utför en start- eller stoppåtgärd för det schemalagda stoppet.|
 |ScheduledStartStop_Child_Classic | VMName<br> Åtgärd: Start eller stopp<br> ResourceGroupName | Anropad från den överordnade runbooken. Utför en start- eller stoppåtgärd för det schemalagda stoppet för klassiska virtuella datorer. |
 |ScheduledStartStop_Parent | Åtgärd: Start eller stopp <br>VMList <br> WhatIf: Sant eller falskt | Den här inställningen påverkar alla virtuella datorer i prenumerationen. Redigera **External_Start_ResourceGroupNames** och **External_Stop_ResourceGroupNames** om du bara vill köra på dessa riktade resursgrupper. Du kan också utesluta specifika virtuella datorer genom att uppdatera **External_ExcludeVMNames** variabeln.<br> VMList: Kommaavgränsad lista över virtuella datorer. Till exempel _vm1, vm2, vm3_.<br> _WhatIf_ validerar runbook-logiken utan att köra.|
@@ -140,8 +140,8 @@ I följande tabell visas de variabler som skapats i ditt Automation-konto. Ändr
 |External_Stop_ResourceGroupNames | Anger en eller flera resursgrupper som avgränsar värden med hjälp av ett kommatecken som är avsett för stoppåtgärder.|
 |External_WaitTimeForVMRetrySeconds |Väntetiden i sekunder för de åtgärder som ska utföras på de virtuella datorerna för den sekvenserade start-/stopp-runbooken.<br> Standardvärdet är 2100 sekunder och stöder konfigurering till ett maximalt värde på 10800 eller tre timmar.|
 |Internal_AutomationAccountName | Anger namnet på Automation-kontot.|
-|Internal_AutoSnooze_ARM_WebhookURI | Anger Webhook URI som anropas för AutoStop-scenariot för klassiska virtuella datorer.|
-|Internal_AutoSnooze_WebhookUri | Anger Webhook URI som anropas för Scenariot För Automatisk topp.|
+|Internal_AutoSnooze_ARM_WebhookURI | Anger Webhook URI anropas för AutoStop-scenariot för virtuella datorer.|
+|Internal_AutoSnooze_WebhookUri | Anger Webhook URI anropas för AutoStop-scenariot för klassiska virtuella datorer.|
 |Internal_AzureSubscriptionId | Anger Azure-prenumerations-ID.|
 |Internal_ResourceGroupName | Anger resursgruppsnamnet för automationskontot.|
 

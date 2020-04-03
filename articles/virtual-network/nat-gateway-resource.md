@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: allensu
-ms.openlocfilehash: 8234bb82ba1f4ff9bd7aea9887121d9c703ac4a3
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 405d9bc09462f2940567080ec86775baf066d70d
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80473284"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584571"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Designa virtuella nätverk med NAT-gatewayresurser
 
@@ -67,19 +67,18 @@ Följande exempel är ett utdrag från en Azure Resource Manager-mall.  Den här
 - **natgatewayname** - Namnet på NAT-gatewayen.
 - **plats** - Azure-region där resursen finns.
 - **publicipname** - Namn på den utgående offentliga IP som är associerad med NAT-gatewayen.
-- **publicipprefixname** - Namn på det utgående offentliga IP-prefixet som är associerat med NAT-gatewayen.
 - **vnetname** - Namn på det virtuella nätverket.
 - **undernät** - Namnet på det undernät som är associerat med NAT-gatewayen.
 
 Det totala antalet IP-adresser som tillhandahålls av alla IP-adress- och prefixresurser får inte överstiga totalt 16 IP-adresser. Valfritt antal IP-adresser mellan 1 och 16 är tillåtet.
 
-:::code language="json" source="~/quickstart-templates/101-nat-gateway-1-vm/azuredeploy.json" range="256-281":::
+:::code language="json" source="~/quickstart-templates/101-nat-gateway-vnet/azuredeploy.json" range="81-96":::
 
 När NAT-gatewayresursen har skapats kan den användas i ett eller flera undernät i ett virtuellt nätverk. Ange vilka undernät som ska använda den här NAT-gatewayresursen. En NAT-gateway kan inte sträcka sig över mer än ett virtuellt nätverk. Det krävs inte att samma NAT-gateway tilldelas alla undernät i ett virtuellt nätverk. Enskilda undernät kan konfigureras med olika NAT-gatewayresurser.
 
 Scenarier som inte använder tillgänglighetszoner är regionala (ingen zon har angetts). Om du använder tillgänglighetszoner kan du ange en zon för att isolera NAT till en viss zon. Zonredundans stöds inte. Granska [NAT-tillgänglighetszoner](#availability-zones).
 
-:::code language="json" source="~/quickstart-templates/101-nat-gateway-1-vm/azuredeploy.json" range="225-255" highlight="239-251":::
+:::code language="json" source="~/quickstart-templates/101-nat-gateway-vnet/azuredeploy.json" range="1-146" highlight="81-96":::
 
 NAT-gateways definieras med en egenskap i ett undernät i ett virtuellt nätverk. Flöden som skapas av virtuella datorer i **undernätsundernät i** virtuellt nätverk **vnetname** använder NAT-gatewayen. Alla utgående anslutningar använder IP-adresserna som är associerade med **natgatewayname** som källa-IP-adress.
 

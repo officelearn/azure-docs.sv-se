@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mjbrown
-ms.openlocfilehash: 30991f17970eefe1a140cdd70e1f6b305160349c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 345fc329df1c57cab7dd66c609bf3701fa3a6124
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79537337"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619131"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Säkerhet i Azure Cosmos DB – översikt
 
@@ -48,7 +48,7 @@ Vi rekommenderar följande checklista över krav som du kan jämföra databassys
 Och även om det kan tyckas uppenbart, påminner den senaste tidens [storskaliga databasöverträdelser](https://thehackernews.com/2017/01/mongodb-database-security.html) oss om den enkla men avgörande betydelsen av följande krav:
 
 - Lappade servrar som hålls uppdaterade
-- HTTPS som standard/SSL-kryptering
+- HTTPS som standard/TLS-kryptering
 - Administrativa konton med starka lösenord
 
 ## <a name="how-does-azure-cosmos-db-secure-my-database"></a>Hur skyddar Azure Cosmos DB min databas
@@ -76,7 +76,7 @@ Låt oss gräva i var och en i detalj.
 |HTTPS/SSL/TLS-kryptering|Alla anslutningar till Azure Cosmos DB stöder HTTPS. Azure Cosmos DB stöder också TLS 1.2.<br>Det är möjligt att framtvinga en minsta TLS-version server-sida. För att göra [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com)det, vänligen kontakta .|
 |Vilande kryptering|Alla data som lagras i Azure Cosmos DB krypteras i vila. Läs mer i [Azure Cosmos DB-kryptering](./database-encryption-at-rest.md) i vila|
 |Lappade servrar|Som en hanterad databas eliminerar Azure Cosmos DB behovet av att hantera och korrigera servrar, som görs för dig automatiskt.|
-|Administrativa konton med starka lösenord|Det är svårt att tro att vi ens behöver nämna detta krav, men till skillnad från vissa av våra konkurrenter är det omöjligt att ha ett administrativt konto utan lösenord i Azure Cosmos DB.<br><br> Säkerhet via SSL och HMAC hemlig baserad autentisering bakas in som standard.|
+|Administrativa konton med starka lösenord|Det är svårt att tro att vi ens behöver nämna detta krav, men till skillnad från vissa av våra konkurrenter är det omöjligt att ha ett administrativt konto utan lösenord i Azure Cosmos DB.<br><br> Säkerhet via TLS och HMAC hemlig baserad autentisering bakas in som standard.|
 |Säkerhets- och dataskyddscertifieringar| Den senaste [Azure Compliance-webbplatsen](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) finns för den senaste Azure [Compliance-dokumentet](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) med alla certifieringar (sök efter Cosmos). För en mer fokuserad läs kolla in inlägget den 25 april 2018 [Azure #CosmosDB: Secure, private, compliant that includes SOCS 1/2 Type 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPAA, FedRAMP High och många andra.
 
 Följande skärmbild visar hur du kan använda granskningsloggning ![och aktivitetsloggar för att övervaka ditt konto: Aktivitetsloggar för Azure Cosmos DB](./media/database-security/nosql-database-security-application-logging.png)

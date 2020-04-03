@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 7e3e9e6c76d67db03ea812a4832e98f4449c9aba
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: de4a9324cd1cfaccec6dcca6a8dfc057d37275c0
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77061683"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619242"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Snabbstart: Migrera en befintlig MongoDB Node.js-webbapp till Azure Cosmos DB 
 
@@ -230,7 +230,7 @@ I objektet `db`, ersätter du värdet `uri` som det visas i följande exempel. S
 ```
 
 > [!NOTE] 
-> Alternativet `ssl=true` är viktigt eftersom [Cosmos DB kräver SSL](connect-mongodb-account.md#connection-string-requirements). 
+> Alternativet `ssl=true` är viktigt på grund av Cosmos DB krav. Mer information finns i [Anslutningssträngkrav](connect-mongodb-account.md#connection-string-requirements).
 >
 >
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2f12cf303c58f0fa614c59ffe643c6c2ee5d2415
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8987cbe6860422ff92119a9f3b13a0a365e6d1a4
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78246192"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618322"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Datalagring och inträngning i förhandsversionen av Azure Time Series Insights
 
@@ -91,7 +91,7 @@ I allmänhet visas ingresshastigheter som faktorn för antalet enheter som finns
 
 *  **Antal anordningar** × **Händelseemissionsfrekvens** × **Storleken på varje händelse**.
 
-Som standard kan förhandsversionen av Time Series Insights inta inkommande data med en hastighet av **upp till 1 megabyte per sekund (MBps) per Time Series Insights-miljö**.
+Som standard kan förhandsversionen av Time Series Insights inta inkommande data med en hastighet av **upp till 1 megabyte per sekund (MBps) per Time Series Insights-miljö**. Det finns ytterligare begränsningar [per hubbpartition](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress#hub-partitions-and-per-partition-limits).
 
 > [!TIP] 
 > * Miljöstöd för intag av hastigheter på upp till 16 MBps kan tillhandahållas på begäran.
@@ -99,7 +99,7 @@ Som standard kan förhandsversionen av Time Series Insights inta inkommande data
  
 * **Exempel 1:**
 
-    Contoso Shipping har 100 000 enheter som avger en händelse tre gånger per minut. Storleken på en händelse är 200 byte. De använder en eventhubb med fyra partitioner som händelsekällan Time Series Insights.
+    Contoso Shipping har 100 000 enheter som avger en händelse tre gånger per minut. Storleken på en händelse är 200 byte. De använder en Iot Hub med fyra partitioner som Time Series Insights händelsekälla.
 
     * Intagshastigheten för deras Time Series Insights-miljö skulle vara: **100 000 enheter * 200 byte/händelse * (3/60 event/sek) = 1 MBps**.
     * Inmatningshastigheten per partition skulle vara 0,25 MBps.
@@ -107,11 +107,11 @@ Som standard kan förhandsversionen av Time Series Insights inta inkommande data
 
 * **Exempel 2:**
 
-    Contoso Fleet Analytics har 60 000 enheter som avger en händelse varje sekund. De använder en IoT Hub 24 partitionsantal på 4 som händelsekällan Time Series Insights. Storleken på en händelse är 200 byte.
+    Contoso Fleet Analytics har 60 000 enheter som avger en händelse varje sekund. De använder en händelsehubb med ett partitionsantal på 4 som händelsekällan Time Series Insights. Storleken på en händelse är 200 byte.
 
-    * Miljöintagsfrekvensen skulle vara: **20 000 enheter * 200 byte/händelse * 1 händelse/sek = 4 MBps**.
-    * Per partition hastighet skulle vara 1 MBps.
-    * Contoso Fleet Analytics kan skicka en begäran till Time Series Insights via Azure-portalen för att öka inmatningshastigheten för sin miljö.
+    * Miljöintagsfrekvensen skulle vara: **60 000 enheter * 200 byte/händelse * 1 händelse/sek = 12 MBps**.
+    * Per partition hastighet skulle vara 3 MBps.
+    * Contoso Fleet Analytics inmatningshastighet är över miljön och partitionsgränser. De kan skicka en begäran till Time Series Insights via Azure-portalen för att öka inmatningshastigheten för sin miljö och skapa en eventhubb med fler partitioner som ska ligga inom gränserna för förhandsversionen.
 
 #### <a name="hub-partitions-and-per-partition-limits"></a>Hubbpartitioner och per partitionsgränser
 

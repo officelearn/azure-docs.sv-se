@@ -1,6 +1,6 @@
 ---
 title: Använda grupp efter alternativ
-description: Tips för att implementera grupp efter alternativ i Azure SQL Data Warehouse för att utveckla lösningar.
+description: Tips för att implementera grupp efter alternativ i Synapse SQL-pool.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,28 +11,28 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f77445e80e701053b7fbfa1aa559248cf505353c
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 28ac075d043f7605b6dfdac6879063fbe9308123
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350514"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619051"
 ---
-# <a name="group-by-options-in-sql-data-warehouse"></a>Gruppera efter alternativ i SQL Data Warehouse
-Tips för att implementera grupp efter alternativ i Azure SQL Data Warehouse för att utveckla lösningar.
+# <a name="group-by-options-in-synapse-sql-pool"></a>Gruppera efter alternativ i Synapse SQL-pool
+
+I den här artikeln hittar du tips om hur du implementerar grupp efter alternativ i SQL-poolen.
 
 ## <a name="what-does-group-by-do"></a>Vad gör GROUP BY?
 
-[Satsgrupp av](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL-satsen sammanställer data till en sammanfattningsuppsättning rader. GROUP BY har några alternativ som SQL Data Warehouse inte stöder. De här alternativen har lösningar.
-
-Dessa alternativ är
+[Satsgrupp av](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL-satsen sammanställer data till en sammanfattningsuppsättning rader. GROUP BY har några alternativ som SQL-poolen inte stöder. De här alternativen har lösningar, som är följande:
 
 * GRUPPERA EFTER MED SAMMANSLAGNING
 * GRUPPERA UPPSÄTTNINGAR
 * GRUPPERA EFTER MED KUB
 
 ## <a name="rollup-and-grouping-sets-options"></a>Alternativ för sammanslagning och gruppering anger
-Det enklaste alternativet här är att använda UNION ALL istället för att utföra sammanslagningen i stället för att förlita sig på den explicita syntaxen. Resultatet är exakt samma
+
+Det enklaste alternativet här är att använda UNION ALL för att utföra sammanslagningen i stället för att förlita sig på den explicita syntaxen. Resultatet är exakt detsamma.
 
 I följande exempel med sats av GRUPP FÖR med alternativet SAMLAD:
 ```sql
@@ -84,11 +84,11 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 Om du vill ersätta GRUPPERINGSUPPSÄTTNINGAR gäller exempelprincipen. Du behöver bara skapa UNION ALLA avsnitt för de aggregeringsnivåer som du vill se.
 
 ## <a name="cube-options"></a>Alternativ för kub
-Det är möjligt att skapa en GRUPP MED KUB med hjälp av union all-metoden. Problemet är att koden snabbt kan bli besvärlig och svårhanterlig. För att minska detta kan du använda den här mer avancerade metoden.
+Det är möjligt att skapa en GRUPP MED KUB med hjälp av union alla-metoden. Problemet är att koden snabbt kan bli besvärlig och svårhanterlig. För att minska problemet kan du använda den här mer avancerade metoden.
 
-Låt oss använda exemplet ovan.
+Med hjälp av föregående exempel är det första steget att definiera "kuben" som definierar alla aggregeringsnivåer som vi vill skapa. 
 
-Det första steget är att definiera "kuben" som definierar alla nivåer av aggregering som vi vill skapa. Det är viktigt att notera CROSS JOIN av de två härledda tabellerna. Detta genererar alla nivåer för oss. Resten av koden är verkligen där för formatering.
+Notera CROSS JOIN av de två härledda tabeller eftersom detta genererar alla nivåer för oss. Resten av koden är där för formatering:
 
 ```sql
 CREATE TABLE #Cube
@@ -119,7 +119,7 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-Följande visar resultaten av CTAS:
+Följande bild visar resultaten av CTAS:
 
 ![Gruppera efter kub](./media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png)
 
@@ -146,7 +146,7 @@ WITH
 ;
 ```
 
-Det tredje steget är att loopa över vår kub av kolumner som utför aggregering. Frågan körs en gång för varje rad i #Cube temporära tabellen och lagrar resultaten i #Results temporärtabellen
+Det tredje steget är att loopa över vår kub av kolumner som utför aggregering. Frågan körs en gång för varje rad i den #Cube temporära tabellen. Resultaten lagras i tabellen #Results temp:
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -170,7 +170,7 @@ BEGIN
 END
 ```
 
-Slutligen kan du returnera resultaten genom att helt enkelt läsa från #Results temporära tabellen
+Slutligen kan du returnera resultaten genom att läsa från den #Results temporära tabellen:
 
 ```sql
 SELECT *

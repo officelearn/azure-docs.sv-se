@@ -9,12 +9,12 @@ ms.author: mhopkins
 ms.date: 01/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: da5db7d956b1ba8aa1ac245b77fe0d4cb31909c1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5219af0ec343a6e7f87a07e4a7280ac5f4e85cd3
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061451"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619117"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -27,7 +27,7 @@ I den här snabbstarten lär du dig att hantera blobbar med hjälp av JavaScript
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Ett Azure Storage-konto. [Skapa ett lagringskonto](../common/storage-account-create.md).
 - En lokal webbserver. I den här artikeln används [Node.js](https://nodejs.org) för att öppna en enkel server.
-- [Visual Studio Code](https://code.visualstudio.com).
+- [Visual Studio-kod](https://code.visualstudio.com).
 - Ett VS-kodtillägg för felsökning av webbläsare, till exempel [Felsökning för Chrome](vscode:extension/msjsdiag.debugger-for-chrome) eller Felsökning för Microsoft [Edge](vscode:extension/msjsdiag.debugger-for-edge).
 
 ## <a name="setting-up-storage-account-cors-rules"></a>Ställa in CORS-regler för lagringskonto
@@ -90,7 +90,7 @@ Du kan kanske uppleva serien med värden efter varje parameter som lite kryptisk
 Nu när SAS genereras kopierar du returvärdet och sparar det någonstans för användning i ett kommande steg. Om du har genererat din SAS med en annan metod `?` än Azure CLI måste du ta bort den första om den finns. Det här tecknet är en URL-avgränsare som redan finns i URL-mallen senare i det här avsnittet där SAS används.
 
 > [!IMPORTANT]
-> Under produktionen ska du alltid skicka SAS-token med SSL. SAS-token bör dessutom genereras på servern och skickas till HTML-sidan för att återgå till Azure Blob Storage. En metod du kan överväga är att använda en serverlös funktion när du genererar SAS-tokens. I Azure-portalen finns funktionsmallar som ger möjligheten att generera en SAS med en JavaScript-funktion.
+> I produktion, alltid passera SAS tokens med TLS. SAS-token bör dessutom genereras på servern och skickas till HTML-sidan för att återgå till Azure Blob Storage. En metod du kan överväga är att använda en serverlös funktion när du genererar SAS-tokens. I Azure-portalen finns funktionsmallar som ger möjligheten att generera en SAS med en JavaScript-funktion.
 
 ## <a name="implement-the-html-page"></a>Implementera HTML-sidan
 

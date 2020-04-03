@@ -9,12 +9,12 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: a6c7639cb4988eb13dfaa1c151085cda6e53b5d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4ca76f4be9d00e185f8774fc33296d1af1aeece
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68614503"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585501"
 ---
 # <a name="remediate-non-compliant-dsc-servers"></a>Åtgärda icke-kompatibla DSC-servrar
 
@@ -40,7 +40,7 @@ Update-DscConfiguration -Wait -Verbose
 Liknande funktioner är för närvarande inte tillgängliga för Linux-servrar.
 Det enda alternativet är att upprepa registreringsprocessen.
 För Azure-noder kan driftkorrigering göras från portalen eller använda Az Automation-cmdlets.
-Information om den här processen dokumenteras på sidan [Onboarding-datorer för hantering av Azure Automation State Configuration](/azure/automation/automation-dsc-onboarding#azure-portal).
+Information om den här processen dokumenteras på sidan [Onboarding-datorer för hantering av Azure Automation State Configuration](/azure/automation/automation-dsc-onboarding#onboard-a-vm-using-azure-portal).
 För hybridnoder kan driftkorrigering göras med de medföljande Python-skripten.
 Se dokumentationen i [PowerShell DSC för Linux repo](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer).
 

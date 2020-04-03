@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 4819eaf2a65cf542029cf36f262d0cea5be75f2e
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: e94eef3072b9636c8022a5949b05519c1554cb9e
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521948"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585796"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta en Azure SSIS-integreringskörning till ett virtuellt nätverk
 
@@ -229,11 +229,12 @@ För att brandväggsinstallationen ska tillåta utgående trafik måste du till�
 -   Port 443 med destination som Azure Cloud-tjänster.
 
     Om du använder Azure-brandväggen kan du ange nätverksregel med AzureCloud Service Tag. För brandvägg av de andra typerna kan du antingen helt enkelt tillåta mål som alla för port 443 eller tillåta under FQDN baserat på vilken typ av Din Azure-miljö:
+
     | Azure-miljö | Slutpunkter                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure, offentlig      | <ul><li><b>Azure Data Factory (hantering)</b></li><li style="list-style-type:none"><ul><li>\*.frontend.clouddatahub.net</li></ul></li><li><b>Azure-lagring (hantering)</b></li><li style="list-style-type:none"><ul><li>\*.blob.core.windows.net</li><li>\*.table.core.windows.net</li></ul></li><li><b>Azure-behållarregister (anpassad installation)</b></li><li style="list-style-type:none"><ul><li>\*.azurecr.io</li></ul></li><li><b>Händelsehubb (loggning)</b></li><li style="list-style-type:none"><ul><li>\*.servicebus.windows.net</li></ul></li><li><b>Microsoft Loggningstjänst (intern användning)</b></li><li style="list-style-type:none"><ul><li>gcs.prod.monitoring.core.windows.net</li><li>prod.warmpath.msftcloudes.com</li><li>azurewatsonanalysis-prod.core.windows.net</li></ul></li></ul> |
-    | Azure Government  | <ul><li><b>Azure Data Factory (hantering)</b></li><li style="list-style-type:none"><ul><li>\*.frontend.datamovement.azure.us</li></ul></li><li><b>Azure-lagring (hantering)</b></li><li style="list-style-type:none"><ul><li>\*.blob.core.usgovcloudapi.net</li><li>\*.table.core.usgovcloudapi.net</li></ul></li><li><b>Azure-behållarregister (anpassad installation)</b></li><li style="list-style-type:none"><ul><li>\*.azurecr.us</li></ul></li><li><b>Händelsehubb (loggning)</b></li><li style="list-style-type:none"><ul><li>\*.servicebus.usgovcloudapi.net</li></ul></li><li><b>Microsoft Loggningstjänst (intern användning)</b></li><li style="list-style-type:none"><ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>azurewatsonanalysis.usgovcloudapp.net</li></ul></li></ul> |
-    | Azure Kina 21Vianet     | <ul><li><b>Azure Data Factory (hantering)</b></li><li style="list-style-type:none"><ul><li>\*.frontend.datamovement.azure.cn</li></ul></li><li><b>Azure-lagring (hantering)</b></li><li style="list-style-type:none"><ul><li>\*.blob.core.chinacloudapi.cn</li><li>\*.table.core.chinacloudapi.cn</li></ul></li><li><b>Azure-behållarregister (anpassad installation)</b></li><li style="list-style-type:none"><ul><li>\*.azurecr.cn</li></ul></li><li><b>Händelsehubb (loggning)</b></li><li style="list-style-type:none"><ul><li>\*.servicebus.chinacloudapi.cn</li></ul></li><li><b>Microsoft Loggningstjänst (intern användning)</b></li><li style="list-style-type:none"><ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>azurewatsonanalysis.chinacloudapp.cn</li></ul></li></ul>
+    | Azure, offentlig      | <ul><li><b>Azure Data Factory (hantering)</b><ul><li>\*.frontend.clouddatahub.net</li></ul></li><li><b>Azure-lagring (hantering)</b><ul><li>\*.blob.core.windows.net</li><li>\*.table.core.windows.net</li></ul></li><li><b>Azure-behållarregister (anpassad installation)</b><ul><li>\*.azurecr.io</li></ul></li><li><b>Händelsehubb (loggning)</b><ul><li>\*.servicebus.windows.net</li></ul></li><li><b>Microsoft Loggningstjänst (intern användning)</b><ul><li>gcs.prod.monitoring.core.windows.net</li><li>prod.warmpath.msftcloudes.com</li><li>azurewatsonanalysis-prod.core.windows.net</li></ul></li></ul> |
+    | Azure Government  | <ul><li><b>Azure Data Factory (hantering)</b><ul><li>\*.frontend.datamovement.azure.us</li></ul></li><li><b>Azure-lagring (hantering)</b><ul><li>\*.blob.core.usgovcloudapi.net</li><li>\*.table.core.usgovcloudapi.net</li></ul></li><li><b>Azure-behållarregister (anpassad installation)</b><ul><li>\*.azurecr.us</li></ul></li><li><b>Händelsehubb (loggning)</b><ul><li>\*.servicebus.usgovcloudapi.net</li></ul></li><li><b>Microsoft Loggningstjänst (intern användning)</b><ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>azurewatsonanalysis.usgovcloudapp.net</li></ul></li></ul> |
+    | Azure Kina 21Vianet     | <ul><li><b>Azure Data Factory (hantering)</b><ul><li>\*.frontend.datamovement.azure.cn</li></ul></li><li><b>Azure-lagring (hantering)</b><ul><li>\*.blob.core.chinacloudapi.cn</li><li>\*.table.core.chinacloudapi.cn</li></ul></li><li><b>Azure-behållarregister (anpassad installation)</b><ul><li>\*.azurecr.cn</li></ul></li><li><b>Händelsehubb (loggning)</b><ul><li>\*.servicebus.chinacloudapi.cn</li></ul></li><li><b>Microsoft Loggningstjänst (intern användning)</b><ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>azurewatsonanalysis.chinacloudapp.cn</li></ul></li></ul> |
 
     När det gäller FQDN:erna för Azure Storage, Azure Container Registry and Event Hub kan du också välja att aktivera följande tjänstslutpunkter för det virtuella nätverket så att nätverkstrafiken till dessa slutpunkter går via Azure-stamnätnätverket i stället för att dirigeras till brandväggsinstallationen:
     -  Microsoft.Storage

@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 85fa6a989ae1a6214392914ffd46cd12af27a8d2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 4aa0e7da1e77334a8b9048dab4a461133f220bd1
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350479"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582449"
 ---
 # <a name="configure-workload-importance-in-azure-synapse-analytics"></a>Konfigurera arbetsbelastningsbetydelse i Azure Synapse Analytics
 
-Genom att ange betydelse i SQL Analytics för Azure Synapse kan du påverka schemaläggningen av frågor. Frågor med högre prioritet kommer att schemaläggas för att köras före frågor med lägre prioritet. Om du vill tilldela prioritet till frågor måste du skapa en arbetsbelastningsklassificerare.
+Om du anger prioritet i Synapse SQL för Azure Synapse kan du påverka schemaläggningen av frågor. Frågor med högre prioritet kommer att schemaläggas för att köras före frågor med lägre prioritet. Om du vill tilldela prioritet till frågor måste du skapa en arbetsbelastningsklassificerare.
 
 ## <a name="create-a-workload-classifier-with-importance"></a>Skapa en arbetsbelastningsklassificerare med prioritet
 

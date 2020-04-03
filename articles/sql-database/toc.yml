@@ -58,8 +58,6 @@
       href: sql-database-managed-instance-quickstart-guide.md
 - name: Begrepp
   items:
-    - name: Vanliga funktioner – dokumentation
-      href: sql-database-paas-index.yml
     - name: Jämför funktioner
       href: sql-database-features.md
     - name: Instruktionsguide
@@ -280,8 +278,6 @@
                   href: sql-database-xevent-code-ring-buffer.md
     - name: Skalbarhet
       items:
-        - name: Dokumentation om skalbarhet
-          href: sql-database-scalability-index.yml
         - name: Skala upp/ned
           href: sql-database-scale-resources.md
         - name: Lässkalbarhet
@@ -310,8 +306,6 @@
           href: sql-database-elastic-transactions-overview.md
     - name: Databasfunktioner
       items:
-        - name: Dokumentation om databasfunktioner
-          href: sql-database-features-index.yml
         - name: Funktioner för flera modeller
           href: sql-database-multi-model-features.md
         - name: Minnesintern
@@ -685,7 +679,6 @@
         - name: Kodexempel
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: SQL-hanterad instans
-  href: sql-database-managed-instance-index.yml
   items:
     - name: Översikt
       items:

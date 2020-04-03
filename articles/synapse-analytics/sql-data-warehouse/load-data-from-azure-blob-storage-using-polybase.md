@@ -1,6 +1,6 @@
 ---
 title: 'Handledning: Ladda New York Taxicab data'
-description: Självstudien använder Azure Portal och SQL Server Management Studio för att läsa in New York Taxicab-data från en global Azure-blob för SQL Analytics.
+description: Självstudien använder Azure Portal och SQL Server Management Studio för att läsa in New York Taxicab-data från en global Azure-blob för Synapse SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f1614538f6ab735720d090f66fee0e017e96cf72
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e17b5be0f4f3d568bd5ec836659c4444b384b2fa
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346733"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583753"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Handledning: Ladda New York Taxicab dataset
 

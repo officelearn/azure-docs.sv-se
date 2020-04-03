@@ -10,19 +10,19 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: a118d028cc85eb858dd0dc1fa6d5d2268f7db43b
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 3363c4f5828f412bd11ca57e3c5f9013910a8055
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350394"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586452"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Vad är Azure Synapse Analytics (tidigare SQL DW)?
 
 Azure Synapse är en obegränsad analystjänst som sammanför informationslager i företagsklass och stordataanalys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen serverlösa resurser på begäran eller etablerade resurser – i stor skala. Azure Synapse sammanför dessa två världar med en enhetlig upplevelse för att inta, förbereda, hantera och hantera data för omedelbara bi- och maskininlärningsbehov
 
 Azure Synapse har fyra komponenter:
-- SQL Analytics: Komplett T-SQL-baserad analys – allmänt tillgänglig
+- Synapse SQL: Komplett T-SQL-baserad analys – allmänt tillgänglig
     - SQL-pool (betala per DWU-etablerad) 
     - SQL on-demand (betala per TB bearbetad) – (preview)
 - Spark: Djupt integrerad Apache Spark (Preview) 
@@ -32,13 +32,13 @@ Azure Synapse har fyra komponenter:
 > [!NOTE]
 > Om du vill komma åt förhandsversionen av Azure Synapse ber du om åtkomst [här](https://aka.ms/synapsepreview). Microsoft kommer att triage alla förfrågningar och svara så snart som möjligt.
 
-## <a name="sql-analytics-and-sql-pool-in-azure-synapse"></a>SQL Analytics och SQL-pool i Azure Synapse
+## <a name="synapse-sql-pool-in-azure-synapse"></a>Synapse SQL-pool i Azure Synapse
 
-SQL Analytics refererar till de funktioner för lagring av företagsdata som är allmänt tillgängliga i Azure Synapse. 
+Synapse SQL-pool refererar till de funktioner för företagsdatalagring som är allmänt tillgängliga i Azure Synapse. 
 
-SQL-poolen representerar en samling analytiska resurser som etableras när SQL Analytics används. Storleken på SQL-poolen bestäms av Data Lagerenheter (DWU).
+SQL-poolen representerar en samling analytiska resurser som etableras när Du använder Synapse SQL. Storleken på SQL-poolen bestäms av Data Lagerenheter (DWU).
 
-Importera stordata med enkla [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) T-SQL-frågor och använd sedan kraften i MPP för att köra högpresterande analyser. När du integrerar och analyserar blir SQL Analytics den enda version av sanningen som ditt företag kan lita på för snabbare och mer robusta insikter.  
+Importera stordata med enkla [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) T-SQL-frågor och använd sedan kraften i MPP för att köra högpresterande analyser. När du integrerar och analyserar blir Synapse SQL-pool den enda version av sanningen som ditt företag kan lita på för snabbare och mer robusta insikter.  
 
 ## <a name="key-component-of-a-big-data-solution"></a>Nyckelkomponent i en stordatalösning
 
@@ -46,9 +46,9 @@ Datalagring är en viktig komponent i en molnbaserad, heltäckande stordatalösn
 
 ![Lösning för informationslager](./media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png) 
 
-I en molndatalösning inhämtas data till lagringsplatser för stordata från olika källor. Hadoop, Spark och maskininlärningsalgoritmer förbereder och tränar data när de finns på lagringsplatser för stordata. När data är klara för komplex analys används PolyBase av SQL Analytics för att köra frågor mot stordatalagren. PolyBase använder standardmässiga T-SQL-frågor för att hämta data till SQL Analytics-tabeller.
+I en molndatalösning inhämtas data till lagringsplatser för stordata från olika källor. Hadoop, Spark och maskininlärningsalgoritmer förbereder och tränar data när de finns på lagringsplatser för stordata. När data är redo för komplex analys använder Synapse SQL-pool PolyBase för att fråga stordatalager. PolyBase använder vanliga T-SQL-frågor för att föra in data i Synapse SQL-pooltabeller.
  
-SQL Analytics lagrar data i relationstabeller med kolumnbaserad lagring. Det här formatet minskar lagringskostnaderna för data avsevärt och förbättrar frågeprestanda. När data lagras kan du köra analyser på massiv skala. Jämfört med traditionella databassystem slutförs analysfrågor på några sekunder i stället för flera minuter eller på några timmar i stället för flera dagar. 
+Synapse SQL-pool lagrar data i relationstabeller med columnar-lagring. Det här formatet minskar lagringskostnaderna för data avsevärt och förbättrar frågeprestanda. När data lagras kan du köra analyser på massiv skala. Jämfört med traditionella databassystem slutförs analysfrågor på några sekunder i stället för flera minuter eller på några timmar i stället för flera dagar. 
 
 Analysresultaten kan skickas till globala rapporteringsdatabaser eller program. Företagsanalytiker får sedan den information de behöver för att kunna fatta välgrundade affärsbeslut.
 

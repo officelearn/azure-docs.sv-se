@@ -1,6 +1,6 @@
 ---
 title: Använda IDENTITY för att skapa surrogatnycklar
-description: Rekommendationer och exempel för att använda egenskapen IDENTITY för att skapa surrogatnycklar på tabeller i SQL Analytics.
+description: Rekommendationer och exempel för att använda egenskapen IDENTITY för att skapa surrogatnycklar på tabeller i Synapse SQL-pool.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,24 +11,24 @@ ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ab8f4a64f7273f0fa15c20f324e132003d5afe32
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: d4a9880ed7ab26d0127026f49c0bc781cfc2a941
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351298"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586339"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-sql-analytics"></a>Använda IDENTITY för att skapa surrogatnycklar i SQL Analytics
+# <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Använda IDENTITY för att skapa surrogatnycklar i Synapse SQL-pool
 
-Rekommendationer och exempel för att använda egenskapen IDENTITY för att skapa surrogatnycklar på tabeller i SQL Analytics.
+Rekommendationer och exempel för att använda egenskapen IDENTITY för att skapa surrogatnycklar på tabeller i Synapse SQL-pool.
 
 ## <a name="what-is-a-surrogate-key"></a>Vad är en surrogatnyckel
 
-En surrogatnyckel i en tabell är en kolumn med en unik identifierare för varje rad. Nyckeln genereras inte från tabelldata. Datamodellerare gillar att skapa surrogatnycklar på sina tabeller när de utformar SQL Analytics-modeller. Du kan använda egenskapen IDENTITY för att uppnå detta mål enkelt och effektivt utan att påverka belastningsprestanda.  
+En surrogatnyckel i en tabell är en kolumn med en unik identifierare för varje rad. Nyckeln genereras inte från tabelldata. Datamodellerare gillar att skapa surrogatnycklar på sina tabeller när de utformar datalagermodeller. Du kan använda egenskapen IDENTITY för att uppnå detta mål enkelt och effektivt utan att påverka belastningsprestanda.  
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Skapa en tabell med en IDENTITETSKOLUMN
 
-Egenskapen IDENTITY är utformad för att skala ut över alla distributioner i SQL Analytics-databasen utan att påverka belastningsprestanda. Därför är genomförandet av IDENTITY inriktad på att uppnå dessa mål.
+Egenskapen IDENTITY är utformad för att skala ut över alla distributioner i Synapse SQL-poolen utan att påverka belastningsprestanda. Därför är genomförandet av IDENTITY inriktad på att uppnå dessa mål.
 
 Du kan definiera en tabell som att ha egenskapen IDENTITY när du först skapar tabellen med syntax som liknar följande uttryck:
 
@@ -50,7 +50,7 @@ I det här avsnittet beskrivs nyanserna i implementeringen som hjälper dig att 
 
 ### <a name="allocation-of-values"></a>Fördelning av värden
 
-Egenskapen IDENTITY garanterar inte den ordning i vilken surrogatvärdena allokeras, vilket återspeglar beteendet för SQL Server och Azure SQL Database. I SQL Analytics är dock avsaknaden av en garanti mer uttalad.
+Egenskapen IDENTITY garanterar inte den ordning i vilken surrogatvärdena allokeras, vilket återspeglar beteendet för SQL Server och Azure SQL Database. Men i Synapse SQL-pool är frånvaron av en garanti mer uttalad.
 
 Följande exempel är en illustration:
 
@@ -100,7 +100,7 @@ CREATE TABLE AS SELECT (CTAS) följer samma SQL Server-beteende som dokumenteras
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Infoga värden uttryckligen i en IDENTITETskolumn
 
-SQL Analytics `SET IDENTITY_INSERT <your table> ON|OFF` stöder syntax. Du kan använda den här syntaxen för att uttryckligen infoga värden i kolumnen IDENTITET.
+Synapse SQL-pool stöder `SET IDENTITY_INSERT <your table> ON|OFF` syntax. Du kan använda den här syntaxen för att uttryckligen infoga värden i kolumnen IDENTITET.
 
 Många datamodellerare gillar att använda fördefinierade negativa värden för vissa rader i sina dimensioner. Ett exempel är raden -1 eller "okänd medlem".
 
@@ -161,7 +161,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > Det går inte att `CREATE TABLE AS SELECT` använda för närvarande när data läses in i en tabell med en IDENTITETskolumn.
 >
 
-Mer information om hur du läser in data finns i [Designa extrahera, läsa in och transformera (ELT) för metodtips för SQL Analytics](design-elt-data-loading.md) och [inläsning](guidance-for-loading-data.md).
+Mer information om hur du läser in data finns i [Designa extrahera, läsa in och transformera (ELT) för Synapse SQL-pool](design-elt-data-loading.md) och [läs in metodtips](guidance-for-loading-data.md).
 
 ## <a name="system-views"></a>Systemvyer
 
@@ -195,7 +195,7 @@ Egenskapen IDENTITY kan inte användas:
 - När kolumnen också är distributionsnyckeln
 - När tabellen är en extern tabell
 
-Följande relaterade funktioner stöds inte i SQL Analytics:
+Följande relaterade funktioner stöds inte i Synapse SQL-pool:
 
 - [IDENTITET()](/sql/t-sql/functions/identity-function-transact-sql)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql)

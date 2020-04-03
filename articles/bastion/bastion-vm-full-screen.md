@@ -2,17 +2,17 @@
 title: 'Azure Bastion: Visa session för virtuella datorer: helskärm'
 description: I den här artikeln får du lära dig hur du ändrar vyn till helskärm.
 services: bastion
-author: cherylmc
+author: charwen
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: cherylmc
-ms.openlocfilehash: ff19fd056aa81ca8a1f53c387a208d35fb9a3265
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: charwen
+ms.openlocfilehash: 2e72eb9ffc3affa0bf09692ac0780f9310308521
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76989441"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619295"
 ---
 # <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Ändra till helskärmsläge för en vm-session: Azure Bastion
 

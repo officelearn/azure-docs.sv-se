@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 03/13/2020
-ms.openlocfilehash: 6e300bbec097201b33f0c576db91c2ca720fb921
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 4d845514965a8d60c636902660ce838926cbf3c9
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437356"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607618"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Skydda Azure ML-experiment och slutledningsjobb i ett virtuellt Azure-nätverk
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Den här artikeln innehåller också detaljerad information om *avancerade säke
 > Om inte specifikt ansöks fungerar resurser som lagringskonton eller beräkningsmål i ett virtuellt nätverk med både machine learning-pipelines och arbetsflöden som inte är pipeline-pipeline, till exempel skriptkörningar.
 
 > [!WARNING]
-> Microsoft stöder inte användning av Azure Machine Learning designer eller automatiserad maskininlärning (från studion) med resurser i ett virtuellt nätverk.
+> Microsoft stöder inte användning av Azure Machine Learning Studio-funktioner som Automated ML, Datasets, Datalabeling, Designer och Notebooks om det underliggande lagringsutrymmet har aktiverat virtuellt nätverk.
 
 ## <a name="prerequisites"></a>Krav
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: c8ef6a87e839e6d8dfb296e7b24f3d0d95843d1c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 97551ac63066f7064c16a001d9ce1f6bc31465ec
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78675470"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586596"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Snabbstart: Aktivera SSH och RDP via en IoT Hub-enhetsström med hjälp av ett C#-proxyprogram (förhandsversion)
 
@@ -30,7 +30,7 @@ I den här artikeln beskrivs först inställningarna för SSH (med port 22) och 
 
 Följande bild visar hur de enhetslokala och tjänstlokala proxyprogrammen i det här exemplet möjliggör end-to-end-anslutning mellan SSH-klienten och SSH-demonprocesserna. Här antar vi att demonen körs på samma enhet som det enhetslokala proxyprogrammet.
 
-![Konfigurera lokalt proxyprogram](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg)
+![Konfigurera lokalt proxyprogram](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.png)
 
 1. Det servicelokala proxyprogrammet ansluter till IoT-hubben och initierar en enhetsström till målenheten.
 
@@ -45,7 +45,7 @@ Följande bild visar hur de enhetslokala och tjänstlokala proxyprogrammen i det
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 

@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 40e335ee0377c560b15a588269cbdb39cdebca82
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f5aaf8adf33d27f8ebb99c8ca3a873d958632a4f
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477365"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80616835"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Modellhantering, distribution och övervakning med Azure Machine Learning
 
@@ -24,7 +24,7 @@ I den här artikeln får du lära dig mer om hur du använder Azure Machine Lear
 
 ## <a name="what-is-mlops"></a>Vad är MLOps?
 
-Machine Learning Operations (MLOps) baseras på [DevOps](https://azure.microsoft.com/overview/what-is-devops/) principer och metoder som ökar effektiviteten i arbetsflöden. Till exempel kontinuerlig integrering, leverans och distribution. MLOps tillämpar dessa huvudmän på maskininlärningsprocessen, med målet att:
+Machine Learning Operations (MLOps) baseras på [DevOps](https://azure.microsoft.com/overview/what-is-devops/) principer och metoder som ökar effektiviteten i arbetsflöden. Till exempel kontinuerlig integrering, leverans och distribution. MLOps tillämpar dessa principer på maskininlärningsprocessen, med målet att:
 
 * Snabbare experiment och utveckling av modeller
 * Snabbare användning av modeller i produktion

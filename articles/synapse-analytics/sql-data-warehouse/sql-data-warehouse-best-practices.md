@@ -10,16 +10,16 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d0b32fb2b52d2dbb126053247cff83f05781ba5e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 44dbc03a41cfde94c344ae331b21d7536778050c
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350869"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619103"
 ---
 # <a name="best-practices-for-sql-analytics-in-azure-synapse-analytics-formerly-sql-dw"></a>Metodtips för SQL Analytics i Azure Synapse Analytics (tidigare SQL DW)
 
-Den här artikeln är en samling metodtips som hjälper dig att uppnå optimala prestanda från din [SQL Analytics-distribution.](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse)  Syftet med den här artikeln är att ge dig grundläggande vägledning och lyfta fram viktiga fokusområden.  Varje avsnitt introducerar dig till ett koncept och sedan pekar dig till mer detaljerade artiklar som täcker konceptet på djupet. Sekvensen av ämnen är i prioritetsordning. 
+Den här artikeln är en samling metodtips som hjälper dig att uppnå optimala prestanda från din [SQL Analytics-distribution.](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse)  Syftet med den här artikeln är att ge dig grundläggande vägledning och lyfta fram viktiga fokusområden.  Varje avsnitt introducerar dig till ett koncept och sedan pekar dig till mer detaljerade artiklar som täcker konceptet på djupet. Sekvensen av ämnen är i prioritetsordning. 
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Minska kostnaderna genom att pausa och skala
 

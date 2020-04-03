@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d121d6c198cb0d92cd098a40096e2f2300f65537
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 14f513306b3f0bc0c06a4143e5174c3ecddaef62
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76758997"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617170"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>Scenario: En webbapp som anropar webb-API:er
 
@@ -48,7 +48,7 @@ Det är därför de registrerar en hemlighet (ett programlösenord eller certifi
 > [!NOTE]
 > Att lägga till inloggning i en webbapp handlar om att skydda själva webbappen. Detta skydd uppnås genom att använda *middleware-bibliotek,* inte Microsoft Authentication Library (MSAL). Föregående scenario, [webbapp som loggar in användare](scenario-web-app-sign-user-overview.md), täckte ämnet.
 >
-> Det här scenariot beskriver hur du anropar webb-API:er från en webbapp. Du måste få åtkomsttoken för webb-API:erna. Om du vill hämta dessa token använder du MSAL-bibliotek för att hämta dessa token.
+> Det här scenariot beskriver hur du anropar webb-API:er från en webbapp. Du måste få åtkomsttoken för webb-API:erna. Du kan använda MSAL-bibliotek för att hämta dessa token.
 
 Utveckling för det här scenariot omfattar dessa specifika uppgifter:
 

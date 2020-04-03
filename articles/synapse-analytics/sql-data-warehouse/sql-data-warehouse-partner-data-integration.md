@@ -11,17 +11,19 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 08df8266cc3ef8ba1b20efcf135e502a9df69e80
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 587b2aa23aa822f44d7763cbfec21eb36055b091
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351495"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583716"
 ---
 # <a name="azure-synapse-analytics-data-integration-partners"></a>Azure Synapse Analytics-dataintegrationspartner
-Om du vill skapa din informationslagerlösning med hjälp av SQL Analytics-funktionen i Azure Synapse kan du välja bland en mängd olika branschledande verktyg. I den här artikeln beskrivs Microsoft-partnerföretag med officiella dataintegrationslösningar som stöder Azure Synapse.
+
+Om du vill skapa din informationslagerlösning med hjälp av Funktionen Synapse SQL-pool i Azure Synapse kan du välja bland en mängd olika branschledande verktyg. I den här artikeln beskrivs Microsoft-partnerföretag med officiella dataintegrationslösningar som stöder Azure Synapse.
 
 ## <a name="data-integration-partners"></a>Dataintegrationspartner
+
 | Partner | Beskrivning | Webbplats/produktlänk |
 | ------- | ----------- | -------------------- |
 | ![Alooma](./media/sql-data-warehouse-partner-data-integration/alooma_logo.png) |**Alooma**<br> Alooma är en ETL-lösning (Extract, Transform, and Load) som gör det möjligt för datateam att integrera, berika och strömma data från olika datasilor till ett Azure Synapse-informationslager i realtid. |[Produktsida](https://www.alooma.com/) |

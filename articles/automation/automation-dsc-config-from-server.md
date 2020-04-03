@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d888c8fd3bf7cd44c37e7225618bd197f419d275
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dff9b8f52207a38cf7eaddefa178aff262ddc546
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76030123"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585552"
 ---
 # <a name="create-configurations-from-existing-servers"></a>Skapa konfigurationer från befintliga servrar
 
@@ -39,7 +39,7 @@ Den senaste versionen har flera [extraheringslägen](https://github.com/Microsof
 Resultatet av att använda lösningen genererar [konfigurationsdata](https://github.com/Microsoft/sharepointDSC.reverse#configuration-data) som ska användas med SharePointDSC-konfigurationsskript.
 
 När datafilerna har genererats kan du använda dem med [DSC-konfigurationsskript](/powershell/scripting/dsc/overview/overview) för att generera MOF-filer och [ladda upp MOF-filerna till Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-Registrera sedan dina servrar från antingen [lokalt](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) eller [i Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) för att hämta konfigurationer.
+Registrera sedan dina servrar från antingen [lokalt](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) eller [i Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms) för att hämta konfigurationer.
 
 Om du vill prova ReverseDSC besöker du [PowerShell-galleriet](https://www.powershellgallery.com/packages/ReverseDSC/) och hämtar lösningen eller klickar på "Projektplats" för att visa [dokumentationen](https://github.com/Microsoft/sharepointDSC.reverse).
 

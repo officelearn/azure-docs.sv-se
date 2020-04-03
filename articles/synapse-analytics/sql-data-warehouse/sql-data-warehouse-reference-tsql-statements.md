@@ -1,6 +1,6 @@
 ---
 title: Instruktioner för T-SQL
-description: Länkar till dokumentationen för T-SQL-uttryck som stöds i SQL Analytics.
+description: Länkar till dokumentationen för T-SQL-uttryck som stöds i Synapse SQL-pool.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,17 +11,19 @@ ms.date: 05/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 53609049f69f0a3d50430ef512a5bf4a8ffd6d82
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 011a850a44948bf5eee28a40d59dcf7672d866e8
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351357"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586373"
 ---
-# <a name="t-sql-statements-supported-in-sql-analytics"></a>T-SQL-uttryck som stöds i SQL Analytics
-Länkar till dokumentationen för T-SQL-uttryck som stöds i SQL Analytics.
+# <a name="t-sql-statements-supported-in-synapse-sql-pool"></a>T-SQL-uttryck som stöds i Synapse SQL-pool
+
+Länkar till dokumentationen för T-SQL-uttryck som stöds i Synapse SQL-pool.
 
 ## <a name="data-definition-language-ddl-statements"></a>DDL-uttalanden (Data Definition Language)
+
 * [ÄNDRA DATABAS](https://msdn.microsoft.com/library/mt204042.aspx)
 * [ALTER INDEX](https://msdn.microsoft.com/library/ms188388.aspx)
 * [ÄNDRA MATERIALISERAD VY](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) (Förhandsgranskning) 
@@ -60,11 +62,13 @@ Länkar till dokumentationen för T-SQL-uttryck som stöds i SQL Analytics.
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 
 ## <a name="data-manipulation-language-dml-statements"></a>DML-uttryck (Data Manipulation Language)
+
 * [Ta bort](https://msdn.microsoft.com/library/ms189835.aspx)
-* [INSERT](https://msdn.microsoft.com/library/ms174335.aspx)
+* [Infoga](https://msdn.microsoft.com/library/ms174335.aspx)
 * [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx)
 
 ## <a name="database-console-commands"></a>Kommandon för databaskonsol
+
 * [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
 * [DBCC DROPRESULTSETCACHE](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest) (Förhandsversion)
 * [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/mt204018.aspx)
@@ -77,6 +81,7 @@ Länkar till dokumentationen för T-SQL-uttryck som stöds i SQL Analytics.
 * [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/mt204043.aspx)
 
 ## <a name="query-statements"></a>Frågesatser
+
 * [Välj](https://msdn.microsoft.com/library/ms189499.aspx)
 * [MED common_table_expression](https://msdn.microsoft.com/library/ms175972.aspx)
 * [UTOM och INTERSEKT](https://msdn.microsoft.com/library/ms188055.aspx)
@@ -95,6 +100,7 @@ Länkar till dokumentationen för T-SQL-uttryck som stöds i SQL Analytics.
 * [Underfrågor](https://msdn.microsoft.com/library/mt631613.aspx)
 
 ## <a name="security-statements"></a>Säkerhetsuttryck
+
 * Behörigheter: [GRANT](https://msdn.microsoft.com/library/ms187965.aspx), [NEKA](https://msdn.microsoft.com/library/ms188338.aspx), [ÅTERKALLA](https://msdn.microsoft.com/library/ms187728.aspx)
 * [ÄNDRA TILLSTÅND](https://msdn.microsoft.com/library/ms187359.aspx)
 * [ÄNDRA INTYG](https://msdn.microsoft.com/library/ms189511.aspx)
@@ -120,4 +126,5 @@ Länkar till dokumentationen för T-SQL-uttryck som stöds i SQL Analytics.
 * [ÖPPNA HUVUDNYCKEL](https://msdn.microsoft.com/library/ms174433.aspx)
 
 ## <a name="next-steps"></a>Nästa steg
-Mer referensinformation finns [i T-SQL-språkelement i SQL Analytics](sql-data-warehouse-reference-tsql-language-elements.md)och [Systemvyer i SQL Analytics](sql-data-warehouse-reference-tsql-system-views.md).
+
+Mer referensinformation finns [i T-SQL-språkelement i Synapse SQL-pool](sql-data-warehouse-reference-tsql-language-elements.md)och [Systemvyer i Synapse SQL-pool](sql-data-warehouse-reference-tsql-system-views.md).

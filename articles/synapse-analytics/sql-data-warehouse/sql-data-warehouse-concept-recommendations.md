@@ -1,6 +1,6 @@
 ---
-title: SQL Analytics-rekommendationer
-description: Läs mer om SQL Analytics-rekommendationer och hur de genereras
+title: Synapse SQL-rekommendationer
+description: Läs mer om Synapse SQL-rekommendationer och hur de genereras
 services: synapse-analytics
 author: kevinvngo
 manager: craigg-msft
@@ -11,18 +11,18 @@ ms.date: 02/05/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 6d57fdb035e076c75363d23fbf36d39eeb72bb3f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: c4bbd98cc28b242be5310fab76521a80de8fcb7c
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350696"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584131"
 ---
-# <a name="sql-analytics-recommendations"></a>SQL Analytics-rekommendationer
+# <a name="synapse-sql-recommendations"></a>Synapse SQL-rekommendationer
 
-I den här artikeln beskrivs SQL Analytics-rekommendationerna via Azure Advisor.  
+I den här artikeln beskrivs De Synapse SQL-rekommendationer som visas via Azure Advisor.  
 
-SQL Analytics ger rekommendationer för att säkerställa att din datalagerarbetsbelastning är konsekvent optimerad för prestanda. Rekommendationer är tätt integrerade med [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) för att ge dig bästa praxis direkt i [Azure-portalen](https://aka.ms/Azureadvisor). SQL Analytics samlar in telemetri och ytrekommendationer för din aktiva arbetsbelastning på en daglig kadens. De rekommendationsscenarier som stöds beskrivs nedan tillsammans med hur du tillämpar rekommenderade åtgärder.
+Synapse SQL ger rekommendationer för att säkerställa att din datalagerarbetsbelastning är konsekvent optimerad för prestanda. Rekommendationer är tätt integrerade med [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) för att ge dig bästa praxis direkt i [Azure-portalen](https://aka.ms/Azureadvisor). Synapse SQL samlar in telemetri och ytrekommendationer för din aktiva arbetsbelastning på en daglig kadens. De rekommendationsscenarier som stöds beskrivs nedan tillsammans med hur du tillämpar rekommenderade åtgärder.
 
 Du kan [kontrollera dina rekommendationer](https://aka.ms/Azureadvisor) idag! Den här funktionen gäller för närvarande endast för Gen2-informationslager. 
 

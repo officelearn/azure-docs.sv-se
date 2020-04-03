@@ -5,21 +5,21 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: ad2a34691a00f217db6cf6835eefed18c8862d32
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 29ac9239b8dc87b1ed12fc8333bf5201fe8fa204
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547924"
+ms.locfileid: "80617132"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Hantera runbooks i Azure Automation
 
-Du kan lägga till en runbook i Azure Automation genom att antingen [skapa en ny](#create-a-runbook) eller importera en [befintlig](#import-a-runbook) från en fil eller [Runbook Gallery](automation-runbook-gallery.md). Den här artikeln innehåller information om hur du skapar och importerar runbooks från en fil. Du kan få all information om åtkomst till community-runbooks och-moduler i [Runbook och modulgallerier för Azure Automation](automation-runbook-gallery.md).
+Du kan lägga till en runbook i Azure Automation genom att antingen [skapa en ny](#creating-a-runbook) eller importera en [befintlig](#importing-a-runbook) från en fil eller [Runbook Gallery](automation-runbook-gallery.md). Den här artikeln innehåller information om hur du skapar och importerar runbooks från en fil. Du kan få all information om åtkomst till community-runbooks och-moduler i [Runbook och modulgallerier för Azure Automation](automation-runbook-gallery.md).
 
 >[!NOTE]
 >Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installationsinstruktioner för Az-modul på hybridkörningsarbetaren finns [i Installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med [så här uppdaterar du Azure PowerShell-moduler i Azure Automation](automation-update-azure-modules.md).
 
-## <a name="create-a-runbook"></a>Skapa en runbook
+## <a name="creating-a-runbook"></a>Skapa en runbook
 
 Du kan skapa en ny runbook i Azure Automation med en av Azure-portalerna eller Windows PowerShell. När runbooken har skapats kan du redigera den med hjälp av information i [Learning PowerShell Workflow](automation-powershell-workflow.md) och [Grafisk redigering i Azure Automation](automation-graphical-authoring-intro.md).
 
@@ -42,9 +42,9 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 -Name NewRunbook -ResourceGroupName MyResourceGroup -Type PowerShell
 ```
 
-## <a name="import-a-runbook"></a>Importera en runbook
+## <a name="importing-a-runbook"></a>Importera en runbook
 
-Du kan skapa en ny runbook i Azure Automation genom att importera ett PowerShell-skript eller PowerShell-arbetsflöde (**.ps1**), en exporterad grafisk runbook (**.graphrunbook**) eller ett Python 2-skript (**.py**).  Du måste ange vilken [typ av runbook](automation-runbook-types.md) som skapas under importen, med beaktande av följande överväganden.
+Du kan skapa en ny runbook i Azure Automation genom att importera ett PowerShell-skript eller PowerShell-arbetsflöde (**.ps1**), en exporterad grafisk runbook (**.graphrunbook**) eller ett Python2-skript (**.py**).  Du måste ange vilken [typ av runbook](automation-runbook-types.md) som skapas under importen, med beaktande av följande överväganden.
 
 * En **PS1-fil** som inte innehåller ett arbetsflöde kan importeras till antingen en [PowerShell-runbook](automation-runbook-types.md#powershell-runbooks) eller en [PowerShell Workflow-runbook](automation-runbook-types.md#powershell-workflow-runbooks). Om du importerar den till en PowerShell Workflow-runbook konverteras den till ett arbetsflöde. I det här fallet inkluderas kommentarer i runbooken för att beskriva de ändringar som har gjorts.
 
@@ -68,7 +68,7 @@ Du kan använda följande procedur för att importera en skriptfil till Azure Au
 5. Om fältet **Namn** är aktiverat kan du välja att ändra runbooknamnet. Namnet måste börja med en bokstav och innehålla bokstäver, siffror, understreck och streck.
 6. [Runbook-typen](automation-runbook-types.md) väljs automatiskt, men du kan ändra typen efter att du har tagit hänsyn till tillämpliga begränsningar.
 7. Klicka på **Skapa**. Den nya runbooken visas i listan över runbooks för Automation-kontot.
-8. Du måste [publicera runbooken](#publish-a-runbook) innan du kan köra den.
+8. Du måste [publicera runbooken](#publishing-a-runbook) innan du kan köra den.
 
 > [!NOTE]
 > När du har importerat en grafisk runbook eller en grafisk PowerShell-arbetsflödeskörningsbok kan du konvertera den till en annan typ. Du kan dock inte konvertera någon av dessa grafiska runbooks till en text runbook.
@@ -90,9 +90,9 @@ Import-AzAutomationRunbook -Name $runbookName -Path $scriptPath `
 -Type PowerShellWorkflow
 ```
 
-## <a name="test-a-runbook"></a>Testa en Runbook
+## <a name="testing-a-runbook"></a>Testa en runbook
 
-När du testar en runbook körs [utkastversionen](#publish-a-runbook) och alla åtgärder som utförs slutförs. Ingen jobbhistorik skapas, men [utdata-](automation-runbook-output-and-messages.md#output-stream) och [varnings- och felströmmarna](automation-runbook-output-and-messages.md#message-streams) visas i fönstret Testutdata. Meddelanden till [verbose-strömmen](automation-runbook-output-and-messages.md#message-streams) visas bara i utdatafönstret om variabeln](automation-runbook-output-and-messages.md#preference-variabler) `VerbosePreference` är inställd på Fortsätt.
+När du testar en runbook körs [utkastversionen](#publishing-a-runbook) och alla åtgärder som utförs slutförs. Ingen jobbhistorik skapas, men [utdata-](automation-runbook-output-and-messages.md#output-stream) och [varnings- och felströmmarna](automation-runbook-output-and-messages.md#message-streams) visas i fönstret Testutdata. Meddelanden till [verboseströmmen](automation-runbook-output-and-messages.md#message-streams) visas bara i utdatafönstret om variabeln [VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) är inställd på `Continue`.
 
 Även om utkastversionen körs körs runbooken fortfarande normalt och utför alla åtgärder mot resurser i miljön. Därför bör du bara testa runbooks på icke-produktionsresurser.
 
@@ -106,7 +106,7 @@ Proceduren för att testa varje [typ av runbook](automation-runbook-types.md) ä
 1. Du kan använda knapparna under utdatafönstret för att stoppa eller pausa ett [PowerShell-arbetsflöde](automation-runbook-types.md#powershell-workflow-runbooks) eller [en grafisk](automation-runbook-types.md#graphical-runbooks) runbook medan den testas. När du pausar runbooken slutförs den aktuella aktiviteten innan den pausas. När runbooken har pausats kan du stoppa den eller starta om den.
 1. Kontrollera utdata från runbooken i utdatafönstret.
 
-## <a name="publish-a-runbook"></a>Publicera en runbook
+## <a name="publishing-a-runbook"></a>Publicera en runbook
 
 När du skapar eller importerar en ny runbook måste du publicera den innan du kan köra den. Varje runbook i Azure Automation har en utkastversion och en publicerad version. Det är bara den Publicerade versionen som kan köras och bara Utkastet som kan redigeras. Den Publicerade versionen påverkas inte av ändringar i Utkastet. När utkastversionen ska göras tillgänglig publicerar du den och skriver över den aktuella publicerade versionen med utkastversionen.
 
@@ -129,7 +129,7 @@ Publish-AzAutomationRunbook -AutomationAccountName $automationAccountName `
 -Name $runbookName -ResourceGroupName $RGName
 ```
 
-### <a name="schedule-a-runbook-in-the-azure-portal"></a>Schemalägga en runbook i Azure-portalen
+## <a name="scheduling-a-runbook-in-the-azure-portal"></a>Schemalägga en runbook i Azure-portalen
 
 När runbooken har publicerats kan du schemalägga den för drift.
 

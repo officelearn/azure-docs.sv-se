@@ -1,6 +1,6 @@
 ---
 title: Språkelement för T-SQL
-description: Länkar till dokumentationen för T-SQL-uttryck som stöds i SQL Analytics.
+description: Länkar till dokumentationen för T-SQL-uttryck som stöds i Synapse SQL-pool.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,17 +11,19 @@ ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 040a6d519896d71227777168ea9de9612f97ca6e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: f27a0a351e4a446dc950ac13f850bd14b2b3c65a
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351420"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586404"
 ---
-# <a name="t-sql-language-elements-supported-in-sql-analytics"></a>T-SQL-språkelement som stöds i SQL Analytics
-Länkar till dokumentationen för T-SQL-språkelement som stöds i SQL Analytics.
+# <a name="t-sql-language-elements-supported-in-synapse-sql-pool"></a>T-SQL-språkelement som stöds i Synapse SQL-pool
+
+Länkar till dokumentationen för T-SQL-språkelement som stöds i Synapse SQL-pool.
 
 ## <a name="core-elements"></a>Kärnelement
+
 * [syntax konventioner](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
 * [namngivningsregler för objekt](https://msdn.microsoft.com/library/ms175874.aspx)
 * [reserverade nyckelord](https://msdn.microsoft.com/library/ms189822.aspx)
@@ -37,6 +39,7 @@ Länkar till dokumentationen för T-SQL-språkelement som stöds i SQL Analytics
 * [Använda](https://msdn.microsoft.com/library/ms188366.aspx)
 
 ## <a name="batches-control-of-flow-and-variables"></a>Batchar, flödeskontroll och variabler
+
 * [Börja... Slutet](https://msdn.microsoft.com/library/ms190487.aspx)
 * [Bryta](https://msdn.microsoft.com/library/ms181271.aspx)
 * [Förklara@local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
@@ -48,6 +51,7 @@ Länkar till dokumentationen för T-SQL-språkelement som stöds i SQL Analytics
 * [Medan](https://msdn.microsoft.com/library/ms178642.aspx)
 
 ## <a name="operators"></a>Operatorer
+
 * [+ (Lägg till)](https://msdn.microsoft.com/library/ms178565.aspx)
 * [+ (Sträng sammanfogning)](https://msdn.microsoft.com/library/ms177561.aspx)
 * [- (Negativt)](https://msdn.microsoft.com/library/ms189480.aspx)
@@ -57,6 +61,7 @@ Länkar till dokumentationen för T-SQL-språkelement som stöds i SQL Analytics
 * [Modulo](https://msdn.microsoft.com/library/ms190279.aspx)
 
 ## <a name="wildcard-characters-to-match"></a>Jokertecken som ska matchas
+
 * [= (Lika med)](https://msdn.microsoft.com/library/ms175118.aspx)
 * [> (större än)](https://msdn.microsoft.com/library/ms178590.aspx)
 * [< (mindre än)](https://msdn.microsoft.com/library/ms179873.aspx)
@@ -74,6 +79,7 @@ Länkar till dokumentationen för T-SQL-språkelement som stöds i SQL Analytics
 * [Eller](https://msdn.microsoft.com/library/ms188361.aspx)
 
 ### <a name="bitwise-operators"></a>Bitvis operatorer
+
 * [& (Bitvis OCH)](https://msdn.microsoft.com/library/ms174965.aspx)
 * [| (Bitvis ELLER)](https://msdn.microsoft.com/library/ms186714.aspx)
 * [^ (Bitwise artikel med ensamrätt ELLER)](https://msdn.microsoft.com/library/ms190277.aspx)
@@ -82,7 +88,8 @@ Länkar till dokumentationen för T-SQL-språkelement som stöds i SQL Analytics
 * [|= (Bitvis eller LIKA MED)](https://msdn.microsoft.com/library/cc627409.aspx)
 * [&= (Bitvis och lika med)](https://msdn.microsoft.com/library/cc627427.aspx)
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>Functions
+
 * [@@DATEFIRST](https://msdn.microsoft.com/library/ms187766.aspx)
 * [@@ERROR](https://msdn.microsoft.com/library/ms188790.aspx)
 * [@@LANGUAGE](https://msdn.microsoft.com/library/ms177557.aspx)
@@ -227,12 +234,15 @@ Länkar till dokumentationen för T-SQL-språkelement som stöds i SQL Analytics
 * [XACT_STATE](https://msdn.microsoft.com/library/ms189797.aspx)
 
 ## <a name="transactions"></a>Transaktioner
-* [transaktioner](https://msdn.microsoft.com/library/mt204031.aspx)
+
+* [Transaktioner](https://msdn.microsoft.com/library/mt204031.aspx)
 
 ## <a name="diagnostic-sessions"></a>Diagnostiska sessioner
+
 * [SKAPA DIAGNOSTIKSESSION](https://msdn.microsoft.com/library/mt204029.aspx)
 
 ## <a name="procedures"></a>Procedurer
+
 * [sp_addrolemember](https://msdn.microsoft.com/library/ms187750.aspx)
 * [sp_columns](https://msdn.microsoft.com/library/ms176077.aspx)
 * [sp_configure](https://msdn.microsoft.com/library/ms188787.aspx)
@@ -256,6 +266,7 @@ Länkar till dokumentationen för T-SQL-språkelement som stöds i SQL Analytics
 * [sp_unprepare](https://msdn.microsoft.com/library/ff848735.aspx)
 
 ## <a name="set-statements"></a>SET-satser
+
 * [STÄLL ANSI_DEFAULTS](https://msdn.microsoft.com/library/ms188340.aspx)
 * [STÄLL ANSI_NULL_DFLT_OFF](https://msdn.microsoft.com/library/ms187356.aspx)
 * [STÄLL ANSI_NULL_DFLT_ON](https://msdn.microsoft.com/library/ms187375.aspx)
@@ -278,5 +289,6 @@ Länkar till dokumentationen för T-SQL-språkelement som stöds i SQL Analytics
 * [STÄLL XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>Nästa steg
-Mer referensinformation finns [i T-SQL-uttryck i SQL Analytics](sql-data-warehouse-reference-tsql-statements.md)och [Systemvyer i SQL Analytics](sql-data-warehouse-reference-tsql-system-views.md).
+
+Mer referensinformation finns [i T-SQL-uttryck i Synapse SQL-pool](sql-data-warehouse-reference-tsql-statements.md)och [Systemvyer i Synapse SQL-pool](sql-data-warehouse-reference-tsql-system-views.md).
 

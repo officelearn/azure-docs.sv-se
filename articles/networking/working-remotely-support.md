@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: rambala
-ms.openlocfilehash: 78081329b70edff5ed2c728cb2f7c3e562a44e56
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: bcdd938365e50da1f5ae0e830e86692f1b915123
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346302"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618914"
 ---
 # <a name="working-remotely-using-azure-networking-services"></a>Arbeta på distans med Azure-nätverkstjänster
 
@@ -29,8 +29,6 @@ Alla nätverk (till exempel privata WAN- och företagskärnnätverk) upplever in
 
 Nätverksplanerare kan hjälpa till att lindra flaskhalsarna och minska nätverksöverbelastningen genom att tänka på att olika trafiktyper behöver olika prioriteringar för nätverksbehandling och genom viss smart omdirigering/distribution av belastning. Till exempel, realtid tele-medecine trafik av läkare-patient interaktion är av stor betydelse och fördröjning / nervositet känslig. Replikering av samma trafik mellan lagringar är inte fördröjningskänslig. Den tidigare trafiken måste dirigeras via den mest optimala nätvägen med högre servicekvalitet. Det är godtagbart att dirigera den senare trafiken via suboptimal väg.
 
->[!NOTE] 
->Mot slutet av den här artikeln visas länkar till artiklar som utnyttjar olika Azure-nätverksfunktioner och ekosystem för att stödja användare som arbetar på distans.
 
 
 ## <a name="sharing-our-best-practices---azure-network-is-designed-for-elasticity-and-high-availability"></a>Dela våra bästa metoder – Azure-nätverket är utformat för elasticitet och hög tillgänglighet
@@ -45,17 +43,18 @@ Microsoft-nätverket är utformat för att uppfylla kraven och ger optimal prest
 
 ## <a name="enable-employees-to-work-remotely"></a>Gör det möjligt för anställda att arbeta på distans
 
-Azure VPN-gateway stöder både P2S-anslutningar (Point-to-Site) och S2S-anslutningar (Site-to-Site). Med Hjälp av Azure VPN-gatewayen kan du skala dina anställdas anslutningar för att på ett säkert sätt komma åt både dina Azure-distribuerade resurser och dina lokala resurser. Mer information finns i [Så här aktiverar du användare att arbeta på distans](https://go.microsoft.com/fwlink/?linkid=2123770). 
+Azure VPN-gateway stöder både P2S-anslutningar (Point-to-Site) och S2S-anslutningar (Site-to-Site). Med Hjälp av Azure VPN-gatewayen kan du skala dina anställdas anslutningar för att på ett säkert sätt komma åt både dina Azure-distribuerade resurser och dina lokala resurser. Mer information finns i [Så här aktiverar du användare att arbeta på distans](../vpn-gateway/work-remotely-support.md). 
 
-Om du använder SSTP (Secure Sockets Tunneling Protocol) är antalet samtidiga anslutningar begränsat till 128. För att få ett högre antal anslutningar föreslår vi en övergång till OpenVPN eller IKEv2. Mer information finns i [Övergång till OpenVPN-protokoll eller IKEv2 från SSTP](https://go.microsoft.com/fwlink/?linkid=2124112).
+Om du använder SSTP (Secure Sockets Tunneling Protocol) är antalet samtidiga anslutningar begränsat till 128. För att få ett högre antal anslutningar föreslår vi en övergång till OpenVPN eller IKEv2. Mer information finns i [Övergång till OpenVPN-protokoll eller IKEv2 från SSTP](../vpn-gateway/ikev2-openvpn-from-sstp.md
+).
 
-För att komma åt dina resurser som distribueras i Azure kan fjärrutvecklare använda Azure Bastion-lösning, i stället för VPN-anslutning för att få säker shell-åtkomst (RDP eller SSH) utan att kräva att offentliga IPs på de virtuella datorerna används. Mer information finns i [Arbeta på distans med Azure Bastion](https://go.microsoft.com/fwlink/?linkid=2123939).
+För att komma åt dina resurser som distribueras i Azure kan fjärrutvecklare använda Azure Bastion-lösning, i stället för VPN-anslutning för att få säker shell-åtkomst (RDP eller SSH) utan att kräva att offentliga IPs på de virtuella datorerna används. Mer information finns i [Arbeta på distans med Azure Bastion](../bastion/work-remotely-support.md).
 
-För att samla storskalig VPN-anslutning, för att stödja alla anslutningar mellan resurser på olika lokala globala platser, i olika regionala nav och eker virtuella nätverk, och för att optimera utnyttjandet av flera hem bredbandsnät Du kan använda Azure Virtual WAN. För mer information, se [Kämpar för att tillgodose arbetet hemifrån behov? Här kan Azure Virtual WAN hjälpa .](https://go.microsoft.com/fwlink/?linkid=2123769)
+För att samla storskalig VPN-anslutning, för att stödja alla anslutningar mellan resurser på olika lokala globala platser, i olika regionala nav och ekrade virtuella nätverk, och för att optimera utnyttjandet av flera hem bredbandsnätverk kan du använda Azure Virtual WAN. För mer information, se [Kämpar för att tillgodose arbetet hemifrån behov? Här kan Azure Virtual WAN hjälpa .](../virtual-wan/work-remotely-support.md)
 
 Ett annat sätt att stödja en fjärrarbetskraft är att distribuera en VDI-infrastruktur (Virtual Desktop Infrastructure) som finns i ditt virtuella Azure-nätverk, skyddad med en Azure-brandvägg. Windows Virtual Desktop (WVD) är till exempel en skrivbords- och appvirtualiseringstjänst som körs i Azure. Med Windows Virtual Desktop kan du konfigurera en skalbar och flexibel miljö i din Azure-prenumeration utan att behöva köra ytterligare gatewayservrar. Du är bara ansvarig för virtuella WVD-datorer i det virtuella nätverket. Mer information finns i [Azure Firewall fjärrarbetsstöd](../firewall/remote-work-support.md). 
 
-Azure har också en rik uppsättning eco-systempartner. Våra partners Virtuella nätverksinstallationer på Azure kan också hjälpa till att skala VPN-anslutningen. Mer information finns i [NVA-överväganden (Network Virtual Appliance) för fjärrarbete](https://go.microsoft.com/fwlink/?linkid=2123771).
+Azure har också en rik uppsättning eco-systempartner. Våra partners Virtuella nätverksinstallationer på Azure kan också hjälpa till att skala VPN-anslutningen. Mer information finns i [NVA-överväganden (Network Virtual Appliance) för fjärrarbete](../vpn-gateway/nva-work-remotely-support.md).
 
 ## <a name="extend-employees-connection-to-access-globally-distributed-resources"></a>Utöka medarbetares anslutning för att komma åt globalt distribuerade resurser
 
@@ -71,7 +70,7 @@ Följande Azure-tjänster kan hjälpa anställda att komma åt dina globalt dist
 
 ## <a name="scale-customer-connectivity-to-frontend-resources"></a>Skala kundanslutningen till frontend-resurser
 
-Under tider när fler människor går online, många företagswebbplatser upplever ökad kundtrafik. Azure Application Gateway kan hjälpa till att hantera den ökade frontend-arbetsbelastningen. Mer information finns i [Stöd för programgateway med hög trafik](https://go.microsoft.com/fwlink/?linkid=2123940).
+Under tider när fler människor går online, många företagswebbplatser upplever ökad kundtrafik. Azure Application Gateway kan hjälpa till att hantera den ökade frontend-arbetsbelastningen. Mer information finns i [Stöd för programgateway med hög trafik](../application-gateway/high-traffic-support.md).
 
 ## <a name="microsoft-support-for-multi-cloud-traffic"></a>Microsoft-stöd för trafik med flera moln
 
@@ -83,13 +82,13 @@ I följande artiklar beskrivs hur olika Azure-nätverksfunktioner kan användas 
 
 | **Artikel** | **Senaste uppdatering** |
 | --- | --- |
-| [Så här gör du det möjligt för användare att arbeta på distans](https://go.microsoft.com/fwlink/?linkid=2123770) | Den 23 mars 2020 |
-| [Kämpar för att tillgodose arbetet hemifrån behov? Här kan Azure Virtual WAN hjälpa](https://go.microsoft.com/fwlink/?linkid=2123769) | Den 23 mars 2020 |
-| [Stöd för programgateway med hög trafik](https://go.microsoft.com/fwlink/?linkid=2123940) | Den 23 mars 2020 |
-| [Nva-överväganden (Network Virtual Appliance) för fjärrarbete](https://go.microsoft.com/fwlink/?linkid=2123771)| Den 23 mars 2020 |
+| [Så här gör du det möjligt för användare att arbeta på distans](../vpn-gateway/work-remotely-support.md) | Den 23 mars 2020 |
+| [Kämpar för att tillgodose arbetet hemifrån behov? Här kan Azure Virtual WAN hjälpa](../virtual-wan/work-remotely-support.md) | Den 23 mars 2020 |
+| [Stöd för höga trafikvolymer i Application Gateway](../application-gateway/high-traffic-support.md) | Den 23 mars 2020 |
+| [Nva-överväganden (Network Virtual Appliance) för fjärrarbete](../vpn-gateway/nva-work-remotely-support.md)| Den 23 mars 2020 |
 | [Övergång till OpenVPN-protokoll eller IKEv2 från SSTP](https://go.microsoft.com/fwlink/?linkid=2124112) | Den 23 mars 2020 |
-| [Arbeta på distans med Azure Bastion](https://go.microsoft.com/fwlink/?linkid=2123939) | Den 23 mars 2020 |
-| [Använda Azure ExpressRoute för att skapa hybridanslutning för att stödja fjärranvändare](https://go.microsoft.com/fwlink/?linkid=2123768) | Den 23 mars 2020 |
+| [Arbeta på distans med Azure Bastion](../bastion/work-remotely-support.md) | Den 23 mars 2020 |
+| [Använda Azure ExpressRoute för att skapa hybridanslutning för att stödja fjärranvändare](../expressroute/work-remotely-support.md) | Den 23 mars 2020 |
 | [Support för Fjärrarbete i Azure Firewall](../firewall/remote-work-support.md)|Den 25 mars 2020|
 
 <!--Link References-->

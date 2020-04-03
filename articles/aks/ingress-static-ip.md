@@ -4,12 +4,12 @@ description: Lär dig hur du installerar och konfigurerar en NGINX-ingress-styre
 services: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 10422595b85c71020225df694778e6b8ae7e0185
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e79bbe76a751097acd5c9d3c42dbd4020b6866b
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78191358"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617278"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Skapa en ingress-styrenhet med en statisk offentlig IP-adress i Azure Kubernetes Service (AKS)
 
@@ -48,7 +48,12 @@ Skapa sedan en offentlig IP-adress med den *statiska* allokeringsmetoden med kom
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --sku Standard --allocation-method static --query publicIp.ipAddress -o tsv
 ```
 
-Distribuera nu *nginx-ingress-diagrammet* med Helm. Lägg `--set controller.service.loadBalancerIP` till parametern och ange en egen offentlig IP-adress som skapades i föregående steg. För ytterligare redundans distribueras två repliker av NGINX-ingresskontrollanterna med parametern `--set controller.replicaCount`. Om du till fullo kan dra nytta av att köra repliker av ingressstyrenheten kontrollerar du att det finns mer än en nod i AKS-klustret.
+Distribuera nu *nginx-ingress-diagrammet* med Helm. För ytterligare redundans distribueras två repliker av NGINX-ingresskontrollanterna med parametern `--set controller.replicaCount`. Om du till fullo kan dra nytta av att köra repliker av ingressstyrenheten kontrollerar du att det finns mer än en nod i AKS-klustret.
+
+Du måste skicka ytterligare två parametrar till Helm-versionen så att ingressstyrenheten blir medveten om både den statiska IP-adressen för den belastningsutjämnare som ska tilldelas tjänsten ingress controller och om dns-namnetiketten som tillämpas på den offentliga IP-adressresursen. För att HTTPS-certifikaten ska fungera korrekt används en DNS-namnetikett för att konfigurera ett FQDN för IP-adressen för ingressstyrenheten.
+
+1. Lägg `--set controller.service.loadBalancerIP` till parametern. Ange din egen offentliga IP-adress som skapades i föregående steg.
+1. Lägg `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` till parametern. Ange en DNS-namnetikett som ska användas på den offentliga IP-adress som skapades i föregående steg.
 
 Ingresskontrollanten måste också schemaläggas på en Linux-nod. Windows Server-noder (för närvarande i förhandsversion i AKS) bör inte köra ingressstyrenheten. En nodväljare anges med parametern `--set nodeSelector` för att instruera Kubernetes-schemaläggaren att köra NGINX-ingresskontrollanten på en Linux-baserad nod.
 
@@ -57,6 +62,8 @@ Ingresskontrollanten måste också schemaläggas på en Linux-nod. Windows Serve
 
 > [!TIP]
 > Om du vill aktivera [IP-bevarande][client-source-ip] för klientkälla för `--set controller.service.externalTrafficPolicy=Local` begäranden till behållare i klustret lägger du till i kommandot Helm install. Klientkällans IP lagras i begäranden under *X-Forwarded-For*. När du använder en ingående styrenhet med klientkälla IP-bevarande aktiverat, ssl-vidaregång kommer inte att fungera.
+
+Uppdatera följande skript med **IP-adressen** för din ingångskontrollant och ett **unikt namn** som du vill använda för FQDN-prefixet:
 
 ```console
 # Create a namespace for your ingress resources
@@ -69,6 +76,7 @@ helm install nginx-ingress stable/nginx-ingress \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set controller.service.loadBalancerIP="40.121.63.72"
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="demo-aks-ingress"
 ```
 
 När tjänsten Kubernetes belastningsutjämnare skapas för NGINX-ingressstyrenheten tilldelas din statiska IP-adress, vilket visas i följande exempelutdata:
@@ -83,27 +91,14 @@ nginx-ingress-default-backend               ClusterIP      10.0.95.248   <none> 
 
 Inga ingressregler har skapats ännu, så NGINX-ingress-styrenhetens standardsida 404 visas om du bläddrar till den offentliga IP-adressen. Regler för ingående konfigureras i följande steg.
 
-## <a name="configure-a-dns-name"></a>Konfigurera ett DNS-namn
-
-Konfigurera ett FQDN för IP-adressen för inkommande styrenhet för att HTTPS-certifikaten ska fungera korrekt. Uppdatera följande skript med IP-adressen för din ingångskontrollant och ett unikt namn som du vill använda för FQDN:
+Du kan kontrollera att DNS-namnetiketten har tillämpats genom att fråga FQDN på den offentliga IP-adressen enligt följande:
 
 ```azurecli-interactive
 #!/bin/bash
-
-# Public IP address of your ingress controller
-IP="40.121.63.72"
-
-# Name to associate with public IP address
-DNSNAME="demo-aks-ingress"
-
-# Get the resource-id of the public ip
-PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
-
-# Update public ip address with DNS name
-az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
+az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query $("[?name=='myAKSPublicIP'].[dnsSettings.fqdn]") -o tsv
 ```
 
-Ingångsstyrenheten är nu tillgänglig via FQDN.
+Den ingående styrenheten är nu tillgänglig via IP-adressen eller FQDN.
 
 ## <a name="install-cert-manager"></a>Installera cert-manager
 

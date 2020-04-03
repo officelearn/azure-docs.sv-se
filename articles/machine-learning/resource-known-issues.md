@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 22a24d01f606cd3f76a0de950351feb3d964da54
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 2db7a25f3f463e9210544354395c9d33a75f633c
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478915"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619380"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Kända problem och felsökning av Azure Machine Learning
 
@@ -48,16 +48,6 @@ Lär dig mer om [de resurskvoter](how-to-manage-quotas.md) du kan stöta på nä
     pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
     ```
 
-* **Felmeddelande: Ingen matchande distribution hittades för azureml-dataprep-native**
-
-    Anacondas Python 3.7.4-distribution har en bugg som bryter azureml-sdk-installationen. Det här problemet beskrivs i det här [GitHub-problemet](https://github.com/ContinuumIO/anaconda-issues/issues/11195)
-    
-    Detta kan bearbetas genom att skapa en ny Conda-miljö med det här kommandot:
-    ```bash
-    conda create -n <env-name> python=3.7.3
-    ```
-    Vilket skapar en Conda-miljö med Python 3.7.3, som inte har installationsproblemet som finns i 3.7.4.
-
 * **Databricks-fel vid installation av paket**
 
     Azure Machine Learning SDK-installationen misslyckas på Azure Databricks när fler paket installeras. Vissa paket, till `psutil`exempel , kan orsaka konflikter. För att undvika installationsfel installerar du paket genom att frysa biblioteksversionen. Det här problemet är relaterat till Databricks och inte till Azure Machine Learning SDK. Det här problemet kan också uppstå med andra bibliotek. Exempel:
@@ -89,10 +79,9 @@ Lär dig mer om [de resurskvoter](how-to-manage-quotas.md) du kan stöta på nä
 
 * **Databricks FailToSendFeather**: Om `FailToSendFeather` du ser ett fel när du läser data i Azure Databricks-klustret läser du följande lösningar:
     
-        * Upgrade `azureml-sdk[automl]` package to the latest version.
-        * Add `azureml-dataprep` version 1.1.8 or above.
-        * Add `pyarrow` version 0.11 or above.
-        `
+    * Uppgradera `azureml-sdk[automl]` paketet till den senaste versionen.
+    * Lägg `azureml-dataprep` till version 1.1.8 eller högre.
+    * Lägg `pyarrow` till version 0.11 eller högre.
 
 ## <a name="create-and-manage-workspaces"></a>Skapa och hantera arbetsytor
 
@@ -113,9 +102,7 @@ Om du får `Unable to upload project files to working directory in AzureFile bec
 
 Om du använder filresurs för andra arbetsbelastningar, till exempel dataöverföring, är rekommendationen att använda blobbar så att filresursen är gratis att använda för att skicka körningar. Du kan också dela arbetsbelastningen mellan två olika arbetsytor.
 
-### <a name="datasets-and-data-preparation"></a>Datamängder och databeredning
-
-Dessa är kända problem för Azure Machine Learning Dataset.
+### <a name="passing-data-as-input"></a>Skicka data som indata
 
 *  **TypeError: FileNotFound: Ingen sådan fil eller katalog**: Det här felet uppstår om filsökvägen du anger inte är där filen finns. Du måste se till att hur du refererar till filen är förenligt med var du monterade datauppsättningen på beräkningsmålet. För att säkerställa ett deterministiskt tillstånd rekommenderar vi att du använder den abstrakta sökvägen när du monterar en datauppsättning till ett beräkningsmål. I följande kod monterar vi till exempel datauppsättningen under roten i `/tmp`beräkningsmålets filsystem. 
     
@@ -128,8 +115,7 @@ Dessa är kända problem för Azure Machine Learning Dataset.
 
     Om du inte inkluderar det inledande snedstrecket framåt, "/", måste du `/mnt/batch/.../tmp/dataset` prefix arbetskatalogen, t.ex.
 
-### <a name="data-labeling-projects-issues"></a>Problem med datamärkningsprojekt
-
+### <a name="data-labeling-projects"></a>Projekt för datamärkning
 
 |Problem  |Lösning  |
 |---------|---------|
@@ -138,9 +124,9 @@ Dessa är kända problem för Azure Machine Learning Dataset.
 |När du granskar bilder visas inte nyligen märkta bilder     |   Om du vill läsa in alla märkta bilder väljer du knappen **Första.** Den **första** knappen tar dig tillbaka till framsidan av listan, men laddar alla märkta data.      |
 |Om du trycker på Esc-tangenten när du etiketterar för objektidentifiering skapas en nollstorleksetikett i det övre vänstra hörnet. Det går inte att skicka etiketter i det här tillståndet.     |   Ta bort etiketten genom att klicka på korsmarkeringen bredvid den.  |
 
-## <a name="azure-machine-learning-designer-issues"></a>Problem med Designern i Azure Machine Learning
+## <a name="azure-machine-learning-designer"></a>Azure Machine Learning-designer
 
-Kända problem med designern.
+Kända problem:
 
 * **Lång beräkningsförberedelsetid**: Det kan vara några minuter eller ännu längre när du först ansluter till eller skapar ett beräkningsmål. 
 

@@ -11,20 +11,20 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 47fd30fbb6e6836d6edf18ac68164d515f3aeb93
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8ac9ff1f46e1d2d0ddaa313499340b4723c7da07
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350736"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584252"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Arbetsbelastningshantering med resursklasser i Azure Synapse Analytics
 
-Vägledning för hur du använder resursklasser för att hantera minne och samtidighet för SQL Analytics-frågor i Azure Synapse.  
+Vägledning för hur du använder resursklasser för att hantera minne och samtidighet för Synapse SQL-poolfrågor i Azure Synapse.  
 
 ## <a name="what-are-resource-classes"></a>Vad är resursklasser
 
-Prestandakapaciteten för en fråga bestäms av användarens resursklass.  Resursklasser är förutbestämda resursgränser i SQL Analytics som styr beräkningsresurser och samtidighet för frågekörning. Resursklasser kan hjälpa dig att konfigurera resurser för dina frågor genom att ange begränsningar för antalet frågor som körs samtidigt och på de beräkningsresurser som tilldelats varje fråga.  Det finns en avvägning mellan minne och samtidighet.
+Prestandakapaciteten för en fråga bestäms av användarens resursklass.  Resursklasser är förutbestämda resursgränser i Synapse SQL-pool som styr beräkningsresurser och samtidighet för frågekörning. Resursklasser kan hjälpa dig att konfigurera resurser för dina frågor genom att ange begränsningar för antalet frågor som körs samtidigt och på de beräkningsresurser som tilldelats varje fråga.  Det finns en avvägning mellan minne och samtidighet.
 
 - Mindre resursklasser minskar maximalt minne per fråga, men ökar samtidigheten.
 - Större resursklasser ökar det maximala minnet per fråga, men minskar samtidigheten.
@@ -82,7 +82,7 @@ Minnesallokeringen för varje resursklass är följande.
 
 Som standard är varje användare medlem i den dynamiska resursklassen **smallrc**.
 
-Tjänstadministratörens resursklass är fast vid smallrc och kan inte ändras.  Tjänstadministratören är den användare som skapades under etableringsprocessen.  Tjänstadministratören i det här sammanhanget är den inloggning som anges för "Server admin-inloggning" när du skapar en ny SQL Analytics-instans med en ny server.
+Tjänstadministratörens resursklass är fast vid smallrc och kan inte ändras.  Tjänstadministratören är den användare som skapades under etableringsprocessen.  Tjänstadministratören i det här sammanhanget är den inloggning som anges för "Server admin-inloggning" när du skapar en ny Synapse SQL-pool med en ny server.
 
 > [!NOTE]
 > Användare eller grupper som definieras som Active Directory-administratör är också tjänstadministratörer.
@@ -594,5 +594,5 @@ GO
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du hanterar databasanvändare och säkerhet finns [i Skydda en databas i SQL Analytics](sql-data-warehouse-overview-manage-security.md). Mer information om hur större resursklasser kan förbättra indexkvaliteten i klustrade columnstore finns i [Minnesoptimeringar för columnstore-komprimering](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Mer information om hur du hanterar databasanvändare och säkerhet finns [i Skydda en databas i Synapse SQL](sql-data-warehouse-overview-manage-security.md). Mer information om hur större resursklasser kan förbättra indexkvaliteten i klustrade columnstore finns i [Minnesoptimeringar för columnstore-komprimering](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 

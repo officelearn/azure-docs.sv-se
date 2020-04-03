@@ -1,5 +1,5 @@
 ---
-title: Planering- och bruksanvisning för Security Center | Microsoft Docs
+title: Planerings- och driftguide för säkerhetscenter
 description: I det här avsnittet får du hjälp med att planera inför införandet av Azure Security Center och med vad du bör tänka på i det dagliga arbetet.
 services: security-center
 author: memildin
@@ -8,14 +8,14 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 46994413ba765e18a826eebfe85a38bb65efc749
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 8244a0f164c8578bf9f79e4b66beb529b6a15f67
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435624"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586004"
 ---
-# <a name="azure-security-center-planning-and-operations-guide"></a>Planerings- och användningsguide för Azure Security Center
+# <a name="planning-and-operations-guide"></a>Planerings- och verksamhetsguide
 Den här guiden är avsedd för IT-proffs, IT-arkitekter, informationssäkerhetsanalytiker och molnadministratörer som planerar att använda Azure Security Center.
 
 
@@ -135,7 +135,7 @@ Azure Security Center använder Log Analytics-agenten – det här är samma age
 
 ### <a name="agent"></a>Agent
 
-När automatisk etablering är aktiverad i säkerhetsprincipen installeras Log Analytics-agenten (för [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) eller [Linux)](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)på alla azure-virtuella datorer som stöds och alla nya som skapas. Om den virtuella datorn eller datorn redan har Log Analytics-agenten installerad, kommer Azure Security Center att utnyttja den aktuella installerade agenten. Agentens process är avsedd att vara icke-inkräktande och har mycket minimal påverkan på den virtuella datorns prestanda.
+När automatisk etablering är aktiverad i säkerhetsprincipen installeras Log Analytics-agenten (för [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) eller [Linux)](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)på alla azure-virtuella datorer som stöds och alla nya som skapas. Om den virtuella datorn eller datorn redan har Log Analytics-agenten installerad, kommer Azure Security Center att utnyttja den aktuella installerade agenten. Agentens process är utformad för att vara icke-invasiv och har mycket liten inverkan på vm-prestanda.
 
 Log Analytics-agenten för Windows kräver användning av TCP-port 443. Se [Felsökningsartikeln](security-center-troubleshooting-guide.md) för ytterligare information.
 
@@ -181,7 +181,7 @@ När du har genomfört alla rekommendationer bör **skyddsdelen** vara grön fö
 
 **Identifieringsdelen** är mer reaktiv. Här visas varningar om problem som antingen precis uppstått eller som uppkommit tidigare men som nyss upptäckts genom kontrollerna i Security Center och i tredjepartssystem. Panelen Säkerhetsvarningar visar stapeldiagram som representerar antalet aviseringar som hittades varje dag och deras fördelning mellan de olika allvarlighetsgradkategorierna (låg, medelhög). Mer information om säkerhetsaviseringar finns i [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).
 
-Planera in att använda [Hotinformation](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) som en del av dina dagliga säkerhetsåtgärder. Där kan du identifiera säkerhetshot mot miljön, till exempel identifiera om en viss dator är en del av ett botnät.
+Planera in att använda Hotinformation som en del av dina dagliga säkerhetsåtgärder. Där kan du identifiera säkerhetshot mot miljön, till exempel identifiera om en viss dator är en del av ett botnät.
 
 ### <a name="monitoring-for-new-or-changed-resources"></a>Övervakning av nya och ändrade resurser
 De flesta Azure-miljöer är dynamiska, med resurser som regelbundet skapas, snurras upp eller ned, konfigureras om och ändras. Med Security Center har du bra insyn i de nya objektens säkerhetsstatus.
@@ -213,7 +213,7 @@ Du kan använda [adaptiva programkontroller](https://docs.microsoft.com/azure/se
 ## <a name="incident-response"></a>Incidenthantering
 Security Center identifierar och varnar dig om hot så fort de uppstår. Organisationen bör övervaka om det kommer nya säkerhetsaviseringar och vidta de åtgärder som behövs för att undersöka vidare eller stoppa angreppet. Mer information om hur skydd mot säkerhet center fungerar finns i [Hur Azure Security Center identifierar och svarar på hot](security-center-alerts-overview.md#detect-threats).
 
-Avsikten med den här artikeln är inte att hjälpa dig att skapa en egen incidenthanteringsplan, men vi ska använda Microsoft Azure Security Response i molnets livscykel för att beskriva de grundläggande incidenthanteringsfaserna. Stegen visas i följande diagram:
+Den här artikeln har inte för avsikt att hjälpa dig att skapa din egen incidentsvarsplan, men vi kommer att använda Microsoft Azure Security Response i molnets livscykel som grund för incidentsvarssteg. Stegen visas i följande diagram:
 
 ![Misstänkt aktivitet](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
 
@@ -235,7 +235,7 @@ Följande exempel visar en misstänkt RDP-aktivitet:
 
 Den här sidan visar information om när angreppet upptäcktes, varifrån det kommer och vilken virtuell dator som är drabbad, och här finns även rekommendationer för vad du bör göra. Under vissa omständigheter kan källan information om attacken vara tom. [Här](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) finns mer information om de fall då uppgift om källa saknas i aviseringar i Azure Security Center.
 
-På den här sidan kan du även starta en [undersökning](https://docs.microsoft.com/azure/security-center/security-center-investigation) för att bättre förstå attackens tidslinje, hur attacken skedde, vilka system som möjligen har drabbats, vilka autentiseringsuppgifter som användes samt visa en grafisk representation av hela attackkedjan.
+På den här sidan kan du även starta en undersökning för att bättre förstå attackens tidslinje, hur attacken skedde, vilka system som möjligen har drabbats, vilka autentiseringsuppgifter som användes samt visa en grafisk representation av hela attackkedjan.
 
 När du har identifierat det komprometterade systemet kan du köra en [Arbetsflödesautomation](workflow-automation.md) som tidigare har skapats. Det här är en samling procedurer som kan utföras från Security Center när de utlöses av en avisering.
 

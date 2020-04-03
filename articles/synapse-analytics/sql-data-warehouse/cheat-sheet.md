@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: f2019f8538b6997d8fe802a1e90069e88274eb0c
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8e0515727c2155b91f18398bd9def700f4a15b34
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349128"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619414"
 ---
 # <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Lathund för Azure Synapse Analytics (tidigare SQL DW)
 
@@ -115,7 +115,7 @@ Resursgrupper används som ett sätt att allokera minne till frågor. Om du beh�
 
 Om du märker att frågor tar för lång tid kan du kontrollera att dina användare inte körs i stora resursklasser. Stora resursklasser förbrukar många samtidighetsfack. De kan orsaka att andra frågor placeras i kö.
 
-Slutligen, genom att använda Gen2 i [SQL-pool](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse), varje resursklass får 2,5 gånger mer minne än Gen1.
+Slutligen, genom att använda Gen2 i [SQL-pool](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse), varje resursklass får 2,5 gånger mer minne än Gen1.
 
 Lär dig mer om hur du arbetar med [resursklasser och samtidighet](resource-classes-for-workload-management.md).
 

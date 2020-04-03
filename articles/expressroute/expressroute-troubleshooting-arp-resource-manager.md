@@ -2,18 +2,18 @@
 title: 'Azure ExpressRoute: ARP-tabeller – Felsökning'
 description: Den här sidan innehåller instruktioner om hur du hämtar ARP-tabellerna för en ExpressRoute-krets
 services: expressroute
-author: ganesr
+author: charwen
 ms.service: expressroute
 ms.topic: article
 ms.date: 01/30/2017
-ms.author: ganesr
+ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 4f1bd064dbc0909be3deba9180be1d8b3c066fd4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b31e9eb852c69d5f02eb855e319d2a4901942994
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74076571"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618528"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Skaffa ARP-tabeller i resurshanterarens distributionsmodell
 > [!div class="op_single_selector"]

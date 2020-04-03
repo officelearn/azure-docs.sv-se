@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: c1ad8390bc5db72636c637c2ffb817e34674d0fa
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: b0530ddada68cc9d07753a3b8ab30bff642e26dd
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548852"
+ms.locfileid: "80618668"
 ---
 # <a name="deploy-azure-data-explorer-cluster-into-your-virtual-network"></a>Distribuera Azure Data Explorer-kluster till ditt virtuella nätverk
 
@@ -106,7 +106,7 @@ Om du distribuerar Azure Data Explorer-kluster i undernätet kan du ställa in d
 | BrasilienSouth | 191.233.25.183 |
 | Kanada, centrala | 40.82.188.208 |
 | Kanada, östra | 40.80.255.12 |
-| Indien, centrala | 40.81.249.251 |
+| Indien, centrala | 40.81.249.251, 104.211.98.159 |
 | USA, centrala | 40.67.188.68 |
 | Centrala USA EUAP | 40.89.56.69 |
 | Asien, östra | 20.189.74.103 |
@@ -125,12 +125,12 @@ Om du distribuerar Azure Data Explorer-kluster i undernätet kan du ställa in d
 | Sydafrika Väst | 102.133.0.97 |
 | USA, södra centrala | 20.45.3.60 |
 | Sydostasien | 40.119.203.252 |
-| Indien, södra | 40.81.72.110 |
+| Indien, södra | 40.81.72.110, 104.211.224.189 |
 | Storbritannien, södra | 40.81.154.254 |
 | Storbritannien, västra | 40.81.122.39 |
 | USA, västra centrala | 52.159.55.120 |
 | Europa, västra | 51.145.176.215 |
-| Indien, västra | 40.81.88.112 |
+| Indien, västra | 40.81.88.112, 104.211.160.120 |
 | USA, västra | 13.64.38.225 |
 | USA, västra 2 | 40.90.219.23 |
 

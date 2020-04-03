@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 7661981f07799592f9fdfcab3fb402336d48b4d4
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 67f863826a2e9eb1bffcb316754ad5c40a2f2bb1
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349977"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583141"
 ---
 # <a name="azure-synapse-analytics-workload-classification"></a>Klassificering av Azure Synapse Analytics-arbetsbelastning
 
-I den här artikeln beskrivs arbetsbelastningsklassificeringsprocessen för att tilldela en arbetsbelastningsgrupp och vikten till inkommande begäranden med SQL Analytics i Azure Synapse.
+I den här artikeln beskrivs arbetsbelastningsklassificeringsprocessen för att tilldela en arbetsbelastningsgrupp och vikten till inkommande begäranden med Synapse SQL-pooler i Azure Synapse.
 
 ## <a name="classification"></a>Klassificering
 
@@ -36,7 +36,7 @@ Alla uttalanden klassificeras inte eftersom de inte kräver resurser eller behö
 
 ## <a name="classification-process"></a>Klassificeringsprocess
 
-Klassificering för SQL Analytics i Azure Synapse uppnås idag genom att tilldela användare till en roll som har en motsvarande resursklass tilldelad med hjälp av [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). Möjligheten att karakterisera begäranden utöver en inloggning till en resursklass är begränsad med den här funktionen. En rikare metod för klassificering är nu tillgänglig med syntaxen [SKAPA ARBETSBELASTNINGSKLASSIFICER.](/sql/t-sql/statements/create-workload-classifier-transact-sql)  Med den här syntaxen kan SQL Analytics-användare tilldela prioritet och `workload_group` hur mycket systemresurser som tilldelas en begäran via parametern. 
+Klassificering för Synapse SQL-pool i Azure Synapse uppnås idag genom att tilldela användare till en roll som har en motsvarande resursklass tilldelad med hjälp av [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). Möjligheten att karakterisera begäranden utöver en inloggning till en resursklass är begränsad med den här funktionen. En rikare metod för klassificering är nu tillgänglig med syntaxen [SKAPA ARBETSBELASTNINGSKLASSIFICER.](/sql/t-sql/statements/create-workload-classifier-transact-sql)  Med den här syntaxen kan Synapse SQL-poolanvändare tilldela prioritet och `workload_group` hur mycket systemresurser som tilldelas en begäran via parametern. 
 
 > [!NOTE]
 > Klassificeringen utvärderas per begäran. Flera begäranden i en enda session kan klassificeras på olika sätt.
@@ -87,7 +87,7 @@ JOIN    sys.database_principals AS m ON rm.member_principal_id = m.principal_id
 WHERE   r.name IN ('mediumrc','largerc','xlargerc','staticrc10','staticrc20','staticrc30','staticrc40','staticrc50','staticrc60','staticrc70','staticrc80');
 
 --for each row returned run
-sp_droprolemember ‘[Resource Class]’, membername
+sp_droprolemember '[Resource Class]', membername
 ```
 
 ## <a name="next-steps"></a>Nästa steg

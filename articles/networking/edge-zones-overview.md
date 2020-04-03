@@ -5,14 +5,14 @@ services: vnf-manager
 author: ganesr
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 04/02/2020
 ms.author: ganesr
-ms.openlocfilehash: d04032075166d2edd273c7f22bfb0d54aeccd8b3
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 2f2311adc231eac4260e26f0d5d1f2115f43d2eb
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545824"
+ms.locfileid: "80618704"
 ---
 # <a name="about-azure-edge-zones---preview"></a>Om Azure Edge-zoner – förhandsversion
 
@@ -132,11 +132,13 @@ Vi har ett rikt ekosystem av VNF-leverantörer, ISV-enheter och MSP-partner för
 | Globala betydande institut och operatörer | Mobiloperatörer |
 | --- | --- |
 | Amdocs (enheter)                       | Etisalat             |
-| Amerikanska tornet               | Rogers               |
-| Expeto (expeto)                       | Singtel (singtel)              |
-| Federerad trådlös           | Vodafone             |
-| Infosys                      |      *                |
-| Tech Mahindra                |      *                |
+| Amerikanska tornet               | NTT Communications   |
+| Århundrade anknyter                 | Proximus             |
+| Expeto (expeto)                       | Rogers               |
+| Federerad trådlös           | SK Telekom           |
+| Infosys                      | Telefonica           |
+| Tech Mahindra                | Telstra              |
+|        *                     | Vodafone             |
 
 [Kontakta Private Edge Zones-teamet](https://aka.ms/EdgeZonesPartner) för mer information om hur du blir partner.
 

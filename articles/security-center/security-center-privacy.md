@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: 6edea1d0de53e2dc9f764de26209dc1f3110556e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf715d872fab421de30ebcb146a1981a7d008738
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75978604"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585979"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Hantera användardata i Azure Security Center
 Den här artikeln innehåller information om hur du kan hantera användardata i Azure Security Center. Hantering av användardata omfattar möjligheten att komma åt, ta bort eller exportera data.
@@ -98,6 +98,3 @@ En Security Center-användare kan välja bort genom att ta bort sina [säkerhets
 
 ## <a name="auditing-and-reporting"></a>Revision och rapportering
 Granskningsloggar för säkerhetskontakt, just-in-time och varningsuppdateringar underhålls i [Azure Activity Logs](../azure-monitor/platform/platform-logs-overview.md).
-
-## <a name="next-steps"></a>Nästa steg
-Mer information om hur du hanterar användardata finns [i Hantera användardata som hittades i en Undersökning av Azure Security Center](security-center-investigation-user-data.md).

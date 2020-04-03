@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 275b3bd25f931b73e8a378433899ef9ade4d47c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6d257198fcae54b1214d77f6b905d876d2687f5
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76028273"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585536"
 ---
 # <a name="configuration-based-on-stig"></a>Konfiguration baserad på STIG
 
@@ -37,7 +37,7 @@ Många organisationer måste [dokumentera undantag](https://github.com/microsoft
 Powerstig åtgärdar problemet genom att tillhandahålla [sammansatta resurser](https://github.com/microsoft/powerstig#powerstigdsc) för att ta itu med varje område i konfigurationen i stället för att försöka åtgärda hela inställningsområdet i en stor fil.
 
 När konfigurationerna har genererats kan du använda [DSC-konfigurationsskripten](/powershell/scripting/dsc/configurations/configurations) för att generera MOF-filer och [ladda upp MOF-filerna till Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-Registrera sedan dina servrar från antingen [lokalt](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) eller [i Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) för att hämta konfigurationer.
+Registrera sedan dina servrar från antingen [lokalt](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) eller [i Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms) för att hämta konfigurationer.
 
 Om du vill prova PowerSTIG besöker du [PowerShell-galleriet](https://www.powershellgallery.com) och hämtar lösningen eller klickar på "Projektplats" för att visa [dokumentationen](https://github.com/microsoft/powerstig).
 

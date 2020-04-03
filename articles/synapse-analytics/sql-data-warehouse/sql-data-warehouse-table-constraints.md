@@ -1,6 +1,6 @@
 ---
 title: Primära, utländska och unika nycklar
-description: Stöd för tabellbegränsningar i SQL Analytics i Azure Synapse Analytics
+description: Stöd för tabellbegränsningar i Synapse SQL-pool i Azure Synapse Analytics
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,28 +11,30 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: b9336a5e230e90e1abd7f2d40d431b988385c009
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 881e4f0110e3c0f35301e2ae6be40f2510f42539
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350021"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583497"
 ---
-# <a name="primary-key-foreign-key-and-unique-key-in-sql-analytics"></a>Primärnyckel, sekundärnyckel och unik nyckel i SQL Analytics
+# <a name="primary-key-foreign-key-and-unique-key-in-synapse-sql-pool"></a>Primärnyckel, sekundärnyckel och unik nyckel i Synapse SQL-pool
 
-Lär dig mer om tabellbegränsningar i SQL Analytics, inklusive primärnyckel, sekundärnyckel och unik nyckel.
+Lär dig mer om tabellbegränsningar i Synapse SQL-pool, inklusive primärnyckel, sekundärnyckel och unik nyckel.
 
-## <a name="table-constraints"></a>Tabellbegränsningar 
-SQL Analytics stöder dessa tabellbegränsningar: 
+## <a name="table-constraints"></a>Tabellbegränsningar
+
+Synapse SQL-poolen stöder dessa tabellbegränsningar: 
 - PRIMÄRNYCKEL stöds endast när icke-GRUPPERADE och INTE TILLÄMPAS används båda.    
-- UNIK begränsning stöds endast med INTE enforced används.   
+- UNIK begränsning stöds endast med INTE enforced används.
 
-SEKUNDÄRNYCKEL-begränsning stöds inte i SQL Analytics.  
+SEKUNDÄRNYCKEL-begränsning stöds inte i Synapse SQL-pool.  
 
 ## <a name="remarks"></a>Anmärkningar
-Med primärnyckel och/eller unik nyckel kan SQL Analytics-motorn generera en optimal körningsplan för en fråga.  Alla värden i en primärnyckelkolumn eller en unik begränsningskolumn ska vara unika. 
 
-När du har skapat en tabell med primärnyckel eller unik begränsning i SQL Analytics måste användarna se till att alla värden i dessa kolumner är unika.  Ett brott mot det kan leda till att frågan returnerar felaktiga resultat.  Det här exemplet visar hur en fråga kan returnera felaktiga resultat om primärnyckeln eller den unika begränsningskolumnen innehåller dubblettvärden.  
+Med primärnyckel och/eller unik nyckel kan Synapse SQL-poolmotor generera en optimal körningsplan för en fråga.  Alla värden i en primärnyckelkolumn eller en unik begränsningskolumn ska vara unika.
+
+När du har skapat en tabell med primärnyckel eller unik begränsning i Synapse SQL-pool måste användarna se till att alla värden i dessa kolumner är unika.  Ett brott mot det kan leda till att frågan returnerar felaktiga resultat.  Det här exemplet visar hur en fråga kan returnera felaktiga resultat om primärnyckeln eller den unika begränsningskolumnen innehåller dubblettvärden.  
 
 ```sql
  -- Create table t1
@@ -158,12 +160,13 @@ a1          total
 ```
 
 ## <a name="examples"></a>Exempel
-Skapa en SQL Analytics-tabell med primärnyckel: 
+
+Skapa en Synapse SQL-biljardtabell med primärnyckel: 
 
 ```sql 
 CREATE TABLE mytable (c1 INT PRIMARY KEY NONCLUSTERED NOT ENFORCED, c2 INT);
 ```
-Skapa en SQL Analytics-tabell med ett unikt villkor:
+Skapa en Synapse SQL-biljardtabell med ett unikt villkor:
 
 ```sql
 CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
@@ -171,4 +174,4 @@ CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har skapat tabellerna för SQL Analytics-databasen är nästa steg att läsa in data i tabellen. En inläsningsstudiekurs finns [i Läsa in data till SQL Analytics-databaser](load-data-wideworldimportersdw.md).
+När du har skapat tabellerna för Synapse SQL-poolen är nästa steg att läsa in data i tabellen. En inläsningsstudiekurs finns [i Läsa in data till Synapse SQL-pool](load-data-wideworldimportersdw.md).

@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sstein
-ms.openlocfilehash: 2df83e3b62994381895315b2ef100299e40b745e
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 9fa93af72c2869efd7b6d2f1e8b96b0e667f8b16
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366505"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607538"
 ---
 # <a name="sql-database-release-notes"></a>Viktig information om SQL-databas
 
@@ -78,6 +78,7 @@ Följande funktioner är aktiverade i Distributionsmodellen För hanterade insta
 
 |Problem  |Upptäckt datum  |Status  |Datum löst  |
 |---------|---------|---------|---------|
+|[Behörigheter för resursgruppen tillämpas inte på hanterad instans](#permissions-on-resource-group-not-applied-to-managed-instance)|Februari 2020|Har lösning||
 |[Begränsning av manuell redundans via portal för redundansgrupper](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Har lösning||
 |[SQL Agent-roller kräver explicita EXECUTE-behörigheter för icke-sysadmin-inloggningar](#in-memory-oltp-memory-limits-are-not-applied)|Dec 2019|Har lösning||
 |[SQL Agent-jobb kan avbrytas av omstart av agentprocessen](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dec 2019|Ingen lösning|Mars 2020|
@@ -101,6 +102,12 @@ Följande funktioner är aktiverade i Distributionsmodellen För hanterade insta
 |Återställning av point-in-time-databas från affärskritisk nivå till allmän nivå lyckas inte om källdatabasen innehåller OLTP-objekt i minnet.||Matchat|Okt 2019|
 |Databaspostfunktionen med externa e-postservrar (som inte är Azure) med säker anslutning||Matchat|Okt 2019|
 |Inneslutna databaser som inte stöds i hanterad instans||Matchat|Augusti 2019|
+
+### <a name="permissions-on-resource-group-not-applied-to-managed-instance"></a>Behörigheter för resursgruppen tillämpas inte på hanterad instans
+
+RBAC-roll för hanterad instansmedarbetare när den tillämpas på en resursgrupp (RG) tillämpas inte på hanterad instans och har ingen effekt.
+
+**Lösning**: Roll för guiden Hanterad instansdeltagare för användare på prenumerationsnivå.
 
 ### <a name="limitation-of-manual-failover-via-portal-for-failover-groups"></a>Begränsning av manuell redundans via portal för redundansgrupper
 

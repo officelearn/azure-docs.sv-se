@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 504dfb721c7b87d5497c73851d0694601b253d5c
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 2270ee7c850c528bd24fa2e58c2b1684acfc24d6
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529700"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585300"
 ---
 # <a name="troubleshoot"></a>Felsöka
 
@@ -19,7 +19,7 @@ Den här artikeln innehåller lösningar på vanliga Azure FarmBeats-problem. F�
 ## <a name="install-issues"></a>Installera problem
 
   > [!NOTE]
-  > Om du startar om installationen på grund av ett fel måste du ta bort resursgruppen eller ta bort alla resurser från resursgruppen innan du återutlöster installationen.
+  > Om du startar om installationen på grund av ett fel måste du ta bort **resursgruppen** eller ta bort alla resurser från resursgruppen innan du återutlöster installationen.
 
 ### <a name="invalid-sentinel-credentials"></a>Ogiltiga Sentinel-autentiseringsuppgifter
 
@@ -31,7 +31,7 @@ Sentinel-autentiseringsuppgifterna som anges under installationen är felaktiga.
 
 ### <a name="invalid-resource-group-location"></a>Ogiltig resursgruppsplats
 
-Kontrollera att resursgruppen är på samma plats som den region som angavs under installationen.
+Kontrollera att **resursgruppen** är på samma plats som den **region som** angavs under installationen.
 
 ### <a name="other-install-issues"></a>Andra installationsproblem
 
@@ -39,11 +39,11 @@ Kontakta oss med följande information:
 
 - Ditt prenumerations-ID
 - Namn på resursgrupp
-- Bifoga loggfilen för distributionsfel med hjälp av stegen nedan:
+- Följ stegen nedan för att bifoga loggfilen för distributionsfel:
 
-    1. Navigera till resursgruppen i Azure-portalen.
-    2. Välj Distributioner under avsnittet Inställningar till vänster.
-    3. För varje distribution som visar "Misslyckades" klickar du vidare till detaljer och hämtar distributionsinformationen. Bifoga den här filen till e-postmeddelandet.
+    1. Navigera till **resursgruppen** i Azure-portalen.
+    2. Välj **Distributioner** under **avsnittet Inställningar** till vänster.
+    3. För varje distribution som visar **Misslyckades**väljer du informationen och hämtar distributionsinformationen. Bifoga den här filen till e-postmeddelandet.
 
 ## <a name="sensor-telemetry"></a>Sensor telemetri
 
@@ -51,11 +51,12 @@ Kontakta oss med följande information:
 
 **Symptom:** Enheter eller sensorer distribueras och du har länkat FarmBeats med din enhetspartner, men du kan inte hämta eller visa telemetridata på FarmBeats.
 
-**Korrigerande åtgärder:**
+**Korrigeringsåtgärder**
 
 1. Gå till din FarmBeats Datahub-resursgrupp.
 2. Välj **eventhubben** (DatafeedEventHubNamespace) och kontrollera sedan antalet inkommande meddelanden.
 3. Gör något av följande:
+
    - Om det inte finns *några inkommande meddelanden*kontaktar du enhetspartnern.  
    - Om det finns *inkommande meddelanden*kontaktar du oss med dina Datahub- och Acceleratorloggar och har infångat telemetri.
 
@@ -65,9 +66,9 @@ Om du vill förstå hur du hämtar loggar går du till avsnittet ["Samla in logg
 
 **Symptom:** Enheter eller sensorer distribueras och du har skapat enheter/sensorer på FarmBeats och inmatad telemetri till EventHub, men du kan inte hämta eller visa telemetridata på FarmBeats.
 
-**Korrigerande åtgärder:**
+**Korrigeringsåtgärder**
 
-1. Se till att du har gjort partnerregistreringen korrekt - du kan kontrollera detta genom att gå till din datahub swagger, navigera till / Partner API, Gör en Get och kontrollera om partnern är registrerad. Om inte, följ [stegen här](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) för att lägga till partner.
+1. Se till att du har gjort partnerregistreringen korrekt - du kan kontrollera detta genom att gå till din datahub swagger, navigera till / Partner API, Gör en Get och kontrollera om partnern är registrerad. Om inte, följ dessa [steg](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) för att lägga till partner.
 
 2. Kontrollera att du har använt rätt telemetrimeddelandeformat:
 
@@ -96,7 +97,7 @@ Om du vill förstå hur du hämtar loggar går du till avsnittet ["Samla in logg
 
 ### <a name="dont-have-the-azure-event-hubs-connection-string"></a>Har inte azure event hubs-anslutningssträngen
 
-**Korrigerande åtgärder:**
+**Korrigeringsåtgärder**
 
 1. Gå till partner-API:et i Datahub Swagger.
 2. Välj **Hämta** > **Prova det** > **Kör**.
@@ -113,7 +114,7 @@ Om du vill förstå hur du hämtar loggar går du till avsnittet ["Samla in logg
 
 **Symptom:** Enheter är installerade och du har länkat FarmBeats med din enhetspartner. Enheterna är online och skickar telemetridata, men de visas offline.
 
-**Korrigerande åtgärd**: Rapporteringsintervallet är inte konfigurerat för den här enheten. Om du vill ställa in rapporteringsintervallet kontaktar du enhetstillverkaren. 
+**Korrigerande åtgärder** Rapporteringsintervallet är inte konfigurerat för den här enheten. Om du vill ställa in rapporteringsintervallet kontaktar du enhetstillverkaren. 
 
 ### <a name="error-deleting-a-device"></a>Det gick inte att ta bort en enhet
 
@@ -123,7 +124,7 @@ När du tar bort en enhet kan du stöta på något av följande vanliga felscena
 
 **Betydelse:** Enheten är associerad med flera sensorer som distribueras i servergruppen.
 
-**Korrigerande åtgärder:**  
+**Korrigeringsåtgärder**  
 
 1. Ta bort sensorerna som är associerade med enheten via Accelerator.  
 2. Om du vill associera sensorerna med en annan enhet ber du enhetspartnern att göra detsamma.  
@@ -140,15 +141,15 @@ När du tar bort en enhet kan du stöta på något av följande vanliga felscena
 
     > [!NOTE]
     > Du kan inte ta bort en enhet om sensorer är associerade med den. Mer information om hur du tar bort associerade sensorer finns i avsnittet **Ta bort sensor** i Hämta [sensordata från sensorpartner](get-sensor-data-from-sensor-partner.md).
-    > Partner har inte tillgång till att ta bort en enhet eller sensor. Endast administratörer har tillgång till göra detsamma.
+    > Partner har inte behörighet att ta bort en enhet eller sensor. Endast administratörer har behörighet att ta bort.
 
 ## <a name="issues-with-jobs"></a>Problem med jobb
 
 ### <a name="farmbeats-internal-error"></a>Internt fel i FarmBeats
 
-**Meddelande**: "FarmBeats internt fel, se felsökningsguide för mer information".
+**Meddelande**: "FarmBeats internt fel, se felsökningsguide för mer information."
 
-**Korrigerande åtgärd**: Det här problemet kan bero på ett tillfälligt fel i datapipelinen. Skapa jobbet igen. Om felet kvarstår, kontakta oss med felmeddelandet / loggarna.
+**Korrigerande åtgärder** Det här problemet kan bero på ett tillfälligt fel i datapipelinen. Skapa jobbet igen. Om felet kvarstår kontaktar du oss med felmeddelandet/loggarna.
 
 ## <a name="accelerator-troubleshooting"></a>Felsökning av acceleratorer
 
@@ -158,15 +159,15 @@ När du tar bort en enhet kan du stöta på något av följande vanliga felscena
 
 **Meddelande**: "Inga matchande användare hittades."
 
-**Korrigerande åtgärd**: Kontrollera det e-post-ID som du försöker lägga till en rolltilldelning för. E-post-ID:t måste vara en exakt matchning av ID:t, som är registrerad för den användaren i Active Directory. Om felet kvarstår, kontakta oss med felmeddelandet / loggarna.
+**Korrigerande åtgärder** Kontrollera det e-post-ID som du försöker lägga till en rolltilldelning för. E-post-ID:t måste vara en exakt matchning av ID:t, som är registrerad för den användaren i Active Directory. Om felet kvarstår kontaktar du oss med felmeddelandet/loggarna.
 
 ### <a name="unable-to-log-in-to-accelerator"></a>Det går inte att logga in på Accelerator
 
 **Meddelande**: "Fel: Du har inte behörighet att ringa tjänsten. Kontakta administratören för auktorisering."
 
-**Korrigerande åtgärd**: Be administratören att ge dig åtkomst till FarmBeats-distributionen. Detta kan göras genom att göra ett POST av RollAssignment API:er eller via åtkomstkontrollen i **fönstret Inställningar** i Accelerator.  
+**Korrigerande åtgärder** Be administratören att ge dig åtkomst till FarmBeats-distributionen. Detta kan göras genom att göra ett POST av RollAssignment API:er eller via åtkomstkontrollen i **fönstret Inställningar** i Accelerator.  
 
-Om du redan har beviljats åtkomst och står inför det här felet kan du försöka igen genom att uppdatera sidan. Om felet kvarstår, kontakta oss med felmeddelandet / loggarna.
+Om du redan har beviljats åtkomst och ställts inför det här felet kan du försöka igen genom att uppdatera sidan. Om felet kvarstår kontaktar du oss med felmeddelandet/loggarna.
 
 ![Projekt FarmBeats](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
 
@@ -176,13 +177,11 @@ Om du redan har beviljats åtkomst och står inför det här felet kan du förs�
 
 **Meddelande**: "Fel: Ett okänt fel uppstod."
 
-**Korrigerande åtgärder**: Det här felet uppstår om du lämnar sidan inaktiv för länge. Uppdatera sidan.  
-
-Om felet kvarstår, kontakta oss med felmeddelandet / loggarna.
+**Korrigerande åtgärder** Det här felet uppstår om du lämnar sidan inaktiv för länge. Uppdatera sidan. Om felet kvarstår kontaktar du oss med felmeddelandet/loggarna.
 
 **Problem:** FarmBeats Accelerator visar inte den senaste versionen, även efter att du har uppgraderat FarmBeatsDeployment.
 
-**Korrigerande åtgärd**: Det här felet uppstår på grund av servicearbetare uthållighet i webbläsaren. Gör följande:
+**Korrigerande åtgärder** Det här felet uppstår på grund av servicearbetare persistens i webbläsaren. Gör följande:
 
 1. Stäng alla webbläsarflikar som har Accelerator öppen och stäng webbläsarfönstret.
 2. Starta en ny instans av webbläsaren och ladda om accelerator-URI:n. Den här åtgärden läser in den nya versionen av Accelerator.
@@ -193,30 +192,30 @@ Om felet kvarstår, kontakta oss med felmeddelandet / loggarna.
 
 **Meddelande om jobbfel**: "Fullständig autentisering krävs för att komma åt den här resursen."
 
-**Korrigerande åtgärder:**
+**Korrigerande åtgärder**: Gör något av följande:
 
-Gör något av följande:
+- Uppdatera FarmBeats med rätt användarnamn/lösenord med hjälp av stegen nedan och försök igen.
 
-- Uppdatera FarmBeats med rätt användarnamn / lösenord med hjälp av stegen nedan och försök igen jobbet.
+  **Uppdatera Användarnamn på Sentinel**
 
-    *Uppdatera Sentinel-användarnamn*
     1. Logga in på [Azure Portal](https://portal.azure.com).
     2. Sök **Search** efter resursgruppen FarmBeats Datahub i sökrutan.
-    3. Välj Lagringskontolagring***** -> Behållare -> batch-prep-filer -> to_vm -> config.ini
-    4. Klicka på Redigera
+    3. Välj Lagringskontolagring***** > **Behållare** > **batch-prep-filer** > **to_vm** > **config.ini**
+    4. Välj **redigera**
     5. Uppdatera användarnamnet i avsnittet sentinel_account
 
-    *Uppdatera Sentinel-lösenord*
+  **Uppdatera Sentinel-lösenord**
+
     1. Logga in på [Azure Portal](https://portal.azure.com).
     2. Sök **Search** efter resursgruppen FarmBeats Datahub i sökrutan.
     3. Välj keyvault-*****
     4. Välj åtkomstprinciper under Inställningar
-    5. Klicka på "Lägg till åtkomstprincip"
-    6. Använd "Hemlig hantering" för Konfigurera från mall och lägg till dig själv i huvudmannen
-    7. Klicka på Lägg till och sedan på Spara på sidan Åtkomstprinciper
-    8. Klicka på Hemligheter under Inställningar
-    9. Klicka på Sentinel-lösenord
-    10. Skapa en ny version av värdet och aktivera den
+    5. Välj **Lägg till åtkomstprincip**
+    6. Använd **hemlig hantering** för Konfigurera från mall och lägg till dig själv i Huvudman
+    7. Välj **Lägg till**och välj sedan **Spara** på sidan **Åtkomstprinciper**
+    8. Välj **Hemligheter** under **Inställningar**
+    9. Välj **Sentinel-lösenord**
+    10. Skapa en ny version av värdet och aktivera den.
 
 - Kör det misslyckade jobbet igen eller kör ett satellitindexjobb för ett datumintervall på 5 till 7 dagar och kontrollera sedan om jobbet lyckas.
 
@@ -252,7 +251,7 @@ Det här problemet kan uppstå om några underhållsaktiviteter utförs på Sent
 
 **Korrigerande åtgärder**: Prova något av följande:
 
-* Vänta tills de andra jobben har avslutats innan det gick misslyckade jobbet igen.
+* Vänta tills de andra jobben är klara innan du kör det misslyckade jobbet igen.
 * Skapa ett nytt Sentinel-konto och uppdatera sedan Sentinels användarnamn och lösenord i FarmBeats.
 
 ### <a name="sentinel-server-refused-connection"></a>Sentinel-server: Nekad anslutning
@@ -269,10 +268,11 @@ Det här problemet kan uppstå om några underhållsaktiviteter utförs på Sent
 
 ### <a name="soil-moisture-map-has-white-areas"></a>Soil Moisture karta har vita områden
 
-**Problem:** Jordfuktningskartan skapades, men kartan har mestadels vita områden.
+**Problem:** **Jordfuktningskartan** skapades, men kartan har mestadels vita områden.
 
 **Korrigerande åtgärder**: Det här problemet kan uppstå om de satellitindex som genereras för den tid för vilken kartan begärdes har NDVI-värden som är mindre än 0,3. För mer information, besök [Teknisk guide från Sentinel](https://earth.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-2a/algorithm).
-1. Kör jobbet för ett annat datumintervall och kontrollera om NDVI-värdena i satellitindexen är mer än 0,3
+
+1. Kör jobbet för ett annat datumintervall och kontrollera om NDVI-värdena i satellitindexen är mer än 0,3.
 
 ## <a name="collect-logs-manually"></a>Samla in loggar manuellt
 

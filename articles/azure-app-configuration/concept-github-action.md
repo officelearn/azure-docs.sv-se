@@ -1,19 +1,19 @@
 ---
-title: Använda GitHub-åtgärder med Azure App-konfigurationssynkronisering
-description: Använda GitHub-åtgärder för att utlösa en uppdatering av appkonfigurationsinstansen när du uppdaterar GitHub-databasen
+title: Synkronisera din GitHub-databas med appkonfiguration
+description: Använd GitHub-åtgärder för att automatiskt uppdatera appkonfigurationsinstansen när du uppdaterar GitHub-databasen.
 author: lisaguthrie
 ms.author: lcozzens
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 46d4aa4d4d37e9cac928e8d1a9e5e77ca0f30f18
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 602ccddf97938022df3c5903b573608558fe5d35
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384066"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585485"
 ---
-# <a name="sync-your-app-configuration-instance-using-github-actions"></a>Synkronisera en App Configuration-instans med GitHub Actions
+# <a name="sync-your-github-repository-to-app-configuration"></a>Synkronisera din GitHub-databas med appkonfiguration
 
 Team som vill fortsätta använda sina befintliga källkontrollmetoder kan använda GitHub-åtgärder för att automatiskt synkronisera sin GitHub-databas med sitt App Configuration Store. På så sätt kan du göra ändringar i dina konfigurationsfiler som vanligt, samtidigt som du får fördelar för appkonfigurationen som: <br>
 &nbsp;&nbsp;&nbsp;&nbsp;• Centraliserad konfiguration utanför koden <br>

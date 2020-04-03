@@ -16,12 +16,12 @@ ms.date: 03/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 477bb5430214b497f90e3cb6d5df69f9fcf4035f
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 65100e8584eba5c31edc2f9fd8c57ad8bd14c0d1
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546165"
+ms.locfileid: "80582549"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Vad är berättigandehantering i Azure AD?
 
@@ -43,7 +43,7 @@ Dessa problem förvärras för användare som behöver åtkomst från en annan o
 - Ingen person kanske inte känner till alla specifika individer i andra organisationers kataloger för att kunna bjuda in dem
 - Även om de kunde bjuda in dessa användare, ingen i den organisationen kanske kommer ihåg att hantera alla användarens åtkomst konsekvent
 
-Hantering av Azure AD-rättigheter kan hjälpa till att lösa dessa utmaningar.  Om du vill veta mer om hur kunder har använt Azure AD-berättigandehantering kan du läsa [Avanade fallstudie](https://aka.ms/AvanadeELMCase) och [Centrica fallstudie](https://aka.ms/CentricaELMCase).  Det här videoklippet innehåller en översikt över rättighetshantering och dess värde:
+Hantering av Azure AD-rättigheter kan hjälpa till att lösa dessa utmaningar.  Om du vill veta mer om hur kunder har använt Azure AD-berättigandehantering kan du läsa [Avanade fallstudie](https://customers.microsoft.com/story/avanade-professional-services-azure-canada) och [Centrica fallstudie](https://customers.microsoft.com/story/757467-centrica-energy-azure).  Det här videoklippet innehåller en översikt över rättighetshantering och dess värde:
 
 >[!VIDEO https://www.youtube.com/embed/_Lss6bFrnQ8]
 

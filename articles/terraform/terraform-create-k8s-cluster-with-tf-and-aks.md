@@ -4,12 +4,12 @@ description: I den här självstudien skapar du ett Kubernetes-kluster med Azure
 keywords: azurblå devops terraform aks kubernetes
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 0a193c8da6441a04f742894797521fe92f26b2e1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b7a84d7562e99e53ff7be75b7d40795cd3f9e203
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78945299"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618926"
 ---
 # <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>Självstudiekurs: Skapa ett Kubernetes-kluster med Azure Kubernetes-tjänsten med Terraform
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du utför följande uppgifter:
 
 - **Konfigurera Terraform**: Följ anvisningarna i artikeln [Terraform and configure access to Azure](terraform-install-configure.md) (Terraform och konfigurera åtkomst till Azure)
 
-- **Azure-tjänstens huvudnamn**: Följ anvisningarna i avsnittet **Skapa huvudnamn för tjänsten** i artikeln [Skapa Azure-tjänstens huvudnamn med Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Observera värdena för appId, displayName, password (lösenord) och tenant (klientorganisation).
+- **Azure-tjänstens huvudnamn**: Följ anvisningarna i avsnittet **Skapa tjänstens huvudnamn** i artikeln, [Skapa ett Azure-tjänsthuvudnamn med Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Observera värdena för appId, displayName, password (lösenord) och tenant (klientorganisation).
 
 ## <a name="create-the-directory-structure"></a>Skapa katalogstrukturen
 
@@ -303,7 +303,7 @@ I det här avsnittet ser du hur du utför följande uppgifter:
 
 ## <a name="create-the-kubernetes-cluster"></a>Skapa Kubernetes-klustret
 
-I det här avsnittet ser du hur du använder kommandot `terraform init` för att skapa resurserna som definieras i konfigurationsfilerna som du skapade i föregående avsnitt.
+I det här avsnittet ser `terraform init` du hur du använder kommandot för att skapa de resurser som definierats i konfigurationsfilerna som du skapade i föregående avsnitt.
 
 1. I Cloud Shell, initiera Terraform. Ersätt platshållarna med lämpliga värden för din miljö.
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/19/2019
-ms.openlocfilehash: b0dc974185ad616d57327e9cc3743db9ecb20e54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 803783eddfbffd5c3dbab7353ee00dd7f11a09e5
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78302737"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618906"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: Fel för att skapa kluster
 
@@ -157,7 +157,7 @@ Om du planerar att använda nätverkssäkerhetsgrupper för att styra nätverkst
 
 ---
 
-## <a name="error-code-storagepermissionsblockedformsi"></a>Felkod: StoragePermissionsBlockedForMsi  
+## <a name="error-code-storagepermissionsblockedformsi"></a>Felkod: StoragePermissionsBlockedForMsi
 
 ### <a name="error"></a>Fel
 
@@ -178,11 +178,11 @@ Mer information finns i [Konfigurera behörigheter för den hanterade identitete
 
 ---
 
-## <a name="error-code-invalidnetworksecuritygroupsecurityrules"></a>Felkod: InvalidNetworkSecurityGroupSecurityRules  
+## <a name="error-code-invalidnetworksecuritygroupsecurityrules"></a>Felkod: InvalidNetworkSecurityGroupSecurityRules
 
 ### <a name="error"></a>Fel
 
-"Säkerhetsreglerna\<i nätverkssäkerhetsgruppen /subscriptions/\>SubscriptionID /resourceGroups/<Resource\> Group name\<default/providers/Microsoft.Network/networkSecurityGroups/ Network Security Group Name\<\>\<\> \<\> konfigurerat med undernät /subscriptionID/ SubscriptionID /resourceGroups/ Resource Group name RG-westeurope-vnet-tomtom-default/providers/Microsoft.Network/virtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ VirtualNetworks/ Nätverksnamn\>/undernät/\<undernätnamn\> tillåter inte obligatorisk inkommande och/eller utgående anslutning. Mer information finns i [Planera ett virtuellt nätverk för Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)eller kontakta supporten."
+"Säkerhetsreglerna\<i nätverkssäkerhetsgruppen /prenumerationer/\>SubscriptionID /resourceGroups/<Resource\> Group namn default/providers/Microsoft.Network/networkSecurityGroups/\<Network Security Group Name\<\>\<\> \<\>\<\> \> konfigurerat med undernät /prenumerationer/ SubscriptionID /resource Grupp/Resursgruppnamn RG-westeurope-vnet-tomtom-default/providers/Microsoft.Network/virtualNetworks/ Virtual Network Name /subnets/ Subnet Name tillåter inte obligatorisk inkommande och/eller utgående anslutning. Mer information finns i [Planera ett virtuellt nätverk för Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)eller kontakta supporten."
 
 ### <a name="cause"></a>Orsak
 
@@ -195,12 +195,12 @@ Om du planerar att använda nätverkssäkerhetsgrupper för att styra nätverkst
 - Identifiera den Azure-region som du planerar att använda för HDInsight och skapa en säker lista över IP-adresser för din region. Mer information finns i [Hälso- och förvaltningstjänster: Specifika regioner](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses#health-and-management-services-specific-regions).
 - Identifiera de IP-adresser som HDInsight kräver. Mer information finns i [IP-adresser för HDInsight-hantering](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
 - Skapa eller ändra nätverkssäkerhetsgrupperna för undernätet som du planerar att installera HDInsight i. För nätverksskyddsgrupper tillåter du inkommande trafik på port 443 från IP-adresserna. Den här konfigurationen säkerställer att HDInsight-hanteringstjänster kan nå klustret utanför det virtuella nätverket.
-  
+
 ---
 
 ## <a name="error-code-cluster-setup-failed-to-install-components-on-one-or-more-hosts"></a>Felkod: Klusterinstallationen kunde inte installera komponenter på en eller flera värdar
 
-###  <a name="error"></a>Fel
+### <a name="error"></a>Fel
 
 "Klusterinstallationen kunde inte installera komponenter på en eller flera värdar. Försök igen din begäran."
 
@@ -211,6 +211,42 @@ Vanligtvis genereras det här felet när det finns ett tillfälligt problem elle
 ### <a name="resolution"></a>Lösning
 
 Kontrollera [azure-statussidan](https://status.azure.com) för alla Azure-avbrott som kan påverka klusterdistributionen. Om det inte finns några avbrott försöker du om klusterdistributionen.
+
+---
+
+## <a name="error-code-failedtoconnectwithclustererrorcode"></a>Felkod: FailedToConnectWithClusterErrorCode
+
+### <a name="error"></a>Fel
+
+Det gick inte att ansluta till slutpunkten för klusterhantering. Försök igen senare.
+
+### <a name="cause"></a>Orsak
+
+HDInsight-tjänsten kan inte ansluta till klustret när du försöker skapa klustret
+
+### <a name="resolution"></a>Lösning
+
+Om du använder anpassade VNet-nätverkssäkerhetsgrupp (NSG) och användardefinierade vägar (UDRs) kontrollerar du att klustret kan kommunicera med HDInsight-hanteringstjänster. Mer information finns i [IP-adresser för HDInsight-hantering](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
+
+---
+
+## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Felkod: Distributioner misslyckades på grund av<Resource URI>principöverträdelse: "Resurs" inte godkändes av principen. Principidentifierare: '["policyAssignment":{"name":"<Policy Name> ","id":"/providers/Microsoft.Management/managementGroups/providers/Microsoft.Authorization/policyAssignments/<Management Group Name> <Policy Name>'},"policyDefinition":<Policy Definition>
+
+### <a name="cause"></a>Orsak
+
+Prenumerationsbaserade Azure-principer kan neka skapandet av offentliga IP-adresser. Skapande av HDInsight-klustret kräver två offentliga IP-adresser.
+
+Följande principer påverkar i allmänhet skapandet av kluster:
+
+* Principer som förhindrar att ip-adresser eller belastningsutjämnare skapas i prenumerationen.
+* Princip som förhindrar att skapa lagringskonton.
+* Princip som förhindrar att nätverksresurser som IP-adresser eller belastningsutjämnare tas bort.
+
+### <a name="resolution"></a>Lösning
+
+Ta bort eller inaktivera den prenumerationsbaserade Azure-principen när HDInsight Cluster skapas.
+
+---
 
 ## <a name="next-steps"></a>Nästa steg
 

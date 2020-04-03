@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 1809902fb153c5c9c83a9d00b6f817fde975d0fe
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 06fc9edd55aa51c985cbb981fc5a6892d0ca75e5
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349901"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583126"
 ---
 # <a name="what-is-workload-management"></a>Vad är arbetsbelastningshantering?
 
@@ -36,11 +36,12 @@ Prestandakapaciteten för ett informationslager bestäms av [informationslageren
 
 
 ## <a name="workload-management-concepts"></a>Begrepp för hantering av arbetsbelastningar
-Tidigare har du för SQL Analytics i Azure Synapse hanterat frågeprestanda via [resursklasser](resource-classes-for-workload-management.md).  Resursklasser som tillåts för att tilldela minne till en fråga baserat på rollmedlemskap.  Den primära utmaningen med resursklasser är att det, när de väl har konfigurerats, inte fanns någon styrning eller förmåga att kontrollera arbetsbelastningen.  
+
+Tidigare, för Synapse SQL pool i Azure Synapse du hanterade frågan prestanda via [resursklasser](resource-classes-for-workload-management.md).  Resursklasser som tillåts för att tilldela minne till en fråga baserat på rollmedlemskap.  Den primära utmaningen med resursklasser är att det, när de väl har konfigurerats, inte fanns någon styrning eller förmåga att kontrollera arbetsbelastningen.  
 
 Om du till exempel beviljade ett ad hoc-användarrollmedlemskap till smallrc tillåts användaren att förbruka 100 % av minnet i systemet.  Med resursklasser finns det inget sätt att reservera och se till att resurser är tillgängliga för kritiska arbetsbelastningar.
 
-SQL Analytics arbetsbelastningshantering i Azure Synapse består av tre högnivåbegrepp: [arbetsbelastningsklassificering,](sql-data-warehouse-workload-classification.md) [arbetsbelastningsbetydelse](sql-data-warehouse-workload-importance.md) och [arbetsbelastningsisolering](sql-data-warehouse-workload-isolation.md).  Dessa funktioner ger dig mer kontroll över hur din arbetsbelastning använder systemresurser.
+Hantering av Synapse SQL-poolarbetsbelastning i Azure Synapse består av tre högnivåbegrepp: [arbetsbelastningsklassificering,](sql-data-warehouse-workload-classification.md) [arbetsbelastningsbetydelse](sql-data-warehouse-workload-importance.md) och [arbetsbelastningsisolering](sql-data-warehouse-workload-isolation.md).  Dessa funktioner ger dig mer kontroll över hur din arbetsbelastning använder systemresurser.
 
 Arbetsbelastningsklassificering är konceptet att tilldela en begäran till en arbetsbelastningsgrupp och ange prioritetsnivåer.  Historiskt sett har detta uppdrag gjorts via rollmedlemskap med hjälp av [sp_addrolemember](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management#change-a-users-resource-class).  Detta kan nu göras via [CREATE WORKLOAD CLASSIFER](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  Klassificeringsfunktionen ger en rikare uppsättning alternativ som etikett, session och tid för att klassificera begäranden.
 

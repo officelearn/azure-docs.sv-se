@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 97ea98fc38fc8d06dc1bc65ee057241da6f15488
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73a9680cc570179c47b527a4844488da69193cb3
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78851394"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586102"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Felsöka start-/stopp-virtuella datorer under starttimmarslösning
 
@@ -137,7 +137,7 @@ Det här felet kan orsakas av något av följande orsaker:
 
 Läs följande lista för potentiella lösningar på ditt problem eller platser att titta på:
 
-* När du använder [sekvensscenariot för](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags) start/stop-datorn under avdylningstimmarslösning måste du se till att varje virtuell dator som du vill starta eller stoppa har rätt tagg. Kontrollera att de virtuella datorer som `sequencestart` du vill starta har taggen `sequencestop` och de virtuella datorer som du vill stoppa har taggen. Båda taggarna kräver ett positivt heltalsvärde. Du kan använda en fråga som liknar följande exempel för att leta efter alla virtuella datorer med taggarna och deras värden.
+* När du använder [sekvensscenariot för](../automation-solution-vm-management.md) start/stop-datorn under avdylningstimmarslösning måste du se till att varje virtuell dator som du vill starta eller stoppa har rätt tagg. Kontrollera att de virtuella datorer som `sequencestart` du vill starta har taggen `sequencestop` och de virtuella datorer som du vill stoppa har taggen. Båda taggarna kräver ett positivt heltalsvärde. Du kan använda en fråga som liknar följande exempel för att leta efter alla virtuella datorer med taggarna och deras värden.
 
   ```powershell-interactive
   Get-AzureRmResource | ? {$_.Tags.Keys -contains "SequenceStart" -or $_.Tags.Keys -contains "SequenceStop"} | ft Name,Tags
@@ -187,7 +187,7 @@ Vidta följande åtgärder för att se till att lösningen är korrekt konfigure
 2. Kontrollera att resursgrupperna för de virtuella datorerna `External_Start_ResourceGroupNames` som `External_Stop_ResourceGroupNames` ska startas eller stoppas finns i variablerna eller, beroende på din situation.
 3. Testa ändringarna genom att `SequencedStartStop_Parent` köra runbooken med parametern WHATIF inställd på Sant för att förhandsgranska ändringarna.
 
-Mer detaljerade och ytterligare instruktioner om hur du använder lösningen för att starta och stoppa virtuella datorer i följd finns [i Start/Stop-virtuella datorer i följd](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags).
+Mer detaljerade och ytterligare instruktioner om hur du använder lösningen för att starta och stoppa virtuella datorer i följd finns [i Start/Stop-virtuella datorer i följd](../automation-solution-vm-management.md).
 
 ## <a name="scenario-startstop-vm-job-fails-with-403-forbidden-status"></a><a name="403"></a>Scenario: Start/Stop VM-jobbet misslyckas med 403 förbjuden status
 

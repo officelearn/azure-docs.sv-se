@@ -4,12 +4,12 @@ description: Lär dig hur du dynamiskt skapar en beständig volym med Azure-disk
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 37fea36567866af69e832a1f7e3caff2a68477a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f16a6134b1d2065668952ea11c0cab7398a3559a
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596971"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617476"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Skapa och använda en beständig volym dynamiskt med Azure-diskar i Azure Kubernetes Service (AKS)
 
@@ -33,7 +33,7 @@ En lagringsklass används för att definiera hur en lagringsenhet skapas dynamis
 Varje AKS-kluster innehåller två förskapade lagringsklasser, båda konfigurerade för att fungera med Azure-diskar:
 
 * Standardlagringsklassen etablerar en standard Azure-disk. *default*
-    * Standardlagring backas upp av hårddiskar och ger kostnadseffektiv lagring samtidigt som den utförs. Standarddiskar passar perfekt för kostnadseffektiv utveckling och testning av arbetsbelastningar.
+    * Standardlagring backas upp av hårddiskar och ger kostnadseffektiv lagring samtidigt som den utförs. Standarddiskar är idealiska för en kostnadseffektiv utvecklings- och testarbetsbelastning.
 * Lagringsklassen *med hanterad premium* har en premium Azure-disk.
     * Premiumdiskar backas upp av SSD-baserade diskar med höga prestanda och låg latens. Passar perfekt för virtuella datorer som kör produktionsarbetsbelastningar. Om AKS-noderna i klustret använder premiumlagring väljer du klassen *managed-premium.*
     

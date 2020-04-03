@@ -1,6 +1,6 @@
 ---
-title: Ansluta till Azure SQL Data Warehouse
-description: Anslut dig till Azure SQL Data Warehouse.
+title: Ansluta till Synapse SQL-pool
+description: Anslut till SQL-poolen.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,28 +11,30 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 72825f588ff92383858020cdbcd92c7de3078ed5
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 70dd1ae883ee1f44672dccb802c0e770d7676440
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350664"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619087"
 ---
-# <a name="connect-to-azure-sql-data-warehouse"></a>Ansluta till Azure SQL Data Warehouse
-Anslut dig till Azure SQL Data Warehouse.
+# <a name="connect-to-synapse-sql-pool"></a>Ansluta till Synapse SQL-pool
+Anslut till SQL-poolen.
 
 ## <a name="find-your-server-name"></a>Hitta servernamnet
-Servernamnet i följande exempel är samplesvr.database.windows.net. För att hitta det fullständigt kvalificerade servernamnet:
+Servernamnet i följande exempel är sqlpoolservername.database.windows.net. För att hitta det fullständigt kvalificerade servernamnet:
 
-1. Gå till [Azure-portalen][Azure portal].
-2. Klicka på **SQL-informationslager**.
-3. Klicka på det informationslager som du vill ansluta till.
+1. Gå till [Azure-portalen](https://portal.azure.com).
+2. Klicka på **Azure Synapse Analytics**.
+3. Klicka på den SQL-pool som du vill ansluta till.
 4. Leta upp det fullständiga servernamnet.
    
     ![Fullständigt servernamn](media/sql-data-warehouse-connect-overview/server-connect.PNG)
 
 ## <a name="supported-drivers-and-connection-strings"></a>Drivrutiner och anslutningssträngar som stöds
-Azure SQL Data Warehouse stöder [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] och [JDBC][JDBC]. För att hitta den senaste versionen och dokumentationen, klicka på en av de föregående drivrutinerna. Om du vill generera anslutningssträngen automatiskt för drivrutinen som du använder från Azure-portalen klickar du på **anslutningssträngarna Visa databas** från föregående exempel. Nedan visas några exempel på hur en anslutningssträng kan se ut för respektive drivrutin.
+SQL-poolen stöder [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396)och [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). För att hitta den senaste versionen och dokumentationen, klicka på en av de föregående drivrutinerna. 
+
+Om du vill generera anslutningssträngen automatiskt för drivrutinen som du använder från Azure-portalen klickar du på **anslutningssträngarna Visa databas** från föregående exempel. Nedan visas några exempel på hur en anslutningssträng kan se ut för respektive drivrutin.
 
 > [!NOTE]
 > Det kan vara bra att ange en tidsgräns på 300 sekunder för anslutningen så att den inte bryts vid korta perioder av inaktivitet.
@@ -60,36 +62,15 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 ```
 
 ## <a name="connection-settings"></a>Inställningar för anslutning
-SQL Data Warehouse standardiserar några inställningar under anslutning och objektskapande. Dessa inställningar kan inte åsidosättas. Det gäller exempelvis:
+SQL-poolen standardiserar vissa inställningar när anslutningen skapas och objekt skapas. Dessa inställningar kan inte åsidosättas. Det gäller exempelvis:
 
 | Databasinställning | Värde |
 |:--- |:--- |
-| [ANSI_NULLS][ANSI_NULLS] |ON |
-| [QUOTED_IDENTIFIERS][QUOTED_IDENTIFIERS] |ON |
-| [DATEFORMAT][DATEFORMAT] |mdy |
-| [DATEFIRST][DATEFIRST] |7 |
+| [ANSI_NULLS](https://msdn.microsoft.com/library/ms188048.aspx) |ON |
+| [QUOTED_IDENTIFIERS](https://msdn.microsoft.com/library/ms174393.aspx) |ON |
+| [DATEFORMAT](https://msdn.microsoft.com/library/ms189491.aspx) |mdy |
+| [DATEFIRST](https://msdn.microsoft.com/library/ms181598.aspx) |7 |
 
 ## <a name="next-steps"></a>Nästa steg
-Information om hur du ansluter och ställer frågor med Visual Studio finns i [Fråga med Visual Studio][Query with Visual Studio]. Läs mer om autentiseringsalternativ i [Autentisera till Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse].
-
-<!--Articles-->
-[Query with Visual Studio]:sql-data-warehouse-query-visual-studio.md
-[Authentication to Azure SQL Data Warehouse]:sql-data-warehouse-authentication.md
-
-<!--MSDN references-->
-[ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
-[ODBC]: https://msdn.microsoft.com/library/jj730314.aspx
-[PHP]: https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396
-[JDBC]: https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx
-[ANSI_NULLS]: https://msdn.microsoft.com/library/ms188048.aspx
-[QUOTED_IDENTIFIERS]: https://msdn.microsoft.com/library/ms174393.aspx
-[DATEFORMAT]: https://msdn.microsoft.com/library/ms189491.aspx
-[DATEFIRST]: https://msdn.microsoft.com/library/ms181598.aspx
-
-<!--Other-->
-[Azure portal]: https://portal.azure.com
-
-<!--Image references-->
-[1]: media/sql-data-warehouse-connect-overview/server-connect.PNG
-
+Information om hur du ansluter och ställer frågor med Visual Studio finns i [Fråga med Visual Studio](sql-data-warehouse-query-visual-studio.md). Mer information om autentiseringsalternativ finns i [Autentisering till Azure Synapse Analytics](sql-data-warehouse-authentication.md).
 

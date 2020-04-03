@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 766615a92e616a254cca4b2b3ce1ccde40118275
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 9ce87bac6fbcc3833684dc540c542bc14c9b4955
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350254"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586512"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Vanliga frågor och svar i Azure Synapse Analytics (tidigare SQL DW) Vanliga frågor och svar
 
@@ -29,9 +29,9 @@ F. Vad har hänt med Azure SQL Data Warehouse?
 
 A. Azure Synapse är Azure SQL Data Warehouse (SQL DW) utvecklats. Vi har tagit samma branschledande informationslager till en helt ny nivå av prestanda och kapacitet. Du kan fortsätta köra dina befintliga datalagerarbetsbelastningar i produktion med Azure Synapse och automatiskt dra nytta av de nya funktionerna, som är i förhandsversion. Mer information finns i [Vad är Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
-F. Vad är SQL Analytics?
+F. Vad är Synapse SQL-pool?
 
-A. SQL Analytics refererar till de funktioner för lagring av företagsdata som är allmänt tillgängliga med Azure Synapse. Mer information finns i [Vad är Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+A. Synapse SQL-pool refererar till de funktioner för företagsdatalagring som är allmänt tillgängliga med Azure Synapse. Mer information finns i [Vad är Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 F. Hur kommer jag igång med Azure Synapse?
 
@@ -49,7 +49,7 @@ F. Kan jag ansluta Power BI?
 
 A. Visst! Även om Power BI stöder direkt fråga med Azure Synapse är det inte avsett för ett stort antal användare eller realtidsdata. Om du vill optimera Power BI-prestanda ytterligare bör du överväga att använda Power BI ovanpå Azure Analysis Services eller Analysis Service IaaS.
 
-F. Vad är SQL Analytics kapacitetsgränser?
+F. Vad är Kapacitetsbegränsningar för Synapse SQL-pool?
 
 A. Se vår nuvarande [sida för kapacitetsbegränsningar.](sql-data-warehouse-service-capacity-limits.md) 
 
@@ -83,16 +83,15 @@ A. Många funktioner stöds. Funktioner som inte stöds finns i [Tabellfunktione
 
 ## <a name="tooling-and-administration"></a>Verktyg och administration
 
-F. Stöder SQL Analytics REST-API:er?
+F. Stöder Synapse SQL-pool REST API:er?
 
-A. Ja. De flesta REST-funktioner som kan användas med SQL Database är också tillgängliga med SQL Analytics. Du hittar API-information på REST-dokumentationssidor eller [MSDN](https://msdn.microsoft.com/library/azure/mt163685.aspx).
-
+A. Ja. De flesta REST-funktioner som kan användas med SQL Database finns också med Synapse SQL-pool. Du hittar API-information på REST-dokumentationssidor eller [MSDN](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
 ## <a name="loading"></a>Laddar
 
 F. Vilka klientdrivrutiner stöder du?
 
-A. Drivrutinsstöd för SQL Analytics finns på sidan [Anslutningssträngar](sql-data-warehouse-connection-strings.md)
+A. Drivrutinsstöd för Synapse SQL-pool finns på sidan [Anslutningssträngar](sql-data-warehouse-connection-strings.md)
 
 F: Vilka filformat stöds av PolyBase?
 
@@ -108,7 +107,8 @@ S: Nej, PolyBase interagerar bara med lagringskomponenterna.
 
 F: Kan jag ansluta till HDI?
 
-S: HDI kan använda antingen ADLS eller WASB som HDFS-lager. Om du har antingen som ditt HDFS-lager kan du läsa in dessa data i ett SQL Analytics-informationslager. Du kan dock inte generera pushdown-beräkning till HDI-instansen. 
+S: HDI kan använda antingen ADLS eller WASB som HDFS-lager. Om du har antingen som ditt HDFS-lager kan du läsa in dessa data i en Synapse SQL-pool. Du kan dock inte generera pushdown-beräkning till HDI-instansen. 
 
 ## <a name="next-steps"></a>Nästa steg
+
 Mer information om Azure Synapse som helhet finns på vår [översiktssida.](sql-data-warehouse-overview-faq.md)

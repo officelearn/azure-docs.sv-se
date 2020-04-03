@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: memildin
-ms.openlocfilehash: 9e4c6577f0b8b18aff343ac54b31ff292632f5d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aa262b0be3902f6e143a53f8f1302156fc5aede6
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979224"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582989"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Hantera användardata som hittades i en Azure Security Center-undersökning
 Den här artikeln innehåller information om hur du hanterar användardata som finns i Azure Security Centers undersökningsfunktion. Undersökningsdata lagras i [Azure Monitor-loggar](../log-analytics/log-analytics-overview.md) och exponeras i Security Center. Hantering av användardata omfattar möjligheten att ta bort eller exportera data.
@@ -26,7 +26,7 @@ Den här artikeln innehåller information om hur du hanterar användardata som f
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="searching-for-and-identifying-personal-data"></a>Söker efter och identifierar personuppgifter
-I Azure-portalen kan du använda Security Centers [undersökningsfunktion](../security-center/security-center-investigation.md) för att söka efter personuppgifter. Undersökningsfunktionen är tillgänglig under **Säkerhetsvarningar**.
+I Azure-portalen kan du använda Security Centers undersökningsfunktion för att söka efter personuppgifter. Undersökningsfunktionen är tillgänglig under **Säkerhetsvarningar**.
 
 Undersökningsfunktionen visar alla entiteter, användarinformation och data under fliken **Entiteter.**
 

@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 455036652836c6cfd2055e9a747f30b6dfe41295
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b19052b8a71b582b47308c41d170f50352d643e2
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77059165"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618359"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera Blink för automatisk användaretablering
 
-Syftet med den här självstudien är att demonstrera de steg som ska utföras i Blink och Azure Active Directory (Azure AD) för att konfigurera Azure AD för att automatiskt etablera och avetableras användare och/eller grupper till Blink.
+Syftet med den här självstudien är att demonstrera de steg som ska utföras i Blink och Azure Active Directory (Azure AD) för att konfigurera Azure AD för att automatiskt etablera och avetableras användare till Blink.
 
 > [!NOTE]
 > Den här självstudien beskriver en anslutningsapp som skapats ovanpå Azure AD-tjänsten för användaretablering. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera etablering av användare och avetablering till SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -41,9 +41,9 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 ## <a name="assigning-users-to-blink"></a>Tilldela användare till Blink
 
-Azure Active Directory använder ett koncept som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk användaretablering synkroniseras endast användare och/eller grupper som har tilldelats ett program i Azure AD.
+Azure Active Directory använder ett koncept som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk användaretablering synkroniseras endast användare och/eller gruppmedlemmar som har tilldelats ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar automatisk användaretablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till Blink. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till Blink genom att följa instruktionerna här:
+Innan du konfigurerar och aktiverar automatisk användaretablering bör du bestämma vilka användare och/eller gruppmedlemmar i Azure AD som behöver åtkomst till Blink. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till Blink genom att följa instruktionerna här:
 * [Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
 
 ## <a name="important-tips-for-assigning-users-to-blink"></a>Viktiga tips för att tilldela användare till Blink
@@ -54,7 +54,7 @@ Innan du konfigurerar och aktiverar automatisk användaretablering bör du best�
 
 ## <a name="setup-blink-for-provisioning"></a>Inställningar Blink för etablering
 
-1. Logga ett [supportärende](https://help.joinblink.com/hc/requests/new) support@joinblink.com eller e-post-support på för att begära en SCIM-token. **Blink support** .
+1. Logga ett [supportärende](https://support.joinblink.com) support@joinblink.com eller e-post-support på för att begära en SCIM-token. **Blink support** .
 
 2.  Kopiera **SCIM-autentiseringstoken**. Det här värdet anges i fältet Hemlig token på fliken Etablering i ditt Blink-program i Azure-portalen.
 
@@ -82,7 +82,7 @@ Innan du konfigurerar Blink för automatisk användaretablering med Azure AD må
 
 ## <a name="configuring-automatic-user-provisioning-to-blink"></a>Konfigurera automatisk användaretablering till Blink 
 
-I det här avsnittet får du hjälp med stegen för att konfigurera Azure AD-etableringstjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i Blink baserat på användar- och/eller grupptilldelningar i Azure AD.
+I det här avsnittet får du hjälp med stegen för att konfigurera Azure AD-etableringstjänsten för att skapa, uppdatera och inaktivera användare i Blink baserat på användar- och/eller grupptilldelningar i Azure AD.
 
 > [!TIP]
 > Du kan också välja att aktivera SAML-baserad enkel inloggning för Blink , följ instruktionerna i [Blink Single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial). Enkel inloggning kan konfigureras oberoende av automatisk användaretablering, även om dessa två funktioner kompletterar varandra
@@ -137,7 +137,7 @@ I det här avsnittet får du hjälp med stegen för att konfigurera Azure AD-eta
 
     ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som **definierats** i Scope i avsnittet **Inställningar.** Den första synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, som inträffar ungefär var 40:e minut så länge Azure AD-etableringstjänsten körs. Du kan använda avsnittet **Synkroniseringsinformation** för att övervaka förloppet och följa länkar till etableringsaktivitetsrapporten, som beskriver alla åtgärder som utförs av Azure AD-etableringstjänsten på Blink.
+Den här åtgärden startar den första synkroniseringen av alla användare som **definierats** i Scope i avsnittet **Inställningar.** Den första synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, som inträffar ungefär var 40:e minut så länge Azure AD-etableringstjänsten körs. Du kan använda avsnittet **Synkroniseringsinformation** för att övervaka förloppet och följa länkar till etableringsaktivitetsrapporten, som beskriver alla åtgärder som utförs av Azure AD-etableringstjänsten på Blink.
 
 Mer information om hur du läser Azure AD-etableringsloggarna finns i [Rapportera om automatisk etablering av användarkonton](../app-provisioning/check-status-user-account-provisioning.md).
 

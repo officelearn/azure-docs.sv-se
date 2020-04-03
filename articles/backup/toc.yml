@@ -15,12 +15,12 @@
       href: quick-backup-vm-powershell.md
     - name: Säkerhetskopiera en virtuell dator – CLI
       href: quick-backup-vm-cli.md
-    - name: Säkerhetskopiera en virtuell dator – Resource Manager-mall
-      displayName: ARM
+    - name: Säkerhetskopiera en virtuell dator – ARM-mall
+      displayName: Resource Manager
       href: quick-backup-vm-template.md
 - name: Självstudier
   items:
-    - name: Säkerhetskopiera virtuella Azure-datorer enligt skala
+    - name: Säkerhetskopiera flera virtuella Azure-datorer
       href: tutorial-backup-vm-at-scale.md
     - name: Säkerhetskopiera virtuella Azure-datorer med PowerShell
       href: tutorial-backup-azure-vm.md
@@ -58,6 +58,8 @@
           href: backup-support-matrix-mabs-dpm.md
         - name: Stödmatris för MARS-agenten
           href: backup-support-matrix-mars-agent.md
+        - name: Stödmatris för SQL Server-säkerhetskopiering
+          href: sql-support-matrix.md
         - name: Stödmatris för SAP HANA-säkerhetskopiering
           href: sap-hana-backup-support-matrix.md
         - name: 'VM-SKU:er som stöds för Azure Policy'
@@ -164,10 +166,10 @@
           href: backup-azure-manage-mars.md
     - name: Säkerhetskopiering av Azure-filresurser
       items:
+        - name: Översikt
+          href: azure-file-share-backup-overview.md
         - name: Från Azure-portalen
           items:
-            - name: Översikt
-              href: azure-file-share-backup-overview.md
             - name: Backup
               href: backup-afs.md
             - name: Återställ
@@ -336,6 +338,8 @@
           href: backup-rm-template-samples.md
     - name: Säkerhet
       items:
+        - name: Översikt
+          href: security-overview.md
         - name: Rollbaserad Access Control
           href: backup-rbac-rs-vault.md
         - name: Säkerhet för molnarbetsbelastningar
@@ -382,6 +386,8 @@
       href: /azure/templates/microsoft.recoveryservices/allversions
 - name: Resurser
   items:
+    - name: Efterlevnad
+      href: compliance-offerings.md
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
     - name: MSDN-forum

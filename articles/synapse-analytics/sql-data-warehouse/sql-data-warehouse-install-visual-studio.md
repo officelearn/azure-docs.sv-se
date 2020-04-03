@@ -1,6 +1,6 @@
 ---
 title: Installera Visual Studio 2019
-description: Installera Visual Studio och SQL Server Development Tools (SSDT) för SQL Analytics
+description: Installera Visual Studio och SQL Server Development Tools (SSDT) för Synapse SQL
 services: synapse-analytics
 ms.custom: vs-azure, azure-synapse
 ms.workload: azure-vs
@@ -12,12 +12,12 @@ ms.subservice: ''
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d0a1772706fa838f51322d5f5d5bd1b46eb9144a
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: aa2f903611f52f8f7a8ede0040b592a7dddd0e89
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351629"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584447"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Komma igång med Visual Studio 2019
 Visual Studio **2019** SQL Server Data Tools (SSDT) är ett enda verktyg som gör att du kan göra följande:
@@ -34,7 +34,7 @@ Se [Ladda ner Visual Studio 2019][] för att ladda ner och installera Visual Stu
 
 ## <a name="unsupported-features-in-ssdt"></a>Funktioner som inte stöds i SSDT
 
-Det finns tillfällen då funktionsutgåvor för SQL Analytics kanske inte innehåller stöd för SSDT. Följande funktioner stöds för närvarande inte:
+Det finns tillfällen då funktionsutgåvor för Synapse SQL kanske inte innehåller stöd för SSDT. Följande funktioner stöds för närvarande inte:
 
 - [Materialiserade vyer](https://docs.microsoft.com/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest) (pågår)
 - [Ordnade grupperade Columnstore-index](https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest#examples--and-) (pågår)

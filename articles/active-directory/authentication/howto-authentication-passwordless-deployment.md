@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 145439ebedd2ddf7c081339146010c66f37fe1af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c9933e75a39af43af9e2745d5f7732d40027b34
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136542"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582480"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planera en lösenordslös autentiseringsdistribution i Azure Active Directory
 
@@ -59,7 +59,7 @@ Microsofts lösenordslösa autentiseringsmetoder möjliggör olika scenarier. T�
 | **Inloggning via webbapp:** <br> från en mobil enhet eller enhet som inte är windows | **Ja** | **Nej** | **Nej** |
 | **Logga in för datorn**: <br> Dator som inte kommer från Windows | **Nej** | **Nej** | **Nej** |
 
-Information om hur du väljer den bästa metoden för din organisation finns i [Bestämma en lösenordslös metod](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless#deciding-a-passwordless-method).
+Information om hur du väljer den bästa metoden för din organisation finns i [Bestämma en lösenordslös metod](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#choose-a-passwordless-method).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -97,7 +97,7 @@ I följande tabell beskrivs de användningsfall som ska implementeras under det 
 | --- | --- |
 | **Åtkomst** | Lösenordslös inloggning är tillgänglig från en företags- eller personlig enhet inom eller utanför företagsnätverket. |
 | **Granskning** | Användningsdata är tillgängliga för administratörer att granska i nära realtid. <br> Användningsdata hämtas till företagssystem minst var 29:e dag, eller så används SIEM-verktyget. |
-| **Styrelseformer** | Livscykel för användartilldelningar till lämplig autentiseringsmetod och associerade grupper definieras och övervakas. |
+| **Styrning** | Livscykel för användartilldelningar till lämplig autentiseringsmetod och associerade grupper definieras och övervakas. |
 | **Säkerhet** | Åtkomst till lämplig autentiseringsmetod styrs via användar- och grupptilldelningar. <br> Endast behöriga användare kan använda lösenordslös inloggning. |
 | **Prestanda** | Åtkomsttilldelningsspridningstidslinjer dokumenteras och övervakas. <br> Inloggningstid mäts för enkel användning. |
 | **Användarupplevelse** | Användarna är medvetna om mobilkompatibilitet. <br> Användare kan konfigurera den lösenordslösa inloggningen för Authenticator-appen. |
@@ -132,7 +132,7 @@ Se [Metodtips för en pilot](https://aka.ms/deploymentplans) på sidan distribut
 
 Microsoft Authenticator-appen är en kostnadsfri nedladdning från Google Play eller Apple App Store. [Läs mer om hur du laddar ned Microsoft Authenticator-appen](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6). Be användare ladda ned Microsoft Authenticator-appen. och följ anvisningarna för att aktivera telefon logga in. 
 
-Det förvandlar alla iOS eller Android-telefoner till en stark, lösenordslös referens. Användare loggar in på en plattform eller webbläsare genom att få ett meddelande till sin telefon, matcha ett nummer som visas på skärmen till den på sin telefon, och sedan använda biometri eller en PIN-kod för att bekräfta. [Se information om hur Microsoft Authenticator-appen fungerar](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless#user-using-microsoft-authenticator-for-passwordless-sign-in). 
+Det förvandlar alla iOS eller Android-telefoner till en stark, lösenordslös referens. Användare loggar in på en plattform eller webbläsare genom att få ett meddelande till sin telefon, matcha ett nummer som visas på skärmen till den på sin telefon, och sedan använda biometri eller en PIN-kod för att bekräfta. [Se information om hur Microsoft Authenticator-appen fungerar](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#microsoft-authenticator-app).
 
 ![logga in med Appen Authenticator](./media/howto-authentication-passwordless-deployment/passwordless-dp-sign-in.png)
 

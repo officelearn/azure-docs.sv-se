@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: d061a132699e733e78a7d717ee32222b158d73b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f265cdc955becd53ae7ba61ad827b2be69b92907
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927526"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618273"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Ta bort i Azure Data Factory
 
 Du kan använda Borttagningsaktiviteten i Azure Data Factory för att ta bort filer eller mappar från lokala lagringslager eller molnlagringslager. Använd den här aktiviteten för att rensa eller arkivera filer när de inte längre behövs.
 
 > [!WARNING]
-> Du kan inte återställa borttagna filer eller mappar. Var försiktig när du använder aktiviteten Ta bort till att ta bort filer och mappar.
+> Det går inte att återställa borttagna filer eller mappar (såvida inte lagringen har aktiverat för mjuk borttagning). Var försiktig när du använder aktiviteten Ta bort till att ta bort filer och mappar.
 
 ## <a name="best-practices"></a>Bästa praxis
 
@@ -40,7 +40,7 @@ Här är några rekommendationer för hur du använder borttagningsaktiviteten:
 
 ## <a name="supported-data-stores"></a>Datalager som stöds
 
--   [Azure Blob-lagring](connector-azure-blob-storage.md)
+-   [Azure Blob Storage](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
 -   [Azure File Storage](connector-azure-file-storage.md)
@@ -327,7 +327,7 @@ Du kan skapa en pipeline för att rensa de gamla eller utgångna filerna genom a
 Du kan flytta en fil med hjälp av en kopieringsaktivitet för att kopiera en fil och sedan en borttagningsaktivitet för att ta bort en fil i en pipeline.  När du vill flytta flera filer kan du använda aktiviteten GetMetadata + Filteraktivitet + Foreach-aktivitet + Kopiera aktivitet + Ta bort aktivitet som i följande exempel:
 
 > [!NOTE]
-> Om du vill flytta hela mappen genom att definiera en datauppsättning som endast innehåller en mappsökväg och sedan använda en kopieringsaktivitet och en borttagningsaktivitet för att referera till samma datauppsättning som representerar en mapp, måste du vara mycket försiktig. Det beror på att du måste se till att det inte kommer nya filer som kommer in i mappen mellan kopiering och borttagning.  Om det kommer nya filer till mappen vid den tidpunkt då kopieringsaktiviteten just har slutfört kopieringsjobbet men aktiviteten Ta bort inte har stirrats, är det möjligt att ta bort aktiviteten Tar bort den nya ankommande filen som INTE har kopierats till mål ännu genom att ta bort hela mappen. 
+> Om du vill flytta hela mappen genom att definiera en datauppsättning som endast innehåller en mappsökväg och sedan använda en kopieringsaktivitet och en borttagningsaktivitet för att referera till samma datauppsättning som representerar en mapp, måste du vara mycket försiktig. Det beror på att du måste se till att det inte kommer nya filer som kommer in i mappen mellan kopiering och borttagning.  Om det finns nya filer som anländer till mappen vid den tidpunkt då kopieringsaktiviteten just slutfört kopieringsjobbet men aktiviteten Ta bort inte har stirrats, är det möjligt att ta bort aktiviteten Ta bort den nya ankommande filen som INTE har kopierats till målet ännu genom att ta bort hela mappen. 
 
 #### <a name="sample-pipeline"></a>Exempel på pipeline
 

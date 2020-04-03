@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 555d437fb0ee898473b37febb1774924b55bfa1d
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: c4920b2a5b4ff0b1a94fa8fa0e83f72761802b97
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350835"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583803"
 ---
 # <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Snabbstart: Konfigurera arbetsbelastningsisolering med T-SQL
 
@@ -25,13 +25,13 @@ I den här snabbstarten skapar du snabbt en arbetsbelastningsgrupp och klassific
 Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 > [!NOTE]
-> Om du skapar en SQL Analytics-instans i Azure Synapse Analytics kan det leda till en ny fakturerbar tjänst.  Mer information finns i [Azure Synapse Analytics-priser](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Om du skapar en Synapse SQL-pool i Azure Synapse Analytics kan det leda till en ny fakturerbar tjänst.  Mer information finns i [Azure Synapse Analytics-priser](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 >
 
 ## <a name="prerequisites"></a>Krav
  
-Den här snabbstarten förutsätter att du redan har en SQL Analytics-instans i Azure Synapse och att du har behörigheter för KONTROLLDATABAS. Om du behöver skapa ett använder du [Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**.
+Den här snabbstarten förutsätter att du redan har en Synapse SQL-pool i Azure Synapse och att du har behörigheter för CTRL-databas. Om du behöver skapa ett använder du [Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -39,7 +39,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-login-for-dataloads"></a>Skapa inloggning för DataLoads
 
-Skapa en SQL Server-autentiseringsinloggning i `master` databasen med CREATE [LOGIN](/sql/t-sql/statements/create-login-transact-sql) för "ELTLogin".
+Skapa en SQL Server-autentiseringsinloggning i `master` databasen med CREATE [LOGIN](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för "ELTLogin".
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.sql_logins WHERE name = 'ELTLogin')
@@ -51,7 +51,7 @@ END
 
 ## <a name="create-user"></a>Skapa användare
 
-[Skapa användare](/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest), "ELTLogin", i mySampleDataWarehouse
+[Skapa användare](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), "ELTLogin", i mySampleDataWarehouse
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'ELTLogin')
@@ -62,7 +62,7 @@ END
 ```
 
 ## <a name="create-a-workload-group"></a>Skapa en arbetsbelastningsgrupp
-Skapa en [arbetsbelastningsgrupp](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) för DataLoads med 20 % isolering.
+Skapa en [arbetsbelastningsgrupp](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för DataLoads med 20 % isolering.
 ```sql
 CREATE WORKLOAD GROUP DataLoads
 WITH ( MIN_PERCENTAGE_RESOURCE = 20   
@@ -73,7 +73,7 @@ WITH ( MIN_PERCENTAGE_RESOURCE = 20
 
 ## <a name="create-a-workload-classifier"></a>Skapa en arbetsbelastningsklassificerare
 
-Skapa en [arbetsbelastningsklassificerare](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) för att mappa ELTLogin till arbetsbelastningsgruppen DataLoads.
+Skapa en [arbetsbelastningsklassificerare](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att mappa ELTLogin till arbetsbelastningsgruppen DataLoads.
 
 ```sql
 CREATE WORKLOAD CLASSIFIER [wgcELTLogin]
@@ -128,5 +128,5 @@ Följ dessa steg för att rensa resurser.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Du har nu skapat en arbetsbelastningsgrupp. Kör några frågor som ELTLogin för att se hur de presterar. Se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) om du vill visa frågor och den tilldelade arbetsbelastningsgruppen.
-- Mer information om SQL Analytics-arbetsbelastningshantering finns i [Arbetsbelastningshantering](sql-data-warehouse-workload-management.md) och [arbetsbelastningsisolering](sql-data-warehouse-workload-isolation.md).
+- Du har nu skapat en arbetsbelastningsgrupp. Kör några frågor som ELTLogin för att se hur de presterar. Se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) om du vill visa frågor och den tilldelade arbetsbelastningsgruppen.
+- Mer information om Hantering av Synapse SQL-arbetsbelastning finns i [Arbetsbelastningshantering](sql-data-warehouse-workload-management.md) och [arbetsbelastningsisolering](sql-data-warehouse-workload-isolation.md).

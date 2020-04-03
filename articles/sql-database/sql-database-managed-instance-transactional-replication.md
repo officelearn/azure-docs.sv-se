@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 02/08/2019
-ms.openlocfilehash: 41dd336bdb74fbe745ab48ebd3c168af0492ae2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a048ddefbcd76193436da13cd3ba68b8b6ffb0a
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75691004"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607599"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Transaktionsreplikering med databaser med enstaka, poolade och instanser i Azure SQL Database
 
@@ -95,7 +95,7 @@ Det finns olika [typer av replikering:](https://docs.microsoft.com/sql/relationa
 - Anslutningen använder SQL-autentisering mellan replikeringsdeltagare. 
 - En Azure Storage-kontoresurs för arbetskatalogen som används av replikering. 
 - Port 445 (TCP-utgående) måste vara öppen i säkerhetsreglerna i det hanterade instansundernätet för att komma åt Azure-filresursen. 
-- Port 1433 (TCP-utgående) måste öppnas om Utgivaren/distributören är på en hanterad instans och abonnenten är lokalt.
+- Port 1433 (TCP-utgående) måste öppnas om utgivaren/distributören är på en hanterad instans och abonnenten inte är det. Du kan också behöva ändra den hanterade instansen `allow_linkedserver_outbound` NSG utgående säkerhetsregel för `virtualnetwork` port `internet`1433 Mål **Service tag** från till . 
 - Alla typer av replikeringsdeltagare (Utgivare, Distributör, Pull-prenumerant och Push-prenumerant) kan placeras på hanterade instanser, men utgivaren och distributören måste vara antingen både i molnet eller både lokalt.
 - Om antingen utgivaren, distributören och/eller abonnenten finns i olika virtuella nätverk måste VPN-peering upprättas mellan varje enhet, så att det finns VPN-peering mellan utgivaren och distributören, och/eller så finns VPN-peering mellan distributören och abonnenten. 
 

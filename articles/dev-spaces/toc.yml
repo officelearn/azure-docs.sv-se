@@ -3,7 +3,7 @@
   items:
     - name: Översikt
       items:
-        - name: Om Azure Dev Spaces
+        - name: Vad är Azure Dev Spaces?
           href: about.md
     - name: Snabbstarter
       items:

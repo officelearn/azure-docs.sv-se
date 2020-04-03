@@ -3,12 +3,12 @@ title: Översikt över säkerhetsfunktioner
 description: Lär dig mer om säkerhetsfunktioner i Azure Backup som hjälper dig att skydda dina säkerhetskopierade data och uppfylla ditt företags säkerhetsbehov.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 91a0f29862b0c9c35e562c143e28ebbc6c39cf94
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 2eec3ee50f1de695b5432ee50b0900e35b81a6eb
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80423189"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585824"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Översikt över säkerhetsfunktioner i Azure Backup
 
@@ -66,6 +66,8 @@ Azure Backup-tjänsten använder MARS-agenten (Microsoft Azure Recovery Services
 * Ett extra autentiseringslagret läggs till när en kritisk åtgärd som att ändra en lösenfras utförs. Den här valideringen är att säkerställa att sådana åtgärder endast kan utföras av användare som har giltiga Azure-autentiseringsuppgifter. [Läs mer om funktioner som förhindrar attacker](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#prevent-attacks).
 
 * Borttagna säkerhetskopierade data sparas i ytterligare 14 dagar från det datum då borttagningen skulle tas bort. Detta säkerställer återställning av data inom en viss tidsperiod, så det finns ingen dataförlust även om en attack inträffar. Dessutom upprätthålls ett större antal lägsta återställningspunkter för att skydda mot korrupta data. [Läs mer om hur du återställer borttagna säkerhetskopierade data](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#recover-deleted-backup-data).
+
+* För data som säkerhetskopieras med hjälp av Microsoft Azure Recovery Services (MARS)-agenten används en lösenfras för att säkerställa att data krypteras innan de överförs till Azure Backup och dekrypteras först efter hämtning från Azure Backup. Lösenfrasinformationen är endast tillgänglig för den användare som skapade lösenfrasen och agenten som är konfigurerad med den. Ingenting överförs eller delas med tjänsten. Detta säkerställer fullständig säkerhet för dina data som alla data som exponeras oavsiktligt (till exempel en man-in-the-middle-attack på nätverket) är oanvändbar utan lösenfrasen och lösenfrasen skickas inte i nätverket.
 
 ## <a name="compliance-with-standardized-security-requirements"></a>Överensstämmelse med standardiserade säkerhetskrav
 

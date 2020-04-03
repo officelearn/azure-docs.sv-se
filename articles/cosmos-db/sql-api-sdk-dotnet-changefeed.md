@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 9252e3e41d0c639231a2abe20202499c6b3ee32a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5820778d46f5701b82bb289192350a9e13739d37
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75444863"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619448"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET Ändra Feed Processor SDK: Ladda ner och viktig information
 
@@ -26,7 +26,7 @@ ms.locfileid: "75444863"
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [Resten](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [Bulkutnrutören - .NET](sql-api-sdk-bulk-executor-dot-net.md)
@@ -34,7 +34,7 @@ ms.locfileid: "75444863"
 
 |   |   |
 |---|---|
-|**SDK nedladdning**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
+|**SDK nedladdning**|[NuGet (nuget)](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**API-dokumentation**|[Ändra API-referensdokumentation för feed processorbibliotek](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
 |**Kom igång**|[Komma igång med ändringsmatningsprocessorn .NET SDK](change-feed.md)|
 |**Nuvarande ramverk som stöds**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET-kärna](https://www.microsoft.com/net/download/core) |
@@ -45,6 +45,10 @@ ms.locfileid: "75444863"
 ## <a name="release-notes"></a>Viktig information
 
 ### <a name="v2-builds"></a>v2 bygger
+
+### <a name="230"></a><a name="2.3.0"/>2.3.0
+* Lade till `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` en ny `ICheckpointPartitionProcessorFactory`metod och motsvarande offentligt gränssnitt . Detta gör det `IPartitionProcessor` möjligt för en implementering av gränssnittet att använda inbyggd kontrollpunktsmekanism. Den nya fabriken liknar `IPartitionProcessorFactory`den befintliga `Create` , förutom `ILeaseCheckpointer` att dess metod också tar parametern.
+* Endast en av de `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` två `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory`metoderna, antingen `ChangeFeedProcessorBuilder` eller , kan användas för samma instans.
 
 ### <a name="228"></a><a name="2.2.8"/>2.2.8
 * Förbättringar av stabilitet och diagnositet:
@@ -88,7 +92,7 @@ ms.locfileid: "75444863"
 
 ### <a name="220"></a><a name="2.2.0"/>2.2.0
 * Lade till stöd för partitionerade lånesamlingar. Partitionsnyckeln måste definieras som /id.
-* Mindre brytningsändring: metoderna för gränssnittet IChangeFeedDocumentClient och klassen ChangeFeedDocumentClient har ändrats till att omfatta parametrar för RequestOptions och CancellationToken. IChangeFeedDocumentClient är en avancerad utökningspunkt som gör att du kan tillhandahålla anpassad implementering av dokumentklienten som ska användas med Ändringsflödesprocessor, t.ex. Etc. Med den här uppdateringen måste koden som implementerar IChangeFeedDocumentClient ändras för att inkludera nya parametrar i implementeringen.
+* Mindre brytningsändring: metoderna för gränssnittet IChangeFeedDocumentClient och klassen ChangeFeedDocumentClient har ändrats till att omfatta parametrar för RequestOptions och CancellationToken. IChangeFeedDocumentClient är en avancerad utökningspunkt som gör att du kan tillhandahålla anpassad implementering av dokumentklienten som ska användas med Change Feed-processor, t.ex. Med den här uppdateringen måste koden som implementerar IChangeFeedDocumentClient ändras för att inkludera nya parametrar i implementeringen.
 * Mindre förbättringar av diagnostiken.
 
 ### <a name="210"></a><a name="2.1.0"/>2.1.0
@@ -182,6 +186,7 @@ Alla förfrågningar till Cosmos DB med hjälp av en pensionerad SDK kommer att 
 
 | Version | Utgivningsdatum | Pensionering Datum |
 | --- | --- | --- |
+| [2.3.0](#2.3.0) |Den 2 april 2020 |--- |
 | [2.2.8](#2.2.8) |den 28 oktober 2019 |--- |
 | [2.2.7](#2.2.7) |den 14 maj 2019 |--- |
 | [2.2.6](#2.2.6) |den 29 januari 2019 |--- |

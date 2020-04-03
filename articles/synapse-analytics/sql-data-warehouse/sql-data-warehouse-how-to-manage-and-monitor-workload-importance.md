@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: fdac8ebc56291292559f6718de5f0092c7d8e063
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 114f8d637a927a899807a676fb3e1b45f5c7687c
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350475"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585748"
 ---
 # <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Hantera och övervaka arbetsbelastningsbetydelse i Azure Synapse Analytics
 
-Hantera och övervaka SQL Analytics-prioritet på prioritetsnivå för SQL Analytics i Azure Synapse med hjälp av DMV:er och katalogvyer.
+Hantera och övervaka Synapse SQL-begäransnivå i Azure Synapse med hjälp av DMVs och katalogvyer.
 
 ## <a name="monitor-importance"></a>Övervaka betydelse
 

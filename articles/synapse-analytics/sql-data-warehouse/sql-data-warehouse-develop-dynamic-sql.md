@@ -1,6 +1,6 @@
 ---
 title: Använda dynamisk SQL
-description: Tips om hur du använder dynamisk SQL i Azure SQL Data Warehouse för att utveckla lösningar.
+description: Tips för utvecklingslösningar med dynamisk SQL i Synapse SQL-pool.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,19 +11,23 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a44bec72029a50c2ef348bcdda497803e35f586d
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 5a285c273a0bc590a9f5b4ade782f2195a361cd6
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350561"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619042"
 ---
-# <a name="dynamic-sql-in-sql-data-warehouse"></a>Dynamisk SQL i SQL Data Warehouse
-Tips om hur du använder dynamisk SQL i Azure SQL Data Warehouse för att utveckla lösningar.
+# <a name="dynamic-sql-in-synapse-sql-pool"></a>Dynamisk SQL i Synapse SQL-pool
+I den här artikeln finns tips för utvecklingslösningar med dynamisk SQL i SQL-pool.
 
 ## <a name="dynamic-sql-example"></a>Dynamiskt SQL-exempel
 
-När du utvecklar programkod för SQL Data Warehouse kan du behöva använda dynamisk sql för att leverera flexibla, generiska och modulära lösningar. SQL Data Warehouse stöder inte blob-datatyper just nu. Att inte stödja blob-datatyper kan begränsa storleken på dina strängar eftersom blob-datatyper innehåller både varchar(max) och nvarchar(max) typer. Om du har använt dessa typer i programkoden för att skapa stora strängar måste du dela upp koden i segment och använda EXEC-satsen i stället.
+När du utvecklar programkod för SQL-pool kan du behöva använda dynamisk SQL för att leverera flexibla, generiska och modulära lösningar. SQL-poolen stöder inte blob-datatyper just nu. 
+
+Att inte stödja blob-datatyper kan begränsa storleken på dina strängar eftersom blob-datatyper innehåller både varchar(max) och nvarchar(max) typer. 
+
+Om du har använt dessa typer i programkoden för att skapa stora strängar måste du dela upp koden i segment och använda EXEC-satsen i stället.
 
 Ett enkelt exempel:
 
@@ -38,7 +42,7 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 Om strängen är kort kan du använda [sp_executesql](/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql) som vanligt.
 
 > [!NOTE]
-> Satser som körs som dynamisk SQL kommer fortfarande att omfattas av alla TSQL-valideringsregler.
+> Satser som körs som dynamisk SQL kommer fortfarande att omfattas av alla T-SQL-valideringsregler.
 > 
 > 
 

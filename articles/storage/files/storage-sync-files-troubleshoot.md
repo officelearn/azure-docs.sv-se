@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: ebe5ddf72e13b1a66ded7a90976e0b6209a26dfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d46f513fccf9921d4cf47835bc9d5be4c6ffe241
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060972"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607498"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera organisationens filresurser i Azure Files, samtidigt som flexibiliteten, prestandan och kompatibiliteten hos en lokal filserver bevaras. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cachar som du behöver över hela världen.
@@ -187,7 +187,7 @@ Set-AzStorageSyncServerEndpoint `
 
 Det hÃ¤r problemet kan uppstÃ¥ om Storage Sync Monitor-processen (AzureStorageSyncMonitor.exe) inte kÃ¤r kÃ¤rs eller om servern inte kan komma åt Azure File Sync-tjänsten.
 
-På servern som visas som "Visas offline" i portalen tittar du på händelse-ID 9301 i händelseloggen för telemetri (finns under Program och tjänster\Microsoft\FileSync\Agent i Loggboken) för att ta reda på varför servern inte kan komma åt Azure File Sync Tjänst. 
+På servern som visas som "Visas offline" i portalen tittar du på händelse-ID 9301 i telemetrihändelseloggen (finns under Program och tjänster\Microsoft\FileSync\Agent i Loggboken) för att avgöra varför servern inte kan komma åt Azure File Sync-tjänsten. 
 
 - Om **GetNextJob har slutförts med status: 0** loggas kan servern kommunicera med Azure File Sync-tjänsten. 
     - Öppna Aktivitetshanteraren på servern och kontrollera att Storage Sync Monitor-processen (AzureStorageSyncMonitor.exe) körs. Om processen inte körs provar du först att starta om servern. Om det inte går att lösa problemet genom att starta om servern uppgraderar du till den senaste [agentversionen](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes) för Azure File Sync. 
@@ -221,7 +221,7 @@ En serverslutpunkt kanske inte loggar synkroniseringsaktivitet i flera timmar p�
 Det här problemet förväntas om du skapar en molnslutpunkt och använder en Azure-filresurs som innehåller data. Ändringsuppräkningsjobbet som söker efter ändringar i Azure-filresursen måste slutföras innan filer kan synkroniseras mellan molnet och serverns slutpunkter. Tiden för att slutföra jobbet är beroende av storleken på namnområdet i Azure-filresursen. Serverns slutpunktshälsa bör uppdateras när ändringsuppräkningsjobbet har slutförts.
 
 ### <a name="how-do-i-monitor-sync-health"></a><a id="broken-sync"></a>Hur övervakar jag synkroniseringens status?
-# <a name="portal"></a>[Portal](#tab/portal1)
+# <a name="portal"></a>[Portalen](#tab/portal1)
 Inom varje synkroniseringsgrupp kan du öka detaljnivån i dess enskilda serverslutpunkter för att se statusen för de senaste slutförda synkroniseringssessionerna. En grön hälsokolumn och värdet För fil som inte synkroniseras på 0 anger att synkroniseringen fungerar som förväntat. Om så inte är fallet läser du nedan för en lista över vanliga synkroniseringsfel och hur du hanterar filer som inte synkroniseras. 
 
 ![En skärmbild av Azure-portalen](media/storage-sync-files-troubleshoot/portal-sync-health.png)
@@ -258,7 +258,7 @@ Ibland misslyckas synkroniseringssessioner totalt sett eller har en peritemError
 ---
 
 ### <a name="how-do-i-monitor-the-progress-of-a-current-sync-session"></a>Hur övervakar jag förloppet för en pågående synkronisering?
-# <a name="portal"></a>[Portal](#tab/portal1)
+# <a name="portal"></a>[Portalen](#tab/portal1)
 I synkroniseringsgruppen går du till serverslutpunkten i fråga och tittar på avsnittet Synkroniseringsaktivitet för att se antalet filer som laddats upp eller hämtats i den aktuella synkroniseringssessionen. Observera att den här statusen kommer att fördröjas med cirka 5 minuter, och om synkroniseringssessionen är tillräckligt liten för att slutföras inom den här perioden kanske den inte rapporteras i portalen. 
 
 # <a name="server"></a>[Server](#tab/server)
@@ -276,7 +276,7 @@ PerItemErrorCount: 1006.
 ---
 
 ### <a name="how-do-i-know-if-my-servers-are-in-sync-with-each-other"></a>Hur vet jag att servrarna är synkroniserade med varandra?
-# <a name="portal"></a>[Portal](#tab/portal1)
+# <a name="portal"></a>[Portalen](#tab/portal1)
 Kontrollera att du måste se till att
 - Tidsstämplarna för den senaste synkroniseringen för både uppladdning och nedladdning är nya.
 - Statusen är grön för både uppladdning och nedladdning.
@@ -588,7 +588,7 @@ Om det här felet kvarstår längre än några timmar skapar du en supportbegär
 | **Felsträng** | CERT_E_UNTRUSTEDROOT |
 | **Reparation krävs** | Ja |
 
-Det här felet kan inträffa om organisationen använder en SSL-avslutningsproxy eller om en skadlig enhet fångar upp trafiken mellan servern och Azure File Sync-tjänsten. Om du vet att detta är förväntat (eftersom din organisation använder en SSL-avslutande proxy) hoppar du över certifikatverifieringen genom att åsidosätta registret.
+Det här felet kan inträffa om din organisation använder en TLS-avslutande proxy eller om en skadlig enhet fångar upp trafiken mellan servern och Azure File Sync-tjänsten. Om du är säker på att detta är förväntat (eftersom din organisation använder en TLS-avslutande proxy) hoppar du över certifikatverifiering med en registersidosättning.
 
 1. Skapa registervärdet SkipVerifyingPinnedRootCertificate.
 
@@ -602,7 +602,7 @@ Det här felet kan inträffa om organisationen använder en SSL-avslutningsproxy
     Restart-Service -Name FileSyncSvc -Force
     ```
 
-När det här registervärdet har angetts godkänner Azure File Sync-agenten alla lokalt betrodda SSL-certifikat vid överföring av data mellan servern och molntjänsten.
+Genom att ange det här registervärdet accepterar Azure File Sync-agenten alla lokalt betrodda TLS/SSL-certifikat när data överförs mellan servern och molntjänsten.
 
 <a id="-2147012894"></a>**Det gick inte att upprätta en anslutning till tjänsten.**  
 
@@ -887,14 +887,14 @@ Det här felet uppstår när en datainmatningsåtgärd överskrider tidsgränsen
 
 ### <a name="common-troubleshooting-steps"></a>Vanliga felsökningssteg
 <a id="troubleshoot-storage-account"></a>**Kontrollera att lagringskontot finns.**  
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 1. Navigera till synkroniseringsgruppen i tjänsten Lagringssynkronisering.
 2. Välj molnslutpunkten i synkroniseringsgruppen.
 3. Observera Azure-filresursnamnet i det öppnade fönstret.
 4. Välj det länkade lagringskontot. Om den här länken misslyckas har det refererade lagringskontot tagits bort.
     ![En skärmbild som visar detaljfönstret för slutpunkt i molnet med en länk till lagringskontot.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 # Variables for you to populate based on your configuration
 $region = "<Az_Region>"
@@ -970,12 +970,12 @@ if ($storageAccount -eq $null) {
 ---
 
 <a id="troubleshoot-azure-file-share"></a>**Kontrollera att Azure-filresursen finns.**  
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 1. Klicka på **Översikt** i den vänstra innehållsförteckningen för att återgå till huvudkontosidan för lagring.
 2. Välj **Filer** om du vill visa listan över filresurser.
 3. Kontrollera att filresursen som refereras av molnslutpunkten visas i listan över filresurser (du bör ha noterat detta i steg 1 ovan).
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 $fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $cloudEndpoint.AzureFileShareName -and
@@ -989,7 +989,7 @@ if ($fileShare -eq $null) {
 ---
 
 <a id="troubleshoot-rbac"></a>**Kontrollera att Azure File Sync har åtkomst till lagringskontot.**  
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 1. Klicka på **Åtkomstkontroll (IAM)** i den vänstra innehållsförteckningen.
 1. Klicka på fliken **Rolltilldelningar** i listan de användare och program (*tjänstens huvudnamn*) som har åtkomst till ditt lagringskonto.
 1. Kontrollera att **Microsoft.StorageSync** eller **Hybrid File Sync Service** (gammalt programnamn) visas i listan med rollen **Läsar- och dataåtkomst.** 
@@ -1002,7 +1002,7 @@ if ($fileShare -eq $null) {
     - Välj **Läsar- och dataåtkomst**i fältet **Roll** .
     - Skriv **Microsoft.StorageSync**i fältet **Välj** , välj rollen och klicka på **Spara**.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell    
 $role = Get-AzRoleAssignment -Scope $storageAccount.Id | Where-Object { $_.DisplayName -eq "Microsoft.StorageSync" }
 

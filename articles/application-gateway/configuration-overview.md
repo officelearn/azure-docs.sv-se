@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: f31c24c96732ec3311ea904fc9c63344e2d14109
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f08cfab8f8de9183e6bee241959f7feabc31c8e3
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371242"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585908"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över konfigurationen för Application Gateway
 
@@ -168,8 +168,6 @@ Välj HTTP eller HTTPS:
 
 - Om du väljer HTTP är trafiken mellan klienten och programgatewayen okrypterad.
 
-- Välj HTTPS om du vill att [TLS-avslutning](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssltls-termination) eller [TLS-kryptering ska avslutas](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Trafiken mellan klienten och programgatewayen krypteras. Och TLS-anslutningen avslutas vid programgatewayen. Om du vill ha slutpunkt till slutpunkt TLS-kryptering måste du välja HTTPS och konfigurera **http-inställningen för serverdelen.** Detta säkerställer att trafiken krypteras om när den färdas från programgatewayen till den bakre delen.
-
 - Välj HTTPS om du vill att [TLS-avslutning](features.md#secure-sockets-layer-ssltls-termination) eller [TLS-kryptering ska avslutas](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Trafiken mellan klienten och programgatewayen krypteras. Och TLS-anslutningen avslutas vid programgatewayen. Om du vill ha slutpunkt till slutpunkt TLS-kryptering måste du välja HTTPS och konfigurera **http-inställningen för serverdelen.** Detta säkerställer att trafiken krypteras om när den färdas från programgatewayen till den bakre delen.
 
 
@@ -296,7 +294,7 @@ Programgatewayen dirigerar trafik till backend-servrarna med hjälp av den konfi
 
 ### <a name="cookie-based-affinity"></a>Cookie-baserad tillhörighet
 
-Azure Application Gateway använder gateway-hanterade cookies för att underhålla användarsessioner. När en användare skickar den första begäran till Application Gateway, anger den en tillhörighetscookie i svaret med ett hash-värde som innehåller sessionsinformationen, så att de efterföljande begärandena som bär tillhörighetscookien dirigeras till samma server för serverdelsservern för upprätthålla klibbighet. 
+Azure Application Gateway använder gateway-hanterade cookies för att underhålla användarsessioner. När en användare skickar den första begäran till Application Gateway, anger den en tillhörighetscookie i svaret med ett hash-värde som innehåller sessionsinformationen, så att de efterföljande begärandena som bär tillhörighetscookien dirigeras till samma server för serverdel för att upprätthålla klibbighet. 
 
 Den här funktionen är användbar när du vill behålla en användarsession på samma server och när sessionstillstånd sparas lokalt på servern för en användarsession. Om programmet inte kan hantera cookie-baserad tillhörighet kan du inte använda den här funktionen. För att använda den, se till att klienterna stöder cookies.
 

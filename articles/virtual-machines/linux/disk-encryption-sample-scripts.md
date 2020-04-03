@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: c98da4b41da183f56d80fad1e8c01706d1cfcf23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b54f9f3466fe5f7e2da622077f53575d6f43f72d
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970515"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585965"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Exempelskript för Azure Disk Encryption 
 
@@ -80,7 +80,7 @@ I följande tabell visas vilka parametrar som kan användas i PowerShell-skripte
 
 ### <a name="prerequisites-for-os-disk-encryption"></a>Förutsättningar för OS-diskkryptering
 
-* Den virtuella datorn måste använda en distribution som är kompatibel med OS-diskkryptering enligt listan i [operativsystemen för Azure Disk Encryption-stödda](disk-encryption-overview.md#supported-vm-sizes) 
+* Den virtuella datorn måste använda en distribution som är kompatibel med OS-diskkryptering enligt listan i [operativsystemen för Azure Disk Encryption-stödda](disk-encryption-overview.md#supported-vms) 
 * Den virtuella datorn måste skapas från Marketplace-avbildningen i Azure Resource Manager.
 * Azure VM med minst 4 GB RAM (rekommenderad storlek är 7 GB).
 * (För RHEL och CentOS) Inaktivera SELinux. Om du vill inaktivera SELinux finns i "4.4.2. Inaktivera SELinux" i [SELinux-användar- och administratörshandboken](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) på den virtuella datorn.

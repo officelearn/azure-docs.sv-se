@@ -113,7 +113,7 @@
       href: service-fabric-powershell-samples.md
     - name: Service Fabric CLI
       href: samples-cli.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Förstå mikrotjänster
       href: service-fabric-overview-microservices.md
@@ -358,9 +358,9 @@
       href: concepts-managed-identity.md
     - name: Konfigurera autentiseringsuppgifter för containerlagringsplats
       href: configure-container-repository-credentials.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
-    - name: Ställ in din utvecklingsmiljö
+    - name: Ställt in din utvecklingsmiljö
       items:
         - name: Windows
           href: service-fabric-get-started.md
@@ -404,8 +404,6 @@
           items:
             - name: Distribuera en körbar gäst
               href: service-fabric-deploy-existing-app.md
-            - name: Distribuera flera körbara gäster
-              href: service-fabric-deploy-multiple-apps.md
         - name: Skapa en containertjänst
           items:
             - name: Docker Compose (förhandsversion)
@@ -880,7 +878,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric'
     - name: Skyddsräcken för Azure Resource Manager-distribution
       href: service-fabric-azure-resource-manager-guardrails.md
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

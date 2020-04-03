@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: fb2f9ff5af68575d9f9d29e9a6aca83d603395b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ff9e62ed145b7892d2997193dae8e171ae49c98
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77672420"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585388"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Skapa diagnostikinställning för att samla in plattformsloggar och mått i Azure
 [Plattformsloggar](platform-logs-overview.md) i Azure, inklusive Azure Activity-logg och resursloggar, tillhandahåller detaljerad diagnostik- och granskningsinformation för Azure-resurser och den Azure-plattform de är beroende av. Den här artikeln innehåller information om hur du skapar och konfigurerar diagnostikinställningar för att skicka plattformsloggar till olika destinationer.
@@ -37,7 +37,7 @@ Plattformsloggar kan skickas till destinationerna i följande tabell. Konfigurat
 | Mål | Beskrivning |
 |:---|:---|
 | [Log Analytics-arbetsyta](resource-logs-collect-workspace.md) | Genom att samla in loggar till en Log Analytics-arbetsyta kan du analysera dem med andra övervakningsdata som samlas in av Azure Monitor med hjälp av kraftfulla loggfrågor och även utnyttja andra Azure Monitor-funktioner som aviseringar och visualiseringar. |
-| [Event Hubs](resource-logs-stream-event-hubs.md) | Genom att skicka loggar till eventhubbar kan du strömma data till externa system som SIEM-tillverkare från tredje part och andra logganalyslösningar. |
+| [Händelsehubbar](resource-logs-stream-event-hubs.md) | Genom att skicka loggar till eventhubbar kan du strömma data till externa system som SIEM-tillverkare från tredje part och andra logganalyslösningar. |
 | [Azure-lagringskonto](resource-logs-collect-storage.md) | Arkivering av loggar till ett Azure-lagringskonto är användbart för granskning, statisk analys eller säkerhetskopiering. |
 
 ## <a name="create-diagnostic-settings-in-azure-portal"></a>Skapa diagnostikinställningar i Azure Portal
@@ -53,7 +53,7 @@ Du kan konfigurera diagnostikinställningar i Azure-portalen antingen från Azur
     
         ![Diagnostikinställningar](media/diagnostic-settings/menu-monitor.png)
 
-    - För aktivitetsloggen klickar du på **Aktivitetslogg** på **Azure Monitor-menyn** och sedan **diagnostikinställningar**. Se till att du inaktiverar alla äldre konfigurationer för aktivitetsloggen. Mer information finns i [Inaktivera befintliga inställningar.](diagnostic-settings-legacy.md#disable-existing-settings)
+    - För aktivitetsloggen klickar du på **Aktivitetslogg** på **Azure Monitor-menyn** och sedan **diagnostikinställningar**. Se till att du inaktiverar alla äldre konfigurationer för aktivitetsloggen. Mer information finns i [Inaktivera befintliga inställningar.](/azure/azure-monitor/platform/activity-log-collect#collecting-activity-log)
 
         ![Diagnostikinställningar](media/diagnostic-settings/menu-activity-log.png)
 

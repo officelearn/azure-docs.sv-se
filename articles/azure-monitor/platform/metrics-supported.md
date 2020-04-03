@@ -1,20 +1,23 @@
 ---
 title: Azure Monitor stöds mått efter resurstyp
 description: Lista över tillgängliga mått för varje resurstyp med Azure Monitor.
-author: anirudhcavale
+author: rboucher
 services: azure-monitor
 ms.topic: reference
 ms.date: 03/17/2020
-ms.author: ancav
+ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 674321878cfce2d05189700a8b5118e233d9044d
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 79bae9712cea04425cc36414ec56fdddd4345eab
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520713"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586030"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
+
+> [!NOTE]
+> Den här listan genereras till stor del automatiskt från REST-API:et för Azure Monitor Metrics. Alla ändringar som görs i denna lista via Github kan skrivas över utan förvarning. Kontakta författaren till den här artikeln om du vill ha mer information om hur du gör permanenta uppdateringar.
 
 Azure Monitor innehåller flera sätt att interagera med mått, inklusive att kartlägga dem i portalen, komma åt dem via REST API eller fråga dem med PowerShell eller CLI. Nedan finns en fullständig lista över alla mått som för närvarande är tillgängliga med Azure Monitors måttpipeline. Andra mått kan vara tillgängliga i portalen eller med hjälp av äldre API:er. Den här listan nedan innehåller endast mått som är tillgängliga med den konsoliderade Azure Monitor-måttpipelinen. Måtten är ordnade efter namnområde. En lista över tjänster och namnområden som tillhör dem finns i [Resursleverantörer för Azure-tjänster](../../azure-resource-manager/management/azure-services-resource-providers.md). Om du vill fråga efter och komma åt dessa mått programmässigt använder du [api-versionen 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 
@@ -24,10 +27,6 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 > *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och läggas till på per-kö-nivå. När måttet exporteras via diagnostikinställningar visas det dock som alla inkommande meddelanden i alla köer i händelsehubben.
 >
 > En lista över plattformsmått som kan exporteras via diagnostikinställningar finns i [den här artikeln](metrics-supported-export-diagnostic-settings.md).
-
-
-
-
 
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servrar
@@ -565,7 +564,7 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |Skrivbyte per disk per sekund|Skrivbyte för datadisk/sek [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/Sek skrivet till en enda disk under övervakningsperioden|SlotId (kortplats)|
 |Läsåtgärder per disk/sek|Läsåtgärder för datadiskar/sek [(inaktuella)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Läsa IOPS från en enda disk under övervakningsperioden|SlotId (kortplats)|
 |Skrivåtgärder per disk/sek|Datadiskskrivningsoperationer/sek [(inaktuell)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Skriva IOPS från en enda disk under övervakningsperioden|SlotId (kortplats)|
-|Per Disk QD|[Datadisk QD [(föråldrad)](portal-disk-metrics-deprecation.md)](portal-disk-metrics-deprecation.md)|Antal|Medel|Djup för datadiskkö(eller kölängd)|SlotId (kortplats)|
+|Per Disk QD|Datadisk QD [(föråldrad)](portal-disk-metrics-deprecation.md)](portal-disk-metrics-deprecation.md)|Antal|Medel|Djup för datadiskkö(eller kölängd)|SlotId (kortplats)|
 |Os per disk läsbyten per sekund|Os-disklät byte/sek [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/Sek som lästs från en enda disk under övervakningsperioden för OS-disk|Inget|
 |OS per disk skrivbyten per sek|OS-diskskrivningsbyten/sek [(inaktuella)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/Sek skrivet till en enda disk under övervakningsperioden för OS-disk|Inget|
 |Os per diskläsningsoperationer/sek|Diskläsningsåtgärder för OS-disk/sek [(inaktuell)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Läsa IOPS från en enda disk under övervakningsperioden för OS-disk|Inget|
@@ -1974,8 +1973,6 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 
 
 
-
-
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servrar/databaser
 
 |Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
@@ -2002,8 +1999,8 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |dwu_used|DWU används|Antal|Maximal|DWU används. Gäller endast för informationslager.|Inget|
 |cache_hit_percent|Antal träffar i cacheminne|Procent|Maximal|Cache träff procent. Gäller endast för informationslager.|Inget|
 |cache_used_percent|Använd procent av cache|Procent|Maximal|Cache använd procentsats. Gäller endast för informationslager.|Inget|
-|sqlserver_process_core_percent|SQL Server-processkärna procent|Procent|Maximal|CPU-användning i procent av SQL DB-processen. Gäller inte för informationslager.|Inget|
-|sqlserver_process_memory_percent|Procent av SQL Server-processminne|Procent|Maximal|Minnesanvändning i procent av SQL DB-processen. Gäller inte för informationslager.|Inget|
+|sqlserver_process_core_percent|SQL Server-processkärna procent|Procent|Maximal|CPU-användningsprocent för SQL Server-processen, mätt med operativsystemet.|Inget|
+|sqlserver_process_memory_percent|Procent av SQL Server-processminne|Procent|Maximal|Procentandel av minnesanvändningen för SQL Server-processen, mätt med operativsystemet.|Inget|
 |tempdb_data_size|Tempdb-datafilstorlek Kilobyte|Antal|Maximal|Tempdb Data filstorlek Kilobytes. Gäller inte för informationslager.|Inget|
 |tempdb_log_size|Tempdb-loggfilstorlek Kilobyte|Antal|Maximal|Tempdb Loggfil storlek Kilobytes. Gäller inte för informationslager.|Inget|
 |tempdb_log_used_percent|Tempdb procent logg används|Procent|Maximal|Tempdb procent logg används. Gäller inte för informationslager.|Inget|
@@ -2060,8 +2057,8 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |database_cpu_limit|CPU-gräns|Antal|Medel|CPU-gräns|DatabasResourceId|
 |cpu_used|PROCESSOR som används|Antal|Medel|PROCESSOR som används. Gäller för vCore-baserade elastiska pooler.|Inget|
 |database_cpu_used|PROCESSOR som används|Antal|Medel|PROCESSOR som används|DatabasResourceId|
-|sqlserver_process_core_percent|SQL Server-processkärna procent|Procent|Maximal|CPU-användning i procent av SQL DB-processen. Gäller elastiska pooler.|Inget|
-|sqlserver_process_memory_percent|Procent av SQL Server-processminne|Procent|Maximal|Minnesanvändning i procent av SQL DB-processen. Gäller elastiska pooler.|Inget|
+|sqlserver_process_core_percent|SQL Server-processkärna procent|Procent|Maximal|CPU-användningsprocent för SQL Server-processen, mätt med operativsystemet. Gäller elastiska pooler.|Inget|
+|sqlserver_process_memory_percent|Procent av SQL Server-processminne|Procent|Maximal|Procentandel av minnesanvändningen för SQL Server-processen, mätt med operativsystemet. Gäller elastiska pooler.|Inget|
 |tempdb_data_size|Tempdb-datafilstorlek Kilobyte|Antal|Maximal|Tempdb-datafilstorlek Kilobyte|Inget|
 |tempdb_log_size|Tempdb-loggfilstorlek Kilobyte|Antal|Maximal|Tempdb-loggfilstorlek Kilobyte|Inget|
 |tempdb_log_used_percent|Tempdb procent logg används|Procent|Maximal|Tempdb procent logg används|Inget|
@@ -2351,15 +2348,6 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |Procent CPU|Procent CPU|Procent|Medel|CPU-användningen. Det här värdet rapporteras med 100 % som representerar alla processorkärnor i systemet. Som ett exempel använder en tvåvägsd-VM med 50 % av ett system med fyra kärnor helt och hållet med två kärnor.|Inget|
 |PercentageCpuReady|Procent CPU klar|Millisekunder|Totalt|Klar tid är den tid som väntar på att processorer ska bli tillgängliga i det senaste uppdateringsintervallet.|Inget|
 
-
-
-
-
-
-
-
-
-
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
 |Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
@@ -2380,7 +2368,7 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |TcpLastAck (en)|TCP Sista Ack|Antal|Medel|TCP Sista Ack|Instans|
 |TcpTimeWait (av TcpTimeWait)|TCP-tid vänta|Antal|Medel|TCP-tid vänta|Instans|
 
-## <a name="microsoftwebsites"></a>Microsoft.Webbplatser
+## <a name="microsoftwebsites-excluding-functions"></a>Microsoft.Webbplatser (exklusive funktioner) 
 
 > [!NOTE]
 > **Filsystemanvändning** är ett nytt mått som distribueras globalt, inga data förväntas om du inte har vitlistats för privat förhandsgranskning.
@@ -2410,6 +2398,37 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |AppAnslutningar|Anslutningar|Antal|Medel|Anslutningar|Instans|
 |Hanterar|Antal referenser|Antal|Medel|Antal referenser|Instans|
 |Trådar|Antal trådar|Antal|Medel|Antal trådar|Instans|
+|PrivateBytes (PrivateBytes)|Privata byte|Byte|Medel|Privata byte|Instans|
+|IoReadBytesPerSecond|IO läs byte per sekund|BytesPerSecond|Totalt|IO läs byte per sekund|Instans|
+|IoWriteBytesPerSecond|IO skriv byte per sekund|BytesPerSecond|Totalt|IO skriv byte per sekund|Instans|
+|IotherBytesPerSecond|IO Andra byte per sekund|BytesPerSecond|Totalt|IO Andra byte per sekund|Instans|
+|IoReadOperationsPerSecond|IO läsa operationer per sekund|BytesPerSecond|Totalt|IO läsa operationer per sekund|Instans|
+|IoWriteOperationsPerSecond|IO-skrivåtgärder per sekund|BytesPerSecond|Totalt|IO-skrivåtgärder per sekund|Instans|
+|IotherOperationsPerSecond|IO Övriga transaktioner per sekund|BytesPerSecond|Totalt|IO Övriga transaktioner per sekund|Instans|
+|BegärandenInApplicationQueue|Begäranden i programkö|Antal|Medel|Begäranden i programkö|Instans|
+|Aktuella sammansättningar|Aktuella sammansättningar|Antal|Medel|Aktuella sammansättningar|Instans|
+|Totalt Antal Händer|Totalt antal appdomäner|Antal|Medel|Totalt antal appdomäner|Instans|
+|TotaltTillämtsTilldelning|Totalt antal appdomäner har tagits bort|Antal|Medel|Totalt antal appdomäner har tagits bort|Instans|
+|Gen0Kolleringar|Gen 0 Sophämtningar|Antal|Totalt|Gen 0 Sophämtningar|Instans|
+|Gen1Kolleringar|Gen 1 Sophämtningar|Antal|Totalt|Gen 1 Sophämtningar|Instans|
+|Gen2Kolleringar|Gen 2 Sophämtningar|Antal|Totalt|Gen 2 Sophämtningar|Instans|
+|Hälsokontrollerstatus|Status för hälsokontroll|Antal|Medel|Status för hälsokontroll|Instans|
+|FileSystemUsage|Användning av filsystem|Byte|Medel|Användning av filsystem|Inget|
+
+## <a name="microsoftwebsites-functions"></a>Microsoft.Webbplatser (funktioner)
+
+> [!NOTE]
+> **Filsystemanvändning** är ett nytt mått som distribueras globalt, inga data förväntas om du inte har vitlistats för privat förhandsgranskning.
+
+|Mått|Namn på mätdisplay|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|---|---|---|---|---|---|
+|ByteKom med|Data i|Byte|Totalt|Data i|Instans|
+|BytesSent|Data ut|Byte|Totalt|Data ut|Instans|
+|Http5xx (på sätt och vis)|Http-serverfel|Antal|Totalt|Http-serverfel|Instans|
+|MemoryWorkingSet|Arbetsminne|Byte|Medel|Arbetsminne|Instans|
+|AverageMemoryWorkingSet|Genomsnittligt arbetsminne|Byte|Medel|Genomsnittligt arbetsminne|Instans|
+|FunktionUtställningAr|Funktionskörningsenheter|MB / Millisekunder|Totalt|[Funktionskörningsenheter](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|Instans|
+|FunctionExecutionCount|Antal funktionskörningar|Antal|Totalt|Antal funktionskörningar|Instans|
 |PrivateBytes (PrivateBytes)|Privata byte|Byte|Medel|Privata byte|Instans|
 |IoReadBytesPerSecond|IO läs byte per sekund|BytesPerSecond|Totalt|IO läs byte per sekund|Instans|
 |IoWriteBytesPerSecond|IO skriv byte per sekund|BytesPerSecond|Totalt|IO skriv byte per sekund|Instans|
@@ -2510,3 +2529,4 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 * [Läs om mått i Azure Monitor](data-platform.md)
 * [Skapa aviseringar för mått](alerts-overview.md)
 * [Exportera mått till lagring, händelsehubb eller logganalys](platform-logs-overview.md)
+

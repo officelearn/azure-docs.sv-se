@@ -1,26 +1,26 @@
 ---
-title: Medsälja statliga koder | Azure Marketplace
-description: Använd dessa tillstånds-/provinskoder när du tillhandahåller kontaktinformation på erbjudandets sida för samförsäljning.
+title: Medsälja statliga och provinskoder | Azure Marketplace
+description: Använd dessa tillstånds- och provinskoder när du tillhandahåller kontaktinformation på erbjudandets sida för samförsäljning.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/27/2019
-ms.openlocfilehash: f87014a599afd6d1c56d175b92d4da1ea49d9470
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.openlocfilehash: 782f2d6facb28630989f086a68c551314e02e48e
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277047"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619364"
 ---
-# <a name="co-sell-state-codes"></a>Sälj tillståndskoder för försäljning
+# <a name="co-sell-state-and-province-codes"></a>Samsälja delstats- och provinskoder
 
 Om tillämpligt, använd dessa koder för att ge information om stat/provins när [du tillhandahåller kontaktinformation på erbjudandets sida för samförsäljning.](commercial-marketplace-co-sell.md#contacts)
 
-## <a name="stateprovince-table"></a>Tabell över delstat/provins
+## <a name="us-states-and-territories"></a>Amerikanska delstater och territorier
 
-|   Namn på stat/provins               |   Kod    |
+|   Namn på stat och territorium          |   Kod    |
 |-------------------------------------|-----------|
 | Alabama                             | USA-AL     |
 | Alaska                              | USA-AK     |
@@ -78,7 +78,40 @@ Om tillämpligt, använd dessa koder för att ge information om stat/provins nä
 | Nordmarianerna            | USA-MP     |
 | Puerto Rico                         | USA-PR     |
 | Usa mindre outlying öar | USA-UM    |
-|Jungfruöarna, USA                 | USA-VI     |
+| Jungfruöarna, USA                 | USA-VI    |
+
+## <a name="canadian-provinces-and-territories"></a>Kanadensiska provinser och territorier
+
+|   Namn på provins och territorium       |   Kod    |
+|-------------------------------------|-----------|
+| Alberta                             |  CA-AB    |
+| British Columbia                    |  CA-BC    |
+| Manitoba                            |  CA-MB    |
+| New Brunswick                       |  CA-NB    |
+| Newfoundland and Labrador           |  CA-NL    |
+| Nova Scotia                         |  CA-NS    |
+| Ontario                             |  CA-ON    |
+| Prince Edward Island                |  CA-PE    |
+| Quebec                              |  CA-QC    |
+| Saskatchewan                        |  CA-SK    |
+| Northwest Territories               |  CA-NT    |
+| Nunavut                             |  CA-NU    |
+| Yukon                               |  CA-YT    |
+
+
+## <a name="australian-states-and-territories"></a>Australiska delstater och territorier
+
+|   Namn på stat och territorium          |   Kod    |
+|-------------------------------------|-----------|
+| New South Wales                     |  AU-NSW   |
+| Queensland                          |  AU-QLD   |
+| South Australia                     |  AU-SA    |
+| Tasmanien                            |  AU-TAS   |
+| Victoria                            |  AU-VIC   |
+| Western Australia                   |  AU-WA    |
+| Australian Capital Territory        |  AU-ACT   |
+| Northern Territory                  |  AU-NT    |
+
 
 ## <a name="next-steps"></a>Nästa steg
 

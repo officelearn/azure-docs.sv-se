@@ -1,6 +1,6 @@
 ---
 title: Indexeringstabeller
-description: Rekommendationer och exempel för indexering av tabeller i SQL Analytics.
+description: Rekommendationer och exempel för indexering av tabeller i Synapse SQL-pool.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ced965f94808bdc672f694bede5c239178891f97
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: d5acc2b69ed521af4fd4777dc9f3496290078379
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351292"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583277"
 ---
-# <a name="indexing-tables-in-sql-analytics"></a>Indexera tabeller i SQL Analytics
+# <a name="indexing-tables-in-synapse-sql-pool"></a>Indexera tabeller i Synapse SQL-pool
 
-Rekommendationer och exempel för indexering av tabeller i SQL Analytics.
+Rekommendationer och exempel för indexering av tabeller i Synapse SQL-pool.
 
 ## <a name="index-types"></a>Indextyper
 
-SQL Analytics erbjuder flera indexeringsalternativ, inklusive [klustrade columnstore-index,](/sql/relational-databases/indexes/columnstore-indexes-overview) [klustrade index och icke-grupperade index,](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described)och ett icke-indexalternativ som också kallas [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
+Synapse SQL pool erbjuder flera indexeringsalternativ, inklusive [klustrade columnstore index,](/sql/relational-databases/indexes/columnstore-indexes-overview) [klustrade index och icke-grupperade index,](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described)och en icke-index alternativ även känd som [hög](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
 
-Om du vill skapa en tabell med ett index finns i dokumentationen [till SKAPA TABELL (SQL Analytics).](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+Om du vill skapa en tabell med ett index finns i dokumentationen [skapa tabell (Synapse SQL-pool).](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
 
 ## <a name="clustered-columnstore-indexes"></a>Grupperade columnstore-index
 
-Som standard skapar SQL Analytics ett grupperat columnstore-index när inga indexalternativ anges i en tabell. Grupperade columnstore-tabeller erbjuder både den högsta nivån av datakomprimering samt den bästa övergripande frågeprestanda.  Grupperade columnstore-tabeller överträffar i allmänhet grupperade index- eller heaptabeller och är vanligtvis det bästa valet för stora tabeller.  Av dessa skäl är klustrade columnstore det bästa stället att börja när du är osäker på hur du indexerar tabellen.  
+Som standard skapar Synapse SQL-pool ett grupperat columnstore-index när inga indexalternativ anges i en tabell. Grupperade columnstore-tabeller erbjuder både den högsta nivån av datakomprimering samt den bästa övergripande frågeprestanda.  Grupperade columnstore-tabeller överträffar i allmänhet grupperade index- eller heaptabeller och är vanligtvis det bästa valet för stora tabeller.  Av dessa skäl är klustrade columnstore det bästa stället att börja när du är osäker på hur du indexerar tabellen.  
 
 Om du vill skapa en grupperad kolumnbutikstabell anger du bara CLUSTERED COLUMNSTORE INDEX i WITH-satsen eller låter WITH-satsen vara inaktiverad:
 
@@ -52,7 +52,7 @@ Det finns några scenarier där klustrade columnstore kanske inte är ett bra al
 
 ## <a name="heap-tables"></a>Heap-tabeller
 
-När du tillfälligt landar data i SQL Analytics kan det hända att det går snabbare att använda en heap-tabell. Detta beror på att belastningar till högar är snabbare än att indexera tabeller och i vissa fall kan den efterföljande läsningen göras från cacheminnet.  Om du läser in data bara för att iscensätta dem innan du kör fler omvandlingar är det mycket snabbare att läsa in tabellen till heap-tabellen än att läsa in data i en grupperad columnstore-tabell. Dessutom läses data in i en [tillfällig tabell](sql-data-warehouse-tables-temporary.md) snabbare än att läsa in en tabell till permanent lagring.  
+När du tillfälligt landar data i Synapse SQL-pool kan det hända att det går snabbare att använda en heap-tabell. Detta beror på att belastningar till högar är snabbare än att indexera tabeller och i vissa fall kan den efterföljande läsningen göras från cacheminnet.  Om du läser in data bara för att iscensätta dem innan du kör fler omvandlingar är det mycket snabbare att läsa in tabellen till heap-tabellen än att läsa in data i en grupperad columnstore-tabell. Dessutom läses data in i en [tillfällig tabell](sql-data-warehouse-tables-temporary.md) snabbare än att läsa in en tabell till permanent lagring.  
 
 För små uppslagstabeller, mindre än 60 miljoner rader, är ofta heap-tabeller meningsfulla.  Kluster columnstore tabeller börjar uppnå optimal komprimering när det finns mer än 60 miljoner rader.
 
@@ -190,7 +190,7 @@ Dessa faktorer kan orsaka att ett columnstore-index har betydligt mindre än de 
 
 ### <a name="memory-pressure-when-index-was-built"></a>Minnestryck när index byggdes
 
-Antalet rader per komprimerad radgrupp är direkt relaterade till radens bredd och mängden minne som är tillgängligt för att bearbeta radgruppen.  När rader skrivs till columnstore-tabeller när minnet är hårt belastat, kan columnstore-segmentens kvalitet påverkas.  Därför är det bästa sättet att ge sessionen som skriver till dina columnstore indextabeller tillgång till så mycket minne som möjligt.  Eftersom det finns en avvägning mellan minne och samtidighet beror vägledningen om rätt minnesallokering på data i varje rad i tabellen, SQL Analytics-enheterna som allokerats till ditt system och antalet samtidighetsplatser som du kan ge till sessionen som är skriva data till din tabell.
+Antalet rader per komprimerad radgrupp är direkt relaterade till radens bredd och mängden minne som är tillgängligt för att bearbeta radgruppen.  När rader skrivs till columnstore-tabeller när minnet är hårt belastat, kan columnstore-segmentens kvalitet påverkas.  Därför är det bästa sättet att ge sessionen som skriver till dina columnstore indextabeller tillgång till så mycket minne som möjligt.  Eftersom det finns en kompromiss mellan minne och samtidighet beror vägledningen om rätt minnesallokering på data i varje rad i tabellen, de informationslagerenheter som allokerats till ditt system och antalet samtidighetsplatser som du kan ge till sessionen som skriver data till tabellen.
 
 ### <a name="high-volume-of-dml-operations"></a>Hög volym DML-åtgärder
 
@@ -204,13 +204,13 @@ Batchade uppdaterings- och infogningar som överskrider masströskeln på 102 40
 
 ### <a name="small-or-trickle-load-operations"></a>Små eller sippra lastoperationer
 
-Små belastningar som flödar in i SQL Analytics-databaser kallas ibland också trickle laster. De representerar vanligtvis en nästan konstant ström av data som intas av systemet. Men eftersom denna ström är nära kontinuerlig volymen av rader är inte särskilt stor. Oftast är data betydligt under det tröskelvärde som krävs för en direkt belastning till columnstore-format.
+Små laster som flödar in i Synapse SQL-pool kallas ibland också trickle laster. De representerar vanligtvis en nästan konstant ström av data som intas av systemet. Men eftersom denna ström är nära kontinuerlig volymen av rader är inte särskilt stor. Oftast är data betydligt under det tröskelvärde som krävs för en direkt belastning till columnstore-format.
 
 I dessa situationer är det ofta bättre att landa data först i Azure blob storage och låta den ackumuleras före inläsning. Denna teknik kallas ofta *mikro-batching*.
 
 ### <a name="too-many-partitions"></a>För många partitioner
 
-En annan sak att tänka på är effekten av partitionering på dina klustrade columnstore-tabeller.  Innan partitioneringen delas SQL Analytics redan upp dina data i 60 databaser.  Partitionering ytterligare delar dina data.  Om du partitionerar dina data bör du tänka på att **varje** partition behöver minst 1 miljon rader för att dra nytta av ett grupperat columnstore-index.  Om du partitionerar tabellen i 100 partitioner behöver tabellen minst 6 miljarder rader för att dra nytta av ett grupperat columnstore-index (60 distributioner *100 partitioner* 1 miljon rader). Om tabellen med 100 partitioner inte har 6 miljarder rader minskar du antingen antalet partitioner eller överväger att använda en heap-tabell i stället.
+En annan sak att tänka på är effekten av partitionering på dina klustrade columnstore-tabeller.  Innan partitioneringen delar Synapse SQL-poolen redan upp dina data i 60 databaser.  Partitionering ytterligare delar dina data.  Om du partitionerar dina data bör du tänka på att **varje** partition behöver minst 1 miljon rader för att dra nytta av ett grupperat columnstore-index.  Om du partitionerar tabellen i 100 partitioner behöver tabellen minst 6 miljarder rader för att dra nytta av ett grupperat columnstore-index (60 distributioner *100 partitioner* 1 miljon rader). Om tabellen med 100 partitioner inte har 6 miljarder rader minskar du antingen antalet partitioner eller överväger att använda en heap-tabell i stället.
 
 När tabellerna har lästs in med vissa data följer du stegen nedan för att identifiera och återskapa tabeller med suboptimala klustrade columnstore-index.
 
@@ -252,7 +252,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-Att återskapa ett index i SQL Analytics är en offlineåtgärd.  Mer information om hur du återskapar index finns i avsnittet ALTER INDEX REBUILD i [Defragmentering](/sql/relational-databases/indexes/columnstore-indexes-defragmentation)för Kolumnstore Index och [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
+Att återskapa ett index i Synapse SQL-pool är en offlineåtgärd.  Mer information om hur du återskapar index finns i avsnittet ALTER INDEX REBUILD i [Defragmentering](/sql/relational-databases/indexes/columnstore-indexes-defragmentation)för Kolumnstore Index och [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Steg 3: Kontrollera klustrade columnstore segment kvalitet har förbättrats
 
@@ -283,7 +283,7 @@ AND     [OrderDateKey] <  20010101
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2 WITH (TRUNCATE_TARGET = ON);
 ```
 
-Mer information om hur du återskapar partitioner med CTAS finns [i Använda partitioner i SQL Analytics](sql-data-warehouse-tables-partition.md).
+Mer information om hur du återskapar partitioner med CTAS finns [i Använda partitioner i Synapse SQL-pool](sql-data-warehouse-tables-partition.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

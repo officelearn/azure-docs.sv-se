@@ -12,18 +12,18 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: a8674714451f3cc686acb74d6c66ac6800b75936
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 72cfdf172e4524e302ef2e22826d4f78ce32daf0
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478077"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582734"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Strömmande slutpunkter (Origin) i Azure Media Services
 
 I Microsoft Azure Media Services representerar en slutpunkt för [direktuppspelning](https://docs.microsoft.com/rest/api/media/streamingendpoints) en dynamisk (just-in-time)-förpackning och ursprungstjänst som kan leverera ditt live- och on-demand-innehåll direkt till en klientspelarapp med hjälp av ett av de vanliga HLS- eller DASH-protokollen (streamingmedia). Dessutom ger **slutpunkten för direktuppspelning** dynamisk (just-in-time) kryptering till branschledande DRM-moduler. 
 
-När du skapar ett Media Services-konto skapas en **standardslutpunkt** för direktuppspelning för dig i ett stoppat tillstånd. Du kan inte ta bort **standardslutpunkten** för direktuppspelning. Fler slutpunkter för direktuppspelning kan skapas under kontot (se [Kvoter och begränsningar](limits-quotas-constraints.md)).
+När du skapar ett Media Services-konto skapas en **standardslutpunkt** för direktuppspelning för dig i ett stoppat tillstånd. Du kan inte ta bort **standardslutpunkten** för direktuppspelning. Fler slutpunkter för direktuppspelning kan skapas under kontot (se [Kvoter och gränser](limits-quotas-constraints.md)).
 
 > [!NOTE]
 > För att börja strömma videor måste du starta den slutpunkt för **direktuppspelning** som du vill strömma videon från.

@@ -314,10 +314,6 @@
                   maintainContext: true
         - name: Köra program med Helm
           href: kubernetes-helm.md
-        - name: Använda Open Service Broker för Azure
-          href: integrate-azure.md
-        - name: Använda API för Cosmos DB för MongoDB med OSBA
-          href: use-cosmosdb-osba-mongo-app.md
         - name: Använda OpenFaaS
           href: openfaas.md
         - name: Köra Spark-jobb

@@ -4,12 +4,12 @@ description: Lär dig kubernetes grundläggande kluster- och arbetsbelastningsko
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: bcf56aa89a42d65fdb7bf03696faad13c64cbc8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 019c886aba1c8fe34211e73e4d960b14e79303b9
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259648"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617444"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes kärnbegrepp för Azure Kubernetes Service (AKS)
 
@@ -65,9 +65,9 @@ Om du vill köra dina program och supporttjänster behöver du *en Kubernetes-no
 
 ![Virtuell Azure-dator och stödresurser för en Kubernetes-nod](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
-Azure VM-storleken för dina noder definierar hur många processorer, hur mycket minne och storlek och typ av lagringsutrymme som är tillgängligt (till exempel högpresterande SSD eller vanlig hårddisk). Om du räknar med ett behov av program som kräver stora mängder CPU och minne eller högpresterande lagring planerar du nodstorleken därefter. Du kan också skala upp antalet noder i AKS-klustret för att möta efterfrågan.
+Azure VM-storleken för dina noder definierar hur många processorer, hur mycket minne och storlek och typ av lagringsutrymme som är tillgängligt (till exempel högpresterande SSD eller vanlig hårddisk). Om du räknar med ett behov av program som kräver stora mängder CPU och minne eller högpresterande lagring planerar du nodstorleken därefter. Du kan också skala ut antalet noder i AKS-klustret för att möta efterfrågan.
 
-I AKS baseras den virtuella datorn för noderna i klustret för närvarande på Ubuntu Linux eller Windows Server 2019. När du skapar ett AKS-kluster eller skalar upp antalet noder skapar Azure-plattformen det begärda antalet virtuella datorer och konfigurerar dem. Det finns ingen manuell konfiguration för dig att utföra. Agentnoder faktureras som vanliga virtuella datorer, så alla rabatter du har på den virtuella datorns storlek som du använder (inklusive [Azure-reservationer)][reservation-discounts]tillämpas automatiskt.
+I AKS baseras den virtuella datorn för noderna i klustret för närvarande på Ubuntu Linux eller Windows Server 2019. När du skapar ett AKS-kluster eller skalar ut antalet noder skapar Azure-plattformen det begärda antalet virtuella datorer och konfigurerar dem. Det finns ingen manuell konfiguration för dig att utföra. Agentnoder faktureras som vanliga virtuella datorer, så alla rabatter du har på den virtuella datorns storlek som du använder (inklusive [Azure-reservationer)][reservation-discounts]tillämpas automatiskt.
 
 Om du behöver använda ett annat värdoperativsystem, behållarkörning eller inkludera anpassade paket kan du distribuera ditt eget Kubernetes-kluster med [aks-engine][aks-engine]. Uppströmsversioner `aks-engine` funktioner och ger konfigurationsalternativ innan de officiellt stöds i AKS kluster. Om du till exempel vill använda en annan containerkörning än `aks-engine` Moby kan du använda för att konfigurera och distribuera ett Kubernetes-kluster som uppfyller dina aktuella behov.
 
@@ -96,7 +96,7 @@ För att upprätthålla nodprestanda och funktionalitet reserveras resurser på 
 
 1. Kubelet daemon installeras på alla Kubernetes-agentnoder för att hantera skapande och avslutning av behållare. Som standard på AKS har den här demonen följande vräkningsregel: *memory.available<750Mi*, vilket innebär att en nod alltid måste ha minst 750 Mi allokerbar hela tiden.  När en värd ligger under tröskelvärdet för tillgängligt minne avslutar kubelet en av de poddar som körs för att frigöra minne på värddatorn och skydda den. Detta är en reaktiv åtgärd när tillgängligt minne minskar utöver 750Mi tröskeln.
 
-2. Det andra värdet är en progressiv minnesreservation för kubelet daemon att fungera korrekt (kube-reserverade).
+2. Det andra värdet är en regressiv minnesreservation för kubelet daemon att fungera korrekt (kube-reserverade).
     - 25% av de första 4 GB minne
     - 20 % av nästa 4 GB minne (upp till 8 GB)
     - 10 % av nästa 8 GB minne (upp till 16 GB)
@@ -118,7 +118,7 @@ För associerade metodtips finns i [Metodtips för grundläggande schemaläggarf
 Noder i samma konfiguration grupperas tillsammans i *nodpooler*. Ett Kubernetes-kluster innehåller en eller flera nodpooler. Det ursprungliga antalet noder och storlek definieras när du skapar ett AKS-kluster, vilket skapar en *standardnodpool*. Den här standardnodpoolen i AKS innehåller underliggande virtuella datorer som kör dina agentnoder.
 
 > [!NOTE]
-> Om du vill att klustret ska fungera tillförlitligt bör du köra minst 2 (två) noder i standardnodpoolen.
+> Om du vill vara säkra på att klustret fungerar på ett tillförlitligt sätt bör du köra minst 2 (två) noder i standardnodpoolen.
 
 När du skalar eller uppgraderar ett AKS-kluster utförs åtgärden mot standardnodpoolen. Du kan också välja att skala eller uppgradera en viss nodpool. För uppgraderingsåtgärder schemaläggs behållare som körs på andra noder i nodpoolen tills alla noder har uppgraderats.
 

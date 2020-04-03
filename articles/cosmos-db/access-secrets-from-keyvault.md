@@ -9,14 +9,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 55e6bbc338c1ac6f9ef935b4a3a05c32f2b5e9f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 225221635f978e3d70cec4ce7e9d78d6b100b4fd
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72755212"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618761"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Skydda Azure Cosmos-nycklar med Azure Key Vault 
+
+>[!IMPORTANT]
+> Den rekommenderade lösningen för att komma åt Azure Cosmos DB-nycklar är att använda en [systemtilldelad hanterad identitet](managed-identity-based-authentication.md). Om din tjänst inte kan dra nytta av hanterade identiteter använder du den [cert-baserade lösningen](certificate-based-authentication.md). Om både den hanterade identitetslösningen och den cert-baserade lösningen inte uppfyller dina behov kan du använda nyckelvalvslösningen nedan.
 
 När du använder Azure Cosmos DB för dina program kan du komma åt databasen, samlingarna, dokumenten med hjälp av slutpunkten och nyckeln i appens konfigurationsfil.  Det är dock inte säkert att placera nycklar och URL direkt i programkoden eftersom de är tillgängliga i klartextformat för alla användare. Du vill se till att slutpunkten och nycklarna är tillgängliga, men via en säker mekanism. Med Azure Key Vault kan du då säkert lagra och hantera programhemligheter.
 

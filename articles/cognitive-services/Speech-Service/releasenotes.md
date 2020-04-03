@@ -3,25 +3,57 @@ title: Viktig information - Taltjänst
 titleSuffix: Azure Cognitive Services
 description: En logg som körs med speech service-funktionen släpper, förbättringar, buggfixar och kända problem.
 services: cognitive-services
-author: brianem
+author: oliversc
 manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.author: brianem
+ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: cbe9c7cbd0f402e38d1163050d77b055f89948ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7bab0a28ba2b75903b6bdf4708e6aa0a98bdc9e5
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219647"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607408"
 ---
 # <a name="release-notes"></a>Viktig information
+## <a name="speech-sdk-1110-2020-march-release"></a>Tal SDK 1.11.0: 2020-mars release
+
+**Nya funktioner**
+
+- Linux: Lagt till stöd för Red Hat Enterprise Linux (RHEL)/CentOS 7 x64 med instruktioner om hur du [konfigurerar](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-rhel-centos-7) systemet för Tal SDK.
+- Linux: Lagt till stöd för .NET Core C# på Linux ARM32 och ARM64. Läs mer [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=linux). 
+- C#, C++: `UtteranceId` `ConversationTranscriptionResult`Tillagt i , ett konsekvent ID över alla intermediärer och slutligt taligenkänningsresultat. Detaljer för [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription.conversationtranscriptionresult?view=azure-dotnet), [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/transcription-conversationtranscriptionresult).
+- Python: Lagt `Language ID`till stöd för . Se speech_sample.py i [GitHub repo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console).
+- Windows: Lade till stöd för komprimerat ljudinmatningsformat på Windows-plattformen för alla win32-konsolprogram. Detaljer [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams). 
+- JavaScript: Stöd för talsyntes (text-till-tal) i NodeJS. Läs mer [här](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/text-to-speech). 
+- JavaScript: Lägg till nya API:er för att aktivera inspektion av alla skicka och mottagna meddelanden. Läs mer [här](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript). 
+        
+**Felkorrigeringar**
+
+- C#, C++: Åtgärdade `SendMessageAsync` ett problem så skickar nu binära meddelanden som binär text. Detaljer för [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.sendmessageasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Connection_SendMessageAsync_System_String_System_Byte___System_UInt32_), [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/connection).
+- C#, C++: Åtgärdade `Connection MessageReceived` ett problem där `Recognizer` användning av `Connection` händelse kan orsaka krasch om det tas bort före objektet. Detaljer för [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.messagereceived?view=azure-dotnet), [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/connection#messagereceived).
+- Android: Ljudbuffertstorlek från mikrofon minskade från 800ms till 100ms för att förbättra svarstiden.
+- Android: Fixade ett [problem](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/563) med x86 Android-emulatorn i Android Studio.
+- JavaScript: Lagt till stöd för `fromSubscription` regioner i Kina med API: et. Detaljer [här](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#fromsubscription-string--string-). 
+- JavaScript: Lägg till mer felinformation för anslutningsfel från NodeJS.
+        
+**Exempel**
+
+- Enhet: Offentligt exempel på avsiktsigenkänning har åtgärdats, där LUIS json-importen misslyckades. Detaljer [här](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/369).
+- Python: Exempel `Language ID`tillagt för . Detaljer [här](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py).
+    
+**Covid19 förkortad testning**
+
+På grund av att arbeta på distans under de senaste veckorna kunde vi inte göra så mycket manuell enhetskontroll testning som vi normalt gör. Ett exempel på detta är att testa mikrofoningång och högtalarutgång på Linux, iOS och macOS. Vi har inte gjort några ändringar som vi tror kunde ha brutit något på dessa plattformar, och våra automatiserade tester alla passerade. I den osannolika händelsen att vi missade något, vänligen meddela oss på [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?page=2&q=is%3Aissue+is%3Aopen).<br> Tack för ert fortsatta stöd. Som alltid, skicka frågor eller feedback på [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?page=2&q=is%3Aissue+is%3Aopen) eller [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/731).<br>
+Håll dig frisk!
+
 ## <a name="speech-sdk-1100-2020-february-release"></a>Tal SDK 1.10.0: 2020-februari release
 
 **Nya funktioner**
+
  - Lade till Python-paket för att stödja den nya 3.8-versionen av Python.
  - Red Hat Enterprise Linux (RHEL)/CentOS 8 x64 support (C++, C#, Java, Python).
    > [!NOTE] 
@@ -33,6 +65,7 @@ ms.locfileid: "79219647"
  - Uppdaterade taligenkänningsmodeller för 19 språk för en genomsnittlig ordfelsminskning på 18,6 % (es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, zh-CN, zh-HK, nb-NO, fi-FL, ru-RU, pl-PL, ca-ES, zh-TW, th-TH, pt-PT, tr-TR). De nya modellerna medför betydande förbättringar på flera domäner, inklusive diktering, Call Center Transkription och videoindexering scenarier.
 
 **Felkorrigeringar**
+
  - Fast bugg där Konversation Transkriberare inte väntade ordentligt i JAVA API: er 
  - Android x86 emulator fix för Xamarin [GitHub fråga](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/363)
  - Lägg till saknas (Hämta| Ange)Egenskapsmetoder till AudioConfig
@@ -40,10 +73,12 @@ ms.locfileid: "79219647"
  - Om du använder en slutpunkt utan region skulle USP-fel orsaka konversationsöversättare
  - ID-generering i Universella Windows-program använder nu en lämpligt unik GUID-algoritm. Det tidigare och oavsiktligt standard till en stubbed genomförande som ofta producerade kollisioner över stora uppsättningar av interaktioner.
  
- **Prover**
+ **Exempel**
+ 
  - Unity-exempel för att använda Tal SDK med [Unity-mikrofon och direktuppspelning av tryckläge](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/unity/from-unitymicrophone)
 
 **Andra ändringar**
+
  - [OpenSSL-konfigurationsdokumentation uppdaterad för Linux](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-openssl-linux)
 
 ## <a name="speech-sdk-190-2020-january-release"></a>Tal SDK 1.9.0: 2020-januari release
@@ -59,13 +94,11 @@ ms.locfileid: "79219647"
 - JavaScript: Lagt `FromHost API` till stöd för att underlätta användning med on-prem behållare och suveräna moln. Se dokumentation [här](speech-container-howto.md).
 - JavaScript: Vi `NODE_TLS_REJECT_UNAUTHORIZED` hedrar nu tack vare ett bidrag från [orgads](https://github.com/orgads). Se detaljer [här](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75).
 
-
 **Bryta förändringar**
 
 - `OpenSSL`har uppdaterats till version 1.1.1b och är statiskt länkad till Speech SDK-kärnbiblioteket för Linux. Detta kan orsaka en paus `OpenSSL` om inkorgen `/usr/lib/ssl` inte har installerats i katalogen i systemet. Läs [vår dokumentation](how-to-configure-openssl-linux.md) under Tal SDK-dokument för att komma runt problemet.
 - Vi har ändrat datatypen som `WordLevelTimingResult.Offset` `int` returneras för C# från för att `long` möjliggöra åtkomst till `WordLevelTimingResults` när taldata är längre än 2 minuter.
 - `PushAudioInputStream`och `PullAudioInputStream` nu skicka wav header information `AudioStreamFormat`till taltjänsten baserat på , eventuellt anges när de skapades. Kunderna måste nu använda [ljudinmatningsformatet som stöds](how-to-use-audio-input-streams.md). Alla andra format får suboptimala igenkänningsresultat eller kan orsaka andra problem. 
-
 
 **Felkorrigeringar**
 
@@ -81,13 +114,11 @@ ms.locfileid: "79219647"
 - JavaScript: lagt till stöd för att ange tjänstegenskaper, som lagts till i 1.7.
 - JavaScript: åtgärdade ett problem där ett anslutningsfel kan resultera i kontinuerliga, misslyckade websocket-återanslutningsförsök.
 
-
-**Prover**
+**Exempel**
 
 - Lade till exempel på sökordsigenkänning för Android [här](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/android/sdkdemo).
 - Lagt till TTS-exempel för serverscenariot [här](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_server_scenario_sample.cs).
 - Lade till snabbstarter för konversationsstarter med flera enheter för C# och C++ [här](quickstarts/multi-device-conversation.md).
-
 
 **Andra ändringar**
 
@@ -114,7 +145,7 @@ ms.locfileid: "79219647"
 
 - Åtgärda för krasch `KeywordRecognizer` om lokal används utan en giltig taltjänstprenumerationsnyckel
 
-**Prover**
+**Exempel**
 
 - Xamarinprov för`KeywordRecognizer`
 - Unity-urval för`KeywordRecognizer`
@@ -145,7 +176,7 @@ ms.locfileid: "79219647"
 - `DialogServiceConnector`sessionen startar kommer nu att ge `ListenOnceAsync()` händelser på rätt sätt, även när du ringer under en aktiv`StartKeywordRecognitionAsync()`
 - Åtgärdat en krasch `DialogServiceConnector` i samband med att aktiviteter tas emot
 
-**Prover**
+**Exempel**
 
 - Snabbstart för Xamarin
 - Uppdaterad CPP Quickstart med Linux ARM64-information
@@ -153,7 +184,7 @@ ms.locfileid: "79219647"
 
 ## <a name="speech-sdk-160-2019-june-release"></a>Tal SDK 1.6.0: 2019-Juni release
 
-**Prover**
+**Exempel**
 
 - Snabbstartsexempel för text till tal om UWP och Unity
 - Snabbstartsprov för Swift på iOS
@@ -202,7 +233,7 @@ Detta är en felkorrigeringsversion och påverkar endast den inbyggda/hanterade 
 - Konversationstranskriptionsfunktionen är tillgänglig via SDK. Se [här](conversation-transcription-service.md).
 - Lägg till stöd för röstassistenter med direktlinjetalkanalen.
 
-**Prover**
+**Exempel**
 
 - Lade till exempel för nya funktioner eller nya tjänster som stöds av SDK.
 
@@ -238,7 +269,7 @@ Detta är en JavaScript-release. Inga funktioner har lagts till. Följande korri
 - JavaScript: Stöd för mikrofon som inte är standard som indataenhet.
 - JavaScript: Proxystöd för Node.js.
 
-**Prover**
+**Exempel**
 
 - Prover för att använda Tal-SDK med C++ och med Objective-C på macOS har lagts till.
 - Exempel som visar användningen av text-till-tal-tjänsten har lagts till.
@@ -271,7 +302,7 @@ Detta är en felkorrigeringsversion och påverkar endast den inbyggda/hanterade 
 - Speech SDK stöder nu Unity i en betaversion. Ge feedback via ärendeavsnittet i [GitHub-exempeldatabasen](https://aka.ms/csspeech/samples). Den här versionen stöder Unity på Windows x86 och x64 (skrivbords- eller universella Windows-plattformsprogram) och Android (ARM32/64, x86). Mer information finns i vår [Unity snabbstart.](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=unity)
 - Filen `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (som levererades i tidigare versioner) behövs inte längre. Funktionaliteten är nu integrerad i kärnan SDK.
 
-**Prover**
+**Exempel**
 
 Följande nya innehåll finns i vårt [exempeldatabas:](https://aka.ms/csspeech/samples)
 
@@ -354,7 +385,7 @@ Detta är en JavaScript-release. Inga funktioner har lagts till. Följande korri
 - JavaScript: Ställ in standardutdataformatet på "enkel" i `SpeechConfig`.
 - JavaScript: Ta bort inkonsekvens mellan egenskaper för config-objektet i JavaScript och andra språk.
 
-**Prover**
+**Exempel**
 
 - Uppdaterade och fixade flera prover (t.ex. utdataröster för översättning, etc.).
 - Lade till nod.js-exempel i [exempeldatabasen](https://aka.ms/csspeech/samples).
@@ -386,7 +417,7 @@ Detta är en JavaScript-release. Inga funktioner har lagts till. Följande korri
 - Fixade ett fel `EndpointId` som hindrade inställningen (i vissa fall) i JavaScript.
 - Ändrade parameterordning i AddIntent i JavaScript och lade till javascript-signatur som saknades. `AddIntent`
 
-**Prover**
+**Exempel**
 
 - Lade till C++ och C#-exempel för pull- och pushstream-användning i [exempeldatabasen](https://aka.ms/csspeech/samples).
 

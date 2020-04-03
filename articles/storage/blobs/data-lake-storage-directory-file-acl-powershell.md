@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 9e254e2a06ea5a0d886072f4e9e3b7d275e4860e
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 9be3b2c9b2624d4cd758081703373a433861e4a7
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422847"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585316"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Använda PowerShell för att hantera kataloger, filer och ACL:er i Azure Data Lake Storage Gen2 (förhandsversion)
 
@@ -46,7 +46,7 @@ Den här artikeln visar hur du använder PowerShell för att skapa och hantera k
 2. Installera den senaste **PowershellGet-modulen.** Stäng sedan och öppna PowerShell-konsolen igen.
 
    ```powershell
-   install-Module PowerShellGet –Repository PSGallery –Force 
+   Install-Module PowerShellGet –Repository PSGallery –Force 
    ```
 
 3. Installera förhandsversionen av **Az.Storage.**

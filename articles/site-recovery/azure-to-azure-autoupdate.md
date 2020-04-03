@@ -6,36 +6,35 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/24/2019
+ms.date: 04/02/2020
 ms.author: rajanaki
-ms.openlocfilehash: 3a9b0717368fa67f5a7dd477e018a68e048b6740
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 67298ecf0c17feee2d36bb8774cae37b1ca81381
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75451411"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618967"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatisk uppdatering av mobilitetstjänsten i Azure-to-Azure-replikering
 
-Azure Site Recovery använder en månatlig version kadens för att åtgärda eventuella problem och förbättra befintliga funktioner eller lägga till nya. Om du vill behålla tjänsten måste du planera för korrigeringsdistribution varje månad. Om du vill undvika omkostnader som är associerade med varje uppgradering kan du i stället tillåta att webbplatsåterställning hanterar komponentuppdateringar.
+Azure Site Recovery använder en månatlig version kadens för att åtgärda eventuella problem och förbättra befintliga funktioner eller lägga till nya. Om du vill behålla tjänsten måste du planera för korrigeringsdistribution varje månad. Om du vill undvika de omkostnader som är associerade med varje uppgradering kan du tillåta att webbplatsåterställning hanterar komponentuppdateringar.
 
-Som nämnts i [Azure-to-Azure-arkitektur för haveriberedskap](azure-to-azure-architecture.md)installeras mobilitetstjänsten på alla virtuella Azure-datorer (VMs) för vilka replikering är aktiverat, samtidigt som virtuella datorer replikeras från en Azure-region till en annan. När du använder automatiska uppdateringar uppdaterar varje ny utgåva tillägget mobilitetstjänst.
- 
+Som nämnts i [Azure-to-Azure-arkitektur för haveriberedskap](azure-to-azure-architecture.md)installeras mobilitetstjänsten på alla virtuella Azure-datorer (VMs) som har replikering aktiverat från en Azure-region till en annan. När du använder automatiska uppdateringar uppdaterar varje ny utgåva tillägget mobilitetstjänst.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="how-automatic-updates-work"></a>Så här fungerar automatiska uppdateringar
 
-När du använder Site Recovery för att hantera uppdateringar distribuerar den en global runbook (som används av Azure-tjänster) via ett automatiseringskonto som skapats i samma prenumeration som valvet. Varje valv använder ett automationskonto. Runbooken söker efter aktiva automatiska uppdateringar och uppgraderar tillägget mobilitetstjänsten om det finns en nyare version.
+När du använder Site Recovery för att hantera uppdateringar distribuerar den en global runbook (som används av Azure-tjänster) via ett automatiseringskonto som skapats i samma prenumeration som valvet. Varje valv använder ett automationskonto. För varje virtuell dator i ett valv söker runbooken efter aktiva automatiska uppdateringar. Om det finns en nyare version av tillägget mobilitetstjänsten är tillgänglig installeras uppdateringen.
 
-Standardschemat för runbook återkommer dagligen klockan 12:00 i tidszonen för den replikerade virtuella datorns geo. Du kan också ändra runbook-schemat via automationskontot.
+Standardschemat för runbook inträffar dagligen klockan 12:00 i tidszonen för den replikerade virtuella datorns geografi. Du kan också ändra runbook-schemat via automationskontot.
 
 > [!NOTE]
-> Från och med samlad uppdatering 35 kan du välja ett befintligt automatiseringskonto som ska användas för uppdateringar. Före den här uppdateringen skapade Site Recovery det här kontot som standard. Observera att du bara kan välja det här alternativet när du aktiverar replikering för en virtuell dator. Den är inte tillgänglig för en replikerande virtuell dator. Den inställning du väljer gäller för alla virtuella Azure-datorer som skyddas i samma valv.
- 
-> Aktivera automatiska uppdateringar kräver inte en omstart av dina virtuella Azure-datorer eller påverkar pågående replikering.
+> Från och med [samlad uppdatering 35](site-recovery-whats-new.md#updates-march-2019)kan du välja ett befintligt automatiseringskonto som ska användas för uppdateringar. Före samlad uppdatering 35 skapade Site Recovery automationskontot som standard. Du kan bara välja det här alternativet när du aktiverar replikering för en virtuell dator. Den är inte tillgänglig för en virtuell dator som redan har replikering aktiverad. Den inställning du väljer gäller för alla virtuella Azure-datorer som skyddas i samma valv.
 
-> Jobbfakturering i automatiseringskontot baseras på antalet jobbkörningsminuter som använts under en månad. Som standard ingår 500 minuter som kostnadsfria enheter för ett automationskonto. Jobbkörning tar några sekunder till ungefär en minut varje dag och täcks som fria enheter.
+Aktivera automatiska uppdateringar kräver inte en omstart av dina virtuella Azure-datorer eller påverkar pågående replikering.
+
+Jobbfakturering i automatiseringskontot baseras på antalet jobbkörningsminuter som använts under en månad. Jobbkörning tar några sekunder till ungefär en minut varje dag och täcks som fria enheter. Som standard ingår 500 minuter som kostnadsfria enheter för ett automationskonto, vilket visas i följande tabell:
 
 | Gratis enheter ingår (varje månad) | Pris |
 |---|---|
@@ -43,31 +42,38 @@ Standardschemat för runbook återkommer dagligen klockan 12:00 i tidszonen för
 
 ## <a name="enable-automatic-updates"></a>Aktivera automatiska uppdateringar
 
-Du kan tillåta att webbplatsåterställning hanterar uppdateringar på följande sätt.
+Det finns flera sätt att hantera tilläggsuppdateringar för webbplatsåterställning:
+
+- [Hantera som en del av aktivera replikeringssteget](#manage-as-part-of-the-enable-replication-step)
+- [Växla inställningarna för tilläggsuppdatering i valvet](#toggle-the-extension-update-settings-inside-the-vault)
+- [Hantera uppdateringar manuellt](#manage-updates-manually)
 
 ### <a name="manage-as-part-of-the-enable-replication-step"></a>Hantera som en del av aktivera replikeringssteget
 
 När du aktiverar replikering för en virtuell dator, antingen [från vm-vyn](azure-to-azure-quickstart.md) eller [från återställningstjänstvalvet,](azure-to-azure-how-to-enable-replication.md)kan du antingen tillåta platsåterställning att hantera uppdateringar för site recovery-tillägget eller hantera det manuellt.
 
-![Inställningar för tillägg](./media/azure-to-azure-autoupdate/enable-rep.png)
+:::image type="content" source="./media/azure-to-azure-autoupdate/enable-rep.png" alt-text="Inställningar för tillägg":::
 
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>Växla inställningarna för tilläggsuppdatering i valvet
 
-1. Gå till **Hantera** > **infrastruktur för webbplatsåterställning**i valvet .
-2. Aktivera **växlingsknappen Tillåt webbplatsåterställning** under För azure **Virtual Machines** > **Extension Update Settings.** Om du vill hantera manuellt inaktiverar du den. 
-3. Välj **Spara**.
+1. Gå till **Hantera** > **infrastruktur för återställningstjänster från**valvet för återställningstjänster .
+1. Under För**uppdateringsinställningar** >  >  **för Azure-tillägg**Tillåt**webbplatsåterställning att hantera**väljer du **På**.
 
-![Inställningar för tilläggsuppdatering](./media/azure-to-azure-autoupdate/vault-toggle.png)
+   Om du vill hantera tillägget manuellt väljer du **Av**.
 
-> [!Important]
-> När du väljer **Tillåt platsåterställning att hantera**tillämpas inställningen på alla virtuella datorer i motsvarande valv.
+1. Välj **Spara**.
 
-
-> [!Note]
-> Båda alternativen meddelar dig om det automatiseringskonto som används för att hantera uppdateringar. Om du använder den här funktionen i ett valv för första gången skapas ett nytt automationskonto som standard. Alternativt kan du anpassa inställningen och välja ett befintligt automatiseringskonto. Alla efterföljande aktivera replikeringar i samma valv använder den tidigare skapade. För närvarande listrutan kommer bara lista Automation-konton som finns i samma resursgrupp som valvet.  
+:::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.png" alt-text="Inställningar för tilläggsuppdatering":::
 
 > [!IMPORTANT]
-> Skriptet nedan måste köras i samband med ett automationskonto För ett anpassat automationskonto använder du följande skript:
+> När du väljer **Tillåt platsåterställning att hantera**tillämpas inställningen på alla virtuella datorer i valvet.
+
+> [!NOTE]
+> Båda alternativen meddelar dig om det automatiseringskonto som används för att hantera uppdateringar. Om du använder den här funktionen i ett valv för första gången skapas ett nytt automationskonto som standard. Alternativt kan du anpassa inställningen och välja ett befintligt automatiseringskonto. Alla efterföljande tak för att aktivera replikering i samma valv kommer att använda det tidigare skapade automationskontot. För närvarande listar den nedrullningsvänliga menyn endast automatiseringskonton som finns i samma resursgrupp som valvet.
+
+> [!IMPORTANT]
+> Följande skript måste köras i samband med ett automatiseringskonto.
+För ett anpassat automatiseringskonto använder du följande skript:
 
 ```azurepowershell
 param(
@@ -96,32 +102,32 @@ $Timeout = "160"
 
 function Throw-TerminatingErrorMessage
 {
-    Param
+        Param
     (
         [Parameter(Mandatory=$true)]
         [String]
         $Message
-    )
+        )
 
     throw ("Message: {0}, TaskId: {1}.") -f $Message, $TaskId
 }
 
 function Write-Tracing
 {
-    Param
+        Param
     (
-        [Parameter(Mandatory=$true)]      
+        [Parameter(Mandatory=$true)]
         [ValidateSet("Informational", "Warning", "ErrorLevel", "Succeeded", IgnoreCase = $true)]
-        [String]
+                [String]
         $Level,
 
         [Parameter(Mandatory=$true)]
         [String]
         $Message,
 
-        [Switch]
+            [Switch]
         $DisplayMessageToUser
-    )
+        )
 
     Write-Output $Message
 
@@ -129,12 +135,12 @@ function Write-Tracing
 
 function Write-InformationTracing
 {
-    Param
+        Param
     (
         [Parameter(Mandatory=$true)]
         [String]
         $Message
-    )
+        )
 
     Write-Tracing -Message $Message -Level Informational -DisplayMessageToUser
 }
@@ -183,14 +189,14 @@ function Initialize-SubscriptionId()
         $Tokens = $VaultResourceId.SubString(1).Split("/")
 
         $Count = 0
-        $ArmResources = @{}
+                $ArmResources = @{}
         while($Count -lt $Tokens.Count)
         {
             $ArmResources[$Tokens[$Count]] = $Tokens[$Count+1]
             $Count = $Count + 2
         }
-        
-        return $ArmResources["subscriptions"]
+
+                return $ArmResources["subscriptions"]
     }
     catch
     {
@@ -207,7 +213,7 @@ function Invoke-InternalRestMethod($Uri, $Headers, [ref]$Result)
     {
         try
         {
-            $ResultObject = Invoke-RestMethod -Uri $Uri -Headers $Headers    
+            $ResultObject = Invoke-RestMethod -Uri $Uri -Headers $Headers
             ($Result.Value) += ($ResultObject)
             break
         }
@@ -253,7 +259,7 @@ function Invoke-InternalWebRequest($Uri, $Headers, $Method, $Body, $ContentType,
 }
 
 function Get-Header([ref]$Header, $AadAudience, $AadAuthority, $RunAsConnectionName){
-    try 
+    try
     {
         $RunAsConnection = Get-AutomationConnection -Name $RunAsConnectionName
         $TenantId = $RunAsConnection.TenantId
@@ -284,14 +290,14 @@ function Get-Header([ref]$Header, $AadAudience, $AadAuthority, $RunAsConnectionN
 
 function Get-ProtectionContainerToBeModified([ref] $ContainerMappingList)
 {
-    try 
+    try
     {
         Write-InformationTracing ("Get protection container mappings : {0}." -f $VaultResourceId)
         $ContainerMappingListUrl = $ArmEndPoint + $VaultResourceId + "/replicationProtectionContainerMappings" + "?api-version=" + $AsrApiVersion
-        
+
         Write-InformationTracing ("Getting the bearer token and the header.")
         Get-Header ([ref]$Header) $AadAudience $AadAuthority $RunAsConnectionName
-        
+
         $Result = @()
         Invoke-InternalRestMethod -Uri $ContainerMappingListUrl -Headers $header -Result ([ref]$Result)
         $ContainerMappings = $Result[0]
@@ -389,7 +395,7 @@ try
     try {
             $UpdateUrl = $ArmEndPoint + $Mapping + "?api-version=" + $AsrApiVersion
             Get-Header ([ref]$Header) $AadAudience $AadAuthority $RunAsConnectionName
-            
+
             $Result = @()
             Invoke-InternalWebRequest -Uri $UpdateUrl -Headers $Header -Method 'PATCH' `
                 -Body $InputJson  -ContentType "application/json" -Result ([ref]$Result)
@@ -479,7 +485,7 @@ catch
 {
     $ErrorMessage = ("Tracking modify cloud pairing jobs failed with [Exception: {0}]." -f $_.Exception)
     Write-Tracing -Level ErrorLevel -Message $ErrorMessage  -DisplayMessageToUser
-    Throw-TerminatingErrorMessage -Message $ErrorMessage 
+    Throw-TerminatingErrorMessage -Message $ErrorMessage
 }
 
 Write-InformationTracing ("Tracking modify cloud pairing jobs completed.")
@@ -491,7 +497,7 @@ Write-InformationTracing ("Modify cloud pairing jobs timedout: {0}." -f $JobsTim
 if($JobsTimedOut -gt  0)
 {
     $ErrorMessage = "One or more modify cloud pairing jobs has timedout."
-    Write-Tracing -Level ErrorLevel -Message ($ErrorMessage)   
+    Write-Tracing -Level ErrorLevel -Message ($ErrorMessage)
     Throw-TerminatingErrorMessage -Message $ErrorMessage
 }
 elseif($JobsCompletedSuccessList.Count -ne $ContainerMappingList.Count)
@@ -506,44 +512,44 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
 ### <a name="manage-updates-manually"></a>Hantera uppdateringar manuellt
 
-1. Om det finns nya uppdateringar för mobilitetstjänsten installerad på dina virtuella datorer visas följande meddelande: "Uppdatering av ny webbplatsåterställningsreplikeragent är tillgänglig. Klicka för att installera"
+1. Om det finns nya uppdateringar för mobilitetstjänsten installerad på dina virtuella datorer visas följande meddelande: **Uppdatering av replikeringsagenten för ny webbplatsåterställning är tillgänglig. Klicka här om du vill installera.**
 
-     ![Fönstret Replikerade objekt](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
-2. Välj meddelandet om du vill öppna urvalssidan för den virtuella datorn.
-3. Välj de virtuella datorer som du vill uppgradera och välj sedan **OK**. Tjänsten Uppdatera mobilitet startar för varje vald virtuell dator.
+   :::image type="content" source="./media/vmware-azure-install-mobility-service/replicated-item-notif.png" alt-text="Fönstret Replikerade objekt":::
 
-     ![VM-lista för replikerade objekt](./media/vmware-azure-install-mobility-service/update-okpng.png)
+1. Välj meddelandet om du vill öppna urvalssidan för den virtuella datorn.
+1. Välj de virtuella datorer som du vill uppgradera och välj sedan **OK**. Tjänsten Uppdatera mobilitet startar för varje vald virtuell dator.
 
+   :::image type="content" source="./media/vmware-azure-install-mobility-service/update-okpng.png" alt-text="VM-lista för replikerade objekt":::
 
 ## <a name="common-issues-and-troubleshooting"></a>Vanliga problem och felsökning
 
 Om det finns ett problem med de automatiska uppdateringarna visas ett felmeddelande under **Konfigurationsproblem** på instrumentpanelen för valvet.
 
-Om du inte kunde aktivera automatiska uppdateringar läser du följande vanliga fel och rekommenderade åtgärder:
+Om du inte kan aktivera automatiska uppdateringar läser du följande vanliga fel och rekommenderade åtgärder:
 
 - **Fel:** Du har inte behörighet att skapa ett Azure Run As-konto (tjänstens huvudnamn) och bevilja rollen Deltagare till tjänstens huvudnamn.
 
-   **Rekommenderad åtgärd**: Kontrollera att det inloggade kontot tilldelas som deltagare och försök igen. Se avsnittet behörigheter som krävs i [Använd portalen för att skapa ett Azure AD-program och tjänsthuvudnamn som kan komma åt resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) för mer information om tilldelning av behörigheter.
- 
-   Om du vill åtgärda de flesta problem när du har aktiverat automatiska uppdateringar väljer du **Reparera**. Om reparationsknappen inte är tillgänglig läser du felmeddelandet som visas i inställningsfönstret för tilläggsuppdatering.
+  **Rekommenderad åtgärd**: Kontrollera att det inloggade kontot tilldelas som deltagare och försök igen. Mer information om hur du tilldelar behörigheter finns i avsnittet behörigheter som krävs i [How to: Use the portal för att skapa ett Azure AD-program och tjänsthuvudnamn som kan komma åt resurser](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions).
 
-   ![Reparationsknappen för site recovery-tjänsten i inställningar för uppdatering av tillägg](./media/azure-to-azure-autoupdate/repair.png)
+  Om du vill åtgärda de flesta problem när du har aktiverat automatiska uppdateringar väljer du **Reparera**. Om reparationsknappen inte är tillgänglig läser du felmeddelandet som visas i inställningsfönstret för tilläggsuppdatering.
+
+  :::image type="content" source="./media/azure-to-azure-autoupdate/repair.png" alt-text="Reparationsknappen för site recovery-tjänsten i inställningar för uppdatering av tillägg":::
 
 - **Fel:** Kontot Kör som har inte behörighet att komma åt återställningstjänstresursen.
 
-    **Rekommenderad åtgärd**: Ta bort och återskapa sedan [kontot Kör som](https://docs.microsoft.com/azure/automation/automation-create-runas-account). Eller kontrollera att Automation Run As-kontots Azure Active Directory-program har åtkomst till återställningstjänstresursen.
+  **Rekommenderad åtgärd**: Ta bort och återskapa sedan [kontot Kör som](/azure/automation/automation-create-runas-account). Eller kontrollera att Automation Run As-kontots Azure Active Directory-program kan komma åt återställningstjänstresursen.
 
-- **Fel:** Kör som konto hittades inte. Antingen togs något av dessa bort eller har inte skapats - Azure Active Directory Application, Service Principal, Role, Automation Certificate Asset, Automation Connection Asset - eller så är tumavtrycket inte identiskt mellan certifikat och anslutning. 
+- **Fel:** Kör som konto hittades inte. Antingen togs något av dessa bort eller har inte skapats - Azure Active Directory Application, Service Principal, Role, Automation Certificate Asset, Automation Connection Asset - eller så är tumavtrycket inte identiskt mellan certifikat och anslutning.
 
-    **Rekommenderad åtgärd**: Ta bort och återskapa sedan [kontot Kör som](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+  **Rekommenderad åtgärd**: Ta bort och återskapa sedan [kontot Kör som](/azure/automation/automation-create-runas-account).
 
--  **Fel:** Azure Run som certifikat som används av automationskontot håller på att upphöra att gälla. 
+- **Fel:** Azure Run som certifikat som används av automationskontot håller på att upphöra att gälla.
 
-    Det självsignerade certifikat som skapas för kontot Kör som upphör att gälla ett år från det datum då det skapades. Du kan förnya det när som helst innan det upphör att gälla. Om du har registrerat dig för e-postmeddelanden får du också e-postmeddelanden när en åtgärd krävs från din sida. Det här felet visas två månader före utgångsdatumet och ändras till ett kritiskt fel om certifikatet har upphört att gälla. När certifikatet har upphört att gälla fungerar inte automatisk uppdatering förrän du förnyar samma.
+  Det självsignerade certifikat som skapas för kontot Kör som upphör att gälla ett år från det datum då det skapades. Du kan förnya det när som helst innan det upphör att gälla. Om du har registrerat dig för e-postmeddelanden får du också e-postmeddelanden när en åtgärd krävs från din sida. Det här felet visas två månader före utgångsdatumet och ändras till ett kritiskt fel om certifikatet har upphört att gälla. När certifikatet har upphört att gälla fungerar inte automatisk uppdatering förrän du förnyar samma.
 
-   **Rekommenderad åtgärd**: Klicka på "Reparera" och sedan "Förnya certifikat" för att lösa problemet.
-    
-   ![förnya-cert](media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG)
+  **Rekommenderad åtgärd**: Lös problemet genom att välja **Reparera** och sedan förnya **certifikat .**
 
-> [!NOTE]
-> När du förnyar certifikatet uppdaterar du sidan så att aktuell status uppdateras.
+  :::image type="content" source="./media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG" alt-text="förnya-cert":::
+
+  > [!NOTE]
+  > När du har förnyat certifikatet uppdaterar du sidan så att den aktuella statusen visas.

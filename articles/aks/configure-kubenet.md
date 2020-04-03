@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/26/2019
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 3fe1d36b859884ab19a645e5693c7e7931fe5c2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 119265efa7b6504f3faf2e89cb68b9e9bd70bf9f
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79368476"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617251"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Använda kubenet-nätverk med dina egna IP-adressintervall i Azure Kubernetes Service (AKS)
 
@@ -25,7 +25,7 @@ Den här artikeln visar hur du använder *kubenet-nätverk* för att skapa och a
 * Det virtuella nätverket för AKS-klustret måste tillåta utgående internetanslutning.
 * Skapa inte mer än ett AKS-kluster i samma undernät.
 * AKS-kluster får `169.254.0.0/16`inte `172.30.0.0/16` `172.31.0.0/16`använda `192.0.2.0/24` , , eller för Kubernetes tjänstadressintervall.
-* Tjänsthuvudhuvudnamnet som används av AKS-klustret måste ha minst [behörigheten Nätverksdeltagare](../role-based-access-control/built-in-roles.md#network-contributor) i undernätet i det virtuella nätverket. Om du vill definiera en [anpassad roll](../role-based-access-control/custom-roles.md) i stället för att använda rollen inbyggd nätverksdeltagare krävs följande behörigheter:
+* Tjänsthuvudhuvudnamnet som används av AKS-klustret måste ha minst [nätverksdeltagare-rollen](../role-based-access-control/built-in-roles.md#network-contributor) i undernätet i det virtuella nätverket. Om du vill definiera en [anpassad roll](../role-based-access-control/custom-roles.md) i stället för att använda rollen inbyggd nätverksdeltagare krävs följande behörigheter:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
@@ -195,7 +195,7 @@ az aks create \
     --client-secret <password>
 ```
 
-När du skapar ett AKS-kluster skapas en nätverkssäkerhetsgrupp och vägtabell. Dessa nätverksresurser hanteras av AKS-kontrollplanet. Nätverkssäkerhetsgruppen associeras automatiskt med de virtuella nätverkskorten på noderna. Flödestabellen associeras automatiskt med det virtuella nätverksundernätet. Regler för nätverkssäkerhetsgrupper och flödestabeller och uppdateras automatiskt när du skapar och exponerar tjänster.
+När du skapar ett AKS-kluster skapas en nätverkssäkerhetsgrupp och vägtabell. Dessa nätverksresurser hanteras av AKS-kontrollplanet. Nätverkssäkerhetsgruppen associeras automatiskt med de virtuella nätverkskorten på noderna. Flödestabellen associeras automatiskt med det virtuella nätverksundernätet. Regler för nätverkssäkerhetsgrupper och flödestabeller uppdateras automatiskt när du skapar och exponerar tjänster.
 
 ## <a name="next-steps"></a>Nästa steg
 

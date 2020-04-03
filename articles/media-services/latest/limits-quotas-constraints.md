@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 04/01/2020
 ms.author: juliako
-ms.openlocfilehash: 6fb2f8f9172533a2c7f4aa03e99bd08e16a1f1dc
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 2d4f5f83335f6f115362bcf66cf69d7f9de7eaa5
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545914"
+ms.locfileid: "80582329"
 ---
 # <a name="azure-media-services-quotas-and-limits"></a>Kvoter och begränsningar för Azure Media Services
 
@@ -79,7 +79,7 @@ Alla jobbposter i ditt konto som är äldre än 90 dagar tas automatiskt bort, �
 | Live-utdata per livehändelse |3 <sup>(5)</sup> |
 | Max varaktighet för liveutdata | 25 timmar |
 
-<sup>4</sup> Detaljerad information om begränsningar i livehändelsen finns i [jämförelse och begränsningar för livehändelsetyper](live-event-types-comparison.md).
+<sup>4</sup> Detaljerad information om begränsningar för livehändelse finns i [Jämförelse och gränser för livehändelsetyper](live-event-types-comparison.md).
 
 <sup>5</sup> Live-utdata börjar skapas och stoppas när de tas bort.
 
@@ -87,7 +87,7 @@ Alla jobbposter i ditt konto som är äldre än 90 dagar tas automatiskt bort, �
 
 | Resurs | Standardgräns | 
 | --- | --- | 
-| [Strömmande slutpunkter (stoppas](streaming-endpoint-concept.md) eller körs) per Media Services-konto|2 (fast)|
+| [Strömmande slutpunkter (stoppas](streaming-endpoint-concept.md) eller körs) per Media Services-konto|2 |
 | [Filter för dynamiskt manifest](filters-dynamic-manifest-overview.md)|100|
 | [Principer för direktuppspelning](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
 | Unika [streamingpositionerare](streaming-locators-concept.md) som är associerade med en tillgång samtidigt | 100<sup>(7)</sup> (fast) |

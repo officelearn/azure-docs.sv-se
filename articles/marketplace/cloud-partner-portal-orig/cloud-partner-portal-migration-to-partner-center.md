@@ -5,14 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 04/01/2020
 ms.author: dsindona
-ms.openlocfilehash: 8ef117425f945d14db535ea3ecedc50d18819868
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1245ed89376de4ce777137d8427e03487d0432ab
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280175"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586116"
 ---
 # <a name="cloud-partner-portal-migration-to-partner-center"></a>Cloud Partner Portal-migrering till Partnercenter
 
@@ -20,14 +20,13 @@ För att effektivisera din konto- och erbjudandehanteringsupplevelse migrerar Mi
 
 | **Typ av erbjudande** | **Erbjudandehantering migrerad från Cloud Partner Portal till Partner Center** | **Möjlighet att uppdatera samförsäljning säkerheter i Partner Center** |
 |    -----------------------    |    -----------------------------  |  -----------------------------  |
-| Programvara som en tjänst (SaaS) |     Tillgängligt nu       |   Allmän tillgänglighet runt februari 2020      |
+| Programvara som en tjänst (SaaS) |     Tillgängligt nu       |   Allmän tillgänglighet april 2020      |
 | Dynamics 365 för kundengagemang & PowerApps      |     Tillgängligt nu        |   Tillgängligt nu      |
 | Dynamics 365 for Operations     |     Tillgängligt nu       |   Tillgängligt nu     |
-| Dynamics 365 Business Central      |     Tillgängligt nu        |   Allmän tillgänglighet runt februari 2020     |
-| Azure Application     |     Allmän tillgänglighet dec. 2019       |   Allmän tillgänglighet runt februari 2020     |
-| Virtuell Azure-dator      |     Kommer att tillkännages       |   Kommer att tillkännages    |
-| Azure-behållare     |     Kommer att tillkännages       |   Kommer att tillkännages     |
-| Konsulttjänst      |     Kommer att tillkännages       |   Kommer att tillkännages     |
-| IoT-kantmodul      |     Kommer att tillkännages       |   Kommer att tillkännages     |
-| Power BI-tjänstapp     |     Kommer att tillkännages       |   Kommer att tillkännages     |
-|  |  |
+| Dynamics 365 Business Central      |     Tillgängligt nu        |   Allmän tillgänglighet april 2020     |
+| Azure Application     |     Tillgängligt nu       |   Allmän tillgänglighet april 2020     |
+| Virtuell Azure-dator      |     Allmän tillgänglighet april–maj 2020       |   Kommer att tillkännages    |
+| Azure-behållare     |     Allmän tillgänglighet april–maj 2020       |   Kommer att tillkännages     |
+| Konsulttjänst      |     Allmän tillgänglighet april–maj 2020       |   Kommer att tillkännages     |
+| IoT-kantmodul      |     Allmän tillgänglighet april–maj 2020       |   Kommer att tillkännages     |
+| Power BI-tjänstapp     |     Allmän tillgänglighet april–maj 2020       |   Kommer att tillkännages     |

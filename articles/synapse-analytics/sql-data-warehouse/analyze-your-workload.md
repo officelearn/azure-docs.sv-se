@@ -11,20 +11,20 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: a382ef2d93f10e69569ecbbed1399f256a7afbb3
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: d10a642f9309e4bb93368564488fc75be15fa27c
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351211"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586084"
 ---
 # <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Analysera din arbetsbelastning i Azure Synapse Analytics
 
-Tekniker för att analysera din SQL Analytics-arbetsbelastning i Azure Synapse Analytics.
+Tekniker för att analysera din Synapse SQL-arbetsbelastning i Azure Synapse Analytics.
 
 ## <a name="resource-classes"></a>Resursklasser
 
-SQL Analytics tillhandahåller resursklasser för att tilldela systemresurser till frågor.  Mer information om resursklasser finns i [Resursklasser & arbetsbelastningshantering](resource-classes-for-workload-management.md).  Frågor väntar om resursklassen som tilldelats en fråga behöver mer resurser än vad som för närvarande är tillgängligt.
+Synapse SQL tillhandahåller resursklasser för att tilldela systemresurser till frågor.  Mer information om resursklasser finns i [Resursklasser & arbetsbelastningshantering](resource-classes-for-workload-management.md).  Frågor väntar om resursklassen som tilldelats en fråga behöver mer resurser än vad som för närvarande är tillgängligt.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Identifiering av köfrågor och andra DMVs
 
@@ -63,7 +63,7 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-SQL Analytics har följande vänta typer:
+Synapse SQL har följande väntetyper:
 
 * **LocalQueriesConcurrencyResourceType**: Frågor som sitter utanför ramverket för samtidighetsfack. DMV-frågor och systemfunktioner `SELECT @@VERSION` som är exempel på lokala frågor.
 * **UserConcurrencyResourceType**: Frågor som sitter i ramverket för samtidighetsfack. Frågor mot slutanvändartabeller representerar exempel som använder den här resurstypen.
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du hanterar databasanvändare och säkerhet finns [i Skydda en databas i SQL Analytics](sql-data-warehouse-overview-manage-security.md). Mer information om hur större resursklasser kan förbättra indexkvaliteten i klustrade columnstore finns i [Återskapa index för att förbättra segmentkvaliteten](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Mer information om hur du hanterar databasanvändare och säkerhet finns [i Skydda en databas i Synapse SQL](sql-data-warehouse-overview-manage-security.md). Mer information om hur större resursklasser kan förbättra indexkvaliteten i klustrade columnstore finns i [Återskapa index för att förbättra segmentkvaliteten](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).

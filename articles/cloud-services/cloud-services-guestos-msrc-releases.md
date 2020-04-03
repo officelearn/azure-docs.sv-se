@@ -10,34 +10,31 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 03/14/2020
+ms.date: 04/2/2020
 ms.author: raiye
-ms.openlocfilehash: 51c46414b5fe39da13b6ffff53c9509b482fa0d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2b929481af3df8bc3bc6a9a6955e8277e3de3298
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79408309"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618683"
 ---
 # <a name="azure-guest-os"></a>Azure Gäst-OS
 I följande tabeller visas de MSRC-uppdateringar (Microsoft Security Response Center) som tillämpas på Azure Guest OS. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för gästoperativsystemet som du använder. Uppdateringar förs alltid vidare för den aktuella [familjen][family-explain] som de introducerades i.
 
 ## <a name="march-2020-guest-os"></a>Mars 2020 Gäst OS
 
->[!NOTE]
->Mars Gäst-OS distribueras för närvarande till virtuella molntjänst-datorer som är konfigurerade för automatiska uppdateringar. När distributionen är klar kommer den här versionen att göras tillgänglig för manuella uppdateringar via Azure-portalen och konfigurationsfiler. Följande patchar ingår i Mars Guest OS. Denna lista kan komma att ändras.
-
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsproblem | Gästoperativsystem | Datum först infördes |
 | --- | --- | --- | --- | --- |
-|  Rel 20-03  |  [4541500]  |  Windows-säkerhet  | 2.96 | Den 10 mars 2020 |
-|  Rel 20-03  |  [4540671]  |  Internet Explorer  | 2.96, 3.83, 4.76 | Den 10 mars 2020 |
-|  Rel 20-03  |  [4540694]  |  Windows-säkerhet  | 3.83 | Den 10 mars 2020 |
-|  Rel 20-03  |  [4541505]  |  Windows-säkerhet  | 4.76 | Den 10 mars 2020 |
-|  Rel 20-03  |  [4540670]  |  Senaste kumulativa uppdateringen (LCU)  | 5.41 | Den 10 mars 2020 |
-|  Rel 20-03  |  [4538461]  |  Senaste kumulativa uppdateringen (LCU)  | 6.17 | Den 10 mars 2020 |
-|  Rel 20-03  |  [4537820]  |  Samlad månad  | 2.96 | Den 11 februari 2020 |
-|  Rel 20-03  |  [4537814]  |  Samlad månad  | 3.83 | Den 11 februari 2020 |
-|  Rel 20-03  |  [4537821]  |  Samlad månad  | 4.76 | Den 11 februari 2020 |
+|  Rel 20-03  |  [4541500]  |  Windows-säkerhet  | [2.96] | Den 10 mars 2020 |
+|  Rel 20-03  |  [4540671]  |  Internet Explorer  | [2,96], [3,83], [4,76] | Den 10 mars 2020 |
+|  Rel 20-03  |  [4540694]  |  Windows-säkerhet  | [3.83] | Den 10 mars 2020 |
+|  Rel 20-03  |  [4541505]  |  Windows-säkerhet  | [4.76] | Den 10 mars 2020 |
+|  Rel 20-03  |  [4540670]  |  Senaste kumulativa uppdateringen (LCU)  | [5.41] | Den 10 mars 2020 |
+|  Rel 20-03  |  [4538461]  |  Senaste kumulativa uppdateringen (LCU)  | [6.17] | Den 10 mars 2020 |
+|  Rel 20-03  |  [4537820]  |  Samlad månad  | [2.96] | Den 11 februari 2020 |
+|  Rel 20-03  |  [4537814]  |  Samlad månad  | [3.83] | Den 11 februari 2020 |
+|  Rel 20-03  |  [4537821]  |  Samlad månad  | [4.76] | Den 11 februari 2020 |
 
 [4541500]: https://support.microsoft.com/kb/4541500 
 [4540671]: https://support.microsoft.com/kb/4540671 

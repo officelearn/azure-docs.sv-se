@@ -13,12 +13,12 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: f8f5ab99086ee38e2f56247ce31f8ac0e7affc81
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6191e67f097b5ab471c5b31eff11a0e570d1c990
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128991"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617033"
 ---
 # <a name="authentication-basics"></a>Grundläggande om autentisering
 
@@ -170,7 +170,7 @@ Det här attributet gör att ASP.NET kontrollerar om det finns en sessionscookie
 Användarautentisering sker via webbläsaren. OpenID-protokollet använder vanliga HTTP-protokollmeddelanden.
 * Webbappen skickar en HTTP 302 (omdirigering) till webbläsaren för att använda Azure AD.
 * När användaren autentiseras skickar Azure AD token till webbappen med hjälp av en omdirigering via webbläsaren.
-* Omdirigeringen tillhandahålls av webbappen i form av en omdirigera URI. Den här omdirigeringen URI har registrerats med Azure AD-programobjektet. Det kan finnas flera omdirigerings-URI:er eftersom programmet kan distribueras på flera webbadresser. Så webbappen måste också ange omdirigering URi att använda.
+* Omdirigeringen tillhandahålls av webbappen i form av en omdirigera URI. Den här omdirigeringen URI har registrerats med Azure AD-programobjektet. Det kan finnas flera omdirigerings-URI:er eftersom programmet kan distribueras på flera webbadresser. Så webbappen måste också ange den omdirigera URI som ska användas.
 * Azure AD verifierar att den omdirigerande URI som skickas av webbappen är en av de registrerade omdirigerings-URI:erna för appen.
 
 ## <a name="desktop-and-mobile-app-sign-in-flow-with-azure-ad"></a>Inloggningsflöde för stationära och mobila appar med Azure AD

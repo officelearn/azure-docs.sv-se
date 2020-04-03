@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c868d8c159bca0c8462acde48225dc45003cf84e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: c427c832eb613dddbff33ef6e67af63112e2f136
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350996"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586058"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Begränsningar för minne och samtidighet för Azure Synapse Analytics
 Visa de begränsningar för minne och samtidighet som allokerats till de olika prestandanivåerna och resursklasserna i Azure Synapse Analytics.  
@@ -73,7 +73,7 @@ I och med införandet av [arbetsbelastningsgrupper](sql-data-warehouse-workload-
 ||||
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>Maximalt antal samtidigheter för resursklasser
-För att säkerställa att varje fråga har tillräckligt med resurser för att köra effektivt spårar SQL Analytics i Azure Synapse resursutnyttjande genom att tilldela samtidighetsplatser till varje fråga. Systemet placerar frågor i en kö baserat på prioritet och samtidighetsplatser. Frågor väntar i kön tills tillräckligt med samtidighetsplatser är tillgängliga. [Viktiga](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) och samtidighetsplatser avgör CPU-prioritering. Mer information finns i [Analysera din arbetsbelastning](analyze-your-workload.md)
+För att säkerställa att varje fråga har tillräckligt med resurser för att köra effektivt spåras resursutnyttjandet genom att tilldela samtidighetsplatser till varje fråga. Systemet placerar frågor i en kö baserat på prioritet och samtidighetsplatser. Frågor väntar i kön tills tillräckligt med samtidighetsplatser är tillgängliga. [Viktiga](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) och samtidighetsplatser avgör CPU-prioritering. Mer information finns i [Analysera din arbetsbelastning](analyze-your-workload.md)
 
 **Statiska resursklasser**
 

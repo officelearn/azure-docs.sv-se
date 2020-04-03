@@ -1,6 +1,6 @@
 ---
 title: Självstudieinläsningsdata från Azure Data Lake Storage
-description: Använd externa PolyBase-tabeller för att läsa in data från Azure Data Lake Storage för SQL-analys.
+description: Använd externa PolyBase-tabeller för att läsa in data från Azure Data Lake Storage för Synapse SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,14 +11,15 @@ ms.date: 03/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: b9e28f41b251ea526044bf88dc3e79c0374fe369
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 7d599ce121b4c53662b91e5aab94130b0f3f4458
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350371"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583940"
 ---
-# <a name="load-data-from-azure-data-lake-storage-for-sql-analytics"></a>Läsa in data från Azure Data Lake Storage för SQL Analytics
+# <a name="load-data-from-azure-data-lake-storage-for-synapse-sql"></a>Läsa in data från Azure Data Lake Storage för Synapse SQL
+
 Den här guiden beskriver hur du använder externa PolyBase-tabeller för att läsa in data från Azure Data Lake Storage. Även om du kan köra adhoc-frågor om data som lagras i DataSjölagring rekommenderar vi att du importerar data för bästa prestanda. 
 
 > [!NOTE]  

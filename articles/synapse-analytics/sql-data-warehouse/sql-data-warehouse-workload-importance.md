@@ -1,6 +1,6 @@
 ---
 title: Arbetsbelastningsprioritet
-description: Vägledning för att ange betydelse för SQL Analytics-frågor i Azure Synapse Analytics.
+description: Vägledning för att ange betydelse för Synapse SQL-poolfrågor i Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 3dde2ad4af17313bcfce28964f8be1e831317a5a
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 84f432c45729091be1264bff85d1e32fac10f3ef
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349963"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583158"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Azure Synapse Analytics arbetsbelastning betydelse
 
-I den här artikeln beskrivs hur arbetsbelastningsbetydelse kan påverka körningsordningen för SQL Analytics-begäranden i Azure Synapse.
+I den här artikeln beskrivs hur arbetsbelastningsbetydelse kan påverka körningsordningen för Synapse SQL-poolbegäranden i Azure Synapse.
 
 ## <a name="importance"></a>Betydelse
 
@@ -38,7 +38,7 @@ Utöver det scenario för grundläggande betydelse som beskrivs ovan med försä
 
 ### <a name="locking"></a>Låsning
 
-Tillgång till lås för läs- och skrivaktivitet är ett område med naturlig konkurrens. Aktiviteter som [partitionsväxling](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) eller [BYT NAMN PÅ OBJEKT](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest) kräver förhöjda lås.  Utan arbetsbelastningsbetydelse optimerar SQL Analytics i Azure Synapse för dataflöde. Optimering för dataflöde innebär att när du kör och köade begäranden har samma låsbehov och resurser är tillgängliga, kan de köade begärandena kringgå begäranden med högre låsbehov som kom i förfråganskön tidigare. När arbetsbelastningens betydelse tillämpas på begäranden med högre låsbehov. Begäran med högre prioritet kommer att köras före begäran med lägre prioritet.
+Tillgång till lås för läs- och skrivaktivitet är ett område med naturlig konkurrens. Aktiviteter som [partitionsväxling](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) eller [BYT NAMN PÅ OBJEKT](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest) kräver förhöjda lås.  Utan arbetsbelastningsbetydelse optimerar Synapse SQL-pool i Azure Synapse för dataflöde. Optimering för dataflöde innebär att när du kör och köade begäranden har samma låsbehov och resurser är tillgängliga, kan de köade begärandena kringgå begäranden med högre låsbehov som kom i förfråganskön tidigare. När arbetsbelastningens betydelse tillämpas på begäranden med högre låsbehov. Begäran med högre prioritet kommer att köras före begäran med lägre prioritet.
 
 Ta följande som exempel:
 
@@ -50,7 +50,7 @@ Om Q2 och Q3 har samma betydelse och Q1 fortfarande körs, kommer Q3 att börja 
 
 ### <a name="non-uniform-requests"></a>Icke-enhetliga begäranden
 
-Ett annat scenario där betydelse kan hjälpa till att uppfylla frågekrav är när begäranden med olika resursklasser skickas.  Som tidigare nämnts optimeras SQL Analytics i Azure Synapse för dataflöde under samma betydelse. När begäranden med blandad storlek (till exempel smallrc eller mediumrc) står i kö väljer SQL Analytics den tidigaste begäran som passar inom de tillgängliga resurserna. Om arbetsbelastningsbetydelse tillämpas schemaläggs begäran med högsta prioritet nästa.
+Ett annat scenario där betydelse kan hjälpa till att uppfylla frågekrav är när begäranden med olika resursklasser skickas.  Som tidigare nämnts optimerar Synapse SQL-pool i Azure Synapse för dataflöde under samma betydelse. När begäranden med blandad storlek (till exempel smallrc eller mediumrc) står i kö väljer Synapse SQL-pool den tidigaste begäran som passar inom de tillgängliga resurserna. Om arbetsbelastningsbetydelse tillämpas schemaläggs begäran med högsta prioritet nästa.
   
 Tänk på följande exempel på DW500c:
 

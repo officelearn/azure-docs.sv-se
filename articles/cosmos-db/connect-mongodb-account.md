@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 03/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: e3ab6282a3c61e12dce5dd17bc0859c0d73a7724
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cba16d79b6506f9809a76f0128938a68afd15c92
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051724"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617038"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Ansluta ett MongoDB-program till Azure Cosmos DB
 
@@ -51,11 +51,11 @@ I den här självstudien beskrivs två sätt att hämta information om anslutnin
 ## <a name="connection-string-requirements"></a>Krav på anslutningssträng
 
 > [!Important]
-> Azure Cosmos DB har stränga säkerhetskrav och säkerhetsstandarder. Azure Cosmos DB-konton kräver autentisering och säker kommunikation via *SSL*. 
+> Azure Cosmos DB har stränga säkerhetskrav och säkerhetsstandarder. Azure Cosmos DB-konton kräver autentisering och säker kommunikation via *TLS*. 
 >
 >
 
-Azure Cosmos DB stöder uri-standardsträngen MongoDB-anslutningssträngen, med ett par specifika krav: Azure Cosmos DB-konton kräver autentisering och säker kommunikation via SSL. Så är anslutningssträngformatet:
+Azure Cosmos DB stöder uri-standardsträngen MongoDB-anslutningssträngen, med ett par specifika krav: Azure Cosmos DB-konton kräver autentisering och säker kommunikation via TLS. Så är anslutningssträngformatet:
 
     mongodb://username:password@host:port/[database]?ssl=true
 

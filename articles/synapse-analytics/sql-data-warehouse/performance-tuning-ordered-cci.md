@@ -11,21 +11,22 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: a5bb048a2368f60a83e70dcd6d1ce663ce70a885
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 2113e5ac3563a22c5f2c6b755230b05fb9a2cb35
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350925"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583862"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Prestandajustering med grupperade kolumnlagringsindex  
 
-När användare frågar en columnstore-tabell i SQL Analytics kontrollerar optimeraren de lägsta och högsta värden som lagras i varje segment.  Segment som ligger utanför gränserna för frågepredikatet läss inte från disk till minne.  En fråga kan få snabbare prestanda om antalet segment som ska läsas och deras totala storlek är små.   
+När användare frågar en columnstore-tabell i Synapse SQL-pool kontrollerar optimeraren de lägsta och högsta värden som lagras i varje segment.  Segment som ligger utanför gränserna för frågepredikatet läss inte från disk till minne.  En fråga kan få snabbare prestanda om antalet segment som ska läsas och deras totala storlek är små.   
 
-## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>Beställt jämfört med icke-beställt grupperat columnstore-index 
-Som standard skapar en intern komponent (indexbyggare) ett icke-beställt klustrade columnstore-index (CCI) för varje SQL Analytics-tabell som skapats utan indexalternativ.  Data i varje kolumn komprimeras till ett separat CCI-radgruppssegment.  Det finns metadata för varje segments värdeintervall, så segment som ligger utanför gränserna för frågepredikatet läss inte från disken under frågekörningen.  CCI erbjuder den högsta nivån av datakomprimering och minskar storleken på segment att läsa så att frågor kan köras snabbare. Eftersom indexverktyget inte sorterar data innan de komprimeras till segment kan segment med överlappande värdeintervall uppstå, vilket gör att frågor läs fler segment från disken och det tar längre tid att slutföra.  
+## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>Beställt jämfört med icke-beställt grupperat columnstore-index
 
-När du skapar en ordnad CCI sorterar SQL Analytics-motorn befintliga data i minnet efter ordernyckeln/nyckelerna innan indexverktyget komprimerar dem till indexsegment.  Med sorterade data minskas segmentöverlappningen så att frågor kan ha en effektivare segmenteliminering och därmed snabbare prestanda eftersom antalet segment som ska läsas från disken är mindre.  Om alla data kan sorteras i minnet samtidigt kan segmentöverlappning undvikas.  Med tanke på den stora storleken på data i SQL Analytics-tabeller händer det här scenariot inte ofta.  
+Som standard skapar en intern komponent (indexbyggare) ett icke-beställt klustrade columnstore-index (CCI) för varje tabell som skapas utan indexalternativ.  Data i varje kolumn komprimeras till ett separat CCI-radgruppssegment.  Det finns metadata för varje segments värdeintervall, så segment som ligger utanför gränserna för frågepredikatet läss inte från disken under frågekörningen.  CCI erbjuder den högsta nivån av datakomprimering och minskar storleken på segment att läsa så att frågor kan köras snabbare. Eftersom indexverktyget inte sorterar data innan de komprimeras till segment kan segment med överlappande värdeintervall uppstå, vilket gör att frågor läs fler segment från disken och det tar längre tid att slutföra.  
+
+När du skapar en ordnad CCI sorterar Synapse SQL-motorn befintliga data i minnet efter ordernyckeln/nyckelerna innan indexverktyget komprimerar dem till indexsegment.  Med sorterade data minskas segmentöverlappningen så att frågor kan ha en effektivare segmenteliminering och därmed snabbare prestanda eftersom antalet segment som ska läsas från disken är mindre.  Om alla data kan sorteras i minnet samtidigt kan segmentöverlappning undvikas.  På grund av stora tabeller i informationslager händer det här scenariot inte ofta.  
 
 Om du vill kontrollera segmentintervallen för en kolumn kör du det här kommandot med tabellnamnet och kolumnnamnet:
 
@@ -49,7 +50,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> I en ordnad CCI-tabell sorteras de nya data som kommer från samma batch med DML- eller datainläsningsåtgärder i den batchen, det finns ingen global sortering över alla data i tabellen.  Användare kan återskapa den beställda CCI för att sortera alla data i tabellen.  I SQL Analytics är columnstore-indexet REBUILD en offlineåtgärd.  För en partitionerad tabell görs OM-partitionen i taget.  Data i partitionen som byggs om är "offline" och inte tillgänglig förrän ÅTERSKAPA är klar för den partitionen. 
+> I en ordnad CCI-tabell sorteras de nya data som kommer från samma batch med DML- eller datainläsningsåtgärder i den batchen, det finns ingen global sortering över alla data i tabellen.  Användare kan återskapa den beställda CCI för att sortera alla data i tabellen.  I Synapse SQL är columnstore-indexet REBUILD en offlineåtgärd.  För en partitionerad tabell görs OM-partitionen i taget.  Data i partitionen som byggs om är "offline" och inte tillgänglig förrän ÅTERSKAPA är klar för den partitionen. 
 
 ## <a name="query-performance"></a>Frågeprestanda
 
@@ -115,14 +116,15 @@ CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX O
 AS SELECT * FROM ExampleTable
 OPTION (MAXDOP 1);
 ```
-- Försortera data efter sorteringsnyckeln/sorterna innan de läses in i SQL Analytics-tabeller.
 
+- Försortera data efter sorteringsnyckeln/sorterna innan de läses in i tabeller.
 
 Här är ett exempel på en ordnad CCI-tabelldistribution som har noll segment överlappande enligt ovanstående rekommendationer. Den beställda CCI-tabellen skapas i en DWU1000c-databas via CTAS från en 20 GB heap-tabell med MAXDOP 1 och xlargerc.  CCI är ordnad på en BIGINT-kolumn utan dubbletter.  
 
 ![Segment_No_Overlapping](./media/performance-tuning-ordered-cci/perfect-sorting-example.png)
 
 ## <a name="create-ordered-cci-on-large-tables"></a>Skapa ordnade CCI på stora tabeller
+
 Att skapa en ordnad CCI är en offlineåtgärd.  För tabeller utan partitioner är data inte tillgängliga för användare förrän den ordnade CCI-skapandeprocessen är klar.   För partitionerade tabeller, eftersom motorn skapar den ordnade CCI-partitionen efter partition, kan användare fortfarande komma åt data i partitioner där ordnad CCI-skapande inte pågår.   Du kan använda det här alternativet för att minimera driftstoppet under ordnad CCI-skapande på stora tabeller: 
 
 1.    Skapa partitioner i den stora måltabellen (kallas Table_A).
@@ -135,6 +137,7 @@ Att skapa en ordnad CCI är en offlineåtgärd.  För tabeller utan partitioner 
 ## <a name="examples"></a>Exempel
 
 **A. För att kontrollera ordnade kolumner och beställa ordning:**
+
 ```sql
 SELECT object_name(c.object_id) table_name, c.name column_name, i.column_store_order_ordinal 
 FROM sys.index_columns i 
@@ -143,6 +146,7 @@ WHERE column_store_order_ordinal <>0
 ```
 
 **B. Om du vill ändra kolumnordningen lägger du till eller tar bort kolumner från orderlistan eller byter från CCI till beställda CCI:**
+
 ```sql
 CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON  InternetSales
 ORDER (ProductKey, SalesAmount)
@@ -150,4 +154,5 @@ WITH (DROP_EXISTING = ON)
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 Fler utvecklingstips finns i [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).

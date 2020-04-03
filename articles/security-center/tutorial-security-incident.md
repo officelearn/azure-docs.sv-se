@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: 84e747d4317347b585600f97bde0d140187ada65
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 971b93422e2b3f2053e0c5564c7ba924a631d810
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435316"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585771"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Självstudie: Reagera på säkerhetsincidenter
 Security Center analyserar kontinuerligt dina hybridmolnarbetsbelastningar med avancerad analys och hotinformation för att varna dig om skadlig aktivitet. Dessutom kan du integrera varningar från andra säkerhetsprodukter och -tjänster i Security Center och skapa anpassade varningar utifrån dina egna indikatorer eller intelligenskällor. När en varning har genererats krävs snabba åtgärder för att undersöka och åtgärda. I den här självstudien får du lära dig hur man:
@@ -29,10 +29,10 @@ Security Center analyserar kontinuerligt dina hybridmolnarbetsbelastningar med a
 > * Undersök ytterligare för att fastställa rotorsaken och omfånget för en säkerhetsincident
 > * Sök säkerhetsdata för enklare undersökning
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
-För att gå igenom funktionerna i den här självstudien måste du ha standardnivån i Security Center. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](security-center-get-started.md) vägleder dig genom uppgraderingen till Standard.
+Om du vill gå igenom de funktioner som beskrivs i den här självstudien måste du ha en standardprisnivå för Security Center. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](security-center-get-started.md) vägleder dig genom uppgraderingen till Standard.
 
 ## <a name="scenario"></a>Scenario
 Contoso migrerade nyligen några av sina lokala resurser till Azure, inklusive vissa virtuella datorbaserade branschspecifika arbetsbelastningar och SQL-databaser. För närvarande har Contosos team som ansvarar för datorsäkerheten, CSIRT (Computer Security Incident Response Team) svårt att undersöka säkerhetsproblem på grund av bristande integrering av säkerhetsfunktionerna i de aktuella incidenthanteringsverktygen. Bristen på integrering utgör ett problem vid identifiering (det blir för många falska positiva resultat), samt vid utvärderings- och diagnostiseringsstegen. Som en del av den här migreringen beslutar de att välja Security Center för att lösa problemet.
@@ -87,7 +87,7 @@ Security Center tillhandahåller en enhetlig vy över alla säkerhetsvarningar. 
 
    ![Undersökning](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
 
-   Undersökningskartan är en grafisk representation av de entiteter som är anslutna till säkerhetsvarningen eller incidenten. Om du klickar på en entitet på kartan visas information om den entiteten, som nya entiteter, och kartan expanderar. Egenskaperna för entiteten som är vald på kartan är markerade i rutan på höger sida. Informationen som är tillgänglig på varje flik varierar beroende på vald entitet. Under undersökningsprocessen bör du granska all relevant information för att bättre förstå angriparens tillvägagångssätt.
+   Undersökningskartan är en grafisk representation av de entiteter som är anslutna till säkerhetsvarningen eller incidenten. Om du klickar på en entitet på kartan visas information om den entiteten, som nya entiteter, och kartan expanderar. Egenskaperna för entiteten som är vald på kartan är markerade i rutan på höger sida. Informationen som är tillgänglig på varje flik varierar beroende på vald entitet. Under granskningsprocessen bör du granska all relevant information för att bättre förstå angriparens rörelse.
 
 2. Om du behöver mer bevis eller om du ytterligare måste undersöka entiteter som hittades vid undersökningen fortsätter du till nästa steg.
 
@@ -124,8 +124,3 @@ I den här självstudien har du lärt dig om vilka funktioner i Security Center 
 > * Säkerhetsincident som är en sammansättning av relaterade varningar för en resurs
 > * Undersökningskartan är en grafisk representation av de entiteter som är anslutna till en säkerhetsvarning eller incidenten
 > * Sökfunktioner för att hitta fler bevis på upptäckta system
-
-Om du vill läsa mer om undersökningsfunktionerna i Security Center går du till:
-
-> [!div class="nextstepaction"]
-> [Undersöka incidenter och aviseringar](security-center-investigation.md)

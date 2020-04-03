@@ -4,12 +4,12 @@ description: Lär dig hur du förbereder för utvärdering/migrering av virtuell
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.custom: mvc
-ms.openlocfilehash: aecc82ff4403c044fae95eb9b7c8c7561fcb82b6
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 2e8aa72300c840832168138015e0a01ab054f954
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80336671"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80619432"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Förbereda virtuella VMware-datorer för utvärdering och migrering till Azure
 
@@ -36,7 +36,7 @@ Du behöver dessa behörigheter för dessa uppgifter i Azure, innan du kan bedö
 
 **Aktivitet** | **Detaljer** 
 --- | --- 
-**Skapa ett Azure Migrate-projekt** | Ditt Azure-konto behöver behörigheter förtributör eller ägare för att skapa ett projekt. 
+**Skapa ett Azure Migrate-projekt** | Ditt Azure-konto behöver behörigheter för deltagare eller ägare för att skapa ett projekt. 
 **Registrera resursleverantörer** | Azure Migrate använder en lätt Azure Migrate-installation för att identifiera och bedöma virtuella datorer med VMware och migrera dem till Azure med Azure Migrate:Server Assessment.<br/><br/> Vid registrering av apparater registreras resursleverantörer med det abonnemang som valts i apparaten. [Läs mer](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Om du vill registrera resursleverantörerna behöver du en deltagar- eller ägarroll i prenumerationen.
 **Skapa Azure AD-appar** | När du registrerar installationen skapar Azure Migrate Azure Active Directory -appar (Azure AD). <br/><br/> - Den första appen används för kommunikation mellan agenter som körs på installationen och deras respektive tjänster som körs på Azure.<br/><br/> - Den andra appen används uteslutande för att komma åt KeyVault som skapats i användarens prenumeration för agentlös VMware VM-migrering. [Läs mer](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Du behöver behörigheter för att skapa Azure AD-appar (tillgängliga i rollen Programutvecklare).
 **Skapa ett nyckelvalv** | Om du vill migrera virtuella virtuella datorer med hjälp av agentlös migrering skapar Azure Migrate ett nyckelvalv för att hantera åtkomstnycklar till replikeringslagringskontot i din prenumeration.<br/><br/> För att skapa valvet behöver du behörigheter för rolltilldelning för resursgruppen där Azure Migrate-projektet finns.

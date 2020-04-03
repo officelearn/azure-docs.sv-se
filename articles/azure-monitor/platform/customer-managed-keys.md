@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 03/26/2020
-ms.openlocfilehash: c8743385f8c3c801b2f06e4a30a8672d1d80acc4
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 18c926d16319eb8a8736a51d5f10e434b94d0ebe
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422523"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582506"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Azure Monitor kundhanterad nyckelkonfiguration 
 
@@ -50,11 +50,11 @@ Intas data under de senaste 14 dagarna hålls också i hot-cache (SSD-backed) f�
 
 Azure Monitor utnyttjar systemtilldelade hanterade identitet för att bevilja åtkomst till ditt Azure Key Vault.Systemtilldelade hanterade identitet kan bara associeras med en enda Azure-resurs. Identiteten för Azure Monitor data-store (ADX-kluster) stöds på klusternivå och detta dikterar att CMK-funktionen levereras på ett dedikerat ADX-kluster. För att stödja CMK på flera arbetsytor fungerar en ny Log Analytics-resurs (*Cluster*) som en mellanliggande identitetsanslutning mellan Key Vault och dina Log Analytics-arbetsytor. Det här konceptet överensstämmer med den systemtilldelade identitetsbegränsningen och identiteten upprätthålls mellan ADX-klustret och *log analytics-klusterresursen,* medan data för alla associerade arbetsytor skyddas med nyckeln Key Vault. Adx-klusterlagringen underlag använder\'den hanterade identitet som är associerad med *klusterresursen* för att autentisera och komma åt ditt Azure Key Vault via Azure Active Directory.
 
-![CMK Översikt](media/customer-managed-keys/cmk-overview.png)
-1.  Kundens nyckelvalv.
-2.  Kundens Log Analytics *Cluster-resurs* som har hanterad identitet med behörighet till Key Vault – Identiteten stöds på ADX-klusternivå (Data Store).
-3.  Azure Monitor-dedikerat ADX-kluster.
-4.  Kundens arbetsytor som är associerade till *klusterresurs* för CMK-kryptering.
+![CMK Översikt](media/customer-managed-keys/cmk-overview-8bit.png)
+1.    Kundens nyckelvalv.
+2.    Kundens Log Analytics *Cluster-resurs* som har hanterad identitet med behörighet till Key Vault – Identiteten stöds på ADX-klusternivå (Data Store).
+3.    Azure Monitor-dedikerat ADX-kluster.
+4.    Kundens arbetsytor som är associerade till *klusterresurs* för CMK-kryptering.
 
 ## <a name="encryption-keys-management"></a>Hantering av krypteringsnycklar
 
@@ -210,7 +210,7 @@ Uppdatera key vault med en ny åtkomstprincip som ger behörighet till *klusterr
 - Viktiga behörigheter: välj behörigheterna Hämta, Radbryt nyckel och Ta bort nyckel.
 - Välj huvudnamn: Ange huvud-ID-värdet som returnerades i svaret i föregående steg.
 
-![bevilja behörigheter för Nyckelvalv](media/customer-managed-keys/grant-key-vault-permissions.png)
+![bevilja behörigheter för Nyckelvalv](media/customer-managed-keys/grant-key-vault-permissions-8bit.png)
 
 *Behörigheten Hämta* krävs för att verifiera att ditt Key Vault har konfigurerats som återställningsbart för att skydda din nyckel och åtkomsten till dina Azure Monitor-data.
 

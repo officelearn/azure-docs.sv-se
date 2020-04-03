@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: 1db7009096635fc1279ce8a8358e0d8131209722
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 76ef9f92b6b6633982242ccafab1950e0ef5f410
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372586"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582803"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3-viktig information
 
@@ -177,7 +177,7 @@ Mer information finns [i Moln och regioner där Media Services v3 finns](azure-c
 
 Lade till uppdateringar som innehåller prestandaförbättringar för Media Services.
 
-* Den maximala filstorleken som stöds för bearbetning har uppdaterats. Se [Kvoter och begränsningar](limits-quotas-constraints.md).
+* Den maximala filstorleken som stöds för bearbetning har uppdaterats. Se [Kvotering och begränsningar](limits-quotas-constraints.md).
 * [Kodning hastigheter förbättringar](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
 
 ## <a name="april-2019"></a>April 2019
@@ -321,7 +321,7 @@ Du kan se följande förbättringar av supporten för Event Grid:
 
 CMAF- och "cbcs"-krypteringsstöd för Apple HLS (iOS 11+) och MPEG-DASH-spelare som stöder CMAF.
 
-### <a name="video-indexer"></a>Videindexering
+### <a name="video-indexer"></a>Video Indexer
 
 Video Indexer GA release tillkännagavs i augusti. Ny information om funktioner som stöds för närvarande finns i [Vad är Video Indexer](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json). 
 

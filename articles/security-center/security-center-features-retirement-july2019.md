@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 1f923db5c730f6dec15f4fc211ab7acbd009ac7f
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 4a760fe1e5df7cf614a68f8fa8a05926326d3edf
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521423"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583225"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Pensionering av Security Center-funktioner (juli 2019)
 
@@ -97,7 +97,7 @@ Alla funktioner på instrumentpanelen **Identity & Access** i Log Analytics kan 
 
 ## <a name="security-events-map"></a>Karta över säkerhetshändelser<a name="menu_securityeventsmap"></a>
 
-Security Center ger dig en [säkerhetsvarningskarta](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) för att identifiera säkerhetshot. Knappen **Gå till säkerhetshändelser på** den kartan öppnar en instrumentpanel som gör att du kan visa råa säkerhetshändelser på den valda arbetsytan.
+Security Center ger dig en säkerhetsvarningskarta för att identifiera säkerhetshot. Knappen **Gå till säkerhetshändelser på** den kartan öppnar en instrumentpanel som gör att du kan visa råa säkerhetshändelser på den valda arbetsytan.
 
 Vi tog bort knappen Visa go **to-säkerhetshändelser** och instrumentpanelen per arbetsyta.
 
@@ -136,7 +136,7 @@ Mer information om pensionering av anpassade aviseringar finns [i Anpassade varn
 
 ## <a name="security-alerts-investigation"></a>Utredning av säkerhetsvarningar<a name="menu_investigate"></a>
 
-[Funktionen Utredning](https://docs.microsoft.com/azure/security-center/security-center-investigation) i Security Center hjälper dig att triage en potentiell säkerhetsincident. Funktionen gör att du kan förstå omfattningen av en incident och spåra dess grundorsak. Vi har tagit bort den här funktionen från Security Center eftersom den har ersatts med en förbättrad upplevelse i [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/).
+Funktionen Utredning i Security Center hjälper dig att triage en potentiell säkerhetsincident. Funktionen gör att du kan förstå omfattningen av en incident och spåra dess grundorsak. Vi har tagit bort den här funktionen från Security Center eftersom den har ersatts med en förbättrad upplevelse i [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/).
 
 ![Säkerhetsincident][14]
 

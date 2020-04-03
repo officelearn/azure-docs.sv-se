@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: fcdb8af770fa0068e8413d4609a56223a9a20ce2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 9136fd702fad5c12a8ec97a68ff8a592a203d7d2
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345902"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582206"
 ---
 # <a name="manage-assets"></a>Hantera tillgångar
 
@@ -60,7 +60,7 @@ När de digitala filerna har överförts till lagring och associeras med en till
 
     **AssetContainerSas.listContainerSas** tar en [ListContainerSasInput-parameter](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) som du anger `expiryTime`. Tiden ska vara inställd på < 24 timmar.
 
-    [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) returnerar flera SAS-url:er eftersom det finns två lagringskontonycklar för varje lagringskonto. Ett lagringskonto har två nycklar eftersom det möjliggör sömlös rotation av lagringskontonycklar (till exempel ändra en när du använder den andra och börja använda den nya nyckeln och rotera den andra nyckeln). Den första SAS-URL:en representerar lagringsnyckel1 och andra en lagringsnyckel2.
+    [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) returnerar flera SAS-url:er eftersom det finns två lagringskontonycklar för varje lagringskonto. Ett lagringskonto har två nycklar eftersom det hjälper till med redundans och sömlös rotation av lagringskontonycklar. Den första SAS-URL:en representerar den första lagringskontonyckeln och den andra SAS-URL:en representerar den andra nyckeln.
 3. Använd Azure Storage API:er eller SDK:er (till exempel [STORAGE REST API](../../storage/common/storage-rest-api-auth.md) eller [.NET SDK)](../../storage/blobs/storage-quickstart-blobs-dotnet.md)för att överföra filer till tillgångsbehållaren.
 4. Använd Media Services v3-API:er för att skapa en transformering och ett jobb för att bearbeta din ”indatatillgång”. Mer information finns i [Transformeringar och jobb](transform-concept.md).
 5. Strömma innehållet från "utdata"-tillgången.

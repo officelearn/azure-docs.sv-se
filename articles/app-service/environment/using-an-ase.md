@@ -4,24 +4,24 @@ description: Lär dig hur du skapar, publicerar och skalar appar i en apptjänst
 author: ccompy
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 01/01/2020
+ms.date: 3/26/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 8a73c1998203a8696b67a5e7eb3af23898239265
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 4565580feeddc2df8f6ed3011302016bb39977b4
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477632"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586122"
 ---
 # <a name="use-an-app-service-environment"></a>Använd App Service Environment
 
 En App Service Environment (ASE) är en distribution av Azure App Service till ett undernät i en kunds Azure Virtual Network-instans. En ASE består av:
 
-- **Front slutar**: Där HTTP eller HTTPS avslutas i en App Service-miljö.
-- **Arbetare**: De resurser som är värd för dina appar.
-- **Databas**: Innehåller information som definierar miljön.
-- **Lagring**: Används som värd för de kundpublicerade apparna.
+- **Klientslut:** Om HTTP eller HTTPS avslutas i en App Service-miljö
+- **Arbetare**: De resurser som är värd för dina appar
+- **Databas**: Innehåller information som definierar miljön
+- **Lagring**: Används för att vara värd för de kundpublicerade apparna
 
 Du kan distribuera en ASE med en extern eller intern virtuell IP (VIP) för appåtkomst. En distribution med en extern VIP kallas ofta för extern *ASE*. En distribution med en intern VIP kallas en *ILB ASE* eftersom den använder en intern belastningsutjämnare (ILB). Mer information om ILB ASE finns i [Skapa och använda en ILB ASE][MakeILBASE].
 
@@ -120,6 +120,22 @@ Information om hur du skapar en ILB ASE finns i [Skapa och använda en ILB ASE][
 
 SCM-URL:en används för att komma åt Kudu-konsolen eller för att publicera din app med hjälp av Webbut distribuera. Information om Kudu-konsolen finns i [Kudu-konsolen för Azure App Service][Kudu]. Kudu-konsolen ger dig ett webbgränssnitt för felsökning, uppladdning av filer, redigering av filer och mycket mer.
 
+### <a name="dns-configuration"></a>DNS-konfiguration 
+
+När du använder en extern ASE registreras appar som görs i din ASE med Azure DNS. Med en ILB ASE måste du hantera din egen DNS. 
+
+Så här konfigurerar du DNS med din ILB ASE:
+
+    create a zone for <ASE name>.appserviceenvironment.net
+    create an A record in that zone that points * to the ILB IP address
+    create an A record in that zone that points @ to the ILB IP address
+    create a zone in <ASE name>.appserviceenvironment.net named scm
+    create an A record in the scm zone that points * to the ILB IP address
+
+DNS-inställningarna för ase-standarddomänsuffixet begränsar inte dina appar till att bara vara tillgängliga med dessa namn. Du kan ange ett eget domännamn utan att validera dina appar i en ILB ASE. Om du sedan vill skapa en zon med namnet *contoso.net*kan du göra det och peka på ILB:s IP-adress. Det anpassade domännamnet fungerar för appbegäranden men inte för scm-webbplatsen. SCM-webbplatsen är endast tillgänglig på * &lt;appname&gt;.scm.&lt; asename&gt;.appserviceenvironment.net*. 
+
+Zonen som heter *.&lt; asename&gt;.appserviceenvironment.net* är globalt unikt. Före maj 2019 kunde kunderna ange domänsuffixet för ILB ASE. Om du ville använda *.contoso.com* för domänsuffixet kunde du göra det och det skulle inkludera scm-webbplatsen. Det fanns utmaningar med denna modell inklusive; hantera standard SSL-certifikat, brist på enkel inloggning med scm-platsen och kravet på att använda ett jokerteckencertifikat. ILB ASE standard certifikat uppgraderingsprocessen var också störande och orsakade programmet startar om. För att lösa dessa problem ändrades ILB ASE-beteendet för att använda ett domänsuffix baserat på namnet på ASE och med ett Microsoft-ägt suffix. Ändringen av ILB ASE-beteendet påverkar bara ILB ASEs som gjorts efter maj 2019. Befintliga ILB-ase måste fortfarande hantera standardcertifikatet för ASE och deras DNS-konfiguration.
+
 ## <a name="publishing"></a>Publicera
 
 I en ASE, som med apptjänsten för flera trogna, kan du publicera med följande metoder:
@@ -132,7 +148,7 @@ I en ASE, som med apptjänsten för flera trogna, kan du publicera med följande
 
 Med en extern ASE fungerar dessa publiceringsalternativ på samma sätt. Mer information finns [i Distribution i Azure App Service][AppDeploy].
 
-Publicering skiljer sig avsevärt med en ILB ASE, för vilken publiceringsslutpunkterna endast är tillgängliga via ILB. ILB finns på en privat IP i ASE-undernätet i det virtuella nätverket. Om du inte har nätverksåtkomst till ILB kan du inte publicera några appar på ase-området. Som anges i [Skapa och använda en ILB ASE][MakeILBASE]måste du konfigurera DNS för apparna i systemet. Detta krav omfattar SCM-slutpunkten. Om slutpunkterna inte är korrekt definierade kan du inte publicera. Dina ID-företag måste också ha nätverksåtkomst till ILB för att kunna publicera direkt till den.
+Med en ILB ASE är publiceringsslutpunkterna endast tillgängliga via ILB. ILB finns på en privat IP i ASE-undernätet i det virtuella nätverket. Om du inte har nätverksåtkomst till ILB kan du inte publicera några appar på ase-området. Som anges i [Skapa och använda en ILB ASE][MakeILBASE]måste du konfigurera DNS för apparna i systemet. Detta krav omfattar SCM-slutpunkten. Om slutpunkterna inte är korrekt definierade kan du inte publicera. Dina ID-företag måste också ha nätverksåtkomst till ILB för att kunna publicera direkt till den.
 
 Utan ytterligare ändringar fungerar internetbaserade KI-system som GitHub och Azure DevOps inte med en ILB ASE eftersom publiceringsslutpunkten inte är tillgänglig för internet. Du kan aktivera publicering till en ILB ASE från Azure DevOps genom att installera en självvärdad versionsagent i det virtuella nätverket som innehåller ILB ASE. Alternativt kan du också använda ett CI-system som använder en pull-modell, till exempel Dropbox.
 
@@ -169,7 +185,18 @@ Så här aktiverar du loggning på din ASE:
 
 ![Ase-diagnostiklogginställningar][4]
 
-Om du integrerar med Log Analytics kan du se loggarna genom att välja **Loggar** från ASE-portalen och skapa en fråga mot **AppServiceEnvironmentPlatformLogs**.
+Om du integrerar med Log Analytics kan du se loggarna genom att välja **Loggar** från ASE-portalen och skapa en fråga mot **AppServiceEnvironmentPlatformLogs**. Loggar skickas bara ut när din ASE har en händelse som utlöser den. Om din ASE inte har en sådan händelse kommer det inte att finnas några loggar. Om du snabbt vill se ett exempel på loggar i logganalysarbetsytan utför du en skalningsåtgärd med ett av App Service-abonnemangen i DIN ASE. Du kan sedan köra en fråga mot **AppServiceEnvironmentPlatformLogs** för att se dessa loggar. 
+
+**Skapa en avisering**
+
+Om du vill skapa en avisering mot dina loggar följer du instruktionerna i [Skapa, visar och hanterar loggaviseringar med Azure Monitor][logalerts]. I korthet:
+
+* Öppna sidan Aviseringar i ASE-portalen
+* Välj **Ny varningsregel**
+* Välj din resurs som log analytics-arbetsyta
+* Ange ditt tillstånd med en anpassad loggsökning för att använda en fråga som "AppServiceEnvironmentPlatformLogs | där ResultDescription innehåller "har börjat skala" eller vad du vill. Ange tröskelvärdet efter behov. 
+* Lägg till eller skapa en åtgärdsgrupp efter behov. Åtgärdsgruppen definierar svaret på aviseringen, till exempel att skicka ett e-postmeddelande eller ett SMS-meddelande
+* Namnge din avisering och spara den.
 
 ## <a name="upgrade-preference"></a>Uppgraderingsinställning
 
@@ -245,3 +272,4 @@ Så här tar du bort en ASE:
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[logalerts]: ../../azure-monitor/platform/alerts-log.md

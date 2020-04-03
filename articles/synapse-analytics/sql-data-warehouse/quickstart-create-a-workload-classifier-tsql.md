@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 9d41aa3447caebfeeffc05c36b5073f57c3e16cd
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 6354390c44c0991b0d6bf36cba8efd4272f9c73d
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350812"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583772"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Snabbstart: Skapa en arbetsbelastningsklassificerare med T-SQL
 
@@ -25,7 +25,7 @@ I den här snabbstarten skapar du snabbt en arbetsbelastningsklassificerare med 
 Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 > [!NOTE]
-> Om du skapar en SQL Analytics-instans i Azure Synapse Analytics kan det leda till en ny fakturerbar tjänst.  Mer information finns i [Azure Synapse Analytics-priser](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Om du skapar en Synapse SQL-poolinstans i Azure Synapse Analytics kan det leda till en ny fakturerbar tjänst.  Mer information finns i [Azure Synapse Analytics-priser](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 >
 
@@ -109,5 +109,5 @@ Följ dessa steg för att rensa resurser.
 ## <a name="next-steps"></a>Nästa steg
 
 - Du har nu skapat en arbetsbelastningsklassificerare. Kör några frågor som TheCEO för att se hur de presterar. Se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) om du vill visa frågor och den tilldelade betydelsen.
-- Mer information om SQL Analytics arbetsbelastningshantering finns i [Arbetsbelastningsbetydning](sql-data-warehouse-workload-importance.md) och [arbetsbelastningsklassificering](sql-data-warehouse-workload-classification.md).
+- Mer information om Synapse SQL-arbetsbelastningshantering finns i [Arbetsbelastningsbetydning](sql-data-warehouse-workload-importance.md) och [arbetsbelastningsklassificering](sql-data-warehouse-workload-classification.md).
 - Se hur du gör-artiklar för att [konfigurera arbetsbelastningsbetydning](sql-data-warehouse-how-to-configure-workload-importance.md) och hur du [hanterar och övervakar arbetsbelastningshantering](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).

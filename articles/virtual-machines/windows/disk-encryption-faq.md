@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: ea2a66a6b012664a9596a02ea32c1a0b677ee3ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5cc6a3d8d736209f762959bca6f8ad379c14203f
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74384272"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582715"
 ---
 # <a name="azure-disk-encryption-for-windows-vms-faq"></a>Vanliga frågor och svar om Azure Disk Encryption för Virtuella Windows-datorer
 
@@ -36,7 +36,7 @@ Information om hur du kommer igång läser du [översikten över Azure Disk Encr
 
 ## <a name="what-vm-sizes-and-operating-systems-support-azure-disk-encryption"></a>Vilka vm-storlekar och operativsystem stöder Azure Disk Encryption?
 
-I översiktsartikeln [för Azure Disk Encryption](disk-encryption-overview.md) visas de [vm-storlekar](disk-encryption-overview.md#supported-vm-sizes) och [vm-operativsystem](disk-encryption-overview.md#supported-operating-systems) som stöder Azure Disk Encryption.
+I översiktsartikeln [för Azure Disk Encryption](disk-encryption-overview.md) visas de [vm-storlekar](disk-encryption-overview.md#supported-vms) och [vm-operativsystem](disk-encryption-overview.md#supported-operating-systems) som stöder Azure Disk Encryption.
 
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Kan jag kryptera både start- och datavolymer med Azure Disk Encryption?
 

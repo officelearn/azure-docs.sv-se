@@ -11,15 +11,16 @@ ms.date: 04/17/2018
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 05d5e4f7334c6a9ef7a4f9e8ce7acbdf007a6a44
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: f3d5076b8ca4e1c79451bfe3bcd1dbe554b17a88
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351436"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586463"
 ---
 # <a name="azure-synapse-analytics-data-management-partners"></a>Azure Synapse Analytics-datahanteringspartner
-Om du vill skapa din informationslagerlösning med hjälp av SQL Analytics-funktionen i Azure Synapse har du ett brett utbud av branschledande verktyg att välja mellan. I den här artikeln beskrivs Microsofts partnerföretag med datahanteringsverktyg och lösningar som stöder Azure Synapse.
+
+Om du vill skapa din informationslagerlösning med hjälp av Funktionen Synapse SQL-pool i Azure Synapse har du ett brett utbud av branschledande verktyg att välja mellan. I den här artikeln beskrivs Microsofts partnerföretag med datahanteringsverktyg och lösningar som stöder Azure Synapse.
 
 ## <a name="data-management-partners"></a>Datahanteringspartner
 | Partner | Beskrivning | Webbplats/produktlänk |

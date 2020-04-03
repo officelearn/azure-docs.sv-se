@@ -6,22 +6,22 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
-ms.openlocfilehash: f57b274715eb1c8a4d517f5655c09c366574d412
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f99c4d096bcbe1fbdc42cac80a491d6017266cb2
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75445208"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583572"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Använd MongoDB-tilläggskommandon för att hantera data som lagras i Azure Cosmos DB:s API för MongoDB 
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan kommunicera med Azure Cosmos DB:s API för MongoDB med hjälp av någon av [mongoDb-klientdrivrutinerna](https://docs.mongodb.org/ecosystem/drivers)med öppen källkod . Azure Cosmos DB:s API för MongoDB gör det möjligt att använda befintliga klientdrivrutiner genom att följa [MongoDB-trådprotokollet](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
-Genom att använda Azure Cosmos DB:s API för MongoDB kan du dra nytta av fördelarna med Cosmos DB, till exempel global distribution, automatisk sharding, hög tillgänglighet, latensgarantier, automatiska kryptering i vila, säkerhetskopior och många fler, samtidigt som dina investeringar bevaras, samtidigt som dina investeringar bevaras i din MongoDB-app.
+Genom att använda Azure Cosmos DB:s API för MongoDB kan du dra nytta av fördelarna med Cosmos DB, till exempel global distribution, automatisk sharding, hög tillgänglighet, latensgarantier, automatiska kryptering i vila, säkerhetskopior och många fler, samtidigt som du behåller dina investeringar i din MongoDB-app.
 
 ## <a name="mongodb-protocol-support"></a>Support för MongoDB-protokoll
 
-Som standard är Azure Cosmos DB:s API för MongoDB kompatibelt med MongoDB-serverversion 3.2, för mer information, se [funktioner och syntax som stöds](mongodb-feature-support.md). De funktioner eller frågeoperatorer som läggs till i MongoDB version 3.4 är för närvarande tillgängliga som en förhandsversion i Azure Cosmos DB:s API för MongoDB. Följande tilläggskommandon stöder Azure Cosmos DB-specifika funktioner när CRUD-åtgärder utförs på data som lagras i Azure Cosmos DB:s API för MongoDB:
+Som standard är Azure Cosmos DB:s API för MongoDB kompatibelt med MongoDB-serverversion 3.2, för mer information, se [funktioner och syntax som stöds](mongodb-feature-support.md). De funktioner eller frågeoperatorer som läggs till i MongoDB version 3.4 är för närvarande tillgängliga som en förhandsversion i Azure Cosmos DB:s API för MongoDB. Följande tilläggskommandon stöder specifika Azure Cosmos DB-funktioner när CRUD-åtgärder utförs på data som lagras i Azure Cosmos DB:s API för MongoDB:
 
 * [Skapa databas](#create-database)
 * [Uppdatera databas](#update-database)
@@ -160,12 +160,12 @@ Kommandot Skapa samlingstillägg skapar en ny MongoDB-samling. Databasnamnet anv
 
 I följande tabell beskrivs parametrarna i kommandot:
 
-|**Field**|**Typ** |**Beskrivning** |
-|---------|---------|---------|
-| anpassadaction    | sträng | Namnet på det anpassade kommandot. Måste vara "CreateCollection"     |
-| samling      | sträng | Samlingens namn                                   |
-| offerGenomströmning | int    | Etablerat dataflöde som ska anges i databasen. Det är en valfri parameter |
-| shardKey (shardKey)        | sträng | Shard Key-sökvägen för att skapa en fragmenterad samling. Det är en valfri parameter |
+| **Field** | **Typ** | **Obligatoriskt** | **Beskrivning** |
+|---------|---------|---------|---------|
+| anpassadaction | sträng | Krävs | Namnet på det anpassade kommandot. Måste vara "CreateCollection".|
+| samling | sträng | Krävs | Samlingens namn. Inga specialtecken är tillåtna.|
+| offerGenomströmning | int | Valfritt* | Etablerat dataflöde som ska anges i databasen. Om denna parameter inte tillhandahålls, kommer den att standard till den minsta, 400 RU / s. * För att ange dataflöde utöver 10 000 RU/s krävs parametern. `shardKey`|
+| shardKey (shardKey) | sträng | Valfritt* | Sökvägen till fragmentnyckeln för den fragmenterade samlingen. Den här parametern krävs om du anger mer än 10 000 RU/s i `offerThroughput`.  Om det anges kräver alla infogade dokument det här värdet. |
 
 ### <a name="output"></a>Resultat
 
@@ -184,7 +184,7 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 
 **Skapa en fragmenterad samling**
 
-Om du vill skapa en fragmenterad samling med namnet "testCollection" och etablerat dataflöde på 1 000 ru: er använder du följande kommando:
+Om du vill skapa en fragmenterad samling med namnet "testCollection" och etablerat dataflöde på 1 000 ru: er och en shardkey-egenskap "a.b" använder du följande kommando:
 
 ```shell
 use test

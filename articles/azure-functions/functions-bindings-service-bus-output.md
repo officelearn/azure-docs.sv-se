@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 7e00d03a8b3ec7ef56935ff7714fd932bc343cd3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02d9ce87d45c5f1c9a123aae18f7d710b268f03e
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79277445"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80582260"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Utdatabindning för Azure Service Bus för Azure-funktioner
 
@@ -86,7 +86,7 @@ public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<str
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 I följande exempel visas en Service Bus-utdatabindning i en *function.json-fil* och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen använder en timerutlösare för att skicka ett kömeddelande var 15:e sekund.
 
@@ -261,7 +261,7 @@ Du kan `ServiceBusAccount` använda attributet för att ange det Service Bus-kon
 
 Attribut stöds inte av C# Script.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Attribut stöds inte av JavaScript.
 
@@ -329,7 +329,7 @@ När du arbetar med C#-funktioner:
 
 * Om du vill komma åt [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) sessions-ID:et binder du till en typ och använder egenskapen. `sessionId`
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Öppna kön eller ämnet `context.bindings.<name from function.json>`med hjälp av . Du kan tilldela en sträng, en bytematris eller ett JavaScript-objekt `context.binding.<name>`(deserialiserat till JSON) till .
 
@@ -383,6 +383,7 @@ I det här avsnittet beskrivs de globala konfigurationsinställningar som är ti
 
 |Egenskap  |Default | Beskrivning |
 |---------|---------|---------|
+|prefetchCount (prefetchCount)|0|Hämtar eller anger antalet meddelanden som meddelandemottagaren samtidigt kan begära.|
 |maxAutoRenewDuration|00:05:00|Den maximala varaktighet inom vilken meddelandelåset förnyas automatiskt.|
 |Komplettera automatiskt|true|Om utlösaren omedelbart ska markera meddelandet som fullständigt (komplettera automatiskt) eller vänta tills funktionen avslutas.|
 |maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till motringningen som meddelandepumpen ska initiera. Som standard bearbetar funktionskörningen flera meddelanden samtidigt. Om du vill att körningen ska bearbeta endast ett `maxConcurrentCalls` enskilt kö- eller ämnesmeddelande åt gången anger du till 1. |

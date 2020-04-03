@@ -4,12 +4,12 @@ description: Skapa Aks-kluster (Azure Active Directory-aktiverade Azure Kubernet
 services: container-service
 ms.topic: article
 ms.date: 02/02/2019
-ms.openlocfilehash: 0476acadf5af3a3e2c470fe6c08ebbd355653e22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: de57a46f92fab2486aa7722daf8745a01be1f4f6
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596597"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80617585"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrera Azure Active Directory med Azure Kubernetes Service
 
@@ -116,9 +116,9 @@ Det andra Azure AD-programmet används när du loggar in med Kubernetes CLI (kub
     c. Välj **Webb** för typen Omdirigera URI och ange sedan ett URI-formaterat värde, *https://aksazureadclient*till exempel .
 
     >[!NOTE]
-    >Om du skapar ett nytt RBAC-aktiverat kluster för att stödja Azure Monitor för behållare **Web** lägger du till följande två ytterligare omdirigeringsadresser i den här listan som webbprogramtyper. Det första bas-URL-värdet ska vara `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` och `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`det andra bas-URL-värdet ska vara .
+    >Om du skapar ett nytt RBAC-aktiverat kluster för att stödja Azure Monitor för behållare **Web** lägger du till följande två ytterligare omdirigeringsadresser i den här listan som webbprogramtyper. Det första bas-URL-värdet ska vara `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` och det andra bas-URL-värdet ska`https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`
     >
-    >Om du använder den här funktionen i Azure Kina `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` ska det första bas-URL-värdet vara och det andra bas-URL-värdet ska vara `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
+    >Om du använder den här funktionen i Azure China `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` ska det första bas-URL-värdet vara och det andra bas-URL-värdet ska`https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`
     >
     >Mer information finns i [Så här konfigurerar du funktionen Live Data (förhandsversion)](../azure-monitor/insights/container-insights-livedata-setup.md) för Azure Monitor för behållare och stegen för att konfigurera autentisering under avsnittet [Konfigurera AD-integrerad autentisering.](../azure-monitor/insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication)
 

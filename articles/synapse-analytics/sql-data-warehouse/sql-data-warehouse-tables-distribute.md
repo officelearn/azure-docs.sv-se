@@ -1,6 +1,6 @@
 ---
 title: Designvägledning för distribuerade tabeller
-description: Rekommendationer för att utforma delade och round-robin-distribuerade tabeller i SQL Analytics.
+description: Rekommendationer för att utforma delade och round-robin-distribuerade tabeller i Synapse SQL-pool.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,19 +11,21 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 35106e73a3a4a143bf22c72c4fe8ac6798ac5219
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8a93f3ada8e56853b78321bdc7d99a667cee6158
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351344"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80583507"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-sql-analytics"></a>Vägledning för att utforma distribuerade tabeller i SQL Analytics
-Rekommendationer för att utforma delade och round-robin-distribuerade tabeller i SQL Analytics.
+# <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Vägledning för att utforma distribuerade tabeller i Synapse SQL-pool
 
-Den här artikeln förutsätter att du är bekant med datadistribution och datarörelsebegrepp i SQL Analytics.Mer information finns i [MPP-arkitektur (SQL Analytics massively parallel processing).](massively-parallel-processing-mpp-architecture.md) 
+Rekommendationer för att utforma delade och round-robin-distribuerade tabeller i Synapse SQL-pooler.
+
+Den här artikeln förutsätter att du är bekant med datadistribution och datarörelsebegrepp i Synapse SQL-pool.Mer information finns i [Azure Synapse Analytics massivt parallell bearbetning (MPP) arkitektur](massively-parallel-processing-mpp-architecture.md). 
 
 ## <a name="what-is-a-distributed-table"></a>Vad är en distribuerad tabell?
+
 En distribuerad tabell visas som en enda tabell, men raderna lagras faktiskt över 60 distributioner. Raderna distribueras med en hash- eller round-robin-algoritm.  
 
 **Hash-distribuerade tabeller** förbättrar frågeprestanda på stora faktatabeller och är i fokus för den här artikeln. **Round-robin-bord** är användbara för att förbättra lasthastigheten. Dessa designval har en betydande inverkan på att förbättra fråge- och inläsningsprestanda.
@@ -34,15 +36,16 @@ Som en del av tabelldesign, förstå så mycket som möjligt om dina data och hu
 
 - Hur stort är bordet?   
 - Hur ofta uppdateras tabellen?   
-- Har jag fakta- och dimensionstabeller i en SQL Analytics-databas?   
+- Har jag fakta- och dimensionstabeller i en Synapse SQL-pool?   
 
 
 ### <a name="hash-distributed"></a>Hash distribueras
+
 En hash-distribuerad tabell distribuerar tabellrader över beräkningsnoderna med hjälp av en deterministisk hash-funktion för att tilldela varje rad till en [fördelning](massively-parallel-processing-mpp-architecture.md#distributions). 
 
 ![Distribuerad tabell](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Distribuerad tabell")  
 
-Eftersom identiska värden alltid hash till samma distribution, har SQL Analytics inbyggd kunskap om radplatserna. SQL Analytics använder den här kunskapen för att minimera datarörelser under frågor, vilket förbättrar frågeprestanda. 
+Eftersom identiska värden alltid hash till samma distribution, har informationslagret inbyggd kunskap om radplatserna. I Synapse SQL-pool används den här kunskapen för att minimera datarörelser under frågor, vilket förbättrar frågeprestanda. 
 
 Hash-distribuerade tabeller fungerar bra för stora faktatabeller i ett stjärnschema. De kan ha ett mycket stort antal rader och ändå uppnå hög prestanda. Det finns naturligtvis vissa designöverväganden som hjälper dig att få den prestanda som det distribuerade systemet är utformat för att tillhandahålla. Att välja en bra distributionskolumn är ett sådant övervägande som beskrivs i den här artikeln. 
 
@@ -52,6 +55,7 @@ Hash-distribuerade tabeller fungerar bra för stora faktatabeller i ett stjärns
 - Tabellen har frekventa infognings-, uppdaterings- och borttagningsåtgärder. 
 
 ### <a name="round-robin-distributed"></a>Rödhake distribueras
+
 En distribuerad round robin-tabell fördelar tabellrader jämnt över alla fördelningar. Tilldelningen av rader till fördelningar är slumpmässig. Till skillnad från hash-distribuerade tabeller garanteras inte rader med samma värden att tilldelas samma fördelning. 
 
 Därför måste systemet ibland anropa en dataförflyttningsåtgärd för att bättre ordna dina data innan den kan lösa en fråga.  Det här extra steget kan göra dina frågor långsammare. För att till exempel gå med i en round-robin-tabell krävs vanligtvis omfördelning av raderna, vilket är en prestandaträff.
@@ -65,7 +69,7 @@ Därför måste systemet ibland anropa en dataförflyttningsåtgärd för att b�
 - Om kopplingen är mindre viktig än andra kopplingar i frågan
 - När tabellen är en tillfällig mellanlagringstabell
 
-Självstudien [Läs in New York-taxicab-data](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) ger ett exempel på att läsa in data i en mellanlagringstabell för round-robin i SQL Analytics.
+Självstudien [Läs in New York-taxicab-data](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) ger ett exempel på inläsning av data i en mellanlagringstabell för round-robin.
 
 
 ## <a name="choosing-a-distribution-column"></a>Välja en distributionskolumn
@@ -109,7 +113,7 @@ Om du vill balansera den parallella bearbetningen väljer du en distributionskol
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Välj en distributionskolumn som minimerar datarörelser
 
-Om du vill hämta rätt frågeresultatfrågor kan data flyttas från en beräkningsnod till en annan. Dataförflyttning inträffar ofta när frågor har kopplingar och aggregeringar på distribuerade tabeller. Att välja en distributionskolumn som hjälper till att minimera dataförflyttningar är en av de viktigaste strategierna för att optimera prestanda för din SQL Analytics-databas.
+Om du vill hämta rätt frågeresultatfrågor kan data flyttas från en beräkningsnod till en annan. Dataförflyttning inträffar ofta när frågor har kopplingar och aggregeringar på distribuerade tabeller. Att välja en distributionskolumn som hjälper till att minimera dataförflyttningar är en av de viktigaste strategierna för att optimera prestanda för din Synapse SQL-pool.
 
 Om du vill minimera dataflyttningen väljer du en distributionskolumn som:
 
@@ -217,7 +221,7 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 Om du vill skapa en distribuerad tabell använder du någon av dessa satser:
 
-- [SKAPA TABELL (SQL Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [SKAPA TABELL SOM SELECT (SQL Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [SKAPA TABELL (Synapse SQL-pool)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [SKAPA TABELL SOM SELECT (Synapse SQL-pool)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 

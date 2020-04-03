@@ -11,18 +11,20 @@ ms.date: 03/11/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 9d2a9bb0fcaab38f897987a1922e9c95497821d4
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 0b7accec9fdce1ad81a08aee17b37d655409948b
+ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350671"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80607562"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Övervaka resursanvändning och frågeaktivitet i Azure Synapse Analytics
-Azure Synapse Analytics ger en omfattande övervakningsupplevelse inom Azure-portalen för att visa insikter om din datalagerarbetsbelastning. Azure-portalen är det rekommenderade verktyget när du övervakar ditt informationslager eftersom det ger konfigurerbara kvarhållningsperioder, aviseringar, rekommendationer och anpassningsbara diagram och instrumentpaneler för mått och loggar. Portalen gör det också möjligt att integrera med andra Azure-övervakningstjänster, till exempel Azure Monitor (loggar) med Logganalys för att ge en holistisk övervakningsupplevelse för inte bara ditt informationslager utan även hela din Azure-analysplattform för en integrerad övervakningserfarenhet. Den här dokumentationen beskriver vilka övervakningsfunktioner som är tillgängliga för att optimera och hantera din analysplattform med SQL Analytics. 
 
-## <a name="resource-utilization"></a>Resursutnyttjande 
-Följande mått är tillgängliga i Azure-portalen för SQL Analytics. Dessa mått visas via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
+Azure Synapse Analytics ger en omfattande övervakningsupplevelse inom Azure-portalen för att visa insikter om din datalagerarbetsbelastning. Azure-portalen är det rekommenderade verktyget när du övervakar ditt informationslager eftersom det ger konfigurerbara kvarhållningsperioder, aviseringar, rekommendationer och anpassningsbara diagram och instrumentpaneler för mått och loggar. Portalen gör det också möjligt att integrera med andra Azure-övervakningstjänster, till exempel Azure Monitor (loggar) med logganalys för att ge en holistisk övervakningsupplevelse för inte bara ditt informationslager utan även hela din Azure-analysplattform för en integrerad övervakningsupplevelse. Den här dokumentationen beskriver vilka övervakningsfunktioner som är tillgängliga för att optimera och hantera din analysplattform. 
+
+## <a name="resource-utilization"></a>Resursutnyttjande
+
+Följande mått är tillgängliga i Azure-portalen för Synapse SQL. Dessa mått visas via [Azure Monitor](../../azure-monitor/platform/data-collection.md#metrics?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 
 | Måttnamn             | Beskrivning                                                  | Sammansättningstyp |
@@ -41,27 +43,28 @@ Följande mått är tillgängliga i Azure-portalen för SQL Analytics. Dessa må
 | Antal träffar i cacheminne    | (cache träffar / cache miss) * 100 där cache träffar är summan av alla columnstore segment träffar i den lokala SSD cache och cache miss är columnstore segment missar i den lokala SSD cache summeras över alla noder | Medel, Min, Max    |
 | Använd procent av cache   | (cache används / cache kapacitet) * 100 där cache används är summan av alla byte i den lokala SSD-cachen över alla noder och cache kapacitet är summan av lagringskapaciteten för den lokala SSD-cachen över alla noder | Medel, Min, Max    |
 | Lokal tempdb-procent | Lokal tempdb-användning över alla beräkningsnoder - värden avges var femte minut | Medel, Min, Max    |
-| Storlek för datalagring | Total storlek på data som läses in i databasen. Detta inkluderar data som finns i cci och icke-CCI tabeller där storleken på icke-CCI tabeller mäts med den totala databasen filstorlek | Summa |
-| Storlek för katastrofåterställning | Den totala storleken på den geo-säkerhetskopiering som tas var 24:e timme | Summa |
-| Storlek för lagring av ögonblicksbilder | Total storlek på ögonblicksbilder som tagits för att tillhandahålla återställningspunkter för databasen. Detta inkluderar automatiserade och användardefinierade ögonblicksbilder. | Summa |
+| Datalagringsstorlek (GB) | Total storlek på data som läses in i databasen. Detta inkluderar data som finns i cci och icke-CCI tabeller där storleken på icke-CCI tabeller mäts med den totala databasen filstorlek | Summa |
+| Storlek för haveriberedskap (GB) | Den totala storleken på den geo-säkerhetskopiering som tas var 24:e timme | Summa |
+| Lagringsstorlek för ögonblicksbilder (GB) | Total storlek på ögonblicksbilder som tagits för att tillhandahålla återställningspunkter för databasen. Detta inkluderar automatiserade och användardefinierade ögonblicksbilder. | Summa |
 
 Saker att tänka på när du visar mått och ställer in aviseringar:
 
-- DWU används representerar endast en hög nivå representation av användning över **SQL-poolen** och är inte tänkt att vara en omfattande indikator på utnyttjande. För att avgöra om du vill skala upp eller ned bör du tänka på alla faktorer som kan påverkas av DWU, till exempel samtidighet, minne, tempdb och adaptiv cachekapacitet. Vi rekommenderar att [du kör din arbetsbelastning med olika DWU-inställningar](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview#finding-the-right-size-of-data-warehouse-units) för att avgöra vad som fungerar bäst för att uppfylla dina affärsmål.
+- DWU används representerar endast en hög nivå representation av användning över **SQL-poolen** och är inte tänkt att vara en omfattande indikator på utnyttjande. För att avgöra om du vill skala upp eller ned bör du tänka på alla faktorer som kan påverkas av DWU, till exempel samtidighet, minne, tempdb och adaptiv cachekapacitet. Vi rekommenderar att [du kör din arbetsbelastning med olika DWU-inställningar](sql-data-warehouse-manage-compute-overview.md#finding-the-right-size-of-data-warehouse-units) för att avgöra vad som fungerar bäst för att uppfylla dina affärsmål.
 - Misslyckade och lyckade anslutningar rapporteras för ett visst informationslager - inte för den logiska servern
 - Minnesprocenten återspeglar användningen även om informationslagret är i inaktivt tillstånd - det återspeglar inte aktiv arbetsbelastningsminnesförbrukning. Använd och spåra det här måttet tillsammans med andra (tempdb, gen2-cache) för att fatta ett holistiskt beslut om om skalning för ytterligare cachekapacitet ökar arbetsbelastningsprestanda för att uppfylla dina krav.
 
-
 ## <a name="query-activity"></a>Frågeaktivitet
-För en programmatisk upplevelse när du övervakar SQL Analytics via T-SQL tillhandahåller tjänsten en uppsättning d-spel (Dynamic Management Views). Dessa vyer är användbara när du aktivt felsöker och identifierar flaskhalsar med din arbetsbelastning.
 
-Information om hur du visar listan över DMV:er som SQL Analytics tillhandahåller finns i den här [dokumentationen](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs). 
+För en programmatisk upplevelse när du övervakar Synapse SQL via T-SQL, tillhandahåller tjänsten en uppsättning dynamiska hanteringsvyer (DMVs). Dessa vyer är användbara när du aktivt felsöker och identifierar flaskhalsar med din arbetsbelastning.
+
+Om du vill visa listan över DMVs som gäller för Synapse SQL läser du den här [dokumentationen](sql-data-warehouse-reference-tsql-system-views.md#sql-data-warehouse-dynamic-management-views-dmvs). 
 
 ## <a name="metrics-and-diagnostics-logging"></a>Mått- och diagnostikloggning
-Både mått och loggar kan exporteras till Azure Monitor, särskilt [Azure Monitor-loggkomponenten](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) och kan nås programmässigt via [loggfrågor](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata). Loggsvarstiden för SQL Analytics är ca 10-15 minuter. Mer information om vilka faktorer som påverkar svarstiden finns i följande dokumentation.
 
+Både mått och loggar kan exporteras till Azure Monitor, särskilt [Azure Monitor-loggkomponenten](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och kan nås programmässigt via [loggfrågor](../../azure-monitor/log-query/get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Loggsvarstiden för Synapse SQL är ca 10-15 minuter. Mer information om vilka faktorer som påverkar svarstiden finns i följande dokumentation.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Följande how-to-guider beskriver vanliga scenarier och användningsfall när du övervakar och hanterar ditt informationslager:
 
-- [Övervaka din datalagerarbetsbelastning med DMV:er](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)
+- [Övervaka din datalagerarbetsbelastning med DMV:er](/sql-data-warehouse/sql-data-warehouse-manage-monitor?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  

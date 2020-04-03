@@ -1,6 +1,6 @@
 ---
 title: Skapa integrerade lösningar
-description: Lösningsverktyg och partner som integreras med ett informationslager som etableras med SQL Analytics.
+description: Lösningsverktyg och partners som integreras med en Synapse SQL-pool.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,15 +11,16 @@ ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 680e561c08c5113e3d7f26b00422f3696bb133e9
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: c8e3598e55d3f90ab2b7401380406677f56c0ce3
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350227"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586488"
 ---
-# <a name="integrate-other-services-with-a-sql-analytics-data-warehouse"></a>Integrera andra tjänster med ett SQL Analytics-datalager 
-SQL Analytics-funktionen i Azure Synapse Analytics gör det möjligt för användare att integrera med många av de andra tjänsterna i Azure. Med SQL Analytics kan du skapa ett informationslager via dess SQL Pool-resurs, som sedan kan använda flera ytterligare tjänster, varav några inkluderar:
+# <a name="integrate-other-services-with-a-synapse-sql-pool"></a>Integrera andra tjänster med en Synapse SQL-pool
+
+Med Funktionen Synapse SQL-pool i Azure Synapse Analytics kan användare integreras med många av de andra tjänsterna i Azure. Med Synapse SQL kan du skapa ett informationslager via dess SQL-poolresurs, som sedan kan använda flera ytterligare tjänster, varav några inkluderar:
 
 * Power BI
 * Azure Data Factory

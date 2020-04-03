@@ -1,7 +1,6 @@
 ---
 title: Skydda en databas
-description: Tips för att skydda en databas och utveckla lösningar i SQL-poolresursen i SQL Analytics.
-services: synapse-analytics
+description: Tips för att skydda en databas och utveckla lösningar i en Synapse SQL-poolresurs.
 author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
@@ -12,14 +11,15 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 6ae9580803563971764eec4bd18fcc2430cee06d
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 46d32fdca615833bd602480ac182585da898ab98
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350191"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586429"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Skydda en databas i Azure Synapse
+
 > [!div class="op_single_selector"]
 > * [Översikt över säkerhet](sql-data-warehouse-overview-manage-security.md)
 > * [Autentisering](sql-data-warehouse-authentication.md)
@@ -28,9 +28,10 @@ ms.locfileid: "80350191"
 > 
 > 
 
-I den här artikeln får du hjälp med grunderna för att skydda din SQL-pool i SQL Analytics. I den här artikeln kommer du i synnerhet igång med resurser för att begränsa åtkomst, skydda data och övervaka aktiviteter på en databas som etablerats med SQL-pool.
+Den här artikeln kommer att gå igenom grunderna för att skydda din Synapse SQL-pool. I den här artikeln kommer du i synnerhet igång med resurser för att begränsa åtkomst, skydda data och övervaka aktiviteter på en databas som etablerats med SQL-pool.
 
 ## <a name="connection-security"></a>Anslutningssäkerhet
+
 Anslutningssäkerhet avser hur du begränsar och säkrar anslutningar till databasen med hjälp av brandväggsregler och krypterad anslutning.
 
 Brandväggsregler används av både servern och databasen för att avvisa anslutningsförsök från IP-adresser som inte uttryckligen har vitlistats. Om du vill tillåta anslutningar från programmets eller klientdatorns offentliga IP-adress måste du först skapa en brandväggsregel på servernivå med Azure-portalen, REST API eller PowerShell. 
@@ -42,6 +43,7 @@ Azure Synapse Analytics använder IP-brandväggsregler på servernivå. Det stö
 Anslutningar till SQL-poolen krypteras som standard.  Ändra anslutningsinställningar för att inaktivera kryptering ignoreras.
 
 ## <a name="authentication"></a>Autentisering
+
 Autentisering refererar till hur du styrkt din identitet vid anslutning till databasen. SQL-pool stöder för närvarande SQL Server-autentisering med ett användarnamn och lösenord och med Azure Active Directory. 
 
 När du skapade den logiska servern för databasen angav du en "serveradministratörsinloggning” med ett användarnamn och lösenord. Med hjälp av dessa autentiseringsuppgifter kan du autentisera till valfri databas på den servern som databasägare, eller "dbo" via SQL Server-autentisering.

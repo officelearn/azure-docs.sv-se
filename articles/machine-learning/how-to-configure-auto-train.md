@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4cf940e38a84ea2eeb1896c8f7c628c8d5734374
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03e1d4aa74d2f71ab2f32ac55f4ad3d46f672f5c
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80247137"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618545"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -166,7 +166,7 @@ Några exempel är:
       automl_regressor = AutoMLConfig(
       task='regression',
       experiment_timeout_minutes=60,
-      whitelist_models=['kNN regressor'],
+      whitelist_models=['KNN'],
       primary_metric='r2_score',
       training_data=train_data,
       label_column_name=label,
@@ -245,7 +245,7 @@ automl_config = AutoMLConfig(task = 'forecasting',
 
 ### <a name="ensemble-configuration"></a><a name="ensemble"></a>Ensemble konfiguration
 
-Ensemblemodeller är aktiverade som standard och visas som de slutliga körningsiterationerna i en automatiserad maskininlärningskörning. För närvarande stöds ensemble metoder är röstning och stapling. Röstningen genomförs som mjukröstning med viktade medelvärden, och staplingsimplementeringen använder en implementering i två lager, där det första lagret har samma modeller som röstningsensemblen, och den andra lagermodellen används för att hitta den optimala kombinationen av modellerna från det första lagret. Om du använder ONNX-modeller, **eller** har modellförklarbarhet aktiverat, inaktiveras stapling och endast röstning kommer att användas.
+Ensemblemodeller är aktiverade som standard och visas som de slutliga körningsiterationerna i en automatiserad maskininlärningskörning. För närvarande stöds ensemble metoder är röstning och stapling. Röstning genomförs som mjuk-röstning med viktade medelvärden, och stapling genomförandet använder en två lager genomförande, där det första lagret har samma modeller som röstning ensemble, och det andra lagret modellen används för att hitta den optimala kombinationen av modellerna från det första lagret. Om du använder ONNX-modeller, **eller** har modellförklarbarhet aktiverat, inaktiveras stapling och endast röstning kommer att användas.
 
 Det finns flera standardargument `kwargs` som `AutoMLConfig` kan anges som i ett objekt för att ändra standardstackenensemblens beteende.
 

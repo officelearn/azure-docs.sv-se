@@ -39,7 +39,7 @@
           href: tutorial-create-telemetry-rules.md
         - name: 'Utforska IoT Central-API:erna'
           href: 'https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/'
-- name: Koncept
+- name: Begrepp
   items:
     - name: Arkitektur
       href: concepts-architecture.md
@@ -49,7 +49,7 @@
       href: concepts-get-connected.md
     - name: Ansluta IoT Edge-enheter
       href: concepts-iot-edge.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Kom igång med anslutningen
       items:
@@ -65,7 +65,7 @@
           href: howto-build-iotc-device-bridge.md
     - name: Fortsätt vara uppkopplad
       items:
-        - name: Övervaka enhetsanslutning med Azure CLI
+        - name: Övervaka enhetsanslutningar med Azure CLI
           href: howto-monitor-devices-azure-cli.md
         - name: Version av enhetsmall
           href: howto-version-device-template.md
@@ -81,14 +81,10 @@
           href: howto-create-personal-dashboards.md
         - name: Köra ett jobb
           href: howto-run-a-job.md
-        - name: Version av enhetsmall
-          href: howto-version-device-template.md
     - name: Transformering
       items:
         - name: Exportera data till mål i Azure
           href: howto-export-data.md
-        - name: 'Utforska IoT Central-API:erna'
-          href: 'https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/'
         - name: Skapa webhooks med regler
           href: howto-create-webhooks.md
         - name: Anslut Azure Monitor åtgärdsgrupper för regler
@@ -145,7 +141,7 @@
       items:
         - name: IoT Hub
           href: /azure/iot-hub
-        - name: IoT Hub Device Provisioning-tjänst
+        - name: IoT Hub Device Provisioning Service
           href: /azure/iot-dps
         - name: IoT Central
           href: 'https://docs.microsoft.com/microsoft-iot-central/'

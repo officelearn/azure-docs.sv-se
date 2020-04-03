@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 88d25083a1105023279f3907a4573319fabe087c
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 912677a10d7098b891a4f6972b61761cd72cf292
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520780"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585950"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Kryptering på serversidan av Hanterade Azure-diskar
 
@@ -34,7 +34,11 @@ Som standard använder hanterade diskar plattformshanterade krypteringsnycklar. 
 
 ## <a name="customer-managed-keys"></a>Kundhanterade nycklar
 
-Du kan välja att hantera kryptering på nivån för varje hanterad disk, med dina egna nycklar. Serverbaserad kryptering för hanterade diskar med kundhanterade nycklar ger en integrerad upplevelse med Azure Key Vault. Du kan antingen importera [dina RSA-nycklar](../../key-vault/key-vault-hsm-protected-keys.md) till key vault eller generera nya RSA-nycklar i Azure Key Vault. Azure-hanterade diskar hanterar kryptering och dekryptering på ett helt transparent sätt med hjälp av [kuvertkryptering](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique). Den krypterar data med hjälp av en [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256-baserad datakrypteringsnyckel (DEK), som i sin tur är skyddad med hjälp av dina nycklar. Du måste bevilja åtkomst till hanterade diskar i key vault för att använda nycklarna för att kryptera och dekryptera DEK. Detta ger dig full kontroll över dina data och nycklar. Du kan när som helst inaktivera dina nycklar eller återkalla åtkomsten till hanterade diskar. Du kan också granska krypteringsnyckelanvändningen med Azure Key Vault-övervakning för att säkerställa att endast hanterade diskar eller andra betrodda Azure-tjänster kommer åt dina nycklar.
+Du kan välja att hantera kryptering på nivån för varje hanterad disk, med dina egna nycklar. Serverbaserad kryptering för hanterade diskar med kundhanterade nycklar ger en integrerad upplevelse med Azure Key Vault. Du kan antingen importera [dina RSA-nycklar](../../key-vault/key-vault-hsm-protected-keys.md) till key vault eller generera nya RSA-nycklar i Azure Key Vault. 
+
+Azure-hanterade diskar hanterar kryptering och dekryptering på ett helt transparent sätt med hjälp av [kuvertkryptering](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique). Den krypterar data med hjälp av en [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256-baserad datakrypteringsnyckel (DEK), som i sin tur är skyddad med hjälp av dina nycklar. Lagringstjänsten genererar datakrypteringsnycklar och krypterar dem med kundhanterade nycklar med RSA-kryptering. Med kuvertkrypteringen kan du rotera (ändra) dina nycklar med jämna mellanrum enligt dina efterlevnadsprinciper utan att påverka dina virtuella datorer. När du roterar nycklarna krypterar lagringstjänsten om datakrypteringsnycklarna med de nya kundhanterade nycklarna. 
+
+Du måste bevilja åtkomst till hanterade diskar i key vault för att använda nycklarna för att kryptera och dekryptera DEK. Detta ger dig full kontroll över dina data och nycklar. Du kan när som helst inaktivera dina nycklar eller återkalla åtkomsten till hanterade diskar. Du kan också granska krypteringsnyckelanvändningen med Azure Key Vault-övervakning för att säkerställa att endast hanterade diskar eller andra betrodda Azure-tjänster kommer åt dina nycklar.
 
 För premium-SSD-enheter, standard-SSD-enheter och vanliga hårddiskar: När du inaktiverar eller tar bort nyckeln stängs alla virtuella datorer med diskar med den nyckeln automatiskt av. Därefter kan inte de virtuella datorerna användas om nyckeln är aktiverad igen eller om du tilldelar en ny nyckel.
 
@@ -187,6 +191,32 @@ az disk create -n $diskName -g $rgName -l $location --encryption-type Encryption
 diskId=$(az disk show -n $diskName -g $rgName --query [id] -o tsv)
 
 az vm disk attach --vm-name $vmName --lun $diskLUN --ids $diskId 
+
+```
+
+#### <a name="change-the-key-of-a-diskencryptionset-to-rotate-the-key-for-all-the-resources-referencing-the-diskencryptionset"></a>Ändra nyckeln till en DiskEncryptionSet för att rotera nyckeln för alla resurser som refererar till DiskEncryptionSet
+
+```azurecli
+
+rgName=yourResourceGroupName
+keyVaultName=yourKeyVaultName
+keyName=yourKeyName
+diskEncryptionSetName=yourDiskEncryptionSetName
+
+
+keyVaultId=$(az keyvault show --name $keyVaultName--query [id] -o tsv)
+
+keyVaultKeyUrl=$(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
+
+az disk-encryption-set update -n keyrotationdes -g keyrotationtesting --key-url $keyVaultKeyUrl --source-vault $keyVaultId
+
+```
+
+#### <a name="find-the-status-of-server-side-encryption-of-a-disk"></a>Hitta status för serverkryptering av en disk
+
+```azurecli
+
+az disk show -g yourResourceGroupName -n yourDiskName --query [encryption.type] -o tsv
 
 ```
 

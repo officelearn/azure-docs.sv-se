@@ -2,19 +2,19 @@
 title: 'Snabbstart: Skapa ett sökindex i Python med REST-API:er'
 titleSuffix: Azure Cognitive Search
 description: I artikeln beskrivs hur du skapar ett index, läser in data och kör frågor med Python, Jupyter-anteckningsböcker och AZURE Cognitive Search REST API.
-author: tchristiani
+author: HeidiSteen
 manager: nitinme
-ms.author: terrychr
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 02/10/2020
-ms.openlocfilehash: 93fb9ec735de1abf89eb217d0f4096fcfc0afe94
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/01/2020
+ms.openlocfilehash: fd87dbe125e84c171cc35a2b242879c44bc50fd9
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78227104"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585932"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Snabbstart: Skapa ett Azure Cognitive Search-index i Python med Jupyter-anteckningsböcker
 
@@ -23,7 +23,7 @@ ms.locfileid: "78227104"
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
 > * [Brevbärare (REST)](search-get-started-postman.md)
-> * [Portal](search-create-index-portal.md)
+> * [Portalen](search-create-index-portal.md)
 > 
 
 Skapa en Jupyter-anteckningsbok som skapar, läser in och frågar efter ett Azure Cognitive Search-index med Python och [Azure Cognitive Search REST API:er](https://docs.microsoft.com/rest/api/searchservice/). I den här artikeln beskrivs hur du skapar en anteckningsbok steg för steg. Alternativt kan du [ladda ner och köra en färdig Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples).
@@ -197,7 +197,7 @@ Om du vill skicka dokument använder du en HTTP POST-begäran till indexets URL-
         "@search.action": "upload",
         "HotelId": "3",
         "HotelName": "Triple Landscape Hotel",
-        "Description": "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel’s restaurant services.",
+        "Description": "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel's restaurant services.",
         "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
         "Category": "Resort and Spa",
         "Tags": [ "air conditioning", "bar", "continental breakfast" ],
@@ -256,45 +256,59 @@ I det här steget visas hur du frågar ett index med [REST API FÖR sökdokument
 
    ```python
    searchstring = '&search=*&$count=true'
-   ```
 
-1. I en ny cell, ge följande exempel för att söka på termerna "hotell" och "wifi". Lägg till $select för att ange vilka fält som ska inkluderas i sökresultaten.
-
-   ```python
-   searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
-   ```
-
-1. Formulera en begäran i en annan cell. Den här GET-begäran riktar sig till dokumentsamlingen för snabbstartsindex för hotell och kopplar den fråga som du angav i föregående steg.
-
-   ```python
    url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
    response  = requests.get(url, headers=headers, json=searchstring)
    query = response.json()
    pprint(query)
    ```
 
-1. Kör varje steg. Resultaten bör se ut ungefär som följande utdata. 
+1. I en ny cell, ge följande exempel för att söka på termerna "hotell" och "wifi". Lägg till $select för att ange vilka fält som ska inkluderas i sökresultaten.
+
+   ```python
+   searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
+
+   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
+   response  = requests.get(url, headers=headers, json=searchstring)
+   query = response.json()
+   pprint(query)   
+   ```
+
+   Resultaten bör se ut ungefär som följande utdata. 
 
     ![Sök i ett index](media/search-get-started-python/search-index.png "Sök i ett index")
 
-1. Prova några andra frågeexempel för att få en känsla för syntaxen. Du kan `searchstring` ersätta med följande exempel och sedan köra sökbegäran igen. 
-
-   Använda ett filter: 
+1. Använd sedan ett $filter uttryck som bara väljer de hotell med ett betyg som är högre än 4. 
 
    ```python
    searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description,Rating'
+
+   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
+   response  = requests.get(url, headers=headers, json=searchstring)
+   query = response.json()
+   pprint(query)     
    ```
 
-   Ta de två bästa resultaten:
+1. Som standard returnerar sökmotorn de 50 bästa dokumenten, men du kan använda överst och hoppa över för att lägga till sidnumrering och välja hur många dokument i varje resultat. Den här frågan returnerar två dokument i varje resultatuppsättning.
 
    ```python
-   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description,Category'
+   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'
+
+   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
+   response  = requests.get(url, headers=headers, json=searchstring)
+   query = response.json()
+   pprint(query)
    ```
 
-    Order efter ett visst fält:
+1. I det här sista exemplet använder du $orderby för att sortera resultat efter ort. Det här exemplet innehåller fält från adresssamlingen.
 
    ```python
-   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
+   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'
+
+   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
+   response  = requests.get(url, headers=headers, json=searchstring)
+   query = response.json()
+   pprint(query)
    ```
 
 ## <a name="clean-up"></a>Rensa

@@ -41,7 +41,7 @@
           href: 'https://github.com/Azure/azure-batch-samples'
     - name: Azure CLI
       href: cli-samples.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Säkerhet
       items:
@@ -65,10 +65,12 @@
       href: batch-compute-node-environment-variables.md
     - name: Batch-integrering med Azure-principer
       href: batch-integration-policies.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Hantera Batch-konton
       items:
+        - name: Hantera ditt konto
+          href: batch-manage-account-basics.md
         - name: Hantera Batch-konton med portalen
           href: batch-account-create-portal.md
         - name: Hantera Batch-konton med Batch Management .NET
@@ -83,8 +85,12 @@
           href: batch-aad-auth-management.md
         - name: Säker åtkomst till Key Vault med Batch
           href: credential-access-key-vault.md
+    - name: Använda programpaket
+      href: batch-application-packages.md
     - name: Kopiera filer och program till poolnoder
       items:
+        - name: Kopiera program och data till poolnoder
+          href: batch-applications-to-pool-nodes.md
         - name: Använda programpaket
           href: batch-application-packages.md
         - name: Skapa resursfiler
@@ -245,7 +251,7 @@
       href: 'https://blogs.technet.microsoft.com/windowshpc/'
     - name: HPC på Azure
       href: 'https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/batch/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

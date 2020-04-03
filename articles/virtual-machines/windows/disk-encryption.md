@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 0541b12d73cc5b5f7fdf713c759069e2ecbd8c18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13985b07b4903504fde6b58031a532337d3b1971
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299639"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584600"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Kryptering på serversidan av Hanterade Azure-diskar
 
@@ -34,7 +34,11 @@ Som standard använder hanterade diskar plattformshanterade krypteringsnycklar. 
 
 ## <a name="customer-managed-keys"></a>Kundhanterade nycklar
 
-Du kan välja att hantera kryptering på nivån för varje hanterad disk, med dina egna nycklar. Serverbaserad kryptering för hanterade diskar med kundhanterade nycklar ger en integrerad upplevelse med Azure Key Vault. Du kan antingen importera [dina RSA-nycklar](../../key-vault/key-vault-hsm-protected-keys.md) till key vault eller generera nya RSA-nycklar i Azure Key Vault. Azure-hanterade diskar hanterar kryptering och dekryptering på ett helt transparent sätt med hjälp av [kuvertkryptering](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique). Den krypterar data med hjälp av en [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256-baserad datakrypteringsnyckel (DEK), som i sin tur är skyddad med hjälp av dina nycklar. Du måste bevilja åtkomst till hanterade diskar i key vault för att använda nycklarna för att kryptera och dekryptera DEK. Detta ger dig full kontroll över dina data och nycklar. Du kan när som helst inaktivera dina nycklar eller återkalla åtkomsten till hanterade diskar. Du kan också granska krypteringsnyckelanvändningen med Azure Key Vault-övervakning för att säkerställa att endast hanterade diskar eller andra betrodda Azure-tjänster kommer åt dina nycklar.
+Du kan välja att hantera kryptering på nivån för varje hanterad disk, med dina egna nycklar. Serverbaserad kryptering för hanterade diskar med kundhanterade nycklar ger en integrerad upplevelse med Azure Key Vault. Du kan antingen importera [dina RSA-nycklar](../../key-vault/key-vault-hsm-protected-keys.md) till key vault eller generera nya RSA-nycklar i Azure Key Vault. 
+
+Azure-hanterade diskar hanterar kryptering och dekryptering på ett helt transparent sätt med hjälp av [kuvertkryptering](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique). Den krypterar data med hjälp av en [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256-baserad datakrypteringsnyckel (DEK), som i sin tur är skyddad med hjälp av dina nycklar. Lagringstjänsten genererar datakrypteringsnycklar och krypterar dem med kundhanterade nycklar med RSA-kryptering. Med kuvertkrypteringen kan du rotera (ändra) dina nycklar med jämna mellanrum enligt dina efterlevnadsprinciper utan att påverka dina virtuella datorer. När du roterar nycklarna krypterar lagringstjänsten om datakrypteringsnycklarna med de nya kundhanterade nycklarna. 
+
+Du måste bevilja åtkomst till hanterade diskar i key vault för att använda nycklarna för att kryptera och dekryptera DEK. Detta ger dig full kontroll över dina data och nycklar. Du kan när som helst inaktivera dina nycklar eller återkalla åtkomsten till hanterade diskar. Du kan också granska krypteringsnyckelanvändningen med Azure Key Vault-övervakning för att säkerställa att endast hanterade diskar eller andra betrodda Azure-tjänster kommer åt dina nycklar.
 
 För premium-SSD-enheter, standard-SSD-enheter och vanliga hårddiskar: När du inaktiverar eller tar bort nyckeln stängs alla virtuella datorer med diskar med den nyckeln automatiskt av. Därefter kan inte de virtuella datorerna användas om nyckeln är aktiverad igen eller om du tilldelar en ny nyckel.
 
@@ -238,6 +242,32 @@ $VMSS = Add-AzVmssDataDisk -VirtualMachineScaleSet $VMSS -CreateOption Empty -Lu
 $Credential = New-Object System.Management.Automation.PSCredential ($VMLocalAdminUser, $VMLocalAdminSecurePassword);
 
 New-AzVmss -VirtualMachineScaleSet $VMSS -ResourceGroupName $ResourceGroupName -VMScaleSetName $VMScaleSetName
+```
+
+#### <a name="change-the-key-of-a-diskencryptionset-to-rotate-the-key-for-all-the-resources-referencing-the-diskencryptionset"></a>Ändra nyckeln till en DiskEncryptionSet för att rotera nyckeln för alla resurser som refererar till DiskEncryptionSet
+
+```PowerShell
+$ResourceGroupName="yourResourceGroupName"
+$keyVaultName="yourKeyVaultName"
+$keyName="yourKeyName"
+$diskEncryptionSetName="yourDiskEncryptionSetName"
+
+$keyVault = Get-AzKeyVault -VaultName $keyVaultName -ResourceGroupName $ResourceGroupName
+
+$keyVaultKey = Get-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName
+
+Update-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName -SourceVaultId $keyVault.ResourceId -KeyUrl $keyVaultKey.Id
+```
+
+#### <a name="find-the-status-of-server-side-encryption-of-a-disk"></a>Hitta status för serverkryptering av en disk
+
+```PowerShell
+$ResourceGroupName="yourResourceGroupName"
+$DiskName="yourDiskName"
+
+$disk=Get-AzDisk -ResourceGroupName $ResourceGroupName -DiskName $DiskName
+$disk.Encryption.Type
+
 ```
 
 > [!IMPORTANT]

@@ -1,6 +1,6 @@
 ---
-title: Läsa in Contoso-återförsäljardata i ett SQL Analytics-datalager
-description: Använd PolyBase- och T-SQL-kommandon för att läsa in två tabeller från Contoso-återförsäljardata i Azure SQL Analytics.
+title: Läsa in Contoso-återförsäljardata i ett Synaps SQL-datalager
+description: Använd PolyBase- och T-SQL-kommandon för att läsa in två tabeller från Contoso-återförsäljardata i Synapse SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 62105b783577d70ae975cf514304d2c564357641
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 7460a59dd2a7a5906a483195929136391657fa50
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351472"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80584009"
 ---
-# <a name="load-contoso-retail-data-to-a-sql-analytics-data-warehouse"></a>Läsa in Contoso-återförsäljardata i ett SQL Analytics-datalager
+# <a name="load-contoso-retail-data-to-a-synapse-sql-data-warehouse"></a>Läsa in Contoso-återförsäljardata i ett Synaps SQL-datalager
 
-I den här självstudien lär du dig att använda PolyBase- och T-SQL-kommandon för att läsa in två tabeller från Contoso-återförsäljardata i ett SQL Analytics-informationslager. 
+I den här självstudien lär du dig att använda PolyBase- och T-SQL-kommandon för att läsa in två tabeller från Contoso-återförsäljardata i ett Synapse SQL-datalager.
 
 I den här guiden kommer du att:
 
@@ -30,11 +30,11 @@ I den här guiden kommer du att:
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-För att kunna köra den här självstudien behöver du ett Azure-konto som redan har ett SQL Analytics-datalager. Om du inte har etablerat ett informationslager läser du [Skapa ett informationslager och ange brandväggsregel på servernivå](create-data-warehouse-portal.md).
+För att köra den här självstudien behöver du ett Azure-konto som redan har ett Synapse SQL-datalager. Om du inte har etablerat ett informationslager läser du [Skapa ett informationslager och ange brandväggsregel på servernivå](create-data-warehouse-portal.md).
 
 ## <a name="configure-the-data-source"></a>Konfigurera datakällan
 
-PolyBase använder externa T-SQL-objekt för att definiera plats och attribut för externa data. De externa objektdefinitionerna lagras i ditt SQL Analytics-informationslager. Data lagras externt.
+PolyBase använder externa T-SQL-objekt för att definiera plats och attribut för externa data. De externa objektdefinitionerna lagras i ditt Synapse SQL-informationslager. Data lagras externt.
 
 ## <a name="create-a-credential"></a>Skapa en autentiseringstillstånd
 
@@ -121,7 +121,7 @@ GO
 
 ## <a name="create-the-external-tables"></a>Skapa de externa tabellerna
 
-Kör följande skript för att skapa externa dimproduct- och factonlinesales-tabeller. Allt du gör här är att definiera kolumnnamn och datatyper och binda dem till platsen och formatet för Azure blob-lagringsfiler. Definitionen lagras i SQL Analytics-datalagret och data finns fortfarande i Azure Storage Blob.
+Kör följande skript för att skapa externa dimproduct- och factonlinesales-tabeller. Allt du gör här är att definiera kolumnnamn och datatyper och binda dem till platsen och formatet för Azure blob-lagringsfiler. Definitionen lagras i informationslagret och data finns fortfarande i Azure Storage Blob.
 
 Parametern **LOCATION** är mappen under rotmappen i Azure Storage Blob. Varje tabell finns i en annan mapp.
 
@@ -274,7 +274,7 @@ ORDER BY
 
 ## <a name="optimize-columnstore-compression"></a>Optimera columnstore-komprimering
 
-Som standard lagrar SQL Analytics-datalagret tabellen som ett klustrade columnstore-index. När en inläsning har slutförts kanske vissa datarader inte komprimeras till columnstore.  Det finns olika skäl till varför detta kan hända. Mer information finns i [Hantera columnstore-index](sql-data-warehouse-tables-index.md).
+Som standard lagrar Synapse SQL-informationslagret tabellen som ett grupperat columnstore-index. När en inläsning har slutförts kanske vissa datarader inte komprimeras till columnstore.  Det finns olika skäl till varför detta kan hända. Mer information finns i [Hantera columnstore-index](sql-data-warehouse-tables-index.md).
 
 Om du vill optimera frågeprestanda och columnstore-komprimering efter en belastning återskapar du tabellen så att columnstore-indexet komprimerar alla rader. 
 

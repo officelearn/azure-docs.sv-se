@@ -3,14 +3,14 @@ title: Vanliga frågor och svar
 description: Svar på vanliga frågor som rör azure-behållarregistertjänsten
 author: sajayantony
 ms.topic: article
-ms.date: 07/02/2019
+ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: c0d51c9c31e4e6859eaedce371efeafaa5fd4f46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7452b5dd3c952a13a28566914d2fe513689d4751
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78403220"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618800"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Vanliga frågor och svar om Azure Container Registry
 
@@ -104,7 +104,8 @@ Det tar lite tid att sprida ändringar brandväggsregel. När du har ändrat bra
 - [Hur aktiverar du TLS 1.2?](#how-to-enable-tls-12)
 - [Stöder Azure Container Registry Content Trust?](#does-azure-container-registry-support-content-trust)
 - [Hur ger jag åtkomst till pull- eller push-avbildningar utan behörighet att hantera registerresursen?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
-- [Hur aktiverar jag automatisk avbildningskarantant för ett register](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
+- [Hur aktiverar jag automatisk avbildningskarantän för ett register?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
+- [Hur aktiverar jag anonym pull-åtkomst?](#how-do-i-enable-anonymous-pull-access)
 
 ### <a name="how-do-i-access-docker-registry-http-api-v2"></a>Hur kommer jag åt Docker Registry HTTP API V2?
 
@@ -251,13 +252,18 @@ Med hjälp av `AcrPull` endast `AcrPush` rollen eller har förvärvaren inte beh
 
 Bildkarantän är för närvarande en förhandsgranskningsfunktion i ACR. Du kan aktivera karantänläget för ett register så att endast de avbildningar som har klarat säkerhetsgenomsökningen är synliga för normala användare. Mer information finns i [REPO-repoen ACR GitHub](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
+### <a name="how-do-i-enable-anonymous-pull-access"></a>Hur aktiverar jag anonym pull-åtkomst?
+
+Att konfigurera ett Azure-behållarregister för anonym (offentlig) pull-åtkomst är för närvarande en förhandsgranskningsfunktion. För att möjliggöra allmänhetens tillgång, https://aka.ms/acr/support/create-ticketvänligen öppna en supportbiljett på . Mer information finns i [Azure Feedback Forum](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+
+
 ## <a name="diagnostics-and-health-checks"></a>Diagnostik och hälsokontroller
 
 - [Kontrollera hälsa med`az acr check-health`](#check-health-with-az-acr-check-health)
 - [docker pull misslyckas med fel: net/http: begäran avbröts i väntan på anslutning (Client.Timeout överskrids i väntan på rubriker)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [docker push lyckas men docker pull misslyckas med fel: obehörig: autentisering krävs](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
 - [`az acr login`lyckas, men docker-kommandon misslyckas med fel: obehörig: autentisering krävs](#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required)
-- [Aktivera och hämta debug loggarna för docker daemon](#enable-and-get-the-debug-logs-of-the-docker-daemon) 
+- [Aktivera och hämta debug loggarna för docker daemon](#enable-and-get-the-debug-logs-of-the-docker-daemon)    
 - [Nya användarbehörigheter kanske inte träder i kraft direkt efter uppdateringen](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [Autentiseringsinformation ges inte i rätt format på direkta REST API-anrop](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Varför listar inte Azure-portalen alla mina databaser eller taggar?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
@@ -323,13 +329,13 @@ Information `--signature-verification` om kan hittas genom att köra `man docker
 
 Kontrollera att du använder en alla gemener server URL, till exempel, `docker push myregistry.azurecr.io/myimage:latest`även om `myRegistry`registret resursnamn är versaler eller blandade fall, till exempel .
 
-### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Aktivera och hämta felsökningsloggarna för Docker-demonen  
+### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Aktivera och hämta felsökningsloggarna för Docker-demonen    
 
 Börja `dockerd` med `debug` alternativet. Skapa först konfigurationsfilen dockerdemon`/etc/docker/daemon.json`( ) om den inte `debug` finns och lägg till alternativet:
 
 ```json
-{   
-    "debug": true   
+{    
+    "debug": true    
 }
 ```
 
@@ -339,12 +345,12 @@ Starta sedan om demonen. Till exempel med Ubuntu 14,04:
 sudo service docker restart
 ```
 
-Information finns i [Docker-dokumentationen](https://docs.docker.com/engine/admin/#enable-debugging). 
+Information finns i [Docker-dokumentationen](https://docs.docker.com/engine/admin/#enable-debugging).    
 
- * Loggarna kan genereras på olika platser, beroende på ditt system. Till exempel, för Ubuntu 14,04, det är `/var/log/upstart/docker.log`.   
+ * Loggarna kan genereras på olika platser, beroende på ditt system. Till exempel, för Ubuntu 14,04, det är `/var/log/upstart/docker.log`.    
 Mer information finns i [Docker-dokumentationen.](https://docs.docker.com/engine/admin/#read-the-logs)    
 
- * För Docker för Windows genereras loggarna under %LOCALAPPDATA%/docker/. Men det kanske inte innehåller all felsökningsinformation ännu.   
+ * För Docker för Windows genereras loggarna under %LOCALAPPDATA%/docker/. Men det kanske inte innehåller all felsökningsinformation ännu.    
 
    För att komma åt hela demonloggen kan du behöva några extra steg:
 
@@ -488,7 +494,7 @@ Vi stöder för närvarande inte GitLab för source-utlösare.
 | Git-tjänst | Källkontext | Manuell konstruktion | Automatisk version genom commit-utlösare |
 |---|---|---|---|
 | GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | Ja | Ja |
-| Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | Ja | Ja |
+| Azure-lagringsplatser | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | Ja | Ja |
 | GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | Ja | Inga |
 | BitBucket () | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | Ja | Inga |
 

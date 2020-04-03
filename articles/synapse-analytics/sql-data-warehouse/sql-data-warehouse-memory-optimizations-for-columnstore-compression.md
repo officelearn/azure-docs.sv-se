@@ -11,12 +11,12 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: a640f2f260c94cd7502aa79badb32bd26abebb11
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 81191fd3b654f612f2621757f3006268276477de
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350309"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586538"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximera radgruppskvaliteten för columnstore
 
@@ -89,7 +89,7 @@ där korta strängkolumner använder strängdatatyper av <= 32 byte och långstr
 
 Långa strängar komprimeras med en komprimeringsmetod som är avsedd för komprimering av text. Med den här komprimeringsmetoden används en *ordlista* för att lagra textmönster. Den maximala storleken på en ordlista är 16 MB. Det finns bara en ordlista för varje lång strängkolumn i radgruppen.
 
-En djupgående diskussion om columnstore-minneskrav finns i [video-SQL Analytics-skalningen: konfiguration och vägledning](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
+En djupgående diskussion om columnstore-minneskrav finns i [video-synaps-SQL-skalningen: konfiguration och vägledning](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Olika sätt att minska minneskraven
 
@@ -141,4 +141,4 @@ DWU-storlek och användarresursklassen avgör tillsammans hur mycket minne som �
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du kan förbättra prestanda för SQL Analytics finns i [prestandaöversikten](cheat-sheet.md).
+Mer information om hur du kan förbättra prestanda för Synapse SQL finns i [översikten Över prestanda](cheat-sheet.md).

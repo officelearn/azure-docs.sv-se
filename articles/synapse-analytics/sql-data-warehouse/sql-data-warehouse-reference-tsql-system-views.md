@@ -1,6 +1,6 @@
 ---
 title: Systemvyer
-description: Länkar till dokumentationen för systemvyer som stöds i SQL Analytics.
+description: Länkar till dokumentationen för systemvyer som stöds i Synapse SQL-pool.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,17 +11,18 @@ ms.date: 01/06/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: b3089cfbd0abb4bafe160b07fd75df877d61741b
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 1cc6627599a533238aae742b0358c13e1a7eab8a
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350273"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586342"
 ---
-# <a name="system-views-supported-in-sql-analytics"></a>Systemvyer som stöds i SQL Analytics
-Länkar till dokumentationen för T-SQL-uttryck som stöds i SQL Analytics.
+# <a name="system-views-supported-in-synapse-sql-pool"></a>Systemvyer som stöds i Synapse SQL-pool
 
-## <a name="sql-analytics-catalog-views"></a>SQL Analytics-katalogvyer
+Länkar till dokumentationen för T-SQL-uttryck som stöds i Synapse SQL-pool.
+
+## <a name="synapse-sql-pool-catalog-views"></a>Visaapse SQL-poolkatalogvyer
 * [sys.pdw_column_distribution_properties](https://msdn.microsoft.com/library/mt204022.aspx)
 * [sys.pdw_distributions](https://msdn.microsoft.com/library/mt203892.aspx)
 * [sys.pdw_index_mappings](https://msdn.microsoft.com/library/mt203912.aspx)
@@ -45,6 +46,7 @@ Länkar till dokumentationen för T-SQL-uttryck som stöds i SQL Analytics.
 * [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql)
 
 ## <a name="sql-data-warehouse-dynamic-management-views-dmvs"></a>Dynamiska hanteringsvyer för SQL Data Warehouse (DMV: er)
+
 * [sys.dm_pdw_dms_cores](https://msdn.microsoft.com/library/mt203911.aspx)
 * [sys.dm_pdw_dms_external_work](https://msdn.microsoft.com/library/mt204024.aspx)
 * [sys.dm_pdw_dms_workers](https://msdn.microsoft.com/library/mt203878.aspx)
@@ -65,14 +67,16 @@ Länkar till dokumentationen för T-SQL-uttryck som stöds i SQL Analytics.
 * [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 * [sys.dm_workload_management_workload_groups_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql) (förhandsgranskning)
 
-## <a name="sql-server-dmvs-applicable-to-sql-analytics"></a>SQL Server DMVs som gäller för SQL Analytics
-Följande DMVs är tillämpliga på SQL Analytics, men måste **master** köras genom att ansluta till huvuddatabasen.
+## <a name="sql-server-dmvs-applicable-to-synapse-sql-pool"></a>SQL Server DMVs som gäller för Synapse SQL-pool
+
+Följande DMVs är tillämpliga på Synapse SQL-pool, men måste **master** köras genom att ansluta till huvuddatabasen.
 
 * [sys.database_service_objectives](https://msdn.microsoft.com/library/mt712619.aspx)
 * [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx)
 * [sys.fn_helpcollations()](https://msdn.microsoft.com/library/ms187963.aspx)
 
 ## <a name="sql-server-catalog-views"></a>SQL Server-katalogvyer
+
 * [sys.all_columns](https://msdn.microsoft.com/library/ms177522.aspx)
 * [sys.all_objects](https://msdn.microsoft.com/library/ms178618.aspx)
 * [sys.all_parameters](https://msdn.microsoft.com/library/ms190340.aspx)
@@ -145,17 +149,18 @@ Följande DMVs är tillämpliga på SQL Analytics, men måste **master** köras 
 * [sys.typer](https://msdn.microsoft.com/library/ms188021.aspx)
 * [sys.views](https://msdn.microsoft.com/library/ms190334.aspx)
 
-## <a name="sql-server-dmvs-available-in-sql-analytics"></a>SQL Server DMVs är tillgängligt i SQL Analytics
-SQL Analytics visar många av SQL Server dynamiska hanteringsvyer (DMVs). Dessa vyer, när de efterfrågas i SQL Analytics, rapporterar tillståndet för SQL-databaser som körs på distributionerna.
+## <a name="sql-server-dmvs-available-in-synapse-sql-pool"></a>SQL Server DMVs finns i Synapse SQL-pool
 
-SQL Analytics och Parallel Data Warehouse (PDW) använder samma systemvyer. Varje DMV har en kolumn som kallas pdw_node_id, som är identifieraren för beräkningsnoden. 
+Synapse SQL-pool exponerar många av SQL Server dynamiska hanteringsvyer (DMVs). Dessa vyer, när de efterfrågas i Synapse SQL-pool, rapporterar tillståndet för SQL-databaser som körs på distributionerna.
+
+Synapse SQL-pool och PDW (Parallel Data Warehouse) använder samma systemvyer. Varje DMV har en kolumn som kallas pdw_node_id, som är identifieraren för beräkningsnoden. 
 
 > [!NOTE]
 > Om du vill använda dessa vyer infogar du "pdw_nodes_" i namnet, som visas i följande tabell:
 > 
 > 
 
-| DMV-namn i SQL Analytics | SQL Server Transact-SQL-artikel|
+| DMV-namn i Synapse SQL-pool | SQL Server Transact-SQL-artikel|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 
@@ -217,8 +222,9 @@ SQL Analytics och Parallel Data Warehouse (PDW) använder samma systemvyer. Varj
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](https://msdn.microsoft.com/library/ms188739.aspx) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](https://msdn.microsoft.com/library/ms188778.aspx) |
 
-## <a name="sql-server-2016-polybase-dmvs-available-in-sql-analytics"></a>SQL Server 2016 PolyBase DMVs är tillgängliga i SQL Analytics
-Följande DMVs är tillämpliga på SQL Analytics, men måste **master** köras genom att ansluta till huvuddatabasen.
+## <a name="sql-server-2016-polybase-dmvs-available-in-synapse-sql-pool"></a>SQL Server 2016 PolyBase DMVs finns i Synapse SQL-pool
+
+Följande DMVs är tillämpliga på Synapse SQL-pool, men måste **master** köras genom att ansluta till huvuddatabasen.
 
 * [sys.dm_exec_compute_node_errors](https://msdn.microsoft.com/library/mt146380.aspx)
 * [sys.dm_exec_compute_node_status](https://msdn.microsoft.com/library/mt146382.aspx)
@@ -232,6 +238,7 @@ Följande DMVs är tillämpliga på SQL Analytics, men måste **master** köras 
 * [sys.dm_exec_external_work](https://msdn.microsoft.com/library/mt146375.aspx)
 
 ## <a name="sql-server-information_schema-views"></a>SQL Server INFORMATION_SCHEMA vyer
+
 * [CHECK_CONSTRAINTS](https://msdn.microsoft.com/library/ms189772.aspx)
 * [Kolumner](https://msdn.microsoft.com/library/ms188348.aspx)
 * [Parametrar](https://msdn.microsoft.com/library/ms173796.aspx)
@@ -243,4 +250,5 @@ Följande DMVs är tillämpliga på SQL Analytics, men måste **master** köras 
 * [Visningar](https://msdn.microsoft.com/library/ms181381.aspx)
 
 ## <a name="next-steps"></a>Nästa steg
-Mer referensinformation finns [i T-SQL-uttryck i SQL Analytics](sql-data-warehouse-reference-tsql-statements.md)och [T-SQL-språkelement i SQL Analytics](sql-data-warehouse-reference-tsql-language-elements.md).
+
+Mer referensinformation finns [i T-SQL-uttryck i Synapse SQL-pool](sql-data-warehouse-reference-tsql-statements.md)och [T-SQL-språkelement i Synapse SQL-pool](sql-data-warehouse-reference-tsql-language-elements.md).

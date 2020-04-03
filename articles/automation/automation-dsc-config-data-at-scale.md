@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1a77a366ee8e06b2d8c47eb3b47eeaf9ae809598
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 644ea1c00af7e71ff56852298fff18e5293c137b
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76028300"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80585561"
 ---
 # <a name="configuration-data-at-scale"></a>Konfigurationsdata i stor skala
 
@@ -45,7 +45,7 @@ Den här informationen är ordnad i det filformat du föredrar (JSON, Yaml eller
 Sedan cmdlets tillhandahålls för att generera konfigurationsdatafiler genom [att konsolidera informationen](https://github.com/gaelcolas/Datum#datum-tree) från varje fil i till enstaka vy av en server eller serverroll.
 
 När datafilerna har genererats kan du använda dem med [DSC-konfigurationsskript](/powershell/scripting/dsc/configurations/write-compile-apply-configuration) för att generera MOF-filer och [ladda upp MOF-filerna till Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-Registrera sedan dina servrar från antingen [lokalt](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) eller [i Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) för att hämta konfigurationer.
+Registrera sedan dina servrar från antingen [lokalt](/azure/automation/automation-dsc-onboarding#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) eller [i Azure](/azure/automation/automation-dsc-onboarding#onboarding-azure-vms) för att hämta konfigurationer.
 
 Om du vill prova Datum besöker du [PowerShell-galleriet](https://www.powershellgallery.com/packages/datum/) och hämtar lösningen eller klickar på "Projektplats" för att visa [dokumentationen](https://github.com/gaelcolas/Datum#2-getting-started--concepts).
 

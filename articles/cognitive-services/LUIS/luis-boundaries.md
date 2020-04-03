@@ -1,22 +1,14 @@
 ---
 title: Gränser - LUIS
-titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller de kända gränserna för Azure Cognitive Services Language Understanding (LUIS). LUIS har flera gränsområden. Modellgräns styr avsikter, entiteter och funktioner i LUIS. Kvotgränser baserade på nyckeltyp. Tangentbordskombinationen styr LUIS-webbplatsen.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 11/07/2019
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: 6c021e68f8b76d8b0d3e6e9ff21c242580f53313
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.date: 04/02/2020
+ms.openlocfilehash: 4aa69cb0fd36fe5bf4ea2928022aea602b8830d6
+ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520949"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80618871"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Gränser för luis-modellen och -tangenterna
 LUIS har flera gränsområden. Den första är [modellgränsen](#model-boundaries), som styr avsikter, entiteter och funktioner i LUIS. Det andra området är [kvotgränser](#key-limits) baserade på nyckeltyp. Ett tredje gränsområde är [tangentbordskombinationen](#keyboard-controls) för att styra LUIS-webbplatsen. Ett fjärde område är [världsregionmappningen](luis-reference-regions.md) mellan LUIS-redigeringswebbplatsen och LUIS-slutpunkts-API:erna. [endpoint](luis-glossary.md#endpoint)
@@ -40,7 +32,7 @@ Om din app överskrider LUIS-modellens gränser och gränser bör du överväga 
 | [Förhandsgranska - Dynamiska listentiteter](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listor med ~1k per begäran om frågeförutsägelsförutsägels|
 | [Mönster](luis-concept-patterns.md)|500 mönster per applikation.<br>Den maximala längden på mönstret är 400 tecken.<br>3 Pattern.any enheter per mönster<br>Högst 2 kapslade valfria texter i mönster|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per applikation, 3 pattern.any enheter per mönster |
-| [Fraslista][phrase-list]|500 fraslistor. 10 globala fraslistor på grund av modellen som en funktionsgräns. Icke-utbytbara fraslista har max 5.000 fraser. Utbytbara phraselist har max 50.000 fraser. Maximalt antal fraser per applicering av 500 000 fraser.|
+| [Fraslista][phrase-list]|500 fraslistor. 10 globala fraslistor på grund av modellen som en funktionsgräns. Den icke utbytbara fraslistan har högst 5 000 fraser. Utbytbar fraslista har max 50 000 fraser. Maximalt antal fraser per applicering av 500 000 fraser.|
 | [Fördefinierade enheter](./luis-prebuilt-entities.md) | ingen gräns|
 | [Lägga till entiteter för reguljära uttryck](./luis-concept-entity-types.md)|20 enheter<br>500 tecken max. per mönster för ett reguljärt uttryck|
 | [Roller](luis-concept-roles.md)|300 roller per program. 10 roller per entitet|
@@ -77,26 +69,41 @@ Använd inte följande tecken i följande namn.
 |Avsikts-, entitets- och rollnamn|`:`<br>`$` <br> `&`|
 |Versionsnamn|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
-## <a name="key-usage"></a>Nyckelanvändning
+## <a name="resource-usage-and-limits"></a>Resursanvändning och begränsningar
 
-Språk förstå har separata nycklar, en typ för redigering, och en typ för att fråga förutsägelse slutpunkten. Mer information om skillnaderna mellan nyckeltyper finns i [Slutpunktsnycklar för redigering och frågeprediktion i LUIS](luis-concept-keys.md).
+Språk förstå har separata resurser, en typ för redigering, och en typ för att fråga förutsägelse slutpunkten. Mer information om skillnaderna mellan nyckeltyper finns i [Slutpunktsnycklar för redigering och frågeprediktion i LUIS](luis-concept-keys.md).
 
 <a name="key-limits"></a>
 
-## <a name="resource-key-limits"></a>Begränsningar för resursnyckel
+### <a name="authoring-resource-limits"></a>Skapa resursbegränsningar
 
-Resursnycklarna har olika begränsningar för redigering och slutpunkt. Slutpunktsnyckeln LUIS prediction query är endast giltig för slutpunktsfrågor.
+Använd _typen_ `LUIS.Authoring`, , när du filtrerar resurser i Azure-portalen. LUIS begränsar 500 program per Azure-redigeringsresurs.
 
-* 500 program per Azure-redigeringsresurs
+|Skapa resurs|Författande TPS|
+|--|--|
+|Starter|1 miljon/månad, 5/sekund|
+|F0 - Gratis nivå |1 miljon/månad, 5/sekund|
 
-|Nyckel|Redigering|Slutpunkt|Syfte|
-|--|--|--|--|
-|Starter|1 miljon/månad, 5/sekund|1 tusen/månad, 5/sekund|Skapa luis-appen|
-|F0 - Gratis nivå |1 miljon/månad, 5/sekund|10 tusen/månad, 5/sekund|Fråga luis-slutpunkten|
-|S0 - Grundläggande nivå|-|50/sekund|Fråga luis-slutpunkten|
-|S0 - Standardnivå|-|50/sekund|Fråga luis-slutpunkten|
-|[Integrering av sentimentanalys](luis-how-to-publish-app.md#enable-sentiment-analysis)|-|-|Lägga till sentimentinformation inklusive dataextrahering av nyckelfraser tillhandahålls utan att det krävs en annan Azure-resurs. |
-|[Integrering av tal](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|-|1 000 slutpunktsbegäranden per styckkostnad|Konvertera talat uttryck till textutseende och returnera LUIS-resultat|
+* TPS = Transaktioner per sekund
+
+[Läs mer om priser.][pricing]
+
+### <a name="query-prediction-resource-limits"></a>Resursbegränsningar för frågeprediktion
+
+Använd _typen_ `LUIS`, , när du filtrerar resurser i Azure-portalen. SLUTpunktsresursen LUIS-frågeprediktion, som används under körningen, är endast giltig för slutpunktsfrågor.
+
+|Frågeprediktionsresurs|Fråga TPS|
+|--|--|
+|F0 - Gratis nivå |10 tusen/månad, 5/sekund|
+|S0 - Standardnivå|50/sekund|
+
+### <a name="sentiment-analysis"></a>Sentimentanalys
+
+[Sentimentanalysintegration](luis-how-to-publish-app.md#enable-sentiment-analysis), som ger sentimentinformation, tillhandahålls utan att kräva en annan Azure-resurs.
+
+### <a name="speech-integration"></a>Integrering av tal
+
+[Talintegrering](../speech-service/how-to-recognize-intents-from-speech-csharp.md) ger 1 tusen slutpunktsbegäranden per styckkostnad.
 
 [Läs mer om priser.][pricing]
 

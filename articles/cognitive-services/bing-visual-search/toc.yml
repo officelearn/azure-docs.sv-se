@@ -24,17 +24,11 @@
           href: quickstarts/ruby.md
         - name: Använda Go
           href: quickstarts/go.md
-    - name: SDK
+    - name: Klientbibliotek
       expanded: true
       items:
-        - name: 'Använd C#'
-          href: visual-search-sdk-c-sharp.md
-        - name: Använda Node.js
-          href: visual-search-sdk-node.md
-        - name: Använda Python
-          href: visual-search-sdk-python.md
-        - name: Använda Java
-          href: visual-search-sdk-java.md
+        - name: Klientbibliotek för Visuell sökning i Bing
+          href: ./quickstarts/client-libraries.md
 - name: Självstudier
   items:
     - name: Ladda upp en avbildning

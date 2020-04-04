@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 785a8a031a10232a37b235711ba919fdc1df35d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a7be99959c2ae420cff667491f68c40dfa0862a9
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77061441"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652390"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset"></a>Planera en självbetjäningsåterställning av Azure Active Directory
 
@@ -76,7 +76,7 @@ Mer information om priser finns i [Azure Active Directory-priser](https://azure.
 | Onlinekurser|[Hantera identiteter i Active Directory i Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-active-directory-managing-identities) Använd SSPR för att ge användarna en modern, skyddad upplevelse. Se särskilt modulen "[Hantera Azure Active Directory -användare och grupper".](https://app.pluralsight.com/library/courses/microsoft-azure-active-directory-managing-identities/table-of-contents) |
 |Pluralsight Betalda kurser |[Frågorna om identitets- och åtkomsthantering](https://www.pluralsight.com/courses/identity-access-management-issues) Lär dig mer om IAM och säkerhetsproblem att vara medveten om i din organisation. Se särskilt modulen "Andra autentiseringsmetoder".|
 | |[Komma igång med Microsoft Enterprise Mobility Suite](https://www.pluralsight.com/courses/microsoft-enterprise-mobility-suite-getting-started) Lär dig de bästa metoderna för att utöka lokala resurser till molnet på ett sätt som möjliggör autentisering, auktorisering, kryptering och en säker mobil upplevelse. Se särskilt modulen "Konfigurera avancerade funktioner i Microsoft Azure Active Directory Premium".
-|självstudiekurserna |[Utföra en pilotlansering av självbetjäning av lösenordsåterställning för Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot) |
+|Självstudier |[Utföra en pilotlansering av självbetjäning av lösenordsåterställning för Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot) |
 | |[Aktivera tillbakaskrivning av lösenord](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-writeback) |
 | |[Återställning av Azure AD-lösenord från inloggningsskärmen för Windows 10](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-windows) |
 | VANLIGA FRÅGOR OCH SVAR|[Vanliga frågor och svar om lösenordshantering](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-faq) |

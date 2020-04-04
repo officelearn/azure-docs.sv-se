@@ -4,21 +4,19 @@ description: Den här artikeln innehåller information om hur du ansluter Akka-s
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
-manager: timlt
 editor: ''
 ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
-ms.custom: seodec18
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 04/02/2020
 ms.author: shvija
-ms.openlocfilehash: c53fcc7b4b99e77237ba7ea9219aef4182f2af61
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 0b96f1448fd223aae2dde77c5c05a8c9bd74ee9b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521829"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632849"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Använda Akka Streams med Event Hubs för Apache Kafka
 Den här självstudien visar hur du ansluter Akka Streams till en händelsehubb utan att ändra dina protokollklienter eller köra egna kluster. Azure Event Hubs för Kafka stöder [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
@@ -140,22 +138,11 @@ Om händelsehubben har händelser (till exempel om din producent också körs) `
 Kolla in [Akka Streams Kafka Guide](https://doc.akka.io/docs/akka-stream-kafka/current/home.html) för mer detaljerad information om Akka Streams.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien lärde du dig hur du ansluter Akka-strömmar till händelsehubben utan att ändra dina protokollklienter eller köra egna kluster. Azure Event Hubs för Kafka stöder [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html). Du har gjort följande åtgärder som en del av den här självstudien: 
+Mer information om eventhubbar för Kafka finns i följande artiklar:  
 
-> [!div class="checklist"]
-> * Skapa ett Event Hubs-namnområde
-> * Klona exempelprojektet
-> * Kör Akka Streams producent 
-> * Kör Akka Streams konsument
-
-Läs mer om Event Hubs och Event Hubs för Kafka i följande ämne:  
-
-- [Läs om Event Hubs](event-hubs-what-is-event-hubs.md)
-- [Event Hubs för Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-- [Så här skapar du en händelsehubb](event-hubs-create.md)
-- [Strömma till Event Hubs från Kafka-program](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 - [Spegla en Kafka-broker i en händelsehubb](event-hubs-kafka-mirror-maker-tutorial.md)
 - [Ansluta Apache Spark till en händelsehubb](event-hubs-kafka-spark-tutorial.md)
 - [Ansluta Apache Flink till en händelsehubb](event-hubs-kafka-flink-tutorial.md)
 - [Integrera Kafka Connect med ett händelsenav](event-hubs-kafka-connect-tutorial.md)
 - [Utforska exempel på vår GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+- [Utvecklarguide för Apache Kafka för Azure Event Hubs](apache-kafka-developer-guide.md)

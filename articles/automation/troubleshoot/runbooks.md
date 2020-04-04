@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b5d326d02587d6b5bd8fd73dcccfefdb13c47d57
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 26c5c5b31d5f3f9e1a642c0bafb947190e479055
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500915"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632618"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med runbooks
 
@@ -33,7 +33,7 @@ När du har fel som kör runbooks i Azure Automation kan du använda följande s
 
 3. **Kontrollera att dina noder och Automation-arbetsyta har de moduler som krävs.** 
 
-    Om runbooken importerar några moduler kontrollerar du att de är tillgängliga för ditt Automation-konto med hjälp av stegen i [Importmoduler](../shared-resources/modules.md#import-modules). Uppdatera dina moduler till den senaste versionen genom att följa instruktionerna på [Uppdatera Azure-moduler i Azure Automation](..//automation-update-azure-modules.md). Mer felsökningsinformation finns i [Felsöka moduler](shared-resources.md#modules).
+    Om runbooken importerar några moduler kontrollerar du att de är tillgängliga för ditt Automation-konto med hjälp av stegen i [Importmoduler](../shared-resources/modules.md#importing-modules). Uppdatera dina moduler till den senaste versionen genom att följa instruktionerna på [Uppdatera Azure-moduler i Azure Automation](..//automation-update-azure-modules.md). Mer felsökningsinformation finns i [Felsöka moduler](shared-resources.md#modules).
 
 4. **Gör om din runbook är avstängd eller oväntat misslyckas.**
 
@@ -284,7 +284,7 @@ Det här felet uppstår på grund av något av följande problem:
 
 ### <a name="resolution"></a>Lösning
 
-* Minnesgräns, nätverksuttag. Föreslagna sätt att arbeta inom minnesgränserna är att dela upp arbetsbelastningen mellan flera runbooks, bearbeta mindre data i minnet, undvika att skriva onödiga utdata från dina runbooks och överväga hur många kontrollpunkter som skrivs in i powershell-arbetsflödet runbooks. Använd den tydliga metoden, till exempel `$myVar.clear`, `[GC]::Collect` för att rensa ut variabler och använda för att köra skräpinsamling omedelbart. Dessa åtgärder minskar minnesavtrycket för din runbook under körning.
+* Minnesgräns, nätverksuttag. Föreslagna sätt att arbeta inom minnesgränserna är att dela upp arbetsbelastningen mellan flera runbooks, bearbeta mindre data i minnet, undvika att skriva onödiga utdata från dina runbooks och överväga hur många kontrollpunkter som skrivs in i dina PowerShell-arbetsflödeskörningsböcker. Använd den tydliga metoden, till exempel `$myVar.clear`, `[GC]::Collect` för att rensa ut variabler och använda för att köra skräpinsamling omedelbart. Dessa åtgärder minskar minnesavtrycket för din runbook under körning.
 
 * Modulen är inte kompatibel. Uppdatera dina Azure-moduler genom att följa stegen i [Så här uppdaterar du Azure PowerShell-moduler i Azure Automation](../automation-update-azure-modules.md).
 

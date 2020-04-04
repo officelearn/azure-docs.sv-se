@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: d10a642f9309e4bb93368564488fc75be15fa27c
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 6a38fe65b4aedf4f594531f5e9cd8cf9b5dfaac7
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586084"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631247"
 ---
 # <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Analysera din arbetsbelastning i Azure Synapse Analytics
 
@@ -68,7 +68,7 @@ Synapse SQL har följande väntetyper:
 * **LocalQueriesConcurrencyResourceType**: Frågor som sitter utanför ramverket för samtidighetsfack. DMV-frågor och systemfunktioner `SELECT @@VERSION` som är exempel på lokala frågor.
 * **UserConcurrencyResourceType**: Frågor som sitter i ramverket för samtidighetsfack. Frågor mot slutanvändartabeller representerar exempel som använder den här resurstypen.
 * **DmsConcurrencyResourceType**: Väntar på resultat från dataförflyttningsåtgärder.
-* **BackupConcurrencyResourceType**: Den här väntan anger att en databas säkerhetskopieras. Det maximala värdet för den här resurstypen är 1. Om flera säkerhetskopior har begärts samtidigt, köar de andra. I allmänhet rekommenderar vi en minsta tid mellan på varandra följande ögonblicksbilder på 10 minuter. 
+* **BackupConcurrencyResourceType**: Den här väntan anger att en databas säkerhetskopieras. Det maximala värdet för den här resurstypen är 1. Om flera säkerhetskopior har begärts samtidigt, köar de andra. I allmänhet rekommenderar vi en minsta tid mellan på varandra följande ögonblicksbilder på 10 minuter.
 
 `sys.dm_pdw_waits` DMV kan användas för att se vilka resurser en begäran väntar på.
 

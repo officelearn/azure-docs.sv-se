@@ -3,12 +3,12 @@ title: Referens för appinställningar för Azure Functions
 description: Referensdokumentation för appinställningarna eller miljövariablerna för Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 3853ccbfd492bfaf4a82d62e6d31ab938285ee2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e2d168d8828d17e13f875e3b2555c7db0d4ba32d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79277835"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656787"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referens för appinställningar för Azure Functions
 
@@ -20,11 +20,19 @@ Det finns andra globala konfigurationsalternativ i [filen host.json](functions-h
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
-Instrumenteringsnyckeln Application Insights om du använder Application Insights. Se [Övervaka Azure-funktioner](functions-monitoring.md).
+Instrumenteringsnyckeln för Application Insights. Använd endast `APPINSIGHTS_INSTRUMENTATIONKEY` en `APPLICATIONINSIGHTS_CONNECTIONSTRING`av eller . Mer information finns i [Övervaka Azure-funktioner](functions-monitoring.md). 
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|APPINSIGHTS_INSTRUMENTATIONKEY|5dbdd5e9-af77-484b-9032-64f83bb83bb|
+|APPINSIGHTS_INSTRUMENTATIONKEY|5555555-af77-484b-9032-64f83bb83bb|
+
+## <a name="applicationinsights_connectionstring"></a>APPLICATIONINSIGHTS_CONNECTIONSTRING
+
+Anslutningssträngen för Application Insights. Använd `APPLICATIONINSIGHTS_CONNECTIONSTRING` i `APPINSIGHTS_INSTRUMENTATIONKEY` stället för när funktionsappen kräver de tillagda anpassningar som stöds med hjälp av anslutningssträngen. Mer information finns i [Anslutningssträngar](../azure-monitor/app/sdk-connection-string.md). 
+
+|Nyckel|Exempelvärde|
+|---|------------|
+|APPLICATIONINSIGHTS_CONNECTIONSTRING|InstrumentationKey=[key];IngestionEndpoint=[url]; LiveEndpoint=[url]; ProfilerEndpoint=[url]; SnapshotEndpoint=[url];|
 
 ## <a name="azure_functions_environment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 

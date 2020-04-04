@@ -4,19 +4,19 @@ description: Integrera infrastrukturen för fjärrskrivbordsgateway med Azure MF
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71d9b2332d6d78e7bde63d0fa3f5b64b588e576b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c61bea7f3ca1105edfec54501c5f0725a5a10225
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425452"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654101"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrera infrastrukturen för fjärrskrivbordsgateway med nps-tillägget (Network Policy Server) och Azure AD
 
@@ -157,7 +157,7 @@ Om du vill använda dina egna certifikat måste du associera den offentliga nyck
 Om du vill använda skriptet anger du tillägget med dina Azure AD-administratörsbehörighet och Azure AD-klient-ID som du kopierade tidigare. Kör skriptet på varje NPS-server där du installerade NPS-tillägget. Gör något av följande:
 
 1. Öppna en administrativ Windows PowerShell-prompt.
-1. Skriv i `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`PowerShell-prompten och tryck på **RETUR**.
+1. Skriv i `cd 'c:\Program Files\Microsoft\AzureMfa\Config'`PowerShell-prompten och tryck på **RETUR**.
 1. Skriv `.\AzureMfaNpsExtnConfigSetup.ps1`och tryck på **RETUR**. Skriptet kontrollerar om Azure Active Directory PowerShell-modulen är installerad. Om det inte är installerat installeras modulen åt dig.
 
    ![Köra AzureMfaNpsExtnConfigSetup.ps1 i Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)

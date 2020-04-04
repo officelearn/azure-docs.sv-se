@@ -4,18 +4,18 @@ description: Så här definierar du lagringsmål så att din Azure HPC-cache kan
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: a68bf06bad995f71bedf6a5bdedcb676737a8c61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3fbc4e683c2b0e72c3a084a59793dbf9eb4b658c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271894"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657407"
 ---
 # <a name="add-storage-targets"></a>Lägga till lagringsmål
 
-*Lagringsmål* är backend-lagring för filer som används via en Azure HPC-cacheinstans. Du kan lägga till NFS-lagring (som ett lokalt maskinvarusystem) eller lagra data i Azure Blob.
+*Lagringsmål* är backend-lagring för filer som används via en Azure HPC-cache. Du kan lägga till NFS-lagring (som ett lokalt maskinvarusystem) eller lagra data i Azure Blob.
 
 Du kan definiera upp till tio olika lagringsmål för en cache. Cachen presenterar alla lagringsmål i ett aggregerat namnområde.
 
@@ -35,9 +35,9 @@ Ett nytt Blob-lagringsmål behöver en tom Blob-behållare eller en behållare s
 
 Du kan skapa en ny behållare från den här sidan precis innan du lägger till den.
 
-Om du vill definiera en Azure Blob-behållare anger du den här informationen.
-
 ![skärmbild av målsidan för lägga till lagring, ifylld med information för ett nytt Azure Blob-lagringsmål](media/hpc-cache-add-blob.png)
+
+Om du vill definiera en Azure Blob-behållare anger du den här informationen.
 
 * **Namn på lagringsmål** - Ange ett namn som identifierar det här lagringsmålet i Azure HPC-cachen.
 * **Måltyp** - Välj **Blob**.
@@ -79,7 +79,7 @@ Steg för att lägga till RBAC-rollerna:
 1. Sök efter "hpc" i fältet **Välj.**  Den här strängen ska matcha ett tjänsthuvudnamn med namnet "HPC Cache Resource Provider". Markera det huvudbeloppet genom att klicka på det.
 
    > [!NOTE]
-   > Om en sökning efter "hpc" inte fungerar kan du prova att använda strängen "storagecache" i stället. Användare som gick med i förhandsgranskningarna (före GA) kan behöva använda det äldre namnet för tjänstens huvudnamn.
+   > Om en sökning efter "hpc" inte fungerar kan du prova att använda strängen "storagecache" i stället. Användare som deltog i förhandsgranskningar (före GA) kan behöva använda det äldre namnet för tjänstens huvudnamn.
 
 1. Klicka på **knappen Spara** längst ned.
 
@@ -91,7 +91,10 @@ Steg för att lägga till RBAC-rollerna:
 
 Ett NFS-lagringsmål har fler fält än Blob-lagringsmålet. De här fälten anger hur lagringsexporten ska nås och hur du effektivt cachelagrar dess data. Med ett NFS-lagringsmål kan du också skapa flera namnområdessökvägar om NFS-värden har mer än en export tillgänglig.
 
-![Skärmbild av målsidan för lägga till lagring med NFS-mål definierat](media/hpc-cache-add-nfs-target.png)
+![Skärmbild av målsidan för lägga till lagring med NFS-mål definierat](media/add-nfs-target.png)
+
+> [!NOTE]
+> Innan du skapar ett NFS-lagringsmål kontrollerar du att ditt lagringssystem är tillgängligt från Azure HPC-cachen och uppfyller behörighetskraven. Lagringsmål skapas misslyckas om cachen inte kan komma åt lagringssystemet. Läs [NFS-lagringskrav](hpc-cache-prereqs.md#nfs-storage-requirements) och [Felsöka problem med NAS-konfiguration och NFS-lagringsmål](troubleshoot-nas.md) för mer information.
 
 Ange den här informationen för ett NFS-stödt lagringsmål:
 
@@ -126,7 +129,7 @@ När du är klar klickar du på **OK** för att lägga till lagringsmålet.
 ### <a name="choose-a-usage-model"></a>Välj en användningsmodell
 <!-- referenced from GUI - update aka.ms link if you change this heading -->
 
-När du skapar ett lagringsmål som pekar på ett NFS-lagringssystem måste du välja *användningsmodellen* för det målet. Den här modellen avgör hur dina data cachelagras.
+När du skapar ett lagringsmål som pekar på ett NFS-lagringssystem måste du välja användningsmodellen för det målet. Den här modellen avgör hur dina data cachelagras.
 
 Det finns tre alternativ:
 
@@ -138,7 +141,7 @@ Det finns tre alternativ:
 
 * **Större än 15% skriver** - Det här alternativet snabbar upp både läs- och skrivprestanda. När du använder det här alternativet måste alla klienter komma åt filer via Azure HPC-cachen i stället för att montera backend-lagringen direkt. De cachelagrade filerna kommer att ha de senaste ändringarna som inte lagras på baksidan.
 
-  I den här användningsmodellen kontrolleras inte filer i cacheminnet mot filerna på backend-lagring. Den cachelagrade versionen av filen antas vara mer aktuell. En modifierad fil i cacheminnet skrivs bara till backend-lagringssystemet efter att den har funnits i cacheminnet i en timme utan ytterligare ändringar.
+  I den här användningsmodellen kontrolleras inte filer i cacheminnet mot filerna på backend-lagring. Den cachelagrade versionen av filen antas vara mer aktuell. En modifierad fil i cacheminnet skrivs till backend-lagringssystemet efter att den har funnits i cacheminnet i en timme utan ytterligare ändringar.
 
 * **Klienter skriver till NFS-målet och kringgår cacheminnet** - Välj det här alternativet om några klienter i arbetsflödet skriver data direkt till lagringssystemet utan att först skriva till cachen. Filer som klientbegäran begär cachelagras, men alla ändringar av dessa filer från klienten skickas omedelbart tillbaka till backend-lagringssystemet.
 

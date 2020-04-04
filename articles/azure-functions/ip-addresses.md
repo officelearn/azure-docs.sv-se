@@ -3,12 +3,12 @@ title: IP-adresser i Azure-funktioner
 description: Lär dig hur du hittar inkommande och utgående IP-adresser för funktionsappar och vad som gör att de ändras.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: a1c4174b8f1f2349cbd35c32cbee468ee5b4cd4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bfd2d573e0a1c78d0ef4c68be224f92e8f689f62
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276496"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656774"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>IP-adresser i Azure-funktioner
 
@@ -86,7 +86,7 @@ Den inkommande IP-adressen **kan** ändras när du:
 
 - Ta bort en funktionsapp och återskapa den i en annan resursgrupp.
 - Ta bort den sista funktionsappen i en resursgrupp och regionkombination och återskapa den.
-- Ta bort en SSL-bindning, till exempel under [certifikatförnyelse](../app-service/configure-ssl-certificate.md#renew-certificate).
+- Ta bort en TLS-bindning, till exempel under [certifikatförnyelse](../app-service/configure-ssl-certificate.md#renew-certificate).
 
 När funktionsappen körs i en [förbrukningsplan](functions-scale.md#consumption-plan)kan den inkommande IP-adressen också ändras även när du inte har vidtagit några åtgärder, till exempel de som [anges ovan](#inbound-ip-address-changes).
 

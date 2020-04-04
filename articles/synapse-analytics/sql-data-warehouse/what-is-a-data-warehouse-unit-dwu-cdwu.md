@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ace4bc2e46d9e1926da18dedb163657d4f343979
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 01a05755fc18a85a95e9c1bec1c470d37af656d1
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586316"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632240"
 ---
 # <a name="data-warehouse-units-dwus"></a>Data warehouseenheter (DWUs)
 
@@ -24,14 +24,18 @@ Rekommendationer om hur du väljer det perfekta antalet informationslagerenheter
 
 ## <a name="what-are-data-warehouse-units"></a>Vad är datalagerenheter
 
-En [Synapse SQL-pool](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) representerar en samling analytiska resurser som etableras. Analytiska resurser definieras som en kombination av CPU, minne och IO. Dessa tre resurser buntas in i enheter av beräkningsskala som kallas Data Warehouse Units (DWUs). En DWU representerar ett abstrakt, normaliserat mått för beräkningsresurser och prestanda. En ändring av din servicenivå ändrar antalet DWUs som är tillgängliga för systemet, vilket i sin tur justerar prestanda och kostnad för ditt system.
+En [Synapse SQL-pool](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) representerar en samling analytiska resurser som etableras. Analytiska resurser definieras som en kombination av CPU, minne och IO. 
+
+Dessa tre resurser buntas in i enheter av beräkningsskala som kallas Data Warehouse Units (DWUs). En DWU representerar ett abstrakt, normaliserat mått för beräkningsresurser och prestanda. 
+
+En ändring av din servicenivå ändrar antalet DWUs som är tillgängliga för systemet, vilket i sin tur justerar prestanda och kostnad för ditt system.
 
 För högre prestanda kan du öka antalet informationslagerenheter. Minska datalagerenheter för mindre prestanda. Lagrings- och beräkningskostnader faktureras separat, så ändringar av informationslagerenheter påverkar inte lagringskostnaderna.
 
 Prestanda för informationslagerenheter baseras på dessa arbetsbelastningsmått:
 
-- Hur snabbt en standarddatalagringsfråga kan skanna ett stort antal rader och sedan utföra en komplex aggregering. Den här åtgärden är I/O- och CPU-intensiv.
-- Hur snabbt informationslagret kan inta data från Azure Storage Blobbar eller Azure Data Lake. Den här åtgärden är nätverks- och CPU-intensiv.
+- Hur snabbt en vanlig SQL-poolfråga kan skanna ett stort antal rader och sedan utföra en komplex aggregering. Den här åtgärden är I/O- och CPU-intensiv.
+- Hur snabbt SQL-poolen kan få in data från Azure Storage Blobbar eller Azure Data Lake. Den här åtgärden är nätverks- och CPU-intensiv.
 - Hur snabbt [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL-kommandot kan kopiera en tabell. Den här åtgärden innebär att läsa data från lagring, distribuera dem över noderna på enheten och skriva till lagring igen. Den här åtgärden är CPU, IO och nätverksintensiv.
 
 Öka nas:
@@ -42,7 +46,7 @@ Prestanda för informationslagerenheter baseras på dessa arbetsbelastningsmått
 
 ## <a name="service-level-objective"></a>Servicenivåmål
 
-Servicenivåmålet (SLO) är skalbarhetsinställningen som bestämmer kostnads- och prestandanivån för ditt informationslager. Tjänstnivåerna för Gen2 SQL-pool mäts i datalagerenheter (DWU), till exempel DW2000c.
+Servicenivåmålet (SLO) är skalbarhetsinställningen som bestämmer kostnads- och prestandanivån för DIN SQL-pool. Tjänstnivåerna för Gen2 SQL-pool mäts i datalagerenheter (DWU), till exempel DW2000c.
 
 I T-SQL bestämmer inställningen SERVICE_OBJECTIVE tjänstnivån för DIN SQL-pool.
 
@@ -56,7 +60,7 @@ CREATE DATABASE mySQLDW
 
 ## <a name="capacity-limits"></a>Kapacitetsbegränsningar
 
-Varje SQL-server (till exempel myserver.database.windows.net) har en [DTU-kvot (Database Transaction Unit)](../../sql-database/sql-database-service-tiers-dtu.md) som tillåter ett visst antal informationslagerenheter. Mer information finns i [kapacitetsgränserna för arbetsbelastningshantering](sql-data-warehouse-service-capacity-limits.md#workload-management).
+Varje SQL-server (till exempel myserver.database.windows.net) har en [DTU-kvot (Database Transaction Unit)](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) som tillåter ett visst antal informationslagerenheter. Mer information finns i [kapacitetsgränserna för arbetsbelastningshantering](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
 ## <a name="how-many-data-warehouse-units-do-i-need"></a>Hur många informationslagerenheter behöver jag
 
@@ -68,7 +72,9 @@ Steg för att hitta den bästa DWU för din arbetsbelastning:
 2. Övervaka programmets prestanda när du testar databelastningar i systemet och observera antalet DWUs som valts jämfört med den prestanda du observerar.
 3. Identifiera eventuella ytterligare krav för periodiska perioder av toppaktivitet. Arbetsbelastningar som visar betydande toppar och dalar i aktivitet kan behöva skalas ofta.
 
-SQL Analytics är ett skalbart system som kan etablera stora mängder beräkning och fråga stora mängder data. Om du vill se dess verkliga funktioner för skalning, särskilt vid större DWUs, rekommenderar vi att du skalar datauppsättningen när du skalar för att säkerställa att du har tillräckligt med data för att mata processorerna. För skalningstestning rekommenderar vi att du använder minst 1 TB.
+SQL-pool är ett skalningssystem som kan etablera stora mängder beräkning och fråga stora mängder data. 
+
+Om du vill se dess verkliga funktioner för skalning, särskilt vid större DWUs, rekommenderar vi att du skalar datauppsättningen när du skalar för att säkerställa att du har tillräckligt med data för att mata processorerna. För skalningstestning rekommenderar vi att du använder minst 1 TB.
 
 > [!NOTE]
 >
@@ -172,7 +178,7 @@ Så här kontrollerar du statusen för DWU-ändringar:
     FROM      sys.databases
     ;
     ```
-    
+
 1. Skicka följande fråga för att kontrollera status för åtgärden
 
     ```sql
@@ -182,7 +188,7 @@ Så här kontrollerar du statusen för DWU-ändringar:
     AND       major_resource_id = 'MySQLDW'
     ;
     ```
-    
+
 Den här DMV returnerar information om olika hanteringsåtgärder på din SQL-pool, till exempel åtgärden och tillståndet för åtgärden, som antingen är IN_PROGRESS eller SLUTFÖRD.
 
 ## <a name="the-scaling-workflow"></a>Skalningsarbetsflödet

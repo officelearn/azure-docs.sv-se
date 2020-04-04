@@ -11,15 +11,17 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: f904619b1cea97849e631310cf303ed07194a01e
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: b1f21a996f7394def4d6b1e8bde9a5ccdf703dbb
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349918"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632415"
 ---
 # <a name="azure-synapse-analytics--workload-management-portal-monitoring-preview"></a>Azure Synapse Analytics – Övervakning av arbetsbelastningshanteringsportalen (förhandsversion)
-I den här artikeln beskrivs hur du övervakar resursanvändning och frågeaktivitet för [arbetsbelastningsgrupper.](sql-data-warehouse-workload-isolation.md#workload-groups) Mer information om hur du konfigurerar Utforskaren för Azure Metrics finns i artikeln [Komma igång med Azure Metrics Explorer.](../../azure-monitor/platform/metrics-getting-started.md)  Mer information om hur du övervakar systemresursförbrukning finns i avsnittet [Resursanvändning](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) i Azure Synapse Analytics Monitoring.
+
+I den här artikeln beskrivs hur du övervakar resursanvändning och frågeaktivitet för [arbetsbelastningsgrupper.](sql-data-warehouse-workload-isolation.md#workload-groups)
+Mer information om hur du konfigurerar Utforskaren för Azure Metrics finns i artikeln [Komma igång med Azure Metrics Explorer.](../../azure-monitor/platform/metrics-getting-started.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)  Mer information om hur du övervakar systemresursförbrukning finns i avsnittet [Resursanvändning](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) i Azure Synapse Analytics Monitoring.
 Det finns två olika kategorier av arbetsbelastningsgruppmått som tillhandahålls för övervakning av arbetsbelastningshantering: resursallokering och frågeaktivitet.  Dessa mått kan delas och filtreras efter arbetsbelastningsgrupp.  Måtten kan delas och filtreras baserat på om de är systemdefinierade (resursklassarbetsbelastningsgrupper) eller användardefinierade (skapas av användare med SEMTAX FÖR [SKAPA ARBETSBELASTNINGSGRUPP).](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
 
 ## <a name="workload-management-metric-definitions"></a>Måttdefinitioner för arbetsbelastningshantering
@@ -35,20 +37,24 @@ Det finns två olika kategorier av arbetsbelastningsgruppmått som tillhandahål
 |Arbetsbelastningsgrupp köade frågor | Frågor för arbetsbelastningsgruppen som för närvarande står i kö väntar på att starta körningen.  Frågor kan vara kö eftersom de väntar på resurser eller lås.<br><br>Frågor kan vänta av många skäl.  Om systemet är överbelastat och samtidighetsbehovet är större än vad som är tillgängligt, köar frågor.<br><br>Överväg att lägga till mer `CAP_PERCENTAGE_RESOURCE` resurser till arbetsbelastningsgruppen genom att öka parametern i CREATE [WORKLOAD GROUP-satsen.](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)  Om `CAP_PERCENTAGE_RESOURCE` är större än måttet *Effektiv cap resource procent* påverkar den konfigurerade arbetsbelastningsisolering för andra arbetsbelastningsgrupper de resurser som allokerats till den här arbetsbelastningsgruppen.  Överväg `MIN_PERCENTAGE_RESOURCE` att sänka andra arbetsbelastningsgrupper eller skala upp instansen för att lägga till fler resurser. |Summa |
 
 ## <a name="monitoring-scenarios-and-actions"></a>Övervaka scenarier och åtgärder
+
 Nedan finns en serie diagramkonfigurationer för att markera arbetsbelastningshanteringsmåttanvändning för felsökning tillsammans med associerade åtgärder för att lösa problemet.
 
 ### <a name="underutilized-workload-isolation"></a>Underutnyttjad arbetsbelastningsisolering
-Tänk på följande arbetsbelastningsgrupp och klassifierarkonfiguration där en arbetsbelastningsgrupp med `wgPriority` namnet skapas och *TheCEO* `membername` mappas till den med hjälp av arbetsbelastningsklassificeraren. `wcCEOPriority`  Arbetsbelastningsgruppen `wgPriority` har 25 % arbetsbelastningsisolering konfigurerad för den (`MIN_PERCENTAGE_RESOURCE` = 25).  Varje fråga som skickas in av *THECEO* `REQUEST_MIN_RESOURCE_GRANT_PERCENT` ges 5% av systemresurser ( = 5).
-```sql
-CREATE WORKLOAD GROUP wgPriority 
-WITH ( MIN_PERCENTAGE_RESOURCE = 25   
-      ,CAP_PERCENTAGE_RESOURCE = 50 
-      ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 5); 
 
-CREATE WORKLOAD CLASSIFIER wcCEOPriority 
+Tänk på följande arbetsbelastningsgrupp och klassifierarkonfiguration där en arbetsbelastningsgrupp med `wgPriority` namnet skapas och *TheCEO* `membername` mappas till den med hjälp av arbetsbelastningsklassificeraren. `wcCEOPriority`  Arbetsbelastningsgruppen `wgPriority` har 25 % arbetsbelastningsisolering konfigurerad för den (`MIN_PERCENTAGE_RESOURCE` = 25).  Varje fråga som skickas in av *THECEO* `REQUEST_MIN_RESOURCE_GRANT_PERCENT` ges 5% av systemresurser ( = 5).
+
+```sql
+CREATE WORKLOAD GROUP wgPriority
+WITH ( MIN_PERCENTAGE_RESOURCE = 25
+      ,CAP_PERCENTAGE_RESOURCE = 50
+      ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 5);
+
+CREATE WORKLOAD CLASSIFIER wcCEOPriority
 WITH ( WORKLOAD_GROUP = 'wgPriority'
       ,MEMBERNAME = 'TheCEO');
 ```
+
 Nedanstående diagram är konfigurerat enligt följande:<br>
 Mått 1: *Effektiv minresursprocent* (genomsnittlig `blue line`aggregering, )<br>
 Mått 2: *Arbetsbelastningsgruppallokering efter systemprocent* (genomsnittlig aggregering, `purple line`)<br>
@@ -56,18 +62,20 @@ Filter: [Arbetsbelastningsgrupp] =`wgPriority`<br>
 ![underutnyttjade-wg.png](./media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png) Diagrammet visar att med 25% arbetsbelastning isolering, endast 10% används i genomsnitt.  I det här `MIN_PERCENTAGE_RESOURCE` fallet kan parametervärdet sänkas till mellan 10 eller 15 och tillåta andra arbetsbelastningar på systemet att förbruka resurserna.
 
 ### <a name="workload-group-bottleneck"></a>Flaskhals i arbetsbelastningsgruppen
+
 Tänk på följande arbetsbelastningsgrupp och klassifierarkonfiguration där en arbetsbelastningsgrupp med `wgDataAnalyst` namnet skapas och *DataAnalyst* `membername` mappas till den med hjälp av arbetsbelastningsklassificeraren. `wcDataAnalyst`  Arbetsbelastningsgruppen `wgDataAnalyst` har 6 % arbetsbelastningsisolering konfigurerad för den (`MIN_PERCENTAGE_RESOURCE` `CAP_PERCENTAGE_RESOURCE` = 6) och en resursgräns på 9 % ( = 9).  Varje fråga som skickas av *DataAnalyst* får 3 % av systemresurserna (`REQUEST_MIN_RESOURCE_GRANT_PERCENT` = 3).
 
 ```sql
 CREATE WORKLOAD GROUP wgDataAnalyst  
-WITH ( MIN_PERCENTAGE_RESOURCE = 6   
-      ,CAP_PERCENTAGE_RESOURCE = 9 
-      ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 3); 
+WITH ( MIN_PERCENTAGE_RESOURCE = 6
+      ,CAP_PERCENTAGE_RESOURCE = 9
+      ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 3);
 
-CREATE WORKLOAD CLASSIFIER wcDataAnalyst 
+CREATE WORKLOAD CLASSIFIER wcDataAnalyst
 WITH ( WORKLOAD_GROUP = 'wgDataAnalyst'
       ,MEMBERNAME = 'DataAnalyst');
 ```
+
 Nedanstående diagram är konfigurerat enligt följande:<br>
 Mått 1: *Effektiv cap resurs procent* (Genomsnittlig aggregering, `blue line`)<br>
 Mått 2: *Arbetsbelastningsgruppallokering efter max resursprocent* (genomsnittlig aggregering, `purple line`)<br>
@@ -76,8 +84,8 @@ Filter: [Arbetsbelastningsgrupp] =`wgDataAnalyst`<br>
 ![flaskhalsad wg](./media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png) Diagrammet visar att med ett 9% tak för resurser används arbetsbelastningsgruppen 90%+ (från *arbetsbelastningsgruppallokeringen med max resursprocentmått*).  Det finns en stadig kö av frågor som visas från *arbetsbelastningsgruppen köade frågor mått*.  I det här `CAP_PERCENTAGE_RESOURCE` fallet, öka till ett värde som är högre än 9% kommer att tillåta fler frågor att köra samtidigt.  Öka `CAP_PERCENTAGE_RESOURCE` förutsätter att det finns tillräckligt med resurser tillgängliga och inte isolerade av andra arbetsbelastningsgrupper.  Kontrollera att taket ökade genom att kontrollera *måttet Effektiv cap resource percent*.  Om mer dataflöde önskas bör `REQUEST_MIN_RESOURCE_GRANT_PERCENT` du också överväga att öka värdet som är större än 3.  Om `REQUEST_MIN_RESOURCE_GRANT_PERCENT` du ökar kan det göra att frågor kan köras snabbare.
 
 ## <a name="next-steps"></a>Nästa steg
-[Snabbstart: Konfigurera arbetsbelastningsisolering med T-SQL](quickstart-configure-workload-isolation-tsql.md)<br>
-[SKAPA ARBETSBELASTNINGSGRUPP (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)<br>
-[SKAPA ARBETSBELASTNINGSKLASSIFICERARE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest)<br>
-[Övervaka resursutnyttjande](sql-data-warehouse-concept-resource-utilization-query-activity.md)
 
+- [Snabbstart: Konfigurera arbetsbelastningsisolering med T-SQL](quickstart-configure-workload-isolation-tsql.md)<br>
+- [SKAPA ARBETSBELASTNINGSGRUPP (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)<br>
+- [SKAPA ARBETSBELASTNINGSKLASSIFICERARE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest)<br>
+- [Övervaka resursutnyttjande](sql-data-warehouse-concept-resource-utilization-query-activity.md)

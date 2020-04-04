@@ -3,12 +3,12 @@ title: Flytta Azure App Service-resurser
 description: Använd Azure Resource Manager för att flytta App Service-resurser till en ny resursgrupp eller prenumeration.
 ms.topic: conceptual
 ms.date: 12/13/2019
-ms.openlocfilehash: 338b0559a5de9468ff60024b88d0f676a9fc3e8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d0ecd117bdcda9238e310a3020dba19a6871a3fc
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75479805"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655773"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>Flytta vägledning för App Service-resurser
 
@@ -21,10 +21,10 @@ När du flyttar en webbapp över prenumerationer gäller följande vägledning:
 - Målresursgruppen får inte ha några befintliga App Service-resurser. App Service-resurser omfattar:
     - Web Apps
     - App Service-planer
-    - Uppladdade eller importerade SSL-certifikat
+    - Uppladdade eller importerade TLS/SSL-certifikat
     - Apptjänstmiljöer
 - Alla App Service-resurser i resursgruppen måste flyttas tillsammans. Observera att App Service-miljöer inte kan flyttas till en ny resursgrupp eller till en ny prenumeration.
-- Du kan flytta ett certifikat bundet till en webbplats utan att ta bort SSL-bindningarna, så länge certifikatet flyttas med alla andra resurser i resursgruppen.
+- Du kan flytta ett certifikat bundet till en webbplats utan att ta bort TLS-bindningarna, så länge certifikatet flyttas med alla andra resurser i resursgruppen.
 - AppTjänstresurser kan bara flyttas från resursgruppen där de ursprungligen skapades. Om en App Service-resurs inte längre finns i den ursprungliga resursgruppen flyttar du tillbaka den till den ursprungliga resursgruppen. Flytta sedan resursen över prenumerationer.
 
 Om du inte kommer ihåg den ursprungliga resursgruppen kan du hitta den via diagnostik. För din webbapp väljer du **Diagnostisera och lösa problem**. Välj sedan **Konfiguration och hantering**.

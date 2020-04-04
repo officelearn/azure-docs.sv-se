@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 09/03/2019
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 4b42f0966288e4ee72b689ddce6313a41e91f13e
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: dbbe58df4f1cfe93555b494e525fad18f5b02664
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80438035"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632578"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Konfigurera appen App Service eller Azure Functions så att den använder Azure AD-inloggning
 
@@ -78,7 +78,7 @@ Utför följande steg:
 1. När appregistreringen har skapats kopierar **du program-ID:t och** **katalog-ID :t** för senare.
 1. Välj **Autentisering**. Under **Implicit beviljande**aktiverar du **ID-token** för att tillåta OpenID Connect-användarloggningar från App Service.
 1. (Valfritt) Välj **Branding**. Ange URL:en för appen App Service på **startsidan**och välj **Spara**.
-1. Välj Visa en**API-uppsättning** **Expose an API** > . Klistra in url:en till apptjänstappen och välj **Spara**.
+1. Välj Visa en**API-uppsättning** **Expose an API** > . För en innehavare app, klistra in url till din App Service app och välj **Spara** och för flera innehavare app, klistra in i webbadressen som baseras på en av klienten verifierade domäner och välj sedan **Spara**.
 
    > [!NOTE]
    > Det här värdet är **program-ID-URI** för appregistreringen. Om webbappen kräver åtkomst till ett API i molnet behöver du **webbappens program-ID** när du konfigurerar molnapptjänstens resurs. Du kan till exempel använda detta om du vill att molntjänsten uttryckligen ska bevilja åtkomst till webbappen.

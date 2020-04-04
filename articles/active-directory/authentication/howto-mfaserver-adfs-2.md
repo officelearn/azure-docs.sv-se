@@ -4,19 +4,19 @@ description: Det här är sidan om Azure Multi-Factor Authentication som beskriv
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e71c1d28a90af72890b2399d5da24d08885f3cce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c79a42bbd60d7a1857649cffc97ed7f0103fa16
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051217"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653519"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Konfigurera Azure Multi-Factor Authentication Server så att den fungerar med AD FS 2.0
 
@@ -59,7 +59,7 @@ Om du vill skydda AD FS 2.0 med en proxy installerar du Azure Multi-Factor Authe
 13. När du är klar klickar du på **OK** så visas dialogrutan Lägg till formulärbaserad webbplats igen.
 14. Stäng dialogrutan genom att klicka på **OK**.
 15. När URL- och sidvariablerna har identifierats eller angetts visas webbplatsdata på panelen Formulärbaserad.
-16. Klicka på fliken **Ursprunglig modul** och välj servern, webbplatsen som AD FS-proxyn körs under (t.ex. ”Standardwebbplats”) eller AD FS-proxyprogrammet (t.ex. ”Is” under ”adfs”) för att aktivera IIS-pluginprogrammet på önskad nivå.
+16. Klicka på fliken **Inbyggd modul** och välj servern, den webbplats som AD FS-proxyn körs under (som "Standardwebbplats" eller AD FS-proxyprogrammet (som "ls" under "adfs") för att aktivera IIS-plugin-programmet på önskad nivå.
 17. Klicka på rutan **Aktivera IIS-autentisering** överst på skärmen.
 
 Nu är IIS-autentisering aktiverat.
@@ -85,8 +85,8 @@ Du har aktiverat IIS-autentisering, men för att kunna utföra förautentisering
 
 1. Klicka sedan på ikonen **Företagsinställningar** och välj fliken **Användarnamnsupplösning.**
 2. Välj **det unika identifieraretributet Använd LDAP för matchande användarnamn.**
-3. Om användare anger sina användarnamn i ”domän\användarnamn”-format måste servern kunna extrahera domänen från användarnamnet när LDAP-frågan skapas. Detta kan göras via en registerinställning.
-4. Öppna Registereditorn och gå till HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor på en 64-bitarsserver. Om du arbetar på en 32-bitarsserver utelämnar du ”Wow6432Node” i sökvägen. Skapa en DWORD-registernyckel med namnet ”UsernameCxz_stripPrefixDomain” och ange värdet till 1. Nu skyddas AD FS-proxyn av Azure Multi-Factor Authentication.
+3. Om användarna anger sitt användarnamn i formatet "domän\användarnamn" måste servern kunna ta bort domänen från användarnamnet när LDAP-frågan skapas. Detta kan göras via en registerinställning.
+4. Öppna Registereditorn och gå till HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor på en 64-bitarsserver. Om på en 32-bitars server, ta "Wow6432Node" ur vägen. Skapa en DWORD-registernyckel som kallas "UsernameCxz_stripPrefixDomain" och ange värdet till 1. Nu skyddas AD FS-proxyn av Azure Multi-Factor Authentication.
 
 Se till att användarna har importerats från Active Directory till servern. Se [avsnittet Betrodda IP-adresser](#trusted-ips) om du vill tillåta interna IP-adresser så att tvåstegsverifiering inte krävs när du loggar in på webbplatsen från dessa platser.
 
@@ -107,7 +107,7 @@ Du kan skydda AD FS när AD FS-proxy inte används. Installera Azure Multi-Facto
    ![AD FS 2.0 direkt utan någon proxy](./media/howto-mfaserver-adfs-2/noproxy.png)
 
 8. Klicka på **OK**.
-9. Klicka på fliken **Ursprunglig modul** och välj servern, webbplatsen (t.ex. ”Standardwebbplats”) eller ADFS-programmet (t.ex. ”Is” under ”adfs”) för att aktivera IIS-pluginprogrammet på önskad nivå.
+9. Klicka på fliken **Inbyggd modul** och välj servern, webbplatsen (som "Standardwebbplats") eller AD FS-programmet (som "ls" under "adfs") för att aktivera IIS-plugin-programmet på önskad nivå.
 10. Klicka på rutan **Aktivera IIS-autentisering** överst på skärmen.
 
 Nu skyddas AD FS av Azure Multi-Factor Authentication.

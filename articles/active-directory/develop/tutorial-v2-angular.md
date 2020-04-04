@@ -16,17 +16,17 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: d08cb09b343300a667ea821ee75847f1fd9b1c13
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 81ade6f02b38a0a4d5ed04c8190b99216638c45d
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80423090"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637835"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application-spa"></a>Logga in användare och anropa Microsoft Graph API från ett vinkellikt ensidigt program (SPA)
 
 > [!IMPORTANT]
-> Den här funktionen är för närvarande en förhandsversion. Förhandsgranskningar görs tillgängliga för dig på villkor att du godkänner [kompletterande användarvillkor][användarvillkor]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> Den här funktionen är för närvarande en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
 Den här guiden visar hur ett vinkellikt ensidigt program (SPA) kan:
 - Logga in personliga konton samt arbets- och skolkonton

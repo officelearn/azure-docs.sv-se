@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
-ms.openlocfilehash: 906ae2a970ce1d5b82302d0277ca45bd93c23011
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b56375388f6293d27bcd2f2548d8b20205a92b15
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256918"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80638032"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Så här använder du en hanterad instans i Azure SQL Database
 
@@ -43,6 +43,7 @@ I den här artikeln hittar du olika guider, skript och förklaringar som kan hj�
 
 - [Med transaktionsreplikering](replication-with-sql-database-managed-instance.md) kan du replikera data mellan hanterade instanser eller från lokal SQL Server till en hanterad instans och vice versa. Hitta mer information om hur du använder och konfigurerar transaktionsreplikering i den här guiden.
 - [Konfigurera hotidentifiering](sql-database-managed-instance-threat-detection.md) – [hotidentifiering](sql-database-threat-detection-overview.md) är en inbyggd Azure SQL Database-funktion som identifierar olika potentiella attacker som SQL-injektion eller åtkomst från misstänkta platser. I den här guiden kan du lära dig hur du aktiverar och konfigurerar [hotidentifiering](sql-database-threat-detection-overview.md) för en hanterad instans.
+- [Genom](sql-database-managed-instance-alerts.md) att skapa aviseringar kan du ställa in aviseringar på övervakade mått, till exempel CPU-användning, lagringslagring, IOPS och andra för hanterade instanser. I den här guiden får du lära dig hur du aktiverar och konfigurerar aviseringar för hanterad instans.
 
 ## <a name="next-steps"></a>Nästa steg
 

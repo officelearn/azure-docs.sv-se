@@ -4,19 +4,19 @@ description: Kom igång med Azure MFA och användarportalen.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e68c2a75254d1b387c45e31c5830849c6127756
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1869fac973cd4cd68e1e91be89c25fdf1427f6a5
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051187"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653200"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Användarportal för Azure Multi-Factor Authentication-servern
 
@@ -162,9 +162,9 @@ Om användaren väljer autentiseringsmetoden Röstsamtal eller om användaren ha
 
 ![Registrera primära och sekundära telefonnummer](./media/howto-mfaserver-deploy-userportal/backupphone.png)
 
-Om användaren måste ange en PIN-kod vid autentiseringen uppmanas han eller hon att skapa en PIN-kod. Efter att ha angett sitt telefonnummer och PIN-kod (om en sådan krävs), klickar användaren på knappen **Ring mig nu för att autentisera**. Azure Multi-Factor Authentication utför en autentisering via ett telefonsamtal till användarens primära telefonnummer. Användaren måste besvara samtalet och ange sin PIN-kod (om en sådan krävs) och trycka på # för att gå vidare till nästa steg i självregistreringsprocessen.
+Om användaren måste ange en PIN-kod vid autentiseringen uppmanas han eller hon att skapa en PIN-kod. Efter att ha angett sitt telefonnummer och PIN-kod (om en sådan krävs), klickar användaren på knappen **Ring mig nu för att autentisera**. Azure Multi-Factor Authentication utför en verifiering av telefonsamtal till användarens primära telefonnummer. Användaren måste besvara samtalet och ange sin PIN-kod (om en sådan krävs) och trycka på # för att gå vidare till nästa steg i självregistreringsprocessen.
 
-Om användaren väljer autentiseringsmetoden för SMS-meddelanden eller om användaren har förkonfigurerats att använda den metoden uppmanas han eller hon att ange sitt mobiltelefonnummer. Om användaren måste ange en PIN-kod vid autentiseringen uppmanas han eller hon också att ange en PIN-kod.  Efter att de angett sitt telefonnummer och PIN-kod (om en sådan krävs), klickar användaren på knappen **Skicka mig ett textmeddelande för att autentisera**. Azure Multi-Factor Authentication utför en SMS-autentisering till användarens mobiltelefon. Användaren får SMS:et med ett engångslösenord (OTP) och svarar på meddelandet med OTP:t och sin PIN-kod (om sådan krävs).
+Om användaren väljer autentiseringsmetoden för SMS-meddelanden eller om användaren har förkonfigurerats att använda den metoden uppmanas han eller hon att ange sitt mobiltelefonnummer. Om användaren måste ange en PIN-kod vid autentiseringen uppmanas han eller hon också att ange en PIN-kod.  Efter att de angett sitt telefonnummer och PIN-kod (om en sådan krävs), klickar användaren på knappen **Skicka mig ett textmeddelande för att autentisera**. Azure Multi-Factor Authentication utför en SMS-verifiering till användarens mobiltelefon. Användaren får SMS:et med ett engångslösenord (OTP) och svarar på meddelandet med OTP:t och sin PIN-kod (om sådan krävs).
 
 ![Verifiering av användarportaler med SMS](./media/howto-mfaserver-deploy-userportal/text.png)
 

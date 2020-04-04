@@ -1,22 +1,22 @@
 ---
 title: 'Snabbstart: Skapa din första funktion i Azure med Visual Studio'
-description: I den här snabbstarten får du lära dig hur du skapar och publicerar en HTTP-utlöst Azure-funktion med hjälp av Visual Studio.
+description: I den här snabbstarten får du lära dig hur du skapar och publicerar en HTTP-utlösare Azure-funktion med hjälp av Visual Studio.
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 03/06/2020
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: 13a03ca6820229fc90467236e0c23f236664d73f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: dadb705e8b756418be40d738aa81b3e77961aead
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80056552"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657520"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Snabbstart: Skapa din första funktion i Azure med Visual Studio
 
 Med Azure Functions kan du köra koden i en serverlös miljö utan att först behöva skapa en virtuell dator eller publicera ett webbprogram.
 
-I den här snabbstarten får du lära dig hur du använder Visual Studio 2019 för att skapa och testa en HTTP-utlöst C#-funktionsapp som du sedan publicerar i Azure lokalt. 
+I den här snabbstarten får du lära dig hur du använder Visual Studio 2019 för att skapa och testa en HTTP-utlösappapp för "hello world", som du sedan publicerar i Azure. 
 
 ![Svar för funktion-localhost i webbläsaren](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
@@ -38,7 +38,7 @@ Visual Studio skapar ett projekt och en klass som innehåller standardkod för h
 
 Utöka funktionens funktioner med in- och utdatabindningar genom att använda lämpliga attribut på metoden. Mer information finns i avsnittet [Triggers and bindings](functions-dotnet-class-library.md#triggers-and-bindings) (Utlösare och bindningar) i [Azure Functions C# developer reference](functions-dotnet-class-library.md) (Azure Functions C#-referens för utvecklare).
 
-Nu när du har skapat ditt funktionsprojekt och en HTTP-utlöst funktion kan du testa den på en lokal dator.
+Nu när du har skapat funktionsprojektet och en HTTP-utlösarfunktion kan du testa det på den lokala datorn.
 
 ## <a name="run-the-function-locally"></a>Kör funktionen lokalt
 
@@ -58,7 +58,7 @@ Innan du kan publicera projektet måste du ha en funktionsapp i din Azure-prenum
 
 1. Kopiera bas-URL:en för funktionsappen från sidan **Publicera** profil. Ersätt `localhost:port` den del av WEBBADRESSEN som du använde för att testa funktionen lokalt med den nya bas-URL:en. Lägg till frågesträngen `?name=<YOUR_NAME>` i den här URL:en och kör begäran.
 
-    URL:en som anropar http-utlöst funktion är i följande format:
+    URL:en som anropar HTTP-utlösaren är i följande format:
 
     `http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?name=<YOUR_NAME>`
 
@@ -72,7 +72,7 @@ Innan du kan publicera projektet måste du ha en funktionsapp i din Azure-prenum
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du Visual Studio för att skapa och publicera en C#-funktionsapp i Azure med en enkel HTTP-utlöst funktion. 
+I den här snabbstarten använde du Visual Studio för att skapa och publicera en C#-funktionsapp i Azure med en enkel HTTP-utlösarfunktion. 
 
 Gå vidare till nästa artikel om du vill lära dig hur du lägger till en Azure Storage-köbindning i din funktion:
 > [!div class="nextstepaction"]

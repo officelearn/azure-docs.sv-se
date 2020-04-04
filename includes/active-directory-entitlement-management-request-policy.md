@@ -5,15 +5,15 @@ services: active-directory
 author: msaburnley
 ms.service: active-directory
 ms.topic: include
-ms.date: 11/11/2019
+ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: c73a62b2d5feeae42a5ea35c88073dd5fcc0d78c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fd716be397d9ef6b9d6132cd4470f653f3cea0f
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77192874"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655954"
 ---
 ## <a name="for-users-in-your-directory"></a>För användare i katalogen
 
@@ -153,7 +153,7 @@ Följ följande steg för att lägga till godkännare när du har valt hur mång
 
     Motiveringen är synlig för andra godkännare och beställaren.
 
-### <a name="2-stage-approval-preview"></a>Godkännande i två steg (förhandsversion)
+### <a name="2-stage-approval"></a>Godkännande i två steg
 
 Om du har valt ett godkännande i två steg måste du lägga till en andra godkännare.
 

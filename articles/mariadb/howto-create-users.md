@@ -5,22 +5,25 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 23e3c9db6302d2db597283358ff71c3693ecf435
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/2/2020
+ms.openlocfilehash: 1b79a49b2fb87ebf180aaaa40447f40c5a982c2e
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530180"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632293"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Skapa användare i Azure Database for MariaDB 
 I den här artikeln beskrivs hur du kan skapa användare i Azure Database för MariaDB.
 
 När du först skapade din Azure-databas för MariaDB angav du ett användarnamn och lösenord för serveradministratörsinloggning. Om du vill ha mer information kan du följa [Snabbstarten](quickstart-create-mariadb-server-database-using-azure-portal.md). Du kan hitta ditt användarnamn för serveradministratörsinloggning från Azure-portalen.
 
-Serveradministratörsanvändaren får vissa privilegier för servern enligt listan: VÄLJ, INFOGA, UPPDATERA, TA BORT, SKAPA, SLÄPPA, LADDA OM, BEARBETA, REFERENSER, INDEX, ÄNDRA, VISA DATABASER, SKAPA TEMPORÄRA TABELLER, LÅSTABELLER, EXECUTE, REPLIKERINGSLAV, REPLIKERING KLIENT, SKAPA VY, VISA VY, SKAPA RUTIN, ÄNDRA RUTIN, SKAPA ANVÄNDARE, HÄNDELSE, UTLÖSARE
+Serveradministratörsanvändaren får vissa privilegier för servern enligt listan: VÄLJ, INFOGA, UPPDATERA, TA BORT, SKAPA, SLÄPP, LADDA OM, BEARBETA, REFERENSER, INDEX, ÄNDRA, VISA DATABASER, SKAPA TEMPORÄRA TABELLER, LÅSTABELLER, EXECUTE, REPLIKERINGSLAV, REPLIKERINGSKLIENT, SKAPA VY, VISA VY, SKAPA RUTIN, ÄNDRA RUTIN, SKAPA ANVÄNDARE, HÄNDELSE, UTLÖSARE
 
 När Azure Database for MariaDB-servern har skapats kan du använda det första användarkontot för serveradministratör för att skapa ytterligare användare och ge administratörsåtkomst till dem. Serveradministratörskontot kan också användas för att skapa mindre privilegierade användare som har åtkomst till enskilda databasscheman.
+
+> [!NOTE]
+> Super-privilegiet och DBA-rollen stöds inte. Granska [privilegierna](concepts-limits.md#privilege-support) i begränsningsartikeln för att förstå vad som inte stöds i tjänsten.
 
 ## <a name="create-additional-admin-users"></a>Skapa ytterligare administratörsanvändare
 1. Hämta anslutningsinformation och administratörsanvändarnamn.

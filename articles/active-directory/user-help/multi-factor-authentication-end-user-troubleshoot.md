@@ -9,15 +9,15 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 04/02/2020
 ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: c28b63749cfdbcd16b94cbd3ca7dd4023f46a351
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1703853f42b52dccc80fdfadaa09b67e18a19db8
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78897732"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632897"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Vanliga problem med tvåfaktorsverifiering och ditt arbets- eller skolkonto
 
@@ -99,6 +99,8 @@ Applösenord ersätter ditt vanliga lösenord för äldre skrivbordsprogram som 
 ## <a name="i-cant-turn-two-factor-verification-off"></a>Jag kan inte stänga av tvåfaktorsverifiering
 
 Om du använder tvåfaktorsverifiering med ditt arbets- eller alain@contoso.comskolkonto (till exempel) betyder det troligen att din organisation har beslutat att du måste använda den här extra säkerhetsfunktionen. Eftersom din organisation har beslutat att du måste använda den här funktionen, finns det inget sätt för dig att inaktivera den individuellt. Men om du använder tvåfaktorsverifiering med ett personligt alain@outlook.comkonto, till exempel, har du möjlighet att slå på och stänga av funktionen. Instruktioner om hur du styr tvåfaktorsverifiering för dina personliga konton finns i [Aktivera eller inaktivera tvåfaktorsverifiering för ditt Microsoft-konto](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+
+Om du inte kan inaktivera tvåfaktorsverifiering kan det också bero på de säkerhetsstandarder som har tillämpats på organisationsnivå. Mer information om standardvärden för säkerhet finns i [Vad är säkerhetsdefulta?](../fundamentals/concept-fundamentals-security-defaults.md)
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Jag hittade inget svar på mitt problem
 

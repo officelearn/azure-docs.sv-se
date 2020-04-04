@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 84f432c45729091be1264bff85d1e32fac10f3ef
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 2c8617cffaa81da6423011a494b8dbc82c42d218
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583158"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632456"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Azure Synapse Analytics arbetsbelastning betydelse
 
@@ -64,6 +64,6 @@ Eftersom Q5 är mediumrc kräver det två samtidighetsplatser. Q5 måste vänta 
 
 - Mer information om hur du skapar en klassificerare finns i [CREATE WORKLOAD CLASSIFIER (Transact-SQL).](/sql/t-sql/statements/create-workload-classifier-transact-sql)  
 - Mer information om arbetsbelastningsklassificering finns i [Arbetsbelastningsklassificering](sql-data-warehouse-workload-classification.md).  
-- Se Quickstart [Skapa arbetsbelastningsklassificerare](quickstart-create-a-workload-classifier-tsql.md) för hur du skapar en arbetsbelastningsklassificerare. 
+- Se Quickstart [Skapa arbetsbelastningsklassificerare](quickstart-create-a-workload-classifier-tsql.md) för hur du skapar en arbetsbelastningsklassificerare.
 - Se hur du gör-artiklar för att [konfigurera arbetsbelastningsbetydning](sql-data-warehouse-how-to-configure-workload-importance.md) och hur du [hanterar och övervakar arbetsbelastningshantering](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
 - Se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) om du vill visa frågor och den tilldelade betydelsen.

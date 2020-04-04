@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5f0432cafee07dbed071d24aa8c24ee9b2176967
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 251fdb83e848aaac3a5391320df23149ce1bce33
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350182"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633053"
 ---
 # <a name="restore-a-deleted-sql-pool-using-azure-synapse-analytics"></a>Återställa en borttagen SQL-pool med Azure Synapse Analytics
 
@@ -39,16 +39,16 @@ Om du vill återställa en borttagen SQL-pool använder du cmdleten [Restore-AzS
 5. Hämta det specifika borttagna informationslagret.
 6. Återställa det borttagna informationslagret
     1. Om du vill återställa det borttagna SQL Data Warehouse till en annan logisk server kontrollerar du att det andra logiska servernamnet anges.  Den här logiska servern kan också finnas i en annan resursgrupp och region.
-    1. Om du vill återställa till en annan prenumeration använder du knappen [Flytta](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#use-the-portal) för att flytta den logiska servern till en annan prenumeration.
-1. Kontrollera att det återställda informationslagret är online.
-1. När återställningen har slutförts kan du konfigurera det återställda informationslagret genom att [följa konfigurera databasen efter återställning](../../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
+    1. Om du vill återställa till en annan prenumeration använder du knappen [Flytta](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#use-the-portal) för att flytta den logiska servern till en annan prenumeration.
+7. Kontrollera att det återställda informationslagret är online.
+8. När återställningen har slutförts kan du konfigurera det återställda informationslagret genom att [följa konfigurera databasen efter återställning](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
 $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
 #$TargetResourceGroupName="<YourTargetResourceGroupName>" # uncomment to restore to a different logical server.
-#$TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>" 
+#$TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>"
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
 
@@ -86,5 +86,6 @@ $RestoredDatabase.status
     ![Ange databasnamn](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-21.png)
 
 ## <a name="next-steps"></a>Efterföljande moment
+
 - [Återställa en befintlig SQL-pool](sql-data-warehouse-restore-active-paused-dw.md)
 - [Återställa från en SQL-pool med geo säkerhetskopiering](sql-data-warehouse-restore-from-geo-backup.md)

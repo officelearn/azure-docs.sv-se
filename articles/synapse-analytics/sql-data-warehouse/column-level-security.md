@@ -1,6 +1,6 @@
 ---
 title: Vad är säkerhet på kolumnnivå för Azure Synapse?
-description: Med säkerhet på kolumnnivå kan kunderna styra åtkomsten till databastabellkolumner baserat på användarens körningskontext eller gruppmedlemskap, förenkla designen och kodningen av säkerheten i ditt program och låta dig implementera begränsningar för kolumn Tillgång.
+description: Med kolumnnivåsäkerhet kan kunder styra åtkomsten till databastabellkolumner baserat på användarens körningskontext eller gruppmedlemskap, förenkla designen och kodningen av säkerheten i ditt program och låta dig implementera begränsningar för kolumnåtkomst.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -12,24 +12,23 @@ ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 24ead458232b096a5c69ffe8b45c6298a9da9f75
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 61a3e2eadaf79cdb30a931b31cff709298d0a22c
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349098"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631303"
 ---
 # <a name="column-level-security"></a>Säkerhet på kolumnnivå
 
 Med säkerhet på kolumnnivå kan kunder styra åtkomsten till tabellkolumner baserat på användarens körningskontext eller gruppmedlemskap.
 
-
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
-Eftersom den här videon lades upp [blev Radnivå säkerhet](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) tillgänglig för Azure Synapse. 
+Eftersom den här videon lades upp [blev Radnivå säkerhet](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) tillgänglig för Azure Synapse.
 
 Säkerhet på kolumnnivå förenklar utformningen och kodningen av säkerheten i ditt program, så att du kan begränsa kolumnåtkomsten för att skydda känsliga data. Se till exempel till att specifika användare bara kan komma åt vissa kolumner i en tabell som är relevant för deras avdelning. Logiken för åtkomstbegränsning finns på databasnivån i stället för bort från data på en annan programnivå. Databasen tillämpar åtkomstbegränsningarna varje gång dataåtkomst görs från valfri nivå. Den här begränsningen gör din säkerhet mer tillförlitlig och robust genom att minska ytan på ditt övergripande säkerhetssystem. Dessutom eliminerar säkerhet på kolumnnivå också behovet av att införa vyer för att filtrera bort kolumner för att införa åtkomstbegränsningar för användarna.
 
-Du kan implementera säkerhet på kolumnnivå med [GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) T-SQL-uttrycket. Med den här mekanismen stöds både SQL- och Azure Active Directory-autentisering (AAD).
+Du kan implementera säkerhet på kolumnnivå med [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL-uttrycket. Med den här mekanismen stöds både SQL- och Azure Active Directory-autentisering (AAD).
 
 ![Cls](./media/column-level-security/cls.png)
 
@@ -52,6 +51,7 @@ GRANT <permission> [ ,...n ] ON
 ```
 
 ## <a name="example"></a>Exempel
+
 I följande exempel visas `TestUser` hur du `SSN` begränsar `Membership` från att komma åt kolumnen i tabellen:
 
 Skapa `Membership` tabell med SSN-kolumn som används för att lagra personnummer:

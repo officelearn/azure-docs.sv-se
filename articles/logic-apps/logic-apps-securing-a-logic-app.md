@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: cc349e5851627ee830196982509f91a83198dfe0
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 4fc4960eb3af8a3d3c9902c9b24505bb5610b709
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349585"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657164"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Säker åtkomst och data i Azure Logic Apps
 
@@ -27,7 +27,7 @@ Om du vill styra åtkomst och skydda data i Azure Logic Apps kan du ställa in s
 
 ## <a name="access-to-request-based-triggers"></a>Tillgång till begärandebaserade utlösare
 
-Om logikappen använder en begäran-baserad utlösare, som tar emot inkommande samtal eller begäranden, till exempel [begäran eller](../connectors/connectors-native-reqres.md) [Webhook-utlösaren,](../connectors/connectors-native-webhook.md) kan du begränsa åtkomsten så att endast behöriga klienter kan anropa logikappen. Alla begäranden som tas emot av en logikapp krypteras och skyddas med SSL-protokoll (Secure Sockets Layer).
+Om logikappen använder en begäran-baserad utlösare, som tar emot inkommande samtal eller begäranden, till exempel [begäran eller](../connectors/connectors-native-reqres.md) [Webhook-utlösaren,](../connectors/connectors-native-webhook.md) kan du begränsa åtkomsten så att endast behöriga klienter kan anropa logikappen. Alla begäranden som tas emot av en logikapp krypteras och skyddas med TLS (Transport Layer Security), som tidigare kallades SSL (Secure Sockets Layer), som tidigare kallades SSL (Secure Sockets Layer).
 
 Här är några alternativ som kan hjälpa dig att skydda åtkomsten till den här utlösartypen:
 
@@ -110,7 +110,7 @@ Tillsammans med SAS (Shared Access Signature) kanske du specifikt vill begränsa
 
 1. Under **IP-intervall för utlösare**anger du de IP-adressintervall som utlösaren accepterar.
 
-   A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*
+   Ett giltigt IP-intervall använder dessa format: *x.x.x.x/x* eller *x.x.x.x-x.x.x.x.x.x*
 
 Om du vill att logikappen bara ska utlösas som en kapslad logikapp väljer du **Endast andra logicappar**i listan **Tillåtna inkommande IP-adresser** . Det här alternativet skriver en tom matris till logikappresursen. På så sätt kan endast anrop från Logic Apps-tjänsten (överordnade logikappar) utlösa den kapslade logikappen.
 
@@ -210,7 +210,7 @@ Du kan begränsa åtkomsten till in- och utdata i logikappens körningshistorik 
 
 1. Under **IP-intervall för innehåll**anger du de IP-adressintervall som kan komma åt innehåll från indata och utdata. 
 
-   A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*
+   Ett giltigt IP-intervall använder dessa format: *x.x.x.x/x* eller *x.x.x.x-x.x.x.x.x.x*
 
 #### <a name="restrict-ip-ranges-in-azure-resource-manager-template"></a>Begränsa IP-intervall i Azure Resource Manager-mall
 
@@ -655,7 +655,7 @@ Om alternativet [Klientcertifikat](../active-directory/authentication/active-dir
 
 | Egenskap (designer) | Egenskap (JSON) | Krävs | Värde | Beskrivning |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autentisering** | `type` | Ja | **Klientcertifikat** <br>eller <br>`ClientCertificate` | Den autentiseringstyp som ska användas för SSL-klientcertifikat (Secure Sockets Layer). Även om självsignerade certifikat stöds stöds inte självsignerade certifikat för SSL. |
+| **Autentisering** | `type` | Ja | **Klientcertifikat** <br>eller <br>`ClientCertificate` | Autentiseringstypen som ska användas för TLS/SSL-klientcertifikat. Även om självsignerade certifikat stöds stöds inte självsignerade certifikat för TLS/SSL. |
 | **Pfx** | `pfx` | Ja | <*kodad-pfx-fil-innehåll*> | Det base64-kodade innehållet från en PFX-fil (Personal Information Exchange) <p><p>Om du vill konvertera PFX-filen till base64-kodat format kan du använda PowerShell genom att följa följande steg: <p>1. Spara certifikatinnehållet i en variabel: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Konvertera certifikatinnehållet `ToBase64String()` med hjälp av funktionen och spara innehållet i en textfil: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **Lösenord** | `password`| Inga | <*lösenord-för-pfx-fil*> | Lösenordet för åtkomst till PFX-filen |
 |||||
@@ -684,7 +684,7 @@ Mer information om hur du skyddar tjänster med hjälp av autentisering av klien
 * [Förbättra säkerheten för backend-tjänster med hjälp av klientcertifikatautentisering i Azure API Management](../api-management/api-management-howto-mutual-certificates.md)
 * [Förbättra säkerheten för din RESTfuL-tjänst med hjälp av klientcertifikat](../active-directory-b2c/secure-rest-api.md)
 * [Certifikatautentiseringsuppgifter för programautentisering](../active-directory/develop/active-directory-certificate-credentials.md)
-* [Använda ett SSL-certifikat i programkoden i Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
+* [Använda ett TLS/SSL-certifikat i koden i Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
 
 <a name="azure-active-directory-oauth-authentication"></a>
 

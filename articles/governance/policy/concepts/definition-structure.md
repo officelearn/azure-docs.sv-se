@@ -1,14 +1,14 @@
 ---
 title: Närmare uppgifter om den politiska definitionsstrukturen
 description: Beskriver hur principdefinitioner används för att upprätta konventioner för Azure-resurser i organisationen.
-ms.date: 02/26/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: d7cb1ab7d045a0595f6949052ecedba6cd1bf694
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6b1d5c43f290fc2dd953492440670608a15faca
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239991"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80638078"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -361,7 +361,7 @@ I det här principregelexemplet används **värdet** för att kontrollera om res
     "policyRule": {
         "if": {
             "value": "[less(length(field('tags')), 3)]",
-            "equals": true
+            "equals": "true"
         },
         "then": {
             "effect": "deny"
@@ -578,6 +578,9 @@ Alla [Resource Manager-mallfunktioner](../../../azure-resource-manager/templates
 - resourceId()
 - variabler()
 
+> [!NOTE]
+> Dessa funktioner är fortfarande `details.deployment.properties.template` tillgängliga inom den del av malldistributionen i en **distributionOmutexisterar** principdefinition.
+
 Följande funktion är tillgänglig att använda i en principregel, men skiljer sig från användning i en Azure Resource Manager-mall:
 
 - `utcNow()`- Till skillnad från en Resource Manager-mall kan detta användas utanför standardvärde.
@@ -593,10 +596,9 @@ Följande funktioner är endast tillgängliga i principregler:
   - Returnerar värdet för det fältet från den resurs som utvärderas av villkoret Om
   - `field`används främst med **AuditIfNotExists** och **DeployIfNotExists** för att referera till fält på resursen som utvärderas. Ett exempel på den här användningen kan ses i [exemplet DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
-  - Returnerar API-versionen av begäran som utlöste `2019-09-01`principutvärdering (exempel: ). Detta kommer att vara API-versionen som användes i PUT/ PATCH-begäran om utvärderingar om att skapa/uppdatera resurser. Den senaste API-versionen används alltid under utvärdering av efterlevnad på befintliga resurser.
+  - Returnerar API-versionen av begäran som utlöste `2019-09-01`principutvärdering (exempel: ).
+    Detta kommer att vara API-versionen som användes i PUT/ PATCH-begäran om utvärderingar om att skapa/uppdatera resurser. Den senaste API-versionen används alltid under utvärdering av efterlevnad på befintliga resurser.
   
-
-
 #### <a name="policy-function-example"></a>Exempel på funktionen Princip
 
 I det här `resourceGroup` principregelexemplet används resursfunktionen `concat` för att hämta `like` namnegenskapen, i kombination med matris- och objektfunktionen för att skapa ett villkor som framtvingar resursnamnet så att det börjar med resursgruppsnamnet. **name**
@@ -707,8 +709,6 @@ Den här exempelregeln söker efter matchningar av **ipRules\[\*\].value** till 
     }
 }
 ```
-
-
 
 Mer information finns i [utvärdera [\*] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 

@@ -8,12 +8,12 @@ ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 02/12/2020
-ms.openlocfilehash: d196611dcf9f29e981977b8506ad9623f4629b53
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 89d2c16e3f54d3170b4f0d23590294be13dd8caa
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521639"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632752"
 ---
 # <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Snabbstart: Datastreaming med eventhubbar med Kafka-protokollet
 Den här snabbstarten visar hur du streamar till eventhubbar utan att ändra dina protokollklienter eller köra egna kluster. Du lär dig hur du använder dina producenter och konsumenter för att prata med Event Hubs med bara en konfigurationsändring i dina program. Azure Event Hubs stöder [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
@@ -108,10 +108,4 @@ När du skapar **ett** standardnivånamnområde för händelsehubbar aktiveras K
 Om dina Kafka-kluster för Event Hubs har händelser börjar du nu att få dem från konsumenten.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln lärde du dig att strömma till eventhubbar utan att ändra dina protokollklienter eller köra egna kluster. Mer information finns i följande artiklar och exempel:
-
-- [Läs om Event Hubs för Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-- [Snabbstarter för eventhubbar för Kafka på GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart)
-- [Självstudier för eventhubbar för Kafka på GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials)
-- Använd [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) för att [strömma händelser från Kafka lokalt till Event Hubs i molnet.](event-hubs-kafka-mirror-maker-tutorial.md)
-- Lär dig hur du streamar till eventhubbar med [Apache Flink-](event-hubs-kafka-flink-tutorial.md) eller [Akka-strömmar](event-hubs-kafka-akka-streams-tutorial.md)
+I den här artikeln lärde du dig att strömma till eventhubbar utan att ändra dina protokollklienter eller köra egna kluster. Mer information finns i [Utvecklarhandboken för Apache Kafka för Azure Event Hubs](apache-kafka-developer-guide.md). 

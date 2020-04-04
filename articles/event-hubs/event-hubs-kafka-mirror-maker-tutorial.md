@@ -6,16 +6,15 @@ documentationcenter: .net
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
-ms.topic: conceptual
-ms.custom: seodec18
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 04/02/2020
 ms.author: shvija
-ms.openlocfilehash: 3e0339cf4431d3ed36f50b43134803079e30b101
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: fb041ec0d3cd474cca12d5ad55b733337566b9cc
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521747"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632789"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Använd Kafka MirrorMaker med eventhubbar för Apache Kafka
 
@@ -127,23 +126,11 @@ Se följande exempel på GitHub:
 - [Azure Event Hubs Kafka MirrorMaker körs på en Azure Container-instans](https://github.com/djrosanova/EventHubsMirrorMaker)
 
 ## <a name="next-steps"></a>Nästa steg
+Mer information om eventhubbar för Kafka finns i följande artiklar:  
 
-I den här självstudiekursen får du lära du dig att:
-> [!div class="checklist"]
-> * Skapa ett Event Hubs-namnområde
-> * Klona exempelprojektet
-> * Konfigurera ett Kafka-kluster
-> * Konfigurera Kafka MirrorMaker
-> * Kör Kafka MirrorMaker
-
-Läs mer om Event Hubs och Event Hubs för Kafka i följande ämne:  
-
-- [Läs om Event Hubs](event-hubs-what-is-event-hubs.md)
-- [Event Hubs för Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-- [Så här skapar du en händelsehubb](event-hubs-create.md)
-- [Strömma till Event Hubs från Kafka-program](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 - [Ansluta Apache Spark till en händelsehubb](event-hubs-kafka-spark-tutorial.md)
 - [Ansluta Apache Flink till en händelsehubb](event-hubs-kafka-flink-tutorial.md)
 - [Integrera Kafka Connect med ett händelsenav](event-hubs-kafka-connect-tutorial.md)
-- [Ansluta Akka-strömmar till ett händelsenav](event-hubs-kafka-akka-streams-tutorial.md)
 - [Utforska exempel på vår GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+- [Ansluta Akka-strömmar till ett händelsenav](event-hubs-kafka-akka-streams-tutorial.md)
+- [Utvecklarguide för Apache Kafka för Azure Event Hubs](apache-kafka-developer-guide.md)

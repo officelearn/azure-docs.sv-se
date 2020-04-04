@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: ccf258594aa68fc9b5d0189c9ada640078e0ba6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 77b4dd4c0efbe6d03e64865f18c2c87614aaecb5
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76514875"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632531"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware till Azure-arkitektur för haveriberedskap
 
@@ -35,7 +35,6 @@ Följande tabell och grafik ger en vy på hög nivå av de komponenter som anvä
 ![Komponenter](./media/vmware-azure-architecture/arch-enhanced.png)
 
 
-
 ## <a name="replication-process"></a>Replikeringsprocessen
 
 1. När du aktiverar replikering för en virtuell dator börjar den första replikeringen till Azure-lagring med den angivna replikeringsprincipen. Observera följande:
@@ -46,21 +45,30 @@ Följande tabell och grafik ger en vy på hög nivå av de komponenter som anvä
         - **Appkonsekventa ögonblicksbilder**. Appkonsekvent ögonblicksbild kan tas var 1 till 12 timmar, beroende på appens behov. Ögonblicksbilder är standard azure blob ögonblicksbilder. Mobilitetsagenten som körs på en virtuell dator begär en VSS-ögonblicksbild i enlighet med den här inställningen och bokmärken som pekar i tid som en konsekvent programpunkt i replikeringsströmmen.
 
 2. Trafik replikerar till offentliga slutpunkter för Azure-lagring via internet. Alternativt kan du använda Azure ExpressRoute med [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). Det går inte att replikera trafik över ett virtuellt privat nätverk (VPN) från en lokal plats till Azure.
-3. När den första replikeringen är klar börjar replikering av deltaändringar till Azure. Spårade ändringar för en dator skickas till processservern.
+3. Inledande replikeringsåtgärd säkerställer att hela data på datorn vid tidpunkten för aktivera replikering skickas till Azure. När den första replikeringen är klar börjar replikering av deltaändringar till Azure. Spårade ändringar för en dator skickas till processservern.
 4. Kommunikation sker på följande sätt:
 
     - Virtuella datorer kommunicerar med den lokala konfigurationsservern på inkommande port HTTPS 443 för replikeringshantering.
     - Konfigurationsservern dirigerar replikering med Azure via utgående port-port HTTPS 443.
     - Virtuella datorer skickar replikeringsdata till processservern (som körs på konfigurationsservermaskinen) på inkommande port HTTPS 9443. Den här porten kan ändras.
-    - Processservern tar emot replikeringsdata, optimerar och krypterar dem och skickar den till Azure-lagring via port 443 utgående.
+    - Processservern tar emot replikeringsdata, optimerar och krypterar dem och skickar den till Azure-lagring via utgående port 443.
 5. Replikeringsdataloggarna landar först i ett cachelagringskonto i Azure. Dessa loggar bearbetas och data lagras i en Azure Managed Disk (kallas som asr-seed disk). Återställningspunkterna skapas på den här disken.
-
-
-
 
 **VMware till Azure-replikeringsprocess**
 
 ![Replikeringsprocessen](./media/vmware-azure-architecture/v2a-architecture-henry.png)
+
+## <a name="resynchronization-process"></a>Omsynkroniseringsprocess
+
+1. Ibland, under inledande replikering eller när deltaändringar överförs, kan det finnas problem med nätverksanslutning mellan källdator för att bearbeta servern eller mellan processservern till Azure. Båda dessa kan leda till fel i dataöverföring till Azure tillfälligt.
+2. För att undvika problem med dataintegritet och minimera dataöverföringskostnader markerar Site Recovery en dator för omsynkronisering.
+3. En dator kan också markeras för omsynkronisering i situationer som följande för att upprätthålla konsekvensen mellan källdator och data som lagras i Azure
+    - Om en maskin genomgår force shut-down
+    - Om en dator genomgår konfigurationsändringar som storleksändring av disk (ändra storleken på disken från 2 TB till 4 TB)
+4. Omsynkronisering skickar endast deltadata till Azure. Dataöverföring mellan lokala och Azure genom att minimera genom att beräkna kontrollsummer av data mellan källdatorn och data som lagras i Azure.
+5. Som standard är omsynkronisering schemalagd att köras automatiskt utanför kontorstid. Om du inte vill vänta på standardresynkronisering utanför timmar kan du synkronisera om en virtuell dator manuellt. Det gör du genom att gå till Azure-portalen och välja den virtuella datorn > **synkronisera om**.
+6. Om standardresynkronisering misslyckas utanför kontorstid och en manuell åtgärd krävs, genereras ett fel på den specifika datorn i Azure-portalen. Du kan lösa felet och utlösa omsynkroniseringen manuellt.
+7. Efter slutförandet av omsynkronisering kommer replikering av deltaändringar att återupptas.
 
 ## <a name="failover-and-failback-process"></a>Processen för redundans och återställning efter fel
 

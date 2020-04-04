@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/11/2020
+ms.date: 03/23/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6077db0a09b09f7e4bfb859902da53b173845e55
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: b8073240bdda38757a5e4feee66c9f54746966c4
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520768"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632048"
 ---
 ### <a name="portal"></a>Portalen
 
@@ -21,7 +21,7 @@ Om du konfigurerar kundhanterade nycklar för diskarna måste du skapa resurser 
 
 #### <a name="setting-up-your-azure-key-vault"></a>Konfigurera ditt Azure Key Vault
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/) och sök efter Key Vault
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. Sök efter och välj **Nyckelvalv**.
 
     [![sse-key-vault-portal-search.png](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search.png)](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search-expanded.png#lightbox)
@@ -30,7 +30,7 @@ Om du konfigurerar kundhanterade nycklar för diskarna måste du skapa resurser 
     > Ditt Azure-nyckelvalv, diskkrypteringsuppsättning, virtuell dator, diskar och ögonblicksbilder måste alla finnas i samma region och prenumeration för distribution för att lyckas.
 
 1. Välj **+Lägg till** om du vill skapa ett nytt nyckelvalv.
-1. Skapa en ny resursgrupp
+1. Skapa en ny resursgrupp.
 1. Ange ett nyckelvalvsnamn, välj en region och välj en prisnivå.
 1. Välj **Granska + Skapa**, kontrollera dina val och välj sedan **Skapa**.
 
@@ -38,7 +38,7 @@ Om du konfigurerar kundhanterade nycklar för diskarna måste du skapa resurser 
 
 1. När nyckelvalvet är klart väljer du det.
 1. Välj **Tangenter** under **Inställningar**.
-1. Välj **Generera/importera**
+1. Välj **Generera/importera**.
 
     ![Skärmbild av fönstret Resursinställningar för Key Vault. Visar knappen generera/importera inuti inställningarna.](media/virtual-machines-disk-encryption-portal/sse-key-vault-generate-settings.png)
 
@@ -49,15 +49,8 @@ Om du konfigurerar kundhanterade nycklar för diskarna måste du skapa resurser 
 
 #### <a name="setting-up-your-disk-encryption-set"></a>Konfigurera diskkrypteringsuppsättningen
 
-Om du vill skapa och konfigurera diskkrypteringsuppsättningar måste du använda följande länk: https://aka.ms/diskencryptionsets. Om du befinner dig i Microsoft Azure Government-regionerna [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)måste du använda den här länken i stället: . Skapandet av diskkrypteringsuppsättning är ännu inte tillgängligt i den globala Azure-portalen.
-
-1. Öppna länken diskkrypteringsuppsättningar som är lämplig för din region:
-
-    Offentliga regioner:[https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
-
-    Azure Government-regioner:[https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
-    
-1. Välj **+Lägg till**.
+1. Sök efter **diskkrypteringsuppsättningar** och välj den.
+1. På bladet **Diskkrypteringsuppsättningar** väljer du **+Lägg till**.
 
     ![Skärmbild av huvudskärmen för diskkrypteringsportalen. Markera knappen Lägg till](media/virtual-machines-disk-encryption-portal/sse-create-disk-encryption-set.png)
 
@@ -82,12 +75,6 @@ Två meddelanden ska dyka upp och lyckas. Om du gör det kan du använda diskkry
 Nu när du har skapat och konfigurerat nyckelvalvet och diskkrypteringsuppsättningen kan du distribuera en virtuell dator med krypteringen.
 Den virtuella distributionsprocessen liknar standarddistributionsprocessen, de enda skillnaderna är att du behöver distribuera den virtuella datorn i samma region som dina andra resurser och du väljer att använda en kundhanterad nyckel.
 
-1. Öppna länken diskkrypteringsuppsättningar som är lämplig för din region:
-
-    Offentliga regioner:[https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
-
-    Azure Government-regioner:[https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
-
 1. Sök efter **virtuella datorer** och välj + **Lägg till** för att skapa en virtuell dator.
 1. På fliken **Grundläggande** väljer du samma region som diskkrypteringsuppsättningen och Azure Key Vault.
 1. Fyll i de andra värdena på fliken **Grundläggande** som du vill.
@@ -102,16 +89,8 @@ Den virtuella distributionsprocessen liknar standarddistributionsprocessen, de e
 
 #### <a name="enable-on-an-existing-disk"></a>Aktivera på en befintlig disk
 
-Om du vill hantera och konfigurera diskkryptering på dina https://aka.ms/diskencryptionsetsbefintliga diskar måste du använda följande länk: . Det finns ännu inte tillgängligt att aktivera kundhanterade nycklar på befintliga diskar i den globala Azure-portalen.
-
 > [!CAUTION]
 > Om du aktiverar diskkryptering på alla diskar som är anslutna till en virtuell dator måste du stoppa den virtuella datorn.
-
-1. Öppna länken diskkrypteringsuppsättningar som är lämplig för din region:
-
-    Offentliga regioner:[https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
-
-    Azure Government-regioner:[https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
     
 1. Navigera till en virtuell dator som finns i samma region som en av diskkrypteringsuppsättningarna.
 1. Öppna den virtuella datorn och välj **Stoppa**.

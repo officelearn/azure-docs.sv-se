@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 02/12/2020
 ms.author: shvija
-ms.openlocfilehash: 6dcbf0ad0f6678d892c5c02446cac09b4325384c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7d3525bc7a25550a79ceeb008e3c69c77a56aa0a
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283658"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632860"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Använda Azure Event Hubs från Apache Kafka-program
 Event Hubs tillhandahåller en Kafka-slutpunkt som kan användas av dina befintliga Kafka-baserade program som ett alternativ till att köra ditt eget Kafka-kluster. Event Hubs stöder [Apache Kafka protokoll 1.0 och senare](https://kafka.apache.org/documentation/)och fungerar med dina befintliga Kafka-program, inklusive MirrorMaker.  
@@ -94,16 +94,6 @@ Här är listan över Kafka funktioner som ännu inte stöds:
 *   Kafka strömmar
 
 ## <a name="next-steps"></a>Nästa steg
-
-Den här artikeln gav en introduktion till Event Hubs för Kafka. Mer information finns i följande länkar:
-
-- [Så här skapar du en händelsehubb](event-hubs-create.md)
-- [Strömma till Event Hubs från Kafka-program](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-- [Spegla en Kafka-broker i en händelsehubb](event-hubs-kafka-mirror-maker-tutorial.md)
-- [Ansluta Apache Spark till en händelsehubb](event-hubs-kafka-spark-tutorial.md)
-- [Ansluta Apache Flink till en händelsehubb](event-hubs-kafka-flink-tutorial.md)
-- [Integrera Kafka Connect med ett händelsenav](event-hubs-kafka-connect-tutorial.md)
-- [Ansluta Akka-strömmar till ett händelsenav](event-hubs-kafka-akka-streams-tutorial.md)
-- [Utforska exempel på vår GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+Den här artikeln gav en introduktion till Event Hubs för Kafka. Mer information finns i [Utvecklarhandboken för Apache Kafka för Azure Event Hubs](apache-kafka-developer-guide.md).
 
 

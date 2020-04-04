@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: b05b83086cc9d8449d9517897f347b6e2685aa95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a37e1b9bc4a0b953dc727dbab2813dd938ed576
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76720358"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652225"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Vanliga frågor och svar
 
@@ -135,7 +135,7 @@ Ja, du kan migrera en Hive-metabutik från en ESP till ett kluster som inte är 
 
 ### <a name="how-can-i-estimate-the-size-of-a-hive-metastore-database"></a>Hur kan jag uppskatta storleken på en Hive-databas för metalager?
 
-En Hive-metabutik används för att lagra metadata för datakällor som används av Hive-servern. Storlekskraven beror delvis på antalet och komplexiteten i dina Hive-datakällor och kan inte uppskattas i förskott. Som beskrivs i [Hive metastore bästa praxis](hdinsight-use-external-metadata-stores.md#hive-metastore-best-practices)kan du börja med en S2-nivå, som ger 50 DTU och 250 GB lagringsutrymme, och om du ser en flaskhals kan du skala upp databasen.
+En Hive-metabutik används för att lagra metadata för datakällor som används av Hive-servern. Storlekskraven beror delvis på antalet och komplexiteten i dina Hive-datakällor och kan inte uppskattas i förskott. Som beskrivs i Riktlinjerna för [Hive-metastore](hdinsight-use-external-metadata-stores.md#hive-metastore-guidelines)kan du börja med en S2-nivå, som ger 50 DTU och 250 GB lagringsutrymme, och om du ser en flaskhals kan du skala upp databasen.
 
 ### <a name="do-you-support-any-other-database-other-than-azure-sql-database-as-an-external-metastore"></a>Stöder du någon annan databas än Azure SQL Database som en extern metabutik?
 
@@ -237,7 +237,7 @@ På ESP Spark-kluster är LLAP aktiverat av säkerhetsskäl (dvs. Apache Ranger)
 Det finns två sätt att uppnå detta: 1- Du kan återskapa klustret och lägga till ytterligare grupp när klustret skapas. Om du använder begränsad synkronisering i AAD-DS kontrollerar du att grupp B ingår i den begränsade synkroniseringen.
 2- Lägg till gruppen som en kapslad undergrupp i den föregående gruppen som användes för att skapa ESP-klustret. Om du till exempel har skapat `A`ett ESP-kluster med `B` grupp kan du `A` senare lägga till grupp som en kapslad undergrupp till och efter ungefär en timme synkroniseras och är den tillgänglig i klustret automatiskt. 
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 ### <a name="can-i-add-an-azure-data-lake-storage-gen2-to-an-existing-hdinsight-cluster-as-an-additional-storage-account"></a>Kan jag lägga till en Azure Data Lake Storage Gen2 i ett befintligt HDInsight-kluster som ett ytterligare lagringskonto?
 
@@ -302,7 +302,7 @@ När du har skapat en kantnod kan du ansluta till den med hjälp av SSH på port
 
 Du använder beständiga skript för att anpassa nya arbetsnoder som lagts till i klustret genom skalningsåtgärder. Beständiga skript gäller inte för kantnoder.
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 
 ### <a name="what-are-the-rest-api-calls-to-pull-a-tez-query-view-from-the-cluster"></a>Vilka är REST API-anrop för att hämta en Tez-frågevy från klustret?
 

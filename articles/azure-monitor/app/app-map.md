@@ -4,12 +4,12 @@ description: Övervaka komplexa programtopologier med programkartan
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: dce2fdbe7e0c390309be38d2ebab4c73dbb4ed2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0823dd5d880c778f9b7a231ac14f1cbba1940927
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77666283"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657394"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Programkarta: Triage distribuerade program
 
@@ -85,7 +85,7 @@ Om du vill visa aktiva aviseringar och de underliggande regler som gör att avis
 
 Programmappning använder egenskapen **molnrollnamn** för att identifiera komponenterna på kartan. Application Insights SDK lägger automatiskt till egenskapen för molnrollnamn i telemetri som avges av komponenter. SDK lägger till till exempel till ett namn eller ett tjänstrollnamn till egenskapen för molnrollnamn. Det finns dock fall där du kanske vill åsidosätta standardvärdet. Så här åsidosätter du molnets rollnamn och ändrar vad som visas på programöversikten:
 
-### <a name="netnet-core"></a>.NET/.NET Kärna
+# <a name="netnetcore"></a>[.NET/.NetCore](#tab/net)
 
 **Skriv anpassad TelemetryInitializer enligt nedan.**
 
@@ -153,7 +153,26 @@ För [ASP.NET Core-program](asp-net-core.md#adding-telemetryinitializers) görs 
 }
 ```
 
-### <a name="nodejs"></a>Node.js
+# <a name="java"></a>[Java](#tab/java)
+
+Från och med Application Insights Java SDK 2.5.0 kan `<RoleName>` du `ApplicationInsights.xml` ange molnetrollnamnet genom att lägga till filen, t.ex.
+
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+   <RoleName>** Your role name **</RoleName>
+   ...
+</ApplicationInsights>
+```
+
+Om du använder Spring Boot med Application Insights Spring Boot starter, är den enda nödvändiga ändringen att ange ditt anpassade namn för programmet i application.properties-filen.
+
+`spring.application.name=<name-of-app>`
+
+Startstart för fjäderstart tilldelar automatiskt molnrollnamnet till det värde du anger för egenskapen spring.application.name.
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 ```javascript
 var appInsights = require("applicationinsights");
@@ -174,26 +193,7 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 });
 ```
 
-### <a name="java"></a>Java
-
-Från och med Application Insights Java SDK 2.5.0 kan `<RoleName>` du `ApplicationInsights.xml` ange molnetrollnamnet genom att lägga till filen, t.ex.
-
-```XML
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
-   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
-   <RoleName>** Your role name **</RoleName>
-   ...
-</ApplicationInsights>
-```
-
-Om du använder Spring Boot med Application Insights Spring Boot starter, är den enda nödvändiga ändringen att ange ditt anpassade namn för programmet i application.properties-filen.
-
-`spring.application.name=<name-of-app>`
-
-Startstart för fjäderstart tilldelar automatiskt molnrollnamnet till det värde du anger för egenskapen spring.application.name.
-
-### <a name="clientbrowser-side-javascript"></a>JavaScript på klient-/webbläsarsidan
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 appInsights.queue.push(() => {
@@ -203,6 +203,7 @@ appInsights.addTelemetryInitializer((envelope) => {
 });
 });
 ```
+---
 
 ### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>Förstå molnrollnamn inom ramen för programöversikten
 
@@ -254,7 +255,7 @@ Om du har problem med att få programkartan att fungera som förväntat kan du p
 
 Programmappningen skapar en programnod för varje unikt molnrollnamn som finns i din begäran telemetri och en beroendenod för varje unik kombination av typ, mål och molnrollnamn i ditt beroendetelemetri. Om det finns fler än 10 000 noder i telemetrin kan programkartan inte hämta alla noder och länkar, så kartan blir ofullständig. Om detta inträffar visas ett varningsmeddelande när kartan visas.
 
-Dessutom stöder programöversikten endast upp till 1 000 separata ogrupperade noder som återges samtidigt. Programmappning minskar visuell komplexitet genom att gruppera beroenden tillsammans som har samma typ och anropare, men om telemetrin har för många unika molnrollnamn eller för många beroendetyper, kommer den gruppiseringen att vara otillräcklig och kartan inte kan Göra.
+Dessutom stöder programöversikten endast upp till 1 000 separata ogrupperade noder som återges samtidigt. Programmappning minskar visuell komplexitet genom att gruppera beroenden tillsammans som har samma typ och anropare, men om telemetrin har för många unika molnrollnamn eller för många beroendetyper, kommer den gruppningen att vara otillräcklig och kartan inte kan återges.
 
 För att åtgärda detta måste du ändra instrumenteringen så att de anger fälten för molnrollnamn, beroendetyp och beroende.
 

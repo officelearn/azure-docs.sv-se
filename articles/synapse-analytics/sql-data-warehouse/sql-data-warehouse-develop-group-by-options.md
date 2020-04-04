@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 28ac075d043f7605b6dfdac6879063fbe9308123
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 25e6770fb38d13591186754bc5e6a7641083a899
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619051"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633517"
 ---
 # <a name="group-by-options-in-synapse-sql-pool"></a>Gruppera efter alternativ i Synapse SQL-pool
 
@@ -24,7 +24,7 @@ I den här artikeln hittar du tips om hur du implementerar grupp efter alternati
 
 ## <a name="what-does-group-by-do"></a>Vad gör GROUP BY?
 
-[Satsgrupp av](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL-satsen sammanställer data till en sammanfattningsuppsättning rader. GROUP BY har några alternativ som SQL-poolen inte stöder. De här alternativen har lösningar, som är följande:
+[Satsgrupp av](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL-satsen sammanställer data till en sammanfattningsuppsättning rader. GROUP BY har några alternativ som SQL-poolen inte stöder. De här alternativen har lösningar, som är följande:
 
 * GRUPPERA EFTER MED SAMMANSLAGNING
 * GRUPPERA UPPSÄTTNINGAR
@@ -35,6 +35,7 @@ I den här artikeln hittar du tips om hur du implementerar grupp efter alternati
 Det enklaste alternativet här är att använda UNION ALL för att utföra sammanslagningen i stället för att förlita sig på den explicita syntaxen. Resultatet är exakt detsamma.
 
 I följande exempel med sats av GRUPP FÖR med alternativet SAMLAD:
+
 ```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
@@ -84,9 +85,10 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 Om du vill ersätta GRUPPERINGSUPPSÄTTNINGAR gäller exempelprincipen. Du behöver bara skapa UNION ALLA avsnitt för de aggregeringsnivåer som du vill se.
 
 ## <a name="cube-options"></a>Alternativ för kub
+
 Det är möjligt att skapa en GRUPP MED KUB med hjälp av union alla-metoden. Problemet är att koden snabbt kan bli besvärlig och svårhanterlig. För att minska problemet kan du använda den här mer avancerade metoden.
 
-Med hjälp av föregående exempel är det första steget att definiera "kuben" som definierar alla aggregeringsnivåer som vi vill skapa. 
+Med hjälp av föregående exempel är det första steget att definiera "kuben" som definierar alla aggregeringsnivåer som vi vill skapa.
 
 Notera CROSS JOIN av de två härledda tabeller eftersom detta genererar alla nivåer för oss. Resten av koden är där för formatering:
 
@@ -182,5 +184,5 @@ ORDER BY 1,2,3
 Genom att dela upp koden i sektioner och generera en looping konstruktion, blir koden mer hanterbar och underhållsbar.
 
 ## <a name="next-steps"></a>Nästa steg
-Fler utvecklingstips finns i [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).
 
+Fler utvecklingstips finns i [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).

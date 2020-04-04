@@ -6,16 +6,15 @@ documentationcenter: .net
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
-ms.topic: tutorial
-ms.custom: seodec18
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 04/02/2020
 ms.author: shvija
-ms.openlocfilehash: 70f55891874b474de4120d8b41594fb9bee74e8d
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 1b292f9b894dac7df6b9634ce1bad627c8d24fe6
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521667"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632768"
 ---
 # <a name="connect-your-apache-spark-application-with-azure-event-hubs"></a>Ansluta ditt Apache Spark-program med Azure Event Hubs
 Den här självstudien hjälper dig att ansluta ditt Spark-program till eventhubbar för direktuppspelning i realtid. Den här integreringen möjliggör strömning utan att du behöver ändra protokollklienter eller köra dina egna Kafka- eller Zookeeper-kluster. Den här självstudien kräver Apache Spark v2.4+ och Apache Kafka v2.0+.
@@ -100,24 +99,12 @@ df.writeStream
 
 
 ## <a name="next-steps"></a>Nästa steg
+Mer information om eventhubbar och händelsehubbar för Kafka finns i följande artiklar:  
 
-I den här självstudien lärde du dig att strömma med hjälp av Spark-Kafka-anslutningsappen och Event Hubs för Kafka. Du utförde följande steg: 
-
-> [!div class="checklist"]
-> * Skapa ett Event Hubs-namnområde
-> * Klona exempelprojektet
-> * Köra Spark
-> * Läsa från Event Hubs för Kafka
-> * Skriva till Event Hubs för Kafka
-
-Läs mer om Event Hubs och Event Hubs för Kafka i följande ämne:  
-
-- [Läs om Event Hubs](event-hubs-what-is-event-hubs.md)
-- [Event Hubs för Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-- [Skapa en händelsehubb](event-hubs-create.md)
-- [Strömma till Event Hubs från Kafka-program](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 - [Spegla en Kafka-broker i en händelsehubb](event-hubs-kafka-mirror-maker-tutorial.md)
 - [Ansluta Apache Flink till en händelsehubb](event-hubs-kafka-flink-tutorial.md)
 - [Integrera Kafka Connect med ett händelsenav](event-hubs-kafka-connect-tutorial.md)
-- [Ansluta Akka-strömmar till ett händelsenav](event-hubs-kafka-akka-streams-tutorial.md)
 - [Utforska exempel på vår GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+- [Ansluta Akka-strömmar till ett händelsenav](event-hubs-kafka-akka-streams-tutorial.md)
+- [Utvecklarguide för Apache Kafka för Azure Event Hubs](apache-kafka-developer-guide.md)
+

@@ -2,17 +2,17 @@
 title: Kryptering på serversidan av Azure Managed Disks – PowerShell
 description: Azure Storage skyddar dina data genom att kryptera dem i vila innan den sparas i lagringskluster. Du kan lita på Microsoft-hanterade nycklar för kryptering av dina hanterade diskar, eller så kan du använda kundhanterade nycklar för att hantera kryptering med dina egna nycklar.
 author: roygara
-ms.date: 03/12/2020
+ms.date: 04/02/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 13985b07b4903504fde6b58031a532337d3b1971
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: d8e6f4b58cf17a7502e2c0d67e4fa67af7cdb3f5
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80584600"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632954"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Kryptering på serversidan av Hanterade Azure-diskar
 

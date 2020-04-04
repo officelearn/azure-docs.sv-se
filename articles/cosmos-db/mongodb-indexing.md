@@ -5,15 +5,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 04/03/2020
 author: timsander1
 ms.author: tisande
-ms.openlocfilehash: 7c75f0d6f74fe8cf1417e0dc40a5ad01615d7057
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f3f369928270c77557337bfdb1037cc5174c39f2
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371076"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637965"
 ---
 # <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>Indexering med Azure Cosmos DB:s API för MongoDB
 
@@ -35,7 +35,7 @@ Du kan skapa index på ett och samma fält. Sorteringsordningen för det enskild
 
 `db.coll.createIndex({name:1})`
 
-En fråga kommer att använda flera enskilda fält index, där det är tillgängligt.
+En fråga kommer att använda flera enskilda fält index, där det är tillgängligt. Du kan skapa upp till 500 enstaka fältindex per behållare.
 
 ### <a name="compound-indexes-36"></a>Sammansatta index (3,6)
 

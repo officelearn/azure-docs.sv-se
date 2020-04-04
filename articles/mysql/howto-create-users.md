@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: c4e95164badaf0b255f5ee76d0fec7686c2abf8b
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.date: 4/2/2020
+ms.openlocfilehash: 99b614de87c666d1cb1fb8a34eaafadf6fa82849
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80382876"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632556"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Skapa användare i Azure Database för MySQL-server
 
@@ -19,9 +19,12 @@ I den här artikeln beskrivs hur du kan skapa användare i en Azure-databas för
 
 När du först skapade din Azure-databas för MySQL angav du ett användarnamn och lösenord för serveradministratörsinloggning. Om du vill ha mer information kan du följa [Snabbstarten](quickstart-create-mysql-server-database-using-azure-portal.md). Du kan hitta ditt användarnamn för serveradministratörsinloggning från Azure-portalen.
 
-Serveradministratörsanvändaren får vissa privilegier för servern enligt listan: VÄLJ, INFOGA, UPPDATERA, TA BORT, SKAPA, SLÄPPA, LADDA OM, BEARBETA, REFERENSER, INDEX, ÄNDRA, VISA DATABASER, SKAPA TEMPORÄRA TABELLER, LÅSTABELLER, EXECUTE, REPLIKERINGSLAV, REPLIKERING KLIENT, SKAPA VY, VISA VY, SKAPA RUTIN, ÄNDRA RUTIN, SKAPA ANVÄNDARE, HÄNDELSE, UTLÖSARE
+Serveradministratörsanvändaren får vissa privilegier för servern enligt listan: VÄLJ, INFOGA, UPPDATERA, TA BORT, SKAPA, SLÄPP, LADDA OM, BEARBETA, REFERENSER, INDEX, ÄNDRA, VISA DATABASER, SKAPA TEMPORÄRA TABELLER, LÅSTABELLER, EXECUTE, REPLIKERINGSLAV, REPLIKERINGSKLIENT, SKAPA VY, VISA VY, SKAPA RUTIN, ÄNDRA RUTIN, SKAPA ANVÄNDARE, HÄNDELSE, UTLÖSARE
 
 När Azure Database for MySQL-servern har skapats kan du använda det första användarkontot för serveradministratör för att skapa ytterligare användare och ge administratörsåtkomst till dem. Serveradministratörskontot kan också användas för att skapa mindre privilegierade användare som har åtkomst till enskilda databasscheman.
+
+> [!NOTE]
+> Super-privilegiet och DBA-rollen stöds inte. Granska [privilegierna](concepts-limits.md#privilege-support) i begränsningsartikeln för att förstå vad som inte stöds i tjänsten.
 
 ## <a name="how-to-create-additional-admin-users-in-azure-database-for-mysql"></a>Skapa ytterligare administratörsanvändare i Azure Database för MySQL
 

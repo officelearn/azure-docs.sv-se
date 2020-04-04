@@ -4,19 +4,19 @@ description: Azure Active Directory smart lockout hjälper till att skydda din o
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfd49a4429dc0d7f5db07a577016c21de8fc58d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61ae942ed189dc4245a9a0b282daf4cad5323536
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75762883"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652571"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory – Smart utlåsning
 

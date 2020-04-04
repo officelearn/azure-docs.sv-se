@@ -10,16 +10,18 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: cf961b00c4823d0c9efcf44b0db7bb75a80d3dfa
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 0f5f890b4f32961e00fb30316a1dc7c88ef93a45
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474336"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654845"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Vad är Azure Active Directory Domain Services?
 
 Azure Active Directory Domain Services (Azure AD DS) tillhandahåller hanterade domäntjänster som domänanslutning, grupprincip, LDAP (Lightweight Directory Access Protocol) och Kerberos/NTLM-autentisering som är helt kompatibel med Active Directory i Windows Server. Du använder dessa domäntjänster utan att behöva distribuera, hantera och korrigera domänkontrollanter i molnet. Azure AD DS integreras med din befintliga Azure AD-klientorganisation, vilket gör det möjligt för användare att logga in med sina befintliga autentiseringsuppgifter. Du kan också använda befintliga grupper och användarkonton för att skydda åtkomst till resurser, vilket ger en smidigare lyft-och-förskjutning av lokala resurser till Azure.
+
+För att komma [igång, skapa en Azure AD DS-hanterad domän med Azure-portalen][tutorial-create].
 
 Azure AD DS replikerar identitetsinformation från Azure AD, så fungerar med Azure AD-klienter som är molnfria eller synkroniserade med en lokal AD DS-miljö (Active Directory Domain Services). Samma uppsättning Azure AD DS-funktioner finns för båda miljöerna.
 
@@ -51,7 +53,11 @@ Azure AD DS erbjuder alternativ till behovet av att skapa VPN-anslutningar tillb
 
 ## <a name="azure-ad-ds-features-and-benefits"></a>Azure AD DS-funktioner och fördelar
 
-Azure AD DS är helt kompatibelt med en traditionell AD DS-miljö för åtgärder som domänanslutning, säker LDAP (LDAPS), grupprincip, DNS-hantering och LDAP-bindning och lässupport. LDAP-skrivstöd är tillgängligt för objekt som skapats i Azure AD DS-hanterad domän, men inte resurser som synkroniseras från Azure AD. Följande funktioner i Azure AD DS förenklar distributions- och hanteringsåtgärder:
+Azure AD DS är helt kompatibelt med en traditionell AD DS-miljö för åtgärder som domänanslutning, säker LDAP (LDAPS), grupprincip, DNS-hantering och LDAP-bindning och lässupport. LDAP-skrivstöd är tillgängligt för objekt som skapats i Azure AD DS-hanterad domän, men inte resurser som synkroniseras från Azure AD.
+
+Om du vill veta mer om dina identitetsalternativ [kan du jämföra Azure AD DS med Azure AD, Active Directory Domain Services på virtuella Azure-datorer och Active Directory Domain Services lokalt][compare].
+
+Följande funktioner i Azure AD DS förenklar distributions- och hanteringsåtgärder:
 
 * **Förenklad distributionsupplevelse:** Azure AD DS är aktiverat för din Azure AD-klient med hjälp av en enda guide i Azure-portalen.
 * **Integrerad med Azure AD:** Användarkonton, gruppmedlemskap och autentiseringsuppgifter är automatiskt tillgängliga från din Azure AD-klientorganisation. Nya användare, grupper eller ändringar av attribut från din Azure AD-klientorganisation eller din lokala AD DS-miljö synkroniseras automatiskt till Azure AD DS.

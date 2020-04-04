@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c4920b2a5b4ff0b1a94fa8fa0e83f72761802b97
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: d3d1b9af0b26fa775beb78b313937890cb9287b3
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583803"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633760"
 ---
 # <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Snabbstart: Konfigurera arbetsbelastningsisolering med T-SQL
 
@@ -25,13 +25,11 @@ I den här snabbstarten skapar du snabbt en arbetsbelastningsgrupp och klassific
 Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 > [!NOTE]
-> Om du skapar en Synapse SQL-pool i Azure Synapse Analytics kan det leda till en ny fakturerbar tjänst.  Mer information finns i [Azure Synapse Analytics-priser](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
->
->
+> Om du skapar en SQL Analytics-instans i Azure Synapse Analytics kan det leda till en ny fakturerbar tjänst.  Mer information finns i [Azure Synapse Analytics-priser](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 ## <a name="prerequisites"></a>Krav
- 
-Den här snabbstarten förutsätter att du redan har en Synapse SQL-pool i Azure Synapse och att du har behörigheter för CTRL-databas. Om du behöver skapa ett använder du [Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**.
+
+Den här snabbstarten förutsätter att du redan har en SQL Analytics-instans i Azure Synapse och att du har behörigheter för KONTROLLDATABAS. Om du behöver skapa ett använder du [Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -62,12 +60,14 @@ END
 ```
 
 ## <a name="create-a-workload-group"></a>Skapa en arbetsbelastningsgrupp
+
 Skapa en [arbetsbelastningsgrupp](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för DataLoads med 20 % isolering.
+
 ```sql
 CREATE WORKLOAD GROUP DataLoads
-WITH ( MIN_PERCENTAGE_RESOURCE = 20   
+WITH ( MIN_PERCENTAGE_RESOURCE = 20
       ,CAP_PERCENTAGE_RESOURCE = 100
-      ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 5) 
+      ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 5)
 ;
 ```
 
@@ -86,15 +86,15 @@ WITH (WORKLOAD_GROUP = 'DataLoads'
 
 ```sql
 --Workload groups
-SELECT * FROM 
+SELECT * FROM
 sys.workload_management_workload_groups
 
 --Workload classifiers
-SELECT * FROM 
+SELECT * FROM
 sys.workload_management_workload_classifiers
 
 --Run-time values
-SELECT * FROM 
+SELECT * FROM
 sys.dm_workload_management_workload_groups_stats
 ```
 

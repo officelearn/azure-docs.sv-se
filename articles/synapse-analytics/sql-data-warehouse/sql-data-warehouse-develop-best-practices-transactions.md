@@ -11,12 +11,12 @@ ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: d97a388477c895a4a8632d7ab3d06dc4c8982857
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 0139c581e6660622f1ab6db9f407725816377a6d
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80582127"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633568"
 ---
 # <a name="optimizing-transactions-in-synapse-sql"></a>Optimera transaktioner i Synapse SQL
 
@@ -24,7 +24,7 @@ Lär dig hur du optimerar prestanda för transaktionskoden i Synapse SQL samtidi
 
 ## <a name="transactions-and-logging"></a>Transaktioner och loggning
 
-Transaktioner är en viktig komponent i en relationsdatabasmotor. Transaktioner används vid dataändring. Dessa transaktioner kan vara explicita eller implicita. Enkel INFOGA, UPPDATERA och TA BORT-satser är alla exempel på implicita transaktioner. Explicita transaktioner använder BEGIN TRAN, COMMIT TRAN eller ROLLBACK TRAN. Explicita transaktioner används vanligtvis när flera ändringssatser måste kopplas samman i en enda atomenhet. 
+Transaktioner är en viktig komponent i en relationsdatabasmotor. Transaktioner används vid dataändring. Dessa transaktioner kan vara explicita eller implicita. Enkel INFOGA, UPPDATERA och TA BORT-satser är alla exempel på implicita transaktioner. Explicita transaktioner använder BEGIN TRAN, COMMIT TRAN eller ROLLBACK TRAN. Explicita transaktioner används vanligtvis när flera ändringssatser måste kopplas samman i en enda atomenhet.
 
 Ändringar i databasen spåras med hjälp av transaktionsloggar. Varje distribution har en egen transaktionslogg. Transaktionsloggskrivningar är automatiska. Det krävs ingen konfiguration. Men även om denna process garanterar att skriva det inte införa en overhead i systemet. Du kan minimera den här effekten genom att skriva transaktionseffektiv kod. Transaktionseffektiv kod hör i stort sett in i två kategorier.
 
@@ -39,9 +39,7 @@ Till skillnad från helt loggade åtgärder, som använder transaktionsloggen f�
 Transaktionssäkerhetsgränserna gäller endast för fullständigt loggade åtgärder.
 
 > [!NOTE]
-> Minimalt loggade åtgärder kan delta i explicita transaktioner. När alla ändringar i allokeringsstrukturer spåras är det möjligt att återställa minimalt loggade åtgärder. 
-> 
-> 
+> Minimalt loggade åtgärder kan delta i explicita transaktioner. När alla ändringar i allokeringsstrukturer spåras är det möjligt att återställa minimalt loggade åtgärder.
 
 ## <a name="minimally-logged-operations"></a>Minimalt loggade åtgärder
 
@@ -64,10 +62,9 @@ Följande åtgärder kan loggas minimalt:
 
 > [!NOTE]
 > Interna datarörelser (till exempel BROADCAST och SHUFFLE) påverkas inte av transaktionssäkerhetsgränsen.
-> 
-> 
 
 ## <a name="minimal-logging-with-bulk-load"></a>Minimal loggning med massbelastning
+
 CTAS och INSERT... SELECT är båda massbelastningsåtgärder. Båda påverkas dock av måltabelldefinitionen och är beroende av belastningsscenariot. I följande tabell förklaras när massåtgärder är helt eller minimalt inloggade:  
 
 | Primärt index | Inläsningsscenario | Loggningsläge |
@@ -83,11 +80,11 @@ Det är värt att notera att alla skrivningar för att uppdatera sekundära elle
 
 > [!IMPORTANT]
 > En Synapse SQL pool databas har 60 distributioner. Om alla rader distribueras jämnt och landar i en enda partition måste därför batchen innehålla 6 144 000 rader eller större för att vara minimalt inloggad när du skriver till ett clustered columnstore-index. Om tabellen är partitionerad och raderna infogas intervallpartitionsgränser, behöver du 6 144 000 rader per partitionsgräns förutsatt att även datadistribution. Varje partition i varje distribution måste självständigt överskrida 102 400-radtröskeln för att insatsen ska vara minimalt inloggad i distributionen.
-> 
 
 Att läsa in data i en icke-tom tabell med ett klustrade index kan ofta innehålla en blandning av fullständigt loggade och minimalt loggade rader. Ett grupperat index är ett balanserat träd (b-träd) med sidor. Om sidan som skrivs till redan innehåller rader från en annan transaktion loggas dessa skrivningar helt. Men om sidan är tom kommer skrivningen till den sidan att loggas minimalt.
 
 ## <a name="optimizing-deletes"></a>Optimera borttagningar
+
 DELETE är en fullständigt loggad åtgärd.  Om du behöver ta bort en stor mängd data i en tabell `SELECT` eller en partition är det ofta mer meningsfullt att de data du vill behålla, som kan köras som en minimalt loggad åtgärd.  Om du vill markera data skapar du en ny tabell med [CTAS](sql-data-warehouse-develop-ctas.md).  När du har skapat det använder du [BYT NAMN](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) FÖR att byta ut din gamla tabell med den nyskapade tabellen.
 
 ```sql
@@ -98,7 +95,7 @@ CREATE TABLE [dbo].[FactInternetSales_d]
 WITH
 (    CLUSTERED COLUMNSTORE INDEX
 ,    DISTRIBUTION = HASH([ProductKey])
-,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT
                                     FOR VALUES    (    20000101, 20010101, 20020101, 20030101, 20040101, 20050101
                                                 ,    20060101, 20070101, 20080101, 20090101, 20100101, 20110101
                                                 ,    20120101, 20130101, 20140101, 20150101, 20160101, 20170101
@@ -113,12 +110,13 @@ WHERE    [PromotionKey] = 2
 OPTION (LABEL = 'CTAS : Delete')
 ;
 
---Step 02. Rename the Tables to replace the 
+--Step 02. Rename the Tables to replace the
 RENAME OBJECT [dbo].[FactInternetSales]   TO [FactInternetSales_old];
 RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
 ## <a name="optimizing-updates"></a>Optimera uppdateringar
+
 UPDATE är en fullständigt loggad åtgärd.  Om du behöver uppdatera ett stort antal rader i en tabell eller en partition kan det ofta vara mycket effektivare att använda en minimalt loggad åtgärd som [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att göra det.
 
 I exemplet nedan har en fullständig tabelluppdatering konverterats till ett CTAS så att minimal loggning är möjlig.
@@ -126,12 +124,12 @@ I exemplet nedan har en fullständig tabelluppdatering konverterats till ett CTA
 I det här fallet lägger vi i efterhand till ett rabattbelopp till försäljningen i tabellen:
 
 ```sql
---Step 01. Create a new table containing the "Update". 
+--Step 01. Create a new table containing the "Update".
 CREATE TABLE [dbo].[FactInternetSales_u]
 WITH
 (    CLUSTERED INDEX
 ,    DISTRIBUTION = HASH([ProductKey])
-,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT
                                     FOR VALUES    (    20000101, 20010101, 20020101, 20030101, 20040101, 20050101
                                                 ,    20060101, 20070101, 20080101, 20090101, 20100101, 20110101
                                                 ,    20120101, 20130101, 20140101, 20150101, 20160101, 20170101
@@ -140,15 +138,15 @@ WITH
                                                 )
                 )
 )
-AS 
+AS
 SELECT
     [ProductKey]  
-,    [OrderDateKey] 
+,    [OrderDateKey]
 ,    [DueDateKey]  
-,    [ShipDateKey] 
-,    [CustomerKey] 
-,    [PromotionKey] 
-,    [CurrencyKey] 
+,    [ShipDateKey]
+,    [CustomerKey]
+,    [PromotionKey]
+,    [CurrencyKey]
 ,    [SalesTerritoryKey]
 ,    [SalesOrderNumber]
 ,    [SalesOrderLineNumber]
@@ -165,7 +163,7 @@ SELECT
          END AS MONEY),0) AS [SalesAmount]
 ,    [TaxAmt]
 ,    [Freight]
-,    [CarrierTrackingNumber] 
+,    [CarrierTrackingNumber]
 ,    [CustomerPONumber]
 FROM    [dbo].[FactInternetSales]
 OPTION (LABEL = 'CTAS : Update')
@@ -181,10 +179,9 @@ DROP TABLE [dbo].[FactInternetSales_old]
 
 > [!NOTE]
 > Återskapa stora tabeller kan dra nytta av att använda Synapse SQL pool arbetsbelastningshanteringsfunktioner. Mer information finns i [Resursklasser för arbetsbelastningshantering](resource-classes-for-workload-management.md).
-> 
-> 
 
 ## <a name="optimizing-with-partition-switching"></a>Optimera med partitionsväxling
+
 Om man står inför storskaliga ändringar inuti en [tabellpartition](sql-data-warehouse-tables-partition.md)är ett partitionsväxlingsmönster vettigt. Om dataändringen är betydande och sträcker sig över flera partitioner, uppnår iterering över partitionerna samma resultat.
 
 Stegen för att utföra en partitionsväxel är följande:
@@ -223,11 +220,11 @@ SELECT     s.name                            AS [schema_name]
 FROM        sys.schemas                    AS s
 JOIN        sys.tables                    AS t    ON  s.[schema_id]        = t.[schema_id]
 JOIN        sys.indexes                    AS i    ON     t.[object_id]        = i.[object_id]
-JOIN        sys.partitions                AS p    ON     i.[object_id]        = p.[object_id] 
-                                                AND i.[index_id]        = p.[index_id] 
+JOIN        sys.partitions                AS p    ON     i.[object_id]        = p.[object_id]
+                                                AND i.[index_id]        = p.[index_id]
 JOIN        sys.partition_schemes        AS h    ON     i.[data_space_id]    = h.[data_space_id]
 JOIN        sys.partition_functions        AS f    ON     h.[function_id]        = f.[function_id]
-LEFT JOIN    sys.partition_range_values    AS r     ON     f.[function_id]        = r.[function_id] 
+LEFT JOIN    sys.partition_range_values    AS r     ON     f.[function_id]        = r.[function_id]
                                                 AND r.[boundary_id]        = p.[partition_number]
 WHERE i.[index_id] <= 1
 )
@@ -246,7 +243,7 @@ Den här proceduren maximerar återanvändning av kod och håller partitionsväx
 Följande kod visar de steg som tidigare nämnts för att uppnå en fullständig partitionsväxlingsrutin.
 
 ```sql
---Create a partitioned aligned empty table to switch out the data 
+--Create a partitioned aligned empty table to switch out the data
 IF OBJECT_ID('[dbo].[FactInternetSales_out]') IS NOT NULL
 BEGIN
     DROP TABLE [dbo].[FactInternetSales_out]
@@ -256,7 +253,7 @@ CREATE TABLE [dbo].[FactInternetSales_out]
 WITH
 (    DISTRIBUTION = HASH([ProductKey])
 ,    CLUSTERED COLUMNSTORE INDEX
-,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT
                                     FOR VALUES    (    20020101, 20030101
                                                 )
                 )
@@ -278,20 +275,20 @@ CREATE TABLE [dbo].[FactInternetSales_in]
 WITH
 (    DISTRIBUTION = HASH([ProductKey])
 ,    CLUSTERED COLUMNSTORE INDEX
-,     PARTITION     (    [OrderDateKey] RANGE RIGHT 
+,     PARTITION     (    [OrderDateKey] RANGE RIGHT
                                     FOR VALUES    (    20020101, 20030101
                                                 )
                 )
 )
-AS 
+AS
 SELECT
     [ProductKey]  
-,    [OrderDateKey] 
+,    [OrderDateKey]
 ,    [DueDateKey]  
-,    [ShipDateKey] 
-,    [CustomerKey] 
-,    [PromotionKey] 
-,    [CurrencyKey] 
+,    [ShipDateKey]
+,    [CustomerKey]
+,    [PromotionKey]
+,    [CurrencyKey]
 ,    [SalesTerritoryKey]
 ,    [SalesOrderNumber]
 ,    [SalesOrderLineNumber]
@@ -308,7 +305,7 @@ SELECT
          END AS MONEY),0) AS [SalesAmount]
 ,    [TaxAmt]
 ,    [Freight]
-,    [CarrierTrackingNumber] 
+,    [CarrierTrackingNumber]
 ,    [CustomerPONumber]
 FROM    [dbo].[FactInternetSales]
 WHERE    OrderDateKey BETWEEN 20020101 AND 20021231
@@ -347,9 +344,10 @@ DROP TABLE #ptn_data
 ```
 
 ## <a name="minimize-logging-with-small-batches"></a>Minimera loggning med små batchar
+
 För stora datamodifieringsåtgärder kan det vara klokt att dela upp åtgärden i segment eller batchar för att begränsa arbetsenheten.
 
-En följande kod är ett fungerande exempel. Batchstorleken har ställts in på ett trivialt tal för att markera tekniken. I verkligheten skulle partiets storlek vara betydligt större. 
+En följande kod är ett fungerande exempel. Batchstorleken har ställts in på ett trivialt tal för att markera tekniken. I verkligheten skulle partiets storlek vara betydligt större.
 
 ```sql
 SET NO_COUNT ON;
@@ -409,12 +407,10 @@ END
 
 ## <a name="pause-and-scaling-guidance"></a>Pausa och skala vägledning
 
-Med Synapse SQL kan du [pausa, återuppta och skala](sql-data-warehouse-manage-compute-overview.md) din SQL-pool på begäran. När du pausar eller skalar SQL-poolen är det viktigt att förstå att alla transaktioner under flygning avslutas omedelbart. vilket gör att alla öppna transaktioner återställs. Om din arbetsbelastning hade utfärdat en tidskrävande och ofullständig dataändring före paus- eller skalningsåtgärden måste det här arbetet ångras. Den här undergången kan påverka den tid det tar att pausa eller skala DIN SQL-pool. 
+Med Synapse SQL kan du [pausa, återuppta och skala](sql-data-warehouse-manage-compute-overview.md) din SQL-pool på begäran. När du pausar eller skalar SQL-poolen är det viktigt att förstå att alla transaktioner under flygning avslutas omedelbart. vilket gör att alla öppna transaktioner återställs. Om din arbetsbelastning hade utfärdat en tidskrävande och ofullständig dataändring före paus- eller skalningsåtgärden måste det här arbetet ångras. Den här undergången kan påverka den tid det tar att pausa eller skala DIN SQL-pool.
 
 > [!IMPORTANT]
-> Båda `UPDATE` `DELETE` och är helt loggade åtgärder och så dessa ångra / gör om åtgärder kan ta betydligt längre tid än motsvarande minimalt loggade åtgärder. 
-> 
-> 
+> Båda `UPDATE` `DELETE` och är helt loggade åtgärder och så dessa ångra / gör om åtgärder kan ta betydligt längre tid än motsvarande minimalt loggade åtgärder.
 
 Det bästa scenariot är att låta i flygdata ändringstransaktioner slutföras innan pausa eller skala SQL pool. Men det här scenariot kanske inte alltid är praktiskt. Om du vill minska risken för en lång återställning bör du överväga något av följande alternativ:
 
@@ -424,4 +420,3 @@ Det bästa scenariot är att låta i flygdata ändringstransaktioner slutföras 
 ## <a name="next-steps"></a>Nästa steg
 
 Se [Transaktioner i Synapse SQL](sql-data-warehouse-develop-transactions.md) om du vill veta mer om isoleringsnivåer och transaktionsgränser.  En översikt över andra metodtips finns i [bästa praxis för SQL Data Warehouse](sql-data-warehouse-best-practices.md).
-

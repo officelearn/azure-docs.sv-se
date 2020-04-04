@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/17/2020
+ms.date: 04/03/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: ed27097d29f3a10e708044ad7e2e30736e2c60e6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a8930af1366fef3d8c4491fca5e9403905648de1
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79471854"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80638018"
 ---
 # <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -61,7 +61,7 @@ Du kan centralt skapa nätverksfiltreringsreglerna *tillåt* eller *neka* efter 
 
 ## <a name="fqdn-tags"></a>FQDN-taggar
 
-FQDN-taggar gör det enkelt att tillåta välkänd Azure-tjänstnätverkstrafik via brandväggen. Anta exempelvis att du vill tillåta Windows Update-nätverkstrafik via brandväggen. Du skapar en programregel och inkluderar Windows Update-taggen. Nätverkstrafik från Windows Update kan nu flöda genom brandväggen.
+FQDN-taggar gör det enkelt för dig att tillåta välkänd Azure-tjänst nätverkstrafik genom brandväggen. Anta exempelvis att du vill tillåta Windows Update-nätverkstrafik via brandväggen. Du skapar en programregel och inkluderar Windows Update-taggen. Nätverkstrafik från Windows Update kan nu flöda genom brandväggen.
 
 ## <a name="service-tags"></a>Tjänsttaggar
 
@@ -118,7 +118,8 @@ Nätverksfiltreringsregler för icke-TCP-/UDP-protokoll (till exempel ICMP) fung
 |Stöd för SQL FQDN-filtrering endast i proxyläge (port 1433)|För Azure SQL Database, Azure SQL Data Warehouse och Azure SQL Managed Instance:<br><br>Under förhandsgranskningen stöds SQL FQDN-filtrering endast i proxyläge (port 1433).<br><br>För Azure SQL IaaS:<br><br>Om du använder portar som inte är standard kan du ange dessa portar i programreglerna.|För SQL i omdirigeringsläge, som är standard om du ansluter från Azure, kan du i stället filtrera åtkomst med SQL-tjänsttaggen som en del av Azure Firewall-nätverksregler.
 |Utgående trafik på TCP-port 25 är inte tillåtet| Utgående SMTP-anslutningar som använder TCP-port 25 är blockerade. Port 25 används främst för oautentiserade e-postleverans. Detta är standardplattformsbeteendet för virtuella datorer. Mer information finns i fler [felsökningsproblem för utgående SMTP-anslutning i Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). Till skillnad från virtuella datorer är det dock för närvarande inte möjligt att aktivera den här funktionen i Azure-brandväggen.|Följ den rekommenderade metoden för att skicka e-post enligt beskrivningen i felsökningsartikeln för SMTP. Du kan också utesluta den virtuella datorn som behöver utgående SMTP-åtkomst från standardvägen till brandväggen och konfigurera i stället utgående åtkomst direkt till Internet.
 |Aktiv FTP stöds inte|Aktiv FTP är inaktiverad på Azure-brandväggen för att skydda mot FTP-avvisningsattacker med kommandot FTP PORT.|Du kan använda Passiv FTP i stället. Du måste fortfarande uttryckligen öppna TCP-portar 20 och 21 på brandväggen.
-|SNAT-portutnyttjandemått visar 0%|Azure Firewall SNAT-portutnyttjandemått kan visa 0% användning även när SNAT-portar används. I det här fallet ger användning av måttet som en del av brandväggens hälsomått ett felaktigt resultat.|Problemet har åtgärdats och utbyggnaden av produktionen är avsedd för maj 2020. I vissa fall löser brandväggsomfördelningen problemet, men det är inte konsekvent. Som en mellanliggande lösning använder du bara brandväggens hälsotillstånd för att leta efter *status=försämrad*, inte för *status=felfritt*. Portutmattning visas som *degraderad*. *Inte felfri* är reserverad för framtida användning när det finns fler mått för att påverka brandväggens hälsa. 
+|SNAT-portutnyttjandemått visar 0%|Azure Firewall SNAT-portutnyttjandemått kan visa 0% användning även när SNAT-portar används. I det här fallet ger användning av måttet som en del av brandväggens hälsomått ett felaktigt resultat.|Problemet har åtgärdats och utbyggnaden av produktionen är avsedd för maj 2020. I vissa fall löser brandväggsomfördelningen problemet, men det är inte konsekvent. Som en mellanliggande lösning använder du bara brandväggens hälsotillstånd för att leta efter *status=försämrad*, inte för *status=felfritt*. Portutmattning visas som *degraderad*. *Inte felfri* är reserverad för framtida användning när det finns fler mått för att påverka brandväggens hälsa.
+|DNAT stöds inte med Forcerad tunnelaktiverad|Brandväggar som distribueras med forcerad tunnelkoppling aktiverad kan inte stödja inkommande åtkomst från Internet på grund av asymmetrisk routning.|Detta är avsiktligt på grund av asymmetrisk routning. Retursökvägen för inkommande anslutningar går via den lokala brandväggen, som inte har sett anslutningen upprättas.
 
 ## <a name="next-steps"></a>Nästa steg
 

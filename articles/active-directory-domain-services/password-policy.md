@@ -8,15 +8,15 @@ ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: cc1863ff4200ee4cca94f18e3adfffa7ea42db96
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: b14fed07c9bd9b5fcb6a5489719481902351fc0d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475963"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654871"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Principer för lösenords- och kontoutelåsning på hanterade domäner
 
@@ -45,6 +45,11 @@ För att kunna slutföra den här artikeln behöver du följande resurser och pr
 ## <a name="default-password-policy-settings"></a>Standardinställningar för lösenordsprincip
 
 Med detaljerade lösenordsprinciper kan du tillämpa särskilda begränsningar för principer för lösenords- och kontoutelåsning på olika användare i en domän. Om du till exempel vill skydda privilegierade konton kan du använda striktare inställningar för kontoutelåsning än vanliga konton som inte har privilegierade konton. Du kan skapa flera FGPPs inom en Azure AD DS-hanterad domän och ange prioritetsordningen för att tillämpa dem på användare.
+
+Mer information om lösenordsprinciper och användning av Active Directory Administrationscenter finns i följande artiklar:
+
+* [Läs mer om detaljerade lösenordsprinciper](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770394(v=ws.10))
+* [Konfigurera detaljerade lösenordsprinciper med AD Administration Center](/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#fine_grained_pswd_policy_mgmt)
 
 Principer distribueras via gruppassociation i en Azure AD DS-hanterad domän och alla ändringar du gör tillämpas vid nästa användarloggning. Om du ändrar principen låses inte upp ett användarkonto som redan är utelåst.
 

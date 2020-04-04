@@ -16,16 +16,23 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5a2107974cd63c0d02aaeb555430453c39990bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12e3b86f41e7188778393ab717554907ef5d44ec
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262027"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631733"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Visa, lägga till och ta bort tilldelningar för ett åtkomstpaket i Azure AD-berättigandehantering
 
 I Azure AD-berättigandehantering kan du se vem som har tilldelats åtkomstpaket, deras princip och status. Om ett åtkomstpaket har en lämplig princip kan du också direkt tilldela användaren till ett åtkomstpaket. I den här artikeln beskrivs hur du visar, lägger till och tar bort tilldelningar för åtkomstpaket.
+
+## <a name="prerequisites"></a>Krav
+
+Om du vill använda hantering av Azure AD-berättigande och tilldela användare åtkomstpaket måste du ha någon av följande licenser:
+
+- Azure AD Premium P2
+- Enterprise Mobility + Security (EMS) E5-licens
 
 ## <a name="view-who-has-an-assignment"></a>Visa vem som har en tilldelning
 

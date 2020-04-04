@@ -4,17 +4,18 @@ description: Syftet med det här dokumentet är att hjälpa en användare att va
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
+manager: dcscontentpm
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: a88e339e82484c2ec1cd2276f6218fa718b990f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dcf86deda32069bf9711dbeb733dc9361e22a771
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75860494"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631774"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Verifiera VPN-dataflöde till ett virtuellt nätverk
 
@@ -242,7 +243,7 @@ Nämnde undernäten i lokala intervall som du vill att Azure ska nå via VPN på
 
 * **Principbaserad gateway:** Principbaserade VPN krypterar och dirigerar paket via IPsec-tunnlar baserat på kombinationer av adressprefix mellan det lokala nätverket och Azure VNet. Principen (eller trafikväljaren) definieras vanligtvis som en åtkomstlista i VPN-konfigurationen.
 
-* **UsePolicyBasedTrafficSelector-anslutningar:** ("UsePolicyBasedTrafficSelectors" för att $True på en anslutning konfigurerar Azure VPN-gatewayen för att ansluta till principbaserad VPN-brandvägg lokalt. Om du aktiverar PolicyBasedTrafficSelectors måste du se till att din VPN-enhet har de matchande trafikväljare som definierats med alla kombinationer av dina lokala nätverksprefix (lokal nätverksgateway) till och från Azures virtuella nätverksprefix, i stället för någon-till-någon.
+* **UsePolicyBasedTrafficSelector-anslutningar:** ("UsePolicyBasedTrafficSelectors" för att $True på en anslutning konfigurerar Azure VPN-gatewayen för att ansluta till principbaserad VPN-brandvägg lokalt. Om du aktiverar PolicyBasedTrafficSelectors måste du se till att din VPN-enhet har de matchande trafikväljare som definierats med alla kombinationer av dina lokala nätverksprefix (lokal nätverksgateway) till och från Azures virtuella nätverksprefix, i stället för valfria.
 
 Olämplig konfiguration kan leda till frekventa frånkopplingar i tunneln, paketdroppar, dåligt dataflöde och svarstid.
 

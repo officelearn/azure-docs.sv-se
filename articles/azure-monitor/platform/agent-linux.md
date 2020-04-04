@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
-ms.openlocfilehash: aa2356901403c7a63aa4aa96dcb38f9c0c971e58
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 9807d6eeb07b953ab75b328ce64c5166ca52dd2a
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80528349"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637526"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Ansluta Linux-datorer till Azure Monitor
 
@@ -22,7 +22,7 @@ Log Analytics-agenten för Linux kan installeras med någon av följande metoder
 * [Hämta och installera](#install-the-agent-manually) agenten manuellt. Detta krävs när Linux-datorn inte har tillgång till Internet och kommer att kommunicera med Azure Monitor eller Azure Automation via [Log Analytics-gatewayen](gateway.md). 
 * [Installera agenten för Linux med hjälp av ett omslagsskript](#install-the-agent-using-wrapper-script) som finns på GitHub. Detta är den rekommenderade metoden för att installera och uppgradera agenten när datorn har anslutning till Internet, direkt eller via en proxyserver.
 
-Om du vill förstå konfigurationen som stöds, så granska [de Linux-operativsystem som stöds](log-analytics-agent.md#supported-linux-operating-systems) och [nätverkets brandväggskonfiguration](log-analytics-agent.md#firewall-requirements).
+Om du vill förstå konfigurationen som stöds, så granska [de Linux-operativsystem som stöds](log-analytics-agent.md#supported-linux-operating-systems) och [nätverkets brandväggskonfiguration](log-analytics-agent.md#network-requirements).
 
 >[!NOTE]
 >Log Analytics-agenten för Linux kan inte konfigureras att rapportera till fler än en Log Analytics-arbetsyta. Den kan bara konfigureras för att rapportera till både en Hanteringsgrupp för System Center Operations Manager och Log Analytics samtidigt, eller till antingen individuellt.

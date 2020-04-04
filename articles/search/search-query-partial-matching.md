@@ -1,38 +1,71 @@
 ---
-title: Matcha mönster och specialtecken
+title: Partiella termer, mönster och specialtecken
 titleSuffix: Azure Cognitive Search
-description: Använd jokertecken- och prefixfrågor för att matcha på hela eller partiella termer i en Azure Cognitive Search-frågebegäran. Svårmatchade mönster som innehåller specialtecken kan lösas med hjälp av fullständig frågesyntax och anpassade analysatorer.
+description: Använd jokertecken-, regex- och prefixfrågor för att matcha hela eller partiella termer i en Azure Cognitive Search-frågebegäran. Svårmatchade mönster som innehåller specialtecken kan lösas med hjälp av fullständig frågesyntax och anpassade analysatorer.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/14/2020
-ms.openlocfilehash: f78ba5b351a3da46d7b8b3780cf00772c4f3b2ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: 3e0e0291ff855b4502224466e17696a4fe668c2a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289319"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655988"
 ---
-# <a name="match-on-patterns-and-special-characters-dashes"></a>Matcha på mönster och specialtecken (streck)
+# <a name="partial-term-search-in-azure-cognitive-search-queries-wildcard-regex-fuzzy-search-patterns"></a>Partiell termsökning i Azure Cognitive Search-frågor (jokertecken, regex, fuzzy search, mönster)
 
-För frågor som innehåller`-, *, (, ), /, \, =`specialtecken ( ) eller för frågemönster baserade på partiella termer inom en större term, behövs vanligtvis ytterligare konfigurationssteg för att säkerställa att indexet innehåller det förväntade innehållet i rätt format. 
+En *partiell termsökning* refererar till frågor som består av termfragment, till exempel de första, sista eller inre delarna av en sträng, eller ett mönster som består av en kombination av fragment, ofta avgränsade med specialtecken som streck eller snedstreck. Vanliga användningsfall är att fråga efter delar av ett telefonnummer, URL, personer eller produktkoder eller sammansatta ord.
 
-Som standard är ett `+1 (425) 703-6214` telefonnummer som `"1"` `"425"`tokeniseras som , , `"703"`. `"6214"`. Som du kan föreställa `"3-62"`er, söka på , partiella termer som innehåller ett streck, kommer att misslyckas eftersom det innehållet faktiskt inte finns i indexet. 
+Partiell sökning kan vara problematiskt eftersom själva indexet vanligtvis inte lagrar termer på ett sätt som bidrar till partiell sträng- och mönstermatchning. Under textanalysfasen av indexeringen ignoreras specialtecken, sammansatta och sammansatta strängar delas upp, vilket gör att mönsterfrågor misslyckas när ingen matchning hittas. Ett telefonnummer `+1 (425) 703-6214`som (tokeniserat som `"1"` `"425"`, `"703"` `"6214"`, ) visas till `"3-62"` exempel inte i en fråga eftersom innehållet inte finns i indexet. 
 
-När du behöver söka på partiella strängar eller specialtecken kan du åsidosätta standardanalysatorn med en anpassad analysator som fungerar under enklare tokeniseringsregler, bevara hela termer, nödvändigt när frågesträngar innehåller delar av en term eller Tecken. Med ett steg tillbaka ser tillvägagångssättet ut så här:
+Lösningen är att lagra intakta versioner av dessa strängar i indexet så att du kan stödja partiella sökscenarier. Att skapa ytterligare ett fält för en intakt sträng, plus att använda en innehållsbevarande analysator, är grunden för lösningen.
 
-+ Välj en fördefinierad analysator eller definiera en anpassad analysator som ger önskad utdata
+## <a name="what-is-partial-search-in-azure-cognitive-search"></a>Vad är partiell sökning i Azure Cognitive Search
+
+I Azure Cognitive Search är partiell sökning tillgänglig i följande formulär:
+
++ [Prefixsökning](query-simple-syntax.md#prefix-search), `search=cap*`till exempel , matchning på "Cap'n Jack's Waterfront Inn" eller "Gacc Capital". Du kan använda helt enkelt frågesyntaxen för prefixsökning.
++ [Jokerteckensökning](query-lucene-syntax.md#bkmk_wildcard) eller [Reguljära uttryck](query-lucene-syntax.md#bkmk_regex) som söker efter ett mönster eller delar av en inbäddad sträng, inklusive suffixet. Med tanke på termen "alfanumerisk" använder du till`search=/.*numeric.*/`exempel en jokerteckensökning ( ) för en suffixfrågamatchning på den termen. Jokertecken och reguljära uttryck kräver den fullständiga Lucene-syntaxen.
+
+När någon av ovanstående frågetyper behövs i klientprogrammet följer du stegen i den här artikeln för att säkerställa att det finns nödvändigt innehåll i indexet.
+
+## <a name="solving-partial-search-problems"></a>Lösa partiella sökproblem
+
+När du behöver söka på mönster eller specialtecken kan du åsidosätta standardanalysatorn med en anpassad analysator som fungerar under enklare tokeniseringsregler och behålla hela strängen. Med ett steg tillbaka ser tillvägagångssättet ut så här:
+
++ Definiera ett fält för att lagra en intakt version av strängen (förutsatt att du vill ha analyserad och icke-analyserad text)
++ Välj en fördefinierad analysator eller definiera en anpassad analysator för att mata ut en intakt sträng
 + Tilldela analysatorn till fältet
-+ Skapa index och test
-
-I den här artikeln får du hjälp med dessa uppgifter. Den metod som beskrivs här är användbar i andra scenarier: jokertecken och frågor om reguljära uttryck behöver också hela termer som grund för mönstermatchning. 
++ Skapa och testa indexet
 
 > [!TIP]
-> Att utvärdera analyers är en iterativ process som kräver frekventa indexrekningar. Du kan göra det här steget enklare genom att använda Postman, REST-API:erna för [Skapa index,](https://docs.microsoft.com/rest/api/searchservice/create-index) [Ta bort index,](https://docs.microsoft.com/rest/api/searchservice/delete-index)[läsa in dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)och [söka dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents). För Inläsningsdokument ska begärandetexten innehålla en liten representativ datauppsättning som du vill testa (till exempel ett fält med telefonnummer eller produktkoder). Med dessa API:er i samma Postman-samling kan du snabbt gå igenom de här stegen.
+> Utvärdera analysatorer är en iterativ process som kräver täta index återuppbyggningar. Du kan göra det här steget enklare genom att använda Postman, REST-API:erna för [Skapa index,](https://docs.microsoft.com/rest/api/searchservice/create-index) [Ta bort index,](https://docs.microsoft.com/rest/api/searchservice/delete-index)[läsa in dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)och [söka dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents). För Inläsningsdokument ska begärandetexten innehålla en liten representativ datauppsättning som du vill testa (till exempel ett fält med telefonnummer eller produktkoder). Med dessa API:er i samma Postman-samling kan du snabbt gå igenom de här stegen.
 
-## <a name="choosing-an-analyzer"></a>Välja en analysator
+## <a name="duplicate-fields-for-different-scenarios"></a>Duplicera fält för olika scenarier
+
+Analysatorer tilldelas per fält, vilket innebär att du kan skapa fält i indexet för att optimera för olika scenarier. Specifikt kan du definiera "featureCode" och "featureCodeRegex" för att stödja regelbundna fulltextsökning på den första och avancerade mönstermatchningen på den andra.
+
+```json
+{
+  "name": "featureCode",
+  "type": "Edm.String",
+  "retrievable": true,
+  "searchable": true,
+  "analyzer": null
+},
+{
+  "name": "featureCodeRegex",
+  "type": "Edm.String",
+  "retrievable": true,
+  "searchable": true,
+  "analyzer": "my_customanalyzer"
+},
+```
+
+## <a name="choose-an-analyzer"></a>Välj en analysator
 
 När du väljer en analysator som producerar heltermtoken är följande analysatorer vanliga alternativ:
 
@@ -42,7 +75,9 @@ När du väljer en analysator som producerar heltermtoken är följande analysat
 | [Blanksteg](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separerar endast på vita utrymmen. Termer som innehåller streck eller andra tecken behandlas som en enda token. |
 | [anpassad analysator](index-add-custom-analyzers.md) | (rekommenderas) Genom att skapa en anpassad analysator kan du ange både tokenizer- och tokenfiltret. De tidigare analysatorerna måste användas som de är. Med en anpassad analysator kan du välja vilka tokenizers och tokenfilter som ska användas. <br><br>En rekommenderad kombination är [nyckelordstokenizern](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) med ett [lågkärltokenfilter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). I sig själv, den fördefinierade [sökordsanalysator](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) inte gemener någon versaler text, vilket kan orsaka frågor misslyckas. En anpassad analysator ger dig en mekanism för att lägga till det gemena tokenfiltret. |
 
-Om du använder ett webb-API-testverktyg som Postman kan du lägga till [REST-anropet för Test Analyzer](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) för att granska tokeniserad utdata. Med tanke på ett befintligt index och ett fält som innehåller streck eller partiella termer kan du prova olika analysatorer över specifika termer för att se vilka token som skickas ut.  
+Om du använder ett webb-API-testverktyg som Postman kan du lägga till [REST-anropet för Test Analyzer](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) för att granska tokeniserad utdata.
+
+Du måste ha ett befintligt index att arbeta med. Med tanke på ett befintligt index och ett fält som innehåller streck eller partiella termer kan du prova olika analysatorer över specifika termer för att se vilka token som skickas ut.  
 
 1. Kontrollera standardanalysatorn för att se hur termer tokeniseras som standard.
 
@@ -105,15 +140,15 @@ Om du använder ett webb-API-testverktyg som Postman kan du lägga till [REST-an
     }
     ```
 > [!Important]
-> Tänk på att frågetolkar ofta gemener ofta är småster i ett sökuttryck när frågeträdet skapas. Om du använder en analysator som inte gemener text indata, och du inte får förväntade resultat, kan detta vara orsaken. Lösningen är att lägga till ett lwower-case token filter.
+> Tänk på att frågetolkar ofta gemener ofta är småster i ett sökuttryck när frågeträdet skapas. Om du använder en analysator som inte gemener text indata, och du inte får förväntade resultat, kan detta vara orsaken. Lösningen är att lägga till ett lågskrivligt tokenfilter, enligt beskrivningen i avsnittet "Använd anpassade analysatorer" nedan.
 
-## <a name="analyzer-definitions"></a>Definitioner av analysor
+## <a name="configure-an-analyzer"></a>Konfigurera en analysator
  
 Oavsett om du utvärderar analysatorer eller går vidare med en specifik konfiguration måste du ange analysatorn på fältdefinitionen och eventuellt konfigurera själva analysatorn om du inte använder en inbyggd analysator. När du byter analysatorer måste du vanligtvis återskapa indexet (släpp, återskapa och ladda om). 
 
 ### <a name="use-built-in-analyzers"></a>Använd inbyggda analysatorer
 
-Inbyggda eller fördefinierade analysatorer kan anges med `analyzer` namn på en egenskap i en fältdefinition, utan någon ytterligare konfiguration som krävs i indexet. I följande exempel visas hur `whitespace` du ställer in analysatorn på ett fält.
+Inbyggda eller fördefinierade analysatorer kan anges med `analyzer` namn på en egenskap i en fältdefinition, utan någon ytterligare konfiguration som krävs i indexet. I följande exempel visas hur `whitespace` du ställer in analysatorn på ett fält. Mer information om tillgängliga inbyggda analysatorer finns i [listan Fördefinierade analysatorer](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
 
 ```json
     {
@@ -125,7 +160,6 @@ Inbyggda eller fördefinierade analysatorer kan anges med `analyzer` namn på en
       "analyzer": "whitespace"
     }
 ```
-Mer information om alla tillgängliga inbyggda analysatorer finns i [listan Fördefinierade analysatorer](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
 
 ### <a name="use-custom-analyzers"></a>Använda anpassade analysatorer
 
@@ -134,7 +168,7 @@ Om du använder en [anpassad analysator](index-add-custom-analyzers.md)definiera
 När målet är helterm tokenisering, rekommenderas en anpassad analysator som består av en **nyckelordstokenizer** och **ett lågaktykenfilter.**
 
 + Nyckelordstokenizern skapar en enda token för hela innehållet i ett fält.
-+ Det gemena tokenfiltret omvandlar versaler till gemener. Frågetolkare ger vanligtvis gemener för versaler. Att minska omutseendet homogeniserar ingångarna med de tokeniserade termerna.
++ Det gemena tokenfiltret omvandlar versaler till gemener. Frågetolkare ger vanligtvis gemener för versaler. Lägre hölje homogeniserar ingångarna med de tokeniserade termerna.
 
 Följande exempel illustrerar en anpassad analysator som tillhandahåller nyckelordstokenizern och ett gemens tokenfilter.
 
@@ -169,6 +203,22 @@ Följande exempel illustrerar en anpassad analysator som tillhandahåller nyckel
 
 > [!NOTE]
 > Tokenizer- `keyword_v2` `lowercase` och tokenfiltret är kända för systemet och använder deras standardkonfigurationer, vilket är anledningen till att du kan referera till dem med namn utan att behöva definiera dem först.
+
+## <a name="build-and-test"></a>Skapa och testa
+
+När du har definierat ett index med analysatorer och fältdefinitioner som stöder ditt scenario läser du in dokument som har representativa strängar så att du kan testa partiella strängfrågor. 
+
+I föregående avsnitt förklarades logiken. Det här avsnittet går igenom varje API som du bör anropa när du testar din lösning. Som tidigare nämnts, om du använder ett interaktivt webbtestverktyg som Postman, kan du snabbt gå igenom dessa uppgifter.
+
++ [Ta bort index](https://docs.microsoft.com/rest/api/searchservice/delete-index) tar bort ett befintligt index med samma namn så att du kan återskapa det.
+
++ [Skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index) skapar indexstrukturen på söktjänsten, inklusive analysatorer och fält med en analysatorspecifikation.
+
++ [Läs in Dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) importerar dokument med samma struktur som ditt index, samt sökbart innehåll. Efter det här steget är indexet redo att fråga eller testa.
+
++ [Test Analyzer](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) introducerades i [Välj en analysator](#choose-an-analyzer). Testa några av strängarna i indexet med hjälp av en mängd olika analysatorer för att förstå hur termer tokeniseras.
+
++ [Sökdokument](https://docs.microsoft.com/rest/api/searchservice/search-documents) förklarar hur du skapar en frågebegäran med hjälp av [antingen enkel syntax](query-simple-syntax.md) eller fullständig [Lucene-syntax](query-lucene-syntax.md) för jokertecken och reguljära uttryck.
 
 ## <a name="tips-and-best-practices"></a>Tips och regelverk
 
@@ -227,27 +277,6 @@ Om du vill ange rollspecifik analys kan du ange `indexAnalyzer` egenskaper `sear
 "name": "featureCode",
 "indexAnalyzer":"my_customanalyzer",
 "searchAnalyzer":"standard",
-```
-
-### <a name="duplicate-fields-for-different-scenarios"></a>Duplicera fält för olika scenarier
-
-Ett annat alternativ utnyttjar datatilldelningen per fältanalysator för att optimera för olika scenarier. Specifikt kan du definiera "featureCode" och "featureCodeRegex" för att stödja regelbundna fulltextsökning på den första och avancerade mönstermatchningen på den andra.
-
-```json
-{
-  "name": "featureCode",
-  "type": "Edm.String",
-  "retrievable": true,
-  "searchable": true,
-  "analyzer": null
-},
-{
-  "name": "featureCodeRegex",
-  "type": "Edm.String",
-  "retrievable": true,
-  "searchable": true,
-  "analyzer": "my_customanalyzer"
-},
 ```
 
 ## <a name="next-steps"></a>Nästa steg

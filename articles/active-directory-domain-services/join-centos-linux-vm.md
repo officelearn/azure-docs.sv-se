@@ -8,15 +8,15 @@ ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: iainfou
-ms.openlocfilehash: c634b1288727ae045d1fb8b6f6cdff4a80e757ce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d08552dcae51c897f2419d94e5e61e857247f09a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78298913"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655226"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Ansluta till en virtuell CentOS Linux-dator till en hanterad Azure AD Domain Services-domän
 
@@ -42,7 +42,7 @@ Om du har en befintlig CentOS Linux-vm i Azure ansluter du till den med SSH och 
 
 Om du behöver skapa en Virtuell CentOS Linux-dator eller vill skapa en test-VM för användning med den här artikeln kan du använda någon av följande metoder:
 
-* [Azure-portal](../virtual-machines/linux/quick-create-portal.md)
+* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 

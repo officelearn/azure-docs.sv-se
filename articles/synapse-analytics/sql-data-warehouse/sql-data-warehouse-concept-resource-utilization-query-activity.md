@@ -11,21 +11,20 @@ ms.date: 03/11/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 0b7accec9fdce1ad81a08aee17b37d655409948b
-ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
+ms.openlocfilehash: 61c823aee5d8a6755a3bd7971cd7cca952cbb911
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80607562"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633608"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Övervaka resursanvändning och frågeaktivitet i Azure Synapse Analytics
 
-Azure Synapse Analytics ger en omfattande övervakningsupplevelse inom Azure-portalen för att visa insikter om din datalagerarbetsbelastning. Azure-portalen är det rekommenderade verktyget när du övervakar ditt informationslager eftersom det ger konfigurerbara kvarhållningsperioder, aviseringar, rekommendationer och anpassningsbara diagram och instrumentpaneler för mått och loggar. Portalen gör det också möjligt att integrera med andra Azure-övervakningstjänster, till exempel Azure Monitor (loggar) med logganalys för att ge en holistisk övervakningsupplevelse för inte bara ditt informationslager utan även hela din Azure-analysplattform för en integrerad övervakningsupplevelse. Den här dokumentationen beskriver vilka övervakningsfunktioner som är tillgängliga för att optimera och hantera din analysplattform. 
+Azure Synapse Analytics ger en omfattande övervakningsupplevelse inom Azure-portalen för att visa insikter om din datalagerarbetsbelastning. Azure-portalen är det rekommenderade verktyget när du övervakar ditt informationslager eftersom det ger konfigurerbara kvarhållningsperioder, aviseringar, rekommendationer och anpassningsbara diagram och instrumentpaneler för mått och loggar. Portalen gör det också möjligt att integrera med andra Azure-övervakningstjänster, till exempel Azure Monitor (loggar) med logganalys för att ge en holistisk övervakningsupplevelse för inte bara ditt informationslager utan även hela din Azure-analysplattform för en integrerad övervakningsupplevelse. Den här dokumentationen beskriver vilka övervakningsfunktioner som är tillgängliga för att optimera och hantera din analysplattform med SQL Analytics.
 
 ## <a name="resource-utilization"></a>Resursutnyttjande
 
-Följande mått är tillgängliga i Azure-portalen för Synapse SQL. Dessa mått visas via [Azure Monitor](../../azure-monitor/platform/data-collection.md#metrics?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-
+Följande mått är tillgängliga i Azure-portalen för SQL Analytics. Dessa mått visas via [Azure Monitor](../../azure-monitor/platform/data-collection.md?toc=/azure/synapse-analytics/sql-data-warehouse?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#metrics).
 
 | Måttnamn             | Beskrivning                                                  | Sammansättningstyp |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
@@ -55,16 +54,16 @@ Saker att tänka på när du visar mått och ställer in aviseringar:
 
 ## <a name="query-activity"></a>Frågeaktivitet
 
-För en programmatisk upplevelse när du övervakar Synapse SQL via T-SQL, tillhandahåller tjänsten en uppsättning dynamiska hanteringsvyer (DMVs). Dessa vyer är användbara när du aktivt felsöker och identifierar flaskhalsar med din arbetsbelastning.
+För en programmatisk upplevelse när du övervakar SQL Analytics via T-SQL tillhandahåller tjänsten en uppsättning d-spel (Dynamic Management Views). Dessa vyer är användbara när du aktivt felsöker och identifierar flaskhalsar med din arbetsbelastning.
 
-Om du vill visa listan över DMVs som gäller för Synapse SQL läser du den här [dokumentationen](sql-data-warehouse-reference-tsql-system-views.md#sql-data-warehouse-dynamic-management-views-dmvs). 
+Information om hur du visar listan över DMV:er som SQL Analytics tillhandahåller finns i den här [dokumentationen](sql-data-warehouse-reference-tsql-system-views.md#sql-data-warehouse-dynamic-management-views-dmvs).
 
 ## <a name="metrics-and-diagnostics-logging"></a>Mått- och diagnostikloggning
 
-Både mått och loggar kan exporteras till Azure Monitor, särskilt [Azure Monitor-loggkomponenten](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och kan nås programmässigt via [loggfrågor](../../azure-monitor/log-query/get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Loggsvarstiden för Synapse SQL är ca 10-15 minuter. Mer information om vilka faktorer som påverkar svarstiden finns i följande dokumentation.
+Både mått och loggar kan exporteras till Azure Monitor, särskilt [Azure Monitor-loggkomponenten](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och kan nås programmässigt via [loggfrågor](../../azure-monitor/log-query/get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Loggsvarstiden för SQL Analytics är ca 10-15 minuter. Mer information om vilka faktorer som påverkar svarstiden finns i följande dokumentation.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Följande how-to-guider beskriver vanliga scenarier och användningsfall när du övervakar och hanterar ditt informationslager:
 
-- [Övervaka din datalagerarbetsbelastning med DMV:er](/sql-data-warehouse/sql-data-warehouse-manage-monitor?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  
+- [Övervaka din datalagerarbetsbelastning med DMV:er](sql-data-warehouse-manage-monitor.md)

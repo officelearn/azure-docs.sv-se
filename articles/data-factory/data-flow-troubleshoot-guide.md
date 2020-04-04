@@ -7,13 +7,13 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 02/04/2020
-ms.openlocfilehash: e2e1ddd031041f49107545cd0b3d3de4eaebcd6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: a5244086c185c111762496086f8044f12f52be14
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77472136"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632598"
 ---
 # <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Felsöka dataflöden i Azure Data Factory
 
@@ -56,6 +56,18 @@ I den här artikeln beskrivs vanliga felsökningsmetoder för dataflöden i Azur
 - **Orsaker**: Inget kolumnnamn har angetts
 - **Rekommendation**: Ange ett alias om du använder en SQL-funktion som min()/max(), etc.
 
+### <a name="error-code-getcommand-outputasync-failed"></a>Felkod: GetCommand OutputAsync misslyckades
+
+- **Meddelande:** Under dataflöde felsökning och data förhandsvisning: GetCommand OutputAsync misslyckades med ...
+- **Orsaker**: Detta är ett backend-tjänstfel. Du kan försöka igen och även starta om felsökningssessionen.
+- **Rekommendation:** Om ett nytt försök och omstart inte löser problemet kontaktar du kundtjänst.
+
+### <a name="error-code-hit-unexpected-exception-and-execution-failed"></a>Felkod: Träff oväntat undantag och körning misslyckades
+
+- **Meddelande**: Under körning av dataflödesaktivitet: Träff oväntat undantag och körning misslyckades.
+- **Orsaker**: Detta är ett backend-tjänstfel. Du kan försöka igen och även starta om felsökningssessionen.
+- **Rekommendation:** Om ett nytt försök och omstart inte löser problemet kontaktar du kundtjänst.
+
 ## <a name="general-troubleshooting-guidance"></a>Allmän felsökningsvägledning
 
 1. Kontrollera status för dina datauppsättningsanslutningar. I varje käll- och sink-omvandling besöker du den länkade tjänsten för varje datauppsättning som du använder och testar anslutningar.
@@ -68,7 +80,7 @@ Mer felsökningshjälp finns i följande resurser:
 *  [Data Factory blogg](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Begäran om datafabriksfunktion](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure-videor](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [MSDN forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
+*  [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
 *  [Stack Spill forum för Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information om Data Factory](https://twitter.com/hashtag/DataFactory)
 *  [ADF-mappning av dataflöden Prestandaguide](concepts-data-flow-performance.md)

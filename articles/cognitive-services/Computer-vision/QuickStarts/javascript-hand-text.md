@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 03/26/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8c3f5dae62aef6c8e8ec1eeaeb712ebff67397c9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: cca5680d307874a565dec47f643bf9320192c270
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77566190"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656090"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-javascript"></a>Snabbstart: Extrahera tryckt och handskriven text med hjälp av computer vision 2.0 och 2.1 REST API och JavaScript
 
@@ -45,7 +45,7 @@ Jämfört med Computer Vision 2.0 och 2.1 innehåller Den offentliga förhandsve
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) konto innan du börjar.
 
-Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnadsfri testversionsnyckel från [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Du kan också följa instruktionerna i [Skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Datorseende och få din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel- och `COMPUTER_VISION_SUBSCRIPTION_KEY` tjänstslutpunktssträngen, med namnet respektive `COMPUTER_VISION_ENDPOINT`.
+Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnadsfri testversionsnyckel från [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Du kan också följa instruktionerna i [Skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Datorseende och få din nyckel. Spara prenumerationsnyckeln och slutpunkts-URL:en på en tillfällig plats.
 
 ## <a name="create-and-run-the-sample"></a>Skapa och köra exemplet
 
@@ -53,12 +53,12 @@ Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kost
 
 Så här skapar du och kör exemplet:
 
-1. Kopiera följande kod till en textredigerare.
+1. Skapa en fil som heter _get-text.html,_ öppna den i en textredigerare och kopiera följande kod till den.
 1. Du kan också ersätta `value` värdet för `inputImage` attributet för kontrollen med URL:en för en annan bild som du vill extrahera text från.
-1. Spara koden som en fil med tillägget `.html`. Till exempel `get-text.html`.
 1. Öppna ett webbläsarfönster.
 1. Dra och släpp filen till webbläsarfönstret i webbläsaren.
-1. När webbsidan visas i webbläsaren väljer du knappen **Läs bild**.
+1. När webbsidan visas i webbläsaren klistrar du in prenumerationsnyckeln och slutpunkts-URL:en i lämpliga inmatningsrutor.
+1. Välj knappen **Läs bild.**
 
 ```html
 <!DOCTYPE html>
@@ -75,9 +75,8 @@ Så här skapar du och kör exemplet:
         // *** Update or verify the following values. ***
         // **********************************************
 
-        let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
-        let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
-        if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
+        var subscriptionKey = document.getElementById("subscriptionKey").value;
+        var endpoint = document.getElementById("endpointUrl").value;
         
         var uriBase = endpoint + "vision/v2.1/read/core/asyncBatchAnalyze";
 
@@ -170,6 +169,13 @@ Så här skapar du och kör exemplet:
 <h1>Read text from image:</h1>
 Enter the URL to an image of text, then click
 the <strong>Read image</strong> button.
+<br><br>
+Subscription key: 
+<input type="text" name="subscriptionKey" id="subscriptionKey"
+    value="" /> 
+Endpoint URL:
+<input type="text" name="endpointUrl" id="endpointUrl"
+    value="" />
 <br><br>
 Image to read:
 <input type="text" name="inputImage" id="inputImage"

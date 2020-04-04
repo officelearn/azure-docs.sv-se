@@ -1,6 +1,6 @@
 ---
 title: Tilldela variabler
-description: Tips för att tilldela T-SQL-variabler i Azure SQL Data Warehouse för att utveckla lösningar.
+description: I den här artikeln hittar du viktiga tips för att tilldela T-SQL-variabler i SQL-poolen.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0adcd9bdf92b7ec649b7d91ca0e655fc006b3549
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 2dcf706ea59657abc2718a69e59191604dc2849d
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351652"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633409"
 ---
-# <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Tilldela variabler i Azure SQL Data Warehouse
+# <a name="assign-variables-in-synapse-sql-pool"></a>Tilldela variabler i Synapse SQL-pool
 
-Tips för att tilldela T-SQL-variabler i Azure SQL Data Warehouse för att utveckla lösningar.
+I den här artikeln hittar du viktiga tips för att tilldela T-SQL-variabler i SQL-poolen.
 
-## <a name="setting-variables-with-declare"></a>Ange variabler med DEKLARERA
+## <a name="set-variables-with-declare"></a>Ange variabler med DEKLARERA
 
-Variabler i SQL Data Warehouse `DECLARE` anges `SET` med hjälp av uttrycket eller uttrycket. Att initiera variabler med DECLARE är ett av de mest flexibla sätten att ange ett variabelvärde i SQL Data Warehouse.
+Variabler i SQL-poolen `DECLARE` anges med `SET` hjälp av uttrycket eller uttrycket. Att initiera variabler med DECLARE är ett av de mest flexibla sätten att ange ett variabelt värde i SQL-poolen.
 
 ```sql
 DECLARE @v  int = 0
@@ -39,7 +39,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-Du kan inte initiera och använda en variabel i samma DECLARE-sats. För att illustrera punkten är **not** följande @p1 exempel inte tillåtet eftersom både initieras och används i samma DECLARE-sats. Följande exempel ger ett fel.
+Du kan inte initiera och använda en variabel i samma DECLARE-sats. För att illustrera punkten är **not** följande @p1 exempel inte tillåtet eftersom både initieras och används i samma DECLARE-sats. I följande exempel visas ett fel i följande exempel:
 
 ```sql
 DECLARE @p1 int = 0
@@ -47,7 +47,7 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## <a name="setting-values-with-set"></a>Ange värden med SET
+## <a name="set-values-with-set"></a>Ange värden med SET
 
 SET är en vanlig metod för att ange en enda variabel.
 

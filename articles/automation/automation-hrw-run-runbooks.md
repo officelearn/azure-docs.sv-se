@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9b9196cde45686e42d1baf7faedf94bdb73acccc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 902734ddc7195d643c3aedb4054f57723d1a51c2
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367067"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632126"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Köra runbooks på en Hybrid Runbook Worker
 
@@ -252,7 +252,7 @@ $SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprin
 Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
-När en runbook har signerats måste du importera den till ditt Automation-konto och publicera den med signaturblocket. Mer information om hur du importerar runbooks finns i [Importera en runbook från en fil till Azure Automation](manage-runbooks.md#import-a-runbook).
+När en runbook har signerats måste du importera den till ditt Automation-konto och publicera den med signaturblocket. Mer information om hur du importerar runbooks finns i [Importera en runbook från en fil till Azure Automation](manage-runbooks.md#importing-a-runbook).
 
 ## <a name="working-with-signed-runbooks-on-a-linux-hybrid-runbook-worker"></a>Arbeta med signerade runbooks på en Linux Hybrid Runbook Worker
 

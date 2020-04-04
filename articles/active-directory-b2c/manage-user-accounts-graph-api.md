@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3bd166572cea23fbb710cd053c28f51e76ba534a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 42596ba5470c6062efba4fd1050c1c9745b76e80
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476679"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637330"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Hantera Azure AD B2C-användarkonton med Microsoft Graph
 
@@ -151,7 +151,7 @@ Programmet visar en lista över kommandon som du kan köra. Hämta till exempel 
 
 ### <a name="code-discussion"></a>Kod diskussion
 
-Exempelkoden använder [Microsoft Graph SDK](https://docs.microsoft.com/graph/sdks/sdks-overview), som är utformat för att förenkla byggandet av högkvalitativa, effektiva och elastiska program som får åtkomst till Microsoft Graph. Så du behöver inte göra en direkt alla Microsoft Graph API.
+Exempelkoden använder [Microsoft Graph SDK](https://docs.microsoft.com/graph/sdks/sdks-overview), som är utformat för att förenkla byggandet av högkvalitativa, effektiva och elastiska program som får åtkomst till Microsoft Graph.
 
 Alla förfrågningar till Microsoft Graph API kräver en åtkomsttoken för autentisering. Lösningen använder sig av [Microsoft.Graph.Auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) NuGet-paketet som tillhandahåller ett autentiseringsscenariobaserat omslag av Microsoft Authentication Library (MSAL) för användning med Microsoft Graph SDK.
 

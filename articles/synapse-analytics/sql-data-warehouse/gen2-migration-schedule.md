@@ -11,12 +11,12 @@ ms.service: synapse-analytics
 ms.topic: article
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4714d5908fffb6f5c1440c3ec512fb8173da4b57
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 6f2af826473bfd13f8100796a540d41cbedbb037
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346765"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631572"
 ---
 # <a name="upgrade-your-sql-pool-to-gen2"></a>Uppgradera din SQL-pool till Gen2
 
@@ -60,8 +60,8 @@ Det finns två alternativ när du utför en självuppgradering.  Du kan antingen
 - [Uppgradera på plats](upgrade-to-latest-generation.md) - Det här alternativet uppgraderar din befintliga Gen1 SQL-pool till Gen2. Uppgraderingsprocessen kommer att innebära en kort minskning av anslutningen (ca 5 min) när vi startar om din SQL-pool.  När SQL-poolen har startats om är den fullt tillgänglig för användning. Om du får problem under uppgraderingen öppnar du en [supportbegäran](sql-data-warehouse-get-started-create-support-ticket.md) och refererar till "Gen2-uppgradering" som möjlig orsak.
 - [Uppgradera från återställningspunkten](sql-data-warehouse-restore-points.md) - Skapa en användardefinierad återställningspunkt på din aktuella Gen1 SQL-pool och återställ sedan direkt till en Gen2-instans. Den befintliga Gen1 SQL-poolen kommer att finnas kvar. När återställningen har slutförts kommer Din Gen2 SQL-pool att vara fullt tillgänglig för användning.  När du har kört alla test- och valideringsprocesser på den återställda Gen2-instansen kan den ursprungliga Gen1-instansen tas bort.
 
-   - Steg 1: Skapa [en användardefinierad återställningspunkt från Azure-portalen](sql-data-warehouse-restore-active-paused-dw.md).
-   - Steg 2: När du återställer från en användardefinierad återställningspunkt ställer du in "prestandanivå" på önskad Gen2-nivå.
+  - Steg 1: Skapa [en användardefinierad återställningspunkt från Azure-portalen](sql-data-warehouse-restore-active-paused-dw.md).
+  - Steg 2: När du återställer från en användardefinierad återställningspunkt ställer du in "prestandanivå" på önskad Gen2-nivå.
 
 Det kan uppstå en prestandaförsämring när datafilerna uppgraderas i bakgrunden. Hur länge prestandaförsämringen pågår beror på storleken på dina filer.
 
@@ -82,13 +82,14 @@ Mer information finns i [Uppgradera till Gen2](upgrade-to-latest-generation.md).
 
 **F: Hur påverkar uppgraderingarna mina automatiseringsskript?**
 
-- S: Alla automatiseringsskript som refererar till ett servicenivåmål bör ändras så att det motsvarar gen2-motsvarigheten.  Se detaljer [här](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal).
+- S: Alla automatiseringsskript som refererar till ett servicenivåmål bör ändras så att det motsvarar gen2-motsvarigheten.  Se detaljer [här](upgrade-to-latest-generation.md#upgrade-in-a-supported-region-using-the-azure-portal).
 
 **F: Hur lång tid tar en självuppgradering normalt?**
 
-- S: Du kan uppgradera på plats eller uppgradera från en återställningspunkt.  
-   - Om du uppgraderar på plats pausas och återupptas SQL-poolen tillfälligt.  En bakgrundsprocess fortsätter medan SQL-poolen är online.  
-   - Det tar längre tid om du uppgraderar via en återställningspunkt, eftersom uppgraderingen kommer att gå igenom hela återställningsprocessen.
+- S: Du kan uppgradera på plats eller uppgradera från en återställningspunkt.
+
+  - Om du uppgraderar på plats pausas och återupptas SQL-poolen tillfälligt.  En bakgrundsprocess fortsätter medan SQL-poolen är online.  
+  - Det tar längre tid om du uppgraderar via en återställningspunkt, eftersom uppgraderingen kommer att gå igenom hela återställningsprocessen.
 
 **F: Hur lång tid tar den automatiska uppgraderingen?**
 
@@ -100,12 +101,14 @@ Mer information finns i [Uppgradera till Gen2](upgrade-to-latest-generation.md).
 
 **F: Vad ska jag göra om min bakgrundsuppgraderingsprocess verkar ha fastnat?**
 
- - S: Starta en omindexering av dina Columnstore-tabeller. Observera att omindexeringen av tabellen kommer att vara offline under den här åtgärden.
+- S: Starta en omindexering av dina Columnstore-tabeller. Observera att omindexeringen av tabellen kommer att vara offline under den här åtgärden.
 
 **F: Vad händer om Gen2 inte har det servicenivåmål jag har på Gen1?**
+
 - S: Om du kör en DW600 eller DW1200 på Gen1, rekommenderas att använda DW500c respektive DW1000c eftersom Gen2 ger mer minne, resurser och högre prestanda än Gen1.
 
 **F: Kan jag inaktivera geo-säkerhetskopiering?**
+
 - S: Nej. Geo-backup är en företagsfunktion för att bevara din SQL-pool tillgänglighet i händelse av att en region blir otillgänglig. Öppna en [supportbegäran](sql-data-warehouse-get-started-create-support-ticket.md) om du har ytterligare problem.
 
 **F: Finns det en skillnad i T-SQL syntax mellan Gen1 och Gen2?**
@@ -124,7 +127,7 @@ Mer information finns i [Uppgradera till Gen2](upgrade-to-latest-generation.md).
 
 - [Uppgradera steg](upgrade-to-latest-generation.md)
 - [Underhållsfönster](maintenance-scheduling.md)
-- [Övervakare av resurshälsa](https://docs.microsoft.com/azure/service-health/resource-health-overview)
+- [Övervakare av resurshälsa](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 - [Granska innan du påbörjar en migrering](upgrade-to-latest-generation.md#before-you-begin)
 - [Uppgradera på plats och uppgradera från en återställningspunkt](upgrade-to-latest-generation.md)
 - [Skapa en användardefinierad återställningspunkt](sql-data-warehouse-restore-points.md)

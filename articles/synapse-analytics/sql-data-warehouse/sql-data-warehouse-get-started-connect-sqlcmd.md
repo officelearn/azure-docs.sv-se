@@ -1,6 +1,6 @@
 ---
 title: Anslut med sqlcmd
-description: Använd kommandoradsverktyget sqlcmd för att ansluta till och hämta information från ett Azure SQL Data Warehouse.
+description: Använd kommandoradsverktyget sqlcmd för att ansluta till och fråga en Synapse SQL-pool.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,31 +11,31 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 118997c39b56254eb47bc24350a0558e0b7620f9
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: cfb1b7558f8d7675009a0ebc729cc1a560f03d12
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350497"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633378"
 ---
-# <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Anslut till SQL Data Warehouse med sqlcmd
+# <a name="connect-to-synapse-sql-pool-with-sqlcmd"></a>Ansluta till Synapse SQL-pool med sqlcmd
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [Sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
-> * [SSMS (SSMS)](sql-data-warehouse-query-ssms.md)
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
-Använd kommandoradsverktyget [sqlcmd][sqlcmd] för att ansluta till och hämta information från ett Azure SQL Data Warehouse.  
+Använd kommandoradsverktyget [sqlcmd][sqlcmd] för att ansluta till och fråga en SQL-pool.  
 
 ## <a name="1-connect"></a>1. Anslut
-Du kommer igång med [sqlcmd][sqlcmd] genom att öppna kommandotolken och ange **sqlcmd** följt av anslutningssträngen för din SQL Data Warehouse-databas. Anslutningssträngen kräver följande parametrar:
+Om du vill komma igång med [sqlcmd][sqlcmd] öppnar du kommandotolken och anger **sqlcmd** följt av anslutningssträngen för SQL-pooldatabasen. Anslutningssträngen kräver följande parametrar:
 
 * **Server (-S):** Server i formatet `<`servernamn`>`. database.windows.net
 * **Databas (-d):** Databasens namn.
-* **Aktivera identifierare inom citattecken (-I):** Identifierare inom citattecken måste vara aktiverat för att kunna ansluta till en instans av SQL Data Warehouse.
+* **Aktivera citerade identifierare (-I):** Citerade identifierare måste vara aktiverade för att ansluta till en SQL-poolinstans.
 
 Om du vill använda SQL Server-autentisering måste du lägga till användarnamn/lösenordsparametrar:
 
@@ -84,14 +84,4 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se [sqlcmd-dokumentationen][sqlcmd] för mer information om tillgängliga alternativ i sqlcmd.
-
-<!--Image references-->
-
-<!--Article references-->
-
-<!--MSDN references--> 
-[sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
-[Azure portal]: https://portal.azure.com
-
-<!--Other Web references-->
+Mer information om vilka alternativ som finns i sqlcmd finns i [sqlcmd-dokumentationen](https://msdn.microsoft.com/library/ms162773.aspx) .

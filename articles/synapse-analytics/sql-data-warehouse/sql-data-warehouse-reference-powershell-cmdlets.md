@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5f22de08c4eabd3f9a3d6ee29cad3f0a9e8509e0
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 644ad931879c1953560abf13ac0eda58f3d814d8
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351389"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633063"
 ---
 # <a name="powershell--rest-apis-for-azure-synapse-analytics-sql-pool"></a>PowerShell & REST-API:er för Azure Synapse Analytics SQL-pool
 
@@ -28,7 +28,7 @@ Många administrativa Azure Synapse Analytics SQL-pool-uppgifter kan hanteras me
 
 1. Öppna Windows PowerShell.
 2. I PowerShell-prompten kör du dessa kommandon för att logga in på Azure Resource Manager och välja din prenumeration.
-   
+
     ```powershell
     Connect-AzAccount
     Get-AzSubscription
@@ -36,6 +36,7 @@ Många administrativa Azure Synapse Analytics SQL-pool-uppgifter kan hanteras me
     ```
 
 ## <a name="pause-data-warehouse-example"></a>Pausa informationslagerexempel
+
 Pausa en databas med namnet "Database02" som finns på en server med namnet "Server01".  Servern finns i en Azure-resursgrupp med namnet "ResourceGroup1".
 
 ```Powershell
@@ -67,27 +68,26 @@ $resultDatabase = $database | Resume-AzSqlDatabase
 
 > [!NOTE]
 > Observera att om servern är foo.database.windows.net använder du "foo" som -ServerName i PowerShell-cmdletar.
-> 
-> 
 
 ## <a name="other-supported-powershell-cmdlets"></a>Andra PowerShell-cmdlets som stöds
+
 Dessa PowerShell-cmdlets stöds med Azure Synapse Analytics-informationslagret.
 
-* [Hämta AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase)
-* [Hämta-AzSqlDeletedDatabaseBackup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup)
-* [Hämta AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserestorepoint)
-* [Ny-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)
-* [Ta bort-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabase)
-* [Återställ-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)
-* [Meritförteckning-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/resume-azsqldatabase)
-* [Välj-azabonnemang](https://msdn.microsoft.com/library/dn722499.aspx)
-* [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
-* [Suspend-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/suspend-azsqldatabase)
+* [Hämta AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+* [Hämta-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+* [Hämta AzSqlDatabaseRestorePoint](/powershell/module/az.sql/get-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+* [Ny-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+* [Ta bort-AzSqlDatabase](/powershell/module/az.sql/remove-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+* [Restore-AzSqlDatabase]/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+* [Meritförteckning-AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+* [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+* [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 ## <a name="next-steps"></a>Nästa steg
+
 Mer PowerShell-exempel finns i:
 
 * [Skapa ett informationslager med PowerShell](create-data-warehouse-powershell.md)
 * [Återställning av databas](sql-data-warehouse-restore-points.md)
 
-Andra uppgifter som kan automatiseras med PowerShell finns i [Azure SQL Database cmdlets](https://docs.microsoft.com/powershell/module/az.sql). Alla Azure SQL Database-cmdlets stöds inte för Azure Synapse Analytics-datalager.  En lista över uppgifter som kan automatiseras med REST finns i [Åtgärder för Azure SQL Database](/rest/api/sql/).
+Andra uppgifter som kan automatiseras med PowerShell finns i [Azure SQL Database cmdlets]/powershell/module/az.sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Alla Azure SQL Database-cmdlets stöds inte för Azure Synapse Analytics-datalager. En lista över uppgifter som kan automatiseras med REST finns i [Åtgärder för Azure SQL Database](/rest/api/sql/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 8543894f3f518df6b9b0054973ca1683b82e38f1
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: df80668f5e4a31d6247e9e9806e3de0667fd9036
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548994"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656015"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Så här arbetar du med sökresultat i Azure Cognitive Search
 
@@ -39,7 +39,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06
 > [!NOTE]
 > Om du vill inkludera bildfiler i ett resultat, till exempel ett produktfoto eller en logotyp, lagrar du dem utanför Azure Cognitive Search, men inkluderar ett fält i indexet för att referera till bild-URL:en i sökdokumentet. Exempel index som stöder bilder i resultaten inkluderar **realestate-sample-us** demo, med i denna [snabbstart,](search-create-app-portal.md)och [New York City Jobs demo app](https://aka.ms/azjobsdemo).
 
-## <a name="results-returned"></a>Resultat som returneras
+## <a name="paging-results"></a>Växla resultat
 
 Som standard returnerar sökmotorn upp till de första 50 matchningarna, vilket bestäms av sökpoängen om frågan är fulltextsökning eller i en godtycklig ordning för exakta matchningsfrågor.
 
@@ -74,19 +74,19 @@ Observera att dokument 2 hämtas två gånger. Detta beror på att det nya dokum
 
 ## <a name="ordering-results"></a>Ordna resultaten
 
-För fulltextsökningsfrågor rangordnas resultaten automatiskt efter ett sökresultat, beräknat baserat på termfrekvens och närhet i ett dokument, med högre poäng som går till dokument som har fler eller starkare matchningar på en sökterm. Sökpoäng förmedlar allmän känsla av relevans, i förhållande till andra dokument i samma resultatuppsättning, och är inte garanterade att vara konsekvent från en fråga till en annan.
+För fulltextsökningsfrågor rangordnas resultaten automatiskt efter ett sökresultat, beräknat baserat på termfrekvens och närhet i ett dokument, med högre poäng som går till dokument som har fler eller starkare matchningar på en sökterm. 
 
-När du arbetar med frågor kan du märka små avvikelser i ordnade resultat. Det finns flera förklaringar till varför detta kan inträffa.
+Sökpoäng förmedlar allmän känsla av relevans, vilket återspeglar styrkan i matchen jämfört med andra dokument i samma resultatuppsättning. Poängen är inte alltid konsekventa från en fråga till en annan, så när du arbetar med frågor kan du märka små avvikelser i hur sökdokument ordnas. Det finns flera förklaringar till varför detta kan inträffa.
 
-| Villkor | Beskrivning |
+| Orsak | Beskrivning |
 |-----------|-------------|
-| Datavolatilitet | Innehållet i ett index varierar när du lägger till, ändrar eller tar bort dokument. Termfrekvenser ändras när indexuppdateringar bearbetas med tiden, vilket påverkar sökpoängen för matchande dokument. |
-| Plats för frågekörning | För tjänster som använder flera repliker utfärdas frågor mot varje replik parallellt. Indexstatistiken som används för att beräkna en sökresultat beräknas per replik, med resultat kopplade och ordnade i frågesvaret. Repliker är mestadels speglar av varandra, men statistiken kan variera på grund av små skillnader i tillstånd. En replik kan till exempel ha tagit bort dokument som bidrar till deras statistik, som slogs samman från andra repliker. I allmänhet är skillnaderna i statistik per replik mer märkbara i mindre index. |
-| Bryta oavgjort mellan identiska sökpoäng | Avvikelser i ordnade resultat kan också uppstå när sökdokument har identiska poäng. I det här fallet, när du kör samma fråga igen, finns det ingen garanti för vilket dokument som visas först. |
+| Datavolatilitet | Indexinnehållet varierar när du lägger till, ändrar eller tar bort dokument. Termfrekvenser ändras när indexuppdateringar bearbetas med tiden, vilket påverkar sökpoängen för matchande dokument. |
+| Flera repliker | För tjänster som använder flera repliker utfärdas frågor mot varje replik parallellt. Indexstatistiken som används för att beräkna en sökresultat beräknas per replik, med resultat kopplade och ordnade i frågesvaret. Repliker är mestadels speglar av varandra, men statistiken kan variera på grund av små skillnader i tillstånd. En replik kan till exempel ha tagit bort dokument som bidrar till deras statistik, som slogs samman från andra repliker. Vanligtvis är skillnader i statistik per replik mer märkbara i mindre index. |
+| Identiska poäng | Om flera dokument har samma poäng kan någon av dem visas först.  |
 
 ### <a name="consistent-ordering"></a>Konsekvent beställning
 
-Med tanke på flex i sökning scoring, kanske du vill utforska andra alternativ om konsekvens i resultatorder är ett programkrav. Den enklaste metoden är att sortera efter ett fältvärde, till exempel betyg eller datum. För scenarier där du vill sortera efter ett visst fält, till exempel [ `$orderby` ](query-odata-filter-orderby-syntax.md)en klassificering eller ett datum, kan du uttryckligen definiera ett uttryck som kan tillämpas på alla fält som är indexerade som **sorterbara**.
+Med tanke på flex i resultatordning, kanske du vill utforska andra alternativ om konsekvens är ett programkrav. Den enklaste metoden är att sortera efter ett fältvärde, till exempel betyg eller datum. För scenarier där du vill sortera efter ett visst fält, till exempel [ `$orderby` ](query-odata-filter-orderby-syntax.md)en klassificering eller ett datum, kan du uttryckligen definiera ett uttryck som kan tillämpas på alla fält som är indexerade som **sorterbara**.
 
 Ett annat alternativ är att använda en [anpassad bedömningsprofil](index-add-scoring-profiles.md). Poängsättningsprofiler ger dig större kontroll över rangordningen av objekt i sökresultaten, med möjlighet att öka matchningar som finns i specifika fält. Den ytterligare poängsättningslogiken kan hjälpa till att åsidosätta mindre skillnader mellan repliker eftersom sökpoängen för varje dokument är längre ifrån varandra. Vi rekommenderar [rankningsalgoritmen](index-ranking-similarity.md) för den här metoden.
 

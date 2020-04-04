@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 114f8d637a927a899807a676fb3e1b45f5c7687c
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 3efd8a776542616a9ceefba331b06406540905a8
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585748"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633327"
 ---
 # <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Hantera och övervaka arbetsbelastningsbetydelse i Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ Hantera och övervaka Synapse SQL-begäransnivå i Azure Synapse med hjälp av D
 
 ## <a name="monitor-importance"></a>Övervaka betydelse
 
-Övervaka vikten med hjälp av den nya prioritetskolumnen i [den dynamiska hanteringsvyn sys.dm_pdw_exec_requests.](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest)
+Övervaka vikten med hjälp av den nya prioritetskolumnen i [den dynamiska hanteringsvyn sys.dm_pdw_exec_requests.](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 Övervakningsfrågan nedan visar skicka tid och starttid för frågor. Granska inlämningstiden och starttiden tillsammans med vikten för att se hur viktigt påverkade schemaläggningen.
 
 ```sql
@@ -47,7 +47,7 @@ SELECT *
   WHERE classifier_id > 12
 ```
 
-Katalogvyn [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest)innehåller information om de parametrar som används för att skapa klassificeraren.  Nedanstående fråga visar att ExecReportsClassifier ```membername``` skapades på parametern för värden med ExecutiveReports:
+Katalogvyn [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)innehåller information om de parametrar som används för att skapa klassificeraren.  Nedanstående fråga visar att ExecReportsClassifier ```membername``` skapades på parametern för värden med ExecutiveReports:
 
 ```sql
 SELECT c.name,cd.classifier_type, classifier_value
@@ -69,6 +69,7 @@ GO
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 - Mer information om klassificering finns i [Arbetsbelastningsklassificering](sql-data-warehouse-workload-classification.md).
 - Mer information om Betydelse finns i [Arbetsbelastningsbetydning](sql-data-warehouse-workload-importance.md)
 

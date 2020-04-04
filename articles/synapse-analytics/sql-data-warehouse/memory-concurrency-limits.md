@@ -11,17 +11,19 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c427c832eb613dddbff33ef6e67af63112e2f136
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 56ab49949b4ea2a92bc591042b2d43a7f7b2dc63
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586058"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632670"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Begränsningar för minne och samtidighet för Azure Synapse Analytics
+
 Visa de begränsningar för minne och samtidighet som allokerats till de olika prestandanivåerna och resursklasserna i Azure Synapse Analytics.  
 
 ## <a name="data-warehouse-capacity-settings"></a>Inställningar för datalagerkapacitet
+
 Följande tabeller visar den maximala kapaciteten för informationslagret på olika prestandanivåer. Mer om du vill ändra prestandanivån finns i [Skala beräkning - portal](quickstart-scale-compute-portal.md).
 
 ### <a name="service-levels"></a>Servicenivåer
@@ -50,7 +52,8 @@ Servicenivåerna sträcker sig från DW100c till DW30000c.
 Den maximala servicenivån är DW30000c, som har 60 beräkningsnoder och en distribution per beräkningsnod. Ett 600 TB-informationslager på DW30000c bearbetar till exempel cirka 10 TB per beräkningsnod.
 
 ## <a name="concurrency-maximums-for-workload-groups"></a>Maximalt antal samtidigheter för arbetsbelastningsgrupper
-I och med införandet av [arbetsbelastningsgrupper](sql-data-warehouse-workload-isolation.md)gäller inte längre begreppet samtidighetsplatser.  Resurser per begäran fördelas i procent och anges i arbetsbelastningsgruppdefinitionen.  Men även med borttagning av samtidighetsplatser finns det minsta belopp för resurser som behövs per frågor baserat på servicenivån.  I tabellen nedan definierades den minsta mängd resurser som behövs per fråga över tjänstnivåer och den tillhörande samtidighet som kan uppnås. 
+
+I och med införandet av [arbetsbelastningsgrupper](sql-data-warehouse-workload-isolation.md)gäller inte längre begreppet samtidighetsplatser.  Resurser per begäran fördelas i procent och anges i arbetsbelastningsgruppdefinitionen.  Men även med borttagning av samtidighetsplatser finns det minsta belopp för resurser som behövs per frågor baserat på servicenivån.  I tabellen nedan definierades den minsta mängd resurser som behövs per fråga över tjänstnivåer och den tillhörande samtidighet som kan uppnås.
 
 |Servicenivå|Maximala samtidiga frågor|Min % stöd för REQUEST_MIN_RESOURCE_GRANT_PERCENT|
 |---|---|---|
@@ -73,7 +76,8 @@ I och med införandet av [arbetsbelastningsgrupper](sql-data-warehouse-workload-
 ||||
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>Maximalt antal samtidigheter för resursklasser
-För att säkerställa att varje fråga har tillräckligt med resurser för att köra effektivt spåras resursutnyttjandet genom att tilldela samtidighetsplatser till varje fråga. Systemet placerar frågor i en kö baserat på prioritet och samtidighetsplatser. Frågor väntar i kön tills tillräckligt med samtidighetsplatser är tillgängliga. [Viktiga](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) och samtidighetsplatser avgör CPU-prioritering. Mer information finns i [Analysera din arbetsbelastning](analyze-your-workload.md)
+
+För att säkerställa att varje fråga har tillräckligt med resurser för att köra effektivt spårar SQL Analytics i Azure Synapse resursutnyttjande genom att tilldela samtidighetsplatser till varje fråga. Systemet placerar frågor i en kö baserat på prioritet och samtidighetsplatser. Frågor väntar i kön tills tillräckligt med samtidighetsplatser är tillgängliga. [Viktiga](sql-data-warehouse-workload-importance.md) och samtidighetsplatser avgör CPU-prioritering. Mer information finns i [Analysera din arbetsbelastning](analyze-your-workload.md)
 
 **Statiska resursklasser**
 
@@ -121,11 +125,11 @@ I följande tabell visas de maximala samtidiga frågorna och samtidighetsplatser
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
-
-När det inte finns tillräckligt med samtidighetsplatser som är lediga för att starta frågekörning, köas och körs frågor baserat på betydelse.  Om det finns motsvarande betydelse utförs frågor först in, först ut.  När en fråga avslutas och antalet frågor och platser hamnar under gränserna, SQL Data Warehouse-versioner i kösfrågor. 
+När det inte finns tillräckligt med samtidighetsplatser som är lediga för att starta frågekörning, köas och körs frågor baserat på betydelse.  Om det finns motsvarande betydelse utförs frågor först in, först ut.  När en fråga avslutas och antalet frågor och platser hamnar under gränserna, SQL Data Warehouse-versioner i kösfrågor.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om hur du utnyttjar resursklasser för att optimera arbetsbelastningen ytterligare läser du följande artiklar:
+
 * [Resursklasser för arbetsbelastningshantering](resource-classes-for-workload-management.md)
 * [Analysera din arbetsbelastning](analyze-your-workload.md)

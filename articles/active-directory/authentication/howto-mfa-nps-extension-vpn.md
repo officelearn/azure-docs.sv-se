@@ -4,19 +4,19 @@ description: Integrera din VPN-infrastruktur med Azure MFA med hjälp av tilläg
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f446f1549b3efcd5f27752fac972dfd80c8650d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ec8d5b66c71c558e56f3d1f48cec96d7cc487552
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425410"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80654132"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrera din VPN-infrastruktur med Azure MFA med hjälp av tillägget Network Policy Server för Azure
 
@@ -108,8 +108,8 @@ NPS-tillägget kräver Windows Server 2008 R2 SP1 eller senare, med rollen Nätv
 
 Följande bibliotek installeras automatiskt med NPS-tillägget:
 
--   [Visuella C++ Redistributable-paket för Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
--   [Microsoft Azure Active Directory-modul för Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+-    [Visuella C++ Redistributable-paket för Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+-    [Microsoft Azure Active Directory-modul för Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
 Om Microsoft Azure Active Directory PowerShell-modulen inte redan finns installeras den med ett konfigurationsskript som du kör som en del av installationsprocessen. Det finns ingen anledning att installera modulen i förväg om den inte redan är installerad.
 

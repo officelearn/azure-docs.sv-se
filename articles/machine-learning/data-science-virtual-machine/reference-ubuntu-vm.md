@@ -8,12 +8,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 5c184e7f1dc828c3f9ff8d449d29ab3aaa4d1cf6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 830668a78929a5e6a7e131ade5c62b81e6d725c3
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77525829"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631370"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referens: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -239,9 +239,9 @@ Du kan komma åt [Azure-portalen](https://portal.azure.com) från den förinstal
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 
-Azure Machine Learning är en fullständigt hanterad molntjänst som gör att du kan skapa, distribuera och dela lösningar för prediktiv analys. Du kan skapa dina experiment och modeller från Azure Machine Learning Studio (klassisk). Du kan komma åt den från en webbläsare på den virtuella datavetenskapsmaskinen genom att besöka [Microsoft Azure Machine Learning](https://studio.azureml.net).
+Azure Machine Learning är en fullständigt hanterad molntjänst som gör att du kan skapa, distribuera och dela lösningar för prediktiv analys. Du kan skapa dina experiment och modeller i Azure Machine Learning Studio (förhandsversion). Du kan komma åt den från en webbläsare på den virtuella datavetenskapsmaskinen genom att besöka [Microsoft Azure Machine Learning](https://ml.azure.com).
 
-När du har loggat in på Azure Machine Learning Studio (klassisk) kan du använda en experimentarbetsyta för att skapa ett logiskt flöde för maskininlärningsalgoritmerna. Du har också åtkomst till en Jupyter-anteckningsbok som finns på Azure Machine Learning och som kan fungera sömlöst med experimenten i Azure Machine Learning Studio (klassisk). 
+När du har loggat in på Azure Machine Learning Studio kan du använda en experimentarbetsyta för att skapa ett logiskt flöde för maskininlärningsalgoritmerna. Du har också åtkomst till en Jupyter-anteckningsbok som finns på Azure Machine Learning och som kan fungera sömlöst med experimenten i Azure Machine Learning studio. 
 
 Operationalisera de maskininlärningsmodeller som du har byggt genom att slå in dem i ett webbtjänstgränssnitt. Operationalisering av maskininlärningsmodeller gör det möjligt för klienter som är skrivna på alla språk att anropa förutsägelser från dessa modeller. Mer information finns i [machine learning-dokumentationen](https://azure.microsoft.com/documentation/services/machine-learning/).
 

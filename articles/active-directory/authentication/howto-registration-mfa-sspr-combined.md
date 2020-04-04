@@ -4,19 +4,19 @@ description: Aktivera kombinerad Azure AD Multi-Factor-autentisering och registr
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25c64d9e959b1d68de23e83e26d3495bd3939986
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f454b0296a3463d7346c2945b21162e5a38c0eb7
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425162"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652509"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Aktivera kombinerad registrering av säkerhetsinformation (förhandsgranskning)
 
@@ -48,7 +48,7 @@ Gör så här för att aktivera kombinerad registrering:
 > Från och med mars 2019 är samtalsalternativen inte tillgängliga för Multifaktorautentisering och SSPR-användare i Azure AD-klienter med kostnadsfri/utvärderingsversion. SMS-meddelanden påverkas inte av den här ändringen. Alternativen för telefonsamtal är fortfarande tillgängliga för användare i betalda Azure AD-klienter.
 
 > [!NOTE]
-> När du har aktiverat kombinerad registrering kan användare som registrerar eller bekräftar sitt telefonnummer eller mobilapp via den nya upplevelsen använda dem för multifaktorautentisering och SSPR, om dessa metoder är aktiverade i multifaktorautentiseringen och SSPR Politik. Om du sedan inaktiverar den här upplevelsen måste användare `https://aka.ms/ssprsetup` som går till den tidigare SSPR-registreringssidan på utföra multifaktorautentisering innan de kan komma åt sidan.
+> När du har aktiverat kombinerad registrering kan användare som registrerar eller bekräftar sitt telefonnummer eller mobilapp via den nya upplevelsen använda dem för multifaktorautentisering och SSPR, om dessa metoder är aktiverade i principerna för multifaktorautentisering och SSPR. Om du sedan inaktiverar den här upplevelsen måste användare `https://aka.ms/ssprsetup` som går till den tidigare SSPR-registreringssidan på utföra multifaktorautentisering innan de kan komma åt sidan.
 
 Om du har konfigurerat listan Webbplats till zontilldelning i Internet Explorer måste följande platser finnas i samma zon:
 

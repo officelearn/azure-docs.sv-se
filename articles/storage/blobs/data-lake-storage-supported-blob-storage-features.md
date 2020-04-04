@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 04/03/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 215244204aa58cc2fdedc639d48e01b514759694
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b270ce3cd15dbd1e8dd53bd60376a87d6e08f75c
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78196016"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637218"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Blob-lagringsfunktioner som är tillgängliga i Azure Data Lake Storage Gen2
 
@@ -38,7 +38,7 @@ I den här tabellen visas de Blob-lagringsfunktioner som du kan använda med Azu
 |API:er för bloblagring|Allmänt tillgänglig|[Snabbstart: Azure Blob storage client library v12 för .NET](storage-quickstart-blobs-dotnet.md)<br>[Snabbstart: Hantera blobbar med Java v12 SDK](storage-quickstart-blobs-java.md)<br>[Snabbstart: Hantera blobbar med Python v12 SDK](storage-quickstart-blobs-python.md)<br>[Snabbstart: Hantera blobbar med JavaScript v12 SDK i Node.js](storage-quickstart-blobs-nodejs.md)|
 |Arkivåtkomstnivå|Förhandsversion|[Azure Blob Storage: nivåer för frekvent åtkomst, lågfrekvent åtkomst och arkivlagring](storage-blob-storage-tiers.md)|
 |Principer för livscykelhantering|Förhandsversion|[Hantera Azure Blob Storage-livscykeln](storage-lifecycle-management-concepts.md)|
-|Diagnostikloggar|Förhandsversion|[Loggning med Azure-lagringsanalys](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Diagnostikloggar|Allmänt tillgänglig|[Loggning med Azure-lagringsanalys](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Ändringsfeed|Ännu inte stöds|[Ändra feedstöd i Azure Blob-lagring](storage-blob-change-feed.md)|
 |Fellöse konto|Ännu inte stöds|[Katastrofåterställning och växlings över kontot](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Blob-behållare ACL|Ännu inte stöds|[Ange behållare ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|

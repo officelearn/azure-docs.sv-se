@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/01/2020
+ms.date: 04/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01956c2fee1c15bc86e8d80aa05c70db647bf593
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 60dca30496aa17ad7add00ca4eca914cb58fddd7
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80616870"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655983"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Versionshistorik för Azure AD Connect
 Azure Active Directory (Azure AD) -teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla målgrupper.
@@ -57,7 +57,7 @@ Alla versioner av Azure AD Connect kommer inte att göras tillgängliga för aut
 ### <a name="functional-changes-adsyncautoupgrade"></a>Funktionella förändringar ADSyncAutoUpgrade 
 
 - Lade till stöd för mS-DS-ConsistencyGuid-funktionen för gruppobjekt. På så sätt kan du flytta grupper mellan skogar eller återansluta grupper i AD till Azure AD där AD-gruppen objectID har ändrats, t.ex. Mer information finns i [Flytta grupper mellan skogar](how-to-connect-migrate-groups.md).
-- MS-DS-ConsistencyGuid-attributet ställs automatiskt in på al-synkroniserade grupper och du behöver inte göra något för att aktivera den här funktionen. 
+- MS-DS-ConsistencyGuid-attributet ställs automatiskt in på alla synkroniserade grupper och du behöver inte göra något för att aktivera den här funktionen. 
 - Tog bort Get-ADSyncRunProfile eftersom den inte längre används. 
 - Ändrade varningen som visas när du försökte använda ett företagsadministratörs- eller domänadministratörskonto för AD DS-anslutningskontot för att ge mer kontext. 
 - Lade till en ny cmdlet för att ta bort objekt från kopplingsutrymmet som det gamla CSDelete.exe-verktyget tas bort och ersätts med den nya Cmdlet remove-ADSyncCSObject. Cmdlet remove-ADSyncCSObject tar en CsObject som indata. Det här objektet kan hämtas med hjälp av cmdleten Get-ADSyncCSObject.

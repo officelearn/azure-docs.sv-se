@@ -11,18 +11,19 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: 5bc9490733f5e29b6668a9655ac5b8b5dbe9bda8
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: b6d2d5c9ac7eabf703887d559a2d2b86b89dd5c8
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346688"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632020"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Självstudiekurs: Läsa in data i Azure Synapse Analytics SQL-pool
 
-Den här självstudien använder PolyBase för att läsa in WideWorldImportersDW-informationslagret från Azure Blob-lagring till ditt informationslager i Azure Synapse Analytics SQL-pool. I självstudierna används [Azure-portalen](https://portal.azure.com) och [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) för att:
+Den här självstudien använder PolyBase för att läsa in WideWorldImportersDW-informationslagret från Azure Blob-lagring till ditt informationslager i Azure Synapse Analytics SQL-pool. I självstudierna används [Azure-portalen](https://portal.azure.com) och [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) för att:
 
 > [!div class="checklist"]
+>
 > * Skapa ett datalager med SQL-pool i Azure-portalen
 > * Skapade en brandväggsregel på servernivå på Azure-portalen
 > * Ansluta till SQL-poolen med SSMS
@@ -37,7 +38,7 @@ Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https:
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Innan du börjar med de här självstudierna ska du ladda ned och installera den senaste versionen av [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
+Innan du börjar med de här självstudierna ska du ladda ned och installera den senaste versionen av [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -45,9 +46,9 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-blank-data-warehouse-in-sql-pool"></a>Skapa ett tomt informationslager i SQL-pool
 
-En SQL-pool skapas med en definierad uppsättning [beräkningsresurser](memory-concurrency-limits.md). SQL-poolen skapas i en [Azure-resursgrupp](../../azure-resource-manager/management/overview.md) och i en [logisk Azure SQL-server](../../sql-database/sql-database-features.md). 
+En SQL-pool skapas med en definierad uppsättning [beräkningsresurser](memory-concurrency-limits.md). SQL-poolen skapas i en [Azure-resursgrupp](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och i en [logisk Azure SQL-server](../../sql-database/sql-database-features.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-Följ dessa steg för att skapa en tom SQL-pool. 
+Följ dessa steg för att skapa en tom SQL-pool.
 
 1. Välj **Skapa en resurs** i Azure-portalen.
 
@@ -55,58 +56,57 @@ Följ dessa steg för att skapa en tom SQL-pool.
 
     ![skapa SQL-pool](./media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
 
-1. Fyll i avsnittet **Projektinformation** med följande information:   
+1. Fyll i avsnittet **Projektinformation** med följande information:
 
-   | Inställning | Exempel | Beskrivning | 
+   | Inställning | Exempel | Beskrivning |
    | ------- | --------------- | ----------- |
    | **Prenumeration** | Din prenumeration  | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
-   | **Resursgrupp** | myResourceGroup | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
+   | **Resursgrupp** | myResourceGroup | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
 
-1. Under **SQL-poolinformation**anger du ett namn för din SQL-pool. Välj sedan en befintlig server i listrutan eller välj **Skapa ny** under **serverinställningarna** för att skapa en ny server. Fyll i formuläret med följande information: 
+1. Under **SQL-poolinformation**anger du ett namn för din SQL-pool. Välj sedan en befintlig server i listrutan eller välj **Skapa ny** under **serverinställningarna** för att skapa en ny server. Fyll i formuläret med följande information:
 
-    | Inställning | Föreslaget värde | Beskrivning | 
+    | Inställning | Föreslaget värde | Beskrivning |
     | ------- | --------------- | ----------- |
-    |**Sql-poolnamn**|SampleDW| Giltiga databasnamn finns i [Databasidentifierare](/sql/relational-databases/databases/database-identifiers). | 
-    | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). | 
+    |**Sql-poolnamn**|SampleDW| Giltiga databasnamn finns i [Databasidentifierare](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
+    | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
     | **Logga in för serveradministratör** | Valfritt giltigt namn | Giltiga inloggningsnamn finns i [Databasidentifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
     | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
     | **Location** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
 
     ![skapa databasserver](./media/load-data-wideworldimportersdw/create-database-server.png)
 
-1. **Välj prestandanivå**. Skjutreglaget som standard är inställt på **DW1000c**. Flytta skjutreglaget uppåt och nedåt för att välja önskad prestandaskala. 
+1. **Välj prestandanivå**. Skjutreglaget som standard är inställt på **DW1000c**. Flytta skjutreglaget uppåt och nedåt för att välja önskad prestandaskala.
 
     ![skapa databasserver](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
 
-1. På sidan **Ytterligare inställningar** anger du Använd **befintliga data** till Ingen och lämnar **sorteringen** som standard *för SQL_Latin1_General_CP1_CI_AS*. 
+1. På sidan **Ytterligare inställningar** anger du Använd **befintliga data** till Ingen och lämnar **sorteringen** som standard *för SQL_Latin1_General_CP1_CI_AS*.
 
-1. Välj **Granska + skapa** om du vill granska inställningarna och välj sedan **Skapa** för att skapa informationslager. Du kan övervaka dina framsteg genom att öppna sidan **för pågående distribution** från menyn **Meddelanden.** 
+1. Välj **Granska + skapa** om du vill granska inställningarna och välj sedan **Skapa** för att skapa informationslager. Du kan övervaka dina framsteg genom att öppna sidan **för pågående distribution** från menyn **Meddelanden.**
 
      ![avisering](./media/load-data-wideworldimportersdw/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Skapa en brandväggsregel på servernivå
 
-Azure Synapse Analytics-tjänsten skapar en brandvägg på servernivå som förhindrar att externa program och verktyg ansluter till servern eller databaser på servern. Om du vill kan du lägga till brandväggsregler som tillåter anslutningar för specifika IP-adresser.  Följ dessa steg för att skapa en [brandväggsregel på servernivå](../../sql-database/sql-database-firewall-configure.md) för klientens IP-adress. 
+Azure Synapse Analytics-tjänsten skapar en brandvägg på servernivå som förhindrar att externa program och verktyg ansluter till servern eller databaser på servern. Om du vill kan du lägga till brandväggsregler som tillåter anslutningar för specifika IP-adresser.  Följ dessa steg för att skapa en [brandväggsregel på servernivå](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) för klientens IP-adress.
 
 > [!NOTE]
 > Azure Synapse Analytics SQL-pool kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 1433.
 >
 
+1. När distributionen är klar söker du efter poolnamnet i sökrutan i navigeringsmenyn och väljer SQL-poolresursen. Välj servernamnet.
 
-1. När distributionen är klar söker du efter poolnamnet i sökrutan i navigeringsmenyn och väljer SQL-poolresursen. Välj servernamnet. 
+    ![gå till din resurs](./media/load-data-wideworldimportersdw/search-for-sql-pool.png)
 
-    ![gå till din resurs](./media/load-data-wideworldimportersdw/search-for-sql-pool.png) 
+1. Välj servernamnet.
+    ![servernamn](././media/load-data-wideworldimportersdw/find-server-name.png)
 
-1. Välj servernamnet. 
-    ![servernamn](././media/load-data-wideworldimportersdw/find-server-name.png) 
+1. Välj **Visa brandväggsinställningar**. Sidan **Brandväggsinställningar** för SQL-poolservern öppnas.
 
-1. Välj **Visa brandväggsinställningar**. Sidan **Brandväggsinställningar** för SQL-poolservern öppnas. 
-
-    ![serverinställningar](./media/load-data-wideworldimportersdw/server-settings.png) 
+    ![serverinställningar](./media/load-data-wideworldimportersdw/server-settings.png)
 
 1. På sidan **Brandväggar och virtuella nätverk** väljer du **Lägg till klient-IP** för att lägga till din aktuella IP-adress i en ny brandväggsregel. Med en brandväggsregel kan du öppna port 1433 för en enskild IP-adress eller för IP-adressintervall.
 
-    ![brandväggsregler för server](./media/load-data-wideworldimportersdw/server-firewall-rule.png) 
+    ![brandväggsregler för server](./media/load-data-wideworldimportersdw/server-firewall-rule.png)
 
 1. Välj **Spara**. En brandväggsregel på servernivå för att öppna port 1433 på den logiska servern skapas för din aktuella IP-adress.
 
@@ -119,18 +119,18 @@ Du kan nu ansluta till SQL-servern med hjälp av klient-IP-adressen. Anslutninge
 
 Det fullständigt kvalificerade servernamnet är det som används för att ansluta till servern. Gå till din SQL-poolresurs i Azure-portalen och visa det fullständigt kvalificerade namnet under **Servernamn**.
 
-![servernamn](././media/load-data-wideworldimportersdw/find-server-name.png) 
+![servernamn](././media/load-data-wideworldimportersdw/find-server-name.png)
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Ansluta till servern som serveradministratör
 
-I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) för att upprätta en anslutning till Azure SQL-servern.
+I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) för att upprätta en anslutning till Azure SQL-servern.
 
 1. Öppna SQL Server Management Studio.
 
 2. I dialogrutan **Anslut till server** anger du följande information:
 
-    | Inställning      | Föreslaget värde | Beskrivning | 
-    | ------------ | --------------- | ----------- | 
+    | Inställning      | Föreslaget värde | Beskrivning |
+    | ------------ | --------------- | ----------- |
     | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
     | servernamn | Fullständigt kvalificerat servernamn | Till exempel är **sqlpoolservername.database.windows.net** ett fullständigt kvalificerat servernamn. |
     | Autentisering | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
@@ -139,25 +139,25 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
 
     ![Anslut till server](./media/load-data-wideworldimportersdw/connect-to-server.png)
 
-4. Klicka på **Anslut**. Fönstret Object Explorer öppnas i SSMS. 
+3. Klicka på **Anslut**. Fönstret Object Explorer öppnas i SSMS.
 
-5. Expandera **Databaser** i Object Explorer. Expandera sedan **Systemdatabaser** och **Huvuddatabas** för att visa objekt i huvuddatabasen.  Expandera **SampleDW** om du vill visa objekten i den nya databasen.
+4. Expandera **Databaser** i Object Explorer. Expandera sedan **Systemdatabaser** och **Huvuddatabas** för att visa objekt i huvuddatabasen.  Expandera **SampleDW** om du vill visa objekten i den nya databasen.
 
-    ![databasobjekt](./media/load-data-wideworldimportersdw/connected.png) 
+    ![databasobjekt](./media/load-data-wideworldimportersdw/connected.png)
 
 ## <a name="create-a-user-for-loading-data"></a>Skapa en användare för att läsa in data
 
-Serveradministratörskontot är avsett för att utföra hanteringsåtgärder och är inte lämpligt för att köra frågor på användardata. Datainläsning är en minneskrävande åtgärd. Maximalt minne definieras enligt den generering av SQL-pool som du använder, [informationslagerenheter](what-is-a-data-warehouse-unit-dwu-cdwu.md)och [resursklass](resource-classes-for-workload-management.md). 
+Serveradministratörskontot är avsett för att utföra hanteringsåtgärder och är inte lämpligt för att köra frågor på användardata. Datainläsning är en minneskrävande åtgärd. Maximalt minne definieras enligt den generering av SQL-pool som du använder, [informationslagerenheter](what-is-a-data-warehouse-unit-dwu-cdwu.md)och [resursklass](resource-classes-for-workload-management.md).
 
 Det är bäst att skapa en särskild inloggning och en särskild användare för inläsning av data. Lägg sedan till inläsningsanvändaren i en [resursklass](resource-classes-for-workload-management.md) som möjliggör en lämplig maximal minnesallokering.
 
-Eftersom du för närvarande är ansluten som serveradministratör kan du skapa inloggningar och användare. Följ de här stegen för att skapa en inloggning och en användare med namnet **LoaderRC60**. Tilldela sedan användaren till resursklassen **staticrc60**. 
+Eftersom du för närvarande är ansluten som serveradministratör kan du skapa inloggningar och användare. Följ de här stegen för att skapa en inloggning och en användare med namnet **LoaderRC60**. Tilldela sedan användaren till resursklassen **staticrc60**.
 
-1.  I SSMS högerklickar du på **Huvuddatabas** för att visa en nedrullningsbar meny och väljer **Ny fråga**. Ett nytt frågefönster öppnas.
+1. I SSMS högerklickar du på **Huvuddatabas** för att visa en nedrullningsbar meny och väljer **Ny fråga**. Ett nytt frågefönster öppnas.
 
     ![Ny fråga i huvuddatabas](./media/load-data-wideworldimportersdw/create-loader-login.png)
 
-2. I frågefönstret anger du följande T-SQL-kommandon för att skapa en inloggning och en användare med namnet Loader RC60, och ersätter ditt eget lösenord med 'a123STRONGpassword!'. 
+2. I frågefönstret anger du följande T-SQL-kommandon för att skapa en inloggning och en användare med namnet Loader RC60, och ersätter ditt eget lösenord med 'a123STRONGpassword!'.
 
     ```sql
     CREATE LOGIN LoaderRC60 WITH PASSWORD = 'a123STRONGpassword!';
@@ -169,8 +169,8 @@ Eftersom du för närvarande är ansluten som serveradministratör kan du skapa 
 4. Högerklicka på **SampleDW** och välj **Ny fråga**. Ett nytt frågefönster öppnas.  
 
     ![Ny fråga på exempelinformationslagret](./media/load-data-wideworldimportersdw/create-loading-user.png)
- 
-5. Använd följande T-SQL-kommandon för att skapa en databasanvändare med namnet LoaderRC60 för inloggningen LoaderRC60. Den andra raden ger den nya användaren kontrollbehörighet på det nya informationslagret.  Dessa behörigheter påminner om att göra användaren till databasens ägare. Den tredje raden lägger till den nya användaren som en medlem i resursklassen staticrc60 [](resource-classes-for-workload-management.md).
+
+5. Använd följande T-SQL-kommandon för att skapa en databasanvändare med namnet LoaderRC60 för inloggningen LoaderRC60. Den andra raden ger den nya användaren kontrollbehörighet på det nya informationslagret.  Dessa behörigheter påminner om att göra användaren till databasens ägare. Den tredje raden lägger till den `staticrc60` nya användaren som medlem i [resursklassen](resource-classes-for-workload-management.md).
 
     ```sql
     CREATE USER LoaderRC60 FOR LOGIN LoaderRC60;
@@ -202,19 +202,19 @@ Du är redo att börja läsa in data till ditt nya informationslager. För framt
 
 Kör följande SQL-skript för att ange information om de data du vill läsa in. Informationen omfattar var informationen finns, formatet för innehållet i aktuella data och tabelldefinitionen för dessa data. Data finns i en global Azure Blob.
 
-1. I föregående avsnitt loggade du in på ditt informationslager som Loader RC60. Högerklicka på **SampleDW** i SSMS under LoaderRC60-anslutningen och välj **Ny fråga**.  Ett nytt frågefönster visas. 
+1. I föregående avsnitt loggade du in på ditt informationslager som Loader RC60. Högerklicka på **SampleDW** i SSMS under LoaderRC60-anslutningen och välj **Ny fråga**.  Ett nytt frågefönster visas.
 
     ![Nytt fönster för inläsning av fråga](./media/load-data-wideworldimportersdw/new-loading-query.png)
 
 2. Jämför ditt frågefönster med föregående bild.  Verifiera att det nya frågefönstret körs som LoaderRC60 och att det ställer frågor mot din SampleDW-databas. Använd det här frågefönstret för att utföra alla inläsningssteg.
 
-3. Skapa en huvudnyckel för SampleDW-databasen. Du behöver bara skapa en huvudnyckel en gång per databas. 
+3. Skapa en huvudnyckel för SampleDW-databasen. Du behöver bara skapa en huvudnyckel en gång per databas.
 
     ```sql
     CREATE MASTER KEY;
     ```
 
-4. Kör instruktionen [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) för att definiera platsen för Azure-blobben. Detta är platsen för externa globala importörer data.  För att köra ett kommando som du har bifogat till frågefönstret markerar du de kommandon du vill köra och klickar på **Kör**.
+4. Kör instruktionen [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att definiera platsen för Azure-blobben. Detta är platsen för externa globala importörer data.  För att köra ett kommando som du har bifogat till frågefönstret markerar du de kommandon du vill köra och klickar på **Kör**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -225,22 +225,22 @@ Kör följande SQL-skript för att ange information om de data du vill läsa in.
     );
     ```
 
-5. Ange formateringsegenskaper och alternativ för den externa datafilen genom att köra T-SQL-uttrycket [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql) (SKAPA EXTERNT FILFORMAT). Den här instruktionen anger att externa data lagras som text och att värdena avgränsas med pipe-tecknet ('|').  
+5. Ange formateringsegenskaper och alternativ för den externa datafilen genom att köra T-SQL-uttrycket [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SKAPA EXTERNT FILFORMAT). Den här instruktionen anger att externa data lagras som text och att värdena avgränsas med pipe-tecknet ('|').  
 
     ```sql
-    CREATE EXTERNAL FILE FORMAT TextFileFormat 
-    WITH 
-    (   
+    CREATE EXTERNAL FILE FORMAT TextFileFormat
+    WITH
+    (
         FORMAT_TYPE = DELIMITEDTEXT,
         FORMAT_OPTIONS
-        (   
+        (
             FIELD_TERMINATOR = '|',
-            USE_TYPE_DEFAULT = FALSE 
+            USE_TYPE_DEFAULT = FALSE
         )
     );
     ```
 
-6.  Kör instruktionerna för [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql) (SKAPA SCHEMA) för att skapa ett schema för ditt externa filformat. Det externa schemat innehåller en metod för att ordna de externa tabeller som du ska skapa. Wwi-schemat organiserar de standardtabeller som ska innehålla data. 
+6. Kör instruktionerna för [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SKAPA SCHEMA) för att skapa ett schema för ditt externa filformat. Det externa schemat innehåller en metod för att ordna de externa tabeller som du ska skapa. Wwi-schemat organiserar de standardtabeller som ska innehålla data.
 
     ```sql
     CREATE SCHEMA ext;
@@ -267,7 +267,7 @@ Kör följande SQL-skript för att ange information om de data du vill läsa in.
         [Valid To] [datetime2](7) NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH (LOCATION='/v1/dimension_City/',   
+    WITH (LOCATION='/v1/dimension_City/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -286,7 +286,7 @@ Kör följande SQL-skript för att ange information om de data du vill läsa in.
         [Valid To] [datetime2](7) NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH (LOCATION='/v1/dimension_Customer/',   
+    WITH (LOCATION='/v1/dimension_Customer/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -303,7 +303,7 @@ Kör följande SQL-skript för att ange information om de data du vill läsa in.
         [Valid To] [datetime2](7) NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION='/v1/dimension_Employee/',   
+    WITH ( LOCATION='/v1/dimension_Employee/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -317,7 +317,7 @@ Kör följande SQL-skript för att ange information om de data du vill läsa in.
         [Valid To] [datetime2](7) NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/dimension_PaymentMethod/',   
+    WITH ( LOCATION ='/v1/dimension_PaymentMethod/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -345,7 +345,7 @@ Kör följande SQL-skript för att ange information om de data du vill läsa in.
         [Valid To] [datetime2](7) NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/dimension_StockItem/',   
+    WITH ( LOCATION ='/v1/dimension_StockItem/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -364,7 +364,7 @@ Kör följande SQL-skript för att ange information om de data du vill läsa in.
         [Valid To] [datetime2](7) NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/dimension_Supplier/',   
+    WITH ( LOCATION ='/v1/dimension_Supplier/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -377,8 +377,8 @@ Kör följande SQL-skript för att ange information om de data du vill läsa in.
         [Valid From] [datetime2](7) NOT NULL,
         [Valid To] [datetime2](7) NOT NULL,
         [Lineage Key] [int] NOT NULL
-    )    
-    WITH ( LOCATION ='/v1/dimension_TransactionType/',   
+    )
+    WITH ( LOCATION ='/v1/dimension_TransactionType/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -397,7 +397,7 @@ Kör följande SQL-skript för att ange information om de data du vill läsa in.
         [Quantity] [int] NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/fact_Movement/',   
+    WITH ( LOCATION ='/v1/fact_Movement/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -424,8 +424,8 @@ Kör följande SQL-skript för att ange information om de data du vill läsa in.
         [Total Including Tax] [decimal](18, 2) NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/fact_Order/',   
-        DATA_SOURCE = WWIStorage,  
+    WITH ( LOCATION ='/v1/fact_Order/',
+        DATA_SOURCE = WWIStorage,
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
         REJECT_VALUE = 0
@@ -443,7 +443,7 @@ Kör följande SQL-skript för att ange information om de data du vill läsa in.
         [Is Order Finalized] [bit] NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/fact_Purchase/',   
+    WITH ( LOCATION ='/v1/fact_Purchase/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -472,7 +472,7 @@ Kör följande SQL-skript för att ange information om de data du vill läsa in.
         [Total Chiller Items] [int] NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/fact_Sale/',   
+    WITH ( LOCATION ='/v1/fact_Sale/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -489,7 +489,7 @@ Kör följande SQL-skript för att ange information om de data du vill läsa in.
         [Target Stock Level] [int] NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/fact_StockHolding/',   
+    WITH ( LOCATION ='/v1/fact_StockHolding/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -515,7 +515,7 @@ Kör följande SQL-skript för att ange information om de data du vill läsa in.
         [Is Finalized] [bit] NOT NULL,
         [Lineage Key] [int] NOT NULL
     )
-    WITH ( LOCATION ='/v1/fact_Transaction/',   
+    WITH ( LOCATION ='/v1/fact_Transaction/',
         DATA_SOURCE = WWIStorage,  
         FILE_FORMAT = TextFileFormat,
         REJECT_TYPE = VALUE,
@@ -533,9 +533,8 @@ I det här avsnittet används de externa tabeller som du har definierat för att
 
 > [!NOTE]
 > De här självstudierna läser in data direkt till den slutliga tabellen. I en produktionsmiljö använder du vanligtvis CREATE TABLE AS SELECT FÖR att läsa in till en mellanlagringstabell. Du kan utföra alla nödvändiga omvandlingar när data är i mellanlagringstabellen. Du kan använda instruktionen INSERT...SELECT om du vill lägga till data i mellanlagringstabellen i en produktionstabell. Mer information finns i [Infoga data i en produktionstabell](guidance-for-loading-data.md#inserting-data-into-a-production-table).
-> 
 
-Skriptet använder T-SQL-instruktionen [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) för att läsa in data från Azure Storage Blob till nya tabeller i informationslagret. CTAS skapar en ny tabell baserat på resultatet av en SELECT-instruktion. Den nya tabellen har samma kolumner och datatyper som resultatet av select-instruktionen. När select-satsen väljer från en extern tabell importeras data till en relationstabell i informationslagret. 
+Skriptet använder T-SQL-instruktionen [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att läsa in data från Azure Storage Blob till nya tabeller i informationslagret. CTAS skapar en ny tabell baserat på resultatet av en SELECT-instruktion. Den nya tabellen har samma kolumner och datatyper som resultatet av select-instruktionen. När select-satsen väljer från en extern tabell importeras data till en relationstabell i informationslagret.
 
 Det här skriptet läser inte in data i tabellerna wwi.dimension_Date och wwi.fact_Sale. Tabellerna genereras i ett senare steg för att tabellerna ska innehålla ett radantal med justerbar storlek.
 
@@ -544,7 +543,7 @@ Det här skriptet läser inte in data i tabellerna wwi.dimension_Date och wwi.fa
     ```sql
     CREATE TABLE [wwi].[dimension_City]
     WITH
-    ( 
+    (
         DISTRIBUTION = REPLICATE,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -555,7 +554,7 @@ Det här skriptet läser inte in data i tabellerna wwi.dimension_Date och wwi.fa
 
     CREATE TABLE [wwi].[dimension_Customer]
     WITH
-    ( 
+    (
         DISTRIBUTION = REPLICATE,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -566,7 +565,7 @@ Det här skriptet läser inte in data i tabellerna wwi.dimension_Date och wwi.fa
 
     CREATE TABLE [wwi].[dimension_Employee]
     WITH
-    ( 
+    (
         DISTRIBUTION = REPLICATE,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -577,7 +576,7 @@ Det här skriptet läser inte in data i tabellerna wwi.dimension_Date och wwi.fa
 
     CREATE TABLE [wwi].[dimension_PaymentMethod]
     WITH
-    ( 
+    (
         DISTRIBUTION = REPLICATE,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -588,7 +587,7 @@ Det här skriptet läser inte in data i tabellerna wwi.dimension_Date och wwi.fa
 
     CREATE TABLE [wwi].[dimension_StockItem]
     WITH
-    ( 
+    (
         DISTRIBUTION = REPLICATE,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -599,7 +598,7 @@ Det här skriptet läser inte in data i tabellerna wwi.dimension_Date och wwi.fa
 
     CREATE TABLE [wwi].[dimension_Supplier]
     WITH
-    ( 
+    (
         DISTRIBUTION = REPLICATE,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -610,7 +609,7 @@ Det här skriptet läser inte in data i tabellerna wwi.dimension_Date och wwi.fa
 
     CREATE TABLE [wwi].[dimension_TransactionType]
     WITH
-    ( 
+    (
         DISTRIBUTION = REPLICATE,
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -621,7 +620,7 @@ Det här skriptet läser inte in data i tabellerna wwi.dimension_Date och wwi.fa
 
     CREATE TABLE [wwi].[fact_Movement]
     WITH
-    ( 
+    (
         DISTRIBUTION = HASH([Movement Key]),
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -632,7 +631,7 @@ Det här skriptet läser inte in data i tabellerna wwi.dimension_Date och wwi.fa
 
     CREATE TABLE [wwi].[fact_Order]
     WITH
-    ( 
+    (
         DISTRIBUTION = HASH([Order Key]),
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -643,7 +642,7 @@ Det här skriptet läser inte in data i tabellerna wwi.dimension_Date och wwi.fa
 
     CREATE TABLE [wwi].[fact_Purchase]
     WITH
-    ( 
+    (
         DISTRIBUTION = HASH([Purchase Key]),
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -654,7 +653,7 @@ Det här skriptet läser inte in data i tabellerna wwi.dimension_Date och wwi.fa
 
     CREATE TABLE [wwi].[seed_Sale]
     WITH
-    ( 
+    (
         DISTRIBUTION = HASH([WWI Invoice ID]),
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -665,7 +664,7 @@ Det här skriptet läser inte in data i tabellerna wwi.dimension_Date och wwi.fa
 
     CREATE TABLE [wwi].[fact_StockHolding]
     WITH
-    ( 
+    (
         DISTRIBUTION = HASH([Stock Holding Key]),
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -676,7 +675,7 @@ Det här skriptet läser inte in data i tabellerna wwi.dimension_Date och wwi.fa
 
     CREATE TABLE [wwi].[fact_Transaction]
     WITH
-    ( 
+    (
         DISTRIBUTION = HASH([Transaction Key]),
         CLUSTERED COLUMNSTORE INDEX
     )
@@ -695,7 +694,7 @@ Det här skriptet läser inte in data i tabellerna wwi.dimension_Date och wwi.fa
         r.status,
         count(distinct input_name) as nbr_files,
         sum(s.bytes_processed)/1024/1024/1024 as gb_processed
-    FROM 
+    FROM
         sys.dm_pdw_exec_requests r
         INNER JOIN sys.dm_pdw_dms_external_work s
         ON r.request_id = s.request_id
@@ -717,7 +716,7 @@ Det här skriptet läser inte in data i tabellerna wwi.dimension_Date och wwi.fa
         s.request_id,
         r.status
     ORDER BY
-        nbr_files desc, 
+        nbr_files desc,
         gb_processed desc;
     ```
 
@@ -755,7 +754,7 @@ I det här avsnittet skapas tabellerna wwi.dimension_Date och wwi.fact_Sale. Det
         [Fiscal Year Label] [nvarchar](10) NOT NULL,
         [ISO Week Number] [int] NOT NULL
     )
-    WITH 
+    WITH
     (
         DISTRIBUTION = REPLICATE,
         CLUSTERED INDEX ([Date])
@@ -791,7 +790,7 @@ I det här avsnittet skapas tabellerna wwi.dimension_Date och wwi.fact_Sale. Det
     )
     ```
 
-2. Skapa [wwi].[InitialSalesDataPopulation] för att öka antalet rader i [wwi].[seed_Sale] med en faktor på åtta. 
+2. Skapa [wwi].[InitialSalesDataPopulation] för att öka antalet rader i [wwi].[seed_Sale] med en faktor på åtta.
 
     ```sql
     CREATE PROCEDURE [wwi].[InitialSalesDataPopulation] AS
@@ -824,7 +823,7 @@ I det här avsnittet skapas tabellerna wwi.dimension_Date och wwi.fact_Sale. Det
     ```sql
     CREATE PROCEDURE [wwi].[PopulateDateDimensionForYear] @Year [int] AS
     BEGIN
-        IF OBJECT_ID('tempdb..#month', 'U') IS NOT NULL 
+        IF OBJECT_ID('tempdb..#month', 'U') IS NOT NULL
             DROP TABLE #month
         CREATE TABLE #month (
             monthnum int,
@@ -834,7 +833,7 @@ I det här avsnittet skapas tabellerna wwi.dimension_Date och wwi.fact_Sale. Det
         INSERT INTO #month
             SELECT 1, 31 UNION SELECT 2, CASE WHEN (@YEAR % 4 = 0 AND @YEAR % 100 <> 0) OR @YEAR % 400 = 0 THEN 29 ELSE 28 END UNION SELECT 3,31 UNION SELECT 4,30 UNION SELECT 5,31 UNION SELECT 6,30 UNION SELECT 7,31 UNION SELECT 8,31 UNION SELECT 9,30 UNION SELECT 10,31 UNION SELECT 11,30 UNION SELECT 12,31
 
-        IF OBJECT_ID('tempdb..#days', 'U') IS NOT NULL 
+        IF OBJECT_ID('tempdb..#days', 'U') IS NOT NULL
             DROP TABLE #days
         CREATE TABLE #days (days int)
         WITH (DISTRIBUTION = ROUND_ROBIN, HEAP)
@@ -843,7 +842,7 @@ I det här avsnittet skapas tabellerna wwi.dimension_Date och wwi.fact_Sale. Det
             SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5 UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9 UNION SELECT 10 UNION SELECT 11 UNION SELECT 12 UNION SELECT 13 UNION SELECT 14 UNION SELECT 15 UNION SELECT 16 UNION SELECT 17 UNION SELECT 18 UNION SELECT 19 UNION SELECT 20    UNION SELECT 21 UNION SELECT 22 UNION SELECT 23 UNION SELECT 24 UNION SELECT 25 UNION SELECT 26 UNION SELECT 27 UNION SELECT 28 UNION SELECT 29 UNION SELECT 30 UNION SELECT 31
 
         INSERT [wwi].[dimension_Date] (
-            [Date], [Day Number], [Day], [Month], [Short Month], [Calendar Month Number], [Calendar Month Label], [Calendar Year], [Calendar Year Label], [Fiscal Month Number], [Fiscal Month Label], [Fiscal Year], [Fiscal Year Label], [ISO Week Number] 
+            [Date], [Day Number], [Day], [Month], [Short Month], [Calendar Month Number], [Calendar Month Label], [Calendar Year], [Calendar Year Label], [Fiscal Month Number], [Fiscal Month Label], [Fiscal Year], [Fiscal Year Label], [ISO Week Number]
         )
         SELECT
             CAST(CAST(monthnum AS VARCHAR(2)) + '/' + CAST([days] AS VARCHAR(3)) + '/' + CAST(@year AS CHAR(4)) AS DATE) AS [Date]
@@ -876,6 +875,7 @@ I det här avsnittet skapas tabellerna wwi.dimension_Date och wwi.fact_Sale. Det
     DROP table #days;
     END;
     ```
+
 4. Skapa den här proceduren som fyller i tabellerna wwi.dimension_Date och wwi.fact_Sale. Den anropar [wwi].[PopulateDateDimensionForYear] för att fylla i wwi.dimension_Date.
 
     ```sql
@@ -888,7 +888,7 @@ I det här avsnittet skapas tabellerna wwi.dimension_Date och wwi.fact_Sale. Det
 
         DECLARE @OrderCounter bigint = 0;
         DECLARE @NumberOfSalesPerDay bigint = @EstimatedRowsPerDay;
-        DECLARE @DateCounter date; 
+        DECLARE @DateCounter date;
         DECLARE @StartingSaleKey bigint;
         DECLARE @MaximumSaleKey bigint = (SELECT MAX([Sale Key]) FROM wwi.seed_Sale);
         DECLARE @MaxDate date;
@@ -920,7 +920,7 @@ I det här avsnittet skapas tabellerna wwi.dimension_Date och wwi.fact_Sale. Det
             SELECT TOP(@VariantNumberOfSalesPerDay)
                 [City Key], [Customer Key], [Bill To Customer Key], [Stock Item Key], @DateCounter, DATEADD(day, 1, @DateCounter), [Salesperson Key], [WWI Invoice ID], [Description], Package, Quantity, [Unit Price], [Tax Rate], [Total Excluding Tax], [Tax Amount], Profit, [Total Including Tax], [Total Dry Items], [Total Chiller Items], [Lineage Key]
             FROM [wwi].[seed_Sale]
-            WHERE 
+            WHERE
                  --[Sale Key] > @StartingSaleKey and /* IDENTITY DOES NOT WORK THE SAME IN SQLDW AND CAN'T USE THIS METHOD FOR VARIANT */
                 [Invoice Date Key] >=cast(@YEAR AS CHAR(4)) + '-01-01'
             ORDER BY [Sale Key];
@@ -932,12 +932,12 @@ I det här avsnittet skapas tabellerna wwi.dimension_Date och wwi.fact_Sale. Det
     ```
 
 ## <a name="generate-millions-of-rows"></a>Generera miljontals rader
-Använd de lagrade procedurer som du har skapat för att generera miljontals rader i tabellen wwi.fact_Sale och motsvarande data i tabellen wwi.dimension_Date. 
 
+Använd de lagrade procedurer som du har skapat för att generera miljontals rader i tabellen wwi.fact_Sale och motsvarande data i tabellen wwi.dimension_Date.
 
 1. Kör den här proceduren om du vill lägga till flera rader i [wwi]. [seed_Sale].
 
-    ```sql    
+    ```sql
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
@@ -946,6 +946,7 @@ Använd de lagrade procedurer som du har skapat för att generera miljontals rad
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
     ```
+
 3. Genereringen av data i föregående steg kan ta en stund eftersom processen omfattar hela året.  Om du vill se vilken dag den pågående processen har nått öppnar du en ny fråga och kör följande SQL-kommando:
 
     ```sql
@@ -962,22 +963,22 @@ Använd de lagrade procedurer som du har skapat för att generera miljontals rad
 
 SQL-pool replikerar en tabell genom att cachelagra data till varje beräkningsnod. Cachen fylls när en fråga körs mot tabellen. Den första frågan i en replikerad tabell kan därför kräva extra lång tid för att fylla i cachen. När cachen är fylld körs frågor i replikerade tabeller snabbare.
 
-Kör följande SQL-frågor för att fylla i cachen för replikerad tabell på beräkningsnoderna. 
+Kör följande SQL-frågor för att fylla i cachen för replikerad tabell på beräkningsnoderna.
 
-    ```sql
-    SELECT TOP 1 * FROM [wwi].[dimension_City];
-    SELECT TOP 1 * FROM [wwi].[dimension_Customer];
-    SELECT TOP 1 * FROM [wwi].[dimension_Date];
-    SELECT TOP 1 * FROM [wwi].[dimension_Employee];
-    SELECT TOP 1 * FROM [wwi].[dimension_PaymentMethod];
-    SELECT TOP 1 * FROM [wwi].[dimension_StockItem];
-    SELECT TOP 1 * FROM [wwi].[dimension_Supplier];
-    SELECT TOP 1 * FROM [wwi].[dimension_TransactionType];
-    ```
+```sql
+SELECT TOP 1 * FROM [wwi].[dimension_City];
+SELECT TOP 1 * FROM [wwi].[dimension_Customer];
+SELECT TOP 1 * FROM [wwi].[dimension_Date];
+SELECT TOP 1 * FROM [wwi].[dimension_Employee];
+SELECT TOP 1 * FROM [wwi].[dimension_PaymentMethod];
+SELECT TOP 1 * FROM [wwi].[dimension_StockItem];
+SELECT TOP 1 * FROM [wwi].[dimension_Supplier];
+SELECT TOP 1 * FROM [wwi].[dimension_TransactionType];
+```
 
 ## <a name="create-statistics-on-newly-loaded-data"></a>Skapa statistik på nyligen inlästa data
 
-För att uppnå hög frågeprestanda är det viktigt att skapa statistik för varje kolumn i varje tabell efter den första inläsningen. Det är också viktigt att uppdatera statistiken efter att det har skett betydande förändringar. 
+För att uppnå hög frågeprestanda är det viktigt att skapa statistik för varje kolumn i varje tabell efter den första inläsningen. Det är också viktigt att uppdatera statistiken efter att det har skett betydande förändringar.
 
 1. Skapa den här lagrade proceduren som uppdaterar statistik för alla kolumner i alla tabeller.
 
@@ -1007,7 +1008,7 @@ För att uppnå hög frågeprestanda är det viktigt att skapa statistik för va
     BEGIN;
         DROP TABLE #stats_ddl;
     END;
-    
+
     CREATE TABLE #stats_ddl
     WITH    (   DISTRIBUTION    = HASH([seq_nmbr])
             ,   LOCATION        = USER_DB
@@ -1090,11 +1091,13 @@ Följ dessa steg för att rensa resurser enligt dina önskemål.
 
 5. Om du vill ta bort resursgruppen klickar du på **SampleRG** och sedan på **Ta bort resursgrupp**.
 
-## <a name="next-steps"></a>Nästa steg 
-I de här självstudierna lärde du dig att skapa ett informationslager och skapa en användare för att läsa in data. Du skapade externa tabeller för att definiera strukturen för data som lagras i Azure Storage Blob och använde sedan PolyBase-instruktionen CREATE TABLE AS SELECT för att läsa in data till informationslagret. 
+## <a name="next-steps"></a>Nästa steg
+
+I de här självstudierna lärde du dig att skapa ett informationslager och skapa en användare för att läsa in data. Du skapade externa tabeller för att definiera strukturen för data som lagras i Azure Storage Blob och använde sedan PolyBase-instruktionen CREATE TABLE AS SELECT för att läsa in data till informationslagret.
 
 Du gjorde detta:
 > [!div class="checklist"]
+>
 > * Skapade ett datalager med SQL-pool i Azure-portalen
 > * Skapade en brandväggsregel på servernivå på Azure-portalen
 > * Ansluten till SQL-poolen med SSMS

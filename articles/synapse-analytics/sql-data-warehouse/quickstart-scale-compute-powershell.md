@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c7ec8db212a24f1f23f393e4cb0e7f4150605a56
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e3038617c6270acf9af295c910e9fd5c7dae2043
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350798"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633784"
 ---
 # <a name="quickstart-scale-compute-for-synapse-sql-pool-with-azure-powershell"></a>Snabbstart: Skala beräkning för Synapse SQL-pool med Azure PowerShell
 
-Du kan skala beräkning för Synapse SQL-pool (informationslager) med Azure PowerShell. [Skala ut beräkning](sql-data-warehouse-manage-compute-overview.md) för bättre prestanda eller skala tillbaka beräkning för att spara kostnader. 
+Du kan skala beräkning för Synapse SQL-pool (informationslager) med Azure PowerShell. [Skala ut beräkning](sql-data-warehouse-manage-compute-overview.md) för bättre prestanda eller skala tillbaka beräkning för att spara kostnader.
 
 Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -32,19 +32,19 @@ Den här snabbstarten förutsätter att du redan har en SQL-pool som du kan skal
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Logga in på din Azure-prenumeration med kommandot [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) och följ anvisningarna på skärmen.
+Logga in på din Azure-prenumeration med kommandot [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och följ anvisningarna på skärmen.
 
 ```powershell
 Connect-AzAccount
 ```
 
-Om du vill se vilken prenumeration du använder kör du [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
+Om du vill se vilken prenumeration du använder kör du [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```powershell
 Get-AzSubscription
 ```
 
-Om du behöver använda en annan prenumeration än standard kör du [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
+Om du behöver använda en annan prenumeration än standard kör du [Set-AzContext](/powershell/module/az.accounts/set-azcontext?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"
@@ -69,7 +69,7 @@ Följ de här anvisningarna för att hitta platsen för ditt informationslager.
 
 I SQL-poolen kan du öka eller minska beräkningsresurser genom att justera informationslagerenheter. I [Skapa och ansluta – portal](create-data-warehouse-portal.md) skapades **mySampleDataWarehouse** och initierades med 400 DWU. Följande steg justerar DWU för **mySampleDataWarehouse**.
 
-Om du vill ändra informationslagerenheter använder du cmdleten [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell. I följande exempel anges informationslagerenheterna till DW300c för databasen **mySampleDataWarehouse**, som finns i **resursgruppens resursgruppsnamn** på server **sqlpoolservername**.
+Om du vill ändra informationslagerenheter använder du cmdleten [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell. I följande exempel anges informationslagerenheterna till DW300c för databasen **mySampleDataWarehouse**, som finns i **resursgruppens resursgruppsnamn** på server **sqlpoolservername**.
 
 ```Powershell
 Set-AzSqlDatabase -ResourceGroupName "resourcegroupname" -DatabaseName "mySampleDataWarehouse" -ServerName "sqlpoolservername" -RequestedServiceObjectiveName "DW300c"
@@ -77,7 +77,7 @@ Set-AzSqlDatabase -ResourceGroupName "resourcegroupname" -DatabaseName "mySample
 
 ## <a name="check-data-warehouse-state"></a>Kontrollera tillstånd för informationslager
 
-Om du vill se det aktuella tillståndet för informationslagret använder du cmdleten [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) PowerShell. Den här cmdleten visar tillståndet för **mySampleDataWarehouse-databasen** i ResourceGroup **resourcegroupname** och server **sqlpoolservername.database.windows.net**.
+Om du vill se det aktuella tillståndet för informationslagret använder du cmdleten [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell. Den här cmdleten visar tillståndet för **mySampleDataWarehouse-databasen** i ResourceGroup **resourcegroupname** och server **sqlpoolservername.database.windows.net**.
 
 ```powershell
 $database = Get-AzSqlDatabase -ResourceGroupName resourcegroupname -ServerName sqlpoolservername -DatabaseName mySampleDataWarehouse
@@ -120,6 +120,7 @@ $database | Select-Object DatabaseName,Status
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 Du har nu lärt dig hur du skalar beräkning för SQL-pool. Om du vill veta mer om SQL-poolen fortsätter du till självstudien för att läsa in data.
 
 > [!div class="nextstepaction"]

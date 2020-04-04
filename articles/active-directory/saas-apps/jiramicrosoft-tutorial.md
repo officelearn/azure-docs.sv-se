@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cd922d0e65da627f11e6aab3827cb848c3dd635
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7c6db9ed92161e968b36c75b8bee5a847137c072
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75560534"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631870"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Självstudiekurs: Azure Active Directory single sign-on (SSO) integration med JIRA SAML SSO av Microsoft
 
@@ -42,7 +42,7 @@ Använd ditt Microsoft Azure Active Directory-konto med Atlassian JIRA-servern f
 För att konfigurera Azure AD-integrering med JIRA SAML SSO från Microsoft behöver du följande:
 
 - En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
-- JIRA Core and Software 6.4 to 8.5.1 eller JIRA Service Desk 3.0 till 4.6.0 ska installeras och konfigureras i Windows 64-bitarsversion
+- JIRA Core and Software 6.4 to 8.8.0 eller JIRA Service Desk 3.0 till 4.8.0 ska installeras och konfigureras i Windows 64-bitarsversion
 - JIRA-servern är HTTPS-aktiverad
 - Observera att de versioner som stöds för JIRA-plugin-programmet anges i avsnittet nedan.
 - JIRA-servern kan nås via Internet, särskilt för Azure AD-inloggningssidan för autentisering, och bör kunna ta emot token från Azure AD
@@ -60,8 +60,8 @@ För att komma igång behöver du följande:
 
 ## <a name="supported-versions-of-jira"></a>Versioner av JIRA som stöds
 
-* JIRA Kärna och mjukvara: 6.4 till 8.5.1
-* JIRA Service Desk 3.0.0 till 4.6.0
+* JIRA Kärna och mjukvara: 6.4 till 8.8.0
+* JIRA Service Desk 3.0.0 till 4.8.0
 * JIRA stöder också 5.2. Om du vill ha mer information klickar du på [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md) (Microsoft Azure Active Directory enkel inloggning för JIRA 5.2)
 
 > [!NOTE]

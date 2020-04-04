@@ -11,18 +11,20 @@ ms.date: 03/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 322f1dfcb709727ddd3a97ea22dbe8243aedca20
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 4efd5c63af9f09d41733e8e172270410245977ec
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350355"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633208"
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>REST API:er för Azure SQL Data Warehouse
+
 REST API:er för hantering av beräkning i Azure Synapse Analytics informationslager.
 
 ## <a name="scale-compute"></a>Skala beräkning
-Om du vill ändra informationslagerenheterna använder du REST-API:et [Skapa eller uppdatera databas.](/rest/api/sql/databases/createorupdate) I följande exempel anges informationslagerenheterna till DW1000 för databasen MySQLDW, som finns på servern MyServer. Servern finns i en Azure-resursgrupp med namnet ResourceGroup1.
+
+Om du vill ändra informationslagerenheterna använder du REST-API:et [Skapa eller uppdatera databas.](/rest/api/sql/databases/createorupdate?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) I följande exempel anges informationslagerenheterna till DW1000 för databasen MySQLDW, som finns på servern MyServer. Servern finns i en Azure-resursgrupp med namnet ResourceGroup1.
 
 ```
 PATCH https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
@@ -37,7 +39,7 @@ Content-Type: application/json; charset=UTF-8
 
 ## <a name="pause-compute"></a>Pausa beräkning
 
-Om du vill pausa en databas använder du [REST-API:et för pausdatabasen.](/rest/api/sql/databases/pause) I följande exempel pausas en databas med namnet Database02 som finns på en server med namnet Server01. Servern finns i en Azure-resursgrupp med namnet ResourceGroup1.
+Om du vill pausa en databas använder du [REST-API:et för pausdatabasen.](/rest/api/sql/databases/pause?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) I följande exempel pausas en databas med namnet Database02 som finns på en server med namnet Server01. Servern finns i en Azure-resursgrupp med namnet ResourceGroup1.
 
 ```
 POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/pause?api-version=2014-04-01-preview HTTP/1.1
@@ -45,7 +47,7 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 
 ## <a name="resume-compute"></a>Återuppta beräkning
 
-Starta en databas genom att använda [REST-API:et för återställningsdatabasen.](/rest/api/sql/databases/resume) I följande exempel startas en databas med namnet Database02 som finns på en server med namnet Server01. Servern finns i en Azure-resursgrupp med namnet ResourceGroup1. 
+Starta en databas genom att använda [REST-API:et för återställningsdatabasen.](/rest/api/sql/databases/resume?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) I följande exempel startas en databas med namnet Database02 som finns på en server med namnet Server01. Servern finns i en Azure-resursgrupp med namnet ResourceGroup1.
 
 ```
 POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/resume?api-version=2014-04-01-preview HTTP/1.1
@@ -61,7 +63,8 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 ```
 
 ## <a name="get-maintenance-schedule"></a>Hämta underhållsschema
-Kontrollera underhållsschemat som har angetts för ett informationslager. 
+
+Kontrollera underhållsschemat som har angetts för ett informationslager.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
@@ -69,6 +72,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 ```
 
 ## <a name="set-maintenance-schedule"></a>Ange underhållsschema
+
 Så här anger och uppdaterar du ett underhållsschema på ett befintligt informationslager.
 
 ```
@@ -93,7 +97,6 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 ```
 
-
 ## <a name="next-steps"></a>Nästa steg
-Mer information finns i [Hantera beräkning](sql-data-warehouse-manage-compute-overview.md).
 
+Mer information finns i [Hantera beräkning](sql-data-warehouse-manage-compute-overview.md).

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 719a1985aeb0db7b0cf7f55a10762bf3ebb3e045
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8118ecde698b54213547e717d25613c0c3e0d3fd
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79250197"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631561"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Förbereda en VHD eller VHDX i Windows för överföring till Azure
 
-Innan du laddar upp en virtuell Dator (VM) från lokalt till Azure måste du förbereda den virtuella hårddisken (VHD eller VHDX). Azure stöder både generation 1 och generation 2 virtuella datorer som är i VHD-filformat och som har en disk med fast storlek. Den maximala storleken för den virtuella hårddisken är 1 023 GB. 
+Innan du laddar upp en virtuell Dator (VM) från lokalt till Azure måste du förbereda den virtuella hårddisken (VHD eller VHDX). Azure stöder både generation 1 och generation 2 virtuella datorer som är i VHD-filformat och som har en disk med fast storlek. Den maximala storleken som tillåts för den virtuella hårddisken är 2 TB.
 
 I en generation 1 virtuell dator kan du konvertera ett VHDX-filsystem till VHD. Du kan också konvertera en dynamiskt expanderande disk till en disk med fast storlek. Men du kan inte ändra en virtuell dators generation. Mer information finns i [Ska jag skapa en generation 1 eller 2 virtuell dator i Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) och [Azure-stöd för generation 2 virtuella datorer (förhandsversion)](generation-2.md).
 
@@ -385,7 +385,7 @@ Helst bör du hålla maskinen uppdaterad på *plåsternivå*. Om detta inte är 
 
 | Komponent               | Binär         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
-| Lagring                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
+| Storage                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |
 |                         | ntfs.sys (svenska)       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17623 / 6.2.9200.21743 - KB3121255 | 6.3.9600.18654 - KB4022726         | 10.0.14393.1198 - KB4022715                             | 10.0.15063.447             | -                                               | -                                               |
 |                         | Iologmsg.dll   | 6.1.7601.23403 - KB3125574                | 6.2.9200.16384 - KB2995387                  | -                                  | -                                                       | -                          | -                                               | -                                               |

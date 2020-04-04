@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 04/02/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8f2e2081ee31e2ce7b21677bd261ed7eda705334
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: de0cf260207747f4acb02a377819a13de8b8ba22
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79485926"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80628429"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
 
@@ -26,9 +26,8 @@ ms.locfileid: "79485926"
 
 ## <a name="portal"></a>Portalen
 
-Om du vill skapa och konfigurera inkrementella ögonblicksbilder i [https://aka.ms/incrementalsnapshots](https://aka.ms/incrementalsnapshots)den globala Azure-portalen måste du använda följande länk: . Inkrementell ögonblicksbild skapas är ännu inte tillgänglig i den globala Azure-portalen.
 
-1. Logga in på [Azure-portalen](https://aka.ms/incrementalsnapshots) med den medföljande länken och navigera till den disk som du vill ögonblicksbild.
+1. Logga in på [Azure-portalen](https://portal.azure.com/) och navigera till den disk som du vill ögonblicksbild.
 1. Välj **Skapa en ögonblicksbild på** disken
 
     :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-snapshot-button-incremental.png" alt-text="Skärmdump. Diskens blad, med **+Skapa ögonblicksbild** markerat, eftersom det är vad du måste välja.":::

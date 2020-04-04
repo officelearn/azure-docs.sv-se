@@ -4,19 +4,19 @@ description: Här beskrivs hur du använder Azure Multi-Factor Authentication-fu
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/30/2018
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b47e6bac031a5f2cffc8734fee976fbf8dadc666
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5d5354f5bca7a4c9ab00066167ad19890536629
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80129087"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653608"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Rapporter i Azure Multi Factor-autentisering
 
@@ -90,7 +90,7 @@ Rapporterna om inloggningsaktiviteter för MFA ger dig åtkomst till följande i
       - telefonsamtalet dirigerades till röstmeddelanden
       - telefonnumret har ett ogiltigt format
       - tjänstfel
-      - kunde inte nå användarens telefon
+      - inte kan nå användarens telefon
       - kunde inte skicka meddelande via mobilapp till enheten
       - kunde inte skicka meddelande via mobilapp
       - användaren nekade autentiseringen

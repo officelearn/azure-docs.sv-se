@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/06/2020
 tags: connectors
-ms.openlocfilehash: 1578ca030bc8bab971a44e1afcce1d1ab9e1d5e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a3fb9a8a72b384d2af4af38bdc382e541ddf535
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78674096"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656286"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Skapa och kör automatiserade händelsebaserade arbetsflöden med hjälp av HTTP-webbkrokar i Azure Logic Apps
 
@@ -36,7 +36,7 @@ En HTTP webhook-åtgärd är också händelsebaserad och *prenumererar på* en v
 Office 365 Outlook-anslutningsappens [**e-poståtgärd Skicka godkännande**](connectors-create-api-office365-outlook.md) är till exempel ett exempel på webhook-åtgärd som följer det här mönstret. Du kan utöka det här mönstret till valfri tjänst med hjälp av webhook-åtgärden.
 
 > [!NOTE]
-> Logic Apps tillämpar TLS (Transport Layer Security) 1.2 när du tar emot samtalet tillbaka till HTTP webhook-utlösaren eller åtgärden. Om du ser SSL-handskakningsfel kontrollerar du att du använder TLS 1.2. För inkommande samtal, här är de chiffersviter som stöds:
+> Logic Apps tillämpar TLS (Transport Layer Security) 1.2 när du tar emot samtalet tillbaka till HTTP webhook-utlösaren eller åtgärden. Om du ser TLS handskakningsfel kontrollerar du att du använder TLS 1.2. För inkommande samtal, här är de chiffersviter som stöds:
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 > * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 62826b209b37e5abe5d33455809ba1b894ddb85f
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 5925e3374634dd4db4bdc6855949dc3880d8de7c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80476461"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655519"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Jämföra självhanterade Active Directory Domain Services, Azure Active Directory och hanterade Azure Active Directory Domain Services
 
@@ -25,12 +25,16 @@ Om du vill ge program, tjänster eller enheter åtkomst till en central identite
 
 * **AD DS (Active Directory Domain Services)** – LDAP-server (Enterprise-ready lightweight Directory Access Protocol) som tillhandahåller viktiga funktioner som identitet och autentisering, hantering av datorobjekt, grupprinciper och förtroenden.
     * AD DS är en central komponent i många organisationer med en lokal IT-miljö och tillhandahåller grundläggande autentisering av användarkonton och datorhanteringsfunktioner.
+    * Mer information finns [i översikten active directory domain services i Dokumentationen till Windows Server][overview-adds].
 * **Azure Active Directory (Azure AD)** – Molnbaserad identitets- och hantering av mobila enheter som tillhandahåller användarkonto- och autentiseringstjänster för resurser som Office 365, Azure-portalen eller SaaS-program.
     * Azure AD kan synkroniseras med en lokal AD DS-miljö för att tillhandahålla en enda identitet till användare som arbetar inbyggt i molnet.
+    * Mer information om Azure AD finns i [Vad är Azure Active Directory?][whatis-azuread]
 * **Azure Active Directory Domain Services (Azure AD DS)** – Tillhandahåller hanterade domäntjänster med en delmängd av heltkompatibla traditionella AD DS-funktioner som domänanslutning, grupprincip, LDAP- och Kerberos/ NTLM-autentisering.
     * Azure AD DS integreras med Azure AD, som i sig kan synkronisera med en lokal AD DS-miljö. Den här möjligheten utökar centrala identitetsanvändningsfall till traditionella webbprogram som körs i Azure som en del av en lift-and-shift-strategi.
 
 Den här översiktsartikeln jämför och kontrasterar hur dessa identitetslösningar kan fungera tillsammans eller användas oberoende av varandra, beroende på organisationens behov.
+
+För att komma [igång, skapa en Azure AD DS-hanterad domän med Azure-portalen][tutorial-create].
 
 ## <a name="azure-ad-ds-and-self-managed-ad-ds"></a>Azure AD DS och självhanterad AD DS
 
@@ -118,3 +122,5 @@ Om du vill komma igång med att använda Azure AD DS [skapar du en Azure AD DS-h
 [manage-gpos]: manage-group-policy.md
 [tutorial-ldaps]: tutorial-configure-ldaps.md
 [tutorial-create]: tutorial-create-instance.md
+[whatis-azuread]: ../active-directory/fundamentals/active-directory-whatis.md
+[overview-adds]: /windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview

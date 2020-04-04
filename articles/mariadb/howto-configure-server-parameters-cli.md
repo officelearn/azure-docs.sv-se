@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 56975c52b22b90840fb1534187e99f6efa19469e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/1/2020
+ms.openlocfilehash: 3ba06ea592d51eedbe827e1ab6418f65722d579c
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79527681"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632306"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Anpassa serverkonfigurationsparametrar med hjälp av Azure CLI
 Du kan lista, visa och uppdatera konfigurationsparametrar för en Azure-databas för MariaDB-server med hjälp av Azure CLI, kommandoradsverktyget i Azure. En delmängd av motorkonfigurationer exponeras på servernivå och kan ändras.
@@ -59,10 +59,10 @@ Den här koden återställer den **långsamma\_frågeloggkonfigurationen\_** til
 
 ### <a name="populating-the-time-zone-tables"></a>Fylla i tidszonstabellerna
 
-Tidszonstabellerna på servern kan fyllas `az_load_timezone` i genom att anropa den lagrade proceduren från ett verktyg som MariaDB-kommandoraden eller MariaDB Workbench.
+Tidszonstabellerna på servern kan fyllas `mysql.az_load_timezone` i genom att anropa den lagrade proceduren från ett verktyg som MariaDB-kommandoraden eller MariaDB Workbench.
 
 > [!NOTE]
-> Om du kör `az_load_timezone` kommandot från MariaDB Workbench kan du behöva stänga `SET SQL_SAFE_UPDATES=0;`av felsäkert uppdateringsläge först med .
+> Om du kör `mysql.az_load_timezone` kommandot från MariaDB Workbench kan du behöva stänga `SET SQL_SAFE_UPDATES=0;`av felsäkert uppdateringsläge först med .
 
 ```sql
 CALL mysql.az_load_timezone();

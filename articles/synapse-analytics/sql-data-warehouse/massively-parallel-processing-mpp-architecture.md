@@ -10,21 +10,23 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: a42ec523bb1f77c48f7382283a52565c9c9273b6
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: e321df3f27defdceab31fe3b425a4169928ba3f6
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80584504"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631937"
 ---
-# <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Azure Synapse Analytics -arkitektur (tidigare SQL DW) 
+# <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Azure Synapse Analytics -arkitektur (tidigare SQL DW)
 
 Azure Synapse är en obegränsad analystjänst som sammanför informationslager i företagsklass och stordataanalys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen serverlösa resurser på begäran eller etablerade resurser – i stor skala. Azure Synapse sammanför dessa två världar med en enhetlig upplevelse för att inta, förbereda, hantera och hantera data för omedelbara bi- och maskininlärningsbehov.
 
  Azure Synapse har fyra komponenter:
-- Synapse SQL: Komplett T-SQL-baserad analys 
-    - SQL pool (betala per DWU etablerad) - Allmänt tillgänglig
-    - SQL on-demand (betala per TB bearbetad) – (preview)
+
+- SQL Analytics: Komplett T-SQL-baserad analys
+
+  - SQL pool (betala per DWU etablerad) - Allmänt tillgänglig
+  - SQL on-demand (betala per TB bearbetad) – (preview)
 - Spark: Djupt integrerad Apache Spark (Preview)
 - Dataintegration: Integrering av hybriddata (förhandsversion)
 - Studio: enhetlig användarupplevelse.  (Förhandsversion)
@@ -37,24 +39,24 @@ Azure Synapse är en obegränsad analystjänst som sammanför informationslager 
 
 ![Synapse SQL-arkitektur](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-Synapse SQL använder en nodbaserad arkitektur. Program ansluter och utfärdar T-SQL-kommandon till en kontrollnod, som är den enda ingångspunkten för en Synapse SQL-pool. Kontrollnoden kör MPP-motorn, som optimerar frågor för parallell bearbetning, och skickar sedan åtgärder till Beräkningsnoder för att utföra sitt arbete parallellt. 
+SQL Analytics använder en nodbaserad arkitektur. Program ansluter och utfärdar T-SQL-kommandon till en kontrollnod, som är den enda ingångspunkten för SQL Analytics. Kontrollnoden kör MPP-motorn, som optimerar frågor för parallell bearbetning, och skickar sedan åtgärder till Beräkningsnoder för att utföra sitt arbete parallellt.
 
-Beräkningsnoderna lagrar alla användardata i Azure Storage och kör de parallella frågorna. Data Movement Service (DMS) är en intern tjänst på systemnivå som flyttar data mellan noder efter behov för att köra frågor parallellt och returnera korrekta resultat. 
+Beräkningsnoderna lagrar alla användardata i Azure Storage och kör de parallella frågorna. Data Movement Service (DMS) är en intern tjänst på systemnivå som flyttar data mellan noder efter behov för att köra frågor parallellt och returnera korrekta resultat.
 
 Med frikopplad lagring och beräkning, när du använder Synapse SQL pool kan man:
 
-* Oberoende storlek beräkna makt oberoende av dina lagringsbehov.
-* Öka eller förminska beräkningskraften i en SQL-pool (informationslager) utan att flytta data.
-* Pausa beräkningskapaciteten och lämna data intakta, så att du bara betalar för lagring.
-* Återuppta beräkningskapacitet under driftstimmar.
+- Oberoende storlek beräkna makt oberoende av dina lagringsbehov.
+- Öka eller förminska beräkningskraften i en SQL-pool (informationslager) utan att flytta data.
+- Pausa beräkningskapaciteten och lämna data intakta, så att du bara betalar för lagring.
+- Återuppta beräkningskapacitet under driftstimmar.
 
 ### <a name="azure-storage"></a>Azure Storage
 
 Synapse SQL använder Azure Storage för att skydda dina användardata.  Eftersom dina data lagras och hanteras av Azure Storage finns det en separat avgift för din lagringsförbrukning. Data är fragmenterade i **distributioner** för att optimera systemets prestanda. Du kan välja vilket fragmenteringsmönster som ska användas för att distribuera data när du definierar tabellen. Dessa fragmenteringsmönster stöds:
 
-* Hash
-* Resursallokering
-* Replikera
+- Hash
+- Resursallokering
+- Replikera
 
 ### <a name="control-node"></a>Kontrollnoden
 
@@ -68,27 +70,29 @@ Varje beräkningsnod har ett nod-ID som visas i systemvyer. Du kan se beräkning
 
 ### <a name="data-movement-service"></a>Data Movement Service
 
-Data Movement Service (DMS) är datatransporttekniken som samordnar dataflyttning mellan beräkningsnoderna. Vissa frågor kräver dataflyttning för att säkerställa att parallella frågor returnerar korrekta resultat. När data förflyttning krävs säkerställer DMS att rätt data kommer till rätt plats. 
+Data Movement Service (DMS) är datatransporttekniken som samordnar dataflyttning mellan beräkningsnoderna. Vissa frågor kräver dataflyttning för att säkerställa att parallella frågor returnerar korrekta resultat. När data förflyttning krävs säkerställer DMS att rätt data kommer till rätt plats.
 
 ## <a name="distributions"></a>Distributioner
 
-En distribution är den grundläggande lagringsenheten för parallella frågor som körs på distribuerade data. När en fråga körs delas arbetet upp i 60 mindre frågor som körs parallellt. 
+En distribution är den grundläggande lagringsenheten för parallella frågor som körs på distribuerade data. När SQL Analytics kör en fråga delas arbetet upp i 60 mindre frågor som körs parallellt.
 
 Var och en av de 60 mindre frågorna körs på en av datadistributionerna. Varje Beräkningsnod hanterar en eller flera av de 60 distributionerna. En SQL-pool med maximala beräkningsresurser har en distribution per beräkningsnod. En SQL-pool med minsta beräkningsresurser har alla distributioner på en beräkningsnod.  
 
 ## <a name="hash-distributed-tables"></a>Hash-distribuerade tabeller
 
-En hash-distribuerad tabell kan leverera högsta frågeprestanda för kopplingar och aggregeringar för stora tabeller. 
+En hash-distribuerad tabell kan leverera högsta frågeprestanda för kopplingar och aggregeringar för stora tabeller.
+
+En hash-distribuerad tabell kan leverera högsta frågeprestanda för kopplingar och aggregeringar för stora tabeller.
 
 Om du vill fragmentera data till en hash-distribuerad tabell används en hash-funktion för att deterministiskt tilldela varje rad till en fördelning. I tabelldefinitionen utses en av kolumnerna till distributionskolumnen. Hash-funktionen använder värdena i distributionskolumnen för att tilldela varje rad till en distribution.
 
-Följande diagram visar hur en fullständig (ej distribuerad tabell) lagras som en hash-distribuerad tabell. 
+Följande diagram visar hur en fullständig (ej distribuerad tabell) lagras som en hash-distribuerad tabell.
 
 ![Distribuerad tabell](./media/massively-parallel-processing-mpp-architecture/hash-distributed-table.png "Distribuerad tabell")  
 
-* Varje rad tillhör en fördelning.  
-* En deterministisk hash-algoritm tilldelar varje rad till en fördelning.  
-* Antalet tabellrader per fördelning varierar beroende på vad som visas av de olika storlekarna på tabeller.
+- Varje rad tillhör en fördelning.  
+- En deterministisk hash-algoritm tilldelar varje rad till en fördelning.  
+- Antalet tabellrader per fördelning varierar beroende på vad som visas av de olika storlekarna på tabeller.
 
 Det finns prestandaöverväganden för valet av en distributionskolumn, till exempel distinktitet, datasnedställning och de typer av frågor som körs i systemet.
 
@@ -106,8 +110,17 @@ En tabell som replikeras cachelagrar en fullständig kopia av tabellen på varje
 
 Diagrammet nedan visar en replikerad tabell som cachelagras på den första distributionen på varje beräkningsnod.  
 
-![Replikerad tabell](./media/massively-parallel-processing-mpp-architecture/replicated-table.png "Replikerad tabell") 
+![Replikerad tabell](./media/massively-parallel-processing-mpp-architecture/replicated-table.png "Replikerad tabell")
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du vet lite om Azure Synapse kan du lära dig hur du snabbt [skapar en SQL-pool](create-data-warehouse-portal.md) och [läser in exempeldata](load-data-from-azure-blob-storage-using-polybase.md). Om du inte har erfarenhet av Azure kan [Azure-ordlistan](../../azure-glossary-cloud-terminology.md) vara till hjälp om du stöter på ny terminologi. Eller titta på några av dessa andra Azure Synapse-resurser.  
+Nu när du vet lite om Azure Synapse kan du lära dig hur du snabbt [skapar en SQL-pool](create-data-warehouse-portal.md) och [läser in exempeldata](load-data-from-azure-blob-storage-using-polybase.md). Om du inte har erfarenhet av Azure kan [Azure-ordlistan](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) vara till hjälp om du stöter på ny terminologi. Eller titta på några av dessa andra Azure Synapse-resurser.  
+
+- [Kundernas framgångsberättelser](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
+- [Bloggar](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
+- [Funktionsbegäranden](https://feedback.azure.com/forums/307516-sql-data-warehouse)
+- [Videor](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
+- [Skapa ett supportärende](sql-data-warehouse-get-started-create-support-ticket.md)
+- [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
+- [Stack Overflow-forum](https://stackoverflow.com/questions/tagged/azure-sqldw)
+- [Twitter](https://twitter.com/hashtag/SQLDW)

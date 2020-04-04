@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7460a59dd2a7a5906a483195929136391657fa50
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: c93dab2f6086b10e1e8d75c4fc3334a95c3fcafa
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80584009"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633277"
 ---
 # <a name="load-contoso-retail-data-to-a-synapse-sql-data-warehouse"></a>Läsa in Contoso-återförsäljardata i ett Synaps SQL-datalager
 
@@ -77,41 +77,40 @@ WITH (
 
 ## <a name="create-the-external-data-source"></a>Skapa den externa datakällan
 
-Använd det här kommandot [SKAPA EXTERN DATAKÄLLA](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15) om du vill lagra platsen för data och datatypen. 
+Använd det här kommandot [SKAPA EXTERN DATAKÄLLA](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) om du vill lagra platsen för data och datatypen.
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
-WITH 
+WITH
 (  
-    TYPE = Hadoop 
+    TYPE = Hadoop
 ,   LOCATION = 'wasbs://contosoretaildw-tables@contosoretaildw.blob.core.windows.net/'
-); 
+);
 ```
 
 > [!IMPORTANT]
-> Om du väljer att göra dina azure blob lagringsbehållare offentliga, kom ihåg att som dataägare kommer du att debiteras för datautgående avgifter när data lämnar datacentret. 
-> 
+> Om du väljer att göra dina azure blob lagringsbehållare offentliga, kom ihåg att som dataägare kommer du att debiteras för datautgående avgifter när data lämnar datacentret.
 
 ## <a name="configure-the-data-format"></a>Konfigurera dataformatet
 
 Data lagras i textfiler i Azure blob storage och varje fält avgränsas med en avgränsare. I SSMS kör du följande kommandot SKAPA EXTERNT FILFORMAT för att ange formatet på data i textfilerna. Contoso-data är okomprimerade och pipe avgränsas.
 
 ```sql
-CREATE EXTERNAL FILE FORMAT TextFileFormat 
-WITH 
+CREATE EXTERNAL FILE FORMAT TextFileFormat
+WITH
 (   FORMAT_TYPE = DELIMITEDTEXT
 ,    FORMAT_OPTIONS    (   FIELD_TERMINATOR = '|'
                     ,    STRING_DELIMITER = ''
                     ,    DATE_FORMAT         = 'yyyy-MM-dd HH:mm:ss.fff'
-                    ,    USE_TYPE_DEFAULT = FALSE 
+                    ,    USE_TYPE_DEFAULT = FALSE
                     )
 );
-``` 
+```
 
-## <a name="create-the-external-tables"></a>Skapa de externa tabellerna
-Nu när du har angett datakällan och filformatet är du redo att skapa de externa tabellerna. 
+## <a name="create-the-schema-for-the-external-tables"></a>Skapa schemat för de externa tabellerna
 
-## <a name="create-a-schema-for-the-data"></a>Skapa ett schema för data
+Nu när du har angett datakällan och filformatet är du redo att skapa schemat för de externa tabellerna.
+
 Skapa ett schema om du vill skapa en plats där Contoso-data lagras i databasen.
 
 ```sql
@@ -163,7 +162,7 @@ CREATE EXTERNAL TABLE [asb].DimProduct (
 )
 WITH
 (
-    LOCATION='/DimProduct/' 
+    LOCATION='/DimProduct/'
 ,   DATA_SOURCE = AzureStorage_west_public
 ,   FILE_FORMAT = TextFileFormat
 ,   REJECT_TYPE = VALUE
@@ -172,7 +171,7 @@ WITH
 ;
 
 --FactOnlineSales
-CREATE EXTERNAL TABLE [asb].FactOnlineSales 
+CREATE EXTERNAL TABLE [asb].FactOnlineSales
 (
     [OnlineSalesKey] [int]  NOT NULL,
     [DateKey] [datetime] NOT NULL,
@@ -198,7 +197,7 @@ CREATE EXTERNAL TABLE [asb].FactOnlineSales
 )
 WITH
 (
-    LOCATION='/FactOnlineSales/' 
+    LOCATION='/FactOnlineSales/'
 ,   DATA_SOURCE = AzureStorage_west_public
 ,   FILE_FORMAT = TextFileFormat
 ,   REJECT_TYPE = VALUE
@@ -208,9 +207,10 @@ WITH
 ```
 
 ## <a name="load-the-data"></a>Läs in data
+
 Det finns olika sätt att komma åt externa data.  Du kan fråga data direkt från de externa tabellerna, läsa in data i nya tabeller i informationslagret eller lägga till externa data i befintliga informationslagertabeller.  
 
-###  <a name="create-a-new-schema"></a>Skapa ett nytt schema
+### <a name="create-a-new-schema"></a>Skapa ett nytt schema
 
 CTAS skapar en ny tabell som innehåller data.  Skapa först ett schema för contoso-data.
 
@@ -221,11 +221,11 @@ GO
 
 ### <a name="load-the-data-into-new-tables"></a>Läsa in data i nya tabeller
 
-Om du vill läsa in data från Azure blob storage i informationslagrets tabell använder du uttrycket [SKAPA TABELL AS SELECT (Transact-SQL).](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) Inläsning med [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md) utnyttjar de starkt skrivna externa tabeller som du har skapat. Om du vill läsa in data i nya tabeller använder du en CTAS-sats per tabell. 
- 
+Om du vill läsa in data från Azure blob storage i informationslagrets tabell använder du uttrycket [SKAPA TABELL AS SELECT (Transact-SQL).](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) Inläsning med [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md) utnyttjar de starkt skrivna externa tabeller som du har skapat. Om du vill läsa in data i nya tabeller använder du en CTAS-sats per tabell.
+
 CTAS skapar en ny tabell och fyller den med resultatet av en select-sats. CTAS definierar den nya tabellen så att samma kolumner och datatyper har samma kolumner och datatyper som resultatet av select-satsen. Om du markerar alla kolumner från en extern tabell blir den nya tabellen en replik av kolumnerna och datatyperna i den externa tabellen.
 
-I det här exemplet skapar vi både dimensionen och faktatabellen som hash-distribuerade tabeller. 
+I det här exemplet skapar vi både dimensionen och faktatabellen som hash-distribuerade tabeller.
 
 ```sql
 SELECT GETDATE();
@@ -237,7 +237,7 @@ CREATE TABLE [cso].[FactOnlineSales]       WITH (DISTRIBUTION = HASH([ProductKey
 
 ### <a name="track-the-load-progress"></a>Spåra belastningens förlopp
 
-Du kan spåra förloppet för din belastning med hjälp av dynamiska hanteringsvyer (DMVs). 
+Du kan spåra förloppet för din belastning med hjälp av dynamiska hanteringsvyer (DMVs).
 
 ```sql
 -- To see all requests
@@ -254,13 +254,13 @@ SELECT
     r.command,
     s.request_id,
     r.status,
-    count(distinct input_name) as nbr_files, 
+    count(distinct input_name) as nbr_files,
     sum(s.bytes_processed)/1024/1024/1024 as gb_processed
 FROM
     sys.dm_pdw_exec_requests r
     inner join sys.dm_pdw_dms_external_work s
         on r.request_id = s.request_id
-WHERE 
+WHERE
     r.[label] = 'CTAS : Load [cso].[DimProduct]             '
     OR r.[label] = 'CTAS : Load [cso].[FactOnlineSales]        '
 GROUP BY
@@ -276,7 +276,7 @@ ORDER BY
 
 Som standard lagrar Synapse SQL-informationslagret tabellen som ett grupperat columnstore-index. När en inläsning har slutförts kanske vissa datarader inte komprimeras till columnstore.  Det finns olika skäl till varför detta kan hända. Mer information finns i [Hantera columnstore-index](sql-data-warehouse-tables-index.md).
 
-Om du vill optimera frågeprestanda och columnstore-komprimering efter en belastning återskapar du tabellen så att columnstore-indexet komprimerar alla rader. 
+Om du vill optimera frågeprestanda och columnstore-komprimering efter en belastning återskapar du tabellen så att columnstore-indexet komprimerar alla rader.
 
 ```sql
 SELECT GETDATE();
@@ -290,7 +290,7 @@ Mer information om hur du underhåller columnstore-index finns i artikeln [hante
 
 ## <a name="optimize-statistics"></a>Optimera statistik
 
-Det är bäst att skapa statistik med en kolumn direkt efter en belastning. Om du vet att vissa kolumner inte kommer att finnas i frågepredikater kan du hoppa över att skapa statistik för dessa kolumner. Om du skapar statistik med en kolumn i varje kolumn kan det ta lång tid att återskapa all statistik. 
+Det är bäst att skapa statistik med en kolumn direkt efter en belastning. Om du vet att vissa kolumner inte kommer att finnas i frågepredikater kan du hoppa över att skapa statistik för dessa kolumner. Om du skapar statistik med en kolumn i varje kolumn kan det ta lång tid att återskapa all statistik.
 
 Om du bestämmer dig för att skapa statistik med en kolumn i `prc_sqldw_create_stats` varje kolumn kan du använda det lagrade procedurkodexemplet i [statistikartikeln.](sql-data-warehouse-tables-statistics.md)
 
@@ -339,6 +339,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 ```
 
 ## <a name="achievement-unlocked"></a>Prestation olåst!
+
 Du har läst in offentliga data i ditt informationslager. Bra jobbat!
 
 Du kan nu börja fråga tabellerna för att utforska dina data. Kör följande fråga för att ta reda på den totala försäljningen per varumärke:
@@ -352,5 +353,6 @@ GROUP BY p.[BrandName]
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 Om du vill läsa in hela datauppsättningen kör du exemplet [för att läsa in hela Contoso-butiksdatalagret](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) från Microsoft SQL Server-exempeldatabasen.
 Fler utvecklingstips finns i [Designbeslut och kodningstekniker för datalager](sql-data-warehouse-overview-develop.md).

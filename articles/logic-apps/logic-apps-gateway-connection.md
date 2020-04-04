@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: 29c1aaf18ea45d869d32a8817aeb03faa3b67c32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 02/14/2020
+ms.openlocfilehash: 096943ff796f9c12c7f8715cadce5c3085965d4d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75456568"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657142"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ansluta till lokala datakällor från Azure Logic Apps
 
@@ -59,6 +59,9 @@ Azure Logic Apps stöder läs- och skrivåtgärder via datagatewayen. Dessa åtg
 * Gateway-installationen är inte redan registrerad och begärs av en annan Azure gateway-resurs.
 
   När du skapar en gateway-resurs i Azure-portalen väljer du en gatewayinstallation som länkar till gatewayresursen och endast den gatewayresursen. I Azure Logic Apps använder lokala utlösare och åtgärder sedan gatewayresursen för att ansluta till lokala datakällor. I dessa utlösare och åtgärder väljer du din Azure-prenumeration och den associerade gatewayresursen som du vill använda. Varje gateway-resurs länkar till endast en gateway-installation, som länkar till endast ett Azure-konto.
+
+  > [!NOTE]
+  > Endast gateway-administratören kan skapa gatewayresursen i Azure-portalen. För närvarande stöds inte tjänsthuvudnamn. 
 
 <a name="create-gateway-resource"></a>
 

@@ -8,12 +8,12 @@ ms.date: 03/03/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 86b399879807e480176ee9a3ca3feaba1ec5dd85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4ad9f13bcdf36b67400adb62d58ee260ff256bb3
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250884"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637149"
 ---
 # <a name="storage-analytics"></a>Lagringsanalys
 
@@ -26,8 +26,6 @@ Aggregerade data lagras i en välkänd blob (för loggning) och i välkända tab
 Storage Analytics har en gräns på 20 TB för mängden lagrade data som är oberoende av den totala gränsen för ditt lagringskonto. Mer information om begränsningar för lagringskonton finns i [Skalbarhets- och prestandamål för standardlagringskonton](scalability-targets-standard-account.md).
 
 En detaljerad guide om hur du använder Storage Analytics och andra verktyg för att identifiera, diagnostisera och felsöka Problem med Azure Storage finns i [Övervaka, diagnostisera och felsöka Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="billing-for-storage-analytics"></a>Fakturering för lagringsanalys
 

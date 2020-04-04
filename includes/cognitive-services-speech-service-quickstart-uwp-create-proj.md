@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 6804834dab81b0774dd29b1ede836492d0dfea4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5db99a9d500b05fa6886dce2f29087920f8a1790
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78383846"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80658274"
 ---
 Om du vill skapa ett UWP-utveckling (Visual Studio-projekt för UWP) måste du konfigurera utvecklingsalternativ för Visual Studio, skapa projektet, välja målarkitektur, konfigurera ljudinspelning och installera Speech SDK.
 
@@ -104,4 +104,4 @@ Installera slutligen [speech SDK NuGet-paketet](https://aka.ms/csspeech/nuget)oc
 
 1. Välj **OK**i dialogrutan **Förhandsgranska ändringar** .
 
-1. Visa licensen i dialogrutan **Licensacceptans** och välj sedan **Jag accepterar**. Paketinstallationen börjar och när installationen är klar visas ett meddelande som `Successfully installed 'Microsoft.CognitiveServices.Speech 1.10.0' to helloworld`liknar följande text i **fönstret Utdata:** .
+1. Visa licensen i dialogrutan **Licensacceptans** och välj sedan **Jag accepterar**. Paketinstallationen börjar och när installationen är klar visas ett meddelande som `Successfully installed 'Microsoft.CognitiveServices.Speech 1.11.0' to helloworld`liknar följande text i **fönstret Utdata:** .

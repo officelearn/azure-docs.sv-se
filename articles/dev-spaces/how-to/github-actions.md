@@ -1,17 +1,17 @@
 ---
 title: GitHub-åtgärder & Azure Kubernetes-tjänsten (förhandsversion)
 services: azure-dev-spaces
-ms.date: 02/04/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
 description: Granska och testa ändringar från en pull-begäran direkt i Azure Kubernetes-tjänsten med GitHub-åtgärder och Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, GitHub-åtgärder, Helm, servicenät, routning av tjänstnät, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 49715e38f36d4421b7327640ec8392a83b3c2996
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a83da0ef3958748831eb0eeda1aa5e91efa7ef2e
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252380"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637952"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>GitHub-åtgärder & Azure Kubernetes-tjänsten (förhandsversion)
 
@@ -101,6 +101,11 @@ Navigera till den kluslade databasen och klicka på *Inställningar*. Klicka på
 > Alla dessa hemligheter används av GitHub-åtgärden och är konfigurerade i [.github/workflows/bikes.yml][github-action-yaml].
 
 Om du vill uppdatera huvudutrymmet när din PR har slagits samman lägger du till *GATEWAY_HOST* hemlighet, som tar formen *<MASTER_SPACE>.gateway.<HOST_SUFFIX>*, som i det här exemplet är *dev.gateway.fedcab0987.eus.azds.io*. När du har sammanfogat ändringarna till huvudgrenen i gaffeln körs en annan åtgärd för att återskapa och köra hela programmet i huvuddelegeringsutrymmet. I det här exemplet är *huvudutrymmet utåt*. Den här åtgärden har konfigurerats i [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+
+Dessutom, om du vill att ändringarna i din PR ska köras i ett barnbarn utrymme, uppdatera *MASTER_SPACE* och *HOST* hemligheter. Om ditt program till exempel körs i *dev* med ett underordnat utrymme *dev/azureuser1*, för att få PR-körningen i ett underordnat utrymme för *dev/azureuser1:*
+
+* Uppdatera *MASTER_SPACE* till det underordnade utrymme som du vill ha som överordnat utrymme, i det här exemplet *azureuser1*.
+* Uppdatera *HOST* till *<GRANDPARENT_SPACE>.<APP_NAME>.<HOST_SUFFIX>* i det här exemplet *dev.bikesharingweb.fedcab0987.eus.azds.io*.
 
 ## <a name="create-a-new-branch-for-code-changes"></a>Skapa en ny gren för kodändringar
 

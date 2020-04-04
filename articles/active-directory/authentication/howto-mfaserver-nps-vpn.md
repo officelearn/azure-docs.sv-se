@@ -4,29 +4,29 @@ description: Steg-för-steg-konfigurationsguider för Azure MFA Server för att 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdb24bcd79f1766a52f290fd6fe0e6e5bf17e7c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01decb99a9eb24ae60250f83f1f961b4c1690bc0
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74847957"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652852"
 ---
 # <a name="advanced-scenarios-with-azure-mfa-server-and-third-party-vpn-solutions"></a>Avancerade scenarier med Azure MFA Server och VPN-lösningar från tredje part
 
-Azure Multi-Factor Authentication Server (Azure MFA Server) kan användas för att sömlöst ansluta till olika VPN-lösningar från tredje part. Den här artikeln fokuserar på Cisco® ASA VPN-apparat, Citrix NetScaler SSL VPN-apparat och Juniper Networks Secure Access/Pulse Secure Connect Secure SSL VPN-apparat. Vi skapade konfigurationsguider för att ta itu med dessa tre vanliga apparater. Azure MFA Server kan också integreras med de flesta andra system som använder RADIUS, LDAP, IIS eller anspråksbaserad autentisering till AD FS. Du hittar mer information i [Azure MFA Server-konfigurationer](howto-mfaserver-deploy.md#next-steps).
+Azure Multi-Factor Authentication Server (Azure MFA Server) kan användas för att sömlöst ansluta till olika VPN-lösningar från tredje part. Den här artikeln&reg; fokuserar på Cisco ASA VPN-apparat, Citrix NetScaler SSL VPN-apparat och Juniper Networks Secure Access/Pulse Secure Connect Secure SSL VPN-apparat. Vi skapade konfigurationsguider för att ta itu med dessa tre vanliga apparater. Azure MFA Server kan också integreras med de flesta andra system som använder RADIUS, LDAP, IIS eller anspråksbaserad autentisering till AD FS. Du hittar mer information i [Azure MFA Server-konfigurationer](howto-mfaserver-deploy.md#next-steps).
 
 > [!IMPORTANT]
 > Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva multifaktorautentisering från sina användare bör använda molnbaserad Azure Multi-Factor-autentisering. Befintliga kunder som har aktiverat MFA Server före den 1 juli kommer att kunna ladda ner den senaste versionen, framtida uppdateringar och generera aktiveringsautentiseringsuppgifter som vanligt.
 
 ## <a name="cisco-asa-vpn-appliance-and-azure-mfa-server"></a>Cisco ASA VPN-apparat och Azure MFA Server
-Azure MFA Server integreras med din Cisco® ASA VPN-apparat för att ge ytterligare säkerhet för Cisco AnyConnect® VPN-inloggningar och portalåtkomst.  Du kan använda antingen LDAP- eller RADIUS-protokollet.  Välj något av följande om du vill hämta de detaljerade steg-för-steg-konfigurationsguiderna.
+Azure MFA Server integreras&reg; med din Cisco ASA VPN-apparat för att ge ytterligare säkerhet för Cisco AnyConnect&reg; VPN-inloggningar och portalåtkomst.  Du kan använda antingen LDAP- eller RADIUS-protokollet.  Välj något av följande om du vill hämta de detaljerade steg-för-steg-konfigurationsguiderna.
 
 | Konfigurationsguide | Beskrivning |
 | --- | --- |

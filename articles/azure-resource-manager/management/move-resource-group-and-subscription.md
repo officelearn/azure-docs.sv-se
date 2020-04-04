@@ -3,12 +3,12 @@ title: Flytta resurser till en ny prenumeration eller resursgrupp
 description: Använd Azure Resource Manager för att flytta resurser till en ny resursgrupp eller prenumeration.
 ms.topic: conceptual
 ms.date: 03/02/2020
-ms.openlocfilehash: 40432c55a7f7e289d2e5cbc8afe94847074e4ca8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ffb5f8be81d3628084d127db404ab994d4d5b938
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248858"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631506"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Flytta resurser till en ny resursgrupp eller prenumeration
 
@@ -107,7 +107,7 @@ Som illustration har vi bara en beroende resurs.
 
 * Steg 1: Om beroende resurser fördelas mellan olika resursgrupper flyttar du dem först till en resursgrupp.
 * Steg 2: Flytta resursen och de beroende resurserna tillsammans från källprenumerationen till målprenumerationen.
-* Steg 3: Du kan också distribuera om de beroende resurserna till olika resursgrupper i målprenumerationen. 
+* Steg 3: Du kan också distribuera om de beroende resurserna till olika resursgrupper i målprenumerationen.
 
 ## <a name="validate-move"></a>Validera flytta
 
@@ -260,8 +260,9 @@ När du flyttar en resurs måste dess beroende resurser antingen finnas i målre
 Om du till exempel flyttar en virtuell dator kan det krävas att sju resurstyper flyttas med tre olika resursleverantörer. Dessa resursleverantörer och typer är:
 
 * Microsoft.Compute
-   * virtuellaMaskiner
-   * Diskar
+
+  * virtuellaMaskiner
+  * Diskar
 * Microsoft.Network
   * nätverkGränssnitt
   * offentliga IP-adresser

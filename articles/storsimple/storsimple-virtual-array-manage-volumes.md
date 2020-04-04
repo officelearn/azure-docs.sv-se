@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: a233a9deb58a7c1abc87a622a4f1f2581ee2e477
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2dbbe6bcd4957a108cc3eae4d41816b130cf8f07
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "62125805"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633867"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Använda StorSimple Device Manager-tjänsten för att hantera volymer i StorSimple Virtual Array
 
@@ -44,7 +44,7 @@ Se följande tabell för maximal etablerad kapacitet för varje volymtyp.
 | Minsta storlek för en nivåindelad volym                            | 500 GB        |
 | Maximal storlek för en nivåindelad volym                            | 5 TB          |
 | Minsta storlek för en lokalt fäst volym                    | 50 GB         |
-| Maximal storlek för en lokalt fäst volym                    | 500 GB        |
+| Maximal storlek för en lokalt fäst volym                    | 200 GB        |
 
 ## <a name="the-volumes-blade"></a>Bladet Volymer
 Menyn Volymer på **sammanfattningsbladet** för StorSimple-tjänsten visar listan över lagringsvolymer på en viss StorSimple-matris och låter dig hantera dem.

@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 8087baf7595bfd2497f97fbff4822b356cd1b146
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 622c0cb8d58dddcdb13c7dc9412ada3f2e2d93e4
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274572"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632977"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Hantera Azure Resource Manager-resursgrupper med hjälp av Azure-portalen
 
@@ -29,7 +29,6 @@ En resursgrupp är en container som innehåller relaterade resurser för en Azur
 
 Resursgruppen lagrar metadata om resurserna. När du anger en plats för resursgruppen anger du därför var metadatan ska lagras. På grund av regelefterlevnadsskäl kan du behöva säkerställa att din data lagras inom en viss region.
 
-Resursgruppen lagrar metadata om resurserna. När du anger en plats för resursgruppen anger du var metadata lagras.
 
 ## <a name="create-resource-groups"></a>Skapa resursgrupper
 

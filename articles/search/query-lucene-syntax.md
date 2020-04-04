@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: d35c96657f48905f37c9ebe246d81ebb9545cf27
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1392f69bea09996e46ad4c112474f9067ff5a63d
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79283139"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656921"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Lucene-frågesyntax i Azure Cognitive Search
 
@@ -161,16 +161,17 @@ Följande exempel illustrerar skillnaderna. Anta att det finns en poängprofil s
 ##  <a name="regular-expression-search"></a><a name="bkmk_regex"></a>Sökning i reguljära uttryck  
  En sökning i reguljära uttryck hittar en matchning baserat på innehållet mellan snedstrecken "/", som dokumenteras i [klassen RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
 
- Om du till exempel vill hitta dokument som innehåller `/[mh]otel/`"motell" eller "hotell" anger du .  Sökningar med reguljära uttryck matchas mot enstaka ord.   
+ Om du till exempel vill hitta dokument som innehåller `/[mh]otel/`"motell" eller "hotell" anger du . Sökningar med reguljära uttryck matchas mot enstaka ord.
 
 ##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a>Jokertecken sökning  
- Du kan använda allmänt erkända syntax för jokerteckensökningar med flera (*) eller enstaka (?). Den Lucene-frågetolken stöder användningen av dessa symboler med en enda term och inte en fras.  
+ Du kan använda allmänt erkända syntax för jokerteckensökningar med flera (*) eller enstaka (?). Den Lucene-frågetolken stöder användningen av dessa symboler med en enda term och inte en fras.
 
- Om du till exempel vill söka efter dokument som innehåller orden med prefixet "note", till exempel "notebook" eller "notepad", anger du "note*".  
+Prefixsökning använder också asterisktecknet (`*`). Ett frågeuttryck för `search=note*` returnerar till exempel "anteckningsbok" eller "anteckningsblock". Fullständig Lucene-syntax krävs inte för prefixsökning. Den enkla syntaxen stöder det här scenariot.
+
+Suffixsökning, `*` där `?` eller föregår strängen, kräver fullständig Lucene-syntax och ett reguljärt uttryck (du kan inte använda en * eller ? som det första tecknet i en sökning). Med tanke på termen "alfanumerisk"`search=/.*numeric.*/`hittar ett frågeuttryck för ( ) matchningen.
 
 > [!NOTE]  
->  Du kan inte använda en * eller? som det första tecknet i en sökning.  
->  Ingen textanalys utförs på jokerteckensökningsfrågor. Vid frågetid jämförs frågetermer med jokertecken mot analyserade termer i sökindexet och expanderas.
+> Under frågetolkning skickas frågor som är formulerade som prefix, suffix, jokertecken eller reguljära uttryck som är till frågeträdet och kringgår [lexikal analys](search-lucene-query-architecture.md#stage-2-lexical-analysis). Matchningar hittas bara om indexet innehåller strängarna i det format som frågan anger. I de flesta fall behöver du en alternativ analysator under indexering som bevarar strängintegritet så att partiell term- och mönstermatchning lyckas. Mer information finns [i Partiell termsökning i Azure Cognitive Search-frågor](search-query-partial-matching.md).
 
 ## <a name="see-also"></a>Se även  
 

@@ -11,16 +11,17 @@ ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 336b5a65c7a23a060e422b69f8ad3216bee6ad19
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: f257f3751e7a411015ca188d704b676950845a74
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350983"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633838"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-with-azure-powershell"></a>Snabbstart: Pausa och återuppta beräkning i Synapse SQL-pool med Azure PowerShell
 
-Du kan använda Azure PowerShell för att pausa och återuppta beräkningsresurserna för Synapse SQL-pool (datalager). Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Du kan använda Azure PowerShell för att pausa och återuppta beräkningsresurserna för Synapse SQL-pool (datalager).
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -30,19 +31,19 @@ Den här snabbstarten förutsätter att du redan har en SQL-pool som du kan paus
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Logga in på din Azure-prenumeration med kommandot [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) och följ anvisningarna på skärmen.
+Logga in på din Azure-prenumeration med kommandot [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?toc=/azure/synapse-analytics/sql-data-warehouse?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och följ anvisningarna på skärmen.
 
 ```powershell
 Connect-AzAccount
 ```
 
-Om du vill se vilken prenumeration du använder kör du [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
+Om du vill se vilken prenumeration du använder kör du [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription?toc=/azure/synapse-analytics/sql-data-warehouse?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```powershell
 Get-AzSubscription
 ```
 
-Om du behöver använda en annan prenumeration än standard kör du [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
+Om du behöver använda en annan prenumeration än standard kör du [Set-AzContext](/powershell/module/az.accounts/set-azcontext?toc=/azure/synapse-analytics/sql-data-warehouse?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"
@@ -65,20 +66,19 @@ Så här hittar du platsinformation för DIN SQL-pool:
 
 ## <a name="pause-compute"></a>Pausa beräkning
 
-Om du vill spara kostnader kan du pausa och återuppta beräkningsresurser på begäran. Om du till exempel inte använder databasen under natten och på helgerna kan du pausa den under dessa tider och återuppta den under dagen. 
+Om du vill spara kostnader kan du pausa och återuppta beräkningsresurser på begäran. Om du till exempel inte använder databasen under natten och på helgerna kan du pausa den under dessa tider och återuppta den under dagen.
 
 >[!NOTE]
 >Det finns ingen avgift för beräkningsresurser medan databasen pausas. Du fortsätter dock att debiteras för lagring.
 
-Om du vill pausa en databas använder du cmdleten [Suspend-AzSqlDatabase.](/powershell/module/az.sql/suspend-azsqldatabase) I följande exempel pausas en SQL-pool med namnet **mySampleDataWarehouse** som finns på en server med namnet **sqlpoolservername**. Servern finns i en Azure-resursgrupp med namnet **myResourceGroup**.
-
+Om du vill pausa en databas använder du cmdleten [Suspend-AzSqlDatabase.](/powershell/module/az.sql/suspend-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) I följande exempel pausas en SQL-pool med namnet **mySampleDataWarehouse** som finns på en server med namnet **sqlpoolservername**. Servern finns i en Azure-resursgrupp med namnet **myResourceGroup**.
 
 ```Powershell
 Suspend-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "nsqlpoolservername" –DatabaseName "mySampleDataWarehouse"
 ```
 
-I följande exempel hämtas databasen till $database-objektet. Det rör sedan objektet till [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase). Resultaten lagras i objektresultatetDatabas. Det slutliga kommandot visar resultaten.
+I följande exempel hämtas databasen till $database-objektet. Det rör sedan objektet till [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Resultaten lagras i objektresultatetDatabas. Det slutliga kommandot visar resultaten.
 
 ```Powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
@@ -89,7 +89,7 @@ $resultDatabase
 
 ## <a name="resume-compute"></a>Återuppta beräkning
 
-Starta en databas genom att använda cmdleten [Resume-AzSqlDatabase.](/powershell/module/az.sql/resume-azsqldatabase) I följande exempel startar en databas med namnet **mySampleDataWarehouse** som finns på en server med namnet **sqlpoolservername**. Servern finns i en Azure-resursgrupp med namnet **myResourceGroup**.
+Starta en databas genom att använda cmdleten [Resume-AzSqlDatabase.](/powershell/module/az.sql/resume-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) I följande exempel startar en databas med namnet **mySampleDataWarehouse** som finns på en server med namnet **sqlpoolservername**. Servern finns i en Azure-resursgrupp med namnet **myResourceGroup**.
 
 ```Powershell
 Resume-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
@@ -107,7 +107,7 @@ $resultDatabase
 
 ## <a name="check-status-of-your-sql-pool-operation"></a>Kontrollera status för sql-poolåtgärden
 
-Om du vill kontrollera status för din SQL-pool använder du cmdleten [Get-AzSqlDatabaseActivity.](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseActivity#description)
+Om du vill kontrollera status för din SQL-pool använder du cmdleten [Get-AzSqlDatabaseActivity.](/powershell/module/az.sql/Get-AzSqlDatabaseActivity#description?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 ```Powershell
 Get-AzSqlDatabaseActivity -ResourceGroupName "myResourceGroup" -ServerName "sqlpoolservername" -DatabaseName "mySampleDataWarehouse"
@@ -134,7 +134,6 @@ Följ dessa steg för att rensa resurser enligt dina önskemål.
 
 5. Om du vill ta bort resursgruppen klickar du på **myResourceGroup** och sedan på **Ta bort resursgrupp**.
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om SQL-pool fortsätter du till [artikeln Läs in data i SQL Pool.](load-data-from-azure-blob-storage-using-polybase.md) Mer information om hur du hanterar beräkningsfunktioner finns i artikeln [Hantera beräkningsöversikt.](sql-data-warehouse-manage-compute-overview.md) 
+Om du vill veta mer om SQL-pool fortsätter du till [artikeln Läs in data i SQL Pool.](load-data-from-azure-blob-storage-using-polybase.md) Mer information om hur du hanterar beräkningsfunktioner finns i artikeln [Hantera beräkningsöversikt.](sql-data-warehouse-manage-compute-overview.md)

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: b067b18985905b226287f9dd10ad4b937fab6df1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 38f9f85a7e961d426b66a24bb4a5c63f9f0301da
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76767973"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80638070"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Översikt över Azure FarmBeats (förhandsversion)
 
@@ -42,6 +42,24 @@ Datahub är utformad som en utökningsbar API-plattform. Vi arbetar med många f
 ## <a name="accelerator"></a>Accelerator
 
 Azure FarmBeats Accelerator är ett exempel webbprogram, som bygger på datahub. Accelerator-jump-startar ditt användargränssnitt och modellutveckling. Azure FarmBeats-acceleratorn använder Azure FarmBeats API:er. Det visualiserar intas sensordata som diagram och modellutdata som kartor. Du kan till exempel använda gaspedalen för att snabbt skapa en gård och enkelt få en vegetationsindexkarta eller en sensorplaceringskarta för den gården.
+
+## <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
+
+En administratör kan definiera åtkomstregler för Azure FarmBeats med hjälp av en av de fördefinierade rollerna. Roller avgör vilka områden i programmet en användare har åtkomst till och vilka åtgärder de kan utföra. Det finns två typer av roller i Azure FarmBeats – för användare och partner.
+
+### <a name="user-roles"></a>Användarroller
+
+En [administratör kan lägga till och hantera användare](manage-users-in-azure-farmbeats.md) och definiera deras åtkomstnivåer baserat på två användarroller: Admin och Skrivskyddad.
+
+### <a name="partner-roles"></a>Partnerroller
+
+En administratör kan lägga till flera partner som dataleverantörer i Azure FarmBeats. Följande sammanfattar tillgängliga partnerroller i FarmBeats och deras behörigheter:
+
+| Typ av partner    |   Åtgärder  | Omfång |
+| ---- | -------- | -------- |
+| Sensor Partner  |   Skapa, läsa, uppdatera <br/> <br/> Läsa, uppdatera | DeviceModel, Enhet, SensorModel, Sensor <br/> <br/> ExtendedType (Uttr. |
+| Bildspråk Partner  |   Skapa, läsa, uppdatera <br/> <br/> Läsa, uppdatera <br/> <br/> Läsa | Scen, SceneFile <br/> <br/> ExtendedType (Uttr. <br/> <br/> Gård |
+| Bildspråk Partner  |   Skapa, läsa, uppdatera <br/> <br/> Läsa, uppdatera <br/> <br/> Läsa | WeatherDataModel, WeatherDataLocation, JobType <br/> <br/> ExtendedType (Uttr. <br/> <br/> Gård |
 
 ## <a name="resources"></a>Resurser
 

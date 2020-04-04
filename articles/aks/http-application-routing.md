@@ -1,17 +1,17 @@
 ---
 title: HTTP-programroutningstillägg för Azure Kubernetes-tjänsten (AKS)
-description: Använd http-programroutningstillägget på Azure Kubernetes Service (AKS).
+description: Använd http-programroutningstillägget för att komma åt program som distribueras på Azure Kubernetes Service (AKS).
 services: container-service
 author: lachie83
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
-ms.openlocfilehash: 5794e46f10abec1ceef4c79a881f7f353e729634
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ffc9daaf1b87fc9fb6ebbb0f2787f07282afe5e
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595696"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632408"
 ---
 # <a name="http-application-routing"></a>Routning av HTTP-program
 

@@ -45,7 +45,7 @@
       href: concepts-architecture.md
     - name: Vad är programmallar?
       href: concepts-app-templates.md
-    - name: Kom igång med anslutningen
+    - name: Enhetsanslutning
       href: concepts-get-connected.md
     - name: Ansluta IoT Edge-enheter
       href: concepts-iot-edge.md

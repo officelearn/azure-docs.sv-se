@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: de395f7167f0ab7d7c6429c14d5efce46831b576
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b97fe6e55e2c36b6f101071e702952f529146281
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218243"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631664"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Så här använder du en azure Machine Learning Studio -webbtjänst (klassisk)
 
@@ -257,7 +257,7 @@ Om du vill ansluta till en machine learning-webbtjänst använder du **bibliotek
 library("RCurl")
 library("rjson")
 
-# Accept SSL certificates issued by public Certificate Authorities
+# Accept TLS/SSL certificates issued by public Certificate Authorities
 options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
 
 h = basicTextGatherer()

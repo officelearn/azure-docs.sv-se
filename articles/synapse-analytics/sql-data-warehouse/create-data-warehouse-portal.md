@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 5d5b2509b212172758fa867d9f27b829f43aeeaa
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 685d6970b0e88032fe503bf97a139c0b8c0f8a73
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349101"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631354"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Snabbstart: Skapa och fråga en Synapse SQL-pool med Azure-portalen
 
@@ -29,7 +29,7 @@ Skapa och fråga snabbt en Synapse SQL-pool (datalager) i Azure Synapse Analytic
    > [!NOTE]
    > Att skapa en SQL-pool i Azure Synapse kan resultera i en ny fakturerbar tjänst. Mer information finns i [Azure Synapse Analytics-priser](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
-2. Ladda ned och installera den senaste versionen av [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
+2. Ladda ned och installera den senaste versionen av [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -37,7 +37,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-sql-pool"></a>Skapa en SQL-pool
 
-Informationslager skapas med SQL-pool i Azure Synapse Analytics. En SQL-pool skapas med en definierad uppsättning [beräkningsresurser](memory-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../../azure-resource-manager/management/overview.md) och i en [logisk Azure SQL-server](../../sql-database/sql-database-servers.md).
+Informationslager skapas med SQL-pool i Azure Synapse Analytics. En SQL-pool skapas med en definierad uppsättning [beräkningsresurser](memory-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och i en [logisk Azure SQL-server](../../sql-database/sql-database-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 Följ dessa steg för att skapa en SQL-pool som innehåller exempeldata för **AdventureWorksDW.**
 
@@ -54,9 +54,9 @@ Följ dessa steg för att skapa en SQL-pool som innehåller exempeldata för **A
    | Inställning | Föreslaget värde | Beskrivning |
    | :------ | :-------------- | :---------- |
    | **Prenumeration** | Din prenumeration | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
-   | **Resursgrupp** | myResourceGroup | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
-   | **Sql-poolnamn** | Alla globalt unika namn (Ett exempel är *mySampleDataWarehouse)* | Giltiga databasnamn finns i [Databasidentifierare](/sql/relational-databases/databases/database-identifiers). En SQL-pool är en typ av databas. |
-   | **Server** | Valfritt globalt unikt namn | Välj befintlig server eller skapa ett nytt servernamn, välj **Skapa nytt**. Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
+   | **Resursgrupp** | myResourceGroup | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
+   | **Sql-poolnamn** | Alla globalt unika namn (Ett exempel är *mySampleDataWarehouse)* | Giltiga databasnamn finns i [Databasidentifierare](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). En SQL-pool är en typ av databas. |
+   | **Server** | Valfritt globalt unikt namn | Välj befintlig server eller skapa ett nytt servernamn, välj **Skapa nytt**. Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
 
    ![skapa grundläggande informationslagerinformation](./media/create-data-warehouse-portal/create-sql-pool-basics.png)
 
@@ -78,7 +78,7 @@ Följ dessa steg för att skapa en SQL-pool som innehåller exempeldata för **A
 
 ## <a name="create-a-server-level-firewall-rule"></a>Skapa en brandväggsregel på servernivå
 
-Azure Synapse-tjänsten skapar en brandvägg på servernivå. Den här brandväggen förhindrar att externa program och verktyg ansluter till servern eller databaser på servern. Om du vill kan du lägga till brandväggsregler som tillåter anslutningar för specifika IP-adresser. Följ dessa steg för att skapa en [brandväggsregel på servernivå](../../sql-database/sql-database-firewall-configure.md) för klientens IP-adress.
+Azure Synapse-tjänsten skapar en brandvägg på servernivå. Den här brandväggen förhindrar att externa program och verktyg ansluter till servern eller databaser på servern. Om du vill kan du lägga till brandväggsregler som tillåter anslutningar för specifika IP-adresser. Följ dessa steg för att skapa en [brandväggsregel på servernivå](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) för klientens IP-adress.
 
 > [!NOTE]
 > Azure Synapse kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 1433.
@@ -124,7 +124,7 @@ Hämta det fullständigt kvalificerade servernamnet för SQL-servern i Azure Por
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Ansluta till servern som serveradministratör
 
-I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) för att upprätta en anslutning till Azure SQL-servern.
+I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) för att upprätta en anslutning till Azure SQL-servern.
 
 1. Öppna SQL Server Management Studio.
 
@@ -141,11 +141,11 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
 
    ![Anslut till server](./media/create-data-warehouse-portal/connect-to-server-ssms.png)
 
-3. välj **Anslut**. Fönstret Object Explorer öppnas i SSMS. 
+3. välj **Anslut**. Fönstret Object Explorer öppnas i SSMS.
 
 4. Expandera **Databaser** i Object Explorer. Expandera **mySampleDatabase** så visas objekten i den nya databasen.
 
-   ![databasobjekt](./media/create-data-warehouse-portal/connected-ssms.png) 
+   ![databasobjekt](./media/create-data-warehouse-portal/connected-ssms.png)
 
 ## <a name="run-some-queries"></a>Köra några frågor
 
@@ -163,7 +163,7 @@ SQL Data Warehouse använder T-SQL som frågespråk. Använd följande steg om d
 
    ![Skicka frågor mot databaser](./media/create-data-warehouse-portal/query-databases.png)
 
-4. Vi kan titta på vissa data genom att använda följande kommando för att se hur många kunder med efternamnet Adams som har tre barn hemma. I resultatlistan finns sex kunder. 
+4. Vi kan titta på vissa data genom att använda följande kommando för att se hur många kunder med efternamnet Adams som har tre barn hemma. I resultatlistan finns sex kunder.
 
     ```sql
     SELECT LastName, FirstName FROM dbo.dimCustomer
@@ -196,4 +196,4 @@ Följ dessa steg för att rensa resurser som du inte längre behöver.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om hur du läser in data i SQL-poolen fortsätter du till artikeln [Läs in data i SQL Pool.](load-data-from-azure-blob-storage-using-polybase.md) 
+Om du vill veta mer om hur du läser in data i SQL-poolen fortsätter du till artikeln [Läs in data i SQL Pool.](load-data-from-azure-blob-storage-using-polybase.md)

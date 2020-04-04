@@ -4,19 +4,19 @@ description: Distribuera RADIUS-autentisering och Azure Multi-Factor Authenticat
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b38341613c98bf85df8cb47ccafc3df5709a1fd4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 552226c35d4d129f73b96b689871708950b7ffb1
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75425202"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652954"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Integrera RADIUS-autentisering och Azure Multi-Factor Authentication Server
 
@@ -77,9 +77,9 @@ Du har konfigurerat Azure Multi-Factor Authentication-servern. Nu lyssnar server
 
 Följ dessa riktlinjer när du konfigurerar RADIUS-klienten:
 
-* Konfigurera enheten/servern att autentisera via RADIUS till Azure Multi-Factor Authentication-serverns IP-adress, som fungerar som RADIUS-servern.
+* Konfigurera din installation/server för att autentisera via RADIUS till Azure Multi-Factor Authentication Server IP-adress, som fungerar som RADIUS-servern.
 * Använd samma delade hemlighet som du konfigurerade ovan.
-* Konfigurera RADIUS-serverns timeout-värde till mellan 30 och 60 sekunder så att det finns tid att verifiera användarens autentiseringsuppgifter, utföra tvåstegsverifiering, ta emot svaret och sedan svara på RADIUS-åtkomstbegäran.
+* Konfigurera RADIUS-timeouten till 30-60 sekunder så att det finns tid att validera användarens autentiseringsuppgifter, utföra tvåstegsverifiering, få svar och sedan svara på RADIUS-åtkomstbegäran.
 
 ## <a name="next-steps"></a>Nästa steg
 

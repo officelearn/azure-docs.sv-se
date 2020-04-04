@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 568fc880711d42941fd9aef2ea19b8ac3123793a
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 7da20a0bf87b33f05ea7f1d457157c5b7ee2ec7b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384253"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631520"
 ---
 # <a name="virtual-network-service-tags"></a>Taggar för virtuella nätverkstjänster
 <a name="network-service-tags"></a>
@@ -46,7 +46,7 @@ Som standard återspeglar tjänsttaggar intervallen för hela molnet. Vissa tjä
 | **ApiManagement (ApiHanagement)** | Hanteringstrafik för Azure API Management-dedikerade distributioner. <br/><br/>*Anm.:* Den här taggen representerar slutpunkten för Azure API Management-tjänsten för kontrollplan per region. Detta gör det möjligt för kunder att utföra hanteringsåtgärder på API:er, operationer, principer, namngivna värden som konfigurerats på API Management-tjänsten.  | Inkommande | Ja | Ja |
 | **ApplicationInsightsTillgänglighet** | Tillgänglighet för programinsikter. | Inkommande | Inga | Inga |
 | **AppKonfigurering** | App-konfiguration. | Utgående | Inga | Inga |
-| **AppService**    | Azure App Service. Den här taggen rekommenderas för utgående säkerhetsregler till webbappens klientslut. | Utgående | Ja | Ja |
+| **AppService**    | Azure App-tjänst. Den här taggen rekommenderas för utgående säkerhetsregler till webbappens klientslut. | Utgående | Ja | Ja |
 | **AppServiceManagement** | Hanteringstrafik för distributioner som är avsedda för App Service Environment. | Båda | Inga | Ja |
 | **AzureActiveDirectory** | Azure Active Directory. | Utgående | Inga | Ja |
 | **AzureActiveDirectoryDomainServices** | Hanteringstrafik för distributioner som är dedikerade till Azure Active Directory Domain Services. | Båda | Inga | Ja |
@@ -76,10 +76,10 @@ Som standard återspeglar tjänsttaggar intervallen för hela molnet. Vissa tjä
 | **AzurePlatformLKM** | Windows-licensierings- eller nyckelhanteringstjänst.<br/><br/>Du kan använda den här taggen för att inaktivera standardvärdena för licensiering. Var försiktig när du använder den här taggen. Vi rekommenderar att du läser [Azure-plattformsöverväganden](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations).  Vi rekommenderar också att du utför tester innan du använder den här taggen. | Utgående | Inga | Inga |
 | **AzureResourceManager** | Azure Resource Manager. | Utgående | Inga | Inga |
 | **AzureSignalR (AzureSignalR)** | Azure SignalR. | Utgående | Inga | Inga |
-| **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>*Anm.:* Den här taggen har ett beroende av taggarna **AzureActiveDirectory**, **AzureKeyVault**, **EventHub**,**GuestAndHybridManagement** och **Storage.** | Utgående | Inga | Inga |
+| **AzureSiteRecovery** | Återställning av Azure-webbplatsen.<br/><br/>*Anm.:* Den här taggen har ett beroende av taggarna **AzureActiveDirectory**, **AzureKeyVault**, **EventHub**,**GuestAndHybridManagement** och **Storage.** | Utgående | Inga | Inga |
 | **AzureTrafficManager** | Azure Traffic Manager avsökning IP-adresser.<br/><br/>Mer information om Traffic Manager-avsöknings-IP-adresser finns i [vanliga frågor och svar om Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). | Inkommande | Inga | Ja |  
 | **BatchNodeManagement** | Hanteringstrafik för distributioner som är dedikerade till Azure Batch. | Båda | Inga | Ja |
-| **CognitiveServicesManagement** | Adressintervallen för trafik för Azure Cognitive Services. | Utgående | Inga | Inga |
+| **CognitiveServicesManagement** | Adressintervallen för trafik för Azure Cognitive Services. | Båda | Inga | Inga |
 | **DataFactory (datafactory)**  | Azure Data Factory | Båda | Inga | Inga |
 | **DataFactoryManagement** | Hanteringstrafik för Azure Data Factory. | Utgående | Inga | Inga |
 | **Dynamics365FörmarketingEmail** | Adressintervallen för marknadsföringstjänsten för e-post i Dynamics 365. | Utgående | Ja | Inga |
@@ -124,7 +124,7 @@ Du kan hämta den aktuella servicetag- och intervallinformationen som du kan ink
 ### <a name="use-the-service-tag-discovery-api-public-preview"></a>Använda API:et för identifiering av Service Tag (offentlig förhandsversion)
 Du kan programmässigt hämta den aktuella listan över tjänsttaggar tillsammans med IP-adressintervallinformation:
 
-- [Resten](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
+- [REST](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
 - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
 - [Azure CLI](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
 

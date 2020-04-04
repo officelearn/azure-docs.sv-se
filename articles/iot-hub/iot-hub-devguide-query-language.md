@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
-ms.openlocfilehash: ad8b4b39e582d10c2a3b6003bfa07138f4697b71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcc53322ac6942b52853be561bc3441e23fbf53b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79499181"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632938"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-frågespråk för enhet och modultvillingar, jobb och meddelanderedigering
 
@@ -453,7 +453,7 @@ Följande operatorer stöds:
 | Logiska |AND, OR, NOT (och, eller, inte) |
 | Jämförelse |=, !=, <, >, <=, >=, <> |
 
-### <a name="functions"></a>Funktioner
+### <a name="functions"></a>Functions
 
 När du frågar tvillingar och jobb är den enda funktion som stöds:
 
@@ -481,7 +481,7 @@ Under vägförhållanden stöds följande typkontroll- och gjutningsfunktioner:
 | AS_NUMBER | Konverterar indatasträngen till ett tal. `noop`om inmatningen är ett tal. `Undefined` om strängen inte representerar ett tal.|
 | IS_ARRAY | Returnerar ett booleskt värde som anger om typen av det angivna uttrycket är en matris. |
 | IS_BOOL | Returnerar ett booleskt värde som anger om typen av det angivna uttrycket är ett booleskt. |
-| IS_DEFINED | Returnerar ett booleskt värde som anger huruvida egenskapen har tilldelats ett värde. |
+| IS_DEFINED | Returnerar ett booleskt värde som anger huruvida egenskapen har tilldelats ett värde. Detta stöds endast när värdet är en primitiv typ. Primitiva typer inkluderar sträng, boolesk, numerisk eller `null`. DateTime stöds inte objekttyper och matriser. |
 | IS_NULL | Returnerar ett booleskt värde som anger om typen av det angivna uttrycket är null. |
 | IS_NUMBER | Returnerar ett booleskt värde som anger om typen av det angivna uttrycket är ett tal. |
 | IS_OBJECT | Returnerar ett booleskt värde som anger om typen av det angivna uttrycket är ett JSON-objekt. |

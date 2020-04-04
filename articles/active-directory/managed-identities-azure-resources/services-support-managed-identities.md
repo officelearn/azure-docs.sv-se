@@ -4,18 +4,18 @@ description: Lista över tjänster som stöder hanterade identiteter för Azure-
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 03/13/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9e01f1f5abfc0f76926ce503fae058c196c6e64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c7a65df100cd58561ce12ac2ae01281eebd419a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282111"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656053"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Tjänster som stöder hanterade identiteter för Azure-resurser
 
@@ -37,11 +37,11 @@ Följande Azure-tjänster stöder hanterade identiteter för Azure-resurser:
 
 Se följande lista för att konfigurera hanterad identitet för virtuella Azure-datorer (i regioner där sådana finns):
 
-- [Azure-portal](qs-configure-portal-windows-vm.md)
-- [Powershell](qs-configure-powershell-windows-vm.md)
+- [Azure Portal](qs-configure-portal-windows-vm.md)
+- [PowerShell](qs-configure-powershell-windows-vm.md)
 - [Azure CLI](qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager-mallar](qs-configure-template-windows-vm.md)
-- [Resten](qs-configure-rest-vm.md)
+- [REST](qs-configure-rest-vm.md)
 
 ### <a name="azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets
 
@@ -52,13 +52,13 @@ Se följande lista för att konfigurera hanterad identitet för virtuella Azure-
 
 Se följande lista för att konfigurera hanterad identitet för Azure Virtual Machine Scale Sets (i regioner där det är tillgängligt):
 
-- [Azure-portal](qs-configure-portal-windows-vm.md)
-- [Powershell](qs-configure-powershell-windows-vm.md)
+- [Azure Portal](qs-configure-portal-windows-vm.md)
+- [PowerShell](qs-configure-powershell-windows-vm.md)
 - [Azure CLI](qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager-mallar](qs-configure-template-windows-vm.md)
-- [Resten](qs-configure-rest-vm.md)
+- [REST](qs-configure-rest-vm.md)
 
-### <a name="azure-app-service"></a>Azure Apptjänst
+### <a name="azure-app-service"></a>Azure App Service
 
 | Hanterad identitetstyp | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -67,7 +67,7 @@ Se följande lista för att konfigurera hanterad identitet för Azure Virtual Ma
 
 Se följande lista för att konfigurera hanterad identitet för Azure App Service (i regioner där det är tillgängligt):
 
-- [Azure-portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
+- [Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Azure Resource Manager-mall](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
@@ -93,7 +93,7 @@ Hanterad identitetstyp |Alla allmänt tillgängliga<br>Globala Azure-regioner | 
 
 Se följande lista för att konfigurera hanterad identitet för Azure Functions (i regioner där det är tillgängligt):
 
-- [Azure-portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
+- [Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Azure Resource Manager-mall](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
@@ -108,7 +108,7 @@ Hanterad identitetstyp | Alla allmänt tillgängliga<br>Globala Azure-regioner |
 
 Se följande lista för att konfigurera hanterad identitet för Azure Logic Apps (i regioner där det är tillgängligt):
 
-- [Azure-portal](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
+- [Azure Portal](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
 - [Azure Resource Manager-mall](/azure/app-service/overview-managed-identity)
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
@@ -120,17 +120,17 @@ Hanterad identitetstyp | Alla allmänt tillgängliga<br>Globala Azure-regioner |
 
 Se följande lista för att konfigurera hanterad identitet för Azure Data Factory V2 (i regioner där det är tillgängligt):
 
-- [Azure-portal](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
-- [Powershell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
-- [Resten](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
+- [Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
+- [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
+- [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
 ### <a name="azure-api-management"></a>Azure API Management
 
 Hanterad identitetstyp | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Tilldelat system | ![Tillgängliga][check] | ![Tillgängliga][check] | Inte tillgängligt | Inte tillgängligt |
-| Tilldelad användare | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
+| Tilldelat system | ![Tillgängliga][check] | ![Tillgängliga][check] | Inte tillgängligt | ![Tillgängliga][check] |
+| Tilldelad användare | Förhandsversion | Förhandsversion | Inte tillgängligt | Förhandsversion |
 
 Se följande lista för att konfigurera hanterad identitet för Azure API Management (i regioner där det är tillgängligt):
 

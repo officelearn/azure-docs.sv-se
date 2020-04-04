@@ -10,22 +10,22 @@ ms.subservice: ''
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 9898addfa840752e27de8716d2185e767aac809b
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 0ffa33811957af95fc10396ffecef0b3de7959fe
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350095"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633024"
 ---
 # <a name="source-control-integration-for-sql-pool"></a>Integrering av källkontroll för SQL-pool
 
-Den här självstudien beskriver hur du integrerar databasprojektet för SQL Server Data (SSDT) med källkontroll.  Källkontrollintegrering är det första steget i att bygga din kontinuerliga integrations- och distributionspipeline med SQL-poolresursen i Azure Synapse Analytics. 
+Den här självstudien beskriver hur du integrerar databasprojektet för SQL Server Data (SSDT) med källkontroll.  Källkontrollintegrering är det första steget i att bygga din kontinuerliga integrations- och distributionspipeline med SQL-poolresursen i Azure Synapse Analytics.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 - Registrera dig för en [Azure DevOps-organisation](https://azure.microsoft.com/services/devops/)
-- Gå igenom självstudien [Skapa och anslut](https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal)
--  [Installera Visual Studio 2019](https://visualstudio.microsoft.com/vs/older-downloads/) 
+- Gå igenom självstudien [Skapa och anslut](create-data-warehouse-portal.md)
+- [Installera Visual Studio 2019](https://visualstudio.microsoft.com/vs/older-downloads/)
 
 ## <a name="set-up-and-connect-to-azure-devops"></a>Konfigurera och ansluta till Azure DevOps
 
@@ -53,7 +53,7 @@ Den här självstudien beskriver hur du integrerar databasprojektet för SQL Ser
 
    ![Importera projekt](./media/sql-data-warehouse-source-control-integration/6-import-new-project.png "Importera projekt")  
 
-3. I team explorer i Visual Studio genomför du alla ändringar i din lokala Git-databas 
+3. I team explorer i Visual Studio genomför du alla ändringar i din lokala Git-databas
 
    ![Begå](./media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Checka in")  
 

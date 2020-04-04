@@ -1,6 +1,6 @@
 ---
 title: Felsökning – Azure Automation Hybrid Runbook-arbetare
-description: Den här artikeln innehåller informationsfelsökning av Azure Automation Hybrid Runbook Workers
+description: Den här artikeln innehåller information om felsökning av Azure Automation Hybrid Runbook Workers.
 services: automation
 ms.service: automation
 ms.subservice: ''
@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 33e3e162892f1e2a148258273160ca26fa9c2efd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2587af0ada18b5c4271e7411783fe60211a3479
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153530"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637867"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Felsöka hybridkörningsarbetare
 
@@ -131,7 +131,9 @@ Arbetarens inledande registreringsfas misslyckas och du får följande felmeddel
 #### <a name="cause"></a>Orsak
 
 Följande är möjliga orsaker:
+
 * Det finns ett felaktigt itypat arbetsyte-ID eller arbetsytenyckel (primär) i agentens inställningar. 
+
 * Hybrid Runbook Worker kan inte hämta konfigurationen, vilket orsakar ett kontolänkningsfel. När Azure aktiverar lösningar stöder det bara vissa regioner för att länka en Log Analytics-arbetsyta och ett Automation-konto. Det är också möjligt att ett felaktigt datum och/eller en felaktig tid är inställt på datorn. Om tiden är +/-15 minuter från den aktuella tiden misslyckas introduktionen.
 
 #### <a name="resolution"></a>Lösning
@@ -143,7 +145,7 @@ För att kontrollera om agentens arbetsyte-ID eller arbetsytenyckel har skrivit 
 
 Din Log Analytics-arbetsyta och Automation-konto måste finnas i en länkad region. En lista över regioner som stöds finns i [Azure Automation- och Log Analytics-mappningar](../how-to/region-mappings.md).
 
-Du kan också behöva uppdatera datum och eller tidszon för datorn. Om du väljer ett anpassat tidsintervall kontrollerar du att intervallet finns i UTC, vilket kan skilja sig från den lokala tidszonen.
+Du kan också behöva uppdatera datum och/eller tidszon för datorn. Om du väljer ett anpassat tidsintervall kontrollerar du att intervallet finns i UTC, vilket kan skilja sig från den lokala tidszonen.
 
 ## <a name="linux"></a>Linux
 
@@ -220,6 +222,35 @@ Det här problemet kan orsakas av att proxy- eller nätverksbrandväggen blocker
 Loggar lagras lokalt på varje hybridarbetare på **C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes**. Du kan kontrollera om det finns några varnings- eller felhändelser i **program- och tjänstloggarna\Microsoft-SMA\Operations-** och **program- och tjänstloggar\Operations** Manager-händelseloggar. Dessa loggar anger en anslutning eller annan typ av problem som påverkar introduktion av rollen till Azure Automation, eller ett problem som påträffas under normala åtgärder. Mer hjälp med felsökning av problem med Log Analytics-agenten finns i [Felsöka problem med Log Analytics Windows-agenten](../../azure-monitor/platform/agent-windows-troubleshoot.md).
 
 Hybridarbetare skickar [Runbook-utdata och meddelanden](../automation-runbook-output-and-messages.md) till Azure Automation på samma sätt som runbook-jobb som körs i molnet skickar utdata och meddelanden. Du kan aktivera strömmarna Utför och Förlopp på samma sätt som för runbooks.
+
+### <a name="scenario-orchestratorsandboxexe-cant-connect-to-office-365-through-proxy"></a><a name="no-orchestrator-sandbox-connect-O365"></a>Scenario: Orchestrator.Sandbox.exe kan inte ansluta till Office 365 via proxy
+
+#### <a name="issue"></a>Problem
+
+Ett skript som körs på en Windows Hybrid Runbook Worker kan inte ansluta som förväntat till Office 365 i en Orchestrator-sandlåda. Skriptet använder [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) för anslutning. 
+
+Om du justerar **Orchestrator.Sandbox.exe.config** för att ställa in proxy- och bypass-listan, ansluter sandlådan fortfarande inte korrekt. En **Powershell_ise.exe.config-fil** med samma proxy- och bypass-listinställningar verkar fungera som förväntat. SMA-loggar (Service Management Automation) och PowerShell-loggar ger ingen information om proxy.
+
+#### <a name="cause"></a>Orsak
+
+Anslutningen till Active Directory Federation Services (ADFS) på servern kan inte kringgå proxyn. Kom ihåg att en PowerShell-sandlåda körs som den inloggade användaren. En Orchestrator-sandlåda är dock kraftigt anpassad och kan ignorera filinställningarna **Orchestrator.Sandbox.exe.config.** Den har särskild kod för hantering maskin eller MMA proxyinställningar, men inte för hantering av andra anpassade proxyinställningar. 
+
+#### <a name="resolution"></a>Lösning
+
+Du kan lösa problemet för Orchestrator-sandlådan genom att migrera skriptet för att använda Azure AD-modulerna i stället för MSOnline-modulen för PowerShell-cmdlets. Se [Migrera från Orchestrator till Azure Automation (Beta)](https://docs.microsoft.com/azure/automation/automation-orchestrator-migration).
+
+Om du vill fortsätta att använda CMDlets för MSOnline-modulen ändrar du skriptet så att det använder [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Ange värden `ComputerName` för `Credential` parametrarna och. 
+
+```powershell
+$Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential
+Invoke-Command -ComputerName $env:COMPUTERNAME -Credential $Credential 
+{ Connect-MsolService … }
+```
+
+Den här kodändringen startar en helt ny PowerShell-session under kontexten för de angivna autentiseringsuppgifterna. Det bör göra det möjligt för trafiken att flöda genom en proxyserver som autentiserar den aktiva användaren.
+
+>[!NOTE]
+>Den här lösningen gör det onödigt att manipulera sandlådekonfigurationsfilen. Även om du lyckas få konfigurationsfilen att fungera med skriptet raderas filen varje gång Hybrid Runbook Worker-agenten uppdateras.
 
 ### <a name="scenario-hybrid-runbook-worker-not-reporting"></a><a name="corrupt-cache"></a>Scenario: Hybrid Runbook Worker rapporterar inte
 

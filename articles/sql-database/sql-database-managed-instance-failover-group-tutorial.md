@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 08/27/2019
-ms.openlocfilehash: bf83155e971061f22e5f5fc33d216b58621c9249
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f1a56fa6ea38acd8061180407eb47fe416b61e9
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77462657"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631702"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Självstudiekurs: Lägga till en SQL Database-hanterad instans i en redundansgrupp
 
@@ -36,13 +36,13 @@ Lägg till en SQL Database-hanterad instans i en redundansgrupp. I den här arti
 
 ## <a name="prerequisites"></a>Krav
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 För att kunna följa den här självstudien måste du ha: 
 
 - En Azure-prenumeration. [Skapa ett gratis konto](https://azure.microsoft.com/free/) om du inte redan har ett.
 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 För att slutföra självstudien, se till att du har följande objekt:
 
 - En Azure-prenumeration. [Skapa ett gratis konto](https://azure.microsoft.com/free/) om du inte redan har ett.
@@ -55,7 +55,7 @@ För att slutföra självstudien, se till att du har följande objekt:
 I det här steget skapar du resursgruppen och den primära hanterade instansen för redundansgruppen med hjälp av Azure-portalen eller PowerShell. 
 
 
-# <a name="portal"></a>[Portal](#tab/azure-portal) 
+# <a name="portal"></a>[Portalen](#tab/azure-portal) 
 
 Skapa resursgruppen och din primära hanterade instans med Hjälp av Azure-portalen. 
 
@@ -75,7 +75,7 @@ Skapa resursgruppen och din primära hanterade instans med Hjälp av Azure-porta
 1. Lämna resten av inställningarna vid standardvärden och välj **Granska + skapa** för att granska dina hanterade instansinställningar. 
 1. Välj **Skapa** om du vill skapa den primära hanterade instansen. 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Skapa resursgruppen och den primära hanterade instansen med PowerShell. 
 
@@ -405,7 +405,7 @@ Den här delen av självstudien använder följande PowerShell-cmdlets:
 ## <a name="2---create-secondary-virtual-network"></a>2 - Skapa sekundärt virtuellt nätverk
 Om du använder Azure-portalen för att skapa din hanterade instans måste du skapa det virtuella nätverket separat eftersom det finns ett krav på att undernätet för den primära och sekundära hanterade instansen inte har överlappande områden. Om du använder PowerShell för att konfigurera den hanterade instansen går du vidare till steg 3. 
 
-# <a name="portal"></a>[Portal](#tab/azure-portal) 
+# <a name="portal"></a>[Portalen](#tab/azure-portal) 
 Så här verifierar du undernätsområdet för det primära virtuella nätverket:
 1. I [Azure-portalen](https://portal.azure.com)navigerar du till din resursgrupp och väljer det virtuella nätverket för din primära instans. 
 1. Välj **Undernät** under **Inställningar** och notera **adressintervallet**. Undernätsadressintervallet för det virtuella nätverket för den sekundära hanterade instansen kan inte överlappa detta. 
@@ -433,7 +433,7 @@ Så här skapar du ett virtuellt nätverk:
 
     ![Sekundära virtuella nätverksvärden](media/sql-database-managed-instance-failover-group-tutorial/secondary-virtual-network.png)
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Det här steget är bara nödvändigt om du använder Azure-portalen för att distribuera din hanterade instans. Hoppa framåt till steg 3 om du använder PowerShell. 
 
@@ -446,7 +446,7 @@ Din andra hanterade instans måste:
 - Var tom. 
 - Har ett annat undernät och IP-intervall än den primära hanterade instansen. 
 
-# <a name="portal"></a>[Portal](#tab/azure-portal) 
+# <a name="portal"></a>[Portalen](#tab/azure-portal) 
 
 Skapa den sekundära hanterade instansen med Azure-portalen. 
 
@@ -482,7 +482,7 @@ Skapa den sekundära hanterade instansen med Azure-portalen.
 1. Välj **Granska + skapa** om du vill granska inställningarna för den sekundära hanterade instansen. 
 1. Välj **Skapa** om du vill skapa den sekundära hanterade instansen. 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Skapa den sekundära hanterade instansen med PowerShell. 
 
@@ -734,7 +734,7 @@ För att två hanterade instanser ska kunna delta i en redundansgrupp måste det
 Den här artikeln innehåller steg för att skapa de två VPN-gateways och ansluta dem, men du kan hoppa vidare till att skapa redundansgruppen om du har konfigurerat ExpressRoute istället. 
 
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
 Skapa gatewayen för det virtuella nätverket för din primära hanterade instans med hjälp av Azure-portalen. 
 
@@ -756,7 +756,7 @@ Skapa gatewayen för det virtuella nätverket för din primära hanterade instan
     | --- | --- |
     | **Prenumeration** |  Prenumerationen där din primära hanterade instans finns. |
     | **Namn** | Namnet på den virtuella nätverksgatewayen, till exempel `primary-mi-gateway`. | 
-    | **Regionen** | Den region där din sekundära hanterade instans finns. |
+    | **Regionen** | Den region där din primära hanterade instans finns. |
     | **Gateway-typ** | Välj **VPN**. |
     | **VPN-typ** | Välj **Ruttbaserad** |
     | **Sku**| Lämna standardvärdet `VpnGw1`för . |
@@ -773,7 +773,7 @@ Skapa gatewayen för det virtuella nätverket för din primära hanterade instan
 1. Välj **Skapa** om du vill skapa den nya virtuella nätverksgatewayen. 
 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Skapa gatewayen för det virtuella nätverket för din primära hanterade instans med PowerShell. 
 
@@ -828,7 +828,7 @@ Den här delen av självstudien använder följande PowerShell-cmdlets:
 I det här steget skapar du gatewayen för det virtuella nätverket för din sekundära hanterade instans med hjälp av Azure-portalen, 
 
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
 Med hjälp av Azure-portalen upprepar du stegen i föregående avsnitt för att skapa det virtuella nätverksundernätet och gatewayen för den sekundära hanterade instansen. Fyll i de obligatoriska fälten för att konfigurera gatewayen för den sekundära hanterade instansen. 
 
@@ -851,7 +851,7 @@ Med hjälp av Azure-portalen upprepar du stegen i föregående avsnitt för att 
    ![Inställningar för sekundär gateway](media/sql-database-managed-instance-failover-group-tutorial/settings-for-secondary-gateway.png)
 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Skapa gatewayen för det virtuella nätverket för den sekundära hanterade instansen med PowerShell. 
 
@@ -908,7 +908,7 @@ Den här delen av självstudien använder följande PowerShell-cmdlets:
 Skapa i det här steget en dubbelriktad anslutning mellan de två gatewayerna för de två virtuella nätverken. 
 
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
 Anslut de två gatewayerna med Azure-portalen. 
 
@@ -933,7 +933,7 @@ Anslut de två gatewayerna med Azure-portalen.
 1. På fliken **Sammanfattning** granskar du inställningarna för dubbelriktad anslutning och väljer sedan **OK** för att skapa anslutningen. 
 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Anslut de två gatewayerna med PowerShell. 
 
@@ -967,7 +967,7 @@ Den här delen av självstudien använder följande PowerShell-cmdlet:
 I det här steget skapar du redundansgruppen och lägger till båda hanterade instanser i den. 
 
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 Skapa redundansgruppen med Azure-portalen. 
 
 
@@ -984,7 +984,7 @@ Skapa redundansgruppen med Azure-portalen.
 1. När redundansgruppsdistributionen är klar kommer du tillbaka till **redundansgruppssidan.** 
 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Skapa redundansgruppen med PowerShell. 
 
    ```powershell-interactive
@@ -1010,7 +1010,7 @@ Den här delen av självstudien använder följande PowerShell-cmdlet:
 I det här steget kommer du att växla över redundansgruppen till den sekundära servern och sedan växla tillbaka med Azure-portalen. 
 
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 Testa redundans med Azure-portalen. 
 
 
@@ -1027,7 +1027,7 @@ Testa redundans med Azure-portalen.
 1. Gå till den nya _sekundära_ hanterade instansen och välj **Redundans** igen för att misslyckas med den primära instansen tillbaka till den primära rollen. 
 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Testa redundans med PowerShell. 
 
    ```powershell-interactive
@@ -1076,14 +1076,14 @@ Den här delen av självstudien använder följande PowerShell-cmdlets:
 ## <a name="clean-up-resources"></a>Rensa resurser
 Rensa resurser genom att först ta bort den hanterade instansen, sedan det virtuella klustret, sedan eventuella återstående resurser och slutligen resursgruppen. 
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 1. Navigera till din resursgrupp i [Azure-portalen](https://portal.azure.com). 
 1. Markera hanterade instanser och välj sedan **Ta bort**. Skriv `yes` i textrutan för att bekräfta att du vill ta bort resursen och välj sedan **Ta bort**. Den här processen kan ta lite tid att slutföra i bakgrunden, och tills det är klart kan du inte ta bort det *virtuella klustret* eller andra beroende resurser. Övervaka borttagningen på fliken Aktivitet för att bekräfta att den hanterade instansen har tagits bort. 
 1. När den hanterade instansen har tagits bort tar du bort det *virtuella klustret* genom att markera det i resursgruppen och väljer sedan **Ta bort**. Skriv `yes` i textrutan för att bekräfta att du vill ta bort resursen och välj sedan **Ta bort**. 
 1. Ta bort eventuella återstående resurser. Skriv `yes` i textrutan för att bekräfta att du vill ta bort resursen och välj sedan **Ta bort**. 
 1. Ta bort resursgruppen genom att välja **Ta bort resursgrupp**, `myResourceGroup`skriva in namnet på resursgruppen och sedan välja **Ta bort**. 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Du måste ta bort resursgruppen två gånger. Om du tar bort resursgruppen första gången tas den hanterade instansen `Remove-AzResourceGroup : Long running operation failed with status 'Conflict'.`och de virtuella klustren bort, men felmeddelandet misslyckas sedan . Kör kommandot Ta bort AzResourceGroup en andra gång för att ta bort eventuella kvarvarande resurser samt resursgruppen.
 
@@ -1104,7 +1104,7 @@ Den här delen av självstudien använder följande PowerShell-cmdlet:
 
 ## <a name="full-script"></a>Fullständigt skript
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 [!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-managed-instance-to-failover-group-az-ps.ps1 "Add managed instance to a failover group")]
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
@@ -1136,7 +1136,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | Kör en redundansväxling för en hanterad instans redundansgrupp. | 
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp. | 
 
-# <a name="portal"></a>[Portal](#tab/azure-portal) 
+# <a name="portal"></a>[Portalen](#tab/azure-portal) 
 
 Det finns inga skript tillgängliga för Azure-portalen.
 

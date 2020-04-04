@@ -5,19 +5,19 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: 225ee7028b9610a4974f9bee05da667d78d3355e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/02/2020
+ms.openlocfilehash: 1d044ddaea0a2c7a1d489523cc9aa4515df0728a
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73903739"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632666"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Installera Jupyter notebook på datorn och anslut till Apache Spark på HDInsight
 
-I den här artikeln lär du dig att installera Jupyter notebook, med de anpassade PySpark -kärnorna PySpark (för Python) och Apache Spark (för Scala) med Spark-magi och ansluter den bärbara datorn till ett HDInsight-kluster. Det kan finnas ett antal skäl att installera Jupyter på din lokala dator, och det kan finnas vissa utmaningar också. För mer information om detta, se avsnittet [Varför ska jag installera Jupyter på min dator](#why-should-i-install-jupyter-on-my-computer) i slutet av den här artikeln.
+I den här artikeln får du lära dig hur du installerar Jupyter notebook med anpassade PySpark (för Python) och Apache Spark (för Scala) kärnor med Spark magi. Du ansluter sedan anteckningsboken till ett HDInsight-kluster.
 
 Det finns fyra viktiga steg inblandade i att installera Jupyter och ansluta till Apache Spark på HDInsight.
 
@@ -26,17 +26,17 @@ Det finns fyra viktiga steg inblandade i att installera Jupyter och ansluta till
 * Installera PySpark- och Spark-kärnorna med Spark-magin.
 * Konfigurera Spark magi för att komma åt Spark-kluster på HDInsight.
 
-Mer information om de anpassade kärnorna och Spark-magin för Jupyter-anteckningsböcker med HDInsight-kluster finns i [Kärnor som är tillgängliga för Jupyter-anteckningsböcker med Apache Spark Linux-kluster på HDInsight](apache-spark-jupyter-notebook-kernels.md).
+Mer information om anpassade kärnor och Spark-magi finns i [Kärnor som är tillgängliga för Jupyter-anteckningsböcker med Apache Spark Linux-kluster på HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
 ## <a name="prerequisites"></a>Krav
 
-* Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md). Detta är en förutsättning för att ansluta Jupyter-anteckningsboken till ett HDInsight-kluster när den bärbara datorn har installerats.
+* Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md). Den lokala anteckningsboken ansluter till HDInsight-klustret.
 
 * Kunskaper om Jupyter Notebooks med Spark på HDInsight.
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>Installera Jupyter notebook på datorn
 
-Du måste installera Python innan du kan installera Jupyter-anteckningsböcker. [Anaconda-distributionen](https://www.anaconda.com/download/) installerar både Python och Jupyter Notebook.
+Installera Python innan du installerar Jupyter-anteckningsböcker. [Anaconda-distributionen](https://www.anaconda.com/download/) installerar både Python och Jupyter Notebook.
 
 Ladda ner [Anaconda-installationsprogrammet](https://www.anaconda.com/download/) för din plattform och kör installationen. När du kör installationsguiden kontrollerar du att du väljer alternativet att lägga till Anaconda i sökvägens variabel.  Se även [installera Jupyter med Anaconda](https://jupyter.readthedocs.io/en/latest/install.html).
 
@@ -63,9 +63,9 @@ Ladda ner [Anaconda-installationsprogrammet](https://www.anaconda.com/download/)
     pip show sparkmagic
     ```
 
-    Ändra sedan arbetskatalogen till den plats som identifieras med kommandot ovan.
+    Ändra sedan arbetskatalogen till den **plats** som identifieras med kommandot ovan.
 
-1. Från den nya arbetskatalogen anger du ett eller flera av kommandona nedan för att installera önskad kärna:From your new working directory, enter one or more of the commands below to install the desired kernel(s):
+1. Från din nya arbetskatalog anger du ett eller flera av kommandona nedan för att installera önskad kärna:From your new working directory, enter one or more of the commands below to install the wanted kernel(s):
 
     |Kernel | Kommando |
     |---|---|
@@ -90,7 +90,7 @@ I det här avsnittet konfigurerar du Spark-magin som du installerade tidigare f�
     python
     ```
 
-2. Jupyter-konfigurationsinformationen lagras vanligtvis i användarnas arbetskatalog. Ange följande kommando för att identifiera arbetskatalogen och skapa en mapp med namnet **.sparkmagic**.  Den fullständiga sökvägen matas ut.
+2. Jupyter-konfigurationsinformationen lagras vanligtvis i användarnas arbetskatalog. Ange följande kommando för att identifiera arbetskatalogen och skapa en mapp som heter ** \.sparkmagic**.  Den fullständiga sökvägen matas ut.
 
     ```python
     import os
@@ -168,9 +168,9 @@ I det här avsnittet konfigurerar du Spark-magin som du installerade tidigare f�
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>Varför ska jag installera Jupyter på min dator?
 
-Det kan finnas ett antal anledningar till varför du kanske vill installera Jupyter på din dator och sedan ansluta den till en Apache Spark kluster på HDInsight.
+Anledningar till att installera Jupyter på datorn och sedan ansluta den till en Apache Spark kluster på HDInsight:
 
-* Även om Jupyter-anteckningsböcker redan är tillgängliga i Spark-klustret i Azure HDInsight, ger du möjlighet att skapa dina anteckningsböcker lokalt genom att installera Jupyter-datorer, testa programmet mot ett kluster som körs och sedan ladda upp bärbara datorer till klustret. Om du vill överföra anteckningsböckerna till klustret kan du antingen ladda upp dem med den Jupyter-anteckningsbok som körs eller i klustret, eller spara dem i mappen /HdiNotebooks i lagringskontot som är associerat med klustret. Mer information om hur anteckningsböcker lagras i klustret finns i [Var lagras Jupyter-anteckningsböcker?](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)
+* Här kan du skapa dina anteckningsböcker lokalt, testa programmet mot ett kluster som körs och sedan överföra anteckningsböckerna till klustret. Om du vill överföra anteckningsböckerna till klustret kan du antingen ladda upp dem med `/HdiNotebooks` den Jupyter-anteckningsbok som körs eller i klustret, eller spara dem i mappen i lagringskontot som är associerat med klustret. Mer information om hur anteckningsböcker lagras i klustret finns i [Var lagras Jupyter-anteckningsböcker?](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)
 * Med de bärbara datorerna som är tillgängliga lokalt kan du ansluta till olika Spark-kluster baserat på ditt programkrav.
 * Du kan använda GitHub för att implementera ett källkontrollsystem och ha versionskontroll för anteckningsböckerna. Du kan också ha en samarbetsmiljö där flera användare kan arbeta med samma anteckningsbok.
 * Du kan arbeta med anteckningsböcker lokalt utan att ens ha ett kluster upp. Du behöver bara ett kluster för att testa dina anteckningsböcker mot, inte manuellt hantera dina anteckningsböcker eller en utvecklingsmiljö.
@@ -182,5 +182,5 @@ Det kan finnas ett antal anledningar till varför du kanske vill installera Jupy
 ## <a name="next-steps"></a>Nästa steg
 
 * [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
-* [Apache Spark med BI: Utför interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med BI: Analysera Apache Spark-data med Power BI i HDInsight](apache-spark-use-bi-tools.md)
 * [Apache Spark med maskininlärning: Använd Spark i HDInsight för att analysera byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)

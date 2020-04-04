@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: fd389c1e909e6875ead8410b5ca692b82c79e0de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6782d745bfced576fe06019b0d41af86c8c63ed4
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063080"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656260"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är Azure Private Endpoint?
 
@@ -55,7 +55,7 @@ En privat länkresurs är målmålet för en viss privat slutpunkt. Följande ä
 |**Private Link Service** (din egen tjänst)   |  Microsoft.Network/privateLinkServices       | tomt |
 |**Azure SQL Database** | Microsoft.Sql/servrar    |  Sql Server (sqlServer)        |
 |**Azure Synapse Analytics** | Microsoft.Sql/servrar    |  Sql Server (sqlServer)        | 
-|**Azure-lagring**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Tabell (tabell, table_secondary)<BR> Kö (kö, queue_secondary)<BR> Fil (fil, file_secondary)<BR> Webb (webb, web_secondary)        |
+|**Azure Storage**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Tabell (tabell, table_secondary)<BR> Kö (kö, queue_secondary)<BR> Fil (fil, file_secondary)<BR> Webb (webb, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Data Lake File System Gen2 (dfs, dfs_secondary)       |
 |**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databasKonton | Sql, MongoDB, Cassandra, Gremlin, Tabell|
 |**Azure-databas för PostgreSQL -Enkel server** | Microsoft.DBforPostgreSQL/servrar   | postgresqlServer |
@@ -66,13 +66,15 @@ En privat länkresurs är målmålet för en viss privat slutpunkt. Följande ä
 |**Azure Search** | Microsoft.Search/searchService| sökTjänst|  
 |**Azure-behållarregister** | Microsoft.Container-register/register  | registry |
 |**Azure App Configuration** | Microsoft.Appkonfiguration/configurationStores   | configurationStore (configurationStore) |
-|**Azure-säkerhetskopiering** | Microsoft.RecoveryServices/valv   | valv |
+|**Azure Backup** | Microsoft.RecoveryServices/valv   | valv |
 |**Azure Event Hub** | Microsoft.EventHub/namnområden    | namnområde |
 |**Azure Service Bus** | Microsoft.ServiceBus/namnområden | namnområde |
 |**Azure Relay** | Microsoft.Relay/namnområden | namnområde |
 |**Azure Event Grid** | Ämnen för Microsoft.EventGrid/Event  | ämne |
 |**Azure Event Grid** | Microsoft.EventGrid/domäner | domän |
-|**Azure WebApps** | Microsoft.Webbplatser    | webbplatser |
+|**Azure WebApps** | Microsoft.Webbplatser    | webbplats |
+|**Azure Machine Learning** | Microsoft.MachineLearningServices/arbetsytor  | arbetsyta |
+  
  
 ## <a name="network-security-of-private-endpoints"></a>Nätverkssäkerhet för privata slutpunkter 
 När du använder privata slutpunkter för Azure-tjänster är trafiken skyddad till en specifik privat länkresurs. Plattformen utför en åtkomstkontroll för att validera nätverksanslutningar som endast når den angivna privata länkresursen. För att komma åt ytterligare resurser inom samma Azure-tjänst krävs ytterligare privata slutpunkter. 
@@ -143,6 +145,7 @@ För Azure-tjänster använder du de rekommenderade zonnamnen enligt beskrivning
 |Azure Event Grid (Microsoft.EventGrid/topics)   | ämne | Ämne. {region}.privatelink.eventgrid.azure.net|
 |Azure Event Grid (Microsoft.EventGrid/domäner) | domän | Domän. {region}.privatelink.eventgrid.azure.net |
 |Azure WebApps(Microsoft.Web/sites) | webbplats | privatelink.azurewebsites.net |
+|Azure Machine Learning(Microsoft.MachineLearningServices/workspaces)   | arbetsyta | privatelink.api.azureml.ms |
  
 Azure skapar en kanonisk namn DNS-post (CNAME) på den offentliga DNS för att omdirigera upplösningen till de föreslagna domännamnen. Du kan åsidosätta upplösningen med den privata IP-adressen för dina privata slutpunkter. 
  

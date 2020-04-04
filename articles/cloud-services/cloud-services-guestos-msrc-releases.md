@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/2/2020
+ms.date: 04/3/2020
 ms.author: raiye
-ms.openlocfilehash: 2b929481af3df8bc3bc6a9a6955e8277e3de3298
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 758f0e3198ef83635ead3f9bd8565cd64f9d413c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618683"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656356"
 ---
 # <a name="azure-guest-os"></a>Azure Gäst-OS
 I följande tabeller visas de MSRC-uppdateringar (Microsoft Security Response Center) som tillämpas på Azure Guest OS. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för gästoperativsystemet som du använder. Uppdateringar förs alltid vidare för den aktuella [familjen][family-explain] som de introducerades i.
@@ -26,26 +26,25 @@ I följande tabeller visas de MSRC-uppdateringar (Microsoft Security Response Ce
 
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsproblem | Gästoperativsystem | Datum först infördes |
 | --- | --- | --- | --- | --- |
-|  Rel 20-03  |  [4541500]  |  Windows-säkerhet  | [2.96] | Den 10 mars 2020 |
-|  Rel 20-03  |  [4540671]  |  Internet Explorer  | [2,96], [3,83], [4,76] | Den 10 mars 2020 |
-|  Rel 20-03  |  [4540694]  |  Windows-säkerhet  | [3.83] | Den 10 mars 2020 |
-|  Rel 20-03  |  [4541505]  |  Windows-säkerhet  | [4.76] | Den 10 mars 2020 |
-|  Rel 20-03  |  [4540670]  |  Senaste kumulativa uppdateringen (LCU)  | [5.41] | Den 10 mars 2020 |
-|  Rel 20-03  |  [4538461]  |  Senaste kumulativa uppdateringen (LCU)  | [6.17] | Den 10 mars 2020 |
-|  Rel 20-03  |  [4537820]  |  Samlad månad  | [2.96] | Den 11 februari 2020 |
-|  Rel 20-03  |  [4537814]  |  Samlad månad  | [3.83] | Den 11 februari 2020 |
-|  Rel 20-03  |  [4537821]  |  Samlad månad  | [4.76] | Den 11 februari 2020 |
+|  Rel 20-03  |  [4541500]  |  Windows-säkerhet  | [2.96] | Den 10 mars 2020 |
+|  Rel 20-03  |  [4540671]  |  Internet Explorer  | [2,96], [3,83], [4,76] | Den 10 mars 2020 |
+|  Rel 20-03  |  [4540694]  |  Windows-säkerhet  | [3.83] | Den 10 mars 2020 |
+|  Rel 20-03  |  [4541505]  |  Windows-säkerhet  | [4.76] | Den 10 mars 2020 |
+|  Rel 20-03  |  [4540670]  |  Senaste kumulativa uppdateringen (LCU)  | [5.41] | Den 10 mars 2020 |
+|  Rel 20-03  |  [4538461]  |  Senaste kumulativa uppdateringen (LCU)  | [6.17] | Den 10 mars 2020 |
+|  Rel 20-03  |  [4537820]  |  Samlad månad  | [2.96] | Den 11 februari 2020 |
+|  Rel 20-03  |  [4537814]  |  Samlad månad  | [3.83] | Den 11 februari 2020 |
+|  Rel 20-03  |  [4537821]  |  Samlad månad  | [4.76] | Den 11 februari 2020 |
 
-[4541500]: https://support.microsoft.com/kb/4541500 
-[4540671]: https://support.microsoft.com/kb/4540671 
-[4540694]: https://support.microsoft.com/kb/4540694 
-[4541505]: https://support.microsoft.com/kb/4541505 
-[4540670]: https://support.microsoft.com/kb/4540670 
-[4538461]: https://support.microsoft.com/kb/4538461 
-[4537820]: https://support.microsoft.com/kb/4537820  
-[4537814]: https://support.microsoft.com/kb/4537814 
-[4537821]: https://support.microsoft.com/kb/4537821 
-
+[4541500]: https://support.microsoft.com/kb/4541500 
+[4540671]: https://support.microsoft.com/kb/4540671 
+[4540694]: https://support.microsoft.com/kb/4540694 
+[4541505]: https://support.microsoft.com/kb/4541505 
+[4540670]: https://support.microsoft.com/kb/4540670 
+[4538461]: https://support.microsoft.com/kb/4538461 
+[4537820]: https://support.microsoft.com/kb/4537820  
+[4537814]: https://support.microsoft.com/kb/4537814 
+[4537821]: https://support.microsoft.com/kb/4537821 
 
 [6.17]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 [5.41]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases

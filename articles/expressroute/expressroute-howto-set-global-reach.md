@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: jaredro
-ms.openlocfilehash: 76de7a8854a58deb924cbbe3177ad5a7b5fd57a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 587a17659a412d6f894faf5a744a7d9c444935c8
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74083469"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656750"
 ---
 # <a name="configure-expressroute-global-reach"></a>Konfigurera ExpressRoute Global Reach
 
@@ -38,7 +38,7 @@ Innan du startar konfigurationen bekräftar du följande:
 1. Om du vill starta konfigurationen loggar du in på ditt Azure-konto och väljer den prenumeration som du vill använda.
 
    [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
-2. Identifiera de ExpressRoute-kretsar som du vill använda. Du kan aktivera ExpressRoute Global Reach mellan två ExpressRoute-kretsar så länge de finns i de länder/regioner som stöds och har skapats på olika peering-platser. 
+2. Identifiera de ExpressRoute-kretsar som du vill använda. Du kan aktivera ExpressRoute Global Reach mellan den privata peering av två ExpressRoute-kretsar, så länge de finns i de länder/regioner som stöds och har skapats på olika peering-platser. 
 
    * Om din prenumeration äger båda kretsarna kan du välja vilken krets som helst för att köra konfigurationen i följande avsnitt.
    * Om de två kretsarna finns i olika Azure-prenumerationer behöver du auktorisering från en Azure-prenumeration. Sedan skickar du in auktoriseringsnyckeln när du kör konfigurationskommandot i den andra Azure-prenumerationen.

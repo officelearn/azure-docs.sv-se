@@ -2,18 +2,18 @@
 title: Apache Kafka TLS-kryptering & autentisering - Azure HDInsight
 description: Ställ in TLS-kryptering för kommunikation mellan Kafka-klienter och Kafka-mäklare samt mellan Kafka-mäklare. Konfigurera SSL-autentisering av klienter.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
+ms.custom: hdinsightactive
 ms.date: 05/01/2019
-ms.author: hrasheed
-ms.openlocfilehash: 027a66f4b83225f3c776e1bff1d706f6f4dba976
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: b0154401a9233a6ea85a8e8c06ee14fcc918b2b6
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436998"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657085"
 ---
 # <a name="set-up-tls-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Konfigurera TLS-kryptering och autentisering för Apache Kafka i Azure HDInsight
 
@@ -312,13 +312,13 @@ Detaljerna i varje steg ges nedan.
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper <ZOOKEEPER_NODE>:2181 --create --topic topic1 --partitions 2 --replication-factor 2
     ```
 
-1.  Starta konsolproducenten och `client-ssl-auth.properties` ange sökvägen till som en konfigurationsfil för producenten.
+1. Starta konsolproducenten och `client-ssl-auth.properties` ange sökvägen till som en konfigurationsfil för producenten.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list <FQDN_WORKER_NODE>:9093 --topic topic1 --producer.config ~/ssl/client-ssl-auth.properties
     ```
 
-1.  Öppna en annan ssh-anslutning till klientdatorn `client-ssl-auth.properties` och starta konsolkonsumenten och ange sökvägen till som en konfigurationsfil för konsumenten.
+1. Öppna en annan ssh-anslutning till klientdatorn `client-ssl-auth.properties` och starta konsolkonsumenten och ange sökvägen till som en konfigurationsfil för konsumenten.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server <FQDN_WORKER_NODE>:9093 --topic topic1 --consumer.config ~/ssl/client-ssl-auth.properties --from-beginning
@@ -332,13 +332,13 @@ Detaljerna i varje steg ges nedan.
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --zookeeper <ZOOKEEPER_NODE_0>:2181 --create --topic topic1 --partitions 2 --replication-factor 2
     ```
 
-1.  Starta konsolproducenten och ange sökvägen till klient-ssl-auth.properties som en konfigurationsfil för producenten.
+1. Starta konsolproducenten och ange sökvägen till klient-ssl-auth.properties som en konfigurationsfil för producenten.
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list <FQDN_WORKER_NODE>:9092 --topic topic1 
     ```
 
-3.  Öppna en annan ssh-anslutning till klientdatorn `client-ssl-auth.properties` och starta konsolkonsumenten och ange sökvägen till som en konfigurationsfil för konsumenten.
+1. Öppna en annan ssh-anslutning till klientdatorn `client-ssl-auth.properties` och starta konsolkonsumenten och ange sökvägen till som en konfigurationsfil för konsumenten.
 
     ```bash
     $ /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server <FQDN_WORKER_NODE>:9093 --topic topic1 --consumer.config ~/ssl/client-ssl-auth.properties --from-beginning

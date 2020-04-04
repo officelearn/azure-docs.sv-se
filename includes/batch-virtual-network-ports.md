@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 03/04/2020
+ms.date: 04/03/2020
 ms.author: labrenne
 ms.custom: include file
-ms.openlocfilehash: e9460108499ca76d1b149b61cebe3d3081bf6544
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dc08dcded6418208751edbffcb5d263db059ec01
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79086278"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657487"
 ---
 ### <a name="general-requirements"></a>Allmänna krav
 
@@ -65,7 +65,7 @@ Undernätet måste tillåta inkommande kommunikation från batch-tjänsten för 
 
 #### <a name="network-security-groups-specifying-subnet-level-rules"></a>Nätverkssäkerhetsgrupper: Ange regler på undernätsnivå
 
-Det krävs inte att ange NSG:er på den virtuella nätverksundernätsnivån eftersom Batch konfigurerar sina egna NSG-grupper (se ovan). Om du har en NSG associerad med undernätet där batchberäkningsnoder distribueras eller vill tillämpa anpassade NSG-regler för att åsidosätta de standardinställningar som tillämpas, måste du konfigurera den här NSG-datorn med minst de inkommande och utgående säkerhetsreglerna som visas i följande Tabeller.
+Det krävs inte att ange NSG:er på den virtuella nätverksundernätsnivån eftersom Batch konfigurerar sina egna NSG-grupper (se ovan). Om du har en NSG som är associerad med undernätet där batchberäkningsnoder distribueras eller vill tillämpa anpassade NSG-regler för att åsidosätta de standardinställningar som tillämpas, måste du konfigurera den här NSG-datorn med åtminstone de inkommande och utgående säkerhetsreglerna som visas i följande tabeller.
 
 Konfigurera inkommande trafik på port 3389 (Windows) eller 22 (Linux) endast om du behöver tillåta fjärråtkomst till beräkningsnoderna från externa källor. Du kan behöva aktivera port 22-regler på Linux om du behöver stöd för multiinstansuppgifter med vissa MPI-körningar. Att tillåta trafik på dessa portar krävs inte strikt för att poolberäkningsnoderna ska kunna användas.
 
@@ -75,6 +75,9 @@ Konfigurera inkommande trafik på port 3389 (Windows) eller 22 (Linux) endast om
 | --- | --- | --- | --- | --- | --- | --- |
 | Ej tillämpligt | `BatchNodeManagement`[Servicetag](../articles/virtual-network/security-overview.md#service-tags) (om du använder regional variant, i samma region som ditt Batch-konto) | * | Alla | 29876–29877 | TCP | Tillåt |
 | Ip-adresser för användarkällor för fjärråtkomst till beräkningsnoder och/eller beräkningsnodundernät för Linux-multiinstansuppgifter, om det behövs. | Ej tillämpligt | * | Alla | 3389 (Windows), 22 (Linux) | TCP | Tillåt |
+
+> [!WARNING]
+> Batch-tjänst IP-adresser kan ändras med tiden. Därför rekommenderas det starkt att `BatchNodeManagement` använda servicetag (eller regional variant) för NSG-regler. Det rekommenderas inte att fylla I NSG-regler med Batch-tjänst IP-adresser direkt.
 
 **Säkerhetsregler för utgående trafik**
 

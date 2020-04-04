@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 04/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 90ac6f35cafbe63e8c6cdb77450089d00c0e3099
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 221ed3169fff78a2721e91023036593570fbd723
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264354"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637797"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -125,7 +125,7 @@ Elementet **UserJourneyBehaviors** innehåller följande element:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Omfång | Ja | Omfattningen av det enskilda inloggningsbeteendet. Möjliga `Suppressed`värden: `Tenant` `Application`, `Policy`, eller . Värdet `Suppressed` anger att beteendet undertrycks. När det till exempel gäller en enda inloggningssession underhålls ingen session för användaren och användaren uppmanas alltid att välja en identitetsprovider. Värdet `TrustFramework` anger att beteendet tillämpas för alla principer i förtroenderamverket. En användare som navigerar genom två principresor för ett förtroenderamverk uppmanas till exempel inte för ett identitetsproviderval. Värdet `Tenant` anger att beteendet tillämpas på alla principer i klienten. En användare som navigerar genom två principresor för en klient uppmanas till exempel inte för ett identitetsproviderval. Värdet `Application` anger att beteendet tillämpas på alla principer för programmet som gör begäran. En användare som navigerar genom två principresor för ett program uppmanas till exempel inte för ett identitetsproviderval. Värdet `Policy` anger att beteendet endast gäller för en princip. En användare som navigerar genom två principresor för ett förtroenderamverk uppmanas till exempel för ett identitetsproviderval när du växlar mellan principer. |
+| Omfång | Ja | Omfattningen av det enskilda inloggningsbeteendet. Möjliga `Suppressed`värden: `Tenant` `Application`, `Policy`, eller . Värdet `Suppressed` anger att beteendet undertrycks och att användaren alltid uppmanas att välja en identitetsprovider.  Värdet `Tenant` anger att beteendet tillämpas på alla principer i klienten. En användare som navigerar genom två principresor för en klient uppmanas till exempel inte för ett identitetsproviderval. Värdet `Application` anger att beteendet tillämpas på alla principer för programmet som gör begäran. En användare som navigerar genom två principresor för ett program uppmanas till exempel inte för ett identitetsproviderval. Värdet `Policy` anger att beteendet endast gäller för en princip. En användare som navigerar genom två principresor för ett förtroenderamverk uppmanas till exempel för ett identitetsproviderval när du växlar mellan principer. |
 | KeepAliveInDays | Ja | Styr hur länge användaren förblir inloggad. Om du ställer in värdet på 0 inaktiveras KMSI-funktionen. Mer information finns [i Håll mig inloggad](custom-policy-keep-me-signed-in.md). |
 |EnforceIdTokenHintOnLogout| Inga|  Tvinga fram en tidigare utfärdad ID-token till utloggningsslutpunkten som ett tips om slutanvändarens aktuella autentiserade session med klienten. Möjliga värden: `false` (standard) eller `true`. Mer information finns [i Webb-inloggning med OpenID Connect](openid-connect.md).  |
 
@@ -190,7 +190,7 @@ Elementet **TechnicalProfile** innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Namn | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C och som används som en del av den tekniska profilen. Möjliga `OpenIdConnect` värden: `SAML2`eller . Värdet `OpenIdConnect` representerar OpenID Connect 1.0-protokollstandarden enligt OpenID foundation-specifikationen. Den `SAML2` representerar SAML 2.0-protokollstandarden enligt OASIS-specifikationen. Använd inte en SAML-token i produktionen. |
+| Namn | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C och som används som en del av den tekniska profilen. Möjliga `OpenIdConnect` värden: `SAML2`eller . Värdet `OpenIdConnect` representerar OpenID Connect 1.0-protokollstandarden enligt OpenID foundation-specifikationen. Den `SAML2` representerar SAML 2.0-protokollstandarden enligt OASIS-specifikationen. |
 
 ## <a name="outputclaims"></a>OutputClaims
 

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: b48c37a6e607d121416ebae4d74e58f39670b79a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1dbcf953ad5f70c6ddf2a73eef2ea712f1e1278c
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73821934"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632087"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>E-postmeddelanden för automatisk justering
 
@@ -69,7 +69,7 @@ Nästa steg är att skapa en Runbook i Azure Automation där PowerShell-skriptet
 Så här skapar du en ny Azure Automation-runbook:
 
 - Få tillgång till Det Azure Automation-konto som du skapade i föregående steg
-- En gång i fönstret för automatiseringskonto klickar du på menyalternativet "**Runbooks**" till vänster för att skapa en ny Azure Automation-runbook med PowerShell-skriptet. Mer information om hur du skapar automatiseringskörningar finns i [Skapa en ny runbook](../automation/manage-runbooks.md#create-a-runbook).
+- En gång i fönstret för automatiseringskonto klickar du på menyalternativet "**Runbooks**" till vänster för att skapa en ny Azure Automation-runbook med PowerShell-skriptet. Mer information om hur du skapar automatiseringskörningar finns i [Skapa en ny runbook](../automation/manage-runbooks.md#creating-a-runbook).
 - Om du vill lägga till en ny runbook klickar du på menyalternativet "**+Lägg till en runbook**" och klickar sedan på "**Snabbskapa – Skapa en ny runbook**".
 - I runbook-fönstret skriver du in namnet på runbooken (i det här exemplet används "**AutomaticTuningEmailAutomation**" ), typen av runbook som **PowerShell** och skriv en beskrivning av den här runbooken för att beskriva dess syfte.
 - Klicka på knappen **Skapa** för att slutföra skapandet av en ny runbook
@@ -88,7 +88,7 @@ Om det finns flera prenumerationer kan du lägga till dem som kommaavgränsade i
 ```powershell
 # PowerShell script to retrieve Azure SQL Database Automatic tuning recommendations.
 #
-# Provided “as-is” with no implied warranties or support.
+# Provided "as-is" with no implied warranties or support.
 # The script is released to the public domain.
 #
 # Replace <SUBSCRIPTION_ID_WITH_DATABASES> in the header with your Azure subscription ID.
@@ -225,7 +225,7 @@ Nästa steg är att lägga till tre jobb (skapa, få utdata och skicka e-post) t
    - Slutför skapandet av den här åtgärden genom att klicka på "**Spara flöde**"
 
 > [!TIP]
-> Om du vill skicka automatiska e-postmeddelanden till olika mottagare skapar du separata flöden. I dessa ytterligare flöden ändrar du mottagarens e-postadress i fältet "Till" och ämnesraden för e-post i fältet Ämne. Genom att skapa nya runbooks i Azure Automation med anpassade PowerShell-skript (till exempel med ändring av Azure-prenumerations-ID) kan du ytterligare anpassa automatiserade scenarier, till exempel att skicka separata mottagare via e-post till exempel på Automatiserad justering rekommendationer för separata prenumerationer.
+> Om du vill skicka automatiska e-postmeddelanden till olika mottagare skapar du separata flöden. I dessa ytterligare flöden ändrar du mottagarens e-postadress i fältet "Till" och ämnesraden för e-post i fältet Ämne. Genom att skapa nya runbooks i Azure Automation med anpassade PowerShell-skript (till exempel med ändring av Azure-prenumerations-ID) kan du ytterligare anpassa automatiserade scenarier, till exempel att skicka separata mottagare via e-post till exempel separata mottagare på automatiska justeringsrekommendationer för separata prenumerationer.
 >
 
 Ovanstående avslutar steg som krävs för att konfigurera arbetsflödet för e-postleveransjobb. Hela flödet som består av tre åtgärder som byggts visas i följande bild.

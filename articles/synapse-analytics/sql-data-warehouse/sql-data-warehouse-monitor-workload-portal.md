@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 64e61b00ecebec82b465cb13c6df0e323f6c7777
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 9eacb813c3ddce028fcd9b24c86c6d32ed7a7584
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586558"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633228"
 ---
 # <a name="monitor-workload---azure-portal"></a>Övervaka arbetsbelastningen - Azure-portal
 
@@ -24,11 +24,11 @@ I den här artikeln beskrivs hur du använder Azure-portalen för att övervaka 
 ## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration: Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-- SQL pool: Vi kommer att samla loggar för en SQL-pool. Om du inte har etablerat en SQL-pool läser du instruktionerna i [Skapa en SQL-pool](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial).
+- SQL pool: Vi kommer att samla loggar för en SQL-pool. Om du inte har etablerat en SQL-pool läser du instruktionerna i [Skapa en SQL-pool](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## <a name="create-a-log-analytics-workspace"></a>Skapa en Log Analytics-arbetsyta
 
-Navigera till bläddra blad för Log Analytics arbetsytor och skapa en arbetsyta 
+Navigera till bläddra blad för Log Analytics arbetsytor och skapa en arbetsyta
 
 ![Log Analytics-arbetsytor](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspaces.png)
 
@@ -36,7 +36,7 @@ Navigera till bläddra blad för Log Analytics arbetsytor och skapa en arbetsyta
 
 ![Lägg till Analytics-arbetsyta](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
 
-Mer information om arbetsytor finns i följande [dokumentation](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace#create-a-workspace).
+Mer information om arbetsytor finns i följande [dokumentation](../../azure-monitor/learn/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace).
 
 ## <a name="turn-on-diagnostic-logs"></a>Aktivera diagnostikloggar
 
@@ -47,7 +47,6 @@ Konfigurera diagnostikinställningar för att avge loggar från DIN SQL-pool. Lo
 - [sys.dm_pdw_dms_workers](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?view=aps-pdw-2016-au7)
 - [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?view=aps-pdw-2016-au7)
 - [sys.dm_pdw_sql_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?view=aps-pdw-2016-au7)
-
 
 ![Aktivera diagnostikloggar](./media/sql-data-warehouse-monitor-workload-portal/enable_diagnostic_logs.png)
 
@@ -64,39 +63,38 @@ Navigera till arbetsytan Log Analytics där du kan göra följande:
 - Skapa loggaviseringar
 - Fästa frågeresultat på en instrumentpanel
 
-Mer information om funktionerna för loggfrågor finns i följande [dokumentation](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
+Mer information om funktionerna för loggfrågor finns i följande [dokumentation](../../azure-monitor/log-query/query-language.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ![Logg Analytics arbetsyta redaktör](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_editor.png)
-
-
 
 ![Logganalysarbetsytafrågor](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_queries.png)
 
 ## <a name="sample-log-queries"></a>Exempel på loggfrågor
 
-
-
 ```Kusto
-//List all queries 
+//List all queries
 AzureDiagnostics
 | where Category contains "ExecRequests"
 | project TimeGenerated, StartTime_t, EndTime_t, Status_s, Command_s, ResourceClass_s, duration=datetime_diff('millisecond',EndTime_t, StartTime_t)
 ```
+
 ```Kusto
 //Chart the most active resource classes
 AzureDiagnostics
 | where Category contains "ExecRequests"
 | where Status_s == "Completed"
 | summarize totalQueries = dcount(RequestId_s) by ResourceClass_s
-| render barchart 
+| render barchart
 ```
+
 ```Kusto
 //Count of all queued queries
 AzureDiagnostics
-| where Category contains "waits" 
+| where Category contains "waits"
 | where Type_s == "UserConcurrencyResourceType"
 | summarize totalQueuedQueries = dcount(RequestId_s)
 ```
+
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har konfigurerat och konfigurerat Azure-övervakningsloggar [kan du anpassa Azure-instrumentpaneler](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) för att dela mellan ditt team.

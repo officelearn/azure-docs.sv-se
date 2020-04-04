@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/27/2020
-ms.openlocfilehash: bd384f2b4dd879c30fafd2b765dd9ba0efb12447
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.date: 04/03/2020
+ms.openlocfilehash: 343e94fe681d398b695e0e24c22544bca470d75a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348398"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652191"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB-tjänstkvoter
 
@@ -152,6 +152,9 @@ Cosmos DB stöder frågor om objekt med [SQL](how-to-sql-query.md). I följande 
 | Högsta JOIN per fråga| 5<sup>*</sup>|
 | Högsta udden per fråga| 10<sup>*</sup>|
 | Högsta poäng per polygon| 4096 |
+| Maximalt inkluderade sökvägar per behållare| 500 |
+| Maximalt undantagna banor per behållare| 500 |
+| Maximala egenskaper i ett sammansatt index| 8 |
 
 <sup>*</sup>Du kan öka dessa SQL-frågegränser genom att kontakta Azure Support.
 
@@ -163,7 +166,7 @@ I följande tabell visas de gränser som är specifika för MongoDB-funktionsst�
 
 | Resurs | Standardgräns |
 | --- | --- |
-| Maximal mongoDb-frågeminnesstorlek | 40 MB |
+| Maximal MongoDB-frågeminnesstorlek (Den här begränsningen är endast avsedd för 3.2-serverversion) | 40 MB |
 | Maximal körningstid för MongoDB-åtgärder| 30s |
 | Tidsgränsen för inaktiv anslutning för anslutningsstängning på serversidan* | 30 minuter |
 

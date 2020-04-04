@@ -3,14 +3,14 @@ title: Skapa din första funktion i Azure Portal
 description: Lär dig hur du skapar din första Azure-funktion för serverfri körning i Azure Portal.
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: quickstart
-ms.date: 03/06/2020
+ms.date: 03/26/2020
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: e7bb5e7b387c3ab1140a3fe475911bd0e428e2a5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 417ad96dc3dea25e322dbdb4d81c034a9b9c1e80
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80057096"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656892"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Skapa din första funktion i Azure Portal
 
@@ -34,27 +34,29 @@ Skapa sedan en funktion i den nya funktionsappen.
 
 ## <a name="create-an-http-triggered-function"></a><a name="create-function"></a>Skapa en HTTP-utlöst funktion
 
-1. Expandera din nya funktionsapp, **+** välj knappen bredvid **Funktioner,** välj **I-portalen**och välj sedan **Fortsätt**.
+1. Välj **Funktioner**i det vänstra menyn i fönstret **Funktioner** och välj sedan **Lägg till** på den övre menyn. 
+ 
+1. Välj **Http-utlösare**i fönstret **Ny funktion** .
 
-    ![Funktioner quickstart för att välja en plattform.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
+    ![Välj HTTP-utlösarfunktion](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
-1. Välj **WebHook + API**och välj sedan **Skapa**.
+1. I fönstret **Ny funktion** accepterar du standardnamnet för **Ny funktion**eller anger ett nytt namn. 
 
-    ![Snabbstart för funktioner i Azure Portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
+1. Välj **Anonym** i listrutan **Auktoriseringsnivå** och välj sedan **Skapa funktion**.
 
-   En funktion skapas med hjälp av en språkspecifik mall för en HTTP-utlöst funktion.
-
-Nu kan du köra den nya funktionen genom att skicka en HTTP-begäran.
+    Azure skapar HTTP-utlösarfunktionen. Nu kan du köra den nya funktionen genom att skicka en HTTP-begäran.
 
 ## <a name="test-the-function"></a>Testa funktionen
 
-1. I den nya funktionen väljer du **</> Hämta funktionsadress** längst upp till höger. 
+1. I den nya HTTP-utlösarfunktionen väljer du **Kod + Test** på den vänstra menyn och väljer sedan Hämta **funktions-URL** på den övre menyn.
 
-1. I dialogrutan **Hämta funktions-URL** väljer du **standard (funktionstangent)** i listrutan och väljer sedan **Kopiera**. 
+    ![Välj URL för funktionen Hämta](./media/functions-create-first-azure-function/function-app-select-get-function-url.png)
+
+1. I dialogrutan **Hämta funktions-URL** väljer du **standard** i listrutan och väljer sedan ikonen **Kopiera till Urklipp.** 
 
     ![Kopiera funktionswebbadressen från Azure Portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-1. Klistra in funktionens URL i adressfältet för din webbläsare. Lägg till frågesträngvärdet `&name=<your_name>` i slutet av den här URL:en och tryck på Retur för att köra begäran. 
+1. Klistra in funktionens URL i adressfältet för din webbläsare. Lägg till frågesträngvärdet `?name=<your_name>` i slutet av den här URL:en och tryck på Retur för att köra begäran. 
 
     I följande exempel visas svaret i webbläsaren:
 
@@ -62,7 +64,7 @@ Nu kan du köra den nya funktionen genom att skicka en HTTP-begäran.
 
     Begäransadressen innehåller en nyckel som krävs för åtkomst till din funktion över HTTP.
 
-1. När din funktion körs skrivs spårningsinformation till loggarna. Om du vill visa spårningsutdata från föregående körning går du tillbaka till funktionen i portalen och väljer pilen längst ned på skärmen för att expandera **loggarna**.
+1. När din funktion körs skrivs spårningsinformation till loggarna. Om du vill se spårningsutdata går du tillbaka till sidan **Kod + Test** i portalen och expanderar pilen **Loggar** längst ned på sidan.
 
    ![Funktionsloggvisning i Azure Portal.](./media/functions-create-first-azure-function/function-view-logs.png)
 

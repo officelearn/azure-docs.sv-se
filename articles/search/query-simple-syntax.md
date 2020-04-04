@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 04/03/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: fc1eb1836badc3ced688750bbc7c7a164773d022
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3d5a4ddf863115747c27efbca1808d51444aac8c
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77152677"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656172"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Enkel frågesyntax i Azure Cognitive Search
 
@@ -68,9 +68,15 @@ OPERATORN NOT är ett minustecken. Till exempel `wifi –luxury` kommer att sök
 > [!NOTE]  
 >  Alternativet styr om en term med operatorn INTE är ANDed eller ORed med `+` `|` de andra termerna i frågan i avsaknad av en eller operatör. `searchMode` Återkalla `searchMode` som kan ställas `any` in på `all`antingen (standard) eller . Om du `any`använder , kommer det att öka återkallande av `-` frågor genom att inkludera fler resultat, och som standard kommer att tolkas som "ELLER inte". Till exempel `wifi -luxury` matchar dokument som antingen `wifi` innehåller termen eller de `luxury`som inte innehåller termen . Om du `all`använder , kommer det att öka precisionen i frågor genom att inkludera färre resultat, och som standard - kommer att tolkas som "OCH INTE". Till exempel `wifi -luxury` matchar dokument som `wifi` innehåller termen och inte innehåller termen "lyx". Detta är utan tvekan ett `-` mer intuitivt beteende för operatören. Därför bör du `searchMode=all` överväga `searchMode=any` att använda i stället för om du vill optimera sökningar `-` efter precision i stället för återkallande, *och* användarna använder ofta operatören i sökningar.
 
-## <a name="suffix-operator"></a>Suffixoperator
+<a name="prefix-search"></a>
 
-Suffixoperatorn är en `*`asterisk . Till exempel `lux*` kommer att söka efter dokument `lux`som har en term som börjar med , ignorera fall.  
+## <a name="suffix--operator-for-prefix-search"></a>Suffixoperator `*` för prefixsökning
+
+Suffixoperatorn är en `*`asterisk . Till exempel `cap*` kommer att söka efter dokument `cap`som har en term som börjar med , ignorera fall. 
+
+I likhet med filter söker en prefixfråga efter en exakt matchning. Därför finns det ingen relevanspoängning (alla resultat får en sökpoäng på 1,0). Prefixfrågor kan vara långsamma, särskilt om indexet är stort och prefixet består av ett litet antal tecken. 
+
+Om du vill köra en suffixfråga, som matchar den sista delen av strängen, använder du en [jokerteckensökning](query-lucene-syntax.md#bkmk_wildcard) och den fullständiga Lucene-syntaxen.
 
 ## <a name="phrase-search-operator"></a>Operator för sök av fraser
 

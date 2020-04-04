@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 02/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 21fa1c4faa4a080b9b495e1481fdadcd7e8bea10
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: a8d6d25a2ba7f0040b13982f14f3d6081ac32f15
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619483"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80638000"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Stöd för Az-moduler i Azure Automation
 
@@ -18,20 +18,27 @@ Azure Automation stöder användningen av [Azure PowerShell Az-modulen](/powersh
 
 ## <a name="considerations"></a>Överväganden
 
-Det finns många saker att ta hänsyn till när du använder den samlade Az-modulen i Azure Automation. Runbooks och moduler kan användas av lösningar på högre nivå i ditt Automation-konto. Om du redigerar runbooks eller uppgraderar moduler kan det orsaka problem med runbooks. Du bör testa alla runbooks och lösningar noggrant i ett separat Automation-konto innan du importerar nya Az-moduler. Eventuella ändringar av moduler kan påverka [Start/Stop-lösningen](automation-solution-vm-management.md) negativt. Vi rekommenderar inte att du ändrar moduler och runbooks i Automation-konton som innehåller några lösningar. Det här beteendet är inte specifikt för Az-modulerna. Det bör beaktas när du inför eventuella ändringar i ditt Automation-konto.
+Det finns flera saker att ta hänsyn till när du använder Az-modulerna i Azure Automation:
 
-Om du importerar en Az-modul i ditt Automation-konto importeras inte modulen automatiskt i PowerShell-sessionen som runbooks använder. Moduler importeras till PowerShell-sessionen i följande situationer:
+* Lösningar på högre nivå i ditt Automation-konto kan använda runbooks och moduler. Därför kan redigering av runbooks eller uppgraderingsmoduler potentiellt orsaka problem med dina lösningar. Du bör testa alla runbooks och lösningar noggrant i ett separat Automation-konto innan du importerar nya Az-moduler. 
 
-* När en runbook anropar en cmdlet från en modul
-* När en runbook importerar `Import-Module` modulen uttryckligen med cmdlet
-* När en runbook importerar en annan modul beroende på modulen
+* Eventuella ändringar av moduler kan påverka [Start/Stop-lösningen](automation-solution-vm-management.md) negativt. 
+
+* Om du importerar en Az-modul i ditt Automation-konto importeras inte modulen automatiskt i PowerShell-sessionen som runbooks använder. Moduler importeras till PowerShell-sessionen i följande situationer:
+
+    * När en runbook anropar en cmdlet från en modul
+    * När en runbook importerar `Import-Module` modulen uttryckligen med cmdlet
+    * När en runbook importerar en annan modul beroende på modulen
+
+> [!NOTE]
+> Vi rekommenderar inte att du ändrar moduler och runbooks i Automation-konton som innehåller några lösningar. Den här bestämmelsen är inte specifik för Az-modulerna. Det bör beaktas när du inför eventuella ändringar i ditt Automation-konto.
 
 > [!IMPORTANT]
 > Kontrollera att runbooks i ett Automation-konto importerar antingen Az-moduler eller [AzureRM-moduler,](https://www.powershellgallery.com/packages/AzureRM/6.13.1) men inte båda, till en PowerShell-session. Om en runbook importerar Az-moduler före AzureRM-moduler slutförs runbooken. Ett fel som refererar [till Get_SerializationSettings](troubleshoot/runbooks.md#get-serializationsettings) cmdlet visas dock i jobbströmmarna och cmdlets kanske inte körs korrekt. Om runbooken importerar AzureRM-moduler före Az-moduler slutförs även runbooken. I det här fallet visas dock ett fel i jobbströmmarna som anger att både Az och AzureRM inte kan importeras i samma session eller användas i samma runbook.
 
 ## <a name="migrating-to-az-modules"></a>Migrera till Az-moduler
 
-Vi rekommenderar att du testar en migrering till Az-moduler i ett testautomatiseringskonto. När du har skapat det här kontot kan du använda instruktionerna i det här avsnittet för att arbeta med modulerna.
+Vi rekommenderar att du testar en migrering till Az-moduler i ett testautomatiseringskonto. När du har skapat kontot kan du använda instruktionerna i det här avsnittet för att arbeta med modulerna.
 
 ### <a name="stop-and-unschedule-all-runbooks-that-use-azurerm-modules"></a>Stoppa och avmarkera alla runbooks som använder AzureRM-moduler
 

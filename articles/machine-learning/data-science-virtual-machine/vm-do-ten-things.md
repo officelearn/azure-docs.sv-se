@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 147f43148c0f804adf70f1a792ba1b8a772fdae4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8da8cd7110cd17d0aadd52cce1263c7c0fcfdf5c
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294481"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632160"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tio saker du kan göra på Virtual Machine för Windows Data Science
 
@@ -803,16 +803,6 @@ pd.read_sql(queryString, connection)
 ```
 
 ![Översta rader med data från tabellen](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
-
-#### <a name="read-data-from-hdi-by-using-azure-machine-learning-studio-classic-reader-module"></a>Läsa data från HDI med hjälp av Azure Machine Learning Studio (klassisk): läsarmodul
-
-Du kan också använda läsarmodulen i Azure Machine Learning Studio (klassisk) för att komma åt databasen i ett Hadoop-kluster. Anslut autentiseringsuppgifterna för dina HDI-kluster och Azure-lagringskonto för att aktivera hur du skapar maskininlärningsmodeller med hjälp av en databas i HDI-kluster.
-
-![Egenskaper för läsarmodul](./media/vm-do-ten-things/AML_Reader_Hive.PNG)
-
-Du kan sedan visa den poängsatta datauppsättningen:
-
-![Visa poängsatt datauppsättning](./media/vm-do-ten-things/AML_Model_Results.PNG)
 
 ### <a name="azure-sql-data-warehouse-and-databases"></a>Azure SQL Data Warehouse och databaser
 Azure SQL Data Warehouse är ett elastiskt datalager som en tjänst med en SQL Server-upplevelse i företagsklass.

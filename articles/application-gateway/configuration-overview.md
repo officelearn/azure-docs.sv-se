@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: f08cfab8f8de9183e6bee241959f7feabc31c8e3
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 89d894a5125a16f95e6ef8a15c2503d48f3a8e55
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585908"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632179"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över konfigurationen för Application Gateway
 
@@ -118,7 +118,7 @@ I det här scenariot använder du NSG:er i undernätet Application Gateway. Plac
 
   **Scenario 1:** UDR för virtuella apparater
 
-  Alla scenarier där 0.0.0.0/0 behöver omdirigeras via en virtuell installation, ett virtuellt nätverk för nav/eker eller lokalisering (påtvingad tunnelning) stöds inte för den offentliga förhandsversionen av v2. 
+  Alla scenarier där 0.0.0.0/0 behöver omdirigeras via en virtuell installation, ett virtuellt nätverk för nav/eker eller lokalt (påtvingad tunnelning) stöds inte för V2.
 
 ## <a name="front-end-ip"></a>Ip-adress i fronten
 

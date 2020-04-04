@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/15/2019
 ms.topic: tutorial
-ms.openlocfilehash: 6acb68b7bbaa54db2e4143a42e43aede2caed35f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 332d7e4cae3b65d794d48d208b54db3809b78a8f
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75420697"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632372"
 ---
 # <a name="tutorial-send-an-email-from-an-azure-automation-runbook"></a>Självstudiekurs: Skicka ett e-postmeddelande från en Azure Automation-runbook
 
@@ -149,7 +149,7 @@ Använd det här exemplet om du vill skapa en runbook som heter **Send-GridMailM
 
 7. Välj **Publicera** om du vill spara och publicera runbooken.
 
-Om du vill kontrollera att runbooken körs kan du följa stegen under [Testa en runbook](manage-runbooks.md#test-a-runbook) eller [Starta en runbook](start-runbooks.md).
+Om du vill kontrollera att runbooken körs kan du följa stegen under [Testa en runbook](manage-runbooks.md#testing-a-runbook) eller [Starta en runbook](start-runbooks.md).
 Om du inte först ser din test-e-post kontrollerar du **dina** **skräppostmappar.**
 
 ## <a name="clean-up"></a>Rensa

@@ -7,12 +7,12 @@ ms.reviewers: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: d65b81f18d4dcb0ee97a21a7edec885e308bd8d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1885d7f8713b3801ce0c9846b7a8509b3864032a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297311"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656307"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ta emot och svara på inkommande HTTPS-begäranden i Azure Logic Apps
 
@@ -25,7 +25,7 @@ Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda å
 > [!NOTE]
 > Utlösaren begäran stöder *endast* TLS (Transport Layer Security) 1.2 för inkommande samtal. Utgående samtal fortsätter att stödja TLS 1.0, 1.1 och 1.2. Mer information finns i [Lösa TLS 1.0-problemet](https://docs.microsoft.com/security/solving-tls1-problem).
 >
-> Om du ser SSL-handskakningsfel kontrollerar du att du använder TLS 1.2. För inkommande samtal, här är de chiffersviter som stöds:
+> Om du ser TLS handskakningsfel kontrollerar du att du använder TLS 1.2. För inkommande samtal, här är de chiffersviter som stöds:
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 > * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256

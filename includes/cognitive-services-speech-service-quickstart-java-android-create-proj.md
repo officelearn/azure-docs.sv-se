@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: travisw
-ms.openlocfilehash: 270a8316ee7c23ebb54c7d0633fb9159ef33acbd
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 8b187e058299f8aa8b762231c0ed1e708e5ad9d1
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78383800"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80658383"
 ---
 1. Starta Android Studio och välj **Starta ett nytt Android Studio-projekt** i **välkomstfönstret.**
 
@@ -27,7 +27,7 @@ Det tar en stund för Android Studio att förbereda det nya projektet för Andro
 
 [!INCLUDE [License notice](cognitive-services-speech-service-license-notice.md)]
 
-Den aktuella versionen av Cognitive Services Speech SDK är 1.10.0.
+Den aktuella versionen av Cognitive Services Speech SDK är 1.11.0.
 
 Speech SDK för Android kommer som ett [AAR (Android-biblioteket)](https://developer.android.com/studio/projects/android-library), som innehåller nödvändiga bibliotek samt Android behörigheter som krävs.
 Den finns i en Maven-databas\/på https: /csspeechstorage.blob.core.windows.net/maven/.
@@ -42,7 +42,7 @@ Konfigurera ditt projekt för att använda Speech SDK. Öppna fönstret **Projek
 
    ![Skärmbild av biblioteksberoende](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. I fönstret som visas anger du namnet och versionen av Speech SDK för Android, *com.microsoft.cognitiveservices.speech:client-sdk:1.10.0*. Välj sedan **OK**.
+1. I fönstret som visas anger du namnet och versionen av Speech SDK för Android, *com.microsoft.cognitiveservices.speech:client-sdk:1.11.0*. Välj sedan **OK**.
    Tal-SDK ska läggas till i listan över beroenden nu, som visas:
 
    ![Skärmbild av Tal-SDK i listan över beroenden](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-08-dependency-added-1.0.0.png)

@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 6354390c44c0991b0d6bf36cba8efd4272f9c73d
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: bcac6af9efd18ef8abeea7d82961fd8f2fe70ba3
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583772"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633756"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Snabbstart: Skapa en arbetsbelastningsklassificerare med T-SQL
 
@@ -39,7 +39,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-login-for-theceo"></a>Skapa inloggning för TheCEO
 
-Skapa en SQL Server-autentiseringsinloggning i `master` databasen med CREATE [LOGIN](/sql/t-sql/statements/create-login-transact-sql) för 'TheCEO'.
+Skapa en SQL Server-autentiseringsinloggning i `master` databasen med CREATE [LOGIN](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för 'TheCEO'.
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.sql_logins WHERE name = 'TheCEO')
@@ -51,7 +51,7 @@ END
 
 ## <a name="create-user"></a>Skapa användare
 
-[Skapa användare](/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest), "TheCEO", i mySampleDataWarehouse
+[Skapa användare](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), "TheCEO", i mySampleDataWarehouse
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'THECEO')
@@ -63,7 +63,7 @@ END
 
 ## <a name="create-a-workload-classifier"></a>Skapa en arbetsbelastningsklassificerare
 
-Skapa en [arbetsbelastningsklassificerare](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) för "TheCEO" med stor betydelse.
+Skapa en [arbetsbelastningsklassificerare](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för "TheCEO" med stor betydelse.
 
 ```sql
 DROP WORKLOAD CLASSIFIER [wgcTheCEO];
@@ -108,6 +108,6 @@ Följ dessa steg för att rensa resurser.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Du har nu skapat en arbetsbelastningsklassificerare. Kör några frågor som TheCEO för att se hur de presterar. Se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) om du vill visa frågor och den tilldelade betydelsen.
+- Du har nu skapat en arbetsbelastningsklassificerare. Kör några frågor som TheCEO för att se hur de presterar. Se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) om du vill visa frågor och den tilldelade betydelsen.
 - Mer information om Synapse SQL-arbetsbelastningshantering finns i [Arbetsbelastningsbetydning](sql-data-warehouse-workload-importance.md) och [arbetsbelastningsklassificering](sql-data-warehouse-workload-classification.md).
 - Se hur du gör-artiklar för att [konfigurera arbetsbelastningsbetydning](sql-data-warehouse-how-to-configure-workload-importance.md) och hur du [hanterar och övervakar arbetsbelastningshantering](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).

@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3c1f0bb715b3c3bf9b3a3350ab11e26834aa84c8
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 6aff60cbc4a4cab557e6e202ea1181d5b20bbd20
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80528649"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655876"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Metodtips för kontinuitet och haveriberedskap i Azure Kubernetes Service (AKS)
 
-När du hanterar kluster i Azure Kubernetes Service (AKS) blir programdrifttid viktigt. AKS ger hög tillgänglighet genom att använda flera noder i en tillgänglighetsuppsättning. Men dessa flera noder skyddar inte ditt system från ett regionfel. För att maximera din drifttid, planera i förväg för att upprätthålla kontinuiteten i verksamheten och förbereda sig för haveriberedskap.
+När du hanterar kluster i Azure Kubernetes Service (AKS) blir programdrifttid viktigt. Som standard ger AKS hög tillgänglighet genom att använda flera noder i en [VMSS (Virtual Machine Scale Set).](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) Men dessa flera noder skyddar inte ditt system från ett regionfel. För att maximera din drifttid, planera i förväg för att upprätthålla kontinuiteten i verksamheten och förbereda sig för haveriberedskap.
 
 Den här artikeln fokuserar på hur du planerar för affärskontinuitet och haveriberedskap i AKS. Lär dig att:
 

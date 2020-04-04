@@ -4,14 +4,14 @@ description: Förutsättningar för att använda Azure HPC-cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: 40d282ad30a800a5e5a36a8d2211ec8da7ce63ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6da35cb60dc5f22be01ae25393bd62327db64867
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271855"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80655649"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Förutsättningar för Azure HPC-cache
 
@@ -113,7 +113,7 @@ Mer information ingår i [Felsökning av NAS-konfiguration och NFS-lagringsmålp
 
   Kontrollera att alla portar som ``rpcinfo`` returneras av frågan tillåter obegränsad trafik från Azure HPC-cachens undernät.
 
-  * Förutom de portar som `rpcinfo` returneras av kommandot kontrollerar du att dessa vanliga portar tillåter inkommande och utgående trafik:
+  * Om du inte kan `rpcinfo` använda kommandot kontrollerar du att dessa vanliga portar tillåter inkommande och utgående trafik:
 
     | Protokoll | Port  | Tjänst  |
     |----------|-------|----------|
@@ -122,6 +122,8 @@ Mer information ingår i [Felsökning av NAS-konfiguration och NFS-lagringsmålp
     | TCP/UDP  | 4045  | nlockmgr (nlockmgr) |
     | TCP/UDP  | 4046  | monterad   |
     | TCP/UDP  | 4047  | status   |
+
+    Vissa system använder olika portnummer för dessa tjänster - kontakta dokumentationen för ditt lagringssystem för att vara säker.
 
   * Kontrollera brandväggsinställningarna för att vara säker på att de tillåter trafik på alla dessa nödvändiga portar. Var noga med att kontrollera brandväggar som används i Azure samt lokala brandväggar i ditt datacenter.
 
@@ -132,7 +134,7 @@ Mer information ingår i [Felsökning av NAS-konfiguration och NFS-lagringsmålp
 
   Läs mer om kataloglista åtkomst i [felsökningsartikeln](troubleshoot-nas.md#enable-export-listing)för NFS-lagringsmål .
 
-* **Root-åtkomst:** Cachen ansluter till backend-systemet som användar-ID 0. Kontrollera de här inställningarna på ditt lagringssystem:
+* **Root access** (läs/skriv): Cachen ansluter till backend-systemet som användar-ID 0. Kontrollera de här inställningarna på ditt lagringssystem:
   
   * Aktivera `no_root_squash`. Det här alternativet säkerställer att fjärrrotanvändaren kan komma åt filer som ägs av root.
 

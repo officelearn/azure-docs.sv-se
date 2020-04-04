@@ -4,19 +4,19 @@ description: Vilken information används för att autentisera användare genom A
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bc0f0dbcd08df887b2484be6ca8c92a85962c1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f3b5af972ad6dd15b7c992d5e264ede97bd1dde
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74848297"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80653638"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Användardatainsamling för Azure Multi Factor-autentisering
 
@@ -141,7 +141,7 @@ För MFA Server version 8.0 eller högre tillåter följande process administrat
 - Sök `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` och eventuella\<säkerhetskopior för " användarnamn>" (inkludera citat i sökningen) för att hitta alla instanser av användarposten läggs till eller ändras.
    - Dessa poster kan begränsas (men inte elimineras) genom att avmarkera **"Logga användarändringar"** i MFA Server UX, Loggning avsnitt, Loggfiler fliken.
    - Om syslog är konfigurerad och **"Logga användarändringar"** är markerat i avsnittet MFA Server UX, Loggning, fliken Syslog, kan loggposterna samlas in från syslog i stället.
-- Andra förekomster av användarnamnet i MultiFactorAuthSvc.log och andra MFA-serverloggfiler som rör autentiseringsförsök betraktas som drift och duplicerar informationen med MultiFactorAuthGdpr.exe export eller Web Service SDK GetUserGdpr.
+- Andra förekomster av användarnamnet i MultiFactorAuthSvc.log och andra MFA Server-loggfiler som rör autentiseringsförsök betraktas som drift och duplicerar informationen med MultiFactorAuthGdpr.exe export eller Web Service SDK GetUserGdpr.
 
 ## <a name="delete-data-from-mfa-server"></a>Ta bort data från MFA-server
 

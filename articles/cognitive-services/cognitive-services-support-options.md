@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: d7ce77404359b32effcc7a5da3f9429e9fdf7005
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 5f9ad827fa947e645f7eb4850f90a73c61a45cd3
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618584"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637112"
 ---
 # <a name="azure-cognitive-services-support-and-feedback-options"></a>Support- och feedbackalternativ för Azure Cognitive Services
 
@@ -87,6 +87,7 @@ Pressmeddelandena för Cognitive Services uppdateras när nya versioner görs ti
  - [Speech Services](speech-service/releasenotes.md)
  - [SDK för taltjänster](speech-service/devices-sdk-release-notes.md)
  - [Textanalys](text-analytics/whats-new.md)
+ - [Video Indexer](../media-services/video-indexer/release-notes.md)
 
 ### <a name="azure-blog"></a>Azure-bloggen
 

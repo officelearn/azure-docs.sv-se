@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
-ms.openlocfilehash: 94ca609d9dc070e6e2b4dc878ecd8dfaf9331ede
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b61b51e79c71736e18aaa63ab032c05c512c8d7
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77648180"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656337"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Skapa, övervaka och hantera FTP-filer med hjälp av Azure Logic Apps
 
@@ -27,7 +27,7 @@ Du kan använda utlösare som får svar från FTP-servern och gör utdata tillg�
 
 ## <a name="limitations"></a>Begränsningar
 
-* FTP-anslutningen stöder endast explicit FTP över SSL (FTPS) och är inte kompatibel med implicit FTPS.
+* FTP-anslutningen stöder endast explicit FTP över TLS/SSL (FTPS) och är inte kompatibel med implicit FTPS.
 
 * Som standard kan FTP-åtgärder läsa eller skriva filer som är *50 MB eller mindre*. Om du vill hantera filer som är större än 50 MB stöder [FTP-åtgärder meddelandesegmentering](../logic-apps/logic-apps-handle-large-messages.md). Åtgärden **Hämta filinnehåll** använder implicit segmentering.
 

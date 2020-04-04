@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: dapine
-ms.openlocfilehash: 11d2f9788f41e259058af50a728b8b82eeb10131
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 1269ff3e21a794fddc2e0f0dc5d62816fa98215b
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78384000"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80658297"
 ---
 I den här snabbstarten får du lära dig hur du använder Talenheterna SDK för Windows för att skapa en talaktiverad produkt eller använda den som en [konversationsavskriptionsenhet.](../conversation-transcription-service.md) För konversationsavskrift stöds endast [Azure Kinect DK.](https://azure.microsoft.com/services/kinect-dk/) För andra tal används linjära mikrofonmatriser som tillhandahåller en geometri för mikrofonmatris.
 
@@ -74,7 +74,7 @@ Om du planerar att använda avsikter behöver du en [LUIS-prenumeration (Languag
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.10.0</version>
+             <version>1.11.0</version>
         </dependency>
     </dependencies>
    ```

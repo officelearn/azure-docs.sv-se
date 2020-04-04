@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/26/2020
-ms.openlocfilehash: 306d847c2bc5af72d37dbf8bf472a5bae63e9fd5
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: db63ce2d56eb78bf6b361d530511b6902c1cb6d5
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80528508"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637775"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Vanliga frågor och svar i Azure Monitor
 
@@ -177,7 +177,7 @@ Ange en befintlig eller ny [åtgärdsgrupp](platform/action-groups.md) så att d
 
 
 ### <a name="what-are-the-firewall-requirements-for-azure-monitor-agents"></a>Vilka är brandväggskraven för Azure Monitor-agenter?
-Se [Krav på nätverksbrandvägg](platform/log-analytics-agent.md#firewall-requirements)för information om brandväggskrav.
+Se [Krav på nätverksbrandvägg](platform/log-analytics-agent.md#network-requirements)för information om brandväggskrav.
 
 
 ## <a name="visualizations"></a>Visualiseringar
@@ -284,7 +284,7 @@ Från andra källor, om du konfigurerar dem:
 
 * [Azure-diagnostik](platform/diagnostics-extension-to-application-insights.md)
 * [Importera till Analytics](platform/data-collector-api.md)
-* [Logga Analytics](platform/data-collector-api.md)
+* [Log Analytics](platform/data-collector-api.md)
 * [Logstash](platform/data-collector-api.md)
 
 ### <a name="can-i-filter-out-or-modify-some-telemetry"></a>Kan jag filtrera bort eller ändra någon telemetri?
@@ -718,7 +718,7 @@ Under det här villkoret kommer du att uppmanas med alternativet **Försök nu**
 ## <a name="next-steps"></a>Nästa steg
 Om din fråga inte besvaras här kan du hänvisa till följande forum till ytterligare frågor och svar.
 
-- [Logga Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)
+- [Log Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)
 - [Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
 
 Allmän feedback på Azure Monitor finns i [feedbackforumet](https://feedback.azure.com/forums/34192--general-feedback).

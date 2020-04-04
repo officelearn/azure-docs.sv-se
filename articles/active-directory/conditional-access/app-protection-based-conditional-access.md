@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 03/04/2020
+ms.date: 04/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9859c884f6a1e22a1ac2bd21106ef51ead23fa41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6b282962cc713487b8ee5113b02b8533a1538fff
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79080073"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631899"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Så här: Kräv appskyddsprincip och en godkänd klientapp för molnappåtkomst med villkorlig åtkomst
 
@@ -59,7 +59,7 @@ Organisationer måste utföra följande steg för att kräva användning av en g
 1. Under **Bevilja Tilldelning av Åtkomstkontroller** > **Grant**väljer du följande alternativ:
    - **Kräv godkänd klientapp**
    - **Kräv appskyddsprincip (förhandsgranskning)**
-   - **Kräv en av de markerade kontrollerna**
+   - **Kräv alla markerade kontroller**
 1. Bekräfta dina inställningar och ställ in **Aktivera princip** på **På**.
 1. Välj **Skapa** om du vill skapa och aktivera principen.
 
@@ -138,7 +138,7 @@ Läs artikeln [Så här skapar och tilldelar](/intune/apps/app-protection-polici
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Vad är villkorlig åtkomst?](overview.md)
+[Vad är villkorsstyrd åtkomst?](overview.md)
 
 [Komponenter för villkorlig åtkomst](concept-conditional-access-policies.md)
 

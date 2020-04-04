@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4301aaed0152e07eb2a941b56637239b66c33878
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7ea99e2ee8e2882c211ee17acec70222dc058a8
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127346"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637087"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Vanliga frågor och svar om flera sessioner för Windows 10 Enterprise
 
@@ -39,7 +39,7 @@ Windows 10 Enterprise multi-session kan inte köras i lokala produktionsmiljöer
 
 Du kan starta en virtuell dator (VM) i Azure med Windows 10 Windows 10 Enterprise multi-session och anpassa den genom att installera LOB-program, sysprep/generalize och sedan skapa en avbildning med Azure-portalen.  
  
-För att komma igång, skapa en virtuell dator i Azure med Windows 10 Windows 10 Enterprise multi-session. I stället för att starta den virtuella datorn i Azure kan du hämta den virtuella hårddisken direkt. Därefter kan du använda den virtuella hårddisk som du hämtade för att skapa en ny virtuell dator med generation 1 på en Windows 10-dator med Hyper-V aktiverat.
+För att komma igång, skapa en virtuell dator i Azure med Windows 10 Enterprise multi-session. I stället för att starta den virtuella datorn i Azure kan du hämta den virtuella hårddisken direkt. Därefter kan du använda den virtuella hårddisk som du hämtade för att skapa en ny virtuell dator med generation 1 på en Windows 10-dator med Hyper-V aktiverat.
 
 Anpassa avbildningen efter dina behov genom att installera LOB-program och systemprep avbildningen. När du är klar med anpassningen laddar du upp avbildningen till Azure med den virtuella hårddisken inuti. Därefter hämtar du Windows Virtual Desktop från Azure Marketplace och använder det för att distribuera en ny värdpool med den anpassade avbildningen.
  

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 99220fdf5dfb47f235637f83ba9be4ec015758bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f33dc9528d5f7043dda2c6fad207a9a51347a2b
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294440"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631479"
 ---
 # <a name="troubleshoot-issues-with-azure-automation-desired-state-configuration-dsc"></a>Felsöka problem med DSC (Azure Automation Desired State Configuration)
 
@@ -48,7 +48,7 @@ Information om hur du använder xDscDiagnostics finns i [Använda xDscDiagnostic
 
 ### <a name="3-ensure-that-nodes-and-the-automation-workspace-have-required-modules"></a>3. Se till att noder och automationsarbetsytan har nödvändiga moduler
 
-DSC beror på moduler som är installerade på noden. När du använder Azure Automation State Configuration importerar du alla nödvändiga moduler till ditt Automation-konto med hjälp av stegen i [Importmoduler](../shared-resources/modules.md#import-modules). Konfigurationer kan också ha ett beroende av specifika versioner av moduler. Mer information finns i [Felsöka moduler](shared-resources.md#modules).
+DSC beror på moduler som är installerade på noden. När du använder Azure Automation State Configuration importerar du alla nödvändiga moduler till ditt Automation-konto med hjälp av stegen i [Importmoduler](../shared-resources/modules.md#importing-modules). Konfigurationer kan också ha ett beroende av specifika versioner av moduler. Mer information finns i [Felsöka moduler](shared-resources.md#modules).
 
 ## <a name="common-errors-when-working-with-dsc"></a>Vanliga fel vid arbete med DSC
 

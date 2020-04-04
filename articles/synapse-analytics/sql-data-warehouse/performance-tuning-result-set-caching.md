@@ -11,18 +11,20 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: ef5be63b2068297aedf4cf12d914da09b1efed41
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 4eef8a3a83456a9f2066311b9339b26b83afa009
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583820"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633807"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Prestandajustering med cachelagring av resultatuppsättningar
 
-När cachelagring av resultatuppsättning är aktiverat cachelagrar Synapse SQL-pool automatiskt frågeresultat i användardatabasen för upprepad användning.  Detta gör att efterföljande frågekörningar kan hämta resultat direkt från den beständiga cachen så att omdämning inte behövs.   Cachelagring av resultat ger resultat förbättrar frågeprestanda och minskar beräkningsresursanvändningen.  Dessutom använder frågor som använder cachelagrade resultatuppsättning inte några samtidighetsplatser och räknas därför inte mot befintliga samtidighetsgränser. För säkerhet kan användare bara komma åt de cachelagrade resultaten om de har samma behörigheter för dataåtkomst som de användare som skapar de cachelagrade resultaten.  
+När cachelagring av resultatuppsättning är aktiverat cachelagrar SQL Analytics automatiskt frågeresultat i användardatabasen för upprepad användning.  Detta gör att efterföljande frågekörningar kan hämta resultat direkt från den beständiga cachen så att omdämning inte behövs.   Cachelagring av resultat ger resultat förbättrar frågeprestanda och minskar beräkningsresursanvändningen.  Dessutom använder frågor som använder cachelagrade resultatuppsättning inte några samtidighetsplatser och räknas därför inte mot befintliga samtidighetsgränser. För säkerhet kan användare bara komma åt de cachelagrade resultaten om de har samma behörigheter för dataåtkomst som de användare som skapar de cachelagrade resultaten.  
 
 ## <a name="key-commands"></a>Kommandon för nyckel
+
+[Aktivera/av resultatuppsättning cachelagring för en användardatabas](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 [Aktivera/av resultatuppsättning cachelagring för en användardatabas](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
@@ -35,6 +37,7 @@ När cachelagring av resultatuppsättning är aktiverat cachelagrar Synapse SQL-
 ## <a name="whats-not-cached"></a>Vad är inte cachelagrat  
 
 När cachelagring av resultatuppsättning har aktiverats för en databas cachelagras resultaten för alla frågor tills cacheminnet är fullt, med undantag för dessa frågor:
+
 - Frågor som använder icke-deterministiska funktioner som DateTime.Now()
 - Frågor med användardefinierade funktioner
 - Frågor som använder tabeller med säkerhet på radnivå eller kolumnnivå aktiverad
@@ -47,9 +50,9 @@ När cachelagring av resultatuppsättning har aktiverats för en databas cachela
 Kör den här frågan för den tid det tar för resultatuppsättningens cachelagringsåtgärder för en fråga:
 
 ```sql
-SELECT step_index, operation_type, location_type, status, total_elapsed_time, command 
-FROM sys.dm_pdw_request_steps 
-WHERE request_id  = <'request_id'>; 
+SELECT step_index, operation_type, location_type, status, total_elapsed_time, command
+FROM sys.dm_pdw_request_steps
+WHERE request_id  = <'request_id'>;
 ```
 
 Här är ett exempel på utdata för en fråga som körs med resultatuppsättningens cachelagring inaktiverad.
@@ -63,31 +66,34 @@ Här är ett exempel på utdata för en fråga som körs med resultatuppsättnin
 ## <a name="when-cached-results-are-used"></a>När cachelagrade resultat används
 
 Cachelagrade resultatuppsättning återanvänds för en fråga om alla följande krav är uppfyllda:
+
 - Användaren som kör frågan har åtkomst till alla tabeller som refereras i frågan.
 - Det finns en exakt matchning mellan den nya frågan och den föregående frågan som genererade resultatuppsättningscachen.
 - Det finns inga data- eller schemaändringar i tabellerna där den cachelagrade resultatuppsättningen genererades från.
 
-Kör det här kommandot för att kontrollera om en fråga har körts med en resultatcacheträff eller miss. Kolumnen result_set_cache returnerar 1 för cacheträff, 0 för cachemiss och negativa värden av skäl till varför cachelagring av resultatuppsättning inte användes. Mer information finns [i sys.dm_pdw_exec_requests.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016-au7)
+Kör det här kommandot för att kontrollera om en fråga har körts med en resultatcacheträff eller miss. Kolumnen result_set_cache returnerar 1 för cacheträff, 0 för cachemiss och negativa värden av skäl till varför cachelagring av resultatuppsättning inte användes. Mer information finns [i sys.dm_pdw_exec_requests.](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ```sql
 SELECT request_id, command, result_set_cache FROM sys.dm_pdw_exec_requests
 WHERE request_id = <'Your_Query_Request_ID'>
 ```
 
-## <a name="manage-cached-results"></a>Hantera cachelagrade resultat 
+## <a name="manage-cached-results"></a>Hantera cachelagrade resultat
 
 Den maximala storleken på resultatuppsättningscachen är 1 TB per databas.  De cachelagrade resultaten ogiltigförklaras automatiskt när de underliggande frågedata ändras.  
 
-Cachevräkningen hanteras automatiskt enligt det här schemat: 
-- Var 48:e timme om resultatuppsättningen inte har använts eller har ogiltigförklarats. 
+Cachevräkningen hanteras automatiskt av SQL Analytics enligt det här schemat:
+
+- Var 48:e timme om resultatuppsättningen inte har använts eller har ogiltigförklarats.
 - När resultatuppsättningen närmar sig den maximala storleken.
 
-Användare kan tömma hela resultatuppsättningscachen manuellt med något av följande alternativ: 
-- Inaktivera cachefunktionen för resultatuppsättningen för databasen 
+Användare kan tömma hela resultatuppsättningscachen manuellt med något av följande alternativ:
+
+- Inaktivera cachefunktionen för resultatuppsättningen för databasen
 - Kör DBCC DROPRESULTSETCACHE när du är ansluten till databasen
 
 Om du pausar en databas töms inte cachelagrade resultatuppsättningen.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fler utvecklingstips finns i [utvecklingsöversikt](sql-data-warehouse-overview-develop.md). 
+Fler utvecklingstips finns i [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).

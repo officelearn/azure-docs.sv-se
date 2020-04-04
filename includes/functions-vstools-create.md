@@ -5,25 +5,25 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 03/06/2020
+ms.date: 03/26/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 034e966d259f1ca5f22eec5935013de32c883b59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 477f3cf270377bc1341e65ab500093e05277afa8
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80056600"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657559"
 ---
 Azure Functions-projektmallen i Visual Studio skapar ett projekt som du kan publicera till en funktionsapp i Azure. Du kan använda en funktionsapp för att gruppera funktioner som en logisk enhet för enklare hantering, distribution, skalning och delning av resurser.
 
-1. Välj **Nytt** > **projekt**på **Arkiv-menyn** i Visual Studio .
+1. Välj **Arkiv** > **nytt** > **projekt**på Visual Studio-menyn .
 
-1. I **Skapa ett nytt projekt**anger du *funktioner* i sökrutan och väljer sedan mallen **Azure Functions.**
+1. I **Skapa ett nytt projekt**anger du *funktioner* i sökrutan, väljer mallen **Azure Functions** och väljer sedan **Nästa**.
 
 1. Ange ett **projektnamn** för projektet i **Konfigurera det nya projektet**och välj sedan **Skapa**. Funktionsappens namn måste vara ett giltigt C#-namnområde. Du kan inte använda understreck, bindestreck eller andra icke-alfanumeriska tecken.
 
-1. Använd värdena i följande tabell för inställningarna **för Nytt projekt – &lt;projektets namn:&gt; **
+1. Använd värdena i följande tabell för inställningarna **skapa ett nytt Azure-funktionsprogram:**
 
     | Inställning      | Värde  | Beskrivning                      |
     | ------------ |  ------- |----------------------------------------- |
@@ -38,4 +38,4 @@ Azure Functions-projektmallen i Visual Studio skapar ett projekt som du kan publ
 
     Se till att du anger **åtkomsträttigheterna** till **Anonym**. Om du väljer standardnivå för **funktion**måste du presentera [funktionsnyckeln](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) i begäranden för att komma åt funktionsslutpunkten.
 
-1. Välj **OK** om du vill skapa funktionen funktionsprojekt och HTTP-utlöst funktion.
+1. Välj **Skapa** om du vill skapa funktionsprojektet och HTTP-utlösarfunktionen.

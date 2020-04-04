@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 02/27/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5b4347cb5032b7f3651d0d3fcb20dc5d416f9bee
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 1bef4e5f4129ddc8300d61d609392ce0b07b74b8
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546560"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656256"
 ---
 # <a name="what-is-azure-private-link"></a>Vad är Azure Privat Link? 
 Med Azure Private Link kan du komma åt Azure PaaS Services (till exempel Azure Storage och SQL Database) och Azure-värd för kundägda/partnertjänster via en [privat slutpunkt](private-endpoint-overview.md) i ditt virtuella nätverk.
@@ -62,6 +62,7 @@ Azure Private Link ger följande fördelar:
 |  |Azure Relay | Alla offentliga regioner      |   Förhandsversion   |
 |  |Azure Event Grid| EAST US, VÄSTRA USA 2, SÖDRA CENTRALA USA      |   Förhandsversion   <br/> [Läs mer](https://docs.microsoft.com/azure/event-grid/network-security)   |
 |  |Azure Web Apps | EAST US, VÄSTRA USA 2, SÖDRA CENTRALA USA      |   Förhandsversion   <br/> [Läs mer](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
+|  |Azure Machine Learning | EAST US, VÄSTRA USA 2, SÖDRA CENTRALA USA      |   Förhandsversion   <br/> [Läs mer](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 
 De senaste meddelandena finns på [sidan Uppdateringar av Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 

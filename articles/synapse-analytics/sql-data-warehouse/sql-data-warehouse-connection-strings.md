@@ -1,6 +1,6 @@
 ---
 title: Anslutningssträngar
-description: Anslutningssträngar för SQL Data Warehouse
+description: Anslutningssträngar för Synapse SQL-pool
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,15 +11,17 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f64c584ea5a32f371f84facc195cd02ef6ffdff0
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 4c3f73fb763fa28ac826ebb97c3c325a2408542c
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350623"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633582"
 ---
-# <a name="connection-strings-for-azure-sql-data-warehouse"></a>Anslutningssträngar för Azure SQL Data Warehouse
-Du kan ansluta till SQL Data Warehouse med flera olika programprotokoll, till exempel [ADO.NET,][ADO.NET] [ODBC][ODBC], [PHP][PHP] och [JDBC][JDBC]. Nedan följer några exempel på anslutningar strängar för varje protokoll.  Du kan också använda Azure-portalen för att skapa din anslutningssträng.  Om du vill skapa anslutningssträngen med Azure-portalen navigerar du till databasbladet under *Essentials* och klickar på *Visa databasanslutningssträngar*.
+# <a name="connection-strings-for-synapse-sql-pool"></a>Anslutningssträngar för Synapse SQL-pool
+Du kan ansluta till SQL-pool med flera olika programprotokoll, till exempel [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396)och [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). Nedan följer några exempel på anslutningar strängar för varje protokoll.  Du kan också använda Azure-portalen för att skapa din anslutningssträng.  
+
+Om du vill skapa anslutningssträngen med Azure-portalen navigerar du till databasbladet under *Essentials* och klickar på *Visa databasanslutningssträngar*.
 
 ## <a name="sample-adonet-connection-string"></a>Exempel ADO.NET anslutningssträng
 ```csharp
@@ -47,17 +49,4 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-Om du vill börja ställa frågor till datalagret med Visual Studio och andra program hittar du mer information i [Fråga med Visual Studio][Query with Visual Studio].
-
-<!--Image references-->
-
-<!--Azure.com references-->
-[Query with Visual Studio]:sql-data-warehouse-query-visual-studio.md
-
-<!--MSDN references-->
-[ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
-[ODBC]: https://msdn.microsoft.com/library/jj730314.aspx
-[PHP]: https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396
-[JDBC]: https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx
-
-<!--Other references-->
+Mer om du vill börja fråga din SQL-pool med Visual Studio och andra program finns i [Fråga med Visual Studio](sql-data-warehouse-query-visual-studio.md).

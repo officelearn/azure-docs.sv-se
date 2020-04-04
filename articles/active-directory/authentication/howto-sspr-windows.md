@@ -4,19 +4,19 @@ description: Så här aktiverar du återställning av lösenord med självbetjä
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1f0e5242d87bc68efd92a52619e8d48cff9ac87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a8675756aeef1140dbebd94023d7f7fb4c7af99
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77370068"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80652249"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Så här aktiverar du återställning av lösenord från Inloggningsskärmen i Windows
 
@@ -97,7 +97,7 @@ Azure AD-granskningsloggen innehåller information om IP-adressen och klienttype
 
 ![Exempel på lösenordsåterställning i Windows 7 i Azure AD-granskningsloggen](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
-När användare återställer sitt lösenord från inloggningsskärmen för en Windows `defaultuser1` 10-enhet skapas ett tillfälligt konto med låg behörighet som kallas. Det här kontot används för att skydda processen för lösenordsåterställning. Själva kontot har ett slumpmässigt genererat lösenord som inte visas för att logga in enheten och tas bort automatiskt när användaren återställer sitt lösenord. Flera `defaultuser` profiler kan finnas men kan ignoreras på ett säkert sätt.
+När användare återställer sitt lösenord från inloggningsskärmen för en Windows `defaultuser1` 10-enhet skapas ett tillfälligt konto med låg behörighet som kallas. Det här kontot används för att skydda processen för lösenordsåterställning. Själva kontot har ett slumpmässigt genererat lösenord, visas inte för enhetsinloggning och tas automatiskt bort när användaren har återställt sitt lösenord. Flera `defaultuser` profiler kan finnas men kan ignoreras på ett säkert sätt.
 
 ## <a name="windows-7-8-and-81-password-reset"></a>Lösenordsåterställning av Windows 7, 8 och 8.1
 
@@ -141,8 +141,8 @@ Om ytterligare loggning krävs kan en registernyckel på datorn ändras för att
 
 `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
-- Om du vill aktivera utförlig loggning skapar du en `REG_DWORD: “EnableLogging”`och ställer in den på 1.
-- Om du vill inaktivera utförlig loggning ändrar du `REG_DWORD: “EnableLogging”` till 0.
+- Om du vill aktivera utförlig loggning skapar du en `REG_DWORD: "EnableLogging"`och ställer in den på 1.
+- Om du vill inaktivera utförlig loggning ändrar du `REG_DWORD: "EnableLogging"` till 0.
 
 ## <a name="what-do-users-see"></a>Vad ser användarna
 

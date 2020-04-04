@@ -11,12 +11,12 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4390ed39c86e041d3fbd776415f0ffbe71f605bd
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 68d53d2a33b7ab705dfa88f03618a5d5a3d1bced
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350167"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633030"
 ---
 # <a name="geo-restore-for-sql-pool"></a>Geoåterställning för SQL-pool
 
@@ -38,12 +38,12 @@ Om du vill återställa från en geo-säkerhetskopiering använder du cmdleten [
 
 1. Innan du börjar, se till att [installera Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 2. Öppna PowerShell.
-2. Anslut till ditt Azure-konto och lista alla prenumerationer som är kopplade till ditt konto.
-3. Välj den prenumeration som innehåller det informationslager som ska återställas.
-4. Hämta det informationslager som du vill återställa.
-5. Skapa återställningsbegäran för informationslagret.
-6. Kontrollera status för det geoåterda datalager.
-7. Informationsstället när återställningen har slutförts finns i [Konfigurera databasen efter återställning]( ../../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
+3. Anslut till ditt Azure-konto och lista alla prenumerationer som är kopplade till ditt konto.
+4. Välj den prenumeration som innehåller det informationslager som ska återställas.
+5. Hämta det informationslager som du vill återställa.
+6. Skapa återställningsbegäran för informationslagret.
+7. Kontrollera status för det geoåterda datalager.
+8. Informationsstället när återställningen har slutförts finns i [Konfigurera databasen efter återställning]( ../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
@@ -77,24 +77,25 @@ Den återställda databasen är TDE-aktiverad om källdatabasen är TDE-aktivera
 Följ stegen nedan för att återställa en SQL-pool från en geo-backup:
 
 1. Logga in på ditt [Azure-portalkonto.](https://portal.azure.com/)
-1. Klicka på **+ Skapa en resurs**. 
+2. Klicka på **+ Skapa en resurs**.
 
-![Nya DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
+   ![Nya DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
 3. Klicka på **Databaser** och sedan **Azure Synapse Analytics (tidigare SQL DW) **.
 
-![Nya DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
+   ![Nya DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
 
 4. Fyll i den information som **begärs** på fliken Grunderna och klicka på **Nästa: Ytterligare inställningar**.
 
-![Grundläggande inställningar](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
+   ![Grundläggande inställningar](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
 5. För **Använd befintlig dataparameter** väljer du **Säkerhetskopiering** och väljer lämplig säkerhetskopiering i alternativen för rullning nedåt. Klicka på **Granska + Skapa**.
- 
-![säkerhetskopiering](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
+
+   ![säkerhetskopiering](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 
 6. När informationslagret har återställts kontrollerar du att **statusen** är online.
 
 ## <a name="next-steps"></a>Efterföljande moment
+
 - [Återställa en befintlig SQL-pool](sql-data-warehouse-restore-active-paused-dw.md)
 - [Återställa en borttagen SQL-pool](sql-data-warehouse-restore-deleted-dw.md)

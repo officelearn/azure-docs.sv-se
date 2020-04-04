@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 1287eb5de1391f40c4409d5d10522d8979ae4207
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 72e9334b4df58b1b90288cb7363a7d94bb531661
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78383833"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80658404"
 ---
 Om du vill skapa ett Visual Studio-projekt för C++-skrivbordsutveckling måste du ställa in utvecklingsalternativ för Visual Studio, skapa projektet, välja målarkitektur och installera Tal-SDK.
 
@@ -77,4 +77,4 @@ Installera slutligen [speech SDK NuGet-paketet](https://aka.ms/csspeech/nuget)oc
 
 1. Välj **OK**i dialogrutan **Förhandsgranska ändringar** .
 
-1. Visa licensen i dialogrutan **Licensacceptans** och välj sedan **Jag accepterar**. Paketinstallationen börjar och när installationen är klar visas ett meddelande som `Successfully installed 'Microsoft.CognitiveServices.Speech 1.10.0' to helloworld`liknar följande text i **fönstret Utdata:** .
+1. Visa licensen i dialogrutan **Licensacceptans** och välj sedan **Jag accepterar**. Paketinstallationen börjar och när installationen är klar visas ett meddelande som `Successfully installed 'Microsoft.CognitiveServices.Speech 1.11.0' to helloworld`liknar följande text i **fönstret Utdata:** .

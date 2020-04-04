@@ -1,6 +1,6 @@
 ---
-title: Använda transaktioner
-description: Tips för att implementera transaktioner i Azure SQL Data Warehouse för att utveckla lösningar.
+title: Använda transaktioner i Synapse SQL-pool
+description: Den här artikeln innehåller tips för att implementera transaktioner och utveckla lösningar i Synapse SQL-pool.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,26 +11,30 @@ ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a14201131eac5ce1efc4020c9ce0f40a80cac8a3
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: fdbffba7bee84c32d11f8b60431a35f185d9e637
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351574"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80633431"
 ---
-# <a name="using-transactions-in-sql-data-warehouse"></a>Använda transaktioner i SQL Data Warehouse
-Tips för att implementera transaktioner i Azure SQL Data Warehouse för att utveckla lösningar.
+# <a name="use-transactions-in-synapse-sql-pool"></a>Använda transaktioner i Synapse SQL-pool
+Den här artikeln innehåller tips för att implementera transaktioner och utveckla lösningar i SQL-poolen.
 
 ## <a name="what-to-expect"></a>Vad du kan förvänta dig
-Som du förväntar dig stöder SQL Data Warehouse transaktioner som en del av datalagerarbetsbelastningen. För att säkerställa att sql data warehouses prestanda bibehålls i stor skala är vissa funktioner begränsade jämfört med SQL Server. I den här artikeln belysers skillnaderna och listar de andra. 
+Som du förväntar dig stöder SQL-poolen transaktioner som en del av datalagerarbetsbelastningen. För att säkerställa att SQL-poolen underhålls i stor skala är vissa funktioner begränsade jämfört med SQL Server. I den här artikeln belysers skillnaderna. 
 
 ## <a name="transaction-isolation-levels"></a>Isoleringsnivåer för transaktioner
-SQL Data Warehouse implementerar ACID-transaktioner. Isoleringsnivån för transaktionsstödet är standard för READ UNCOMMITTED.  Du kan ändra den till LÄS COMMITTED SNAPSHOT ISOLATION genom att aktivera READ_COMMITTED_SNAPSHOT databasalternativet för en användardatabas när den är ansluten till huvuddatabasen.  När det har aktiverats körs alla transaktioner i den här databasen under LÄS COMMITTED SNAPSHOT ISOLATION och inställningen READ UNCOMMITTED på sessionsnivå kommer inte att uppfyllas. Mer information finns [i alter database set-alternativ (Transact-SQL).](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)
+SQL-poolen implementerar ACID-transaktioner. Isoleringsnivån för transaktionsstödet är standard för READ UNCOMMITTED.  Du kan ändra den till LÄS COMMITTED SNAPSHOT ISOLATION genom att aktivera READ_COMMITTED_SNAPSHOT databasalternativet för en användardatabas när den är ansluten till huvuddatabasen.  
+
+När det har aktiverats körs alla transaktioner i den här databasen under LÄS COMMITTED SNAPSHOT ISOLATION och inställningen READ UNCOMMITTED på sessionsnivå kommer inte att uppfyllas. Mer information finns [i alter database set-alternativ (Transact-SQL).](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)
 
 ## <a name="transaction-size"></a>Transaktionsstorlek
-En enda dataändringstransaktion är begränsad i storlek. Gränsen tillämpas per fördelning. Därför kan den totala allokeringen beräknas genom att multiplicera gränsen med fördelningsantalet. Om du vill approximera det maximala antalet rader i transaktionen dividerar du distributionstaket med den totala storleken på varje rad. För kolumner med variabel längd bör du överväga att ta en genomsnittlig kolumnlängd i stället för att använda den maximala storleken.
+En enda dataändringstransaktion är begränsad i storlek. Gränsen tillämpas per fördelning. Därför kan den totala allokeringen beräknas genom att multiplicera gränsen med fördelningsantalet. 
 
-I tabellen nedan har följande antaganden gjorts:
+Om du vill approximera det maximala antalet rader i transaktionen dividerar du distributionstaket med den totala storleken på varje rad. För kolumner med variabel längd bör du överväga att ta en genomsnittlig kolumnlängd i stället för att använda den maximala storleken.
+
+I följande tabell har två antaganden gjorts:
 
 * En jämn fördelning av data har skett 
 * Den genomsnittliga radlängden är 250 byte
@@ -84,12 +88,15 @@ Om du vill optimera och minimera mängden data som skrivs till loggen läser du 
 > 
 
 ## <a name="transaction-state"></a>Transaktionstillstånd
-SQL Data Warehouse använder funktionen XACT_STATE() för att rapportera en misslyckad transaktion med värdet -2. Det här värdet innebär att transaktionen har misslyckats och markeras endast för återställning.
+SQL-poolen använder funktionen XACT_STATE() för att rapportera en misslyckad transaktion med värdet -2. Det här värdet innebär att transaktionen har misslyckats och markeras endast för återställning.
 
 > [!NOTE]
-> Användningen av -2 av funktionen XACT_STATE för att beteckna en misslyckad transaktion representerar ett annat beteende än SQL Server. SQL Server använder värdet -1 för att representera en transaktion som inte kan tillskrivas. SQL Server kan tolerera vissa fel i en transaktion utan att den behöver markeras som oförsändbar. Skulle `SELECT 1/0` till exempel orsaka ett fel men inte tvinga en transaktion till ett okommissabelt tillstånd. SQL Server tillåter också läsningar i den icke-kommitterbara transaktionen. Sql Data Warehouse låter dig dock inte göra detta. Om ett fel uppstår i en SQL Data Warehouse-transaktion kommer den automatiskt att ange -2-tillståndet och du kommer inte att kunna göra några ytterligare urvalssatser förrän uttrycket har återställts. Det är därför viktigt att kontrollera att din programkod för att se om den använder XACT_STATE() eftersom du kan behöva göra kodändringar.
-> 
-> 
+> Användningen av -2 av funktionen XACT_STATE för att beteckna en misslyckad transaktion representerar ett annat beteende än SQL Server. SQL Server använder värdet -1 för att representera en transaktion som inte kan tillskrivas. SQL Server kan tolerera vissa fel i en transaktion utan att den behöver markeras som oförsändbar. Skulle till `SELECT 1/0` exempel orsaka ett fel men inte tvinga en transaktion till ett okommissabelt tillstånd. 
+
+SQL Server tillåter också läsningar i den icke-kommitterbara transaktionen. Sql-poolen låter dig dock inte göra detta. Om ett fel uppstår i en SQL-pooltransaktion går det automatiskt in i -2-tillståndet och du kan inte göra några ytterligare urvalssatser förrän uttrycket har återställts. 
+
+Därför är det viktigt att kontrollera att programkoden används för att se om den använder XACT_STATE() eftersom du kan behöva göra kodändringar.
+
 
 I SQL Server kan du till exempel se en transaktion som ser ut så här:
 
@@ -131,11 +138,11 @@ SELECT @xact_state AS TransactionState;
 
 Den föregående koden ger följande felmeddelande:
 
-Msg 111233, nivå 16, stat 1, linje 1 111233; Den aktuella transaktionen har avbrutits och alla väntande ändringar har återställts. Orsak: En transaktion i ett återställningstillstånd återställdes inte uttryckligen före en DDL-, DML- eller SELECT-sats.
+Msg 111233, nivå 16, stat 1, linje 1 111233; Den aktuella transaktionen har avbrutits och alla väntande ändringar har återställts. Orsaken till det här problemet är att en transaktion i ett återställningstillstånd inte uttryckligen återställs före en DDL-, DML- eller SELECT-sats.
 
 Du får inte utdata från ERROR_*-funktionerna.
 
-I SQL Data Warehouse måste koden ändras något:
+I SQL-poolen måste koden ändras något:
 
 ```sql
 SET NOCOUNT ON;
@@ -177,17 +184,19 @@ Det förväntade beteendet observeras nu. Felet i transaktionen hanteras och ERR
 Allt som har ändrats är att rollback för transaktionen måste ske innan läsningen av felinformationen i CATCH-blocket.
 
 ## <a name="error_line-function"></a>Error_Line() funktion
-Det är också värt att notera att SQL Data Warehouse inte implementerar eller stöder funktionen ERROR_LINE(). Om du har detta i koden måste du ta bort det för att vara kompatibel med SQL Data Warehouse. Använd frågeetiketter i koden i stället för att implementera motsvarande funktioner. Mer information finns i [label-artikeln.](sql-data-warehouse-develop-label.md)
+Det är också värt att notera att SQL-poolen inte implementerar eller stöder funktionen ERROR_LINE(). Om du har detta i koden måste du ta bort det för att vara kompatibel med SQL-poolen. 
+
+Använd frågeetiketter i koden i stället för att implementera motsvarande funktioner. Mer information finns i [label-artikeln.](sql-data-warehouse-develop-label.md)
 
 ## <a name="using-throw-and-raiserror"></a>Använda THROW och RAISERROR
-THROW är den modernare implementeringen för att höja undantagen i SQL Data Warehouse men RAISERROR stöds också. Det finns några skillnader som är värda att uppmärksamma dock.
+THROW är den modernare implementeringen för att höja undantagen i SQL-poolen, men RAISERROR stöds också. Det finns några skillnader som är värda att uppmärksamma dock.
 
 * Användardefinierade felmeddelandenummer kan inte finnas i intervallet 100 000 - 150 000 för THROW
 * RAISERROR-felmeddelanden är fixerade till 50 000
 * Användning av sys.messages stöds inte
 
 ## <a name="limitations"></a>Begränsningar
-SQL Data Warehouse har några andra begränsningar som relaterar till transaktioner.
+SQL-poolen har några andra begränsningar som relaterar till transaktioner.
 
 Det här är skillnaderna:
 
@@ -199,5 +208,5 @@ Det här är skillnaderna:
 * Inget stöd för DDL, till exempel SKAPA TABELL i en användardefinierad transaktion
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du optimerar transaktioner finns i [Metodtips för transaktioner](sql-data-warehouse-develop-best-practices-transactions.md). Mer information om andra metodtips för SQL Data Warehouse finns i [metodtips för SQL Data Warehouse](sql-data-warehouse-best-practices.md).
+Mer information om hur du optimerar transaktioner finns i [Metodtips för transaktioner](sql-data-warehouse-develop-best-practices-transactions.md). Mer information om andra metodtips för SQL-pool finns i [metodtips för SQL-pool](sql-data-warehouse-best-practices.md).
 

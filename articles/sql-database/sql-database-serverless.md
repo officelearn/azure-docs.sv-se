@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 3/11/2020
-ms.openlocfilehash: 00b9da150569db2972289468b1405e5087ee3321
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 4/3/2020
+ms.openlocfilehash: 07f29a01ae0128ba0a35504dea54ba1ae2dde944
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549147"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80657068"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database serverlös
 
@@ -151,13 +151,13 @@ Svarstiden för autosvar och autopause en serverlös databas är i allmänhet or
 
 ### <a name="customer-managed-transparent-data-encryption-byok"></a>Kundhanterad transparent datakryptering (BYOK)
 
-Om du använder [klienthanterad transparent datakryptering](transparent-data-encryption-byok-azure-sql.md) (BYOK) och den serverlösa databasen pausas automatiskt när nyckelborttagning eller återkallning sker, förblir databasen i automatiskt pausat tillstånd.  I det här fallet, när databasen har återupptagits, blir databasen otillgänglig inom cirka 10 minuter.  När databasen blir otillgänglig är återställningsprocessen densamma som för etablerade beräkningsdatabaser.  Om den serverlösa databasen är online när nyckelborttagning eller återkallning sker blir databasen också otillgänglig efter cirka 10 minuter eller mindre på samma sätt som med etablerade beräkningsdatabaser.
+Om du använder [klienthanterad transparent datakryptering](transparent-data-encryption-byok-azure-sql.md) (BYOK) och den serverlösa databasen pausas automatiskt när nyckelborttagning eller återkallning sker, förblir databasen i automatiskt pausat tillstånd.  I det här fallet, när databasen har återupptagits, blir databasen otillgänglig inom cirka 10 minuter.  När databasen blir otillgänglig är återställningsprocessen densamma som för etablerade beräkningsdatabaser.  Om den serverlösa databasen är online när nyckelborttagning eller återkallning sker blir databasen också otillgänglig inom cirka 10 minuter på samma sätt som med etablerade beräkningsdatabaser.
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>Introduktion till serverlös beräkningsnivå
 
 Skapa en ny databas eller flytta en befintlig databas till en serverlös beräkningsnivå följer samma mönster som att skapa en ny databas i etablerad beräkningsnivå och innebär följande två steg.
 
-1. Ange tjänstmålsnamnet. Servicemålet föreskriver tjänstnivå, maskinvarugenerering och max vCores. I följande tabell visas alternativ för servicemål:
+1. Ange servicemålet. Servicemålet föreskriver tjänstnivå, maskinvarugenerering och max vCores. I följande tabell visas alternativ för servicemål:
 
    |Namn på tjänstens mål|Tjänstenivå|Generering av maskinvara|Max vCores|
    |---|---|---|---|
@@ -176,12 +176,12 @@ Skapa en ny databas eller flytta en befintlig databas till en serverlös beräkn
    |Parameter|Värdeval|Standardvärde|
    |---|---|---|---|
    |Min vCores|Beror på max vCores konfigurerade - se [resursgränser](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|0,5 virtuella kärnor|
-   |Fördröjning för automatisk paus|Minimum: 60 minuter (1 timme)<br>Max: 10080 minuter (7 dagar)<br>Steg: 60 minuter<br>Inaktivera autopause: -1|60 minuter|
+   |Fördröjning för automatisk paus|Minimum: 60 minuter (1 timme)<br>Max: 10080 minuter (7 dagar)<br>Steg: 10 minuter<br>Inaktivera autopause: -1|60 minuter|
 
 
 ### <a name="create-new-database-in-serverless-compute-tier"></a>Skapa ny databas på serverlös beräkningsnivå 
 
-I följande exempel skapas en ny databas på beräkningsnivån för serverlös. Exemplen anger uttryckligen min vCores, max vCores och autopause fördröjning.
+I följande exempel skapas en ny databas på beräkningsnivån för serverlös.
 
 #### <a name="use-azure-portal"></a>Använda Azure-portalen
 
@@ -205,7 +205,7 @@ az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
 
 #### <a name="use-transact-sql-t-sql"></a>Använda Transact-SQL (T-SQL)
 
-I följande exempel skapas en ny databas på den serverlösa beräkningsnivån.
+När du använder T-SQL används standardvärden för min vcores och autopause-fördröjning.
 
 ```sql
 CREATE DATABASE testdb
@@ -216,7 +216,7 @@ Mer information finns i [SKAPA DATABAS](/sql/t-sql/statements/create-database-tr
 
 ### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Flytta databas från etablerad beräkningsnivå till serverlös beräkningsnivå
 
-I följande exempel flyttas en databas från den etablerade beräkningsnivån till den serverlösa beräkningsnivån. Exemplen anger uttryckligen min vCores, max vCores och autopause fördröjning.
+I följande exempel flyttas en databas från den etablerade beräkningsnivån till den serverlösa beräkningsnivån.
 
 #### <a name="use-powershell"></a>Använd PowerShell
 
@@ -237,7 +237,7 @@ az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
 
 #### <a name="use-transact-sql-t-sql"></a>Använda Transact-SQL (T-SQL)
 
-I följande exempel flyttas en databas från den etablerade beräkningsnivån till den serverlösa beräkningsnivån.
+När du använder T-SQL används standardvärden för min vcores och autopause-fördröjning.
 
 ```sql
 ALTER DATABASE testdb 

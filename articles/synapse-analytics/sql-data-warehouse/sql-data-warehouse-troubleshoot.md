@@ -11,18 +11,19 @@ ms.date: 02/04/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 47ee6f7627602732800949bcb9701045fcbff1a8
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: b24706943cdf59fba89a8007c4914b628b9e34d5
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583163"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80632969"
 ---
-# <a name="troubleshooting-synapse-sql-pool-in-azure-synapse-analytics"></a>Felsöka Synapse SQL-pool i Azure Synapse Analytics
+# <a name="troubleshooting-sql-analytics-in-azure-synapse"></a>Felsöka SQL Analytics i Azure Synapse
 
 I den här artikeln visas vanliga felsökningsfråga.
 
 ## <a name="connecting"></a>Ansluta
+
 | Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Inloggningen misslyckades för användaren NT AUTHORITY\ANONYMOUS LOGON. (Microsoft SQL Server, Fel: 18456) | Det här felet uppstår när en Azure AD-användare försöker ansluta till huvuddatabasen, men inte har en användare i huvudhanteraren.  Om du vill åtgärda problemet anger du antingen den SQL-pool som du vill ansluta till vid anslutning eller lägger till användaren i huvuddatabasen.  Mer information finns i artikeln [Säkerhetsöversikt.](sql-data-warehouse-overview-manage-security.md) |
@@ -32,6 +33,7 @@ I den här artikeln visas vanliga felsökningsfråga.
 | Det går inte att ansluta till verktyg eller drivrutin                           | Synapse SQL-pool rekommenderar att du använder [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15), [SSDT för Visual Studio](sql-data-warehouse-install-visual-studio.md)eller [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) för att fråga dina data. Mer information om drivrutiner och anslutning till Azure Synapse finns i [Drivrutiner för Azure Synapse](sql-data-warehouse-connection-strings.md) och [Connect to Azure Synapse-artiklar.](sql-data-warehouse-connect-overview.md) |
 
 ## <a name="tools"></a>Verktyg
+
 | Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Visual Studio-objektutforskaren saknar Azure AD-användare           | Detta är ett känt problem.  Som en lösning visar du användarna i [sys.database_principals](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?view=sql-server-ver15).  Se [Autentisering till Azure Synapse](sql-data-warehouse-authentication.md) om du vill veta mer om hur du använder Azure Active Directory med Synapse SQL-pool. |
@@ -39,6 +41,7 @@ I den här artikeln visas vanliga felsökningsfråga.
 | Generera skript misslyckas i SSMS                               | Generera ett skript för Synapse SQL pool misslyckas om alternativet "Generera skript för beroende objekt" är inställt på "True". Som en lösning måste användarna manuellt gå till **Verktyg -> Alternativ ->SQL Server Object Explorer -> Generera skript för beroende alternativ och ange false** |
 
 ## <a name="performance"></a>Prestanda
+
 | Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Felsökning av frågeprestanda                            | Om du försöker felsöka en viss fråga börjar du med [Att lära dig hur du övervakar dina frågor](sql-data-warehouse-manage-monitor.md#monitor-query-execution). |
@@ -50,15 +53,16 @@ I den här artikeln visas vanliga felsökningsfråga.
 | Dåliga frågeprestanda till följd av dålig indexkvalitet     | Vissa gånger frågor kan sakta ner på grund av [Dålig columnstore indexkvalitet](sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality).  Mer information finns i den här artikeln om du vill ha fler information om och hur du [återskapar index för att förbättra segmentkvaliteten](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality). |
 
 ## <a name="system-management"></a>Systemhantering
+
 | Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Msg 40847: Det gick inte att utföra åtgärden eftersom servern skulle överskrida den tillåtna kvoten databastransaktionsenhet på 45000. | Antingen minska [DWU](what-is-a-data-warehouse-unit-dwu-cdwu.md) för den databas som du försöker skapa eller [begära en kvotökning](sql-data-warehouse-get-started-create-support-ticket.md). |
-| Undersöka utrymmesutnyttjande                              | Se [Tabellstorlekar]( ../../sql-data-warehouse/sql-data-warehouse-tables-overview.md#table-size-queries) för att förstå systemets utrymmesanvändning. |
+| Undersöka utrymmesutnyttjande                              | Se [Tabellstorlekar](sql-data-warehouse-tables-overview.md#table-size-queries) för att förstå systemets utrymmesanvändning. |
 | Hjälp med att hantera tabeller                                    | Mer information om hur du hanterar tabellerna finns i översiktsartikeln i [tabell.](sql-data-warehouse-tables-overview.md)  Den här artikeln innehåller också länkar till mer detaljerade ämnen som [Tabelldatatyper](sql-data-warehouse-tables-data-types.md), [Distribuera en tabell](sql-data-warehouse-tables-distribute.md), [Indexera en tabell,](sql-data-warehouse-tables-index.md) [Partitionera en tabell,](sql-data-warehouse-tables-partition.md) [Underhålla tabellstatistik](sql-data-warehouse-tables-statistics.md) och [Temporära tabeller](sql-data-warehouse-tables-temporary.md). |
 | Förloppsindikatorn för transparent datakryptering (TDE) uppdateras inte i Azure-portalen | Du kan visa tillståndet för TDE via [powershell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |
 
-
 ## <a name="differences-from-sql-database"></a>Skillnader från SQL Database
+
 | Problem                                 | Lösning                                                   |
 | :------------------------------------ | :----------------------------------------------------------- |
 | Funktioner i SQL Database som inte stöds     | Se [Tabellfunktioner som inte stöds](sql-data-warehouse-tables-overview.md#unsupported-table-features). |
@@ -69,6 +73,7 @@ I den här artikeln visas vanliga felsökningsfråga.
 | UDF stöder inte SELECT-satser | Detta är en nuvarande begränsning av våra UDF.  Se [SKAPA FUNKTION](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse?view=aps-pdw-2016-au7) för den syntax vi stöder. |
 
 ## <a name="next-steps"></a>Nästa steg
+
 Om du vill ha mer hjälp med att hitta lösningen på problemet kan du prova några andra resurser.
 
 * [Bloggar](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)

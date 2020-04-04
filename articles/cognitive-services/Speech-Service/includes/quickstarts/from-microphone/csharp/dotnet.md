@@ -1,27 +1,22 @@
 ---
-title: 'Snabbstart: Känna igen tal från en mikrofon, C# (.NET) - Taltjänst'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 12/17/2019
-ms.author: erhopf
-ms.openlocfilehash: c969b5e5daa4c4cfd84695fef70f0a2a5c50ce02
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/03/2020
+ms.author: dapine
+ms.openlocfilehash: 35116ca2c1792b7a94e5f4078d5e213a65eee5de
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78924888"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80658888"
 ---
 ## <a name="prerequisites"></a>Krav
 
 Innan du börjar:
 
 > [!div class="checklist"]
-> * [Skapa en Azure-talresurs](../../../../get-started.md)
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Skapa en Azure Speech-resurs<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 > * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * Se till att du har tillgång till en mikrofon för ljudinspelning
 
@@ -29,58 +24,79 @@ Innan du börjar:
 
 Det första steget är att se till att projektet är öppet i Visual Studio.
 
-1. Starta Visual Studio 2019.
-2. Ladda projektet och `Program.cs`öppna .
+1. Starta **Visual Studio 2019**.
+2. Ladda projektet och öppna *Program.cs*.
 
-## <a name="start-with-some-boilerplate-code"></a>Börja med en standardkod
+## <a name="source-code"></a>Källkod
 
-Låt oss lägga till lite kod som fungerar som ett skelett för vårt projekt. Observera att du har skapat en `RecognizeSpeechAsync()`asynkron metod som kallas .
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=5-15,43-52)]
+Ersätt innehållet i *Program.cs-filen* med följande C#-kod.
 
-## <a name="create-a-speech-configuration"></a>Skapa en talkonfiguration
+```csharp
+using System;
+using System.Threading.Tasks;
+using Microsoft.CognitiveServices.Speech;
 
-Innan du kan `SpeechRecognizer` initiera ett objekt måste du skapa en konfiguration som använder din prenumerationsnyckel och prenumerationsregion (välj **regionidentifieraren** från [regionen](https://aka.ms/speech/sdkregion). Infoga den här `RecognizeSpeechAsync()` koden i metoden.
+namespace Speech.Recognition
+{
+    class Program
+    {
+        static async Task Main()
+        {
+            await RecognizeSpeechAsync();
 
-> [!NOTE]
-> I det `FromSubscription()` här exemplet `SpeechConfig`används metoden för att skapa . En fullständig lista över tillgängliga metoder finns i [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=16)]
-> Tal-SDK kommer som standard att känna igen med hjälp av en-us för språket, se [Ange källspråk för tal till text](../../../../how-to-specify-source-language.md) för information om hur du väljer källspråk.
+            Console.WriteLine("Please press any key to continue...");
+            Console.ReadLine();
+        }
 
-## <a name="initialize-a-speechrecognizer"></a>Initiera en SpeechRecognizer
+        static async Task RecognizeSpeechAsync()
+        {
+            var config =
+                SpeechConfig.FromSubscription(
+                    "YourSubscriptionKey",
+                    "YourServiceRegion");
 
-Nu ska vi skapa `SpeechRecognizer`en . Det här objektet skapas inuti en medsats för att säkerställa korrekt frisläppande av ohanterat resurser. Infoga den `RecognizeSpeechAsync()` här koden i metoden, precis under talkonfigurationen.
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=17-19,42)]
+            using var recognizer = new SpeechRecognizer(config);
+            
+            var result = await recognizer.RecognizeOnceAsync();
+            switch (result.Reason)
+            {
+                case ResultReason.RecognizedSpeech:
+                    Console.WriteLine($"We recognized: {result.Text}");
+                    break;
+                case ResultReason.NoMatch:
+                    Console.WriteLine($"NOMATCH: Speech could not be recognized.");
+                    break;
+                case ResultReason.Canceled:
+                    var cancellation = CancellationDetails.FromResult(result);
+                    Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
+    
+                    if (cancellation.Reason == CancellationReason.Error)
+                    {
+                        Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
+                        Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
+                        Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                    }
+                    break;
+            }
+        }
+    }
+}
+```
 
-## <a name="recognize-a-phrase"></a>Känna igen en fras
+[!INCLUDE [replace key and region](../replace-key-and-region.md)]
 
-Från `SpeechRecognizer` objektet ska du anropa `RecognizeOnceAsync()` metoden. Med den här metoden kan taltjänsten veta att du skickar en enda fras för igenkänning och att när frasen har identifierats för att sluta känna igen tal.
+## <a name="code-explanation"></a>Kod förklaring
 
-Lägg till den här koden i satsen med användningssatsen.
+[!INCLUDE [code explanation](../code-explanation.md)]
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=20)]
+## <a name="build-and-run-app"></a>Skapa och kör app
 
-## <a name="display-the-recognition-results-or-errors"></a>Visa igenkänningsresultat (eller fel)
-
-När igenkänningsresultatet returneras av taltjänsten bör du göra något med den. Vi ska hålla det enkelt och skriva ut resultatet till konsolen.
-
-Lägg till den `RecognizeOnceAsync()`här koden i satsen nedan.
-
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs?range=22-41)]
-
-## <a name="check-your-code"></a>Kontrollera din kod
-
-Nu ska koden se ut så här.
-
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-microphone/helloworld/Program.cs)]
-
-## <a name="build-and-run-your-app"></a>Skapa och kör din app
-
-Nu är du redo att bygga din app och testa vår taligenkänning med taltjänsten.
+Nu är du redo att bygga om appen och testa taligenkänningsfunktionen med hjälp av taltjänsten.
 
 1. **Kompilera koden** - Välj **Bygg** > **bygglösning**på menyraden i Visual Studio .
-2. **Starta appen** - Välj Felsökning **Debug** > **Avsöka Startfelsökning** på menyraden eller tryck på **F5**.
+2. **Starta appen** - Välj Felsökning **Debug** > **Avsöka Startfelsökning** på menyraden eller tryck på <kbd>F5</kbd>.
 3. **Starta erkännande** - Det kommer att uppmana dig att tala en fras på engelska. Ditt tal skickas till taltjänsten, transkriberas som text och återges i konsolen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [footer](../footer.md)]

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: dfdfa9f69e00aa644c21fc96cb70e9fa460ca0c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a282a412823207e5f662441158000e8c6121796
+ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77211703"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80637929"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Vägledning om hur du distribuerar webbappar med hjälp av Azure Resource Manager-mallar
 
@@ -109,7 +109,7 @@ Namnet på webbappen måste vara globalt unikt. Du kan använda en namngivningsk
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Om mallen innehåller en [Microsoft.Web/certificates-resurs](/azure/templates/microsoft.web/certificates) för SSL-bindning och certifikatet lagras i ett Nyckelvalv måste du se till att App Service-identiteten kan komma åt certifikatet.
+Om mallen innehåller en [Microsoft.Web/certificates-resurs](/azure/templates/microsoft.web/certificates) för TLS/SSL-bindning och certifikatet lagras i ett Nyckelvalv måste du se till att App Service-identiteten kan komma åt certifikatet.
 
 I globala Azure har apptjänsttjänstens huvudnamn ID för **abfa0a7c-a6b6-4736-8310-5855508787cd**. Om du vill bevilja åtkomst till Key Vault för huvudmannen för App-tjänsten använder du:
 

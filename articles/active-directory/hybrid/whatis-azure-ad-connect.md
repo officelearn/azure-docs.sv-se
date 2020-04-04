@@ -11,12 +11,12 @@ ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11c57065e21c48a23148cacd91a42737edc13538
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1e60c35a32152d4adec72fb507becc0db535036f
+ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80049400"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80631728"
 ---
 # <a name="what-is-azure-ad-connect"></a>Vad är Azure AD Connect?
 
@@ -26,7 +26,7 @@ Azure AD Connect är Microsoft-verktyget som har utformats för att uppfylla och
 - [Direktautentisering](how-to-connect-pta.md) – En inloggningsmetod som gör att användare kan använda samma lösenord lokalt och i molnet men inte kräver den ytterligare infrastrukturen hos en federerad miljö.
 - [Federationsintegrering](how-to-connect-fed-whatis.md) – Federation är en valfri del av Azure AD Connect som kan användas för att konfigurera en hybridmiljö med hjälp av en lokal AD FS-infrastruktur. Det har även AD FS-hanteringsfunktioner som certifikatsförnyelse och ytterligare AD FS-serverdistributioner.
 - [Synkronisering](how-to-connect-sync-whatis.md) – Ansvarar för att skapa användare, grupper och andra objekt.  Den ser även till att identitetsinformationen för dina lokala användare och grupper matchar molnet.  Den här synkroniseringen omfattar även lösenordshasher.
--      [Hälsoövervakning](whatis-hybrid-identity-health.md) – Azure AD Connect Health kan ge robust övervakning och tillhandahålla en central plats i Azure-portalen för att visa den här aktiviteten. 
+- [Hälsoövervakning](whatis-hybrid-identity-health.md) – Azure AD Connect Health kan ge robust övervakning och tillhandahålla en central plats i Azure-portalen för att visa den här aktiviteten. 
 
 
 ![Vad är Azure AD Connect?](./media/whatis-hybrid-identity/arch.png)

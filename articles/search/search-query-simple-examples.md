@@ -8,20 +8,20 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 525c20f5b6e24811ab092a63fa84fe6ebbd7b618
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 42ace2444c7d8e790c7575a7c1a7b3b1219d090a
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72808188"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656425"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Skapa en enkel fråga i Azure Cognitive Search
 
-I Azure Cognitive Search anropar den [enkla frågesyntaxen](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) standardfrågetolkaren för att köra sökfrågor i fulltext mot ett index. Den här tolken är snabb och hanterar vanliga scenarier, inklusive fulltextsökning, filtrerad och fasterad sökning och geosökning. 
+I Azure Cognitive Search anropar den [enkla frågesyntaxen](query-simple-syntax.md) standardfrågetolkaren för att köra sökfrågor i fulltext mot ett index. Den här tolken är snabb och hanterar vanliga scenarier, inklusive fulltextsökning, filtrerad och fasterad sökning och geosökning. 
 
 I den här artikeln använder vi exempel för att illustrera den enkla syntaxen.
 
-En alternativ frågesyntax är [Full Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), som stöder mer komplexa frågestrukturer, till exempel fuzzy och jokerteckensökning, vilket kan ta ytterligare tid att bearbeta. Mer information och exempel som visar fullständig syntax finns i [Använd den fullständiga Lucen-syntaxen](search-query-lucene-examples.md).
+En alternativ frågesyntax är [Full Lucene](query-lucene-syntax.md), som stöder mer komplexa frågestrukturer, till exempel fuzzy och jokerteckensökning, vilket kan ta ytterligare tid att bearbeta. Mer information och exempel som visar fullständig syntax finns i [Använd den fullständiga Lucen-syntaxen](search-query-lucene-examples.md).
 
 ## <a name="formulate-requests-in-postman"></a>Formulera förfrågningar i Postman
 

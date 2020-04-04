@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: b95e16f2d8257bfffcaf2524fe7f8ce6be565689
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7b78bdb070cdf1364fe7fbdc75f175be7ce145ff
+ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80366598"
+ms.lasthandoff: 04/03/2020
+ms.locfileid: "80656455"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrera från Bing-tal till taltjänsten
 
@@ -27,7 +27,7 @@ En enda prenumerationsnyckel för Taltjänst ger åtkomst till följande funktio
 
 * [Tal till text](speech-to-text.md)
 * [Anpassat tal till text](https://cris.ai)
-* [Text-till-tal](text-to-speech.md)
+* [Text till tal](text-to-speech.md)
 * [Anpassad text till talade röster](how-to-customize-voice-font.md)
 * [Talöversättning](speech-translation.md) (omfattar inte [textöversättning](../translator/translator-info-overview.md))
 
@@ -93,4 +93,4 @@ För stöd för taltjänster, SDK och API besöker du [supportsidan](support.md)
 ## <a name="see-also"></a>Se även
 * [Viktig information om taltjänsten](releasenotes.md)
 * [Vad är taltjänsten](overview.md)
-* [Taltjänst och Tal-SDK-dokumentation](speech-sdk.md#get-the-sdk)
+* [Taltjänst och Tal-SDK-dokumentation](speech-sdk.md#get-the-speech-sdk)

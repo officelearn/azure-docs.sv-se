@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 764567bffd2a08ebb5beb17e3063998848b3f110
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e56aa5ec073aadc2a16d53c266d33255a34077cb
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127335"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668810"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Migrera dina IaaS-resurser till Azure Resource Manager senast den 1 mars 2023 
 
@@ -32,7 +32,7 @@ Klassiska virtuella datorer följer [den moderna livscykelpolicyn](https://suppo
 2) Den 1 mars 2023 informeras prenumerationer som inte har migrerat till Azure Resource Manager om tidslinjer för att ta bort eventuella återstående klassiska virtuella datorer.  
 
 Följande Azure-tjänster och -funktioner påverkas **INTE** av den här pensioneringen: 
-- Molntjänster 
+- Cloud Services 
 - Lagringskonton som **inte** används av klassiska virtuella datorer 
 - Virtuella nätverk (VNets) används **inte** av klassiska virtuella datorer. 
 - Andra klassiska resurser
@@ -45,6 +45,6 @@ Följande Azure-tjänster och -funktioner påverkas **INTE** av den här pension
 
 - Mer information finns i vanliga [frågor om klassisk till Azure Resource Manager-migrering](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq)
 
-- För tekniska frågor och problem, [kontakta support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+- För tekniska frågor, frågor och prenumeration vitlistning [kontakta support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 - För andra frågor som inte ingår i FAQ och feedback, kommentera nedan.

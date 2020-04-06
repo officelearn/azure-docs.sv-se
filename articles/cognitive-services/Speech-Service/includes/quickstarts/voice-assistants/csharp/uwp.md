@@ -2,14 +2,14 @@
 author: trrwilson
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/20/2020
+ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: fb78a78190a6817e1a199f9935fd55e173caa2b0
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 62c317843c275531286eeb2ae616d79ad76c6f99
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80241166"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671593"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -17,7 +17,7 @@ Innan du börjar måste du:
 
 > [!div class="checklist"]
 > * [Skapa en Azure Speech-resurs](~/articles/cognitive-services/speech-service/get-started.md)
-> * [Ställ in utvecklingsmiljön och skapa ett tomt projekt](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=uwp)
+> * [Ställ in utvecklingsmiljön och skapa ett tomt projekt](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
 > * Skapa en robot som är ansluten till [direktlinjetalskanalen](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Se till att du har tillgång till en mikrofon för ljudinspelning
 > 

@@ -4,16 +4,16 @@ description: Använda en Azure IoT Edge-enhet som en transparent gateway som kan
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/30/2019
+ms.date: 04/03/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6069e0782f69d0dfb73d9be2998cbb11d59d7d22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3b3aeff595671c5f924d01599b572b6b938ef09d
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79529177"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666671"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Konfigurera en IoT Edge-enhet till att fungera som en transparent gateway
 
@@ -42,7 +42,7 @@ Du kan skapa alla certifikatinfrastrukturer som aktiverar det förtroende som kr
 >[!NOTE]
 >Termen "root CA" som används i hela den här artikeln refererar till det högsta myndighetsutfärdarcertifikatet för PKI-certifikatkedjan och inte nödvändigtvis certifikatroten för en syndikerad certifikatutfärdare. I många fall är det faktiskt ett offentligt certifikat för den mellanliggande certifikatutfärdaren.
 
-Gatewayen visar sitt IoT Edge-enhetscertifikatutfärdarcertifikat för nedströmsenheten under initiering av anslutningen. Den nedströms enheten kontrollerar att IoT Edge-enhetscertifikatutfärdarens certifikat signeras av rotcertifikatutfärdarcertifikatet. Den här processen gör det möjligt för nedströmsenheten att bekräfta att gatewayen kommer från en betrodd källa.
+Säkerhetsdemonen IoT Edge använder certifikatet för IoT Edge-enhetscertifikatutfärdare för att signera ett certifikat för arbetsbelastningscertifikat för certifikatutfärdare, vilket i sin tur signerar ett servercertifikat för IoT Edge-hubb. Gatewayen visar sitt servercertifikat för nedströmsenheten under anslutningens initiering. Nedströmsenheten kontrollerar att servercertifikatet är en del av en certifikatkedja som summerar rotcertifikatutfärdarcertifikatet. Den här processen gör det möjligt för nedströmsenheten att bekräfta att gatewayen kommer från en betrodd källa. Mer information finns i [Förstå hur Azure IoT Edge använder certifikat](iot-edge-certs.md).
 
 Följande steg går igenom processen att skapa certifikaten och installera dem på rätt ställen i gatewayen. Du kan använda vilken dator som helst för att generera certifikaten och sedan kopiera dem till din IoT Edge-enhet.
 
@@ -115,7 +115,7 @@ Mer information om meddelanderoutning finns i [Distribuera moduler och upprätta
 
 Från och med [v1.0.4-versionen](https://github.com/Azure/azure-iotedge/releases/tag/1.0.4) av IoT Edge-körningen kan gateway-enheten och nedströmsenheter som ansluter till den konfigureras för utökad offlinedrift.
 
-Med den här funktionen kan lokala moduler eller nedströmsenheter autentiseras igen med IoT Edge-enheten efter behov och kommunicera med varandra med meddelanden och metoder även när de kopplas från IoT-hubben. Mer information finns i [Förstå utökade offlinefunktioner för IoT Edge-enheter, moduler och underordnade enheter](offline-capabilities.md).
+Med den här funktionen kan lokala moduler eller nedströmsenheter omauktisera med IoT Edge-enheten efter behov och kommunicera med varandra med meddelanden och metoder även när de kopplas från IoT-hubben. Mer information finns i [Förstå utökade offlinefunktioner för IoT Edge-enheter, moduler och underordnade enheter](offline-capabilities.md).
 
 Om du vill aktivera utökade offlinefunktioner upprättar du en överordnad och underordnad relation mellan en IoT Edge-gatewayenhet och underordnade enheter som ansluter till den. Dessa steg förklaras mer i detalj i [Autentisera en nedströmsenhet till Azure IoT Hub](how-to-authenticate-downstream-device.md).
 

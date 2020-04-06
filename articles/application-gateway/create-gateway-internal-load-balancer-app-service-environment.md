@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2018
 ms.author: genli
-ms.openlocfilehash: 9c3216af283ebd9d84a5469d4d50d18c19f67534
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4edeea749ba22bef173c15f3a0855679b784ce33
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71121958"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668560"
 ---
 # <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>Backend-servercertifikat är inte vitlistat för en programgateway med hjälp av en intern belastningsutjämnare med en apptjänstmiljö
 
-Felsöker följande problem: Ett certifikat är inte vitlistat när du skapar en programgateway med hjälp av en intern belastningsutjämnare (ILB) tillsammans med en App Service Environment (ASE) i serverdelen när du använder ssl från slutpunkt till slutpunkt i Azure.
+Felsöker följande problem: Ett certifikat är inte vitlistat när du skapar en programgateway med hjälp av en intern belastningsutjämnare (ILB) tillsammans med en App Service Environment (ASE) i serverdelen när du använder TLS från slutna till slutna enheter i Azure.
 
 ## <a name="symptoms"></a>Symtom
 
@@ -68,7 +68,7 @@ När du använder ett fullständigt kvalificerat domännamn (FQDN) för att komm
 
 - Avmarkera alternativet **Använd för app-tjänsten** för programgatewayen om du använder IP-adressen för ILB.
 
-Om du vill minska omkostnaderna kan du ladda upp ILB-certifikatet i HTTP-inställningarna så att avsökningssökvägen fungerar. (Det här steget är bara för vitlistning. Den kommer inte att användas för SSL-kommunikation.) Du kan hämta ILB-certifikatet genom att komma åt ILB med dess IP-adress från din webbläsare på HTTPS och sedan exportera SSL-certifikatet i ett Base-64-kodat CER-format och ladda upp certifikatet på respektive HTTP-inställningar.
+Om du vill minska omkostnaderna kan du ladda upp ILB-certifikatet i HTTP-inställningarna så att avsökningssökvägen fungerar. (Det här steget är bara för vitlistning. Det kommer inte att användas för TLS-kommunikation.) Du kan hämta ILB-certifikatet genom att komma åt ILB med dess IP-adress från din webbläsare på HTTPS och sedan exportera TLS/SSL-certifikatet i ett Base-64-kodat CER-format och ladda upp certifikatet på respektive HTTP-inställningar.
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 1392f69bea09996e46ad4c112474f9067ff5a63d
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: ed7686bbef7dc1342528475226d11b8b8b8fb640
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656921"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668596"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Lucene-frågesyntax i Azure Cognitive Search
 
@@ -104,7 +104,7 @@ Fältgruppering är liknande men omfattar grupperingen till ett enda fält. Till
 
 ### <a name="or-operator-or-or-"></a>ELLER-operatör `OR` eller`||`
 
-OPERATORn ELLER är ett lodrät fält eller pipe-tecken. Till exempel: `wifi || luxury` kommer att söka efter dokument som innehåller antingen "wifi" eller "lyx" eller båda. Eftersom ELLER är standardsammansättningsoperatorn kan `wifi luxury` du också `wifi || luxuery`utelämna det, så det motsvarar .
+OPERATORn ELLER är ett lodrät fält eller pipe-tecken. Till exempel: `wifi || luxury` kommer att söka efter dokument som innehåller antingen "wifi" eller "lyx" eller båda. Eftersom ELLER är standardsammansättningsoperatorn kan `wifi luxury` du också `wifi || luxury`utelämna det, så det motsvarar .
 
 ### <a name="and-operator-and--or-"></a>OCH-operatör `AND`, `&&` eller`+`
 
@@ -162,6 +162,8 @@ Följande exempel illustrerar skillnaderna. Anta att det finns en poängprofil s
  En sökning i reguljära uttryck hittar en matchning baserat på innehållet mellan snedstrecken "/", som dokumenteras i [klassen RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
 
  Om du till exempel vill hitta dokument som innehåller `/[mh]otel/`"motell" eller "hotell" anger du . Sökningar med reguljära uttryck matchas mot enstaka ord.
+
+Vissa verktyg och språk ställer ytterligare krav på escape-tecken. För JSON, strängar som innehåller en framåt snedstreck undgås med en `search=/.*microsoft.com\/azure\/.*/` `search=/.* <string-placeholder>.*/` bakåtstjuv: `microsoft.com\/azure\/` "microsoft.com/azure/" blir där ställer in det reguljära uttrycket, och är strängen med en förrymd framåt snedstreck.
 
 ##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a>Jokertecken sökning  
  Du kan använda allmänt erkända syntax för jokerteckensökningar med flera (*) eller enstaka (?). Den Lucene-frågetolken stöder användningen av dessa symboler med en enda term och inte en fras.

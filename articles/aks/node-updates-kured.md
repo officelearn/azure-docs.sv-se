@@ -1,15 +1,16 @@
 ---
-title: Uppdatera och starta om Linux-noder med kured i Azure Kubernetes Service (AKS)
+title: Hantera Linux-nod omstarter med kured
+titleSuffix: Azure Kubernetes Service
 description: Lär dig hur du uppdaterar Linux-noder och automatiskt startar om dem med kured i Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 02/28/2019
-ms.openlocfilehash: 74b12c1bc6e2a88582cc357c8091b5590e6bf3cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8006baa3025ee1e794359bed854094cc9005dd14
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78191290"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668372"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Tillämpa säkerhets- och kernel-uppdateringar på Linux-noder i Azure Kubernetes Service (AKS)
 

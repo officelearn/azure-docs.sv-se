@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 38f9f85a7e961d426b66a24bb4a5c63f9f0301da
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 6f0a782309edc33a8a5ce661652922494ead2ec0
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80638070"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667313"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Översikt över Azure FarmBeats (förhandsversion)
 
@@ -59,7 +59,7 @@ En administratör kan lägga till flera partner som dataleverantörer i Azure Fa
 | ---- | -------- | -------- |
 | Sensor Partner  |   Skapa, läsa, uppdatera <br/> <br/> Läsa, uppdatera | DeviceModel, Enhet, SensorModel, Sensor <br/> <br/> ExtendedType (Uttr. |
 | Bildspråk Partner  |   Skapa, läsa, uppdatera <br/> <br/> Läsa, uppdatera <br/> <br/> Läsa | Scen, SceneFile <br/> <br/> ExtendedType (Uttr. <br/> <br/> Gård |
-| Bildspråk Partner  |   Skapa, läsa, uppdatera <br/> <br/> Läsa, uppdatera <br/> <br/> Läsa | WeatherDataModel, WeatherDataLocation, JobType <br/> <br/> ExtendedType (Uttr. <br/> <br/> Gård |
+| Väder partner * <br/> <br/>  (* Kommer snart) |   Skapa, läsa, uppdatera <br/> <br/> Läsa, uppdatera <br/> <br/> Läsa | WeatherDataModel, WeatherDataLocation, JobType <br/> <br/> ExtendedType (Uttr. <br/> <br/> Gård |
 
 ## <a name="resources"></a>Resurser
 

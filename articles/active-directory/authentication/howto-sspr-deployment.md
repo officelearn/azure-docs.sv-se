@@ -1,6 +1,6 @@
 ---
-title: Distribution av återställning av lösenord med självbetjäning – Azure Active Directory
-description: Strategi för en lyckad implementering av Azure AD-självbetjäningslösenordsåterställning
+title: Distributionsöverväganden för azure Active Directory självbetjäningslösenordsåterställning
+description: Lär dig mer om distributionsöverväganden och strategi för en lyckad implementering av Azure AD-återställning av lösenord för självbetjäning
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,27 +11,34 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7be99959c2ae420cff667491f68c40dfa0862a9
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: cd5b9e1f2640e68f7c819a49ad34d9c051c582c5
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652390"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667320"
 ---
-# <a name="plan-an-azure-active-directory-self-service-password-reset"></a>Planera en självbetjäningsåterställning av Azure Active Directory
+# <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planera en azure Active Directory-distribution för återställning av lösenordsåterbeställning av Azure Active Directory
 
-> [!NOTE]
-> Den här distributionsplanen innehåller planeringsvägledning och metodtips för distribution av Azure AD-självbetjäningslösenordsåterställning (SSPR). <br>**Om du letar efter SSPR-verktyget för att komma [https://aka.ms/sspr](https://aka.ms/sspr)tillbaka till ditt konto går du till **.
+> [!IMPORTANT]
+> Den här distributionsplanen innehåller vägledning och metodtips för distribution av Azure AD-självbetjäningslösenordsåterställning (SSPR).
+>
+> **Om du är och slutanvändare och behöver komma tillbaka [https://aka.ms/sspr](https://aka.ms/sspr)till ditt konto går du till **.
 
-[SSPR (Self-Service Password Reset)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) är en Azure Active Directory -funktion (AD) som gör det möjligt för användare att återställa sina lösenord utan att kontakta IT-personal för att få hjälp. Användarna kan snabbt häva blockeringen och fortsätta arbeta oavsett var de befinner sig eller tid på dagen. Genom att låta de anställda häva blockeringen kan din organisation minska den icke-produktiva tiden och de höga supportkostnaderna för de vanligaste lösenordsrelaterade problemen. 
+[SSPR (Self-Service Password Reset)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) är en Azure Active Directory -funktion (AD) som gör det möjligt för användare att återställa sina lösenord utan att kontakta IT-personal för att få hjälp. Användarna kan snabbt häva blockeringen och fortsätta arbeta oavsett var de befinner sig eller tid på dagen. Genom att låta de anställda häva blockeringen kan din organisation minska den icke-produktiva tiden och de höga supportkostnaderna för de vanligaste lösenordsrelaterade problemen.
 
 SSPR har följande nyckelfunktioner:
 
 * Självbetjäning gör det möjligt för slutanvändare att återställa sina utgångna eller icke-utgångna lösenord utan att kontakta en administratör eller helpdesk för support.
-
 * [Återställning av lösenord](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback) gör det möjligt att hantera lokala lösenord och lösning av kontoutelåsning genom molnet.
-
 * Aktivitetsrapporter för lösenordshantering ger administratörer insikt i lösenordsåterställning och registreringsaktivitet som förekommer i organisationen.
+
+Den här distributionsguiden visar hur du planerar och sedan testar en SSPR-utrullning.
+
+Så här snabbt kan du se SSPR i aktion och sedan komma tillbaka för att förstå ytterligare distributionsöverväganden:
+
+> [!div class="nextstepaction"]
+> [Aktivera återställning av lösenord för självbetjäning (SSPR)](tutorial-enable-sspr.md)
 
 ## <a name="learn-about-sspr"></a>Läs mer om SSPR
 
@@ -213,7 +220,7 @@ Vi rekommenderar att du inte synkroniserar dina Active Directory-administratörs
 
 ### <a name="environments-with-multiple-identity-management-systems"></a>Miljöer med flera identitetshanteringssystem
 
-Vissa miljöer har flera identitetshanteringssystem. On-premesis identitetshanterare som Oracle AM och SiteMinder, kräver synkronisering med AD för lösenord. Du kan göra detta med ett verktyg som PCNS (Password Change Notification Service) med Microsoft Identity Manager (MIM). Information om det här mer komplexa scenariot finns i artikeln [Distribuera TJÄNSTEN Distribuera TJÄNSTEN FÖR meddelande om MIM-lösenordsändring på en domänkontrollant](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller).
+Vissa miljöer har flera identitetshanteringssystem. Lokala identitetshanterare som Oracle AM och SiteMinder kräver synkronisering med AD för lösenord. Du kan göra detta med ett verktyg som PCNS (Password Change Notification Service) med Microsoft Identity Manager (MIM). Information om det här mer komplexa scenariot finns i artikeln [Distribuera TJÄNSTEN Distribuera TJÄNSTEN FÖR meddelande om MIM-lösenordsändring på en domänkontrollant](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller).
 
 ## <a name="plan-testing-and-support"></a>Planera testning och support
 
@@ -255,7 +262,7 @@ För att möjliggöra supportteamets framgång kan du skapa en faq baserat på f
 | Användaren kan inte ange ett nytt lösenord| En användare slutför verifieringen under flödet för återställning av lösenord men kan inte ange ett nytt lösenord. |
 | Användaren ser inte länken Återställ lösenord på en Windows 10-enhet| En användare försöker återställa lösenordet från låsskärmen i Windows 10, men enheten är antingen inte ansluten till Azure AD eller så är Intune-enhetsprincipen inte aktiverad |
 
-### <a name="plan-roll-back"></a>Planera tillbaka
+### <a name="plan-rollback"></a>Återställ plan
 
 Så här återställer du distributionen:
 
@@ -295,7 +302,7 @@ Se [Aktivera återställning av lösenord för självbetjäning](https://docs.mi
 1. [Lokal integration](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-writeback)
 
 ### <a name="enable-sspr-in-windows"></a>Aktivera SSPR i Windows
-För maskiner som kör Windows 7, 8, 8.1 och 10 kan du [göra det möjligt för användare att återställa sitt lösenord på Inloggningsskärmen i Windows](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-windows)
+För datorer som kör Windows 7, 8, 8.1 och 10 kan du [göra det möjligt för användare att återställa sitt lösenord på inloggningsskärmen i Windows](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-windows)
 
 ## <a name="manage-sspr"></a>Hantera SSPR
 
@@ -336,7 +343,7 @@ Granskningsloggar för registrering och återställning av lösenord är tillgä
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du kommer igång med distributionen av SSPR finns i [Slutför en Azure AD-pilot för återställning av lösenordsåterbeställning av lösenord](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot)
+* Information om hur du kommer igång med distributionen av SSPR finns i [Aktivera azure ad-återställning av lösenord för självbetjäning](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-sspr.md)
 
 * [Överväg att implementera Azure AD-lösenordsskydd](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad)
 

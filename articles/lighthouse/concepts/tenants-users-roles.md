@@ -1,14 +1,14 @@
 ---
 title: Klienter, roller och användare i Azure Lighthouse-scenarier
 description: Förstå begreppen för Azure Active Directory-klienter, användare och roller samt hur de kan användas i Azure Lighthouse-scenarier.
-ms.date: 03/24/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7540e17fd80f9a1d8e996295000c126614b838d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4734f12c8b4b25bf75ecabc39d9e99d8ebe0951c
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246899"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668880"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Klienter, roller och användare i Azure Lighthouse-scenarier
 
@@ -41,6 +41,7 @@ När du skapar dina auktoriseringar rekommenderar vi följande metodtips:
 - Var noga med att följa principen om lägsta behörighet så att användarna bara har de behörigheter som behövs för att slutföra sitt jobb, vilket bidrar till att minska risken för oavsiktliga fel. Mer information finns i [Rekommenderade säkerhetsrutiner](../concepts/recommended-security-practices.md).
 - Inkludera en användare med [rollen Borttagning av tilldelning](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) av hanterade tjänster så att du kan ta bort [åtkomsten till delegeringen](../how-to/onboard-customer.md#remove-access-to-a-delegation) senare om det behövs. Om den här rollen inte tilldelas kan delegerade resurser endast tas bort av en användare i kundens klientorganisation.
 - Se till att alla användare som behöver [visa sidan Mina kunder i Azure-portalen](../how-to/view-manage-customers.md) har rollen [Läsare](../../role-based-access-control/built-in-roles.md#reader) (eller en annan inbyggd roll som inkluderar läsaråtkomst).
+- Användare i den hanterande klienten har inte åtkomst till faktureringsinformation för en delegerad kundprenumeration, även om de har en inbyggd roll som normalt tillåter åtkomst. Detta beror på att åtkomst till faktureringsinformation kräver ytterligare steg som för närvarande endast stöds för användare inom samma klientorganisation.
 
 > [!IMPORTANT]
 > För att kunna lägga till behörigheter för en Azure AD-grupp måste **grupptypen** vara **Säkerhet** och inte **Office 365**. Det här alternativet väljs när gruppen skapas. Mer information finns i [Skapa en grundläggande grupp och lägga till medlemmar med hjälp av Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).

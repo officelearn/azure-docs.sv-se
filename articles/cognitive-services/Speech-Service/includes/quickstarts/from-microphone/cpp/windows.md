@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: dapine
-ms.openlocfilehash: 9e7716acfe95371c9e9734b6962b66c405bd47e4
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: d872f6b53d9376a6be962d6f4f13ee1b92b0e0a7
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80658580"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671750"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -17,7 +17,7 @@ Innan du börjar:
 
 > [!div class="checklist"]
 > * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Skapa en Azure Speech-resurs<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=windows)
+> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp)
 > * Se till att du har tillgång till en mikrofon för ljudinspelning
 
 ## <a name="source-code"></a>Källkod

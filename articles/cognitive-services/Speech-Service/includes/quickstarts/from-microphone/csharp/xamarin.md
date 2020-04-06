@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/02/2020
 ms.author: erhopf
-ms.openlocfilehash: 98181bac7cf9aca85766d78fcd753ad8bdabc3ee
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 699bbea9d50c24558f6c9d4671cb6035e4718a43
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80659561"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671449"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -23,7 +23,7 @@ Innan du börjar:
 
 > [!div class="checklist"]
 > * [Skapa en Azure-talresurs](../../../../get-started.md)
-> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=xamarin)
+> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=xamarin&pivots=programming-language-csharp)
 > * Se till att du har tillgång till en mikrofon för ljudinspelning
 
 Om du redan har gjort det här, bra. Låt oss fortsätta.

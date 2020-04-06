@@ -12,14 +12,14 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 04/02/2020
 ms.author: jeedes
-ms.openlocfilehash: a4cfcf20fc7a6a3532f65c3e797da6c876844d2c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 349a9920adc0d9353ee8e8e821f54bc2ea2f2616
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76985575"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666988"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wdesk"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med Wdesk
 
@@ -181,6 +181,10 @@ I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel 
 
     ![Konfigurera enkel inloggning](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
 
+1. Under **SAML-användar-ID-inställningar**kontrollerar du **att SAML-användar-ID är Wdesk-användarnamn**.
+
+    ![Konfigurera enkel inloggning](./media/wdesk-tutorial/wdesk-username.png)
+
 4. Under **Allmänna inställningar**kontrollerar du aktivera **SIML-enkel inloggning:**
 
     ![Konfigurera enkel inloggning](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig3.png)
@@ -223,7 +227,7 @@ Om du vill att Azure AD-användare ska kunna logga in på Wdesk måste de etable
    
     ![Skapa en testanvändare för Azure AD](./media/wdesk-tutorial/createuser1.png)  
 
-5. I textrutan **Användare** anger du brittasimon@contoso.com användarnamnet för användaren som och klickar på **Knappen Fortsätt.**
+5. I textrutan **Användare** anger du b.simon@contoso.com användarnamnet för användaren som och klickar på **Knappen Fortsätt.**
 
     ![Skapa en testanvändare för Azure AD](./media/wdesk-tutorial/createuser3.png)
 
@@ -231,9 +235,9 @@ Om du vill att Azure AD-användare ska kunna logga in på Wdesk måste de etable
   
     ![Skapa en testanvändare för Azure AD](./media/wdesk-tutorial/createuser4.png)
  
-    a. I textrutan **E-post** anger du brittasimon@contoso.come-postmeddelandet för användaren som .
+    a. I textrutan **E-post** anger du b.simon@contoso.come-postmeddelandet för användaren som .
 
-    b. I textrutan **Förnamn** anger du förnamnet på användaren som **Britta**.
+    b. I textrutan **Förnamn** anger du förnamnet för användaren som **B**.
 
     c. I textrutan **Efternamn** anger du efternamn på användaren som **Simon**.
 

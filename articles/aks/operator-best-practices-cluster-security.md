@@ -1,15 +1,16 @@
 ---
-title: Metodtips för operatör – klustersäkerhet i Azure Kubernetes Services (AKS)
+title: Metodtips för klustersäkerhet
+titleSuffix: Azure Kubernetes Service
 description: Lär dig metodtips för klusteroperatören för hur du hanterar klustersäkerhet och uppgraderingar i Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: f02f6588946e2b63a1a092aba15603d1685e8207
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3d4e8577116ba1d78aaa881887f64e71c04af4f2
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77594812"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668330"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Metodtips för klustersäkerhet och uppgraderingar i Azure Kubernetes Service (AKS)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 8e6a1c3472c6b20b27cf181edbeeb96ab71eb58d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12be766f36a0901079a5a26f20ea7dacc75268de
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73242491"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667862"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Riktlinjer för Azure NetApp Files-nätverksplanering
 
@@ -39,10 +39,11 @@ Funktionerna nedan stöds för närvarande inte för Azure NetApp-filer:
 * Användardefinierade vägar (UDRs) med adressprefix som Azure NetApp-filer undernät
 * Azure-principer (till exempel anpassade namngivningsprinciper) i Azure NetApp Files-gränssnittet
 * Belastningsutjämnare för Azure NetApp-filer trafik
+* Azure NetApp-filer stöds inte med Azure Virtual WAN
 
 Följande nätverksbegränsningar gäller för Azure NetApp-filer:
 
-* Antalet IPs som används i ett virtuella nätverk med Azure NetApp-filer (inklusive peer-virtuella nätverk) får inte överstiga 1000. Vi arbetar för att öka denna gräns för att möta kundernas krav skala. Under tiden, om du behöver för fler IPs, nå ut till vårt supportteam med ditt användningsfall och obligatorisk gräns.
+* Antalet IPs som används i ett virtuella nätverk med Azure NetApp-filer (inklusive peer-virtuella nätverk) får inte överstiga 1000. Vi arbetar för att öka denna gräns för att möta kundernas krav skala. 
 * Endast ett undernät kan delegeras till Azure NetApp Files i varje Azure Virtual Network (VNet).
 
 
@@ -123,8 +124,8 @@ I topologin som visas ovan är det lokala nätverket anslutet till ett nav-VNet 
 * Lokala resurser VM 1 och VM 2 kan ansluta till volym 2 eller volym 3 via en plats-till-plats VPN och regional Vnet-peering.
 * VM 3 i navet VNet kan ansluta till volym 2 i eker VNet 1 och volym 3 i eker VNet 2.
 * VM 4 från eker VNet 1 och VM 5 från eker VNet 2 kan ansluta till volym 1 i navet VNet.
-
-VM 4 i eker VNet 1 kan inte ansluta till volym 3 i eker VNet 2. Inte heller VM 5 i ekrar VNet2 kan inte ansluta till volym 2 i eker VNet 1. Detta beror på att eker-virtuella nätverk inte är peered och _transitroutning stöds inte via VNet-peering_.
+* VM 4 i eker VNet 1 kan inte ansluta till volym 3 i eker VNet 2. Inte heller VM 5 i ekrar VNet2 kan inte ansluta till volym 2 i eker VNet 1. Detta beror på att eker-virtuella nätverk inte är peered och _transitroutning stöds inte via VNet-peering_.
+* I ovanstående arkitektur om det finns en gateway i eker-VNET också, anslutningen till ANF-volymen från on-prem ansluter över gatewayen i hubben kommer att gå förlorad. Avsiktligt skulle företräde ges till gatewayen i det eker-virtuella nätverket och så att endast datorer som ansluter via den gatewayen kan ansluta till ANF-volymen.
 
 ## <a name="next-steps"></a>Nästa steg
 

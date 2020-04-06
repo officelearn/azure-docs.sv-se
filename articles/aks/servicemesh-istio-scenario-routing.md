@@ -1,17 +1,18 @@
 ---
-title: Intelligent routning och kanariefågelversioner med Istio i Azure Kubernetes Service (AKS)
+title: Använd Istio för intelligent routning
+titleSuffix: Azure Kubernetes Service
 description: Lär dig hur du använder Istio för att tillhandahålla intelligent routning och distribuera kanarieversioner i ett AKS-kluster (Azure Kubernetes Service)
 author: paulbouwer
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 4a695957c287e69ff6b40e5a01254a729eaae441
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01a7764eb0a353e6842441093f70ad29c9316bbd
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273009"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668277"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Använda intelligenta routnings- och kanarieversioner med Istio i Azure Kubernetes Service (AKS)
 

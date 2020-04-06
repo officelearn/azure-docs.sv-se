@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
+ms.date: 04/04/2020
 ms.author: erhopf
-ms.openlocfilehash: 4ccc68b38d98c332435e252877d258c8591aab8a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: f820a2811ce4878d73b53a028998c51a1fed70bd
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78925835"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671161"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -23,7 +23,7 @@ Innan du börjar måste du:
 
 > [!div class="checklist"]
 > * [Skapa en Azure-talresurs](../../../../get-started.md)
-> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=dotnet)
+> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
 
 ## <a name="open-your-project-in-visual-studio"></a>Öppna projektet i Visual Studio
 

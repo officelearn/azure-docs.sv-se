@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f7d14da6c7436120e013c979b108f61b82640d13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cabfc84d2bc0c9d08a457e67c0182d7550f04ceb
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75647891"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668894"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Konfigurera en eller flera gruppavlyssnare alltid på tillgänglighet - Resource Manager
 I det här avsnittet visas hur du:
@@ -58,9 +58,13 @@ Om du begränsar åtkomsten med en Azure Network Security Group kontrollerar du 
 
 ## <a name="determine-the-load-balancer-sku-required"></a>Bestäm den belastningsutjämnare SKU som krävs
 
-[Azure load balancer](../../../load-balancer/load-balancer-overview.md) är tillgänglig i 2 SKU: Basic & Standard. Standardbelastningsutjämnaren rekommenderas. Om de virtuella datorerna är i en tillgänglighetsuppsättning tillåts grundläggande belastningsutjämnare. Standardbelastningsutjämnare kräver att alla VM-IP-adresser använder vanliga IP-adresser.
+[Azure load balancer](../../../load-balancer/load-balancer-overview.md) är tillgänglig i 2 SKU: Basic & Standard. Standardbelastningsutjämnaren rekommenderas. Om de virtuella datorerna är i en tillgänglighetsuppsättning tillåts grundläggande belastningsutjämnare. Om de virtuella datorerna finns i en tillgänglighetszon krävs en standardbelastningsutjämnare. Standardbelastningsutjämnare kräver att alla VM-IP-adresser använder vanliga IP-adresser.
 
 Den aktuella [Microsoft-mallen](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) för en tillgänglighetsgrupp använder en grundläggande belastningsutjämnare med grundläggande IP-adresser.
+
+   > [!NOTE]
+   > Du måste konfigurera en [tjänstslutpunkt](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network) om du använder en standardbelastningsutjämnare och Azure Storage för molnvittnet. 
+
 
 Exemplen i den här artikeln anger en standardbelastningsutjämnare. I exemplen innehåller `-sku Standard`skriptet .
 
@@ -226,6 +230,8 @@ Observera följande riktlinjer för tillgänglighet grupp avlyssnare i Azure med
 * Med en intern belastningsutjämnare kommer du bara åt lyssnaren från samma virtuella nätverk.
 
 * Om du begränsar åtkomsten med en Azure Network Security Group kontrollerar du att tillåt-reglerna inkluderar SQL Server-IP-adresserna för serverdelen och den flytande IP-adresserna för belastningsutjämnaden för AG-lyssnaren och klustrets kärn-IP-adress, om tillämpligt.
+
+* Skapa en tjänstslutpunkt när du använder en standardbelastningsutjämnare med Azure Storage för molnvittnet. Mer information finns i [Bevilja åtkomst från ett virtuellt nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
 ## <a name="for-more-information"></a>Mer information
 Mer information finns i [Konfigurera alltid på tillgänglighetsgrupp i Azure VM manuellt](virtual-machines-windows-portal-sql-availability-group-tutorial.md).

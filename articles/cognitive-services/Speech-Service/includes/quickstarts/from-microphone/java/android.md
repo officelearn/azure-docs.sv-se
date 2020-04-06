@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 11/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 6348d09351cf627624340083e2c419def38dfc01
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: c37a52ea2a7d5f1d3e325c2f6d17bc075f50c5e0
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77446152"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671587"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -23,7 +23,7 @@ Innan du börjar:
 
 > [!div class="checklist"]
 > * [Skapa en Azure-talresurs](../../../../get-started.md)
-> * [Konfigurera din utvecklingsmiljö](../../../../quickstarts/setup-platform.md?tabs=android)
+> * [Konfigurera din utvecklingsmiljö](../../../../quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
 > * Se till att du har tillgång till en mikrofon för ljudinspelning
 
 ## <a name="create-a-user-interface"></a>Skapa ett användargränssnitt

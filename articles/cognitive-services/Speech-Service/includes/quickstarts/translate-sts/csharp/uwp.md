@@ -7,15 +7,15 @@ author: lisaweixu
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 12/09/2019
+ms.date: 04/04/2020
 ms.author: erhopf
 ms.topic: include
-ms.openlocfilehash: a0f62db319d54c2db71a86f621985a304dbbb4d2
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 08001aabd279b2df64635719e9ef3e0772df62e9
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78925714"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671442"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -23,7 +23,7 @@ Innan du börjar måste du:
 
 > [!div class="checklist"]
 > * [Skapa en Azure-talresurs](../../../../get-started.md)
-> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=uwp)
+> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
 
 ## <a name="add-sample-code"></a>Lägg till exempelkod
 

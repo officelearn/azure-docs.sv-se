@@ -8,29 +8,32 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 3e0e0291ff855b4502224466e17696a4fe668c2a
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 7f001a0d443e4ec668aedaabb7505884163bf37e
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655988"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666774"
 ---
-# <a name="partial-term-search-in-azure-cognitive-search-queries-wildcard-regex-fuzzy-search-patterns"></a>Partiell termsökning i Azure Cognitive Search-frågor (jokertecken, regex, fuzzy search, mönster)
+# <a name="partial-term-search-and-patterns-with-special-characters---azure-cognitive-search-wildcard-regex-patterns"></a>Partiell termsökning och mönster med specialtecken - Azure Cognitive Search (jokertecken, regex, mönster)
 
-En *partiell termsökning* refererar till frågor som består av termfragment, till exempel de första, sista eller inre delarna av en sträng, eller ett mönster som består av en kombination av fragment, ofta avgränsade med specialtecken som streck eller snedstreck. Vanliga användningsfall är att fråga efter delar av ett telefonnummer, URL, personer eller produktkoder eller sammansatta ord.
+En *partiell termsökning* refererar till frågor som består av termfragment, till exempel de första, sista eller inre delarna av en sträng. Ett *mönster* kan en kombination av fragment, ibland med specialtecken som streck eller snedstreck som ingår i frågan. Vanliga användningsfall är att fråga efter delar av ett telefonnummer, URL, personer eller produktkoder eller sammansatta ord.
 
-Partiell sökning kan vara problematiskt eftersom själva indexet vanligtvis inte lagrar termer på ett sätt som bidrar till partiell sträng- och mönstermatchning. Under textanalysfasen av indexeringen ignoreras specialtecken, sammansatta och sammansatta strängar delas upp, vilket gör att mönsterfrågor misslyckas när ingen matchning hittas. Ett telefonnummer `+1 (425) 703-6214`som (tokeniserat som `"1"` `"425"`, `"703"` `"6214"`, ) visas till `"3-62"` exempel inte i en fråga eftersom innehållet inte finns i indexet. 
+Partiell sökning kan vara problematiskt om indexet inte har termer i det format som krävs för mönstermatchning. Under textanalysfasen av indexeringen, med hjälp av standardstandardanalysatorn, ignoreras specialtecken, sammansatta och sammansatta strängar delas upp, vilket gör att mönsterfrågor misslyckas när ingen matchning hittas. Ett telefonnummer `+1 (425) 703-6214`som (tokeniserat som `"1"` `"425"`, `"703"` `"6214"`, ) visas till `"3-62"` exempel inte i en fråga eftersom innehållet inte finns i indexet. 
 
-Lösningen är att lagra intakta versioner av dessa strängar i indexet så att du kan stödja partiella sökscenarier. Att skapa ytterligare ett fält för en intakt sträng, plus att använda en innehållsbevarande analysator, är grunden för lösningen.
+Lösningen är att anropa en analysator som bevarar en komplett sträng, inklusive blanksteg och specialtecken om det behövs, så att du kan stödja partiella termer och mönster. Att skapa ytterligare ett fält för en intakt sträng, plus att använda en innehållsbevarande analysator, är grunden för lösningen.
 
 ## <a name="what-is-partial-search-in-azure-cognitive-search"></a>Vad är partiell sökning i Azure Cognitive Search
 
-I Azure Cognitive Search är partiell sökning tillgänglig i följande formulär:
+I Azure Cognitive Search är partiell sökning och mönster tillgängligt i följande formulär:
 
 + [Prefixsökning](query-simple-syntax.md#prefix-search), `search=cap*`till exempel , matchning på "Cap'n Jack's Waterfront Inn" eller "Gacc Capital". Du kan använda helt enkelt frågesyntaxen för prefixsökning.
-+ [Jokerteckensökning](query-lucene-syntax.md#bkmk_wildcard) eller [Reguljära uttryck](query-lucene-syntax.md#bkmk_regex) som söker efter ett mönster eller delar av en inbäddad sträng, inklusive suffixet. Med tanke på termen "alfanumerisk" använder du till`search=/.*numeric.*/`exempel en jokerteckensökning ( ) för en suffixfrågamatchning på den termen. Jokertecken och reguljära uttryck kräver den fullständiga Lucene-syntaxen.
 
-När någon av ovanstående frågetyper behövs i klientprogrammet följer du stegen i den här artikeln för att säkerställa att det finns nödvändigt innehåll i indexet.
++ [Jokerteckensökning](query-lucene-syntax.md#bkmk_wildcard) eller [Reguljära uttryck](query-lucene-syntax.md#bkmk_regex) som söker efter ett mönster eller delar av en inbäddad sträng, inklusive suffixet. Jokertecken och reguljära uttryck kräver den fullständiga Lucene-syntaxen. 
+
+  Några exempel på partiell termsökning är följande. För en suffixfråga, med tanke på termen "alfanumerisk", använder du en jokerteckensökning (`search=/.*numeric.*/`) för att hitta en matchning. För en delterm som innehåller tecken, till exempel ett URL-fragment, kan du behöva lägga till escape-tecken. I JSON, en `/` framåt snedstreck `\`flyr med en bakåt snedstreck . Som sådan `search=/.*microsoft.com\/azure\/.*/` är syntaxen för URL-fragmentet "microsoft.com/azure/".
+
+Som nämnts kräver alla ovanstående att indexet innehåller strängar i ett format som bidrar till mönstermatchning, vilket standardanalysatorn inte tillhandahåller. Genom att följa stegen i den här artikeln kan du se till att det finns nödvändigt innehåll för att stödja dessa scenarier.
 
 ## <a name="solving-partial-search-problems"></a>Lösa partiella sökproblem
 

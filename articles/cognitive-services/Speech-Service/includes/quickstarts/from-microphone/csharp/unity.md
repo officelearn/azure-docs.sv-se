@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/02/2020
 ms.author: erhopf
-ms.openlocfilehash: 209242f723032c9e93f3dd6b20fac77c6a2badce
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 6b3c8c62382d548d8a1bc7d5f611cdfbe2fd72fb
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80658594"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80671394"
 ---
 > [!NOTE]
 > Speech SDK för unity stöder Windows Desktop (x86 och x64) eller Universal Windows Platform (x86, x64, ARM/ARM64), Android (x86, ARM32/64) och iOS (x64 simulator, ARM32 och ARM64)
@@ -25,7 +25,7 @@ Innan du börjar:
 
 > [!div class="checklist"]
 > * [Skapa en Azure-talresurs](../../../../get-started.md)
-> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=unity)
+> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=unity&pivots=programming-language-csharp)
 > * Se till att du har tillgång till en mikrofon för ljudinspelning
 
 Om du redan har gjort det här, bra. Låt oss fortsätta.

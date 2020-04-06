@@ -4,16 +4,16 @@ description: Använda en simulerad TPM på en virtuell Linux-dator för att test
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/01/2019
+ms.date: 3/2/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6bb1282212ccff45f179b8750e3ed8aec27d129e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b62f551e2532e0205159358b3618695524ae85c8
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76511067"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666690"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Skapa och etablera en IoT Edge-enhet med en virtuell TPM på en virtuell Linux-dator
 
@@ -156,6 +156,9 @@ När du har igång enhetsetableringstjänsten kopierar du värdet för **ID-scop
 Hämta etableringsinformationen från den virtuella datorn och använd den för att skapa en enskild registrering i enhetsetableringstjänsten.
 
 När du skapar en registrering i DPS har du möjlighet att deklarera ett **inledande enhets twin-tillstånd**. I enhetstvillingen kan du ange taggar för att gruppera enheter efter alla mått som du behöver i din lösning, till exempel region, miljö, plats eller enhetstyp. Dessa taggar används för att skapa [automatiska distributioner](how-to-deploy-monitor.md).
+
+> [!TIP]
+> I Azure CLI kan du skapa en [registrering](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) eller en [registreringsgrupp](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) och använda den **kantaktiverade** flaggan för att ange att en enhet, eller grupp av enheter, är en IoT Edge-enhet.
 
 1. I [Azure-portalen](https://portal.azure.com)navigerar du till din instans av IoT Hub Device Provisioning Service.
 

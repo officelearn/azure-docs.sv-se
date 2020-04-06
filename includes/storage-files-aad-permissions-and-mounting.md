@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 12/12/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 23550c83e76631e44d5036e0a038f01b61a79f1b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f71c039aa6666cec1b871a158d84a6f5a2a107c
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79208237"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666821"
 ---
-## <a name="assign-access-permissions-to-an-identity"></a>Tilldela åtkomstbehörigheter till en identitet
+## <a name="2-assign-access-permissions-to-an-identity"></a>2. Tilldela åtkomstbehörigheter till en identitet
 
-För att komma åt Azure Files-resurser med identitetsbaserad autentisering måste en identitet (en användare, grupp eller tjänsthuvudnamn) ha de behörigheter som krävs på resursnivå. Den här processen påminner om att ange Windows-resursbehörigheter, där du anger vilken typ av åtkomst som en viss användare har till en filresurs. Vägledningen i det här avsnittet visar hur du tilldelar läs-, skriv- eller borttagningsbehörigheter för en filresurs till en identitet.
+För att komma åt Azure Files-resurser med identitetsbaserad autentisering måste en identitet (en användare, grupp eller tjänsthuvudnamn) ha de behörigheter som krävs på resursnivå. Den här processen påminner om att ange Windows-resursbehörigheter, där du anger vilken typ av åtkomst som en viss användare har till en filresurs. Den allmänna rekommendationen är att använda behörighet på resursnivå för åtkomsthantering på hög nivå till ett team eller en grupp och sedan utnyttja NTFS-behörigheter för detaljerad åtkomstkontroll på katalog-/filnivå. Vägledningen i det här avsnittet visar hur du tilldelar läs-, skriv- eller borttagningsbehörigheter för en filresurs till en identitet. 
 
 Vi har introducerat tre azure-inbyggda roller för att bevilja behörigheter på delningsnivå till användare:
 
@@ -68,7 +68,7 @@ Innan du kör följande exempelskript bör du komma ihåg att ersätta platshål
 az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshares/<share-name>"
 ```
 
-## <a name="configure-ntfs-permissions-over-smb"></a>Konfigurera NTFS-behörigheter över SMB 
+## <a name="3-configure-ntfs-permissions-over-smb"></a>3. Konfigurera NTFS-behörigheter över SMB 
 När du har tilldelat behörigheter på resursnivå med RBAC måste du tilldela rätt NTFS-behörigheter på rot-, katalog- eller filnivå. Tänk på behörigheter på resursnivå som gatekeeper på hög nivå som avgör om en användare kan komma åt resursen. Medan NTFS-behörigheter fungerar på en mer detaljerad nivå för att avgöra vilka åtgärder användaren kan göra på katalog- eller filnivå.
 
 Azure Files stöder den fullständiga uppsättningen ntfs-grundläggande och avancerade behörigheter. Du kan visa och konfigurera NTFS-behörigheter för kataloger och filer i en Azure-filresurs genom att montera resursen och sedan använda Utforskaren i Windows eller köra kommandot Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) eller [Set-ACL.](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) 
@@ -113,9 +113,9 @@ Använd Utforskaren i Utforskaren för att ge fullständig behörighet till alla
 8.  På fliken Säkerhet väljer du alla behörigheter som du vill bevilja den nyligen tillagda användaren
 9.  Klicka på **Verkställ**
 
-## <a name="mount-a-file-share-from-a-domain-joined-vm"></a>Montera en filresurs från en domänansluten virtuell dator
+## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4. Montera en filresurs från en domänansluten virtuell dator
 
-Följande process verifierar att filresurs- och åtkomstbehörigheterna har konfigurerats korrekt och att du kan komma åt en Azure File-resurs från en domänansluten virtuell dator:
+Följande process verifierar att filresurs- och åtkomstbehörigheterna har konfigurerats korrekt och att du kan komma åt en Azure File-resurs från en domänansluten virtuell dator. Tänk på att rbac-rolltilldelningen på resursnivå kan ta lite tid att vara i kraft. 
 
 Logga in på den virtuella datorn med hjälp av Azure AD-identitet som du har beviljat behörigheter till, vilket visas i följande avbildning. Om du har aktiverat AD-autentisering för Azure-filer använder du AD-autentiseringsuppgifterna. För Azure AD DS-autentisering loggar du in med Azure AD-autentiseringsuppgifter.
 

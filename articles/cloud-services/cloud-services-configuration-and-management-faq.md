@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 40abd048b047bbece79b7c05d36a1fb189a4f28d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5821c72ae1be4759cf5aa76ff1f5af43337749c0
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77656933"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668587"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfigurations- och hanteringsproblem för Azure Cloud Services: Vanliga frågor och svar (vanliga frågor)
 
@@ -30,11 +30,11 @@ Den här artikeln innehåller vanliga frågor och svar om konfigurations- och ha
 
 **Certifikat**
 
-- [Varför är certifikatkedjan för mitt Cloud Service SSL-certifikat ofullständig?](#why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete)
+- [Varför är certifikatkedjan för mitt TLS/SSL-certifikat för molntjänst ofullständig?](#why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete)
 - [Vad är syftet med "Windows Azure Tools Encryption Certificate for Extensions"?](#what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions)
 - [Hur kan jag generera en begäran om certifikatsignering (CSR) utan "RDP-ing" i instansen?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
 - [Mitt cloud servicehanteringscertifikat löper ut. Hur förnyar man det?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
-- [Hur automatiserar man installationen av huvud-SSL-certifikat(.pfx) och mellanliggande certifikat(.p7b)?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
+- [Hur automatiserar man installationen av huvud-TLS/SSL-certifikat(.pfx) och mellanliggande certifikat(.p7b)?](#how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b)
 - [Vad är syftet med certifikatet "Microsoft Azure Service Management for MachineKey"?](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
 **Övervakning och loggning**
@@ -75,7 +75,7 @@ Den här artikeln innehåller vanliga frågor och svar om konfigurations- och ha
 
 ## <a name="certificates"></a>Certifikat
 
-### <a name="why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete"></a>Varför är certifikatkedjan för mitt Cloud Service SSL-certifikat ofullständig?
+### <a name="why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete"></a>Varför är certifikatkedjan för mitt TLS/SSL-certifikat för molntjänst ofullständig?
     
 Vi rekommenderar att kunderna installerar hela certifikatkedjan (lövcert, mellanliggande certifikat och rotcert) i stället för bara lövcertifikatet. När du installerar bara lövcertifikatet förlitar du dig på att Windows ska skapa certifikatkedjan genom att gå på CTL. Om återkommande nätverks- eller DNS-problem uppstår i Azure eller Windows Update när Windows försöker validera certifikatet kan certifikatet anses ogiltigt. Genom att installera hela certifikatkedjan kan det här problemet undvikas. Bloggen på [Hur man installerar ett kedjat SSL-certifikat](https://blogs.msdn.microsoft.com/azuredevsupport/2010/02/24/how-to-install-a-chained-ssl-certificate/) visar hur man gör detta.
 
@@ -103,7 +103,7 @@ Du kan använda följande PowerShell-kommandon för att förnya dina hanteringsc
 
 **Get-AzurePublishSettingsFile** skapar ett nytt hanteringscertifikat i > **prenumerationshanteringscertifikat** i Azure-portalen. **Subscription** Namnet på det nya certifikatet ser ut som "YourSubscriptionNam]-[CurrentDate]-credentials".
 
-### <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>Hur automatiserar man installationen av huvud-SSL-certifikat(.pfx) och mellanliggande certifikat(.p7b)?
+### <a name="how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b"></a>Hur automatiserar man installationen av huvud-TLS/SSL-certifikat(.pfx) och mellanliggande certifikat(.p7b)?
 
 Du kan automatisera den här uppgiften med hjälp av ett startskript (batch/cmd/PowerShell) och registrera startskriptet i tjänstdefinitionsfilen. Lägg till både startskriptet och certifikatfilen(.p7b) i projektmappen i samma katalog med startskriptet.
 
@@ -183,7 +183,7 @@ Om du vill konfigurera en statisk IP-adress måste du skapa en reserverad IP. De
 ### <a name="what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides"></a>Vilka funktioner och funktioner finns som Azure basic IPS/IDS och DDOS tillhandahåller?
 Azure har IPS/IDS på datacenterfysiska servrar för att skydda mot hot. Dessutom kan kunder distribuera säkerhetslösningar från tredje part, till exempel brandväggar för webbprogram, nätverksbrandvägger, antimalware, intrångsidentifiering, förebyggande system (IDS/IPS) med mera. Mer information finns i [Skydda dina data och tillgångar och följa globala säkerhetsstandarder](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity).
 
-Microsoft övervakar kontinuerligt servrar, nätverk och program för att upptäcka hot. Azures multipronged threat-management-metod använder intrångsidentifiering, distribuerad denial-of-service (DDoS) attackförebyggande, penetrationstestning, beteendeanalys, avvikelseidentifiering och maskininlärning för att ständigt stärka sitt försvar och minska riskerna. Microsoft Antimalware för Azure skyddar Azure Cloud Services och virtuella datorer. Du har möjlighet att distribuera säkerhetslösningar från tredje part dessutom, till exempel brandväggar för webbprogram, nätverksbrandväggar, antimalware, intrångsidentifiering och förebyggande system (IDS/IPS) med mera.
+Microsoft övervakar kontinuerligt servrar, nätverk och program för att upptäcka hot. Azures multipronged threat-management-metod använder intrångsidentifiering, distribuerad denial-of-service (DDoS) attackprevention, penetrationstestning, beteendeanalys, avvikelseidentifiering och maskininlärning för att ständigt stärka sitt försvar och minska riskerna. Microsoft Antimalware för Azure skyddar Azure Cloud Services och virtuella datorer. Du har möjlighet att distribuera säkerhetslösningar från tredje part dessutom, till exempel brandväggar för webbprogram, nätverksbrandväggar, antimalware, intrångsidentifiering och förebyggande system (IDS/IPS) med mera.
 
 ### <a name="how-to-enable-http2-on-cloud-services-vm"></a>Hur aktiverar du HTTP/2 på virtuell molntjänster?
 

@@ -3,12 +3,12 @@ title: Säkerhetsfunktioner för att skydda molnarbetsbelastningar
 description: Lär dig hur du använder säkerhetsfunktioner i Azure Backup för att göra säkerhetskopior säkrare.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 57c9fd76ae32aea49f480f2a88d8296538d8052d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd7c86e18114513a264a0f9252589533fb7ff2d3
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156080"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668744"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Säkerhetsfunktioner för att skydda molnarbetsbelastningar som använder Azure Backup
 
@@ -34,7 +34,7 @@ Mjuk borttagning för virtuella datorer skyddar säkerhetskopiorna för dina vir
 
 ### <a name="supported-regions"></a>Regioner som stöds
 
-Mjuk borttagning stöds för närvarande i västra centrala USA, Östasien, Kanada Central, Kanada Öst, Frankrike Central, Frankrike Syd, Korea Central, Korea South, Storbritannien Syd, Storbritannien Väst, Australien Öst, Australien Sydöstra, Norra Europa, Västra USA, Västra USA2, Centrala USA, Syd, Syd, Östasien, Norra centrala USA, Södra centrala USA, Östra Japan, Västra Japan, Södra Indien, Indien Central, Indien Väst, Östra USA 2, Schweiz North, Schweiz West och alla nationella regioner.
+Mjuk borttagning stöds för närvarande i västra centrala USA, Östra Asien, Kanada Central, Kanada Öst, Frankrike Central, Frankrike Syd, Korea Central, Korea Syd, Storbritannien Syd, Storbritannien Väst, Australien Öst, Australien Sydöstra, Norra Europa, Västra USA, Västra USA2, Centrala USA, Sydostasien, Norra centrala USA, Södra centrala USA, Japan Öst, Japan Väst, Indien Syd, Indien Central, Indien Väst, Östra USA 2 , Schweiz North, Schweiz West, Norge Väst, Norge Öst och alla nationella regioner.
 
 ### <a name="soft-delete-for-vms-using-azure-portal"></a>Mjuk borttagning för virtuella datorer med Azure-portal
 
@@ -264,7 +264,7 @@ När du säkerhetskopierar dina virtuella Azure-datorer kan du nu kryptera dina 
 
 ### <a name="backup-of-managed-disk-vms-encrypted-using-customer-managed-keys"></a>Säkerhetskopiering av hanterade disk-virtuella datorer krypterade med kundhanterade nycklar
 
-Med Azure Backup kan du också säkerhetskopiera dina virtuella Azure-datorer som använder nyckeln för kryptering på serversidan. Nyckeln som används för att kryptera diskarna lagras i Azure Key Vault och hanteras av dig. Kryptering på serversidan med kundhanterade nycklar skiljer sig från Azure Disk Encryption, eftersom ADE utnyttjar BitLocker (för Windows) och DM-Crypt (för Linux) för att utföra gästkryptering, krypterar SSE data i lagringstjänsten, så att du kan använda alla operativsystem eller bilder för dina virtuella datorer. Mer information finns i [Kryptering av hanterade diskar med kundhanterade nycklar.](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys)
+Med Azure Backup kan du också säkerhetskopiera dina virtuella Azure-datorer som använder nyckeln för kryptering på serversidan. Nyckeln som används för att kryptera diskarna lagras i Azure Key Vault och hanteras av dig. Server-side kryptering med hjälp av kundhanterade nycklar skiljer sig från Azure Disk Encryption, eftersom ADE utnyttjar BitLocker (för Windows) och DM-Crypt (för Linux) för att utföra gästkryptering, SSE krypterar data i lagringstjänsten, så att du kan använda alla operativsystem eller avbildningar för dina virtuella datorer. Mer information finns i [Kryptering av hanterade diskar med kundhanterade nycklar.](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys)
 
 ### <a name="backup-of-vms-encrypted-using-ade"></a>Säkerhetskopiering av virtuella datorer krypterade med ADE
 

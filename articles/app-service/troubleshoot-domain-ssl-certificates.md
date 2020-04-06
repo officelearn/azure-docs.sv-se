@@ -1,6 +1,6 @@
 ---
-title: Felsöka domän- och SSL-certifikat
-description: Hitta lösningar på vanliga problem som kan uppstå när du konfigurerar en domän eller ett SSL-certifikat i Azure App Service.
+title: Felsöka domän- och TLS/SSL-certifikat
+description: Hitta lösningar på vanliga problem som kan uppstå när du konfigurerar en domän eller TLS/SSL-certifikat i Azure App Service.
 author: genlin
 manager: dcscontentpm
 tags: top-support-issue
@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: e299821b54692327cbb7d497af0295e3b93658cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d61b95c7136a4cbce11789a58d27cc1a164ae374
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75966979"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668027"
 ---
-# <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Felsöka problem med domän- och SSL-certifikat i Azure App Service
+# <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Felsöka problem med domän- och TLS/SSL-certifikat i Azure App Service
 
-I den här artikeln visas vanliga problem som kan uppstå när du konfigurerar en domän eller ett SSL-certifikat för dina webbappar i Azure App Service. Den beskriver också möjliga orsaker och lösningar på dessa problem.
+I den här artikeln visas vanliga problem som kan uppstå när du konfigurerar en domän eller ett TLS/SSL-certifikat för dina webbappar i Azure App Service. Den beskriver också möjliga orsaker och lösningar på dessa problem.
 
 Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna på [MSDN- och Stack Overflow-forumen](https://azure.microsoft.com/support/forums/). Du kan också arkivera en Azure-supportincident. Gå till [Azure Support-webbplatsen](https://azure.microsoft.com/support/options/) och välj **Hämta support**.
 
@@ -26,17 +26,17 @@ Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azu
 
 ## <a name="certificate-problems"></a>Problem med certifikat
 
-### <a name="you-cant-add-an-ssl-certificate-binding-to-an-app"></a>Du kan inte lägga till en SSL-certifikatbindning i en app 
+### <a name="you-cant-add-a-tlsssl-certificate-binding-to-an-app"></a>Du kan inte lägga till en TLS/SSL-certifikatbindning i en app 
 
 #### <a name="symptom"></a>Symptom
 
-NÃ¤tt Ã¤lägger du till en SSL-bindning visas fÃ¶10 felmeddelandet:
+NÃ¤tt sÃ¤tt visas fÃ¶ndesÃ¶ttningsbindning visas fÃ¶nde:
 
 "Det gick inte att lägga till SSL-bindning. Det går inte att ange certifikat för befintlig VIP eftersom en annan VIP redan använder certifikatet."
 
 #### <a name="cause"></a>Orsak
 
-Det här problemet kan uppstå om du har flera IP-baserade SSL-bindningar för samma IP-adress över flera appar. App A har till exempel ett IP-baserat SSL med ett gammalt certifikat. App B har en IP-baserad SSL med ett nytt certifikat för samma IP-adress. När du uppdaterar appen SSL-bindningen med det nya certifikatet misslyckas den med det här felet eftersom samma IP-adress används för en annan app. 
+Det här problemet kan uppstå om du har flera IP-baserade SSL-bindningar för samma IP-adress över flera appar. App A har till exempel ett IP-baserat SSL med ett gammalt certifikat. App B har en IP-baserad SSL med ett nytt certifikat för samma IP-adress. När du uppdaterar appen TLS-bindning med det nya certifikatet misslyckas den med det här felet eftersom samma IP-adress används för en annan app. 
 
 #### <a name="solution"></a>Lösning 
 
@@ -51,7 +51,7 @@ Lös problemet genom att använda någon av följande metoder:
 
 NÃ¤r du fÃ¶rsÃ¶k fÃ¶rsÃ¶k att ta bort ett certifikat visas fÃ¶1sã¥re:
 
-"Det gick inte att ta bort certifikatet eftersom det för närvarande används i en SSL-bindning. SSL-bindningen måste tas bort innan du kan ta bort certifikatet."
+"Det gick inte att ta bort certifikatet eftersom det för närvarande används i en TLS/SSL-bindning. TLS-bindningen måste tas bort innan du kan ta bort certifikatet."
 
 #### <a name="cause"></a>Orsak
 
@@ -59,7 +59,7 @@ Det här problemet kan uppstå om en annan app använder certifikatet.
 
 #### <a name="solution"></a>Lösning
 
-Ta bort SSL-bindningen för certifikatet från apparna. Försök sedan ta bort certifikatet. Om du fortfarande inte kan ta bort certifikatet rensar du webbläsarens cacheminne och öppnar Azure-portalen igen i ett nytt webbläsarfönster. Försök sedan ta bort certifikatet.
+Ta bort TLS-bindningen för certifikatet från apparna. Försök sedan ta bort certifikatet. Om du fortfarande inte kan ta bort certifikatet rensar du webbläsarens cacheminne och öppnar Azure-portalen igen i ett nytt webbläsarfönster. Försök sedan ta bort certifikatet.
 
 ### <a name="you-cant-purchase-an-app-service-certificate"></a>Du kan inte köpa ett App Service-certifikat 
 
@@ -69,7 +69,7 @@ Du kan inte köpa ett [Azure App Service-certifikat](./configure-ssl-certificate
 #### <a name="cause-and-solution"></a>Orsak och lösning
 Det här problemet kan uppstå av något av följande skäl:
 
-- App serviceplanen är kostnadsfri eller delad. Dessa prisnivåer stöder inte SSL. 
+- App serviceplanen är kostnadsfri eller delad. Dessa prisnivåer stöder inte TLS. 
 
     **Lösning**: Uppgradera apptjänstplanen för appen till Standard.
 
@@ -165,7 +165,7 @@ Om domänen togs bort för mindre än sju dagar sedan har domänen ännu inte st
 
 ## <a name="domain-problems"></a>Domänproblem
 
-### <a name="you-purchased-an-ssl-certificate-for-the-wrong-domain"></a>Du har köpt ett SSL-certifikat för fel domän
+### <a name="you-purchased-a-tlsssl-certificate-for-the-wrong-domain"></a>Du har köpt ett TLS/SSL-certifikat för fel domän
 
 #### <a name="symptom"></a>Symptom
 
@@ -306,7 +306,7 @@ När du köper en domän debiteras du inte under en period av fem dagar, under v
 
 **Kan jag använda domänen i en annan Azure App Service-app i min prenumeration?**
 
-Ja. När du öppnar bladet Anpassade domäner och SSL i Azure-portalen visas de domäner som du har köpt. Du kan konfigurera appen så att den använder någon av dessa domäner.
+Ja. När du öppnar bladet Anpassade domäner och TLS i Azure-portalen visas de domäner som du har köpt. Du kan konfigurera appen så att den använder någon av dessa domäner.
 
 **Kan jag överföra en domän från en prenumeration till en annan prenumeration?**
 

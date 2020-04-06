@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: dapine
-ms.openlocfilehash: a2ff4a94c1b2941f645cd7032ef476d33dffdb00
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 440944033e4b6a8fb29cf9ace6ad784b91316526
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656529"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668777"
 ---
 # <a name="about-the-speech-sdk"></a>Om Speech SDK
 
@@ -69,21 +69,11 @@ Flera av tal-SDK-programmeringsspråken stöder codec-komprimerade ljudingångss
 
 ## <a name="rest-api"></a>REST-API
 
-Tal-SDK täcker många funktioner i taltjänsten, men för vissa scenarier kanske du vill använda REST API.While the Speech SDK covers many feature capabilitis of the Speech Service, for some scenarios you might want to use the REST API. Som ett exempel exponeras slutpunktshantering endast via REST API.As a example, endpoint management is only exposed via the REST API.
-
-> [!TIP]
-> När du förlitar dig på REST API, använd Swagger Editor för att automatiskt generera klientbibliotek. Om du till exempel vill generera ett batchtranskriptionsklientbibliotek.
-> 1. Kopiera exempel-URL:en nedan:
->     ```http
->     https://westus.cris.ai/docs/v2.0/swagger
->     ```
-> 1. Navigera till <a href="https://editor.swagger.io/" target="_blank">Swagger <span class="docon docon-navigate-external x-hidden-focus"></span> Editor</a>
-> 1. Välj URL **för filimport** > **Import URL** och klistra in URL:en
-> 1. Välj **Generera klient** och välj önskat programmeringsspråk
+Tal-SDK täcker många funktioner i taltjänsten, men för vissa scenarier kanske du vill använda REST API.While the Speech SDK covers many feature capabilitis of the Speech Service, for some scenarios you might want to use the REST API.
 
 ### <a name="batch-transcription"></a>Batch-transkription
 
-[Batch transkription](batch-transcription.md) möjliggör asynkron tal-till-text transkription av stora mängder data. Batch transkription är endast möjligt från REST API.
+[Batch transkription](batch-transcription.md) möjliggör asynkron tal-till-text transkription av stora mängder data. Batch transkription är endast möjligt från REST API. Förutom att konvertera talljud till text, batch tal-till-text möjliggör också diarisering och sentiment-analys.
 
 ## <a name="customization"></a>Anpassning
 

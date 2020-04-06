@@ -5,13 +5,13 @@ ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
-ms.date: 03/03/2020
-ms.openlocfilehash: 92fa35fbe8e5eef4dbdc8b6c47a9055affd449a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/03/2020
+ms.openlocfilehash: 174279e4bd241ee9b336fc1ce7e0af389d2297a3
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273192"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667008"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Arbeta med datum i Azure Cosmos DB
 
@@ -21,7 +21,9 @@ Förutom de grundläggande typerna behöver många program typen DateTime för a
 
 ## <a name="storing-datetimes"></a>Lagra DateTimes
 
-Azure Cosmos DB stöder JSON-typer som - sträng, tal, boolesk, null, array, objekt. Det stöder inte direkt en DateTime-typ. Azure Cosmos DB stöder för närvarande inte lokalisering av datum. Så du måste lagra DateTimes som strängar. Det rekommenderade formatet för DateTime-strängar i `YYYY-MM-DDThh:mm:ss.sssZ` Azure Cosmos DB är som följer ISO 8601 UTC-standarden. Vi rekommenderar att du lagrar alla datum i Azure Cosmos DB som UTC. Om du konverterar datumsträngarna till det här formatet tillåts sorteringsdatum lexikografiskt. Om icke-UTC-datum lagras måste logiken hanteras på klientsidan. Om du vill konvertera en lokal DateTime till UTC måste förskjutningen vara känd/lagrad som en egenskap i JSON och klienten kan använda förskjutningen för att beräkna UTC DateTime-värdet.
+Azure Cosmos DB stöder JSON-typer som - sträng, tal, boolesk, null, array, objekt. Det stöder inte direkt en DateTime-typ. Azure Cosmos DB stöder för närvarande inte lokalisering av datum. Så du måste lagra DateTimes som strängar. Det rekommenderade formatet för DateTime-strängar i `YYYY-MM-DDThh:mm:ss.fffffffZ` Azure Cosmos DB är som följer ISO 8601 UTC-standarden. Vi rekommenderar att du lagrar alla datum i Azure Cosmos DB som UTC. Om du konverterar datumsträngarna till det här formatet tillåts sorteringsdatum lexikografiskt. Om icke-UTC-datum lagras måste logiken hanteras på klientsidan. Om du vill konvertera en lokal DateTime till UTC måste förskjutningen vara känd/lagrad som en egenskap i JSON och klienten kan använda förskjutningen för att beräkna UTC DateTime-värdet.
+
+Intervallfrågor med DateTime-strängar som filter stöds bara om DateTime-strängarna alla finns i UTC och samma längd. I Azure Cosmos DB returnerar funktionen [GetCurrentDateTime](sql-query-getcurrentdatetime.md) det aktuella UTC-strängvärdet för UTC-datum och tid i formatet: `YYYY-MM-DDThh:mm:ss.fffffffZ`.
 
 De flesta program kan använda standardsträngrepresentationen för DateTime av följande skäl:
 
@@ -47,7 +49,7 @@ I följande kodavsnitt lagras till `Order` exempel ett objekt `ShipDate` som `Or
         {
             Id = "09152014101",
             OrderDate = DateTime.UtcNow.AddDays(-30),
-            ShipDate = DateTime.UtcNow.AddDays(-14), 
+            ShipDate = DateTime.UtcNow.AddDays(-14),
             Total = 113.39
         });
 ```
@@ -76,7 +78,7 @@ SQL .NET SDK stöder automatiskt frågor om data som lagras i Azure Cosmos DB vi
 Översatt till följande SQL-uttryck och körs på Azure Cosmos DB:
 
 ```sql
-    SELECT * FROM root WHERE (root["ShipDate"] >= "2016-12-18T21:55:03.45569Z")
+    SELECT * FROM root WHERE (root["ShipDate"] >= "2014-09-30T23:14:25.7251173Z")
 ```
 
 Du kan läsa mer om Azure Cosmos DB:s SQL-frågespråk och LINQ-providern på [Querying Cosmos DB i LINQ](sql-query-linq-to-sql.md).

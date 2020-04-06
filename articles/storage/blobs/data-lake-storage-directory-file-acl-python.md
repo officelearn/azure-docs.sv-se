@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: b43bfe5979b8232f1fee2f5c1c6873c9c62695a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a00713df2cdda626a76cc648826f7e56df214232
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061535"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668713"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Använda Python för att hantera kataloger, filer och ACL:er i Azure Data Lake Storage Gen2
 
@@ -298,7 +298,9 @@ def download_file_from_directory():
 
         file_client = directory_client.get_file_client("uploaded-file.txt")
 
-        downloaded_bytes = file_client.read_file()
+        download = file_client.download_file()
+
+        downloaded_bytes = download.readall()
 
         local_file.write(downloaded_bytes)
 
@@ -332,7 +334,7 @@ def list_directory_contents():
 
 * [Referensdokumentation för API](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html)
 * [Paket (Python-paketindex)](https://pypi.org/project/azure-storage-file-datalake/)
-* [Prover](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
+* [Exempel](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
 * [Gen1 till Gen2 mappning](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
 * [Kända problem](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Ge feedback](https://github.com/Azure/azure-sdk-for-python/issues)

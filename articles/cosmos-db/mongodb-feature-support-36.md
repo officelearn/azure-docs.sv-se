@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 01/15/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: cde731f9d9e673446bc4d08117004b028db2a7f9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: fe80b7343f67b06981707081931e35142985688e
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77462470"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668788"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Azure Cosmos DB:s API för MongoDB (version 3.6): Funktioner och syntax som stöds
 
@@ -44,7 +44,7 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 |fåPrevError | Inga  |
 |insert  |   Ja  |
 |parallelCollectionScan  | Ja   |
-|resetError |   Inga  |
+|resetError |    Inga  |
 |update  |   Ja  |
 |[Ändra dataströmmar](mongodb-change-streams.md)  |  Ja  |
 |GridFS (GridFS) |   Ja  |
@@ -88,7 +88,7 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 
 |Kommando  |Stöds |
 |---------|---------|
-|buildInfo       |   Ja      |
+|buildInfo         |   Ja      |
 |collStats    |  Ja       |
 |connPoolStats (på)     |  Inga       |
 |connectionStatus     |  Inga       |
@@ -99,7 +99,7 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 |förklara: executionStats     |     Inga    |
 |funktioner     |    Inga     |
 |hostInfo     |   Inga      |
-|listDatabases       |   Ja      |
+|listDatabases         |   Ja      |
 |listaKommands     |  Inga       |
 |profilerar     |  Inga       |
 |serverStatus     |  Inga       |
@@ -123,31 +123,31 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 
 |Kommando  |Stöds |
 |---------|---------|
-|$collStats |Inga|
-|$project   |Ja|
-|$match |Ja|
-|$redact|   Ja|
-|$limit |Ja|
-|$skip  |Ja|
-|$unwind|   Ja|
-|$group |   Ja|
-|$sample|       Ja|
-|$sort  |Ja|
-|$geoNear|  Inga|
-|$lookup    |   Ja|
-|$out       |Ja|
-|$indexStats|       Inga|
-|$facet |Inga|
-|$bucket|   Inga|
-|$bucketAuto|   Inga|
-|$sortByCount|  Ja|
-|$addFields |Ja|
-|$replaceRoot|  Ja|
-|$count |Ja|
+|$collStats    |Inga|
+|$project    |Ja|
+|$match    |Ja|
+|$redact|    Ja|
+|$limit    |Ja|
+|$skip    |Ja|
+|$unwind|    Ja|
+|$group    |    Ja|
+|$sample|        Ja|
+|$sort    |Ja|
+|$geoNear|    Inga|
+|$lookup    |    Ja|
+|$out        |Ja|
+|$indexStats|        Inga|
+|$facet    |Inga|
+|$bucket|    Inga|
+|$bucketAuto|    Inga|
+|$sortByCount|    Ja|
+|$addFields    |Ja|
+|$replaceRoot|    Ja|
+|$count    |Ja|
 |$currentOp|    Inga|
-|$listLocalSessions |Inga|
-|$listSessions  |Inga|
-|$graphLookup   |Inga|
+|$listLocalSessions    |Inga|
+|$listSessions    |Inga|
+|$graphLookup    |Inga|
 
 ### <a name="boolean-expressions"></a>Booleska uttryck
 
@@ -174,14 +174,14 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 |Kommando  |Stöds |
 |---------|---------|
 |$cmp     |  Ja       |
-|$eq|   Ja| 
-|$gt |  Ja| 
-|$gte|  Ja| 
+|$eq|    Ja| 
+|$gt |    Ja| 
+|$gte|    Ja| 
 |$lt    |Ja|
-|$lte|  Ja| 
-|$ne    |   Ja| 
-|$in    |   Ja| 
-|$nin   |   Ja| 
+|$lte|    Ja| 
+|$ne    |    Ja| 
+|$in    |    Ja| 
+|$nin    |    Ja| 
 
 ### <a name="arithmetic-expressions"></a>Aritmetiska uttryck
 
@@ -230,66 +230,66 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 
 |Kommando  |Stöds |
 |---------|---------|
-|$arrayElemAt   |   Ja|
+|$arrayElemAt    |    Ja|
 |$arrayToObject|    Ja|
-|$concatArrays  |   Ja|
-|$filter    |   Ja|
-|$indexOfArray  |Ja|
-|$isArray   |   Ja|
-|$objectToArray |Ja|
-|$range |Ja|
-|$reverseArray  |   Ja|
-|$reduce|   Ja|
-|$size  |   Ja|
-|$slice |   Ja|
-|$zip   |   Ja|
-|$in    |   Ja|
+|$concatArrays    |    Ja|
+|$filter    |    Ja|
+|$indexOfArray    |Ja|
+|$isArray    |    Ja|
+|$objectToArray    |Ja|
+|$range    |Ja|
+|$reverseArray    |    Ja|
+|$reduce|    Ja|
+|$size    |    Ja|
+|$slice    |    Ja|
+|$zip    |    Ja|
+|$in    |    Ja|
 
 ### <a name="variable-operators"></a>Variabla operatorer
 
 |Kommando  |Stöds |
 |---------|---------|
-|$map   |Inga|
-|$let   |Ja|
+|$map    |Inga|
+|$let    |Ja|
 
 ### <a name="system-variables"></a>Systemvariabler
 
 |Kommando  |Stöds |
 |---------|---------|
-|$$CURRENT| Ja|
-|$$DESCEND|     Ja|
-|$$KEEP     |Ja|
-|$$PRUNE    |   Ja|
-|$$REMOVE   |Ja|
-|$$ROOT     |Ja|
+|$$CURRENT|    Ja|
+|$$DESCEND|        Ja|
+|$$KEEP        |Ja|
+|$$PRUNE    |    Ja|
+|$$REMOVE    |Ja|
+|$$ROOT        |Ja|
 
 ### <a name="literal-operator"></a>Bokstavlig operator
 
 |Kommando  |Stöds |
 |---------|---------|
-|$literal   |Ja|
+|$literal    |Ja|
 
 ### <a name="date-expressions"></a>Datumuttryck
 
 |Kommando  |Stöds |
 |---------|---------|
-|$dayOfYear |Ja    |
-|$dayOfMonth|   Ja |
-|$dayOfWeek |Ja    |
-|$year  |Ja    |
-|$month |Ja|   
-|$week  |Ja    |
-|$hour  |Ja    |
-|$minute|   Ja|    
+|$dayOfYear    |Ja    |
+|$dayOfMonth|    Ja    |
+|$dayOfWeek    |Ja    |
+|$year    |Ja    |
+|$month    |Ja|    
+|$week    |Ja    |
+|$hour    |Ja    |
+|$minute|    Ja|    
 |$second    |Ja    |
-|$millisecond|  Ja|    
-|$dateToString  |Ja    |
-|$isoDayOfWeek  |Ja    |
-|$isoWeek   |Ja    |
-|$dateFromParts|    Inga| 
-|$dateToParts   |Inga |
-|$dateFromString|   Inga|
-|$isoWeekYear   |Ja    |
+|$millisecond|    Ja|    
+|$dateToString    |Ja    |
+|$isoDayOfWeek    |Ja    |
+|$isoWeek    |Ja    |
+|$dateFromParts|    Inga|    
+|$dateToParts    |Inga    |
+|$dateFromString|    Inga|
+|$isoWeekYear    |Ja    |
 
 ### <a name="conditional-expressions"></a>Villkorliga uttryck
 
@@ -309,16 +309,16 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 
 |Kommando  |Stöds |
 |---------|---------|
-|$sum   |Ja    |
-|$avg   |Ja    |
+|$sum    |Ja    |
+|$avg    |Ja    |
 |$first|    Ja|
-|$last  |Ja    |
-|$max   |Ja    |
-|$min   |Ja    |
-|$push| Ja|
-|$addToSet| Ja|
-|$stdDevPop|    Inga  |
-|$stdDevSamp|   Inga|
+|$last    |Ja    |
+|$max    |Ja    |
+|$min    |Ja    |
+|$push|    Ja|
+|$addToSet|    Ja|
+|$stdDevPop|    Inga    |
+|$stdDevSamp|    Inga|
 
 ### <a name="merge-operator"></a>Koppla operator
 
@@ -330,25 +330,25 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 
 |Kommando  |Stöds |
 |---------|---------|
-|Double |Ja    |
-|String |Ja    |
-|Objekt |Ja    |
-|Matris  |Ja    |
-|Binära data    |Ja|   
-|ObjectId   |Ja    |
+|Double    |Ja    |
+|String    |Ja    |
+|Objekt    |Ja    |
+|Matris    |Ja    |
+|Binära data    |Ja|    
+|ObjectId    |Ja    |
 |Boolean    |Ja    |
-|Datum   |Ja    |
-|Null   |Ja    |
-|32-bitars heltal (int)   |Ja    |
-|Tidsstämpel  |Ja    |
-|64-bitars heltal (lång)  |Ja    |
-|MinKey (min nyckel) |Ja    |
-|MaxKey (MaxKey) |Ja    |
-|Decimal128 |Ja|   
-|Reguljärt uttryck |Ja|
-|JavaScript |Ja|
-|JavaScript (med omfattning)|   Ja |
-|Undefined (Odefinierad)  |Ja    |
+|Datum    |Ja    |
+|Null    |Ja    |
+|32-bitars heltal (int)    |Ja    |
+|Tidsstämpel    |Ja    |
+|64-bitars heltal (lång)    |Ja    |
+|MinKey (min nyckel)    |Ja    |
+|MaxKey (MaxKey)    |Ja    |
+|Decimal128    |Ja|    
+|Reguljärt uttryck    |Ja|
+|JavaScript    |Ja|
+|JavaScript (med omfattning)|    Ja    |
+|Undefined (Odefinierad)    |Ja    |
 
 ## <a name="indexes-and-index-properties"></a>Index och indexegenskaper
 
@@ -356,23 +356,23 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 
 |Kommando  |Stöds |
 |---------|---------|
-|Ett fältindex |Ja    |
-|Sammansatt index |Ja    |
-|Index för flera nycklar |Ja    |
-|Textindex |Inga|
-|2dsphere (2dsphere)   |Ja    |
-|2d-index   |Inga |
-|Hashed Index   | Ja|
+|Ett fältindex    |Ja    |
+|Sammansatt index    |Ja    |
+|Index för flera nycklar    |Ja    |
+|Textindex    |Inga|
+|2dsphere (2dsphere)    |Ja    |
+|2d-index    |Inga    |
+|Hashed Index    | Ja|
 
 ### <a name="index-properties"></a>Indexegenskaper
 
 |Kommando  |Stöds |
 |---------|---------|
-|TTL|   Ja |
-|Unik |Ja|
-|Delvis|   Inga|
-|Fall Okänslig   |Inga|
-|Utspridda |Inga |
+|TTL|    Ja    |
+|Unik    |Ja|
+|Delvis|    Inga|
+|Fall Okänslig    |Inga|
+|Utspridda    |Inga |
 |Bakgrund|    Ja |
 
 ## <a name="operators"></a>Operatorer
@@ -381,28 +381,28 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 
 |Kommando  |Stöds |
 |---------|---------|
-|$or    |   Ja|
-|$and   |   Ja|
-|$not   |   Ja|
-|$nor   |   Ja| 
+|$or    |    Ja|
+|$and    |    Ja|
+|$not    |    Ja|
+|$nor    |    Ja| 
 
 ### <a name="element-operators"></a>Elementoperatorer
 
 |Kommando  |Stöds |
 |---------|---------|
-|$exists|   Ja|
-|$type  |   Ja|
+|$exists|    Ja|
+|$type    |    Ja|
 
 ### <a name="evaluation-query-operators"></a>Frågeoperatorer för utvärdering
 
 |Kommando  |Stöds |
 |---------|---------|
-|$expr  |   Inga|
-|$jsonSchema    |   Inga|
-|$mod   |   Ja|
-|$regex |   Ja|
-|$text  | Nej (Stöds inte. Använd $regex i stället.)| 
-|$where |Inga| 
+|$expr    |    Inga|
+|$jsonSchema    |    Inga|
+|$mod    |    Ja|
+|$regex |    Ja|
+|$text    | Nej (Stöds inte. Använd $regex i stället.)| 
+|$where    |Inga| 
 
 I $regex frågor tillåter vänsterförankrade uttryck indexsökning. Om du använder modifierarna i (skiftlägesokänsligt) och m (flera rader) så får du dock samlingsskanningen i alla uttryck.
 
@@ -430,9 +430,9 @@ $comment |Ja|
 
 |Kommando  |Stöds |
 |---------|---------|
-|$elemMatch |Ja|
-|$meta| Inga|
-|$slice | Ja|
+|$elemMatch    |Ja|
+|$meta|    Inga|
+|$slice    | Ja|
 
 ### <a name="update-operators"></a>Uppdateringsoperatorer
 
@@ -440,28 +440,28 @@ $comment |Ja|
 
 |Kommando  |Stöds |
 |---------|---------|
-|$inc   |   Ja|
-|$mul   |   Ja|
-|$rename    |   Ja|
-|$setOnInsert|  Ja|
-|$set   |Ja|
+|$inc    |    Ja|
+|$mul    |    Ja|
+|$rename    |    Ja|
+|$setOnInsert|    Ja|
+|$set    |Ja|
 |$unset| Ja|
-|$min   |Ja|
-|$max   |Ja|
-|$currentDate   | Ja|
+|$min    |Ja|
+|$max    |Ja|
+|$currentDate    | Ja|
 
 #### <a name="array-update-operators"></a>Matrisuppdateringsoperatorer
 
 |Kommando  |Stöds |
 |---------|---------|
-|$  |Ja|
-|$[]|   Ja|
-|$[<identifier>]|   Ja|
-|$addToSet  |Ja|
-|$pop   |Ja|
-|$pullAll|  Ja|
-|$pull  |Ja|
-|$push  |Ja|
+|$    |Ja|
+|$[]|    Ja|
+|$[<identifier>]|    Ja|
+|$addToSet    |Ja|
+|$pop    |Ja|
+|$pullAll|    Ja|
+|$pull    |Ja|
+|$push    |Ja|
 |$pushAll| Ja|
 
 
@@ -469,20 +469,20 @@ $comment |Ja|
 
 |Kommando  |Stöds |
 |---------|---------|
-|$each  |   Ja|
-|$slice |Ja|
-|$sort  |Ja|
-|$position  |Ja|
+|$each    |    Ja|
+|$slice    |Ja|
+|$sort    |Ja|
+|$position    |Ja|
 
 #### <a name="bitwise-update-operator"></a>Binär uppdateringsoperator
 
 |Kommando  |Stöds |
 |---------|---------|
-| $bit  |   Ja|    
-|$bitsAllSet    |   Inga|
-|$bitsAnySet    |   Inga|
-|$bitsAllClear  |Inga|
-|$bitsAnyClear  |Inga|
+| $bit    |    Ja|    
+|$bitsAllSet    |    Inga|
+|$bitsAnySet    |    Inga|
+|$bitsAllClear    |Inga|
+|$bitsAnyClear    |Inga|
 
 ### <a name="geospatial-operators"></a>Geospatiala operatorer
 
@@ -504,37 +504,37 @@ $polygon |  Ja |
 
 |Kommando  |Stöds |
 |---------|---------|
-|cursor.batchSize() |   Ja|
-|cursor.close() |Ja|
-|cursor.isClosed()|     Ja|
+|cursor.batchSize()    |    Ja|
+|cursor.close()    |Ja|
+|cursor.isClosed()|        Ja|
 |cursor.collation()|    Inga|
-|cursor.comment()   |Ja|
-|cursor.count() |Ja|
-|cursor.explain()|  Inga|
-|cursor.forEach()   |Ja|
-|cursor.hasNästa()   |Ja|
-|cursor.hint()  |Ja|
-|cursor.isExhausted()|  Ja|
-|cursor.itcount()   |Ja|
-|cursor.limit() |Ja|
-|cursor.map()   |Ja|
-|cursor.maxScan()   |Ja|
+|cursor.comment()    |Ja|
+|cursor.count()    |Ja|
+|cursor.explain()|    Inga|
+|cursor.forEach()    |Ja|
+|cursor.hasNästa()    |Ja|
+|cursor.hint()    |Ja|
+|cursor.isExhausted()|    Ja|
+|cursor.itcount()    |Ja|
+|cursor.limit()    |Ja|
+|cursor.map()    |Ja|
+|cursor.maxScan()    |Ja|
 |cursor.maxTimeMS()|    Ja|
-|cursor.max()   |Ja|
-|cursor.min()   |Ja|
-|cursor.next()| Ja|
-|cursor.noCursorTimeout()   |Inga|
-|cursor.objsLeftInBatch()   |Ja|
-|cursor.pretty()|   Ja|
-|cursor.readConcern()|  Ja|
-|cursor.readPref()      |Ja|
-|cursor.returnKey() |Inga|
-|cursor.showRecordId()| Inga|
-|cursor.size()  |Nes|
-|cursor.skip()  |Ja|
-|cursor.sort()  |   Ja|
-|cursor.tailable()| Inga|
-|cursor.toArray()   |Ja|
+|cursor.max()    |Ja|
+|cursor.min()    |Ja|
+|cursor.next()|    Ja|
+|cursor.noCursorTimeout()    |Inga|
+|cursor.objsLeftInBatch()    |Ja|
+|cursor.pretty()|    Ja|
+|cursor.readConcern()|    Ja|
+|cursor.readPref()        |Ja|
+|cursor.returnKey()    |Inga|
+|cursor.showRecordId()|    Inga|
+|cursor.size()    |Ja|
+|cursor.skip()    |Ja|
+|cursor.sort()    |    Ja|
+|cursor.tailable()|    Inga|
+|cursor.toArray()    |Ja|
 
 ## <a name="sort-operations"></a>Sorteringsåtgärder
 
@@ -542,7 +542,7 @@ Med åtgärden `findOneAndUpdate` kan du använda sorteringsåtgärder på ett e
 
 ## <a name="unique-indexes"></a>Unika index
 
-Unika index ser till att ett visst fält inte har duplicerade värden i alla dokument i en samling, på samma sätt som unikhet bevaras för standardnyckeln _id. Du kan skapa anpassade index i Cosmos DB med hjälp av kommandot createIndex, inklusive unique-begränsningen.
+Unika index säkerställer att ett visst fält inte har dubblettvärden för alla dokument i en samling, ungefär som det sätt på vilket unikhet bevaras på standardnyckeln "_id". Du kan skapa anpassade index i Cosmos DB med kommandot createIndex, inklusive det "unika" villkoret.
 
 ## <a name="time-to-live-ttl"></a>TTL-värde (time to live)
 

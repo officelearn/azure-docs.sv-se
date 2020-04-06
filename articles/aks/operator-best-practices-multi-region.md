@@ -1,5 +1,5 @@
 ---
-title: Hög tillgänglighet och haveriberedskap i Azure Kubernetes Service (AKS)
+title: Metodtips för AKS affärskontinuitet och katastrofåterställning
 description: Lär dig en klusteroperatörs bästa praxis för att uppnå maximal drifttid för dina program, tillhandahålla hög tillgänglighet och förbereda för haveriberedskap i Azure Kubernetes Service (AKS).
 services: container-service
 author: lastcoolnameleft
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6aff60cbc4a4cab557e6e202ea1181d5b20bbd20
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 7aa93d8ba21cafddc5511e16fa430b76942b1a6d
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655876"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668299"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Metodtips för kontinuitet och haveriberedskap i Azure Kubernetes Service (AKS)
 

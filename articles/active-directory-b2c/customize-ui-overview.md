@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 839e13dffc7d15b8cd258dd4b7dda6776223d052
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 37ddf57057b736cd76a74276e5593a865e7df8cc
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051729"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666875"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Anpassa användargränssnittet i Azure Active Directory B2C
 
@@ -91,7 +91,10 @@ Läs följande vägledning innan du använder dina egna HTML- och CSS-filer för
 
 När du använder dina egna HTML- och CSS-filer för att anpassa användargränssnittet kan du vara värd för användargränssnittets innehåll på alla offentligt tillgängliga HTTPS-slutpunkter som stöder CORS. [Azure Blob storage,](../storage/blobs/storage-blobs-introduction.md)webbservrar, CDN, AWS S3 eller fildelningssystem.
 
-Det viktiga är att du är värd för innehållet på en allmänt tillgänglig HTTPS-slutpunkt med CORS aktiverat. Du måste använda en absolut WEBBADRESS när du anger den i innehållet.
+Det viktiga är att du är värd för innehållet på en allmänt tillgänglig HTTPS-slutpunkt med [CORS aktiverat](https://enable-cors.org/server.html). Du måste använda en absolut WEBBADRESS när du anger den i innehållet.
+
+> [!NOTE]
+> Mer information om hur du skapar HTML-innehåll, laddar upp innehåll till Azure Blob-lagring och konfigurerar CORS finns i avsnittet [Anpassad sidinnehållsgenomgång](custom-policy-ui-customization.md#custom-page-content-walkthrough) i anpassningsartikeln för användargränssnittet.
 
 ## <a name="get-started-with-custom-html-and-css"></a>Komma igång med anpassad HTML och CSS
 

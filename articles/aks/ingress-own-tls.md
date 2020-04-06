@@ -1,15 +1,16 @@
 ---
-title: Använda dina egna TLS-certifikat för inträngning med AKS-kluster (Azure Kubernetes Service)
+title: Använda dina TLS-certifikat för inträngning
+titleSuffix: Azure Kubernetes Service
 description: Lär dig hur du installerar och konfigurerar en NGINX-ingående styrenhet som använder dina egna certifikat i ett AKS-kluster (Azure Kubernetes Service).
 services: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: e567f5384cdd1e40ea67284713a29a92ee87af7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ec6a398b52424c142b3d7ee82625c10c733456ab
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595509"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668463"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Skapa en inkommande styrenhet för HTTPS och använd dina egna TLS-certifikat på Azure Kubernetes Service (AKS)
 

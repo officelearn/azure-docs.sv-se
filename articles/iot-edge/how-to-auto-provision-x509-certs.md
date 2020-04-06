@@ -9,12 +9,12 @@ ms.date: 03/06/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 48c8179af4a4b69924fb943ac98918b48d3a2008
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4d247f151240da8c3f0d38bbd22e43e230a1b95
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79537367"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668617"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Skapa och etablera en IoT Edge-enhet med X.509-certifikat
 
@@ -72,6 +72,9 @@ Om du vill etablera flera IoT Edge-enheter följer du stegen i nästa avsnitt, [
 När du skapar en registrering i DPS har du möjlighet att deklarera ett **inledande enhets twin-tillstånd**. I enhetstvillingen kan du ange taggar för att gruppera enheter efter alla mått som du behöver i din lösning, till exempel region, miljö, plats eller enhetstyp. Dessa taggar används för att skapa [automatiska distributioner](how-to-deploy-monitor.md).
 
 Mer information om registreringar i tjänsten För enhetsetablering finns i [Så här hanterar du enhetsregistreringar](../iot-dps/how-to-manage-enrollments.md).
+
+   > [!TIP]
+   > I Azure CLI kan du skapa en [registrering](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) eller en [registreringsgrupp](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) och använda den **kantaktiverade** flaggan för att ange att en enhet, eller grupp av enheter, är en IoT Edge-enhet.
 
 1. I [Azure-portalen](https://portal.azure.com)navigerar du till din instans av IoT Hub Device Provisioning Service.
 

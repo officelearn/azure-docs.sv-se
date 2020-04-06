@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e2e3c7763a13c8850554b079a426ed4172b74d28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb173bcbf7cd163dca16c211d45018e0fe056edd
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77599280"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666855"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Aktivera Azure Active Directory Domain Services-autentisering på Azure-filer
 
@@ -61,16 +61,16 @@ Innan du aktiverar Azure AD DS-autentisering över SMB för Azure-filresurser ko
 
 Gör sedan följande för att bevilja åtkomst till Azure Files-resurser med Azure AD-autentiseringsuppgifter:
 
-- Aktivera Azure AD DS-autentisering via SMB för ditt lagringskonto för att registrera lagringskontot med den associerade Azure AD DS-distributionen.
-- Tilldela åtkomstbehörigheter för en resurs till en Azure AD-identitet (en användare, grupp eller tjänsthuvudnamn).
-- Konfigurera NTFS-behörigheter över SMB för kataloger och filer.
-- Montera en Azure-filresurs från en domänansluten virtuell dator.
+1. Aktivera Azure AD DS-autentisering via SMB för ditt lagringskonto för att registrera lagringskontot med den associerade Azure AD DS-distributionen.
+2. Tilldela åtkomstbehörigheter för en resurs till en Azure AD-identitet (en användare, grupp eller tjänsthuvudnamn).
+3. Konfigurera NTFS-behörigheter över SMB för kataloger och filer.
+4. Montera en Azure-filresurs från en domänansluten virtuell dator.
 
 Följande diagram illustrerar arbetsflödet från slutna till slutna för att aktivera Azure AD DS-autentisering via SMB för Azure-filer.
 
 ![Diagram som visar Azure AD över SMB för Azure Files-arbetsflöde](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
 
-## <a name="enable-azure-ad-ds-authentication-for-your-account"></a>Aktivera Azure AD DS-autentisering för ditt konto
+## <a name="1-enable-azure-ad-ds-authentication-for-your-account"></a>1. Aktivera Azure AD DS-autentisering för ditt konto
 
 Om du vill aktivera Azure AD DS-autentisering via SMB för Azure-filer kan du ange en egenskap på lagringskonton med hjälp av Azure-portalen, Azure PowerShell eller Azure CLI. Ange den här egenskapen implicit "domän ansluter" lagringskontot med den associerade Azure AD DS-distributionen. Azure AD DS-autentisering över SMB är sedan aktiverad för alla nya och befintliga filresurser i lagringskontot.
 
@@ -135,11 +135,11 @@ az storage account update -n <storage-account-name> -g <resource-group-name> --e
 
 [!INCLUDE [storage-files-aad-permissions-and-mounting](../../../includes/storage-files-aad-permissions-and-mounting.md)]
 
-Du har nu aktiverat Azure AD DS-autentisering via SMB och tilldelat en anpassad roll som ger åtkomst till en Azure-filresurs med en Azure AD-identitet. Om du vill ge ytterligare användare åtkomst till filresursen följer du instruktionerna i [behörigheterna Tilldela åtkomst](#assign-access-permissions-to-an-identity) för att använda en identitet och [konfigurera NTFS-behörigheter över SMB-avsnitt](#configure-ntfs-permissions-over-smb).
+Du har nu aktiverat Azure AD DS-autentisering via SMB och tilldelat en anpassad roll som ger åtkomst till en Azure-filresurs med en Azure AD-identitet. Om du vill ge ytterligare användare åtkomst till filresursen följer du instruktionerna i [behörigheterna Tilldela åtkomst](#2-assign-access-permissions-to-an-identity) för att använda en identitet och [konfigurera NTFS-behörigheter över SMB-avsnitt](#3-configure-ntfs-permissions-over-smb).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure-filer och hur du använder Azure AD via SMB finns i följande resurser:
 
 - [Översikt över Azure Files identitetsbaserad autentiseringsstöd för SMB-åtkomst](storage-files-active-directory-overview.md)
-- [Faq](storage-files-faq.md)
+- [VANLIGA FRÅGOR OCH SVAR](storage-files-faq.md)

@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 969193b2c0843c4eb217d2bdb9f9ad9a40ccf9af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fbdae8b8506731f13ff08e877ea8eedb6d57fa78
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80154975"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666927"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Visa ditt program i Azure Active Directory-programgalleriet
 
@@ -49,9 +49,9 @@ Du kan få ett kostnadsfritt testkonto med alla premium-Azure AD-funktioner – 
 
 ## <a name="submit-the-request-in-the-portal"></a>Skicka begäran i portalen
 
-När du har testat att programintegreringen fungerar med Azure AD skickar du din begäran om åtkomst i [programnätverksportalen](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Om du har ett Office 365-konto använder du det för att logga in på den här portalen. Om inte, använd ditt Microsoft-konto, till exempel Outlook eller Hotmail, för att logga in.
+När du har testat att programintegreringen fungerar med Azure AD skickar du in din programbegäran i [Microsoft Application Network portalen](https://microsoft.sharepoint.com/teams/apponboarding/Apps).
 
-Om följande sida visas när du har loggat in kontaktar du [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Ange det e-postkonto som du vill använda för att skicka begäran. Azure AD-teamet lägger till kontot i Microsoft Application Network-portalen.
+Om följande sida visas när du har loggat in kontaktar du [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Ange det e-postkonto som du vill använda för att skicka begäran. En e-postadress [name@yourbusiness.com](mailto:name@yourbusiness.com) för företag som föredras. Azure AD-teamet lägger till kontot i Microsoft Application Network-portalen.
 
 ![Meddelande om åtkomstbegäran på SharePoint-portalen](./media/howto-app-gallery-listing/errorimage.png)
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c251569cfe6a2f27f86421ffe6a446ace52b435
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f884f4c0ea3a610f28a8fdbb34b081f0b0a64d08
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051159"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80666950"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication
 
@@ -78,6 +78,7 @@ NPS-servern måste kunna kommunicera med följande webbadresser över portarna 8
 
 - https:\//adnotifications.windowsazure.com
 - https:\//login.microsoftonline.com
+- https:\//credentials.azure.com
 
 Dessutom krävs anslutning till följande webbadresser för att slutföra [installationen av kortet med det medföljande PowerShell-skriptet](#run-the-powershell-script)
 
@@ -125,7 +126,7 @@ Det finns två faktorer som påverkar vilka autentiseringsmetoder som är tillg�
       > [!NOTE]
       > När du distribuerar NPS-tillägget använder du dessa faktorer för att utvärdera vilka metoder som är tillgängliga för användarna. Om RADIUS-klienten stöder PAP, men klientens användargränssnitt inte har inmatningsfält för en verifieringskod, är telefonsamtal och mobilappmeddelanden de två alternativ som stöds.
       >
-      > Om din VPN-klient UX stöder inmatningsfält och du har konfigurerat Network Access Policy - autentiseringen kan lyckas, men inget av RADIUS-attributen som konfigurerats i nätverksprincipen kommer inte att tillämpas på varken Network Access-enheten, som RRAS-servern eller VPN-klienten. Därför kan VPN-klienten ha mer åtkomst än önskat eller mindre till ingen åtkomst.
+      > Om din VPN-klient UX stöder indatafält och du har konfigurerat Network Access Policy - autentiseringen kan lyckas, men ingen av DE RADIUS-attribut som konfigurerats i nätverksprincipen kommer inte att tillämpas på varken Network Access Device, som RRAS-servern eller VPN-klienten. Därför kan VPN-klienten ha mer åtkomst än önskat eller mindre till ingen åtkomst.
       >
 
 2. De inmatningsmetoder som klientprogrammet (VPN, Netscaler-servern eller någon annan) kan hantera. Har VPN-klienten till exempel några sätt att tillåta användaren att skriva in en verifieringskod från en text- eller mobilapp?

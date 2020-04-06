@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 300294f37c809b01fe8fba7e627d6bc5bdc9903a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e7070e925d12df82adbc3683da5b10e48c5d4b0
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78942937"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668118"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Vanliga frågor och frågor om konfiguration och hantering för webbappar i Azure
 
@@ -35,14 +35,14 @@ Svar på vanliga frågor om hur du använder ett anpassat domännamn med din Azu
 Mer information om hur du köper och konfigurerar en anpassad domän för apptjänstens webbapp finns [i Köpa och konfigurera ett anpassat domännamn i App Service](manage-custom-dns-buy-domain.md).
 
 
-## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>Hur laddar jag upp och konfigurerar ett befintligt SSL-certifikat för min webbapp?
+## <a name="how-do-i-upload-and-configure-an-existing-tlsssl-certificate-for-my-web-app"></a>Hur laddar jag upp och konfigurerar ett befintligt TLS/SSL-certifikat för min webbapp?
 
-Mer information om hur du laddar upp och konfigurerar ett befintligt anpassat SSL-certifikat finns i [Lägga till ett SSL-certifikat i apptjänstappen](configure-ssl-certificate.md).
+Mer information om hur du laddar upp och konfigurerar ett befintligt anpassat TLS/SSL-certifikat finns i [Lägga till ett TLS/SSL-certifikat i apptjänstappen](configure-ssl-certificate.md).
 
 
-## <a name="how-do-i-purchase-and-configure-a-new-ssl-certificate-in-azure-for-my-web-app"></a>Hur köper och konfigurerar jag ett nytt SSL-certifikat i Azure för min webbapp?
+## <a name="how-do-i-purchase-and-configure-a-new-tlsssl-certificate-in-azure-for-my-web-app"></a>Hur köper och konfigurerar jag ett nytt TLS/SSL-certifikat i Azure för min webbapp?
 
-Mer information om hur du köper och konfigurerar ett SSL-certifikat för apptjänstens webbapp finns i [Lägga till ett SSL-certifikat i apptjänstappen](configure-ssl-certificate.md).
+Mer information om hur du köper och konfigurerar ett TLS/SSL-certifikat för apptjänstens webbapp finns i [Lägga till ett TLS/SSL-certifikat i apptjänstappen](configure-ssl-certificate.md).
 
 
 ## <a name="how-do-i-move-application-insights-resources"></a>Hur flyttar jag application insights-resurser?
@@ -84,7 +84,7 @@ Mer information om hur du hämtar den utgående IP-adressen om din webbplats fin
 
 ## <a name="how-do-i-get-a-reserved-or-dedicated-inbound-ip-address-for-my-web-app"></a>Hur skaffar jag en reserverad eller dedikerad inkommande IP-adress för min webbapp?
 
-Om du vill konfigurera en dedikerad eller reserverad IP-adress för inkommande samtal till din Azure-appwebbplats installerar och konfigurerar du ett IP-baserat SSL-certifikat.
+Om du vill konfigurera en dedikerad eller reserverad IP-adress för inkommande samtal till din Azure-appwebbplats installerar och konfigurerar du ett IP-baserat TLS/SSL-certifikat.
 
 Observera att om du vill använda en dedikerad eller reserverad IP-adress för inkommande samtal måste appserviceplanen finnas i en grundläggande eller högre serviceplan.
 

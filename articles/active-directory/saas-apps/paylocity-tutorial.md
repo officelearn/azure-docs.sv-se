@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 01/21/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f6684df42971b91975f6a7f5aeded9326cef3f5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d2324343a31c3f3930975eea47659d023b9bbb94
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72969807"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667575"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-paylocity"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med Paylocity
 
@@ -45,6 +44,8 @@ För att komma igång behöver du följande:
 I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
 
 * Paylocity stöder **SP och IDP** initierad SSO
+
+* När du har konfigurerat Paylocity kan du framtvinga sessionskontroller, som skyddar exfiltration och infiltration av organisationens känsliga data i realtid. Sessionskontrollerna sträcker sig från villkorlig åtkomst. [Lär dig hur du framtvingar sessionskontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
 
 ## <a name="adding-paylocity-from-the-gallery"></a>Lägga till paylocity från galleriet
 
@@ -82,8 +83,6 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
 1. I avsnittet **Grundläggande SAML-konfiguration** behöver användaren inte utföra några steg eftersom appen redan är förintegrerad med Azure.
 
-    ![Paylocity Domän och webbadresser enkel inloggningsinformation](common/preintegrated.png)
-
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     Skriv en URL i textrutan **Sign-on-URL:**`https://access.paylocity.com/`
@@ -98,13 +97,24 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
     | Namn |  Källattribut|
     | ---------------| --------------- |
-    | PartnerID | <"PartnerID"> |
-    | PaylocityAnvändarna | <"PaylocityUser" > |
-    | PaylocityEntity | <"PaylocityEntity"> |
+    | PartnerID | `P8000010` |
+    | PaylocityAnvändarna | `user.mail`|
+    | PaylocityEntity | < `PaylocityEntity` > |
+
+    > [!NOTE]
+    > PaylocityEntity är Paylocity Company ID.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** i avsnittet **SAML-signeringscertifikat** hittar du **XML för federationsmetadata** och väljer **Hämta** för att hämta certifikatet och spara det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
+
+1. Klicka på **Redigera ikon**i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML.**
+
+    ![Redigera SAML-signeringscertifikatet](./media/paylocity-tutorial/edit-samlassertion.png)
+
+1. Välj **Signeringsalternativ** som **Signera SAML-svar och -påstående** och klicka på **Spara**.
+
+    ![Redigera SAML-signeringscertifikatet](./media/paylocity-tutorial/saml-assertion.png)
 
 1. Kopiera lämpliga webbadresser i avsnittet **Konfigurera betalningsfördelning** baserat på dina krav.
 
@@ -163,3 +173,7 @@ När du klickar på panelen Paylocity på åtkomstpanelen ska du automatiskt log
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova Paylocity med Azure AD](https://aad.portal.azure.com/)
+
+* [Vad är sessionskontroll i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+* [Så här skyddar du Paylocity med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

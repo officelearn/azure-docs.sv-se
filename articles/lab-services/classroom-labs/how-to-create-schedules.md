@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 4e3cf302437c3e4954ac977ac3f4ff6b2021a760
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4887b4359451ca5ce85042b4de42d5376bf4a730
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72330591"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667770"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Skapa och hantera scheman för klassrumslabb i Azure Lab Services 
 Scheman kan du konfigurera ett klassrum lab så att virtuella datorer i labbet automatiskt starta och stängas av vid en viss tidpunkt. Du kan definiera ett engångsschema eller ett återkommande schema. Följande procedurer ger dig steg för att skapa och hantera scheman för ett klassrumslabb: 
@@ -28,6 +28,12 @@ Scheman kan du konfigurera ett klassrum lab så att virtuella datorer i labbet a
 
 ## <a name="set-a-schedule-for-the-lab"></a>Ange ett schema för labbet
 Skapa en schemalagd händelse för labbet så att virtuella datorer i labbet startas/stoppas automatiskt vid specifika tidpunkter. Den användarkvot som du angav tidigare är den extra tid som tilldelats varje användare utanför den här schemalagda tiden. 
+
+> [!NOTE]
+> Innan vi börjar, här är hur scheman påverkar lab virtuella datorer: 
+>- Den virtuella mallens dator ingår inte i scheman. 
+>- Endast tilldelade virtuella datorer startas. Detta innebär att om en dator inte begärs av en slutanvändare (deltagare), startar inte maskinen på de schemalagda timmarna. 
+>- Alla virtuella datorer (oavsett om de begärs av en användare eller inte) stoppas baserat på labbschemat. 
 
 1. Växla till sidan Scheman och välj **Lägg till schemalagd händelse** i **verktygsfältet.** 
 

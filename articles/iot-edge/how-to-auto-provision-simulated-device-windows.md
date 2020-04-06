@@ -4,16 +4,16 @@ description: Använda en simulerad enhet på din Windows-dator för att testa au
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/09/2019
+ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ee4f01c3ec57b0cf9e3ecf47254b57be95ea051a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc051e2a0ebbdae7c62ff8a249747d118d3c2ce4
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76510948"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80668679"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Skapa och etablera en simulerad IoT Edge-enhet med en virtuell TPM i Windows
 
@@ -59,6 +59,9 @@ När du skapar en registrering i DPS har du möjlighet att deklarera ett **inled
 Välj det SDK-språk som du vill använda för att skapa den simulerade enheten och följ stegen tills du skapar den enskilda registreringen.
 
 När du skapar den enskilda registreringen väljer du **Sant** om du vill deklarera att den simulerade TPM-enheten på din Windows-utvecklingsdator är en **IoT Edge-enhet**.
+
+> [!TIP]
+> I Azure CLI kan du skapa en [registrering](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) eller en [registreringsgrupp](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) och använda den **kantaktiverade** flaggan för att ange att en enhet, eller grupp av enheter, är en IoT Edge-enhet.
 
 Simulerade enhets- och enskilda registreringsguider:
 

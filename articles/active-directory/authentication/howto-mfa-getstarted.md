@@ -1,6 +1,6 @@
 ---
-title: Distribuera Azure Multi Factor-autentisering – Azure Active Directory
-description: Microsoft Azure MultiFaktorautentiseringsdistributionsplanering
+title: Distributionsöverväganden för Azure Multi Factor-autentisering
+description: Lär dig mer om distributionsöverväganden och strategi för en lyckad implementering av Azure Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,18 +11,25 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ae58482ced524958ffcdd6094ae57856d088eaf
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: a70c6ae3ebc7f5b39550508594bd4d4907e68a67
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80653962"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667344"
 ---
-# <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planera en molnbaserad distribution av Azure Multi-Factor Authentication
+# <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planera en Azure Multi Factor-autentiseringsdistribution
 
 Människor ansluter till organisationsresurser i allt mer komplicerade scenarier. Personer ansluter från organisationsägda, personliga och offentliga enheter på och utanför företagsnätverket med hjälp av smarta telefoner, surfplattor, datorer och bärbara datorer, ofta på flera plattformar. I den här alltid anslutna världen med flera enheter och flera plattformar är säkerheten för användarkonton viktigare än någonsin. Lösenord, oavsett komplexitet, som används på olika enheter, nätverk och plattformar är inte längre tillräckliga för att garantera säkerheten för användarkontot, särskilt när användare tenderar att återanvända lösenord över konton. Sofistikerade nätfiskeattacker och andra sociala ingenjörsattacker kan leda till att användarnamn och lösenord publiceras och säljs över den mörka webben.
 
 [Azure Multi-Factor Authentication (MFA)](concept-mfa-howitworks.md) hjälper till att skydda åtkomsten till data och program. Det ger ett extra säkerhetslager med hjälp av en andra form av autentisering. Organisationer kan använda [villkorlig åtkomst](../conditional-access/overview.md) för att få lösningen att passa deras specifika behov.
+
+Den här distributionsguiden visar hur du planerar och sedan testar en Azure Multi-Factor Authentication-utrullning.
+
+Så här snabbt kan du se Azure Multi-Factor Authentication i praktiken och sedan komma tillbaka för att förstå ytterligare distributionsöverväganden:
+
+> [!div class="nextstepaction"]
+> [Aktivera Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md)
 
 ## <a name="prerequisites"></a>Krav
 
@@ -173,7 +180,7 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-
 
 Om användarna har aktiverats med hjälp av azure multifaktorautentisering per användare kan följande PowerShell hjälpa dig att göra konverteringen till villkorlig åtkomstbaserad Azure Multi-Factor-autentisering.
 
-Kör det här PowerShell i ett ISE-fönster eller spara som ett . PS1-filen ska köras lokalt.
+Kör det här PowerShell i ett `.PS1` ISE-fönster eller spara som en fil som ska köras lokalt.
 
 ```PowerShell
 # Sets the MFA requirement state
@@ -317,7 +324,7 @@ På varje AD FS-server, i den lokala datorn My Store, kommer det att finnas ett 
 
 Om giltighetstiden för dina certifikat närmar sig förfallodatum [genererar och verifierar du ett nytt MFA-certifikat på varje AD FS-server](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
 
-Följande vägledning beskriver hur du hanterar Azure MFA-certifikat på dina AD FS-servrar. När du konfigurerar AD FS med Azure MFA är certifikaten som genereras via PowerShell-cmdlet giltiga i `New-AdfsAzureMfaTenantCertificate` 2 år. Förnya och installera de förnyade certifikaten före utgångsdatumet för äggformade störningar i MFA-tjänsten.
+Följande vägledning beskriver hur du hanterar Azure MFA-certifikat på dina AD FS-servrar. När du konfigurerar AD FS med Azure MFA är certifikaten som genereras via PowerShell-cmdlet giltiga i `New-AdfsAzureMfaTenantCertificate` två år. Förnya och installera de förnyade certifikaten före utgångsdatumet för äggformade störningar i MFA-tjänsten.
 
 ## <a name="implement-your-plan"></a>Implementera din plan
 
@@ -357,6 +364,7 @@ Hitta lösningar på vanliga problem med Azure MFA i [artikeln Felsökning av Az
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Vad är autentiseringsmetoder?](concept-authentication-methods.md)
-* [Aktivera konvergerad registrering för Azure Multi-Factor Authentication och Azure AD självbetjäningslösenordsåterställning](concept-registration-mfa-sspr-converged.md)
-* Varför blev en användare ombedd att utföra MFA? Se avsnittet [Azure AD-inloggningsrapport i dokumentet Rapporter i Azure Multi-Factor Authentication](howto-mfa-reporting.md#azure-ad-sign-ins-report).
+Så här ser du Azure Multi Factor Authentication i praktiken:
+
+> [!div class="nextstepaction"]
+> [Aktivera Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md)

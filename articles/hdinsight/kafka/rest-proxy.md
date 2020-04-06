@@ -6,37 +6,37 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/01/2020
-ms.openlocfilehash: 8997b385960c58b17747dfcfced74010af80550b
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/03/2020
+ms.openlocfilehash: 6bf34f8fb15bf8fddb1ba398ed678d5c98b8c84f
+ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548216"
+ms.lasthandoff: 04/05/2020
+ms.locfileid: "80667790"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interagera med Apache Kafka-kluster i Azure HDInsight med hjälp av en REST-proxy
 
-Kafka REST Proxy kan du interagera med din Kafka kluster via en REST API över HTTP. Detta innebär att dina Kafka-klienter kan vara utanför ditt virtuella nätverk. Dessutom kan klienter ringa enkla HTTP-anrop för att skicka och ta emot meddelanden till Kafka-klustret, i stället för att förlita sig på Kafka-bibliotek. Den här självstudien visar hur du skapar ett REST-proxyaktiverat Kafka-kluster och tillhandahåller en exempelkod som visar hur du ringer anrop till REST-proxy.
+Kafka REST Proxy kan du interagera med din Kafka kluster via en REST API över HTTP. Den här åtgärden innebär att dina Kafka-klienter kan vara utanför ditt virtuella nätverk. Klienter kan ringa enkla HTTP-anrop till Kafka-klustret i stället för att förlita sig på Kafka-bibliotek. Den här artikeln visar hur du skapar en REST-proxy aktiverad Kafka-kluster. Innehåller också en exempelkod som visar hur du ringer anrop till REST-proxy.
 
 ## <a name="rest-api-reference"></a>Referens för REST-API
 
-För fullständig specifikation av åtgärder som stöds av Kafka REST API, se [HDInsight Kafka REST Proxy API Reference](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy).
+För åtgärder som stöds av Kafka REST API, se [HDInsight Kafka REST Proxy API Reference](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy).
 
 ## <a name="background"></a>Bakgrund
 
-![Kafka REST proxyarkitektur](./media/rest-proxy/rest-proxy-architecture.png)
+![Kafka REST proxy design](./media/rest-proxy/rest-proxy-architecture.png)
 
-För fullständig specifikation av åtgärder som stöds av API, se [Apache Kafka REST Proxy API](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy).
+Den fullständiga specifikationen av åtgärder som stöds av API:et finns i [Apache Kafka REST Proxy API](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy).
 
 ### <a name="rest-proxy-endpoint"></a>SLUTPUNKT FÖR REST-proxy
 
-När du skapar ett HDInsight Kafka-kluster med REST-proxy skapas en ny offentlig slutpunkt för klustret, som du hittar i ditt HDInsight-kluster "Egenskaper" på Azure-portalen.
+När du skapar ett HDInsight Kafka-kluster med REST-proxy skapas en ny offentlig **Properties** slutpunkt för klustret, som du hittar i dina HDInsight-klusteregenskaper på Azure-portalen.
 
 ### <a name="security"></a>Säkerhet
 
-Åtkomst till Kafka REST-proxyn hanteras med Azure Active Directory-säkerhetsgrupper. När du skapar Kafka-klustret med REST-proxyn aktiverad ska du tillhandahålla säkerhetsgruppen Azure Active Directory som ska ha åtkomst till REST-slutpunkten. De Kafka-klienter (program) som behöver åtkomst till REST-proxyn ska registreras i den här gruppen av gruppägaren. Gruppägaren kan göra detta via portalen eller via PowerShell.
+Åtkomst till Kafka REST-proxyn hanteras med Azure Active Directory-säkerhetsgrupper. När du skapar Kafka-klustret ska du tillhandahålla säkerhetsgruppen Azure AD med REST-slutpunktsåtkomst. Kafka-klienter som behöver åtkomst till REST-proxyn ska registreras i den här gruppen av gruppägaren. Gruppägaren kan registrera sig via Portalen eller via PowerShell.
 
-Innan begäranden till REST-proxyslutpunkten ska klientprogrammet hämta en OAuth-token för att verifiera medlemskap i rätt säkerhetsgrupp. Hitta ett [exempel på klientprogram](#client-application-sample) nedan som visar hur du skaffar en OAuth-token. När klientprogrammet har OAuth-token måste de skicka den token i HTTP-begäran som gjorts till REST-proxyn.
+För REST-proxyslutpunktsbegäranden bör klientprogram hämta en OAuth-token. Token används för att verifiera medlemskap i säkerhetsgruppen. Hitta ett [exempel på klientprogram](#client-application-sample) nedan som visar hur du skaffar en OAuth-token. Klientprogrammet skickar OAuth-token i HTTP-begäran till REST-proxyn.
 
 > [!NOTE]  
 > Mer information om AAD-säkerhetsgrupper finns i [Hantera app- och resursåtkomst med Hjälp av Azure Active Directory-grupper.](../../active-directory/fundamentals/active-directory-manage-groups.md) Mer information om hur OAuth-token fungerar finns i [Auktorisera åtkomst till Azure Active Directory-webbprogram med hjälp av kodbidragsflödet för OAuth 2.0](../../active-directory/develop/v1-protocols-oauth-code.md).
@@ -45,15 +45,17 @@ Innan begäranden till REST-proxyslutpunkten ska klientprogrammet hämta en OAut
 
 1. Registrera ett program med Azure AD. Klientprogrammen som du skriver för att interagera med Kafka REST-proxyn använder programmets ID och hemlighet för att autentisera till Azure.
 
-1. Skapa en Azure AD-säkerhetsgrupp och lägg till programmet som du har registrerat med Azure AD i säkerhetsgruppen som "medlem" i gruppen. Den här säkerhetsgruppen används för att styra vilka program som tillåts interagera med REST-proxyn. Mer information om hur du skapar Azure AD-grupper finns i [Skapa en grundläggande grupp och lägga till medlemmar med Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+1. Skapa en Azure AD-säkerhetsgrupp. Lägg till programmet som du har registrerat med Azure AD i säkerhetsgruppen som **medlem** i gruppen. Den här säkerhetsgruppen används för att styra vilka program som tillåts interagera med REST-proxyn. Mer information om hur du skapar Azure AD-grupper finns i [Skapa en grundläggande grupp och lägga till medlemmar med Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-    Verifiera gruppen är av typen !["Säkerhet" Säkerhetsgrupp](./media/rest-proxy/rest-proxy-group.png)
+    Verifiera gruppen är av typen **Säkerhet**.
+    ![Säkerhetsgrupp](./media/rest-proxy/rest-proxy-group.png)
 
-    Verifiera att programmet är ![medlem i gruppvalideringsmedlemskap](./media/rest-proxy/rest-proxy-membergroup.png)
+    Verifiera att programmet är medlem i Gruppen.
+    ![Kontrollera medlemskap](./media/rest-proxy/rest-proxy-membergroup.png)
 
 ## <a name="create-a-kafka-cluster-with-rest-proxy-enabled"></a>Skapa ett Kafka-kluster med REST-proxy aktiverad
 
-1. Under arbetsflödet för att skapa Kafka-kluster, på fliken "Säkerhet + nätverk", kontrollerar du alternativet Aktivera Kafka REST-proxy.
+1. Kontrollera alternativet **Aktivera Kafka REST-proxy** under arbetsflödet för att skapa Kafka-kluster. **Security + networking**
 
      ![Aktivera Kafka REST-proxy och välj säkerhetsgrupp](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
 
@@ -73,19 +75,23 @@ Du kan använda pythonkoden nedan för att interagera med REST-proxyn i Kafka-kl
 
 1. Spara exempelkoden på en dator med Python installerat.
 1. Installera nödvändiga python-beroenden `pip3 install adal` `pip install msrestazure`genom att köra och .
-1. Ändra kodavsnittet *Konfigurera dessa egenskaper* och uppdatera följande egenskaper för din miljö:
-    1.    *Klient-ID* – Azure-klienten där din prenumeration finns.
-    1.    *Klient-ID* – ID för det program som du registrerade i säkerhetsgruppen.
-    1.    *Client Secret* – Hemligheten för programmet som du registrerade i säkerhetsgruppen
-    1.    *Kafkarest_endpoint* – hämta det här värdet från fliken "egenskaper" i klusteröversikten enligt beskrivningen i [distributionsavsnittet](#create-a-kafka-cluster-with-rest-proxy-enabled). Det bör vara i följande format -`https://<clustername>-kafkarest.azurehdinsight.net`
+1. Ändra kodavsnittet **Konfigurera dessa egenskaper** och uppdatera följande egenskaper för din miljö:
+
+    |Egenskap |Beskrivning |
+    |---|---|
+    |Klient-ID:t|Azure-klienten där din prenumeration finns.|
+    |Klientorganisations-ID|ID:t för programmet som du registrerade i säkerhetsgruppen.|
+    |Klienthemlighet|Hemligheten för programmet som du registrerade i säkerhetsgruppen.|
+    |Kafkarest_endpoint|Hämta det här värdet från fliken **Egenskaper** i klusteröversikten enligt beskrivningen i [distributionsavsnittet](#create-a-kafka-cluster-with-rest-proxy-enabled). Det bör vara i följande format -`https://<clustername>-kafkarest.azurehdinsight.net`|
+
 1. Kör python-filen från kommandoraden genom att köra python-filen`python <filename.py>`
 
-Den här koden gör följande:
+Den här koden gör följande åtgärd:
 
-1. Hämtar en OAuth-token från Azure AD
-1. Visar hur du gör en begäran till Kafka REST proxy
+1. Hämtar en OAuth-token från Azure AD.
+1. Visar hur du gör en begäran till Kafka REST proxy.
 
-Mer information om hur du hämtar OAuth-token i python finns i [klassen Python AuthenticationContext](https://docs.microsoft.com/python/api/adal/adal.authentication_context.authenticationcontext?view=azure-python). Du kan se en fördröjning medan ämnen som inte skapas eller tas bort via Kafka REST-proxyn återspeglas där. Den här fördröjningen beror på uppdatering av cache.
+Mer information om hur du hämtar OAuth-token i python finns i [klassen Python AuthenticationContext](https://docs.microsoft.com/python/api/adal/adal.authentication_context.authenticationcontext?view=azure-python). Du kan se `topics` en fördröjning medan som inte skapas eller tas bort via Kafka REST proxy återspeglas där. Den här fördröjningen beror på cacheuppdatering.
 
 ```python
 #Required python packages

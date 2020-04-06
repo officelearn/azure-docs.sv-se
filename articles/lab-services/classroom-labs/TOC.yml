@@ -102,6 +102,8 @@
               href: how-to-enable-nested-virtualization-template-vm-using-script.md
         - name: Förbereda en mall för virtuell Windows-dator
           href: how-to-prepare-windows-template.md
+        - name: Styra stängningsbeteende för Windows
+          href: how-to-windows-shutdown.md
         - name: Visa supportinformation (instruktör)
           href: lab-creator-support-information.md
     - name: Ansluta till virtuella datorer i klassrumslabb (elev)

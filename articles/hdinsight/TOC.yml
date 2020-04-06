@@ -697,6 +697,10 @@
       items:
         - name: Analysera data med interaktiv fråga
           href: ./interactive-query/interactive-query-tutorial-analyze-flight-data.md
+    - name: Begrepp
+      items:
+        - name: Bästa praxis för gateway
+          href: ./interactive-query/gateway-best-practices.md
     - name: Gör så här för att
       items:
         - name: Utveckla
@@ -816,6 +820,8 @@
       items:
         - name: Använda Apache Storm för att skriva till lagring
           href: ./storm/apache-storm-write-data-lake-store.md
+        - name: Apache Kafka och Apache Storm (Java)
+          href: ./hdinsight-apache-storm-with-kafka.md
     - name: Gör så här för att
       items:
         - name: Migrera Storm till Spark
@@ -836,10 +842,6 @@
                   href: ./storm/apache-storm-example-topology.md
             - name: Strömningspipelines
               items:
-                - name: Apache Kafka och Apache Storm (Java)
-                  href: ./hdinsight-apache-storm-with-kafka.md
-                - name: 'Event Hub, Storage och Data Lake Storage (Java)'
-                  href: 'https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/'
                 - name: 'Event Hub och Apache Storm (C# och Java)'
                   href: ./storm/apache-storm-develop-csharp-event-hub-topology.md
         - name: Hantera

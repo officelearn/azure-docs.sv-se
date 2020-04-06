@@ -39,6 +39,8 @@
               href: sql-api-java-get-started.md
             - name: Async Java
               href: sql-api-async-java-get-started.md
+            - name: Exempel på asynkront Java-program från slutpunkt till slutpunkt
+              href: create-sql-api-java-changefeed.md
             - name: Node.js
               href: sql-api-nodejs-get-started.md
         - name: Bygga en webbapp
@@ -636,10 +638,6 @@
           items:
             - name: Vad är MongoDB API i Cosmos DB?
               href: mongodb-introduction.md
-            - name: Protokollstöd för Wire (3.2)
-              href: mongodb-feature-support.md
-            - name: Protokollstöd för Wire (3.6)
-              href: mongodb-feature-support-36.md
         - name: Snabbstarter
           items:
             - name: .NET
@@ -683,6 +681,12 @@
               href: tutorial-query-mongodb.md
             - name: 4 – Distribuera data lokalt
               href: tutorial-global-distribution-mongodb.md
+        - name: Begrepp
+          items:
+            - name: Protokollstöd för Wire (3.6)
+              href: mongodb-feature-support-36.md
+            - name: Protokollstöd för Wire (3.2)
+              href: mongodb-feature-support.md
         - name: Anvisningar
           items:
             - name: Guide före migrering
@@ -727,7 +731,7 @@
       items:
         - name: Översikt
           items:
-            - name: Vad är Germlin API i Cosmos DB?
+            - name: Vad är Gremlin API i Cosmos DB?
               href: graph-introduction.md
             - name: Protokollstöd för Wire
               href: gremlin-support.md
@@ -1008,10 +1012,13 @@
           href: ../private-link/create-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Konfigurera resursdelning för korsande ursprung (CORS)
           href: how-to-configure-cross-origin-resource-sharing.md
-        - name: Skydda Azure Cosmos-nycklar med Key Vault
-          href: access-secrets-from-keyvault.md
+        - name: Säkra nycklar med en hanterad identitet
+          href: managed-identity-based-authentication.md
+          displayName: 'msi, managed service identity, aad, azure active directory, identity'
         - name: Certifikatbaserad autentisering med Azure Active Directory
           href: certificate-based-authentication.md
+        - name: Säkra nycklar med Key Vault
+          href: access-secrets-from-keyvault.md
         - name: Begränsa användaråtkomst till endast dataåtgärder
           href: how-to-restrict-user-data.md
         - name: Konfigurera kundhanterade nycklar
@@ -1026,6 +1033,8 @@
           href: monitor-cosmos-db.md
         - name: Övervaka med diagnostikloggar
           href: cosmosdb-monitor-resource-logs.md
+        - name: Granska kontrollplansloggar
+          href: audit-control-plane-logs.md
         - name: Azure Monitor för Cosmos (förhandsversion)
           href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Visa mått från Cosmos DB-kontot
@@ -1102,6 +1111,8 @@
           href: bulk-executor-overview.md
         - name: Massexecutor – .NET-bibliotek
           href: bulk-executor-dot-net.md
+        - name: Migrera från bulk executor till .NET SDK
+          href: how-to-migrate-from-bulk-executor-library.md
         - name: Massexecutor – Java-bibliotek
           href: bulk-executor-java.md
 - name: Referens

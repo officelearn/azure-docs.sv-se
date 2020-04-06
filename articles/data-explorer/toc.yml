@@ -67,7 +67,13 @@
     - name: Mata in data
       items:
         - name: Datainmatning med ett klick
-          href: ingest-data-one-click.md
+          items:
+            - name: Översikt över datainmatning med ett klick
+              href: ingest-data-one-click.md
+            - name: Inmatning med ett klick i en ny tabell
+              href: one-click-ingestion-new-table.md
+            - name: Inmatning med ett klick i en befintlig tabell
+              href: one-click-ingestion-existing-table.md
         - name: Strömningsinmatning
           href: ingest-data-streaming.md
         - name: Använda LightIngest
@@ -188,6 +194,8 @@
               href: customer-managed-keys-csharp.md
             - name: Azure Resource Manager-mall
               href: customer-managed-keys-resource-manager.md
+        - name: Skapa Azure AD-app
+          href: provision-azure-ad-app.md
     - name: Hantera
       items:
         - name: Kluster
@@ -208,6 +216,8 @@
                   href: cluster-principal-python.md
                 - name: Azure Resource Manager-mall
                   href: cluster-principal-resource-manager.md
+            - name: Hantera klusterspråktillägg
+              href: language-extensions.md
         - name: Databas
           items:
             - name: Uppföljningsdatabaser
@@ -240,6 +250,8 @@
           href: using-diagnostic-logs.md
         - name: Använda mått för att övervaka hälsotillstånd hos kluster
           href: using-metrics.md
+        - name: Använda resurshälsa för att övervaka klusterhälsa
+          href: monitor-with-resource-health.md
     - name: Integrera med andra verktyg
       items:
         - name: Azure Data Factory
@@ -264,6 +276,8 @@
           href: connect-from-databricks.md
         - name: Analysera data i Jupyter Notebooks och Kqlmagic
           href: kqlmagic.md
+        - name: Analysera data i Azure Notebooks
+          href: azure-notebooks.md
         - name: Azure Pipelines
           href: devops.md
     - name: Felsöka

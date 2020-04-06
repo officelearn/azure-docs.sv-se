@@ -13,11 +13,13 @@
       href: quick-create-cli.md
     - name: Skapa med Azure PowerShell
       href: quick-create-powershell.md
-    - name: Skapa med en mall
+    - name: Skapa med ARM-mall
       items:
         - name: Linux-skalningsuppsättning
+          displayName: 'ARM, resource manager'
           href: quick-create-template-linux.md
         - name: Windows-skalningsuppsättning
+          displayName: 'ARM, resource manager'
           href: quick-create-template-windows.md
 - name: Självstudier
   items:
@@ -61,7 +63,7 @@
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Azure Resource Manager
       href: ../azure-resource-manager/management/overview.md
@@ -305,7 +307,7 @@
   items:
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
-    - name: Priser
+    - name: Prissättning
       items:
         - name: Linux
           href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/'

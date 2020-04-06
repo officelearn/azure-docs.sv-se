@@ -32,6 +32,8 @@
           href: migrate-cost-management-api.md
     - name: Anvisningar
       items:
+        - name: Förhindra och analysera oväntade kostnader
+          href: ../manage/getting-started.md
         - name: Tilldela åtkomst till data
           href: assign-access-acm-data.md
         - name: Använda kostnadsanalys för vanliga uppgifter

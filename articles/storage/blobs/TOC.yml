@@ -13,7 +13,7 @@
           href: storage-blobs-introduction.md
     - name: Snabbstarter
       items:
-        - name: Hantera blobar utan kod
+        - name: Arbeta med blobbar
           items:
             - name: Azure Portal
               href: storage-quickstart-blobs-portal.md
@@ -23,8 +23,6 @@
               href: storage-quickstart-blobs-powershell.md
             - name: CLI
               href: storage-quickstart-blobs-cli.md
-        - name: Utveckla med blobar
-          items:
             - name: .NET
               items:
                 - name: .NET (V12 SDK)

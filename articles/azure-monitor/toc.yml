@@ -15,7 +15,7 @@
     - name: Övervakning av virtuella datorer
       items:
         - name: Virtuella Azure-datorer
-          href: learn/quick-collect-azurevm.md
+          href: learn/quick-monitor-azure-vm.md
         - name: Linux-dator
           href: learn/quick-collect-linux-computer.md
         - name: Windows-dator
@@ -303,10 +303,6 @@
             - name: Telemetrikorrelation
               href: app/correlation.md
               displayname: 'correlation headers, w3c, distributed tracing, tracing'
-            - name: Lokal vidarebefordrare
-              href: app/opencensus-local-forwarder.md
-            - name: Go
-              href: app/opencensus-go.md
         - name: Live Metric Stream
           displayname: 'live, quickpulse, quick pulse, live metrics'
           href: app/live-stream.md
@@ -488,9 +484,17 @@
             - name: Översikt
               displayName: 'Platform logs, Resource logs, Activity log'
               href: platform/platform-logs-overview.md
-            - name: Visa aktivitetslogg
-              displayName: Platform logs
-              href: platform/activity-log-view.md
+            - name: Aktivitetslogg
+              items:
+                - name: Visa i Azure-portalen
+                  displayName: 'Platform logs, Activity log'
+                  href: platform/activity-log-view.md
+                - name: Samla in och analysera
+                  displayName: 'Platform logs, Activity log'
+                  href: platform/activity-log-collect.md
+                - name: Exportera (bakåtkompatibelt)
+                  displayname: Activity log
+                  href: platform/activity-log-export.md
             - name: Skicka till destinationer
               items:
                 - name: Log Analytics-arbetsyta
@@ -502,20 +506,6 @@
                 - name: Event Hubs
                   displayname: 'Resource logs, Activity log, Platform logs'
                   href: platform/resource-logs-stream-event-hubs.md
-            - name: Föråldrad aktivetsloggsamling
-              items:
-                - name: Översikt
-                  displayName: Resource logs
-                  href: platform/diagnostic-settings-legacy.md
-                - name: Samla in och analysera
-                  displayname: Activity log
-                  href: platform/activity-log-collect.md
-                - name: Samla in mellan klienter
-                  displayname: Activity log
-                  href: platform/activity-log-collect-tenants.md
-                - name: Exportera
-                  displayname: Activity log
-                  href: platform/activity-log-export.md
         - name: Diagnostikinställningar
           items:
             - name: Skapa diagnostiskinställning
@@ -531,6 +521,8 @@
           href: platform/stream-monitoring-data-event-hubs.md
     - name: Övervaka virtuella datorer och gästoperativsystem
       items:
+        - name: Övervaka virtuella Azure-datorer
+          href: insights/monitor-vm-azure.md
         - name: Agenter
           items:
             - name: Översikt över agenter
@@ -636,12 +628,10 @@
           items:
             - name: Översikt
               href: insights/vminsights-overview.md
-            - name: Kända problem
-              href: insights/vminsights-known-issues.md
             - name: Vanliga frågor och svar om allmän tillgänglighet
               href: insights/vminsights-ga-release-faq.md
             - name: VANLIGA FRÅGOR OCH SVAR
-              href: 'faq.md#azure-monitor-for-vms-preview'
+              href: 'faq.md#azure-monitor-for-vms'
             - name: Aktivera övervakning
               items:
                 - name: Aktivera övervakningsöversikt
@@ -654,18 +644,16 @@
                   href: insights/vminsights-enable-at-scale-powershell.md
                 - name: Aktivera för hybridmiljö
                   href: insights/vminsights-enable-hybrid-cloud.md
-                - name: Integration med Operations Manager
-                  href: insights/service-map-scom.md
-            - name: Övervaka hälsa
-              href: insights/vminsights-health.md
             - name: Mappa beroenden
               href: insights/vminsights-maps.md
             - name: Övervaka prestanda
               href: insights/vminsights-performance.md
-            - name: Använda arbetsböcker
-              href: insights/vminsights-workbooks.md
             - name: Analysera data med loggfrågor
               href: insights/vminsights-log-search.md
+            - name: Visualisera data med arbetsböcker
+              href: insights/vminsights-workbooks.md
+            - name: Skapa aviseringsregler
+              href: insights/vminsights-alerts.md
             - name: Uppgradera Dependency Agent
               href: insights/vminsights-dependency-agent-maintenance.md
             - name: Inaktivera övervakning
@@ -680,6 +668,8 @@
               href: insights/wire-data.md
             - name: Lösningen Tjänstkarta
               href: insights/service-map.md
+            - name: Tjänstkarta och Operations Manager
+              href: insights/service-map-scom.md
         - name: Datorgrupper
           href: platform/computer-groups.md
     - name: Övervaka containrar
@@ -708,6 +698,8 @@
               href: insights/container-insights-analyze.md
             - name: Övervaka hälsa
               href: insights/container-insights-health.md
+            - name: Övervaka GPU-prestanda
+              href: insights/container-insights-gpu-monitoring.md
             - name: Visa livedata
               items:
                 - name: Livedataöversikt (förhandsversion)
@@ -896,13 +888,11 @@
                   href: log-query/query-optimization.md
                 - name: Parsa textdata
                   href: log-query/parse-text.md
-        - name: Flow/Logic Apps
+        - name: Logic Apps
           items:
-            - name: Flow Connector med loggar
-              href: platform/flow-tutorial.md
-            - name: Flow Connector med program
-              href: app/automate-with-flow.md
-            - name: Logic Apps med program
+            - name: Anslutningsprogram för Azure Monitor-loggar
+              href: platform/logicapp-flow-connector.md
+            - name: Application Insights-anslutningsapp
               href: app/automate-with-logic-apps.md
         - name: REST-API
           displayname: 'metrics, analyze'
@@ -975,6 +965,8 @@
           href: platform/grafana-plugin.md
     - name: Aviseringar
       items:
+        - name: Felsöka aviseringar
+          href: platform/alerts-troubleshoot.md
         - name: Aviseringsregler för program
           items:
             - name: Tillgänglighet
@@ -999,7 +991,7 @@
               href: platform/alerts-log-query.md
             - name: Webhook-åtgärder
               href: platform/alerts-log-webhook.md
-            - name: Felsökning
+            - name: Felsöka loggaviseringar
               href: platform/alert-log-troubleshoot.md
         - name: Aviseringsregler för aktivitetsloggar
           items:
@@ -1263,8 +1255,6 @@
           href: 'https://azure.microsoft.com/updates/?product=log-analytics'
         - name: Viktig information om SDK
           href: app/release-notes.md
-    - name: Windows Analytics
-      href: 'https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/?products=monitor&regions=all'
     - name: Videoklipp

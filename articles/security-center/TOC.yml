@@ -29,6 +29,8 @@
       href: quick-onboard-azure-stack.md
 - name: Självstudier
   items:
+    - name: Planerings- och drifthandbok
+      href: security-center-planning-and-operations-guide.md
     - name: Skydda dina resurser
       href: tutorial-protect-resources.md
     - name: Svara på incidenter
@@ -71,8 +73,8 @@
           href: security-center-incident.md
         - name: Intelligent aviseringskorrelation i molnet (incidenter)
           href: security-center-alerts-cloud-smart.md
-        - name: Säkerhetsvarningsmappning och hotinformation
-          href: security-center-threat-intel.md
+        - name: Hotrapporter
+          href: security-center-threat-report.md
         - name: Aviseringsverifiering (EICAR-testfil)
           href: security-center-alert-validation.md
 - name: Anvisningar
@@ -149,6 +151,8 @@
           href: security-center-sql-service-recommendations.md
         - name: Skydda identitet och åtkomst
           href: security-center-identity-access.md
+        - name: Hantera användardata för undersökning
+          href: security-center-investigation-user-data.md
     - name: Tillämpa molnskydd
       items:
         - name: Hantera just-in-time-åtkomst
@@ -159,24 +163,6 @@
           href: security-center-file-integrity-monitoring.md
         - name: Anpassningsbar nätverkshärdning
           href: security-center-adaptive-network-hardening.md
-    - name: Arkiv
-      items:
-        - name: Tillämpa diskkryptering
-          href: security-center-apply-disk-encryption.md
-        - name: Tillämpa systemuppdateringar
-          href: security-center-apply-system-updates.md
-        - name: Installera slutpunktsskydd
-          href: security-center-install-endpoint-protection.md
-        - name: Hotrapporter
-          href: security-center-threat-report.md
-        - name: Förtroendepoäng för avisering
-          href: security-center-confidence-score.md
-        - name: Undersökning
-          href: security-center-investigation.md
-        - name: Hantera användardata för undersökning
-          href: security-center-investigation-user-data.md
-        - name: Planering och drift
-          href: security-center-planning-and-operations-guide.md
 - name: Referens
   items:
     - name: 'REST API:er'

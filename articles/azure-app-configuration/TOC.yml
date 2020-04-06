@@ -120,7 +120,7 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2103727'
         - name: Azure SDK för Java Script
           href: 'https://go.microsoft.com/fwlink/?linkid=2103664'
-        - name: REST
+        - name: REST-API
           href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
     - name: Funktionshantering
       items:
@@ -128,6 +128,10 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
         - name: Biblioteket för .NET Core-filter
           href: 'https://go.microsoft.com/fwlink/?linkid=2091601'
+    - name: Konfigurera lagerhantering
+      items:
+        - name: REST-API
+          href: 'https://docs.microsoft.com/rest/api/appconfiguration/'
 - name: Resurser
   items:
     - name: Prissättning

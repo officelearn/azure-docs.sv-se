@@ -15,22 +15,26 @@
     - name: Hantera Kör som-konto för Automation
       href: manage-runas-account.md
       displayName: certificate renewal
-    - name: Konfigurera autentisering med AWS
-      href: automation-config-aws-account.md
-    - name: Kryptering av säkra resurser i Azure Automation
-      href: automation-secure-asset-encryption.md
     - name: Hantera rollbaserad åtkomstkontroll
       href: automation-role-based-access-control.md
       displayName: RBAC
+    - name: Använda Azure AD i Azure Automation för autentisering till Azure
+      href: automation-use-azure-ad.md
+    - name: Hantera Office 365-tjänster med Azure Automation
+      href: manage-office-365.md
+    - name: Konfigurera autentisering med AWS
+      href: automation-config-aws-account.md
+    - name: Kryptera säkra resurser i Azure Automation
+      href: automation-secure-asset-encryption.md
     - name: Flytta ditt Automation-konto till en annan prenumeration
       href: how-to/move-account.md
     - name: Automatisera registrering för Automation Services
       href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
-    - name: Regioner som stöds för mappningar för Log Analytics-arbetsyta
-      href: how-to/region-mappings.md
     - name: Hantera Azure Automation-data
       href: automation-managing-data.md
       displayName: backup
+    - name: Regioner som stöds för mappningar för Log Analytics-arbetsyta
+      href: how-to/region-mappings.md
     - name: Felsöka
       items:
         - name: Felsöka Automation-konton
@@ -56,7 +60,15 @@
     - name: Instruktionsguider
       items:
         - name: Starta/stoppa virtuella datorer utanför arbetstid
-          href: automation-solution-vm-management.md
+          items:
+            - name: Översikt
+              href: automation-solution-vm-management.md
+            - name: Aktivera lösning
+              href: automation-solution-vm-management-enable.md
+            - name: Konfigurera lösning
+              href: automation-solution-vm-management-config.md
+            - name: Analysera data med loggfrågor
+              href: automation-solution-vm-management-logs.md
         - name: Hantera runbook-flöden
           href: manage-runbooks.md
         - name: Skapa runbooks
@@ -317,9 +329,9 @@
       href: shared-resources/credentials.md
     - name: PowerShell-moduler
       items:
-        - name: Moduler
+        - name: Använda moduler i Azure Automation
           href: shared-resources/modules.md
-        - name: Använda Az-moduler i Azure Automation
+        - name: Stöd för Az-moduler i Azure Automation
           href: az-modules.md
         - name: Uppdatera Azure PowerShell-moduler
           href: automation-update-azure-modules.md

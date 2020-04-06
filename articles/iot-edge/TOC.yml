@@ -143,12 +143,18 @@
           href: how-to-auto-provision-x509-certs.md
         - name: Symmetrisk nyckelattestering
           href: how-to-auto-provision-symmetric-keys.md
-    - name: Utveckla och felsöka anpassade moduler
+    - name: Utveckla anpassade moduler
       items:
-        - name: Visual Studio 2019
+        - name: Utveckla med Visual Studio 2019
           href: how-to-visual-studio-develop-module.md
-        - name: Visual Studio-koden
+        - name: Utveckla med Visual Studio Code
           href: how-to-vs-code-develop-module.md
+        - name: Konfigurera modulen createOptions
+          items:
+            - name: Förstå och använda createOptions
+              href: how-to-use-create-options.md
+            - name: Ge moduler åtkomst till en enhets lokala lagring
+              href: how-to-access-host-storage-from-module.md
     - name: Distribuera moduler
       items:
         - name: Distribuera till enskilda enheter
@@ -183,11 +189,9 @@
           href: deploy-modbus-gateway.md
     - name: Konfigurera proxyinställningar
       href: how-to-configure-proxy-support.md
-    - name: Lagra data på gränsen
+    - name: Azure Blob Storage på IoT Edge
       items:
-        - name: Ge moduler åtkomst till en enhets lokala lagring
-          href: how-to-access-host-storage-from-module.md
-        - name: Azure Blob Storage på IoT Edge
+        - name: Förstå Blob Storage på Edge
           href: how-to-store-data-blob.md
         - name: Distribuera bloblagringsmoduler
           href: how-to-deploy-blob.md

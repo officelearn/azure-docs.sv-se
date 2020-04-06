@@ -93,6 +93,8 @@
           href: security-audit-events.md
         - name: Analysera granskningshändelser med Azure Monitor-arbetsböcker
           href: use-azure-monitor-workbooks.md
+        - name: Säker fjärråtkomst till virtuella datorer
+          href: secure-remote-vm-access.md
     - name: Domänansluta virtuella datorer
       items:
         - name: Virtuell Windows Server-dator från mall
@@ -143,13 +145,9 @@
       href: faqs.md
     - name: Tjänstuppdateringar
       href: 'https://azure.microsoft.com/updates/?product=active-directory-ds'
-    - name: Kompatibelt tredjepartsprogram
-      href: compatible-software.md
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/active-directory-ds/'
     - name: Azure AD-feedbackforum
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-    - name: Kontakta oss
-      href: contact-us.md
     - name: Använda Azure AD Domain Services i Azure CSP-prenumerationer
       href: csp.md

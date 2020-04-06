@@ -149,6 +149,8 @@
           items:
             - name: Skrivskyddade repliker
               href: concepts-read-replicas.md
+            - name: Logisk avkodning
+              href: concepts-logical.md
     - name: Hyperskala (Citus)
       items:
         - name: Noder
@@ -269,6 +271,8 @@
           items:
             - name: Azure Portal
               href: howto-data-encryption-portal.md
+            - name: Azure CLI
+              href: howto-data-encryption-cli.md
         - name: Starta om servern
           items:
             - name: Azure Portal

@@ -85,6 +85,10 @@
           items:
             - name: Skapa en Azure Active Directory Domain Services-instans
               href: ../active-directory-domain-services/tutorial-create-instance.md
+    - name: Dokumentation för gränszoner
+      items:
+        - name: Vad är gränszoner?
+          href: ../networking/edge-zones-overview.md
 - name: Haveriberedskap
   items:
     - name: Använda Azure Site Recovery

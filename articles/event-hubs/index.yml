@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: spelluru
   ms.author: spelluru
-  ms.date: 01/29/2020
-  ms.openlocfilehash: 957a942efd618003dd3ff3f9f76be72799770859
-  ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+  ms.date: 03/13/2020
+  ms.openlocfilehash: 24f3c35b41effaaad7aa3058c4a3d3af13739a01
+  ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/26/2020
-  ms.locfileid: "80288299"
+  ms.lasthandoff: 04/01/2020
+  ms.locfileid: "80520319"
 landingContent:
 - title: Om Event Hubs
   linkLists:
@@ -69,8 +69,6 @@ landingContent:
       url: event-hubs-kafka-stream-analytics.md
   - linkListType: how-to-guide
     links:
-    - text: Skapa en Apache Kafka-aktiverad händelsehubb
-      url: event-hubs-create.md
     - text: Spegla en Kafka-broker i en händelsehubb
       url: event-hubs-kafka-mirror-maker-tutorial.md
     - text: Ansluta Apache Spark till en händelsehubb
@@ -99,12 +97,34 @@ landingContent:
       url: event-hubs-storm-getstarted-receive.md
     - text: Go
       url: event-hubs-go-get-started-send.md
+- title: Förhandsversion av Event Hubs på Azure Stack Hub
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Översikt
+      url: /azure-stack/user/event-hubs-overview
+    - text: Gemensam funktionsuppsättning
+      url: /azure-stack/user/event-hubs-overview#features
+  - linkListType: how-to-guide
+    links:
+    - text: Kapacitetsplanering
+      url: /azure-stack/operator/event-hubs-rp-capacity-planning
+    - text: Installationskrav (operatör)
+      url: /azure-stack/operator/event-hubs-rp-prerequisites
+    - text: Installation (operatör)
+      url: /azure-stack/operator/event-hubs-rp-install
+    - text: Använda Blob Storage som kontrollpunktslager
+      url: use-blob-storage-checkpoint-store-azure-stack-hub.md
+  - linkListType: quickstart
+    links:
+    - text: Skapa Event Hubs-kluster
+      url: /azure-stack/user/event-hubs-quickstart-cluster-portal
 - title: Samla in händelser
   linkLists:
   - linkListType: overview
     links:
     - text: Samla in händelser i Azure Blob Storage eller Azure Data Lake Storage
-      url: event-hubs-dedicated-overview.md
+      url: event-hubs-capture-overview.md
   - linkListType: quickstart
     links:
     - text: Använda Azure-portalen för att aktivera händelseinsamling

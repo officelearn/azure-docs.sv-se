@@ -27,7 +27,7 @@
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-logic-apps'
     - name: Snabbstartsmallar för Resource Manager
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic'
-- name: Koncept
+- name: Begrepp
   items:
     - name: Anslutningsappar för Logic Apps
       href: ../connectors/apis-list.md
@@ -37,9 +37,11 @@
       href: logic-apps-serverless-overview.md
     - name: B2B-integrering och EDI-bearbetning
       href: logic-apps-enterprise-integration-overview.md
-    - name: Åtkomst till Azure Virtual Networks
+    - name: Åtkomst till virtuella Azure-nätverk
       href: connect-virtual-network-vnet-isolated-environment-overview.md
-- name: Instruktionsguider
+    - name: Affärskontinuitet och haveriberedskap
+      href: business-continuity-disaster-recovery-guidance.md
+- name: Anvisningar
   items:
     - name: Utveckla
       items:
@@ -366,7 +368,7 @@
       href: logic-apps-pricing.md
     - name: Azure PowerShell
       href: /powershell/module/az.logicapp
-    - name: REST API
+    - name: REST-API
       href: /rest/api/logic/
     - name: Resource Manager-mallreferens
       href: /azure/templates/microsoft.logic/allversions
@@ -389,13 +391,13 @@
           href: logic-apps-track-integration-account-custom-tracking-schema.md
 - name: Resurser
   items:
-    - name: Utveckla din kompetens med Microsoft Learn
+    - name: Utveckla dina färdigheter med Microsoft Learn
       href: 'https://docs.microsoft.com/learn/browse/?products=azure-logic-apps'
     - name: Azure Logic Apps-produktvägledning
       href: 'https://aka.ms/logicappsroadmap/'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/logic-apps/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

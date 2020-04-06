@@ -103,6 +103,8 @@
       href: concepts-tpm-attestation.md
     - name: Symmetrisk nyckelattestering
       href: concepts-symmetric-key-attestation.md
+    - name: Säkerhetsrutiner för enhetstillverkare
+      href: concepts-device-oem-security-practices.md
 - name: Anvisningar
   items:
     - name: Ansluta MXChip IoT DevKit till IoT Hub

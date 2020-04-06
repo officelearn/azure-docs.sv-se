@@ -23,6 +23,9 @@
           href: knowledge-store-create-portal.md
         - name: Fråga med Sökutforskaren
           href: search-explorer.md
+    - name: ARM-mall
+      displayName: Resource Manager
+      href: search-get-started-arm.md
     - name: 'C#'
       href: search-get-started-dotnet.md
     - name: Java
@@ -77,14 +80,6 @@
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=python'
     - name: REST-exempel
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=rest'
-- name: Utbildning
-  items:
-    - name: Introduktion (Microsoft Learn)
-      href: 'https://docs.microsoft.com/learn/modules/intro-to-azure-search/'
-    - name: Lägga till sökning i appar (Pluralsight)
-      href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
-    - name: Developer-kurs (Pluralsight)
-      href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
 - name: Begrepp
   items:
     - name: Fulltextsökning
@@ -261,7 +256,7 @@
           href: search-example-adventureworks-multilevel-faceting.md
     - name: Resultat
       items:
-        - name: Sidrelaterade funktioner
+        - name: Arbeta med resultat
           href: search-pagination-page-layout.md
         - name: Relevansjustering (bedömningsprofiler)
           href: index-add-scoring-profiles.md
@@ -460,6 +455,14 @@
           href: 'https://aka.ms/azjobsdemo'
         - name: Sök bland användarsituationer
           href: 'https://searchsamples.azurewebsites.net/'
+    - name: Utbildning
+      items:
+        - name: Introduktion (Microsoft Learn)
+          href: 'https://docs.microsoft.com/learn/modules/intro-to-azure-search/'
+        - name: Lägga till sökning i appar (Pluralsight)
+          href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
+        - name: Developer-kurs (Pluralsight)
+          href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
     - name: VANLIGA FRÅGOR OCH SVAR
       href: search-faq-frequently-asked-questions.md
     - name: Prissättning

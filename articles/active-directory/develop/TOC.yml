@@ -26,6 +26,8 @@
     - name: Enkelsidiga appar
       displayName: SPA
       items:
+        - name: Angular
+          href: quickstart-v2-angular.md
         - name: JavaScript
           href: quickstart-v2-javascript.md
     - name: Webbappar
@@ -69,6 +71,8 @@
     - name: Enkelsidiga appar
       displayName: SPA
       items:
+        - name: Angular
+          href: tutorial-v2-angular.md
         - name: JavaScript
           href: tutorial-v2-javascript-spa.md
     - name: Webbappar
@@ -94,7 +98,7 @@
           href: tutorial-v2-aspnet-daemon-web-app.md
 - name: Exempel
   href: sample-v2-code.md
-- name: Koncept
+- name: Begrepp
   expanded: true
   items:
     - name: Grundläggande om autentisering
@@ -219,8 +223,12 @@
               href: scenario-mobile-app-configuration.md
             - name: Specifik konfiguration för mobila plattformar
               items:
+                - name: Microsoft Enterprise SSO-plugin-program för Apple-enheter
+                  href: apple-sso-plugin.md
                 - name: Läge för delad enhet för Android-enheter
-                  href: shared-device-mode.md
+                  href: msal-android-shared-devices.md
+                - name: Läge för delad enhet för iOS-enheter
+                  href: msal-ios-shared-devices.md
                 - name: Xamarin Android
                   href: msal-net-xamarin-android-considerations.md
                 - name: Systemwebbläsare på Android
@@ -308,6 +316,17 @@
           href: msal-handling-exceptions.md
         - name: Loggning
           href: msal-logging.md
+        - name: Delade enheter
+          items:
+            - name: Översikt – delade enheter
+              href: msal-shared-devices.md
+              displayName: 'shared device mode, firstline worker, frontline worker'
+            - name: Läge för delad enhet för iOS-enheter
+              href: msal-ios-shared-devices.md
+              displayName: 'firstline worker, frontline worker'
+            - name: Läge för delad enhet för Android-enheter
+              href: msal-android-shared-devices.md
+              displayName: 'firstline worker, frontline worker'
         - name: Enkel inloggning
           displayName: SSO
           items:
@@ -441,7 +460,7 @@
           href: /azure/active-directory/manage-apps/user-provisioning
         - name: Skapa och integrera en SCIM-slutpunkt
           href: /azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Autentisering
       items:

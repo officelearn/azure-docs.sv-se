@@ -3,15 +3,15 @@ title: Granska resursanvändningen i Azure-tjänster med REST API
 description: Lär dig hur du använder Azure REST-API:er för att granska resursanvändning i Azure-tjänster.
 author: lleonard-msft
 ms.service: cost-management-billing
-ms.topic: article
-ms.date: 02/12/2020
+ms.topic: reference
+ms.date: 03/31/2020
 ms.author: banders
-ms.openlocfilehash: 337523c489089eeae5d669252b61cc61478ae1b3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 60a9e17b16f0b539693beb987b4d0610d11a3050
+ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202853"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80521206"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Granska Azure-resursanvändning med hjälp av REST API
 
@@ -32,7 +32,9 @@ Content-Type: application/json
 Authorization: Bearer
 ```
 
-Parametern `{subscriptionGuid}` är obligatorisk och ska innehålla ett prenumerations-ID som kan läsas med hjälp av de autentiseringsuppgifter som anges i API-token. `{reportName}`
+Parametern `{subscriptionGuid}` är obligatorisk och ska innehålla ett prenumerations-ID som kan läsas med hjälp av de autentiseringsuppgifter som anges i API-token. 
+
+Parametern `{reportName}` anger rapportens namn. Om du vill hämta en lista över rapportnamn kan du använda åtgärden Reports_List för att hämta en lista: `/subscriptions/{subscriptionId}/providers/Microsoft.CostManagement/reports`. Visa exempel på utdata på [GitHub](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/cost-management/resource-manager/Microsoft.CostManagement/preview/2018-08-01-preview/examples/ReportList.json).
 
 Följande huvuden krävs:
 

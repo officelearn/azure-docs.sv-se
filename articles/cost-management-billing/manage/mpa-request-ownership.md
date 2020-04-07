@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: c4366b272aab160828afca927f6432c98a8fecd7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: da16e0898f08e1cca602ca5927bce82ed32353fe
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79370737"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80437865"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Få faktureringsägarskap för Azure-prenumerationer till ditt MPA-konto
 
@@ -139,7 +139,7 @@ Azure Marketplace-produkter som är tillgängliga för prenumerationer som hante
 
 ### <a name="azure-reservations-transfer"></a>Överföring av Azure-reservationer
 
-Azure Reservations flyttas inte automatiskt med prenumerationer. Du kan antingen behålla reservationen för andra prenumerationer eller [annullera reservationen](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations) och partner kan köpa tillbaka i CSP. 
+Azure-reservationer flyttas inte automatiskt med prenumerationer. Du kan antingen behålla reservationen för andra prenumerationer eller [annullera reservationen](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations) och partner kan köpa tillbaka i CSP. 
 
 ### <a name="access-to-azure-services"></a>Åtkomst till Azure-tjänster
 

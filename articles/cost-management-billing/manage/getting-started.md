@@ -1,19 +1,19 @@
 ---
-title: Förhindra oväntade kostnader och hantera fakturering i Azure
-description: Lär dig hur du undviker oväntade avgifter på din Azure-faktura. Använd kostnadsspårning och hanteringsfunktioner för ditt Azure-konto.
+title: Förhindra och analysera oväntade avgifter med Azure Cost Management och fakturering
+description: Lär dig hur du undviker oväntade kostnader på din Azure-faktura och använder kostnadsspårnings-och hanteringsfunktioner för ditt Azure-konto.
 author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 3/11/2020
+ms.date: 3/30/2020
 ms.author: banders
-ms.openlocfilehash: 0e0003b3adfdb6ebba49bd8d014fc0ba287ca3aa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 79af6f78e8e9bf93c49deafe79f6a421cbb77d1a
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238150"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475256"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Förhindra oväntade avgifter med Azure-fakturering och kostnadshantering
 
@@ -112,11 +112,6 @@ Välj **Kostnad** till vänster. Du ser rekommendationer som kan åtgärdas på 
 
 Gå igenom självstudien [Optimera kostnader från rekommendationer](../costs/tutorial-acm-opt-recommendations.md) för en guidad självstudie om Advisor-rekommendationer för kostnadsbesparing.
 
-## <a name="review-charges-against-your-latest-invoice"></a>Gå igenom avgifterna på din senaste faktura
-
-Fakturan blir tillgänglig i slutet av faktureringsperioden. Du kan [ladda ned fakturor och detaljerade användningsfiler](download-azure-invoice-daily-usage-date.md) för att jämföra dem och kontrollera att du debiteras korrekt. Mer information om hur du jämför din dagliga användning med din faktura finns i [Förstå fakturan för Microsoft Azure](../understand/review-individual-bill.md).
-
-Om du använder Azure via ett Microsoft-kundavtal (MCA) kan du också [jämföra fakturan med transaktionerna](../understand/review-customer-agreement-bill.md#review-invoiced-transactions-in-the-azure-portal) för att förstå avgifterna på din faktura.
 
 ## <a name="integrate-with-billing-and-consumption-apis"></a>Integrera med API:er för fakturering och förbrukning
 
@@ -178,9 +173,65 @@ För vissa tjänster måste särskilda krav vara uppfyllda för att serviceavtal
 
 Mer information finns i avsnittet [Servicenivåavtal](https://azure.microsoft.com/support/legal/sla/) och [Sammanfattning av serviceavtal för Azure-tjänster](https://azure.microsoft.com/support/legal/sla/summary/).
 
-## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
+## <a name="analyze-unexpected-charges"></a>Analysera oväntade kostnader
 
-Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
+Den infrastruktur du skapat för organisationens molnresurser är förmodligen komplex. Många Azure-resurstyper kan ha olika typer av avgifter. Azure-resurser kan ägas av olika team i organisationen och de kan ha olika typer av faktureringsmodeller som gäller för olika resurser. För att få en bättre förståelse för avgifterna kan du göra en analys med hjälp av en eller flera av strategierna i följande avsnitt.
+
+### <a name="review-your-invoice-and-identify-the-resource-that-is-responsible-for-the-charge"></a>Granska din faktura och identifiera vilken resurs som bär ansvaret för avgiften
+
+Hur du köper Azure-tjänster hjälper dig att avgöra vilken metodik och vilka verktyg som är tillgängliga när du identifierar vilken resurs som är kopplad till en avgift. För att avgöra vilken metod som gäller för dig bör du först [identifiera din typ av Azure-erbjudande](../costs/understand-cost-mgt-data.md#determine-your-offer-type). Identifiera sedan din kundkategori i listan med [Azure-erbjudanden som stöds](../costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers).
+
+Följande artiklar innehåller detaljerade anvisningar som förklarar hur du granskar din faktura baserat på kundtyp. I varje artikel finns anvisningar om hur du hämtar en CSV-fil som innehåller användnings- och kostnadsinformation för en viss faktureringsperiod.
+
+- [Process för granskning av faktura för betala per användning](../understand/review-individual-bill.md#compare-invoiced-charges-with-usage-file)
+- [Process för granskning av faktura för Enterprise-avtal](../understand/review-enterprise-agreement-bill.md)
+- [Process för att granska Microsoft-kundavtal](../understand/review-customer-agreement-bill.md#analyze-your-azure-usage-charges)
+- [Process för att granska Microsoft-partneravtal](../understand/review-partner-agreement-bill.md#analyze-your-azure-usage-charges)
+
+På din Azure-faktura samlas avgifter för månaden per _mätare_. Mätare används för att spåra en resurs användning över tid och används för att beräkna din faktura. När du skapar en enskild Azure-resurs, till exempel en virtuell dator, skapas en eller flera mätare för den resursen.
+
+Filtrera CSV-filen över användning på _Mätarnamn_ som det visas på den faktura du vill analysera för att se alla poster som gäller den mätaren. _Instans-ID_ för radposten motsvarar den faktiska Azure-resursen som gett upphov till kostnaden.
+
+När du har identifierat den aktuella resursen kan du använda Kostnadsanalys i Azure Cost Management för att vidare analysera kostnaderna för resursen. Läs mer om att använda kostnadsanalys i [Börja analysera kostnader](../costs/quick-acm-cost-analysis.md).
+
+### <a name="identify-spikes-in-cost-over-time"></a>Identifiera toppar i kostnaderna över tid
+
+Ibland kanske du inte vet vilka kostnader som har lett till förändringar av de fakturerade avgifterna. För att förstå vad som har förändrats kan du använda Kostnadsanalys för att [visa en uppdelning per dag eller månad av kostnaderna över tid](../costs/cost-analysis-common-uses.md#view-costs-per-day-or-by-month). När du har skapat vyn ska du gruppera dina avgifter efter antingen **tjänst** eller **resurs** för att identifiera ändringarna. Du kan också ändra vyn till ett **linje**diagram för att visualisera data bättre.
+
+![Exempel som visar kostnader över tid i kostnadsanalys](./media/getting-started/costs-over-time.png)
+
+### <a name="determine-resource-pricing-and-understand-its-billing-model"></a>Fastställa resurspriser och förstå faktureringsmodellen
+
+En enskild resurs kan ge upphov till kostnader på flera Azure-produkter och -tjänster. Se sidan med [Azure-priser per produkt](https://azure.microsoft.com/pricing/#product-pricing) för att läsa mer om priserna för respektive Azure-tjänst. Till exempel kan en enskild virtuell dator (VM) som skapats i Azure ha följande mätare som skapas för att spåra dess användning. Var och en kan ha olika priser.
+
+- Beräkningstimmar
+- IP-adresstimmar
+- Inkommande dataöverföring
+- Utgående dataöverföring
+- Standard – hanterad disk
+- Standard – åtgärder för hanterad disk
+- Standard – I/O-disk
+- Standard – I/O-blockblobsläsning
+- Standard – I/O-blockblobsskrivning
+- Standard – I/O-blockblobsborttagning
+
+När den virtuella datorn skapas börjar varje mätare att skicka användningsposter. Användningen och priset för mätaren spåras i Azure-mätarsystemet. Du kan se de mätare som användes för att beräkna din faktura i CSV-filen för användning.
+
+### <a name="find-the-people-responsible-for-the-resource-and-engage-them"></a>Hitta de användare som ansvarar för resursen och engagera dem
+
+Ofta vet det team som ansvarar för en viss resurs vilka ändringar som har gjorts för en resurs. Att engagera dem är till hjälp eftersom du får veta varför kostnaderna kanske uppkommer. Det ägnade teamet kanske till exempel nyligen har skapat resursen, uppdaterat dess SKU (och därmed ändrat resurstaxan) eller ökat belastningen på resursen på grund av kodändringar. Fortsätt att läsa nedanstående avsnitt för mer information om hur du kan avgöra vem som äger en resurs.
+
+#### <a name="analyze-the-audit-logs-for-the-resource"></a>Analysera spårningsloggarna för resursen
+
+Om du har behörighet att visa en resurs bör du även ha åtkomst till dess spårningsloggar. Granska loggarna för att ta reda på vilken användare som är ansvarig för de senaste ändringarna av en resurs. Mer information finns i [Visa och hämta Azure aktivitetslogghändelser](../../azure-monitor/platform/activity-log-view.md).
+
+#### <a name="analyze-user-permissions-to-the-resources-parent-scope"></a>Analysera användarbehörigheter till resursens överordnade omfång
+
+Användare som har skrivåtkomst till en prenumeration eller resursgrupp har ofta information om de resurser som skapats. De bör kunna förklara syftet med en resurs eller hänvisa dig till någon som vet. Mer information om att identifiera användare med behörighet för ett prenumerationsomfång finns i [Visa rolltilldelningar](../../role-based-access-control/check-access.md#view-role-assignments). Du kan använda en liknande process för resursgrupper.
+
+### <a name="get-help-to-identify-charges"></a>Få hjälp med att identifiera kostnader
+
+Om du har använt ovanstående strategier och fortfarande inte förstår varför du har debiterats en kostnad, eller om du behöver hjälp med andra fakturafrågor, kan du [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig mer om hur du använder [utgiftsgränser](spending-limit.md) för att förhindra överförbrukning.

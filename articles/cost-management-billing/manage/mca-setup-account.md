@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 24f7a81b267e858d16ae0805f9c7ab384be3b2fc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 81b6b8a7024de9ff3361e24cb14190d479e50681
+ms.sourcegitcommit: 2a09565db8681cdb76607e7ed51eecf68f4ff8f0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200650"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80258064"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Konfigurera ditt faktureringskonto för ett Microsoft-kundavtal
 
@@ -80,8 +80,8 @@ Ditt nya faktureringskonto förenklar faktureringen för din organisation och ge
 
 1. Du använder faktureringskontot för att hantera faktureringen för ditt Microsoft-kundavtal. Enterprise-administratörer blir ägare till faktureringskontot. Mer information om faktureringskonto finns i [förstå faktureringskonto](../understand/mca-overview.md#your-billing-account).
 2. Du använder faktureringsprofilen för att hantera faktureringen för din organisation på ett liknande sätt som för din Enterprise-avtalsregistrering. Företagsadministratörer blir ägare till faktureringsprofilen. Mer information om faktureringsprofiler finns i [förstå faktureringsprofiler](../understand/mca-overview.md#billing-profiles).
-3. Du kan använda ett fakturaavsnitt för att organisera dina kostnader utifrån dina behov, ungefär som avdelningar i din Enterprise-avtalsregistrering. Avdelning blir fakturaavsnitt, och avdelningsadministratörer blir ägare av respektive fakturaavsnitt. Mer information om fakturaavsnitt finns i [förstå fakturaavsnitt](../understand/mca-overview.md#invoice-sections).
-4. De konton som skapades i ditt Enterprise-avtal stöds inte på det nya faktureringskontot. Kontots prenumerationer tillhör respektive fakturaavsnitt för deras avdelning. Kontoägare kan skapa och hantera prenumerationer för sina fakturaavsnitt.
+3. Du kan använda ett fakturaavsnitt för att organisera dina kostnader utifrån dina behov, ungefär som avdelningar i din Enterprise-avtalsregistrering. Avdelning blir fakturaavsnitt, och avdelningsadministratörer blir ägare av respektive fakturaavsnitt. Mer information om fakturaavsnitt finns i [Förstå fakturaavsnitt](../understand/mca-overview.md#invoice-sections).
+4. De konton som skapades i ditt Enterprise-avtal stöds inte i det nya faktureringskontot. Kontots prenumerationer tillhör respektive fakturaavsnitt för deras avdelning. Kontoägare kan skapa och hantera prenumerationer för sina fakturaavsnitt.
 
 ## <a name="changes-to-billing-administrator-access"></a>Ändringar av faktureringsadministratörers åtkomst
 
@@ -115,7 +115,7 @@ Meddelandekontakter får e-postmeddelanden om Azure Enterprise-avtalet. De stöd
 
 ### <a name="spending-quotas"></a>Utgiftskvoter
 
-Utgiftskvoter som angavs för avdelningar i din Enterprise-avtalsregistrering ersätts med budgetar i det nya faktureringskontot. En budget skapas för varje utgiftskvot som angetts för avdelningar i din registrering. Mer information om budgetar finns i [skapa och hantera Azure-budgetar](../cloudyn/manage-budgets.md).
+Utgiftskvoter som angavs för avdelningar i din Enterprise-avtalsregistrering ersätts med budgetar i det nya faktureringskontot. En budget skapas för varje utgiftskvot som angetts för avdelningar i din registrering. Mer information om budgetar finns i [Självstudie: Skapa och hantera Azure-budgetar](../costs/tutorial-acm-create-budgets.md).
 
 ### <a name="cost-centers"></a>Kostnadsställen
 

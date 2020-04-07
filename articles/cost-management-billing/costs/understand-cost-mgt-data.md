@@ -7,12 +7,12 @@ ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.openlocfilehash: 2af84ccf679d28251e34f4c76ced38b0cb653a58
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6e27f34572eef7d50c7b140c65cb78c6d0678fa8
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79203023"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80477606"
 ---
 # <a name="understand-cost-management-data"></a>Förstå Cost Management-data
 
@@ -94,9 +94,9 @@ Följande tabeller visar data som ingår eller inte ingår i Cost Management. Al
 
 _<sup>**5**</sup> Användning av Azure-tjänster baseras på reservationer och förhandlade priser._
 
-_<sup>**6**</sup> Marketplace-inköp är inte tillgängliga för Betala per användning, MSDN och Visual Studio för tillfället._
+_<sup>**6**</sup> Marketplace-inköp är inte tillgängliga för MSDN och Visual Studio för tillfället._
 
-_<sup>**7**</sup> Reservationsköp är endast tillgängliga för Enterprise-avtalskonton (EA) för tillfället._
+_<sup>**7**</sup> Reservationsköp är endast tillgängliga för Enterprise-avtalskonton (EA) och Microsoft-kundavtalskonton för tillfället._
 
 ## <a name="how-tags-are-used-in-cost-and-usage-data"></a>Hur taggar används i kostnads- och användningsdata
 

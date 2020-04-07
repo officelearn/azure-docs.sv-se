@@ -18,6 +18,14 @@
       items:
         - name: Brandvägg för webbaserade program på Azure CDN
           href: ./cdn/cdn-overview.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Application Gateway
+      items:
+        - name: Distribuera WAF v2 – ARM-mall
+          displayName: Resource Manager
+          href: ./ag/quick-create-template.md
 - name: Självstudier
   items:
     - name: Application Gateway

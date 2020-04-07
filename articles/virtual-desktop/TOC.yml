@@ -88,6 +88,10 @@
       href: app-attach.md
     - name: Använda Microsoft Teams
       href: teams-on-wvd.md
+    - name: Konfigurera multifaktorautentisering i Azure
+      href: set-up-mfa.md
+    - name: Installera språkpaket
+      href: language-packs.md
 - name: Begrepp
   items:
     - name: Windows Virtual Desktop-miljö

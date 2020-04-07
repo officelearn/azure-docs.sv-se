@@ -456,8 +456,6 @@
           href: speech-sdk.md
         - name: Scenariotillgänglighet
           href: scenario-availability.md
-        - name: Skicka ett program
-          href: ship-application.md
     - name: Snabbstart
       items:
         - name: Konfigurera Speech SDK
@@ -472,6 +470,9 @@
         - name: Konfigurera OpenSSL för Linux
           displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
           href: how-to-configure-openssl-linux.md
+        - name: Konfigurera RHEL/CentOS 7
+          href: how-to-configure-rhel-centos-7.md
+          displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentOS'
     - name: Exempel
       items:
         - name: Speech SDK-exempel (GitHub)

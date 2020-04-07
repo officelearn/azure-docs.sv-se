@@ -77,6 +77,8 @@
           href: troubleshoot-guide-critical-process-died.md
         - name: Viktig tjänst misslyckades
           href: troubleshoot-critical-service-failed-boot-error.md
+        - name: Den virtuella datorn svarar inte när principen för lokala användare och grupper tillämpas
+          href: troubleshoot-vm-unresponsive-group-policy-local-users.md
         - name: Ingen startbar disk
           href: troubleshoot-guide-not-bootable-disk.md
         - name: Omstartningsloop
@@ -87,6 +89,8 @@
           href: troubleshoot-vm-boot-configure-update.md
         - name: Den virtuella datorn kan inte starta på grund av Windows Boot Manager
           href: troubleshoot-guide-windows-boot-manager-menu.md
+        - name: Den virtuella datorn svarar inte på grund av uppdatering
+          href: unresponsive-vm-apply-windows-update.md
 - name: Det går inte att ansluta till min virtuella dator
   items:
     - name: RDP

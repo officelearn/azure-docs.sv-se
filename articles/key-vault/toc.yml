@@ -75,6 +75,8 @@
           href: overview-security.md
         - name: Säkerhetsbaslinje
           href: security-baseline.md
+        - name: Inbyggd säkerhet
+          href: key-vault-security-controls.md
         - name: Säkerhetsvärldar
           href: key-vault-ovw-security-worlds.md
         - name: Säkra ditt nyckelvalv

@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: fe35dc4c22f3852934cde0d6f33084b56266d514
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e3c33bb7493f07d9fbf19710f21d0114e7abec8
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73807690"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757081"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database trafikmigrering till nyare gateways
 
@@ -54,7 +54,7 @@ Du kommer inte att påverkas om du har:
 
 Vi rekommenderar att du tillåter utgående trafik till IP-adresser för alla [AZURE SQL Database gateway IP-adresser](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) i regionen på TCP-port 1433 och portintervall 11000-11999. Den här rekommendationen gäller klienter som ansluter från lokala och även de som ansluter via Service-slutpunkter. Mer information om portintervall finns i [Anslutningsprincip](sql-database-connectivity-architecture.md#connection-policy).
 
-Anslutningar som görs från program som använder Microsoft JDBC Driver nedan version 4.0 kan misslyckas certifikatvalidering. Lägre versioner av Microsoft JDBC är beroende av common name (CN) i fältet Ämne i certifikatet. Begränsningen är att säkerställa att egenskapen hostNameInCertificate är inställd på *.database.windows.net. Mer information om hur du anger egenskapen hostNameInCertificate finns i [Ansluta med SSL-kryptering](/sql/connect/jdbc/connecting-with-ssl-encryption).
+Anslutningar som görs från program som använder Microsoft JDBC Driver nedan version 4.0 kan misslyckas certifikatvalidering. Lägre versioner av Microsoft JDBC är beroende av common name (CN) i fältet Ämne i certifikatet. Begränsningen är att säkerställa att egenskapen hostNameInCertificate är inställd på *.database.windows.net. Mer information om hur du anger egenskapen hostNameInCertificate finns i [Ansluta med kryptering](/sql/connect/jdbc/connecting-with-ssl-encryption).
 
 Om ovanstående begränsning inte fungerar kan du lämna in en supportbegäran för SQL Database med följande URL:https://aka.ms/getazuresupport
 

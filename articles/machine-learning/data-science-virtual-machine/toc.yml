@@ -6,9 +6,9 @@
   items:
     - name: Vad är Data Science Virtual Machine (DSVM)?
       href: overview.md
-    - name: Vad är en Data Science Virtual Machine med Geo AI?
+    - name: Vad är Geo AI Data Science Virtual Machine?
       href: geo-ai-dsvm-overview.md
-    - name: Verktyg som ingår i din Data Science Virtual Machine
+    - name: Verktyg som ingår i Data Science Virtual Machine
       href: tools-included.md
 - name: Snabbstarter
   expanded: true
@@ -17,11 +17,9 @@
       href: provision-vm.md
     - name: Skapa en Data Science Virtual Machine med Ubuntu
       href: dsvm-ubuntu-intro.md
-    - name: Skapa en Data Science Virtual Machine med CentOS
-      href: linux-dsvm-intro.md
     - name: Skapa en Data Science Virtual Machine med Geo AI
       href: provision-geo-ai-dsvm.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Ramverk för djupinlärning och AI
       href: dsvm-tools-deep-learning-frameworks.md
@@ -41,7 +39,7 @@
       href: dsvm-enterprise-overview.md
 - name: Exempel
   href: dsvm-samples-and-walkthroughs.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Så använder du en Data Science Virtual Machine med Windows
       href: vm-do-ten-things.md
@@ -51,7 +49,7 @@
       href: use-geo-ai-dsvm.md
     - name: Skapa en Data Science Virtual Machine-pool som skalas om automatiskt
       href: dsvm-pools.md
-    - name: Integrering med Active Directory
+    - name: integrera med Active Directory
       href: dsvm-common-identity.md
     - name: Skydda autentiseringsuppgifter för resursåtkomst
       href: dsvm-secure-access-keys.md
@@ -67,8 +65,6 @@
   items:
     - name: Data Science Virtual Machine med Ubuntu
       href: reference-ubuntu-vm.md
-    - name: Data Science Virtual Machine med CentOS
-      href: reference-centos-vm.md
     - name: Viktig information
       href: release-notes.md
     - name: Kända problem

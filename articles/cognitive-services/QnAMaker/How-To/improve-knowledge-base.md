@@ -2,13 +2,13 @@
 title: Förbättra kunskapsbasen - QnA Maker
 description: Förbättra kvaliteten på din kunskapsbas med aktivt lärande. Granska, acceptera eller avvisa, lägg till utan att ta bort eller ändra befintliga frågor.
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: 1eb0ed42f700c14350a5e4f1eff9b7592cbf8ef6
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.date: 04/06/2020
+ms.openlocfilehash: 7fafc23eaf21099ebb974da226d07c351fa19699
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80474895"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756740"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Acceptera aktivt lärande föreslagna frågor i kunskapsbasen
 
@@ -33,7 +33,7 @@ För att kunna se föreslagna frågor måste du [aktivera aktiv inlärning](use-
 
 1. Varje QnA-par föreslår de nya frågealternativen med bock, `✔` `x` för att acceptera frågan eller avvisa förslagen. Markera kryssrutan för att lägga till frågan.
 
-    [![Markera eller avvisa aktiva utbildningsalternativ för aktivt lärande genom att markera den gröna bocken eller den röda borttagningsmarkeringen.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
+    [![Markera eller avvisa aktiva utbildningsalternativ för aktivt lärande genom att markera den gröna bocken eller den röda borttagningsmarkeringen.](../media/improve-knowledge-base/accept-active-learning-suggestions-small.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
     Du kan lägga till eller ta bort _alla förslag_ genom att välja Lägg **till alla** eller Avvisa **alla** i det kontextuella verktygsfältet.
 

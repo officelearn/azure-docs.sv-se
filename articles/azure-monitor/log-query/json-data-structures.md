@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 8be4f318149590ff08b73fda719e99a17220ec2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f792820b7b0dff20e647031410ba87ac26c2495a
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670159"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672963"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Arbeta med JSON och datastrukturer i Azure Monitor-loggfrågor
 
@@ -48,7 +48,7 @@ print hosts_report
 Om det bara finns ett element kan du bara använda punktateringen:
 
 ```Kusto
-let hosts_report='{"location":"North_DC", "status":"running", "rate":5}';
+let hosts_report=dynamic({"location":"North_DC", "status":"running", "rate":5});
 print hosts_report 
 | extend status = hosts_report.status
 ```
@@ -131,5 +131,5 @@ Se andra lektioner för att använda loggfrågor i Azure Monitor:
 - [Aggregeringsfunktioner](aggregations.md)
 - [Avancerade aggregeringar](advanced-aggregations.md)
 - [Avancerad frågeskrivning](advanced-query-writing.md)
-- [Går](joins.md)
+- [Kopplingar](joins.md)
 - [Diagram](charts.md)

@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: e321df3f27defdceab31fe3b425a4169928ba3f6
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 0d768581b8f1a177190da08986af8b60b4861432
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631937"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744209"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Azure Synapse Analytics -arkitektur (tidigare SQL DW)
 
@@ -66,7 +66,7 @@ Kontrollnoden är arkitekturens hjärna. Det är den som är klientdelen som int
 
 Beräkningsnoderna ger dataresurser. Distributioner mappas till Beräkningsnoder för bearbetning. När du betalar för fler beräkningsresurser mappas distributioner om till tillgängliga beräkningsnoder. Antalet beräkningsnoder varierar från 1 till 60 och bestäms av tjänstnivån för Synapse SQL.
 
-Varje beräkningsnod har ett nod-ID som visas i systemvyer. Du kan se beräkningsnod-ID:t genom att leta efter node_id kolumn i systemvyer vars namn börjar med sys.pdw_nodes. En lista över dessa systemvyer finns i [MPP-systemvyer](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7).
+Varje beräkningsnod har ett nod-ID som visas i systemvyer. Du kan se beräkningsnod-ID:t genom att leta efter node_id kolumn i systemvyer vars namn börjar med sys.pdw_nodes. En lista över dessa systemvyer finns i [MPP-systemvyer](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### <a name="data-movement-service"></a>Data Movement Service
 

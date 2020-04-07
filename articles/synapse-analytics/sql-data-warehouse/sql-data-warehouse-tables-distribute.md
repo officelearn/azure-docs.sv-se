@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8a93f3ada8e56853b78321bdc7d99a667cee6158
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 04255fb6fdf83e7249fad01c75425943b580393c
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583507"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742861"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Vägledning för att utforma distribuerade tabeller i Synapse SQL-pool
 
 Rekommendationer för att utforma delade och round-robin-distribuerade tabeller i Synapse SQL-pooler.
 
-Den här artikeln förutsätter att du är bekant med datadistribution och datarörelsebegrepp i Synapse SQL-pool.Mer information finns i [Azure Synapse Analytics massivt parallell bearbetning (MPP) arkitektur](massively-parallel-processing-mpp-architecture.md). 
+Den här artikeln förutsätter att du är bekant med datadistribution och datarörelsebegrepp i Synapse SQL-pool.Mer information finns i [Azure Synapse Analytics massivt parallell bearbetning (MPP) arkitektur](massively-parallel-processing-mpp-architecture.md).
 
 ## <a name="what-is-a-distributed-table"></a>Vad är en distribuerad tabell?
 
@@ -30,33 +30,32 @@ En distribuerad tabell visas som en enda tabell, men raderna lagras faktiskt öv
 
 **Hash-distribuerade tabeller** förbättrar frågeprestanda på stora faktatabeller och är i fokus för den här artikeln. **Round-robin-bord** är användbara för att förbättra lasthastigheten. Dessa designval har en betydande inverkan på att förbättra fråge- och inläsningsprestanda.
 
-Ett annat tabelllagringsalternativ är att replikera en liten tabell över alla beräkningsnoder. Mer information finns i [Designvägledning för replikerade tabeller](design-guidance-for-replicated-tables.md). Mer snabbt välja bland de tre alternativen finns i Distribuerade tabeller i [tabellöversikten](sql-data-warehouse-tables-overview.md). 
+Ett annat tabelllagringsalternativ är att replikera en liten tabell över alla beräkningsnoder. Mer information finns i [Designvägledning för replikerade tabeller](design-guidance-for-replicated-tables.md). Mer snabbt välja bland de tre alternativen finns i Distribuerade tabeller i [tabellöversikten](sql-data-warehouse-tables-overview.md).
 
 Som en del av tabelldesign, förstå så mycket som möjligt om dina data och hur data efterfrågas.Tänk dig till exempel följande frågor:
 
-- Hur stort är bordet?   
-- Hur ofta uppdateras tabellen?   
-- Har jag fakta- och dimensionstabeller i en Synapse SQL-pool?   
-
+- Hur stort är bordet?
+- Hur ofta uppdateras tabellen?
+- Har jag fakta- och dimensionstabeller i en Synapse SQL-pool?
 
 ### <a name="hash-distributed"></a>Hash distribueras
 
-En hash-distribuerad tabell distribuerar tabellrader över beräkningsnoderna med hjälp av en deterministisk hash-funktion för att tilldela varje rad till en [fördelning](massively-parallel-processing-mpp-architecture.md#distributions). 
+En hash-distribuerad tabell distribuerar tabellrader över beräkningsnoderna med hjälp av en deterministisk hash-funktion för att tilldela varje rad till en [fördelning](massively-parallel-processing-mpp-architecture.md#distributions).
 
 ![Distribuerad tabell](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Distribuerad tabell")  
 
-Eftersom identiska värden alltid hash till samma distribution, har informationslagret inbyggd kunskap om radplatserna. I Synapse SQL-pool används den här kunskapen för att minimera datarörelser under frågor, vilket förbättrar frågeprestanda. 
+Eftersom identiska värden alltid hash till samma distribution, har informationslagret inbyggd kunskap om radplatserna. I Synapse SQL-pool används den här kunskapen för att minimera datarörelser under frågor, vilket förbättrar frågeprestanda.
 
-Hash-distribuerade tabeller fungerar bra för stora faktatabeller i ett stjärnschema. De kan ha ett mycket stort antal rader och ändå uppnå hög prestanda. Det finns naturligtvis vissa designöverväganden som hjälper dig att få den prestanda som det distribuerade systemet är utformat för att tillhandahålla. Att välja en bra distributionskolumn är ett sådant övervägande som beskrivs i den här artikeln. 
+Hash-distribuerade tabeller fungerar bra för stora faktatabeller i ett stjärnschema. De kan ha ett mycket stort antal rader och ändå uppnå hög prestanda. Det finns naturligtvis vissa designöverväganden som hjälper dig att få den prestanda som det distribuerade systemet är utformat för att tillhandahålla. Att välja en bra distributionskolumn är ett sådant övervägande som beskrivs i den här artikeln.
 
 Överväg att använda en hash-distribuerad tabell när:
 
 - Tabellstorleken på disken är mer än 2 GB.
-- Tabellen har frekventa infognings-, uppdaterings- och borttagningsåtgärder. 
+- Tabellen har frekventa infognings-, uppdaterings- och borttagningsåtgärder.
 
 ### <a name="round-robin-distributed"></a>Rödhake distribueras
 
-En distribuerad round robin-tabell fördelar tabellrader jämnt över alla fördelningar. Tilldelningen av rader till fördelningar är slumpmässig. Till skillnad från hash-distribuerade tabeller garanteras inte rader med samma värden att tilldelas samma fördelning. 
+En distribuerad round robin-tabell fördelar tabellrader jämnt över alla fördelningar. Tilldelningen av rader till fördelningar är slumpmässig. Till skillnad från hash-distribuerade tabeller garanteras inte rader med samma värden att tilldelas samma fördelning.
 
 Därför måste systemet ibland anropa en dataförflyttningsåtgärd för att bättre ordna dina data innan den kan lösa en fråga.  Det här extra steget kan göra dina frågor långsammare. För att till exempel gå med i en round-robin-tabell krävs vanligtvis omfördelning av raderna, vilket är en prestandaträff.
 
@@ -71,11 +70,11 @@ Därför måste systemet ibland anropa en dataförflyttningsåtgärd för att b�
 
 Självstudien [Läs in New York-taxicab-data](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) ger ett exempel på inläsning av data i en mellanlagringstabell för round-robin.
 
-
 ## <a name="choosing-a-distribution-column"></a>Välja en distributionskolumn
+
 En hash-distribuerad tabell har en distributionskolumn som är hash-tangenten. Följande kod skapar till exempel en hash-distribuerad tabell med ProductKey som distributionskolumn.
 
-```SQL
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (   [ProductKey]            int          NOT NULL
 ,   [OrderDateKey]          int          NOT NULL
@@ -91,12 +90,13 @@ WITH
 ,  DISTRIBUTION = HASH([ProductKey])
 )
 ;
-``` 
+```
 
-Att välja en distributionskolumn är ett viktigt designbeslut eftersom värdena i den här kolumnen avgör hur raderna fördelas. Det bästa valet beror på flera faktorer, och vanligtvis innebär kompromisser. Om du inte väljer den bästa kolumnen första gången kan du använda [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) för att återskapa tabellen med en annan distributionskolumn. 
+Att välja en distributionskolumn är ett viktigt designbeslut eftersom värdena i den här kolumnen avgör hur raderna fördelas. Det bästa valet beror på flera faktorer, och vanligtvis innebär kompromisser. Om du inte väljer den bästa kolumnen första gången kan du använda [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att återskapa tabellen med en annan distributionskolumn.
 
 ### <a name="choose-a-distribution-column-that-does-not-require-updates"></a>Välj en distributionskolumn som inte kräver uppdateringar
-Du kan inte uppdatera en distributionskolumn om du inte tar bort raden och infogar en ny rad med de uppdaterade värdena. Välj därför en kolumn med statiska värden. 
+
+Du kan inte uppdatera en distributionskolumn om du inte tar bort raden och infogar en ny rad med de uppdaterade värdena. Välj därför en kolumn med statiska värden.
 
 ### <a name="choose-a-distribution-column-with-data-that-distributes-evenly"></a>Välj en distributionskolumn med data som distribueras jämnt
 
@@ -108,8 +108,8 @@ För bästa prestanda bör alla fördelningar ha ungefär samma antal rader. Nä
 Om du vill balansera den parallella bearbetningen väljer du en distributionskolumn som:
 
 - **Har många unika värden.** Kolumnen kan ha vissa dubblettvärden. Alla rader med samma värde tilldelas dock samma distribution. Eftersom det finns 60 fördelningar bör kolumnen ha minst 60 unika värden.  Vanligtvis är antalet unika värden mycket större.
-- **Har inte NULLs, eller har bara ett fåtal NULLs.** Om alla värden i kolumnen är NULL tilldelas alla rader till samma fördelning om alla värden i kolumnen är NULL. Därför är frågebearbetningen skev till en distribution och drar inte nytta av parallell bearbetning. 
-- **Är inte en datumkolumn**. Alla data för samma datum hamnar i samma fördelning. Om flera användare alla filtrerar på samma datum, gör endast 1 av de 60 distributionerna allt bearbetningsarbete. 
+- **Har inte NULLs, eller har bara ett fåtal NULLs.** Om alla värden i kolumnen är NULL tilldelas alla rader till samma fördelning om alla värden i kolumnen är NULL. Därför är frågebearbetningen skev till en distribution och drar inte nytta av parallell bearbetning.
+- **Är inte en datumkolumn**. Alla data för samma datum hamnar i samma fördelning. Om flera användare alla filtrerar på samma datum, gör endast 1 av de 60 distributionerna allt bearbetningsarbete.
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Välj en distributionskolumn som minimerar datarörelser
 
@@ -118,20 +118,22 @@ Om du vill hämta rätt frågeresultatfrågor kan data flyttas från en beräkni
 Om du vill minimera dataflyttningen väljer du en distributionskolumn som:
 
 - Används i `JOIN` `GROUP BY`, `DISTINCT` `OVER`, `HAVING` , och satser. När två stora faktatabeller har frekventa kopplingar förbättras frågeprestanda när du distribuerar båda tabellerna i en av kopplingskolumnerna.  När en tabell inte används i kopplingar bör du överväga att `GROUP BY` distribuera tabellen i en kolumn som ofta finns i satsen.
-- Används *inte* `WHERE` i satser. Detta kan begränsa frågan så att den inte körs på alla distributioner. 
+- Används *inte* `WHERE` i satser. Detta kan begränsa frågan så att den inte körs på alla distributioner.
 - Är *inte* en datumkolumn. WHERE-satser filtrerar ofta efter datum.  När detta händer kan all bearbetning köras på endast ett fåtal distributioner.
 
 ### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>Vad du ska göra när ingen av kolumnerna är en bra distributionskolumn
 
 Om ingen av kolumnerna har tillräckligt med distinkta värden för en distributionskolumn kan du skapa en ny kolumn som en blandning av ett eller flera värden. Om du vill undvika dataflyttning under frågekörning använder du kolumnen sammansatt distribution som en kopplingskolumn i frågor.
 
-När du har utformat en hash-distribuerad tabell är nästa steg att läsa in data i tabellen.  Läs in översikt [.](design-elt-data-loading.md) 
+När du har utformat en hash-distribuerad tabell är nästa steg att läsa in data i tabellen.  Läs in översikt [.](design-elt-data-loading.md)
 
 ## <a name="how-to-tell-if-your-distribution-column-is-a-good-choice"></a>Så här berättar du om distributionskolumnen är ett bra val
-När data har lästs in i en hash-distribuerad tabell kontrollerar du hur jämnt raderna fördelas över de 60 distributionerna. Raderna per fördelning kan variera upp till 10 % utan märkbar inverkan på prestanda. 
+
+När data har lästs in i en hash-distribuerad tabell kontrollerar du hur jämnt raderna fördelas över de 60 distributionerna. Raderna per fördelning kan variera upp till 10 % utan märkbar inverkan på prestanda.
 
 ### <a name="determine-if-the-table-has-data-skew"></a>Ta reda på om tabellen har datasnedställning
-Ett snabbt sätt att söka efter data skeva är att använda [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). Följande SQL-kod returnerar antalet tabellrader som lagras i var och en av de 60 distributionerna. För balanserad prestanda bör raderna i den distribuerade tabellen fördelas jämnt över alla fördelningar.
+
+Ett snabbt sätt att söka efter data skeva är att använda [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Följande SQL-kod returnerar antalet tabellrader som lagras i var och en av de 60 distributionerna. För balanserad prestanda bör raderna i den distribuerade tabellen fördelas jämnt över alla fördelningar.
 
 ```sql
 -- Find data skew for a distributed table
@@ -159,6 +161,7 @@ order by two_part_name, row_count
 ```
 
 ### <a name="check-query-plans-for-data-movement"></a>Kontrollera frågeplaner för dataflyttning
+
 En bra distributionskolumn gör det möjligt för kopplingar och aggregeringar att ha minimal datarörelse. Detta påverkar hur kopplingar ska skrivas. Om du vill få minimal dataförflyttning för en koppling i två hash-distribuerade tabeller måste en av kopplingskolumnerna vara distributionskolumnen.  När två hash-distribuerade tabeller kopplas till i en distributionskolumn av samma datatyp kräver kopplingen inte dataförflyttning. Kopplingar kan använda ytterligare kolumner utan att medföra dataförflyttning.
 
 Så här undviker du datarörelser under en koppling:
@@ -170,8 +173,8 @@ Så här undviker du datarörelser under en koppling:
 
 Om du vill se om frågor upplever dataröra kan du titta på frågeplanen.  
 
-
 ## <a name="resolve-a-distribution-column-problem"></a>Lösa ett problem med distributionskolumnen
+
 Det är inte nödvändigt att lösa alla fall av data skeva. Att distribuera data handlar om att hitta rätt balans mellan att minimera datasnedställning och dataförflyttning. Det är inte alltid möjligt att minimera både datasnedställning och dataförflyttning. Ibland kan fördelen med att ha minimal dataförflyttning uppväga effekten av att ha data skeva.
 
 För att avgöra om du ska lösa datasnedställning i en tabell bör du förstå så mycket som möjligt om datavolymer och frågor i din arbetsbelastning. Du kan använda stegen i artikeln [Frågeövervakning](sql-data-warehouse-manage-monitor.md) för att övervaka hur skeva är på frågeprestanda. Mer specifikt, leta efter hur lång tid det tar stora frågor att slutföra på enskilda distributioner.
@@ -179,7 +182,8 @@ För att avgöra om du ska lösa datasnedställning i en tabell bör du förstå
 Eftersom du inte kan ändra distributionskolumnen i en befintlig tabell är det vanliga sättet att lösa datasnedvning att återskapa tabellen med en annan distributionskolumn.  
 
 ### <a name="re-create-the-table-with-a-new-distribution-column"></a>Återskapa tabellen med en ny distributionskolumn
-I det här exemplet används [SKAPA TABELL SOM SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) för att återskapa en tabell med en annan hash-distributionskolumn.
+
+I det här exemplet används [SKAPA TABELL SOM SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att återskapa en tabell med en annan hash-distributionskolumn.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey]
@@ -221,7 +225,5 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 Om du vill skapa en distribuerad tabell använder du någon av dessa satser:
 
-- [SKAPA TABELL (Synapse SQL-pool)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [SKAPA TABELL SOM SELECT (Synapse SQL-pool)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
-
-
+- [SKAPA TABELL (Synapse SQL-pool)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [SKAPA TABELL SOM SELECT (Synapse SQL-pool)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

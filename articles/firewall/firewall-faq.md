@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 45276884d59ac8d1d876e2225ac02bb51c3f74fc
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 5ddbb58837fbda0f14a07186d5a3053055954454
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437731"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677439"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor och svar om Azure-brandväggen
 
@@ -212,4 +212,8 @@ Set-AzFirewall -AzureFirewall $fw
 
 ## <a name="why-can-a-tcp-ping-and-similar-tools-successfully-connect-to-a-target-fqdn-even-when-no-rule-on-azure-firewall-allows-that-traffic"></a>Varför kan en TCP-ping och liknande verktyg ansluta till ett mål FQDN även när ingen regel på Azure Firewall tillåter den trafiken?
 
-En TCP-ping ansluter faktiskt inte till målet FQDN. Detta beror på att Azure Firewall transparent proxy lyssnar på port 80/443 för utgående trafik. TCP-ping upprättar en anslutning till brandväggen, som sedan släpper paketet och loggar anslutningen. Det här beteendet har ingen säkerhetspåverkan. Men för att undvika förvirring undersöker vi potentiella ändringar av detta beteende. 
+En TCP-ping ansluter faktiskt inte till målet FQDN. Detta beror på att Azure Firewall transparent proxy lyssnar på port 80/443 för utgående trafik. TCP-ping upprättar en anslutning till brandväggen, som sedan släpper paketet och loggar anslutningen. Det här beteendet har ingen säkerhetspåverkan. Men för att undvika förvirring undersöker vi potentiella ändringar av detta beteende.
+
+## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>Finns det gränser för antalet IP-adresser som stöds av IP-grupper?
+
+Ja. Mer information finns i [Azure-prenumerations- och tjänstgränser, kvoter och begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)

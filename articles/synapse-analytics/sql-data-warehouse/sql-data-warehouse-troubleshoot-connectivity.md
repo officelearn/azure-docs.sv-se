@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 08fb0a6675d18370482abe9b1d7b9a0d9ee5c364
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 8aaca40961b1294336b236305ecdffcc92c5a4d9
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633009"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742588"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>Felsökning av anslutningsproblem
 
@@ -79,14 +79,14 @@ Kontrollera att du använder de senaste verktygen för att ansluta till din Syna
 
 Kontrollera att du använder de senaste drivrutinsversionerna.Om du använder en äldre version av drivrutinerna kan det leda till oväntade beteenden eftersom de äldre drivrutinerna kanske inte stöder nya funktioner.
 
-- [ODBC](/sql/connect/odbc/download-odbc-driver-for-sql-server)
-- [JDBC](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server)
-- [OLE DB](/sql/connect/oledb/download-oledb-driver-for-sql-server)
-- [PHP](/sql/connect/php/download-drivers-php-sql-server)
+- [ODBC](/sql/connect/odbc/download-odbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [JDBC](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [OLE DB](/sql/connect/oledb/download-oledb-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [PHP](/sql/connect/php/download-drivers-php-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="check-your-connection-string"></a>Kontrollera anslutningssträngen
 
-Se till att anslutningssträngarna är inställda på rätt sätt.  Nedan följer några prover.  Du kan läsa mer om [anslutningssträngar här](/sql-data-warehouse/sql-data-warehouse-connection-strings.md).
+Se till att anslutningssträngarna är inställda på rätt sätt.  Nedan följer några prover.  Du kan läsa mer om [anslutningssträngar här](sql-data-warehouse-connection-strings.md).
 
 ADO.NET-anslutningssträng
 
@@ -122,4 +122,4 @@ Fel 40914 och 40615, se [felbeskrivning och lösning här](../../sql-database/sq
 
 ## <a name="still-having-connectivity-issues"></a>Har du fortfarande anslutningsproblem?
 
-Skapa en [supportbiljett](/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md) så att ingenjörsteamet kan stödja dig.
+Skapa en [supportbiljett](sql-data-warehouse-get-started-create-support-ticket.md) så att ingenjörsteamet kan stödja dig.

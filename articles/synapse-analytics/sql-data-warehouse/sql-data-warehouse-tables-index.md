@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: d5acc2b69ed521af4fd4777dc9f3496290078379
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 0d63f2c29bfdbdf320185647bd33ec30500ed874
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583277"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742705"
 ---
 # <a name="indexing-tables-in-synapse-sql-pool"></a>Indexera tabeller i Synapse SQL-pool
 
@@ -24,9 +24,9 @@ Rekommendationer och exempel för indexering av tabeller i Synapse SQL-pool.
 
 ## <a name="index-types"></a>Indextyper
 
-Synapse SQL pool erbjuder flera indexeringsalternativ, inklusive [klustrade columnstore index,](/sql/relational-databases/indexes/columnstore-indexes-overview) [klustrade index och icke-grupperade index,](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described)och en icke-index alternativ även känd som [hög](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
+Synapse SQL pool erbjuder flera indexeringsalternativ, inklusive [klustrade columnstore index,](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [klustrade index och icke-grupperade index,](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)och en icke-index alternativ även känd som [hög](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
 
-Om du vill skapa en tabell med ett index finns i dokumentationen [skapa tabell (Synapse SQL-pool).](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+Om du vill skapa en tabell med ett index finns i dokumentationen [skapa tabell (Synapse SQL-pool).](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="clustered-columnstore-indexes"></a>Grupperade columnstore-index
 
@@ -230,7 +230,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 
 Logga in som användare från steg 1 (t.ex. LoadUser), som nu använder en högre resursklass, och kör ALTER INDEX-satserna. Se till att den här användaren har ALTER-behörighet till de tabeller där indexet byggs om. De här exemplen visar hur du återskapar hela columnstore-indexet eller hur du återskapar en enda partition. På stora tabeller är det mer praktiskt att återskapa index en enda partition i taget.
 
-Alternativt kan du kopiera tabellen till en ny tabell med [CTAS](sql-data-warehouse-develop-ctas.md)i stället för att återskapa indexet. Vilken väg är bäst? För stora datavolymer är CTAS vanligtvis snabbare än [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). För mindre datavolymer är ALTER INDEX enklare att använda och kräver inte att du byter ut tabellen.
+Alternativt kan du kopiera tabellen till en ny tabell med [CTAS](sql-data-warehouse-develop-ctas.md)i stället för att återskapa indexet. Vilken väg är bäst? För stora datavolymer är CTAS vanligtvis snabbare än [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). För mindre datavolymer är ALTER INDEX enklare att använda och kräver inte att du byter ut tabellen.
 
 ```sql
 -- Rebuild the entire clustered index
@@ -252,7 +252,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-Att återskapa ett index i Synapse SQL-pool är en offlineåtgärd.  Mer information om hur du återskapar index finns i avsnittet ALTER INDEX REBUILD i [Defragmentering](/sql/relational-databases/indexes/columnstore-indexes-defragmentation)för Kolumnstore Index och [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
+Att återskapa ett index i Synapse SQL-pool är en offlineåtgärd.  Mer information om hur du återskapar index finns i avsnittet ALTER INDEX REBUILD i [Defragmentering](/sql/relational-databases/indexes/columnstore-indexes-defragmentation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)för Kolumnstore Index och [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Steg 3: Kontrollera klustrade columnstore segment kvalitet har förbättrats
 
@@ -260,7 +260,7 @@ Kör frågan igen som identifierade tabellen med dålig segmentkvalitet och veri
 
 ## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>Återskapa index med CTAS och partitionsväxling
 
-I det här exemplet används [UTTRYCKET SKAPA TABELL AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) och partitionsväxling för att återskapa en tabellpartition.
+I det här exemplet används [UTTRYCKET SKAPA TABELL AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) och partitionsväxling för att återskapa en tabellpartition.
 
 ```sql
 -- Step 1: Select the partition of data and write it out to a new table using CTAS

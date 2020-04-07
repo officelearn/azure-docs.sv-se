@@ -3,12 +3,12 @@ title: Översikt över Azure Blueprint
 description: Förstå hur Azure Blueprints-tjänsten gör att du kan skapa, definiera och distribuera artefakter i din Azure-miljö.
 ms.date: 11/21/2019
 ms.topic: overview
-ms.openlocfilehash: 07d84d658d88e977cd73176861e5c5e080c02857
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4787f2d559daffcbf5d4057ac381f0f7e1ae0c57
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74321767"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677416"
 ---
 # <a name="what-is-azure-blueprints"></a>Vad är Azure Blueprint?
 
@@ -22,17 +22,17 @@ Skisser är en deklarativ metod för att dirigera distribution av flera resursma
 - Resursgrupper
 
 Azure Blueprints-tjänsten backas av det globalt distribuerade [Azure Cosmos DB](../../cosmos-db/introduction.md).
-Skissobjekt replikeras till flera Azure-regioner. Replikeringen ger låg svarstid, hög tillgänglighet och konsekvent åtkomst till dina skissobjekt, oavsett vilken region Blueprints distribuerar dina resurser till.
+Skissobjekt replikeras till flera Azure-regioner. Den här replikeringen ger låg latens, hög tillgänglighet och konsekvent åtkomst till dina skissobjekt, oavsett vilken region Azure Blueprints distribuerar dina resurser till.
 
 ## <a name="how-its-different-from-resource-manager-templates"></a>Så här skiljer de sig från Resource Manager-mallar
 
 Tjänsten är utformad för att hjälpa till med att _konfigurera miljön_. Den här konfigurationen består ofta av en uppsättning resursgrupper, principer, rolltilldelningar och Resource Manager-malldistributioner. En skiss är ett paket som ska sammanföra var och en av dessa _artefakttyper_ och gör att du kan skriva och skapa en version för paketet – inklusive via en CI/CD-pipeline. Slutligen tilldelas varje skiss till en prenumeration i en enda åtgärd som kan granskas och spåras.
 
-Nästan allt du vill inkludera för distribution i skisser kan åstadkommas med en Resource Manager-mall. Men en Resource Manager-mall är ett dokument som inte finns inbyggt i Azure – var och en är lagrad lokalt eller i källkontrollen. Mallen används för distribution av en eller flera Azure-resurser, men när resurserna har distribuerats finns det ingen aktiv anslutning eller relation till mallen.
+Nästan allt som du vill inkludera för distribution i Azure Blueprints kan utföras med en Resource Manager-mall. Men en Resource Manager-mall är ett dokument som inte finns inbyggt i Azure – var och en är lagrad lokalt eller i källkontrollen. Mallen används för distribution av en eller flera Azure-resurser, men när resurserna har distribuerats finns det ingen aktiv anslutning eller relation till mallen.
 
-Med skisser finns relationen mellan skissdefinitionen (vad _ ska _ distribuera) och skisstilldelningen (_vad har_ distribuerat) kvar. Den här anslutningen har stöd för förbättrad spårning och granskning av distributioner. Skisser kan också uppgradera flera prenumerationer på samma gång som regleras av samma skiss.
+Med Azure Blueprints bevaras relationen mellan skissdefinitionen (vad _som ska distribueras)_ och skisstilldelningen (vad som har _distribuerats)._ Den här anslutningen har stöd för förbättrad spårning och granskning av distributioner. Azure Blueprints kan också uppgradera flera prenumerationer samtidigt som styrs av samma skiss.
 
-Du behöver inte välja mellan en Resource Manager-mall och en skiss. Varje skiss kan bestå av noll eller flera Resource Manager-mall-_artefakter_. Det innebär att tidigare arbete med att utveckla och underhålla ett bibliotek med Resource Manager-mallar kan användas igen i Skisser.
+Du behöver inte välja mellan en Resource Manager-mall och en skiss. Varje skiss kan bestå av noll eller flera Resource Manager-mall-_artefakter_. Det här stödet innebär att tidigare insatser för att utveckla och underhålla ett bibliotek med Resource Manager-mallar kan återanvändas i Azure Blueprints.
 
 ## <a name="how-its-different-from-azure-policy"></a>Hur det skiljer sig från Azure Policy
 
@@ -46,7 +46,7 @@ En princip kan ingå som en av flera _artefakter_ i en definition av skisser. Me
 
 ## <a name="blueprint-definition"></a>Definition av skisser
 
-En skiss består av _artefakter_. Skisser stöder för närvarande följande resurser som artefakter:
+En skiss består av _artefakter_. Azure Blueprints stöder för närvarande följande resurser som artefakter:
 
 |Resurs  | Hierarkialternativ| Beskrivning  |
 |---------|---------|---------|

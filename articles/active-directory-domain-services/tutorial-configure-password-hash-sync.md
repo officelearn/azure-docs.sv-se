@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 93e5ee9b46fb3387b70dd5092f72efcaa8a2bc19
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4bf85a8e38a3cfc46fe4dbaf86639899e7267178
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79239170"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676613"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Självstudiekurs: Aktivera lösenordssynkronisering i Azure Active Directory Domain Services för hybridmiljöer
 
@@ -68,7 +68,7 @@ Med Azure AD Connect installerat och konfigurerat för synkronisering med Azure 
 
     I det här exemplet används följande kopplingar:
 
-    * Azure AD-kopplingen heter *aaddscontoso.onmicrosoft.com - AAD*
+    * Azure AD-kopplingen heter *contoso.onmicrosoft.com - AAD*
     * Den lokala AD DS-kopplingen får namnet *onprem.contoso.com*
 
 1. Kopiera och klistra in följande PowerShell-skript på datorn med Azure AD Connect installerat. Skriptet utlöser en fullständig lösenordssynkronisering som innehåller äldre lösenordsharningar. Uppdatera `$azureadConnector` variablerna och `$adConnector` variablerna med kopplingsnamnen från föregående steg.

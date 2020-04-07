@@ -3,12 +3,12 @@ title: Säkerhetskopiera och återställa virtuella Azure-datorer med PowerShell
 description: Beskriver hur du säkerhetskopierar och återställer virtuella Azure-datorer med Azure Backup med PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 733a06a84aa170f1361ea74d126ec9752586fce2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d1074eea3d530b17904e2f49fba7c0d24e84e59
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247987"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743288"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Säkerhetskopiera och återställa virtuella Azure-datorer med PowerShell
 
@@ -199,7 +199,7 @@ En princip för skydd för säkerhetskopiering är associerad med minst en bevar
 Som standard definieras en starttid i schemaprincipobjektet. Använd följande exempel för att ändra starttiden till önskad starttid. Den önskade starttiden bör också vara i UTC. I exemplet nedan förutsätter att önskad starttid är 01:00 UTC för dagliga säkerhetskopior.
 
 ```powershell
-$schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM" -VaultId $targetVault.ID
+$schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM" 
 $UtcTime = Get-Date -Date "2019-03-20 01:00:00Z"
 $UtcTime = $UtcTime.ToUniversalTime()
 $schpol.ScheduleRunTimes[0] = $UtcTime
@@ -211,7 +211,7 @@ $schpol.ScheduleRunTimes[0] = $UtcTime
 I följande exempel lagras schemaprincipen och bevarandeprincipen i variabler. I exemplet används dessa variabler för att definiera parametrarna när du skapar en skyddsprincip, *NewPolicy*.
 
 ```powershell
-$retPol = Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM" -VaultId $targetVault.ID
+$retPol = Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM" 
 New-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -WorkloadType "AzureVM" -RetentionPolicy $retPol -SchedulePolicy $schPol -VaultId $targetVault.ID
 ```
 
@@ -324,6 +324,20 @@ Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol -VaultId $targetVau
 ````
 
 Standardvärdet blir 2, användaren kan ställa in värdet med en minut på 1 och max 5. För veckovisa principer för säkerhetskopiering är perioden inställd på 5 och kan inte ändras.
+
+#### <a name="creating-azure-backup-resource-group-during-snapshot-retention"></a>Skapa Azure Backup-resursgrupp under kvarhållning av ögonblicksbilder
+
+> [!NOTE]
+> Från Azure PS version 3.7.0 och framåt kan man skapa och redigera resursgruppen som skapats för att lagra omedelbara ögonblicksbilder.
+
+Mer information om regler för att skapa resursgrupper och annan relevant information finns i [Azure Backup-resursgruppen för](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines) dokumentation av virtuella datorer.
+
+```powershell
+$bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -name "DefaultPolicyForVMs"
+$bkpPol.AzureBackupRGName="Contosto_"
+$bkpPol.AzureBackupRGNameSuffix="ForVMs"
+Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+```
 
 ### <a name="trigger-a-backup"></a>Utlösa en säkerhetskopia
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 4b6d954d06f09bef5240bddc4860ddbc83513d69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82efa70b30e829cfedd0b1fa7a21fd06949aa6d5
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79220857"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744140"
 ---
 # <a name="language-and-region-support-for-luis"></a>Språk- och regionstöd för LUIS
 
@@ -35,18 +35,25 @@ LUIS förstår yttranden på följande språk:
 | Amerikansk engelska |`en-US` | ✔ | ✔  |✔|✔|
 | Arabiska (förhandsvisning - modern standard arabiska) |`ar-AR`|-|-|-|-|
 | *[Kinesiska](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
-| Nederländska |`nl-NL` |✔|  -   |-|✔|
+| Nederländska |`nl-NL` |✔|-|-|✔|
 | Franska (Frankrike) |`fr-FR` |✔| ✔ |✔ |✔|
-| Franska (Kanada) |`fr-CA` |-|   -   |-|✔|
+| Franska (Kanada) |`fr-CA` |-|-|-|✔|
 | Tyska |`de-DE` |✔| ✔ |✔ |✔|
-| Hindi | `hi-IN`|-|-|-|-|
+| Gujarati | `gu-IN`|-|-|-|-|
+| Hindi | `hi-IN`|-|✔|-|-|
 | Italienska |`it-IT` |✔| ✔ |✔|✔|
 | *[Japanska](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Endast nyckelfras|
-| Koreansk |`ko-KR` |✔|   -   |-|Endast nyckelfras|
+| Koreansk |`ko-KR` |✔|-|-|Endast nyckelfras|
+| Marathi | `mr-IN`|-|-|-|-|
 | Portugisiska (Brasilien) |`pt-BR` |✔| ✔ |✔ |inte alla underkulturer|
 | Spanska (Spanien) |`es-ES` |✔| ✔ |✔|✔|
-| Spanska (Mexiko)|`es-MX` |-|  -   |✔|✔|
-| Turkiska | `tr-TR` |✔|-|-|Endast känsla|
+| Spanska (Mexiko)|`es-MX` |-|-|✔|✔|
+| Tamilska | `ta-IN`|-|-|-|-|
+| Telugu | `te-IN`|-|-|-|-|
+| Turkiska | `tr-TR` |✔|✔|-|Endast känsla|
+
+
+
 
 Språkstöd varierar för [fördefinierade entiteter](luis-reference-prebuilt-entities.md) och [fördefinierade domäner](luis-reference-prebuilt-domains.md).
 
@@ -77,22 +84,28 @@ Hybridspråk kombinerar ord från två kulturer som engelska och kinesiska. Dess
 ## <a name="tokenization"></a>Tokenisering
 För att utföra maskininlärning bryter LUIS ett uttryck i [token baserat](luis-glossary.md#token) på kultur.
 
-|Språk|  varje utrymme eller specialtecken | teckennivå|sammansatta ord|[tokeniserad entitet returnerad](luis-concept-data-extraction.md#tokenized-entity-returned)
-|--|:--:|:--:|:--:|:--:|
-|Arabiska|||||
-|Kinesiska||✔||✔|
-|Nederländska|||✔|✔|
-|Engelska (en-us)|✔ ||||
-|Franska (fr-FR)|✔||||
-|Franska (fr-CA)|✔||||
-|Tyska|||✔|✔|
-| Hindi |✔|-|-|-|-|
-|Italienska|✔||||
-|Japanska||||✔|
-|Koreansk||✔||✔|
-|Portugisiska (Brasilien)|✔||||
-|Spanska (es-ES)|✔||||
-|Spanska (es-MX)|✔||||
+|Språk|  varje utrymme eller specialtecken | teckennivå|sammansatta ord
+|--|:--:|:--:|:--:|
+|Arabiska|✔|||
+|Kinesiska||✔||
+|Nederländska|✔||✔|
+|Engelska (en-us)|✔ |||
+|Franska (fr-FR)|✔|||
+|Franska (fr-CA)|✔|||
+|Tyska|✔||✔|
+|Gujarati|✔|||
+|Hindi|✔|||
+|Italienska|✔|||
+|Japanska|||✔
+|Koreansk||✔||
+|Marathi|✔|||
+|Portugisiska (Brasilien)|✔|||
+|Spanska (es-ES)|✔|||
+|Spanska (es-MX)|✔|||
+|Tamilska|✔|||
+|Telugu|✔|||
+|Turkiska|✔|||
+
 
 ### <a name="custom-tokenizer-versions"></a>Anpassade tokenizerversioner
 
@@ -102,6 +115,9 @@ Följande kulturer har anpassade tokenizerversioner:
 |--|--|--|
 |Tyska<br>`de-de`|1.0.0|Tokenizes ord genom att dela upp dem med hjälp av en maskininlärningsbaserad tokenizer som försöker dela upp sammansatta ord i sina enskilda komponenter.<br>Om en användare `Ich fahre einen krankenwagen` anger som ett uttryck, `Ich fahre einen kranken wagen`vrids den till . Tillåta märkning `kranken` av `wagen` och oberoende som olika enheter.|
 |Tyska<br>`de-de`|1.0.2|Tokenizes ord genom att dela dem på mellanslag.<br> Om en användare `Ich fahre einen krankenwagen` anger som ett uttryck förblir det en enda token. Således `krankenwagen` är markerad som en enda enhet. |
+|Nederländska<br>`de-de`|1.0.0|Tokenizes ord genom att dela upp dem med hjälp av en maskininlärningsbaserad tokenizer som försöker dela upp sammansatta ord i sina enskilda komponenter.<br>Om en användare `Ik ga naar de kleuterschool` anger som ett uttryck, `Ik ga naar de kleuter school`vrids den till . Tillåta märkning `kleuter` av `school` och oberoende som olika enheter.|
+|Nederländska<br>`de-de`|1.0.1|Tokenizes ord genom att dela dem på mellanslag.<br> Om en användare `Ik ga naar de kleuterschool` anger som ett uttryck förblir det en enda token. Således `kleuterschool` är markerad som en enda enhet. |
+
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migrera mellan tokenizerversioner
 <!--

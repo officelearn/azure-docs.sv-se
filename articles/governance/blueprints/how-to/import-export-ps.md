@@ -3,16 +3,16 @@ title: Importera och exportera ritningar med PowerShell
 description: Lär dig hur du arbetar med dina skissdefinitioner som kod. Dela, källkontroll och hantera dem med hjälp av export- och importkommandona.
 ms.date: 09/03/2019
 ms.topic: how-to
-ms.openlocfilehash: fc7b9818072665d79deaf8a456868943e8428730
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 98bd21aad944346a17d8bdce7fb74c0eb8be2ed7
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74873207"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677141"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importera och exportera skissdefinitioner med PowerShell
 
-Azure Blueprints kan hanteras fullständigt via Azure-portalen. Som organisationer förväg i sin användning av ritningar, bör de börja tänka på skiss definitioner som hanterad kod. Detta begrepp kallas ofta infrastruktur som kod (IaC). Att behandla dina skissdefinitioner som kod ger ytterligare fördelar utöver vad Azure Portal erbjuder. Dessa fördelar inkluderar:
+Azure Blueprints kan hanteras fullständigt via Azure-portalen. När organisationer avancerar i sin användning av Azure Blueprints bör de börja tänka på skissdefinitioner som hanterad kod. Detta begrepp kallas ofta infrastruktur som kod (IaC). Att behandla dina skissdefinitioner som kod ger ytterligare fördelar utöver vad Azure Portal erbjuder. Dessa fördelar inkluderar:
 
 - Dela ritningsdefinitioner
 - Säkerhetskopiera dina ritningsdefinitioner

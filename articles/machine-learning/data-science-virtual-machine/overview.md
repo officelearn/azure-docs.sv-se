@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 04/02/2020
-ms.openlocfilehash: 074b547917b65a411d2b1d1b2f094156828eef78
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 03bfee258fe96d90c32b6a305b99856a11d9a087
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631383"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754980"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>Vad är Virtual Machine för Azure Data Science för Linux och Windows?
 
@@ -26,7 +26,7 @@ DSVM finns på:
 + **Windows Server 2019**
 + **Ubuntu 18,04 LTS**
 + Windows Server 2016
-+ Ubuntu 16,04 LTS och CentOS 7,4
++ Ubuntu 16.04 LTS
 
 > [!NOTE]
 > Alla VM-verktyg för djupinlärning har vikts in i virtual machine för datavetenskap. 
@@ -68,9 +68,9 @@ Du kan använda DSVM för att utvärdera eller lära dig nya [datavetenskapsverk
 
 I DSVM kan dina träningsmodeller använda djupinlärningsalgoritmer på maskinvara som baseras på grafikprocessorer (GPU:er). Genom att dra nytta av den virtuella datorns skalningsfunktioner för Azure-plattformen hjälper DSVM dig att använda GPU-baserad maskinvara i molnet efter dina behov. Du kan växla till en GPU-baserad virtuell dator när du tränar stora modeller, eller när du behöver höghastighetsberäkningar samtidigt som du behåller samma OS-disk. Du kan välja någon av N-serien GPU-aktiverade virtuella dator SKU:er med DSVM. Observera att kostnadsfria Azure-konton inte stöder GPU-aktiverade SKU:er för virtuella datorer.
 
-Windows Server 2016-utgåvan av DSVM levereras förinstallerad med GPU-drivrutiner, ramverk och GPU-versioner av ramverk för djupinlärning. På Linux-utgåvan är djupinlärning på GPU:er aktiverat på både CentOS och Ubuntu DSVMs. 
+Windows-utgåvorna av DSVM levereras förinstallerade med GPU-drivrutiner, ramverk och GPU-versioner av ramverk för djupinlärning. På Linux-utgåvan är djupinlärning på GPU:er aktiverat på Ubuntu DSVMs. 
 
-Du kan också distribuera Ubuntu-, CentOS- eller Windows 2016-utgåvan av DSVM till en virtuell Azure-dator som inte baseras på GPU:er. I det här fallet kommer alla ramverk för djupinlärning att falla tillbaka till CPU-läget.
+Du kan också distribuera Ubuntu- eller Windows-utgåvorna av DSVM till en virtuell Azure-dator som inte baseras på GPU:er. I det här fallet kommer alla ramverk för djupinlärning att falla tillbaka till CPU-läget.
 
 [Läs mer om tillgängliga ramverk för djupinlärning och AI](dsvm-tools-deep-learning-frameworks.md).
 
@@ -89,5 +89,4 @@ Läs mer med följande artiklar:
 
 + Linux:
   + [Konfigurera en Linux DSVM (Ubuntu)](dsvm-ubuntu-intro.md)
-  + [Konfigurera en Linux DSVM (CentOS)](linux-dsvm-intro.md)
   + [Datavetenskap på en Linux DSVM](linux-dsvm-walkthrough.md)

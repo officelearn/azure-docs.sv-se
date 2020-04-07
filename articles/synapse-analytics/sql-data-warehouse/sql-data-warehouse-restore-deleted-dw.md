@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 251fdb83e848aaac3a5391320df23149ce1bce33
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: d2e2fdb181b553d330368b043b75159e211dd0d2
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633053"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745123"
 ---
 # <a name="restore-a-deleted-sql-pool-using-azure-synapse-analytics"></a>Återställa en borttagen SQL-pool med Azure Synapse Analytics
 
@@ -30,9 +30,9 @@ I den här artikeln lär du dig att återställa en SQL med antingen Azure-porta
 
 ## <a name="restore-a-deleted-data-warehouse-through-powershell"></a>Återställa ett borttaget informationslager via PowerShell
 
-Om du vill återställa en borttagen SQL-pool använder du cmdleten [Restore-AzSqlDatabase.](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) Om även motsvarande logiska server har tagits bort kan du inte återställa informationslagret.
+Om du vill återställa en borttagen SQL-pool använder du cmdleten [Restore-AzSqlDatabase.](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Om även motsvarande logiska server har tagits bort kan du inte återställa informationslagret.
 
-1. Innan du börjar, se till att [installera Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+1. Innan du börjar, se till att [installera Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Öppna PowerShell.
 3. Anslut till ditt Azure-konto och lista alla prenumerationer som är kopplade till ditt konto.
 4. Välj den prenumeration som innehåller det borttagna informationslager som ska återställas.

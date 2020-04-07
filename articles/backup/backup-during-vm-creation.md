@@ -3,12 +3,12 @@ title: Aktivera säkerhetskopiering när du skapar en virtuell Azure-dator
 description: Beskriver hur du aktiverar säkerhetskopiering när du skapar en Virtuell Azure-dator med Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 0cfea6579791c4fd23c1b7acdfe722d57b5ec2fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7739109eb8bad88c9b723e67e13adc78c127499a
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247857"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672812"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Aktivera säkerhetskopiering när du skapar en virtuell Azure-dator
 
@@ -64,6 +64,8 @@ Punkter att notera:
 5. Du kan redigera namnet på RG genom att ändra principen om och när det behövs. Om namnmönstret ändras skapas nya RPs i den nya RG.If the name pattern is changed, new RPs will be created in the new RG. De gamla RPs-skivorna finns dock fortfarande kvar i den gamla RG:et och flyttas inte, eftersom RP-samlingen inte stöder resursflyttning. Så småningom RPs kommer att få skräp samlas in när poängen löper ut.
 ![Ändra namn vid ändring av princip](./media/backup-during-vm-creation/modify-policy.png)
 6. Det rekommenderas att inte låsa resursgruppen som skapats för användning av säkerhetskopieringstjänsten.
+
+Information om hur du konfigurerar azure backup-resursgruppen för virtuella datorer med PowerShell läser du [Skapa Azure Backup-resursgrupp under bevarande av ögonblicksbilder](backup-azure-vms-automation.md#creating-azure-backup-resource-group-during-snapshot-retention).
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>Starta en säkerhetskopia när du har skapat den virtuella datorn
 

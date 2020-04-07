@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: a0547243ddf114d5c9f7034f182a5e76d8c3e016
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 872eec62e7a629d76533aa6c9906cbdb64c32236
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75369430"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745554"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introduktion till fönsterfunktioner i Stream Analytics
 
@@ -35,7 +35,7 @@ Hoppande fönster hoppar framåt i tid med en fast period. Det kan vara enklare 
 ![Hoppfönster för Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 
 ## <a name="sliding-window"></a>Skjutfönster
-Skjutbara fönsterfunktioner, till skillnad från Tumbling- eller Hopping-fönster, ger **bara** en utdata när en händelse inträffar. Varje fönster innehåller minst en händelse och fönstret flyttas kontinuerligt framåt med en epsilon (€). Precis som i hoppande fönster kan händelser tillhöra mer än ett skjutfönster.
+Skjutbara fönsterfunktioner, till skillnad från Tumbling- eller Hopping-fönster, ger **bara** en utdata när en händelse inträffar. Varje fönster kommer att ha minst en händelse och fönstret rör sig kontinuerligt framåt med en ε (epsilon). Precis som i hoppande fönster kan händelser tillhöra mer än ett skjutfönster.
 
 ![Skjutfönster för Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 

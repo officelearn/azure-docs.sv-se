@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.openlocfilehash: 6c199a0dd75b89d9c9368e799c97a28b73758d06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/06/2020
+ms.openlocfilehash: 787d88d336abcf3b0ba9b14c3d3798850b665eca
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73097104"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745088"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Använd Apache Ambari Hive-vyn med Apache Hadoop i HDInsight
 
@@ -23,12 +23,11 @@ Lär dig hur du kör Hive-frågor med hjälp av Apache Ambari Hive View. Med Hiv
 
 ## <a name="prerequisites"></a>Krav
 
-* Ett Hadoop-kluster på HDInsight. Se [Komma igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
-* En webbläsare
+Ett Hadoop-kluster på HDInsight. Se [Komma igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
 ## <a name="run-a-hive-query"></a>Köra en Hive-fråga
 
-1. Välj ditt kluster i [Azure-portalen.](https://portal.azure.com/)  Se [Lista och visa kluster](../hdinsight-administer-use-portal-linux.md#showClusters) för instruktioner. Klustret öppnas i ett nytt portalblad.
+1. Välj ditt kluster i [Azure-portalen.](https://portal.azure.com/)  Se [Lista och visa kluster](../hdinsight-administer-use-portal-linux.md#showClusters) för instruktioner. Klustret öppnas i en ny portalvy.
 
 1. Välj **Ambari-vyer** **i klusterinstrumentpaneler**. När du uppmanas att autentisera `admin`använder du kontonamnet och lösenordet för klusterinloggning (standard) som du angav när du skapade klustret. Du kan också `https://CLUSTERNAME.azurehdinsight.net/#/main/views` navigera till `CLUSTERNAME` i webbläsaren där är namnet på klustret.
 
@@ -59,18 +58,15 @@ Lär dig hur du kör Hive-frågor med hjälp av Apache Ambari Hive View. Med Hiv
         GROUP BY t4;
     ```
 
-    Dessa satser utför följande åtgärder:
+    Dessa uttalanden gör följande åtgärder:
 
-   * `DROP TABLE`: Tar bort tabellen och datafilen om tabellen redan finns.
-
-   * `CREATE EXTERNAL TABLE`: Skapar en ny "extern" tabell i Hive.
-     Externa tabeller lagrar endast tabelldefinitionen i Hive. Data finns kvar på den ursprungliga platsen.
-
-   * `ROW FORMAT`: Visar hur data formateras. I det här fallet avgränsas fälten i varje logg med ett blanksteg.
-
-   * `STORED AS TEXTFILE LOCATION`: Visar var data lagras och att de lagras som text.
-
-   * `SELECT`: Markerar ett antal rader där kolumn t4 innehåller värdet [FEL].
+    |Instruktion | Beskrivning |
+    |---|---|
+    |SLÄPP TABELL|Tar bort tabellen och datafilen om tabellen redan finns.|
+    |SKAPA EXTERN TABELL|Skapar en ny "extern" tabell i Hive. Externa tabeller lagrar endast tabelldefinitionen i Hive. Data finns kvar på den ursprungliga platsen.|
+    |RADFORMAT|Visar hur data formateras. I det här fallet avgränsas fälten i varje logg med ett blanksteg.|
+    |LAGRAD SOM TEXTFILE-PLATS|Visar var data lagras och att de lagras som text.|
+    |VÄLJ|Markerar ett antal rader där kolumn t4 innehåller värdet [FEL].|
 
    > [!IMPORTANT]  
    > Lämna __databasvalet__ som __standard__. Exemplen i det här dokumentet använder standarddatabasen som ingår i HDInsight.
@@ -116,7 +112,7 @@ Du kan använda fliken __Tabeller__ för att arbeta med tabeller i en Hive-datab
 
 På fliken **Fråga** kan du också spara frågor. När du har sparat en fråga kan du återanvända den från fliken __Sparade frågor.__
 
-![Fliken Sparade frågor i Apache Hive-vyn](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
+![Fliken Apache Hive-vyer har sparat frågor](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
 
 > [!TIP]  
 > Sparade frågor lagras i standardklusterlagringen. Du hittar de sparade frågorna `/user/<username>/hive/scripts`under sökvägen . Dessa lagras som oformaterade textfiler. `.hql`
@@ -131,7 +127,7 @@ Deklarera och spara en uppsättning UDF-filer med hjälp av fliken **UDF** högs
 
 ![Apache Hive-vy UDFs flikvisning](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
 
-När du har lagt till en UDF i Hive-vyn visas knappen **Infoga udfs** längst ned i **Frågeredigeraren**. Om du väljer den här posten visas en listruta över de UDF:er som definierats i Hive-vyn. Om du väljer en UDF läggs HiveQL-satser till i frågan för att aktivera UDF.
+En **knappen Infoga udfs** visas längst ned i **Frågeredigeraren**. Den här posten visar en listruta över de UDF:er som definierats i Hive-vyn. Om du väljer en UDF läggs HiveQL-satser till i frågan för att aktivera UDF.
 
 Om du till exempel har definierat en UDF med följande egenskaper:
 
@@ -155,13 +151,13 @@ Du kan sedan använda UDF i frågan. Till exempel `SELECT myawesomeudf(name) FRO
 Mer information om hur du använder UDF med Hive på HDInsight finns i följande artiklar:
 
 * [Använda Python med Apache Hive och Apache Pig i HDInsight](python-udf-hdinsight.md)
-* [Så här lägger du till en anpassad Apache Hive UDF i HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Använd en Java UDF med Apache Hive i HDInsight](./apache-hadoop-hive-java-udf.md)
 
 ## <a name="hive-settings"></a>Inställningar för Hive
 
 Du kan ändra olika Hive-inställningar, till exempel ändra körningsmotorn för Hive från Tez (standard) till MapReduce.
 
-## <a name="next-steps"></a><a id="nextsteps"></a>Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 För allmän information om Hive på HDInsight:
 

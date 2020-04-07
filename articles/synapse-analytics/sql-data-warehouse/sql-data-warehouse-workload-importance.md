@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 2c8617cffaa81da6423011a494b8dbc82c42d218
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 43ee14784b6049e9b5c1a78e733e72bbc45f915d
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632456"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744036"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Azure Synapse Analytics arbetsbelastning betydelse
 
@@ -38,7 +38,7 @@ Utöver det scenario för grundläggande betydelse som beskrivs ovan med försä
 
 ### <a name="locking"></a>Låsning
 
-Tillgång till lås för läs- och skrivaktivitet är ett område med naturlig konkurrens. Aktiviteter som [partitionsväxling](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) eller [BYT NAMN PÅ OBJEKT](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest) kräver förhöjda lås.  Utan arbetsbelastningsbetydelse optimerar Synapse SQL-pool i Azure Synapse för dataflöde. Optimering för dataflöde innebär att när du kör och köade begäranden har samma låsbehov och resurser är tillgängliga, kan de köade begärandena kringgå begäranden med högre låsbehov som kom i förfråganskön tidigare. När arbetsbelastningens betydelse tillämpas på begäranden med högre låsbehov. Begäran med högre prioritet kommer att köras före begäran med lägre prioritet.
+Tillgång till lås för läs- och skrivaktivitet är ett område med naturlig konkurrens. Aktiviteter som [partitionsväxling](sql-data-warehouse-tables-partition.md) eller [BYT NAMN PÅ OBJEKT](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) kräver förhöjda lås.  Utan arbetsbelastningsbetydelse optimerar Synapse SQL-pool i Azure Synapse för dataflöde. Optimering för dataflöde innebär att när du kör och köade begäranden har samma låsbehov och resurser är tillgängliga, kan de köade begärandena kringgå begäranden med högre låsbehov som kom i förfråganskön tidigare. När arbetsbelastningens betydelse tillämpas på begäranden med högre låsbehov. Begäran med högre prioritet kommer att köras före begäran med lägre prioritet.
 
 Ta följande som exempel:
 
@@ -62,8 +62,8 @@ Eftersom Q5 är mediumrc kräver det två samtidighetsplatser. Q5 måste vänta 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om hur du skapar en klassificerare finns i [CREATE WORKLOAD CLASSIFIER (Transact-SQL).](/sql/t-sql/statements/create-workload-classifier-transact-sql)  
+- Mer information om hur du skapar en klassificerare finns i [CREATE WORKLOAD CLASSIFIER (Transact-SQL).](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  
 - Mer information om arbetsbelastningsklassificering finns i [Arbetsbelastningsklassificering](sql-data-warehouse-workload-classification.md).  
 - Se Quickstart [Skapa arbetsbelastningsklassificerare](quickstart-create-a-workload-classifier-tsql.md) för hur du skapar en arbetsbelastningsklassificerare.
 - Se hur du gör-artiklar för att [konfigurera arbetsbelastningsbetydning](sql-data-warehouse-how-to-configure-workload-importance.md) och hur du [hanterar och övervakar arbetsbelastningshantering](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
-- Se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) om du vill visa frågor och den tilldelade betydelsen.
+- Se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) om du vill visa frågor och den tilldelade betydelsen.

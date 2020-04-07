@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 79cdd12359a0d781b51db2632bc9d534e0d88c6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e085c465ecdd21452e8f0ca5aa721ad0059caf30
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285239"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744338"
 ---
 # <a name="power-bi-app-contacts-tab"></a>Fliken Kontakter i Power BI-appar
+
+>[!Important]
+>Från och med den 30 mars 2020 börjar vi flytta hanteringen av dina Power BI-appar till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [översikten över hur du skapar Power BI-appar](https://aka.ms/AzureCreatePBIServiceApp) för att hantera dina migrerade erbjudanden.
 
 Använd fliken **Kontakter** på sidan **Nytt erbjudande** för att tillhandahålla tekniska resurser och användarsupport för ditt erbjudande. Den är uppdelad i två avsnitt: **Teknik** och **kundsupport**.
 

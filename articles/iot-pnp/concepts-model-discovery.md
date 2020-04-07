@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 66da0321930ac38217a336380c9889963a433e67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 94e5e6fb826528aab1a358d44cb51bfcd6219032
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75531368"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673567"
 ---
 # <a name="implement-iot-plug-and-play-preview-model-discovery-in-an-iot-solution"></a>Implementera identifiering av IoT Plug and Play Preview-modeller i en IoT-lösning
 
@@ -46,7 +46,7 @@ En specialbyggd IoT-lösning fungerar med en känd uppsättning IoT Plug and Pla
 
 Du har kapacitetsmodellen och gränssnitten för de enheter som ansluter till din lösning i förväg. Använd följande steg för att förbereda din lösning:
 
-1. Lagra gränssnittet JSON filer i Azure på en plats där din lösning kan läsa dem.
+1. Lagra gränssnittet JSON filer i en [modell lagringsplats](./howto-manage-models.md) där din lösning kan läsa dem.
 1. Skriv logik i din IoT-lösning baserat på de förväntade IoT Plug and Play-kapacitetsmodellerna och gränssnittet.
 1. Prenumerera på meddelanden från IoT-hubben som lösningen använder.
 

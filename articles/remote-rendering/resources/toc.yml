@@ -1,0 +1,6 @@
+- name: Verktyg
+  href: tools/toc.yml
+- name: Felsöka
+  href: troubleshoot.md
+- name: Ge produktfeedback
+  href: 'https://feedback.azure.com/forums/928696-azure-remote-rendering'

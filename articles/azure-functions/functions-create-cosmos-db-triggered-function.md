@@ -2,15 +2,15 @@
 title: Skapa en funktion som utlöses av Azure Cosmos DB
 description: Använd Azure Functions till att skapa en serverfri funktion som anropas när data läggs till i en databas i Azure Cosmos DB.
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/02/2018
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 830c7cdee247118ed24fc9b3a2a9efe8609c75d0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6045c61dc9837667bfaf01c685f687fcf5816e4c
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75863313"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754206"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Skapa en funktion som utlöses av Azure Cosmos DB
 

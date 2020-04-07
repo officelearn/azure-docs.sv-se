@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8ecd0909176560e6b51bcb8449cb681558d96f90
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 5fae2bba0acc4ab462c91f7272694d032fc6ceaa
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80628639"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742659"
 ---
 # <a name="table-statistics-in-synapse-sql-pool"></a>Tabellstatistik i Synapse SQL-pool
 
@@ -70,9 +70,9 @@ Automatisk skapande av statistik görs synkront så att du kan ådra dig något 
 För att undvika mätbara prestandaförsämring bör du se till att statistik har skapats först genom att köra benchmark-arbetsbelastningen innan du profilerar systemet.
 
 > [!NOTE]
-> Skapandet av statistik loggas i [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) under en annan användarkontext.
+> Skapandet av statistik loggas i [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) under en annan användarkontext.
 
-När automatisk statistik skapas tar de formen: _WA_Sys_<8-siffriga kolumn-ID i Hex>_<8-siffrigt tabell-ID i Hex>. Du kan visa statistik som redan har skapats genom att köra kommandot [DBCC SHOW_STATISTICS:](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest)
+När automatisk statistik skapas tar de formen: _WA_Sys_<8-siffriga kolumn-ID i Hex>_<8-siffrigt tabell-ID i Hex>. Du kan visa statistik som redan har skapats genom att köra kommandot [DBCC SHOW_STATISTICS:](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -142,7 +142,7 @@ Omvänt kan det hända att statistik om en könskolumn i en kundtabell aldrig be
 
 Om SQL-poolen bara innehåller ett kön och ett nytt krav resulterar i flera kön måste du uppdatera statistik om könskolumnen.
 
-Mer information finns i allmän vägledning för [statistik](/sql/relational-databases/statistics/statistics).
+Mer information finns i allmän vägledning för [statistik](/sql/relational-databases/statistics/statistics?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="implementing-statistics-management"></a>Genomförande av statistikhantering
 
@@ -158,7 +158,7 @@ Följande vägledande principer finns för att uppdatera din statistik under bel
 - Överväg att uppdatera statiska distributionskolumner mindre ofta.
 - Kom ihåg att varje statistikobjekt uppdateras i följd. Att bara `UPDATE STATISTICS <TABLE_NAME>` implementera är inte alltid idealiskt, särskilt inte för breda tabeller med många statistikobjekt.
 
-Mer information finns i [Kardinalitetsuppskattning](/sql/relational-databases/performance/cardinality-estimation-sql-server).
+Mer information finns i [Kardinalitetsuppskattning](/sql/relational-databases/performance/cardinality-estimation-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="examples-create-statistics"></a>Exempel: Skapa statistik
 
@@ -227,7 +227,7 @@ Du kan också kombinera alternativen tillsammans. I följande exempel skapas ett
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Den fullständiga referensen finns i [SKAPA STATISTIK](/sql/t-sql/statements/create-statistics-transact-sql).
+Den fullständiga referensen finns i [SKAPA STATISTIK](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### <a name="create-multi-column-statistics"></a>Skapa statistik med flera kolumner
 
@@ -420,7 +420,7 @@ UPDATE STATISTICS-satsen är enkel att använda. Kom bara ihåg att den uppdater
 
 Ett genomförande av `UPDATE STATISTICS` ett förfarande finns i [Tillfälliga tabeller](sql-data-warehouse-tables-temporary.md). Implementeringsmetoden skiljer sig något `CREATE STATISTICS` från föregående förfarande, men resultatet är detsamma.
 
-Den fullständiga syntaxen finns i [Uppdatera statistik](/sql/t-sql/statements/update-statistics-transact-sql).
+Den fullständiga syntaxen finns i [Uppdatera statistik](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="statistics-metadata"></a>Metadata för statistik
 
@@ -432,13 +432,13 @@ Dessa systemvyer ger information om statistik:
 
 | Katalogvy | Beskrivning |
 |:--- |:--- |
-| [sys.kolumner](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |En rad för varje kolumn. |
-| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |En rad för varje objekt i databasen. |
-| [sys.scheman](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |En rad för varje schema i databasen. |
-| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |En rad för varje statistikobjekt. |
-| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |En rad för varje kolumn i statistikobjektet. Länkar tillbaka till sys.columns. |
-| [sys.tabeller](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |En rad för varje tabell (inkluderar externa tabeller). |
-| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |En rad för varje datatyp. |
+| [sys.kolumner](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |En rad för varje kolumn. |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |En rad för varje objekt i databasen. |
+| [sys.scheman](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |En rad för varje schema i databasen. |
+| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |En rad för varje statistikobjekt. |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |En rad för varje kolumn i statistikobjektet. Länkar tillbaka till sys.columns. |
+| [sys.tabeller](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |En rad för varje tabell (inkluderar externa tabeller). |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |En rad för varje datatyp. |
 
 ### <a name="system-functions-for-statistics"></a>Systemfunktioner för statistik
 
@@ -446,8 +446,8 @@ Dessa systemfunktioner är användbara för att arbeta med statistik:
 
 | Systemfunktion | Beskrivning |
 |:--- |:--- |
-| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |Datum då statistikobjektet senast uppdaterades. |
-| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |Sammanfattande nivå och detaljerad information om fördelningen av värden enligt statistikobjektet. |
+| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |Datum då statistikobjektet senast uppdaterades. |
+| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |Sammanfattande nivå och detaljerad information om fördelningen av värden enligt statistikobjektet. |
 
 ### <a name="combine-statistics-columns-and-functions-into-one-view"></a>Kombinera statistikkolumner och funktioner i en vy
 

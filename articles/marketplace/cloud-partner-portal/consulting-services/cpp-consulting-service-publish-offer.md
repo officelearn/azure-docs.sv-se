@@ -5,16 +5,19 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 1b00e177ed45762d10d0603b1d0a1fb2c1807416
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b2de4114e8a1b48de2ad64b783d15f56fef4fc30
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278509"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743760"
 ---
 # <a name="publish-a-consulting-service-offer"></a>Publicera ett konsulttjänsterbjudande
+
+>[!Important]
+>Från och med den 30 mars 2020 börjar vi flytta hanteringen av dina konsulttjänster till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [översikten över att skapa tjänster](https://aka.ms/AzureCreateConsultingService) för att hantera dina migrerade erbjudanden.
 
 När du är klar **med erbjudandeinställningar,** **Butiksinformation**och **Kontakter**väljer du **Publicera** och anger en e-postadress. När Microsoft är redo att publicera ditt erbjudande får du ett e-postmeddelande för att förhandsgranska det innan det publiceras. Du kan när som helst gå tillbaka till portalen för att kontrollera status för ditt erbjudande.
 

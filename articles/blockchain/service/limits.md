@@ -1,15 +1,15 @@
 ---
 title: Begränsningar för Azure Blockchain-tjänsten
 description: Översikt över tjänsten och funktionsgränserna i Azure Blockchain Service
-ms.date: 03/30/2020
+ms.date: 04/02/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
-ms.openlocfilehash: c728e617ac37795988cd596c7cb0c5025aac4ccf
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 71e1bebf10fa0142870d03977182472da1ad031f
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529579"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676521"
 ---
 # <a name="limits-in-azure-blockchain-service"></a>Begränsningar i Azure Blockchain-tjänsten
 
@@ -35,7 +35,6 @@ Det går inte att ändra prisnivån mellan grundläggande och standard när medl
 Den maximala mängden lagringsutrymme som kan användas per nod för redovisningsdata och loggar är 1,8 terabyte.
 
 Det går inte att minska redovisnings- och logglagringsstorleken.
-
 ## <a name="consortium-limits"></a>Konsortiegränser
 
 * **Konsortie- och medlemsnamn måste vara unika** från andra konsortium- och medlemsnamn i Azure Blockchain-tjänsten.
@@ -59,6 +58,12 @@ Det går inte att minska redovisnings- och logglagringsstorleken.
 * **Alla medlemmar i ett konsortium måste använda samma redovisningsversion**
 
     Mer information om korrigerings-, uppdaterings- och redovisningsversioner som är tillgängliga i Azure Blockchain Service finns i [Korrigering, uppdateringar och versioner](ledger-versions.md).
+
+## <a name="performance"></a>Prestanda
+
+Använd inte *eth.estimate* gas funktion för varje transaktion inlämning. *Eth.estimate-funktionen* är minnesintensiv. Att anropa funktionen flera gånger minskar antalet transaktioner per sekund drastiskt.
+
+Använd om möjligt ett konservativt gasvärde för att skicka in transaktioner och minimera användningen av *eth.estimate*.
 
 ## <a name="next-steps"></a>Nästa steg
 

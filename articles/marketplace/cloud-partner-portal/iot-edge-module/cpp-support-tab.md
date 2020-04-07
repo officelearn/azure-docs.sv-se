@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 439de17ef9eb9c0c2c264884652236d47600b8ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 306f13cbc83c0c48ce1c90581762275a86dfcb90
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286514"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743982"
 ---
 # <a name="iot-edge-module-support-tab"></a>Fliken Stöd för IoT-kantmodul
+
+>[!Important]
+>Från och med den 30 mars 2020 börjar vi flytta hanteringen av dina IoT Edge-modulerbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa ett IoT Edge-modulerbjudande](https://aka.ms/AzureCreateIoT) för att hantera dina migrerade erbjudanden.
 
 Använd fliken **Support** på sidan **Nytt erbjudande för** att tillhandahålla tekniska resurser och användarsupport för ditt erbjudande.  Följande inmatningsområden finns i supportformuläret: **Teknisk kontakt,** **kundsupport**och **supportadresser**. En asterisk (*) som läggs till i fältnamnet anger att det krävs.
 

@@ -3,29 +3,29 @@ title: Reagera på Azure Blob-lagringshändelser | Microsoft-dokument
 description: Använd Azure Event Grid för att prenumerera på Blob Storage-händelser.
 author: normesta
 ms.author: normesta
-ms.date: 01/30/2018
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: cbrooks
-ms.openlocfilehash: 5281dab8fd42326d88964614fd20a81621b5e9dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4dd6bab6198546dc5acab78ec59d92387328dbb
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79268501"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755012"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagera på Blob Storage-händelser
 
-Azure Storage-händelser tillåter program att reagera på händelser, till exempel skapande och borttagning av blobbar. Det gör den utan behov av komplicerad kod eller dyra och ineffektiva valtjänster.
+Azure Storage-händelser tillåter program att reagera på händelser, till exempel skapande och borttagning av blobbar. Det gör den utan behov av komplicerad kod eller dyra och ineffektiva valtjänster. Det bästa är att du bara betalar för det du använder.
 
-Händelser trycks med [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) till prenumeranter som Azure Functions, Azure Logic Apps eller till och med till din egen http-lyssnare. Det bästa är att du bara betalar för det du använder.
+Blob-lagringshändelser överförs med [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) till prenumeranter som Azure Functions, Azure Logic Apps eller till och med till din egen http-lyssnare. Event Grid ger tillförlitlig händelseleverans till dina program genom avancerade principer för återförsök och obeställbara brev.
 
-Blob storage skickar händelser till Event Grid som ger tillförlitlig händelseleverans till dina program genom avancerade principer för återförsök och obeställbara bokstäver.
+Se [schemaartikeln för Blob storage events](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för att visa den fullständiga listan över de händelser som Blob-lagring stöder.
 
 Vanliga Blob-lagringshändelsescenarier inkluderar bild- eller videobearbetning, sökindexering eller filorienterade arbetsflöden. Asynkrona filuppladdningar är en bra passform för händelser. När ändringar är ovanliga, men ditt scenario kräver omedelbar svarstid, kan händelsebaserad arkitektur vara särskilt effektiv.
 
-Om du vill prova det här nu kan du se någon av dessa snabbstartsartiklar:
+Om du vill prova blob storage-händelser läser du någon av följande snabbstartsartiklar:
 
 |Om du vill använda det här verktyget:    |Se den här artikeln: |
 |--|-|
@@ -39,7 +39,7 @@ Mer information om hur du reagerar på Blob-lagringshändelser med hjälp av Azu
 - [Självstudiekurs: Automatisera storleksändring av uppladdade bilder med Event Grid](https://docs.microsoft.com/azure/event-grid/resize-images-on-storage-blob-upload-event?tabs=dotnet)
 
 >[!NOTE]
-> Endast lagringskonton av typen **StorageV2 (general purpose v2)** och **BlobStorage** stöder händelseintegrering. **Lagring (genral syfte v1)** stöder *inte* integrering med Event Grid.
+> Endast lagringskonton av typen **StorageV2 (allmänt ändamål v2),** **BlockBlobStorage**och **BlobStorage** stöder händelseintegrering. **Lagring (genral syfte v1)** stöder *inte* integrering med Event Grid.
 
 ## <a name="the-event-model"></a>Händelsemodellen
 
@@ -98,6 +98,7 @@ Program som hanterar Blob-lagringshändelser bör följa några rekommenderade m
 > * På samma sätt kontrollerar du att eventType är en som du är beredd att bearbeta och förutsätter inte att alla händelser du får kommer att vara de typer du förväntar dig.
 > * När meddelanden kan komma efter en viss fördröjning kan du använda etag-fälten för att förstå om din information om objekt fortfarande är uppdaterad. Mer information om hur du använder etag-fältet finns [i Hantera samtidighet i Blob-lagring](https://docs.microsoft.com/azure/storage/common/storage-concurrency?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage). 
 > * När meddelanden kan komma i oordning använder du sequencerfälten för att förstå ordningen på händelser på ett visst objekt. Sequencer-fältet är ett strängvärde som representerar den logiska händelsesekvensen för ett visst blobnamn. Du kan använda standardsträngjämförelse för att förstå den relativa sekvensen av två händelser på samma blobnamn.
+> Lagringshändelser garanterar minst en gång leverans till prenumeranter, vilket säkerställer att alla meddelanden matas ut. På grund av återförsök eller tillgänglighet för prenumerationer kan dock dubblettmeddelanden ibland förekomma.
 > * Använd fältet blobType för att förstå vilken typ av åtgärder som tillåts på blobben och vilka klientbibliotekstyper som du bör använda för att komma åt blobben. Giltiga värden `BlockBlob` är `PageBlob`antingen eller . 
 > * Använd url-fältet `CloudBlockBlob` med `CloudAppendBlob` och konstruktorer för att komma åt blobben.
 > * Ignorera fält som du inte förstår. Den här metoden hjälper dig att hålla dig motståndskraftig mot nya funktioner som kan läggas till i framtiden.
@@ -109,4 +110,5 @@ Program som hanterar Blob-lagringshändelser bör följa några rekommenderade m
 Läs mer om Event Grid och ge Blob-lagringshändelser ett försök:
 
 - [Om Event Grid](../../event-grid/overview.md)
+- [Schema för bloblagringshändelser](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Dirigera Blob-lagringshändelser till en anpassad webbslutpunkt](storage-blob-event-quickstart.md)

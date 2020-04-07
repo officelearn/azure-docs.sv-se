@@ -3,12 +3,12 @@ title: Använda parametrar för att skapa dynamiska ritningar
 description: Lär dig mer om statiska och dynamiska parametrar och hur du använder dem för att skapa säkra och dynamiska ritningar.
 ms.date: 03/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: 68987b3e0f418721986003dc796f00ac1dd6dda1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36735d71b746301819e5079aba1697b55fe5e183
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264718"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677588"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Skapa dynamiska ritningar genom parametrar
 
@@ -20,7 +20,7 @@ Ett enkelt exempel är resursgruppartefakten. När en resursgrupp skapas har den
 > Det är inte ett problem för två olika ritningar att inkludera en resursgrupp med samma namn.
 > Om det redan finns en resursgrupp som ingår i en skiss fortsätter skissen att skapa relaterade artefakter i resursgruppen. Detta kan orsaka en konflikt eftersom två resurser med samma namn och resurstyp inte kan finnas i en prenumeration.
 
-Lösningen på detta problem är parametrar. Skisser kan du definiera värdet för varje egenskap för artefakten under tilldelning till en prenumeration. Parametern gör det möjligt att återanvända en skiss som skapar en resursgrupp och andra resurser i en enda prenumeration utan att ha konflikt.
+Lösningen på detta problem är parametrar. Med Azure Blueprints kan du definiera värdet för varje egenskap för artefakten under tilldelning till en prenumeration. Parametern gör det möjligt att återanvända en skiss som skapar en resursgrupp och andra resurser i en enda prenumeration utan att ha konflikt.
 
 ## <a name="blueprint-parameters"></a>Skissparametrar
 

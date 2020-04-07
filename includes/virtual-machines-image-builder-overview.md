@@ -6,10 +6,10 @@ ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
 ms.openlocfilehash: 658910dc4291375c7b2ab22e88c599b970b885af
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/06/2020
 ms.locfileid: "80419231"
 ---
 Standardiserade vm-avbildningar (Virtual Machine) gör det möjligt för organisationer att migrera till molnet och säkerställa konsekvens i distributionerna. Avbildningar innehåller vanligtvis fördefinierade säkerhets- och konfigurationsinställningar och nödvändig programvara. Ställa in din egen avbildningspipeline kräver tid, infrastruktur och installation, men med Azure VM Image Builder, bara ge en enkel konfiguration som beskriver din avbildning, skicka den till tjänsten och avbildningen är byggd och distribuerad.

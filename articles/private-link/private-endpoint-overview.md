@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 6782d745bfced576fe06019b0d41af86c8c63ed4
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: b8f55b0693b7ffdf10516cfb19b67ccc5a94dc5a
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656260"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742904"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är Azure Private Endpoint?
 
@@ -55,7 +55,7 @@ En privat länkresurs är målmålet för en viss privat slutpunkt. Följande ä
 |**Private Link Service** (din egen tjänst)   |  Microsoft.Network/privateLinkServices       | tomt |
 |**Azure SQL Database** | Microsoft.Sql/servrar    |  Sql Server (sqlServer)        |
 |**Azure Synapse Analytics** | Microsoft.Sql/servrar    |  Sql Server (sqlServer)        | 
-|**Azure Storage**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Tabell (tabell, table_secondary)<BR> Kö (kö, queue_secondary)<BR> Fil (fil, file_secondary)<BR> Webb (webb, web_secondary)        |
+|**Azure-lagring**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Tabell (tabell, table_secondary)<BR> Kö (kö, queue_secondary)<BR> Fil (fil, file_secondary)<BR> Webb (webb, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Data Lake File System Gen2 (dfs, dfs_secondary)       |
 |**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databasKonton | Sql, MongoDB, Cassandra, Gremlin, Tabell|
 |**Azure-databas för PostgreSQL -Enkel server** | Microsoft.DBforPostgreSQL/servrar   | postgresqlServer |
@@ -144,7 +144,7 @@ För Azure-tjänster använder du de rekommenderade zonnamnen enligt beskrivning
 |Azure Relay (Microsoft.Relay/namespaces) | namnområde |privatelink.servicebus.windows.net|
 |Azure Event Grid (Microsoft.EventGrid/topics)   | ämne | Ämne. {region}.privatelink.eventgrid.azure.net|
 |Azure Event Grid (Microsoft.EventGrid/domäner) | domän | Domän. {region}.privatelink.eventgrid.azure.net |
-|Azure WebApps(Microsoft.Web/sites) | webbplats | privatelink.azurewebsites.net |
+|Azure WebApps (Microsoft.Web/sites)    | webbplats | privatelink.azurewebsites.net |
 |Azure Machine Learning(Microsoft.MachineLearningServices/workspaces)   | arbetsyta | privatelink.api.azureml.ms |
  
 Azure skapar en kanonisk namn DNS-post (CNAME) på den offentliga DNS för att omdirigera upplösningen till de föreslagna domännamnen. Du kan åsidosätta upplösningen med den privata IP-adressen för dina privata slutpunkter. 

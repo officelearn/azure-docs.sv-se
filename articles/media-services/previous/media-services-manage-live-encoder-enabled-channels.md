@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: a32624c37cd8ca7fbef9e38ca61de9369791dd25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b0569907537f91f7e84b8156dffa0f313461f6e1
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77162539"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677027"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter
 
@@ -167,7 +167,7 @@ En kanal innehåller en indataslutpunkt (inmatnings-URL) som du anger i live-kod
 
 Du kan hämta de intjest webbadresserna när du har skapat en kanal. För att hämta dessa webbadresser behöver kanalen **Running** inte vara i körläge. När du är redo att börja skicka data till kanalen måste **den** vara i körläge. När kanalen börjar inta data kan du förhandsgranska flödet via förhandsgranskningsadressen.
 
-Du har möjlighet att använda fragmenterad MP4 (Smooth Streaming) live stream via en SSL-anslutning. Om du vill börja använda via SSL måste du uppdatera intvalnings-URL:en till HTTPS. För närvarande stöder AMS inte SSL med anpassade domäner.  
+Du har möjlighet att inta fragmenterad MP4 (Smooth Streaming) live stream via en TLS-anslutning. Om du vill börja använda över TLS kontrollerar du att den intöste URL:en uppdateras till HTTPS. För närvarande stöder AMS inte TLS med anpassade domäner.  
 
 ### <a name="allowed-ip-addresses"></a>Tillåtna IP-adresser
 Du kan definiera de IP-adresser som får publicera video till den här kanalen. Tillåtna IP-adresser kan anges som antingen en enda IP-adress (t.ex. "10.0.0.1"), ett IP-intervall med en IP-adress och en CIDR-nätmask (till exempel "10.0.0.1/22"), eller ett IP-intervall med en IP-adress och en prickad decimalundernätmask (till exempel "10.0.0.1(255.255.252.0)").
@@ -205,7 +205,7 @@ Du kan ange källan för annonsmarkörsignaler. Standardvärdet är **Api**, vil
 En valfri flagga som talar om för den aktiva kodaren att ignorera alla CEA 708-bildtexter som är inbäddade i den inkommande videon. När flaggan är inställd på false (standard), kommer kodaren att identifiera och åter infoga CEA 708-data i utdatavideoströmmarna.
 
 #### <a name="index"></a>Index
-Vi rekommenderar att du skickar in ett enda program transportström (SPTS). Om indataströmmen innehåller flera program tolkar strömgivaren i kanalen programkarttabellen (PMT) i indata, identifierar de indata som har ett flödestypnamn för MPEG-2 AAC ADTS eller AC-3 System-A eller AC-3 System-B eller MPEG-2 Private PES eller MPEG-1 Ljud eller MPEG-2 Ljud och ordna dem i den ordning som anges i BETALNING. Det nollbaserade indexet används sedan för att hämta n-posten i det arrangemanget.
+Vi rekommenderar att du skickar in ett enda program transportström (SPTS). Om indataströmmen innehåller flera program tolkar live-kodaren i kanaltabellen (PMT) i indata, identifierar de indata som har ett flödestypnamn för MPEG-2 AAC ADTS eller AC-3 System-A eller AC-3 System-B eller MPEG-2 Private PES eller MPEG-1 Audio eller MPEG-2 Audio och ordnar dem i den ordning som anges i PMT. Det nollbaserade indexet används sedan för att hämta n-posten i det arrangemanget.
 
 #### <a name="language"></a>Språk
 Ljudströmmens språkidentifierare överensstämmer med ISO 639-2, till exempel ENG. Om det inte finns, är standard UND (odefinierad).

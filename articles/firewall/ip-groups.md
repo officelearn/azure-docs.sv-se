@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 04/06/2020
 ms.author: victorh
-ms.openlocfilehash: 74e5a427d62d5249ffe6b0426b62a3577e43462f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e0638cbccd5e3bc282dbdd7d3b5918e29081a12b
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77444490"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757159"
 ---
 # <a name="ip-groups-preview-in-azure-firewall"></a>IP-grupper (förhandsversion) i Azure-brandväggen
 
@@ -54,7 +54,7 @@ Du kan se alla IP-adresser i IP-gruppen och de regler eller resurser som är ass
 
 1. Om du vill visa eller redigera IP-adresserna väljer du **IP-adresser** under **Inställningar** i den vänstra rutan.
 2. Om du vill lägga till en eller flera IP-adresser väljer du **Lägg till IP-adresser**. Då öppnas sidan **Dra eller bläddra** för en uppladdning, eller så kan du ange adressen manuellt.
-3.  Välja ellipser (**...**) till höger för att redigera eller ta bort IP-adresser. Om du vill redigera eller ta bort flera IP-adresser markerar du rutorna och väljer **Redigera** eller **Ta bort** högst upp.
+3.    Välja ellipser (**...**) till höger för att redigera eller ta bort IP-adresser. Om du vill redigera eller ta bort flera IP-adresser markerar du rutorna och väljer **Redigera** eller **Ta bort** högst upp.
 4. Slutligen kan exportera filen i CSV-filformatet.
 
 > [!NOTE]
@@ -72,24 +72,47 @@ Du kan nu välja **IP-grupp** som **källtyp** eller **måltyp** för IP-adress(
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
-IP-grupper är för närvarande tillgängliga i följande regioner:
+IP-grupper är tillgängliga i alla offentliga molnregioner.
 
-- USA, västra
-- USA, västra 2
-- USA, östra
-- USA, östra 2
-- USA, centrala
-- USA, norra centrala
-- USA, västra centrala
-- USA, södra centrala
-- Kanada, centrala
-- Europa, norra
-- Europa, västra
-- Frankrike, centrala
-- Storbritannien, södra
-- Australien, östra
-- Australien, centrala
-- Australien, sydöstra
+## <a name="ip-address-limits"></a>BEGRÄNSNINGAR FÖR IP-adress
+
+För 50 IP-grupper eller mindre kan du ha högst 5000 enskilda IP-adresser per brandväggsinstans. För 51 till 100 IP-grupper kan du ha 500 enskilda IP-adresser per brandväggsinstans.
+
+### <a name="examples"></a>Exempel
+
+#### <a name="example-1-supported"></a>Exempel 1: stöds
+
+|IP-grupper  |# IP-adresser  |Notation  |Regel  |
+|---------|---------|---------|---------|
+|IPGroup1 |4096     |10.0.0.0/20  |Regel1|
+|IPGroup2     |3|196.0.0.0 - 196.0.0.2|Regel1|
+|IPGroup3     |1|1.2.3.4|Regel1|
+|     |**Totalt 4100**|         |         |
+|     |         |         |         |
+
+#### <a name="example-2-supported"></a>Exempel 2: stöds
+
+|IP-grupper  |# IP-adresser  |Notation  |Regel  |
+|---------|---------|---------|---------|
+|IPGroup1 |4096     |10.0.0.0/20  |Regel1|
+|IPGroup2     |4096|11.0.0.0/20|Regel1|
+|     |**Totalt 8192**|         |         |
+
+#### <a name="example-3-not-supported"></a>Exempel 3: stöds inte
+
+|IP-grupper  |# IP-adresser  |Notation  |Regel  |
+|---------|---------|---------|---------|
+|IPGroup1 |8192     |10.0.0.0/20, 11.0.0.0/20  |Regel1|
+|     |**Totalt 8192**|||
+
+#### <a name="example-4-supported"></a>Exempel 4: stöds
+
+|IP-grupper  |# IP-adresser  |Notation  |Regel  |
+|---------|---------|---------|---------|
+|IPGroup1 |4096     |10.0.0.0/20  |Regel1|
+|IPGroup2     |4096|11.0.0.0/20|Regel2|
+|     |**Totalt 8192**|         |         |
+
 
 ## <a name="related-azure-powershell-cmdlets"></a>Relaterade Azure PowerShell-cmdlets
 

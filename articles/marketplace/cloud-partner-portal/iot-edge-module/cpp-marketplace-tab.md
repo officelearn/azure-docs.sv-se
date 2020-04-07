@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 3ff65a637c1d3722e773ab27f051b3b5bc109a23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4290bad405ddab6d89cac5ef7bfd185247d41da1
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281739"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745112"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Fliken Marketplace för IoT Edge-modul
+
+>[!Important]
+>Från och med den 30 mars 2020 börjar vi flytta hanteringen av dina IoT Edge-modulerbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa ett IoT Edge-modulerbjudande](https://aka.ms/AzureCreateIoT) för att hantera dina migrerade erbjudanden.
 
 På fliken **Marketplace** på sidan **Nytt erbjudande** kan du förse dina potentiella kunder med marknadsföring, försäljning och juridisk information och avtal och hantera leads som genereras från marknadsplatsen. Det här långa formuläret är indelat i fyra avsnitt: **Översikt**, **Marknadsföringsartefakter**, **Lead Management**och **Legal**.
 
@@ -86,7 +89,7 @@ Det här avsnittet innehåller följande underavsnitt: **Logotyper,** **skärmbi
 |  ---------                |     ---------------                                                          |
 | *Logotyper*  | Se föregående skärmdumpar för att se hur och var dina logotyper kommer att användas.  |
 | **Liten\***                 | PNG-format med 40 x 40 pixlar                                                     |
-| **Medium\***                | PNG-format med 90 x 90 pixlar                                                     |
+| **Medel\***                | PNG-format med 90 x 90 pixlar                                                     |
 | **Stor\***                 | PNG-format med 115 x 115 pixlar                                                  |
 | **Brett\***                  | PNG-format med 255 x 115 pixlar                                                   |
 | **Hjälte**                  | PNG-format med 815 x 290 pixlar.  Valfritt, men när du har laddat upp hjälteikonen kan inte tas bort. |

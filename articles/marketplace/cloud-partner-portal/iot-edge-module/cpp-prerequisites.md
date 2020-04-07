@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: b6e021fc452b45edd7b1be9fd5afd77b792b4853
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93e0418004ea65f93ad436eec1ce523424a194ba
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286548"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744979"
 ---
 # <a name="iot-edge-module-publishing-prerequisites"></a>Förutsättningar för publicering av IoT Edge-modul
+
+>[!Important]
+>Från och med den 30 mars 2020 börjar vi flytta hanteringen av dina IoT Edge-modulerbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa ett IoT Edge-modulerbjudande](https://aka.ms/AzureCreateIoT) för att hantera dina migrerade erbjudanden.
 
 I den här artikeln beskrivs förutsättningarna för att publicera ett IoT Edge-modulerbjudande.  Om du inte redan har gjort det läser du [publiceringsguiden för IoT Edge-moduler](../..//iot-edge-module.md).
 

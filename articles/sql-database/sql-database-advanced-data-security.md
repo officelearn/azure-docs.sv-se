@@ -11,12 +11,12 @@ author: memildin
 manager: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
-ms.openlocfilehash: 1f0e6694e596dc60264dfe0789a2f80090e0da3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aed0bcb79dedf057c5943cea9f4b4399b2f630cb
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79269138"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677455"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Avancerad datasäkerhet för Azure SQL Database
 
@@ -26,8 +26,8 @@ Avancerad datasäkerhet är ett enhetligt paket för avancerade SQL-säkerhetsfu
 
 Avancerad datasäkerhet (ADS) innehåller en uppsättning avancerade SQL-säkerhetsfunktioner, inklusive dataidentifiering & klassificering, sårbarhetsbedömning och avancerat skydd mot hot.
 
-- [Klassificering & &](sql-database-data-discovery-and-classification.md) innehåller funktioner som är inbyggda i Azure SQL Database för att upptäcka, klassificera, märka & skydda känsliga data i dina databaser. Det kan användas för att ge insyn i tillståndet på din databasklassificering och för att spåra åtkomst till känsliga data i och utanför databasen.
-- [Sårbarhetsbedömning](sql-vulnerability-assessment.md) är en enkel att konfigurera tjänst som kan identifiera, spåra och hjälpa dig att åtgärda potentiella databassårbarheter. Den ger inblick i dina säkerhetstillstånd och inkluderar lämpliga åtgärder för att lösa säkerhetsproblem och förbättra databasens skydd.
+- [Data Discovery & Classification](sql-database-data-discovery-and-classification.md) tillhandahåller funktioner som är inbyggda i Azure SQL Database för att upptäcka, klassificera, märka & rapportera känsliga data i dina databaser. Det kan användas för att ge insyn i tillståndet på din databasklassificering och för att spåra åtkomst till känsliga data i och utanför databasen.
+- [Vulnerability Assessment](sql-vulnerability-assessment.md) är en tjänst som är enkel att konfigurera och som kan identifiera, spåra och hjälpa dig att åtgärda eventuella säkerhetsrisker i databasen. Den ger inblick i dina säkerhetstillstånd och inkluderar lämpliga åtgärder för att lösa säkerhetsproblem och förbättra databasens skydd.
 - [Advanced Threat Protection](sql-database-threat-detection-overview.md) identifierar avvikande aktiviteter som indikerar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja din databas. Den övervakar kontinuerligt databasen för misstänkta aktiviteter och ger omedelbara säkerhetsaviseringar om potentiella säkerhetsproblem, SQL-inmatningsattacker samt avvikande åtkomstmönster i databasen. Advanced Threat Protection-aviseringar ger detaljerad information om misstänkt aktivitet och rekommenderar åtgärder för att undersöka och minska risken.
 
 Aktivera SQL ADS en gång för att aktivera alla dessa inkluderade funktioner. Med ett klick kan du aktivera ADS för alla databaser på SQL Database-servern eller hanterad instans. För att aktivera eller hantera ADS-inställningar krävs att den hör till rollen [SQL Security Manager,](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) SQL-databasadministratörsrollen eller SQL-serveradministratörsrollen. 
@@ -63,7 +63,7 @@ Om du vill visa och hantera ADS-inställningar navigerar du till **Avancerad dat
 
 ## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. Hantera ADS-inställningar för en SQL-databas
 
-Om du vill åsidosätta ADS-inställningarna för en viss databas markerar du kryssrutan **Aktivera avancerad datasäkerhet på databasnivå.** Använd det här alternativet endast om du har ett särskilt krav på att få separata förhandsvarningar om skydd mot hot eller sårbarhetsbedömning för den enskilda databasen, i stället för eller utöver de aviseringar och resultat som tas emot för alla databaser i databasserver eller hanterad instans.
+Om du vill åsidosätta ADS-inställningarna för en viss databas markerar du kryssrutan **Aktivera avancerad datasäkerhet på databasnivå.** Använd det här alternativet endast om du har ett särskilt krav på att få separata avancerade hotskyddsaviseringar eller sårbarhetsbedömningsresultat för den enskilda databasen, i stället för eller utöver de aviseringar och resultat som tas emot för alla databaser på databasservern eller hanterad instans.
 
 När kryssrutan är markerad kan du sedan konfigurera relevanta inställningar för den här databasen.
  
@@ -76,6 +76,6 @@ Avancerade datasäkerhetsinställningar för databasservern eller den hanterade 
 ## <a name="next-steps"></a>Nästa steg 
 
 - Läs mer om [klassificering & & dataidentifiering](sql-database-data-discovery-and-classification.md) 
-- Läs mer om [sårbarhetsbedömning](sql-vulnerability-assessment.md) 
+- Läs mer om [bedömning av säkerhetsproblem](sql-vulnerability-assessment.md) 
 - Läs mer om [avancerat hotskydd](sql-database-threat-detection.md)
-- Läs mer om [Azure security center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- Läs mer om [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

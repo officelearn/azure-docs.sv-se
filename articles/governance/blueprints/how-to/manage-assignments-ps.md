@@ -3,12 +3,12 @@ title: Hantera tilldelningar med PowerShell
 description: Lär dig hur du hanterar skisstilldelningar med den officiella Azure Blueprints PowerShell-modulen Az.Blueprint.
 ms.date: 09/30/2019
 ms.topic: how-to
-ms.openlocfilehash: b16cf887ba8bfc51616839db5f4af87944ec686d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0868e5e207202511c1981a930870bfdc68a77a8f
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80247409"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677427"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Hantera tilldelningar med PowerShell
 
@@ -27,12 +27,12 @@ Azure Blueprints-modulen kräver följande programvara:
 
 ### <a name="install-the-module"></a>Installera modulen
 
-Modulen Skisser för PowerShell är **Az.Blueprint**.
+Azure Blueprints-modulen för PowerShell är **Az.Blueprint**.
 
 1. Från en **administrativ** PowerShell-prompt kör du följande kommando:
 
    ```azurepowershell-interactive
-   # Install the Blueprints module from PowerShell Gallery
+   # Install the Azure Blueprints module from PowerShell Gallery
    Install-Module -Name Az.Blueprint
    ```
 

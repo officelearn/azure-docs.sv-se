@@ -5,16 +5,16 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8e65ebbfa0971bf2156165b55ca18eee3cc74bc9
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 83108c056035b16d26343d82c721b275ebcad0c5
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239281"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754327"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Självstudiekurs: Importera SQL BACPAC-filer med ARM-mallar
 
-Lär dig hur du använder Azure SQL Database-tillägg för att importera en BACPAC-fil med Azure Resource Manager -mallar (ARM). Distributionsartefakter är alla filer, utöver de viktigaste mallfilerna, som behövs för att slutföra en distribution. BACPAC-filen är en artefakt. 
+Lär dig hur du använder Azure SQL Database-tillägg för att importera en BACPAC-fil med Azure Resource Manager -mallar (ARM). Distributionsartefakter är alla filer, utöver de viktigaste mallfilerna, som behövs för att slutföra en distribution. BACPAC-filen är en artefakt.
 
 I den här självstudien skapar du en mall för att distribuera en Azure SQL-server och en SQL-databas och importera en BACPAC-fil. Information om hur du distribuerar Azure-tillägg för virtuella datorer med hjälp av ARM-mallar finns i [Självstudiekurs: Distribuera tillägg till virtuella datorer med ARM-mallar](./template-tutorial-deploy-vm-extensions.md).
 
@@ -255,7 +255,7 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien distribuerade du en SQL-server och en SQL-databas och importerade en BACPAC-fil. BACPAC-filen lagras i ett Azure Storage-konto. Vem som helst med URL:en kan komma åt filen. Mer information om hur du skyddar BACPAC-filen (artefakten) finns i:
+I den här självstudien distribuerade du en SQL-server och en SQL-databas och importerade en BACPAC-fil. Mer information om hur du felsöker malldistribution finns i:
 
 > [!div class="nextstepaction"]
-> [Skydda artefakterna](./template-tutorial-secure-artifacts.md)
+> [Felsöka distributioner av ARM-mallar](./template-tutorial-troubleshoot.md)

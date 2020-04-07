@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: e5fe58891aa901509dc44d3b2465c794bd92b22d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f13ab3cd6ff765bc3b1bee8e8fad7e7273f6c7d
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476577"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673913"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Tidigare generationer av storlekar på virtuella datorer
 
@@ -66,6 +66,7 @@ Cachelagring av premiumlagring: Stöds
 Mbit/s = 10^6 byte per sekund och GiB = 1 024^3 byte.
 
 <sup>1</sup> Det maximala diskdataflödet (IOPS eller MBps) som är möjligt med en virtuell dator i Fs-serien kan begränsas av antalet, storleken och stripingen för de anslutna diskarna.  Mer information finns i design för hög prestanda för [Windows](windows/premium-storage-performance.md) eller [Linux](linux/premium-storage-performance.md).  
+
 
 ## <a name="nvv2-series"></a>NVv2-serien
 
@@ -339,6 +340,30 @@ Cachelagring av premiumlagring: Stöds inte
 | &nbsp;Standard_G5<sup>1</sup> | 32 | 448 | 6144 | 96000/1500/750| 64/64x500 | 8/20000 |
 
 <sup>1</sup> Instans är isolerad till hårdvara tillägnad en enda kund.
+<br>
+
+# <a name="nv-series"></a>NV-serien
+**Nyare storlek rekommendation:** [NVv3-serien](nvv3-series.md) och [NVv4-serien](nvv4-series.md)
+
+De virtuella datorerna i NV-serien drivs av [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU:er och NVIDIA GRID-teknik för stationära accelererade program och virtuella skrivbord där kunderna kan visualisera sina data eller simuleringar. Användare kan visualisera sina grafikintensiva arbetsflöden på NV-instanserna för att få överlägsen grafikkapacitet och dessutom köra arbetsbelastningar med enkel precision, till exempel kodning och rendering. NV-serien virtuella datorer drivs också av Intel Xeon E5-2690 v3 (Haswell) processorer.
+
+Varje GPU i NV-instanser levereras med en GRID-licens. Den här licensen ger dig flexibiliteten att använda en NV-instans som en virtuell arbetsstation för en enskild användare, eller så kan 25 samtidiga användare ansluta till den virtuella datorn för ett virtuellt programscenario.
+
+Premium-lagring: Stöds inte
+
+Cachelagring av premiumlagring: Stöds inte
+
+Live Migration: Stöds inte
+
+Minneskonering av uppdateringar: Stöds inte
+
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | GPU | GPU-minne: GiB | Maximalt antal datadiskar | Maximalt antal nätverkskort | Virtuella arbetsstationer | Virtuella program |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_NV6  | 6  | 56  | 340  | 1 | 8  | 24 | 1 | 1 | 25  |
+| Standard_NV12 | 12 | 112 | 680  | 2 | 16 | 48 | 2 | 2 | 50  |
+| Standard_NV24 | 24 | 224 | 1440 | 4 | 32 | 64 | 4 | 4 | 100 |
+
+1 GPU = ett halvt M60-kort.
 <br>
 
 ## <a name="other-sizes"></a>Andra storlekar

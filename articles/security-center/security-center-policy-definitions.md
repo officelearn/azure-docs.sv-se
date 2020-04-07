@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.author: memildin
-ms.openlocfilehash: 72f16463c7dfcd3d76db2d99e1805b0159261a55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5550f8feb2b93537bdcc508aa0da062681fe9aab
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77603709"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673835"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Azure-säkerhetsprinciper som övervakas av Security Center
 
@@ -23,7 +23,7 @@ Den här artikeln innehåller en lista över Definitioner och initiativ för [Az
 
 Mer information om de inbyggda principer som övervakas av Security Center finns i följande tabell:
 
-[!INCLUDE [azure-policy-samples-policies-security-center](../../includes/azure-policy-samples-policies-security-center.md)]
+[!INCLUDE [azure-policy-samples-init-asc](../../includes/azure-policy-samples-init-asc.md)]
 
 ## <a name="built-in-policy-initiatives"></a>Inbyggda politiska initiativ
 

@@ -3,12 +3,12 @@ title: Konfigurera Azure Backup-rapporter
 description: Konfigurera och visa rapporter för Azure Backup med Log Analytics och Azure-arbetsböcker
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 651d1383f0f292895ed95c91bafd5206d4f04c2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 497d70c1bcc577faa467720b959eb828e785a26a
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78161209"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672668"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
 
@@ -21,7 +21,7 @@ Idag tillhandahåller Azure Backup en rapporteringslösning som utnyttjar [Azure
 * Säkerhetskopieringsrapporter stöds för virtuella Azure-datorer, SQL i virtuella Azure-datorer, SAP HANA/ASE i virtuella Azure-datorer, Azure Backup Agent (MARS), Azure Backup Server (MABS) och System Center DPM.
 * För DPM-arbetsbelastningar stöds säkerhetskopieringsrapporter för DPM Version 5.1.363.0 och högre och Agent Version 2.0.9127.0 och senare.
 * För MABS-arbetsbelastningar stöds säkerhetskopieringsrapporter för MABS Version 13.0.415.0 och senare och Agent Version 2.0.9170.0 och senare.
-* Säkerhetskopieringsrapporter kan visas i alla säkerhetskopieringsobjekt, valv, prenumerationer och regioner så länge deras data skickas till en Log Analytics (LA) arbetsyta som användaren har åtkomst till. 
+* Säkerhetskopieringsrapporter kan visas i alla säkerhetskopieringsobjekt, valv, prenumerationer och regioner så länge deras data skickas till en Log Analytics (LA) arbetsyta som användaren har åtkomst till. Observera att om du vill visa rapporter för en uppsättning valv behöver du bara ha **läsaråtkomst till DEN LA-arbetsyta** som valven skickar sina data till. Du **behöver inte** ha tillgång till de enskilda valven.
 * Om du är en [Azure Lighthouse-användare](https://docs.microsoft.com/azure/lighthouse/) med delegerad åtkomst till dina kunders prenumerationer kan du använda dessa rapporter med Azure Lighthouse för att visa rapporter över alla dina klienter.
 * Data för jobb för säkerhetskopiering av loggar visas för närvarande inte i rapporterna.
 

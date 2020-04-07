@@ -6,12 +6,12 @@ ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
 zone_pivot_groups: java-build-tools-set
-ms.openlocfilehash: 8ae69bfa7ed00e310205332e05c071158c5fc9a3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d9815fd27a57acc8b418962e610d2ae1c106edde
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78272808"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673262"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Ansluta java-funktionen till Azure Storage
 
@@ -37,77 +37,13 @@ Nu kan du lägga till storage-utdatabindningen i projektet.
 
 ## <a name="add-an-output-binding"></a>Lägg till en utdatabindning
 
-I ett Java-projekt definieras bindningarna som bindande anteckningar på funktionsmetoden. *Filen function.json* skapas sedan automatiskt baserat på dessa anteckningar.
-
-Bläddra till platsen för din _funktionskod under src/main/java_, öppna *function.java-projektfilen* och lägg till följande parameter i metoddefinitionen: `run`
-
-```java
-@QueueOutput(name = "msg", queueName = "outqueue", connection = "AzureWebJobsStorage") OutputBinding<String> msg
-```
-
-Parametern `msg` är [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) en typ som representerar en samling strängar som skrivs som meddelanden till en utdatabindning när funktionen är klar. I det här fallet är utdata en lagringskö med namnet `outqueue`. Anslutningssträngen för lagringskontot `connection` anges med metoden. I stället för själva anslutningssträngen skickar du programinställningen som innehåller anslutningssträngen för lagringskonto.
-
-Metoddefinitionen `run` ska nu se ut som följande exempel:  
-
-```java
-@FunctionName("HttpTrigger-Java")
-public HttpResponseMessage run(
-        @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION)  
-        HttpRequestMessage<Optional<String>> request, 
-        @QueueOutput(name = "msg", queueName = "outqueue", connection = "AzureWebJobsStorage") 
-        OutputBinding<String> msg, final ExecutionContext context) {
-    ...
-}
-```
+[!INCLUDE [functions-add-output-binding-java-cli](../../includes/functions-add-output-binding-java-cli.md)]
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Lägg till kod som använder utdatabindning
 
-Nu kan du använda `msg` den nya parametern för att skriva till utdatabindningen från funktionskoden. Lägg till följande kodrad innan det lyckade `name` svaret `msg` för att lägga till värdet för utdatabindningen.
+[!INCLUDE [functions-add-output-binding-java-code](../../includes/functions-add-output-binding-java-code.md)]
 
-```java
-msg.setValue(name);
-```
-
-När du använder en utdatabindning behöver du inte använda Azure Storage SDK-koden för autentisering, hämta en köreferens eller skriva data. Funktionskörnings- och köutdatabindningen utför dessa uppgifter åt dig.
-
-Din `run` metod bör nu se ut som följande exempel:
-
-```java
-@FunctionName("HttpTrigger-Java")
-public HttpResponseMessage run(
-        @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request, 
-        @QueueOutput(name = "msg", queueName = "outqueue", connection = "AzureWebJobsStorage") 
-        OutputBinding<String> msg, final ExecutionContext context) {
-    context.getLogger().info("Java HTTP trigger processed a request.");
-
-    // Parse query parameter
-    String query = request.getQueryParameters().get("name");
-    String name = request.getBody().orElse(query);
-
-    if (name == null) {
-        return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("Please pass a name on the query string or in the request body").build();
-    } else {
-        // Write the name to the message queue. 
-        msg.setValue(name);
-
-        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
-    }
-}
-```
-
-## <a name="update-the-tests"></a>Uppdatera testerna
-
-Eftersom arketypen också skapar en uppsättning tester måste du uppdatera `msg` dessa tester `run` för att hantera den nya parametern i metodsignaturen.  
-
-Bläddra till platsen för testkoden under _src/test/java_, öppna *function.java-projektfilen* `//Invoke` och ersätt kodraden under med följande kod.
-
-```java
-@SuppressWarnings("unchecked")
-final OutputBinding<String> msg = (OutputBinding<String>)mock(OutputBinding.class);
-
-// Invoke
-final HttpResponseMessage ret = new Function().run(req, msg, context);
-``` 
+[!INCLUDE [functions-add-output-binding-java-test-cli](../../includes/functions-add-output-binding-java-test-cli.md)]
 
 Du är nu redo att prova den nya utdatabindningen lokalt.
 
@@ -115,19 +51,17 @@ Du är nu redo att prova den nya utdatabindningen lokalt.
 
 Som tidigare använder du följande kommando för att skapa projektet och starta funktionerskörningen lokalt:
 
-::: zone pivot="java-build-tools-maven"  
+# <a name="maven"></a>[Maven](#tab/maven)
 ```bash
 mvn clean package 
 mvn azure-functions:run
 ```
-::: zone-end
-
-::: zone pivot="java-build-tools-gradle"  
+# <a name="gradle"></a>[Gradle](#tab/gradle) 
 ```bash
 gradle jar --info
 gradle azureFunctionsRun
 ```
-::: zone-end
+---
 
 > [!NOTE]  
 > Eftersom du har aktiverat tilläggspaket i host.json hämtades och installerades [tillägget Lagringsbindning](functions-bindings-storage-blob.md#add-to-your-functions-app) åt dig under start, tillsammans med de andra Microsoft-bindningstilläggen.
@@ -150,17 +84,15 @@ Därefter använder du Azure CLI för att visa den nya kön och verifiera att et
 
 Om du vill uppdatera den publicerade appen kör du följande kommando igen:  
 
-::: zone pivot="java-build-tools-maven"  
+# <a name="maven"></a>[Maven](#tab/maven)  
 ```bash
 mvn azure-functions:deploy
 ```
-::: zone-end
-
-::: zone pivot="java-build-tools-gradle"  
+# <a name="gradle"></a>[Gradle](#tab/gradle)  
 ```bash
 gradle azureFunctionsDeploy
 ```
-::: zone-end
+---
 
 Återigen kan du använda cURL för att testa den distribuerade funktionen. Precis som tidigare `AzureFunctions` skickar du värdet i brödtexten i POST-begäran till webbadressen, som i det här exemplet:
 

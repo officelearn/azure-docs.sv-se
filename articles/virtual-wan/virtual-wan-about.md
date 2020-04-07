@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 02/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 9ac70252ce7c818ccbdecfd996b9970f011aa967
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 927c09f61ce0847c72cefb51935116070e956861
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79241418"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743101"
 ---
 # <a name="about-azure-virtual-wan"></a>Om Azure Virtual WAN
 
-Azure Virtual WAN är en nätverkstjänst som tillhandahåller optimerad och automatiserad filialanslutning till och via Azure. Azure-regioner fungerar som nav som du kan välja att ansluta dina grenar till. Du kan utnyttja Azure-stamnätet för att även ansluta grenar och njuta av branch-to-VNet-anslutning. Vi har en lista över partner som stöder anslutningsautomatisering med Azure Virtual WAN VPN. Mer information finns i artikeln [Virtuella WAN-partner och platser.](virtual-wan-locations-partners.md)
+Azure Virtual WAN är en nätverkstjänst som sammanför många nätverks-, säkerhets- och routningsfunktioner för att tillhandahålla ett enda operativt gränssnitt. Dessa funktioner inkluderar Branch-anslutning (via anslutningsautomatisering från Virtuella WAN Partner-enheter som SD-WAN eller VPN CPE), Plats-till-plats VPN-anslutning, Remote User VPN (Point-to-site) anslutning, Privat (ExpressRoute) anslutning, Intra molnanslutning (Transitiv anslutning för virtuella nätverk), VPN ExpressRoute Interconnectivity, Routing, Azure-brandvägg, Kryptering för privat anslutning etc. Du behöver inte ha alla dessa användningsfall för att börja använda Virtual WAN. Du kan helt enkelt komma igång med bara ett användningsfall och justera ditt nätverk när det utvecklas. Virtual WAN-arkitekturen är en hubb- och ekerarkitektur med inbyggd skala och prestanda för grenar (VPN/SD-WAN-enheter), användare (Azure VPN/OpenVPN/IKEv2-klienter), ExpressRoute-kretsar och virtuella nätverk. Det möjliggör [global transitnätverksarkitektur](virtual-wan-global-transit-network-architecture.md) där molnet värdbaserade nätverk "hub" möjliggör transitiv anslutning mellan slutpunkter som kan distribueras över olika typer av "ekrar".
 
-Azure Virtual WAN samlar många Azure-molnanslutningstjänster, till exempel plats-till-plats-VPN, User VPN (point-to-site) och ExpressRoute till ett enda operativt gränssnitt. Anslutning till Virtuella Azure-nätverk upprättas med hjälp av virtuella nätverksanslutningar. Det möjliggör [global transitnätverksarkitektur](virtual-wan-global-transit-network-architecture.md) baserad på en klassisk hub-and-spoke-anslutningsmodell där molnet värdnätverket "hub" möjliggör transitiv anslutning mellan slutpunkter som kan distribueras över olika typer av "ekrar".
+Azure-regioner fungerar som nav som du kan välja att ansluta till. Alla hubbar är anslutna i fullt nät i ett virtuellt standard WAN-minne, vilket gör det enkelt för användaren att använda Microsofts stamnät för alla (alla ekrar) anslutning. För ekeranslutning med SD-WAN/VPN-enheter kan användare antingen manuellt konfigurera den i Azure Virtual WAN eller använda partnerlösningen För virtual WAN CPE (SD-WAN/VPN) för att konfigurera anslutning till Azure. Vi har en lista över partner som stöder automatisering av anslutning (möjlighet att exportera enhetsinformationen till Azure, hämta Azure-konfigurationen och upprätta anslutning) med Azure Virtual WAN. Mer information finns i artikeln [Virtuella WAN-partner och platser.](virtual-wan-locations-partners.md) 
 
 ![Virtual WAN-diagram](./media/virtual-wan-about/virtualwan1.png)
 
@@ -97,7 +97,7 @@ Med ExpressRoute kan du ansluta lokalt nätverk till Azure via en privat anslutn
 
 Platsinformation finns i artikeln [Virtuella WAN-partner och platser.](virtual-wan-locations-partners.md)
 
-## <a name="faq"></a><a name="faq"></a>Faq
+## <a name="faq"></a><a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 

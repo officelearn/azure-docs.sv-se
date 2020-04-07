@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4e19c20036d74752b75a668d6a37c46ef1b008e6
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 368276f75128c80b8df326a26acf26c841e9f68a
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583191"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742685"
 ---
 # <a name="partitioning-tables-in-synapse-sql-pool"></a>Partitionering av tabeller i Synapse SQL-pool
 
@@ -46,9 +46,9 @@ När du skapar partitioner på **klustrade columnstore-tabeller** är det viktig
 
 ## <a name="syntax-differences-from-sql-server"></a>Syntaxskillnader från SQL Server
 
-Synapse SQL-pool introducerar ett sätt att definiera partitioner som är enklare än SQL Server. Partitioneringsfunktioner och scheman används inte i Synapse SQL-pool som de är i SQL Server. I stället behöver du bara identifiera partitionerad kolumn och gränspunkter. Syntaxen för partitionering kan skilja sig något från SQL Server, men de grundläggande begreppen är desamma. SQL Server och Synapse SQL pool stöder en partitionskolumn per tabell, som kan vara områdespartition. Mer information om partitionering finns i [Partitionerade tabeller och index](/sql/relational-databases/partitions/partitioned-tables-and-indexes).
+Synapse SQL-pool introducerar ett sätt att definiera partitioner som är enklare än SQL Server. Partitioneringsfunktioner och scheman används inte i Synapse SQL-pool som de är i SQL Server. I stället behöver du bara identifiera partitionerad kolumn och gränspunkter. Syntaxen för partitionering kan skilja sig något från SQL Server, men de grundläggande begreppen är desamma. SQL Server och Synapse SQL pool stöder en partitionskolumn per tabell, som kan vara områdespartition. Mer information om partitionering finns i [Partitionerade tabeller och index](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-I följande exempel används [CREATE TABLE-satsen](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) för att partitionera tabellen FactInternetSales i kolumnen OrderDateKey:
+I följande exempel används [CREATE TABLE-satsen](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att partitionera tabellen FactInternetSales i kolumnen OrderDateKey:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -78,8 +78,8 @@ WITH
 
 Så här migrerar du SQL Server-partitionsdefinitioner till Synapse SQL-pool helt enkelt:
 
-- Eliminera SQL [Server-partitionsschemat](/sql/t-sql/statements/create-partition-scheme-transact-sql).
-- Lägg till [partitionsfunktionsdefinitionen](/sql/t-sql/statements/create-partition-function-transact-sql) i CREATE-tabellen.
+- Eliminera SQL [Server-partitionsschemat](/sql/t-sql/statements/create-partition-scheme-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+- Lägg till [partitionsfunktionsdefinitionen](/sql/t-sql/statements/create-partition-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) i CREATE-tabellen.
 
 Om du migrerar en partitionerad tabell från en SQL Server-instans kan följande SQL hjälpa dig att räkna ut antalet rader som finns i varje partition. Tänk på att om samma partitioneringsgranularitet används i Synapse SQL-pool, minskar antalet rader per partition med en faktor på 60.  
 
@@ -119,7 +119,7 @@ GROUP BY    s.[name]
 
 ## <a name="partition-switching"></a>Partitionsväxling
 
-Synapse SQL-pool stöder partitionsdelning, sammanslagning och växling. Var och en av dessa funktioner körs med hjälp av [ALTER TABLE-satsen.](/sql/t-sql/statements/alter-table-transact-sql)
+Synapse SQL-pool stöder partitionsdelning, sammanslagning och växling. Var och en av dessa funktioner körs med hjälp av [ALTER TABLE-satsen.](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 Om du vill växla partitioner mellan två tabeller måste du se till att partitionerna justeras på sina respektive gränser och att tabelldefinitionerna matchar. Eftersom kontrollbegränsningar inte är tillgängliga för att framtvinga värdeintervallet i en tabell måste källtabellen innehålla samma partitionsgränser som måltabellen. Om partitionsgränserna inte är desamma misslyckas partitionsväxeln eftersom partitionsmetadata inte synkroniseras.
 
@@ -344,4 +344,3 @@ Med den här metoden förblir koden i källkontrollen statisk och partitionering
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om hur du utvecklar tabeller finns i artiklarna i [Tabellöversikt](sql-data-warehouse-tables-overview.md).
-

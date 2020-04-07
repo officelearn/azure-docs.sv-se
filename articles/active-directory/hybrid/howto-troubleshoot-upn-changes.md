@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 695773da624bc8d4ccff09119d64fc43319ff488
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d11be1d971922095d4a1ace1c81c763134b4e58c
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246440"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743336"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Planera och felsöka ändringar av användarnamn i Azure Active Directory
 
@@ -58,11 +58,11 @@ Bsimon@contoso.com tillBritta.Simon@contoso.com
 
    * Britta.Simon@contoso.comAttBritta.Simon@contosolabs.com <br>
      Eller<br>
-    *   Britta.Simon@corp.contoso.comAttBritta.Simon@labs.contoso.com 
+    * Britta.Simon@corp.contoso.comAttBritta.Simon@labs.contoso.com 
 
 Ändra användarens UPN varje gång den primära e-postadressen för en användare uppdateras. Oavsett orsaken till e-poständringen måste UPN alltid uppdateras för att matcha.
 
-Under den första synkroniseringen från Active Directory till Azure AD, se till att användarnas e-postmeddelanden är identiska med deras UPN
+Under den första synkroniseringen från Active Directory till Azure AD, se till att användarnas e-postmeddelanden är identiska med deras UPN.
 
 ### <a name="upns-in-active-directory"></a>UPN i Active Directory
 
@@ -100,7 +100,7 @@ Om värdet för attributet userPrincipalName inte motsvarar en verifierad domän
 
 ### <a name="roll-out-bulk-upn-changes"></a>Utrullning av UPN-massförändringar
 
-Följ[metodtipsen för en pilot](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans) för mass-UPN-ändringar. Har också en testad återställningsplan för att återställa UPN om du hittar problem som inte snabbt kan lösas. När piloten är igång kan du börja rikta in dig på små uppsättningar användare med olika organisationsroller och deras specifika uppsättningar av appar eller enheter.
+Följ [metodtipsen för en pilot](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans) för mass-UPN-ändringar. Har också en testad återställningsplan för att återställa UPN om du hittar problem som inte snabbt kan lösas. När piloten är igång kan du börja rikta in dig på små uppsättningar användare med olika organisationsroller och deras specifika uppsättningar av appar eller enheter.
 
 Att gå igenom denna första delmängd av användare ger dig en god uppfattning om vad användarna bör förvänta sig som en del av förändringen. Inkludera den här informationen om din användarkommunikation.
 
@@ -108,7 +108,7 @@ Skapa en definierad procedur för att ändra UPN-nätverk för enskilda använda
 
 I följande avsnitt beskrivs potentiella kända problem och lösningar när UPN ändras.
 
-## <a name="user-provisioning-known-issues-and-workarounds"></a>användare etablering kända problem och lösningar
+## <a name="apps-known-issues-and-workarounds"></a>Kända problem och lösningar för appar
 
 [Program som en tjänst (SaaS)](https://azure.microsoft.com/overview/what-is-saas/) och Line of Business (LoB) applikationer förlitar sig ofta på UPN för att hitta användare och lagra information om användarprofiler, inklusive roller. Program som använder [Just in Time-etablering](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning) för att skapa en användarprofil när användare loggar in på appen för första gången kan påverkas av UPN-ändringar.
 
@@ -117,6 +117,7 @@ Om du ändrar en användares UPN kan relationen mellan Azure AD-användaren och 
 
 **Workaround**<br>
 [Azure AD Automated User Provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) kan du automatiskt skapa, underhålla och ta bort dina användaridentiteter i molnprogram som stöds. Om du konfigurerar automatisk användaretablering på dina program uppdateras automatiskt UPN-nätverk för programmen. Testa programmen som en del av den progressiva distributionen för att verifiera att de inte påverkas av UPN-ändringar.
+Om du är utvecklare kan du [överväga att lägga till SCIM-stöd i ditt program](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) för att aktivera automatisk användaretablering från Azure Active Directory. 
 
 ## <a name="managed-devices-known-issues-and-workarounds"></a>Kända problem och lösningar för hanterade enheter
 
@@ -130,7 +131,7 @@ Genom [att föra dina enheter till Azure AD](https://docs.microsoft.com/azure/ac
 Användare kan uppleva enstaka inloggningsproblem med program som är beroende av Azure AD för autentisering.
 
 **Workaround** <br>
-Tillåt tillräckligt med tid för UPN-ändringen att synkronisera med Azure AD. När du har verifierat att det nya UPN-programmet återspeglas på Azure AD-portalen ber du användaren att välja panelen "Annan användare" för att logga in med sitt nya UPN. du kan också verifiera via [PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0). När du har loggat in med sitt nya UPN kan referenser till det gamla UPN fortfarande visas på Windows-inställningen "Access work or school".
+Tillåt tillräckligt med tid för UPN-ändringen att synkronisera med Azure AD. När du har verifierat att det nya UPN-programmet återspeglas på Azure AD-portalen ber du användaren att välja panelen "Annan användare" för att logga in med sitt nya UPN. Du kan också verifiera via [PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0). När du har loggat in med sitt nya UPN kan referenser till det gamla UPN fortfarande visas på Windows-inställningen "Access work or school".
 
 ![Skärmbild av verifierade domäner](./media/howto-troubleshoot-upn-changes/other-user.png)
 
@@ -142,7 +143,7 @@ Tillåt tillräckligt med tid för UPN-ändringen att synkronisera med Azure AD.
 
 Windows 10 Hybrid Azure AD-anslutna enheter kommer sannolikt att drabbas av oväntade omstarter och åtkomstproblem.
 
-Om användare loggar in i Windows innan det nya UPN-programmet har synkroniserats med Azure AD, eller fortsätter att använda en befintlig Windows-session, kan de få problem med enkel inloggning med program som använder Azure AD för autentisering om villkorlig åtkomst har konfigurerats för att genomdriva användningen av Hybrid-anslutna enheter för att komma åt resurser. 
+Om användare loggar in i Windows innan det nya UPN-programmet har synkroniserats med Azure AD, eller fortsätter att använda en befintlig Windows-session, kan de uppleva engångsproblem med program som använder Azure AD för autentisering om villkorlig åtkomst har konfigurerats för att framtvinga användning av Hybrid-anslutna enheter för åtkomst till resurser. 
 
 Dessutom visas följande meddelande, vilket tvingar fram en omstart efter en minut. 
 
@@ -166,7 +167,7 @@ Din organisation kan kräva att [Microsoft Authenticator-appen](https://docs.mic
 
 * Fungera som en autentiseringsmäklare på iOS- och Android-enheter för att tillhandahålla enkel inloggning för program som använder [brokered-autentisering](https://docs.microsoft.com/azure/active-directory/develop/brokered-auth)
 
-* Enhetsregistrering (kallas även Arbetsplatsansluten) till Azure AD, vilket är ett krav för andra funktioner som Intune App Protection och Enhetsinskrivning/-hantering,
+* Enhetsregistrering (kallas även Arbetsplatsanslutning) till Azure AD, vilket är ett krav för andra funktioner som Intune App Protection och Enhetsregistrering/-hantering,
 
 * Telefon logga in, vilket kräver MFA och enhetsregistrering.
 
@@ -174,15 +175,13 @@ Din organisation kan kräva att [Microsoft Authenticator-appen](https://docs.mic
 
 Microsoft Authenticator-appen erbjuder ett alternativ för out-of-band-verifiering. I stället för att skicka ett automatiskt telefonsamtal eller SMS till användaren under inloggningen skickar [MFA (Multi-Factor Authentication)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) ett meddelande till Microsoft Authenticator-appen på användarens smartphone eller surfplatta. Användaren trycker helt enkelt på Godkänn (eller anger en PIN-kod eller biometrisk och trycker på "Autentisera") i appen för att slutföra sin inloggning.
 
-När du ändrar en användares UPN kan mobila enheter uppleva följande problem:
-
 **Kända problem** 
 
-Det gamla UPN-programmet visas fortfarande på användarkontot och ett meddelande kanske inte tas emot. [Verifieringskoder](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-faq) fortsätter att fungera.
+När du ändrar en användares UPN visas fortfarande det gamla UPN på användarkontot och ett meddelande kanske inte tas emot. [Verifieringskoder](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-faq) fortsätter att fungera.
 
 **Workaround**
 
-Om ett meddelande tas emot instruerar du användaren att avvisa meddelandet, öppnar appen Autentiseringsperson, trycker på alternativet "Sök efter meddelanden" och godkänner MFA-prompten. Därefter uppdateras UPN som visas på kontot. Observera att det uppdaterade UPN kan visas som ett nytt konto, detta beror på att andra Authenticator-funktioner används. Mer information om mer information finns i den här artikeln.
+Om ett meddelande tas emot instruerar du användaren att avvisa meddelandet, öppnar appen Autentiseringsperson, trycker på alternativet "Sök efter meddelanden" och godkänner MFA-prompten. Därefter uppdateras UPN som visas på kontot. Observera att det uppdaterade UPN kan visas som ett nytt konto, detta beror på att andra Authenticator-funktioner används. Mer information finns i ytterligare kända problem i den här artikeln.
 
 ### <a name="brokered-authentication"></a>Förmedlad autentisering
 

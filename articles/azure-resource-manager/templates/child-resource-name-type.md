@@ -3,18 +3,18 @@ title: Underordnade resurser i mallar
 description: Beskriver hur du anger namn och typ för underordnade resurser i en Azure Resource Manager-mall.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 6de2b476fe19a057a62e4a54963dd8fde0d11579
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3a69829e674925982c618807f49433a033d8c5f9
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77207901"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743830"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Ange namn och typ för underordnade resurser
 
 Underordnade resurser är resurser som bara finns inom ramen för en annan resurs. Ett tillägg [för virtuella datorer](/azure/templates/microsoft.compute/2019-03-01/virtualmachines/extensions) kan till exempel inte finnas utan en [virtuell dator](/azure/templates/microsoft.compute/2019-03-01/virtualmachines). Tilläggsresursen är underordnad den virtuella datorn.
 
-I en Resursmanger-mall kan du ange den underordnade resursen antingen inom den överordnade resursen eller utanför den överordnade resursen. I följande exempel visas den underordnade resurs som ingår i egenskapen resurser för den överordnade resursen.
+I en Resource Manager-mall kan du ange den underordnade resursen antingen inom den överordnade resursen eller utanför den överordnade resursen. I följande exempel visas den underordnade resurs som ingår i egenskapen resurser för den överordnade resursen.
 
 ```json
 "resources": [

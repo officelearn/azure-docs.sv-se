@@ -4,12 +4,12 @@ description: Lär dig hur du definierar en anpassad utgående väg i Azure Kuber
 services: container-service
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: 30b7b6bae92221b268d40977f5b299e9b0b267b0
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 3780680c485aebf1ffc654d31c577821a9b96fff
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637831"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676512"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Anpassa klusterutgående med en användardefinierad rutt (förhandsgranskning)
 
@@ -542,3 +542,6 @@ Du bör se en bild av Azure-röstningsappen.
 Se [ÖVERSIKT över UDR för Azure-nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
 Se [hur du skapar, ändrar eller tar bort en vägtabell](https://docs.microsoft.com/azure/virtual-network/manage-route-table).
+
+<!-- LINKS - internal -->
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials

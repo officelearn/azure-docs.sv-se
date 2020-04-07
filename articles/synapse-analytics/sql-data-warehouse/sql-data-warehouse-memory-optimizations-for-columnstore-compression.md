@@ -11,46 +11,48 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 8e78ad26701bae1357ef6a2a0a03dff1319f0efe
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: d2cbe9b94c4698a93b93c032ee4dcb421a78e59b
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633171"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743068"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximera radgruppskvaliteten för columnstore
 
 Radgruppskvaliteten bestäms av antalet rader i en radgrupp. Om du ökar det tillgängliga minnet kan du maximera antalet rader som ett columnstore-index komprimerar till varje radgrupp.  Använd dessa metoder för att förbättra komprimeringshastigheter och frågeprestanda för columnstore-index.
 
 ## <a name="why-the-rowgroup-size-matters"></a>Varför radgruppsstorleken är viktig
-Eftersom ett columnstore-index söker igenom en tabell genom att skanna kolumnsegment för enskilda radgrupper, förbättrar resultatet av frågeprestanda om du maximerar antalet rader i varje radgrupp. 
+
+Eftersom ett columnstore-index söker igenom en tabell genom att skanna kolumnsegment för enskilda radgrupper, förbättrar resultatet av frågeprestanda om du maximerar antalet rader i varje radgrupp.
 
 När radgrupper har ett stort antal rader förbättras datakomprimeringen vilket innebär att det finns mindre data att läsa från disken.
 
-Mer information om radgrupper finns i [Columnstore Indexes Guide](https://msdn.microsoft.com/library/gg492088.aspx).
+Mer information om radgrupper finns i [Columnstore Indexes Guide](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="target-size-for-rowgroups"></a>Målstorlek för radgrupper
-För bästa frågeprestanda är målet att maximera antalet rader per radgrupp i ett columnstore-index. En radgrupp kan ha högst 1 048 576 rader. 
+
+För bästa frågeprestanda är målet att maximera antalet rader per radgrupp i ett columnstore-index. En radgrupp kan ha högst 1 048 576 rader.
 
 Det är okej att inte ha det maximala antalet rader per radgrupp. Columnstore-index uppnår goda prestanda när radgrupper har minst 100 000 rader.
 
 ## <a name="rowgroups-can-get-trimmed-during-compression"></a>Radgrupper kan trimmas under komprimering
 
-Under en massinläsning eller ombyggnad av columnstore-index finns det ibland inte tillräckligt med ledigt minne för att komprimera alla rader som har angetts för varje radgrupp. När minnestryck finns trimmar columnstore-index radgruppsstorlekarna så att komprimeringen till columnstore kan lyckas. 
+Under en massinläsning eller ombyggnad av columnstore-index finns det ibland inte tillräckligt med ledigt minne för att komprimera alla rader som har angetts för varje radgrupp. När minnestryck finns trimmar columnstore-index radgruppsstorlekarna så att komprimeringen till columnstore kan lyckas.
 
 När det inte finns tillräckligt med minne för att komprimera minst 10 000 rader till varje radgrupp genereras ett fel.
 
-Mer information om massinläsning finns [i Massinläsning i ett grupperat columnstore-index](https://msdn.microsoft.com/library/dn935008.aspx#Bulk ).
+Mer information om massinläsning finns [i Massinläsning i ett grupperat columnstore-index](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Så här övervakar du radgruppskvaliteten
 
-DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) innehåller vydefinitionen som matchar SQL DB) som visar användbar information, till exempel antal rader i radgrupper och orsaken till trimning, om det fanns trimning. 
+DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) innehåller vydefinitionen som matchar SQL DB) som visar användbar information, till exempel antal rader i radgrupper och orsaken till trimning, om det fanns trimning.
 
 Du kan skapa följande vy som ett praktiskt sätt att fråga den här DMV:n för att få information om radergruppstrimning.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
-as 
+as
 with cte
 as
 (
@@ -62,18 +64,19 @@ select   tb.[name]                    AS [logical_table_name]
 ,        rg.[trim_reason_desc]        AS trim_reason_desc
 ,        mp.[physical_name]           AS physical_name
 FROM    sys.[schemas] sm
-JOIN    sys.[tables] tb               ON  sm.[schema_id]          = tb.[schema_id]                             
+JOIN    sys.[tables] tb               ON  sm.[schema_id]          = tb.[schema_id]
 JOIN    sys.[pdw_table_mappings] mp   ON  tb.[object_id]          = mp.[object_id]
 JOIN    sys.[pdw_nodes_tables] nt     ON  nt.[name]               = mp.[physical_name]
 JOIN    sys.[dm_pdw_nodes_db_column_store_row_group_physical_stats] rg      ON  rg.[object_id]     = nt.[object_id]
                                                                             AND rg.[pdw_node_id]   = nt.[pdw_node_id]
-                                        AND rg.[distribution_id]    = nt.[distribution_id]                                              
+                                        AND rg.[distribution_id]    = nt.[distribution_id]
 )
 select *
 from cte;
 ```
 
 Den trim_reason_desc anger om radgruppen trimmades(trim_reason_desc = NO_TRIM innebär att det inte fanns någon trimning och radgruppen är av optimal kvalitet). Följande trimorsaker indikerar för tidig trimning av radgruppen:
+
 - BULKLOAD: Den här trimorsaken används när den inkommande batchen med rader för belastningen hade mindre än 1 miljon rader. Motorn skapar komprimerade radgrupper om det finns fler än 100 000 rader som infogas (i stället för att infogas i deltaarkivet) men anger trimningsorsaken till BULKLOAD. I det här fallet bör du öka batchinläsningen så att den innehåller fler rader. Omvärdera partitioneringsschemat för att säkerställa att det inte är för detaljerat eftersom radgrupper inte kan spänna över partitionsgränser.
 - MEMORY_LIMITATION: För att skapa radgrupper med 1 miljon rader krävs en viss mängd arbetsminne av motorn. När det tillgängliga minnet för inläsningssessionen är mindre än det arbetsminne som krävs, trimmas radgrupper i förtid. I följande avsnitt beskrivs hur du uppskattar nödvändigt minne och allokerar mer minne.
 - DICTIONARY_SIZE: Den här trimoren anger att radgruppstrimning inträffade eftersom det fanns minst en strängkolumn med breda och/eller höga kardinalitetssträngar. Ordlistestorleken är begränsad till 16 MB i minnet och när den här gränsen har nåtts komprimeras radgruppen. Om du stöter på den här situationen kan du isolera den problematiska kolumnen i en separat tabell.
@@ -103,12 +106,13 @@ En djupgående diskussion om columnstore-minneskrav finns i [videoskalningen fö
 Använd följande tekniker för att minska minneskraven för att komprimera radgrupper till columnstore-index.
 
 ### <a name="use-fewer-columns"></a>Använda färre kolumner
-Om möjligt utformar du tabellen med färre kolumner. När en radgrupp komprimeras till columnstore komprimerar columnstore-indexet varje kolumnsegment separat. 
+
+Om möjligt utformar du tabellen med färre kolumner. När en radgrupp komprimeras till columnstore komprimerar columnstore-indexet varje kolumnsegment separat.
 
 Därför ökar minneskraven för att komprimera en radgrupp när antalet kolumner ökar.
 
-
 ### <a name="use-fewer-string-columns"></a>Använda färre strängkolumner
+
 Kolumner med strängdatatyper kräver mer minne än numeriska datatyper och datumdatatyper. Om du vill minska minneskraven bör du överväga att ta bort strängkolumner från faktatabeller och placera dem i mindre dimensionstabeller.
 
 Ytterligare minneskrav för strängkomprimering:
@@ -118,11 +122,11 @@ Ytterligare minneskrav för strängkomprimering:
 
 ### <a name="avoid-over-partitioning"></a>Undvik överpartitionering
 
-Columnstore-index skapar en eller flera radgrupper per partition. För SQL-pool i Azure Synapse Analytics ökar antalet partitioner snabbt eftersom data distribueras och varje distribution partitioneras. 
+Columnstore-index skapar en eller flera radgrupper per partition. För SQL-pool i Azure Synapse Analytics ökar antalet partitioner snabbt eftersom data distribueras och varje distribution partitioneras.
 
 Om tabellen har för många partitioner kanske det inte finns tillräckligt med rader för att fylla radgrupperna. Bristen på rader skapar inte minnestryck under komprimering. Men det leder till rowgroups som inte uppnår den bästa columnstore frågeprestanda.
 
-En annan anledning att undvika överpartitionering är att det finns ett minne omkostnader för att läsa in rader i ett columnstore-index på en partitionerad tabell. 
+En annan anledning att undvika överpartitionering är att det finns ett minne omkostnader för att läsa in rader i ett columnstore-index på en partitionerad tabell.
 
 Under en belastning kan många partitioner ta emot inkommande rader, som hålls i minnet tills varje partition har tillräckligt med rader som ska komprimeras. Om du har för många partitioner skapas ytterligare minnestryck.
 
@@ -130,14 +134,14 @@ Under en belastning kan många partitioner ta emot inkommande rader, som hålls 
 
 Databasen delar minnesbidraget för en fråga bland alla operatorer i frågan. När en belastningsfråga har komplexa sorteringar och kopplingar minskas det tillgängliga minnet för komprimering.
 
-Utforma inläsningsfrågan så att den bara fokuserar på att läsa in frågan. Om du behöver köra omvandlingar på data kör du dem separat från inläsningsfrågan. Till exempel arrangera data i en heap-tabell, kör omvandlingarna och sedan läsa in mellanlagringstabellen i columnstore-indexet. 
+Utforma inläsningsfrågan så att den bara fokuserar på att läsa in frågan. Om du behöver köra omvandlingar på data kör du dem separat från inläsningsfrågan. Till exempel arrangera data i en heap-tabell, kör omvandlingarna och sedan läsa in mellanlagringstabellen i columnstore-indexet.
 
 > [!TIP]
 > Du kan också läsa in data först och sedan använda MPP-systemet för att omvandla data.
 
 ### <a name="adjust-maxdop"></a>Justera MAXDOP
 
-Varje distribution komprimerar radgrupper till columnstore parallellt när det finns mer än en CPU-kärna tillgänglig per distribution. 
+Varje distribution komprimerar radgrupper till columnstore parallellt när det finns mer än en CPU-kärna tillgänglig per distribution.
 
 Parallellismen kräver ytterligare minnesresurser, vilket kan leda till minnestryck och radgruppstrimning.
 
@@ -152,7 +156,7 @@ OPTION (MAXDOP 1);
 
 ## <a name="ways-to-allocate-more-memory"></a>Olika sätt att allokera mer minne
 
-DWU-storlek och användarresursklassen avgör tillsammans hur mycket minne som är tillgängligt för en användarfråga. 
+DWU-storlek och användarresursklassen avgör tillsammans hur mycket minne som är tillgängligt för en användarfråga.
 
 Om du vill öka minnesbidraget för en belastningsfråga kan du antingen öka antalet DWUs eller öka resursklassen.
 

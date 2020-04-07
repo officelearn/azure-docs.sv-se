@@ -3,12 +3,12 @@ title: Förstå resurslåsning
 description: Lär dig mer om låsningsalternativen i Azure Blueprints för att skydda resurser när du tilldelar en skiss.
 ms.date: 03/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: 86897ae6665f7a339b51aaae5f1c00144d8b7309
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 9c4e2f4c6fd8f5fb574002217ca71d1e7d130ff7
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437739"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676753"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Förstå resurslåsning i Azure Blueprints
 
@@ -20,20 +20,20 @@ Skapandet av konsekventa miljöer i stor skala är bara verkligt värdefullt om 
 ## <a name="locking-modes-and-states"></a>Låsningslägen och låsningslägen
 
 Låsläge gäller för skisstilldelningen och har tre alternativ: **Lås inte**, **Skrivskyddat**eller **Ta inte bort**. Låsläget konfigureras under artefaktdistributionen under en skisstilldelning. Ett annat låsläge kan ställas in genom att uppdatera skisstilldelningen.
-Låslägen kan dock inte ändras utanför Skisser.
+Låslägen kan dock inte ändras utanför Azure Blueprints.
 
 Resurser som skapas av artefakter i en skisstilldelning har fyra lägen: **Inte låst**, **Skrivskyddad**, **Kan inte redigera/ta bort**eller Kan inte ta **bort**. Varje artefakttyp kan vara i läget **Inte låst.** Följande tabell kan användas för att bestämma tillståndet för en resurs:
 
 |Läge|Artefaktresurstyp|Status|Beskrivning|
 |-|-|-|-|
-|Lås inte|*|Inte låst|Resurser skyddas inte av ritningar. Det här tillståndet används också för resurser som läggs till i en **skrivskyddad** eller Ta bort resursgruppsartefakt från utanför en skisstilldelning. **Do Not Delete**|
+|Lås inte|*|Inte låst|Resurser skyddas inte av Azure Blueprints. Det här tillståndet används också för resurser som läggs till i en **skrivskyddad** eller Ta bort resursgruppsartefakt från utanför en skisstilldelning. **Do Not Delete**|
 |Skrivskydd|Resursgrupp|Det går inte att redigera/ta bort|Resursgruppen är skrivskyddad och taggar i resursgruppen kan inte ändras. **Låsta** resurser kan inte läggas till, flyttas, ändras eller tas bort från den här resursgruppen.|
 |Skrivskydd|Grupp som inte är resurs än resurs|Skrivskydd|Resursen kan inte ändras på något sätt – inga ändringar och den kan inte tas bort.|
 |Ta inte bort|*|Det går inte att ta bort|Resurserna kan ändras, men kan inte tas bort. **Låsta** resurser kan inte läggas till, flyttas, ändras eller tas bort från den här resursgruppen.|
 
 ## <a name="overriding-locking-states"></a>Åsidosätta låstillstånd
 
-Det är vanligtvis möjligt för någon med lämplig [rollbaserad åtkomstkontroll](../../../role-based-access-control/overview.md) (RBAC) på prenumerationen, till exempel ägarrollen, att tillåtas att ändra eller ta bort en resurs. Den här åtkomsten är inte fallet när skisser tillämpar låsning som en del av en distribuerad tilldelning. Om tilldelningen har angetts med alternativet **Skrivskyddat** eller **Ta inte bort** kan inte ens prenumerationsägaren utföra den blockerade åtgärden på den skyddade resursen.
+Det är vanligtvis möjligt för någon med lämplig [rollbaserad åtkomstkontroll](../../../role-based-access-control/overview.md) (RBAC) på prenumerationen, till exempel ägarrollen, att tillåtas att ändra eller ta bort en resurs. Den här åtkomsten är inte fallet när Azure Blueprints tillämpar låsning som en del av en distribuerad tilldelning. Om tilldelningen har angetts med alternativet **Skrivskyddat** eller **Ta inte bort** kan inte ens prenumerationsägaren utföra den blockerade åtgärden på den skyddade resursen.
 
 Den här säkerhetsåtgärden skyddar konsekvensen hos den definierade skissen och miljön som den har utformats för att skapa från oavsiktlig eller programmatisk borttagning eller ändring.
 
@@ -97,11 +97,11 @@ Om det blir nödvändigt att ändra eller ta bort en resurs som skyddas av en ti
 - Uppdatera skisstilldelningen till ett låsläge **i Lås inte**
 - Ta bort skisstilldelningen
 
-När tilldelningen tas bort tas låsen som skapas av skisser bort. Resursen lämnas dock kvar och måste tas bort på normalt sätt.
+När tilldelningen tas bort tas låsen som skapats av Azure Blueprints bort. Resursen lämnas dock kvar och måste tas bort på normalt sätt.
 
 ## <a name="how-blueprint-locks-work"></a>Så här fungerar skisslås
 
-En RBAC [neka tilldelningar](../../../role-based-access-control/deny-assignments.md) neka åtgärd tillämpas på artefaktresurser under tilldelning av en skiss om tilldelningen valde alternativet **Skrivskyddat** eller **Ta inte bort.** Åtgärden neka läggs till av den hanterade identiteten för skisstilldelningen och kan endast tas bort från artefaktresurserna av samma hanterade identitet. Den här säkerhetsåtgärden upprätthåller låsmekanismen och förhindrar att skisslåset avlägsnas utanför Ritningar.
+En RBAC [neka tilldelningar](../../../role-based-access-control/deny-assignments.md) neka åtgärd tillämpas på artefaktresurser under tilldelning av en skiss om tilldelningen valde alternativet **Skrivskyddat** eller **Ta inte bort.** Åtgärden neka läggs till av den hanterade identiteten för skisstilldelningen och kan endast tas bort från artefaktresurserna av samma hanterade identitet. Den här säkerhetsåtgärden tillämpar låsmekanismen och förhindrar att skisslåset tas bort utanför Azure Blueprints.
 
 ![Skiss neka tilldelning i resursgrupp](../media/resource-locking/blueprint-deny-assignment.png)
 

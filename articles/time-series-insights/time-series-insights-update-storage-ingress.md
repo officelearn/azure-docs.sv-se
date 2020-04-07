@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8987cbe6860422ff92119a9f3b13a0a365e6d1a4
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 95a579cacc339360295f5f25fa6415ab29cd68ff
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618322"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673908"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Datalagring och inträngning i förhandsversionen av Azure Time Series Insights
 
@@ -42,7 +42,7 @@ Förhandsversionen av Azure Time Series Insights stöder följande händelsekäl
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
 
-Förhandsversionen av Azure Time Series Insights stöder högst två händelsekällor per instans.
+Förhandsversionen av Azure Time Series Insights stöder högst två händelsekällor per instans. När du ansluter en händelsekälla läser TSD-miljön alla händelser som för närvarande lagras i din Iot eller Event Hub, med början i den äldsta händelsen. 
 
 > [!IMPORTANT] 
 > * Du kan uppleva en hög initial svarstid när du kopplar en händelsekälla till förhandsgranskningsmiljön. 
@@ -60,7 +60,7 @@ De datatyper som stöds är:
 | **Bool** | En datatyp med ett `true` av `false`två lägen: eller . |
 | **Datetime** | Representerar ett ögonblick i tiden, vanligtvis uttryckt som ett datum och tid på dagen. Uttryckt i [ISO 8601-format.](https://www.iso.org/iso-8601-date-and-time-format.html) |
 | **Dubbel** | En dubbel precision 64-bitars [IEEE 754](https://ieeexplore.ieee.org/document/8766229) flyttal. |
-| **sträng** | Textvärden, bestående av Unicode-tecken.          |
+| **Sträng** | Textvärden, bestående av Unicode-tecken.          |
 
 #### <a name="objects-and-arrays"></a>Objekt och matriser
 

@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 01a05755fc18a85a95e9c1bec1c470d37af656d1
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 62cf1f369cbde372e82e7c3ffe26473f09668bc7
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632240"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742552"
 ---
 # <a name="data-warehouse-units-dwus"></a>Data warehouseenheter (DWUs)
 
@@ -24,9 +24,9 @@ Rekommendationer om hur du väljer det perfekta antalet informationslagerenheter
 
 ## <a name="what-are-data-warehouse-units"></a>Vad är datalagerenheter
 
-En [Synapse SQL-pool](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) representerar en samling analytiska resurser som etableras. Analytiska resurser definieras som en kombination av CPU, minne och IO. 
+En [Synapse SQL-pool](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) representerar en samling analytiska resurser som etableras. Analytiska resurser definieras som en kombination av CPU, minne och IO.
 
-Dessa tre resurser buntas in i enheter av beräkningsskala som kallas Data Warehouse Units (DWUs). En DWU representerar ett abstrakt, normaliserat mått för beräkningsresurser och prestanda. 
+Dessa tre resurser buntas in i enheter av beräkningsskala som kallas Data Warehouse Units (DWUs). En DWU representerar ett abstrakt, normaliserat mått för beräkningsresurser och prestanda.
 
 En ändring av din servicenivå ändrar antalet DWUs som är tillgängliga för systemet, vilket i sin tur justerar prestanda och kostnad för ditt system.
 
@@ -72,7 +72,7 @@ Steg för att hitta den bästa DWU för din arbetsbelastning:
 2. Övervaka programmets prestanda när du testar databelastningar i systemet och observera antalet DWUs som valts jämfört med den prestanda du observerar.
 3. Identifiera eventuella ytterligare krav för periodiska perioder av toppaktivitet. Arbetsbelastningar som visar betydande toppar och dalar i aktivitet kan behöva skalas ofta.
 
-SQL-pool är ett skalningssystem som kan etablera stora mängder beräkning och fråga stora mängder data. 
+SQL-pool är ett skalningssystem som kan etablera stora mängder beräkning och fråga stora mängder data.
 
 Om du vill se dess verkliga funktioner för skalning, särskilt vid större DWUs, rekommenderar vi att du skalar datauppsättningen när du skalar för att säkerställa att du har tillräckligt med data för att mata processorerna. För skalningstestning rekommenderar vi att du använder minst 1 TB.
 
@@ -82,7 +82,7 @@ Om du vill se dess verkliga funktioner för skalning, särskilt vid större DWUs
 
 ## <a name="permissions"></a>Behörigheter
 
-Om du ändrar informationslagerenheterna krävs de behörigheter som beskrivs i [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql).
+Om du ändrar informationslagerenheterna krävs de behörigheter som beskrivs i [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Inbyggda roller för Azure-resurser som SQL DB Contributor och SQL Server Contributor kan ändra DWU-inställningar.
 
@@ -134,7 +134,7 @@ Med T-SQL kan du visa de aktuella DWU-inställningarna, ändra inställningarna 
 Så här ändrar du DWUs:
 
 1. Anslut till huvuddatabasen som är associerad med den logiska SQL Database-servern.
-2. Använd [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql) TSQL-satsen. I följande exempel anges servicenivåmålet för DW1000c för databasen MySQLDW.
+2. Använd [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) TSQL-satsen. I följande exempel anges servicenivåmålet för DW1000c för databasen MySQLDW.
 
 ```Sql
 ALTER DATABASE MySQLDW

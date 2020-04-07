@@ -4,12 +4,12 @@ description: Sammanfattar stöd för Azure VMs-haveriberedskap till en sekundär
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: 0b4a654093e0842e66e1f8b0924edfa6c9c215e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f61f32ddc0a1cc6575907bc72522228b77552947
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80276656"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673796"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Stödmatris för azure vm-haveriberedskap mellan Azure-regioner
 
@@ -20,9 +20,9 @@ Den här artikeln sammanfattar support och förutsättningar för haveriberedska
 
 **Distribution** |  **Support**
 --- | ---
-**Azure-portal** | Stöds.
-**Powershell** | Stöds. [Läs mer](azure-to-azure-powershell.md)
-**REST API** | Stöds.
+**Azure Portal** | Stöds.
+**PowerShell** | Stöds. [Läs mer](azure-to-azure-powershell.md)
+**REST-API** | Stöds.
 **CLI** | Stöds för närvarande inte
 
 
@@ -36,7 +36,7 @@ Den här artikeln sammanfattar support och förutsättningar för haveriberedska
 **Migrera virtuella datorer mellan regioner inom geografiska kluster som stöds (inom och mellan prenumerationer)** | Stöds inom samma Azure Active Directory-klient.
 **Migrera virtuella datorer inom samma region** | Stöds inte.
 
-## <a name="region-support"></a>Stöd för regionen
+## <a name="region-support"></a>Stöd för regioner
 
 Du kan replikera och återställa virtuella datorer mellan två regioner inom samma geografiska kluster. Geografiska kluster definieras med datafördröjning och suveränitet i åtanke.
 
@@ -44,13 +44,13 @@ Du kan replikera och återställa virtuella datorer mellan två regioner inom sa
 **Geografiskt kluster** | **Azure-regioner**
 -- | --
 Amerika | Östra Kanada, Kanada Central, Södra centrala USA, Västra centrala USA, Östra USA, Östra USA 2, Västra USA, Västra USA 2, CENTRALA USA, Norra centrala USA
-Europa | Storbritannien Väst, Storbritannien Syd, Nordeuropa, Västeuropa, Frankrike Central, Frankrike Syd, Sydafrika Väst, Sydafrika Nord, Norge Öst, Norge Väst
-Asien | Södra Indien, Centrala Indien, Västra Indien, Sydostasien, Östasien, Östra Japan, Japan Väst, Korea Central, Korea Syd, UAE Central, UAE North
+Europa | Storbritannien Väst, Storbritannien Syd, Nordeuropa, Västeuropa, Västra Sydafrika, Sydafrika Nord, Norge Öst, Norge Väst
+Asien | Södra Indien, Centrala Indien, Västra Indien, Sydostasien, Östasien, Östra Japan, Västra Japan, Korea Central, Sydkorea Syd
 Australien    | Östra Australien, Sydöstra Australien, Centrala Australien, Centrala Australien 2
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD Öst, US DOD Central
 Tyskland    | Tyskland Central, Tyskland Nordost
 Kina | Kina Öst, Kina Nord, Kina North2, Kina East2
-Begränsade regioner reserverade för katastrofåterställning i landet |Tyskland Norr reserverad för Tyskland Västcentralen, Schweiz Väst reserverad för Schweiz North, Frankrike Syd reserverad för Frankrike Centrala kunder
+Begränsade regioner reserverade för katastrofåterställning i landet |Tyskland North reserverad för Tyskland Västcentralen, Schweiz Väst reserverad för Schweiz North, Frankrike Syd reserverad för France Central, UAE Central begränsad för UAE North kunder
 
 >[!NOTE]
 >

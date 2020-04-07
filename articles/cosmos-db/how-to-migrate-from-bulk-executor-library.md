@@ -4,14 +4,14 @@ description: Lär dig hur du migrerar ditt program från att använda massutrål
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 04/06/2020
 ms.author: maquaran
-ms.openlocfilehash: e1a2a5d849d3c94d62b8645c41f288ba130aa6a4
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 820a5398d84122659b1676b7d5722bce08b1837d
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80479336"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755970"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Migrera från massutnrönarbiblioteket till masssupporten i Azure Cosmos DB .NET V3 SDK
 
@@ -73,6 +73,15 @@ Innehåller: `BulkOperationResponse`
 1. Antalet lyckade operationer.
 1. Summan av begärandeenheter som förbrukats.
 1. Om det finns fel visas en lista över tupplar som innehåller undantaget och det associerade objektet för loggning och identifiering.
+
+## <a name="retry-configuration"></a>Konfiguration för återförsök
+
+Bulk executor bibliotek hade [vägledning](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) `MaxRetryWaitTimeInSeconds` som `MaxRetryAttemptsOnThrottledRequests` nämns för att ställa in och [retryOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) att `0` delegera kontroll till biblioteket.
+
+För massstöd i .NET SDK finns det inget dolt beteende. Du kan konfigurera alternativen för återförsök direkt via [CosmosClientOptions.MaxRetryAttemptsOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) och [CosmosClientOptions.MaxRetryWaitTimeOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests).
+
+> [!NOTE]
+> I de fall där de etablerade begärande enheterna är mycket lägre än förväntat baserat på mängden data, kanske du vill överväga att ange dessa till höga värden. Bulkoperationen tar längre tid men har en större chans att helt lyckas på grund av de högre återförsöken.
 
 ## <a name="performance-improvements"></a>Prestandaförbättringar
 

@@ -3,12 +3,12 @@ title: 'Snabbstart: Skapa en skiss med REST API'
 description: I den här snabbstarten använder du Azure Blueprints för att skapa, definiera och distribuera artefakter med REST API.
 ms.date: 02/26/2020
 ms.topic: quickstart
-ms.openlocfilehash: 3e7e7c67822eec939c7d7752f8771d3b486abc3c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 93c9aef9efd826b88da59cdb77dedfb10fb11262
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79241544"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676575"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Snabbstart: Definiera och tilldela en Azure Blueprint med REST API
 
@@ -25,7 +25,7 @@ När du skapar och tilldelar skisser kan definitionen av vanliga mönster utveck
 
 Om du inte är bekant med REST API börjar du med att gå igenom [referensen för Azure REST API](/rest/api/azure/) så att du förstår hur REST-API:et fungerar, särskilt begärande-URI och begärandetext. I den här artikeln används dessa begrepp för att förklara hur du arbetar med Azure-skisser och artikeln förutsätter att du har grundläggande kunskap om dem. Verktyg som [ARMClient](https://github.com/projectkudu/ARMClient) och andra kan hantera auktorisering automatiskt och rekommenderas för nybörjare.
 
-Specifikationer för skisser finns i [REST API för Azure Blueprint](/rest/api/blueprints/).
+Information om Azure Blueprints-specifikationer finns i [AZURE Blueprints REST API](/rest/api/blueprints/).
 
 ### <a name="rest-api-and-powershell"></a>REST API och PowerShell
 
@@ -406,7 +406,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
      Den **användartilldelade hanterade identiteten** kan finnas i någon av de prenumerationer och resursgrupper som användaren som tilldelade skissen har behörighet till.
 
      > [!IMPORTANT]
-     > Skisser hanterar inte den användartilldelade hanterade identiteten. Användarna är ansvariga för att tilldela tillräckligt med roller och behörigheter, för att inte skisstilldelningen ska misslyckas.
+     > Azure Blueprints hanterar inte den användartilldelade hanterade identiteten. Användarna är ansvariga för att tilldela tillräckligt med roller och behörigheter, för att inte skisstilldelningen ska misslyckas.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

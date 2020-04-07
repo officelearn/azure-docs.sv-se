@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 86cc081ef47eb2ac2e8e0a49bc79e8973f34baf1
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: c2ac05cb2a6b3bd185d5e3a84df4f3d9a01c5bef
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633699"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743260"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Arbetsbelastningshantering med resursklasser i Azure Synapse Analytics
 
@@ -162,13 +162,13 @@ WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 
 Resursklasser implementeras genom att användare tilldelas databasroller. När en användare kör en fråga körs frågan med användarens resursklass. Om en användare till exempel är medlem i rollen staticrc10-databas körs deras frågor med små mängder minne. Om en databasanvändare är medlem i databasrollerna xlargerc eller staticrc80 körs deras frågor med stora mängder minne.
 
-Om du vill öka en användares resursklass använder [du sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) för att lägga till användaren i en databasroll för en stor resursklass.  Nedanstående kod lägger till en användare i rollen largerc databas.  Varje begäran får 22% av systemminnet.
+Om du vill öka en användares resursklass använder [du sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att lägga till användaren i en databasroll för en stor resursklass.  Nedanstående kod lägger till en användare i rollen largerc databas.  Varje begäran får 22% av systemminnet.
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser';
 ```
 
-Om du vill minska resursklassen använder [du sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  Om "loaduser" inte är medlem eller andra resursklasser går de in i standardresursklassen smallrc med ett minnesbidrag på 3 %.  
+Om du vill minska resursklassen använder [du sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Om "loaduser" inte är medlem eller andra resursklasser går de in i standardresursklassen smallrc med ett minnesbidrag på 3 %.  
 
 ```sql
 EXEC sp_droprolemember 'largerc', 'loaduser';

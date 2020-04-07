@@ -9,12 +9,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 9c1260bb1fab23ede2d1a96725c3086dc128fffc
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 39747ac0a7133562bed526f44e30bf4a656127c0
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387656"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673612"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database"></a>Playbook för att åtgärda gemensamma säkerhetskrav med Azure SQL Database
 
@@ -451,7 +451,7 @@ Kryptering kan användas som ett sätt att säkerställa att endast specifika pr
 - Använd kryptering på cellnivå (CLE). Mer information finns i artikeln [Kryptera en kolumn med data.](https://docs.microsoft.com/sql/relational-databases/security/encryption/encrypt-a-column-of-data) 
 - Använd Alltid krypterad, men var medveten om dess begränsning. Begränsningarna anges nedan.
 
-**Metodtips**
+**Bästa praxis**
 
 När du använder CLE:
 
@@ -466,7 +466,7 @@ När du använder CLE:
 
 Tänk på att Always Encrypted främst är utformad för att skydda känsliga data som används från användare med hög behörighet från Azure SQL Database (molnoperatörer, DBAs) - se [Skydda känsliga data som används från obehöriga användare](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users)med hög behörighet . Var medveten om följande utmaningar när du använder Alltid krypterad för att skydda data från programanvändare:
 
-- Som standard upprätthåller alla Microsoft-klientdrivrutiner som stöder Always Encrypted en global cache (en per program) med kolumnkrypteringsnycklar. När en klientdrivrutin hämtar en krypteringsnyckel för en klartextkolumn genom att kontakta ett nyckelarkiv med en kolumnnyckel, cachelagras krypteringsnyckeln för enkeltext. Detta gör att isolera data från användare av ett program med flera användare utmanande. Om ditt program personifierar slutanvändare när de interagerar med en nyckellagring (till exempel Azure Key Vault) kommer en efterföljande fråga som kräver samma nyckel men som utlöses av en annan användare att använda cachelagrade nyckeln. Drivrutinen anropar inte nyckelarkivet och det kontrollerar inte om den andra användaren har behörighet att komma åt kolumnkrypteringsnyckeln. Som ett resultat kan användaren se krypterade data även om användaren inte har tillgång till nycklarna. Om du vill uppnå isolering av användare i ett program för flera användare kan du inaktivera cachelagring av kolumnkrypteringsnyckel. Om du inaktiverar cachelagring får du ytterligare prestandakostnader, eftersom drivrutinen måste kontakta nyckelarkivet för varje datakryptering eller dekrypteringsåtgärd.
+- Som standard upprätthåller alla Microsoft-klientdrivrutiner som stöder Always Encrypted en global cache (en per program) med kolumnkrypteringsnycklar. När en klientdrivrutin hämtar en krypteringsnyckel för en klartextkolumn genom att kontakta ett nyckelarkiv med en kolumnnyckel, cachelagras krypteringsnyckeln för enkeltext. Detta gör att isolera data från användare av ett program med flera användare utmanande. Om ditt program personifierar slutanvändare när de interagerar med ett nyckelarkiv (till exempel Azure Key Vault) använder en efterföljande fråga cachen när en användares fråga fyller cachen med en kolumnkrypteringsnyckel. Drivrutinen anropar inte nyckelarkivet och det kontrollerar inte om den andra användaren har behörighet att komma åt kolumnkrypteringsnyckeln. Som ett resultat kan användaren se krypterade data även om användaren inte har tillgång till nycklarna. Om du vill uppnå isolering av användare i ett program för flera användare kan du inaktivera cachelagring av kolumnkrypteringsnyckel. Om du inaktiverar cachelagring får du ytterligare prestandakostnader, eftersom drivrutinen måste kontakta nyckelarkivet för varje datakryptering eller dekrypteringsåtgärd.
 
 ### <a name="protect-data-against-unauthorized-viewing-by-application-users-while-preserving-data-format"></a>Skydda data mot obehörig visning av programanvändare samtidigt som dataformatet bevaras
 En annan teknik för att förhindra obehöriga användare från att visa data är att fördunkla eller maskera data samtidigt som datatyper och format bevaras för att säkerställa att användarprogram kan fortsätta att hantera och visa data.
@@ -735,7 +735,7 @@ Upptäck kolumner som kan innehålla känsliga data. Vad som anses vara känslig
 **Hur man genomför:**
 
 - Använd SQL Audit och dataklassificering i kombination. 
-  - I [loggen](sql-database-auditing.md) för SQL Database Audit kan du spåra åtkomst specifikt till känsliga data. Du kan också visa information som data som har åtkomst till, samt dess känslighetsetikett. Mer information finns i [Granska åtkomst till känsliga data](sql-database-data-discovery-and-classification.md#subheading-3). 
+  - I [loggen](sql-database-auditing.md) för SQL Database Audit kan du spåra åtkomst specifikt till känsliga data. Du kan också visa information som data som har åtkomst till, samt dess känslighetsetikett. Mer information finns i [Data Discovery & klassificering](sql-database-data-discovery-and-classification.md) och granskning av åtkomst till känsliga [data](sql-database-data-discovery-and-classification.md#audit-sensitive-data). 
 
 **Metodtips:**
 

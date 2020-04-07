@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/14/2019
+ms.date: 04/05/2020
 ms.author: haroldw
-ms.openlocfilehash: 615d9a3c5c359174ef15028e82044a85da0dd733
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7fd1c381ecd2b7dba4c77a025cb0332ace4147bf
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75561294"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673667"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Distribuera OpenShift Container Platform 3.11 i Azure
 
@@ -303,7 +303,7 @@ Olika versioner kan ha olika parametrar så kontrollera de nödvändiga parametr
 | `masterClusterType` | Ange om klustret använder privata eller offentliga huvudnoder. Om privat väljs exponeras inte huvudnoderna för Internet via en offentlig IP.If private is chosen, the master nodes won't be exposed to the Internet via a public IP. I stället används den privata IP-adress som anges i`masterPrivateClusterIp` | Offentliga <br> Privat | Offentliga |
 | `masterPrivateClusterIp` | Om privata huvudnoder väljs måste en privat IP-adress anges för användning av den interna belastningsutjämnaren för huvudnoder. Den här statiska IP-adressen måste finnas inom CIDR-blocket för huvudundernätet och används inte redan. Om offentliga huvudnoder är markerade används inte det här värdet utan måste ändå anges |  | 10.1.0.200 |
 | `routerClusterType` | Ange om klustret använder privata eller offentliga infranoder. Om privat väljs exponeras inte infranoderna för Internet via en offentlig IP. I stället används den privata IP-adress som anges i`routerPrivateClusterIp` | Offentliga <br> Privat | Offentliga |
-| `routerPrivateClusterIp` | Om privata infra-noder väljs måste en privat IP-adress anges för användning av den interna belastningsutjämnaren för infra-noder. Den här statiska IP-adressen måste finnas inom CIDR-blocket för huvudundernätet och används inte redan. Om offentliga infra-noder väljs används inte det här värdet utan måste ändå anges |  | 10.2.0.200 |
+| `routerPrivateClusterIp` | Om privata infra-noder väljs måste en privat IP-adress anges för användning av den interna belastningsutjämnaren för infra-noder. Denna statiska IP måste finnas inom CIDR-blocket för infra-undernätet och används inte redan. Om offentliga infra-noder väljs används inte det här värdet utan måste ändå anges |  | 10.2.0.200 |
 | `routingCertType` | Använd anpassat certifikat för routningsdomän eller standardlicensen för självsignerade certifikat – följ instruktionerna i avsnittet **Anpassade certifikat** | självsignerade <br> Anpassade | självsignerade |
 | `masterCertType` | Använd anpassat certifikat för huvuddomänen eller standardlicensen för självsignerade certifikat – följ instruktionerna i avsnittet **Anpassade certifikat** | självsignerade <br> Anpassade | självsignerade |
 

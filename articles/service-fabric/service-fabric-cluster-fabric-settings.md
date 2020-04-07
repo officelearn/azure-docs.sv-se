@@ -3,12 +3,12 @@ title: Ändra klusterinställningar för Azure Service Fabric
 description: I den här artikeln beskrivs infrastrukturinställningarna och de principer för uppgradering av infrastruktur som du kan anpassa.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 8ca40791e625f1ea5904c4e2516e3f211ba551cf
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 3eb558c7d0745ada43696fd4189a7ac663867849
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477905"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80753979"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa Service Fabric-klusterinställningar
 I den här artikeln beskrivs de olika inställningarna för infrastruktur för ditt Service Fabric-kluster som du kan anpassa. För kluster som finns i Azure kan du anpassa inställningarna via [Azure-portalen](https://portal.azure.com) eller med hjälp av en Azure Resource Manager-mall. Mer information finns i [Uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). För fristående kluster kan du anpassa inställningarna genom att uppdatera *filen ClusterConfig.json* och utföra en konfigurationsuppgradering i klustret. Mer information finns i [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -29,7 +29,7 @@ Följande är en lista över inställningar för Fabric som du kan anpassa, ordn
 |BodyChunkSize (BodyChunkSize) |Uint, standard är 16384 |Dynamisk| Ger storleken på för biten i byte som används för att läsa kroppen. |
 |CrlCheckingFlag|uint, standard är 0x40000000 |Dynamisk| Flaggor för validering av program-/tjänstcertifikatkedjek. t.ex. CRL kontroll 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x400000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY Inställning till 0 inaktiverar CRL kontroll Fullständig lista över värden som stöds dokumenteras av dwFlags av CertGetCertificateChain:https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |StandardhttpRequestTimeout |Tid på några sekunder. standard är 120 |Dynamisk|Ange tidsintervall i sekunder.  Ger standardtidsgränsen för begäran för de http-begäranden som bearbetas i http-appgatewayen. |
-|FramåtClientCertificate|bool, standard är FALSKT|Dynamisk|När den är inställd på false begär inte omvänd proxy för klientcertifikatet. När den är inställd på true begär omvänd proxy för klientcertifikatet under SSL-handskakningen och vidarebefordrar den base64-kodade PEM-formatsträngen till tjänsten i ett huvud med namnet X-Client-Certificate.Tjänsten kan misslyckas med begäran med lämplig statuskod efter att ha inspekterat certifikatdata. Om detta är sant och klienten inte visar ett certifikat, kommer omvänd proxy att vidarebefordra ett tomt huvud och låta tjänsten hantera ärendet. Omvänd proxy fungerar som ett genomskinligt lager. Mer information finns i [Konfigurera autentisering av klientcertifikat](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy). |
+|FramåtClientCertificate|bool, standard är FALSKT|Dynamisk|När den är inställd på false begär inte omvänd proxy för klientcertifikatet. När den är inställd på true begär omvänd proxy för klientcertifikatet under TLS-handskakningen och vidarebefordrar den base64-kodade PEM-formatsträngen till tjänsten i ett huvud med namnet X-Client-Certificate.Tjänsten kan misslyckas med begäran med lämplig statuskod efter att ha inspekterat certifikatdata. Om detta är sant och klienten inte visar ett certifikat, kommer omvänd proxy att vidarebefordra ett tomt huvud och låta tjänsten hantera ärendet. Omvänd proxy fungerar som ett genomskinligt lager. Mer information finns i [Konfigurera autentisering av klientcertifikat](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy). |
 |GatewayAuthCredentialType |sträng är standardvärdet "Ingen" |Statisk| Anger vilken typ av säkerhetsautentiseringsuppgifter som ska användas vid slutpunkten för http-appgateway Giltiga värden är Ingen/X509. |
 |GatewayX509CertificateFindType |sträng, är standard "FindByThumbprint" |Dynamisk| Anger hur du söker efter certifikat i det arkiv som anges av gatewayX509CertificateStoreName Stöds värde: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | sträng, är standard "" |Dynamisk| Sökfiltervärde som används för att hitta http-appgatewaycertifikatet. Det här certifikatet är konfigurerat på https-slutpunkten och kan även användas för att verifiera appens identitet om tjänsterna behöver. FindValue är uppslagna först; och om detta inte existerar; FindValueSecondary är uppslagna. |
@@ -122,8 +122,8 @@ Följande är en lista över inställningar för Fabric som du kan anpassa, ordn
 |ApplicationLogsFormatVersion |Int, standard är 0 | Dynamisk |Version för programloggar format. Värden som stöds är 0 och 1. Version 1 innehåller fler fält från ETW-händelseposten än version 0. |
 |GranskninghttpRequests |Bool, standard är falskt | Dynamisk | Aktivera eller inaktivera HTTP-granskning. Syftet med granskningen är att se de aktiviteter som har utförts mot klustret. inklusive vem som initierade begäran. Observera att detta är ett bästa försök att logga; och spårförlust kan förekomma. HTTP-begäranden med "Användarautentisering" registreras inte. |
 |Fångahttptlemetry|Bool, standard är sant | Dynamisk | Aktivera eller inaktivera HTTP-telemetri. Syftet med telemetri är att Service Fabric ska kunna samla in telemetridata för att planera framtida arbete och identifiera problemområden. Telemetri registrerar inga personuppgifter eller begärandeorganet. Telemetri fångar in alla HTTP-begäranden om inte annat konfigureras. |
-|ClusterId (kluster) |String | Dynamisk |Klustrets unika id. Detta genereras när klustret skapas. |
-|ConsumerInstances (ConsumerInstances) |String | Dynamisk |Listan över DCA-konsumentinstanser. |
+|ClusterId (kluster) |Sträng | Dynamisk |Klustrets unika id. Detta genereras när klustret skapas. |
+|ConsumerInstances (ConsumerInstances) |Sträng | Dynamisk |Listan över DCA-konsumentinstanser. |
 |DiskFullSafetySpaceInMB |Int, standard är 1024 | Dynamisk |Återstående diskutrymme i MB för att skydda mot användning av DCA. |
 |AktiveraCircularTraceSession |Bool, standard är falskt | Statisk |Flaggan anger om cirkulära spårningssessioner ska användas. |
 |AktiveraPlattformEventsFileSink |Bool, standard är falskt | Statisk |Aktivera/inaktivera plattformshändelser som skrivs till disk |
@@ -131,7 +131,7 @@ Följande är en lista över inställningar för Fabric som du kan anpassa, ordn
 |FelEn är intehttptlemetry | Bool, standard är falskt | Dynamisk | Om HTTP-telemetriinsamling är aktiverad. endast misslyckade begäranden. Detta för att minska antalet händelser som genereras för telemetri. |
 |HttpTelemetryCapturePercentage | int är standard 50 | Dynamisk | Om HTTP-telemetriinsamling är aktiverad. endast en slumpmässig procentandel av begäranden. Detta för att minska antalet händelser som genereras för telemetri. |
 |MaxDiskQuotaInMB |Int, standard är 65536 | Dynamisk |Diskkvot i MB för Windows Fabric-loggfiler. |
-|ProducentIntances |String | Dynamisk |Listan över dca-producentinstanser. |
+|ProducentIntances |Sträng | Dynamisk |Listan över dca-producentinstanser. |
 
 ## <a name="dnsservice"></a>DnsService (1)
 | **Parametern** | **Tillåtna värden** |**Uppgraderingsprincip**| **Vägledning eller kort beskrivning** |
@@ -505,7 +505,7 @@ Följande är en lista över inställningar för Fabric som du kan anpassa, ordn
 
 | **Parametern** | **Tillåtna värden** | **Uppgraderingsprincip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
-|Räknare |String | Dynamisk |Kommaavgränsad lista över prestandaräknare att samla in. |
+|Räknare |Sträng | Dynamisk |Kommaavgränsad lista över prestandaräknare att samla in. |
 |IsEnabled |Bool, standard är sant | Dynamisk |Flagga anger om prestandaräknarsamling på lokal nod är aktiverad. |
 |MaxCounterBinaryFileSizeInMB |Int, standard är 1 | Dynamisk |Maximal storlek (i MB) för varje binär fil för prestandaräknare. |
 |NewCounterBinaryFileCreationInMinutes |Int, standard är 10 | Dynamisk |Maximalt intervall (i sekunder) varefter en ny binär fil för prestandaräknare skapas. |
@@ -838,10 +838,10 @@ Följande är en lista över inställningar för Fabric som du kan anpassa, ordn
 | --- | --- | --- | --- |
 |ContainerNetworkName|sträng, är standard ""| Statisk |Det nätverksnamn som ska användas när du konfigurerar ett behållarnätverk.|
 |ContainerNetworkSetup|bool, standard är FALSKT (Linux) och standard är SANT (Windows)| Statisk |Om ett behållarnätverk ska konfigureras.|
-|FabricDataRoot |String | Inte tillåtet |Datarotkatalog för tjänstinfrastruktur. Standard för Azure är d:\svcfab |
-|FabricLogRoot (TygLoggRoot) |String | Inte tillåtet |Rotkatalog för tjänstvävnadslogg. Det är här SF loggar och spår placeras. |
+|FabricDataRoot |Sträng | Inte tillåtet |Datarotkatalog för tjänstinfrastruktur. Standard för Azure är d:\svcfab |
+|FabricLogRoot (TygLoggRoot) |Sträng | Inte tillåtet |Rotkatalog för tjänstvävnadslogg. Det är här SF loggar och spår placeras. |
 |NodernaTa bort|sträng, är standard ""| Dynamisk |Noderna som ska tas bort som en del av konfigurationsuppgraderingen. (Endast för fristående distributioner)|
-|ServiceRunAsAccountName |String | Inte tillåtet |Kontonamnet som programvärdtjänsten ska köras under. |
+|ServiceRunAsAccountName |Sträng | Inte tillåtet |Kontonamnet som programvärdtjänsten ska köras under. |
 |SkipContainerNetworkResetOnReboot|bool, standard är FALSKT|InteTillåta|Om du vill hoppa över återställning av behållarnätverk vid omstart.|
 |SkipFirewallKonfigurering |Bool, standard är falskt | Inte tillåtet |Anger om brandväggsinställningarna behöver ställas in av systemet eller inte. Detta gäller endast om du använder Windows-brandväggen. Om du använder brandväggar från tredje part måste du öppna portarna för att systemet och programmen ska kunna använda |
 

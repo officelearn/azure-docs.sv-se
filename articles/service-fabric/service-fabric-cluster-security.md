@@ -4,12 +4,12 @@ description: Lär dig mer om säkerhetsscenarier för ett Azure Service Fabric-k
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: 92d2c4d03075eaafce039f94b4f03c0791985b40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5912f98f6a1c82250a66ec4d9fe39f2f69b1cc8f
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79258686"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80753790"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Säkerhetsscenarier för service fabric-kluster
 
@@ -74,7 +74,7 @@ För kluster som körs på Azure kan du också skydda åtkomsten till hanterings
 För Service Fabric-kluster som distribueras i ett offentligt nätverk som hanteras i Azure är rekommendationen för ömsesidig klient-till-nod-autentisering:
 
 * Använd Azure Active Directory för klientidentitet
-* Ett certifikat för serveridentitet och SSL-kryptering av http-kommunikation
+* Ett certifikat för serveridentitet och TLS-kryptering av http-kommunikation
 
 För Service Fabric-kluster som distribueras i ett offentligt nätverk som finns på Azure är rekommendationen för nod-till-nodsäkerhet att använda ett klustercertifikat för att autentisera noder.
 
@@ -103,13 +103,13 @@ Några viktiga saker att tänka på:
 
 Dessa certifikat (en primär och eventuellt sekundär) krävs för att skydda ett kluster och förhindra obehörig åtkomst till det. Dessa certifikat tillhandahåller kluster- och serverautentisering.
 
-Klusterautentisering autentiserar nod-till-nodkommunikation för klusterfederation. Endast noder som kan bevisa sin identitet med det här certifikatet kan ansluta till klustret. Serverautentisering autentiserar slutpunkterna för klusterhantering till en hanteringsklient, så att hanteringsklienten vet att den talar med det verkliga klustret och inte en "man i mitten". Det här certifikatet tillhandahåller också en SSL för HTTPS-hanterings-API:et och för Service Fabric Explorer via HTTPS. När en klient eller nod autentiserar en nod är en av de första kontrollerna värdet för det gemensamma namnet i fältet **Ämne.** Antingen måste det här gemensamma namnet eller något av certifikatens alternativa namn (SN) finnas i listan över tillåtna vanliga namn.
+Klusterautentisering autentiserar nod-till-nodkommunikation för klusterfederation. Endast noder som kan bevisa sin identitet med det här certifikatet kan ansluta till klustret. Serverautentisering autentiserar slutpunkterna för klusterhantering till en hanteringsklient, så att hanteringsklienten vet att den talar med det verkliga klustret och inte en "man i mitten". Det här certifikatet tillhandahåller också en TLS för HTTPS-hanterings-API:et och för Service Fabric Explorer via HTTPS. När en klient eller nod autentiserar en nod är en av de första kontrollerna värdet för det gemensamma namnet i fältet **Ämne.** Antingen måste det här gemensamma namnet eller något av certifikatens alternativa namn (SN) finnas i listan över tillåtna vanliga namn.
 
 Intyget skall uppfylla följande krav:
 
 * Certifikatet måste innehålla en privat nyckel. Dessa certifikat har vanligtvis tillägg .pfx eller .pem  
 * Certifikatet måste skapas för nyckelutbyte, som kan exporteras till en fil för personligt informationsutbyte (.pfx).
-* **Certifikatets ämnesnamn måste matcha den domän som du använder för att komma åt service fabric-klustret**. Den här matchningen krävs för att tillhandahålla en SSL för klustrets HTTPS-hanteringsslutpunkt och Service Fabric Explorer. Du kan inte hämta ett SSL-certifikat från en certifikatutfärdarcertifikat för domänen *.cloudapp.azure.com. Du måste skaffa ett anpassat domännamn för ditt kluster. När du begär ett certifikat från en certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamn du använder för klustret.
+* **Certifikatets ämnesnamn måste matcha den domän som du använder för att komma åt service fabric-klustret**. Den här matchningen krävs för att tillhandahålla en TLS för klustrets HTTPS-hanteringsslutpunkt och Service Fabric Explorer. Du kan inte hämta ett TLS/SSL-certifikat från en certifikatutfärdarcertifikat för domänen *.cloudapp.azure.com. Du måste skaffa ett anpassat domännamn för ditt kluster. När du begär ett certifikat från en certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamn du använder för klustret.
 
 Några andra saker att tänka på:
 

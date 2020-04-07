@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: f3a8d740d391edc09a290d3dba4307af7eec00b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 637217d718e6e91a3fa29bd38d8215d0a1324825
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286361"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745443"
 ---
 # <a name="power-bi-apps-offer-settings-tab"></a>Fliken Inställningar för Erbjudanden i Power BI-appar
+
+>[!Important]
+>Från och med den 30 mars 2020 börjar vi flytta hanteringen av dina Power BI-appar till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [översikten över hur du skapar Power BI-appar](https://aka.ms/AzureCreatePBIServiceApp) för att hantera dina migrerade erbjudanden.
 
 När du öppnar sidan **Nytt erbjudande** för tjänstappar visas först fliken **Erbjudandeinställningar.** Du anger de primära identifierarna och namnet på erbjudandet på den här fliken. En asterisk (*) anger ett obligatoriskt fält.
 

@@ -3,12 +3,12 @@ title: 'Snabbstart: Skapa en skiss med PowerShell'
 description: I den här snabbstarten använder du Azure Blueprints för att skapa, definiera och distribuera artefakter med PowerShell.
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 8b418fa2b5244c42b8597bbbe7ed4773133d03a8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 53fcf53bdcc3b5fcd1c6ec07a7d8ab45b39955b6
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75436641"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676592"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Snabbstart: Definiera och tilldela en Azure Blueprint med PowerShell
 
@@ -377,7 +377,7 @@ När en skiss har publicerats med PowerShell kan den tilldelas en prenumeration.
      Den **användartilldelade hanterade identiteten** kan finnas i någon av de prenumerationer och resursgrupper som användaren som tilldelade skissen har behörighet till.
 
      > [!IMPORTANT]
-     > Skisser hanterar inte den användartilldelade hanterade identiteten. Användarna är ansvariga för att tilldela tillräckligt med roller och behörigheter, för att inte skisstilldelningen ska misslyckas.
+     > Azure Blueprints hanterar inte den användartilldelade hanterade identiteten. Användarna är ansvariga för att tilldela tillräckligt med roller och behörigheter, för att inte skisstilldelningen ska misslyckas.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

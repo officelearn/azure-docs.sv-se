@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 04e10b9c5410d15d3509829af7502c9a93c7267d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02f2f8ce523e9316b749a9639112176a74da66d2
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281637"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745543"
 ---
 # <a name="update-a-power-bi-app-offer"></a>Uppdatera ett Power BI-apperbjudande
+
+>[!Important]
+>Från och med den 30 mars 2020 börjar vi flytta hanteringen av dina Power BI-appar till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [översikten över hur du skapar Power BI-appar](https://aka.ms/AzureCreatePBIServiceApp) för att hantera dina migrerade erbjudanden.
 
 I den här artikeln beskrivs hur du uppdaterar ditt Microsoft Power BI-apperbjudande i [Cloud Partner Portal](https://cloudpartner.azure.com/) och sedan publicerar erbjudandet igen. Här är några vanliga orsaker till att uppdatera ett erbjudande:
 

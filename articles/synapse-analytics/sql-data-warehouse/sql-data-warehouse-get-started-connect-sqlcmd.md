@@ -11,26 +11,27 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: cfb1b7558f8d7675009a0ebc729cc1a560f03d12
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 02157ca0d32d2347e50cc84a5c52e9c47b0f33b5
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633378"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745196"
 ---
 # <a name="connect-to-synapse-sql-pool-with-sqlcmd"></a>Ansluta till Synapse SQL-pool med sqlcmd
+
 > [!div class="op_single_selector"]
+>
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [Sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [Sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 > * [SSMS](sql-data-warehouse-query-ssms.md)
-> 
-> 
 
 Använd kommandoradsverktyget [sqlcmd][sqlcmd] för att ansluta till och fråga en SQL-pool.  
 
 ## <a name="1-connect"></a>1. Anslut
+
 Om du vill komma igång med [sqlcmd][sqlcmd] öppnar du kommandotolken och anger **sqlcmd** följt av anslutningssträngen för SQL-pooldatabasen. Anslutningssträngen kräver följande parametrar:
 
 * **Server (-S):** Server i formatet `<`servernamn`>`. database.windows.net
@@ -60,10 +61,9 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 
 > [!NOTE]
 > Du måste [aktivera Azure Active Directory-autentisering](sql-data-warehouse-authentication.md) för att kunna autentisera med Active Directory.
-> 
-> 
 
 ## <a name="2-query"></a>2. Fråga
+
 Du kan utfärda alla Transact-SQL-uttryck som stöds mot instansen efter anslutning.  I det här exemplet skickas frågor i interaktivt läge.
 
 ```sql
@@ -84,4 +84,5 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om vilka alternativ som finns i sqlcmd finns i [sqlcmd-dokumentationen](https://msdn.microsoft.com/library/ms162773.aspx) .
+
+Mer information om vilka alternativ som finns i sqlcmd finns i [sqlcmd-dokumentationen](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).

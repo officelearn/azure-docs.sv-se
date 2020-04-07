@@ -2,18 +2,18 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/02/2020
+ms.date: 04/03/2020
 ms.author: dacoulte
-ms.openlocfilehash: 3b40f4740d4d7aedc6a4997662a4738293721817
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: ecca4208d8c3d471e3ff4d1fc951888dcf18255d
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80624088"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80758323"
 ---
 |Namn |Beskrivning |Effekt(er) |Version |GitHub |
 |---|---|---|---|---|
-|[En anpassad IPsec/IKE-princip måste tillämpas på alla Azure-anslutningar för virtuell nätverksgateway](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F50b83b09-03da-41c1-b656-c293c914862b) |Den här principen säkerställer att alla Azure-anslutningar för virtuella nätverksgatewayer använder en anpassad princip för Internet Protocol Security(Ipsec)/Internet Key Exchange(IKE). Algoritmer och nyckelstyrkor som stöds -https://aka.ms/AA62kb0 |Granskning, inaktiverad |1.0.0 |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VPNGateways_CustomIpSecPolicies_Audit.json)
+|[En anpassad IPsec/IKE-princip måste tillämpas på alla Azure-anslutningar för virtuell nätverksgateway](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F50b83b09-03da-41c1-b656-c293c914862b) |Den här principen säkerställer att alla Azure-anslutningar för virtuella nätverksgatewayer använder en anpassad princip för Internet Protocol Security(Ipsec)/Internet Key Exchange(IKE). Algoritmer och nyckelstyrkor som stöds -[https://aka.ms/AA62kb0](https://aka.ms/AA62kb0) |Granskning, inaktiverad |1.0.0 |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VPNGateways_CustomIpSecPolicies_Audit.json)
 |[App-tjänsten bör använda en slutpunkt för virtuella nätverkstjänster](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d21331d-a4c2-4def-a9ad-ee4e1e023beb) |Den här principen granskar alla App-tjänster som inte är konfigurerade för att använda en slutpunkt för virtuella nätverkstjänster. |AuditIfNotExists, Inaktiverad |1.0.0 |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_AppService_AuditIfNotExists.json)
 |[Azure VPN-gateways bör inte använda "grundläggande" SKU](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe345b6c3-24bd-4c93-9bbb-7e5e49a17b78) |Den här principen säkerställer att VPN-gateways inte använder "grundläggande" SKU. |Granskning, inaktiverad |1.0.0 |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VPNGateways_BasicSKU_Audit.json)
 |[Container-registret bör använda en slutpunkt för en virtuell nätverkstjänst](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78) |Den här principen granskar alla behållarregister som inte är konfigurerat för att använda en slutpunkt för virtuella nätverkstjänster. |Granskning, inaktiverad |1.0.0-förhandsvisning |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_ContainerRegistry_Audit.json)

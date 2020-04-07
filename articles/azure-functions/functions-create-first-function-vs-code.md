@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 6f1c211a8110d95adb5e6802313c5b7deafe3864
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1e5c0a714a8b66d83c19acc53f6a680a9196a90
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80276469"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673430"
 ---
 # <a name="quickstart-create-an-azure-functions-project-using-visual-studio-code"></a>Snabbstart: Skapa ett Azure Functions-projekt med Visual Studio-kod
 
@@ -26,7 +26,7 @@ Innan du börjar måste du se till att du har följande krav på plats:
 
 ::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-python"  
 + [Nod.js](https://nodejs.org/), krävs av Windows för npm. Endast [LTS- och underhålls-LTS-versioner ](https://nodejs.org/about/releases/). Använd `npm --version` kommandot för att kontrollera din version.
-    Krävs inte för lokal utveckling på MacOS och Linux.   
+    Krävs inte för lokal utveckling på macOS och Linux.   
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 + [Node.js,](https://nodejs.org/)Active LTS och Underhåll LTS-versioner (10.14.1 rekommenderas). Använd `npm --version` kommandot för att kontrollera din version.
@@ -39,6 +39,11 @@ Innan du börjar måste du se till att du har följande krav på plats:
 
 + [.NET Core SDK 2.2+](https://www.microsoft.com/net/download)  
 ::: zone-end  
+::: zone pivot="programming-language-java"  
++ [Java Developer Kit](https://aka.ms/azure-jdks), version 8.
+
++ [Apache Maven](https://maven.apache.org), version 3.0 eller högre.
+::: zone-end  
 + [Visual Studio-kod](https://code.visualstudio.com/) på en av plattformarna [som stöds](https://code.visualstudio.com/docs/supporting/requirements#_platforms).  
 ::: zone pivot="programming-language-csharp"  
 + [C#-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) för Visual Studio-kod.  
@@ -47,7 +52,10 @@ Innan du börjar måste du se till att du har följande krav på plats:
 + [Python-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-python.python) för Visual Studio-kod.  
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"
-+ [PowerShell-tillägget för Visual Studio-kod](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
++ [PowerShell-tillägget för Visual Studio-kod](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell). 
+::: zone-end  
+::: zone pivot="programming-language-java"  
++ [Java-förlängningspaketet](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
 ::: zone-end  
 
 + [Azure Functions-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) för Visual Studio-kod. 
@@ -85,21 +93,35 @@ I det här avsnittet använder du Visual Studio Code för att skapa ett lokalt A
     + **Välj ett Python-alias för att skapa en virtuell miljö:** Välj platsen för din Python-tolk. Om platsen inte visas skriver du in den fullständiga sökvägen till din Python-binär.  
     ::: zone-end
 
+    ::: zone pivot="programming-language-java"  
+    + **Välj ett språk för funktionsprojektet**: Välj `Java`.
+
+    + **Ange ett grupp-ID:** Välj `com.function`.
+
+    + **Ange ett artefakt-ID:** Välj `myFunction`.
+
+    + **Ange en**version `1.0-SNAPSHOT`: Välj .
+
+    + **Ange ett paketnamn**: Välj `com.function`.
+
+    + **Ange ett appnamn**: Välj `myFunction-12345`.
+    ::: zone-end  
+    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
     + **Välj en mall för projektets**första `HTTP trigger`funktion : Välj .
     
     + **Ange ett funktionsnamn**: Type `HttpExample`.
-    
+    ::: zone-end  
     ::: zone pivot="programming-language-csharp"
     + **Ange ett namnområde:** Skriv `My.Functions`. 
-    ::: zone-end
-
+    ::: zone-end  
+    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
     + **Auktoriseringsnivå**: Välj `Anonymous`, vilket gör att vem som helst kan anropa din funktionsslutpunkt. Mer information om auktoriseringsnivå finns i [Auktoriseringsnycklar](functions-bindings-http-webhook-trigger.md#authorization-keys).
-
+    ::: zone-end  
     + **Välj hur du vill öppna**projektet `Add to workspace`: Välj .
 
 1. Med den här informationen genererar Visual Studio Code ett Azure Functions-projekt med en HTTP-utlösare. Du kan visa de lokala projektfilerna i Utforskaren. Mer information om filer som skapas finns i [Genererade projektfiler](functions-develop-vs-code.md#generated-project-files). 
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python,programming-language-java"
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
@@ -119,7 +141,7 @@ När du har verifierat att funktionen körs korrekt på din lokala dator är det
 
 ## <a name="run-the-function-in-azure"></a>Kör funktionen i Azure
 
-1. Tillbaka i **området Azure: Funktioner** i sidofältet expanderar du den nya funktionsappen under din prenumeration. Expandera **funktioner**, högerklicka (Windows) eller Ctrl + klicka (MacOS) på **HttpExample**och välj sedan **Url för kopieringsfunktionen**.
+1. Tillbaka i **området Azure: Funktioner** i sidofältet expanderar du den nya funktionsappen under din prenumeration. Expandera **funktioner**, högerklicka (Windows) eller Ctrl + klicka (macOS) på **HttpExample**och välj sedan **Url för kopieringsfunktionen**.
 
     ![Kopiera funktions-URL:en för den nya HTTP-utlösaren](./media/functions-create-first-function-vs-code/function-copy-endpoint-url.png)
 

@@ -3,17 +3,17 @@ title: Skapa ett Service Fabric-kluster i Azure-portalen
 description: Lär dig hur du konfigurerar ett säkert Service Fabric-kluster i Azure med Azure-portalen och Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: 0f384da75f09390e9b0988722b974e7e16d13e63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e2de920ce9517e156934a636559a6fd6f5a71eb5
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79258803"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754102"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Skapa ett Service Fabric-kluster i Azure med Azure-portalen
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Azure-portal](service-fabric-cluster-creation-via-portal.md)
+> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -36,13 +36,13 @@ Om det är första gången du skapar ett tjänstinfrastrukturkluster eller distr
 Det här certifikatet krävs för att skydda ett kluster och förhindra obehörig åtkomst till det. Det ger klustersäkerhet på ett par sätt:
 
 * **Klusterautentisering:** Autentiserar nod-till-nodkommunikation för klusterfederation. Endast noder som kan bevisa sin identitet med det här certifikatet kan ansluta till klustret.
-* **Autentisering av servrar:** Autentiserar slutpunkterna för klusterhantering till en hanteringsklient, så att hanteringsklienten vet att den talar med det verkliga klustret. Det här certifikatet tillhandahåller även SSL för HTTPS-hanterings-API:et och för Service Fabric Explorer via HTTPS.
+* **Autentisering av servrar:** Autentiserar slutpunkterna för klusterhantering till en hanteringsklient, så att hanteringsklienten vet att den talar med det verkliga klustret. Det här certifikatet tillhandahåller även TLS för HTTPS-hanterings-API:et och för Service Fabric Explorer via HTTPS.
 
 För att kunna tjäna dessa syften måste certifikatet uppfylla följande krav:
 
 * Certifikatet måste innehålla en privat nyckel.
 * Certifikatet måste skapas för nyckelutbyte, som kan exporteras till en fil för personligt informationsutbyte (.pfx).
-* Certifikatets **ämnesnamn måste matcha den domän** som används för att komma åt Service Fabric-klustret. Detta krävs för att tillhandahålla SSL för klustrets HTTPS-hanteringsslutpunkter och Service Fabric Explorer. Du kan inte hämta ett SSL-certifikat från `.cloudapp.azure.com` en certifikatutfärdarcertifikat för domänen. Skaffa ett anpassat domännamn för klustret. När du begär ett certifikat från en certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamnet som används för klustret.
+* Certifikatets **ämnesnamn måste matcha den domän** som används för att komma åt Service Fabric-klustret. Detta krävs för att tillhandahålla TLS för klustrets HTTPS-hanteringsslutpunkter och Service Fabric Explorer. Du kan inte hämta ett TLS/SSL-certifikat från `.cloudapp.azure.com` en certifikatutfärdarcertifikat för domänen. Skaffa ett anpassat domännamn för klustret. När du begär ett certifikat från en certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamnet som används för klustret.
 
 #### <a name="client-authentication-certificates"></a>Certifikat för klientautentisering
 Ytterligare klientcertifikat autentiserar administratörer för klusterhanteringsuppgifter. Service Fabric har två åtkomstnivåer: **admin** och **skrivskyddad användare**. Minst bör ett enda certifikat för administrativ åtkomst användas. För ytterligare åtkomst på användarnivå måste ett separat certifikat tillhandahållas. Mer information om åtkomstroller finns i [rollbaserad åtkomstkontroll för Service Fabric-klienter][service-fabric-cluster-security-roles].

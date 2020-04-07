@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du skapar Recovery Servic
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 38f23ee458845b92c04af47307a2411b26c8ac81
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 439f102e8f13bff63ab388be8f10df07ab2dc7d2
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529388"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672852"
 ---
 # <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
@@ -88,31 +88,7 @@ För den här processen finns det priskonsekvenser som det är på lagringsnivå
 >Innan du börjar:
 >
 >- Granska [supportmatrisen](backup-support-matrix.md#cross-region-restore) för en lista över hanterade typer och regioner som stöds.
->- Funktionen För återställning av korsregioner (CRR) är för närvarande endast tillgänglig i följande regioner: 
->    - USA, västra centrala
->    - USA, västra
->    - USA, västra 2
->    - USA, södra centrala
->    - USA, östra
->    - USA, östra 2
->    - USA, norra centrala
->    - Kanada, centrala
->    - Kanada, östra
->    - Australien, östra
->    - Australien, sydöstra
->    - Indien, centrala
->    - Indien, södra
->    - Indien, västra
->    - Japan, östra
->    - Japan, västra
->    - Sydostasien
->    - Storbritannien, södra
->    - Storbritannien, västra
->    - Europa, västra
->    - Europa, norra
->    - Frankrike, centrala
->    - Sydkorea, centrala
->    - Sydkorea, södra
+>- Funktionen Återställning av korsläge (CRR) förhandsgranskas nu i alla offentliga Azure-regioner.
 >- CRR är en opt-in-funktion på valvnivå för alla GRS-valv (inaktiverat som standard).
 >- Använd följande kommando för att gå in på din prenumeration för den här funktionen:<br>
 >  `Register-AzProviderFeature -FeatureName CrossRegionRestore -ProviderNamespace Microsoft.RecoveryServices`

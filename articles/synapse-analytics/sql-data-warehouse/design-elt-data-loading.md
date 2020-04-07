@@ -11,12 +11,12 @@ ms.date: 02/19/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 87b33e91076f8f7f31740795f0ec05cea49a1e83
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: e99fd898956e11a4827d023691111a47e5a790c0
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631194"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744953"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Datainläsningsstrategier för Synapse SQL-pool
 
@@ -24,7 +24,7 @@ Traditionella SMP SQL-pooler använder en ETL-process (Extract, Transform, and L
 
 Med hjälp av en process för utvinning, inläsning och transformering (ELT) utnyttjar MPP och eliminerar de resurser som behövs för dataomvandling före inläsning.
 
-Medan SQL-poolen stöder många inläsningsmetoder, inklusive populära SQL Server-alternativ som [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) och [SqlBulkCopy API,](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)är det snabbaste och mest skalbara sättet att läsa in data via PolyBase externa tabeller och [COPY-uttrycket](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (förhandsversion).
+Medan SQL-poolen stöder många inläsningsmetoder, inklusive populära SQL Server-alternativ som [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) och [SqlBulkCopy API,](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)är det snabbaste och mest skalbara sättet att läsa in data via PolyBase externa tabeller och [COPY-uttrycket](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (förhandsversion).
 
 Med PolyBase och COPY-satsen kan du komma åt externa data som lagras i Azure Blob storage eller Azure Data Lake Store via T-SQL-språket. För största möjliga flexibilitet när du läser in rekommenderar vi att du använder COPY-satsen.
 
@@ -58,7 +58,7 @@ Att få ut data från källsystemet beror på lagringsplatsen.  Målet är att f
 
 Med PolyBase och COPY-satsen kan du läsa in data från UTF-8- och UTF-16-kodade avgränsade text- eller CSV-filer. Förutom avgränsad text eller CSV-filer, laddas den från Hadoop filformat som ORC och Parkett. PolyBase och COPY-satsen kan också läsa in data från Gzip- och Snappy-komprimerade filer.
 
-Utökade ASCII-format, format med fast bredd och kapslade format som WinZip eller XML stöds inte. Om du exporterar från SQL Server kan du använda [kommandoradsverktyget bcp](/sql/tools/bcp-utility?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att exportera data till avgränsade textfiler.
+Utökade ASCII-format, format med fast bredd och kapslade format som WinZip eller XML stöds inte. Om du exporterar från SQL Server kan du använda [kommandoradsverktyget bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att exportera data till avgränsade textfiler.
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. För in data i Azure Blob-lagring eller Azure Data Lake Store
 
@@ -141,7 +141,7 @@ Om du vill läsa in data med PolyBase kan du använda något av följande inläs
 
 ### <a name="other-loading-options"></a>Andra inläsningsalternativ
 
-Förutom PolyBase och COPY-satsen kan du använda [bcp](https://docs.microsoft.com/sql/tools/bcp-utility?view=sql-server-ver15) eller [SqlBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). bcp laddar direkt till databasen utan att gå igenom Azure Blob-lagring och är endast avsedd för små belastningar.
+Förutom PolyBase och COPY-satsen kan du använda [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) eller [SqlBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). bcp laddar direkt till databasen utan att gå igenom Azure Blob-lagring och är endast avsedd för små belastningar.
 
 > [!NOTE]
 > Belastningsprestanda för dessa alternativ är långsammare än PolyBase och COPY-satsen.

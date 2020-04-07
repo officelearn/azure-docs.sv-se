@@ -3,12 +3,12 @@ title: Stödmatris för VMware/fysisk haveriberedskap i Azure Site Recovery
 description: Sammanfattar stöd för haveriberedskap av virtuella datorer med VMware och fysisk server till Azure med Hjälp av Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 2/24/2020
-ms.openlocfilehash: b4cf19f4f74ba24951efb806a9f2e3d88fcad7bc
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: fbd5d87b219cbb482569dc5e45adc9c81181670c
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478425"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672441"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stödmatris för haveriberedskap av virtuella datorer och fysiska servrar till Azure
 
@@ -51,7 +51,7 @@ Nationella inställningar för operativsystem | Engelska (en-us)
 [PowerCLI (på nytt)](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | Behövs inte för konfigurationsserver version [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) eller senare.
 Windows Server-roller | Aktivera inte Active Directory Domain Services. Internet Information Services (IIS) eller Hyper-V.
 Grupprinciper| - Förhindra åtkomst till kommandotolken. <br/> - Förhindra åtkomst till registerredigeringsverktyg. <br/> - Förtroendelogik för bifogade filer. <br/> - Aktivera skriptkörning. <br/> - [Läs mer](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-IIS | Se till att du:<br/><br/> - Har inte en befintlig standard webbplats <br/> - Aktivera [anonym autentisering](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br/> - Aktivera [FastCGI-inställning](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))  <br/> - Har inte befintlig webbplats / app lyssnar på port 443<br/>
+IIS | Se till att du:<br/><br/> - Har inte en befintlig standardwebbplats <br/> - Aktivera [anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> - Aktivera [FastCGI-inställning](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br/> - Har inte befintlig webbplats / app lyssnar på port 443<br/>
 Typ av nätverkskort | VMXNET3 (när det distribueras som en virtuell virtuell VMware-dator)
 IP-adresstyp | Statisk
 Portar | 443 används för kontrollkanalorkestrering<br/>9443 för datatransport
@@ -66,7 +66,8 @@ Site Recovery stöder replikering av alla arbetsbelastningar som körs på en da
 **Komponent** | **Detaljer**
 --- | ---
 Maskininställningar | Datorer som replikeras till Azure måste uppfylla [Azure-krav](#azure-vm-requirements).
-Arbetsbelastning för datorer | Site Recovery stöder replikering av alla arbetsbelastningar som körs på en dator som stöds. [Läs mer](site-recovery-workload.md).
+Arbetsbelastning för datorer | Site Recovery stöder replikering av alla arbetsbelastningar som körs på en dator som stöds. [Läs mer](https://aka.ms/asr_workload).
+Maskinens namn | Kontrollera att visningsnamnet för datorn inte hör till [Azure-reserverade resursnamn](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-reserved-resource-name)<br/><br/> Logiska volymnamn är inte skiftlägeskänsliga. Kontrollera att inga två volymer på en enhet har samma namn. Ex: Volymer med namn "voLUME1", "volym1" kan inte skyddas via Azure Site Recovery.
 Windows Server 2019 | Stöds från [uppdaterings samlade 34](https://support.microsoft.com/help/4490016) (version 9.22 av mobilitetstjänsten) och framåt.
 Windows Server 2016 64-bitars | Stöds för Server Core, Server med skrivbordsupplevelse.
 Windows Server 2012 R2 / Windows Server 2012 | Stöds.
@@ -118,16 +119,16 @@ Debian 8 | [9.29][9.29 UR] | 3.16.0-4-amd64 till 3.16.0-10-amd64, 4.9.0-0.bpo.4-
 
 **Frisläpp** | **Version av mobilitetstjänster** | **Kernelversion** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1, SP2,SP3,SP4) | [9.32][9.32 UR] | Alla [SUSE 12 SP1,SP2,SP3,SP4-kärnor](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) stöds.</br></br> 4.4.138-4.7-azure till 4.4.180-4.31-azure,</br>4.12.14-6.3-azure till 4.12.14-6.34-azure  |
-SUSE Linux Enterprise Server 12 (SP1, SP2,SP3,SP4) | [9.31][9.31 UR] | Alla [SUSE 12 SP1,SP2,SP3,SP4-kärnor](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) stöds.</br></br> 4.4.138-4.7-azure till 4.4.180-4.31-azure,</br>4.12.14-6.3-azure till 4.12.14-6.29-azure  |
-SUSE Linux Enterprise Server 12 (SP1, SP2,SP3,SP4) | [9.30][9.30 UR] | Alla [SUSE 12 SP1,SP2,SP3,SP4-kärnor](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) stöds.</br></br> 4.4.138-4.7-azure till 4.4.180-4.31-azure,</br>4.12.14-6.3-azure till 4.12.14-6.26-azure  |
-SUSE Linux Enterprise Server 12 (SP1, SP2,SP3,SP4) | [9.29][9.29 UR] | Alla [SUSE 12 SP1,SP2,SP3,SP4-kärnor](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) stöds.</br></br> 4.4.138-4.7-azure till 4.4.180-4.31-azure,</br>4.12.14-6.3-azure till 4.12.14-6.23-azure  |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.28][9.28 UR] | STANDARD 3.12.49-11-standard till 3.12.74-60.64.40-standard</br></br> SP1(LTSS) 3.12.74-60.64.45-standard till 3.12.74-60.64.118-standard</br></br> SP2 4.4.21-69-standard till 4.4.120-92.70-standard</br></br>SP2(LTSS) 4.4.121-92.73-standard till 4.4.121-92.117-standard</br></br>SP3 4.4.73-5-standard till 4.4.180-94.100-standard</br></br>SP3 4.4.138-4.7-azure till 4.4.180-4.31-azure</br></br>SP4 4.12.14-94.41-standard till 4.12.14-95.29-standard</br>SP4 4.12.14-6.3-azure till 4.12.14-6.23-azure |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.27][9.27 UR] | STANDARD 3.12.49-11-standard till 3.12.74-60.64.40-standard</br></br> SP1(LTSS) 3.12.74-60.64.45-standard till 3.12.74-60.64.115-standard</br></br> SP2 4.4.21-69-standard till 4.4.120-92.70-standard</br></br>SP2(LTSS) 4.4.121-92.73-standard till 4.4.121-92.114-standard</br></br>SP3 4.4.73-5-standard till 4.4.180-94.97-standard</br></br>SP3 4.4.138-4.7-azure till 4.4.180-4.31-azure</br></br>SP4 4.12.14-94.41-standard till 4.12.14-95.19-standard</br>SP4 4.12.14-6.3-azure till 4.12.14-6.15-azure |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.26][9.26 UR] | STANDARD 3.12.49-11-standard till 3.12.74-60.64.40-standard</br></br> SP1(LTSS) 3.12.74-60.64.45-standard till 3.12.74-60.64.110-standard</br></br> SP2 4.4.21-69-standard till 4.4.120-92.70-standard</br></br>SP2(LTSS) 4.4.121-92.73-standard till 4.4.121-92.109-standard</br></br>SP3 4.4.73-5-standard till 4.4.178-94.91-standard</br></br>SP3 4.4.138-4.7-azure till 4.4.178-4.28-azure</br></br>SP4 4.12.14-94.41-standard till 4.12.14-95.16-standard</br>SP4 4.12.14-6.3-azure till 4.12.14-6.9-azure |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.25][9.25 UR] | STANDARD 3.12.49-11-standard till 3.12.74-60.64.40-standard</br></br> SP1(LTSS) 3.12.74-60.64.45-standard till 3.12.74-60.64.107-standard</br></br> SP2 4.4.21-69-standard till 4.4.120-92.70-standard</br></br>SP2(LTSS) 4.4.121-92.73-standard till 4.4.121-92.104-standard</br></br>SP3 4.4.73-5-standard till 4.4.176-94.88-standard</br></br>SP3 4.4.138-4.7-azure till 4.4.176-4.25-azure</br></br>SP4 4.12.14-94.41-standard till 4.12.14-95.13-standard</br>SP4 4.12.14-6.3-azure till 4.12.14-6.9-azure |
 
 ### <a name="suse-linux-enterprise-server-15-supported-kernel-versions"></a>SUSE Linux Enterprise Server 15-filversioner som stöds
 
 **Frisläpp** | **Version av mobilitetstjänster** | **Kernelversion** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15 och 15 SP1 | 9.32 | Alla [SUSE 15- och 15-kärnor](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_15) stöds.</br></br> 4.12.14-5.5-azure till 4.12.14-8.22-azure |
+SUSE Linux Enterprise Server 15 och 15 SP1 | [9.32](https://support.microsoft.com/help/4550047/) | Alla [SUSE 15- och 15-kärnor](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_15) stöds. </br></br> 4.12.14-5.5-azure till 4.12.14-8.22-azure
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux-filsystem/gästlagring
 
@@ -139,7 +140,7 @@ Paravirtualiserade lagringsenheter | Enheter som exporteras av paravirtualiserad
 I/o-enheter för block med flera köer | Stöds inte.
 Fysiska servrar med HP CCISS-lagringsstyrenheten | Stöds inte.
 Namngivningskonvention för enhet/monteringspunkt | Enhetens namn eller monteringspunktsnamn ska vara unikt.<br/> Se till att inga två enheter/monteringspunkter har skiftlägeskänsliga namn. Till exempel stöds inte namngivningsenheter för samma virtuella dator som *device1* och *Device1.*
-Kataloger | Om du kör en version av mobilitetstjänsten tidigare än version 9.20 (släppt i [Samlad uppdatering 31)](https://support.microsoft.com/help/4478871/)gäller dessa begränsningar:<br/><br/> - Dessa kataloger (om de ställs in som separata partitioner /fil-system) måste vara på samma OS-disk på källservern: /(root), /boot, /usr, /usr/local, /var, /etc.</br> - Katalogen /boot ska finnas på en diskpartition och inte vara en LVM-volym.<br/><br/> Från version 9.20 och framåt gäller inte dessa begränsningar.
+Kataloger | Om du kör en version av mobilitetstjänsten tidigare än version 9.20 (släppt i [Samlad uppdatering 31)](https://support.microsoft.com/help/4478871/)gäller dessa begränsningar:<br/><br/> - Dessa kataloger (om de ställs in som separata partitioner /fil-system) måste vara på samma OS-disk på källservern: /(root), /boot, /usr, /usr/local, /var, /etc.</br> - Katalogen /boot ska finnas på en diskpartition och inte vara en LVM-volym.<br/><br/> Från version 9.20 och framåt gäller inte dessa begränsningar. 
 Startkatalog | - Startdiskar får inte vara i GPT-partitionsformat. Det här är en begränsning av Azure-arkitekturen. GPT-diskar stöds som datadiskar.<br/><br/> Flera startdiskar på en virtuell dator stöds inte<br/><br/> - /boot på en LVM-volym över mer än en disk stöds inte.<br/> - En maskin utan startdiskett kan inte replikeras.
 Krav på ledigt utrymme| 2 GB på rotpartitionen /root <br/><br/> 250 MB i installationsmappen
 XFSv5 | XFSv5-funktioner i XFS-filsystem, till exempel metadatakontrollsumma, stöds (Mobilitetstjänst version 9.10 och framåt).<br/> Använd verktyget xfs_info för att kontrollera XFS-superblocket för partitionen. Om `ftype` är inställd på 1, då XFSv5 funktioner används.
@@ -220,7 +221,7 @@ Gäst/server EFI/UEFI-start | - Stöds för Windows Server 2012 eller senare, SL
 |Offline-seedning        |   Inga      |
 | Azure Data Box | Inga
 
-## <a name="azure-storage"></a>Azure Storage
+## <a name="azure-storage"></a>Azure-lagring
 
 **Komponent** | **Stöds**
 --- | ---
@@ -231,7 +232,7 @@ Kyl lagring | Inga
 Varm lagring| Inga
 Blockblobar | Inga
 Kryptering i vila (SSE)| Ja
-Kryptering i vila (CMK)| Ja (via Powershell Az 3.3.0 modul och framåt)
+Kryptering i vila (CMK)| Ja (via PowerShell Az 3.3.0-modulen och framåt)
 Premium Storage | Ja
 Tjänsten Importera/exportera | Inga
 Azure Storage-brandväggar för virtuella nätverk | Ja.<br/> Konfigurerad på mållagrings-/cachelagringskonto (används för att lagra replikeringsdata).

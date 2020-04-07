@@ -3,12 +3,12 @@ title: Mallfunktioner - resurser
 description: Beskriver de funktioner som ska användas i en Azure Resource Manager-mall för att hämta värden om resurser.
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 641602218aa19b790eb6e7feabdb7b46a520b590
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 23c0463649e748b35917c959a73536147e91f60b
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478272"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744986"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Resursfunktioner för ARM-mallar
 
@@ -444,12 +444,12 @@ Returnerar ett objekt som representerar en resurs körningstillstånd.
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | resourceName eller resourceIdentifier |Ja |sträng |Namn eller unik identifierare för en resurs. När du refererar till en resurs i den aktuella mallen anger du bara resursnamnet som en parameter. När du refererar till en tidigare distribuerad resurs eller när namnet på resursen är tvetydigt anger du resurs-ID: t. |
-| apiVersion |Inga |sträng |API-version av den angivna resursen. Inkludera den här parametern när resursen inte etableras i samma mall. Vanligtvis, i formatet, **yyyy-mm-dd**. Giltiga API-versioner för resursen finns i [mallreferens](/azure/templates/). |
+| apiVersion |Inga |sträng |API-version av den angivna resursen. **Den här parametern krävs när resursen inte etableras i samma mall.** Vanligtvis, i formatet, **yyyy-mm-dd**. Giltiga API-versioner för resursen finns i [mallreferens](/azure/templates/). |
 | "Full" |Inga |sträng |Värde som anger om hela resursobjektet ska returneras. Om du inte `'Full'`anger returneras endast egenskapsobjektet för resursen. Det fullständiga objektet innehåller värden som resurs-ID och plats. |
 
 ### <a name="return-value"></a>Returvärde
 
-Varje resurstyp returnerar olika egenskaper för referensfunktionen. Funktionen returnerar inte ett enda, fördefinierat format. Det returnerade värdet skiljer sig också beroende på om du har angett det fullständiga objektet. Om du vill visa egenskaperna för en resurstyp returnerar du objektet i utdataavsnittet som visas i exemplet.
+Varje resurstyp returnerar olika egenskaper för referensfunktionen. Funktionen returnerar inte ett enda, fördefinierat format. Det returnerade värdet skiljer sig också beroende `'Full'` på argumentets värde. Om du vill visa egenskaperna för en resurstyp returnerar du objektet i utdataavsnittet som visas i exemplet.
 
 ### <a name="remarks"></a>Anmärkningar
 
@@ -514,7 +514,7 @@ När du refererar till en resurs som distribueras i samma mall anger du namnet p
 "value": "[reference(parameters('storageAccountName'))]"
 ```
 
-När du refererar till en resurs som inte distribueras i samma mall anger du resurs-ID: t.
+När du refererar till en resurs som inte distribueras i samma `apiVersion`mall anger du resurs-ID och .
 
 ```json
 "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
@@ -898,10 +898,10 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| olikaRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | String | /subscriptions/1111111-1111-1111-1111-111111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+| sameRGOutput | Sträng | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| olikaRGOutput | Sträng | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | Sträng | /subscriptions/1111111-1111-1111-1111-111111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | Sträng | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 ## <a name="subscription"></a>prenumeration
 

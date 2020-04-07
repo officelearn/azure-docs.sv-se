@@ -4,14 +4,14 @@ description: Den här artikeln innehåller en översikt över hur du använder A
 services: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 03/04/2020
+ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: b5b03efafbed3439e5f8fdf98e2cd5b2d63a3d45
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 888dc99162551482afc715f1a793614d2c866384
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411048"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677039"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer
 
@@ -123,7 +123,7 @@ Under **Ny uppdateringsdistribution** anger du följande information:
 
    Beskrivningar av klassificeringstyperna finns i [Uppdatera klassificeringar](automation-view-update-assessments.md#update-classifications).
 
-* **Uppdateringar för att inkludera/utesluta** - Öppnar sidan Inkludera/Uteslut. Uppdateringar som ska inkluderas eller exkluderas visas på en separat flik.
+* **Uppdateringar för att inkludera/utesluta** - Öppnar sidan Inkludera/Uteslut. Uppdateringar som ska inkluderas eller uteslutas finns på separata flikar genom att ange kb-artikel-ID-nummer. När du anger ett eller flera ID-nummer måste du ta bort eller avmarkera alla klassificeringar med uppdateringsdistributionen. Detta säkerställer att inga andra uppdateringar ingår i uppdateringspaketet när du anger uppdaterings-ID: n.
 
 > [!NOTE]
 > Det är viktigt att veta att undantag åsidosätter inkluderingar. Om du till exempel definierar `*`en undantagsregel för installerar Uppdateringshantering inga korrigeringar eller paket, eftersom de alla är undantagna. Undantagna patchar visas fortfarande som saknade från maskinen. Om du inkluderar ett paket som har ett beroende paket som har uteslutits för Linux-datorer installeras inte huvudpaketet.

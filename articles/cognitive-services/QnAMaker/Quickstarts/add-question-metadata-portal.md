@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: 25c0fe549dfc850a53b06f79f348a87cba3b70a1
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: f067bae55c38fc783c12bf9d0bc6fbcdf881e4e4
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77109925"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756679"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Snabbstart: Lägg till frågor och svar med QnA Maker-portalen
 
@@ -27,7 +27,7 @@ När en kunskapsbas har skapats lägger du till fråge- och svarsuppsättningar 
 |Nr 1|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
 |Nr 2|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Cognitive Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Cognitive Search service size?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Cognitive Search tier supports.`|`service=search`<br>`link_in_answer=false`|
 
-När metadata har lagts till i en QnA-uppsättning kan klientprogrammet:
+När metadata har lagts till i ett QnA-par kan klientprogrammet:
 
 * Begär svar som bara matchar vissa metadata.
 * Få alla svar utom efter-process svaren beroende på metadata för varje svar.
@@ -45,7 +45,7 @@ När metadata har lagts till i en QnA-uppsättning kan klientprogrammet:
 
 ## <a name="add-additional-alternatively-phrased-questions"></a>Lägg till ytterligare alternativfrasfrågor
 
-Den aktuella kunskapsbasen har QnA Maker felsökning QnA-uppsättningar. Dessa uppsättningar skapades när URL:en lades till i kunskapsbasen under skapandeprocessen.
+Den aktuella kunskapsbasen har QnA Maker felsökning QnA par. Dessa uppsättningar skapades när URL:en lades till i kunskapsbasen under skapandeprocessen.
 
 När den här WEBBADRESSEN importerades skapades bara en fråga med ett svar. I den här proceduren lägger du till ytterligare frågor.
 
@@ -82,7 +82,7 @@ Genom att lägga till metadata i en fråge- och svarsuppsättning kan klientprog
 
 1. Välj **Visa alternativ**och välj sedan Visa **metadata**.
 
-1. För den QnA-uppsättning som du just har lagt `service` till väljer `search`du Lägg **till metadatataggar**och lägger sedan till namnet på och värdet för . Det ser ut `service:search`så här: .
+1. För det QnA-par som du just har lagt `service` till väljer `search`du Lägg **till metadatataggar**och lägger sedan till namnet på och värdet på . Det ser ut `service:search`så här: .
 
 1. Lägg till ytterligare en `link_in_answer` metadatatagg `false`med namn och värde på . Det ser ut `link_in_answer:false`så här: .
 

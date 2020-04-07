@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 2/24/2020
 ms.subservice: alerts
-ms.openlocfilehash: fe1f1d2700619bfcac4512bb0e631262edf8401c
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 02424d7df24305d6642c364f12e3ed6e8674a01d
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398098"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80676996"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en måttvarning med en Resource Manager-mall
 
@@ -563,7 +563,7 @@ az group deployment create \
 
 ## <a name="template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria"></a>Mall för en statisk måttavisering för tröskelvärdet som övervakar flera villkor
 
-Nyare måttaviseringar stöder aviseringar om flerdimensionella mått samt stöder flera kriterier. Du kan använda följande mall för att skapa en mer avancerad måttaviseringsregel för dimensionella mått och ange flera villkor.
+Nyare måttaviseringar stöder aviseringar om flerdimensionella mått samt stöder att definiera flera kriterier (upp till 5 kriterium per varningsregel). Du kan använda följande mall för att skapa en mer avancerad måttaviseringsregel för dimensionella mått och ange flera villkor.
 
 Observera följande begränsningar när du använder dimensioner i en varningsregel som innehåller flera villkor:
 - Du kan bara välja ett värde per dimension inom varje villkor.

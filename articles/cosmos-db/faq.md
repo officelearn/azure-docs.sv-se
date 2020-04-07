@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 0c994caf094918b39204437b5194d81a64affc66
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 114c632d43dbb254222def2437fbffc22ec84688
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545664"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672465"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Vanliga frågor och svar om olika API: er i Azure Cosmos DB
 
@@ -236,7 +236,7 @@ Tillsammans med de vanliga MongoDB-felkoderna har Azure Cosmos DB:s API för Mon
 
 Ja, du kan använda Simbas Mongo ODBC-drivrutin med Azure Cosmos DB:s API för MongoDB
 
-## <a name="table-api"></a><a id="table"></a>Table API
+## <a name="table-api"></a><a id="table"></a>Tabell-API
 
 ### <a name="how-can-i-use-the-table-api-offering"></a>Hur kan jag använda tabell-API-erbjudandet?
 
@@ -640,7 +640,7 @@ Utdata för ovanstående profil visar hur mycket tid som går åt att hämta hö
 
 ## <a name="cassandra-api"></a><a id="cassandra"></a>Cassandra API
 
-### <a name="what-is-the-protocol-version-supported-by-azure-cosmso-db-cassandra-api-is-there-a-plan-to-support-other-protocols"></a>Vad stöds protokollversionen av Azure Cosmso DB Cassandra API? Finns det en plan för att stödja andra protokoll?
+### <a name="what-is-the-protocol-version-supported-by-azure-cosmos-db-cassandra-api-is-there-a-plan-to-support-other-protocols"></a>Vad stöds protokollversionen av Azure Cosmos DB Cassandra API? Finns det en plan för att stödja andra protokoll?
 
 Apache Cassandra API för Azure Cosmos DB stöder idag CQL version 4. Om du har feedback om att stödja andra protokoll, låt oss veta via [feedback från användarens röst](https://feedback.azure.com/forums/263030-azure-cosmos-db) eller skicka ett e-postmeddelande till [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
 

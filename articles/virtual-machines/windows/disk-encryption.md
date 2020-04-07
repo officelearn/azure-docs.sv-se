@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: d8e6f4b58cf17a7502e2c0d67e4fa67af7cdb3f5
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 25b8df0d8565686737b33aac16d4bf698ce43280
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632954"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757222"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Kryptering på serversidan av Hanterade Azure-diskar
 
@@ -91,6 +91,9 @@ För tillfället har kundhanterade nycklar följande begränsningar:
 
     När du skapar Key Vault-instansen måste du aktivera skydd för mjuk borttagning och rensning. Mjuk borttagning säkerställer att Key Vault har en borttagen nyckel för en viss kvarhållningsperiod (90 dagars standard). Rensningsskyddet säkerställer att en borttagen nyckel inte kan tas bort permanent förrän kvarhållningsperioden har förfallit. Dessa inställningar skyddar dig från att förlora data på grund av oavsiktlig borttagning. Dessa inställningar är obligatoriska när du använder ett Key Vault för kryptering av hanterade diskar.
 
+    > [!IMPORTANT]
+    > Kamel inte fallet regionen, om du gör det kan du få problem när du tilldelar ytterligare diskar till resursen i Azure-portalen.
+    
     ```powershell
     $ResourceGroupName="yourResourceGroupName"
     $LocationName="westcentralus"

@@ -11,12 +11,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 44d7b4196e53bfcc89105236e446c74d50e7812a
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 0c30294f2ca139a602074a980810e7c6737c4e2d
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633124"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80742984"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Skydda en databas i Azure Synapse
 
@@ -81,9 +81,9 @@ Serveradministratörskontot som du ansluter med är medlem i db_owner som har be
 
 Det finns sätt att ytterligare begränsa vad en användare kan göra i databasen:
 
-* Med detaljerade [behörigheter](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine?view=sql-server-ver15) kan du styra vilka åtgärder du kan utföra på enskilda kolumner, tabeller, vyer, scheman, procedurer och andra objekt i databasen. Använd detaljerade behörigheter för att ha mest kontroll och bevilja de minsta behörigheter som krävs.
-* [Andra databasroller](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15) än db_datareader och db_datawriter kan användas för att skapa mer kraftfulla programanvändarkonton eller mindre kraftfulla hanteringskonton. De inbyggda fasta databasrollerna är ett enkelt sätt att bevilja behörigheter, men kan resultera i att fler behörigheter beviljas än vad som krävs.
-* [Lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine?redirectedfrom=MSDN&view=sql-server-ver15) kan användas för att begränsa de åtgärder som kan utföras i databasen.
+* Med detaljerade [behörigheter](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) kan du styra vilka åtgärder du kan utföra på enskilda kolumner, tabeller, vyer, scheman, procedurer och andra objekt i databasen. Använd detaljerade behörigheter för att ha mest kontroll och bevilja de minsta behörigheter som krävs.
+* [Andra databasroller](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) än db_datareader och db_datawriter kan användas för att skapa mer kraftfulla programanvändarkonton eller mindre kraftfulla hanteringskonton. De inbyggda fasta databasrollerna är ett enkelt sätt att bevilja behörigheter, men kan resultera i att fler behörigheter beviljas än vad som krävs.
+* [Lagrade procedurer](/sql/relational-databases/stored-procedures/stored-procedures-database-engine?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) kan användas för att begränsa de åtgärder som kan utföras i databasen.
 
 I följande exempel får du läsbehörighet till ett användardefinierat schema.
 
@@ -92,13 +92,13 @@ I följande exempel får du läsbehörighet till ett användardefinierat schema.
 GRANT SELECT ON SCHEMA::Test to ApplicationUser
 ```
 
-Hantera databaser och logiska servrar från Azure-portalen eller använda Azure Resource Manager API styrs av portalanvändarkontots rolltilldelningar. Mer information finns [i Rollbaserad åtkomstkontroll i Azure Portal](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure).
+Hantera databaser och logiska servrar från Azure-portalen eller använda Azure Resource Manager API styrs av portalanvändarkontots rolltilldelningar. Mer information finns [i Rollbaserad åtkomstkontroll i Azure Portal](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="encryption"></a>Kryptering
 
 Transparent datakryptering (TDE) hjälper till att skydda mot hotet om skadlig aktivitet genom att kryptera och dekryptera dina data i vila. När du krypterar databasen krypteras associerade säkerhetskopior och transaktionsloggfiler utan att dina program ändras. Transparent datakryptering (TDE) krypterar lagringen av en hel databas med hjälp av en symmetrisk nyckel kallad databaskrypteringsnyckeln.
 
-I SQL Database skyddas databaskrypteringsnyckeln av ett inbyggt servercertifikat. Det inbyggda servercertifikatet är unikt för varje SQL Database-server. Microsoft roterar automatiskt dessa certifikat minst var 90:e dag. Krypteringsalgoritmen som används är AES-256. En allmän beskrivning av TDE finns i [Transparent datakryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver15).
+I SQL Database skyddas databaskrypteringsnyckeln av ett inbyggt servercertifikat. Det inbyggda servercertifikatet är unikt för varje SQL Database-server. Microsoft roterar automatiskt dessa certifikat minst var 90:e dag. Krypteringsalgoritmen som används är AES-256. En allmän beskrivning av TDE finns i [Transparent datakryptering](/sql/relational-databases/security/encryption/transparent-data-encryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Du kan kryptera databasen med [Azure-portalen](sql-data-warehouse-encryption-tde.md) eller [T-SQL](sql-data-warehouse-encryption-tde-tsql.md).
 

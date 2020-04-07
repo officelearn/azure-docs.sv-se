@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/02/2019
+ms.date: 04/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 2e274aa353f6c3e485ae10a6a67ee2940eb88b08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7d2e22804c06f589c7990bf8f19319b897363a93
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246329"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743444"
 ---
 # <a name="troubleshoot-account-lockout-problems-with-an-azure-ad-domain-services-managed-domain"></a>Felsöka problem med kontoutelåsning med en hanterad Azure AD-domäntjänst
 
@@ -33,11 +33,11 @@ Standardgränsen för kontoutelåsning konfigureras med hjälp av principen för
 
 ### <a name="fine-grained-password-policy"></a>Finkornig lösenordsprincip
 
-Med detaljerade lösenordsprinciper kan du tillämpa särskilda begränsningar för principer för lösenords- och kontoutelåsning på olika användare i en domän. FGPP påverkar bara användare som skapats i Azure AD DS. Molnanvändare och domänanvändare som synkroniseras till Azure AD DS-hanterade domänen från Azure AD påverkas inte av lösenordsprinciperna.
+Med detaljerade lösenordsprinciper kan du tillämpa särskilda begränsningar för principer för lösenords- och kontoutelåsning på olika användare i en domän. FGPP påverkar bara användare inom en Azure AD DS-hanterad domän. Molnanvändare och domänanvändare som synkroniseras till Azure AD DS-hanterad domän från Azure AD påverkas endast av lösenordsprinciperna i Azure AD DS. Deras konton i Azure AD eller en lokal katalog påverkas inte.
 
 Principer distribueras via gruppassociationen i azure AD DS-hanterade domänen och alla ändringar du gör tillämpas vid nästa användarloggning. Om du ändrar principen låses inte upp ett användarkonto som redan är utelåst.
 
-Mer information om detaljerade lösenordsprinciper finns i [Konfigurera principer för lösenord och kontoutelåsning][configure-fgpp].
+Mer information om detaljerade lösenordsprinciper och skillnaderna mellan användare som skapats direkt i Azure AD DS jämfört med synkroniserade från Azure AD finns i [Konfigurera principer för lösenord och kontoutelåsning][configure-fgpp].
 
 ## <a name="common-account-lockout-reasons"></a>Vanliga skäl för kontoutelåsning
 

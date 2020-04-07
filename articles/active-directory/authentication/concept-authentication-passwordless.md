@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07ba38a5d7e8e8a89ba122efb1734c1f13a94d48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 402eaecbf03fd52fbb5e871fdd196da2bc9a3e1f
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80332188"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743532"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Alternativ för lösenordslös autentisering för Azure Active Directory
 
@@ -97,7 +97,7 @@ Följande process används när en användare loggar in med en FIDO2-säkerhetsn
 8. Azure AD verifierar den signerade nonce med fido2 offentlig nyckel.
 9. Azure AD returnerar PRT för att aktivera åtkomst till lokala resurser.
 
-Även om det finns många nycklar som är FIDO2-certifierade av FIDO Alliance, kräver Microsoft vissa valfria tillägg av FIDO2 Client-to-Authenticator Protocol (CTAP) specifikation som ska genomföras av leverantören för att säkerställa maximal säkerhet och det bästa Erfarenhet.
+Även om det finns många nycklar som är FIDO2-certifierade av FIDO Alliance, kräver Microsoft vissa valfria tillägg av FIDO2 Client-to-Authenticator Protocol (CTAP) specifikation som ska implementeras av leverantören för att säkerställa maximal säkerhet och den bästa upplevelsen.
 
 En säkerhetsnyckel **MÅSTE** implementera följande funktioner och tillägg från FIDO2 CTAP-protokollet för att vara Microsoft-kompatibla:
 

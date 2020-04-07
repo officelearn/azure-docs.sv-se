@@ -2,13 +2,13 @@
 title: Riktlinjer för importdokumentformat - QnA Maker
 description: Förstå hur typerna av webbadresser används för att importera och skapa QnA-uppsättningar.
 ms.topic: reference
-ms.date: 01/02/2020
-ms.openlocfilehash: 6a954f2fd607b70c6db256ab6dcc1dbcd7a5a473
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: 1e006520ce5c61f2da3f425af2332b0d41cc3881
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651843"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754902"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Formatera riktlinjer för importerade dokument och webbadresser
 
@@ -20,6 +20,8 @@ När du har importerat en fil eller URL konverteras och lagras innehållet i [ma
 
 Om du lägger till eller redigerar innehållet direkt i kunskapsbasen använder du **markeringsformatering** för att skapa RTF-innehåll eller ändra innehållet i markdown-formatet som redan finns i svaret. QnA Maker stöder mycket av markdown-formatet för att få rtf-funktionerna till ditt innehåll. Klientprogrammet, till exempel en chattrobot, kanske inte stöder samma uppsättning markdown-format. Det är viktigt att testa klientprogrammets visning av svar.
 
+Se en fullständig lista över [innehållstyper och exempel](./Concepts/content-types.md#file-and-url-data-types).
+
 ## <a name="basic-document-formatting"></a>Grundläggande dokumentformatering
 
 QnA Maker identifierar avsnitt och underavsnitt och relationer i filen baserat på visuella ledtrådar som:
@@ -28,12 +30,6 @@ QnA Maker identifierar avsnitt och underavsnitt och relationer i filen baserat p
 * Teckenstil
 * Numrering
 * färger
-
-|Exempel på dokument|
-|--|
-||
-
-
 
 ## <a name="product-manuals"></a>Produktmanualer
 
@@ -116,7 +112,8 @@ Om du importerar en kunskapsbas ersätts innehållet i den befintliga kunskapsba
 * Det första tecknet i rubriken måste aktiveras.
 * Avsluta inte en rubrik med `?`ett frågetecken.
 
+**Exempeldokument:**<br>[Surface Pro (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[Contoso Fördelar (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[Contoso Fördelar (pdf)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)
 
-|Exempel på dokument|
-|--|
-||
+## <a name="next-steps"></a>Nästa steg
+
+Se en fullständig lista över [innehållstyper och exempel](./Concepts/content-types.md#file-and-url-data-types)

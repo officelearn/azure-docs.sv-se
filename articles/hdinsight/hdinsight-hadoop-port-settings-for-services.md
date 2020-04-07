@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/15/2019
-ms.openlocfilehash: 67cafbb7934381cd4c2936d6e6dfe7fb19d70735
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/06/2020
+ms.openlocfilehash: fe2cb04f36026740dc54f4668d3c3188592bd8ae
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76314699"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754221"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Portar som används av Apache Hadoop-tjänster på HDInsight
 
@@ -21,9 +21,9 @@ Det här dokumentet innehåller en lista över de portar som används av Apache 
 
 ## <a name="public-ports-vs-non-public-ports"></a>Offentliga portar jämfört med icke-offentliga portar
 
-Linux-baserade HDInsight-kluster exponerar bara tre portar offentligt på internet. 22, 23 och 443. Dessa portar används för att komma åt klustret på ett säkert sätt med hjälp av SSH och tjänster som exponeras via det säkra HTTPS-protokollet.
+Linux-baserade HDInsight-kluster exponerar bara tre portar offentligt på internet: 22, 23 och 443. Dessa portar skyddar klusteråtkomst med SSH och tjänster som exponeras via det säkra HTTPS-protokollet.
 
-Internt implementeras HDInsight av flera virtuella Azure-datorer (noderna i klustret) som körs på ett Virtuellt Azure-nätverk. Inifrån det virtuella nätverket kan du komma åt portar som inte exponeras via Internet. Om du till exempel ansluter till en av huvudnoderna med SSH kan du från huvudnoden sedan direkt komma åt tjänster som körs på klusternoderna.
+HDInsight implementeras av flera Virtuella Azure-datorer (klusternoder) som körs på ett Virtuellt Azure-nätverk. Inifrån det virtuella nätverket kan du komma åt portar som inte exponeras via Internet. Om du ansluter via SSH till huvudnoden kan du direkt komma åt tjänster som körs på klusternoderna.
 
 > [!IMPORTANT]  
 > Om du inte anger ett Virtuellt Azure-nätverk som ett konfigurationsalternativ för HDInsight skapas ett automatiskt. Du kan dock inte ansluta andra datorer (till exempel andra virtuella Azure-datorer eller klientutvecklingsdatorn) till det här virtuella nätverket.
@@ -32,7 +32,7 @@ Om du vill ansluta ytterligare datorer till det virtuella nätverket måste du f
 
 ## <a name="public-ports"></a>Offentliga hamnar
 
-Alla noder i ett HDInsight-kluster finns i ett Virtuellt Azure-nätverk och kan inte nås direkt från Internet. En offentlig gateway ger internetåtkomst till följande portar, som är vanliga för alla HDInsight-klustertyper.
+Alla noder i ett HDInsight-kluster finns i ett Virtuellt Azure-nätverk. Noderna kan inte nås direkt från internet. En offentlig gateway ger internetåtkomst till följande portar, som är vanliga för alla HDInsight-klustertyper.
 
 | Tjänst | Port | Protokoll | Beskrivning |
 | --- | --- | --- | --- |
@@ -49,7 +49,7 @@ Följande är tillgängliga för specifika klustertyper:
 
 | Tjänst | Port | Protokoll | Klustertyp | Beskrivning |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |HBase |HBase REST API. Se [Komma igång med Apache HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
+| `Stargate` |443 |HTTPS |HBase |HBase REST API. Se [Komma igång med Apache HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
 | Livy |443 |HTTPS |Spark |Spark REST API. Se [Skicka Apache Spark jobb på distans med Apache Livy](spark/apache-spark-livy-rest-interface.md) |
 | Spark Sparsamhet server |443 |HTTPS |Spark |Spark Sparsamhet server som används för att skicka Hive frågor. Se [Använda beeline med Apache Hive på HDInsight](hadoop/apache-hadoop-use-hive-beeline.md) |
 | Storm |443 |HTTPS |Storm |Storm webbgränssnitt. Se [Distribuera och hantera Apache Storm-topologier på HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
@@ -89,7 +89,7 @@ Exempel:
 | --- | --- | --- | --- | --- |
 | Webbgränssnittet NameNode |Huvudnoder |30070 |HTTPS |Webbgränssnitt för att visa status |
 | NameNode metadata tjänst |huvudnoder |8020 |Ipc |Metadata för filsystemet |
-| DataNod |Alla arbetsnoder |30075 |HTTPS |Webbgränssnitt för att visa status, loggar, etc. |
+| DataNod |Alla arbetsnoder |30075 |HTTPS |Webbgränssnitt för att visa status, loggar och så vidare. |
 | DataNod |Alla arbetsnoder |30010 |&nbsp; |Dataöverföring |
 | DataNod |Alla arbetsnoder |30020 |Ipc |Åtgärder för metadata |
 | Sekundärt namnNod |Huvudnoder |50090 |HTTP |Kontrollpunkt för NameNode-metadata |
@@ -100,7 +100,7 @@ Exempel:
 | --- | --- | --- | --- | --- |
 | Webbgränssnittet i Resource Manager |Huvudnoder |8088 |HTTP |Webbgränssnitt för Resurshanteraren |
 | Webbgränssnittet i Resource Manager |Huvudnoder |8090 |HTTPS |Webbgränssnitt för Resurshanteraren |
-| Administrationsgränssnitt för Resurshanteraren |huvudnoder |8141 |Ipc |För ansökan inlagor (Hive, Hive server, Pig, etc.) |
+| Administrationsgränssnitt för Resurshanteraren |huvudnoder |8141 |Ipc |För ansökningsinlämningar (Hive, Hive-servern, Gris och så vidare.) |
 | Schemaläggaren för Resurshanteraren |huvudnoder |8030 |HTTP |Administrativt gränssnitt |
 | Programgränssnittet för Resource Manager |huvudnoder |8050 |HTTP |Adress till gränssnittet för programhanteraren |
 | NodeManager |Alla arbetsnoder |30050 |&nbsp; |Adressen till containerhanteraren |

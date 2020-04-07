@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 880072c9865e38e181869506e35968767fa95e8a
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.date: 04/06/2020
+ms.openlocfilehash: 9c9f069ad38c65aa0bbfdcde9eef3fed32585d9e
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387911"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756411"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-diagnostic-telemetry"></a>Konfigurera strömmande export av diagnostiktelemetri för Azure SQL Database
 
@@ -25,7 +25,7 @@ I den här artikeln får du lära dig mer om prestandamått och resursloggar fö
 Du kommer också att lära dig om de destinationer som du kan strömma den här diagnostiska telemetrin och hur du väljer bland dessa val. Dina målalternativ inkluderar:
 
 - [Logganalys och SQL Analytics](#stream-into-sql-analytics)
-- [Händelsehubbar](#stream-into-event-hubs)
+- [Event Hubs](#stream-into-event-hubs)
 - [Azure-lagring](#stream-into-azure-storage)
 
 ## <a name="diagnostic-telemetry-for-export-for-azure-sql-database"></a>Diagnostiktelemetri för export för Azure SQL Database
@@ -95,7 +95,7 @@ Du kan använda menyn **Diagnostikinställningar** i Azure-portalen för att akt
 
 Välj en av följande flikar för steg-för-steg-vägledning för att konfigurera direktuppspelningsexport av diagnostiktelemetri i Azure-portalen och för skript för att utföra samma sak med PowerShell och Azure CLI.
 
-# <a name="azure-portal"></a>[Azure-portal](#tab/azure-portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
 ### <a name="elastic-pools"></a>Elastiska pooler
 
@@ -225,7 +225,7 @@ Så här aktiverar du direktuppspelning av diagnostiktelemetri för en instansda
 > [!TIP]
 > Upprepa dessa steg för varje instansdatabas som du vill övervaka.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -438,13 +438,13 @@ Mer information om grundläggande mått per resurs finns i följande tabeller.
 
 #### <a name="basic-metrics-for-elastic-pools"></a>Grundläggande mått för elastiska pooler
 
-|**Resurs**|**Statistik**|
+|**Resurs**|**Mått**|
 |---|---|
 |Elastisk pool|eDTU-procent, eDTU-använd, eDTU-gräns, CPU-procent, fysisk dataavläsningsprocent, loggskrivningsprocent, sessionsprocent, arbetare procent, lagring, lagringsprocent, lagringsgräns, XTP-lagringsprocent |
 
 #### <a name="basic-metrics-for-single-and-pooled-databases"></a>Grundläggande mått för enstaka och poolade databaser
 
-|**Resurs**|**Statistik**|
+|**Resurs**|**Mått**|
 |---|---|
 |Enkel och poolad databas|DTU-procent, DTU-använd, DTU-gräns, CPU-procent, fysisk dataavläsningsprocent, loggskrivningsprocent, Lyckad/misslyckad/Blockerad av brandväggsanslutningar, sessionsprocent, arbetares procent, lagring, lagringsprocent, XTP-lagringsprocent och dödlägen |
 
@@ -454,9 +454,15 @@ I följande tabell finns information om avancerade mått.
 
 |**Mått**|**Namn på mätdisplay**|**Beskrivning**|
 |---|---|---|
-|tempdb_data_size| Tempdb-datafilstorlek Kilobyte |Tempdb Data filstorlek Kilobytes. Gäller inte för informationslager. Det här måttet kommer att vara tillgängligt för databaser som använder vCore-inköpsmodellen med 2 virtuella kärnor och högre, eller 200 DTU och högre för DTU-baserade inköpsmodeller. Det här måttet är för närvarande inte tillgängligt för hyperskaladatabaser.|
-|tempdb_log_size| Tempdb-loggfilstorlek Kilobyte |Tempdb Loggfil storlek Kilobytes. Gäller inte för informationslager. Det här måttet kommer att vara tillgängligt för databaser som använder vCore-inköpsmodellen med 2 virtuella kärnor och högre, eller 200 DTU och högre för DTU-baserade inköpsmodeller. Det här måttet är för närvarande inte tillgängligt för hyperskaladatabaser.|
-|tempdb_log_used_percent| Tempdb procent logg används |Tempdb procent logg används. Gäller inte för informationslager. Det här måttet kommer att vara tillgängligt för databaser som använder vCore-inköpsmodellen med 2 virtuella kärnor och högre, eller 200 DTU och högre för DTU-baserade inköpsmodeller. Det här måttet är för närvarande inte tillgängligt för hyperskaladatabaser.|
+|sqlserver_process_core_percent<sup>1</sup>|SQL Server-processkärna procent|CPU-användningsprocent för SQL Server-processen, mätt med operativsystemet.|
+|sqlserver_process_memory_percent<sup>1</sup> |Procent av SQL Server-processminne|Procentandel av minnesanvändningen för SQL Server-processen, mätt med operativsystemet.|
+|tempdb_data_size<sup>2</sup>| Tempdb-datafilstorlek Kilobyte |Tempdb Data filstorlek Kilobytes.|
+|tempdb_log_size<sup>2</sup>| Tempdb-loggfilstorlek Kilobyte |Tempdb Loggfil storlek Kilobytes.|
+|tempdb_log_used_percent<sup>2</sup>| Tempdb procent logg används |Tempdb procent logg används.|
+
+<sup>1</sup> Det här måttet är tillgängligt för databaser som använder vCore-inköpsmodellen med 2 virtuella kärnor och högre, eller 200 DTU och högre för DTU-baserade inköpsmodeller. 
+
+<sup>2</sup> Det här måttet är tillgängligt för databaser som använder vCore-inköpsmodellen med 2 virtuella kärnor och högre, eller 200 DTU och högre för DTU-baserade inköpsmodeller. Det här måttet är för närvarande inte tillgängligt för storskaliga databaser eller informationslager.
 
 ### <a name="basic-logs"></a>Grundläggande loggar
 

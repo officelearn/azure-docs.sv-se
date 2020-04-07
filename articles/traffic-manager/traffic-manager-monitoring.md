@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: rohink
-ms.openlocfilehash: fcc9c5333b37c041342c2d20a53cf5d3908d1a26
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61aafbe8cb12e93d72f5efd01155f06fb3ec0c28
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76938558"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757271"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Slutpunktsövervakning för Traffic Manager
 
@@ -25,7 +25,7 @@ Azure Traffic Manager innehåller inbyggd slutpunktsövervakning och automatisk 
 
 Om du vill konfigurera slutpunktsövervakning måste du ange följande inställningar för Traffic Manager-profilen:
 
-* **Protokoll**. Välj HTTP, HTTPS eller TCP som det protokoll som Traffic Manager använder när du avsöker slutpunkten för att kontrollera dess hälsa. HTTPS-övervakning verifierar inte om ditt SSL-certifikat är giltigt – det kontrollerar bara att certifikatet finns.
+* **Protokoll**. Välj HTTP, HTTPS eller TCP som det protokoll som Traffic Manager använder när du avsöker slutpunkten för att kontrollera dess hälsa. HTTPS-övervakning verifierar inte om ditt TLS/SSL-certifikat är giltigt – det kontrollerar bara att certifikatet finns.
 * **Hamn**. Välj den port som används för begäran.
 * **Sökväg**. Den här konfigurationsinställningen är endast giltig för HTTP- och HTTPS-protokollen, för vilka det krävs att ange sökvägsinställningen. Om du anger den här inställningen för TCP-övervakningsprotokollet uppstår ett fel. För HTTP- och HTTPS-protokoll anger du den relativa sökvägen och namnet på webbsidan eller filen som övervakningen är åtkomst till. Ett snedstreck (/) är en giltig post för den relativa sökvägen. Det här värdet innebär att filen finns i rotkatalogen (standard).
 * **Inställningar för anpassat huvud** Den här konfigurationsinställningen hjälper dig att lägga till specifika HTTP-huvuden i hälsokontroller som Traffic Manager skickar till slutpunkter under en profil. De anpassade rubrikerna kan anges på en profilnivå som ska gälla för alla slutpunkter i den profilen och/eller på en slutpunktsnivå som endast gäller för den slutpunkten. Du kan använda anpassade rubriker för att hälsokontroller till slutpunkter i en miljö med flera innehavare dirigeras korrekt till deras mål genom att ange ett värdhuvud. Du kan också använda den här inställningen genom att lägga till unika rubriker som kan användas för att identifiera HTTP(S)-begäranden och bearbetar dem på olika sätt. Du kan ange upp till åtta rubrik:värdepar som är syvärda med ett kommatecken. Till exempel "header1:value1,header2:value2". 

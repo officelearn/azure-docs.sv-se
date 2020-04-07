@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 20aa55f9fc4ea65da1973628aeec313a5367816a
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: f7eb63d0bbdce86f4a7195430dc15d6873e9f6e6
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632069"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754309"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Kryptering på serversidan av Hanterade Azure-diskar
 
@@ -90,10 +90,13 @@ För tillfället har kundhanterade nycklar följande begränsningar:
 
     När du skapar Key Vault-instansen måste du aktivera skydd för mjuk borttagning och rensning. Mjuk borttagning säkerställer att Key Vault har en borttagen nyckel för en viss kvarhållningsperiod (90 dagars standard). Rensningsskyddet säkerställer att en borttagen nyckel inte kan tas bort permanent förrän kvarhållningsperioden har förfallit. Dessa inställningar skyddar dig från att förlora data på grund av oavsiktlig borttagning. Dessa inställningar är obligatoriska när du använder ett Key Vault för kryptering av hanterade diskar.
 
+    > [!IMPORTANT]
+    > Kamel inte fallet regionen, om du gör det kan du få problem när du tilldelar ytterligare diskar till resursen i Azure-portalen.
+
     ```azurecli
     subscriptionId=yourSubscriptionID
     rgName=yourResourceGroupName
-    location=WestCentralUS
+    location=westcentralus
     keyVaultName=yourKeyVaultName
     keyName=yourKeyName
     diskEncryptionSetName=yourDiskEncryptionSetName
@@ -134,7 +137,7 @@ För tillfället har kundhanterade nycklar följande begränsningar:
 ```azurecli
 rgName=yourResourceGroupName
 vmName=yourVMName
-location=WestCentralUS
+location=westcentralus
 vmSize=Standard_DS3_V2
 image=UbuntuLTS 
 diskEncryptionSetName=yourDiskencryptionSetName
@@ -162,7 +165,7 @@ az disk update -n $diskName -g $rgName --encryption-type EncryptionAtRestWithCus
 ```azurecli
 rgName=yourResourceGroupName
 vmssName=yourVMSSName
-location=WestCentralUS
+location=westcentralus
 vmSize=Standard_DS3_V2
 image=UbuntuLTS 
 diskEncryptionSetName=yourDiskencryptionSetName
@@ -179,7 +182,7 @@ rgName=yourResourceGroupName
 diskName=yourDiskName
 diskSkuName=Premium_LRS
 diskSizeinGiB=30
-location=WestCentralUS
+location=westcentralus
 diskLUN=2
 diskEncryptionSetName=yourDiskEncryptionSetName
 

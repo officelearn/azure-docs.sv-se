@@ -5,16 +5,19 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: b7a3374e8b1bb5c7624f41c994f7f9a6135506c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 24d62ac04cd70832e7c092b903b6936836a866e9
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278526"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745627"
 ---
 # <a name="consulting-service-prerequisites"></a>Förutsättningar för konsulttjänster
+
+>[!Important]
+>Från och med den 30 mars 2020 börjar vi flytta hanteringen av dina konsulttjänster till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [översikten över att skapa tjänster](https://aka.ms/AzureCreateConsultingService) för att hantera dina migrerade erbjudanden.
 
 Granska beskrivningen av och kraven för den här erbjudandetypen i [Consulting Services för Azure Marketplace och AppSource](../../consulting-services.md).  Följande specifika konsulttjänster typer har ytterligare krav:
 

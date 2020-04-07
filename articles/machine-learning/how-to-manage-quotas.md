@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 03/05/2020
-ms.openlocfilehash: 17a4652604c0faa804d24530869aac0848c972b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 530647c3d32b62f0cac250795ccce580b182fa92
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399134"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756605"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Hantera och begära kvoter för Azure-resurser
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -60,7 +60,7 @@ Tillgängliga resurser:
 
 + Kluster per region har en standardgräns på 200. Dessa delas mellan ett utbildningskluster och en beräkningsinstans (som betraktas som ett enda nodkluster för kvotändamål). Kontakta Azure-supporten om du vill begära en ökning utöver den här gränsen.
 
-+ Det finns ** andra strikta gränser som inte kan överskridas när träffen.
++ Det finns andra strikta gränser som inte kan överskridas när träffen.
 
 | **Resurs** | **Högsta gräns** |
 | --- | --- |
@@ -91,7 +91,7 @@ Det finns också en gräns för hur många behållarinstanser som du kan snurra 
 
 En mer detaljerad och aktuell lista över kvotgränser finns i kvotartikeln för hela Azure [här](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
 
-### <a name="storage"></a>Lagring
+### <a name="storage"></a>Storage
 Det finns en gräns för antalet lagringskonton per region samt i en viss prenumeration. Standardgränsen är 250 och innehåller både Standard- och Premium Storage-konton. Om du behöver fler än 250 lagringskonton i en viss region kan du göra en begäran via [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Azure Storage-teamet granskar ditt affärsfall och kan godkänna upp till 250 lagringskonton för en viss region.
 
 

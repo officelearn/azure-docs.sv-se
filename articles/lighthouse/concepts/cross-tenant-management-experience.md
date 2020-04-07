@@ -1,14 +1,14 @@
 ---
 title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurshantering möjliggör en hantering av flera innehavare.
-ms.date: 03/12/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0e55923e688d1062adc5838a88e8d3202864282a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ac5d62fbf6b6ee418cd4b2f2b00dfc12e05f809
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79218392"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754145"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -21,7 +21,7 @@ Som tjänsteleverantör kan du använda [Azure-delegerad resurshantering](../con
 
 En Azure Active Directory-klient (Azure AD) är en representation av en organisation. Det är en dedikerad instans av Azure AD som en organisation tar emot när de skapar en relation med Microsoft genom att registrera dig för Azure, Microsoft 365 eller andra tjänster. Varje Azure AD-klient är distinkt och separat från andra Azure AD-klienter och har ett eget klient-ID (ett GUID). Mer information finns i [Vad är Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
 
-För att hantera Azure-resurser för en kund måste tjänsteleverantörer logga in på Azure-portalen med ett konto som är kopplat till kundens klientorganisation, vilket kräver att en administratör i kundens klientorganisation skapar och hanterar användarkonton för tjänsteleverantören.
+Vanligtvis måste tjänsteleverantörer logga in på Azure-portalen för att hantera Azure-resurser för att hantera Azure-resurser för att hantera Azure-resurser för att kunna hantera Azure-resurser för att kunna hantera Azure-resurser för att skapa och hantera användarkonton för tjänsteleverantören.
 
 Med Azure-delegerad resurshantering anger introduktionsprocessen användare inom tjänsteleverantörens klientorganisation som ska kunna komma åt och hantera prenumerationer, resursgrupper och resurser i kundens klientorganisation. Dessa användare kan sedan logga in på Azure-portalen med sina egna autentiseringsuppgifter. Inom Azure-portalen kan de hantera resurser som tillhör alla kunder som de har åtkomst till. Detta kan göras genom att besöka sidan [Mina kunder](../how-to/view-manage-customers.md) i Azure-portalen eller genom att arbeta direkt inom ramen för kundens prenumeration, antingen i Azure-portalen eller via API:er.
 
@@ -141,6 +141,7 @@ Med alla scenarier bör du vara medveten om följande aktuella begränsningar:
 - Rolltilldelningar måste använda [inbyggda rollbaserade](../../role-based-access-control/built-in-roles.md)åtkomstkontroll (RBAC) . Alla inbyggda roller stöds för närvarande med Azure-delegerad resurshantering förutom ägare eller inbyggda roller med [behörigheten DataActions.](../../role-based-access-control/role-definitions.md#dataactions) Rollen Administratör för användaråtkomst stöds endast för begränsad användning vid [tilldelning av roller till hanterade identiteter](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Anpassade roller och [klassiska prenumerationsadministratörsroller](../../role-based-access-control/classic-administrators.md) stöds inte.
 - Även om du kan gå ombord på prenumerationer som använder Azure Databricks, kan användare i klienten som hanterar inte starta Azure Databricks-arbetsytor på en delegerad prenumeration just nu.
 - Även om du kan gå ombord på prenumerationer och resursgrupper för Azure-delegerad resurshantering som har resurslås, förhindrar dessa lås inte att åtgärder utförs av användare i den hanterande klienten. [Neka tilldelningar](../../role-based-access-control/deny-assignments.md) som skyddar systemhanterade resurser, till exempel de som skapats av Azure-hanterade program eller Azure Blueprints (systemtilldelade neka tilldelningar), hindrar användare i klienten från att agera på dessa resurser. Men vid denna tid användare i kundens klientorganisation kan inte skapa sina egna neka tilldelningar (användartilldelade neka tilldelningar).
+- Användare i den hanterande klienten har inte åtkomst till faktureringsinformation för en delegerad kundprenumeration, även om de har en inbyggd roll som normalt tillåter åtkomst. Detta beror på att åtkomst till faktureringsinformation kräver ytterligare steg som för närvarande endast stöds för användare inom samma klientorganisation.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/06/2020
 ms.author: jgao
-ms.openlocfilehash: 3ef1c3d3fe0fd1ecad95e027b06ce14fd70d4d3f
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: aa49b313f0fb10175dc6c0003f1a919f61731269
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437880"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743312"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Använda distributionsskript i mallar (förhandsgranskning)
 
@@ -33,6 +33,8 @@ Fördelarna med distributionsskript:
 - Tillåt att ange de identiteter som används för att köra skripten. För närvarande stöds endast [Azure-användartilldelade hanterade identitet.](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
 - Tillåt att kommandoradsargument skickars till skriptet.
 - Kan ange skriptutdata och skicka dem tillbaka till distributionen.
+
+Distributionsskriptresursen är endast tillgänglig i de regioner där Azure Container Instance är tillgänglig.  Se [Resurstillgänglighet för Azure Container Instances i Azure-regioner](../../container-instances/container-instances-region-availability.md).
 
 > [!IMPORTANT]
 > Två distributionsskriptresurser, ett lagringskonto och en behållarinstans, skapas i samma resursgrupp för skriptkörning och felsökning. Dessa resurser tas vanligtvis bort av skripttjänsten när körningen av distributionsskriptet hamnar i ett terminaltillstånd. Du debiteras för resurserna tills resurserna tas bort. Mer information finns i [Rensa distributionsskriptresurser](#clean-up-deployment-script-resources).
@@ -189,6 +191,8 @@ Förutom infogade skript kan du också använda externa skriptfiler. Endast prim
 Om du vill se ett exempel väljer du [här](https://github.com/Azure/azure-docs-json-samples/blob/master/deployment-script/deploymentscript-helloworld-primaryscripturi.json).
 
 De externa skriptfilerna måste vara tillgängliga.  Information om hur du skyddar skriptfilerna som lagras i Azure-lagringskonton finns i [Självstudiekurs: Säkra artefakter i Azure Resource Manager-malldistributioner](./template-tutorial-secure-artifacts.md).
+
+Du ansvarar för att säkerställa integriteten för de skript som refereras av distributionsskript, antingen **PrimaryScriptUri** eller **SupportingScriptUris**.  Referera bara skript som du litar på.
 
 ## <a name="use-supporting-scripts"></a>Använda stödskript
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 04/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43ae866959dd2112bacbb6b56e5683e7b3b851a0
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 17312e44714c8bdb20e22ad9aeb950e46eb71e3e
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631936"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755279"
 ---
 # <a name="conditional-access-users-and-groups"></a>Villkorlig åtkomst: Användare och grupper
 
@@ -35,9 +35,9 @@ Följande alternativ är tillgängliga när du skapar en princip för villkorlig
 - Alla användare
    - Alla användare som finns i katalogen inklusive B2B-gäster.
 - Välj användare och grupper
-   - Alla gäst- och externa användare (förhandsgranskning)
+   - Alla gäst- och externa användare
       - Det här valet omfattar alla B2B-gäster `user type` och externa `guest`användare, inklusive alla användare med attributet inställt på . Det här valet gäller även för alla externa användare som är inloggade från en annan organisation som en CSP (Cloud Solution Provider). 
-   - Katalogroller (förhandsgranskning)
+   - Katalogroller
       - Tillåter administratörer att välja specifika Azure AD-katalogroller som används för att bestämma tilldelning. Organisationer kan till exempel skapa en mer restriktiv princip för användare som tilldelats den globala administratörsrollen.
    - Användare och grupper
       - Tillåter inriktning på specifika användaruppsättningar. Organisationer kan till exempel välja en grupp som innehåller alla medlemmar i HR-avdelningen när en HR-app väljs som molnapp. En grupp kan vara vilken typ av grupp som helst i Azure AD, inklusive dynamiska eller tilldelade säkerhets- och distributionsgrupper.
@@ -51,9 +51,9 @@ När organisationer både inkluderar och utesluter en användare eller grupp ute
 
 Följande alternativ är tillgängliga att utesluta när du skapar en princip för villkorlig åtkomst.
 
-- Alla gäst- och externa användare (förhandsgranskning)
+- Alla gäst- och externa användare
    - Det här valet omfattar alla B2B-gäster `user type` och externa `guest`användare, inklusive alla användare med attributet inställt på . Det här valet gäller även för alla externa användare som är inloggade från en annan organisation som en CSP (Cloud Solution Provider). 
-- Katalogroller (förhandsgranskning)
+- Katalogroller
    - Tillåter administratörer att välja specifika Azure AD-katalogroller som används för att bestämma tilldelning. Organisationer kan till exempel skapa en mer restriktiv princip för användare som tilldelats den globala administratörsrollen.
 - Användare och grupper
    - Tillåter inriktning på specifika användaruppsättningar. Organisationer kan till exempel välja en grupp som innehåller alla medlemmar i HR-avdelningen när en HR-app väljs som molnapp. En grupp kan vara vilken typ av grupp som helst i Azure AD, inklusive dynamiska eller tilldelade säkerhets- och distributionsgrupper.

@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 7292064a1df8aa9bfffcd9a19a03f7b332c0615e
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 1298d5fe1d7407e836f454c2130a913dde6f8eec
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632722"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755139"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Datavetenskap med en virtuell virtuell linuxdatavetenskapdator i Azure
 
@@ -39,7 +39,7 @@ Innan du kan använda en Linux DSVM måste du ha följande förutsättningar:
 Datauppsättningen [för spambase](https://archive.ics.uci.edu/ml/datasets/spambase) är en relativt liten uppsättning data som innehåller 4 601 exempel. Datauppsättningen är en praktisk storlek för att demonstrera några av de viktigaste funktionerna i DSVM eftersom det håller resurskraven blygsamma.
 
 > [!NOTE]
-> Den här genomgången skapades med hjälp av en D2 v2-storlek Linux DSVM (CentOS Edition). Du kan använda en DSVM den här storleken för att slutföra de procedurer som visas i den här genomgången.
+> Den här genomgången skapades med hjälp av en D2 v2-storlek Linux DSVM (Ubuntu 18.04 Edition). Du kan använda en DSVM den här storleken för att slutföra de procedurer som visas i den här genomgången.
 
 Om du behöver mer lagringsutrymme kan du skapa ytterligare diskar och koppla dem till din DSVM. Diskarna använder beständig Azure-lagring, så deras data bevaras även om servern återetableras på grund av storleksändring eller stängs av. Om du vill lägga till en disk och bifoga den till din DSVM slutför du stegen i [Lägg till en disk till en Virtuell Linux.](../../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Stegen för att lägga till en disk använder Azure CLI, som redan är installerat på DSVM. Du kan slutföra stegen helt från själva DSVM. Ett annat alternativ för att öka lagringsutrymmet är att använda [Azure Files](../../storage/files/storage-how-to-use-files-linux.md).
 

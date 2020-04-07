@@ -11,12 +11,12 @@ ms.date: 11/4/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a249dfc4f04fbd7b6b73a0e9f37d53106bf82efd
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 8cee874106598c7d81b923d7dd32ba91902d9326
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633345"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745181"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Konvertera resursklasser till arbetsbelastningsgrupper
 
@@ -53,7 +53,7 @@ CREATE WORKLOAD GROUP wgDataLoads WITH
 
 ## <a name="create-the-classifier"></a>Skapa klassificeraren
 
-Tidigare gjordes mappningen av frågor till resursklasser med [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Om du vill uppnå samma funktioner och mappa begäranden till arbetsbelastningsgrupper använder du syntaxen [SKAPA ARBETSBELASTNINGSKLASSIFICER.](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)  Genom att använda sp_addrolemember kunde du bara mappa resurser till en begäran baserat på en inloggning.  En klassificerare ger ytterligare alternativ förutom inloggning, till exempel:
+Tidigare gjordes mappningen av frågor till resursklasser med [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Om du vill uppnå samma funktioner och mappa begäranden till arbetsbelastningsgrupper använder du syntaxen [SKAPA ARBETSBELASTNINGSKLASSIFICER.](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  Genom att använda sp_addrolemember kunde du bara mappa resurser till en begäran baserat på en inloggning.  En klassificerare ger ytterligare alternativ förutom inloggning, till exempel:
     - etikett
     - session
     - tid Nedanstående exempel tilldelar `AdfLogin` frågor från inloggningen som `factloads` också har `wgDataLoads` [ALT-etiketten](sql-data-warehouse-develop-label.md) inställd på den arbetsbelastningsgrupp som skapats ovan.

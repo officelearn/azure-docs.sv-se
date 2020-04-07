@@ -3,12 +3,12 @@ title: 'Snabbstart: Skapa, träna och publicera kunskapsbas - QnA Maker'
 description: Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanliga frågor eller produkthandböcker. Den här artikeln innehåller ett exempel på att skapa en QnA Maker-kunskapsbas från en enkel faq-webbsida för att svara på frågor som QnA Maker.
 ms.topic: conceptual
 ms.date: 02/08/2020
-ms.openlocfilehash: b1f80006e2dc72b5b623f4c29c093c734dc1efea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a3cd4a66ae3a7148b517050c3d1a8c6c8e7a712
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79220582"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756818"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Snabbstart: Skapa, träna och publicera din QnA Maker-kunskapsbas
 
@@ -135,7 +135,7 @@ När du gör ändringar i kunskapsbasen och publicerar om behöver du inte vidta
 
 ## <a name="what-did-you-accomplish"></a>Vad åstadkom du?
 
-Du skapade en ny kunskapsbas, lade till en offentlig WEBBADRESS i kunskapsbasen, lade till din egen QnA-uppsättning, tränade, testade och publicerade kunskapsbasen.
+Du skapade en ny kunskapsbas, lade till en offentlig WEBBADRESS i kunskapsbasen, lade till ditt eget QnA-par, tränade, testade och publicerade kunskapsbasen.
 
 När du har publicerat kunskapsbasen skapade du en bot och testade roboten.
 

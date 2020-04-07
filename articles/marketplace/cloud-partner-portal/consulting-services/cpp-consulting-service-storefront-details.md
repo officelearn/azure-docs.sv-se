@@ -5,16 +5,19 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 7e1989ee5fcc428bc7d29c17432ded8dab24ecee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 22531c1080021c5e3724e5584b85bb58446fb1d3
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281705"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80744123"
 ---
 # <a name="storefront-details-tab"></a>Fliken Butiksinformation
+
+>[!Important]
+>Från och med den 30 mars 2020 börjar vi flytta hanteringen av dina konsulttjänster till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [översikten över att skapa tjänster](https://aka.ms/AzureCreateConsultingService) för att hantera dina migrerade erbjudanden.
 
 I den här artikeln beskrivs hur du anger information för skyltfönstret. Fliken **Information om storefront** består av följande avsnitt:
 

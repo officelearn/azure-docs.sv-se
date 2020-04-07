@@ -3,12 +3,12 @@ title: Design kunskapsbas - QnA Maker
 description: En QnA Maker-kunskapsbas består av en uppsättning QnA-uppsättningar (Question and Answer) och valfria metadata som är associerade med varje QnA-par.
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: cb71de0f6a3e372d8c1c1fede67ba0c0354532ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d24434d1343f4174cfbfeb3a30c36737b213168
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76844332"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756782"
 ---
 # <a name="question-and-answer-set-concepts"></a>Begrepp för fråge- och svarsuppsättning
 
@@ -33,7 +33,7 @@ De **valfria** inställningarna för en uppsättning är:
 
 ## <a name="editorially-add-to-knowledge-base"></a>Redaktionellt lägga till kunskapsbas
 
-Om du inte har befintligt innehåll för att fylla i kunskapsbasen kan du lägga till QnA-uppsättningar redaktionellt i QnA Maker-portalen. Läs om hur du uppdaterar kunskapsbasen [här](../How-To/edit-knowledge-base.md).
+Om du inte har befintligt innehåll för att fylla i kunskapsbasen kan du lägga till QnA-par redaktionellt i QnA Maker-portalen. Läs om hur du uppdaterar kunskapsbasen [här](../How-To/edit-knowledge-base.md).
 
 ## <a name="editing-your-knowledge-base-locally"></a>Redigera din kunskapsbas lokalt
 

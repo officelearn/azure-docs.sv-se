@@ -4,15 +4,15 @@ description: Lista över tillgängliga mått för varje resurstyp med Azure Moni
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 03/17/2020
+ms.date: 04/06/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 79bae9712cea04425cc36414ec56fdddd4345eab
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 846e8da889e3913c4a8eaab7808495bbd8afad29
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586030"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754660"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
 
@@ -1999,11 +1999,11 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |dwu_used|DWU används|Antal|Maximal|DWU används. Gäller endast för informationslager.|Inget|
 |cache_hit_percent|Antal träffar i cacheminne|Procent|Maximal|Cache träff procent. Gäller endast för informationslager.|Inget|
 |cache_used_percent|Använd procent av cache|Procent|Maximal|Cache använd procentsats. Gäller endast för informationslager.|Inget|
-|sqlserver_process_core_percent|SQL Server-processkärna procent|Procent|Maximal|CPU-användningsprocent för SQL Server-processen, mätt med operativsystemet.|Inget|
-|sqlserver_process_memory_percent|Procent av SQL Server-processminne|Procent|Maximal|Procentandel av minnesanvändningen för SQL Server-processen, mätt med operativsystemet.|Inget|
-|tempdb_data_size|Tempdb-datafilstorlek Kilobyte|Antal|Maximal|Tempdb Data filstorlek Kilobytes. Gäller inte för informationslager.|Inget|
-|tempdb_log_size|Tempdb-loggfilstorlek Kilobyte|Antal|Maximal|Tempdb Loggfil storlek Kilobytes. Gäller inte för informationslager.|Inget|
-|tempdb_log_used_percent|Tempdb procent logg används|Procent|Maximal|Tempdb procent logg används. Gäller inte för informationslager.|Inget|
+|sqlserver_process_core_percent<sup>1</sup> |SQL Server-processkärna procent|Procent|Maximal|CPU-användningsprocent för SQL Server-processen, mätt med operativsystemet.|Inget|
+|sqlserver_process_memory_percent<sup>1</sup> |Procent av SQL Server-processminne|Procent|Maximal|Procentandel av minnesanvändningen för SQL Server-processen, mätt med operativsystemet.|Inget|
+|tempdb_data_size<sup>2</sup> |Tempdb-datafilstorlek Kilobyte|Antal|Maximal|Tempdb Data filstorlek Kilobytes.|Inget|
+|tempdb_log_size<sup>2</sup> |Tempdb-loggfilstorlek Kilobyte|Antal|Maximal|Tempdb Loggfil storlek Kilobytes.|Inget|
+|tempdb_log_used_percent<sup>2</sup> |Tempdb procent logg används|Procent|Maximal|Tempdb procent logg används.|Inget|
 |local_tempdb_usage_percent|Lokal tempdb-procent|Procent|Medel|Lokal tempdb procent. Gäller endast för informationslager.|Inget|
 |app_cpu_billed|App-processor faktureras|Antal|Totalt|App CPU faktureras. Gäller för serverlösa databaser.|Inget|
 |app_cpu_percent|Procent av appens PROCESSOR|Procent|Medel|Procent av appens PROCESSOR. Gäller för serverlösa databaser.|Inget|
@@ -2028,6 +2028,9 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |snapshot_backup_size_bytes|Lagringsstorlek för säkerhetskopiering av ögonblicksbilder|Byte|Maximal|Kumulativ lagringsstorlek för säkerhetskopiering av ögonblicksbilder. Gäller hyperskaladatabaser.|Inget|
 |base_blob_size_bytes|Lagringsstorlek för basblobb|Byte|Maximal|Basblolob lagring storlek. Gäller hyperskaladatabaser.|Inget|
 
+<sup>1</sup> Det här måttet är tillgängligt för databaser som använder vCore-inköpsmodellen med 2 virtuella kärnor och högre, eller 200 DTU och högre för DTU-baserade inköpsmodeller. 
+
+<sup>2</sup> Det här måttet är tillgängligt för databaser som använder vCore-inköpsmodellen med 2 virtuella kärnor och högre, eller 200 DTU och högre för DTU-baserade inköpsmodeller. Det här måttet är för närvarande inte tillgängligt för storskaliga databaser eller informationslager.
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servrar/elasticPools
 
@@ -2057,14 +2060,19 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |database_cpu_limit|CPU-gräns|Antal|Medel|CPU-gräns|DatabasResourceId|
 |cpu_used|PROCESSOR som används|Antal|Medel|PROCESSOR som används. Gäller för vCore-baserade elastiska pooler.|Inget|
 |database_cpu_used|PROCESSOR som används|Antal|Medel|PROCESSOR som används|DatabasResourceId|
-|sqlserver_process_core_percent|SQL Server-processkärna procent|Procent|Maximal|CPU-användningsprocent för SQL Server-processen, mätt med operativsystemet. Gäller elastiska pooler.|Inget|
-|sqlserver_process_memory_percent|Procent av SQL Server-processminne|Procent|Maximal|Procentandel av minnesanvändningen för SQL Server-processen, mätt med operativsystemet. Gäller elastiska pooler.|Inget|
-|tempdb_data_size|Tempdb-datafilstorlek Kilobyte|Antal|Maximal|Tempdb-datafilstorlek Kilobyte|Inget|
-|tempdb_log_size|Tempdb-loggfilstorlek Kilobyte|Antal|Maximal|Tempdb-loggfilstorlek Kilobyte|Inget|
-|tempdb_log_used_percent|Tempdb procent logg används|Procent|Maximal|Tempdb procent logg används|Inget|
+|sqlserver_process_core_percent<sup>1</sup>|SQL Server-processkärna procent|Procent|Maximal|CPU-användningsprocent för SQL Server-processen, mätt med operativsystemet. Gäller elastiska pooler. |Inget|
+|sqlserver_process_memory_percent<sup>1</sup>|Procent av SQL Server-processminne|Procent|Maximal|Procentandel av minnesanvändningen för SQL Server-processen, mätt med operativsystemet. Gäller elastiska pooler. |Inget|
+|tempdb_data_size<sup>2</sup>|Tempdb-datafilstorlek Kilobyte|Antal|Maximal|Tempdb Data filstorlek Kilobytes.|Inget|
+|tempdb_log_size<sup>2</sup>|Tempdb-loggfilstorlek Kilobyte|Antal|Maximal|Tempdb Loggfil storlek Kilobytes. |Inget|
+|tempdb_log_used_percent<sup>2</sup>|Tempdb procent logg används|Procent|Maximal|Tempdb procent logg används.|Inget|
 |allocated_data_storage|Tilldelat datautrymme|Byte|Medel|Tilldelat datautrymme|Inget|
 |database_allocated_data_storage|Tilldelat datautrymme|Byte|Medel|Tilldelat datautrymme|DatabasResourceId|
 |allocated_data_storage_percent|Tilldelat datautrymme i procent|Procent|Maximal|Tilldelat datautrymme i procent|Inget|
+
+<sup>1</sup> Det här måttet är tillgängligt för databaser som använder vCore-inköpsmodellen med 2 virtuella kärnor och högre, eller 200 DTU och högre för DTU-baserade inköpsmodeller. 
+
+<sup>2</sup> Det här måttet är tillgängligt för databaser som använder vCore-inköpsmodellen med 2 virtuella kärnor och högre, eller 200 DTU och högre för DTU-baserade inköpsmodeller. Det här måttet är för närvarande inte tillgängligt för hyperskaladatabaser.
+
 
 ## <a name="microsoftsqlservers"></a>Microsoft.Sql/servrar
 

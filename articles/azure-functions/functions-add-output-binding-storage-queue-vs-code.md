@@ -4,12 +4,12 @@ description: Lär dig hur du ansluter Azure Functions till en Azure Storage-kö 
 ms.date: 02/07/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 22f7df52e90a35a3ed9a26a7672f8354efc173e3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c32f98fc1b3de98592f8e7ceb43c17aa8a9049f7
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79241334"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80673458"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Ansluta Azure-funktioner till Azure Storage med Visual Studio-kod
 
@@ -52,9 +52,13 @@ I den [föregående snabbstartsartikeln](functions-create-first-function-vs-code
 
 Eftersom du använder en kölagringsbelödning måste du ha tillägget Lagringsbindningar installerat innan du kör projektet. 
 
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java"
 
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+Projektet har konfigurerats för att använda [tilläggspaket](functions-bindings-register.md#extension-bundles), som automatiskt installerar en fördefinierad uppsättning tilläggspaket. 
+
+Tilläggspaket är aktiverade i filen host.json i projektets rot, som ser ut så här:
+
+:::code language="json" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/host.json":::
 
 ::: zone-end
 
@@ -74,7 +78,7 @@ Nu kan du lägga till lagringsutdatabindningen i projektet.
 
 I Funktioner kräver varje typ `direction` `type`av bindning `name` en , och en unik som ska definieras i filen function.json. Hur du definierar dessa attribut beror på språket i din funktionsapp.
 
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java"
 
 [!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
 
@@ -83,6 +87,12 @@ I Funktioner kräver varje typ `direction` `type`av bindning `name` en , och en 
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [functions-add-storage-binding-csharp-library](../../includes/functions-add-storage-binding-csharp-library.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+[!INCLUDE [functions-add-output-binding-java](../../includes/functions-add-output-binding-java.md)]
 
 ::: zone-end
 
@@ -111,8 +121,20 @@ När bindningen har definierats `name` kan du använda bindningen för att komma
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"  
+
 [!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
+
 ::: zone-end  
+
+::: zone pivot="programming-language-java"  
+
+[!INCLUDE [functions-add-storage-binding-java-code](../../includes/functions-add-storage-binding-java-code.md)]
+
+[!INCLUDE [functions-add-output-binding-java-test](../../includes/functions-add-output-binding-java-test.md)]
+
+::: zone-end  
+
+<!--- Local testing section --->
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
 
@@ -127,6 +149,12 @@ När bindningen har definierats `name` kan du använda bindningen för att komma
 ::: zone-end
 
 En ny kö med namnet **utkö** skapas i ditt lagringskonto av funktionskörningen när utdatabindningen först används. Du ska använda Storage Explorer för att kontrollera att kön har skapats tillsammans med det nya meddelandet.
+
+::: zone pivot="programming-language-java"  
+
+[!INCLUDE [functions-add-output-binding-java-test](../../includes/functions-add-output-binding-java-test.md)]
+
+::: zone-end
 
 ### <a name="connect-storage-explorer-to-your-account"></a>Anslut Storage Explorer till ditt konto
 

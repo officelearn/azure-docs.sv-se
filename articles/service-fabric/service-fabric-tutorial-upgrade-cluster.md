@@ -4,12 +4,12 @@ description: I den här guiden får du lära dig hur du använder PowerShell och
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 2fb08d7aba3e35fb6147b75bbcee35b46873b5f6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a21de9d76a010b01da95b050a521178d8808bbdf
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78252738"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756069"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Självstudie: Uppgradera körningen av ett Service Fabric-kluster i Azure
 
@@ -95,7 +95,7 @@ Set-AzServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
 
 Status för uppgraderingen kan övervakas med antingen PowerShell eller Azure Service Fabrix CLI (sfctl).
 
-Börja med att ansluta till klustret med SSL-certifikatet som skapades i den första delen av kursen. Använd cdmlet `Connect-ServiceFabricCluster` eller `sfctl cluster upgrade-status`.
+Anslut först till klustret med TLS/SSL-certifikatet som skapades i den första delen av självstudien. Använd cdmlet `Connect-ServiceFabricCluster` eller `sfctl cluster upgrade-status`.
 
 ```powershell
 $endpoint = "<mycluster>.southcentralus.cloudapp.azure.com:19000"

@@ -3,21 +3,24 @@ title: Återställa Azure-filer med PowerShell
 description: I den här artikeln kan du läsa om hur du återställer Azure-filer med hjälp av Azure Backup-tjänsten och PowerShell.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 99aeaa6173bb5336e6e1719a9fc0df0c668374e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12bff49bc249b23542534d218b13b517411f461b
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77086821"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756189"
 ---
 # <a name="restore-azure-files-with-powershell"></a>Återställa Azure-filer med PowerShell
 
-I den här artikeln beskrivs hur du återställer en hel filresurs, eller specifika filer, från en återställningspunkt som skapats av [Azure Backup-tjänsten](backup-overview.md) med Azure Powershell.
+I den här artikeln beskrivs hur du återställer en hel filresurs, eller specifika filer, från en återställningspunkt som skapats av [Azure Backup-tjänsten](backup-overview.md) med Azure PowerShell.
 
 Du kan återställa en hel filresurs eller specifika filer på resursen. Du kan återställa till den ursprungliga platsen eller till en annan plats.
 
 > [!WARNING]
-> Kontrollera att PS-versionen uppgraderas till den lägsta versionen för Az.RecoveryServices 2.6.0 för AFS-säkerhetskopior. Mer information finns [i avsnittet](backup-azure-afs-automation.md#important-notice---backup-item-identification-for-afs-backups) om kravet på den här ändringen.
+> Kontrollera att PS-versionen uppgraderas till den lägsta versionen för Az.RecoveryServices 2.6.0 för AFS-säkerhetskopior. Mer information finns [i avsnittet](backup-azure-afs-automation.md#important-notice---backup-item-identification-for-afs-backups) som beskriver kravet för den här ändringen.
+
+>[!NOTE]
+>Azure Backup stöder nu återställning av flera filer eller mappar till den ursprungliga eller alternativa platsen med PowerShell. Läs [det här avsnittet](#restore-multiple-files-or-folders-to-original-or-alternate-location) i dokumentet om du vill veta mer.
 
 ## <a name="fetch-recovery-points"></a>Hämta återställningspunkter
 
@@ -102,17 +105,67 @@ Det här kommandot returnerar ett jobb med ett ID som ska spåras, vilket visas 
 
 När du återställer till en ursprunglig plats behöver du inte ange mål- och målrelaterade parametrar. Endast **ResolveConflict** måste tillhandahållas.
 
-#### <a name="overwrite-an-azure-file-share"></a>Skriva över en Azure-filresurs
+### <a name="overwrite-an-azure-file-share"></a>Skriva över en Azure-filresurs
 
 ```powershell
 Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -ResolveConflict Overwrite
 ```
 
-#### <a name="overwrite-an-azure-file"></a>Skriva över en Azure-fil
+### <a name="overwrite-an-azure-file"></a>Skriva över en Azure-fil
 
 ```powershell
 Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -SourceFileType File -SourceFilePath "TestDir/TestDoc.docx" -ResolveConflict Overwrite
 ```
+
+## <a name="restore-multiple-files-or-folders-to-original-or-alternate-location"></a>Återställa flera filer eller mappar till ursprunglig eller alternativ plats
+
+Använd kommandot [Återställ-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) genom att skicka sökvägen till alla filer eller mappar som du vill återställa som ett värde för parametern **MultipleSourceFilePath.**
+
+### <a name="restore-multiple-files"></a>Återställa flera filer
+
+I följande skript försöker vi återställa filerna *FileSharePage.png* och *MyTestFile.txt.*
+
+```powershell
+$vault = Get-AzRecoveryServicesVault -ResourceGroupName "azurefiles" -Name "azurefilesvault"
+
+$Container = Get-AzRecoveryServicesBackupContainer -ContainerType AzureStorage -Status Registered -FriendlyName "afsaccount" -VaultId $vault.ID
+
+$BackupItem = Get-AzRecoveryServicesBackupItem -Container $Container -WorkloadType AzureFiles -VaultId $vault.ID -FriendlyName "azurefiles"
+
+$RP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $BackupItem -VaultId $vault.ID
+
+$files = ("FileSharePage.png", "MyTestFile.txt")
+
+Restore-AzRecoveryServicesBackupItem -RecoveryPoint $RP[0] -MultipleSourceFilePath $files -SourceFileType File -ResolveConflict Overwrite -VaultId $vault.ID -VaultLocation $vault.Location
+```
+
+### <a name="restore-multiple-directories"></a>Återställa flera kataloger
+
+I följande skript försöker vi återställa *zrs1_restore-* och *återställningskataloger.*
+
+```powershell
+$vault = Get-AzRecoveryServicesVault -ResourceGroupName "azurefiles" -Name "azurefilesvault"
+
+$Container = Get-AzRecoveryServicesBackupContainer -ContainerType AzureStorage -Status Registered -FriendlyName "afsaccount" -VaultId $vault.ID
+
+$BackupItem = Get-AzRecoveryServicesBackupItem -Container $Container -WorkloadType AzureFiles -VaultId $vault.ID -FriendlyName "azurefiles"
+
+$RP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $BackupItem -VaultId $vault.ID
+
+$files = ("Restore","zrs1_restore")
+
+Restore-AzRecoveryServicesBackupItem -RecoveryPoint $RP[0] -MultipleSourceFilePath $files -SourceFileType Directory -ResolveConflict Overwrite -VaultId $vault.ID -VaultLocation $vault.Location
+```
+
+Resultatet blir något som liknar:
+
+```output
+WorkloadName         Operation         Status          StartTime                EndTime       JobID
+------------         ---------         ------          ---------                -------       -----
+azurefiles           Restore           InProgress      4/5/2020 8:01:24 AM                    cd36abc3-0242-44b1-9964-0a9102b74d57
+```
+
+Om du vill återställa flera filer eller mappar till en annan plats använder du skripten ovan genom att ange de målplatsrelaterade parametervärdena, som förklaras ovan i [Återställ en Azure-fil till en annan plats](#restore-an-azure-file-to-an-alternate-location).
 
 ## <a name="next-steps"></a>Nästa steg
 

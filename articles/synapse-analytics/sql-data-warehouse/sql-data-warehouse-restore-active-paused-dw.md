@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e1d0c5cd850fa0dbacf104d3fcd72d83007df878
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 6fa8bd42eb067124ab6ea1db77e2f3d6fba79638
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632258"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745208"
 ---
 # <a name="restore-an-existing-sql-pool"></a>Återställa en befintlig SQL-pool
 
@@ -28,12 +28,12 @@ I den här artikeln får du lära dig hur du återställer en befintlig SQL-pool
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-1. Se till att [installera Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+1. Se till att [installera Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Har en befintlig återställningspunkt som du vill återställa från. Om du vill skapa en ny återställning läser du [självstudien för att skapa en ny användardefinierad återställningspunkt](sql-data-warehouse-restore-points.md).
 
 ## <a name="restore-an-existing-sql-pool-through-powershell"></a>Återställa en befintlig SQL-pool via PowerShell
 
-Om du vill återställa en befintlig SQL-pool från en återställningspunkt använder du cmdleten [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) PowerShell.
+Om du vill återställa en befintlig SQL-pool från en återställningspunkt använder du cmdleten [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell.
 
 1. Öppna PowerShell.
 
@@ -45,7 +45,7 @@ Om du vill återställa en befintlig SQL-pool från en återställningspunkt anv
 
 5. Välj önskad återställningspunkt med RestorePointCreationDate.
 
-6. Återställ SQL-poolen till önskad återställningspunkt med Hjälp av [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) PowerShell-cmdlet.
+6. Återställ SQL-poolen till önskad återställningspunkt med Hjälp av [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell-cmdlet.
         1. Om du vill återställa SQL-poolen till en annan logisk server kontrollerar du att det andra logiska servernamnet anges.  Den här logiska servern kan också finnas i en annan resursgrupp och region.
         2. Om du vill återställa till en annan prenumeration använder du knappen Flytta för att flytta den logiska servern till en annan prenumeration.
 

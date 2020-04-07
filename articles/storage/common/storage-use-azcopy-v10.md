@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 90adb3b973b6952d10ef89e4b40d0fc68489e224
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8701fe6857e95334a5e1d24bfe70feb130d5512c
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061096"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756022"
 ---
 # <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 
@@ -21,7 +21,7 @@ AzCopy är ett kommandoradsverktyg som du kan använda för att kopiera blobbar 
 > [!NOTE]
 > AzCopy **V10** är den version som för närvarande stöds av AzCopy.
 >
-> Om du behöver använda AzCopy **v8.1**läser du avsnittet [Använd den tidigare versionen av AzCopy](#previous-version) i den här artikeln.
+> Om du behöver använda en tidigare version av AzCopy läser du avsnittet [Använd den tidigare versionen av AzCopy](#previous-version) i den här artikeln.
 
 <a id="download-and-install-azcopy" />
 
@@ -308,11 +308,11 @@ Storage Explorer använder din kontonyckel för att utföra åtgärder, så när
 
 ## <a name="use-the-previous-version-of-azcopy"></a>Använda den tidigare versionen av AzCopy
 
-Om du behöver använda den tidigare versionen av AzCopy (AzCopy v8.1), se någon av följande länkar:
+Om du behöver använda den tidigare versionen av AzCopy läser du någon av följande länkar:
 
 - [AzCopy i Windows (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
 
-- [AzCopy i Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
+- [AzCopy på Linux (v7)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
 
 ## <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurera, optimera och felsöka AzCopy
 

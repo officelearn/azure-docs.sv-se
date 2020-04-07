@@ -6,12 +6,12 @@ ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: a305914c5c870543e16c515880955693c2634044
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: e49fafc2889b98d013d77471f8177fd85a307cc8
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239183"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754886"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Självstudiekurs: Integrera Azure Key Vault i distributionen av ARM-mall
 
@@ -198,7 +198,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien hämtade du en hemlighet från ditt Azure-nyckelvalv. Du använde sedan hemligheten i malldistributionen. Om du vill lära dig mer om hur du skapar länkade mallar kan du se:
+I den här självstudien hämtade du en hemlighet från ditt Azure-nyckelvalv. Du använde sedan hemligheten i malldistributionen. Information om hur du använder tillägg för virtuell dator för att utföra distributionsuppgifter finns i:
 
 > [!div class="nextstepaction"]
-> [Skapa länkade mallar](./template-tutorial-create-linked-templates.md)
+> [Distribuera tillägg för virtuella datorer](./template-tutorial-deploy-vm-extensions.md)

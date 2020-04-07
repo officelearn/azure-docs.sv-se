@@ -3,18 +3,18 @@ title: 'Självstudiekurs: Skissexempel till ny miljö'
 description: I den här självstudien använder du ett skissexempel för att skapa en skissdefinition som ställer in två resursgrupper och konfigurerar en rolltilldelning för varje.
 ms.date: 03/25/2020
 ms.topic: tutorial
-ms.openlocfilehash: c4230282223b0a64f6254448fe069bf8f7ab9a15
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 79928822b41dfe0583afbeaf2f5f1a4a87dd3202
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80282026"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677097"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Självstudiekurs: Skapa en miljö från ett skissexempel
 
 Exempel på ritningar ger exempel på vad som kan göras med Azure Blueprints. Var och en är ett exempel med en specifik avsikt eller ett visst syfte, men skapar inte en fullständig miljö av sig själva. Var och en är avsedd som en startplats för att utforska med hjälp av Azure Blueprints med olika kombinationer av inkluderade artefakter, designer och parametrar.
 
-Följande självstudiekurs använder **resursgrupper med RBAC-skissexempel** för att visa upp olika aspekter av blueprints-tjänsten. Följande steg beskrivs:
+Följande självstudiekurs använder **resursgrupper med RBAC-skissexempel** för att visa upp olika aspekter av Azure Blueprints-tjänsten. Följande steg beskrivs:
 
 > [!div class="checklist"]
 > - Skapa en ny skissdefinition från exemplet

@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 89d437fe74d209e0dc04ffc590a1e32426b28732
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d52270e623a713d7188ac5ff907ebb82ada13283
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275874"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745599"
 ---
 # <a name="publish-a-power-bi-app-offer"></a>Publicera ett Power BI-apperbjudande
+
+>[!Important]
+>Från och med den 30 mars 2020 börjar vi flytta hanteringen av dina Power BI-appar till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [översikten över hur du skapar Power BI-appar](https://aka.ms/AzureCreatePBIServiceApp) för att hantera dina migrerade erbjudanden.
 
 Det sista steget, när du har definierat ett erbjudande i Cloud Partner Portal och skapat tillhörande tekniska resurser, är att skicka erbjudandet för publicering. Om du vill starta den här processen väljer du **Publicera**i den vänstra rutan i fönstret **Nytt erbjudande** . Mer information finns i [Publicera Azure Marketplace och AppSource-erbjudanden](../manage-offers/cpp-publish-offer.md).
 

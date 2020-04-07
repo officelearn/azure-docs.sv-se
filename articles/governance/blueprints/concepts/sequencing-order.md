@@ -3,12 +3,12 @@ title: Förstå distributionssekvensordningen
 description: Lär dig mer om standardordningen som skissartefakter distribueras i under en skisstilldelning och hur du anpassar distributionsordern.
 ms.date: 08/22/2019
 ms.topic: conceptual
-ms.openlocfilehash: 51026862c989f15acf6d3e21702cfcfc8b2b27b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41b1b1ada5b7c6c919f227927001570332eeccbf
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74128815"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677566"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Förstå distributionssekvensen i Azure Blueprints
 
@@ -42,7 +42,7 @@ Inom varje **resursgruppsartefakt** används följande sekvensordning för artef
 
 ## <a name="customizing-the-sequencing-order"></a>Anpassa sekvenseringsordningen
 
-När du skriver stora skissdefinitioner kan det vara nödvändigt att skapa resurser i en viss ordning. Det vanligaste användningsmönstret för det här scenariot är när en skissdefinition innehåller flera Azure Resource Manager-mallar. Skisser hanterar det här mönstret genom att låta sekvenseringsordningen definieras.
+När du skriver stora skissdefinitioner kan det vara nödvändigt att skapa resurser i en viss ordning. Det vanligaste användningsmönstret för det här scenariot är när en skissdefinition innehåller flera Azure Resource Manager-mallar. Azure Blueprints hanterar det här mönstret genom att tillåta att sekvenseringsordningen definieras.
 
 Beställningen sker genom att definiera `dependsOn` en egenskap i JSON. Skissdefinitionen för resursgrupper och artefaktobjekt stöder den här egenskapen. `dependsOn`är en strängmatris med artefaktnamn som den specifika artefakten måste skapas innan den skapas.
 

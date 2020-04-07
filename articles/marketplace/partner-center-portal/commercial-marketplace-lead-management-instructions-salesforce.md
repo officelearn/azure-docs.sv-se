@@ -7,16 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: dsindona
-ms.openlocfilehash: 1720026b4beff941b02a60cd1c755a043d66bdb5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9b59181f7c1b24a7bc00ab579bbe67a70f499c92
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281501"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755372"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Konfigurera leadhantering för Salesforce
 
-I den här artikeln beskrivs hur du konfigurerar ditt Salesforce-system för att bearbeta försäljningsleads från ditt marketplace-erbjudande.
+I den här artikeln beskrivs hur du konfigurerar ditt Salesforce-system för att bearbeta försäljningsleads från ditt kommersiella marketplace-erbjudande.
+
+> [!Note]
+> Marketplace stöder inte förifyllda listor, till exempel en lista med värden för fältet **Land.** Kontrollera att det inte finns några listor konfigurerade innan du fortsätter. Du kan också konfigurera en [HTTPS-slutpunkt](./commercial-marketplace-lead-management-instructions-https.md) eller en [Azure-tabell](./commercial-marketplace-lead-management-instructions-azure-table.md) för att ta emot leads.
 
 ## <a name="set-up-your-salesforce-system"></a>Konfigurera ditt Salesforce-system
 
@@ -26,14 +29,16 @@ I den här artikeln beskrivs hur du konfigurerar ditt Salesforce-system för att
     ![Salesforce-inställning](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-1.png)
 
     1. Från sidan Installationsprogrammet navigerar du via den vänstra navigeringen till **plattformsverktyg->funktionsinställningar->Marknadsföring->Web-to-Lead**.
-    ![Salesforce Web-to-Lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-2.png)
+
+        ![Salesforce Web-to-Lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-2.png)
 
 3. Om du använder Salesforce Classic-upplevelsen:
     1. Välj **Inställningar** från Salesforce-startsidan.
     ![Salesforce klassiska setup](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-setup.png)
 
     1. På sidan Installationsprogrammet navigerar du via den vänstra navigeringen till **Build ->Customize->Leads->Web-to-Lead**.
-    ![Salesforce klassiska web-to-lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-web-to-lead.png)
+
+        ![Salesforce klassiska web-to-lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-web-to-lead.png)
 
 Resten av instruktionerna är desamma oavsett vilken Salesforce-upplevelse du använder.
 

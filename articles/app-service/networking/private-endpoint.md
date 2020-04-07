@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c2717b1f29af39c6fdc4602b11acba131d959f03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d139cfa50afa94621066995314737fac70bbafe
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79534396"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756275"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Använda privata slutpunkter för Azure Web App (förhandsversion)
 
@@ -25,7 +25,7 @@ Du kan använda Privat slutpunkt för din Azure Web App för att tillåta klient
 
 Med hjälp av privat slutpunkt för din webbapp kan du:
 
-- Skydda din webbapp genom att konfigurera tjänstens slutpunkt, vilket eliminerar offentlig exponering.
+- Skydda din webbapp genom att konfigurera den privata slutpunkten, vilket eliminerar offentlig exponering.
 - Anslut till Webbapp från lokala nätverk som ansluter till det virtuella nätverket med hjälp av en privat peer-enhet för VPN eller ExpressRoute.
 
 Om du bara behöver en säker anslutning mellan ditt virtuella nätverk och din webbapp är en tjänstslutpunkt den enklaste lösningen. Om du också behöver nå webbappen lokalt via en Azure-gateway, ett regionalt peered-nätverk eller ett globalt peered-nätverk, är Private Endpoint lösningen.  

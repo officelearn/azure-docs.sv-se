@@ -1,21 +1,14 @@
 ---
 title: 'Snabbstart: Distribuera en app med LUIS-portalen'
-titleSuffix: Azure Cognitive Services
 description: Den här snabbstarten visar hur du distribuerar en app genom att skapa en slutpunktsresurs för förutsägelse, tilldela resursen, utbildning och publicera appen.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/27/2020
-ms.author: diberry
-ms.openlocfilehash: 0ee2b33aa3388b3cb99aa42c338ded800c9679a4
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/06/2020
+ms.openlocfilehash: aaf86766c2357c5382b78cd4a35fd4b159e5c0f3
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79241782"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756304"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Snabbstart: Distribuera en app i LUIS-portalen
 
@@ -29,35 +22,13 @@ I den här snabbstarten får du lära dig att distribuera ett program. Du skapar
 * Slutför [föregående portalsnabbstart](get-started-portal-build-app.md) eller [hämta och importera appen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
 * Om du har appar som föregår Azure-resursautentisering [migrerar du till en Azure-resurs](luis-migration-authoring.md). Vissa portalsidor ser annorlunda ut när e-postautentisering är i kraft.
 
-## <a name="create-the-endpoint-resource"></a>Skapa slutpunktsresursen
+<a name="create-the-endpoint-resource"></a>
 
-Du skapar förutsägelseslutpunktsresursen i Azure-portalen. Den här resursen bör endast användas för endpointförutsägelsfrågor. Använd inte den här resursen för att skapa ändringar i appen.
-
-1. Logga in och skapa en resurs i [Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne).
-
-1. Konfigurera prenumerationen med följande inställningar:
-
-   |Inställning|Värde|Syfte|
-   |--|--|--|
-   |Namn|`my-luis-resource`|Namnet på Azure-resursen. Du behöver det här namnet när du tilldelar resursen till appen i LUIS-portalen.|
-   |Prenumeration|Din prenumeration|Välj en av de prenumerationer som är kopplade till ditt konto.|
-   |Resursgrupp|`my-resource-group`|Skapa en ny resursgrupp för alla dina kognitiva tjänstresurser. När du är klar med resurserna kan du ta bort resursgruppen för att rensa prenumerationen. |
-   |Skapa plats|**Västra USA**|Azure-regionen för redigering.|
-   |Prisnivå för redigering|**F0**|Standardprisnivån för redigering.|
-   |Körtidsplats|**Västra USA**|Azure-regionen för förutsägelseslutpunktsfrågor.|
-   |Prisnivå för körning|**S0**|Den här prisnivån tillhandahåller webbplatser med hög trafik.|
-   | | | |
-
-
-   ![Azure API-val](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
-
-1. Välj **Skapa** för att skapa Azure-resursen.
-
-   I nästa avsnitt får du lära dig hur du ansluter den nya resursen till en LUIS-app i LUIS-portalen.
+[!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
 
 ## <a name="assign-the-resource-key-to-the-luis-app-in-the-luis-portal"></a>Tilldela resursnyckeln till LUIS-appen i LUIS-portalen
 
-Varje gång du skapar en ny resurs för LUIS måste du tilldela resursen till LUIS-appen. När den har tilldelats behöver du inte göra det här steget igen om du inte skapar en ny resurs. Du kan skapa en ny resurs för att expandera regionerna i din app eller för att stödja ett större antal förutsägelsefrågor.
+Varje gång du skapar en ny redigerings- eller frågeprognosresurs för LUIS måste du tilldela resursen till LUIS-appen. När den har tilldelats behöver du inte göra det här steget igen om du inte skapar en ny resurs. Du kan skapa en ny resurs för att expandera regionerna i din app eller för att stödja ett större antal förutsägelsefrågor.
 
 1. Logga in på [LUIS-portalen](https://preview.luis.ai) och välj **myEnglishApp-appen** i applistan.
 

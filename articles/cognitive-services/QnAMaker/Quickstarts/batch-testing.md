@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: e16166c741b99c1af5b36f2c7ccd25b01f7544ba
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 3bc095d8949f177ccb6c4cc111ba4b272027904e
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77109004"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756709"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Snabbstart: Testa kunskapsbas med batchfrågor och förväntade svar
 
@@ -149,7 +149,7 @@ Använd följande diagram för att förstå hur du hittar fältvärdena för val
     |Ladda din Surface Pro 4|
     |Kontrollera batterinivån|
 
-    Två QnA-uppsättningar har metadatauppsättningen.
+    Två QnA-par har metadatauppsättningen.
 
     > [!TIP]
     > Om du vill visa metadata och QnA-ID:er för varje uppsättning exporterar du kunskapsbasen. Välj sidan **Inställningar** och välj `.xls` sedan **Exportera** som en fil. Hitta den nedladdade filen och öppna med Excel granska för metadata och ID.
@@ -169,7 +169,7 @@ Det finns två huvudscenarier för batchtestning:
 
 Följande procedur förutsätter att scenariot är att bearbeta chattloggar med
 
-1. Skapa en ny batchtestfil för `batch-test-data-2.tsv`att inkludera valfria data. Lägg till de 6 raderna från den ursprungliga batchtestindatafilen och lägg sedan till metadata, övre och QnA-set-ID för varje rad.
+1. Skapa en ny batchtestfil för `batch-test-data-2.tsv`att inkludera valfria data. Lägg till de 6 raderna från den ursprungliga batchtestinmatningsfilen och lägg sedan till metadata, övre och QnA-par-ID för varje rad.
 
     Om du vill simulera den automatiska processen att kontrollera ny text från chattloggar mot `topic:power`kunskapsbasen anger du metadata för varje kolumn till samma värde: .
 

@@ -3,12 +3,12 @@ title: Lär dig mer om programsäkerhet i Azure Service Fabric
 description: En översikt över hur du korrekt kör mikrotjänstprogram på Service Fabric. Lär dig hur du kör tjänster och startskript under olika säkerhetskonton, autentiserar och auktoriserar användare, hanterar programhemligheter, säker tjänstkommunikation, använder en API-gateway och skyddar programdata i vila.
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: 6c40bf66d1068310790d1440174eeb5b2a571154
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e9b4a1209838bdd5eee401b0defb01839b5cf684
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75452260"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756233"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric-program- och tjänstsäkerhet
 En arkitektur för mikrotjänster kan ge [många fördelar.](service-fabric-overview-microservices.md) Att hantera säkerheten för mikrotjänster är dock en utmaning och annorlunda än att hantera traditionella monolitiska programsäkerhet. 
@@ -33,7 +33,7 @@ Efter autentisering måste tjänster auktorisera användaråtkomst eller avgöra
 [ASP.NET Core-auktorisering](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications) kan göras baserat på användarnas roller eller baserat på anpassad princip, vilket kan innefatta att inspektera anspråk eller andra heuristik.
 
 ## <a name="restrict-and-secure-access-using-an-api-gateway"></a>Begränsa och skydda åtkomst med hjälp av en API-gateway
-Molnprogram behöver ofta en klientdelsgateway som enda åtkomstpunkt för ingång för användare, enheter och andra program. En [API-gateway](/azure/architecture/microservices/gateway) sitter mellan klienter och tjänster och är startpunkten för alla tjänster som ditt program tillhandahåller. Den fungerar som en omvänd proxy, routning begäranden från klienter till tjänster. Den kan också utföra olika övergripande uppgifter som autentisering och auktorisering, SSL-avslutning och hastighetsbegränsning. Om du inte distribuerar en gateway måste klienter skicka begäranden direkt till frontend-tjänster.
+Molnprogram behöver ofta en klientdelsgateway som enda åtkomstpunkt för ingång för användare, enheter och andra program. En [API-gateway](/azure/architecture/microservices/gateway) sitter mellan klienter och tjänster och är startpunkten för alla tjänster som ditt program tillhandahåller. Den fungerar som en omvänd proxy, routning begäranden från klienter till tjänster. Det kan också utföra olika övergripande uppgifter som autentisering och auktorisering, TLS-avslutning och hastighetsbegränsning. Om du inte distribuerar en gateway måste klienter skicka begäranden direkt till frontend-tjänster.
 
 I Service Fabric kan en gateway vara vilken tillståndslös tjänst som helst, till exempel ett [ASP.NET Core-program](service-fabric-reliable-services-communication-aspnetcore.md)eller en annan tjänst som är avsedd för trafikinträngning, till exempel [Traefik](https://docs.traefik.io/), [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/)eller Azure API [Management](https://docs.microsoft.com/azure/api-management).
 

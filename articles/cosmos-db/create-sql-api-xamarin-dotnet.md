@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 74d34705a6541b396fa2c2bf5028254f5f2e8d21
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 125cc2516fbd694bbe62545e85d4e14225fb2a6a
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77586775"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756428"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Snabbstart: Skapa en todo-app med Xamarin med Azure Cosmos DB SQL API-konto
 
@@ -30,7 +30,7 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 > [!NOTE]
 > Exempelkod för ett helt kanonisk Xamarin-exempelapp som visar flera Azure-erbjudanden, däribland CosmosDB, finns på GitHub [här](https://github.com/xamarinhq/app-geocontacts). Den här appen demonstrerar visning av geografiskt spridda kontakter, och gör att dessa kontakter kan uppdatera sin plats.
 
-Den här snabbstarten visar hur du skapar ett SQL API-konto i Azure Cosmos DB, en dokumentdatabas och en container med Azure-portalen. Du kan sedan skapa och distribuera en att göra-lista i webbappen som bygger på [SQL .NET API](sql-api-sdk-dotnet.md) och [Xamarin](https://docs.microsoft.com/xamarin/) med hjälp av [Xamarin.Forms](https://docs.microsoft.com/xamarin/) och [MVVM-arkitekturmönster](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
+Den här snabbstarten visar hur du skapar ett SQL API-konto i Azure Cosmos DB, en dokumentdatabas och en container med Azure-portalen. Du ska sedan skapa och distribuera en todo-lista mobilapp byggd på [SQL .NET API](sql-api-sdk-dotnet.md) och [Xamarin](https://docs.microsoft.com/xamarin/) med [Xamarin.Forms](https://docs.microsoft.com/xamarin/) och [MVVM arkitektoniska mönster](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
 
 ![Att göra-app i Xamarin som körs på iOS](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
 
@@ -91,15 +91,15 @@ Gå tillbaka till Azure Portal för att hämta API-nyckelinformationen och kopie
 
     ![Visa och kopiera en åtkomstnyckel i Azure Portal, bladet Nycklar](./media/create-sql-api-xamarin-dotnet/keys.png)
 
-2. Öppna filen APIKeys.cs i mappen azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Helpers i Visual Studio 2019 eller Visual Studio för Mac.
+2. Öppna filen APIKeys.cs i mappen azure-cosmos-db-sql-xamarin-getting-started/src/ToDoItems.Core/Helpers i Visual Studio 2019 eller Visual Studio för Mac.
 
 3. Kopiera ditt URI-värde från portalen (med kopieringsknappen) och ange det som värde för variabeln `CosmosEndpointUrl` i APIKeys.cs.
 
-    `public static readonly string CosmosEndpointUrl = "{Azure Cosmos DB account URL}";`
+    `public static readonly string CosmosEndpointUrl = "";`
 
 4. Kopiera sedan värdet för PRIMÄRNYCKEL från portalen och gör det till värdet för `Cosmos Auth Key` i APIKeys.cs.
 
-    `public static readonly string CosmosAuthKey = "{Azure Cosmos DB secret}";`
+    `public static readonly string CosmosAuthKey = "";`
 
 [!INCLUDE [cosmos-db-auth-key-info](../../includes/cosmos-db-auth-key-info.md)]
 

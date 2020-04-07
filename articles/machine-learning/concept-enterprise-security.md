@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 359fd7fc787db5710deca75dd562215d25ed9148
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 4fbb3e83692ec058c03b22654e82d4093fe3541d
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437495"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756568"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företagssäkerhet för Azure Machine Learning
 
@@ -134,7 +134,15 @@ Du kan också aktivera Azure Private Link för din arbetsyta. Med Private Link k
 ### <a name="encryption-at-rest"></a>Vilande kryptering
 
 > [!IMPORTANT]
-> Om arbetsytan innehåller känsliga data rekommenderar vi att du ställer in [flaggan hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) när arbetsytan skapas. Detta styr mängden data som Microsoft samlar in för diagnostiska ändamål och möjliggör ytterligare kryptering i Microsofts hanterade miljöer.
+> Om arbetsytan innehåller känsliga data rekommenderar vi att du ställer in [flaggan hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) när arbetsytan skapas. 
+
+Flaggan `hbi_workspace` styr mängden data som Microsoft samlar in för diagnostiska ändamål och möjliggör ytterligare kryptering i Microsofts hanterade miljöer. Dessutom möjliggör följande:
+
+* Börjar kryptera den lokala scratch-disken i Amlcompute-klustret förutsatt att du inte har skapat några tidigare kluster i den prenumerationen. Annars måste du höja en supportbiljett för att aktivera kryptering av skrapdisken i dina beräkningskluster 
+* Rensar din lokala scratch-disk mellan körningar
+* Skickar autentiseringsuppgifter för ditt lagringskonto, behållarregister och SSH-konto från körningslagret till dina beräkningskluster med hjälp av nyckelvalvet
+* Aktiverar IP-filtrering för att säkerställa att de underliggande batchpoolerna inte kan anropas av andra externa tjänster än AzureMachineLearningService
+
 
 Mer information om hur kryptering i vila fungerar i Azure finns i [Azure-datakryptering](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)i vila .
 

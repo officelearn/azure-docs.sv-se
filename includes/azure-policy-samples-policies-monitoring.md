@@ -2,14 +2,14 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/02/2020
+ms.date: 04/03/2020
 ms.author: dacoulte
-ms.openlocfilehash: d5bade2f75ecdb8e1fbf2f9eb06a73d69cf27dc9
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 014ad120a12b836ae05f96b42a96ee7ae5e3d2f9
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80624446"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80758670"
 ---
 |Namn |Beskrivning |Effekt(er) |Version |GitHub |
 |---|---|---|---|---|
@@ -56,6 +56,6 @@ ms.locfileid: "80624446"
 |[Distribuera Log Analytics-agent för virtuella Windows-datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0868462e-646c-4fe3-9ced-a733534b6a2c) |Distribuera Log Analytics-agent för virtuella Windows-datorer om VM-avbildningen (OS) finns i listan definierad och agenten inte är installerad. Listan över OS-avbildningar kommer att uppdateras med tiden när supporten uppdateras. |deployIfNotExists |1.0.1 |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/LogAnalyticsExtension_Windows_VM_Deploy.json)
 |[Datainsamlingsagent för nätverkstrafik bör installeras på virtuella Linux-datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F04c4380f-3fae-46e8-96c9-30193528f602) |Security Center använder Microsoft Monitoring Dependency Agent för att samla in nätverkstrafikdata från dina virtuella Azure-datorer för att aktivera avancerade nätverksskyddsfunktioner som trafikvisualisering på nätverkskartan, nätverkshärdningsrekommendationer och specifika nätverkshot. |AuditIfNotExists, Inaktiverad |1.0.0-förhandsvisning |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ASC_Dependency_Agent_Audit_Linux.json)
 |[Nätverkstrafik datainsamling agent bör installeras på Windows virtuella datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2f2ee1de-44aa-4762-b6bd-0893fc3f306d) |Security Center använder Microsoft Monitoring Dependency Agent för att samla in nätverkstrafikdata från dina virtuella Azure-datorer för att aktivera avancerade nätverksskyddsfunktioner som trafikvisualisering på nätverkskartan, nätverkshärdningsrekommendationer och specifika nätverkshot. |AuditIfNotExists, Inaktiverad |1.0.0-förhandsvisning |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ASC_Dependency_Agent_Audit_Windows.json)
-|[Lagringskonto som innehåller behållaren med aktivitetsloggar måste krypteras med BYOK](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffbb99e8e-e444-4da0-9ff1-75c92f5a85b2) |Den här principen granskar om lagringskontot som innehåller behållaren med aktivitetsloggar krypteras med BYOK. Principen fungerar bara om lagringskontot ligger på samma prenumeration som aktivitetsloggar efter design. Mer information om Azure Storage-kryptering https://aka.ms/azurestoragebyoki vila finns här .  |AuditIfNotExists, Inaktiverad |1.0.0 |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_StorageAccountBYOK_Audit.json)
+|[Lagringskonto som innehåller behållaren med aktivitetsloggar måste krypteras med BYOK](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffbb99e8e-e444-4da0-9ff1-75c92f5a85b2) |Den här principen granskar om lagringskontot som innehåller behållaren med aktivitetsloggar krypteras med BYOK. Principen fungerar bara om lagringskontot ligger på samma prenumeration som aktivitetsloggar efter design. Mer information om Azure Storage-kryptering [https://aka.ms/azurestoragebyok](https://aka.ms/azurestoragebyok)i vila finns här .  |AuditIfNotExists, Inaktiverad |1.0.0 |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_StorageAccountBYOK_Audit.json)
 |[Log Analytics-agenten ska installeras på skalningsuppsättningar för virtuella datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fefbde977-ba53-4479-b8e9-10b957924fbf) |Den här principen granskar alla Windows/Linux-skalningsuppsättningar för virtuella datorer om Log Analytics-agenten inte är installerad. |AuditIfNotExists, Inaktiverad |1.0.0 |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/VMSS_LogAnalyticsAgent_AuditIfNotExists.json)
 |[Log Analytics-agenten ska installeras på virtuella datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa70ca396-0a34-413a-88e1-b956c1e683be) |Den här principen granskar alla virtuella Windows/Linux-datorer om Log Analytics-agenten inte är installerad. |AuditIfNotExists, Inaktiverad |1.0.0 |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/VirtualMachines_LogAnalyticsAgent_AuditIfNotExists.json)

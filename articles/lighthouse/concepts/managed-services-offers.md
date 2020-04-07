@@ -1,28 +1,28 @@
 ---
-title: Erbjudanden om hanterade tjänster på Azure Marketplace
-description: Med hanterade tjänster kan tjänsteleverantörer sälja resurshanteringserbjudanden till kunder på Azure Marketplace.
-ms.date: 03/17/2020
+title: Hanterade tjänsterbjudanden på Azure Marketplace
+description: Med erbjudanden om hanterade tjänster kan tjänsteleverantörer sälja resurshanteringserbjudanden till kunder på Azure Marketplace.
+ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2d6e39f753736c0582e9d91870a99b66ae41255b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a0670bd74971132dcf243736bdf882a00154a942
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500781"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80672428"
 ---
-# <a name="managed-services-offers-in-azure-marketplace"></a>Erbjudanden om hanterade tjänster på Azure Marketplace
+# <a name="managed-service-offers-in-azure-marketplace"></a>Hanterade tjänsterbjudanden på Azure Marketplace
 
-I den här artikeln beskrivs den nya erbjudandetypen **För hanterade tjänster** i Azure [Marketplace](https://azuremarketplace.microsoft.com). Med erbjudanden om hanterade tjänster kan du erbjuda resurshanteringstjänster till kunder med Azure-delegerad resurshantering. Du kan göra dessa erbjudanden tillgängliga för alla potentiella kunder eller endast för en eller flera specifika kunder. Eftersom du fakturerar kunder direkt för kostnader relaterade till dessa hanterade tjänster finns det inga avgifter som tas ut av Microsoft.
+I den här artikeln beskrivs erbjudandetypen **Managed Service** i [Azure Marketplace](https://azuremarketplace.microsoft.com). Med erbjudanden om hanterade tjänster kan du erbjuda resurshanteringstjänster till kunder med hjälp av [Azure-delegerad resurshantering](azure-delegated-resource-management.md). Du kan göra dessa erbjudanden tillgängliga för alla potentiella kunder, eller bara för en eller flera specifika kunder. Eftersom du fakturerar kunder direkt för kostnader relaterade till dessa hanterade tjänster finns det inga avgifter som tas ut av Microsoft.
 
-## <a name="understand-managed-services-offers"></a>Förstå erbjudanden om hanterade tjänster
+## <a name="understand-managed-service-offers"></a>Förstå erbjudanden om hanterade tjänster
 
-Hanterade tjänster erbjuder effektivisera processen för introduktion av kunder för Azure-delegerad resurshantering. När en kund köper ett erbjudande på Azure Marketplace kan de ange vilka prenumerationer och/eller resursgrupper som ska finnas ombord. Observera att prenumerationen först måste godkännas för introduktion genom att manuellt registrera **microsoft.ManagedServices** resursprovider.
+Hanterade tjänsterbjudanden effektiviserar processen för introduktion av kunder för Azure-delegerad resurshantering. När en kund köper ett erbjudande på Azure Marketplace kan de ange vilka prenumerationer och/eller resursgrupper som ska finnas ombord.
 
-Därefter kan användare i organisationen utföra administrativa uppgifter för dessa resurser från organisationens klientorganisation, beroende på vilken åtkomst du definierade när du skapade erbjudandet i [Cloud Partner Portal](https://cloudpartner.azure.com/). Detta görs genom ett manifest som anger Azure AD-användare, grupper och tjänsthuvudnamn som kommer att ha åtkomst till kundresurser med Azure-delegerad resurshantering, tillsammans med roller som definierar deras åtkomstnivå. Genom att tilldela behörigheter till en Azure AD-grupp i stället för en serie enskilda användarkonton eller programkonton kan du lägga till eller ta bort enskilda användare när åtkomstkraven ändras.
+Därefter kan användare i organisationen arbeta med dessa resurser från organisationens klientorganisation, beroende på vilken åtkomst du definierade när du skapade erbjudandet i [Cloud Partner Portal](https://cloudpartner.azure.com/). Detta görs genom ett manifest som anger Azure AD-användare, grupper och tjänsthuvudnamn som kommer att ha åtkomst till kundresurser med Azure-delegerad resurshantering, tillsammans med roller som definierar deras åtkomstnivå. Genom att tilldela behörigheter till en Azure AD-grupp i stället för en serie enskilda användarkonton eller programkonton kan du lägga till eller ta bort enskilda användare när åtkomstkraven ändras.
 
 ## <a name="public-and-private-offers"></a>Offentliga och privata erbjudanden
 
-Varje erbjudande om hanterade tjänster innehåller en eller flera planer. Planer kan vara antingen privata eller offentliga. 
+Varje erbjudande om hanterade tjänster innehåller en eller flera planer. Planer kan vara antingen privata eller offentliga.
 
 Om du vill begränsa erbjudandet till specifika kunder kan du publicera en privat plan. När du gör det kan planen bara köpas för de specifika prenumerations-ID:n som du anger. Mer information finns i [Privata erbjudanden](../../marketplace/private-offers.md).
 
@@ -35,7 +35,7 @@ Om det är lämpligt kan du inkludera både offentliga och privata planer i samm
 
 ## <a name="publish-managed-service-offers"></a>Publicera erbjudanden om hanterade tjänster
 
-Mer information om hur du publicerar ett erbjudande om hanterade tjänster finns i [Publicera ett erbjudande om hanterade tjänster till Azure Marketplace](../how-to/publish-managed-services-offers.md). Allmän information om publicering till Azure Marketplace med Cloud Partner Portal finns i [Azure Marketplace och AppSource Publishing Guide](../../marketplace/marketplace-publishers-guide.md) och Hantera [Azure- och AppSource Marketplace-erbjudanden](../../marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers.md).
+Mer information om hur du publicerar ett erbjudande om hanterade tjänster finns i [Publicera ett erbjudande om hanterade tjänster till Azure Marketplace](../how-to/publish-managed-services-offers.md). Allmän information om publicering till Azure Marketplace med Cloud Partner Portal finns i [Azure Marketplace och AppSource Publishing Guide](../../marketplace/marketplace-publishers-guide.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

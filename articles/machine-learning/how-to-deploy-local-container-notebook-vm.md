@@ -10,12 +10,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: afbd9950c31bc1c40b01ec0aaf3d2bfffb8a6b94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 09164580b8bdb249fc12d14e827ad799d51cab34
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78398252"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756593"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Distribuera en modell till Azure Machine Learning-beräkningsinstanser
 
@@ -96,7 +96,7 @@ print("prediction:", resp.text)
 
 * [Distribuera en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
 * [Felsökning av distribution](how-to-troubleshoot-deployment.md)
-* [Säkra Azure Machine Learning-webbtjänster med SSL](how-to-secure-web-service.md)
+* [Använda TLS för att skydda en webbtjänst via Azure Machine Learning](how-to-secure-web-service.md)
 * [Använda en ML-modell som distribueras som en webbtjänst](how-to-consume-web-service.md)
 * [Övervaka dina Azure Machine Learning-modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)

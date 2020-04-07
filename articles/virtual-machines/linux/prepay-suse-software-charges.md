@@ -7,14 +7,14 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 04/06/2020
 ms.author: banders
-ms.openlocfilehash: 3bb7a62433993f1af26b1ce8bcb4ed258c34623c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e05920e495dd4aa14be6c849590a37a2bafa33f
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75973138"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757225"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Förskottsbetala för programvaruplaner för Azure
 
@@ -38,6 +38,7 @@ Prenumerationsbetalningsmetoden debiteras de initiala kostnaderna för bokningen
 4. Välj ett omfång. Omfattningen kan omfatta en prenumeration eller flera prenumerationer (delat scope).
     - Enskild prenumeration - Planrabatten tillämpas på matchande användning i prenumerationen.
     - Delad - Planrabatten tillämpas på matchande instanser i en prenumeration i din faktureringskontext. För företagskunder är faktureringskontexten registreringen och inkluderar alla prenumerationer i registreringen. För enskilda abonnemang med priskunder för användningsbaserad betalning är faktureringskontexten alla enskilda planer med prisprenumerationer för användningsbaserad betalning som skapats av kontoadministratören.
+    - Enskild resursgrupp - Tillämpar reservationsrabatten endast på matchande resurser i den valda resursgruppen.
 5. Välj en produkt för att välja storleken på den virtuella datorn och bildtypen. Rabatten gäller endast för den valda vm-storleken.
 6. Välj en ett- eller treårsperiod.
 7. Välj en kvantitet, vilket är antalet förbetalda VM-instanser som kan få faktureringsrabatten.

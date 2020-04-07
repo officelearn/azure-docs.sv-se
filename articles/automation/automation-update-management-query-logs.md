@@ -3,14 +3,14 @@ title: Frågeloggar för Azure Update Management
 description: I den här artikeln beskrivs hur du frågar efter loggarna för uppdateringshantering på logganalysarbetsytan.
 services: automation
 ms.subservice: update-management
-ms.date: 03/31/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 863016bbeda9b4aec3bf2b4e12830bd30098150f
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 81e12e775306cc8637dedd534f50e8a14bc09a26
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437849"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743864"
 ---
 # <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Frågeuppdateringsposter för uppdateringshantering i Azure Monitor-loggar
 
@@ -112,7 +112,7 @@ En post med `UpdateRunProgress` en typ av skapas som ger uppdateringsdistributio
 | CorrelationId | Unik identifierare för runbook-jobbet körs för uppdateringen. |
 | EndTime | Den tidpunkt då synkroniseringsprocessen avslutades. | 
 | FelResultat | Felkod för Windows Update som genereras om en uppdatering inte kan installeras. | 
-| InstallationStatus | Det möjliga installationstillståndet för en uppdatering på klientdatorn, *Pågår*, *Lyckades* *delvis.* |
+| InstallationStatus | Möjliga installationstillstånd för en uppdatering på klientdatorn,<br> *NotStarted* - jobbet har inte utlösts ännu.<br> *FailedToStart* - det gick inte att starta jobbet på datorn.<br> *Misslyckades* - jobbet startade men misslyckades med ett undantag.<br> *InProgress* - pågående jobb.<br> *UnderhållFönsterFörd* - om körningen kvar men underhållsfönstrets intervall uppnåddes.<br> *Lyckades* - jobbet lyckades.<br> *InstallFailed* - uppdateringen kunde inte installeras.<br> *Inte ingår*<br> *Uteslutna* |
 | KBID | Artikel-ID för Kunskapsbasen för Windows-uppdateringen. | 
 | ManagementGroupName | Namn på hanteringsgruppen för Operations Manager eller Log Analytics-arbetsytan. |
 | OSType | Anger typ av operativsystem, *Windows* eller *Linux*. | 

@@ -5,16 +5,16 @@ services: azure-portal
 keywords: ''
 author: mgblythe
 ms.author: mblythe
-ms.date: 12/20/2019
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 93c9ce45fd660f444146827e2f5bafaeb12fc471
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5aa1a677836be3f05269539d52abf7bd8704833d
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76310537"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757068"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Instruktionsvideoserie om Azure-portalen
 
@@ -22,18 +22,18 @@ Azure portal how-to video-serien visar hur du arbetar med Azure-tjänster i Azur
 
 ## <a name="featured-video"></a>Utvald video
 
-I den här videon undersöker vi hur du felsöker vanliga problem med virtuella datorer.
+I den här videon visar vi hur du sparar pengar i Azure med hjälp av Azure Advisor kostnadsrekommendationer.
 
-> [!VIDEO https://www.youtube.com/embed/MAJrN-2IPY8]
+> [!VIDEO https://www.youtube.com/embed/ky2WS3KWuYs]
 
-[Felsöka vanliga problem med virtuella datorer](https://www.youtube.com/watch?v=MAJrN-2IPY8)
+[Så här använder du kostnadsrekommendationer på Azure Advisor](https://www.youtube.com/watch?v=ky2WS3KWuYs)
 
 Fånga upp dessa senaste videor du kan ha missat:
 
 |   |   |   |
 | ------| ------ | ------ |
-| [![Bild på YouTube-video om hur du skapar en funktionsapp](https://i.ytimg.com/vi/BEIZKCDElMs/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=BEIZKCDElMs) | [![Bild på YouTube-video om hur du använder den nya Startskärmen i Azure](https://i.ytimg.com/vi/Ddo__jkzgVo/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=Ddo__jkzgVo) | [![Bild på YouTube-video om att få ut det mesta av Azure Advisor](https://i.ytimg.com/vi/ANz3cCiFsJw/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=ANz3cCiFsJw) |
-| [Så här skapar du en funktionsapp](https://www.youtube.com/watch?v=BEIZKCDElMs) | [Så här använder du det nya Azure-hemmet](https://www.youtube.com/watch?v=Ddo__jkzgVo) | [Så här får du ut det mesta av Azure Advisor](https://www.youtube.com/watch?v=ANz3cCiFsJw) |
+| [![Bild av YouTube-video om hur du använder Azure Monitor-arbetsböcker](https://i.ytimg.com/vi/Z5xRyy3HB8U/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=Z5xRyy3HB8U) | [![Bild av YouTube-video om filtrering av resurslistvyn i Azure-portalen](https://i.ytimg.com/vi/L3I-xOZKWcg/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=L3I-xOZKWcg) | [![Bild av YouTube-video om hur du använder automatisk uppdatering för instrumentpaneler](https://i.ytimg.com/vi/tVoDXygZzWM/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=tVoDXygZzWM) |
+| [Använda Azure Monitor-arbetsböcker](https://www.youtube.com/watch?v=Z5xRyy3HB8U) | [Filtrera resurslistevyn i Azure-portalen](https://www.youtube.com/watch?v=L3I-xOZKWcg) | [Använda automatisk uppdatering för instrumentpaneler](https://www.youtube.com/watch?v=tVoDXygZzWM) |
 
 ## <a name="video-playlist"></a>Spellista för video
 

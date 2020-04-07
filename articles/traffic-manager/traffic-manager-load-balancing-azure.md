@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: rohink
-ms.openlocfilehash: b77248813463f51d4bd2c5186e421aec43ffaf52
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cccd4a6b0b52608a6a17b73688e18f27088df5b0
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76939211"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757201"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Använda belastningsutjämningstjänster i Azure
 
@@ -38,7 +38,7 @@ På konceptnivå spelar var och en av dessa tjänster en särskild roll i belast
   * Routning med flera värden som gör att du kan skicka IP-adresser för mer än en programslutpunkter i ett enda DNS-svar.
 
   Klienten ansluter direkt till slutpunkten som returneras av Traffic Manager. Azure Traffic Manager identifierar när en slutpunkt är felaktig och omdirigerar sedan klienterna till en annan felfri instans. Läs [Dokumentationen](traffic-manager-overview.md) till Azure Traffic Manager om du vill veta mer om tjänsten.
-* **Application Gateway** tillhandahåller ADC (Application Delivery Controller) som en tjänst som erbjuder olika load-balancing-funktioner för Layer 7 för ditt program. Det gör det möjligt för kunder att optimera webbgruppens produktivitet genom att avlasta CPU-intensiv SSL-avslutning till programgatewayen. Andra routningsfunktioner för Layer 7 inkluderar distribution av round-robin av inkommande trafik, cookie-baserad sessionstillhörighet, URL-sökvägsbaserad routning och möjligheten att vara värd för flera webbplatser bakom en enda programgateway. Application Gateway kan konfigureras som en Internet-vänd gateway, en intern-bara gateway, eller en kombination av båda. Application Gateway är helt Azure-hanterad, skalbar och högtillgänglig. För att få en bättre hantering ingår en omfattande uppsättning diagnostik- och loggningsfunktioner.
+* **Application Gateway** tillhandahåller ADC (Application Delivery Controller) som en tjänst som erbjuder olika load-balancing-funktioner för Layer 7 för ditt program. Det gör det möjligt för kunder att optimera webbgruppens produktivitet genom att avlasta CPU-intensiva TLS-avslutning till programgatewayen. Andra routningsfunktioner för Layer 7 inkluderar distribution av round-robin av inkommande trafik, cookie-baserad sessionstillhörighet, URL-sökvägsbaserad routning och möjligheten att vara värd för flera webbplatser bakom en enda programgateway. Application Gateway kan konfigureras som en Internet-vänd gateway, en intern-bara gateway, eller en kombination av båda. Application Gateway är helt Azure-hanterad, skalbar och högtillgänglig. För att få en bättre hantering ingår en omfattande uppsättning diagnostik- och loggningsfunktioner.
 * **Belastningsutjämnare** är en integrerad del av Azure SDN-stacken, vilket ger högpresterande layer 4-belastningsutjämningstjänster med låg latens för alla UDP- och TCP-protokoll. Den hanterar inkommande och utgående anslutningar. Du kan konfigurera offentliga och interna belastningsutjämnade slutpunkter och definiera regler för att mappa inkommande anslutningar till serverdelspooldestinationer med TCP- och HTTP-avsökningsalternativ för att hantera tjänstens tillgänglighet.
 
 ## <a name="scenario"></a>Scenario
@@ -59,7 +59,7 @@ Följande diagram visar arkitekturen i det här scenariot:
 ![Diagram över bärande arkitektur](./media/traffic-manager-load-balancing-azure/scenario-diagram.png)
 
 > [!NOTE]
-> Det här exemplet är bara en av många möjliga konfigurationer av belastningsutjämningstjänster som Azure erbjuder. Traffic Manager, Application Gateway och Load Balancer kan blandas och matchas för att bäst passa dina belastningsutjämningsbehov. Om SSL-avlastning eller layer 7-bearbetning till exempel inte är nödvändig kan belastningsutjämning användas i stället för Application Gateway.
+> Det här exemplet är bara en av många möjliga konfigurationer av belastningsutjämningstjänster som Azure erbjuder. Traffic Manager, Application Gateway och Load Balancer kan blandas och matchas för att bäst passa dina belastningsutjämningsbehov. Om TLS-avlastning eller layer 7-bearbetning till exempel inte är nödvändig kan belastningsutjämning användas i stället för Application Gateway.
 
 ## <a name="setting-up-the-load-balancing-stack"></a>Ställa in lastbalanseringsstacken
 

@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/02/2020
+ms.date: 04/03/2020
 ms.author: dacoulte
-ms.openlocfilehash: 0fb6bd68026684599d94270906f1792e084ec5f6
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: e65d24b30cecdbabefabc652c7c864205414d5a6
+ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80623962"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80758652"
 ---
 |Namn |Beskrivning |Effekt(er) |Version |GitHub |
 |---|---|---|---|---|
 |[Tillåtna SKU:er för virtuella datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcccc23c7-8427-4f53-ad12-b6a63eb452b3) |Med den här principen kan du ange en uppsättning-SKU:er för virtuella datorer som din organisation kan distribuera. |Neka |1.0.0 |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMSkusAllowed_Deny.json)
-|[Granska virtuella datorer utan haveriberedskap konfigurerad](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0015ea4d-51ff-4ce3-8d8c-f3f8f0179a56) |Granska virtuella datorer som inte har aktiverat haveriberedskap. Mer information om katastrofåterställning finns i https://aka.ms/asr-doc. |auditIfNotExists |1.0.0 |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/RecoveryServices_DisasterRecovery_Audit.json)
+|[Granska virtuella datorer utan haveriberedskap konfigurerad](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0015ea4d-51ff-4ce3-8d8c-f3f8f0179a56) |Granska virtuella datorer som inte har aktiverat haveriberedskap. Mer information om katastrofåterställning finns i [https://aka.ms/asr-doc](https://aka.ms/asr-doc). |auditIfNotExists |1.0.0 |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/RecoveryServices_DisasterRecovery_Audit.json)
 |[Granska virtuella datorer som inte använder hanterade diskar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F06a78e20-9358-41c9-923c-fb736d382a4d) |Den här principen granskar virtuella datorer som inte använder hanterade diskar |Revision |1.0.0 |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMRequireManagedDisk_Audit.json)
 |[Distribuera standardtillägget Microsoft IaaSAntimalware för Windows Server](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2835b622-407b-4114-9198-6f7064cbe0dc) |Den här principen distribuerar ett Microsoft IaaSAntimalware-tillägg med en standardkonfiguration när en virtuell dator inte är konfigurerad med tillägget mot skadlig kod. |deployIfNotExists |1.0.0 |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMAntimalwareExtension_Deploy.json)
 |[Diagnostikloggar i skalningsuppsättningar för virtuella datorer bör aktiveras](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7c1b1214-f927-48bf-8882-84f0af6588b1) |Vi rekommenderar att du aktiverar loggar så att aktivitetsspåret kan återskapas när undersökningar krävs i händelse av en incident eller en kompromiss. |AuditIfNotExists, Inaktiverad |1.0.0 |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/ServiceFabric_and_VMSS_AuditVMSSDiagnostics.json)

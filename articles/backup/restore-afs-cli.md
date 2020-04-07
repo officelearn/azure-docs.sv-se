@@ -3,12 +3,12 @@ title: Återställa Azure-filresurser med Azure CLI
 description: Lär dig hur du använder Azure CLI för att återställa säkerhetskopierade Azure-filresurser i Recovery Services-valvet
 ms.topic: conceptual
 ms.date: 01/16/2020
-ms.openlocfilehash: 63b2be2fe24c1274ed1581b7b849de578c978842
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 980044011e3417a2aff8447a939e02299923da38
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76931036"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757090"
 ---
 # <a name="restore-azure-file-shares-with-the-azure-cli"></a>Återställa Azure-filresurser med Azure CLI
 
@@ -19,6 +19,9 @@ I slutet av den här artikeln får du lära dig hur du utför följande åtgärd
 * Visa återställningspunkter för en säkerhetskopierad Azure-filresurs.
 * Återställ en fullständig Azure-filresurs.
 * Återställ enskilda filer eller mappar.
+
+>[!NOTE]
+> Azure Backup stöder nu återställning av flera filer eller mappar till originalet eller en alternativ plats med Azure CLI. Läs avsnittet [Återställ flera filer eller mappar till det här dokumentets ursprungliga eller alternativa platsavsnitt](#restore-multiple-files-or-folders-to-original-or-alternate-location) om du vill veta mer.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -42,7 +45,7 @@ Använd cmdlet för [återställningspunkt för az säkerhetskopiering](https://
 I följande exempel hämtas listan över återställningspunkter för filresursresursen för *azurefiles* i *lagringskontot för afsaccount.*
 
 ```azurecli-interactive
-az backup recoverypoint list --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --backup-management-type azurestorage --item-name “AzureFileShare;azurefiles” --workload-type azurefileshare --out table
+az backup recoverypoint list --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --backup-management-type azurestorage --item-name "AzureFileShare;azurefiles" --workload-type azurefileshare --out table
 ```
 
 Du kan också köra föregående cmdlet med hjälp av det egna namnet för behållaren och objektet genom att ange följande två ytterligare parametrar:
@@ -82,7 +85,7 @@ När du återställer till en ursprunglig plats behöver du inte ange målrelate
 I följande exempel används cmdlet för återställning av [az-återställningsåterställning](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefileshare) med återställningsläge inställt på *originallokalisering* för att återställa filresursresursen för *azurefiles* på den ursprungliga platsen. Du använder återställningspunkten 932883129628959823, som du erhöll i [Hämta återställningspunkter för Azure-filresursen:](#fetch-recovery-points-for-the-azure-file-share)
 
 ```azurecli-interactive
-az backup restore restore-azurefileshare --vault-name azurefilesvault --resource-group azurefiles --rp-name 932887541532871865   --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --restore-mode originallocation --resolve-conflict overwrite --out table
+az backup restore restore-azurefileshare --vault-name azurefilesvault --resource-group azurefiles --rp-name 932887541532871865   --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode originallocation --resolve-conflict overwrite --out table
 ```
 
 ```output
@@ -105,7 +108,7 @@ Du kan använda det här alternativet för att återställa en filresurs till en
 I följande exempel används [az backup restore-azurefileshare](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-azurefileshare) med återställningsläge som *alternativplats* för att återställa *azurefiles-filresursen* i kontot för *afsaccount-lagring* till filresursresursen *för azurefiles1* i lagringskontot *afaccount1.*
 
 ```azurecli-interactive
-az backup restore restore-azurefileshare --vault-name azurefilesvault --resource-group azurefiles --rp-name 932883129628959823 --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --restore-mode alternatelocation --target-storage-account afaccount1 --target-file-share azurefiles1 --target-folder restoredata --resolve-conflict overwrite --out table
+az backup restore restore-azurefileshare --vault-name azurefilesvault --resource-group azurefiles --rp-name 932883129628959823 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode alternatelocation --target-storage-account afaccount1 --target-file-share azurefiles1 --target-folder restoredata --resolve-conflict overwrite --out table
 ```
 
 ```output
@@ -138,7 +141,7 @@ Använd cmdlet för återställning av [az-återställningsåterställning](http
 I följande exempel återställs *filen RestoreTest.txt* på den ursprungliga platsen: filresursresursen *azurefiles.*
 
 ```azurecli-interactive
-az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --restore-mode originallocation  --source-file-type file --source-file-path "Restore/RestoreTest.txt" --resolve-conflict overwrite  --out table
+az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode originallocation  --source-file-type file --source-file-path "Restore/RestoreTest.txt" --resolve-conflict overwrite  --out table
 ```
 
 ```output
@@ -160,7 +163,7 @@ Om du vill återställa specifika filer eller mappar till en annan plats använd
 I följande exempel återställs filen *RestoreTest.txt* som ursprungligen fanns i filresursresursen *för azurefiles* till en alternativ plats: mappen *restoredata* i filresursresursen *azurefiles1* som finns i lagringskontot *afaccount1.*
 
 ```azurecli-interactive
-az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --restore-mode alternatelocation --target-storage-account afaccount1 --target-file-share azurefiles1 --target-folder restoredata --resolve-conflict overwrite --source-file-type file --source-file-path "Restore/RestoreTest.txt" --out table
+az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932881556234035474 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode alternatelocation --target-storage-account afaccount1 --target-file-share azurefiles1 --target-folder restoredata --resolve-conflict overwrite --source-file-type file --source-file-path "Restore/RestoreTest.txt" --out table
 ```
 
 ```output
@@ -170,6 +173,28 @@ df4d9024-0dcb-4edc-bf8c-0a3d18a25319  azurefiles
 ```
 
 **Attributet Name** i utdata motsvarar namnet på det jobb som skapas av säkerhetskopieringstjänsten för återställningen. Om du vill spåra jobbets status använder du [jobbet az backup visa](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+
+## <a name="restore-multiple-files-or-folders-to-original-or-alternate-location"></a>Återställa flera filer eller mappar till ursprunglig eller alternativ plats
+
+Om du vill utföra återställning för flera objekt skickar du värdet för parametern **source-file-path** som **utrymmesavgränsade** sökvägar för alla filer eller mappar som du vill återställa.
+
+I följande exempel återställs *Filerna Restore.txt* och *AFS-testning report.docx* på sin ursprungliga plats.
+
+```azurecli-interactive
+az backup restore restore-azurefiles --vault-name azurefilesvault --resource-group azurefiles --rp-name 932889937058317910 --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --restore-mode originallocation  --source-file-type file --source-file-path "Restore Test.txt" "AFS Testing Report.docx" --resolve-conflict overwrite  --out table
+```
+
+Resultatet blir något som liknar:
+
+```output
+Name                                          ResourceGroup
+------------------------------------          ---------------
+649b0c14-4a94-4945-995a-19e2aace0305          azurefiles
+```
+
+**Attributet Name** i utdata motsvarar namnet på det jobb som skapas av säkerhetskopieringstjänsten för återställningen. Om du vill spåra jobbets status använder du [jobbet az backup visa](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) cmdlet.
+
+Om du vill återställa flera objekt till en annan plats använder du kommandot ovan genom att ange målrelaterade parametrar som förklaras i avsnittet [Återställ enskilda filer eller mappar till ett alternativt platsavsnitt.](#restore-individual-files-or-folders-to-an-alternate-location)
 
 ## <a name="next-steps"></a>Nästa steg
 

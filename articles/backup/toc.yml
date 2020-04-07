@@ -32,8 +32,6 @@
       href: tutorial-sql-backup.md
     - name: Säkerhetskopiera SAP HANA-databaser i virtuella Azure-datorer
       href: tutorial-backup-sap-hana-db.md
-    - name: Säkerhetskopiera Azure Files-filresurser
-      href: tutorial-backup-azure-files.md
     - name: Säkerhetskopiera Windows Server
       href: tutorial-backup-windows-server-to-azure.md
     - name: Återställa filer till Windows Server

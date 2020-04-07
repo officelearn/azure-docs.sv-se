@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 7e5f70d0323aa5c502491ab99db303fde31ade83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f0c4da7caf71670746e84d5cfaa457ebae57156
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528633"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755042"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 och 8600 migrering till Azure File Sync
 
@@ -146,7 +146,10 @@ Den totala storleken på data är mindre av en flaskhals - det är antalet objek
 > Kontrollera att den virtuella datorn distribueras i samma Azure-region som den virtuella storsimple 8020-installationen. Om du som en del av den här migreringen också behöver ändra regionen för dina molndata från den region som lagras i dag, kan du göra det i ett senare steg, när du etablerar Azure-filresurser.
 
 > [!IMPORTANT]
-> För att optimera för prestanda, distribuera en **mycket snabb OS-disk** för din moln-VM. Du lagrar synkroniseringsdatabasen på OS-disken för alla dina datavolymer. Se dessutom till att du skapar en **stor OS-disk**. Beroende på antalet objekt (filer och mappar) på Dina StorSimple-volymer kan OS-disken behöva **flera hundra GiB utrymme** för att rymma synkroniseringsdatabasen.
+> Ofta används en lokal Windows Server för att fronta den lokala StorSimple-apparaten. I en sådan konfiguration är det möjligt att aktivera funktionen "[Data deduplication](https://docs.microsoft.com/windows-server/storage/data-deduplication/install-enable)" på den Windows Server. **Om du har använt dataduplicering med dina StorSimple-data, se till att du aktiverar dataduplicering även på den här Azure VM.** Blanda inte ihop den här dedupliceringen på filnivå med StorSimples inbyggd deduplicering på blocknivå, för vilken ingen åtgärd är nödvändig.
+
+> [!IMPORTANT]
+> För att optimera för prestanda, distribuera en **snabb OS-disk** för din moln-VM. Du lagrar synkroniseringsdatabasen på OS-disken för alla dina datavolymer. Se dessutom till att du skapar en **stor OS-disk**. Beroende på antalet objekt (filer och mappar) på Dina StorSimple-volymer kan OS-disken behöva **flera hundra GiB utrymme** för att rymma synkroniseringsdatabasen.
 
 ### <a name="expose-the-storsimple-8020-volumes-to-the-azure-vm"></a>Exponera StorSimple 8020-volymerna för Den virtuella Azure-datorn
 
@@ -424,7 +427,7 @@ Läs robocopy loggfilen (s) för att se om filer har lämnats kvar. Om det skull
 
 Det är troligt att skapa SMB-resurser på Windows Server som du hade på StorSimple data innan. Du kan front-load detta steg och göra det tidigare för att inte förlora tid här, men du måste se till att innan denna punkt, inga ändringar av filer sker på Windows-servern.
 
-Om du har en DFS-N-distribution kan du peka DFN-namnområdena på de nya servermappplatserna. Om du inte har en DFS-N-distribution och du har frontat din 8100 8600-apparat lokalt med en Windows Server, kan du ta bort servern från domänen och domänen ansluta till din nya Windows-server med AFS till domänen, ge den samma servernamn som den gamla servern och samma resursnamn förblir nedskärningen till den nya servern transparent för användare, grupprinciper eller skript.
+Om du har en DFS-N-distribution kan du peka DFN-namnområdena på de nya servermappplatserna. Om du inte har en DFS-N-distribution och du har frontat din 8100 8600-apparat lokalt med en Windows Server, kan du ta bort servern från domänen och domänen ansluta till din nya Windows-server med AFS till domänen, ge den samma servernamn som den gamla servern och samma resursnamn, sedan förblir cut-over till den nya servern transparent för användarna , grupprincip eller skript.
 
 ## <a name="phase-7-deprovision"></a>Fas 7: Avetablera
 

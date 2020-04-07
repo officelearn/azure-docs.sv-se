@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 4a71f50a130bd9b22965d39fa942b47c70857a86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71aa937536f35c9af44adb5822ce7a2bb8f3a9eb
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79265043"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756000"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Azure Event Grid-händelseschema för Blob-lagring
 
@@ -21,7 +21,7 @@ Den här artikeln innehåller egenskaper och schema för blob-lagringshändelser
 En lista över exempelskript och självstudier finns i [Lagringshändelsekälla](event-sources.md#storage).
 
 >[!NOTE]
-> Endast lagringskonton av typen **StorageV2 (general purpose v2)** och **BlobStorage** stöder händelseintegrering. **Lagring (genral syfte v1)** stöder *inte* integrering med Event Grid.
+> Endast lagringskonton av typen **StorageV2 (allmänt ändamål v2),** **BlockBlobStorage**och **BlobStorage** stöder händelseintegrering. **Lagring (genral syfte v1)** stöder *inte* integrering med Event Grid.
 
 ## <a name="list-of-events-for-blob-rest-apis"></a>Lista över händelser för Blob REST API:er
 
@@ -37,7 +37,7 @@ Dessa händelser utlöses när en klient skapar, ersätter eller tar bort en blo
 
 ## <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Lista över händelser för Azure Data Lake Storage Gen 2 REST API:er
 
-Dessa händelser utlöses om du aktiverar ett hierarkiskt namnområde på lagringskontot och klienter anropar Azure Data Lake Storage Gen2 REST API:er.
+Dessa händelser utlöses om du aktiverar ett hierarkiskt namnområde på lagringskontot och klienter anropar Azure Data Lake Storage Gen2 REST API:er. Mer information om Azure Data Lake Storage Gen2 finns i [Introduktion till Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
 |Händelsenamn|Beskrivning|
 |----------|-----------|

@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e5ad5f6f2f5be239af23ee4802cf09c388c93ae9
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: e170a789727fb0de36705895245cc638d30ee3d7
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632910"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745506"
 ---
 # <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Metodtips för inläsning av data med Synapse SQL-pool
 
@@ -104,7 +104,7 @@ Vid brist på minne kanske kolumnlagringsindexet inte kan uppnå den maximala ko
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Öka batchstorleken när du använder SqLBulkCopy API eller bcp
 
-Inläsning med PolyBase ger det högsta dataflödet med SQL-pool. Om du inte kan använda PolyBase för att läsa in och måste använda [SqLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx) eller [bcp](https://docs.microsoft.com/sql/tools/bcp-utility?view=sql-server-ver15)bör du överväga att öka batchstorleken för bättre dataflöde.
+Inläsning med PolyBase ger det högsta dataflödet med SQL-pool. Om du inte kan använda PolyBase för att läsa in och måste använda [SqLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) eller [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)bör du överväga att öka batchstorleken för bättre dataflöde.
 
 > [!TIP]
 > En batchstorlek mellan 100 K till 1 M rader är den rekommenderade baslinjen för att bestämma optimal batchstorlek kapacitet.
@@ -120,7 +120,7 @@ En datapost anses vara smutsig om den uppfyller något av följande villkor:
 
 Du kan åtgärda de ändrade posterna genom att se till att definitionerna för den externa tabellen och det externa filformatet är korrekta och att dina externa data följer dessa definitioner.
 
-Om en delmängd av externa dataposter är smutsiga kan du välja att avvisa dessa poster för dina frågor genom att använda avvisningsalternativen i [SKAPA EXTERN TABELL (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15).
+Om en delmängd av externa dataposter är smutsiga kan du välja att avvisa dessa poster för dina frågor genom att använda avvisningsalternativen i [SKAPA EXTERN TABELL (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="inserting-data-into-a-production-table"></a>Infoga data i en produktionstabell
 

@@ -3,14 +3,14 @@ title: Kompilera konfigurationer i Azure Automation State Configuration
 description: I den här artikeln beskrivs hur du kompilerar DSC-konfigurationer (Desired State Configuration) för Azure Automation.
 services: automation
 ms.subservice: dsc
-ms.date: 09/10/2018
+ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 48593920bdfcf743fceaeaeec891c0d5c4f2e108
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b366777cce4dd4212a2e3ec0cdcd180e0d7164f4
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80057640"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80757185"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Kompilera DSC-konfigurationer i Azure Automation State Configuration
 
@@ -27,7 +27,7 @@ Du kan kompilera DSC-konfigurationer (Desired State Configuration) i Azure Autom
   - Arbeta med nod- och icke-noddata i skala
   - Betydande prestandaförbättringar
 
-Kompileringsinformation finns i [Tillägget Önskat tillståndskonfiguration med Azure Resource Manager-mallar](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template#details).
+Du kan också använda Azure Resource Manager-mallar med DSC-tillägg (Azure Desired State Configuration) för att skicka konfigurationer till dina virtuella Azure-datorer. Azure DSC-tillägget använder Azure VM Agent-ramverket för att leverera, anta och rapportera om DSC-konfigurationer som körs på virtuella Azure-datorer. Information om kompilering med Azure Resource Manager-mallar finns i [Tillägget För önskad tillståndskonfiguration med Azure Resource Manager-mallar](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template#details). 
 
 ## <a name="compiling-a-dsc-configuration-in-azure-state-configuration"></a>Kompilera en DSC-konfiguration i Azure State Configuration
 

@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: ab84cc2f4910d1186e842758df7814ca5dd6464d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92bc172fd9a47d3b140e60a4083d65a2f532769a
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281654"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745574"
 ---
 # <a name="power-bi-apps-technical-info-tab"></a>Fliken Teknisk information för Power BI Apps
+
+>[!Important]
+>Från och med den 30 mars 2020 börjar vi flytta hanteringen av dina Power BI-appar till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [översikten över hur du skapar Power BI-appar](https://aka.ms/AzureCreatePBIServiceApp) för att hantera dina migrerade erbjudanden.
 
 På sidan **Nytt erbjudande** använder du fliken **Teknisk information** för att ange URL:en för Power BI-installationspaketet och annan information som du behöver för att validera det nya erbjudandet.  För den första versionen är alla Power BI-appar kostnadsfria och är tillgängliga för nedladdning från AppSource. På grund av detta kan du inte definiera lagerhållningsenheter (SKU: er) för den här erbjudandetypen.
 

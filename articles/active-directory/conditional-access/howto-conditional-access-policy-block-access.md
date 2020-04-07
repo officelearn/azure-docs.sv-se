@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9ea88da0a575647eecacbfd8a476202f814b821
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 2834fd3d4901b6394eabe000f9efc572c2efd497
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631815"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755076"
 ---
 # <a name="conditional-access-block-access"></a>Villkorlig åtkomst: Blockera åtkomst
 
@@ -33,7 +33,7 @@ Principer för villkorlig åtkomst är kraftfulla verktyg, vi rekommenderar att 
 
 * **Nödåtkomst** eller **break-glass-konton** för att förhindra kontoutelåsning för hela klienten. I det osannolika scenariot är alla administratörer utelåsta från din klientorganisation, ditt administrativa konto för nödåtkomst kan användas för att logga in på klienten vidta åtgärder för att återställa åtkomsten.
    * Mer information finns i [artikeln, Hantera konton för nödåtkomst i Azure AD](../users-groups-roles/directory-emergency-access.md).
-* **Tjänstkonton** och **tjänsthuvudnamn**, till exempel Azure AD Connect Sync-konto. Tjänstkonton är icke-interaktiva konton som inte är kopplade till en viss användare. De används normalt av backend-tjänster som möjliggör programmatisk åtkomst till program, men används också för att logga in på system för administrativa ändamål. Tjänstkonton som dessa bör uteslutas eftersom MFA inte kan slutföras programmässigt.
+* **Tjänstkonton** och **tjänsthuvudnamn**, till exempel Azure AD Connect Sync-konto. Tjänstkonton är icke-interaktiva konton som inte är kopplade till en viss användare. De används normalt av backend-tjänster som möjliggör programmatisk åtkomst till program, men används också för att logga in på system för administrativa ändamål. Tjänstkonton som dessa bör uteslutas eftersom MFA inte kan slutföras programmässigt. Samtal från tjänstens huvudnamn blockeras inte av villkorlig åtkomst.
    * Om din organisation har dessa konton som används i skript eller kod kan du överväga att ersätta dem med [hanterade identiteter](../managed-identities-azure-resources/overview.md). Som en tillfällig lösning kan du utesluta dessa specifika konton från originalprincipen.
 
 ## <a name="create-a-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst

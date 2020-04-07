@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
-ms.openlocfilehash: ee2c917d02a442ebabc0e1b40bc245982af794f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 831baabcc26130d9b2c730afd85f2ed4b3842690
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77588220"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756349"
 ---
 # <a name="connect-alerts-from-microsoft-defender-advanced-threat-protection"></a>Ansluta varningar från Microsoft Defender Advanced Threat Protection 
 
 
 > [!IMPORTANT]
-> Inmatning av Microsoft Defender Advanced Threat Protection loggar är för närvarande i offentlig förhandsversion.
+> Inmatning av Microsoft Defender Advanced Threat Protection-aviseringar är för närvarande i offentlig förhandsversion.
 > Den här funktionen tillhandahålls utan ett servicenivåavtal och rekommenderas inte för produktionsarbetsbelastningar.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 
-Du kan strömma aviseringar från [Microsoft Defender Advanced Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) till Azure Sentinel med ett enda klick. Med den här anslutningen kan du strömma aviseringarna från Microsoft Defender Advanced Threat Protection till Azure Sentinel. 
+[Med Microsoft Defender Advanced Threat Protection-kopplingen](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) kan du strömma aviseringar från Microsoft Defender Advanced Threat Protection till Azure Sentinel. Detta gör att du kan mer omfattande analysera säkerhetshändelser i hela organisationen och skapa spelböcker för effektiv och omedelbar respons.
 
 ## <a name="prerequisites"></a>Krav
 
-- Giltig licens för Microsoft Defender Advanced Threat Protection som är aktiverad enligt beskrivningen i [Validera licensieringsetablering och fullständig uppsättning för Microsoft Defender Advanced Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing). 
+- Du måste ha en giltig licens för Microsoft Defender Advanced Threat Protection, enligt beskrivningen i [Konfigurera Microsoft Defender ATP-distribution](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing). 
 - Du måste vara administratör eller säkerhetsadministratör på Azure Sentinel-klienten.
 
 

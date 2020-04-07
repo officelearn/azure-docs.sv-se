@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a8675756aeef1140dbebd94023d7f7fb4c7af99
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: d4f08161daf1d9c1a4431d9e3fba3ca741d88b16
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652249"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743339"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Så här aktiverar du återställning av lösenord från Inloggningsskärmen i Windows
 
@@ -43,7 +43,7 @@ För maskiner som kör Windows 7, 8, 8.1 och 10 kan du göra det möjligt för a
 - Kombinationen av följande specifika tre inställningar kan leda till att den här funktionen inte fungerar.
     - Interaktiv inloggning: Kräver inte CTRL+ALT+DEL = Inaktiverad
     - InaktiveraLockScreenAppNotifications = 1 eller Aktiverad
-    - IsContentDeliveryPolicyEnforced = 1 eller Sant
+    - Windows SKU är inte Hem eller Professional edition
 
 ## <a name="windows-10-password-reset"></a>Återställning av lösenord i Windows 10
 

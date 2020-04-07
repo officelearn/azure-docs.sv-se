@@ -11,12 +11,12 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 68d53d2a33b7ab705dfa88f03618a5d5a3d1bced
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 7e0980a9142dc966916d5a4df898ea53b0ddeae5
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633030"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745077"
 ---
 # <a name="geo-restore-for-sql-pool"></a>Geoåterställning för SQL-pool
 
@@ -30,13 +30,13 @@ I den här artikeln lär du dig att återställa din SQL-pool från en geo-säke
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Återställa från en geografisk Azure-region via PowerShell
 
-Om du vill återställa från en geo-säkerhetskopiering använder du cmdleten [Get-AzSqlDatabaseGeoBackup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasegeobackup) och [Restore-AzSqlDatabase.](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)
+Om du vill återställa från en geo-säkerhetskopiering använder du cmdleten [Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och [Restore-AzSqlDatabase.](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 > [!NOTE]
 > Du kan utföra en geo-återställning till Gen2! Om du vill göra det anger du ett Gen2 ServiceObjectiveName (t.ex.**c**
 >
 
-1. Innan du börjar, se till att [installera Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+1. Innan du börjar, se till att [installera Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Öppna PowerShell.
 3. Anslut till ditt Azure-konto och lista alla prenumerationer som är kopplade till ditt konto.
 4. Välj den prenumeration som innehåller det informationslager som ska återställas.

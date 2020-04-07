@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bf65f69d9dcaf6de2236c98b56b58ec7e021099
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 54e3821d269d11397ec4f9f5833e33ac6b555abc
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74025400"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80755115"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrera LinkedIn-kontoanslutningar i Azure Active Directory
 
@@ -26,8 +26,9 @@ Du kan tillåta användare i organisationen att komma åt sina LinkedIn-anslutni
 
 > [!IMPORTANT]
 > Inställningen För LinkedIn-kontoanslutningar distribueras för närvarande till Azure AD-organisationer. När den distribueras till din organisation är den aktiverad som standard.
-> 
+>
 > Undantag:
+>
 > * Inställningen är inte tillgänglig för kunder som använder Microsoft Cloud för US Government, Microsoft Cloud Germany eller Azure och Office 365 som drivs av 21Vianet i Kina.
 > * Inställningen är inaktiverad som standard för klienter som etablerats i Tyskland. Observera att inställningen inte är tillgänglig för kunder som använder Microsoft Cloud Germany.
 > * Inställningen är inaktiverad som standard för klienter som etablerats i Frankrike.
@@ -40,7 +41,7 @@ Du kan aktivera LinkedIn-kontoanslutningar för endast de användare som du vill
 
 1. Logga in på [Azure AD-administrationscentret](https://aad.portal.azure.com/) med ett konto som är en global administratör för Azure AD-organisationen.
 1. Välj **Användare**.
-1. På bladet **Användare** väljer du **Användarinställningar**.
+1. Välj **Användarinställningar**på sidan **Användare** .
 1. Under **LinkedIn-kontoanslutningar**kan användare ansluta sina konton för att komma åt sina LinkedIn-anslutningar i vissa Microsoft-appar. Inga data delas förrän användarna samtycker till att ansluta sina konton.
 
     * Välj **Ja** om du vill aktivera tjänsten för alla användare i organisationen
@@ -55,6 +56,7 @@ Du kan aktivera LinkedIn-kontoanslutningar för endast de användare som du vill
 > LinkedIn-integrering är inte fullt aktiverad för användarna förrän de samtycker till att ansluta sina konton. Inga data delas när du aktiverar kontoanslutningar för användarna.
 
 ### <a name="assign-selected-users-with-a-group"></a>Tilldela markerade användare med en grupp
+
 Vi har ersatt alternativet "Selected" som anger en lista över användare med möjlighet att välja en grupp användare så att du kan aktivera möjligheten att ansluta LinkedIn- och Microsoft-konton för en enda grupp i stället för många enskilda användare. Om du inte har Aktiverat LinkedIn-kontoanslutningar för valda enskilda användare behöver du inte göra någonting. Om du tidigare har aktiverat LinkedIn-kontoanslutningar för valda enskilda användare bör du:
 
 1. Hämta den aktuella listan över enskilda användare
@@ -64,16 +66,12 @@ Vi har ersatt alternativet "Selected" som anger en lista över användare med m�
 > [!NOTE]
 > Även om du inte flyttar dina valda enskilda användare till en grupp kan de fortfarande se LinkedIn-information i Microsoft-appar.
 
-### <a name="get-the-current-list-of-selected-users"></a>Hämta den aktuella listan över valda användare
+### <a name="move-currently-selected-users-to-a-group"></a>Flytta markerade användare till en grupp
 
+1. Skapa en CSV-fil för de användare som har valts för LinkedIn-kontoanslutningar.
 1. Logga in på Microsoft 365 med ditt administratörskonto.
-1. Gå till https://linkedinselectedusermigration.azurewebsites.net/. Du kommer att se en lista över användare som har valts för LinkedIn-kontoanslutningar.
-1. Exportera listan till en CSV-fil.
-
-### <a name="move-the-currently-selected-individual-users-to-a-group"></a>Flytta de markerade enskilda användarna till en grupp
-
-1. Starta PowerShell
-1. Installera Azure AD-modul genom att köra`Install-Module AzureAD`
+1. Starta PowerShell.
+1. Installera Azure AD-modulen genom att köra`Install-Module AzureAD`
 1. Kör följande skript:
 
   ``` PowerShell

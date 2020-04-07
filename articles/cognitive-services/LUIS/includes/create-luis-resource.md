@@ -6,30 +6,38 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/23/2019
+ms.date: 04/06/2020
 ms.author: dapine
-ms.openlocfilehash: a765ac27936da9da5a2f41464c17491e3561f44b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 88289686e5b091ef3ec309ee9b54ee0f895c8c22
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73465923"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80754361"
 ---
-## <a name="create-a-luis-resource"></a>Skapa en LUIS-resurs
+<a name="create-luis-resources"></a>
 
-1. Logga in på [Azure-portalen](https://portal.azure.com)
-1. Klicka på [Skapa **språk understanding** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+## <a name="create-luis-resources-in-azure-portal"></a>Skapa LUIS-resurser i Azure-portalen
+
+1. Använd [den här länken](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) för att börja skapa LUIS-resurser i Azure-portalen.
+
 1. Ange alla nödvändiga inställningar:
 
-    |Inställning|Värde|
+    |Namn|Syfte|
     |--|--|
-    |Namn|Önskat namn (2-64 tecken)|
-    |Prenumeration|Välj lämplig prenumeration|
-    |Location|Välj en plats i närheten och tillgänglig|
-    |Prisnivå|`F0`- den minimala prisnivån|
-    |Resursgrupp|Välj en tillgänglig resursgrupp|
+    |Prenumerationens namn| prenumerationen som faktureras för resursen.|
+    |Resursgrupp| Ett anpassat resursgruppsnamn som du väljer eller skapar. Med resursgrupper kan du gruppera Azure-resurser för åtkomst och hantering.|
+    |Namn| Ett eget namn som du väljer, som används som din anpassade underdomän för dina redigerings- och förutsägelseslutpunktsfrågor.|
+    |Skapa plats|Den region som är associerad med din modell.|
+    |Prisnivå för redigering|Prisnivån bestämmer den maximala transaktionen per sekund och månad.|
+    |Körtidsplats|Den region som är associerad med din publicerade slutpunktskörning för förutsägelse.|
+    |Prisnivå för körning|Prisnivån bestämmer den maximala transaktionen per sekund och månad.|
 
-1. Klicka på **Skapa** och vänta tills resursen har skapats. När den har skapats navigerar du till resurssidan.
-1. Samla in `endpoint` konfigurerad och en API-nyckel, se [samla in nödvändiga parametrar](#gathering-required-parameters).
+    > [!div class="mx-imgBorder"]
+    > [![Skapa språköverenskommelsen resurs](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png)](../media/luis-how-to-azure-subscription/create-resource-in-azure-small.png#lightbox)
 
-[!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
+1. Klicka på **Granska + skapa** och vänta tills resursen har skapats.
+1. När båda resurserna har skapats, fortfarande i Azure-portalen, väljer du den nya redigeringsresursen och sedan **Snabbstartar** för att hämta **författarslutpunkts-URL:en** och **nyckeln** för redigering programmässigt.
+
+> [!TIP]
+> Om du vill använda resurserna [tilldelar du resurserna](../luis-how-to-azure-subscription.md#assign-an-authoring-resource-in-the-luis-portal-for-all-apps)i LUIS-portalen .

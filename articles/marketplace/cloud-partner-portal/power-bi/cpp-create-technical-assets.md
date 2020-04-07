@@ -5,16 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: df0708ff964595181d00d8402f1162e0832c70eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0079c5a9409aafd4d6341ec9febb5115dc4023a1
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286378"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80745399"
 ---
 # <a name="create-power-bi-app-offer-technical-assets"></a>Skapa tekniska resurser för Power BI App-erbjudande
+
+>[!Important]
+>Från och med den 30 mars 2020 börjar vi flytta hanteringen av dina Power BI-appar till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [översikten över hur du skapar Power BI-appar](https://aka.ms/AzureCreatePBIServiceApp) för att hantera dina migrerade erbjudanden.
 
 Den primära tekniska tillgång som du behöver för den här erbjudandetypen är en Power BI-app. En Power BI-app är en samling primära datauppsättningar, rapporter eller instrumentpaneler och valfria anslutna tjänster och inbäddade datauppsättningar. Det har utvecklats från en tillgångstyp som tidigare kallades ett [innehållspaket](https://docs.microsoft.com/power-bi/service-organizational-content-pack-introduction). Mer information om hur du utvecklar den här typen av app finns i [Vad är Power BI-mallappar?](https://go.microsoft.com/fwlink/?linkid=2028636).
 

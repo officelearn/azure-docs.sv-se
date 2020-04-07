@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: f3a1a33b2fe859839deec587191b3b3a319c0cf8
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 4bd483e40e3a85a2934e58abdf46d09b17a33ed4
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77495221"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80758487"
 ---
 Denna cURL-baserade snabbstart går igenom att få ett svar från din kunskapsbas.
 
@@ -34,13 +34,13 @@ Denna cURL-baserade snabbstart går igenom att få ett svar från din kunskapsba
 Använd kunskapsbasen från föregående snabb för att fråga efter ett svar baserat på metadata.
 
 1. På sidan Inställningar **i** kunskapsbasen väljer du fliken **CURL** för att se ett exempel på cURL-kommando som används för att generera ett svar från kunskapsbasen.
-1. Kopiera kommandot till en redigerbar miljö (till exempel en textfil) så att du kan redigera kommandot. Redigera frågevärdet på följande sätt så `service:qna_maker` att metadata för används som filter för QnA-uppsättningarna.
+1. Kopiera kommandot till en redigerbar miljö (till exempel en textfil) så att du kan redigera kommandot. Redigera frågevärdet på följande sätt så `service:qna_maker` att metadata för används som filter för QnA-paren.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
     ```
 
-    Frågan är bara ett `size`enda ord, som kan returnera någon av de två QnA-uppsättningarna. Matrisen `strictFilters` talar om för svaret `qna_maker` att minska till bara svaren.
+    Frågan är bara ett `size`enda ord, , som kan returnera någon av de två QnA par. Matrisen `strictFilters` talar om för svaret `qna_maker` att minska till bara svaren.
 
 1. Svaret innehåller bara svaret som uppfyller filtervillkoren. Följande cURL-svar har formaterats för läsbarhet:
 

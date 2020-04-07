@@ -4,12 +4,12 @@ description: I den här självstudien lär du dig hur du lägger till en HTTPS-s
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 077c2ab67efa51542baa3048eb678fa22b0bc2eb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0e8b79a88fc173674caa0ca65e394e21d58d5f2f
+ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238932"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80756093"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Självstudie: Lägga till en HTTPS-slutpunkt i en klienttjänst i webb-API:t för ASP.NET Core med hjälp av Kestrel
 
@@ -20,7 +20,7 @@ I den tredje delen i serien får du lära dig att:
 > [!div class="checklist"]
 > * Definiera en HTTPS-slutpunkt i tjänsten
 > * Konfigurera Kestrel för användning av HTTPS
-> * Installera SSL-certifikatet på de fjärranslutna klusternoderna
+> * Installera TLS/SSL-certifikatet på fjärrklusternoderna
 > * Ge NETWORK SERVICE åtkomst till certifikatets privata nyckel
 > * Öppna port 443 i Azure-lastbalanseraren
 > * Distribuera programmet till ett fjärrkluster
@@ -396,7 +396,7 @@ I den här självstudiedelen lärde du dig att:
 > [!div class="checklist"]
 > * Definiera en HTTPS-slutpunkt i tjänsten
 > * Konfigurera Kestrel för användning av HTTPS
-> * Installera SSL-certifikatet på de fjärranslutna klusternoderna
+> * Installera TLS/SSL-certifikatet på fjärrklusternoderna
 > * Ge NETWORK SERVICE åtkomst till certifikatets privata nyckel
 > * Öppna port 443 i Azure-lastbalanseraren
 > * Distribuera programmet till ett fjärrkluster

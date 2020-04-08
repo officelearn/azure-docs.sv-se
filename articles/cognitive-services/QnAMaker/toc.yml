@@ -87,9 +87,9 @@
           displayName: 'metadata, pair'
         - name: Testa
           href: How-To/test-knowledge-base.md
-    - name: Hantera QnA-uppsättningar
+    - name: Hantera QnA-par
       items:
-        - name: Redigera QnA-uppsättning
+        - name: Redigera QnA-par
           href: How-To/edit-knowledge-base.md
         - name: Lägg till uppföljningsmeddelanden
           href: How-To/multiturn-conversation.md

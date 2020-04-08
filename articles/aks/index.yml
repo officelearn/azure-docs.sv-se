@@ -2,19 +2,19 @@
 title: Azure Kubernetes Service (AKS)
 summary: Med AKS kan du snabbt distribuera ett produktionsklart Kubernetes-kluster i Azure. Lär dig hur du använder AKS med de här snabbstarterna, självstudierna och exemplen.
 metadata:
-  title: Azure Kubernetes Service (AKS)
+  title: Dokumentation om Azure Kubernetes Service (AKS)
   description: Med AKS kan du snabbt distribuera ett produktionsklart Kubernetes-kluster i Azure. Lär dig hur du använder AKS med de här snabbstarterna, självstudierna och exemplen.
   ms.service: container-service
   ms.topic: landing-page
   author: laurenhughes
   ms.author: lahugh
   ms.date: 03/25/2020
-  ms.openlocfilehash: 7482eb14fb6bcb80bc8f8b9d06057287cb862a27
-  ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+  ms.openlocfilehash: 4829b95fb62a33406248f503e646238e116cb413
+  ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/27/2020
-  ms.locfileid: "80335990"
+  ms.lasthandoff: 04/07/2020
+  ms.locfileid: "80803287"
 landingContent:
 - title: Om Azure Kubernetes Service (AKS)
   linkLists:

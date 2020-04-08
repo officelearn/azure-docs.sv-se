@@ -307,6 +307,8 @@
           href: ../connectors/connectors-create-api-yammer.md
     - name: Hantera
       items:
+        - name: Hantera logikappar – Azure-portalen
+          href: manage-logic-apps-with-azure-portal.md
         - name: Hantera logikappar – Visual Studio
           href: manage-logic-apps-with-visual-studio.md
         - name: Hantera integrationskonton

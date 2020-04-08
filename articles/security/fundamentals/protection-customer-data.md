@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 741cbc82f2ed3ffffb553b146d981b4e35a273f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 630304bec17dd34befab4e5bd9f1cfdfb6505645
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68726686"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811423"
 ---
 # <a name="azure-customer-data-protection"></a>Azure-kunddataskydd   
 Åtkomst till kunddata av Microsofts verksamhet och supportpersonal nekas som standard. När åtkomst till kunddata beviljas krävs ledarskapsgodkännande och sedan hanteras och loggas åtkomsten noggrant. Kraven för åtkomstkontroll har fastställts av följande Azure Security Policy:
@@ -45,7 +45,7 @@ Azure ger kunderna stark datasäkerhet, både som standard och som kundalternati
 - Kunden och molnet.
 - Internt mellan Azure-system och datacenter.
 
-**Kryptering**: Kryptering av data i lagring och under överföring kan distribueras av kunder som en bästa praxis för att säkerställa sekretess och integritet för data. Det är enkelt för kunder att konfigurera sina Azure-molntjänster för att använda SSL för att skydda kommunikationen från internet och till och med mellan deras virtuella azure-värddatorn.
+**Kryptering**: Kryptering av data i lagring och under överföring kan distribueras av kunder som en bästa praxis för att säkerställa sekretess och integritet för data. Det är enkelt för kunder att konfigurera sina Azure-molntjänster för att använda TLS för att skydda kommunikationen från internet och till och med mellan deras Virtuella Azure-värddatorn.
 
 **Dataredundans**: Microsoft hjälper till att säkerställa att data skyddas om det finns en cyberattack eller fysiska skador på ett datacenter. Kunder kan välja:
 

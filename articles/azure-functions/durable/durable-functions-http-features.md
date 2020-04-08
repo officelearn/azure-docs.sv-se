@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 29d837446960b7535b26284efdfab7a1c59ea968
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fece1155d2f707f11dda9f3896bd8a08deff1557
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80132503"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802391"
 ---
 # <a name="http-features"></a>HTTP-funktioner
 
@@ -45,7 +45,7 @@ Se [http-API:erna](durable-functions-http-api.md) för en fullständig beskrivni
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 **index.js**
 
@@ -134,7 +134,7 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -198,7 +198,7 @@ public static async Task RunOrchestrator(
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -232,7 +232,7 @@ Vid körning returnerar den konfigurerade tokenkällan automatiskt en OAuth 2.0-
 * Token lagras aldrig i det varaktiga orkestreringstillståndet.
 * Du behöver inte skriva någon kod för att hantera tokenförvärv.
 
-Du hittar ett mer komplett exempel i [exemplet för förkompilerade C# RestartVMs](https://github.com/Azure/azure-functions-durable-extension/blob/v2/samples/v2/precompiled/RestartVMs.cs).
+Du hittar ett mer komplett exempel i [exemplet för förkompilerade C# RestartVMs](https://github.com/Azure/azure-functions-durable-extension/blob/dev/samples/precompiled/RestartVMs.cs).
 
 Hanterade identiteter är inte begränsade till Azure-resurshantering. Du kan använda hanterade identiteter för att komma åt alla API-program som accepterar Azure AD-innehavartoken, inklusive Azure-tjänster från Microsoft och webbappar från partner. En partners webbapp kan till och med vara en annan funktionsapp. En lista över Azure-tjänster från Microsoft som stöder autentisering med Azure AD finns i [Azure-tjänster som stöder Azure AD-autentisering](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 

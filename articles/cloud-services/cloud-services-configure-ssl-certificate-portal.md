@@ -1,6 +1,6 @@
 ---
-title: Konfigurera SSL för en molntjänst | Microsoft-dokument
-description: Lär dig hur du anger en HTTPS-slutpunkt för en webbroll och hur du laddar upp ett SSL-certifikat för att skydda ditt program. Dessa exempel använder Azure-portalen.
+title: Konfigurera TLS för en molntjänst | Microsoft-dokument
+description: Lär dig hur du anger en HTTPS-slutpunkt för en webbroll och hur du laddar upp ett TLS/SSL-certifikat för att skydda ditt program. Dessa exempel använder Azure-portalen.
 services: cloud-services
 documentationcenter: .net
 author: tgore03
@@ -8,16 +8,16 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: tagore
-ms.openlocfilehash: 6ddb7001f770a9d8aea38d1a4698e15c167aeaa4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d397279ac7e5949398d695db615d9a003ab7acd
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79273142"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811677"
 ---
-# <a name="configuring-ssl-for-an-application-in-azure"></a>Konfigurera SSL för ett program i Azure
+# <a name="configuring-tls-for-an-application-in-azure"></a>Konfigurera TLS för ett program i Azure
 
-SSL-kryptering (Secure Socket Layer) är den vanligaste metoden för att skydda data som skickas över internet. I den här vanliga uppgiften beskrivs hur du anger en HTTPS-slutpunkt för en webbroll och hur du överför ett SSL-certifikat för att skydda ditt program.
+TLS (Transport Layer Security), som tidigare kallades SSL-kryptering (Secure Socket Layer), är den vanligaste metoden för att skydda data som skickas över internet. I den här vanliga uppgiften beskrivs hur du anger en HTTPS-slutpunkt för en webbroll och hur du överför ett TLS/SSL-certifikat för att skydda ditt program.
 
 > [!NOTE]
 > Procedurerna i den här uppgiften gäller för Azure Cloud Services. för App Services, se [detta](../app-service/configure-ssl-bindings.md).
@@ -27,14 +27,14 @@ Den här uppgiften använder en produktionsdistribution. Information om hur du a
 
 Läs [det här](cloud-services-how-to-create-deploy-portal.md) först om du ännu inte har skapat en molntjänst.
 
-## <a name="step-1-get-an-ssl-certificate"></a>Steg 1: Skaffa ett SSL-certifikat
-Om du vill konfigurera SSL för ett program måste du först hämta ett SSL-certifikat som har signerats av en certifikatutfärdare , en betrodd tredje part som utfärdar certifikat för detta ändamål. Om du inte redan har en måste du skaffa ett från ett företag som säljer SSL-certifikat.
+## <a name="step-1-get-a-tlsssl-certificate"></a>Steg 1: Skaffa ett TLS/SSL-certifikat
+Om du vill konfigurera TLS för ett program måste du först hämta ett TLS/SSL-certifikat som har signerats av en certifikatutfärdare ( CA), en betrodd tredje part som utfärdar certifikat för detta ändamål. Om du inte redan har ett måste du skaffa ett från ett företag som säljer TLS/SSL-certifikat.
 
-Certifikatet måste uppfylla följande krav för SSL-certifikat i Azure:
+Certifikatet måste uppfylla följande krav för TLS/SSL-certifikat i Azure:
 
 * Certifikatet måste innehålla en privat nyckel.
 * Certifikatet måste skapas för nyckelutbyte, som kan exporteras till en fil för personligt informationsutbyte (.pfx).
-* Certifikatets ämnesnamn måste matcha den domän som används för att komma åt molntjänsten. Du kan inte hämta ett SSL-certifikat från en certifikatutfärdarcertifikat för cloudapp.net domänen. Du måste skaffa ett anpassat domännamn som ska användas när du öppnar tjänsten. När du begär ett certifikat från en certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamn som används för att komma åt ditt program. Om ditt eget domännamn till exempel **är contoso.com** skulle du begära ett certifikat från certifikatutfärdaren för ***.contoso.com** eller **www\.contoso.com**.
+* Certifikatets ämnesnamn måste matcha den domän som används för att komma åt molntjänsten. Du kan inte hämta ett TLS/SSL-certifikat från en certifikatutfärdarcertifikat för cloudapp.net domänen. Du måste skaffa ett anpassat domännamn som ska användas när du öppnar tjänsten. När du begär ett certifikat från en certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamn som används för att komma åt ditt program. Om ditt eget domännamn till exempel **är contoso.com** skulle du begära ett certifikat från certifikatutfärdaren för ***.contoso.com** eller **www\.contoso.com**.
 * Certifikatet måste använda minst 2048-bitars kryptering.
 
 I testsyfte kan du [skapa](cloud-services-certs-create.md) och använda ett självsignerat certifikat. Ett självsignerat certifikat autentiseras inte via en certifikatutfärdare och kan använda domänen cloudapp.net som webbadress. Följande uppgift använder till exempel ett självsignerat certifikat där det gemensamma namnet (CN) som används i certifikatet **sslexample.cloudapp.net**.
@@ -166,7 +166,7 @@ Nu när distributionen är igång i Azure kan du ansluta till den med HTTPS.
    ![Förhandsgranskning av webbplats](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
    > [!TIP]
-   > Om du vill använda SSL för en mellanlagringsdistribution i stället för en produktionsdistribution måste du först bestämma webbadressen som används för mellanlagringsdistributionen. När molntjänsten har distribuerats bestäms URL:en till mellanlagringsmiljön av **GUID för distribution** i ID i det här formatet:`https://deployment-id.cloudapp.net/`  
+   > Om du vill använda TLS för en mellanlagringsdistribution i stället för en produktionsdistribution måste du först bestämma webbadressen som används för mellanlagringsdistributionen. När molntjänsten har distribuerats bestäms URL:en till mellanlagringsmiljön av **GUID för distribution** i ID i det här formatet:`https://deployment-id.cloudapp.net/`  
    >
    > Skapa ett certifikat med det gemensamma namnet (CN) som är lika med den GUID-baserade URL:en (till exempel **328187776e774ceda8fc57609d404462.cloudapp.net**). Använd portalen för att lägga till certifikatet i din stegvisa molntjänst. Lägg sedan till certifikatinformationen i CSDEF- och CSCFG-filerna, paketera om programmet och uppdatera den stegvisa distributionen så att det nya paketet används.
    >

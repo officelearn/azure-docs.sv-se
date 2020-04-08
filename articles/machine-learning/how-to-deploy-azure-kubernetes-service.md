@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 01/16/2020
-ms.openlocfilehash: 792964f28ddb3fcb10932b8de9499a9c7027960f
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: aec1b7f7bf60be34d21d52ca652a776cf3275fe8
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475391"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811764"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuera en modell till ett Azure Kubernetes-tjänstkluster
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -233,10 +233,28 @@ Information om hur du använder VS-kod finns [i distribuera till AKS via vs-kodt
 > Distribuera via VS-kod kräver att AKS-klustret skapas eller kopplas till din arbetsyta i förväg.
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Distribuera modeller till AKS med kontrollerad distribution (förhandsgranskning)
-Analysera och befordra modellversioner på ett kontrollerat sätt med hjälp av slutpunkter. Distribuera upp till 6 versioner bakom en enda slutpunkt och konfigurera % av poängtrafik till varje distribuerad version. Du kan aktivera appinsikter för att visa operativa mått för slutpunkter och distribuerade versioner.
+
+Analysera och befordra modellversioner på ett kontrollerat sätt med hjälp av slutpunkter. Du kan distribuera upp till sex versioner bakom en enda slutpunkt. Slutpunkter ger följande funktioner:
+
+* Konfigurera __procentandelen poängtrafik som skickas till varje slutpunkt__. Till exempel, väg 20% av trafiken till slutpunkten "test" och 80% till "produktion".
+
+    > [!NOTE]
+    > Om du inte står för 100 % av trafiken dirigeras __default__ eventuell återstående procentsats till standardslutpunktsversionen. Om du till exempel konfigurerar slutpunktsversionen "test" för att få 10 % av trafiken och "prod" för 30 %, skickas resterande 60 % till standardslutpunktsversionen.
+    >
+    > Den första slutpunktsversionen som skapas konfigureras automatiskt som standard. Du kan ändra `is_default=True` detta genom att ange när du skapar eller uppdaterar en slutpunktsversion.
+     
+* Tagga en slutpunktsversion som __kontroll__ eller __behandling__. Den aktuella produktionsslutpunktsversionen kan till exempel vara kontrollen, medan potentiella nya modeller distribueras som behandlingsversioner. Efter att ha utvärderat behandlingsversionernas prestanda, om man överträffar den aktuella kontrollen, kan den befordras till den nya produktionen/kontrollen.
+
+    > [!NOTE]
+    > Du kan bara ha __en__ kontroll. Du kan få flera behandlingar.
+
+Du kan aktivera appinsikter för att visa operativa mått för slutpunkter och distribuerade versioner.
 
 ### <a name="create-an-endpoint"></a>Skapa en slutpunkt
-När du är redo att distribuera dina modeller skapar du en bedömningsslutpunkt och distribuerar din första version. Steget nedan visar hur du distribuerar och skapar slutpunkten med hjälp av SDK. Den första distributionen definieras som standardversionen, vilket innebär att ospecificerad trafik percentil i alla versioner kommer att gå till standardversionen.  
+När du är redo att distribuera dina modeller skapar du en bedömningsslutpunkt och distribuerar din första version. I följande exempel visas hur du distribuerar och skapar slutpunkten med hjälp av SDK. Den första distributionen definieras som standardversionen, vilket innebär att ospecificerad trafik percentil i alla versioner kommer att gå till standardversionen.  
+
+> [!TIP]
+> I följande exempel anger konfigurationen den första slutpunktsversionen för att hantera 20 % av trafiken. Eftersom detta är den första slutpunkten är det också standardversionen. Och eftersom vi inte har några andra versioner för de andra 80% av trafiken, är det dirigeras till standard också. Tills andra versioner som tar en procentandel av trafiken distribueras, får den här effektivt 100% av trafiken.
 
 ```python
 import azureml.core,
@@ -247,8 +265,8 @@ from azureml.core.compute import ComputeTarget
 compute = ComputeTarget(ws, 'myaks')
 namespace_name= endpointnamespace
 # define the endpoint and version name
-endpoint_name = "mynewendpoint",
-version_name= "versiona",
+endpoint_name = "mynewendpoint"
+version_name= "versiona"
 # create the deployment config and define the scoring traffic percentile for the first deployment
 endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, memory_gb = 0.2,
                                                               enable_app_insights = True,
@@ -258,11 +276,16 @@ endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, m
                                                               traffic_percentile = 20)
  # deploy the model and endpoint
  endpoint = Model.deploy(ws, endpoint_name, [model], inference_config, endpoint_deployment_config, compute)
+ # Wait for he process to complete
+ endpoint.wait_for_deployment(True)
  ```
 
 ### <a name="update-and-add-versions-to-an-endpoint"></a>Uppdatera och lägga till versioner i en slutpunkt
 
 Lägg till en annan version till slutpunkten och konfigurera poängsättningstrafik percentilen går till versionen. Det finns två typer av versioner, en kontroll och en behandlingsversion. Det kan finnas flera behandlingsversioner för att jämföra med en enda kontrollversion.
+
+> [!TIP]
+> Den andra versionen, som skapats av följande kodavsnitt, accepterar 10% av trafiken. Den första versionen är konfigurerad för 20%, så endast 30% av trafiken är konfigurerad för specifika versioner. Resterande 70 % skickas till den första slutpunktsversionen, eftersom det också är standardversionen.
 
  ```python
 from azureml.core.webservice import AksEndpoint
@@ -275,9 +298,13 @@ endpoint.create_version(version_name = version_name_add,
                         tags = {'modelVersion':'b'},
                         description = "my second version",
                         traffic_percentile = 10)
+endpoint.wait_for_deployment(True)
 ```
 
-Uppdatera befintliga versioner eller ta bort dem i en slutpunkt. Du kan ändra versionens standardtyp, kontrolltyp och trafik percentilen.
+Uppdatera befintliga versioner eller ta bort dem i en slutpunkt. Du kan ändra versionens standardtyp, kontrolltyp och trafik percentilen. I följande exempel ökar den andra versionen trafiken till 40 % och är nu standard.
+
+> [!TIP]
+> Efter följande kodavsnitt är den andra versionen nu standard. Den är nu konfigurerad för 40%, medan den ursprungliga versionen fortfarande är konfigurerad för 20%. Det innebär att 40 % av trafiken inte redovisas av versionskonfigurationer. Den överblivna trafiken dirigeras till den andra versionen, eftersom den nu är standard. Det får effektivt 80% av trafiken.
 
  ```python
 from azureml.core.webservice import AksEndpoint
@@ -288,7 +315,8 @@ endpoint.update_version(version_name=endpoint.versions["versionb"].name,
                         traffic_percentile=40,
                         is_default=True,
                         is_control_version_type=True)
-
+# Wait for the process to complete before deleting
+endpoint.wait_for_deployment(true)
 # delete a version in an endpoint
 endpoint.delete_version(version_name="versionb")
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: 2b8cf66afa1d8aa592d5755ebab70cd6ad2e75fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 733f4b74ca7643476586189b36f4e1d3e446968b
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79298067"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811172"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrera API-hantering i ett internt VNET med Application Gateway
 
@@ -64,7 +64,7 @@ I det första installationsexemplet hanteras alla API:er endast från det virtue
 * **Serverpool för server med slut:** Det här är den interna virtuella IP-adressen för API Management-tjänsten.
 * **Inställningar för serverpool för serverserver:** Varje pool har inställningar som port, protokoll och cookie-baserad tillhörighet. Dessa inställningar tillämpas på alla servrar i poolen.
 * **Front-end-port:** Det här är den offentliga porten som öppnas på programgatewayen. Trafik slår det får omdirigeras till en av backend-servrar.
-* **Lyssnare:** Lyssnaren har en frontend-port, ett protokoll (Http eller Https, dessa värden är skiftlägeskänsliga) och SSL-certifikatnamnet (om ssl-avlastning konfigureras).
+* **Lyssnare:** Lyssnaren har en frontend-port, ett protokoll (Http eller Https, dessa värden är skiftlägeskänsliga) och TLS/SSL-certifikatnamnet (om du konfigurerar TLS-avlastning).
 * **Regel:** Regeln binder en lyssnare till en serverpool med en server.
 * **Anpassad hälsoavsökning:** Application Gateway använder som standard IP-adressbaserade avsökningar för att ta reda på vilka servrar i BackendAddressPool som är aktiva. API Management-tjänsten svarar bara på begäranden med rätt värdhuvud, därav standardavsökningarna misslyckas. En anpassad hälsoavsökning måste definieras för att hjälpa programgateway att avgöra att tjänsten är vid liv och den bör vidarebefordra begäranden.
 * **Anpassade domäncertifikat:** Om du vill komma åt API Management från internet måste du skapa en CNAME-mappning av dess värdnamn till klientnamnet Application Gateway. Detta säkerställer att värdnamnshuvudet och certifikatet som skickas till Application Gateway som vidarebefordras till API Management är en APIM kan känna igen som giltig. I det här exemplet använder vi två certifikat - för serverda och för utvecklarportalen.  
@@ -271,7 +271,7 @@ $certPortal = New-AzApplicationGatewaySslCertificate -Name "cert02" -Certificate
 
 ### <a name="step-5"></a>Steg 5
 
-Skapa HTTP-lyssnarna för programgatewayen. Tilldela frontend IP-konfiguration, port och ssl-certifikat till dem.
+Skapa HTTP-lyssnarna för programgatewayen. Tilldela dem klient-TV-konfiguration, port och TLS/SSL-certifikat.
 
 ```powershell
 $listener = New-AzApplicationGatewayHttpListener -Name "listener01" -Protocol "Https" -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $cert -HostName $gatewayHostname -RequireServerNameIndication true
@@ -280,7 +280,7 @@ $portalListener = New-AzApplicationGatewayHttpListener -Name "listener02" -Proto
 
 ### <a name="step-6"></a>Steg 6
 
-Skapa anpassade avsökningar till `ContosoApi` API Management-tjänstproxy domänslutpunkten. Sökvägen `/status-0123456789abcdef` är en standardhälsoslutpunkt som finns på alla API Management-tjänster. Ange `api.contoso.net` som ett anpassat avsökningsvärdnamn för att skydda det med SSL-certifikat.
+Skapa anpassade avsökningar till `ContosoApi` API Management-tjänstproxy domänslutpunkten. Sökvägen `/status-0123456789abcdef` är en standardhälsoslutpunkt som finns på alla API Management-tjänster. Ange `api.contoso.net` som ett anpassat avsökningsvärdnamn för att skydda det med TLS/SSL-certifikatet.
 
 > [!NOTE]
 > Värdnamnet `contosoapi.azure-api.net` är standardprogramnamnet för proxy som `contosoapi` konfigurerats när en tjänst som heter skapas i offentliga Azure.
@@ -293,7 +293,7 @@ $apimPortalProbe = New-AzApplicationGatewayProbeConfig -Name "apimportalprobe" -
 
 ### <a name="step-7"></a>Steg 7
 
-Ladda upp certifikatet som ska användas på de SSL-aktiverade serverda poolresurserna. Detta är samma certifikat som du angav i steg 4 ovan.
+Ladda upp certifikatet som ska användas på de TLS-aktiverade serverda poolresurserna. Detta är samma certifikat som du angav i steg 4 ovan.
 
 ```powershell
 $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name "whitelistcert1" -CertificateFile $gatewayCertCerPath

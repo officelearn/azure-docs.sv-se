@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a0de94cdce1d7f0e9da9d2844b300956ad6f6970
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 041fb8d881307b52fb170a11618f930debc522a4
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80330844"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803168"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Aktivera Behåll mig inloggad (KMSI) i Azure Active Directory B2C
 
@@ -54,7 +54,7 @@ Om du vill aktivera KMSI ställer du in `DataUri` innehållsdefinitionselementet
 
 ## <a name="add-the-metadata-to-the-self-asserted-technical-profile"></a>Lägga till metadata i den självsäkra tekniska profilen
 
-Om du vill lägga till KMSI-kryssrutan på registrerings- `setting.enableRememberMe` och inloggningssidan anger du metadata till false. Åsidosätt de självhärnade-lokala rätkontonSignin-E-post tekniska profilerna i tilläggsfilen.
+Om du vill lägga till KMSI-kryssrutan på registrerings- `setting.enableRememberMe` och inloggningssidan anger du metadata till true. Åsidosätt de självhärnade-lokala rätkontonSignin-E-post tekniska profilerna i tilläggsfilen.
 
 1. Leta reda på elementet ClaimsProviders. Om elementet inte finns lägger du till det.
 1. Lägg till följande anspråksprovider i elementet ClaimsProviders:

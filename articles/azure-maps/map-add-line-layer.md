@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 8503b12be628fe7d5651221c9d0379bee3e292bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c473be25907eb3a761fbccd598bb9b732e5be5b9
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76933465"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802356"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Lägga till ett linjelager på kartan
 
@@ -55,7 +55,7 @@ Det här exemplet visar hur du lägger till pilikoner längs en linje på kartan
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Visa pil längs linje" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Visa pil längs linje" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Se <a href='https://codepen.io/azuremaps/pen/drBJwX/'>pilen</a> Pen Show längs<a href='https://codepen.io/azuremaps'>@azuremaps</a>linjen med Azure Maps ( ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -70,7 +70,7 @@ Du kan använda en enda linjefärg på en linje. Du kan också fylla en linje me
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Linje med linjeövertoning" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Linje med linjeövertoning" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Se <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>pennlinjen med linjeövertoning</a> av Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

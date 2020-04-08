@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: 53f53976b20359afc45abe1b25ca60325b5d6a2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63cf864a3f3b92728ad613ac45542bdbce2c9858
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75386178"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811335"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Så här skapar och distribuerar du en molntjänst
 Azure-portalen innehåller två sätt för dig att skapa och distribuera en molntjänst: *Snabbskapa* och *anpassad skapa*.
@@ -42,7 +42,7 @@ Innan du kan distribuera en molntjänst måste du skapa molntjänstpaketet (.csp
 
 Tre molntjänstfunktioner kräver speciella konfigurationer innan du exporterar ett servicepaket:
 
-* Om du vill distribuera en molntjänst som använder SSL (Secure Sockets Layer) för datakryptering [konfigurerar du programmet](cloud-services-configure-ssl-certificate-portal.md#modify) för SSL.
+* Om du vill distribuera en molntjänst som använder Transport Layer Security (TLS), tidigare kallat Secure Sockets Layer (SSL), [konfigurerar du programmet](cloud-services-configure-ssl-certificate-portal.md#modify) för TLS för datakryptering.
 * Om du vill konfigurera anslutning till fjärrskrivbord till rollinstanser [konfigurerar du rollerna](cloud-services-role-enable-remote-desktop-new-portal.md) för Fjärrskrivbord.
 * Om du vill konfigurera utförlig övervakning för din molntjänst aktiverar du Azure Diagnostics för molntjänsten. *Minimal övervakning* (standardövervakningsnivån) använder prestandaräknare som samlats in från värdoperativsystemen för rollinstanser (virtuella datorer). *Utförlig övervakning* samlar in ytterligare mått baserat på prestandadata i rollinstanserna för att möjliggöra en närmare analys av problem som uppstår under programbearbetning. Information om hur du aktiverar Azure Diagnostics finns [i Aktivera diagnostik i Azure](cloud-services-dotnet-diagnostics.md).
 
@@ -70,7 +70,7 @@ Om du vill skapa en molntjänst med distributioner av webbroller eller arbetsrol
 ## <a name="upload-a-certificate"></a>Ladda upp ett certifikat
 Om distributionspaketet [har konfigurerats för att använda certifikat](cloud-services-configure-ssl-certificate-portal.md#modify)kan du ladda upp certifikatet nu.
 
-1. Välj **Certifikat**och välj SSL-certifikatfilen (SSL-certifikatet PFX) i fönstret **Lägg till certifikat** och ange sedan **lösenordet** för certifikatet.
+1. Välj **Certifikat**och välj pfx-filen TLS/SSL-certifikat i fönstret **Lägg till certifikat** och ange sedan **lösenordet** för certifikatet.
 2. Klicka på **Bifoga certifikat**och sedan på **OK** i fönstret Lägg **till certifikat.**
 3. Klicka på **Skapa** i fönstret **Molntjänst.** När distributionen har nått **statusen Klar** kan du gå vidare till nästa steg.
 
@@ -90,7 +90,7 @@ Om distributionspaketet [har konfigurerats för att använda certifikat](cloud-s
 * [Allmän konfiguration av molntjänsten](cloud-services-how-to-configure-portal.md).
 * Konfigurera ett [eget domännamn](cloud-services-custom-domain-name-portal.md).
 * [Hantera din molntjänst](cloud-services-how-to-manage-portal.md).
-* Konfigurera [SSL-certifikat](cloud-services-configure-ssl-certificate-portal.md).
+* Konfigurera [TLS/SSL-certifikat](cloud-services-configure-ssl-certificate-portal.md).
 
 
 

@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/17/2020
+ms.date: 04/07/2020
 ms.author: radeltch
-ms.openlocfilehash: 9d3d0ddbd1282827f17cd82228fcf0f3fba3a60f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 06ee1b6184e69ace68adcbfa36ad2384dc9fdd99
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471990"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811570"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurera Pacemaker på SUSE Linux Enterprise Server i Azure
 
@@ -365,6 +365,9 @@ Följande objekt föregås av antingen **[A]** - som gäller för alla noder, **
    </code></pre>
 
 1. **[A]** Konfigurera cloud-netconfig-azure för HA Cluster
+
+   >[!NOTE]
+   > Kontrollera den installerade versionen av paketet **cloud-netconfig-azure** genom att köra **zypper info cloud-netconfig-azure**. Om versionen i din miljö är 1.3 eller högre, är det inte längre nödvändigt att undertrycka hanteringen av nätverksgränssnitt av molnnätverket plugin. Om versionen är lägre än 1.3 föreslår vi att paket **cloud-netconfig-azure uppdateras** till den senaste tillgängliga versionen.  
 
    Ändra konfigurationsfilen för nätverksgränssnittet enligt nedan för att förhindra att plugin-programmet för molnnätverket tar bort den virtuella IP-adressen (Pacemaker måste styra VIP-tilldelningen). Mer information finns i [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
 

@@ -6,12 +6,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: d8582dfc796fe3e87b8bdc5be763dddfb5d0176b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b3579d12981e2b0add916a280bac7b4f9392d8ba
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80245420"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803151"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Snabbstart: Lägga till funktionsflaggor i en ASP.NET Core-app
 
@@ -126,13 +126,13 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
 
     Du kan komma åt den här hemligheten med API:et för appkonfiguration. Ett kolon (:) fungerar i konfigurationsnamnet med API:et för appkonfiguration på alla plattformar som stöds. Se [Konfiguration efter miljö](https://docs.microsoft.com/aspnet/core/fundamentals/configuration).
 
-1. Uppdatera `CreateWebHostBuilder` metoden för att använda `config.AddAzureAppConfiguration()` appkonfiguration genom att anropa metoden.
-    
+1. I *Program.cs*uppdaterar du `CreateWebHostBuilder` metoden för att använda `config.AddAzureAppConfiguration()` Appkonfiguration genom att anropa metoden.
+
     > [!IMPORTANT]
     > `CreateHostBuilder`ersätts `CreateWebHostBuilder` i .NET Core 3.0.  Välj rätt syntax baserat på din miljö.
 
     #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
-    
+
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
@@ -148,7 +148,7 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
     ```
 
     #### <a name="net-core-3x"></a>[.NET-kärna 3.x](#tab/core3x)
-    
+
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
@@ -188,12 +188,12 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
         services.AddControllersWithViews();
         services.AddFeatureManagement();
     }
-    ```
+
     ---
 
-1. Uppdatera `Configure` metoden för att lägga till ett mellanprogram så att funktionsflaggvärdena kan uppdateras med ett återkommande intervall medan ASP.NET Core-webbappen fortsätter att ta emot begäranden.
-    
-    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+1. Update the `Configure` method to add a middleware to allow the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app continues to receive requests.
+
+    #### [.NET Core 2.x](#tab/core2x)
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {

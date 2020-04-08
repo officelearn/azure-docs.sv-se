@@ -1,15 +1,16 @@
 ---
-title: Skapa en filvolym dynamiskt för flera poddar i Azure Kubernetes Service (AKS)
+title: Skapa Azure-filresurs dynamiskt
+titleSuffix: Azure Kubernetes Service
 description: Lär dig hur du dynamiskt skapar en beständig volym med Azure-filer för användning med flera samtidiga poddar i Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 09/12/2019
-ms.openlocfilehash: 3628a9243d849cdb2f3143209dc239be5ac846b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 59b773cd4608187fedb24358eac57715e1c271ea
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297780"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803542"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Skapa och använda en beständig volym dynamiskt med Azure Files i Azure Kubernetes Service (AKS)
 

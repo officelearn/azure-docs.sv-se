@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 4a853871ef5f66881235e5a6ffec0886b81f5a92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 19765bd28f365cc6f6d5b06646896613dd3e3e87
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77208547"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804562"
 ---
 # <a name="add-a-heat-map-layer"></a>Lägga till ett heatmapskikt
 
@@ -98,11 +98,11 @@ Som standard har raderna för datapunkter som återges i värmekartlagret en fas
 
 Använd `zoom` ett uttryck för att skala radien för varje zoomnivå, så att varje datapunkt täcker samma fysiska område på kartan. Detta uttryck gör att värmekartlagret ser mer statiskt och konsekvent ut. Varje zoomnivå på kartan har dubbelt så många pixlar vertikalt och horisontellt som föregående zoomnivå. 
 
-Skalning av radien så att den fördubblas med varje zoomnivå skapar en värmekarta som ser konsekvent ut på alla zoomnivåer. Om du vill använda `zoom` den här `exponential interpolation` skalningen använder du med ett bas 2-uttryck, som visas i följande exempel. Zooma kartan för att se hur värmekartan skalas med zoomnivån.
+Skalning av radien så att den fördubblas med varje zoomnivå skapar en värmekarta som ser konsekvent ut på alla zoomnivåer. Om du vill använda `zoom` den här `exponential interpolation` skalningen använder du med ett bas2-uttryck, med pixelradien inställd `2 * Math.pow(2, minZoom - maxZoom)` för den lägsta zoomnivån och en skalad radie för den maximala zoomnivån som beräknas enligt följande exempel. Zooma kartan för att se hur värmekartan skalas med zoomnivån.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Konsekvent zoombar värmekarta" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Konsekvent zoombar värmekarta" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Se den <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>zoombara värmekartan</a> för<a href='https://codepen.io/azuremaps'>@azuremaps</a>pennan med Azure Maps ( ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

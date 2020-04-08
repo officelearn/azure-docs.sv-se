@@ -7,22 +7,22 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/18/2020
-ms.openlocfilehash: e313048986beca1991e38ce2e65ea12f954170d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/07/2020
+ms.openlocfilehash: 3c1369e813ba6518f6cd4b27082020ae36a24c82
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77598280"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811199"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Använda Apache Zeppelin-anteckningsböcker med Apache Spark-kluster i Azure HDInsight
 
-HDInsight Spark-kluster innehåller [Apache Zeppelin-anteckningsböcker](https://zeppelin.apache.org/) som du kan använda för att köra [Apache Spark-jobb.](https://spark.apache.org/) I den här artikeln får du lära dig hur du använder den zeppelinska anteckningsboken i ett HDInsight-kluster.
+HDInsight Spark-kluster inkluderar [Apache Zeppelin-anteckningsböcker.](https://zeppelin.apache.org/) Använd anteckningsböckerna för att köra [Apache Spark-jobb.](https://spark.apache.org/) I den här artikeln får du lära dig hur du använder den zeppelinska anteckningsboken i ett HDInsight-kluster.
 
 ## <a name="prerequisites"></a>Krav
 
 * Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* URI-schemat för klustrets primära lagring. Detta skulle `wasb://` vara för Azure `abfs://` Blob Storage, för `adl://` Azure Data Lake Storage Gen2 eller för Azure Data Lake Storage Gen1. Om säker överföring är aktiverad för Blob `wasbs://`Storage, skulle URI vara .  Mer information finns [i Kräv säker överföring i Azure Storage](../../storage/common/storage-require-secure-transfer.md) .
+* URI-schemat för klustrets primära lagring. Schemat skulle `wasb://` vara för Azure `abfs://` Blob Storage, för `adl://` Azure Data Lake Storage Gen2 eller för Azure Data Lake Storage Gen1. Om säker överföring är aktiverad för Blob `wasbs://`Storage, skulle URI vara .  Mer information finns [i Kräv säker överföring i Azure Storage](../../storage/common/storage-require-secure-transfer.md) .
 
 ## <a name="launch-an-apache-zeppelin-notebook"></a>Starta en apache Zeppelin-anteckningsbok
 
@@ -71,7 +71,7 @@ HDInsight Spark-kluster innehåller [Apache Zeppelin-anteckningsböcker](https:/
     hvac.registerTempTable("hvac")
     ```
 
-    Tryck på **SKIFT + RETUR** eller välj knappen **Spela** upp för att stycket ska köra utdraget. Statusen i styckets högra hörn ska gå från KLAR, VÄNTANDE, KÖR TILL FÄRDIG. Utdata visas längst ned i samma stycke. Skärmbilden ser ut så här:
+    Tryck på **SKIFT + RETUR** eller välj knappen **Spela** upp för att stycket ska köra utdraget. Statusen i styckets högra hörn ska gå från KLAR, VÄNTANDE, KÖR TILL FÄRDIG. Utdata visas längst ned i samma stycke. Skärmbilden ser ut som följande bild:
 
     ![Skapa en temporär tabell från rådata](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "Skapa en temporär tabell från rådata")
 
@@ -80,7 +80,7 @@ HDInsight Spark-kluster innehåller [Apache Zeppelin-anteckningsböcker](https:/
     > [!NOTE]  
     > %spark2-tolk stöds inte i Zeppelin-anteckningsböcker i alla HDInsight-versioner, och %sh-tolken stöds inte från HDInsight 4.0 och framåt.
 
-5. Du kan nu köra Spark `hvac` SQL-uttryck i tabellen. Klistra in följande fråga i ett nytt stycke. Frågan hämtar bygg-ID och skillnaden mellan målet och faktiska temperaturer för varje byggnad på ett visst datum. Tryck på **SKIFT + RETUR**.
+5. Du kan nu köra Spark `hvac` SQL-uttryck i tabellen. Klistra in följande fråga i ett nytt stycke. Frågan hämtar bygg-ID: et. Även skillnaden mellan målet och faktiska temperaturer för varje byggnad på ett visst datum. Tryck på **SKIFT + RETUR**.
 
     ```sql
     %sql
@@ -89,7 +89,7 @@ HDInsight Spark-kluster innehåller [Apache Zeppelin-anteckningsböcker](https:/
 
     **%sql-uttrycket** i början talar om för anteckningsboken att använda Livy Scala-tolken.
 
-6. Välj ikonen **Stapeldiagram** om du vill ändra visningen.  **inställningar**, som visas när du har valt **stapeldiagram**, kan du välja **Nycklar**och **Värden**.  Följande skärmbild visar utdata.
+6. Välj ikonen **Stapeldiagram** om du vill ändra visningen.  **inställningar**, visas när du har valt **Stapeldiagram**, kan du välja **Nycklar**och **Värden**.  Följande skärmbild visar utdata.
 
     ![Köra ett Spark SQL-uttryck med anteckningsboken1](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Köra ett Spark SQL-uttryck med anteckningsboken1")
 
@@ -113,7 +113,7 @@ HDInsight Spark-kluster innehåller [Apache Zeppelin-anteckningsböcker](https:/
 
 ## <a name="how-do-i-use-external-packages-with-the-notebook"></a>Hur använder jag externa paket med anteckningsboken?
 
-Du kan konfigurera Zeppelin-anteckningsboken i Apache Spark-klustret på HDInsight så att de använder externa paket som medföljer community-bidrag som inte ingår direkt i klustret. Du kan söka i [Maven-databasen](https://search.maven.org/) efter en komplett lista över tillgängliga paket. Du kan också få en lista över tillgängliga paket från andra källor. En komplett lista över paket med community-bidrag finns till exempel på [Spark Packages](https://spark-packages.org/).
+Zeppelin-anteckningsbok i Apache Spark-klustret på HDInsight kan använda externa, community-bidragade paket som inte ingår i klustret. Sök i [Maven-databasen](https://search.maven.org/) efter en komplett lista över tillgängliga paket. Du kan också få en lista över tillgängliga paket från andra källor. En komplett lista över paket med community-bidrag finns till exempel på [Spark Packages](https://spark-packages.org/).
 
 I den här artikeln får du se hur du använder [spark-csv-paketet](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) med jupyter-anteckningsboken.
 
@@ -149,12 +149,13 @@ Zeppelin-anteckningsböckerna sparas i klusterhuvudnoderna. Så om du tar bort k
 
 ![Ladda ner anteckningsbok](./media/apache-spark-zeppelin-notebook/zeppelin-download-notebook.png "Ladda ned anteckningsboken")
 
-Då sparas anteckningsboken som en JSON-fil på nedladdningsplatsen.
+Den här åtgärden sparar anteckningsboken som en JSON-fil på hämtningsplatsen.
 
-## <a name="use-shiro-to-configure-access-to-zeppelin-interpreters-in-enterprise-security-package-esp-clusters"></a>Använda Shiro för att konfigurera åtkomst till Zeppelintolkar i ESP-kluster (Enterprise Security Package)
-Som nämnts `%sh` ovan stöds tolken inte från HDInsight 4.0 och framåt. Eftersom `%sh` tolken introducerar potentiella säkerhetsproblem, till exempel åtkomstnyckelflikar med skalkommandon, har den också tagits bort från HDInsight 3.6 ESP-kluster. Det `%sh` innebär att tolk inte är tillgänglig när du klickar på **Skapa ny anteckning** eller i tolkgränssnittet som standard. 
+## <a name="use-shiro-to-configure-access-to-zeppelin-interpreters-in-enterprise-security-package-esp-clusters"></a>Används `Shiro` för att konfigurera åtkomst till Zeppelin-tolkar i ESP-kluster (Enterprise Security Package)
 
-Privilegierade domänanvändare kan `Shiro.ini` använda filen för att styra åtkomsten till tolkgränssnittet. Därför kan endast dessa `%sh` användare skapa nya tolkar `%sh` och ange behörigheter för varje ny tolk. Så här styr `shiro.ini` du åtkomsten med hjälp av filen:
+Som nämnts `%sh` ovan stöds inte tolken från HDInsight 4.0 och framåt. Eftersom `%sh` tolken introducerar potentiella säkerhetsproblem, till exempel åtkomstnyckelflikar med skalkommandon, har den också tagits bort från HDInsight 3.6 ESP-kluster. Det `%sh` innebär att tolken inte är tillgänglig när du klickar på **Skapa ny anteckning** eller i användargränssnittet för tolk som standard.
+
+Privilegierade domänanvändare kan `Shiro.ini` använda filen för att styra åtkomsten till tolkgränssnittet. Endast dessa användare `%sh` kan skapa nya tolkar `%sh` och ange behörigheter för varje ny tolk. Så här styr `shiro.ini` du åtkomsten med hjälp av filen:
 
 1. Definiera en ny roll med ett befintligt domännamn. I följande exempel `adminGroupName` är en grupp privilegierade användare i AAD. Använd inte specialtecken eller blanksteg i gruppnamnet. Tecknen efter `=` ger behörighet för den här rollen. `*`innebär att gruppen har fullständiga behörigheter.
 
@@ -163,7 +164,7 @@ Privilegierade domänanvändare kan `Shiro.ini` använda filen för att styra å
     adminGroupName = *
     ```
 
-2. Lägg till den nya rollen för åtkomst till Zeppelintolkar. I följande exempel får `adminGroupName` alla användare i åtkomst till Zeppelintolkar och kan skapa nya tolkar. Du kan placera flera roller `roles[]`mellan hakparenteserna i , avgränsade med kommatecken. Sedan kan användare som har de behörigheter som krävs komma åt Zeppelin-tolkar.
+2. Lägg till den nya rollen för åtkomst till Zeppelintolkar. I följande exempel får `adminGroupName` alla användare i åtkomst till Zeppelin-tolkar och kan skapa nya tolkar. Du kan placera flera roller `roles[]`mellan hakparenteserna i , avgränsade med kommatecken. Sedan kan användare som har de behörigheter som krävs komma åt Zeppelin-tolkar.
 
     ```
     [urls]
@@ -172,9 +173,9 @@ Privilegierade domänanvändare kan `Shiro.ini` använda filen för att styra å
 
 ## <a name="livy-session-management"></a>Livy session förvaltning
 
-När du kör det första kodstycket i din Zeppelin-anteckningsbok skapas en ny Livy-session i ditt HDInsight Spark-kluster. Den här sessionen delas mellan alla Zeppelin-anteckningsböcker som du sedan skapar. Om Livy-sessionen av någon anledning dödas (klusteromstart och så vidare) kan du inte köra jobb från den zeppelinska anteckningsboken.
+Det första kodstycket i den zeppelinska anteckningsboken skapar en ny Livy-session i klustret. Den här sessionen delas mellan alla Zeppelin-anteckningsböcker som du senare skapar. Om Livy-sessionen dödas av någon anledning, kommer jobben inte att köras från Zeppelin-anteckningsboken.
 
-I så fall måste du utföra följande steg innan du kan börja köra jobb från en Zeppelin-anteckningsbok.  
+I så fall måste du göra följande steg innan du kan börja köra jobb från en Zeppelin-anteckningsbok.  
 
 1. Starta om Livy-tolken från den bärbara Zeppelin-anteckningsboken. Om du vill göra det öppnar du tolkinställningarna genom att välja det inloggade användarnamnet i det övre högra hörnet och väljer sedan **Tolk**.
 
@@ -184,7 +185,7 @@ I så fall måste du utföra följande steg innan du kan börja köra jobb från
 
     ![Starta om Livy-tolken](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Starta om Zeppelin-tolken")
 
-3. Kör en kodcell från en befintlig Zeppelin-anteckningsbok. Detta skapar en ny Livy-session i HDInsight-klustret.
+3. Kör en kodcell från en befintlig Zeppelin-anteckningsbok. Den här koden skapar en ny Livy-session i HDInsight-klustret.
 
 ## <a name="general-information"></a>Allmän information
 
@@ -206,7 +207,7 @@ Om du vill validera tjänsten från en kommandorad SSH till huvudnoden. Växla a
 |---|---|
 |zeppelin-server|/usr/hdp/current/zeppelin-server/|
 |Serverloggar|/var/log/zeppelin|
-|Konfigurationstolk, Shiro, site.xml, log4j|/usr/hdp/current/zeppelin-server/conf eller /etc/zeppelin/conf|
+|Konfigurationstolk, `Shiro`, site.xml, log4j|/usr/hdp/current/zeppelin-server/conf eller /etc/zeppelin/conf|
 |PID-katalog|/var/run/zeppelin|
 
 ### <a name="enable-debug-logging"></a>Aktivera felsökningsloggning
@@ -227,7 +228,7 @@ Om du vill validera tjänsten från en kommandorad SSH till huvudnoden. Växla a
 
 ### <a name="scenarios"></a>Scenarier
 
-* [Apache Spark med BI: Utför interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med BI: Interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
 * [Apache Spark med maskininlärning: Använd Spark i HDInsight för att analysera byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark med maskininlärning: Använd Spark i HDInsight för att förutsäga resultat för livsmedelsinspektion](apache-spark-machine-learning-mllib-ipython.md)
 * [Webbplatslogganalys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)

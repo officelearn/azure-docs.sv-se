@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: 5136a00421aebaa72998b1dfcdf75feb935851c6
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: a502541a5a01ec3304338054239fc3b50f4d3c61
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435446"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810304"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Avancerat skydd mot Microsoft Defender med Azure Security Center
 
@@ -36,7 +36,7 @@ När du använder Microsoft Defender ATP får du:
 
 Följande funktioner är nu tillgängliga i Azure Security Center:
 
-- **Automatisk introduktion:** Microsoft Defender ATP-sensorn aktiveras automatiskt för Windows-servrar som är inbyggda i Azure Security Center.
+- **Automatisk introduktion:** Microsoft Defender ATP-sensorn aktiveras automatiskt för Windows-servrar som är inbyggda i Azure Security Center (med undantag för de som kör Windows Server 2019).
 
 - **En enda glasruta**: Azure Security Center-konsolen visar Microsoft Defender ATP-varningar.
 
@@ -107,11 +107,11 @@ Så här skapar du en godartad Microsoft Defender ATP-testavisering:
 
    ![Ett kommandotolksfönster med kommandot ovan](media/security-center-wdatp/image4.jpeg)
 
-3. Om kommandot lyckas visas en ny avisering på Instrumentpanelen i Azure Security Center och Microsoft Defender ATP-portalen. Den här aviseringen kan ta några minuter att visas.
+1. Om kommandot lyckas visas en ny avisering på Instrumentpanelen i Azure Security Center och Microsoft Defender ATP-portalen. Den här aviseringen kan ta några minuter att visas.
 
-4. Om du vill granska aviseringen i Security Center går du till **Säkerhetsvarningar** > **Misstänkt PowerShell CommandLine**.
+1. Om du vill granska aviseringen i Security Center går du till **Säkerhetsvarningar** > **Misstänkt PowerShell CommandLine**.
 
-5. Välj länken i fönstret Microsoft Defender i undersökningsfönstret.
+1. Välj länken i fönstret Microsoft Defender i undersökningsfönstret.
 
 ## <a name="next-steps"></a>Nästa steg
 

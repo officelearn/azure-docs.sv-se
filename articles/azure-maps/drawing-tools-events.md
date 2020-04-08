@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: cf9c79f608aa3ffd1137be41ff3348f62b890867
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8509af7829910bdda8bba3d63553e83626fe784
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77198317"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804681"
 ---
 # <a name="drawing-tool-events"></a>Händelser i ritverktyg
 
@@ -31,7 +31,7 @@ Följande kod visar hur händelserna i modulen Ritverktyg fungerar. Rita former 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Händelser för ritverktyg" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Händelser för ritverktyg" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Se händelserna med <a href='https://codepen.io/azuremaps/pen/dyPMRWo'>pennritverktyg</a> <a href='https://codepen.io/azuremaps'>@azuremaps</a>från Azure Maps ( ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -59,7 +59,7 @@ Den här koden söker efter intressanta platser i området i en form när använ
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Rita och söka i polygonområdet" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Rita och söka i polygonområdet" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Se Pen <a href='https://codepen.io/azuremaps/pen/eYmZGNv'>Draw och sök i polygonområdet</a> av Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -71,7 +71,7 @@ Koden nedan visar hur ritningshändelserna kan användas för att skapa ett mät
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Mätverktyg" src="https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Mätverktyg" src="https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Se <a href='https://codepen.io/azuremaps/pen/RwNaZXe'>ritstiftsmätverktyget</a> av Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

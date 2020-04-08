@@ -2,13 +2,13 @@
 title: Taggstöd för resurser
 description: Visar vilka Azure-resurstyper som stöder taggar. Innehåller information om alla Azure-tjänster.
 ms.topic: conceptual
-ms.date: 02/26/2020
-ms.openlocfilehash: 6100c667c7df0b3e1740777565d260af9fa818a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: e012126995136bec15dc360be5e91007b6f69f09
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77657581"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802500"
 ---
 # <a name="tag-support-for-azure-resources"></a>Taggstöd för Azure-resurser
 I den här artikeln beskrivs om en resurstyp stöder [taggar](tag-resources.md). Kolumnen med etiketten **Stöder taggar** anger om resurstypen har en egenskap för taggen. Kolumnen Tagg **i kostnadsrapport** anger om resurstypen skickar taggen till kostnadsrapporten. Du kan visa kostnader efter taggar i [kostnadshanteringskostnadsanalysen](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) och [Azure-faktureringsfakturan och dagliga användningsdata](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -38,6 +38,7 @@ Gå till ett namnområde för resursleverantören:
 > - [Microsoft.Fakturering](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
 > - [Microsoft.Blockchain (på andra)](#microsoftblockchain)
+> - [Microsoft.BlockchainTokens](#microsoftblockchaintokens)
 > - [Microsoft.Blueprint (Microsoft.Blueprint)](#microsoftblueprint)
 > - [Microsoft.BotService](#microsoftbotservice)
 > - [Microsoft.Cache](#microsoftcache)
@@ -55,7 +56,6 @@ Gå till ett namnområde för resursleverantören:
 > - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft.Container-registret](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
-> - [Microsoft.CortanaAnalytics Microsoft.CortanaAnalytics Microsoft.CortanaAnalytics Microsoft.](#microsoftcortanaanalytics)
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
 > - [Microsoft.CustomerLockbox](#microsoftcustomerlockbox)
 > - [Microsoft.CustomProviders](#microsoftcustomproviders)
@@ -83,6 +83,7 @@ Gå till ett namnområde för resursleverantören:
 > - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
 > - [Microsoft.EventGrid](#microsofteventgrid)
 > - [Microsoft.EventHub](#microsofteventhub)
+> - [Microsoft.Falcon (olika)](#microsoftfalcon)
 > - [Microsoft.Funktioner](#microsoftfeatures)
 > - [Microsoft.Gallery](#microsoftgallery)
 > - [Microsoft.Genomik](#microsoftgenomics)
@@ -99,11 +100,13 @@ Gå till ett namnområde för resursleverantören:
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
 > - [Microsoft.IoTSpaces](#microsoftiotspaces)
 > - [Microsoft.KeyVault](#microsoftkeyvault)
+> - [Microsoft.Kubernetes](#microsoftkubernetes)
 > - [Microsoft.Kusto](#microsoftkusto)
 > - [Microsoft.LabServices](#microsoftlabservices)
 > - [Microsoft.Logic](#microsoftlogic)
 > - [Microsoft.MachineLärning](#microsoftmachinelearning)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
+> - [Microsoft.Underhåll](#microsoftmaintenance)
 > - [Microsoft.ManagedIdentity Microsoft.ManagedIdentity Microsoft.ManagedIdentity Microsoft.](#microsoftmanagedidentity)
 > - [Microsoft.ManagedServices](#microsoftmanagedservices)
 > - [Microsoft.Management (På)Microsoft.Management](#microsoftmanagement)
@@ -129,6 +132,7 @@ Gå till ett namnområde för resursleverantören:
 > - [Microsoft.PowerBI](#microsoftpowerbi)
 > - [Microsoft.PowerBIDedicated Microsoft.PowerBIDedicated Microsoft.PowerBIDedicated Microsoft.](#microsoftpowerbidedicated)
 > - [Microsoft.ProjectBabylon](#microsoftprojectbabylon)
+> - [Microsoft.Quantum (På andra)](#microsoftquantum)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
 > - [Microsoft.Relay](#microsoftrelay)
 > - [Microsoft.RemoteApp](#microsoftremoteapp)
@@ -220,9 +224,7 @@ Gå till ett namnområde för resursleverantören:
 > | varningarMetaData | Inga | Inga |
 > | varningarSumma | Inga | Inga |
 > | aviseringarSummaryList | Inga | Inga |
-> | Feedback | Inga | Inga |
 > | smartDetectorAlertRules | Ja | Ja |
-> | smartDetectorRuntimeMiljöer | Inga | Inga |
 > | smarta grupper | Inga | Inga |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
@@ -331,7 +333,6 @@ Gå till ett namnområde för resursleverantören:
 > | ------------- | ----------- | ----------- |
 > | hybridDataManagers | Ja | Ja |
 > | postgresInstances | Ja | Ja |
-> | sqlBigDataKluster | Ja | Ja |
 > | sqlInstances | Ja | Ja |
 > | sqlServerRegistrations | Ja | Ja |
 > | sqlServerRegistrations / sqlServers | Inga | Inga |
@@ -341,10 +342,10 @@ Gå till ett namnområde för resursleverantören:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder taggar | Tagg i kostnadsrapport |
 > | ------------- | ----------- | ----------- |
+> | cloudManifestFiler | Inga | Inga |
 > | Registreringar | Ja | Ja |
 > | registreringar / kundAbonnemang | Inga | Inga |
 > | registreringar / produkter | Inga | Inga |
-> | verifieringstangenter | Inga | Inga |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
@@ -459,6 +460,17 @@ Gå till ett namnområde för resursleverantören:
 > | cordaMembers | Ja | Ja |
 > | Watchers | Ja | Ja |
 
+## <a name="microsoftblockchaintokens"></a>Microsoft.BlockchainTokens
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Stöder taggar | Tagg i kostnadsrapport |
+> | ------------- | ----------- | ----------- |
+> | TokenServices | Ja | Ja |
+> | TokenServices / BlockchainNetworks | Inga | Inga |
+> | TokenServices / Grupper | Inga | Inga |
+> | TokenServices / Grupper / Konton | Inga | Inga |
+> | TokenServices / TokenTemplates | Inga | Inga |
+
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint (Microsoft.Blueprint)
 
 > [!div class="mx-tableFixed"]
@@ -528,6 +540,7 @@ Gå till ett namnområde för resursleverantören:
 > | Profiler | Ja | Ja |
 > | profiler/slutpunkter | Ja | Ja |
 > | profiler/slutpunkter / customdomains | Inga | Inga |
+> | profiler/slutpunkter/ursprungsgrupper | Inga | Inga |
 > | profiler/slutpunkter/ursprung | Inga | Inga |
 > | valideraProbe | Inga | Inga |
 
@@ -648,9 +661,12 @@ Gå till ett namnområde för resursleverantören:
 > | närhetPlatsmentGrupper | Ja | Ja |
 > | restorePointCollections restorePointCollections restorePointCollections restorePoint | Ja | Ja |
 > | restorePointCollections /restorePoints restorePoints restorePoints restorePoints restorePoints restorePoints | Inga | Inga |
+> | sharedVMExtensions | Ja | Ja |
+> | sharedVMExtensions / versioner | Inga | Inga |
 > | sharedVMImages | Ja | Ja |
 > | sharedVMImages / versioner | Inga | Inga |
 > | snapshots | Ja | Ja |
+> | sshPublicKeys (sshPublicKeys) | Ja | Ja |
 > | virtuellaMaskiner | Ja | Ja |
 > | virtualMachines / tillägg | Ja | Ja |
 > | virtualMachines / metricDefinitions | Inga | Inga |
@@ -701,6 +717,7 @@ Gå till ett namnområde för resursleverantören:
 > | Resurstyp | Stöder taggar | Tagg i kostnadsrapport |
 > | ------------- | ----------- | ----------- |
 > | Register | Ja | Ja |
+> | register / agentPools | Ja | Ja |
 > | register / bygger | Inga | Inga |
 > | register / byggen / avbryt | Inga | Inga |
 > | register / byggen / getLogLink | Inga | Inga |
@@ -739,13 +756,6 @@ Gå till ett namnområde för resursleverantören:
 > | containerServices | Ja | Ja |
 > | managedClusters | Ja | Ja |
 > | openShiftManagedClusters | Ja | Ja |
-
-## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics Microsoft.CortanaAnalytics Microsoft.CortanaAnalytics Microsoft.
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Stöder taggar | Tagg i kostnadsrapport |
-> | ------------- | ----------- | ----------- |
-> | konton | Ja | Ja |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 
@@ -939,6 +949,7 @@ Gå till ett namnområde för resursleverantören:
 > | servrar / virtualNetworkRules | Inga | Inga |
 > | servrar / waitStatistics | Inga | Inga |
 > | servrarv2 | Ja | Ja |
+> | singleServers | Ja | Ja |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 
@@ -1075,13 +1086,22 @@ Gå till ett namnområde för resursleverantören:
 > | namnområden / eventhubs / konsumentgrupper | Inga | Inga |
 > | namnrymd / nätverksregler | Inga | Inga |
 
+## <a name="microsoftfalcon"></a>Microsoft.Falcon (olika)
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Stöder taggar | Tagg i kostnadsrapport |
+> | ------------- | ----------- | ----------- |
+> | Namnområden | Ja | Ja |
+
 ## <a name="microsoftfeatures"></a>Microsoft.Funktioner
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder taggar | Tagg i kostnadsrapport |
 > | ------------- | ----------- | ----------- |
+> | featureProviders | Inga | Inga |
 > | funktioner | Inga | Inga |
 > | Leverantörer | Inga | Inga |
+> | abonnemangFöreelser | Inga | Inga |
 
 ## <a name="microsoftgallery"></a>Microsoft.Gallery
 
@@ -1216,6 +1236,13 @@ Gå till ett namnområde för resursleverantören:
 > | valv / eventGridFilters | Inga | Inga |
 > | valv / hemligheter | Inga | Inga |
 
+## <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Stöder taggar | Tagg i kostnadsrapport |
+> | ------------- | ----------- | ----------- |
+> | anslutnaKlusterer | Ja | Ja |
+
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
 > [!div class="mx-tableFixed"]
@@ -1227,6 +1254,7 @@ Gå till ett namnområde för resursleverantören:
 > | kluster / databaser / dataanslutningar | Inga | Inga |
 > | kluster / databaser / eventhubconnections | Inga | Inga |
 > | kluster / databaser / principalassignments | Inga | Inga |
+> | kluster/dataanslutningar | Inga | Inga |
 > | kluster /principalastilldelningar | Inga | Inga |
 > | kluster /delade enheter | Inga | Inga |
 
@@ -1268,6 +1296,16 @@ Gå till ett namnområde för resursleverantören:
 > | arbetsytor / beräkningar | Inga | Inga |
 > | arbetsytor / eventGridFilters | Inga | Inga |
 
+## <a name="microsoftmaintenance"></a>Microsoft.Underhåll
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Stöder taggar | Tagg i kostnadsrapport |
+> | ------------- | ----------- | ----------- |
+> | applyUpdates | Inga | Inga |
+> | configurationAstilldelningar | Inga | Inga |
+> | underhållKonfigurationer | Ja | Ja |
+> | uppdateringar | Inga | Inga |
+
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity Microsoft.ManagedIdentity Microsoft.ManagedIdentity Microsoft.
 
 > [!div class="mx-tableFixed"]
@@ -1304,6 +1342,7 @@ Gå till ett namnområde för resursleverantören:
 > | ------------- | ----------- | ----------- |
 > | konton | Ja | Ja |
 > | konton / eventGridFilters | Inga | Inga |
+> | konton / privateAtlases | Ja | Ja |
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
 
@@ -1320,10 +1359,13 @@ Gå till ett namnområde för resursleverantören:
 > | offerTyper / utgivare / erbjudanden / planer / configs / importImage | Inga | Inga |
 > | privategalleryitems | Inga | Inga |
 > | privatButikClient | Inga | Inga |
+> | privateStores | Inga | Inga |
+> | privateStores / erbjudanden | Inga | Inga |
 > | Produkter | Inga | Inga |
 > | Förlag | Inga | Inga |
 > | förlag / erbjudanden | Inga | Inga |
 > | förlag / erbjudanden / ändringar | Inga | Inga |
+> | registrera | Inga | Inga |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
@@ -1390,7 +1432,6 @@ Gå till ett namnområde för resursleverantören:
 > | objektUnderstandingAccounts | Ja | Ja |
 > | remoteRenderingRedovisningar | Ja | Ja |
 > | spatialAnchorsKonton | Ja | Ja |
-> | ytaRekonstruktionKonton | Ja | Ja |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
@@ -1398,6 +1439,7 @@ Gå till ett namnområde för resursleverantören:
 > | Resurstyp | Stöder taggar | Tagg i kostnadsrapport |
 > | ------------- | ----------- | ----------- |
 > | netAppAccounts (netAppAccounts) | Ja | Inga |
+> | netAppAccounts / accountBackups | Inga | Inga |
 > | netAppAccounts / capacityPools | Ja | Inga |
 > | netAppAccounts / capacityPools / volymer | Ja | Inga |
 > | netAppAccounts / capacityPools / volymer / ögonblicksbilder | Inga | Inga |
@@ -1536,9 +1578,7 @@ Gå till ett namnområde för resursleverantören:
 > | arbetsytor / dataExportar | Inga | Inga |
 > | arbetsytor / dataSources | Inga | Inga |
 > | arbetsytor / linkedServices | Inga | Inga |
-> | arbetsytor / privateEndpointConnectionProxies | Inga | Inga |
-> | arbetsytor / privateEndpointConnections | Inga | Inga |
-> | arbetsytor / privateLinkResources | Inga | Inga |
+> | arbetsytor / linkedStorageAccounts | Inga | Inga |
 > | arbetsytor / fråga | Inga | Inga |
 > | arbetsytor / scopedPrivateLinkProxies | Inga | Inga |
 
@@ -1604,6 +1644,13 @@ Gå till ett namnområde för resursleverantören:
 > | Resurstyp | Stöder taggar | Tagg i kostnadsrapport |
 > | ------------- | ----------- | ----------- |
 > | konton | Ja | Ja |
+
+## <a name="microsoftquantum"></a>Microsoft.Quantum (På andra)
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Stöder taggar | Tagg i kostnadsrapport |
+> | ------------- | ----------- | ----------- |
+> | Arbetsytor | Ja | Ja |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
@@ -1726,6 +1773,10 @@ Gå till ett namnområde för resursleverantören:
 > | reglerande EfterlevnadStandarder | Inga | Inga |
 > | regulatoryComplianceStandards / regulatoryComplianceControls | Inga | Inga |
 > | reglerande EfterlevnadStandards / regulatoriska EfterlevnadKontroller / regulatoriska Efterlevnadsassessments | Inga | Inga |
+> | säkraScoreControlDefinitions | Inga | Inga |
+> | säkraScoreControls | Inga | Inga |
+> | säkraScores | Inga | Inga |
+> | secureScores / secureScoreControls | Inga | Inga |
 > | säkerhetKontakter | Inga | Inga |
 > | säkerhetLösningar | Inga | Inga |
 > | säkerhetLösningarReferenceData | Inga | Inga |
@@ -1998,6 +2049,7 @@ Gå till ett namnområde för resursleverantören:
 > | byt namn | Inga | Inga |
 > | PrenumerationDefinitioner | Inga | Inga |
 > | PrenumerationEr | Inga | Inga |
+> | Prenumerationer | Inga | Inga |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
@@ -2028,6 +2080,7 @@ Gå till ett namnområde för resursleverantören:
 > | Leverantörer | Inga | Inga |
 > | leverantörer / skus | Inga | Inga |
 > | leverantörer / vnfs | Inga | Inga |
+> | virtualNetworkFunctionSkus | Inga | Inga |
 > | vnfs (vnfs) | Ja | Ja |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
@@ -2055,6 +2108,7 @@ Gå till ett namnområde för resursleverantören:
 > | hostingMiljöer / eventGridFilters | Inga | Inga |
 > | hostingMiljöer / multiRolePools | Inga | Inga |
 > | hostingMiljöer / workerPools | Inga | Inga |
+> | kubeMiljöer | Ja | Ja |
 > | publishingAnvändare | Inga | Inga |
 > | rekommendationer | Inga | Inga |
 > | resursHealthMetadata | Inga | Inga |

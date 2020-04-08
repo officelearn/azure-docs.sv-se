@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/06/2019
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2e62062fabfbb7c320bbeaf473979ccef96b0ba3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: adc9b60ce1c31076a91ec44b9656752b464e024d
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80047219"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811780"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Självstudiekurs: Mappa ett befintligt anpassat DNS-namn till Azure App Service
 
@@ -151,7 +151,7 @@ Det kan ta lite tid innan den nya anpassade domänen återspeglas på appens **s
 ![CNAME-posten har lagts till](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> En **inte säker** etikett för din anpassade domän innebär att den ännu inte är bunden till ett SSL-certifikat, och alla HTTPS-begäranden från en webbläsare till din anpassade domän får och fel eller varning, beroende på webbläsaren. Information om hur du lägger till en SSL-bindning finns i [Skydda ett anpassat DNS-namn med en SSL-bindning i Azure App Service](configure-ssl-bindings.md).
+> En **inte säker** etikett för din anpassade domän innebär att den ännu inte är bunden till ett TLS/SSL-certifikat, och alla HTTPS-begäranden från en webbläsare till din anpassade domän får och fel eller varning, beroende på webbläsaren. Information om hur du lägger till en TLS-bindning finns i [Skydda ett anpassat DNS-namn med en TLS/SSL-bindning i Azure App Service](configure-ssl-bindings.md).
 
 Om du har missat något steg eller stavat fel på något ord visas ett verifieringsfel längst ned på sidan.
 
@@ -235,7 +235,7 @@ Det kan ta lite tid innan den nya anpassade domänen återspeglas på appens **s
 ![A-posten har lagts till](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> En **inte säker** etikett för din anpassade domän innebär att den ännu inte är bunden till ett SSL-certifikat, och alla HTTPS-begäranden från en webbläsare till din anpassade domän får och fel eller varning, beroende på webbläsaren. Information om hur du lägger till en SSL-bindning finns i [Skydda ett anpassat DNS-namn med en SSL-bindning i Azure App Service](configure-ssl-bindings.md).
+> En **inte säker** etikett för din anpassade domän innebär att den ännu inte är bunden till ett TLS/SSL-certifikat, och alla HTTPS-begäranden från en webbläsare till din anpassade domän får och fel eller varning, beroende på webbläsaren. Information om hur du lägger till en TLS-bindning finns i [Skydda ett anpassat DNS-namn med en TLS/SSL-bindning i Azure App Service](configure-ssl-bindings.md).
 
 Om du har missat något steg eller stavat fel på något ord visas ett verifieringsfel längst ned på sidan.
 
@@ -290,7 +290,7 @@ Välj **+** ikonen igen om du vill lägga till en annan anpassad domän som matc
 ![CNAME-posten har lagts till](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> En **Note Secure** Secure-anteckningsetikett för din anpassade domän innebär att den ännu inte är bunden till ett SSL-certifikat, och alla HTTPS-begäranden från en webbläsare till din anpassade domän får och fel eller varning, beroende på webbläsaren. Information om hur du lägger till en SSL-bindning finns i [Skydda ett anpassat DNS-namn med en SSL-bindning i Azure App Service](configure-ssl-bindings.md).
+> En **Note Secure** Secure-anteckningsetikett för din anpassade domän innebär att den ännu inte är bunden till ett TLS/SSL-certifikat, och alla HTTPS-begäranden från en webbläsare till din anpassade domän får och fel eller varning, beroende på webbläsaren. Information om hur du lägger till en TLS-bindning finns i [Skydda ett anpassat DNS-namn med en TLS/SSL-bindning i Azure App Service](configure-ssl-bindings.md).
 
 ## <a name="test-in-browser"></a>Testa i webbläsaren
 
@@ -366,7 +366,7 @@ I den här självstudiekursen lärde du dig att:
 > * Omdirigera standard-URL:en till en anpassad katalog
 > * Automatisera domänmappning med skript
 
-Gå vidare till nästa självstudiekurs där du får lära dig att binda ett anpassat SSL-certifikat till en webbapp.
+Gå vidare till nästa självstudiekurs om du vill lära dig hur du binder ett anpassat TLS/SSL-certifikat till en webbapp.
 
 > [!div class="nextstepaction"]
-> [Skydda ett anpassat DNS-namn med en SSL-bindning i Azure App Service](configure-ssl-bindings.md)
+> [Skydda ett anpassat DNS-namn med en TLS/SSL-bindning i Azure App Service](configure-ssl-bindings.md)

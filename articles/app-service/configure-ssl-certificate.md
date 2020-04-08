@@ -1,19 +1,19 @@
 ---
-title: Lägga till och hantera SSL-certifikat
+title: Lägga till och hantera TLS/SSL-certifikat
 description: Skapa ett kostnadsfritt certifikat, importera ett App Service-certifikat, importera ett Key Vault-certifikat eller köpa ett App Service-certifikat i Azure App Service.
 tags: buy-ssl-certificates
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 120caf459a7a8ca4e60d5e447a1e4130c0bce389
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4edf710e575bbb26fb0e247e59ff5c796f16226e
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79239765"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810584"
 ---
-# <a name="add-an-ssl-certificate-in-azure-app-service"></a>Lägg till ett SSL-certifikat i Azure App Service
+# <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Lägga till ett TLS/SSL-certifikat i Azure App Service
 
 [Azure App Service](overview.md) tillhandahåller en mycket skalbar, självkorrigering webbhotell. I den här artikeln visas hur du skapar, laddar upp eller importerar ett privat certifikat eller ett offentligt certifikat till App Service. 
 
@@ -47,7 +47,7 @@ Det [kostnadsfria apptjänsthanterade certifikatet](#create-a-free-certificate-p
 * Innehålla en privat nyckel som är minst 2 048 bitar lång
 * Innehålla alla mellanliggande certifikat i certifikatkedjan
 
-För att skydda en anpassad domän i en SSL-bindning har certifikatet ytterligare krav:
+För att skydda en anpassad domän i en TLS-bindning har certifikatet ytterligare krav:
 
 * Innehåller en [utökad nyckelanvändning](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Extensions_informing_a_specific_usage_of_a_certificate) för serverautentisering (OID = 1.3.6.1.5.5.7.3.1)
 * Vara signerat av en betrodd certifikatutfärdare
@@ -59,7 +59,7 @@ För att skydda en anpassad domän i en SSL-bindning har certifikatet ytterligar
 
 ## <a name="create-a-free-certificate-preview"></a>Skapa ett kostnadsfritt certifikat (förhandsgranskning)
 
-Det kostnadsfria hanterade certifikatet för App Service är en nyckelfärdig lösning för att skydda ditt anpassade DNS-namn i App Service. Det är ett fullt fungerande SSL-certifikat som hanteras av App Service och förnyas automatiskt. Det kostnadsfria certifikatet har följande begränsningar:
+Det kostnadsfria hanterade certifikatet för App Service är en nyckelfärdig lösning för att skydda ditt anpassade DNS-namn i App Service. Det är ett fullt fungerande TLS/SSL-certifikat som hanteras av App Service och förnyas automatiskt. Det kostnadsfria certifikatet har följande begränsningar:
 
 - Stöder inte jokerteckencertifikat.
 - Stöder inte nakna domäner.
@@ -237,7 +237,7 @@ Skapa en fil för det sammanfogade certifikatet med namnet _mergedcertificate.cr
 
 ### <a name="export-certificate-to-pfx"></a>Exportera certifikat till PFX
 
-Exportera det sammanfogade SSL-certifikatet med den privata nyckel som certifikatbegärandet genererades med.
+Exportera det kopplade TLS/SSL-certifikatet med den privata nyckel som certifikatbegäran genererades med.
 
 Om du genererade din certifikatbegäran med hjälp av OpenSSL, har du skapat en privat nyckelfil. Kör följande kommando för att exportera certifikatet till PFX. Ersätt platshållarna _ &lt;privat-nyckel-fil>_ och _ &lt;sammanslagna certifikat-fil>_ med sökvägar till din privata nyckel och den kopplade certifikatfilen.
 
@@ -245,7 +245,7 @@ Om du genererade din certifikatbegäran med hjälp av OpenSSL, har du skapat en 
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
 ```
 
-När du uppmanas till det anger du ett exportlösenord. Det här lösenordet används när du senare överför ditt SSL-certifikat till App Service.
+När du uppmanas till det anger du ett exportlösenord. Du använder det här lösenordet när du laddar upp TLS/SSL-certifikatet till App Service senare.
 
 Om du använder IIS eller _Certreq.exe_ till att generera din certifikatbegäran, installerar du certifikatet på den lokala datorn och [exporterar sedan certifikatet till PFX](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
 
@@ -363,16 +363,16 @@ Nu kan du ta bort App Service-certifikatet. Välj **Översikt** > **Ta bort**i d
 
 ### <a name="azure-cli"></a>Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
 
 ## <a name="more-resources"></a>Fler resurser
 
-* [Skydda ett anpassat DNS-namn med en SSL-bindning](configure-ssl-bindings.md)
+* [Skydda ett anpassat DNS-namn med en TLS/SSL-bindning i Azure App Service](configure-ssl-bindings.md)
 * [Använda HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Använda TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [Använda ett SSL-certifikat i programkoden](configure-ssl-certificate-in-code.md)
+* [Använda ett TLS/SSL-certifikat i koden i Azure App Service](configure-ssl-certificate-in-code.md)
 * [Vanliga frågor och svar : App Service-certifikat](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

@@ -7,16 +7,18 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/29/2019
-ms.openlocfilehash: 6319d2d72df69cc9633bd2b2ff8e777c2a48966a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73df5b7f10e038b6894996eb83dec7b6914a4536
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270256"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803198"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Hantera Logic Apps i Visual Studio
 
 Även om du kan skapa, redigera, hantera och distribuera logikappar i [Azure-portalen](https://portal.azure.com)kan du också använda Visual Studio när du vill lägga till dina logikappar i källkontroll, publicera olika versioner och skapa [Azure Resource Manager-mallar](../azure-resource-manager/management/overview.md) för olika distributionsmiljöer. Med Visual Studio Cloud Explorer kan du hitta och hantera dina logikappar tillsammans med andra Azure-resurser. Du kan till exempel öppna, ladda ned, redigera, köra, visa körningshistorik, inaktivera och aktivera logikappar som redan har distribuerats i Azure-portalen. Om du inte har arbetat med Azure Logic Apps i Visual Studio tidigare kan du läsa om hur du [skapar logikappar med Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+
+Du kan också [hantera dina logikappar i Azure-portalen](manage-logic-apps-with-azure-portal.md).
 
 > [!IMPORTANT]
 > Distribuera eller publicera en logikapp från Visual Studio skriver över versionen av appen i Azure-portalen. Så om du gör ändringar i Azure-portalen som du vill behålla, se till att du [uppdaterar logikappen i Visual Studio](#refresh) från Azure-portalen innan du distribuerar eller publicerar från Visual Studio.

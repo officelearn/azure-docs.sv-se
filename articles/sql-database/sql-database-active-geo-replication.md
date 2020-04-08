@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 02/17/2020
-ms.openlocfilehash: b80b58d64ea27df95c2704243d8a89fa6ca12e2a
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/06/2020
+ms.openlocfilehash: 1f339d987d67047f5857679b440e93e6c3730059
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548515"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810447"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Skapa och använda aktiv geo-replikering
 
@@ -113,14 +113,19 @@ Se till att programmet omedelbart kan komma åt den nya primära efter redundans
 
 ## <a name="configuring-secondary-database"></a>Konfigurera sekundär databas
 
-Både primära och sekundära databaser måste ha samma tjänstnivå. Det rekommenderas också starkt att sekundär databas skapas med samma beräkningsstorlek (DTUs eller virtuella kärnor) som den primära. Om den primära databasen har en tung skrivarbetsbelastning kanske en sekundär med lägre beräkningsstorlek inte kan hålla jämna steg med den. Det kommer att orsaka redo eftersläpning på den sekundära och potentiella otillgänglighet. En sekundär databas som släpar efter den primära riskerar också en stor dataförlust om en påtvingad redundans skulle krävas. För att minska dessa risker begränsar effektiv aktiv geo-replikering primärts logghastighet så att dess sekundärer kan komma ikapp. Den andra konsekvensen av en sekundär konfiguration med obalans är att efter redundans kommer programmets prestanda att påverkas på grund av otillräcklig beräkningskapacitet för den nya primär. Det kommer att krävas att uppgradera till en högre beräkning till den nödvändiga nivån, vilket inte kommer att vara möjligt förrän avbrottet har mildrats. 
+Både primära och sekundära databaser måste ha samma tjänstnivå. Det rekommenderas också starkt att sekundär databas skapas med samma beräkningsstorlek (DTUs eller virtuella kärnor) som den primära. Om den primära databasen har en tung skrivarbetsbelastning kanske en sekundär med lägre beräkningsstorlek inte kan hålla jämna steg med den. Det kommer att orsaka redo eftersläpning på den sekundära, och potentiella otillgänglighet av den sekundära. En sekundär databas som släpar efter den primära riskerar också en stor dataförlust, om en påtvingad redundans skulle krävas. För att minska dessa risker begränsar aktiv geo-replikering primärts logghastighet om det behövs så att dess sekundärer kan komma ikapp. 
 
+Den andra konsekvensen av en sekundär konfiguration med obalanser är att programprestanda kan uppstå efter redundans på grund av otillräcklig beräkningskapacitet för den nya primärnyckeln. I så fall kommer det att bli nödvändigt att skala upp databastjänstmålet till den nödvändiga nivån, vilket kan ta betydande tid och beräkningsresurser, och kommer att kräva en redundans vid [hög tillgänglighet](sql-database-high-availability.md) i slutet av uppskalningsprocessen.
 
 > [!IMPORTANT]
-> Den publicerade RPO = 5 sek kan inte garanteras om inte den sekundära databasen har konfigurerats med samma beräkningsstorlek som den primära. 
+> Det publicerade 5-sekunders RPO-serviceavtalet kan inte garanteras om inte den sekundära databasen har konfigurerats med samma eller högre beräkningsstorlek som primär. 
 
+Om du bestämmer dig för att skapa den sekundära med lägre beräkningsstorlek, är logg-I/O-procentdiagrammet i Azure-portalen ett bra sätt att uppskatta den minimala beräkningsstorleken för den sekundära som krävs för att upprätthålla replikeringsbelastningen. Om din primära databas till exempel är P6 (1000 DTU) och dess loggskrivningsprocent är 50 %, måste den sekundära vara minst P4 (500 DTU). Om du vill hämta historiska logg-I/O-data använder du [vyn sys.resource_stats.](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) Om du vill hämta senaste loggskrivningsdata med högre granularitet som bättre återspeglar kortsiktiga toppar i logghastigheten använder [du vyn sys.dm_db_resource_stats.](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 
 
-Om du bestämmer dig för att skapa den sekundära med lägre beräkningsstorlek, är logg-I/O-procentdiagrammet på Azure-portalen ett bra sätt att uppskatta den minimala beräkningsstorleken för den sekundära som krävs för att upprätthålla replikeringsbelastningen. Om din primära databas till exempel är P6 (1000 DTU) och dess log IO-procent är 50 % måste den sekundära vara minst P4 (500 DTU). Du kan också hämta logg-I/O-data med [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) eller [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) databasvyer.  Begränsningen rapporteras som ett HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO vänteläge i [databasvyerna sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) och [sys.dm_os_wait_stats.](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 
+Begränsning av transaktionslogghastighet på primärt på grund av lägre beräkningsstorlek på en sekundär rapporteras med hjälp av HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO väntetyp, som visas i [databasvyerna sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) och [sys.dm_os_wait_stats.](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 
+
+> [!NOTE]
+> Transaktionslogghastigheten på den primära kan begränsas av skäl som inte är relaterade till lägre beräkningsstorlek på en sekundär. Den här typen av begränsning kan uppstå även om den sekundära har samma eller högre beräkningsstorlek än den primära. Mer information, inklusive väntetyper för olika typer av logghastighetsbegränsning, finns i Styrning av [transaktionsloggar.](sql-database-resource-limits-database-server.md#transaction-log-rate-governance)
 
 Mer information om beräkningsstorlekarna för SQL Database finns i [Vad är SQL Database Service-nivåer](sql-database-purchase-models.md).
 

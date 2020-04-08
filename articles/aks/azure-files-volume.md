@@ -1,15 +1,16 @@
 ---
-title: Skapa en statisk volym för flera poddar i Azure Kubernetes Service (AKS)
+title: Skapa Azure-filresurs manuellt
+titleSuffix: Azure Kubernetes Service
 description: Lär dig hur du skapar en volym manuellt med Azure-filer för användning med flera samtidiga poddar i Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 084ab5cd6736c9148bcab1faf048d3d9081855d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 412b7158ea366eefb1c3e9c1d2586d54c316aa6c
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596410"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803457"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Skapa och använda en volym med Azure Files share manuellt i Azure Kubernetes Service (AKS)
 
@@ -132,7 +133,7 @@ Volumes:
 
 ## <a name="mount-options"></a>Monteringsalternativ
 
-Standardvärdet för *fileMode* och *dirMode* är *0755* för Kubernetes version 1.9.1 och senare. Om du använder ett kluster med Kuberetes version 1.8.5 eller mer och statiskt skapar det beständiga volymobjektet måste monteringsalternativ anges på *PersistentVolume-objektet.* Följande exempel anger *0777:*
+Standardvärdet för *fileMode* och *dirMode* är *0755* för Kubernetes version 1.9.1 och senare. Om du använder ett kluster med Kubernetes version 1.8.5 eller mer och statiskt skapar det beständiga volymobjektet måste monteringsalternativ anges på *PersistentVolume-objektet.* Följande exempel anger *0777:*
 
 ```yaml
 apiVersion: v1

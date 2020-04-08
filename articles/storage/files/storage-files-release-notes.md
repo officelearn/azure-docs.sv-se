@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/16/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 5b247e8f4a611ace227f5adcef7e0e27de341c96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 578d00d4bd65b3ffbfb6cdac439762344604e6b8
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79454643"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804885"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Viktig information om Azure File Sync-agenten
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Dina Windows Server-installationer omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS). Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -35,9 +35,7 @@ Följande versioner av Azure File Sync-agenten stöds:
 | Samlad uppdatering i juni 2019 - [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | den 13 juni 2019 | Stöds - Agentversionen upphör att gälla den 21 april 2020 |
 | Samlad uppdatering i maj 2019 - [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | den 7 maj 2019 | Stöds - Agentversionen upphör att gälla den 21 april 2020 |
 | V6 Release - [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | den 21 april 2019 | Stöds - Agentversionen upphör att gälla den 21 april 2020 |
-| Samlad uppdatering i april 2019 - [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | den 4 april 2019 | Stöds - Agentversionen upphör att gälla den 18 mars 2020 |
-| Samlad uppdatering i mars 2019 - [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | den 7 mars 2019 | Stöds - Agentversionen upphör att gälla den 18 mars 2020 |
-| V5 Release - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | den 12 februari 2019 | Stöds - Agentversionen upphör att gälla den 18 mars 2020 |
+| V5 Släpp | 5.0.2.0 - 5.2.0.0 | Ej tillämpligt | Stöds inte - Agentversionerna upphörde att gälla den 18 mars 2020 |
 | V4 Släpp | 4.0.1.0 - 4.3.0.0 | Ej tillämpligt | Stöds inte - Agentversionerna upphörde att gälla den 6 november 2019 |
 | V3-släpp | 3.1.0.0 - 3.4.0.0 | Ej tillämpligt | Stöds inte - Agentversionerna upphörde att gälla den 19 augusti 2019 |
 | Pre-GA agenter | 1.1.0.0 - 3.0.13.0 | Ej tillämpligt | Stöds inte - Agentversionerna upphörde att gälla den 1 oktober 2018 |

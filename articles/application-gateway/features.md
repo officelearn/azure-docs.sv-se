@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 04/07/2020
 ms.author: victorh
-ms.openlocfilehash: 550d9f4f5396b2165260e39cd28222b083dd6756
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f021eed959ef88a1ef3671e1d0ace8080710c92a
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279993"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810241"
 ---
 # <a name="azure-application-gateway-features"></a>Azure Application Gateway-funktioner
 
@@ -26,7 +26,7 @@ Application Gateway innehåller följande funktioner:
 - [Automatisk skalning](#autoscaling)
 - [Zon redundans](#zone-redundancy)
 - [Statisk VIP](#static-vip)
-- [Brandvägg för webbprogram](#web-application-firewall)
+- [Brandvägg för webbaserade program](#web-application-firewall)
 - [Ingress-kontrollant för AKS](#ingress-controller-for-aks)
 - [URL-baserad routning](#url-based-routing)
 - [Värd för flera platser](#multiple-site-hosting)
@@ -160,6 +160,10 @@ I följande tabell visas ett genomsnittligt prestandadataflöde för varje progr
 
 > [!NOTE]
 > De här värdena är genomsnittliga värden för ett Application Gateway-dataflöde. Det faktiska dataflödet beror på olika miljöfaktorer som genomsnittlig sidstorlek, plats för serverdelsinstanserna och bearbetningstid för att serva en sida. Du bör köra egna test för exakta prestandavärden. Dessa värden är bara för vägledning vid kapacitetsplanering.
+
+## <a name="version-feature-comparison"></a>Jämförelse av versionsfunktion
+
+En jämförelse av en application gateway v1-v2-funktion finns i [Automatisk skalning och zon redundant Application Gateway v2](application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku)
 
 ## <a name="next-steps"></a>Nästa steg
 

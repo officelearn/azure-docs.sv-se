@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
-ms.openlocfilehash: 45efaadf7d15fff290165fe831c45c0bc063db53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e50eb561bcbb924ea093722d6c61bbe51747b328
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73643800"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811271"
 ---
 # <a name="security-management-in-azure"></a>Säkerhetshantering i Azure
 Azure-prenumeranter kan hantera sina molnmiljöer från flera enheter, inklusive hantering av arbetsstationer, utvecklardatorer och även privilegierade slutanvändarens enheter som har uppgiftsspecifika behörigheter. I vissa fall kan administrativa funktioner utförs via webbaserade konsoler som [Azure-portalen](https://azure.microsoft.com/features/azure-portal/). I andra fall kan det finnas direkta anslutningar till Azure från lokala system över virtuella privata nätverk (VPN), Terminal Services, klientprotokoll för program eller (programmässigt) Azure Service Management API (SMAPI). Dessutom kan klientslutpunkter vara antingen domänanslutna eller isolerade och ohanterade, till exempel surfplattor eller smartphones.
@@ -119,7 +119,7 @@ En  fjärrskrivbordsgateway  är en principbaserad RDP-proxytjänst som tillämp
 Vanligtvis kan du se till att administratörsdatorerna är säkra att använda med molnet på ungefär samma sätt som för övriga lokala datorer. Det handlar till exempel om att minimera byggnadsbehörigheterna och de restriktiva behörigheterna. Vissa unika aspekter av molnhantering liknar mer företagshantering via fjärranslutning eller utanför IP-nätverket. Det gäller bland annat att använda och granska autentiseringsuppgifter, fjärråtkomst med ökad säkerhet och hotidentifiering och -svar.
 
 ### <a name="authentication"></a>Autentisering
-Du kan använda inloggningsbegränsningar för Azure om du vill begränsa källans IP-adresser från åtkomst till administrativa verktyg och granska förfrågningar. Du kan hjälpa Azure att identifiera hanteringsklienter (datorer och/eller program) genom att konfigurera både SMAPI (via kundutvecklade verktyg som Windows PowerShell-cmdlets) och Azure Portal så att de kräver hanteringscertifikat på klientsidan, förutom SSL-certifikat, för att installeras. Vi rekommenderar också att administratörsåtkomst kräver multifaktorautentisering.
+Du kan använda inloggningsbegränsningar för Azure om du vill begränsa källans IP-adresser från åtkomst till administrativa verktyg och granska förfrågningar. För att hjälpa Azure att identifiera hanteringsklienter (arbetsstationer och/eller program) kan du konfigurera både SMAPI (via kundutvecklade verktyg som Windows PowerShell-cmdlets) och Azure-portalen så att klienthanteringscertifikat installeras, förutom TLS/SSL-certifikat. Vi rekommenderar också att administratörsåtkomst kräver multifaktorautentisering.
 
 Vissa program eller tjänster som du distribuerar i Azure kan ha sina egna autentiseringsmekanismer för både slutanvändare och administratörer, medan andra utnyttjar Azure AD fullt ut. Beroende på om du federerar autentiseringsuppgifter via AD FS (Active Directory Federation Services), via katalogsynkronisering eller genom underhåll av användarkonton enbart i molnet kan du med hjälp av [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (del av Azure AD Premium) hantera identitetslivscykler mellan resurserna.
 
@@ -188,7 +188,7 @@ Utgå inte ifrån att andra vanliga säkerhetskrav kan åsidosättas om en dator
 
 | Gör inte följande | Gör följande |
 | --- | --- |
-| Skicka inte autentiseringsuppgifter för administratörsåtkomst eller andra hemligheter via mejl (t.ex. SSL eller hanteringscertifikat) |Upprätthåll sekretessen genom att lämna ut kontonamn och -lösenord via telefon (men lagrar dem inte i röstmeddelanden), utför en fjärrinstallation av klient-/servercertifikat (via en krypterad session), ladda ned från en skyddad nätverksresurs eller distribuera manuellt via flyttbara medier. |
+| Skicka inte e-postautentiseringsuppgifter för administratörsåtkomst eller andra hemligheter (tls/SSL eller hanteringscertifikat) |Upprätthåll sekretessen genom att lämna ut kontonamn och -lösenord via telefon (men lagrar dem inte i röstmeddelanden), utför en fjärrinstallation av klient-/servercertifikat (via en krypterad session), ladda ned från en skyddad nätverksresurs eller distribuera manuellt via flyttbara medier. |
 | - | Hantera hanteringscertifikatets livscyklar proaktivt. |
 | Lagra inte lösenord okrypterade eller icke-hashformaterade i programlagring (till exempel i kalkylblad, SharePoint-webbplatser eller filresurser). |Fastställa säkerhetsprinciper och principer för systemhärdning och använd dem i din utvecklingsmiljö. |
 | - | Använd regler för att fästa certifikat i [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) för lämplig åtkomst till Azure SSL/TLS-webbplatser. |

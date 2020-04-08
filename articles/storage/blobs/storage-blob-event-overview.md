@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: cbrooks
-ms.openlocfilehash: e4dd6bab6198546dc5acab78ec59d92387328dbb
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: d9c666fd6fcf020908b6fc5bdd639261853ad9c6
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80755012"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811537"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagera på Blob Storage-händelser
 
@@ -98,7 +98,7 @@ Program som hanterar Blob-lagringshändelser bör följa några rekommenderade m
 > * På samma sätt kontrollerar du att eventType är en som du är beredd att bearbeta och förutsätter inte att alla händelser du får kommer att vara de typer du förväntar dig.
 > * När meddelanden kan komma efter en viss fördröjning kan du använda etag-fälten för att förstå om din information om objekt fortfarande är uppdaterad. Mer information om hur du använder etag-fältet finns [i Hantera samtidighet i Blob-lagring](https://docs.microsoft.com/azure/storage/common/storage-concurrency?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage). 
 > * När meddelanden kan komma i oordning använder du sequencerfälten för att förstå ordningen på händelser på ett visst objekt. Sequencer-fältet är ett strängvärde som representerar den logiska händelsesekvensen för ett visst blobnamn. Du kan använda standardsträngjämförelse för att förstå den relativa sekvensen av två händelser på samma blobnamn.
-> Lagringshändelser garanterar minst en gång leverans till prenumeranter, vilket säkerställer att alla meddelanden matas ut. På grund av återförsök eller tillgänglighet för prenumerationer kan dock dubblettmeddelanden ibland förekomma.
+> * Lagringshändelser garanterar minst en gång leverans till prenumeranter, vilket säkerställer att alla meddelanden matas ut. På grund av återförsök eller tillgänglighet för prenumerationer kan dock dubblettmeddelanden ibland förekomma. Mer information om meddelandeleverans och återförsök finns i [Leverans och försök till meddelande](../../event-grid/delivery-and-retry.md)från Event Grid .
 > * Använd fältet blobType för att förstå vilken typ av åtgärder som tillåts på blobben och vilka klientbibliotekstyper som du bör använda för att komma åt blobben. Giltiga värden `BlockBlob` är `PageBlob`antingen eller . 
 > * Använd url-fältet `CloudBlockBlob` med `CloudAppendBlob` och konstruktorer för att komma åt blobben.
 > * Ignorera fält som du inte förstår. Den här metoden hjälper dig att hålla dig motståndskraftig mot nya funktioner som kan läggas till i framtiden.

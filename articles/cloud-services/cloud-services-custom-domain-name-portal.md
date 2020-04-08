@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: b1f75a5f7a97907bf5b8bb460ff2df420d053f9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e764e6a474b9843d43f9e8af9cf3b6a8ddf37189
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75386807"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811644"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Konfigurera ett eget domännamn för en Azure-molntjänst
 När du skapar en molntjänst tilldelar Azure den till en underdomän i **cloudapp.net**. Om din molntjänst till exempel heter "contoso" kan användarna komma åt ditt `http://contoso.cloudapp.net`program på en URL som . Azure tilldelar också en virtuell IP-adress.
@@ -30,7 +30,7 @@ Förstår du redan vad CNAME- och A-poster är? [Hoppa förbi förklaringen](#ad
 <p/>
 
 > [!TIP]
-> Kom igång snabbare – använd den nya [azure-guidade genomgången!](https://support.microsoft.com/kb/2990804)  Det gör att associera ett anpassat domännamn och skydda kommunikation (SSL) med Azure Cloud Services eller Azure Websites en kick.
+> Kom igång snabbare – använd den nya [azure-guidade genomgången!](https://support.microsoft.com/kb/2990804)  Det gör att associera ett anpassat domännamn och skydda kommunikation (TLS) med Azure Cloud Services eller Azure Websites en kick.
 > 
 > 
 
@@ -128,14 +128,14 @@ Det här exemplet visar att du skapar en A-post för rotdomänen. Om du vill ska
 * [Mappa CDN-innehåll till en anpassad domän](../cdn/cdn-map-content-to-custom-domain.md)
 * [Allmän konfiguration av molntjänsten](cloud-services-how-to-configure-portal.md).
 * Lär dig hur du [distribuerar en molntjänst](cloud-services-how-to-create-deploy-portal.md).
-* Konfigurera [SSL-certifikat](cloud-services-configure-ssl-certificate-portal.md).
+* Konfigurera [TLS/SSL-certifikat](cloud-services-configure-ssl-certificate-portal.md).
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
 [Expose Your Data on a Custom Domain]: #access-data
 [VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
-[Azure-portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 51375c13d842bda2450a83e1bbc48b741adba39b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 987228c5cf0f5231006726718684528a777e92fd
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80057452"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804477"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Konfigurera en brandvägg för webbaserade program (WAF) för en App Service-miljö
 ## <a name="overview"></a>Översikt
@@ -71,7 +71,7 @@ Om du klickar på fliken **Tjänster** kan du konfigurera WAF för de tjänster 
 ![Lägga till tjänster att hantera][ManagementAddServices]
 
 > [!NOTE]
-> Beroende på hur dina program har konfigurerats och vilka funktioner som används i din Azure App Service-miljö behöver du vidarebefordra trafik för andra TCP-portar än 80 och 443, till exempel om du använder IP SSL för en App Service-app. En lista över nätverksportar som används i App Service-miljöer finns i [avsnittet om nätverksportar i dokumentationen om hur du kontrollerar inkommande trafik](app-service-app-service-environment-control-inbound-traffic.md).
+> Beroende på hur dina program är konfigurerade och vilka funktioner som används i apptjänstmiljön måste du vidarebefordra trafik för andra TCP-portar än 80 och 443, till exempel om du har IP TLS-konfiguration för en App Service-app. En lista över nätverksportar som används i App Service-miljöer finns i [avsnittet om nätverksportar i dokumentationen om hur du kontrollerar inkommande trafik](app-service-app-service-environment-control-inbound-traffic.md).
 > 
 > 
 

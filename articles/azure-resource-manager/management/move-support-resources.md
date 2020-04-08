@@ -2,13 +2,13 @@
 title: Flytta åtgärdsstöd efter resurstyp
 description: Visar en lista över de Azure-resurstyper som kan flyttas till en ny resursgrupp eller prenumeration.
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.openlocfilehash: 2250283136608161956716abadb63b9f706bf581
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: 90fbec4dc076feb1fee8c38cf9757d3c5ddbafaf
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460423"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804800"
 ---
 # <a name="move-operation-support-for-resources"></a>Resurser som kan flyttas
 I den här artikeln visas om en Azure-resurstyp stöder flyttåtgärden. Det ger också information om särskilda villkor att tänka på när du flyttar en resurs.
@@ -35,6 +35,7 @@ Gå till ett namnområde för resursleverantören:
 > - [Microsoft.BingMaps](#microsoftbingmaps)
 > - [Microsoft.BizTalk-tjänster](#microsoftbiztalkservices)
 > - [Microsoft.Blockchain (på andra)](#microsoftblockchain)
+> - [Microsoft.BlockchainTokens](#microsoftblockchaintokens)
 > - [Microsoft.Blueprint (Microsoft.Blueprint)](#microsoftblueprint)
 > - [Microsoft.BotService](#microsoftbotservice)
 > - [Microsoft.Cache](#microsoftcache)
@@ -43,6 +44,7 @@ Gå till ett namnområde för resursleverantören:
 > - [Microsoft.ClassicCompute](#microsoftclassiccompute)
 > - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
 > - [Microsoft.ClassicStorage](#microsoftclassicstorage)
+> - [Microsoft.Kognition](#microsoftcognition)
 > - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft.Compute](#microsoftcompute)
 > - [Microsoft.Förbrukning](#microsoftconsumption)
@@ -72,6 +74,7 @@ Gå till ett namnområde för resursleverantören:
 > - [Microsoft.DBforMySQL](#microsoftdbformysql)
 > - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
 > - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
+> - [Microsoft.DesktopVirtualization](#microsoftdesktopvirtualization)
 > - [Microsoft.Devices](#microsoftdevices)
 > - [Microsoft.DevOps](#microsoftdevops)
 > - [Microsoft.DevSpaces](#microsoftdevspaces)
@@ -82,6 +85,7 @@ Gå till ett namnområde för resursleverantören:
 > - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
 > - [Microsoft.EventGrid](#microsofteventgrid)
 > - [Microsoft.EventHub](#microsofteventhub)
+> - [Microsoft.Experiment](#microsoftexperimentation)
 > - [Microsoft.Falcon (olika)](#microsoftfalcon)
 > - [Microsoft.Genomik](#microsoftgenomics)
 > - [Microsoft.GuestConfiguration](#microsoftguestconfiguration)
@@ -90,11 +94,13 @@ Gå till ett namnområde för resursleverantören:
 > - [Microsoft.HealthcareApis](#microsofthealthcareapis)
 > - [Microsoft.HybridCompute](#microsofthybridcompute)
 > - [Microsoft.HybridData](#microsofthybriddata)
+> - [Microsoft.Hydra (på andra)](#microsofthydra)
 > - [Microsoft.ImportExport](#microsoftimportexport)
 > - [microsoft.insights microsoft.insights microsoft.insights microsoft.](#microsoftinsights)
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
 > - [Microsoft.IoTSpaces](#microsoftiotspaces)
 > - [Microsoft.KeyVault](#microsoftkeyvault)
+> - [Microsoft.Kubernetes](#microsoftkubernetes)
 > - [Microsoft.Kusto](#microsoftkusto)
 > - [Microsoft.LabServices](#microsoftlabservices)
 > - [Microsoft.LocationBasedServices Microsoft.LocationBasedServices Microsoft.LocationBasedServices Microsoft.](#microsoftlocationbasedservices)
@@ -106,7 +112,9 @@ Gå till ett namnområde för resursleverantören:
 > - [Microsoft.MachineLearningModelManagement](#microsoftmachinelearningmodelmanagement)
 > - [Microsoft.MachineLearningOperationalization Microsoft.MachineLearningOperationalization Microsoft.MachineLearningOperationalization Microsoft.](#microsoftmachinelearningoperationalization)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
+> - [Microsoft.Underhåll](#microsoftmaintenance)
 > - [Microsoft.ManagedIdentity Microsoft.ManagedIdentity Microsoft.ManagedIdentity Microsoft.](#microsoftmanagedidentity)
+> - [Microsoft.ManagedNetwork](#microsoftmanagednetwork)
 > - [Microsoft.ManagedServices](#microsoftmanagedservices)
 > - [Microsoft.Maps](#microsoftmaps)
 > - [Microsoft.MarketplaceApps](#microsoftmarketplaceapps)
@@ -128,7 +136,9 @@ Gå till ett namnområde för resursleverantören:
 > - [Microsoft.ProjectBabylon](#microsoftprojectbabylon)
 > - [Microsoft.ProjectOxford](#microsoftprojectoxford)
 > - [Microsoft.ProviderHub](#microsoftproviderhub)
+> - [Microsoft.Quantum (På andra)](#microsoftquantum)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
+> - [Microsoft.RedHatOpenShift](#microsoftredhatopenshift)
 > - [Microsoft.Relay](#microsoftrelay)
 > - [Microsoft.ResourceGraph](#microsoftresourcegraph)
 > - [Microsoft.ResourceHealth](#microsoftresourcehealth)
@@ -149,6 +159,7 @@ Gå till ett namnområde för resursleverantören:
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.SqlVM](#microsoftsqlvm)
 > - [Microsoft.Storage](#microsoftstorage)
+> - [Microsoft.StorageCache](#microsoftstoragecache)
 > - [Microsoft.StorageSync](#microsoftstoragesync)
 > - [Microsoft.StorageSyncDev](#microsoftstoragesyncdev)
 > - [Microsoft.StorageSyncInt](#microsoftstoragesyncint)
@@ -157,13 +168,17 @@ Gå till ett namnområde för resursleverantören:
 > - [Microsoft.StreamAnalyticsExplorer](#microsoftstreamanalyticsexplorer)
 > - [Microsoft.Prenumeration](#microsoftsubscription)
 > - [microsoft.support](#microsoftsupport)
+> - [Microsoft.Synapse](#microsoftsynapse)
 > - [Microsoft.TerraformOSS](#microsoftterraformoss)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.Token](#microsofttoken)
+> - [Microsoft.VirtualMachineImages](#microsoftvirtualmachineimages)
 > - [microsoft.visualstudio](#microsoftvisualstudio)
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
+> - [Microsoft.VnfManager](#microsoftvnfmanager)
 > - [Microsoft.VSOnline](#microsoftvsonline)
 > - [Microsoft.Web](#microsoftweb)
+> - [Microsoft.WindowsESU](#microsoftwindowsesu)
 > - [Microsoft.WindowsIoT](#microsoftwindowsiot)
 > - [Microsoft.WorkloadMonitor](#microsoftworkloadmonitor)
 
@@ -344,7 +359,15 @@ Gå till ett namnområde för resursleverantören:
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
 > | blockchainmembers | Inga | Inga |
+> | cordamembers | Inga | Inga |
 > | Watchers | Inga | Inga |
+
+## <a name="microsoftblockchaintokens"></a>Microsoft.BlockchainTokens
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Resursgrupp | Prenumeration |
+> | ------------- | ----------- | ---------- |
+> | tokentjänster | Inga | Inga |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint (Microsoft.Blueprint)
 
@@ -423,6 +446,13 @@ Gå till ett namnområde för resursleverantören:
 > [!IMPORTANT]
 > Se [Vägledning för klassisk distributionsflyttning](./move-limitations/classic-model-move-limitations.md). Klassiska distributionsresurser kan flyttas över prenumerationer med en åtgärd som är specifik för det scenariot.
 
+## <a name="microsoftcognition"></a>Microsoft.Kognition
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Resursgrupp | Prenumeration |
+> | ------------- | ----------- | ---------- |
+> | syntetmaterialserar | Inga | Inga |
+
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
 > [!div class="mx-tableFixed"]
@@ -446,6 +476,7 @@ Gå till ett namnområde för resursleverantören:
 > | images | Ja | Ja |
 > | närgrupper | Ja | Ja |
 > | återställningspunkter | Inga | Inga |
+> | sharedvmextensions sharedvmextensions sharedvmextensions sharedv | Inga | Inga |
 > | sharedvmimages sharedvmimages sharedvmimages sharedv | Inga | Inga |
 > | sharedvmimages / versioner | Inga | Inga |
 > | snapshots | Ja | Ja |
@@ -506,6 +537,7 @@ Gå till ett namnområde för resursleverantören:
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
 > | Register | Ja | Ja |
+> | register / agentpools | Inga | Inga |
 > | register / buildtasks | Ja | Ja |
 > | register /replikeringar | Ja | Ja |
 > | register / aktivitetsformulär | Ja | Ja |
@@ -700,6 +732,15 @@ Gå till ett namnområde för resursleverantören:
 > | servicetopologier / tjänster / serviceunits | Ja | Ja |
 > | steg | Ja | Ja |
 
+## <a name="microsoftdesktopvirtualization"></a>Microsoft.DesktopVirtualization
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Resursgrupp | Prenumeration |
+> | ------------- | ----------- | ---------- |
+> | programgrupper | Inga | Inga |
+> | värdpooler | Inga | Inga |
+> | arbetsytor | Inga | Inga |
+
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
@@ -774,6 +815,7 @@ Gå till ett namnområde för resursleverantören:
 > | händelserteckningar | Nej - kan inte flyttas oberoende av sig men flyttas automatiskt med prenumererad resurs. | Nej - kan inte flyttas oberoende av sig men flyttas automatiskt med prenumererad resurs. |
 > | extensiontopics | Inga | Inga |
 > | partnernamnområden | Ja | Ja |
+> | partnerregistreringar | Inga | Inga |
 > | partnertopik | Ja | Ja |
 > | systemtopik | Ja | Ja |
 > | Ämnen | Ja | Ja |
@@ -785,6 +827,13 @@ Gå till ett namnområde för resursleverantören:
 > | ------------- | ----------- | ---------- |
 > | Kluster | Ja | Ja |
 > | Namnområden | Ja | Ja |
+
+## <a name="microsoftexperimentation"></a>Microsoft.Experiment
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Resursgrupp | Prenumeration |
+> | ------------- | ----------- | ---------- |
+> | experimentarbetsytor | Inga | Inga |
 
 ## <a name="microsoftfalcon"></a>Microsoft.Falcon (olika)
 
@@ -805,6 +854,8 @@ Gå till ett namnområde för resursleverantören:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
+> | automanagedaccounts | Inga | Inga |
+> | automanagedvmkonfigurationsprofiler | Inga | Inga |
 > | gästkonfigurationertilldelningar | Inga | Inga |
 > | Programvara | Inga | Inga |
 > | softwareupdateprofile | Inga | Inga |
@@ -852,6 +903,14 @@ Gå till ett namnområde för resursleverantören:
 > | ------------- | ----------- | ---------- |
 > | datamanagers | Ja | Ja |
 
+## <a name="microsofthydra"></a>Microsoft.Hydra (på andra)
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Resursgrupp | Prenumeration |
+> | ------------- | ----------- | ---------- |
+> | Komponenter | Inga | Inga |
+> | nätverkskop | Inga | Inga |
+
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
 > [!div class="mx-tableFixed"]
@@ -871,10 +930,12 @@ Gå till ett namnområde för resursleverantören:
 > | Originalplan | Inga | Inga |
 > | beräknabasrad | Inga | Inga |
 > | Komponenter | Ja | Ja |
+> | datasamlingsrules | Inga | Inga |
 > | diagnostikinställningar | Inga | Inga |
 > | diagnostikläggarekategorier | Inga | Inga |
 > | händelsetyper | Inga | Inga |
 > | utökade diagnoser | Inga | Inga |
+> | gästdiagnostik | Inga | Inga |
 > | logdefinitioner | Inga | Inga |
 > | loggar | Inga | Inga |
 > | metricalerter | Inga | Inga |
@@ -883,6 +944,7 @@ Gå till ett namnområde för resursleverantören:
 > | metricnamespaces | Inga | Inga |
 > | metrics | Inga | Inga |
 > | myworkbooks | Inga | Inga |
+> | anmälan grupper | Inga | Inga |
 > | privatelinkscopes | Ja | Ja |
 > | schemalagdarurules | Ja | Ja |
 > | topologi | Inga | Inga |
@@ -915,10 +977,18 @@ Gå till ett namnområde för resursleverantören:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
+> | hsmpools (hsmpools) | Inga | Inga |
 > | Valv | Ja | Ja |
 
 > [!IMPORTANT]
 > Nyckelvalv som används för diskkryptering kan inte flyttas till en resursgrupp i samma prenumeration eller mellan prenumerationer.
+
+## <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Resursgrupp | Prenumeration |
+> | ------------- | ----------- | ---------- |
+> | anslutnakluster | Inga | Inga |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
@@ -965,7 +1035,7 @@ Gå till ett namnområde för resursleverantören:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | åtagandeplaner | Ja | Ja |
+> | åtagandeplaner | Inga | Inga |
 > | Webservices | Ja | Inga |
 > | arbetsytor | Ja | Ja |
 
@@ -1010,6 +1080,16 @@ Gå till ett namnområde för resursleverantören:
 > | arbetsytor | Inga | Inga |
 > | arbetsytor / beräkningar | Inga | Inga |
 
+## <a name="microsoftmaintenance"></a>Microsoft.Underhåll
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Resursgrupp | Prenumeration |
+> | ------------- | ----------- | ---------- |
+> | applyupdates | Inga | Inga |
+> | konfigurationtilldelningar | Inga | Inga |
+> | underhållskonfigurationer | Ja | Ja |
+> | uppdateringar | Inga | Inga |
+
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity Microsoft.ManagedIdentity Microsoft.ManagedIdentity Microsoft.
 
 > [!div class="mx-tableFixed"]
@@ -1017,6 +1097,16 @@ Gå till ett namnområde för resursleverantören:
 > | ------------- | ----------- | ---------- |
 > | Identiteter | Inga | Inga |
 > | userassignedid entiteter | Inga | Inga |
+
+## <a name="microsoftmanagednetwork"></a>Microsoft.ManagedNetwork
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Resursgrupp | Prenumeration |
+> | ------------- | ----------- | ---------- |
+> | managednetworks | Inga | Inga |
+> | managednetworks/managednetworkgroups | Inga | Inga |
+> | managednetworks / managednetworkpeeringpolicies | Inga | Inga |
+> | avisering | Inga | Inga |
 
 ## <a name="microsoftmanagedservices"></a>Microsoft.ManagedServices
 
@@ -1032,6 +1122,7 @@ Gå till ett namnområde för resursleverantören:
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
 > | konton | Ja | Ja |
+> | konton / privateatlases | Ja | Ja |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
@@ -1063,6 +1154,7 @@ Gå till ett namnområde för resursleverantören:
 > | ------------- | ----------- | ---------- |
 > | bedömningsprojekt | Ja | Ja |
 > | migreraprojekt | Ja | Ja |
+> | flyttakolleringar | Inga | Inga |
 > | Projekt | Inga | Inga |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
@@ -1155,6 +1247,7 @@ Gå till ett namnområde för resursleverantören:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
+> | Kluster | Inga | Inga |
 > | lagringsplatsernas ljuskonfigs | Inga | Inga |
 > | arbetsytor | Ja | Ja |
 
@@ -1238,6 +1331,13 @@ Gå till ett namnområde för resursleverantören:
 > | ------------- | ----------- | ---------- |
 > | Utbyggnader | Inga | Inga |
 
+## <a name="microsoftquantum"></a>Microsoft.Quantum (På andra)
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Resursgrupp | Prenumeration |
+> | ------------- | ----------- | ---------- |
+> | arbetsytor | Inga | Inga |
+
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
 > [!div class="mx-tableFixed"]
@@ -1249,6 +1349,13 @@ Gå till ett namnområde för resursleverantören:
 
 > [!IMPORTANT]
 > Se [vägledning för återställningstjänster.](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
+
+## <a name="microsoftredhatopenshift"></a>Microsoft.RedHatOpenShift
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Resursgrupp | Prenumeration |
+> | ------------- | ----------- | ---------- |
+> | openshiftclusters | Inga | Inga |
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
@@ -1374,6 +1481,7 @@ Gå till ett namnområde för resursleverantören:
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
 > | program | Ja | Ja |
+> | containergrupper | Inga | Inga |
 > | Gateways | Ja | Ja |
 > | Nätverk | Ja | Ja |
 > | secrets | Ja | Ja |
@@ -1449,6 +1557,13 @@ Gå till ett namnområde för resursleverantören:
 > | ------------- | ----------- | ---------- |
 > | lagringskonton | Ja | Ja |
 
+## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Resursgrupp | Prenumeration |
+> | ------------- | ----------- | ---------- |
+> | Cachar | Inga | Inga |
+
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 
 > [!div class="mx-tableFixed"]
@@ -1512,6 +1627,15 @@ Gå till ett namnområde för resursleverantören:
 > | ------------- | ----------- | ---------- |
 > | supportbiljetter | Inga | Inga |
 
+## <a name="microsoftsynapse"></a>Microsoft.Synapse
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Resursgrupp | Prenumeration |
+> | ------------- | ----------- | ---------- |
+> | arbetsytor | Inga | Inga |
+> | arbetsytor / bigdatapools | Inga | Inga |
+> | arbetsytor / sqlpools | Inga | Inga |
+
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
 
 > [!div class="mx-tableFixed"]
@@ -1536,6 +1660,13 @@ Gå till ett namnområde för resursleverantören:
 > | ------------- | ----------- | ---------- |
 > | Butiker | Ja | Ja |
 
+## <a name="microsoftvirtualmachineimages"></a>Microsoft.VirtualMachineImages
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Resursgrupp | Prenumeration |
+> | ------------- | ----------- | ---------- |
+> | bildskyltar | Inga | Inga |
+
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 
 > [!div class="mx-tableFixed"]
@@ -1557,6 +1688,14 @@ Gå till ett namnområde för resursleverantören:
 > | dedikerade molntjänster | Inga | Inga |
 > | virtualmachines (virtuellamaskiner) | Inga | Inga |
 
+## <a name="microsoftvnfmanager"></a>Microsoft.VnfManager
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Resursgrupp | Prenumeration |
+> | ------------- | ----------- | ---------- |
+> | enheter | Inga | Inga |
+> | vnfs (vnfs) | Inga | Inga |
+
 ## <a name="microsoftvsonline"></a>Microsoft.VSOnline
 
 > [!div class="mx-tableFixed"]
@@ -1575,6 +1714,7 @@ Gå till ett namnområde för resursleverantören:
 > | Anslutningar | Ja | Ja |
 > | customapis (customapis) | Ja | Ja |
 > | värdmiljöer | Inga | Inga |
+> | kubeenvironments | Ja | Ja |
 > | serverfarms | Ja | Ja |
 > | webbplatser | Ja | Ja |
 > | platser / premieraddons | Ja | Ja |
@@ -1583,6 +1723,13 @@ Gå till ett namnområde för resursleverantören:
 
 > [!IMPORTANT]
 > Se [riktlinjer för flyttvägledning för App-tjänsten](./move-limitations/app-service-move-limitations.md).
+
+## <a name="microsoftwindowsesu"></a>Microsoft.WindowsESU
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Resursgrupp | Prenumeration |
+> | ------------- | ----------- | ---------- |
+> | fleraaktiveringsnycklar | Inga | Inga |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 

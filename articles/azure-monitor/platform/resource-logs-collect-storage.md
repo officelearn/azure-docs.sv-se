@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 843c179826b2064a1be24d3cee84b398987b4aed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 787640ef08ee91220f42065af155c372247f0136
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274221"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804613"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Arkivera Azure-resursloggar till lagringskonto
 [Plattformsloggar](platform-logs-overview.md) i Azure, inklusive Azure Activity-logg och resursloggar, tillhandahåller detaljerad diagnostik- och granskningsinformation för Azure-resurser och den Azure-plattform de är beroende av.  I den här artikeln beskrivs hur du samlar in plattformsloggar till ett Azure-lagringskonto för att lagra data för arkivering.
@@ -20,6 +20,8 @@ ms.locfileid: "79274221"
 ## <a name="prerequisites"></a>Krav
 Du måste [skapa ett Azure-lagringskonto](../../storage/common/storage-account-create.md) om du inte redan har ett. Lagringskontot behöver inte vara i samma prenumeration som resursen som skickar loggar så länge som användaren som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
 
+> [!IMPORTANT]
+> Om du vill skicka data till oföränderlig lagring anger du den oföränderliga principen för lagringskontot enligt beskrivningen i [Ange och hanterar principer för oföränderlighet för Blob-lagring](../../storage/blobs/storage-blob-immutability-policies-manage.md). Du måste följa alla steg i den här artikeln, inklusive att aktivera skyddade tilläggsblobbar.
 
 > [!IMPORTANT]
 > Azure Data Lake Storage Gen2-konton stöds för närvarande inte som en destination för diagnostikinställningar även om de kan visas som ett giltigt alternativ i Azure-portalen.

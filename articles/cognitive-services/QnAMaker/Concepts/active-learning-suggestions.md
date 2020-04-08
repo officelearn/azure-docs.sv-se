@@ -3,12 +3,12 @@ title: Aktiva inlärningsförslag - QnA Maker
 description: Med aktiva inlärningsförslag kan du förbättra kvaliteten på din kunskapsbas genom att föreslå alternativa frågor, baserat på användarinlämningar, på din fråga och svarspar.
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: af4f6b399bfd537b38ea741d03e59371ee81e588
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: edbe06b12fbb97473b28ccca968fd3e7d8366152
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80053147"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804229"
 ---
 # <a name="active-learning-suggestions"></a>Förslag på aktivt lärande
 
@@ -27,7 +27,7 @@ Båda metoderna ger rangordningen liknande frågor som är klustrade.
 
 ## <a name="how-active-learning-works"></a>Så här fungerar aktivt lärande
 
-Aktiv inlärning utlöses baserat på poängen för de få svar som returneras av QnA Maker. Om poängskillnaderna mellan QnA-uppsättningarna som matchar frågan ligger inom ett litet intervall, betraktas frågan som ett möjligt förslag (som en alternativ fråga) för vart och ett av de möjliga QnA-paren. När du har accepterat den föreslagna frågan för ett specifikt QnA-par avvisas den för de andra paren. Du måste komma ihåg att spara och träna, efter att ha accepterat förslag.
+Aktiv inlärning utlöses baserat på poängen för de få svar som returneras av QnA Maker. Om poängskillnaderna mellan QnA-par som matchar frågan ligger inom ett litet intervall, betraktas frågan som ett möjligt förslag (som en alternativ fråga) för vart och ett av de möjliga QnA-paren. När du har accepterat den föreslagna frågan för ett specifikt QnA-par avvisas den för de andra paren. Du måste komma ihåg att spara och träna, efter att ha accepterat förslag.
 
 Aktiv inlärning ger bästa möjliga förslag i de fall där slutpunkterna får en rimlig mängd och olika användningsfrågor. När 5 eller fler liknande frågor grupperas, var 30:e minut, föreslår QnA Maker de användarbaserade frågorna till kunskapsbasdesignern att acceptera eller avvisa. Alla förslag grupperas tillsammans efter likhet och de vanligaste förslagen för alternativa frågor visas baserat på frekvensen av de specifika frågorna av slutanvändare.
 

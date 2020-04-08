@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 8fd5a063683d09cb94b45205426871d880119cc2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0643ae792c890b65f239d9a0c16a05639dd4f8b9
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77138022"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811472"
 ---
 # <a name="securing-paas-deployments"></a>Skydda PaaS-distributioner
 
@@ -101,7 +101,7 @@ I följande tabell visas STRIDE-hoten och några exempel på mildrande åtgärde
 | Hot | Egenskapen Security | Potentiella Azure-plattformsbegränsningar |
 | --- | --- | --- |
 | Förfalskning | Autentisering | Kräv HTTPS-anslutningar. |
-| Manipulering | Integritet | Verifiera SSL-certifikat. |
+| Manipulering | Integritet | Verifiera TLS/SSL-certifikat. |
 | Avståndstagande | Icke-avståndstagande | Aktivera [Azure-övervakning och diagnostik](/azure/architecture/best-practices/monitoring). |
 | Utlämnande av information | Sekretess | Kryptera känsliga data i vila med hjälp av [tjänstcertifikat](/rest/api/appservice/certificates). |
 | Denial of Service (nekad tjänst) | Tillgänglighet | Övervaka prestandamått för potentiella dos-villkor. Implementera anslutningsfilter. |
@@ -153,7 +153,7 @@ Fuzz-testning är en metod för att hitta programfel (kodfel) genom att tillhand
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln fokuserade vi på säkerhetsfördelar med en Azure PaaS-distribution och bästa säkerhetspraxis för molnprogram. Lär dig sedan rekommenderade metoder för att skydda dina PaaS-webb- och mobillösningar med hjälp av specifika Azure-tjänster. Vi börjar med Azure App Service, Azure SQL Database och Azure SQL Data Warehouse och Azure Storage. När artiklar om rekommenderade metoder för andra Azure-tjänster blir tillgängliga finns länkar i följande lista:
 
-- [Azure App-tjänst](paas-applications-using-app-services.md)
+- [Azure App Service](paas-applications-using-app-services.md)
 - [Azure SQL Database och Azure SQL Data Warehouse](paas-applications-using-sql.md)
 - [Azure-lagring](paas-applications-using-storage.md)
 - Azure Cache for Redis

@@ -7,12 +7,12 @@ ms.date: 3/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-ms.openlocfilehash: 04b145622a1a4237b576a1bb512b5f749f9c3823
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: da163e902d06bd98ac47a24256cb809cb222173b
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80133301"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804630"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Distribuera Azure Blob Storage i IoT Edge-modulen till din enhet
 
@@ -32,7 +32,7 @@ Azure-portalen guidar dig genom att skapa ett distributionsmanifest och skicka d
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) och navigera till din IoT-hubb.
 1. Välj **IoT Edge** på menyn.
-1. Klicka på målenhetens ID från listan över enheter.
+1. Klicka på målenhetens ID från listan över enheter."
 1. Välj **Ange moduler**.
 
 ### <a name="configure-a-deployment-manifest"></a>Konfigurera ett distributionsmanifest
@@ -88,16 +88,16 @@ Ett distributionsmanifest är ett JSON-dokument som beskriver vilka moduler som 
 
    - Byt ut `<storage mount>` enligt ditt behållaroperativsystem. Ange namnet på en [volym](https://docs.docker.com/storage/volumes/) eller den absoluta sökvägen till en befintlig katalog på din IoT Edge-enhet där blob-modulen ska lagra sina data. Lagringsfästet mappar en plats på enheten som du anger till en anställd plats i modulen.
 
-     - För Linux-behållare är formatet * \<lagringssökväg eller volym>:/blobroot*. Exempel
-         - använd [volymfäste:](https://docs.docker.com/storage/volumes/) **min volym:/blobroot**
-         - använd [bindfäste:](https://docs.docker.com/storage/bind-mounts/) **/srv/containerdata:/blobroot**. Se till att följa stegen för att [bevilja katalogåtkomst till behållaranvändaren](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - För Windows-behållare är formatet * \<lagringssökväg eller volym>:C:/BlobRoot*. Exempel
-         - använd [volymfäste:](https://docs.docker.com/storage/volumes/) **min volym:C:/blobroot**.
-         - använd [bindfäste:](https://docs.docker.com/storage/bind-mounts/) **C:/ContainerData:C:/BlobRoot**.
+     - För Linux-behållare är ** \<formatet din lagringsväg eller volym>:/blobroot**. Ett exempel:
+         - använd [volymfäste:](https://docs.docker.com/storage/volumes/)`my-volume:/blobroot`
+         - använd bind `/srv/containerdata:/blobroot` [fäste:](https://docs.docker.com/storage/bind-mounts/). Se till att följa stegen för att [bevilja katalogåtkomst till behållaranvändaren](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
+     - För Windows-behållare är ** \<formatet din lagringssökväg eller volym>:C:/BlobRoot**. Ett exempel:
+         - använd [volymfäste:](https://docs.docker.com/storage/volumes/) `my-volume:C:/BlobRoot`.
+         - använd bind `C:/ContainerData:C:/BlobRoot` [fäste:](https://docs.docker.com/storage/bind-mounts/).
          - I stället för att använda din lokala enhet kan du mappa din SMB-nätverksplats, för mer information, se [använda SMB-resurs som lokal lagring](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
 
      > [!IMPORTANT]
-     > Ändra inte den andra halvan av lagringsmonteringsvärdet, vilket pekar på en viss plats i modulen. Lagringsfästet ska alltid sluta med **:/blobroot** för Linux-behållare och **:C:/BlobRoot** för Windows-behållare.
+     > Ändra inte den andra halvan av lagringsmonteringsvärdet, som pekar på en viss plats i Blob Storage på IoT Edge-modulen. Lagringsfästet måste alltid sluta med **:/blobroot** för Linux-behållare och **:C:/BlobRoot** för Windows-behållare.
 
 5. Kopiera följande JSON på fliken **Modultvillinginställningar** och klistra in det i rutan.
 
@@ -200,16 +200,16 @@ Azure IoT Edge tillhandahåller mallar i Visual Studio-kod som hjälper dig att 
 
 1. Byt ut `<storage mount>` enligt ditt behållaroperativsystem. Ange namnet på en [volym](https://docs.docker.com/storage/volumes/) eller den absoluta sökvägen till en katalog på IoT Edge-enheten där du vill att blob-modulen ska lagra dess data. Lagringsfästet mappar en plats på enheten som du anger till en anställd plats i modulen.  
 
-     - För Linux-behållare är formatet * \<lagringssökväg eller volym>:/blobroot*. Exempel
-         - använd [volymfäste:](https://docs.docker.com/storage/volumes/) **min volym:/blobroot**
-         - använd [bindfäste:](https://docs.docker.com/storage/bind-mounts/) **/srv/containerdata:/blobroot**. Se till att följa stegen för att [bevilja katalogåtkomst till behållaranvändaren](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - För Windows-behållare är formatet * \<lagringssökväg eller volym>:C:/BlobRoot*. Exempel
-         - använd [volymfäste:](https://docs.docker.com/storage/volumes/) **min volym:C:/blobroot**.
-         - använd [bindfäste:](https://docs.docker.com/storage/bind-mounts/) **C:/ContainerData:C:/BlobRoot**.
+     - För Linux-behållare är ** \<formatet din lagringsväg eller volym>:/blobroot**. Ett exempel:
+         - använd [volymfäste:](https://docs.docker.com/storage/volumes/)`my-volume:/blobroot`
+         - använd bind `/srv/containerdata:/blobroot` [fäste:](https://docs.docker.com/storage/bind-mounts/). Se till att följa stegen för att [bevilja katalogåtkomst till behållaranvändaren](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
+     - För Windows-behållare är ** \<formatet din lagringssökväg eller volym>:C:/BlobRoot**. Exempel
+         - använd [volymfäste:](https://docs.docker.com/storage/volumes/) `my-volume:C:/BlobRoot`.
+         - använd bind `C:/ContainerData:C:/BlobRoot` [fäste:](https://docs.docker.com/storage/bind-mounts/).
          - I stället för att använda din lokala enhet kan du mappa din SMB-nätverksplats, för mer information se [använda SMB-resurs som lokal lagring](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
 
      > [!IMPORTANT]
-     > Ändra inte den andra halvan av lagringsmonteringsvärdet, vilket pekar på en viss plats i modulen. Lagringsfästet ska alltid sluta med **:/blobroot** för Linux-behållare och **:C:/BlobRoot** för Windows-behållare.
+     > Ändra inte den andra halvan av lagringsmonteringsvärdet, som pekar på en viss plats i Blob Storage på IoT Edge-modulen. Lagringsfästet måste alltid sluta med **:/blobroot** för Linux-behållare och **:C:/BlobRoot** för Windows-behållare.
 
 1. Konfigurera [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) och [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) för din modul genom att lägga till följande JSON i *filen deployment.template.json.* Konfigurera varje egenskap med ett lämpligt värde och spara filen. Om du använder IoT Edge-simulatorn ställer du in värdena på relaterade miljövariabler för dessa egenskaper, som du hittar i förklaringsavsnittet av [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) och [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties)
 

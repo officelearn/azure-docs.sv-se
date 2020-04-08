@@ -4,12 +4,12 @@ description: Instruktioner om hur du flyttar återställningstjänster i Azure-p
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: fed42c578da2e4f27f42e11d5ac67d698bbcd939
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3cfd442d49de2661d68de3c4e4b3575119504eb4
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77120727"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804426"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Flytta ett Recovery Services-valv över Azure-prenumerationer och resursgrupper
 
@@ -17,7 +17,7 @@ I den här artikeln beskrivs hur du flyttar ett Recovery Services-valv som konfi
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-Resursflytt för Recovery Services-valvet stöds i Australien East, Australia South East, Canada Central, Canada East, South East Asia, East Asia, Central US, North Central US, East US, East US2, South Central US, West Central US, West Central US2, West US, Centrala Indien, Södra Indien, Östra Japan, Västra Japan, Korea Central, Korea Syd-, Nordeuropa, Västeuropa, Sydafrika Nord, Sydafrika Väst, Storbritannien Syd och Västra Storbritannien.
+Resursflytt för Recovery Services-valvet stöds i Australien Öst, Australien Sydöstra, Kanada Central, Kanada Öst, Sydostasien, Östasien, Centralas usa, Norra centrala USA, Östra USA, Östra USA2, Södra centrala USA, Västra centrala USA, Västra USA2, Västra USA, Västra USA, Centrala Indien, Södra Indien, Östra Japan, Japan Väst, Korea Central, Korea Syd- och Sydamerika, Västeuropa, Sydafrika Nord afrika , Sydafrika West, Storbritannien Syd och Storbritannien Väst.
 
 ## <a name="unsupported-regions"></a>Regioner som inte stöds
 
@@ -37,12 +37,12 @@ Frankrike Central, Frankrike Södra, Tyskland Nordost, Tyskland Central, US Gov 
 - Om du vill flytta en virtuell dator med hanterade diskar läser du den här [artikeln](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
 - Alternativen för att flytta resurser som distribueras via modellen Klassisk varierar beroende på om du flyttar resurserna i en prenumeration eller till en ny prenumeration. Mer information finns i den här [artikeln](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 - Principer för säkerhetskopiering som definierats för valvet behålls när valvet flyttas över prenumerationer eller till en ny resursgrupp.
-- Det går inte att flytta valvet med Azure Files, Azure File Sync eller SQL i virtuella IaaS-datorer mellan prenumerationer och resursgrupper.
+- Det går inte att flytta valv med Azure Files, Azure File Sync eller SQL i virtuella IaaS-datorer mellan prenumerationer och resursgrupper.
 - Om du flyttar ett valv som innehåller säkerhetskopierade virtuella datorer, mellan prenumerationer, måste du flytta dina virtuella datorer till samma prenumeration och använda samma mål-VM-resursgruppnamn (som det var i gamla prenumerationer) för att fortsätta säkerhetskopieringar.
 
 > [!NOTE]
->
-> Recovery Services-valv som konfigurerats för att användas med **Azure Site Recovery** kan inte flyttas ännu. Om du har konfigurerat virtuella datorer (Azure IaaS, Hyper-V, VMware) eller fysiska datorer för haveriberedskap med hjälp av **Azure Site Recovery**blockeras flyttåtgärden. Resursflyttfunktionen för tjänsten Site Recovery är ännu inte tillgänglig.
+> Det går inte att flytta Recovery Services-valv för Azure Backup i Azure-regioner.<br><br>
+> Om du har konfigurerat virtuella datorer (Azure IaaS, Hyper-V, VMware) eller fysiska datorer för haveriberedskap med **Azure Site Recovery**blockeras flyttåtgärden. Om du vill flytta valv för Azure Site Recovery läser du [den här artikeln](https://docs.microsoft.com/azure/site-recovery/move-vaults-across-regions) om du vill veta mer om hur du flyttar valv manuellt.
 
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Använda Azure-portalen för att flytta Recovery Services-valv till en annan resursgrupp
 

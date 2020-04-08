@@ -11,94 +11,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 04/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aed01ea11c1f53cb090d9c2e65ee23f521575649
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 052d99a819aee415d5e7ad6dc00b8c786af0f636
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60456925"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811096"
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Hybrididentitet: Jämförelse av katalogintegreringsverktyg
-Katalogintegreringsverktygen har vuxit och utvecklats med åren.  Avsikten med det här dokumentet är att ge dig en samlad vy över dessa verktyg och en jämförelse av de funktioner som är tillgängliga i vart och ett.
+Katalogintegreringsverktygen har vuxit och utvecklats med åren.  
 
-<!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
-> [!NOTE]
-> Azure AD Connect innehåller de komponenter och funktioner som tidigare släppts som Dirsync och AAD Sync. Dessa verktyg släpps inte längre individuellt och alla framtida förbättringar kommer att inkluderas i uppdateringar av Azure AD Connect, så att du alltid vet var du kan få den senaste funktionen.
-> 
-> DirSync och Azure AD Sync är föråldrade. Mer information finns [här](reference-connect-dirsync-deprecated.md).
-> 
-> 
+- [FIM](https://docs.microsoft.com/previous-versions/windows/desktop/forefront-2010/ff182370%28v%3dvs.100%29) och [MIM](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016) stöds fortfarande och möjliggör i första hand synkronisering mellan lokala system.   [FIM Windows Azure AD Connector](https://docs.microsoft.com/previous-versions/mim/dn511001(v=ws.10)?redirectedfrom=MSDN) stöds i både FIM och MIM, men rekommenderas inte för nya distributioner – kunder med lokala källor som Anteckningar eller SAP HCM ska använda MIM för att fylla i Active Directory Domain Services (AD DS) och sedan även använda antingen Azure AD Connect-synkronisering eller Azure AD Connect-molnetablering för att synkronisera från AD DS till Azure AD.
+- [Azure AD Connect-synkronisering](how-to-connect-sync-whatis.md) innehåller de komponenter och funktioner som tidigare släppts i DirSync och Azure AD Sync, för synkronisering mellan AD DS-skogar och Azure AD.  
+- [Azure AD Connect-molnetablering](../cloud-provisioning/what-is-cloud-provisioning.md) är en ny Microsoft-agent för synkronisering från AD DS till Azure AD, användbart för scenarier som fusion och förvärv där det förvärvade företagets AD-skogar är isolerade från moderbolagets AD-skogar.
 
-Följande förkortningar och symboler används i tabellerna.
-
-● = Tillgänglig nu  
-FR = Framtida version  
-PP = Offentlig granskning  
-
-## <a name="on-premises-to-cloud-synchronization"></a>Synkronisering lokalt till molnet
-| Funktion | Azure Active Directory Connect | Azure Active Directory Synchronization Services (AAD Sync) – STÖDS INTE LÄNGRE | Azure Active Directory Synchronization Tool (DirSync) – STÖDS INTE LÄNGRE | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
-|:--- |:---:|:---:|:---:|:---:|:---:|
-| Ansluta till en enda lokal AD-skog |● |● |● |● |● |
-| Ansluta till flera lokala AD-skogar |● |● | |● |● |
-| Ansluta till flera lokala Exchange-organisationer |● | | | | |
-| Ansluta till en enda lokal LDAP-katalog |●* | | |● |● | 
-| Ansluta till flera lokala LDAP-kataloger |●*  | | |● |● | 
-| Ansluta till lokalt AD och lokala LDAP-kataloger |●* | | |● |● | 
-| Ansluta till anpassade system (SQL, Oracle, MySQL osv.) |FR | | |● |● |
-| Synkronisera kunddefinierade attribut (katalogtillägg) |● | | | | |
-| Ansluta till lokalt HR (SAP, Oracle eBusiness, PeopleSoft osv.) |FR | | |● |● |
-| Stöder FIM-synkroniseringsregler och kopplingar för etablering i lokala system. | | | |● |● |
-
- 
-&#42; Det finns i nuläget två alternativ för detta som stöds.  De är: 
-
-   1. Du kan använda den allmänna LDAP-anslutningsappen och aktivera den utanför Azure AD Connect.  Det är komplex och kräver en partner för publicering och ett Premier Support-avtal för underhåll.  Det här alternativet kan hantera både enkla och flera LDAP-kataloger. 
-
-   2. Du kan utveckla din egen lösning för att flytta objekt från LDAP till Active Directory.  Synkronisera sedan objekten med Azure AD Connect.  MIM eller FIM kan användas som en möjlig lösning för att flytta objekten. 
-
-## <a name="cloud-to-on-premises-synchronization"></a>Synkronisering molnet till lokalt
-| Funktion | Azure Active Directory Connect | Azure Active Directory Synchronization Services – STÖDS INTE LÄNGRE  | Azure Active Directory Synchronization Tool (DirSync) – STÖDS INTE LÄNGRE  | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
-|:--- |:---:|:---:|:---:|:---:|:---:|
-| Tillbakaskrivning av enheter |● | |● | | |
-| Tillbakaskrivning av attribut (för Exchange-hybridinstallation) |● |● |● |● |● |
-| Tillbakaskrivning av gruppobjekt |● | | | | |
-| Tillbakaskrivning av lösenord (från lösenordsåterställning via självbetjäning (SSPR) och lösenordsändring) |● |● | | | |
-
-## <a name="authentication-feature-support"></a>Autentiseringsfunktioner som stöds
-| Funktion | Azure Active Directory Connect | Azure Active Directory Synchronization Services – STÖDS INTE LÄNGRE  | Azure Active Directory Synchronization Tool (DirSync) – STÖDS INTE LÄNGRE  | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
-|:--- |:---:|:---:|:---:|:---:|:---:|
-| Synkronisering av lösenords-hash för en enskild lokal AD-skog |●|●|● | | |
-| Synkronisering av lösenords-hash för flera lokala AD-skogar |●|● | | | |
-| Direktautentisering för enskilda lokala AD-skogar |●| | | | |
-| Enkel inloggning med federation |● |● |● |● |● |
-| Smidig enkel inloggning|● |||||
-| Tillbakaskrivning av lösenord (från SSPR och lösenordsändring) |● |● | | | |
-
-## <a name="set-up-and-installation"></a>Konfiguration och installation
-| Funktion | Azure Active Directory Connect | Azure Active Directory Synchronization Services – STÖDS INTE LÄNGRE  | Azure Active Directory Synchronization Tool (DirSync) – STÖDS INTE LÄNGRE  | Microsoft Identity Manager 2016 (MIM) |
-|:--- |:---:|:---:|:---:|:---:|
-| Stöder installation på en domänkontrollant |● |● |● | |
-| Stöder installation med hjälp av SQL Express |● |● |● | |
-| Enkel uppgradering från DirSync |● | | | |
-| Lokalisering av administratörs-UX till Windows Server-språk |● |● |● | |
-| Lokalisering av slutanvändar-UX till Windows Server-språk | | | |● |
-| Stöd för Windows Server 2008 och Windows Server 2008 R2 |● för synkronisering, inte för federation |● |● |● |
-| Stöd för Windows Server 2012 och Windows Server 2012 R2 |● |● |● |● |
-
-## <a name="filtering-and-configuration"></a>Filtrering och konfiguration
-| Funktion | Azure Active Directory Connect | Azure Active Directory Synchronization Services – STÖDS INTE LÄNGRE  | Azure Active Directory Synchronization Tool (DirSync) – STÖDS INTE LÄNGRE  | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
-|:--- |:---:|:---:|:---:|:---:|:---:|
-| Filtrera baserat på domäner och organisationsenheter |● |● |● |● |● |
-| Filtrera baserat på objektens attributvärden |● |● |● |● |● |
-| Tillåt att en minimal uppsättning attribut synkroniseras (MinSync) |● |● | | | |
-| Tillåt att olika tjänstmallar används för attributflöden |● |● | | | |
-| Tillåt borttagning av attribut som flödar från AD till Azure AD |● |● | | | |
-| Tillåt avancerad anpassning av attributflöden |● |● | |● |● |
+Mer information om skillnaderna mellan Azure AD Connect-synkronisering och Azure AD Connect-molnetablering finns i artikeln [Vad är Azure AD Connect-molnetablering?](../cloud-provisioning/what-is-cloud-provisioning.md)
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).

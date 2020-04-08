@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 2293618b0685fe71ae553a95797fe8bfe1fe968c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 496ee1bc97f6b72e09a62ae3491af7ccc7328583
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75749949"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811097"
 ---
 # <a name="azure-network-security-overview"></a>Översikt över Azure-nätverkssäkerhet
 
@@ -160,7 +160,7 @@ Du kanske vill aktivera enskilda utvecklare eller driftpersonal för att hantera
 
 Med VPN-anslutningen på punkt till plats kan du konfigurera en privat och säker anslutning mellan användaren och det virtuella nätverket. När VPN-anslutningen upprättas kan användaren RDP eller SSH via VPN-länken till valfri virtuell dator i det virtuella nätverket. (Detta förutsätter att användaren kan autentisera och är auktoriserad.) VPN-stöd på punkt till plats:
 
-* Secure Socket Tunneling Protocol (SSTP), ett eget SSL-baserat VPN-protokoll. En SSL VPN-lösning kan penetrera brandväggar, eftersom de flesta brandväggar öppnar TCP-port 443, som SSL använder. SSTP stöds endast på Windows-enheter. Azure stöder alla versioner av Windows som har SSTP (Windows 7 och senare).
+* Secure Socket Tunneling Protocol (SSTP), ett eget SSL-baserat VPN-protokoll. En SSL VPN-lösning kan penetrera brandväggar, eftersom de flesta brandväggar öppnar TCP-port 443, som TLS/SSL använder. SSTP stöds endast på Windows-enheter. Azure stöder alla versioner av Windows som har SSTP (Windows 7 och senare).
 
 * IKEv2 VPN, en standardbaserad IPsec VPN-lösning. IKEv2 VPN kan användas för att ansluta från Mac-enheter (OSX-versionerna 10.11 och senare).
 
@@ -232,7 +232,7 @@ Organisationer som kör webbaserade tjänster vill ofta ha en HTTP-baserad belas
 Azure Application Gateway tillhandahåller HTTP-baserad belastningsutjämning för dina webbaserade tjänster. Application Gateway stöder:
 
 * Cookie-baserad sessionstillhörighet. Den här funktionen säkerställer att anslutningar som upprättats till en av servrarna bakom den belastningsutjämnaren förblir intakt mellan klienten och servern. Detta säkerställer stabila transaktioner.
-* SSL avlastning. När en klient ansluter till belastningsutjämnaren krypteras den sessionen med hjälp av HTTPS-protokollet (SSL). För att öka prestanda kan du dock använda HTTP-protokollet (okrypterad) för att ansluta mellan belastningsutjämnaren och webbservern bakom belastningsutjämnaren. Detta kallas "SSL-avlastning", eftersom webbservrarna bakom belastningsutjämnaren inte upplever processorkostnaderna som är involverade i kryptering. Webbservrarna kan därför servicebegäranden snabbare.
+* TLS avlastning. När en klient ansluter till belastningsutjämnaren krypteras den sessionen med hjälp av HTTPS-protokollet (TLS). För att öka prestanda kan du dock använda HTTP-protokollet (okrypterad) för att ansluta mellan belastningsutjämnaren och webbservern bakom belastningsutjämnaren. Detta kallas "TLS avlastning", eftersom webbservrarna bakom belastningsutjämnaren inte upplever processorkostnaderna som är involverade med kryptering. Webbservrarna kan därför servicebegäranden snabbare.
 * URL-baserad innehållsroutning. Den här funktionen gör det möjligt för belastningsutjämnaren att fatta beslut om var anslutningarna ska vidarebefordras baserat på mål-URL:en. Detta ger mycket mer flexibilitet än lösningar som fattar belastningsutjämningsbeslut baserat på IP-adresser.
 
 Läs mer:
@@ -336,7 +336,7 @@ Läs mer:
 
 ## <a name="azure-front-door"></a>Azure Front Door
 
-Med Azure Front Door Service kan du definiera, hantera och övervaka den globala routningen av din webbtrafik. Det optimerar trafikens routing för bästa prestanda och hög tillgänglighet. Med Azure Front Door kan du skapa anpassade regler för brandväggen för webbaserade program (WAF) vid åtkomstkontroll, för att skydda din HTTP/HTTPS-arbetsbelastning från utnyttjande som baseras på klienternas IP-adresser, landskod och HTTP-parametrar. Dessutom, Ytterdörren kan du också skapa hastighetsbegränsande regler för att bekämpa skadlig bot trafik, det inkluderar SSL avlastning och per-HTTP/HTTPS-begäran, program-lager bearbetning.
+Med Azure Front Door Service kan du definiera, hantera och övervaka den globala routningen av din webbtrafik. Det optimerar trafikens routing för bästa prestanda och hög tillgänglighet. Med Azure Front Door kan du skapa anpassade regler för brandväggen för webbaserade program (WAF) vid åtkomstkontroll, för att skydda din HTTP/HTTPS-arbetsbelastning från utnyttjande som baseras på klienternas IP-adresser, landskod och HTTP-parametrar. Dessutom, Ytterdörren kan du också skapa hastighetsbegränsande regler för att bekämpa skadlig bot trafik, den innehåller TLS avlastning och per-HTTP/HTTPS-begäran, program-lager bearbetning.
 
 Själva Front Door-plattformen är skyddad av Azure DDoS Protection Basic. Om du behöver mer skydd kan Azure DDoS Protection Standard aktiveras på dina virtuella nätverk och skydda resurser från nätverkslagerattacker (TCP/UDP) med hjälp av automatiska justeringar och åtgärder. Ytterdörren är ett lager 7 omvänd proxy, det tillåter bara webbtrafik att passera till back end servrar och blockera andra typer av trafik som standard.
 

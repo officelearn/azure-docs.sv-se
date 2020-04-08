@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 05/04/2017
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 5c37d92504af78cb62cfa17057e089128ca8ad35
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 947bfe88443489084a20653d835ab849087ac92d
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80046859"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810578"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Självstudiekurs: Skapa en Node.js- och MongoDB-app i Azure
 
@@ -198,7 +198,7 @@ module.exports = {
 };
 ```
 
-Alternativet `ssl=true` krävs eftersom [Cosmos DB kräver SSL](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
+Alternativet `ssl=true` krävs på grund av [anslutningssträngkrav](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
 
 Spara ändringarna.
 

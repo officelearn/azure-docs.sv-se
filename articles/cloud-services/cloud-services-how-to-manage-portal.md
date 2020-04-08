@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: 185bb9d03bec042a5c8e9223616b40eba6629e36
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 80481bc11933b0404079221f23b5054024f00acb
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247532"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811365"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Hantera molntjänster i Azure-portalen
 I området **Molntjänster** på Azure-portalen kan du:
@@ -123,7 +123,7 @@ Använd följande procedur för att ta bort en distribution eller din molntjäns
 * [Allmän konfiguration av molntjänsten](cloud-services-how-to-configure-portal.md).
 * Lär dig hur du [distribuerar en molntjänst](cloud-services-how-to-create-deploy-portal.md).
 * Konfigurera ett [eget domännamn](cloud-services-custom-domain-name-portal.md).
-* Konfigurera [SSL-certifikat](cloud-services-configure-ssl-certificate-portal.md).
+* Konfigurera [TLS/SSL-certifikat](cloud-services-configure-ssl-certificate-portal.md).
 
 
 

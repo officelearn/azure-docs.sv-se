@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 50dbca0b3a761b72134eaa6cfed57e231be4ef13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b6f61de23ab4b637cfb5b8ee365ddea9764bf515
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74421024"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810199"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Distribuera en tjänst för delad koppling för att flytta data mellan fragmenterade databaser
 
@@ -150,7 +150,7 @@ Observera att för produktionsdistributioner bör separata certifikat användas 
 
 ## <a name="troubleshoot-the-deployment"></a>Felsöka distributionen
 
-Om webbrollen inte är online är det sannolikt ett problem med säkerhetskonfigurationen. Kontrollera att SSL är konfigurerat enligt beskrivningen ovan.
+Om webbrollen inte är online är det sannolikt ett problem med säkerhetskonfigurationen. Kontrollera att TLS/SSL är konfigurerad enligt beskrivningen ovan.
 
 Om din arbetarroll inte är online, men webbrollen lyckas, är det troligen ett problem att ansluta till statusdatabasen som du skapade tidigare.
 
@@ -254,7 +254,7 @@ Skriptfilerna som ingår är:
     -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```
 
-5. Kör skriptet *ExecuteSampleSplitMerge.ps1* för att köra en delad åtgärd (flytta hälften av data på den första fragmentet till den andra fragmentet) och sedan en sammanfogningsåtgärd (flytta tillbaka data till den första fragmentet). Om du har konfigurerat SSL och lämnat http-slutpunkten inaktiverad kontrollerar du att du använder https:// slutpunkten i stället.
+5. Kör skriptet *ExecuteSampleSplitMerge.ps1* för att köra en delad åtgärd (flytta hälften av data på den första fragmentet till den andra fragmentet) och sedan en sammanfogningsåtgärd (flytta tillbaka data till den första fragmentet). Om du har konfigurerat TLS och lämnat http-slutpunkten inaktiverad kontrollerar du att du använder https:// slutpunkten i stället.
 
    Exempel på kommandorad:
 
@@ -333,7 +333,7 @@ Du kan se meddelandet nedan när du kör exempelskripten för powershell:
 
    `Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.`
 
-Det här felet innebär att SSL-certifikatet inte är korrekt konfigurerat. Följ instruktionerna i avsnittet "Ansluta med en webbläsare".
+Det här felet innebär att TLS/SSL-certifikatet inte är korrekt konfigurerat. Följ instruktionerna i avsnittet "Ansluta med en webbläsare".
 
 Om du inte kan skicka förfrågningar kan du se detta:
 

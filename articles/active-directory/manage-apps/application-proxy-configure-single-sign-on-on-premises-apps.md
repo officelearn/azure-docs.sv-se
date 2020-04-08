@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccf34b52e06e369fe4dd459ff9dfa2880596fb35
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d3d2117e913f292e92f37f31d2e123587c70a189
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481355"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803305"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>SAML enkel inloggning för lokala program med Application Proxy
 
@@ -74,14 +74,14 @@ Innan du kan tillhandahålla SSO för lokala program måste du aktivera Programp
 
 2. På sidan **Konfigurera enkel inloggning med SAML** går du till rubriken Grundläggande **SAML-konfiguration** och väljer dess **redigeringsikon** (en penna). Kontrollera att den **externa URL:en** som du har konfigurerat i programproxy är ifylld i fälten **Identifierare,** **Svars-URL**och **Utloggnings-URL.** Dessa url:er krävs för att programproxyn ska fungera korrekt. 
 
-3. Redigera **svars-URL:en** som konfigurerats tidigare så att domänen kan nås via programproxy. Om **webbadressen till** exempel `https://contosotravel-f128.msappproxy.net` är och den `https://contosotravel.com/acs`ursprungliga **svarsadressen** var måste `https://contosotravel-f128.msappproxy.net/acs`du uppdatera den ursprungliga **svars-URL:en** till . 
+3. Redigera **svars-URL:en** som konfigurerats tidigare så att domänen kan nås på internet via Application Proxy. Om **webbadressen till** exempel `https://contosotravel-f128.msappproxy.net` är och den `https://contosotravel.com/acs`ursprungliga **svarsadressen** var måste `https://contosotravel-f128.msappproxy.net/acs`du uppdatera den ursprungliga **svars-URL:en** till .
 
     ![Ange grundläggande SAML-konfigurationsdata](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
 
 4. Markera kryssrutan bredvid den uppdaterade **svars-URL:en** för att markera den som standard.
 
-   * Om den begärda **svars-URL:en** redan finns med i listan markerar du den här **svars-URL:en** som standard och tar bort den tidigare konfigurerade **svars-URL:en**.
+   * När du har markerat den **begärna svars-URL:en** som standard kan du också ta bort den tidigare konfigurerade **svars-URL:en** som använde den interna URL:en.
 
    * För ett SP-initierat flöde kontrollerar du att backend-programmet anger rätt **svars-URL** eller Url för kontrollförseningstjänsten för att ta emot autentiseringstoken.
 

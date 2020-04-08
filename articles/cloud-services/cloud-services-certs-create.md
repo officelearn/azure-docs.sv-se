@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
-ms.openlocfilehash: 783343dd8877bdf18e783494960c3052c293cc7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 173f5c698ab44ea269995665bcbc33c726d4f03a
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248143"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811455"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Certifikatöversikt för Azure Cloud Services
 Certifikat används i Azure för molntjänster[(tjänstcertifikat)](#what-are-service-certificates)och för att autentisera med[hanterings-API :et ( hanteringscertifikat](#what-are-management-certificates)). Det här avsnittet ger en allmän översikt över båda certifikattyperna, hur du [skapar](#create) och distribuerar dem till Azure.
@@ -55,7 +55,7 @@ Du kan använda alla tillgängliga verktyg för att skapa ett självsignerat cer
 * Skapad för nyckelutbyte (.pfx-fil).
 * Ämnesnamn måste matcha den domän som används för att komma åt molntjänsten.
 
-    > Du kan inte hämta ett SSL-certifikat för cloudapp.net (eller för någon Azure-relaterad) domän. Certifikatets ämnesnamn måste matcha det anpassade domännamn som används för att komma åt ditt program. Till exempel **contoso.net**, inte **contoso.cloudapp.net**.
+    > Du kan inte hämta ett TLS/SSL-certifikat för cloudapp.net (eller för någon Azure-relaterad) domän. Certifikatets ämnesnamn måste matcha det anpassade domännamn som används för att komma åt ditt program. Till exempel **contoso.net**, inte **contoso.cloudapp.net**.
 
 * Minst 2048-bitars kryptering.
 * **Endast servicecertifikat:** Certifikat på klientsidan måste finnas i det *personliga* certifikatarkivet.

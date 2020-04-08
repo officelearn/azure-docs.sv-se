@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5bcfeebc1fcb96cfdf6ea802293eb4027f339815
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1de9dd9721700418b1aa9ba661fc070db1dbedcc
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335215"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804647"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Så här använder du Azure Maps Spatial IO-modulen
 
@@ -26,6 +26,13 @@ Azure Maps Web SDK tillhandahåller den **rumsliga IO-modulen**, som integrerar 
 - [Utnyttja xml-filer med hög hastighet och avgränsade filläsare och skrivklasser](spatial-io-core-operations.md).
 
 I den här guiden får vi lära oss att integrera och använda spatial IO-modulen i ett webbprogram.
+
+Den här videon innehåller en översikt över Spatial IO-modulen i Azure Maps Web SDK.
+
+<br/>
+
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0" title="Integrera enkelt spatialdata i Azure Maps – Microsoft Channel 9 Video"></iframe>
+
 
 > [!WARNING]
 > Använd endast data och tjänster som kommer från en källa som du litar på, särskilt om du refererar till dem från en annan domän. Den rumsliga IO-modulen vidtar åtgärder för att minimera risken, men det säkraste tillvägagångssättet är för inte tillåta några danagerous data i ditt program till att börja med. 

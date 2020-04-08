@@ -6,15 +6,79 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 03/05/2020
-ms.openlocfilehash: c29790035ec4e971957784e826a1e8bd8e0c9329
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a2e6d2a459a6713aa9372496fc3a933c0a886ed9
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79500494"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802612"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Vad är nytt i Azure Monitor-dokumentationen?
 Den här artikeln innehåller listor över Azure Monitor-artiklar som antingen är nya eller har uppdaterats avsevärt. Den uppdateras den första veckan i varje månad för att inkludera artikeluppdateringar från föregående månad.
+
+## <a name="march-2020"></a>Mars 2020
+
+### <a name="general"></a>Allmänt
+- [Översikt över Azure Monitor](overview.md) – Översiktsvideo för Azure Monitor har lagts till.
+- [Azure Monitor kundhanterad nyckelkonfiguration](platform/customer-managed-keys.md) - Allmänna uppdateringar.
+- [Azure Monitor-datareferens](/azure/azure-monitor/reference) - Ny plats.
+
+### <a name="alerts"></a>Aviseringar
+
+- [Skapa, visa och hantera aktivitetsloggaviseringar i Azure Monitor](platform/alerts-activity-log.md) - Ytterligare förklaring av Resource Manager-mallen.
+- [Förstå hur måttaviseringar fungerar i Azure Monitor.](platform/alerts-metric-overview.md) - Uppdaterad för statligt stöd.
+- [Felsöka Aviseringar och meddelanden för Azure Monitor](platform/alerts-troubleshoot.md) – Ny artikel
+
+### <a name="application-insights"></a>Application Insights
+- [Automatisera Azure Application Insights med PowerShell](app/powershell.md) – Lade till ARMClient-exempel.
+- [Kontinuerlig export av telemetri från Application Insights](app/export-telemetry.md) - Lägg till tabell med information om exportstruktur.
+- [Aktivera felsökare för ögonblicksbilder för .NET-appar i Azure App Service](app/snapshot-debugger-appservice.md) - Exempel på informationshanterarens tillägg.
+- [Hantera användning och kostnader för Azure Application Insights](app/pricing.md) – Lade till information om datatakavisering.
+- [Övervaka Python-program med Azure Monitor (förhandsversion)](app/opencensus-python.md) – Lade till standardmått.
+- [Stöd för källkartföring för JavaScript-program - Azure Monitor Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/source-map-support) - Ny artikel.
+
+
+### <a name="containers"></a>Containrar
+- [Vanliga frågor och svar om Azure Monitor](faq.md) – Uppdatera för Azure Monitor för behållare.
+- [Konfigurera GPU-övervakning med Azure Monitor för behållare](insights/container-insights-gpu-monitoring.md) - Ny artikel
+
+### <a name="insights"></a>Insikter
+- [Hanteringslösning för Office 365 i Azure](insights/solution-office-365.md) – Uppdaterat utfasningsdatum.
+
+### <a name="logs"></a>Loggar
+- [Optimera loggfrågor i Azure Monitor](log-query/query-optimization.md) - Lagt till CPU-villkor för XML- och JSON-tolkning.
+- [Ta bort och återställa Azure Log Analytics-arbetsyta –](platform/delete-workspace.md) Lade till felsökning.
+- [Använd Azure Monitor-loggar med Azure Logic Apps och Power Automate](platform/logicapp-flow-connector.md) – Uppdaterad för ny Azure Monitor-anslutningsapp.
+
+### <a name="metrics"></a>Mått
+- [Diskmått som har utfasning i Azure-portalen](https://docs.microsoft.com/azure/azure-monitor/platform/portal-disk-metrics-deprecation) - Ny artikel.
+- [Självstudiekurs - Skapa ett måttdiagram i Azure Monitor](learn/tutorial-metrics-explorer.md) - Lade till video.
+
+### <a name="platform-logs"></a>Plattformsloggar
+- [Samla in och analysera Azure-aktivitetsloggen i Azure Monitor](platform/activity-log-collect.md) - Skriv om för att bättre förklara att samla in aktivitetslogg med diagnostikinställningar.
+
+### <a name="virtual-machines"></a>Virtuella datorer
+- [Övervaka virtuella Azure-datorer med Azure Monitor](insights/monitor-vm-azure.md) - Ny artikel.
+- [Snabbstart: Övervaka virtuella Azure-datorer med Azure Monitor](learn/quick-monitor-azure-vm.md) – Uppdaterad för att lägga till Azure Monitor för virtuella datorer.
+- [Aviseringar från Azure Monitor för virtuella datorer](insights/vminsights-alerts.md) – ny artikel
+- [Aktivera Azure Monitor för virtuella datorer översikt](insights/vminsights-enable-overview.md) - Uppdaterade agenthämtningslänkar.
+
+
+Allmänna uppdateringar för allmän tillgänglighet för Azure Monitor för virtuella datorer
+- [Vad är Azure Monitor för virtuella datorer?](insights/vminsights-overview.md)
+- [Vanliga frågor och svar om Azure Monitor för virtuella datorer (GA)](insights/vminsights-ga-release-faq.md) 
+- [Aktivera Azure Monitor för virtuella datorer med hjälp av Azure Policy](insights/vminsights-enable-at-scale-policy.md) 
+- [Diagramprestanda med Azure Monitor för virtuella datorer](insights/vminsights-performance.md)
+- [Fråga loggar från Azure Monitor för virtuella datorer](insights/vminsights-log-search.md)
+- [Visa appberoenden med Azure Monitor för virtuella datorer](insights/vminsights-maps.md) 
+
+
+### <a name="visualizations"></a>Visualiseringar
+- [Visualisera data från Azure Monitor](visualizations.md) - Uppdaterad för att notera planerad utfasning av View Designer.
+
+
+
+
 
 ## <a name="february-2020"></a>Februari 2020
 

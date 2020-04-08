@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: aa43d44a691fa9151959e8817596bdfc9bba65f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 857b2b00aadced567bc8ac191cdd9908f7bea7a3
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74687397"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804409"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Så här kontrollerar du inkommande trafik till en apptjänstmiljö
 ## <a name="overview"></a>Översikt
 En App Service-miljö kan skapas i **antingen** ett virtuellt Azure Resource Manager-nätverk **eller** ett virtuellt klassiskt [distributionsmodellnätverk][virtualnetwork].  Ett nytt virtuellt nätverk och nytt undernät kan definieras när en App Service-miljö skapas.  Alternativt kan en App Service-miljö skapas i ett befintligt virtuellt nätverk och befintligt undernät.  Med en ändring som gjordes i juni 2016 kan ASE också distribueras till virtuella nätverk som använder antingen offentliga adressintervall eller RFC1918-adressutrymmen (dvs. privata adresser).  Mer information om hur du skapar en apptjänstmiljö finns i [Så här skapar du en apptjänstmiljö][HowToCreateAnAppServiceEnvironment].
 
-En App Service-miljö måste alltid skapas i ett undernät eftersom ett undernät tillhandahåller en nätverksgräns som kan användas för att låsa inkommande trafik bakom uppströmsenheter och tjänster så att HTTP- och HTTPS-trafik endast accepteras från specifika uppströms IP-adresser.
+En App Service-miljö måste alltid skapas i ett undernät eftersom ett undernät tillhandahåller en nätverksgräns som kan användas för att låsa inkommande trafik bakom uppströmsenheter och tjänster så att HTTP- och HTTPS-trafik endast accepteras från specifika IP-adresser uppströms.
 
 Inkommande och utgående nätverkstrafik i ett undernät styrs med hjälp av en [nätverkssäkerhetsgrupp][NetworkSecurityGroups]. För att kontrollera inkommande trafik måste du skapa nätverkssäkerhetsregler i en nätverkssäkerhetsgrupp och sedan tilldela nätverkssäkerhetsgruppen undernätet som innehåller App Service-miljön.
 
@@ -31,10 +31,10 @@ Innan du låser inkommande nätverkstrafik med en nätverkssäkerhetsgrupp är d
 
 Följande är en lista över portar som används av en App Service Environment. Alla portar är **TCP**, om inte annat tydligt anges:
 
-* 454: **Obligatorisk port** som används av Azure-infrastruktur för att hantera och underhålla App Service-miljöer via SSL.  Blockera inte trafik till den här porten.  Denna port är alltid bunden till den offentliga VIP av en ASE.
-* 455: **Port som krävs** som används av Azure-infrastruktur för att hantera och underhålla App Service-miljöer via SSL.  Blockera inte trafik till den här porten.  Denna port är alltid bunden till den offentliga VIP av en ASE.
+* 454: **Port som krävs** som används av Azure-infrastruktur för att hantera och underhålla App Service-miljöer via TLS.  Blockera inte trafik till den här porten.  Denna port är alltid bunden till den offentliga VIP av en ASE.
+* 455: **Port som krävs** som används av Azure-infrastruktur för att hantera och underhålla App Service-miljöer via TLS.  Blockera inte trafik till den här porten.  Denna port är alltid bunden till den offentliga VIP av en ASE.
 * 80: Standardport för inkommande HTTP-trafik till appar som körs i App Service Plans i en App Service-miljö.  På en ILB-aktiverad ASE är den här porten bunden till ILB-adressen för ASE.
-* 443: Standardport för inkommande SSL-trafik till appar som körs i App Service Plans i en App Service-miljö.  På en ILB-aktiverad ASE är den här porten bunden till ILB-adressen för ASE.
+* 443: Standardport för inkommande TLS-trafik till appar som körs i App Service Plans i en App Service-miljö.  På en ILB-aktiverad ASE är den här porten bunden till ILB-adressen för ASE.
 * 21: Styrkanal för FTP.  Den här porten kan blockeras säkert om FTP inte används.  På en ILB-aktiverad ASE kan den här porten vara bunden till ILB-adressen för en ASE.
 * 990: Styrkanal för FTPS.  Den här porten kan blockeras säkert om FTPS inte används.  På en ILB-aktiverad ASE kan den här porten vara bunden till ILB-adressen för en ASE.
 * 10001-10020: Datakanaler för FTP.  Precis som med kontrollkanalen kan dessa portar blockeras säkert om FTP inte används.  På en ILB-aktiverad ASE kan den här porten vara bunden till ASE:s ILB-adress.
@@ -62,7 +62,7 @@ Följande visar att skapa en nätverkssäkerhetsgrupp:
 
 När en nätverkssäkerhetsgrupp har skapats läggs en eller flera nätverkssäkerhetsregler till i den.  Eftersom uppsättningen regler kan ändras med tiden, rekommenderas att utrymmet ut numreringsystemet som används för regelprioriteringar för att göra det enkelt att infoga ytterligare regler över tiden.
 
-Exemplet nedan visar en regel som uttryckligen ger åtkomst till hanteringsportar som behövs av Azure-infrastrukturen för att hantera och underhålla en App Service-miljö.  Observera att all hanteringstrafik flödar över SSL och skyddas av klientcertifikat, så även om portarna öppnas är de otillgängliga av någon annan enhet än Azure-hanteringsinfrastruktur.
+Exemplet nedan visar en regel som uttryckligen ger åtkomst till hanteringsportar som behövs av Azure-infrastrukturen för att hantera och underhålla en App Service-miljö.  Observera att all hanteringstrafik flödar över TLS och är skyddad av klientcertifikat, så även om portarna öppnas är de otillgängliga av någon annan enhet än Azure-hanteringsinfrastruktur.
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
 

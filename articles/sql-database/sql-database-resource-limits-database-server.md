@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
-ms.openlocfilehash: 550c315023c0ae907c369778c81b16e137004bec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: afb30a17d7a1450f169402c18f41ce249415e89d
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067249"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804834"
 ---
 # <a name="sql-database-resource-limits-and-resource-governance"></a>Resursbegränsningar och resursstyrning i SQL Database
 
@@ -60,7 +60,7 @@ När du stöter på hög beräkningsutnyttjande omfattar begränsningsalternativ
 - Öka beräkningsstorleken för databasen eller den elastiska poolen för att ge databasen fler beräkningsresurser. Se [Skala enskilda databasresurser](sql-database-single-database-scale.md) och [Skala elastiska poolresurser](sql-database-elastic-pool-scale.md).
 - Optimera frågor för att minska resursutnyttjandet av varje fråga. Mer information finns i [Frågejustering/tips .](sql-database-performance-guidance.md#query-tuning-and-hinting)
 
-### <a name="storage"></a>Lagring
+### <a name="storage"></a>Storage
 
 När databasutrymmet som används når maxstorleksgränsen, infogar och uppdaterar databasen som ökar datastorleken misslyckas och klienter får ett [felmeddelande](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md). SELECT- och DELETE-satser fortsätter att lyckas.
 
@@ -103,7 +103,7 @@ För att framtvinga resursgränser använder Azure SQL Database en implementerin
 
 Förutom att använda resursflagre för att styra resurser inom SQL Server-processen använder Azure SQL Database också Windows [Job Objects](https://docs.microsoft.com/windows/win32/procthread/job-objects) för resursstyrning på processnivå och [FSRM (Windows File Server Resource Manager)](https://docs.microsoft.com/windows-server/storage/fsrm/fsrm-overview) för hantering av lagringskvoter.
 
-Azure SQL Database resursstyrning är hierarkisk karaktär. Från uppifrån och ned tillämpas gränser på OS-nivå och på lagringsvolymnivå med hjälp av mekanismer för styrning av operativsystemets resurser och resurschef, sedan på resurspoolnivå med hjälp av resurschef och sedan på arbetsbelastningsgruppsnivå med hjälp av Resurschef. Resursstyrningsgränser som gäller för den aktuella databasen eller den elastiska poolen visas i [vyn sys.dm_user_db_resource_governance.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 
+Azure SQL Database resursstyrning är hierarkisk karaktär. Från uppifrån och ned tillämpas gränser på OS-nivå och på lagringsvolymnivå med hjälp av mekanismer för styrning av operativsystemets resurser och resurschef, sedan på resurspoolnivå med hjälp av resurschef och sedan på arbetsbelastningsgruppsnivå med hjälp av resurschef. Resursstyrningsgränser som gäller för den aktuella databasen eller den elastiska poolen visas i [vyn sys.dm_user_db_resource_governance.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 
 
 ### <a name="data-io-governance"></a>Styrning av data-IO
 
@@ -134,7 +134,7 @@ När loggposter genereras utvärderas och utvärderas varje åtgärd för om den
 
 De faktiska logggenereringshastigheterna som införts vid körning kan också påverkas av återkopplingsmekanismer, vilket tillfälligt minskar de tillåtna logghastigheterna så att systemet kan stabiliseras. Hantering av loggfilutrymme, undvika att köra in i ut ur loggutrymmesförhållanden och replikeringsmekanismer för tillgänglighetsgrupper kan tillfälligt minska de totala systemgränserna.
 
-Logghastighetsregulator trafikformning visas via följande vänta typer (exponeras i [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV):
+Logghastighetsregissator trafikformning visas via följande vänta typer (exponeras i [vyerna sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) och [sys.dm_os_wait_stats):](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)
 
 | Typ av väntetyp | Anteckningar |
 | :--- | :--- |
@@ -143,6 +143,7 @@ Logghastighetsregulator trafikformning visas via följande vänta typer (exponer
 | INSTANCE_LOG_RATE_GOVERNOR | Begränsning av instansnivå |  
 | HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Feedbackkontroll, fysisk replikering av tillgänglighetsgrupper i Premium/Business Critical håller inte jämna steg |  
 | HADR_THROTTLE_LOG_RATE_LOG_SIZE | Feedback kontroll, begränsa priser för att undvika en ur log utrymme skick |
+| HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO | Geo-replikeringsåterkopplingskontroll, vilket begränsar logghastigheten för att undvika hög datafördröjning och otillgänglighet för geo-sekundärer|
 |||
 
 När du stöter på en logghastighetsgräns som hindrar önskad skalbarhet bör du tänka på följande alternativ:

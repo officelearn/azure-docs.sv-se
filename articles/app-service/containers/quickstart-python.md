@@ -2,16 +2,16 @@
 title: 'Snabbstart: Skapa en Linux Python-app'
 description: Kom igång med Linux-appar på Azure App Service genom att distribuera din första Python-app till en Linux-behållare i App Service.
 ms.topic: quickstart
-ms.date: 10/22/2019
+ms.date: 04/03/2020
 ms.custom: seo-python-october2019, cli-validate
 experimental: true
 experiment_id: 01a9132f-eaab-4c
-ms.openlocfilehash: 9cc314edf35d6a327522ed49fcc0c7798c7dcf63
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 63daecca710e0e4d7b3326cea59c0c025c24f619
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80045671"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811149"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Snabbstart: Skapa en Python-app i Azure App Service på Linux
 
@@ -24,7 +24,7 @@ Om du föredrar att distribuera appar via en IDE läser [du Distribuera Python-a
 - Azure-prenumeration - [skapa en gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - <a href="https://www.python.org/downloads/" target="_blank">Python 3.7</a> (Python 3.6 stöds också)
 - <a href="https://git-scm.com/downloads" target="_blank">Git</a>
-- <a href="https://docs.microsoft.com/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>
+- <a href="https://docs.microsoft.com/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 eller senare. Kör `az --version` för att kontrollera vilken version du har.
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
@@ -56,7 +56,7 @@ export FLASK_APP=application.py
 flask run
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 py -3 -m venv env
@@ -98,39 +98,44 @@ az login
 
 Kommandot [`az webapp up`](/cli/azure/webapp#az-webapp-up) skapar webbappen på App Service och distribuerar din kod.
 
-I mappen *python-docs-hello-world* som innehåller exempelkoden kör `az webapp up` du följande kommando. Ersätt `<app-name>` med ett globalt unikt appnamn (*giltiga tecken är `a-z`, `0-9`och `-` *). Ersätt `<location-name>` också med en Azure-region som **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**och så vidare. (Du kan hämta en lista över tillåtna regioner [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) för ditt Azure-konto genom att köra kommandot.)
+I mappen *python-docs-hello-world* som innehåller exempelkoden kör `az webapp up` du följande kommando. Ersätt `<app-name>` med ett globalt unikt appnamn (*giltiga tecken är `a-z`, `0-9`och `-` *).
 
 
 ```azurecli
-az webapp up --sku F1 -n <app-name> -l <location-name>
+az webapp up --sku F1 -n <app-name>
 ```
 
-Det kan ta några minuter att köra det här kommandot. Medan det körs visas information liknande den i följande exempel:
+Argumentet `--sku F1` skapar webbappen på prisnivån Gratis. Du kan utelämna det här argumentet om du vill använda en premiumnivå i stället, vilket medför en timkostnad.
 
-```output
-The behavior of this command has been altered by the following extension: webapp
+Du kan också inkludera `-l <location-name>` `<location_name>` argumentet där är en Azure-region som **centralus,** **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**och så vidare. Du kan hämta en lista över tillåtna regioner [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) för ditt Azure-konto genom att köra kommandot.
+
+Kommandot `az webapp up` kan ta några minuter att köra helt. När du kör den visas information som `<app_name>` liknar följande exempel, där namnet du angav tidigare:
+
+<pre>
 Creating Resource group 'appsvc_rg_Linux_centralus' ...
 Resource group creation complete
 Creating App service plan 'appsvc_asp_Linux_centralus' ...
 App service plan creation complete
 Creating app '<app-name>' ....
-Webapp creation complete
-Creating zip with contents of dir /home/username/quickstart/python-docs-hello-world ...
-Preparing to deploy contents to app.
-All done.
+Configuring default logging for the app, if not already enabled
+Creating zip with contents of dir D:\Examples\python-docs-hello-world ...
+Getting scm site credentials for zip deployment
+Starting zip deployment. This operation can take a while to complete ...
+Deployment endpoint responded with status code 202
+You can launch the app at http://<app-name>.azurewebsites.net
 {
-  "app_url": "https:/<app-name>.azurewebsites.net",
-  "location": "Central US",
+  "URL": "http://<app-name>.net",
+  "appserviceplan": "appsvc_asp_Linux_centralus",
+  "location": "eastus",
   "name": "<app-name>",
   "os": "Linux",
-  "resourcegroup": "appsvc_rg_Linux_centralus ",
-  "serverfarm": "appsvc_asp_Linux_centralus",
-  "sku": "BASIC",
-  "src_path": "/home/username/quickstart/python-docs-hello-world ",
-  "version_detected": "-",
-  "version_to_create": "python|3.7"
+  "resourcegroup": "appsvc_rg_Linux_centralus",
+  "runtime_version": "python|3.7",
+  "runtime_version_detected": "-",
+  "sku": "FREE",
+  "src_path": "D:\\Examples\\python-docs-hello-world"
 }
-```
+</pre>
 
 [!INCLUDE [AZ Webapp Up Note](../../../includes/app-service-web-az-webapp-up-note.md)]
 
@@ -146,20 +151,23 @@ Python-exempelkoden kör en Linux-behållare i App Service med hjälp av en inby
 
 ## <a name="redeploy-updates"></a>Distribuera om uppdateringar
 
-Öppna *application.py i* din favoritkodredigerare `return` och ändra satsen på den sista raden så att den matchar följande kod. Satsen `print` ingår här för att generera loggningsutdata som du arbetar med i nästa avsnitt. 
+Öppna *application.py i* din favoritkodredigerare `hello` och uppdatera funktionen enligt följande. Den här `print` ändringen lägger till en sats för att generera loggningsutdata som du arbetar med i nästa avsnitt. 
 
 ```python
-print("Handling request to home page.")
-return "Hello Azure!"
+def hello():
+    print("Handling request to home page.")
+    return "Hello Azure!"
 ```
 
 Spara dina ändringar och avsluta redigeraren. 
 
-Distribuera om appen med följande `az webapp up` kommando med samma kommando som du använde för `<app-name>` att `<location-name>` distribuera appen första gången och ersätta och med samma namn som du använde tidigare. 
+Distribuera om appen med `az webapp up` kommandot igen:
 
 ```azurecli
-az webapp up --sku F1 -n <app-name> -l <location-name>
+az webapp up
 ```
+
+Det här kommandot använder värden som cachelagras i *.azure/config-filen,* inklusive appens namn, resursgrupp och App Service-plan.
 
 När distributionen är klar växlar du `http://<app-name>.azurewebsites.net` tillbaka till webbläsarfönstret som är öppet till och uppdaterar sidan, vilket ska visa det ändrade meddelandet:
 
@@ -172,24 +180,18 @@ När distributionen är klar växlar du `http://<app-name>.azurewebsites.net` ti
 
 Du kan komma åt konsolloggarna som genereras inifrån appen och behållaren där den körs. Loggar inkluderar alla utdata som genereras med hjälp av `print` satser.
 
-Aktivera först behållarloggning genom att köra följande `<app-name>` kommando i en terminal, ersätta med namnet på din app och `<resource-group-name>` med namnet på resursgruppen som visas i utdata för det `az webapp up` kommando du använde (till exempel "appsvc_rg_Linux_centralus"):
+Om du vill strömma loggar kör du följande kommando:
 
 ```azurecli
-az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
-```
-
-När behållarloggning är aktiverat kör du följande kommando för att visa loggströmmen:
-
-```azurecli
-az webapp log tail --name <app-name> --resource-group <resource-group-name>
+az webapp log tail
 ```
 
 Uppdatera appen i webbläsaren för att generera konsolloggar, som bör innehålla rader som liknar följande text. Om du inte ser utdata omedelbart kan du försöka igen om 30 sekunder.
 
-```output
-2019-10-23T12:40:03.815574424Z Handling request to home page.
-2019-10-23T12:40:03.815602424Z 172.16.0.1 - - [23/Oct/2019:12:40:03 +0000] "GET / HTTP/1.1" 200 12 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.63 Safari/537.36 Edg/78.0.276.19"
-```
+<pre>
+2020-04-03T22:54:04.236405938Z Handling request to home page.
+2020-04-03T22:54:04.236497641Z 172.16.0.1 - - [03/Apr/2020:22:54:04 +0000] "GET / HTTP/1.1" 200 12 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.83 Safari/537.36 Edg/81.0.416.41"
+</pre>
 
 Du kan också granska loggfilerna `https://<app-name>.scm.azurewebsites.net/api/logs/docker`från webbläsaren på .
 
@@ -213,7 +215,7 @@ På menyn Appservice finns olika sidor där appen kan konfigureras.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-I de föregående stegen skapade du Azure-resurser i en resursgrupp. Resursgruppen har ett namn som "appsvc_rg_Linux_CentralUS" beroende på var du befinner dig. Om du använder en apptjänst SKU än den kostnadsfria F1-nivån medför dessa resurser löpande kostnader.
+I de föregående stegen skapade du Azure-resurser i en resursgrupp. Resursgruppen har ett namn som "appsvc_rg_Linux_CentralUS" beroende på var du befinner dig. Om du använder en annan App Service SKU än den kostnadsfria F1-nivån medför dessa resurser löpande kostnader (se [priser för App-tjänst).](https://azure.microsoft.com/pricing/details/app-service/linux/)
 
 Om du inte förväntar dig att behöva dessa resurser i framtiden tar du `<resource-group-name>` bort resursgruppen genom att `az webapp up` köra följande kommando och ersätter med resursgruppen som visas i utdata från kommandot, till exempel "appsvc_rg_Linux_centralus". Kommandot kan ta en minut att slutföra.
 

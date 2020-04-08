@@ -2,13 +2,13 @@
 title: Resurser utan 800 räknegräns
 description: Visar en lista över azure-resurstyper som kan ha fler än 800 instanser i en resursgrupp.
 ms.topic: conceptual
-ms.date: 01/30/2020
-ms.openlocfilehash: 735cad0bfa936c41f603e42bdb9be77a1562cc1f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: 8644bec1a68acebff18cf83d17acb014784dc964
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76937943"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804783"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Resurser som inte är begränsade till 800 instanser per resursgrupp
 
@@ -26,7 +26,6 @@ För vissa resurstyper måste du kontakta supporten för att få 800-instansgrä
 * Registreringar
 * registreringar/kundAbonnemang
 * registreringar/produkter
-* verifieringstangenter
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
@@ -35,6 +34,9 @@ För vissa resurstyper måste du kontakta supporten för att få 800-instansgrä
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
 * Diskar
+* Gallerier
+* gallerier/bilder
+* gallerier/bilder/versioner
 * images
 * snapshots
 * virtuellaMaskiner
@@ -67,6 +69,11 @@ För vissa resurstyper måste du kontakta supporten för att få 800-instansgrä
 * serverGrupper
 * Servrar
 * servrarv2
+* singleServers
+
+## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
+
+* scheman - Som standard begränsad till 800 instanser. Den gränsen kan höjas genom att kontakta supporten.
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
@@ -90,7 +97,7 @@ För vissa resurstyper måste du kontakta supporten för att få 800-instansgrä
 * softwareUpdateProfile
 * programvaraUppdater
 
-## <a name="microsoftinsights"></a>Microsoft.Insights
+## <a name="microsoftinsights"></a>microsoft.insights microsoft.insights microsoft.insights microsoft.
 
 * metricalerter
 

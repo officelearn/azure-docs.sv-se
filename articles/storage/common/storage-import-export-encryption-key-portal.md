@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ca1327a547e8550e47ff37e4ba100fcbd2b7a79f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a7077b5e94800d93833f259fefd0cd4c168ec867
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282468"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811438"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Använda kundhanterade nycklar i Azure Key Vault for Import/Export-tjänsten
 
@@ -103,7 +103,7 @@ Om du får några fel relaterade till kundens hanterade nyckel använder du föl
 | CmkErrorAccessRevoked | Tillämpade en kundhanterad nyckel men nyckelåtkomsten har återkallats. Mer information finns i aktivera [nyckelåtkomsten](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).                                                      | Ja, kontrollera om: <ol><li>Nyckelvalvet har fortfarande MSI i åtkomstprincipen.</li><li>Åtkomstprincipen ger behörighet till Hämta, Radbryt, Packa upp.</li><li>Om nyckelvalvet finns i ett vNet bakom brandväggen kontrollerar du om **Tillåt Microsoft Trusted Services** är aktiverat.</li></ol>                                                                                            |
 | CmkErrorDisabled      | Använde en kundhanterad nyckel men nyckeln är inaktiverad. Mer information finns i aktivera [nyckeln](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).                                                                             | Ja, genom att aktivera nyckelversionen     |
 | CmkErrorNotFound      | Tillämpade en kundhanterad nyckel men kan inte hitta nyckeln. <br>Om nyckeln tas bort och rensas efter kvarhållningsperioden kan du inte återställa nyckeln. Om du säkerhetskopierade nyckeln kan du återställa nyckeln för att lösa problemet. | Nej, nyckeln har tagits bort och har även rensats efter kvarhållningsperioden. <br>Ja, bara om kunden har nyckeln säkerhetskopierad och återställer den.  |
-| CmkErrorVaultNotFound | Tillämpade en kundhanterad nyckel men kan inte hitta nyckelvalvet som är associerat med nyckeln.<br>Om du har tagit bort nyckelvalvet kan du inte återställa den hanterade nyckeln för kunden.  Om du har migrerat nyckelvalvet till en annan klient kan du [se Ändra ett klient-ID för nyckelvalv efter ett prenumerationssteg](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   Nej, om kunden har tagit bort nyckelvalvet.<br> Ja, om nyckelvalvet genomgick en klientmigrering gör du en av: <ol><li>flytta tillbaka nyckelvalvet till den gamla klienten.</li><li>ange Identitet = Ingen och sedan tillbaka till Identity = SystemAssigned, tas bort och återskapar identiteten</li></ol><br>Klientmigreringsärendeär baserat på begränsad förståelse, behov av att testa och bekräfta det faktiska beteendet, kan revideras senare. |
+| CmkErrorVaultNotFound | Tillämpade en kundhanterad nyckel men kan inte hitta nyckelvalvet som är associerat med nyckeln.<br>Om du har tagit bort nyckelvalvet kan du inte återställa den hanterade nyckeln för kunden.  Om du har migrerat nyckelvalvet till en annan klient kan du [se Ändra ett klient-ID för nyckelvalv efter ett prenumerationssteg](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   Nej, om kunden har tagit bort nyckelvalvet.<br> Ja, om nyckelvalvet genomgick en klientmigrering gör du en av: <ol><li>flytta tillbaka nyckelvalvet till den gamla klienten.</li><li>ange Identitet = Ingen och sedan tillbaka till Identity = SystemAssigned, tas bort och återskapar identiteten</li></ol>|
 
 ## <a name="next-steps"></a>Nästa steg
 

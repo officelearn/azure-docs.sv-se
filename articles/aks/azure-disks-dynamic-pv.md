@@ -1,15 +1,16 @@
 ---
-title: Skapa och använda en beständig volym dynamiskt med Azure-diskar i Azure Kubernetes Service (AKS)
+title: Skapa Azure-diskvolym dynamiskt
+titleSuffix: Azure Kubernetes Service
 description: Lär dig hur du dynamiskt skapar en beständig volym med Azure-diskar i Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: f16a6134b1d2065668952ea11c0cab7398a3559a
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 0ed58ef86dcd93ff2bd5588c8479195443bc292d
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617476"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803559"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Skapa och använda en beständig volym dynamiskt med Azure-diskar i Azure Kubernetes Service (AKS)
 

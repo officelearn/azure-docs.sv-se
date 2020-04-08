@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: a0b9d424c1995fba075c05ffe5058e297d764775
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8941c097fbb2d05c3a28be87d216b7a2679ebc68
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531268"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804902"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Sink-omvandling vid mappning av dataflöde
 
@@ -39,7 +39,9 @@ Azure Data Factory har åtkomst till över [90 inbyggda kopplingar](connector-ov
 
 ## <a name="sink-settings"></a>Sink-inställningar
 
-När du har lagt till en diskbänk konfigurerar du via fliken **Sink.** Här kan du välja eller skapa datauppsättningen som diskbänken skriver till 
+När du har lagt till en diskbänk konfigurerar du via fliken **Sink.** Här kan du välja eller skapa datauppsättningen som diskbänken skriver till. Nedan finns en video som förklarar ett antal olika Sink-alternativ för textavgränsade filtyper:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tf7T]
 
 ![Sink-inställningar](media/data-flow/sink-settings.png "Inställningar för diskbänk")
 

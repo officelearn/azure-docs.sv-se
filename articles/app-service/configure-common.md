@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: ce0a170a629f347e2687a2e9f63fb3438fe2bd2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 18469c94b66acab27b58243e8d15eb924843319b
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280175"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811114"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Konfigurera en App Service-app i Azure-portalen
 
@@ -35,7 +35,7 @@ Andra språkstaplar får också appinställningarna som miljövariabler vid kör
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
 - [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
-- [Php](containers/configure-language-php.md#access-environment-variables)
+- [PHP](containers/configure-language-php.md#access-environment-variables)
 - [Python](containers/how-to-configure-python.md#access-environment-variables)
 - [Java](containers/configure-language-java.md#data-sources)
 - [Ruby](containers/configure-language-ruby.md#access-environment-variables)
@@ -96,16 +96,17 @@ För andra språkstaplar är det bättre att använda [appinställningar](#confi
 
 Vid körning är anslutningssträngar tillgängliga som miljövariabler, som föregås av följande anslutningstyper:
 
-* SQL Server:`SQLCONNSTR_`
-* Mysql:`MYSQLCONNSTR_`
-* SQL-databas:`SQLAZURECONNSTR_`
+* Sqlserver:`SQLCONNSTR_`  
+* Mysql:`MYSQLCONNSTR_` 
+* SQLAzure:`SQLAZURECONNSTR_` 
 * Anpassade:`CUSTOMCONNSTR_`
+* Postgresql:`POSTGRESQLCONNSTR_`  
 
 En MySql-anslutningssträng med namnet *connectionstring1* kan till `MYSQLCONNSTR_connectionString1`exempel nås som miljövariabel . För språkstackspecifika steg finns i:
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
 - [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
-- [Php](containers/configure-language-php.md#access-environment-variables)
+- [PHP](containers/configure-language-php.md#access-environment-variables)
 - [Python](containers/how-to-configure-python.md#access-environment-variables)
 - [Java](containers/configure-language-java.md#data-sources)
 - [Ruby](containers/configure-language-ruby.md#access-environment-variables)
@@ -173,7 +174,7 @@ Här kan du konfigurera några vanliga inställningar för appen. Vissa inställ
     - **Hanterad pipeline-version:** [IIS-pipelineläge]. Ställ in den på **Classic** om du har en äldre app som kräver en äldre version av IIS.
     - **HTTP-version**: Ställ in på **2.0** för att aktivera stöd för [HTTPS/2-protokoll.](https://wikipedia.org/wiki/HTTP/2)
     > [!NOTE]
-    > De flesta moderna webbläsare stöder endast HTTP/2-protokoll via TLS, medan icke-krypterad trafik fortsätter att använda HTTP/1.1. Skydda [ditt anpassade DNS-namn med en SSL-bindning i Azure App Service](configure-ssl-bindings.md)för att säkerställa att klientwebbläsare ansluter till din app med HTTP/2 .
+    > De flesta moderna webbläsare stöder endast HTTP/2-protokoll via TLS, medan icke-krypterad trafik fortsätter att använda HTTP/1.1. Skydda ditt anpassade DNS-namn om du vill vara säker på att klientwebbläsare ansluter till din app med HTTP/2. Mer information finns i [Skydda ett anpassat DNS-namn med en TLS/SSL-bindning i Azure App Service](configure-ssl-bindings.md).
     - **ARR-tillhörighet**: I en distribution med flera instanser, se till att klienten dirigeras till samma instans under sessionens livstid. Du kan ställa in det här alternativet till **Av** för tillståndslösa program.
 - **Felsökning:** Aktivera fjärrfelsökning för [ASP.NET,](troubleshoot-dotnet-visual-studio.md#remotedebug) [ASP.NET Core-](/visualstudio/debugger/remote-debugging-azure)eller [Node.js-appar.](containers/configure-language-nodejs.md#debug-remotely) Det här alternativet stängs av automatiskt efter 48 timmar.
 - **Inkommande klientcertifikat:** kräver klientcertifikat i [ömsesidig autentisering](app-service-web-configure-tls-mutual-auth.md).
@@ -235,7 +236,7 @@ För Linux-appar, se:
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md)
 - [Node.js](containers/configure-language-nodejs.md)
-- [Php](containers/configure-language-php.md)
+- [PHP](containers/configure-language-php.md)
 - [Python](containers/how-to-configure-python.md)
 - [Java](containers/configure-language-java.md)
 - [Ruby](containers/configure-language-ruby.md)
@@ -248,7 +249,7 @@ Se [Konfigurera en anpassad Linux-behållare för Azure App Service](containers/
 
 - [Konfigurera ett anpassat domännamn i Azure App Service]
 - [Konfigurera mellanlagringsmiljöer i Azure App Service]
-- [Skydda ett anpassat DNS-namn med en SSL-bindning i Azure App Service](configure-ssl-bindings.md)
+- [Skydda ett anpassat DNS-namn med en TLS/SSL-bindning i Azure App Service](configure-ssl-bindings.md)
 - [Aktivera diagnostikloggar](troubleshoot-diagnostic-logs.md)
 - [Skala en app i Azure App Service]
 - [Övervaka grunderna i Azure App Service]
@@ -257,7 +258,7 @@ Se [Konfigurera en anpassad Linux-behållare för Azure App Service](containers/
 <!-- URL List -->
 
 [ASP.NET SignalR]: https://www.asp.net/signalr
-[Azure Portal]: https://portal.azure.com/
+[Azure-portal]: https://portal.azure.com/
 [Konfigurera ett anpassat domännamn i Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Konfigurera mellanlagringsmiljöer i Azure App Service]: ./deploy-staging-slots.md
 [How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906

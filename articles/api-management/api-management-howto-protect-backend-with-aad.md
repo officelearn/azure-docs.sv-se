@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 8b396b782c1254b3229aeeb8e51b61cc744d6318
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 300f44daeeea5e8a774575dabcb00686906bb5de
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77190367"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804375"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Skydda ett API med hjälp av OAuth 2.0 med Azure Active Directory och API Management
 
@@ -137,7 +137,7 @@ I det här exemplet är Utvecklarkonsolen klientappen. I följande steg beskrivs
 
 1. Om du använder **v1-slutpunkter** lägger du till en brödtextparameter med namnet **resource**. Använd **program-ID för** backend-appen för värdet för den här parametern. 
 
-1. Om du använder **v2-slutpunkter** använder du det scope som du skapade för backend-appen i fältet **Standardomfattning.**
+1. Om du använder **v2-slutpunkter** använder du det scope som du skapade för backend-appen i fältet **Standardomfattning.** Se också till att ange [`accessTokenAcceptedVersion`](/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) värdet `2` för egenskapen till i [ditt programmanifest](/azure/active-directory/develop/reference-app-manifest).
 
 1. Ange sedan klientautentiseringsuppgifterna. Dessa är autentiseringsuppgifterna för klientappen.
 

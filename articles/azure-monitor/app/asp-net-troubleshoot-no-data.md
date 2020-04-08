@@ -3,12 +3,12 @@ title: Felsökning utan data, Application Insights för .NET
 description: Ser du inte data i Azure Application Insights? Försök här.
 ms.topic: conceptual
 ms.date: 07/23/2018
-ms.openlocfilehash: 2627fde55f4177798d04aab02db169f3117d32dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 34fc51f8f656ec0f630bd984ac1b28fbaa5e4dae
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77665909"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80802594"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Felsökning av inga data – Programinsikter för .NET/.NET Core
 
@@ -241,12 +241,16 @@ PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-Applica
 Du kan ändra dessa parametrar efter behov:
 - **MaxCollectSec**. Ange den här parametern för att förhindra att PerfView körs på obestämd tid och påverkar serverns prestanda.
 - **OnlyProviders**. Ange den här parametern för att endast samla in loggar från SDK. Du kan anpassa den här listan baserat på dina specifika undersökningar. 
-- **NoGui**. Ange den här parametern för att samla in loggar utan Gui.
+- **NoGui**. Ange den här parametern för att samla in loggar utan guidning.
 
 
 Om du vill ha mer information läser du
 - [Registrera prestandaspårningar med PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
 - [Händelsekällor för programinsikter](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
+
+## <a name="how-to-remove-application-insights"></a>Så här tar du bort application insights
+
+Lär dig hur du tar bort Programstatistik i Visual Studio genom att följa stegen i [borttagningsartikeln](../../azure-monitor/app/remove-application-insights.md).
 
 ## <a name="still-not-working"></a>Fortfarande inte fungerar ...
 * [Forum för Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

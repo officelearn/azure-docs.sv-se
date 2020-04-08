@@ -1,15 +1,16 @@
 ---
-title: Statisk IP-adress för utgående trafik i Azure Kubernetes Service (AKS)
+title: Använd statisk IP för utgående trafik
+titleSuffix: Azure Kubernetes Service
 description: Lär dig hur du skapar och använder en statisk offentlig IP-adress för utgående trafik i ett AKS-kluster (Azure Kubernetes Service)
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 5850f8dfc08ed80dfe5e5e13f49808c3fd9338c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 08a9682434605fffde73c835e7a9e9d6971d7ff0
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595764"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80803390"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Använda en statisk offentlig IP-adress för utgående trafik i Azure Kubernetes Service (AKS)
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: 0aa62a76727f6f913c277100d8c5b36ed1b00110
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2133524f57576c4646de9d4bf7f37b573a77e6d
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77618481"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80813746"
 ---
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -40,7 +40,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 Skapa ett nyckelvalv med kommandot [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) Azure CLI, kommandot [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) Azure Powershell, [Azure-portalen](https://portal.azure.com)eller en [Resource Manager-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
 
 >[!WARNING]
-> För att säkerställa att krypteringshemligheter inte korsar regionala gränser kräver Azure Disk Encryption nyckelvalvet och de virtuella datorerna att vara samlokala i samma region. Skapa och använd ett nyckelvalv som finns i samma region som de virtuella datorer som ska krypteras. 
+> För att säkerställa att krypteringshemligheter inte korsar regionala gränser kräver Azure Disk Encryption nyckelvalvet och de virtuella datorerna att vara samlokala i samma region och samma prenumeration. Skapa och använd ett nyckelvalv som finns i samma region som de virtuella datorer som ska krypteras. 
 
 Varje Key Vault måste ha ett unikt namn. Ersätt <ditt unika nyckelval-namn> med namnet på nyckelvalvet i följande exempel.
 

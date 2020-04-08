@@ -2,13 +2,13 @@
 title: Mallfunktioner - resurser
 description: Beskriver de funktioner som ska användas i en Azure Resource Manager-mall för att hämta värden om resurser.
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: 23c0463649e748b35917c959a73536147e91f60b
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.date: 04/06/2020
+ms.openlocfilehash: 90cee78c29c26c88d808cdef798e74a2184a5fcf
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80744986"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804766"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Resursfunktioner för ARM-mallar
 
@@ -496,7 +496,9 @@ Använd `'Full'` när du behöver resursvärden som inte ingår i egenskapsschem
 
 ### <a name="valid-uses"></a>Giltiga användningsområden
 
-Referensfunktionen kan bara användas i egenskaperna för en resursdefinition och utdataavsnittet i en mall eller distribution. När du används med [egenskapsiteration](copy-properties.md) `input` kan du använda referensfunktionen för eftersom uttrycket är tilldelat resursegenskapen. Du kan inte använda `count` den med eftersom antalet måste bestämmas innan referensfunktionen har lösts.
+Referensfunktionen kan bara användas i egenskaperna för en resursdefinition och utdataavsnittet i en mall eller distribution. När du används med [egenskapsiteration](copy-properties.md) `input` kan du använda referensfunktionen för eftersom uttrycket är tilldelat resursegenskapen.
+
+Du kan inte använda referensfunktionen för att `count` ange värdet för egenskapen i en kopieringsloop. Du kan använda för att ange andra egenskaper i loopen. Referensen är spärrad för egenskapen count eftersom egenskapen måste bestämmas innan referensfunktionen har lösts.
 
 Du kan inte använda referensfunktionen i utdata för en [kapslad mall](linked-templates.md#nested-template) för att returnera en resurs som du har distribuerat i den kapslade mallen. Använd i stället en [länkad mall](linked-templates.md#linked-template).
 

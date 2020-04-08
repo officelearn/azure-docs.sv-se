@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 75890efebc42b74c56fb95ed1803152b516588b9
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 55c6d374c8a3c308323c0d003726492477e33ff8
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385222"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811235"
 ---
 # <a name="develop-a-secure-web-app"></a>Utveckla en säker webbapp
 
@@ -108,7 +108,7 @@ Denna ansökan används:
 
 ### <a name="network"></a>Nätverk
 
-Exempelappen använder SSL-kryptering från slutpunkt till slutpunkt för in-transit-data som flödar in i och ut ur nätverket. Gatewayen är konfigurerad med ett självsignerat certifikat.
+Exempelappen använder TLS/SSL-kryptering från slutpunkt till slutpunkt för data som flödar in i och ut ur nätverket. Gatewayen är konfigurerad med ett självsignerat certifikat.
 > [!IMPORTANT]
 > Ett självsignerat certifikat används i den här demonstrationen. I en produktionsmiljö bör du hämta certifikat från en verifierad certifikatutfärdare.
 
@@ -123,7 +123,7 @@ Exempelappen använder hanterade identiteter för att få behörighet att läsa 
 Hanterade identiteter för Azure-resurser och MFA gör det svårare för motståndare att få privilegier och eskalera sina privilegier i systemet. Hotet pekades ut i hotmodellen.
 Appen använder OAuth, som gör att användare som är registrerade i OAuth-programmet kan logga in på appen.
 
-### <a name="storage"></a>Lagring
+### <a name="storage"></a>Storage
 
 Data i PostgreSQL-databasen krypteras i vila automatiskt av Azure Database för PostgreSQL. Databasen auktoriserar IP-adresserna för App Service så att endast den distribuerade App Service-webbappen kan komma åt databasresurserna med rätt autentiseringsuppgifter.
 
@@ -363,7 +363,7 @@ END;
 $$ LANGUAGE PLPGSQL;
 ```
 
-Mer information om hur du konfigurerar verifiering av SSL och certifikatutfärdare för PostgreSQL finns [i Konfigurera SSL-anslutning i Azure Database för PostgreSQL](/azure/postgresql/concepts-ssl-connection-security).
+Mer information om hur du konfigurerar TLS- och Certifikatutfärdaresverifiering för PostgreSQL finns [i Konfigurera TLS-anslutning i Azure Database för PostgreSQL](/azure/postgresql/concepts-ssl-connection-security).
 
 Ett rotcertifikat ingår i behållaren. De åtgärder som vidtagits för att erhålla intyget är följande:
 
@@ -375,7 +375,7 @@ Ett rotcertifikat ingår i behållaren. De åtgärder som vidtagits för att erh
    openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
    ```
 
-Läs mer om hur du konfigurerar SSL-säkerhet för PostgreSQL här [Konfigurera SSL-anslutningssäkerhet](/azure/postgresql/concepts-ssl-connection-security).
+Läs mer om hur du konfigurerar TLS-säkerhet för PostgreSQL här [Konfigurera TLS-anslutningssäkerhet](/azure/postgresql/concepts-ssl-connection-security).
 
 #### <a name="deploy-azure-web-apps-on-linux"></a>Distribuera Azure Web Apps på Linux
 

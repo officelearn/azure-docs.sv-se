@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 8b0db4a1e55b53165e40e176834d66b62926e24b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c7eb1670ee911895bdba23921845b8795f4998af
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74421551"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811298"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Flytta data mellan utskalade molndatabaser
 
@@ -62,7 +62,7 @@ Verktyget för delad koppling körs som en Azure-webbtjänst. En administratör 
 
 - **Tjänster som är värd för kunden**
 
-  Split-merge levereras som en kundvärd tjänst. Du måste distribuera och vara värd för tjänsten i din Microsoft Azure-prenumeration. Paketet som du hämtar från NuGet innehåller en konfigurationsmall som du vill komplettera med informationen för din specifika distribution. Mer information finns i [självstudien](sql-database-elastic-scale-configure-deploy-split-and-merge.md) för delad koppling. Eftersom tjänsten körs i din Azure-prenumeration kan du styra och konfigurera de flesta säkerhetsaspekter av tjänsten. Standardmallen innehåller alternativen för att konfigurera SSL, certifikatbaserad klientautentisering, kryptering för lagrade autentiseringsuppgifter, DoS-bevakning och IP-begränsningar. Du hittar mer information om säkerhetsaspekterna i följande [dokumentkonfiguration för delad koppling](sql-database-elastic-scale-split-merge-security-configuration.md).
+  Split-merge levereras som en kundvärd tjänst. Du måste distribuera och vara värd för tjänsten i din Microsoft Azure-prenumeration. Paketet som du hämtar från NuGet innehåller en konfigurationsmall som du vill komplettera med informationen för din specifika distribution. Mer information finns i [självstudien](sql-database-elastic-scale-configure-deploy-split-and-merge.md) för delad koppling. Eftersom tjänsten körs i din Azure-prenumeration kan du styra och konfigurera de flesta säkerhetsaspekter av tjänsten. Standardmallen innehåller alternativ för att konfigurera TLS, certifikatbaserad klientautentisering, kryptering för lagrade autentiseringsuppgifter, DoS-bevakning och IP-begränsningar. Du hittar mer information om säkerhetsaspekterna i följande [dokumentkonfiguration för delad koppling](sql-database-elastic-scale-split-merge-security-configuration.md).
 
   Standardbe distribuerad tjänst körs med en arbetare och en webbroll. Var och en använder A1 VM-storleken i Azure Cloud Services. Även om du inte kan ändra dessa inställningar när du distribuerar paketet, kan du ändra dem efter en lyckad distribution i den löpmoldtjänsten (via Azure-portalen). Observera att arbetarrollen inte får konfigureras för mer än en instans av tekniska skäl.
 
@@ -72,7 +72,7 @@ Verktyget för delad koppling körs som en Azure-webbtjänst. En administratör 
 
 - **Konsekventa fragmentanslutningar**
 
-  När dataförflyttning startar för en ny batch av shardlets blockeras alla fragmentbaserade routningsanslutningar till shardlagringen och efterföljande anslutningar från fragmentkart-API:erna till shardlets blockeras medan dataförflyttningen är för att undvika inkonsekvenser. Anslutningar till andra shardlets på samma fragment kommer också att få dödas, men kommer att lyckas igen omedelbart vid återförsök. När batchen har flyttats markeras shardlets online igen för målsvanten och källdata tas bort från källshardten. Tjänsten går igenom dessa steg för varje batch tills alla shardlets har flyttats. Detta kommer att leda till flera anslutningsavslag under hela split/merge/move-åtgärden.  
+  När dataförflyttning startar för en ny batch av shardlets blockeras alla fragmentbaserade routningsanslutningar till shardlagringen och efterföljande anslutningar från fragmentkart-API:erna till shardlets blockeras medan dataförflyttningen pågår för att undvika inkonsekvenser. Anslutningar till andra shardlets på samma fragment kommer också att få dödas, men kommer att lyckas igen omedelbart vid återförsök. När batchen har flyttats markeras shardlets online igen för målsvanten och källdata tas bort från källshardten. Tjänsten går igenom dessa steg för varje batch tills alla shardlets har flyttats. Detta kommer att leda till flera anslutningsavslag under hela split/merge/move-åtgärden.  
 
 - **Hantera shardlet-tillgänglighet**
 

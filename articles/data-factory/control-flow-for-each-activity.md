@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: b8f95f22553a3b4639b1aba6576ce844116ae20b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71528385563b29ce70edf396434be0174beac105
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73679883"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804851"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>ForEach-aktivitet i Azure Data Factory
 ForEach-aktiviteten definierar ett upprepande kontrollflöde i pipelinen. Den här aktiviteten används till att iterera över en samling och kör angivna aktiviteter i en loop. Implementeringen av loopen för den här aktiviteten liknar Foreach-loopstrukturen i programmeringsspråk.
@@ -70,10 +70,10 @@ Egenskaperna beskrivs senare i den här artikeln. Egenskapen Items är samlingen
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Namn på för varje aktivitet. | String | Ja
-typ | Måste ställas in på **ForEach** | String | Ja
-ärSequential | Anger om loopen ska köras sekventiellt eller parallellt.  Maximalt 20 loop iterationer kan utföras på en gång parallellt). Om du till exempel har en ForEach-aktivitet som itererar över en kopieringsaktivitet med 10 olika käll- och sink-datauppsättningar med **isEquential** inställd på Falskt, körs alla kopior samtidigt. Standard är Falskt. <br/><br/> Om "isSequential" är inställt på Falskt, se till att det finns en korrekt konfiguration för att köra flera körbara filer. Annars bör den här egenskapen användas med försiktighet för att undvika att ådra sig skrivkonflikter. Mer information finns i [avsnittet Parallell körning.](#parallel-execution) | Boolean | Nej. Standard är Falskt.
-batchCount(1)batchCount | Batchantal som ska användas för att kontrollera antalet parallella körning (när isSequential är inställt på false). | Heltal (max 50) | Nej. Standard är 20.
+namn | Namn på för varje aktivitet. | Sträng | Ja
+typ | Måste ställas in på **ForEach** | Sträng | Ja
+ärSequential | Anger om loopen ska köras sekventiellt eller parallellt.  Maximalt 20 loop iterationer kan utföras på en gång parallellt). Om du till exempel har en ForEach-aktivitet som itererar över en kopieringsaktivitet med 10 olika käll- och sink-datauppsättningar med **isEquential** inställd på Falskt, körs alla kopior samtidigt. Standard är Falskt. <br/><br/> Om "isSequential" är inställt på Falskt, se till att det finns en korrekt konfiguration för att köra flera körbara filer. Annars bör den här egenskapen användas med försiktighet för att undvika att ådra sig skrivkonflikter. Mer information finns i [avsnittet Parallell körning.](#parallel-execution) | Boolesk | Nej. Standard är Falskt.
+batchCount(1)batchCount | Batchantal som ska användas för att kontrollera antalet parallella körning (när isSequential är inställt på false). Detta är den övre samtidighetsgränsen, men för varje aktivitet kommer inte alltid att köras vid detta nummer | Heltal (max 50) | Nej. Standard är 20.
 Objekt | Ett uttryck som returnerar en JSON-matris som ska itereras över. | Uttryck (som returnerar en JSON-matris) | Ja
 Aktiviteter | De aktiviteter som ska utföras. | Lista med aktiviteter | Ja
 

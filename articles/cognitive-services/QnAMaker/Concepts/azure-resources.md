@@ -3,12 +3,12 @@ title: Azure-resurser - QnA Maker
 description: QnA Maker använder flera Azure-källor, var och en med ett annat syfte. Om du förstår hur de används individuellt kan du planera för och välja rätt prisnivå eller veta när du ska ändra din prisnivå. Förstå hur de används i kombination kan du hitta och åtgärda problem när de uppstår.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 8a5cc0f4889e31470514015035a92d230c40ed43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1bd491ecbd878cb7bb05a7eaa5712c75653f2cba
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284253"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804307"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Azure-resurser för QnA Maker
 
@@ -54,7 +54,7 @@ Följande tabell ger dig några riktlinjer på hög nivå.
 
 |Uppgradera|Orsak|
 |--|--|
-|[Uppgradera](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) QnA Maker förvaltning SKU|Du vill ha fler QnA-uppsättningar eller dokumentkällor i din kunskapsbas.|
+|[Uppgradera](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) QnA Maker förvaltning SKU|Du vill ha fler QnA-par eller dokumentkällor i kunskapsbasen.|
 |[Uppgradera](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) App Service SKU och kontrollera kognitiv söknivå och [skapa kognitiva sökrepliker](../../../search/search-capacity-planning.md)|Din kunskapsbas måste visa fler förfrågningar från din klientapp, till exempel en chattrobot.|
 |[Uppgradera](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) Azure Cognitive Search-tjänst|Du planerar att ha många kunskapsbaser.|
 
@@ -95,8 +95,8 @@ Varje Azure-resurs som skapas med QnA Maker har ett specifikt syfte:
 
 Cognitive [Search-resursen](../../../search/index.yml) används för att:
 
-* Lagra QnA-uppsättningarna
-* Ange den ursprungliga rankningen (ranker #1) för QnA-uppsättningarna vid körning
+* Lagra QnA-paren
+* Ange den ursprungliga rankningen (ranker #1) för QnA-paren vid körning
 
 #### <a name="index-usage"></a>Indexanvändning
 
@@ -110,7 +110,7 @@ Den första kunskapsbasen som skapas i QnA Maker-resursen används för att best
 
 ### <a name="qna-maker-resource"></a>QnA Maker-resurs
 
-QnA Maker-resursen ger åtkomst till API:er för redigering och publicering samt NLP-baserat andra rankningslager (ranker #2) för QnA-uppsättningarna vid körning.
+QnA Maker-resursen ger tillgång till API:er för redigering och publicering samt NLP-baserat andra rankningslager (ranker #2) för QnA-paren vid körning.
 
 Den andra rankningen gäller intelligenta filter som kan innehålla metadata och uppföljningsansaner.
 
@@ -164,7 +164,7 @@ Använd dessa nycklar när du gör förfrågningar till tjänsten via API:er.
 
 |Namn|Location|Syfte|
 |--|--|--|
-|Skapa nyckel|[Azure-portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|Dessa nycklar används för att komma åt [QnA Maker-hanteringstjänsten API:er](https://go.microsoft.com/fwlink/?linkid=2092179). Med de här API:erna kan du redigera frågorna och svaren i din kunskapsbas och publicera kunskapsbasen. Dessa nycklar skapas när du skapar en ny QnA Maker-tjänst.<br><br>Hitta dessa nycklar på **cognitive services-resursen** på sidan **Nycklar.**|
+|Skapa nyckel|[Azure Portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|Dessa nycklar används för att komma åt [QnA Maker-hanteringstjänsten API:er](https://go.microsoft.com/fwlink/?linkid=2092179). Med de här API:erna kan du redigera frågorna och svaren i din kunskapsbas och publicera kunskapsbasen. Dessa nycklar skapas när du skapar en ny QnA Maker-tjänst.<br><br>Hitta dessa nycklar på **cognitive services-resursen** på sidan **Nycklar.**|
 |Frågeslutpunktsnyckel|[QnA Maker-portalen](https://www.qnamaker.ai)|Dessa nycklar används för att fråga den publicerade kunskapsbasens slutpunkt för att få ett svar på en användarfråga. Du använder vanligtvis den här frågeslutpunkten i chattroboten eller i klientprogramkoden som ansluter till QnA Maker-tjänsten. Dessa nycklar skapas när du publicerar din QnA Maker-kunskapsbas.<br><br>Leta reda på dessa nycklar på sidan **Tjänstinställningar.** Hitta den här sidan från användarens meny längst upp till höger på sidan på rullgardinsmenyn.|
 
 ### <a name="subscription-keys"></a>Prenumerationsnycklar

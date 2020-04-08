@@ -3,12 +3,12 @@ title: Tjänstkonfiguration - QnA Maker
 description: Förstå hur och var resurser ska konfigureras.
 ms.topic: reference
 ms.date: 02/21/2020
-ms.openlocfilehash: 8ef6fecbfeb119d0c68ec5bc3bbc90ec449dbb7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3be32d1778604121c2acac88415cbfbc4bdbca3d
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651865"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804268"
 ---
 # <a name="service-configuration"></a>Tjänstkonfiguration
 
@@ -27,8 +27,8 @@ Du kan ange en enskild inställning antingen via listan Programinställningar el
 
 |Resurs|Inställning|
 |--|--|
-|AzureSearchAdminKey|Cognitive Search - används för QnA-uppsättning lagring och Ranker #1|
-|AzureSearchName (AzureSearchName)|Cognitive Search - används för QnA-uppsättning lagring och Ranker #1|
+|AzureSearchAdminKey|Cognitive Search - används för QnA par lagring och Ranker #1|
+|AzureSearchName (AzureSearchName)|Cognitive Search - används för QnA par lagring och Ranker #1|
 |DefaultAnswer|Svarstext när ingen matchning hittas|
 |UserAppInsightsAppId|Chattlogg och telemetri|
 |UserAppInsightsKey|Chattlogg och telemetri|

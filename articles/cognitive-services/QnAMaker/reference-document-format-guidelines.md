@@ -1,14 +1,14 @@
 ---
 title: Riktlinjer för importdokumentformat - QnA Maker
-description: Förstå hur typerna av webbadresser används för att importera och skapa QnA-uppsättningar.
+description: Förstå hur typerna av webbadresser används för att importera och skapa QnA-par.
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: 1e006520ce5c61f2da3f425af2332b0d41cc3881
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 799e85e2200d3caa29c9b76bc57a62fc883d246d
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754902"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804341"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Formatera riktlinjer för importerade dokument och webbadresser
 

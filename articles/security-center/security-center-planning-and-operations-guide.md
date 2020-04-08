@@ -8,14 +8,14 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 8244a0f164c8578bf9f79e4b66beb529b6a15f67
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: f31c084be2fb017c0db521328e4ccdff9dd2aa25
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586004"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810467"
 ---
-# <a name="planning-and-operations-guide"></a>Planerings- och verksamhetsguide
+# <a name="planning-and-operations-guide"></a>Planerings- och drifthandbok
 Den här guiden är avsedd för IT-proffs, IT-arkitekter, informationssäkerhetsanalytiker och molnadministratörer som planerar att använda Azure Security Center.
 
 
@@ -25,7 +25,7 @@ Den här guiden beskriver uppgifter som du kan följa för att optimera din anv�
 * Säkerhetsroller och åtkomstkontroll
 * Säkerhetsprinciper och säkerhetsrekommendationer
 * Datainsamling och lagring
-* Pågående icke-Azure-resurser
+* Publicera icke-Azure-resurser
 * Fortlöpande säkerhetsövervakning
 * Incidenthantering
 

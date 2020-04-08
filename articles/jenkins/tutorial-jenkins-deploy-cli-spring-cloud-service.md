@@ -3,12 +3,12 @@ title: Distribuera appar till Azure Spring Cloud med hjälp av Jenkins och Azure
 description: Lär dig hur du använder Azure CLI i en pipeline för kontinuerlig integrering och distribution för att distribuera mikrotjänster till Azure Spring Cloud-tjänsten
 ms.topic: tutorial
 ms.date: 01/07/2020
-ms.openlocfilehash: 67ad97bb762ed302ef52c404d47c5755ea4b245b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bc48eecc9e73b95fd9112d645135409c24369e10
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75734980"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80810216"
 ---
 # <a name="tutorial-deploy-apps-to-azure-spring-cloud-using-jenkins-and-the-azure-cli"></a>Självstudiekurs: Distribuera appar till Azure Spring Cloud med Jenkins och Azure CLI
 
@@ -28,7 +28,7 @@ Den här självstudien förutsätter mellanliggande kunskap om grundläggande Az
 >[!Note]
 > Azure Spring Cloud erbjuds för närvarande som en offentlig förhandsversion. Offentliga förhandsversioner gör det möjligt för kunder att experimentera med nya funktioner innan de släpps officiellt.  Offentliga förhandsversionsfunktioner och tjänster är inte avsedda för produktionsanvändning.  Mer information om support under förhandsversioner finns i våra [vanliga frågor](https://azure.microsoft.com/support/faq/) och svar eller en [supportförfrågan för](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) att få veta mer.
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
 * Ett GitHub-konto. Om du inte har ett GitHub-konto skapar du ett [kostnadsfritt konto](https://github.com/) innan du börjar.
 

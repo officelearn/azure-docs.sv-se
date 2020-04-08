@@ -1,24 +1,24 @@
 ---
-title: Använda SSL-certifikat i kod
+title: Använda ett TLS/SSL-certifikat i kod
 description: Läs om hur du använder klientcertifikat i koden. Autentisera med fjärrresurser med ett klientcertifikat eller kör kryptografiska uppgifter med dem.
 ms.topic: article
 ms.date: 11/04/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: d783b61c372c7d0f8cca13106bf297ab9b55c424
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d76bac60bae11f0843d81de523030154af62a373
+ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74671883"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80811693"
 ---
-# <a name="use-an-ssl-certificate-in-your-code-in-azure-app-service"></a>Använda ett SSL-certifikat i koden i Azure App Service
+# <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Använda ett TLS/SSL-certifikat i koden i Azure App Service
 
 I programkoden kan du komma åt de [offentliga eller privata certifikat som du lägger till i App Service](configure-ssl-certificate.md). Din appkod kan fungera som en klient och komma åt en extern tjänst som kräver certifikatautentisering, eller så kan den behöva utföra kryptografiska uppgifter. Den här guiden visar hur du använder offentliga eller privata certifikat i programkoden.
 
-Den här metoden för att använda certifikat i koden använder sig av SSL-funktionen i App Service, som kräver att appen är på **grundläggande** nivå eller högre. Om appen är på **den kostnadsfria** eller **delade** nivån kan du [inkludera certifikatfilen i appdatabasen](#load-certificate-from-file).
+Den här metoden för att använda certifikat i koden använder sig av TLS-funktionen i App Service, som kräver att appen är på **grundläggande** nivå eller högre. Om appen är på **den kostnadsfria** eller **delade** nivån kan du [inkludera certifikatfilen i appdatabasen](#load-certificate-from-file).
 
-När du låter App Service hantera dina SSL-certifikat kan du underhålla certifikaten och programkoden separat och skydda dina känsliga data.
+När du låter App Service hantera dina TLS/SSL-certifikat kan du underhålla certifikaten och programkoden separat och skydda dina känsliga data.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -58,25 +58,32 @@ I C#-kod kommer du åt certifikatet med certifikatets tumavtryck. Följande kod 
 
 ```csharp
 using System;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 
-...
-X509Store certStore = new X509Store(StoreName.My, StoreLocation.CurrentUser);
-certStore.Open(OpenFlags.ReadOnly);
-X509Certificate2Collection certCollection = certStore.Certificates.Find(
-                            X509FindType.FindByThumbprint,
-                            // Replace below with your certificate's thumbprint
-                            "E661583E8FABEF4C0BEF694CBC41C28FB81CD870",
-                            false);
-// Get the first cert with the thumbprint
-if (certCollection.Count > 0)
+string certThumbprint = "E661583E8FABEF4C0BEF694CBC41C28FB81CD870";
+bool validOnly = false;
+
+using (X509Store certStore = new X509Store(StoreName.My, StoreLocation.CurrentUser))
 {
-    X509Certificate2 cert = certCollection[0];
-    // Use certificate
-    Console.WriteLine(cert.FriendlyName);
+  certStore.Open(OpenFlags.ReadOnly);
+
+  X509Certificate2Collection certCollection = certStore.Certificates.Find(
+                              X509FindType.FindByThumbprint,
+                              // Replace below with your certificate's thumbprint
+                              certThumbprint,
+                              validOnly);
+  // Get the first cert with the thumbprint
+  X509Certificate2 cert = certCollection.OfType<X509Certificate>().FirstOrDefault();
+
+  if (cert is null)
+      throw new Exception($"Certificate with thumbprint {certThumbprint} was not found");
+
+  // Use certificate
+  Console.WriteLine(cert.FriendlyName);
+  
+  // Consider to call Dispose() on the certificate after it's being used, avaliable in .NET 4.6 and later
 }
-certStore.Close();
-...
 ```
 
 I Java-kod kommer du åt certifikatet från arkivet "Windows-MY" med fältet Ämnes gemensamt namn (se [Certifikat för offentlig nyckel).](https://en.wikipedia.org/wiki/Public_key_certificate) Följande kod visar hur du läser in ett privat nyckelcertifikat:
@@ -111,16 +118,17 @@ Certifikatfilsnamnen är certifikatets tumavtryck. Följande C#-kod visar hur du
 
 ```csharp
 using System;
+using System.IO;
 using System.Security.Cryptography.X509Certificates;
 
 ...
-var bytes = System.IO.File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
+var bytes = File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
 var cert = new X509Certificate2(bytes);
 
 // Use the loaded certificate
 ```
 
-Mer om du vill se hur du läser in ett SSL-certifikat från en fil i Node.js, PHP, Python, Java eller Ruby finns i dokumentationen för respektive språk- eller webbplattform.
+Mer om du vill se hur du läser in ett TLS/SSL-certifikat från en fil i Node.js, PHP, Python, Java eller Ruby finns i dokumentationen för respektive språk- eller webbplattform.
 
 ## <a name="load-certificate-from-file"></a>Läsa in certifikat från fil
 
@@ -133,26 +141,27 @@ Om du behöver läsa in en certifikatfil som du laddar upp manuellt är det bät
 > az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
 > ```
 >
-> Den här metoden för att använda certifikat i koden använder sig av SSL-funktionen i App Service, som kräver att appen är på **grundläggande** nivå eller högre.
+> Den här metoden för att använda certifikat i koden använder sig av TLS-funktionen i App Service, som kräver att appen är på **grundläggande** nivå eller högre.
 
 I följande C#-exempel läses ett offentligt certifikat från en relativ sökväg i appen:
 
 ```csharp
 using System;
+using System.IO;
 using System.Security.Cryptography.X509Certificates;
 
 ...
-var bytes = System.IO.File.ReadAllBytes("~/<relative-path-to-cert-file>");
+var bytes = File.ReadAllBytes("~/<relative-path-to-cert-file>");
 var cert = new X509Certificate2(bytes);
 
 // Use the loaded certificate
 ```
 
-Mer om du vill se hur du läser in ett SSL-certifikat från en fil i Node.js, PHP, Python, Java eller Ruby finns i dokumentationen för respektive språk- eller webbplattform.
+Mer om du vill se hur du läser in ett TLS/SSL-certifikat från en fil i Node.js, PHP, Python, Java eller Ruby finns i dokumentationen för respektive språk- eller webbplattform.
 
 ## <a name="more-resources"></a>Fler resurser
 
-* [Skydda ett anpassat DNS-namn med en SSL-bindning](configure-ssl-bindings.md)
+* [Skydda ett anpassat DNS-namn med en TLS/SSL-bindning i Azure App Service](configure-ssl-bindings.md)
 * [Använda HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Använda TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
 * [Vanliga frågor och svar : App Service-certifikat](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

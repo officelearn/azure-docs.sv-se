@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 1a0ec9465be3b714e90bfca6a15b60423d6065a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f05780610a2a6033b069721b143aca5e5efa6c35
+ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295582"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80804528"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Skapa en ILB ASE med hjälp av Azure Resource Manager-mallar
 
@@ -28,8 +28,8 @@ App Service-miljöer kan skapas med en intern adress för virtuellt nätverk i s
 Det finns tre steg inblandade i att automatisera skapandet av en ILB ASE:
 
 1. Först skapas basen ASE i ett virtuellt nätverk med hjälp av en intern belastningsutjämnad adress i stället för en offentlig VIP.  Som en del av det här steget tilldelas ett rotdomännamn till ILB ASE.
-2. När ILB ASE har skapats överförs ett SSL-certifikat.  
-3. Det uppladdade SSL-certifikatet tilldelas uttryckligen ILB ASE som sitt "standard" SSL-certifikat.  Det här SSL-certifikatet används för SSL-trafik till appar på ILB ASE när apparna adresseras med `https://someapp.mycustomrootcomain.com`den gemensamma rotdomän som tilldelats ASE (t.ex. )
+2. När ILB ASE har skapats överförs ett TLS/SSL-certifikat.  
+3. Det uppladdade TLS/SSL-certifikatet tilldelas uttryckligen ILB ASE som sitt "standard"-TLS/SSL-certifikat.  Detta TLS/SSL-certifikat används för TLS-trafik till appar på ILB ASE när apparna adresseras med den `https://someapp.mycustomrootcomain.com`gemensamma rotdomän som tilldelats ASE (t.ex. )
 
 ## <a name="creating-the-base-ilb-ase"></a>Skapa bas-ILB ASE
 En exempelmall för Azure Resource Manager och dess associerade parameterfil finns på GitHub [här][quickstartilbasecreate].
@@ -49,17 +49,17 @@ När *filen azuredeploy.parameters.json* har fyllts i för en ILB ASE kan ILB AS
 
 När Azure Resource Manager-mallen har skickats tar det några timmar innan ILB ASE skapas.  När skapandet är klart visas ILB ASE i portalens ANVÄNDAR- och användargränssnitt i listan över App Service-miljöer för prenumerationen som utlöste distributionen.
 
-## <a name="uploading-and-configuring-the-default-ssl-certificate"></a>Ladda upp och konfigurera ”standard-SSL-certifikatet”
-När ILB ASE har skapats bör ett SSL-certifikat associeras med ASE som "standard" SSL-certifikat för att upprätta SSL-anslutningar till appar.  Fortsätter med det hypotetiska Contoso Corporation-exemplet, om ASE:s standard-DNS-suffix *är internal-contoso.com*, kräver en anslutning till *https://some-random-app.internal-contoso.com* ett SSL-certifikat som är giltigt för **.internal-contoso.com*. 
+## <a name="uploading-and-configuring-the-default-tlsssl-certificate"></a>Ladda upp och konfigurera TLS/SSL-certifikatet "Standard"
+När ILB ASE har skapats bör ett TLS/SSL-certifikat associeras med ASE som "standard" TLS/SSL-certifikatanvändning för att upprätta TLS/SSL-anslutningar till appar.  Fortsätter med det hypotetiska Contoso Corporation-exemplet, om ASE:s standard-DNS-suffix *är internal-contoso.com*, kräver en anslutning till *https://some-random-app.internal-contoso.com* ett TLS/SSL-certifikat som är giltigt för **.internal-contoso.com*. 
 
-Det finns en mängd olika sätt att skaffa ett giltigt SSL-certifikat, inklusive interna certifikatutfärdare, köpa ett certifikat från en extern utfärdare och använda ett självsignerat certifikat.  Följande certifikatattribut måste konfigureras korrekt oavsett källan för SSL-certifikat:
+Det finns en mängd olika sätt att skaffa ett giltigt TLS/SSL-certifikat, inklusive interna certifikatutfärdare, köpa ett certifikat från en extern utfärdare och använda ett självsignerat certifikat.  Oavsett källan till TLS/SSL-certifikatet måste följande certifikatattribut konfigureras korrekt:
 
 * *Ämne*: Det här attributet måste ställas in på **.your-root-domain-here.com*
-* *Ämnesalternativnamn:* Det här attributet måste innehålla både **.your-root-domain-here.com*och **.scm.your-root-domain-here.com*.  Anledningen till den andra posten är att SSL-anslutningar till SCM/Kudu-webbplatsen som är associerad med varje app kommer att göras med hjälp av en adress till formuläret *your-app-name.scm.your-root-domain-here.com*.
+* *Ämnesalternativnamn:* Det här attributet måste innehålla både **.your-root-domain-here.com*och **.scm.your-root-domain-here.com*.  Anledningen till den andra posten är att TLS-anslutningar till SCM/Kudu-webbplatsen som är associerad med varje app kommer att göras med hjälp av en adress till formuläret *your-app-name.scm.your-root-domain-here.com*.
 
-Med ett giltigt SSL-certifikat i handen krävs ytterligare två förberedande steg.  SSL-certifikatet måste konverteras/sparas som en PFX-fil.  Kom ihåg att PFX-filen måste innehålla alla mellanliggande certifikat och rotcertifikat och måste också skyddas med ett lösenord.
+Med ett giltigt TLS/SSL-certifikat i handen krävs ytterligare två förberedande steg.  TLS/SSL-certifikatet måste konverteras/sparas som en PFX-fil.  Kom ihåg att PFX-filen måste innehålla alla mellanliggande certifikat och rotcertifikat och måste också skyddas med ett lösenord.
 
-Då måste den resulterande PFX-filen konverteras till en base64-sträng eftersom SSL-certifikatet överförs med hjälp av en Azure Resource Manager-mall.  Eftersom Azure Resource Manager-mallar är textfiler måste PFX-filen konverteras till en base64-sträng så att den kan inkluderas som en parameter i mallen.
+Då måste den resulterande PFX-filen konverteras till en base64-sträng eftersom TLS/SSL-certifikatet överförs med hjälp av en Azure Resource Manager-mall.  Eftersom Azure Resource Manager-mallar är textfiler måste PFX-filen konverteras till en base64-sträng så att den kan inkluderas som en parameter i mallen.
 
 Powershell-kodavsnittet nedan visar ett exempel på att generera ett självsignerat certifikat, exportera certifikatet som en PFX-fil, konvertera PFX-filen till en base64-kodad sträng och sedan spara den base64-kodade strängen till en separat fil.  Powershell-koden för base64-kodning har [anpassats från Powershell Scripts Blog][examplebase64encoding].
 
@@ -75,7 +75,7 @@ Powershell-kodavsnittet nedan visar ett exempel på att generera ett självsigne
     $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
     $fileContentEncoded | set-content ($fileName + ".b64")
 
-När SSL-certifikatet har genererats och konverterats till en base64-kodad sträng kan exempelportan Azure Resource Manager på GitHub för [att konfigurera standard-SSL-certifikatet][configuringDefaultSSLCertificate] användas.
+När TLS/SSL-certifikatet har genererats och konverterats till en base64-kodad sträng kan exempelmallen Azure Resource Manager på GitHub för [att konfigurera standard-TLS/SSL-certifikatet][configuringDefaultSSLCertificate] användas.
 
 Parametrarna i filen *azuredeploy.parameters.json* visas nedan:
 
@@ -84,7 +84,7 @@ Parametrarna i filen *azuredeploy.parameters.json* visas nedan:
 * *pfxBlobString*: Den based64 kodade strängrepresentationen av PFX-filen.  Med hjälp av kodavsnittet som visas tidigare kopierar du strängen i "exportedcert.pfx.b64" och klistrar in det som värdet för attributet *pfxBlobString.*
 * *lösenord*: Lösenordet som används för att skydda PFX-filen.
 * *certifikatDumbprint*: Certifikatets tumavtryck.  Om du hämtar det här värdet från Powershell (t.ex. *$certificate. Tumavtryck* från det tidigare kodavsnittet) kan du använda värdet som det är.  Men om du kopierar värdet från Windows-certifikatdialogrutan, kom ihåg att ta bort de främmande utrymmena.  *CertifikatetThumbprint* ska se ut ungefär som: AF3143EB61D43F6727842115BB7F17BBCECAECAE
-* *certificateName*: En egen strängidentifierare som du själv väljer används för att identifiera certifikatet.  Namnet används som en del av den unika Azure Resource Manager-identifieraren för entiteten *Microsoft.Web/certificates* som representerar SSL-certifikatet.  Namnet **måste** sluta med följande suffix: \_yourASENameHere_InternalLoadBalancingASE.  Det här suffixet används av portalen som en indikator på att certifikatet används för att skydda en ILB-aktiverad ASE.
+* *certificateName*: En egen strängidentifierare som du själv väljer används för att identifiera certifikatet.  Namnet används som en del av den unika Azure Resource Manager-identifieraren för entiteten *Microsoft.Web/certificates* som representerar TLS/SSL-certifikatet.  Namnet **måste** sluta med följande suffix: \_yourASENameHere_InternalLoadBalancingASE.  Det här suffixet används av portalen som en indikator på att certifikatet används för att skydda en ILB-aktiverad ASE.
 
 Ett förkortat exempel *på azuredeploy.parameters.json* visas nedan:
 
@@ -113,7 +113,7 @@ Ett förkortat exempel *på azuredeploy.parameters.json* visas nedan:
          }
     }
 
-När *filen azuredeploy.parameters.json* har fyllts i kan standard-SSL-certifikatet konfigureras med hjälp av följande Powershell-kodavsnitt.  Ändra filen PATHs så att den matchar var Azure Resource Manager-mallfiler finns på datorn.  Kom också ihåg att ange dina egna värden för Distributionsnamnet för Azure Resource Manager och resursgruppsnamnet.
+När *filen azuredeploy.parameters.json* har fyllts i kan standard-TLS/SSL-certifikatet konfigureras med hjälp av följande Powershell-kodavsnitt.  Ändra filen PATHs så att den matchar var Azure Resource Manager-mallfiler finns på datorn.  Kom också ihåg att ange dina egna värden för Distributionsnamnet för Azure Resource Manager och resursgruppsnamnet.
 
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
@@ -122,9 +122,9 @@ När *filen azuredeploy.parameters.json* har fyllts i kan standard-SSL-certifika
 
 När Azure Resource Manager-mallen har skickats tar det ungefär fyrtio minuter per ASE-frontend att tillämpa ändringen.  Till exempel, med en standardstorlek ASE med två front-ends, kommer mallen tar cirka en timme och tjugo minuter att slutföra.  Medan mallen kör ASE kommer inte att kunna skalas.  
 
-När mallen är klar kan appar på ILB ASE nås via HTTPS och anslutningarna skyddas med standard-SSL-certifikatet.  Standard-SSL-certifikatet används när appar på ILB ASE adresseras med en kombination av programnamnet plus standardvärden.  Till *https://mycustomapp.internal-contoso.com* exempel skulle använda standard SSL-certifikat för **.internal-contoso.com*.
+När mallen är klar kan appar på ILB ASE nås via HTTPS och anslutningarna skyddas med standard-TLS/SSL-certifikatet.  Standard-TLS/SSL-certifikatet används när appar på ILB ASE adresseras med en kombination av programnamnet plus standardvärden.  Till *https://mycustomapp.internal-contoso.com* exempel skulle använda standard TLS / SSL-certifikat för **.internal-contoso.com*.
 
-Men precis som appar som körs på den offentliga tjänsten med flera innehavare kan utvecklare också konfigurera anpassade värdnamn för enskilda appar och sedan konfigurera unika SNI SSL-certifikatbindningar för enskilda appar.  
+Men precis som appar som körs på den offentliga tjänsten med flera innehavare kan utvecklare också konfigurera anpassade värdnamn för enskilda appar och sedan konfigurera unika SNI TLS/SSL-certifikatbindningar för enskilda appar.  
 
 ## <a name="getting-started"></a>Komma igång
 Mer om du vill komma igång med App Service-miljöer finns i [Introduktion till App Service Environment](app-service-app-service-environment-intro.md)

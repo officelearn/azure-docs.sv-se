@@ -83,7 +83,7 @@
         - name: 3 – Skapa en pipeline
           displayName: Devop
           href: deployment-tutorial-pipeline.md
-    - name: Avancerat
+    - name: Avancerade mallar
       items:
         - name: Använda mallreferens
           href: template-tutorial-use-template-reference.md
@@ -101,23 +101,21 @@
         - name: Integrera Key Vault
           displayName: secrets
           href: template-tutorial-use-key-vault.md
-        - name: Skapa länkade mallar
-          href: template-tutorial-create-linked-templates.md
         - name: Distribuera VM-tillägg
           displayName: virtual machine extensions
           href: template-tutorial-deploy-vm-extensions.md
         - name: Distribuera SQL-tillägg
           href: template-tutorial-deploy-sql-extensions-bacpac.md
-        - name: Skydda artefakter
-          href: template-tutorial-secure-artifacts.md
+        - name: Felsöka malldistribution
+          href: template-tutorial-troubleshoot.md
+    - name: Distributionshanteraren
+      items:
         - name: Använda säkra distributionsmetoder
           displayName: adm
           href: deployment-manager-tutorial.md
         - name: Använda hälsokontrollen i Distributionshanteraren
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
-        - name: Felsöka malldistribution
-          href: template-tutorial-troubleshoot.md
 - name: Exempel
   items:
     - name: Azure-snabbstartmallar

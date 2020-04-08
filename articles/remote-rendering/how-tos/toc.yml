@@ -1,0 +1,16 @@
+- name: Skapa ett Azure Remote Rendering-konto
+  href: create-an-account.md
+- name: Hämta token för tjänståtkomst
+  href: tokens.md
+- name: Konfigurera autentisering
+  href: authentication.md
+- name: 'Använda Azure Frontend-API:er för autentisering'
+  href: frontend-apis.md
+- name: 'Använda REST API:et för sessionshantering'
+  href: session-rest-api.md
+- name: Konvertera modeller
+  href: conversion/toc.yml
+- name: Fjärrrendering med Unity
+  href: unity/toc.yml
+- name: Samla in klientsidans prestandavarningar
+  href: performance-tracing.md

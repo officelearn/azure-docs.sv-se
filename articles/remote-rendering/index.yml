@@ -1,0 +1,66 @@
+### YamlMime:Landing
+title: Dokumentation om Azure Remote Rendering
+summary: Azure Remote Rendering (ARR) är en tjänst som gör att du kan återge mycket komplexa 3D-modeller i realtid på enheter som HoloLens 2. ARR är för närvarande i allmänt tillgänglig förhandsversion.
+metadata:
+  title: Dokumentation om Azure Remote Rendering
+  description: Lär dig hur du använder tjänsten Azure Remote Rendering (ARR) för att på distans kunna rendera komplexa 3D-modeller i realtid och visa resultatet på enheter som till exempel HoloLens 2.
+  ms.service: azure-remote-rendering
+  ms.topic: landing-page
+  author: florianborn71
+  ms.author: flborn
+  ms.date: 03/26/2020
+  ms.openlocfilehash: a257b294c105ca153a57afe90db95a1bd1b753e8
+  ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 04/06/2020
+  ms.locfileid: "80678322"
+landingContent:
+- title: Om Azure Remote Rendering
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Remote Rendering?
+      url: overview/about.md
+    - text: Systemkrav
+      url: overview/system-requirements.md
+    - text: Skapa ett Azure Remote Rendering-konto
+      url: how-tos/create-an-account.md
+- title: Lär dig viktiga begrepp för att komma igång med Azure Remote Rendering
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Konfigurera autentisering
+      url: how-tos/authentication.md
+    - text: Remote Rendering-sessioner
+      url: concepts/sessions.md
+    - text: Entiteter
+      url: concepts/entities.md
+    - text: Komponenter
+      url: concepts/components.md
+    - text: Modeller
+      url: concepts/models.md
+    - text: Konvertera modeller
+      url: how-tos/conversion/model-conversion.md
+- title: Konvertera och rendera din första modell
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Rendera en modell med Unity
+      url: quickstarts/render-model.md
+    - text: Distribuera Unity-exempel till HoloLens
+      url: quickstarts/deploy-to-hololens.md
+    - text: Distribuera Unity-exempel till skrivbordet
+      url: quickstarts/deploy-to-desktop.md
+    - text: Konvertera en modell för rendering
+      url: quickstarts/convert-model.md
+- title: Lär dig hur du skapar en egen app i Unity
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Konfigurera ett Unity-projekt från grunden
+      url: tutorials/unity/project-setup.md
+    - text: Arbeta med fjärrentiteter i Unity
+      url: tutorials/unity/working-with-remote-entities.md
+    - text: Ändra miljö och material
+      url: tutorials/unity/changing-environment-and-materials.md

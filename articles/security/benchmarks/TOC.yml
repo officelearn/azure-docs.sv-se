@@ -40,6 +40,8 @@
       href: ../../container-registry/security-baseline.md
     - name: Säkerhetsbaslinje för Cosmos DB
       href: ../../cosmos-db/security-baseline.md
+    - name: Säkerhetsbaslinje för Event Hubs
+      href: ../../event-hubs/security-baseline.md
     - name: Säkerhetsbaslinje för HDInsight
       href: ../../hdinsight/security-baseline.md
     - name: Säkerhetsbaslinje för Key Vault

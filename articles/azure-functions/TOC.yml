@@ -22,8 +22,6 @@
           href: functions-create-your-first-function-visual-studio.md
         - name: Kommandorad
           href: functions-create-first-azure-function-azure-cli.md
-        - name: Maven/Gradle (Java)
-          href: functions-create-first-java-maven.md
     - name: Ansluta till lagring
       items:
         - name: Visual Studio-koden
@@ -32,8 +30,6 @@
           href: functions-add-output-binding-storage-queue-vs.md
         - name: Kommandorad
           href: functions-add-output-binding-storage-queue-cli.md
-        - name: Maven/Gradle (Java)
-          href: functions-add-output-binding-storage-queue-java.md
 - name: Självstudier
   items:
     - name: Funktioner med Logic Apps
@@ -175,10 +171,16 @@
                   href: create-visual-studio.md
                 - name: Visual Studio-koden
                   href: create-visual-studio-code.md
+                - name: Java med Gradle
+                  href: functions-create-first-java-gradle.md
                 - name: Java med hjälp av Eclipse
                   href: functions-create-maven-eclipse.md
                 - name: Java med hjälp av IntelliJ IDEA
                   href: functions-create-maven-intellij.md
+                - name: Kotlin med maven
+                  href: functions-create-first-kotlin-maven.md
+                - name: Java med IntelliJ
+                  href: functions-create-maven-kotlin-intellij.md
                 - name: Linux App Service-plan
                   href: create-function-app-linux-app-service-plan.md
                 - name: Linux-förbrukningsplan
@@ -205,6 +207,8 @@
               href: add-output-binding-storage-queue-vs-code.md
             - name: Lagring – Visual Studio
               href: add-output-binding-storage-queue-vs.md
+            - name: Storage – Java/Gradle
+              href: functions-add-output-binding-storage-queue-java.md
         - name: Felsöka och testa
           items:
             - name: Textfunktioner

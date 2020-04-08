@@ -366,7 +366,7 @@
           href: service-fabric-get-started.md
         - name: Linux
           href: service-fabric-get-started-linux.md
-        - name: Mac OS
+        - name: macOS
           href: service-fabric-get-started-mac.md
         - name: Konfigurera Service Fabric CLI
           href: service-fabric-cli.md
@@ -675,6 +675,8 @@
                   href: service-fabric-cluster-security-update-certs-azure.md
                 - name: Fjärransluta till klusternod för virtuell dator
                   href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+                - name: Uppgradera klusternoder för att använda hanterade diskar
+                  href: upgrade-managed-disks.md
         - name: Fristående kluster
           items:
             - name: Skapa

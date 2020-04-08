@@ -1,0 +1,8 @@
+- name: Installera Remote Rendering-paketet för Unity
+  href: install-remote-rendering-unity-package.md
+- name: Konfigurera Remote Rendering för Unity
+  href: unity-setup.md
+- name: Interagera med spelobjekt och komponenter i Unity
+  href: objects-components.md
+- name: Använda Holographic-fjärrstyrning och Remote Rendering i Unity
+  href: holographic-remoting.md

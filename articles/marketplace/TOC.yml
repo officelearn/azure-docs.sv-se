@@ -173,7 +173,7 @@
         - name: Erbjudande för Azure-program
           href: ./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md
           items:
-            - name: Förutsättningar
+            - name: Krav
               href: ./cloud-partner-portal/azure-applications/cpp-prerequisites.md
             - name: Skapa ett erbjudande för Azure-program
               href: ./cloud-partner-portal/azure-applications/cpp-create-offer.md
@@ -199,7 +199,7 @@
         - name: Konsulttjänster
           href: ./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md
           items:
-            - name: Förutsättningar
+            - name: Krav
               href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites.md
             - name: Skapa ett konsulttjänsterbjudande
               href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-create-offer.md
@@ -213,7 +213,7 @@
         - name: Containererbjudande
           href: ./cloud-partner-portal/containers/cpp-containers-offer.md
           items:
-            - name: Förutsättningar
+            - name: Krav
               href: ./cloud-partner-portal/containers/cpp-prerequisites.md
             - name: Erbjudande om att skapa containrar
               href: ./cloud-partner-portal/containers/cpp-create-offer.md
@@ -250,7 +250,7 @@
         - name: Erbjudande för Dynamics 365 for Customer Engagement
           href: ./cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer.md
           items:
-            - name: Förutsättningar
+            - name: Krav
               href: ./cloud-partner-portal/dyn365ce/cpp-prerequisites.md
             - name: Skapa Customer Engagement-erbjudande
               href: ./cloud-partner-portal/dyn365ce/cpp-create-offer.md
@@ -272,7 +272,7 @@
         - name: Erbjudande för Dynamics 365 for Operations
           href: ./cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md
           items:
-            - name: Förutsättningar
+            - name: Krav
               href: ./cloud-partner-portal-orig/pre-requisites.md
             - name: Så här publicerar du
               href: ./cloud-partner-portal-orig/manage-dynamics-365-for-operations.md
@@ -289,7 +289,7 @@
         - name: Erbjudande för IoT Edge-moduler
           href: ./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md
           items:
-            - name: Förutsättningar
+            - name: Krav
               href: ./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md
             - name: Skapa erbjudande för IoT Edge-moduler
               href: ./cloud-partner-portal/iot-edge-module/cpp-create-offer.md
@@ -311,7 +311,7 @@
         - name: Erbjudande för Power BI-appen
           href: ./cloud-partner-portal/power-bi/cpp-power-bi-offer.md
           items:
-            - name: Förutsättningar
+            - name: Krav
               href: ./cloud-partner-portal/power-bi/cpp-prerequisites.md
             - name: Skapa erbjudande för Power BI-appen
               href: ./cloud-partner-portal/power-bi/cpp-create-offer.md
@@ -335,7 +335,7 @@
         - name: Erbjudande på virtuella datorer
           href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
           items:
-            - name: Förutsättningar
+            - name: Krav
               href: ./cloud-partner-portal/virtual-machine/cpp-prerequisites.md
             - name: Skapa erbjudande på virtuella datorer
               href: ./cloud-partner-portal/virtual-machine/cpp-create-offer.md
@@ -357,7 +357,7 @@
                   href: ./cloud-partner-portal/virtual-machine/cpp-create-vhd.md
                 - name: Vanliga problem när virtuella hårddiskar skapas
                   href: ./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md
-                - name: Ansluta till VM
+                - name: Ansluta till virtuell dator
                   href: ./cloud-partner-portal/virtual-machine/cpp-connect-vm.md
                 - name: Konfigurera virtuella datorer
                   href: ./cloud-partner-portal/virtual-machine/cpp-configure-vm.md
@@ -399,7 +399,7 @@
       items:
         - name: Översikt
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
-        - name: Förutsättningar
+        - name: Krav
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
         - name: Överväganden
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-considerations.md
@@ -453,6 +453,12 @@
               href: ./partner-center-portal/azure-apps-review-feedback.md
             - name: API för registrering
               href: ./partner-center-portal/azure-app-apis.md
+        - name: Konsulttjänster
+          items:
+            - name: Krav
+              href: ./partner-center-portal/consulting-service-prerequisites.md
+            - name: Skapa ett konsulttjänsterbjudande
+              href: ./partner-center-portal/create-consulting-service-offer.md
         - name: Dynamics 365-erbjudanden
           items:
             - name: Skapa ett erbjudande för Dynamics 365 for Customer Engagement & PowerApps
@@ -461,6 +467,22 @@
               href: ./partner-center-portal/create-new-operations-offer.md
             - name: Skapa ett erbjudande för Dynamics 365 for Business Central
               href: ./partner-center-portal/create-new-business-central-offer.md
+        - name: Erbjudanden för IoT Edge-moduler
+          items:
+            - name: Förbereda tekniska tillgångar för IoT Edge-moduler
+              href: ./partner-center-portal/create-iot-edge-module-asset.md
+            - name: Skapa ett IoT Edge-modulerbjudande
+              href: ./partner-center-portal/azure-iot-edge-module-creation.md
+        - name: Hanterade tjänsterbjudanden
+          items:
+            - name: Skapa ett erbjudande för hanterad tjänst
+              href: ./partner-center-portal/create-new-managed-service-offer.md
+        - name: Erbjudanden för Power BI-appen
+          items:
+            - name: Publicera översikt
+              href: ./partner-center-portal/create-power-bi-app-overview.md
+            - name: Skapa erbjudande för Power BI-appen
+              href: ./partner-center-portal/create-power-bi-app-offer.md
         - name: SaaS-erbjudanden
           items:
             - name: Checklista för skapande av SaaS-erbjudande

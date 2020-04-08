@@ -1,0 +1,20 @@
+- name: Dokumentation om Azure Remote Rendering
+  href: index.yml
+- name: Översikt
+  expanded: true
+  href: overview/toc.yml
+- name: Snabbstarter
+  expanded: true
+  href: quickstarts/toc.yml
+- name: Självstudier
+  href: tutorials/toc.yml
+- name: Exempel
+  href: samples/toc.yml
+- name: Begrepp
+  href: concepts/toc.yml
+- name: Anvisningar
+  href: how-tos/toc.yml
+- name: Referens
+  href: reference/toc.yml
+- name: Resurser
+  href: resources/toc.yml

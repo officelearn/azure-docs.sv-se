@@ -597,6 +597,8 @@
           items:
             - name: Elastisk skalning
               href: manage-scale-cassandra.md
+            - name: Sekundära index
+              href: cassandra-secondary-index.md
         - name: Anvisningar
           items:
             - name: Ändringsfeed
@@ -1012,12 +1014,12 @@
           href: ../private-link/create-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Konfigurera resursdelning för korsande ursprung (CORS)
           href: how-to-configure-cross-origin-resource-sharing.md
-        - name: Säkra nycklar med en hanterad identitet
+        - name: Använda hanterade identiteter för att komma åt data
           href: managed-identity-based-authentication.md
           displayName: 'msi, managed service identity, aad, azure active directory, identity'
-        - name: Certifikatbaserad autentisering med Azure Active Directory
+        - name: Använda certifikat för att komma åt data
           href: certificate-based-authentication.md
-        - name: Säkra nycklar med Key Vault
+        - name: Använda Azure Key Vault för att komma åt data
           href: access-secrets-from-keyvault.md
         - name: Begränsa användaråtkomst till endast dataåtgärder
           href: how-to-restrict-user-data.md

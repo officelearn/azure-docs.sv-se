@@ -211,7 +211,7 @@
         - name: Distributionssteg
           displayName: 'caf, migrate, landing zone, deploy'
           href: ./samples/caf-migrate-landing-zone/deploy.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Livscykeln för en skiss
       displayName: 'publish, edit, delete, assignments'
@@ -225,10 +225,10 @@
     - name: Sekvensordning för distribution av en skiss
       displayName: customize
       href: ./concepts/sequencing-order.md
-    - name: Resurslåsning i skisser
+    - name: Resurslåsning i Azure Blueprints
       displayName: 'mode, state, read only, edit, denyAssignments'
       href: ./concepts/resource-locking.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Hantera tilldelningar med PowerShell
       displayName: 'create, update, remove'

@@ -1,23 +1,23 @@
 ### YamlMime:Landing
-title: Välkommen till Microsofts kommersiella marknadsplats
-summary: Läs mer om Microsofts kommersiella marknadsplats, en marknadsplats online för program och tjänster där nystartade företag och stora organisationer har möjlighet att erbjuda lösningar till kunder över hela världen.
+title: Välkommen till den kommersiella marknadsplatsen
+summary: Läs mer om den kommersiella marknadsplatsen, en marknadsplats online för program och tjänster där företag av alla storlekar har möjlighet att erbjuda lösningar till kunder över hela världen.
 metadata:
-  title: Välkommen till Microsofts kommersiella marknadsplats
-  description: Läs mer om Microsofts kommersiella marknadsplats, en marknadsplats online för program och tjänster där nystartade företag och stora organisationer har möjlighet att erbjuda lösningar till kunder över hela världen.
+  title: Välkommen till den kommersiella marknadsplatsen
+  description: Läs mer om den kommersiella marknadsplatsen, en marknadsplats online för program och tjänster där företag av alla storlekar har möjlighet att erbjuda lösningar till kunder över hela världen.
   ms.service: marketplace
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: landing-page
   author: MaggiePucciEvans
   ms.author: evansma
-  ms.date: 03/04/2020
-  ms.openlocfilehash: 3dced8953c09520b96a9aa24cf7b5db1022de6ce
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 04/02/2020
+  ms.openlocfilehash: 6351a18cf2e56152adfc0ad8433ee40cec4e9d9c
+  ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "78927604"
+  ms.lasthandoff: 04/06/2020
+  ms.locfileid: "80756312"
 landingContent:
-- title: Arbeta i Microsofts kommersiella marknadsplats
+- title: Arbeta i den kommersiella marknadsplatsen
   linkLists:
   - linkListType: get-started
     links:
@@ -25,44 +25,52 @@ landingContent:
       url: ./partner-center-portal/create-account.md
     - text: Fastställa publiceringsalternativ
       url: ./determine-your-listing-type.md
+    - text: Policyer och villkor
+      url: ./policies-terms.md
     - text: Vanliga frågor och svar om Microsofts kommersiella marknadsplats
       url: ./marketplace-faq-publisher-guide.md
     - text: Viktig information
       url: https://aka.ms/publicmarketplaceroadmap
-    - text: Policyer och villkor
-      url: ./policies-terms.md
 - title: Vanliga scenarier och uppgifter
   linkLists:
   - linkListType: overview
     links:
-    - text: Metodtips för marknadsföring
-      url: ./gtm-marketing-best-practices.md
-    - text: Metodtips för erbjudandelistor
-      url: ./gtm-offer-listing-best-practices.md
     - text: Publiceringsguiden för SaaS-programerbjudanden
       url: ./marketplace-saas-applications-technical-publishing-guide.md
+    - text: Metodtips för marknadsföring
+      url: ./gtm-marketing-best-practices.md
+    - text: Leverantörer av molnlösningar
+      url: ./cloud-solution-providers.md
+    - text: Metodtips för erbjudandelistor
+      url: ./gtm-offer-listing-best-practices.md
   - linkListType: get-started
     links:
+    - text: Kundleads från ditt Marketplace-erbjudande
+      url: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
+    - text: Alternativet för säljsamarbete i Partner Center
+      url: ./partner-center-portal/commercial-marketplace-co-sell.md
+    - text: Deltagande i partnersäljsamarbete
+      url: ./marketplace-co-sell.md
+    - text: Gör lösningar tillgängliga i Microsoft AppSource och i Office
+      url: https://docs.microsoft.com/office/dev/store/submit-to-appsource-via-partner-center
     - text: Delta i community-forumen för Azure Marketplace och AppSource
       url: https://aka.ms/MarketplaceCommunity
     - text: Registrera dig för att delta i webbseminarier för diskussioner eller titta senare på begäran
       url: https://aka.ms/allwebinars
-    - text: Gör lösningar tillgängliga i Microsoft AppSource och i Office
-      url: https://docs.microsoft.com/office/dev/store/submit-to-appsource-via-partner-center
 - title: Analysera ditt erbjudande och dina kunddata
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Instrumentpanel för sammanfattningar
       url: ./partner-center-portal/summary-dashboard.md
-    - text: Orderinstrumentpanel
-      url: ./partner-center-portal/orders-dashboard.md
-    - text: Instrumentpanelen Kund
-      url: ./partner-center-portal/customer-dashboard.md
-    - text: Instrumentpanelen Användning
-      url: ./partner-center-portal/usage-dashboard.md
     - text: Instrumentpanelen Marknadsplatsinsikter
       url: ./partner-center-portal/insights-dashboard.md
+    - text: Instrumentpanelen Användning
+      url: ./partner-center-portal/usage-dashboard.md
+    - text: Instrumentpanelen Kund
+      url: ./partner-center-portal/customer-dashboard.md
+    - text: Orderinstrumentpanel
+      url: ./partner-center-portal/orders-dashboard.md
     - text: Ladda ned instrumentpanel
       url: ./partner-center-portal/downloads-dashboard.md
     - text: Instrumentpanel för omdömen och recensioner
@@ -71,61 +79,61 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Erbjudanden för Azure-program
-      url: ./partner-center-portal/create-new-azure-apps-offer.md
-    - text: Erbjudanden för Dynamics 365 for Customer Engagement & PowerApps
-      url: ./partner-center-portal/create-new-customer-engagement-offer.md
-    - text: Erbjudanden för Dynamics 365 for Operations
-      url: ./partner-center-portal/create-new-operations-offer.md
-    - text: Erbjudanden för Dynamics 365 Business Central
-      url: ./partner-center-portal/create-new-business-central-offer.md
     - text: SaaS-erbjudanden
       url: ./partner-center-portal/create-new-saas-offer.md
     - text: Erbjudanden för virtuella datorer
       url: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
+    - text: Erbjudanden för Azure-program
+      url: ./partner-center-portal/create-new-azure-apps-offer.md
+    - text: Erbjudanden för Dynamics 365 for Customer Engagement & PowerApps
+      url: ./partner-center-portal/create-new-customer-engagement-offer.md
+    - text: Erbjudanden för Dynamics 365 Business Central
+      url: ./partner-center-portal/create-new-business-central-offer.md
+    - text: Erbjudanden för Dynamics 365 for Operations
+      url: ./partner-center-portal/create-new-operations-offer.md
     - text: Fler typer av erbjudanden
       url: ./cloud-partner-portal/cpp-marketplace-offers.md
 - title: Få betalt
   linkLists:
   - linkListType: concept
     links:
-    - text: Konfigurera utbetalningskonto och deklarationsblanketter
-      url: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
-    - text: Fakturering på den kommersiella marknadsplatsen
-      url: ./partner-center-portal/billing-details.md
-    - text: Betalningströsklar, metoder och tidsramar
-      url: ./partner-center-portal/payment-thresholds-methods-timeframes.md
     - text: Utbetalningsrapporter
       url: ./partner-center-portal/payout-summary.md
+    - text: Betalningströsklar, metoder och tidsramar
+      url: ./partner-center-portal/payment-thresholds-methods-timeframes.md
+    - text: Konfigurera utbetalningskonto och deklarationsblanketter
+      url: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
     - text: Skatteinformation
       url: ./partner-center-portal/tax-details-paid-transactions.md
+    - text: Fakturering på den kommersiella marknadsplatsen
+      url: ./partner-center-portal/billing-details.md
 - title: API-referens
   linkLists:
   - linkListType: reference
     links:
-    - text: Krav för API
-      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
     - text: API:er för uppfyllnad av SaaS
       url: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
-    - text: API-referens för Cloud Partner Portal
-      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
     - text: API:er för Marketplace Metering Service
       url: ./partner-center-portal/marketplace-metering-service-apis-faq.md
-    - text: Skapa eller ändra ett erbjudande
-      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-creating-offer.md
+    - text: API-referens för Cloud Partner Portal
+      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
+    - text: Krav för API
+      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
     - text: Hämta erbjudanden
       url: .//cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offers.md
-    - text: Sätt igång
-      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-go-live.md
+    - text: Skapa eller ändra ett erbjudande
+      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-creating-offer.md
     - text: Prissättning för erbjudanden på virtuella datorer
       url: ./cloud-partner-portal-orig/cloud-partner-portal-api-setting-price.md
+    - text: Sätt igång
+      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-go-live.md
 - title: Få support
   linkLists:
   - linkListType: get-started
     links:
     - text: Supportalternativ
       url: ./partner-center-portal/support.md
-    - text: Geografisk tillgänglighet och valutor
-      url: ./marketplace-geo-availability-currencies.md
     - text: Felsöka autentiseringsfel
       url: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
+    - text: Geografisk tillgänglighet och valutor
+      url: ./marketplace-geo-availability-currencies.md

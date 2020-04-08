@@ -1,0 +1,6 @@
+- name: Om Azure Remote Rendering
+  href: about.md
+- name: Systemkrav
+  href: system-requirements.md
+- name: Funktioner
+  href: features/toc.yml

@@ -2,13 +2,13 @@
 title: Mallfunktioner
 description: Beskriver de funktioner som ska användas i en Azure Resource Manager-mall för att hämta värden, arbeta med strängar och numeriska enheter och hämta distributionsinformation.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: 1d2789e59c091b4e6c39be48b83fe610a592abe1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: fbd82f89ed9a97a3f376a9ed6eaa8ae3760759ff
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156267"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982386"
 ---
 # <a name="arm-template-functions"></a>ARM-mallfunktioner
 
@@ -77,6 +77,13 @@ Resource Manager innehåller flera funktioner för att göra jämförelser i mal
 <a id="deployment" aria-hidden="true" />
 <a id="parameters" aria-hidden="true" />
 <a id="variables" aria-hidden="true" />
+
+## <a name="date-functions"></a>Datumfunktioner
+
+Resource Manager innehåller följande funktioner för att arbeta med datum.
+
+* [dateTimeAdd](template-functions-date.md#datetimeadd)
+* [utcNow (olikartade)](template-functions-date.md#utcnow)
 
 ## <a name="deployment-value-functions"></a>Funktionerna för distributionsvärde
 
@@ -214,7 +221,7 @@ Resource Manager innehåller följande funktioner för att arbeta med strängar:
 * [Hoppa över](template-functions-string.md#skip)
 * [split](template-functions-string.md#split)
 * [börjarMed](template-functions-string.md#startswith)
-* [sträng](template-functions-string.md#string)
+* [Sträng](template-functions-string.md#string)
 * [Delsträng](template-functions-string.md#substring)
 * [Ta](template-functions-string.md#take)
 * [toLower (TillLågare)](template-functions-string.md#tolower)
@@ -224,7 +231,6 @@ Resource Manager innehåller följande funktioner för att arbeta med strängar:
 * [Uri](template-functions-string.md#uri)
 * [uriKompent](template-functions-string.md#uricomponent)
 * [uriKompent TillString](template-functions-string.md#uricomponenttostring)
-* [utcNow (olikartade)](template-functions-string.md#utcnow)
 
 ## <a name="next-steps"></a>Nästa steg
 

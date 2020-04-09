@@ -2,25 +2,21 @@
 title: Registreringsfält för Azure Portal för specialutvecklade appar
 description: Vägledning för registrering av ett anpassat utvecklat program med Azure AD
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
-ms.openlocfilehash: 36d74b9926639bb4ec49821a3d73b5d615016394
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c44575ca43063388d5c65855542cf15700d2cb5a
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76702682"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883176"
 ---
 # <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Registreringsfält för Azure Portal för specialutvecklade appar
 

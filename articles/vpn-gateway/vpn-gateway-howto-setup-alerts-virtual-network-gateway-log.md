@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: b587fa31f1aa42e8dbd5a9d2430c0117891f2091
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 49510b26e0b2a9c69dd65faf0f343e86d1a068db
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239793"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878909"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>Konfigurera aviseringar om diagnostiska logghändelser från VPN Gateway
 
@@ -26,7 +26,7 @@ Följande loggar är tillgängliga i Azure:
 |TunnelDiagnosticLog | Innehåller händelser för ändring av tunneltillstånd. Tunnelanslutnings-/frånkopplingshändelser har en sammanfattad orsak till tillståndsändringen om tillämpligt |
 |RouteDiagnosticLog | Loggar ändringar i statiska vägar och BGP-händelser som inträffar på gatewayen |
 |IKEDiagnosticLog | Loggar IKE-kontrollmeddelanden och händelser på gatewayen |
-|P2SDiagnosticLog | Loggar punkt-till-plats-kontrollmeddelanden och händelser på gatewayen |
+|P2SDiagnosticLog | Loggar punkt-till-plats-kontrollmeddelanden och händelser på gatewayen. Information om anslutningskällan tillhandahålls endast för IKEv2-anslutningar |
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a><a name="setup"></a>Konfigurera aviseringar i Azure-portalen
 

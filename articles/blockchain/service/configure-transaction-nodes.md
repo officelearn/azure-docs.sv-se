@@ -4,12 +4,12 @@ description: Konfigurera Azure Blockchain Service-transaktionsnoder
 ms.date: 11/20/2019
 ms.topic: article
 ms.reviewer: janders
-ms.openlocfilehash: 4a9a4f660dd171e65b600ec4cd66714ca476b091
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8fa18496d0c1aa59beb55569e731967d5ebea427
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252264"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876937"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Konfigurera transaktionsnoder för Azure Blockchain-tjänst
 
@@ -54,7 +54,7 @@ Så här visar du slutpunktsinformation för en transaktionsnod:
 
     ![Slutpunkter](./media/configure-transaction-nodes/endpoints.png)
 
-Slutpunkter för transaktionsnoder är säkra och kräver autentisering. Du kan ansluta till en transaktionsslutpunkt med Azure AD-autentisering, HTTPS-grundläggande autentisering och använda en åtkomstnyckel via HTTPS eller Websocket via SSL.
+Slutpunkter för transaktionsnoder är säkra och kräver autentisering. Du kan ansluta till en transaktionsslutpunkt med Azure AD-autentisering, HTTPS-grundläggande autentisering och använda en åtkomstnyckel via HTTPS eller Websocket via TLS.
 
 ### <a name="azure-active-directory-access-control"></a>Azure Active Directory-åtkomstkontroll
 

@@ -1,40 +1,53 @@
 ---
 title: Introduktion till Azure Storage – Molnlagring i Azure | Microsoft Docs
-description: Azure Storage är Microsofts molntjänstlagringslösning. Azure Storage tillhandahåller lagring för dataobjekt som har hög tillgänglighet och är säkra, robusta, mycket skalbara och redundanta.
+description: Azure Storage-plattformen är Microsofts molnlagringslösning. Azure Storage tillhandahåller lagring för dataobjekt som har hög tillgänglighet och är säkra, robusta, mycket skalbara och redundanta.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5bab70b6b023a4e6510e32368d407a38388cde2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1cc047ee60cf8287f32a42b878371c5fc9680b7a
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256073"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985753"
 ---
-# <a name="introduction-to-azure-storage"></a>Introduktion till Azure Storage
+# <a name="introduction-to-the-core-azure-storage-services"></a>Introduktion till de grundläggande Azure Storage-tjänsterna
 
-Azure Storage är Microsofts molntjänstlagringslösning för moderna datalagringsscenarier. Azure Storage tillhandahåller mycket skalbar objektlagring för dataobjekt, en filsystemtjänst för molnet, meddelandelagring för tillförlitliga meddelandefunktioner och ett NoSQL-lager. Azure Storage är:
+Azure Storage-plattformen är Microsofts molnlagringslösning för moderna datalagringsscenarier. Kärnlagringstjänster erbjuder ett enormt skalbart objektlager för dataobjekt, disklagring för virtuella Azure-datorer , en filsystemtjänst för molnet, ett meddelandearkiv för tillförlitliga meddelanden och ett NoSQL-arkiv. Tjänsterna är:
 
 - **Pålitlig och mycket tillgänglig.** Redundans garanterar att dina data är säkra i händelse av tillfälliga maskinvarufel. Du kan också välja att replikera data i datacenter eller geografiska regioner för ytterligare skydd mot lokala allvarliga händelser eller naturkatastrofer. Data som replikeras på det här sättet förblir mycket tillgängliga vid ett oväntat avbrott.
-- **Säker.** Alla data som skrivs till Azure Storage krypteras av tjänsten. Med Azure Storage får du detaljerad kontroll över vem som har tillgång till dina data.
+- **Säker.** Alla data som skrivs till ett Azure-lagringskonto krypteras av tjänsten. Med Azure Storage får du detaljerad kontroll över vem som har tillgång till dina data.
 - **Skalbar.** Azure Storage är utformat för att vara mycket skalbart för att uppfylla krav på datalagring och prestanda för dagens program.
-- **Hanterad.** Microsoft Azure hanterar maskinvaruunderhåll, uppdateringar och kritiska problem åt dig.
+- **Hanterad.** Azure hanterar maskinvaruunderhåll, uppdateringar och kritiska problem åt dig.
 - **Åtkomlig.** Data i Azure Storage är åtkomlig från hela världen via HTTP eller HTTPS varifrån som helst. Microsoft tillhandahåller klientbibliotek för Azure Storage på en mängd olika språk, inklusive .NET, Java, Node.js, Python, PHP, Ruby, Go och andra, samt ett moget REST API. Azure Storage stöder skriptning i Azure PowerShell eller Azure CLI. Azure-portalen och Azure Storage Explorer erbjuder även enkla visuella lösningar för att arbeta med dina data.  
 
-## <a name="azure-storage-services"></a>Azure Storage-tjänster
+## <a name="core-storage-services"></a>Grundläggande lagringstjänster
 
-I Azure Storage finns dessa datatjänster:
+Azure Storage-plattformen innehåller följande datatjänster:
 
-- [Azure Blobs](../blobs/storage-blobs-introduction.md): En mycket skalbar objektlagring för textdata och binära data.
+- [Azure Blobs](../blobs/storage-blobs-introduction.md): En mycket skalbar objektlagring för textdata och binära data. Innehåller även stöd för stordataanalys via Data Lake Storage Gen2.
 - [Azure Files](../files/storage-files-introduction.md): Hanterade filresurser för distributioner i molnet eller lokalt.
 - [Azure Queues](../queues/storage-queues-introduction.md): Ett meddelandearkiv för tillförlitliga meddelandefunktioner mellan programkomponenter.
 - [Azure Tables](../tables/table-storage-overview.md): En NoSQL-lagring av schemalös lagring av strukturerade data.
+- [Azure-diskar: Lagringsvolymer](../../virtual-machines/windows/managed-disks-overview.md)på blocknivå för virtuella Azure-datorer.
 
 Varje tjänst nås via ett lagringskonto. För att komma igång läser du [Skapa ett lagringskonto](storage-account-create.md).
+
+## <a name="example-scenarios"></a>Exempelscenarier
+
+I följande tabell jämförs Filer, Blobbar, Diskar, Köer och Tabeller och visar exempelscenarier för var och en.
+
+| Funktion | Beskrivning | När du ska använda detta |
+|--------------|-------------|-------------|
+| **Azure-filer** |Erbjuder fullständigt hanterade molnfilresurser som du kan komma åt var som helst via SMB-protokollet (Industry Standard Message Block).<br><br>Du kan montera Azure-filresurser från moln- eller lokala distributioner av Windows, Linux och macOS. | Du vill "lyfta och flytta" ett program till molnet som redan använder de inbyggda api:erna för filsystem för att dela data mellan det och andra program som körs i Azure.<br/><br/>Du vill ersätta eller komplettera lokala filservrar eller NAS-enheter.<br><br> Du vill lagra utvecklings- och felsökningsverktyg som måste nås från många virtuella datorer. |
+| **Azure-blobar** | Gör att ostrukturerade data kan lagras och nås i stor skala i blockblobar.<br/><br/>Stöder även [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) för lösningar för stordataanalys för företag. | Du vill att ditt program ska stödja strömmande och slumpmässiga åtkomstscenarier.<br/><br/>Du vill kunna komma åt programdata var som helst.<br/><br/>Du vill skapa en företagsdatasjö på Azure och utföra stordataanalys. |
+| **Azure-diskar** | Gör att data kan lagras och nås från en ansluten virtuell hårddisk. | Du vill "lyfta och flytta" program som använder inbyggda api:er för filsystem för att läsa och skriva data till beständiga diskar.<br/><br/>Du vill lagra data som inte behöver nås från utanför den virtuella datorn som disken är ansluten till. |
+| **Azure-köer** | Tillåter asynkron meddelandekö mellan programkomponenter. | Du vill frikoppla programkomponenter och använda asynkrona meddelanden för att kommunicera mellan dem.<br><br>Vägledning om när kölagring kontra servicebussköer ska användas finns i [Köer för lagring och Service Bus – jämfört och kontrasterade](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted). |
+| **Azure-tabeller** | Gör att du kan lagra strukturerade NoSQL-data i molnet, vilket ger en nyckel/attributlagring med en schemalös design. | Du vill lagra flexibla datauppsättningar som användardata för webbprogram, adressböcker, enhetsinformation eller andra typer av metadata som tjänsten kräver. <br/><br/>Mer information om när du ska använda Tabelllagring jämfört med Azure Cosmos DB Table API finns i [Utveckla med Azure Cosmos DB Table API och Azure Table Storage](../../cosmos-db/table-support.md). |
 
 ## <a name="blob-storage"></a>Blob Storage
 
@@ -66,9 +79,9 @@ Filresurser kan användas för många vanliga scenarier:
 
 - Diagnostikloggar, mätvärden och kraschdumpar är bara tre exempel på data som kan skrivas till en filresurs och bearbetas eller analyseras senare.
 
-För närvarande stöds inte Active Directory-baserad autentisering och åtkomstkontrollistor (ACL:er). Detta kommer dock att implementeras i en framtida utgåva. Autentiseringsuppgifterna för lagringskontot används för att tillhandahålla autentisering för åtkomst till filresursen. Det betyder att alla som har resursen monterad har fullständig skriv- och läsåtkomst till resursen.
-
 Mer information om Azure Files finns i [Introduktion till Azure Files](../files/storage-files-introduction.md).
+
+Vissa SMB-funktioner är inte tillämpliga på molnet. Mer information finns i [Funktioner som inte stöds av Azure File-tjänsten](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
 
 ## <a name="queue-storage"></a>Queue Storage
 
@@ -80,39 +93,37 @@ Mer information om Azure Queues finns i [introduktionen till Queues](../queues/s
 
 ## <a name="table-storage"></a>Table Storage
 
-Azure Table Storage är nu en del av Azure Cosmos DB. Du hittar dokumentationen till Azure Table Storage i [Översikt över Azure Table Storage](../tables/table-storage-overview.md). Utöver den befintliga Azure Table Storage-tjänsten finns ett nytt tabell-API för Azure Cosmos DB som tillhandahåller genomströmningsoptimerade tabeller, global distribution och automatiska sekundärindex. Om du vill veta mer om och prova den nya premiumtjänsten går du till avsnittet [Tabell-API för Azure Cosmos DB](https://aka.ms/premiumtables).
+Azure Table Storage är nu en del av Azure Cosmos DB. Du hittar dokumentationen till Azure Table Storage i [Översikt över Azure Table Storage](../tables/table-storage-overview.md). Utöver den befintliga Azure Table Storage-tjänsten finns ett nytt tabell-API för Azure Cosmos DB som tillhandahåller genomströmningsoptimerade tabeller, global distribution och automatiska sekundärindex. Mer information och prova den nya premiumupplevelsen finns i [Azure Cosmos DB Table API](https://aka.ms/premiumtables).
 
 Mer information om Table Storage finns i [översikten över Azure Table Storage](../tables/table-storage-overview.md).
 
 ## <a name="disk-storage"></a>Disklagring
 
-En Azure-hanterad disk är en virtuell hårddisk (VHD). Du kan se det som en fysisk disk i en lokal server men virtualiserad. Azure-hanterade diskar lagras som sidblobar, som är ett slumpmässigt I/O-lagringsobjekt i Azure. Vi anropar en hanterad disk som "hanteras" eftersom det är en abstraktion över sidblobar, blob-behållare och Azure-lagringskonton. Med hanterade diskar behöver du bara etablera disken och Azure tar hand om resten.
+En Azure-hanterad disk är en virtuell hårddisk (VHD). Du kan se det som en fysisk disk i en lokal server men virtualiserad. Azure-hanterade diskar lagras som sidblobar, som är ett slumpmässigt IO-lagringsobjekt i Azure. Vi anropar en hanterad disk som "hanteras" eftersom det är en abstraktion över sidblobar, blob-behållare och Azure-lagringskonton. Med hanterade diskar behöver du bara etablera disken och Azure tar hand om resten.
 
 Mer information om hanterade diskar finns i [Introduktion till Azure-hanterade diskar](../../virtual-machines/windows/managed-disks-overview.md).
 
 ## <a name="types-of-storage-accounts"></a>Typer av lagringskonton
 
-[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
+Azure Storage erbjuder flera typer av lagringskonton. Varje typ stöder olika funktioner och har sin egen prismodell. Mer information om typer av lagringskonton finns i [Översikt över Azure Storage-konton](storage-account-overview.md).
 
-Mer information om typer av lagringskonton finns i [Översikt över Azure Storage-konton](storage-account-overview.md).
-
-## <a name="securing-access-to-storage-accounts"></a>Skydda åtkomsten till lagringskonton
+## <a name="secure-access-to-storage-accounts"></a>Säker åtkomst till lagringskonton
 
 Varje begäran till Azure Storage måste godkännas. Azure Storage stöder följande auktoriseringsmetoder:
 
 - **Azure Active Directory (Azure AD) integration för blob och ködata.** Azure Storage stöder autentisering och auktorisering med Azure AD för Blob- och Queue-tjänsterna via rollbaserad åtkomstkontroll (RBAC). Att godkänna begäranden med Azure AD rekommenderas för överlägsen säkerhet och användarvänlighet. Mer information finns i [Auktorisera åtkomst till Azure-blobbar och köer med Azure Active Directory](storage-auth-aad.md).
-- **Azure AD-auktorisering över SMB för Azure-filer (förhandsversion).** Azure Files stöder identitetsbaserad auktorisering via SMB (Server Message Block) via Azure Active Directory Domain Services. Dina domänanslutna virtuella Datorer i Windows (VMs) kan komma åt Azure-filresurser med Azure AD-autentiseringsuppgifter. Mer information finns i [Översikt över Azure Active Directory-auktorisering över SMB för Azure-filer (förhandsversion).](../files/storage-files-active-directory-overview.md)
-- **Auktorisering med delad nyckel.** Azure Storage Blob- och Table-tjänsterna och Azure Files stöder auktorisering med Shared Key.A-klient med behörigheten Delad nyckel skickar ett huvud med varje begäran som signeras med åtkomstnyckeln för lagringskontot. Mer information finns i [Auktorisera med delad nyckel](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
-- **Auktorisering med signaturer för delad åtkomst (SAS).** En SAS (Shared Access Signature) är en sträng som innehåller en säkerhetstoken som kan läggas till i URI för en lagringsresurs. Säkerhetstoken kapslar in begränsningar som behörigheter och åtkomstintervallet. Mer information finns [i Använda SIGNATURER för delad åtkomst (SAS)](storage-sas-overview.md).
-- **Anonym åtkomst till behållare och blobbar.** En behållare och dess blobbar kan vara allmänt tillgängliga. När du anger att en behållare eller blob är offentlig kan vem som helst läsa den anonymt. ingen autentisering krävs. Mer information finns i [Hantera anonym läsbehörighet till containrar och blobar](../blobs/storage-manage-access-to-resources.md).
+- **Azure AD-auktorisering över SMB för Azure-filer.** Azure Files stöder identitetsbaserad auktorisering via SMB (Server Message Block) via antingen Azure Active Directory Domain Services (Azure AD DS) eller lokala Active Directory Domain Services (förhandsversion). Dina domänanslutna Virtuella datorer med Windows kan komma åt Azure-filresurser med Azure AD-autentiseringsuppgifter. Mer information finns i [Översikt över Azure Files identitetsbaserade autentiseringsstöd för SMB-åtkomst](../files/storage-files-active-directory-overview.md) och planering för en Azure [Files-distribution](../files/storage-files-planning.md#identity).
+- **Auktorisering med delad nyckel.** Azure Storage Blob, Files, Queue och Table services stöder auktorisering med delad nyckel. En klient som använder auktorisering för delad nyckel skickar ett huvud med varje begäran som signeras med åtkomstnyckeln för lagringskontot. Mer information finns i [Auktorisera med delad nyckel](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
+- **Auktorisering med signaturer för delad åtkomst (SAS).** En SAS (Shared Access Signature) är en sträng som innehåller en säkerhetstoken som kan läggas till i URI för en lagringsresurs. Säkerhetstoken kapslar in begränsningar som behörigheter och åtkomstintervallet. Mer information finns i [Använda SIGNATURER för delad åtkomst (SAS)](storage-sas-overview.md).
+- **Anonym åtkomst till behållare och blobbar.** En behållare och dess blobbar kan vara allmänt tillgängliga. När du anger att en behållare eller blob är offentlig kan vem som helst läsa den anonymt. ingen autentisering krävs. Mer information finns i [Hantera anonym läsåtkomst till behållare och blobbar](../blobs/storage-manage-access-to-resources.md).
 
 ## <a name="encryption"></a>Kryptering
 
-Det finns några grundläggande typer av kryptering för Storage-tjänsterna. Mer information om säkerhet och kryptering finns i [Säkerhetsguiden för Azure Storage](../blobs/security-recommendations.md).
+Det finns två grundläggande typer av kryptering tillgängliga för kärnlagringstjänster. Mer information om säkerhet och kryptering finns i [Säkerhetsguiden för Azure Storage](../blobs/security-recommendations.md).
 
 ### <a name="encryption-at-rest"></a>Vilande kryptering
 
-Azure Storage-kryptering skyddar och skyddar dina data för att uppfylla dina organisatoriska säkerhets- och efterlevnadsåtaganden. Azure Storage krypterar automatiskt alla data innan de sparas till lagringskontot och dekrypterar dem före hämtning. Kryptering, dekryptering och viktiga hanteringsprocesser är helt transparenta för användarna. Kunder kan också välja att hantera sina egna nycklar med Hjälp av Azure Key Vault. Mer information finns i [Azure Storage-kryptering för data i vila](storage-service-encryption.md).
+Azure Storage-kryptering skyddar och skyddar dina data för att uppfylla dina organisatoriska säkerhets- och efterlevnadsåtaganden. Azure Storage krypterar automatiskt alla data innan de sparas till lagringskontot och dekrypterar dem före hämtning. Kryptering, dekryptering och nyckelhanteringsprocesser är transparenta för användarna. Kunder kan också välja att hantera sina egna nycklar med Hjälp av Azure Key Vault. Mer information finns i [Azure Storage-kryptering för data i vila](storage-service-encryption.md).
 
 ### <a name="client-side-encryption"></a>Kryptering av klientsidan
 
@@ -120,21 +131,19 @@ Azure Storage-klientbiblioteken tillhandahåller metoder för att kryptera data 
 
 ## <a name="redundancy"></a>Redundans
 
-För att säkerställa att dina data är hållbara lagrar Azure Storage flera kopior av dina data. När du konfigurerar ditt lagringskonto väljer du ett redundansalternativ.
+Azure Storage lagrar flera kopior av dina data för att säkerställa att dina data är varaktiga. När du konfigurerar ditt lagringskonto väljer du ett redundansalternativ. Läs mer i [Redundansalternativ för Azure Storage](/storage-redundancy?toc=/azure/storage/blobs/toc.json).
 
-[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
-
-## <a name="transferring-data-to-and-from-azure-storage"></a>Överföra data till och från Azure Storage
+## <a name="transfer-data-to-and-from-azure-storage"></a>Överföra data till och från Azure Storage
 
 Du kan flytta data till eller från Azure Storage på flera olika sätt. Vilket alternativ du väljer beror på storleken på datauppsättningen och din nätverksbandbredd. Mer information finns i [Välja en Azure-lösning för dataöverföring](storage-choose-data-transfer-solution.md).
 
 ## <a name="pricing"></a>Prissättning
 
-Detaljerad information om priser för Azure Storage finns på [prissidan](https://azure.microsoft.com/pricing/details/storage/blobs/).
+När du fattar beslut om hur dina data lagras och nås bör du också ta hänsyn till kostnaderna. Mer information finns i [Azure Storage-priser](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="storage-apis-libraries-and-tools"></a>API:er, bibliotek och verktyg för Azure Storage
 
-Azure Storage-resurser kan nås med alla språk som kan skicka HTTP/HTTPS-förfrågningar. Dessutom erbjuder Azure Storage programmeringsbibliotek för flera populära språk. Dessa bibliotek förenklar många aspekter av arbetet med Azure Storage genom att hantera information som till exempel synkrona och asynkrona anrop, massbearbetning av åtgärder, undantagshantering, automatiska omförsök, funktionsbeteenden och så vidare. Bibliotek är för närvarande tillgängliga för följande språk och plattformar, med andra i pipeline:
+Du kan komma åt resurser i ett lagringskonto på vilket språk som helst som kan göra HTTP/HTTPS-begäranden. Dessutom erbjuder de grundläggande Azure Storage-tjänsterna programmeringsbibliotek för flera populära språk. Dessa bibliotek förenklar många aspekter av arbetet med Azure Storage genom att hantera information som till exempel synkrona och asynkrona anrop, massbearbetning av åtgärder, undantagshantering, automatiska omförsök, funktionsbeteenden och så vidare. Bibliotek är för närvarande tillgängliga för följande språk och plattformar, med andra i pipeline:
 
 ### <a name="azure-storage-data-api-and-library-references"></a>Referenser till Azure Storage-data-API och -bibliotek
 
@@ -169,4 +178,4 @@ Azure Storage-resurser kan nås med alla språk som kan skicka HTTP/HTTPS-förfr
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med Azure Storage genom att läsa [Skapa ett lagringskonto](storage-account-create.md).
+Information om hur du kommer igång med grundläggande Azure Storage-tjänster finns i [Skapa ett lagringskonto](storage-account-create.md).

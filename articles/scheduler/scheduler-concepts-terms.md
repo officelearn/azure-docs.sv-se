@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 0a744c2de320ddad2e7959cae7b62d7990879953
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898579"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878399"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Begrepp, terminologi och entiteter i Azure Scheduler
 
@@ -66,7 +66,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 Azure Scheduler stöder flera jobbtyper: 
 
-* HTTP-jobb, inklusive HTTPS-jobb som stöder SSL, för när du har slutpunkten för en befintlig tjänst eller arbetsbelastning
+* HTTP-jobb, inklusive HTTPS-jobb som stöder TLS, för när du har slutpunkten för en befintlig tjänst eller arbetsbelastning
 * Storage-köjobb för arbetsbelastningar som använder Storage-köer, som att publicera meddelanden till Storage-köer
 * Service Bus-köjobb för arbetsbelastningar som använder Service Bus-köer
 * Service Bus-ämnesjobb för arbetsbelastningar som använder Service Bus-ämnen
@@ -90,7 +90,7 @@ Jobbet innehåller även systemangivna data, till exempel jobbets nästa schemal
 | [**Återkommande**](#recurrence) | Inga | Information som frekvens och intervall för ett återkommande jobb | 
 | [**återförsökPolicy**](#retry-policy) | Inga | Information om hur ofta en åtgärd ska göras om | 
 | [**Statligt**](#state) | Ja | Information om jobbets aktuella tillstånd |
-| [**status**](#status) | Ja | Information om jobbets aktuella status som kontrolleras av tjänsten |
+| [**Status**](#status) | Ja | Information om jobbets aktuella status som kontrolleras av tjänsten |
 ||||
 
 Här är ett exempel som visar en heltäckande jobbdefinition för en HTTP-åtgärd med mer fullständig elementinformation som beskrivs i senare avsnitt: 

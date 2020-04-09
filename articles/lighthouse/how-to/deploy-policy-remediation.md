@@ -3,12 +3,12 @@ title: Distribuera en princip som kan åtgärdas
 description: Lär dig hur du lägger till en kund till Azure-delegerad resurshantering, så att deras resurser kan nås och hanteras via din egen klientorganisation.
 ms.date: 10/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: c06ed4ea597808aee18d4a848bcfea7152b9cf8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b625e9e3c96866cfbc655a55b770c9ac07a626bd
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270646"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985175"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Distribuera en princip som kan åtgärdas inom en delegerad prenumeration
 
@@ -40,7 +40,7 @@ Exemplet nedan visar en **principalId** som har rollen Administratör för anvä
 
 När du har skapat användaren med de behörigheter som krävs enligt beskrivningen ovan kan användaren distribuera principer i kundens klientorganisation som använder reparationsuppgifter.
 
-Anta till exempel att du vill aktivera diagnostik på Azure Key Vault-resurser i kundklienten, vilket illustreras i det här [exemplet](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-enforce-keyvault-monitoring). En användare i den hanterande klienten med rätt behörigheter (enligt beskrivningen ovan) skulle distribuera en [Azure Resource Manager-mall](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) för att aktivera det här scenariot.
+Anta till exempel att du vill aktivera diagnostik på Azure Key Vault-resurser i kundklienten, vilket illustreras i det här [exemplet](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-enforce-keyvault-monitoring). En användare i den hanterande klienten med rätt behörigheter (enligt beskrivningen ovan) skulle distribuera en [Azure Resource Manager-mall](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) för att aktivera det här scenariot.
 
 Observera att skapa principtilldelningen som ska användas med en delegerad prenumeration måste göras för närvarande via API:er, inte i Azure-portalen. När du gör det måste **apiVersion** ställas in på **2019-04-01-preview**, som innehåller den nya **delegatedManagedIdentityResourceId-egenskapen.** Med den här egenskapen kan du inkludera en hanterad identitet som finns i kundklienten (i en prenumeration eller resursgrupp som har lagts ombord på Azure-delegerad resurshantering).
 
@@ -62,7 +62,7 @@ I följande exempel visas en rolltilldelning med en **delegeradManagedIdentityRe
 ```
 
 > [!TIP]
-> Ett [liknande exempel](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-add-or-replace-tag) är tillgängligt för att visa hur du distribuerar en princip som lägger till eller tar bort en tagg (med hjälp av ändringseffekten) till en delegerad prenumeration.
+> Ett [liknande exempel](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-add-or-replace-tag) är tillgängligt för att visa hur du distribuerar en princip som lägger till eller tar bort en tagg (med hjälp av ändringseffekten) till en delegerad prenumeration.
 
 ## <a name="next-steps"></a>Nästa steg
 

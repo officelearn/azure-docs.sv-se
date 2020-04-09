@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: 3c476393153f6bc1d18d5c163bcd69484583eb15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8139ed8f4f4799a963a051eed96dd87c4ac38aec
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256281"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981434"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastiska pooler hjälper dig att hantera och skala flera Azure SQL-databaser
 
@@ -37,7 +37,7 @@ Elastiska pooler löser det här problemet genom att se till att databaser får 
 > [!IMPORTANT]
 > Det finns ingen avgift per databas för elastiska pooler. Du faktureras för varje timme som en pool finns vid den högsta eDTU- eller vCore-vyn, oavsett användning eller om poolen var aktiv i mindre än en timme.
 
-Elastiska pooler gör det möjligt för utvecklaren att köpa resurser för en pool som delas av flera databaser för att hantera oförutsägbara perioder av användning av enskilda databaser. Du kan konfigurera resurser för poolen baserat antingen på den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) eller den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md). Resursbehovet för en pool bestäms av den sammanlagda användningen av dess databaser. Mängden resurser som är tillgängliga för poolen styrs av utvecklarbudgeten. Utvecklaren lägger helt enkelt till databaser i poolen, anger de lägsta och högsta resurserna för databaserna (antingen lägsta och högsta DTU:er eller lägsta eller högsta virtuella kärnor beroende på vilket du väljer resourcing-modell) och anger sedan poolens resurser baserat på deras Budget. Med hjälp av pooler kan utvecklare sömlöst expandera sina tjänster från en idé till en mogen affärsverksamhet som bara fortsätter att växa.
+Elastiska pooler gör det möjligt för utvecklaren att köpa resurser för en pool som delas av flera databaser för att hantera oförutsägbara perioder av användning av enskilda databaser. Du kan konfigurera resurser för poolen baserat antingen på den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) eller den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md). Resursbehovet för en pool bestäms av den sammanlagda användningen av dess databaser. Mängden resurser som är tillgängliga för poolen styrs av utvecklarbudgeten. Utvecklaren lägger helt enkelt till databaser i poolen, anger de lägsta och högsta resurserna för databaserna (antingen lägsta och högsta DTU:er eller lägsta eller högsta virtuella kärnor beroende på ditt val av resursmodell) och anger sedan poolens resurser baserat på deras budget. Med hjälp av pooler kan utvecklare sömlöst expandera sina tjänster från en idé till en mogen affärsverksamhet som bara fortsätter att växa.
 
 I poolen kan de enskilda databaserna skalas automatiskt inom fastställda parametrar. Under tung belastning kan en databas förbruka mer resurser för att möta efterfrågan. Databaser under lätta belastningar förbrukar mindre och databaser under ingen belastning förbrukar inga resurser. Genom att etablera resurser för hela poolen i stället för enskilda databaser kan du förenkla dina hanteringsuppgifter. Dessutom har du en förutsägbar budget för poolen. Ytterligare resurser kan läggas till i en befintlig pool utan avbrott i databasen, förutom att databaserna kan behöva flyttas för att tillhandahålla ytterligare beräkningsresurser för den nya eDTU-reservationen. På samma sätt, om extra resurser inte längre behövs de kan tas bort från en befintlig pool när som helst. Och du kan lägga till eller ta bort databaser i poolen. Om du vet att en databas underförbrukar resurser tar du bort den.
 
@@ -224,7 +224,6 @@ Mer information finns [i skapa SQL Database-aviseringar i Azure Portal](sql-data
 
 - Prisinformation finns i [Priserpoolprissättning](https://azure.microsoft.com/pricing/details/sql-database/elastic).
 - Så här skalar du elastiska pooler, se [Skala elastiska pooler](sql-database-elastic-pool-scale.md) och [Skala en elastisk pool - exempelkod](scripts/sql-database-monitor-and-scale-pool-powershell.md)
-- En video för en video finns i [Microsoft Virtual Academy-videokurs om elastiska Azure SQL Database-funktioner](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 - Läs mer om designmönster för SaaS-program med elastiska pooler i [Designmönster för SaaS-program med flera klienter med Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 - En SaaS-självstudie med elastiska pooler finns i [Introduktion till Wingtip SaaS-programmet](sql-database-wtp-overview.md).
 - Mer information om resurshantering i elastiska pooler med många databaser finns [i Resurshantering i täta elastiska pooler](sql-database-elastic-pool-resource-management.md).

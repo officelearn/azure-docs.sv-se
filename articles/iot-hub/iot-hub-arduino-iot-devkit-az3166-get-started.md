@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 5d6ba2bd52d8f4af4244e8ce1babeb7bc9d37fe4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 326b79e1aca6fa82b3275249401c755428a8b71d
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235665"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878569"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Anslut IoT DevKit AZ3166 till Azure IoT Hub
 
@@ -82,7 +82,13 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
     ```
 
    > [!NOTE]
-   > Om du får `device-identity`ett fel som körs installerar du [Azure IOT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md) för mer information.
+   > Om du får `device-identity`ett fel som körs installerar du [Azure IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md).
+   > Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI i din Cloud Shell-instans. IoT-tillägget lägger till kommandon som är specifika för IoT Hub, IoT Edge och IoT Device Provisioning Service (DPS) i Azure CLI.
+   > 
+   > ```azurecli-interactive
+   > az extension add --name azure-iot
+   >  ```
+   >
   
 1. Kör följande kommandon i Azure Cloud Shell för att hämta _enhetsanslutningssträngen_ för enheten du just registrerade:
 

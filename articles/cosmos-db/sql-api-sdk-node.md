@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: 181f43e060e3b4b41babeee375365a97e1d224aa
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 03f79535b3a62fbb4d0309ae86a142bd842cc308
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411274"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982896"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK för SQL API: Versionsanteckningar och resurser
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "80411274"
 
 |Resurs  |Länk  |
 |---------|---------|
-|Ladda ner SDK  |   [NPM (NPM)](https://www.npmjs.com/package/@azure/cosmos) 
+|Ladda ner SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
 |API-dokumentation  |  [Referensdokumentation för JavaScript SDK](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
 |Installationsinstruktioner för SDK  |  [Installationsinstruktioner](https://github.com/Azure/azure-cosmos-js#installation)
 |Bidra till SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
@@ -295,14 +295,14 @@ Inte alltid de mest synliga förändringarna, men de hjälper vårt team leverer
 
 ### <a name=""></a><a name="1.14.0"/>1.14.0</a>
 * Lägger till stöd för Sessionskonsekvens.
-* Den här SDK-versionen kräver den senaste versionen av https://aka.ms/cosmosdb-emulatorAzure Cosmos DB Emulator som är tillgänglig för hämtning från .
+* Den här SDK-versionen kräver den senaste versionen av [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator).
 
 ### <a name=""></a><a name="1.13.0"/>1.13.0</a>
 * Delade korrektursträknade korspartitionsfrågor.
 * Lägger till stöd för resurslänk med inledande och avslutande snedstreck (och motsvarande tester).
 
 ### <a name=""></a><a name="1.12.2"/>1.12.2</a>
-*   npm-dokumentationen har åtgärdats.
+*    npm-dokumentationen har åtgärdats.
 
 ### <a name=""></a><a name="1.12.1"/>1.12.1</a>
 * Fixade ett fel i executeStoredProcedure där inblandade dokument hade speciella Unicode-tecken (LS, PS).

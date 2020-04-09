@@ -8,16 +8,22 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0f3d6580b738a77de9654de0df9b4ce1120fc6eb
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: ae3743530440c9df9094a0b9784922d2d6a3dfdf
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80584043"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985413"
 ---
-# <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Vanliga frågor och svar om Azure Disk Encryption för virtuella IAAS-datorer
+# <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Vanliga frågor och svar om Azure Disk Encryption för virtuella Linux-datorer
 
-Den här artikeln innehåller svar på vanliga frågor och svar om Azure Disk Encryption för virtuella Linux-datorer. Mer information om den här tjänsten finns i [Översikt över Azure Disk Encryption](disk-encryption-overview.md).
+Den här artikeln innehåller svar på vanliga frågor och svar om Azure Disk Encryption för virtuella Linux-datorer (VMs). Mer information om den här tjänsten finns i [Översikt över Azure Disk Encryption](disk-encryption-overview.md).
+
+## <a name="what-is-azure-disk-encryption-for-linux-vms"></a>Vad är Azure Disk Encryption för virtuella Linux-datorer?
+
+Azure Disk Encryption for Linux VIRTUELLA datorer använder dm-crypt-funktionen i Linux för att tillhandahålla fullständig diskkryptering av OS-disken* och datadiskar. Dessutom ger det kryptering av den tillfälliga resursdisken när du använder [funktionen EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms). Innehållet flödar krypterat från den virtuella datorn till lagrings-backend. Därmed ger slutpunkt till slutpunkt kryptering med en kundhanterad nyckel.
+ 
+Se [Virtuella datorer och operativsystem som stöds](disk-encryption-overview.md#supported-vms-and-operating-systems).
 
 ## <a name="where-is-azure-disk-encryption-in-general-availability-ga"></a>Var är Azure Disk Encryption i allmän tillgänglighet (GA)?
 
@@ -48,6 +54,20 @@ När du har krypterat OS-volymen stöds inte inaktivering av kryptering på OS-v
 ## <a name="can-i-encrypt-an-unmounted-volume-with-azure-disk-encryption"></a>Kan jag kryptera en omonterad volym med Azure Disk Encryption?
 
 Nej, Azure Disk Encryption krypterar bara monterade volymer.
+
+## <a name="what-is-storage-server-side-encryption"></a>Vad är kryptering på lagringsserversidan?
+
+Kryptering på lagringsserversidan krypterar Azure-hanterade diskar i Azure Storage. Hanterade diskar krypteras som standard med serverkryptering med en plattformshanterad nyckel (från och med den 10 juni 2017). Du kan hantera kryptering av hanterade diskar med dina egna nycklar genom att ange en kundhanterad nyckel. Mer information finns i: [Kryptering på serversidan av Azure-hanterade diskar](disk-encryption.md).
+ 
+## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>Hur skiljer sig Azure Disk Encryption från kryptering på lagringsserversidan med kundhanterad nyckel och när ska jag använda varje lösning?
+
+Azure Disk Encryption tillhandahåller end-to-end-kryptering för OS-disken, datadiskar och den tillfälliga resursdisken med en kundhanterad nyckel.
+- Om dina krav omfattar kryptering av alla ovanstående och end-to-end-kryptering använder du Azure Disk Encryption. 
+- Om dina krav omfattar kryptering endast av data i vila med kundhanterad nyckel använder du [kryptering på serversidan med kundhanterade nycklar](disk-encryption.md). Du kan inte kryptera en disk med både Azure Disk Encryption och Storage server-side kryptering med kundhanterade nycklar. 
+- Om din Linux-distribution inte visas under [operativsystem som stöds för Azure Disk Encryption](disk-encryption-overview.md#supported-operating-systems) eller om du använder ett scenario som anropas i [scenarierna som inte stöds för Windows,](disk-encryption-linux.md#unsupported-scenarios)bör du överväga [serverkryptering med kundhanterade nycklar](disk-encryption.md).
+- Om din organisations princip tillåter dig att kryptera innehåll i vila med en Azure-hanterad nyckel behövs ingen åtgärd - innehållet krypteras som standard. För hanterade diskar krypteras innehållet i lagringen som standard med kryptering på serversidan med plattformshanterad nyckel. Nyckeln hanteras av Azure Storage-tjänsten. 
+
+
 
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Hur roterar jag hemligheter eller krypteringsnycklar?
 

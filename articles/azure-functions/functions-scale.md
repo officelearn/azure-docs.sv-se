@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 92ac0417e9d8adca168dd68e1721a1c9c890de1c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 3b000776c04550e1deb883039d94deeb735061ce
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656933"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985889"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Skala och var värd i Azure Functions
 
@@ -109,7 +109,7 @@ Om du kör på en App Service-plan bör du aktivera **alltid på** inställninge
 
 ## <a name="determine-the-hosting-plan-of-an-existing-application"></a>Bestäm värdplanen för ett befintligt program
 
-Information om vilken värdplan som används av funktionsappen finns i **App Service-planen** på fliken **Översikt** för funktionsappen i [Azure-portalen](https://portal.azure.com). Om du vill se prisnivån väljer du namnet på **appserviceplanen**och väljer sedan **Egenskaper** i den vänstra rutan.
+Information om vilken värdplan som används av funktionsappen finns i **App Service-planen/prisnivån** på fliken **Översikt** för funktionsappen i [Azure-portalen](https://portal.azure.com). För App Service-planer anges även prisnivån.
 
 ![Visa skalningsplan i portalen](./media/functions-scale/function-app-overview-portal.png)
 
@@ -124,7 +124,7 @@ När utdata från `dynamic`det här kommandot är finns din funktionsapp i förb
 
 ## <a name="storage-account-requirements"></a>Krav för lagringskonto
 
-På alla abonnemang kräver en funktionsapp ett allmänt Azure Storage-konto som stöder Azure Blob, Kö, Filer och Tabelllagring. Detta beror på att Azure Functions är beroende av Azure Storage för åtgärder som att hantera utlösare och logga funktionskörningar, men vissa lagringskonton stöder inte köer och tabeller. Dessa konton, som innehåller lagringskonton med endast blob-fördr (inklusive premiumlagring) och lagringskonton för allmänt ändamål med zonupptredande lagringsreplikering, filtreras bort från dina befintliga **lagringskontoval** när du skapar en funktionsapp.
+På alla abonnemang kräver en funktionsapp ett allmänt Azure Storage-konto som stöder Azure Blob, Kö, Filer och Tabelllagring. Detta beror på att Funktioner är beroende av Azure Storage för åtgärder som att hantera utlösare och logga funktionskörningar, men vissa lagringskonton stöder inte köer och tabeller. Dessa konton, som innehåller lagringskonton med endast blob-fördr (inklusive premiumlagring) och lagringskonton för allmänt ändamål med zonupptredande lagringsreplikering, filtreras bort från dina befintliga **lagringskontoval** när du skapar en funktionsapp.
 
 Samma lagringskonto som används av din funktionsapp kan också användas av dina utlösare och bindningar för att lagra dina programdata. För lagringsintensiva åtgärder bör du dock använda ett separat lagringskonto.  
 
@@ -132,9 +132,9 @@ Det är säkert möjligt för flera funktionsappar att dela samma lagringskonto 
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
-Mer information om lagringskontotyper finns i [Introduktion till Azure Storage-tjänsterna](../storage/common/storage-introduction.md#azure-storage-services).
+Mer information om lagringskontotyper finns i [Introduktion till Azure Storage-tjänsterna](../storage/common/storage-introduction.md#core-storage-services).
 
-## <a name="how-the-consumption-and-premium-plans-work"></a>Så här fungerar förbruknings- och premiumplanerna
+## <a name="how-the-consumption-and-premium-plans-work"></a>Så här fungerar konsumtions- och premiumplanerna
 
 I förbruknings- och Premium-abonnemangen skalar Azure Functions-infrastrukturen CPU- och minnesresurser genom att lägga till ytterligare instanser av functions-värden, baserat på antalet händelser som dess funktioner utlöses på. Varje instans av functions-värden i förbrukningsplanen är begränsad till 1,5 GB minne och en processor.  En instans av värden är hela funktionsappen, vilket innebär att alla funktioner i en funktionsapp delar resurs inom en instans och skalar samtidigt. Funktionsappar som delar samma förbrukningsplan skalas oberoende av sig.  I Premium-planen avgör din planstorlek det tillgängliga minnet och processorn för alla appar i den planen på den instansen.  
 

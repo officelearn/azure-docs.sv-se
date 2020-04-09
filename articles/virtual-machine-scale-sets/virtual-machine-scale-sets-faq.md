@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: manayar
-ms.openlocfilehash: 74195e83e17140b67ac060e1791c580e90e720f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3b34708d6e91da627ff44018778318337ddb6b06
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79534447"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879504"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Vanliga frågor och svar om Virtual Machine Scale Sets
 
@@ -224,8 +224,8 @@ Du kan ange offentliga SSH-nycklar i oformaterad text när du skapar en virtuell
 linuxKonfiguration element namn | Krävs | Typ | Beskrivning
 --- | --- | --- | ---
 Ssh | Inga | Samling | Anger SSH-nyckelkonfigurationen för ett Linux OS
-path | Ja | String | Anger den Linux-filsökväg där SSH-nycklarna eller certifikatet ska finnas
-keyData (keyData) | Ja | String | Anger en base64-kodad SSH-offentlig nyckel
+path | Ja | Sträng | Anger den Linux-filsökväg där SSH-nycklarna eller certifikatet ska finnas
+keyData (keyData) | Ja | Sträng | Anger en base64-kodad SSH-offentlig nyckel
 
 Ett exempel finns [i snabbstartsmallen 101-vm-sshkey GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
@@ -565,7 +565,7 @@ Om du vill skapa en skalningsuppsättning för virtuella datorer som tilldelar e
 
 Ja. Du kan lägga till resurs-ID:erna för flera backend-adresspooler för Application Gateway i listan _applicationGatewayDAddressPools_ i avsnittet _ipConfigurations_ i din skalningsuppsättning nätverksprofil.
 
-## <a name="scale"></a>Skalning
+## <a name="scale"></a>Skala
 
 ### <a name="in-what-case-would-i-create-a-virtual-machine-scale-set-with-fewer-than-two-vms"></a>I vilket fall skulle jag skapa en virtuell dator skala uppsättning med färre än två virtuella datorer?
 
@@ -721,7 +721,7 @@ New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $
 Skapa en hanterad disk från ögonblicksbilden.
 
 ```azurepowershell-interactive
-$snapshotName = "myShapshot"
+$snapshotName = "mySnapshot"
 $snapshot = Get-AzSnapshot -ResourceGroupName $rgname -SnapshotName $snapshotName  
 $diskConfig = New-AzDiskConfig -AccountType Premium_LRS -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
 $osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk')

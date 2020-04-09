@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 605974e76c3ca878784129f7c9827a78d0642da6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 420aa52293da14a0dfe8fbdfe681440ee4309e6b
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471599"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878603"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Så här matchar Ytterdörren begäranden till en routningsregel
 
-Efter att ha upprättat en anslutning och gjort en SSL-handskakning, när en begäran landar på en ytterdörr miljö en av de första sakerna som Ytterdörren gör är att bestämma från alla konfigurationer, som särskild routing regel för att matcha begäran till och sedan ta den definierade åtgärden. I följande dokument beskrivs hur Ytterdörren avgör vilken vägkonfiguration som ska användas vid bearbetning av en HTTP-begäran.
+Efter att ha upprättat en anslutning och gjort en TLS-handskakning, när en begäran landar på en ytterdörr miljö en av de första sakerna som Ytterdörren gör är att bestämma från alla konfigurationer, som särskild routing regel för att matcha begäran till och sedan vidta den definierade åtgärden. I följande dokument beskrivs hur Ytterdörren avgör vilken vägkonfiguration som ska användas vid bearbetning av en HTTP-begäran.
 
 ## <a name="structure-of-a-front-door-route-configuration"></a>Struktur för en konfiguration av ytterdörrens rutt
 En konfiguration av routningsregeln för ytterdörren består av två huvuddelar: en "vänster sida" och en "höger sida". Vi matchar den inkommande begäran till vänster sida av rutten medan den högra sidan definierar hur vi behandlar begäran.

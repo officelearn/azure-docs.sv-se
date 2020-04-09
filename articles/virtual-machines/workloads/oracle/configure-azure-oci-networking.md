@@ -11,21 +11,26 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/02/2019
+ms.date: 03/16/2020
 ms.author: rogirdh
-ms.openlocfilehash: 0e2e16ccc04ff6df80597d646a00c40551e4cfd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd0b8a50d25cd8d1a66a8eb98e54ec231aa2c62f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78302057"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878722"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Konfigurera en direkt sammanlänkning mellan Azure och Oracles molninfrastruktur  
 
-För att skapa en [integrerad multi-cloud-upplevelse](oracle-oci-overview.md) (förhandsversion) erbjuder Microsoft och Oracle direkt sammankoppling mellan Azure och Oracle Cloud Infrastructure (OCI) via [ExpressRoute](../../../expressroute/expressroute-introduction.md) och [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm). Genom sammankopplingen Av ExpressRoute och FastConnect kan kunderna uppleva låg latens, högt dataflöde, privat direktanslutning mellan de två molnen.
+För att skapa en [integrerad multimolnupplevelse](oracle-oci-overview.md)erbjuder Microsoft och Oracle direkt sammankoppling mellan Azure och Oracle Cloud Infrastructure (OCI) via [ExpressRoute](../../../expressroute/expressroute-introduction.md) och [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm). Genom sammankopplingen Av ExpressRoute och FastConnect kan kunderna uppleva låg latens, högt dataflöde, privat direktanslutning mellan de två molnen.
 
 > [!IMPORTANT]
-> Anslutningen mellan Microsoft Azure och OCI är i förhandsgranskningsfasen. För att upprätta anslutning med låg latens mellan Azure och OCI måste din Azure-prenumeration först aktiveras för den här funktionen. Du måste registrera dig i förhandsgranskningen genom att fylla i det här korta [undersökningsformuläret](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Du får ett e-postmeddelande tillbaka när din prenumeration har registrerats. Du kan inte använda funktionen förrän du får en bekräftelse via e-post. Du kan också kontakta din Microsoft-representant för att aktiveras för den här förhandsversionen. Åtkomst till förhandsversionen är beroende av tillgänglighet och begränsas av Microsoft efter eget gottfinnande. Slutförandet av undersökningen garanterar inte tillgång. Den här förhandsversionen tillhandahålls utan ett servicenivåavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i de [kompletterande användarvillkoren](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) för Microsoft Azure Previews. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> Oracle kommer att certifiera dessa program för att köras i Azure när du använder Azure / Oracle Cloud sammanlänkningslösningen senast i maj 2020.
+> * Svit E-Business
+> * JD Edwards EnterpriseOne
+> * Peoplesoft
+> * Oracle Retail-program
+> * Oracle Hyperion ekonomisk förvaltning
 
 Följande bild visar en översikt på hög nivå av samtrafik:
 
@@ -36,8 +41,6 @@ Följande bild visar en översikt på hög nivå av samtrafik:
 * För att upprätta anslutning mellan Azure och OCI måste du ha en aktiv Azure-prenumeration och en aktiv OCI-arrende.
 
 * Anslutning är endast möjlig om en Azure ExpressRoute-peering-plats är i närheten av eller på samma peering-plats som OCI FastConnect. Se [Regiontillgänglighet](oracle-oci-overview.md#region-availability).
-
-* Din Azure-prenumeration måste vara aktiverad för den här förhandsversionen.
 
 ## <a name="configure-direct-connectivity-between-expressroute-and-fastconnect"></a>Konfigurera direkt anslutning mellan ExpressRoute och FastConnect
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 861961bb66adc7ed9509eab973516a964cb67492
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 1d6fa75beabdc36750525310008add9594562228
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521058"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887120"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Standard Load Balancer-diagnostik med mått, aviseringar och resurshälsa
 
@@ -69,8 +69,6 @@ Så här visar du måtten för standardbelastningsutjämningsresurserna:
 
 Api-vägledning för att hämta flerdimensionella måttdefinitioner och värden finns i [Azure Monitoring REST API-genomgång](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api). Dessa mått kan bara skrivas till ett lagringskonto via alternativet "Alla mått". 
 
-### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Vanliga diagnostiska scenarier och rekommenderade vyer
-
 ### <a name="configure-alerts-for-multi-dimensional-metrics"></a>Konfigurera aviseringar för flerdimensionella mått ###
 
 Azure Standard Load Balancer stöder enkelt konfigurerbara aviseringar för flerdimensionella mått. Konfigurera anpassade tröskelvärden för specifika mått för att utlösa aviseringar med varierande allvarlighetsgrad för att ge en beröringslös resursövervakningsupplevelse.
@@ -82,10 +80,11 @@ Så här konfigurerar du varningar:
     1.  (Valfritt) Lägga till åtgärdsgrupp för automatisk reparation
     1.  Tilldela allvarlighetsgrad, namn och beskrivning som möjliggör intuitiv reaktion
 
-
   >[!NOTE]
   >Konfigurationsfönstret för varningsvillkor visar tidsserier för signalhistorik. Det finns ett alternativ för att filtrera den här tidsserien efter dimensioner som Serverda IP. Detta filtrerar tidsseriediagrammet men **inte** själva aviseringen. Du kan inte konfigurera aviseringar för specifika serverd-IP-adresser.
-  
+
+### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Vanliga diagnostiska scenarier och rekommenderade vyer
+
 #### <a name="is-the-data-path-up-and-available-for-my-load-balancer-vip"></a>Är datasökvägen uppe och tillgänglig för min belastningsutjämnare VIP?
 
 Vip-tillgänglighetsmåttet beskriver hälsotillståndet för datasökvägen i regionen till beräkningsvärden där dina virtuella datorer finns. Måttet är en återspegling av hälsotillståndet för Azure-infrastrukturen. Du kan använda måttet för att:

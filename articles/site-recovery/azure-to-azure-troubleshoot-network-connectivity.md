@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 49d2d3d3e8829198a57aaf2feb40e89f105667bd
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: d2cc4133e52e7cab812413d23948da6ac2660e77
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804868"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884876"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Felsöka problem med anslutning till Azure-till-Azure VM-nätverksanslutning
 
@@ -18,8 +18,8 @@ I den här artikeln beskrivs de vanligaste problemen med nätverksanslutning nä
 
 För att site recovery-replikering ska fungera krävs utgående anslutning till specifika webbadresser eller IP-intervall från den virtuella datorn. Om den virtuella datorn ligger bakom en brandvägg eller använder NSG-regler (Network Security Group) för att styra utgående anslutning kan du ställas inför ett av dessa problem.
 
-| **URL** | **Detaljer** |
-| --- | --- |
+| URL | Information |
+|---|---|
 | `*.blob.core.windows.net` | Krävs så att data kan skrivas till cachelagringskontot i källregionen från den virtuella datorn. Om du känner till alla cachelagringskonton för dina virtuella datorer kan du använda en tillåtlista för de specifika url:erna för lagringskonto. Till `cache1.blob.core.windows.net` exempel, `cache2.blob.core.windows.net` och `*.blob.core.windows.net`i stället för . |
 | `login.microsoftonline.com` | Krävs för auktorisering och autentisering till url:erna för tjänsten Site Recovery. |
 | `*.hypervrecoverymanager.windowsazure.com` | Krävs så att tjänsten Site Recovery-tjänsten kan ske från den virtuella datorn. Du kan använda motsvarande _IP för återställning_ av webbplats om brandväggsproxyn stöder IP-adresser. |
@@ -82,7 +82,7 @@ Det här exemplet visar hur du konfigurerar NSG-regler för en virtuell dator so
 
 1. Skapa utgående HTTPS-port 443-regler för ip-adresser för platsåterställning som motsvarar målplatsen:
 
-   | **Location** | **IP-adress för återställning av webbplats** |  **IP-adress för övervakning av webbplatsåterställning** |
+   | Location | IP-adress för återställning av webbplats | IP-adress för övervakning av webbplatsåterställning |
    | --- | --- | --- |
    | USA, centrala | 40.69.144.231 | 52.165.34.144 |
 
@@ -102,7 +102,7 @@ I det här exemplet krävs dessa NSG-regler så att replikering kan aktiveras fr
 
 1. Skapa utgående HTTPS-port 443-regler för IPs för platsåterställning som motsvarar källplatsen:
 
-   |**Location** | **IP-adress för återställning av webbplats** |  **IP-adress för övervakning av webbplatsåterställning** |
+   | Location | IP-adress för återställning av webbplats | IP-adress för övervakning av webbplatsåterställning |
    | --- | --- | --- |
    | USA, östra | 13.82.88.226 | 104.45.147.24 |
 
@@ -138,7 +138,8 @@ De anpassade proxyinställningarna är ogiltiga och azure Site Recovery Mobility
    Port=567
    ```
 
-1. Azure Site Recovery Mobility-tjänstagenten stöder endast **oautentiserade proxyservrar**.
+> [!NOTE]
+> Azure Site Recovery Mobility-tjänstagenten stöder endast **oautentiserade proxyservrar**.
 
 ### <a name="fix-the-problem"></a>Åtgärda problemet
 
@@ -146,4 +147,4 @@ Om du vill tillåta [nödvändiga webbadresser](azure-to-azure-about-networking.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Replikera virtuella Azure-datorer](site-recovery-replicate-azure-to-azure.md)
+[Replikera virtuella Azure-datorer till en annan Azure-region](azure-to-azure-how-to-enable-replication.md)

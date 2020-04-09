@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 01/09/2020
-ms.openlocfilehash: 8c261a010a1e8f4d1be9b3883510eb38c37a15ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1b70aaef49cc2b993c873509dc935d71069efa2
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80296880"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985923"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Starta, övervaka och avbryta utbildningskörningar i Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -264,16 +264,41 @@ Om du vill skapa många [`create_children()`](https://docs.microsoft.com/python/
 
 ### <a name="submit-child-runs"></a>Skicka in underordnade körningar
 
-Underordnade körningar kan också skickas från en överordnad körning. På så sätt kan du skapa hierarkier för överordnade och underordnade körningar, som var och en körs på olika beräkningsmål, som är anslutna efter gemensamt överordnat körnings-ID.
+Underordnade körningar kan också skickas från en överordnad körning. På så sätt kan du skapa hierarkier för överordnade och underordnade körningar. 
 
-Använd metoden ["submit_child()"](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-config--tags-none----kwargs-) för att skicka ett underordnat köra inifrån en överordnad körning. Om du vill göra detta i det överordnade körningsskriptet ``submit_child`` hämtar du körningskontexten och skickar den underordnade körningen med metoden för kontextinstansen.
+Du kanske vill att ditt barn kör ska använda en annan körningskonfiguration än den överordnade körningen. Du kan till exempel använda en mindre kraftfull, CPU-baserad konfiguration för den överordnade, när du använder GPU-baserade konfigurationer för dina barn. En annan vanlig önskan är att skicka varje barn olika argument och data. Om du vill anpassa `RunConfiguration` en underordnad körning `ScriptRunConfig` skickar du ett objekt till barnets konstruktor. Det här kodexemplet, `ScriptRunConfig` som skulle vara en del av det överordnade objektets skript:
+
+- Skapar en `RunConfiguration` hämtning av en namngiven beräkningsresurs`"gpu-compute"`
+- Itererar över olika argumentvärden som `ScriptRunConfig` ska skickas till underordnade objekt
+- Skapar och skickar en ny underordnad körning med hjälp av den anpassade beräkningsresursen och argumentet
+- Blockerar tills hela barnet körs klart
 
 ```python
-## In parent run script
-parent_run = Run.get_context()
-child_run_config = ScriptRunConfig(source_directory='.', script='child_script.py')
-parent_run.submit_child(child_run_config)
+# parent.py
+# This script controls the launching of child scripts
+from azureml.core import Run, ScriptRunConfig, RunConfiguration
+
+run_config_for_aml_compute = RunConfiguration()
+run_config_for_aml_compute.target = "gpu-compute"
+run_config_for_aml_compute.environment.docker.enabled = True 
+
+run = Run.get_context()
+
+child_args = ['Apple', 'Banana', 'Orange']
+for arg in child_args: 
+    run.log('Status', f'Launching {arg}')
+    child_config = ScriptRunConfig(source_directory=".", script='child.py', arguments=['--fruit', arg], run_config = run_config_for_aml_compute)
+    # Starts the run asynchronously
+    run.submit_child(child_config)
+
+# Experiment will "complete" successfully at this point. 
+# Instead of returning immediately, block until child runs complete
+
+for child in run.get_children():
+    child.wait_for_completion()
 ```
+
+Om du vill skapa många underordnade körningar med identiska [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-) konfigurationer, argument och indata effektivt använder du metoden. Eftersom varje skapande resulterar i ett nätverksanrop är det effektivare att skapa en batch med körningar än att skapa dem en efter en.
 
 I en underordnad körning kan du visa det överordnade körnings-ID:t:
 

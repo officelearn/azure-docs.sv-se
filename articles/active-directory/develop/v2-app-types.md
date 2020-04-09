@@ -2,27 +2,22 @@
 title: Programtyper för Microsoft identity platform | Azure
 description: De typer av appar och scenarier som stöds av Microsoft identity platform (v2.0)-slutpunkten.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/06/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 94cddf097f2a9e51f061909f6bdd3dcd82f18bfe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 34ccddff3e42f69a50b44f4bfff391070063a5a1
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262534"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886372"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Programtyper för Microsoft identity-plattform
 

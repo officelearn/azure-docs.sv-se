@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: ceef030d2c0176313cbce8f6817a89c06f134d3d
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: dace05715828395aed3953b42bf7926df292bbdb
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745671"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981349"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Erbjudande om azure- och dynamics 365-konsulttjänster
 
 >[!Important]
->Från och med den 30 mars 2020 börjar vi flytta hanteringen av dina konsulttjänster till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [översikten över att skapa tjänster](https://aka.ms/AzureCreateConsultingService) för att hantera dina migrerade erbjudanden.
+>Från och med den 13 april 2020 börjar vi flytta hanteringen av dina konsulttjänster till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [översikten över att skapa tjänster](https://aka.ms/AzureCreateConsultingService) för att hantera dina migrerade erbjudanden.
 
 I den här artikeln beskrivs hur du publicerar ett erbjudande om konsulttjänster på Antingen Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> eller <a href="https://appsource.microsoft.com">AppSource</a>. Lösningar baserade på Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365,</a> <a href="https://powerbi.microsoft.com">Power BI</a>och <a href="https://powerapps.microsoft.com">Power Apps</a> kan visas på AppSource. Andra erbjudanden som baseras på andra Microsoft <a href="https://azure.microsoft.com/services">Azure-tjänster</a> kan listas på Azure Marketplace.
 

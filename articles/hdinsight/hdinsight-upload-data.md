@@ -1,23 +1,23 @@
 ---
 title: Ladda upp data för Apache Hadoop-jobb i HDInsight
-description: Lär dig hur du laddar upp och får åtkomst till data för Apache Hadoop-jobb i HDInsight med hjälp av Azure classic CLI, Azure Storage Explorer, Azure PowerShell, Hadoop-kommandoraden eller Sqoop.
+description: Läs om hur du laddar upp och får tillgång till data för Apache Hadoop-jobb i HDInsight. Använd Azure classic CLI, Azure Storage Explorer, Azure PowerShell, Hadoop-kommandoraden eller Sqoop.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdiseo17may2017
 ms.topic: conceptual
-ms.date: 10/29/2019
-ms.openlocfilehash: 7eb1f7e1ce02a30f84cb520438f60fcbcfa3a965
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdiseo17may2017
+ms.date: 04/07/2020
+ms.openlocfilehash: c862633245e75613f9e4f9956486f872b96239f8
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73100134"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875018"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Ladda upp data för Apache Hadoop-jobb i HDInsight
 
-Azure HDInsight tillhandahåller ett fullfjädrat Hadoop-distribuerat filsystem (HDFS) över Azure Storage och Azure Data Lake Storage (Gen1 och Gen2). Azure Storage och Data Lake Storage Gen1 och Gen2 är utformade som HDFS-tillägg för att ge kunderna en sömlös upplevelse. De gör det möjligt för den fullständiga uppsättningen komponenter i Hadoop-ekosystemet att fungera direkt på de data som hanteras. Azure Storage, Data Lake Storage Gen1 och Gen2 är distinkta filsystem som är optimerade för lagring av data och beräkningar på dessa data. Information om fördelarna med att använda Azure Storage finns i [Använda Azure Storage med HDInsight](hdinsight-hadoop-use-blob-storage.md), Använd Data Lake Storage [Gen1 med HDInsight](hdinsight-hadoop-use-data-lake-store.md)och [Använd Data Lake Storage Gen2 med HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+HDInsight tillhandahåller ett Hadoop-distribuerat filsystem (HDFS) via Azure Storage och Azure Data Lake Storage. Detta lagringsutrymme inkluderar Gen1 och Gen2. Azure Storage och Data Lake Storage Gen1 och Gen2 är utformade som HDFS-tillägg. De gör det möjligt för den fullständiga uppsättningen komponenter i Hadoop-miljön att fungera direkt på de data som hanteras. Azure Storage, Data Lake Storage Gen1 och Gen2 är distinkta filsystem. Systemen är optimerade för lagring av data och beräkningar på dessa data. Information om fördelarna med att använda Azure Storage finns i [Använda Azure Storage med HDInsight](hdinsight-hadoop-use-blob-storage.md). Se även [Använd Data Lake Storage Gen1 med HDInsight](hdinsight-hadoop-use-data-lake-store.md)och Använd Data Lake Storage [Gen2 med HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -41,16 +41,16 @@ Microsoft tillhandahåller följande verktyg för att arbeta med Azure Storage:
 | [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
 | [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
 | [AzKopia](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
-| [Kommandot Hadoop](#commandline) |✔ |✔ |✔ |
+| [Kommandot Hadoop](#hadoop-command-line) |✔ |✔ |✔ |
 
 > [!NOTE]  
 > Kommandot Hadoop är endast tillgängligt i HDInsight-klustret. Kommandot tillåter endast inläsning av data från det lokala filsystemet i Azure Storage.  
 
-## <a name="hadoop-command-line"></a><a id="commandline"></a>Kommandoraden Hadoop
+## <a name="hadoop-command-line"></a>Kommandoraden Hadoop
 
 Hadoop-kommandoraden är bara användbar för att lagra data i Azure storage-blob när data redan finns på klusterhuvudnoden.
 
-För att kunna använda kommandot Hadoop måste du först ansluta till headnoden med [SSH eller PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
+Om du vill använda kommandot Hadoop måste du först ansluta till headnoden med [SSH eller PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 När du är ansluten kan du använda följande syntax för att ladda upp en fil till lagring.
 
@@ -71,7 +71,7 @@ eller
 En lista över andra Hadoop-kommandon som fungerar med filer finns i[https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]  
-> På Apache HBase-kluster är standardblockstorleken som används när data skrivs 256 KB. Även om detta fungerar bra när du använder HBase API:er eller REST API:er, resulterar det i ett fel att använda `hadoop` kommandona eller `hdfs dfs` kommandon för att skriva data som är större än ~12 GB. Mer information finns i [lagringsundantaget för att skriva på blob-avsnittet](#storageexception) i den här artikeln.
+> På Apache HBase-kluster är standardblockstorleken som används när data skrivs 256 KB. Även om detta fungerar bra när du använder HBase API:er eller REST API:er, resulterar det i ett fel att använda `hadoop` kommandona eller `hdfs dfs` kommandon för att skriva data som är större än ~12 GB. Mer information finns i [lagringsundantaget för att skriva på blob-avsnittet](#storage-exception-for-write-on-blob) i den här artikeln.
 
 ## <a name="graphical-clients"></a>Grafiska klienter
 
@@ -80,8 +80,8 @@ Det finns också flera program som tillhandahåller ett grafiskt gränssnitt fö
 | Client | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Microsoft Visual Studio-verktyg för HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
-| [Utforskaren för Azure Storage](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
-| [Cerulea (av cerulea)](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
+| [Azure Lagringsutforskaren](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
+| [`Cerulea`](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
 | [CloudXplorer (molnighet)](https://clumsyleaf.com/products/cloudxplorer) | | |✔ |
 | [CloudBerry Explorer för Microsoft Azure](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
@@ -94,7 +94,7 @@ Se [Montera Azure Storage som lokal enhet](https://blogs.msdn.com/b/bigdatasuppo
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 
-Azure Data Factory-tjänsten är en fullständigt hanterad tjänst för att skriva datalagring, databehandling och dataförflyttningstjänster till strömlinjeformade, skalbara och tillförlitliga dataproduktionspipelpipelsar.
+Azure Data Factory-tjänsten är en fullständigt hanterad tjänst för att skriva data: lagring, bearbetning och förflyttningstjänster till strömlinjeformade, anpassningsbara och tillförlitliga dataproduktionspipelpipelsar.
 
 |Lagringstyp|Dokumentation|
 |----|----|
@@ -102,9 +102,9 @@ Azure Data Factory-tjänsten är en fullständigt hanterad tjänst för att skri
 |Azure Data Lake Storage Gen1|[Kopiera data till eller från Azure Data Lake Storage Gen1 med hjälp av Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)|
 |Azure Data Lake Storage Gen2 |[Läsa in data i Azure Data Lake Storage Gen2 med Azure Data Factory](../data-factory/load-azure-data-lake-storage-gen2.md)|
 
-### <a name="apache-sqoop"></a><a id="sqoop"></a>Apache Sqoop
+### <a name="apache-sqoop"></a>Apache Sqoop
 
-Sqoop är ett verktyg för att överföra data mellan Hadoop och relationsdatabaser. Du kan använda den för att importera data från ett relationsdatabashanteringssystem (RDBMS), till exempel SQL Server, MySQL eller Oracle till det Hadoop-distribuerade filsystemet (HDFS), omvandla data i Hadoop med MapReduce eller Hive och sedan exportera tillbaka data till ett RDBMS.You can use it to import data from a relational database management system (RDBMS), such as SQL Server, such, such,
+Sqoop är ett verktyg för att överföra data mellan Hadoop och relationsdatabaser. Använd den för att importera data från ett relationsdatabashanteringssystem (RDBMS), till exempel SQL Server, MySQL eller Oracle. Sedan in i Hadoop distribuerade filsystemet (HDFS). Omvandla data i Hadoop med MapReduce eller Hive och exportera sedan tillbaka data till en RDBMS.
 
 Mer information finns i [Använda Sqoop med HDInsight](hadoop/hdinsight-use-sqoop.md).
 
@@ -123,7 +123,7 @@ Mer information om hur du installerar Azure SDK:er finns i [Azure-nedladdningar]
 
 ## <a name="troubleshooting"></a>Felsökning
 
-### <a name="storage-exception-for-write-on-blob"></a><a id="storageexception"></a>Lagringsundantag för skrivning på blob
+### <a name="storage-exception-for-write-on-blob"></a>Lagringsundantag för skrivning på blob
 
 **Symptom:** När `hadoop` du `hdfs dfs` använder kommandona eller för att skriva filer som är ~12 GB eller större i ett HBase-kluster kan följande fel uppstå:
 
@@ -149,7 +149,7 @@ Mer information om hur du installerar Azure SDK:er finns i [Azure-nedladdningar]
 
 **Orsak:** HBase på HDInsight-kluster som standard är en blockstorlek på 256 KB när du skriver till Azure-lagring. Även om det fungerar för HBase API:er eller REST-API:er uppstår ett fel när du använder verktygen eller `hadoop` `hdfs dfs` kommandoradsverktygen.
 
-**Upplösning**: `fs.azure.write.request.size` Används för att ange en större blockstorlek. Du kan göra detta per användning med `-D` hjälp av parametern. Följande kommando är ett exempel som `hadoop` använder den här parametern med kommandot:
+**Upplösning**: `fs.azure.write.request.size` Används för att ange en större blockstorlek. Du kan göra den här ändringen per `-D` användning med hjälp av parametern. Följande kommando är ett exempel som `hadoop` använder den här parametern med kommandot:
 
 ```bash
 hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file.bin /example/data
@@ -157,11 +157,9 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 Du kan också öka `fs.azure.write.request.size` värdet på globalt genom att använda Apache Ambari. Följande steg kan användas för att ändra värdet i webbgränssnittet i Ambari:
 
-1. Gå till Ambari Web UI för ditt kluster i webbläsaren. Det `https://CLUSTERNAME.azurehdinsight.net`här `CLUSTERNAME` är , där är namnet på klustret.
-
-    Ange administratörsnamnet och lösenordet för klustret när du uppmanas att göra det.
+1. Gå till Ambari Web UI för ditt kluster i webbläsaren. URL:en `https://CLUSTERNAME.azurehdinsight.net`är `CLUSTERNAME` , var är namnet på klustret. Ange administratörsnamnet och lösenordet för klustret när du uppmanas att göra det.
 2. Välj **HDFS**till vänster på skärmen och välj sedan fliken **Configs.**
-3. I fältet **Filter...** `fs.azure.write.request.size`anger du . Då visas fältet och det aktuella värdet i mitten av sidan.
+3. I fältet **Filter...** `fs.azure.write.request.size`anger du .
 4. Ändra värdet från 262144 (256 KB) till det nya värdet. Till exempel 4194304 (4 MB).
 
     ![Bild av att ändra värdet via Ambari Web UI](./media/hdinsight-upload-data/hbase-change-block-write-size.png)
@@ -170,9 +168,9 @@ Mer information om hur du använder Ambari finns i [Hantera HDInsight-kluster me
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du förstår hur du får data till HDInsight läser du följande artiklar för att lära dig hur du utför analyser:
+Nu när du förstår hur du får data till HDInsight läser du följande artiklar för att lära dig analys:
 
 * [Kom igång med Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Skicka Apache Hadoop jobb programmässigt](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Använda Apache Hive med HDInsight](hadoop/hdinsight-use-hive.md)
-* [Använda Apache Hive med HDInsight](hadoop/hdinsight-use-pig.md)
+* [Använda Apache Hive med HDInsight](./use-pig.md)

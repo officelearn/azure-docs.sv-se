@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: sukishen
-ms.openlocfilehash: e05aa6e8f656001eb9eb2a3717dde6c16f030e33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d086484ece6faf95dccffb1e29da8a0e906b1da4
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80337140"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985634"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Koppla samman med Kina med Azure Virtual WAN och Secure Hub
 
@@ -54,7 +54,7 @@ Beroende på leverantör kan du få olika tjänsteerbjudanden. Tabellen nedan vi
 | --- | --- |
 | MPLS/IPVPN-nätverk |PCCW, China Telecom Global |
 |SDWAN (SDWAN)| PCCW, China Telecom Global|
-| Dedikerad internetåtkomst | PCCW, Hong Kong Telecom, Kina Mobil, PCCW |
+| Dedikerad internetåtkomst | PCCW, Hong Kong Telecom, Kina Mobil|
 
 Med din leverantör kan du komma överens om vilka av följande två lösningar som ska användas för att nå Microsofts globala stamnät:
 

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 04/07/2020
 ms.author: juliako
-ms.openlocfilehash: 11123ee04dd02a60dff0b88e2e6e85fcd613a7d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a4f4bd6eaa07907dd672abe068b515b5127adac9
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067999"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886831"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 vanliga frågor och svar
 
@@ -166,6 +166,112 @@ Mer information finns i [Migrera till Media Services v3](media-services-v2-vs-v3
 ### <a name="where-did-client-side-storage-encryption-go"></a>Vart tog kryptering på klientsidan plats?
 
 Det rekommenderas nu att använda lagringskrypteringen på serversidan (som är aktiverat som standard). Mer information finns i [Azure Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+
+## <a name="offline-streaming"></a>Direktuppspelning offline
+
+### <a name="fairplay-streaming-for-ios"></a>FairPlay Streaming för iOS
+
+Följande vanliga frågor ger hjälp med felsökning offline FairPlay streaming för iOS:
+
+#### <a name="why-does-only-audio-play-but-not-video-during-offline-mode"></a>Varför spelas bara ljud upp men inte video i offlineläge?
+
+Det här beteendet verkar vara avsiktligt i exempelappen. När det finns ett alternativt ljudspår (vilket är fallet för HLS) i offlineläge, standard både iOS 10 och iOS 11 det alternativa ljudspåret. Om du vill kompensera för det här beteendet för FPS-offlineläge tar du bort det alternativa ljudspåret från strömmen. Om du vill göra detta på Media Services lägger du till det dynamiska manifestfiltret "endast ljud=false". Med andra ord slutar en HLS-URL med .ism/manifest(format=m3u8-aapl,audio-only=false). 
+
+#### <a name="why-does-it-still-play-audio-only-without-video-during-offline-mode-after-i-add-audio-onlyfalse"></a>Varför spelar den fortfarande upp ljud endast utan video i offlineläge efter att jag har lagt till ljud-only=false?
+
+Beroende på utformningen av cdn-cachenyckeln (Content Delivery Network) kan innehållet cachelagras. Rensa cacheminnet.
+
+#### <a name="is-fps-offline-mode-also-supported-on-ios-11-in-addition-to-ios-10"></a>Stöds även FPS-offlineläge på iOS 11 utöver iOS 10?
+
+Ja. FPS-offlineläge stöds för iOS 10 och iOS 11.
+
+#### <a name="why-cant-i-find-the-document-offline-playback-with-fairplay-streaming-and-http-live-streaming-in-the-fps-server-sdk"></a>Varför hittar jag inte dokumentet "Offlineuppspelning med FairPlay Streaming och HTTP Live Streaming" i FPS Server SDK?
+
+Sedan FPS Server SDK version 4 har det här dokumentet slagits samman till "FairPlay Streaming Programming Guide".
+
+#### <a name="what-is-the-downloadedoffline-file-structure-on-ios-devices"></a>Vad är den nedladdade/offlinefilstrukturen på iOS-enheter?
+
+Den nedladdade filstrukturen på en iOS-enhet ser ut som följande skärmbild. Mappen `_keys` lagrar nedladdade FPS-licenser, med en butiksfil för varje licenstjänstvärd. Mappen `.movpkg` lagrar ljud- och videoinnehåll. Den första mappen med ett namn som slutar med ett streck följt av ett numeriskt innehåller videoinnehåll. Det numeriska värdet är PeakBandwidth för videoåtergivningarna. Den andra mappen med ett namn som slutar med ett streck följt av 0 innehåller ljudinnehåll. Den tredje mappen med namnet "Data" innehåller huvudspellistan för FPS-innehållet. Slutligen ger boot.xml en fullständig `.movpkg` beskrivning av mappinnehållet. 
+
+![Offline FairPlay iOS-exempelappfilstruktur](media/offline-fairplay-for-ios/offline-fairplay-file-structure.png)
+
+Ett exempel boot.xml-fil:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<HLSMoviePackage xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://apple.com/IMG/Schemas/HLSMoviePackage" xsi:schemaLocation="http://apple.com/IMG/Schemas/HLSMoviePackage /System/Library/Schemas/HLSMoviePackage.xsd">
+  <Version>1.0</Version>
+  <HLSMoviePackageType>PersistedStore</HLSMoviePackageType>
+  <Streams>
+    <Stream ID="1-4DTFY3A3VDRCNZ53YZ3RJ2NPG2AJHNBD-0" Path="1-4DTFY3A3VDRCNZ53YZ3RJ2NPG2AJHNBD-0" NetworkURL="https://willzhanmswest.streaming.mediaservices.windows.net/e7c76dbb-8e38-44b3-be8c-5c78890c4bb4/MicrosoftElite01.ism/QualityLevels(127000)/Manifest(aac_eng_2_127,format=m3u8-aapl)">
+      <Complete>YES</Complete>
+    </Stream>
+    <Stream ID="0-HC6H5GWC5IU62P4VHE7NWNGO2SZGPKUJ-310656" Path="0-HC6H5GWC5IU62P4VHE7NWNGO2SZGPKUJ-310656" NetworkURL="https://willzhanmswest.streaming.mediaservices.windows.net/e7c76dbb-8e38-44b3-be8c-5c78890c4bb4/MicrosoftElite01.ism/QualityLevels(161000)/Manifest(video,format=m3u8-aapl)">
+      <Complete>YES</Complete>
+    </Stream>
+  </Streams>
+  <MasterPlaylist>
+    <NetworkURL>https://willzhanmswest.streaming.mediaservices.windows.net/e7c76dbb-8e38-44b3-be8c-5c78890c4bb4/MicrosoftElite01.ism/manifest(format=m3u8-aapl,audio-only=false)</NetworkURL>
+  </MasterPlaylist>
+  <DataItems Directory="Data">
+    <DataItem>
+      <ID>CB50F631-8227-477A-BCEC-365BBF12BCC0</ID>
+      <Category>Playlist</Category>
+      <Name>master.m3u8</Name>
+      <DataPath>Playlist-master.m3u8-CB50F631-8227-477A-BCEC-365BBF12BCC0.data</DataPath>
+      <Role>Master</Role>
+    </DataItem>
+  </DataItems>
+</HLSMoviePackage>
+```
+
+### <a name="widevine-streaming-for-android"></a>Widevine streaming för Android
+
+#### <a name="how-can-i-deliver-persistent-licenses-offline-enabled-for-some-clientsusers-and-non-persistent-licenses-offline-disabled-for-others-do-i-have-to-duplicate-the-content-and-use-separate-content-key"></a>Hur kan jag leverera beständiga licenser (offlineaktiverade) för vissa klienter/användare och icke-beständiga licenser (offline inaktiverade) för andra? Måste jag duplicera innehållet och använda separat innehållsnyckel?
+
+Eftersom Media Services v3 tillåter en tillgång att ha flera StreamingLocators. Du kan få
+
+* En ContentKeyPolicy med license_type = "persistent", ContentKeyPolicyRestriction med anspråk på "persistent" och dess StreamingLocator;
+* En annan ContentKeyPolicy med license_type="nonpersistent", ContentKeyPolicyRestriction med anspråk på "nonpersistent" och dess StreamingLocator.
+* De två StreamingLocators har olika ContentKey.
+
+Beroende på affärslogiken för anpassade STS utfärdas olika anspråk i JWT-token. Med token kan endast motsvarande licens erhållas och endast motsvarande WEBBADRESS kan spelas upp.
+
+#### <a name="what-is-the-mapping-between-the-widevine-and-media-services-drm-security-levels"></a>Vad är mappningen mellan Widevine- och Media Services DRM-säkerhetsnivåerna?
+
+Googles "Widevine DRM Architecture Overview" definierar tre olika säkerhetsnivåer. I [Azure Media Services-dokumentationen på Widevine-licensmallen](widevine-license-template-overview.md)beskrivs dock fem olika säkerhetsnivåer. I det här avsnittet beskrivs hur säkerhetsnivåerna mappas.
+
+Googles doc "Widevine DRM Architecture Review" definierar följande tre säkerhetsnivåer:
+
+* Säkerhetsnivå 1: All innehållsbearbetning, kryptografi och kontroll utförs i TEE (Trusted Execution Environment). I vissa implementeringsmodeller kan säkerhetsbearbetning utföras i olika marker.
+* Säkerhetsnivå 2: Utför kryptografi (men inte videobearbetning) inom TEE: dekrypterade buffertar returneras till programdomänen och bearbetas via separat videomaskinvara eller programvara. På nivå 2 bearbetas dock kryptografisk information fortfarande endast inom TEE.
+* Säkerhetsnivå 3 Har ingen TEE på enheten. Lämpliga åtgärder kan vidtas för att skydda kryptografisk information och dekrypterat innehåll i värdoperativsystemet. En nivå 3-implementering kan också innehålla en kryptografisk maskinvarumotor, men som bara förbättrar prestanda, inte säkerhet.
+
+I Azure Media [Services-dokumentationen på Widevine-licensmallen](widevine-license-template-overview.md)kan security_level-egenskapen för content_key_specs ha följande fem olika värden (klients robusthetskrav för uppspelning):
+
+* Programvarubaserad white-box krypto krävs.
+* Programvarukrypt och en fördunklad dekoder krävs.
+* Nyckelmaterialet och kryptoåtgärderna måste utföras inom en maskinvarubaserad TEE.
+* Krypto och avkodning av innehåll måste utföras inom en maskinvarubaserad TEE.
+* Krypto, avkodning och all hantering av mediet (komprimerad och okomprimerad) måste hanteras inom en maskinvarubaserad TEE.
+
+Båda säkerhetsnivåerna definieras av Google Widevine. Skillnaden är i dess användningsnivå: arkitekturnivå eller API-nivå. De fem säkerhetsnivåerna används i Widevine API. Det content_key_specs objektet, som innehåller security_level är deserialiserat och skickas till Widevine globala leveranstjänst av Azure Media Services Widevine-licenstjänsten. Tabellen nedan visar mappningen mellan de två uppsättningarna säkerhetsnivåer.
+
+| **Säkerhetsnivåer definierade i Widevine-arkitektur** |**Säkerhetsnivåer som används i Widevine API**|
+|---|---| 
+| **Säkerhetsnivå 1:** All innehållsbearbetning, kryptografi och kontroll utförs i TEE (Trusted Execution Environment). I vissa implementeringsmodeller kan säkerhetsbearbetning utföras i olika marker.|**security_level=5**: Krypto, avkodning och all hantering av mediet (komprimerad och okomprimerad) måste hanteras inom en maskinvarubackad TEE.<br/><br/>**security_level=4**: Krypto och avkodning av innehåll måste utföras i en maskinvarubackad TEE.|
+**Säkerhetsnivå 2:** Utför kryptografi (men inte videobearbetning) inom TEE: dekrypterade buffertar returneras till programdomänen och bearbetas via separat videomaskinvara eller programvara. På nivå 2 bearbetas dock kryptografisk information fortfarande endast inom TEE.| **security_level=3**: Nyckelmaterialet och kryptoåtgärderna måste utföras inom en maskinvarubaserad TEE. |
+| **Säkerhetsnivå 3:** Har ingen TEE på enheten. Lämpliga åtgärder kan vidtas för att skydda kryptografisk information och dekrypterat innehåll i värdoperativsystemet. En nivå 3-implementering kan också innehålla en kryptografisk maskinvarumotor, men som bara förbättrar prestanda, inte säkerhet. | **security_level=2**: Programvarukrypt och en fördunklad dekoder krävs.<br/><br/>**security_level=1**: Programvarubaserad white-box krypto krävs.|
+
+#### <a name="why-does-content-download-take-so-long"></a>Varför tar nedladdningen av innehåll så lång tid?
+
+Det finns två sätt att förbättra nedladdningshastigheten:
+
+* Aktivera CDN så att slutanvändarna är mer benägna att träffa CDN istället för ursprung / streaming slutpunkt för nedladdning av innehåll. Om användaren träffar slutpunkten för direktuppspelning paketeras och krypteras varje HLS-segment eller DASH-fragment dynamiskt. Även om den här svarstiden är i millisekundskala för varje segment/fragment, kan den ackumulerade svarstiden vara stor och orsaka längre hämtning.
+* Ge slutanvändare möjlighet att selektivt ladda ner videokvalitet lager och ljudspår i stället för allt innehåll. För offline-läge är det ingen idé att hämta alla kvalitetslager. Det finns två sätt att uppnå detta:
+
+   * Klientkontrollerad: antingen väljer spelarens app automatiskt eller så väljer användaren videokvalitetslager och ljudspår att ladda ned.
+   * Tjänststyrd: man kan använda funktionen Dynamiskt manifest i Azure Media Services för att skapa ett (globalt) filter som begränsar HLS-spellista eller DASH MPD till ett enda videokvalitetslager och valda ljudspår. Då nedladdnings-URL presenteras för slutanvändare kommer att innehålla detta filter.
 
 ## <a name="next-steps"></a>Nästa steg
 

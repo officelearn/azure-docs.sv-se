@@ -3,12 +3,12 @@ title: Övervaka delegerade resurser i stor skala
 description: Lär dig hur du effektivt använder Azure Monitor-loggar på ett skalbart sätt i de kundklienter du hanterar.
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 217df3c55ab54b6569bae8cacb338764ecb7125d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9a600cec524c9f715ada9da09dea35f3baa98151
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77122901"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985209"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Övervaka delegerade resurser i stor skala
 
@@ -28,7 +28,7 @@ Du kan skapa en Log Analytics-arbetsyta med hjälp av [Azure-portalen](../../azu
 
 När du har skapat dina Log Analytics-arbetsytor kan du distribuera [Azure Policy](../../governance/policy/index.yml) över dina kundhierarkier så att diagnostikdata skickas till rätt arbetsyta i varje klient. De exakta principer som du distribuerar kan variera beroende på vilka resurstyper du vill övervaka.
 
-Mer information om hur du skapar principer finns i [Självstudiekurs: Skapa och hantera principer för att tillämpa efterlevnad](../../governance/policy/tutorials/create-and-manage.md). Det här [community-verktyget](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/tools/azure-diagnostics-policy-generator) innehåller ett skript som hjälper dig att skapa principer för att övervaka de specifika resurstyper som du väljer.
+Mer information om hur du skapar principer finns i [Självstudiekurs: Skapa och hantera principer för att tillämpa efterlevnad](../../governance/policy/tutorials/create-and-manage.md). Det här [community-verktyget](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/azure-diagnostics-policy-generator) innehåller ett skript som hjälper dig att skapa principer för att övervaka de specifika resurstyper som du väljer.
 
 När du har bestämt vilka principer som ska distribueras kan du [distribuera dem till dina delegerade prenumerationer i stor skala](policy-at-scale.md).
 

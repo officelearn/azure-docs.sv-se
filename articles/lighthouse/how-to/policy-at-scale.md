@@ -3,12 +3,12 @@ title: Distribuera Azure-princip till delegerade prenumerationer i stor skala
 description: Lär dig hur Azure-delegerad resurshantering gör att du kan distribuera en principdefinition och principtilldelning över flera klienter.
 ms.date: 11/8/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9e061995b728e2864d1bd33a32d530634ab794d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9015351c3fc8f374c5ce85712907fa05249cde11
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75456854"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984580"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Distribuera Azure-princip till delegerade prenumerationer i stor skala
 
@@ -32,7 +32,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccou
 
 ## <a name="deploy-a-policy-across-multiple-customer-tenants"></a>Distribuera en princip för flera kundklienter
 
-Exemplet nedan visar hur du använder en [Azure Resource Manager-mall](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/policy-enforce-https-storage/enforceHttpsStorage.json) för att distribuera en principdefinition och principtilldelning över delegerade prenumerationer i flera kundklienter. Den här principdefinitionen kräver att alla lagringskonton använder HTTPS-trafik, vilket förhindrar att nya lagringskonton skapas som inte följer och markerar befintliga lagringskonton utan inställningen som icke-kompatibel.
+Exemplet nedan visar hur du använder en [Azure Resource Manager-mall](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-https-storage/enforceHttpsStorage.json) för att distribuera en principdefinition och principtilldelning över delegerade prenumerationer i flera kundklienter. Den här principdefinitionen kräver att alla lagringskonton använder HTTPS-trafik, vilket förhindrar att nya lagringskonton skapas som inte följer och markerar befintliga lagringskonton utan inställningen som icke-kompatibel.
 
 ```powershell
 Write-Output "In total, there are $($ManagedSubscriptions.Count) delegated customer subscriptions to be managed"
@@ -43,7 +43,7 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 
     New-AzDeployment -Name mgmt `
                      -Location eastus `
-                     -TemplateUri "https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/policy-enforce-https-storage/enforceHttpsStorage.json" `
+                     -TemplateUri "https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/templates/policy-enforce-https-storage/enforceHttpsStorage.json" `
                      -AsJob
 }
 ```

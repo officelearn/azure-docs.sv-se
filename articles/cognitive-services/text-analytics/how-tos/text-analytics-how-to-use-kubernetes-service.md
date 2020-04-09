@@ -3,19 +3,19 @@ title: Kör Azure Kubernetes-tjänsten – textanalys
 titleSuffix: Azure Cognitive Services
 description: Distribuera behållaravbildningen för Text Analytics till Azure Kubernetes Service och testa den i en webbläsare.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: dapine
-ms.openlocfilehash: 3264ec5a83277e6bb4befad46cd1337175e911c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 155f32ee76f69fe0f16e7698123381fdc12efd0e
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74383431"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877868"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-kubernetes-service"></a>Distribuera en Text Analytics-behållare till Azure Kubernetes Service
 
@@ -37,7 +37,7 @@ Den här proceduren kräver flera verktyg som måste installeras och köras loka
 
 [!INCLUDE [Create a Text Analytics container on Azure Kubernetes Service (AKS)](../../containers/includes/create-aks-resource.md)]
 
-#### <a name="key-phrase-extraction"></a>[Extrahering av diskussionsämne](#tab/keyphrase)
+#### <a name="key-phrase-extraction"></a>[Extrahering av nyckelfraser](#tab/keyphrase)
 
 [!INCLUDE [Key Phrase Extraction Kubernetes config and deploy steps](../includes/key-phrase-extraction-kubernetes-config-deploy.md)]
 

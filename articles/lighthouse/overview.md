@@ -3,12 +3,12 @@ title: Vad är Azure Lighthouse?
 description: Med Azure Lighthouse kan tjänsteleverantörer leverera hanterade tjänster för sina kunder med högre automatisering och effektivitet i stor skala.
 ms.date: 11/11/2019
 ms.topic: overview
-ms.openlocfilehash: 0bec1f5b727ca3ecd604d2654358ca9a5507abe4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1d4d33238f30c2a579c6a0da6a39238207db4f4a
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75646202"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982794"
 ---
 # <a name="what-is-azure-lighthouse"></a>Vad är Azure Lighthouse?
 
@@ -32,7 +32,7 @@ Azure Lighthouse innehåller flera sätt att effektivisera kundengagemang och ha
 
 - **Azure delegerad resurshantering:** Hantera dina kunders Azure-resurser säkert inifrån din egen klientorganisation, utan att behöva byta kontext och styra plan. Mer information finns i [Azure-delegerad resurshantering](concepts/azure-delegated-resource-management.md).
 - **Nya Azure-portalupplevelser:** Visa information över flera innehavare på den nya sidan **Mina kunder** i [Azure-portalen](https://portal.azure.com). Med ett motsvarande **serviceleverantörsblad** kan dina kunder visa och hantera tjänsteleverantören åtkomst. Mer information finns i [Visa och hantera kunder](./how-to/view-manage-customers.md) och Visa och hantera [tjänsteleverantörer](how-to/view-manage-service-providers.md).
-- **Azure Resource Manager-mallar**: Utför hanteringsuppgifter enklare, inklusive introduktionskunder för Azure-delegerad resurshantering. Mer information finns i våra [exempel repo](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates) och [ombord på en kund till Azure delegerad resurshantering](how-to/onboard-customer.md).
+- **Azure Resource Manager-mallar**: Utför hanteringsuppgifter enklare, inklusive introduktionskunder för Azure-delegerad resurshantering. Mer information finns i våra [exempel repo](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates) och [ombord på en kund till Azure delegerad resurshantering](how-to/onboard-customer.md).
 - **Managed Services erbjuder i Azure Marketplace:** Erbjud dina tjänster till kunder via privata eller offentliga erbjudanden och få dem automatiskt inbyggda i Azure-delegerad resurshantering, som ett alternativ till introduktion med Azure Resource Manager-mallar. Mer information finns [i Erbjudanden om hanterade tjänster på Azure Marketplace](concepts/managed-services-offers.md).
 - **Azure-hanterade program:** Paketera och leverera program som är enkla för dina kunder att distribuera och använda i sina egna prenumerationer. Programmet distribueras till en resursgrupp som du har åtkomst till från din klientorganisation, så att du kan hantera tjänsten som en del av den övergripande Azure Lighthouse-upplevelsen. Mer information finns i [Översikt över Hanterade Azure-program](../azure-resource-manager/managed-applications/overview.md).
 

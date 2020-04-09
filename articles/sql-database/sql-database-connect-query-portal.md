@@ -12,12 +12,12 @@ author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 03/12/2020
-ms.openlocfilehash: 5847ef3033d257faef4831785b8abd864d54e835
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c072161db7a477b7973571a18d4f686b1b9c6202
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79209586"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985685"
 ---
 # <a name="quickstart-use-the-azure-portals-query-editor-to-query-a-sql-database"></a>Snabbstart: Använda Azure-portalens frågeredigerare för att fråga en SQL-databas
 
@@ -175,7 +175,7 @@ Det finns några saker du behöver veta när du arbetar med frågeredigeraren.
 
 * Frågeredigeraren använder portarna 443 och 1443 för att kommunicera. Kontrollera att du har aktiverat utgående HTTPS-trafik på dessa portar. Du måste också lägga till din utgående IP-adress på serverns tillåtna brandväggsregler för att komma åt dina databaser och informationslager.
 
-* Frågeredigeraren fungerar med Privat länk utan att behöva lägga till klient-IP-adressen i SQL Database-brandväggen
+* Om du har en privat länkanslutning fungerar Frågeredigeraren utan att behöva lägga till klient-IP-adressen i SQL Database-brandväggen
 
 * Om du trycker på **F5** uppdateras frågeredigerarens sida och alla frågor som bearbetas går förlorade.
 

@@ -5,18 +5,25 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: c1e5c0a714a8b66d83c19acc53f6a680a9196a90
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 3e1cf95d3c6ac8918e9e7e5593d687ee2d398810
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673430"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886627"
 ---
 # <a name="quickstart-create-an-azure-functions-project-using-visual-studio-code"></a>Snabbstart: Skapa ett Azure Functions-projekt med Visual Studio-kod
 
 I den här artikeln använder du Visual Studio Code för att skapa en funktion som svarar på HTTP-begäranden. När du har testat koden lokalt distribuerar du den till den serverlösa miljön i Azure Functions. Om du slutför den här snabbstarten medför en liten kostnad på några USD-cent eller mindre i ditt Azure-konto. 
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
 Det finns också en [CLI-baserad version](functions-create-first-azure-function-azure-cli.md) av den här artikeln.
+::: zone-end  
+
+::: zone pivot="programming-language-java"  
+> [!NOTE]
+> Om VS Code inte är din föredragna utvecklingsverktyg, kolla in våra liknande tutorials för Java devlopers med [Maven,](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java) [Gradle](/azure/azure-functions/functions-create-first-java-gradle) och [IntelliJ IDEA](/azure/java/intellij/azure-toolkit-for-intellij-quickstart-functions).
+::: zone-end  
 
 ## <a name="configure-your-environment"></a>Konfigurera din miljö
 
@@ -25,11 +32,11 @@ Innan du börjar måste du se till att du har följande krav på plats:
 + Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-python"  
-+ [Nod.js](https://nodejs.org/), krävs av Windows för npm. Endast [LTS- och underhålls-LTS-versioner ](https://nodejs.org/about/releases/). Använd `npm --version` kommandot för att kontrollera din version.
++ [Nod.js](https://nodejs.org/), krävs av Windows för npm. Endast [LTS- och underhålls-LTS-versioner](https://nodejs.org/about/releases/). Använd `node --version` kommandot för att kontrollera din version.
     Krävs inte för lokal utveckling på macOS och Linux.   
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-+ [Node.js,](https://nodejs.org/)Active LTS och Underhåll LTS-versioner (10.14.1 rekommenderas). Använd `npm --version` kommandot för att kontrollera din version.
++ [Node.js,](https://nodejs.org/)Active LTS och Underhåll LTS-versioner (10.14.1 rekommenderas). Använd `node --version` kommandot för att kontrollera din version.
 ::: zone-end 
 ::: zone pivot="programming-language-python"
 + [Python 3.8](https://www.python.org/downloads/release/python-381/), [Python 3.7](https://www.python.org/downloads/release/python-375/), [Python 3.6](https://www.python.org/downloads/release/python-368/) stöds av Azure Functions (x64).

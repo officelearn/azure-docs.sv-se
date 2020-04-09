@@ -3,19 +3,19 @@ title: Köra behållare för datorseende i Azure Container-instanser
 titleSuffix: Azure Cognitive Services
 description: Distribuera behållaren för datorseende till en Azure Container-instans och testa den i en webbläsare.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: dapine
-ms.openlocfilehash: 1c858432a3382e6dbc8e479aab11b18dc5eebfe4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: ecb0b6a6577161a5349d9d701dd6c116f69411f0
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73499095"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876109"
 ---
 # <a name="deploy-the-computer-vision-container-to-azure-container-instances"></a>Distribuera behållaren för datorseende till Azure Container-instanser
 

@@ -3,20 +3,20 @@ title: Konfigurera behållare - Datorseende
 titleSuffix: Azure Cognitive Services
 description: Den här artikeln visar hur du konfigurerar både obligatoriska och valfria inställningar för identifiera textbehållare i datorseende.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: ddbee3695c2a7ef7cb63c48cccacbd2d53a8c1a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3be302019c712c13bd29d7ed3781151a1648e847
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73718984"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879324"
 ---
 # <a name="configure-computer-vision-docker-containers"></a>Konfigurera behållare för datorseendedocker
 
@@ -53,7 +53,7 @@ Kom ihåg `vision/v1.0` att lägga till routningen i slutpunkts-URI enligt följ
 
 |Krävs| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
-|Ja| `Billing` | String | URI för faktureringsslutpunkt<br><br>Exempel:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
+|Ja| `Billing` | Sträng | URI för faktureringsslutpunkt<br><br>Exempel:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
 ## <a name="eula-setting"></a>Eula-inställning
 
@@ -81,8 +81,8 @@ Den exakta syntaxen för värdmonteringsplatsen varierar beroende på värdopera
 
 |Valfri| Namn | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
-|Inte tillåten| `Input` | String | Datorseende behållare använder inte detta.|
-|Valfri| `Output` | String | Målet för utmatningsfästet. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållarloggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Inte tillåten| `Input` | Sträng | Datorseende behållare använder inte detta.|
+|Valfri| `Output` | Sträng | Målet för utmatningsfästet. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållarloggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exempel på dockerkörningskommandon
 

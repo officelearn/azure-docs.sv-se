@@ -3,20 +3,20 @@ title: Docker-behållarinställningar - LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS-behållarkörningsmiljön är konfigurerad med hjälp av kommandoargumenten. `docker run` LUIS har flera nödvändiga inställningar, tillsammans med några valfria inställningar.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.author: dapine
-ms.openlocfilehash: a30fcd0ec7e53c78876596baf787639e81c638db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 48a9856c58a815eabcc0b105efcd548e66ddd552
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73795016"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874219"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Konfigurera Docker-behållare för språkbeståelse 
 
@@ -96,8 +96,8 @@ I följande tabell beskrivs de inställningar som stöds.
 
 |Krävs| Namn | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
-|Ja| `Input` | String | Målet för ingångsfästet. Standardvärdet är `/input`. Det här är platsen för LUIS-paketfilerna. <br><br>Exempel:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Inga| `Output` | String | Målet för utmatningsfästet. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar LUIS-frågeloggar och behållarloggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Ja| `Input` | Sträng | Målet för ingångsfästet. Standardvärdet är `/input`. Det här är platsen för LUIS-paketfilerna. <br><br>Exempel:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Inga| `Output` | Sträng | Målet för utmatningsfästet. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar LUIS-frågeloggar och behållarloggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exempel på dockerkörningskommandon
 

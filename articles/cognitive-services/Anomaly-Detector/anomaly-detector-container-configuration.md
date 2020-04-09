@@ -3,19 +3,19 @@ title: Konfigurera en behållare för API för avvikelsedetektor
 titleSuffix: Azure Cognitive Services
 description: API-behållarens körningsmiljö för avvikelsedetektorn `docker run` är konfigurerad med hjälp av kommandoargumenten. Den här behållaren har flera nödvändiga inställningar, tillsammans med några valfria inställningar.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.author: dapine
-ms.openlocfilehash: f7e04a16fa35d492b8e5e6c53a05220e8b96a38a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 569499002c5e047d7030575342790e9a074b9404
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73795855"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875188"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Konfigurera avvikelseidentifieringscontainrar
 
@@ -61,7 +61,7 @@ Den här inställningen finns på följande plats:
 
 |Krävs| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
-|Ja| `Billing` | String | Fakturering slutpunkt URI. Mer information om hur du hämtar fakturerings-URI finns i [samla in obligatoriska parametrar](anomaly-detector-container-howto.md#gathering-required-parameters). Mer information och en fullständig lista över regionala slutpunkter finns i [Anpassade underdomännamn för Cognitive Services](../cognitive-services-custom-subdomains.md). |
+|Ja| `Billing` | Sträng | Fakturering slutpunkt URI. Mer information om hur du hämtar fakturerings-URI finns i [samla in obligatoriska parametrar](anomaly-detector-container-howto.md#gathering-required-parameters). Mer information och en fullständig lista över regionala slutpunkter finns i [Anpassade underdomännamn för Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Eula-inställning
 
@@ -90,8 +90,8 @@ Den exakta syntaxen för värdmonteringsplatsen varierar beroende på värdopera
 
 |Valfri| Namn | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
-|Inte tillåten| `Input` | String | Behållare för avvikelsedetektorer använder inte detta.|
-|Valfri| `Output` | String | Målet för utmatningsfästet. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållarloggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Inte tillåten| `Input` | Sträng | Behållare för avvikelsedetektorer använder inte detta.|
+|Valfri| `Output` | Sträng | Målet för utmatningsfästet. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållarloggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exempel på dockerkörningskommandon 
 

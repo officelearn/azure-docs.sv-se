@@ -3,20 +3,20 @@ title: Så här installerar och kör du behållare - Datorseende
 titleSuffix: Azure Cognitive Services
 description: Så här hämtar, installerar och kör du behållare för datorseende i den här genomgången självstudiekurs.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.author: pafarley
+ms.date: 04/01/2020
+ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: f8d19ded32f7f4a90b23106b6cec53418eef407e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f36c429041a8182551d1f077f0a1229f520e8c1
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79458043"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879351"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Installera och köra läsbehållare (förhandsversion)
 

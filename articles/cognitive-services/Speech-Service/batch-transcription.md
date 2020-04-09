@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: fb39f1ec83416ee8ab2a33b514971110db0c0b17
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 1f88df186526c2f9903337bb3331940be0989c3d
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668839"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892469"
 ---
 # <a name="what-is-batch-transcription"></a>Vad är batch transkription?
 
@@ -129,7 +129,7 @@ Använd de här valfria egenskaperna för att konfigurera transkription:
       `AddSentiment`
    :::column-end:::
    :::column span="2":::
-      Anger om sentimentanalys ska tillämpas på uttrycket. Godkända värden `true` är `false` att aktivera och (standardvärdet) för att inaktivera den.
+      Anger om sentimentanalys ska tillämpas på uttrycket. Godkända värden `true` är `false` att aktivera och (standardvärdet) för att inaktivera den. Mer information finns i [Sentimentanalys.](#sentiment-analysis)
 :::row-end:::
 :::row:::
    :::column span="1":::
@@ -218,12 +218,41 @@ För mono inmatningsljud skapas en transkriptionsresultatfil. För stereoinmatni
 
 Resultatet innehåller följande formulär:
 
-| Formulär        | Innehåll                                                                                                                                                  |
-|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Lexical`   | De faktiska orden känns igen.                                                                                                                             |
-| `ITN`       | Omvänd text-normaliserad form av den tolkade texten. Förkortningar ("doctor smith" till "dr smith"), telefonnummer och andra omvandlingar tillämpas. |
-| `MaskedITN` | ITN-formen med svordomar maskering tillämpas.                                                                                                             |
-| `Display`   | Visningsformen för den tolkade texten. Tillagd interpunktion och versaler ingår.                                                             |
+:::row:::
+   :::column span="1":::
+      **Formulär**
+   :::column-end:::
+   :::column span="2":::
+      **Innehåll**
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `Lexical`
+   :::column-end:::
+   :::column span="2":::
+      De faktiska orden känns igen.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `ITN`
+   :::column-end:::
+   :::column span="2":::
+      Omvänd text-normaliserad form av den tolkade texten. Förkortningar ("doctor smith" till "dr smith"), telefonnummer och andra omvandlingar tillämpas.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `MaskedITN`
+   :::column-end:::
+   :::column span="2":::
+      ITN-formen med svordomar maskering tillämpas.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `Display`
+   :::column-end:::
+   :::column span="2":::
+      Visningsformen för den tolkade texten. Tillagd interpunktion och versaler ingår.
+:::row-end:::
 
 ## <a name="speaker-separation-diarization"></a>Avskiljande av högtalare (Diarization)
 
@@ -260,6 +289,10 @@ Sentimentfunktionen uppskattar känslan som uttrycks i ljudet. Sentimentet uttry
 - Identifiera vad kunderna gillar och vad de ogillar med en produkt eller en tjänst
 
 Sentimentet poängsätts per ljudsegment baserat på den lexikala formen. Hela texten inom det ljudsegmentet används för att beräkna sentiment. Ingen aggregerad sentiment beräknas för hela transkriptionen. För närvarande sentimentanalys är endast tillgänglig för det engelska språket.
+
+> [!NOTE]
+> Vi rekommenderar att du använder Microsoft Text Analytics API i stället. Den erbjuder mer avancerade funktioner utöver sentimentanalys som nyckelfrasutdragning, automatisk språkidentifiering med mera. Du hittar information och exempel i [dokumentationen för TextAnalys](https://azure.microsoft.com/services/cognitive-services/text-analytics/).
+>
 
 Ett JSON-utdataexempel ser ut nedan:
 

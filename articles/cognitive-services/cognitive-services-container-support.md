@@ -3,19 +3,19 @@ title: Stöd för containrar
 titleSuffix: Azure Cognitive Services
 description: Läs om hur Docker-behållare kan få Cognitive Services närmare dina data.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 01/10/2020
-ms.author: dapine
-ms.openlocfilehash: d75962b98543991a065f6b165279215614175925
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 7a38ec47d416027e8ea3fa772ae01e4f6264197a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219416"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876849"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Behållarstöd i Azure Cognitive Services
 
@@ -23,10 +23,10 @@ Behållarstöd i Azure Cognitive Services gör det möjligt för utvecklare att 
 
 > [!div class="checklist"]
 > * [Avvikelseidentifiering][ad-containers]
-> * [Datorseende][cv-containers]
+> * [Visuellt innehåll][cv-containers]
 > * [Ansikte][fa-containers]
 > * [Formigenkänning][fr-containers]
-> * [Språk understanding (LUIS)][lu-containers]
+> * [Language Understanding (LUIS)][lu-containers]
 > * [Speech Service API][sp-containers]
 > * [Textanalys][ta-containers]
 
@@ -52,13 +52,13 @@ Azure Cognitive Services-behållare innehåller följande uppsättning Docker-be
 | Tjänst | Prisnivå som stöds | Container | Beskrivning |
 |---------|----------|----------|-------------|
 |[Avvikelsedetektor][ad-containers] |F0, S0|**Avvikelsedetektor** |Med API:et för avvikelsedetektorer kan du övervaka och identifiera avvikelser i dina tidsseriedata med maskininlärning.<br>[Begär åtkomst](https://aka.ms/adcontainer)|
-|[Datorseende][cv-containers] |F0, S1|**Läsa** |Extraherar tryckt text från bilder av olika objekt med olika ytor och bakgrunder, till exempel kvitton, affischer och visitkort. Läs-behållaren identifierar också *handskriven text* i bilder och ger PDF/TIFF/multi-page-stöd.<br/><br/>**Viktigt:** Läs-behållaren fungerar för närvarande endast med engelska.|
+|[Visuellt innehåll][cv-containers] |F0, S1|**Läsa** |Extraherar tryckt text från bilder av olika objekt med olika ytor och bakgrunder, till exempel kvitton, affischer och visitkort. Läs-behållaren identifierar också *handskriven text* i bilder och ger PDF/TIFF/multi-page-stöd.<br/><br/>**Viktigt:** Läs-behållaren fungerar för närvarande endast med engelska.|
 |[Ansikte][fa-containers] |F0, S0|**Ansikte** |Upptäcker mänskliga ansikten i bilder och identifierar attribut, inklusive ansiktslandmärken (till exempel näsor och ögon), kön, ålder och andra maskinspåverkade ansiktsdrag. Förutom identifiering kan Face kontrollera om två ansikten i samma bild eller olika bilder är desamma genom att använda en konfidenspoäng, eller jämföra ansikten mot en databas för att se om det redan finns ett liknande eller identiskt ansikte. Det kan också organisera liknande ansikten i grupper, med hjälp av delade visuella egenskaper.<br>[Begär åtkomst](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Formulärigenkänning][fr-containers] |F0, S0|**Formigenkänning** |Formulärförståelse tillämpar maskininlärningsteknik för att identifiera och extrahera nyckelvärdespar och tabeller från formulär.<br>[Begär åtkomst](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS][lu-containers] |F0, S0|**LUIS** ([bild](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Läser in en tränad eller publicerad språkförståelsemodell, även känd som en LUIS-app, i en docker-behållare och ger åtkomst till frågeförutsägelserna från behållarens API-slutpunkter. Du kan samla in frågeloggar från behållaren och överföra dessa tillbaka till [LUIS-portalen](https://www.luis.ai) för att förbättra appens förutsägelsenoggrannhet.|
 |[Speech Service API][sp-containers-stt] |F0, S0|**Tal till text** |Transkriberar kontinuerlig realtidsöversättning av tal till text.|
 |[Speech Service API][sp-containers-cstt] |F0, S0|**Anpassad tal-till-text** |Transkriberar kontinuerligt tal i realtid till text med hjälp av en anpassad modell.|
-|[Speech Service API][sp-containers-tts] |F0, S0|**Text-till-tal** |Konverterar text till naturligt tal.|
+|[Speech Service API][sp-containers-tts] |F0, S0|**Text till tal** |Konverterar text till naturligt tal.|
 |[Speech Service API][sp-containers-ctts] |F0, S0|**Anpassad text till tal** |Konverterar text till naturligt klingande tal med en anpassad modell.|
 |[Textanalys][ta-containers-keyphrase] |F0, S|**Extraktion av nyckelfraser** ([bild](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extraherar nyckelfraser för att identifiera de viktigaste punkterna. Exempel: För den inmatade texten ”Maten var härlig och personalen var underbar” returnerar API:et de huvudsakliga diskussionsämnena: ”mat” och ”underbar personal”. |
 |[Textanalys][ta-containers-language]|F0, S|**Språkidentifiering** ([bild](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |För upp till 120 språk upptäcker du vilket språk indatatexten är skriven i och rapporterar en enda språkkod för varje dokument som skickas in på begäran. Språkkoden paras med poäng som anger styrkan hos poängen. |

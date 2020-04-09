@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: a8ef0f172a8e9118eef2d2f8a11f3efbce665171
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 0affae56ef6998efe4bb370287ff3688f83f3878
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80473537"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80873964"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft i en Python-webbapp
 
@@ -41,8 +41,7 @@ För att kunna köra det här exemplet behöver du:
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel
 >
-> 1. Gå till [Azure-portalen - Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
-> 1. Välj **Ny registrering**.
+> 1. Gå till [Azure-portalen - Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonQuickstartPage/sourceType/docs).
 > 1. Ange ett namn för programmet och välj **Registrera**.
 > 1. Följ instruktionerna för att hämta och konfigurera ditt nya program automatiskt.
 >
@@ -59,8 +58,11 @@ För att kunna köra det här exemplet behöver du:
 > 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
 >      - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `python-webapp`.
 >      - Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
->      - Markera **webbplattformen** i listrutan i listrutan **Omdirigera uri** och ange `http://localhost:5000/getAToken`sedan värdet till .
->      - Välj **Registrera**. På sidan Översikt **över** appen noterar du **värdet program (klient)** för senare användning.
+>      - Välj **Registrera**.
+>      - På sidan Översikt **över** appen noterar du **värdet program (klient)** för senare användning.
+> 1. Välj **Autentisering** på menyn och lägg sedan till följande information:
+>    - Lägg **Web** till webbplattformskonfigurationen. Lägg `http://localhost:5000/getAToken` till som **omdirigerings-URI:er**.
+>    - Välj **Spara**.
 > 1. På menyn till vänster väljer du **Certifikat & hemligheter** och klickar på Ny **klienthemlighet** i avsnittet **Klienthemligheter:**
 >
 >      - Skriv en nyckelbeskrivning (av instansapphemlighet).
@@ -105,11 +107,11 @@ För att kunna köra det här exemplet behöver du:
 
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-the-application"></a>Steg 3: Konfigurera programmet
-> 
+>
 > 1. Extrahera zip-filen i en lokal mapp närmare rotkatalogen, till exempel **C:\Azure-Samples**
 > 1. Om du använder en integrerad utvecklingsmiljö öppnar du exemplet i din favorit-IDE (valfritt).
 > 1. Öppna filen **app_config.py,** som finns i rotmappen och ersätt med följande kodavsnitt:
-> 
+>
 > ```python
 > CLIENT_ID = "Enter_the_Application_Id_here"
 > CLIENT_SECRET = "Enter_the_Client_Secret_Here"

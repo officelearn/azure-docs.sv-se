@@ -4,7 +4,6 @@ description: Lär dig hur du implementerar Microsoft-inloggning på en ASP.NET w
 services: active-directory
 author: jmprieur
 manager: CelesteDG
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
@@ -12,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: cf4967a05585cd6e1db83d469d30128cc253e6b4
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 2946551233500a80c6fa7f02ad4c427f2d654b40
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80473659"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883652"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Snabbstart: Lägga till inloggning på Microsoft identity platform i en ASP.NET webbapp
 I den här snabbstarten använder du ett kodexempel för att lära dig hur en ASP.NET webbapp för att logga in på personliga konton (hotmail.com, outlook.com, andra) och arbets- och skolkonton från en Azure Active Directory-instans (Azure AD).  (Se [Hur exemplet fungerar](#how-the-sample-works) för en illustration.)

@@ -3,19 +3,19 @@ title: Installera talbehållare - Taltjänst
 titleSuffix: Azure Cognitive Services
 description: Installera och kör talbehållare. Tal-till-text transkriberar ljudströmmar till text i realtid som dina program, verktyg eller enheter kan använda eller visa. Text-till-tal konverterar indatatext till människoliknande syntetiserat tal.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.author: dapine
-ms.openlocfilehash: 2beee81bc365d00e59a62cacabacc5f5d6b62a42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 2caae4fecdf13a1833f23cf9423cf3ded67f6f72
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79474789"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879041"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installera och köra taltjänstbehållare (förhandsversion)
 
@@ -85,7 +85,7 @@ I följande tabell beskrivs den minsta och rekommenderade fördelningen av resur
 |-----------|---------|-------------|
 | Anpassad tal-till-text | 2 kärnor, 2 GB minne | 4-kärniga, 4 GB minne |
 
-# <a name="text-to-speech"></a>[Text-till-tal](#tab/tts)
+# <a name="text-to-speech"></a>[Text till tal](#tab/tts)
 
 | Container | Minimum | Rekommenderas |
 |-----------|---------|-------------|
@@ -122,7 +122,7 @@ Behållaravbildningar för Tal finns i följande behållarregister.
 |-----------|------------|
 | Anpassad tal-till-text | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest` |
 
-# <a name="text-to-speech"></a>[Text-till-tal](#tab/tts)
+# <a name="text-to-speech"></a>[Text till tal](#tab/tts)
 
 | Container | Lagringsplats |
 |-----------|------------|
@@ -182,7 +182,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-spee
 > [!NOTE]
 > Och `locale` `voice` för anpassade talbehållare bestäms av den anpassade modellen som intas av behållaren.
 
-# <a name="text-to-speech"></a>[Text-till-tal](#tab/tts)
+# <a name="text-to-speech"></a>[Text till tal](#tab/tts)
 
 #### <a name="docker-pull-for-the-text-to-speech-container"></a>Docker-dragningskraft för text-till-tal-behållaren
 
@@ -311,7 +311,7 @@ Det här kommandot:
 * Om den anpassade modellen har `ModelId` hämtats tidigare ignoreras den.
 * Tar automatiskt bort behållaren när den har avslutats. Behållaravbildningen är fortfarande tillgänglig på värddatorn.
 
-# <a name="text-to-speech"></a>[Text-till-tal](#tab/tts)
+# <a name="text-to-speech"></a>[Text till tal](#tab/tts)
 
 Om du vill köra behållaren *Text-till-tal* kör du följande `docker run` kommando.
 
@@ -430,7 +430,7 @@ I den här artikeln har du lärt dig begrepp och arbetsflöden för att hämta, 
 * Tal ger fyra Linux-behållare för Docker, kapsla in olika funktioner:
   * *Tal till text*
   * *Anpassad tal-till-text*
-  * *Text-till-tal*
+  * *Text till tal*
   * *Anpassad text till tal*
 * Behållaravbildningar hämtas från behållarregistret i Azure.
 * Behållaravbildningar körs i Docker.

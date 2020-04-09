@@ -1,25 +1,21 @@
 ---
 title: Alternativ för integrations- och automatiseringsplattformar i Azure
-description: 'Jämför Microsofts molntjänster som är optimerade för integrationsuppgifter: Microsoft Flow, Logic Apps, Functions och WebJobs.'
+description: 'Jämför Microsofts molntjänster som är optimerade för integrationsuppgifter: Power Automate, Logic Apps, Functions och WebJobs.'
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: bd9f3bfe1578b632707382cfe422f19514e7ce48
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 40293056a73fd88e9ad6b3922aebfe0ba71f07dd
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79241320"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878144"
 ---
-> [!NOTE]
-> Microsoft Flow heter nu Power Automate. Mer information finns i den här [bloggen](https://aka.ms/flow-now-pa).
-> 
-> Innehållet uppdateras för att återge ändringen inom kort.
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Välj rätt integrations- och automatiseringstjänster i Azure
 
 Den här artikeln jämför följande Microsoft-molntjänster:
 
-* [Microsoft Flow](https://flow.microsoft.com/)
+* [Microsoft Power Automate](https://flow.microsoft.com/) (var Microsoft Flow)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
 * [Azure App Service WebJobs](../app-service/webjobs-create.md)
@@ -28,23 +24,23 @@ Alla dessa tjänster kan lösa integrationsproblem och automatisera affärsproce
 
 Om du letar efter en mer allmän jämförelse mellan Azure-funktioner och andra Azure-beräkningsalternativ läser du [Villkor för att välja en Azure-beräkningstjänst](/azure/architecture/guide/technology-choices/compute-comparison) och välja ett [Azure-beräkningsalternativ för mikrotjänster](/azure/architecture/microservices/design/compute-options).
 
-## <a name="compare-microsoft-flow-and-azure-logic-apps"></a>Jämföra Microsoft Flow och Azure Logic Apps
+## <a name="compare-microsoft-power-automate-and-azure-logic-apps"></a>Jämföra Microsoft Power Automate- och Azure Logic-appar
 
-Microsoft Flow och Logic Apps är båda integreringstjänster av typen *designer först* som kan skapa arbetsflöden. Båda tjänsterna integreras med olika SaaS- och företagsprogram. 
+Power Automate och Logic Apps är båda *designer-första* integrationstjänster som kan skapa arbetsflöden. Båda tjänsterna integreras med olika SaaS- och företagsprogram. 
 
-Microsoft Flow är byggt på Logic Apps. De delar samma arbetsflödesdesigner och samma [anslutningsappar](../connectors/apis-list.md). 
+Power Automate är byggt ovanpå Logic Apps. De delar samma arbetsflödesdesigner och samma [anslutningsappar](../connectors/apis-list.md). 
 
-Microsoft Flow ger kontorspersonalen möjlighet att göra enkla integreringar (till exempel en godkännandeprocess i ett SharePoint-dokumentbibliotek) utan att behöva samråda med utvecklarna eller IT-avdelningen. Logic Apps kan även användas för att göra avancerade integreringar (till exempel B2B-processer) där Azure DevOps och säkerhetsåtgärder på företagsnivå krävs. Det är vanligt att företagsarbetsflöden växer i komplexitet med tiden. Därför går det bra att börja med ett enkelt flöde och sedan konvertera det till en logikapp efter behov.
+Power Automate ger alla kontorsarbetare möjlighet att utföra enkla integreringar (till exempel en godkännandeprocess på ett SharePoint-dokumentbibliotek) utan att gå igenom utvecklare eller IT. Logic Apps kan även användas för att göra avancerade integreringar (till exempel B2B-processer) där Azure DevOps och säkerhetsåtgärder på företagsnivå krävs. Det är vanligt att företagsarbetsflöden växer i komplexitet med tiden. Därför går det bra att börja med ett enkelt flöde och sedan konvertera det till en logikapp efter behov.
 
-Tabellen nedan hjälper dig att avgöra huruvida Microsoft Flow eller Logic Apps passar bäst för en specifik integrering:
+I följande tabell kan du avgöra om Power Automate eller Logic Apps är bäst för en viss integrering:
 
-|  | Microsoft Flow | Logic Apps |
+|  | Power Automate | Logic Apps |
 | --- | --- | --- |
 | **Användare** |Kontorsarbetarna, användare i verksamheten, SharePoint-administratörer |Professionella integratörer och utvecklare, IT-proffs |
 | **Scenarier** |Självbetjäning |Avancerade integreringar |
 | **Designverktyg** |I webbläsaren och mobilappen, endast användargränssnitt |I webbläsaren och [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [kodvyer](../logic-apps/logic-apps-author-definitions.md) är tillgängliga |
 | **Application Lifecycle Management (ALM)** |Utforma och testa i icke-produktionsmiljöer, skicka till produktion när det är klart |Azure DevOps: källkontroll, testning, support, automatisering och hanterbarhet i [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
-| **Administratörsupplevelse** |Hantera Microsoft Flow-miljöer och DLP-principer (Data Loss Prevention), spåra licensiering: [Microsoft Flow Admin Center](https://admin.flow.microsoft.com) |Hantera resursgrupper, anslutningar, åtkomsthantering och loggning: [Azure-portal](https://portal.azure.com) |
+| **Administratörsupplevelse** |Hantera Power Automate-miljöer och DLP-principer (Data Loss Prevention), spåra licensiering: [Administrationscenter](https://admin.flow.microsoft.com) |Hantera resursgrupper, anslutningar, åtkomsthantering och loggning: [Azure-portal](https://portal.azure.com) |
 | **Säkerhet** |Granskningsloggar för Office 365-säkerhet och efterlevnad, principer för dataförlustskydd, [kryptering i vila](https://wikipedia.org/wiki/Data_at_rest#Encryption) för känsliga data |Säkerhetssäkring av Azure: [Azure-säkerhet](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Azure Security Center](https://azure.microsoft.com/services/security-center/), [granskningsloggar](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
 
 ## <a name="compare-azure-functions-and-azure-logic-apps"></a>Jämföra Azure Functions och Azure Logic Apps
@@ -80,7 +76,7 @@ WebJobs och WebJobs-SDK:n fungerar bäst tillsammans, men du kan använda WebJob
 
 Azure Functions bygger på WebJobs-SDK:n, och delar därför många händelseutlösare och anslutningsappar med andra Azure-tjänster. Här är några faktorer som du bör tänka på när du väljer mellan Azure Functions och WebJobs med WebJobs-SDK:n:
 
-|  | Funktioner | WebJobs med Webjobs-SDK:n |
+|  | Functions | WebJobs med Webjobs-SDK:n |
 | --- | --- | --- |
 |[Serverlös appmodell](https://azure.microsoft.com/solutions/serverless/) med [automatisk skalning](functions-scale.md#how-the-consumption-and-premium-plans-work)|✔||
 |[Utveckla och testa i webbläsaren](functions-create-first-azure-function.md) |✔||
@@ -107,25 +103,25 @@ När det gäller andra scenarier där du vill köra kodfragment för att integre
 
 <a name="together"></a>
 
-## <a name="microsoft-flow-logic-apps-functions-and-webjobs-together"></a>Microsoft Flow, Logic Apps, Functions och WebJobs tillsammans
+## <a name="power-automate-logic-apps-functions-and-webjobs-together"></a>Power Automate, Logic Apps, Functions och WebJobs tillsammans
 
 Du behöver inte välja endast en av dessa tjänster. De integreras med varandra lika bra som med externa tjänster.
 
 Ett flöde kan anropa en logikapp. En logikapp kan anropa en funktion, och en funktion kan anropa en logikapp. Läs t.ex. [Skapa en funktion som kan integreras med Azure Logic Apps](functions-twitter-email.md).
 
-Integreringen mellan Microsoft Flow, Logic Apps och Functions förbättras ständigt. Det går bra att skapa något i en tjänst och sedan använda detsamma i de andra tjänsterna.
+Integrationen mellan Power Automate, Logic Apps och Functions fortsätter att förbättras med tiden. Det går bra att skapa något i en tjänst och sedan använda detsamma i de andra tjänsterna.
 
 Det finns mer information om integreringstjänster via följande länkar:
 
 * [Artikel av Christopher Anderson om hur man utnyttjar Azure Functions och Azure App Service i integreringsscenarier](https://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
 * [Artikel av Charles Lamanna om hur man förenklar integreringar](https://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Webbsändning med Logic Apps](https://aka.ms/logicappslive)
-* [Vanliga frågor och svar om Microsoft Flow](/power-automate/frequently-asked-questions)
+* [Power Automate vanliga frågor och svar](/power-automate/frequently-asked-questions)
 
 ## <a name="next-steps"></a>Nästa steg
 
 Kom igång genom att skapa ditt första flöde, din första logikapp eller din första funktionsapp. Välj någon av följande länkar:
 
-* [Kom igång med Microsoft Flow](/power-automate/getting-started)
+* [Komma igång med Power Automate](/power-automate/getting-started)
 * [Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Skapa din första Azure-funktion](functions-create-first-azure-function.md)

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 3e0c56ed669ecda5a130dcf9df103bc8a19faf06
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3334a19b1ba0e3949ab2670c5d2f70d3bcd02fe8
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80057433"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983918"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Konfigurera App Service Environment med tvingande dirigering
 
@@ -60,7 +60,7 @@ Du kan konfigurera ditt ASE-undernät så att alla BGP-vägar ignoreras.  När A
 Så här konfigurerar du ditt ASE-undernät så att BGP-vägar ignoreras:
 
 * Skapa en UDR och tilldela den till ditt ASE-undernät om du inte redan har en.
-* Öppna Azure Portal och öppna gränssnittet för routningstabellen som tilldelats till ASE-undernätet.  Välj Konfiguration.  Ange Inaktiverad Spridning av BGP-väg.  Klicka på Spara. Inaktiveringen är dokumenterad i dokumentet [Skapa en routningstabell][routetable].
+* Öppna Azure Portal och öppna gränssnittet för routningstabellen som tilldelats till ASE-undernätet.  Välj Konfiguration.  Ange spridning av virtual network gateway-väg till Inaktiverad.  Klicka på Spara. Inaktiveringen är dokumenterad i dokumentet [Skapa en routningstabell][routetable].
 
 När du har konfigurerat ASE-undernätet att ignorera alla BGP-vägar kan dina appar inte längre nå resurser lokalt. Om du vill göra så att apparna kan komma åt resurser lokalt redigerar du UDR som tilldelats till ASE-underlätet och lägger till vägar för dina lokala adressintervall. Nästa hopptyp bör ställas in som Virtuell nätverksgateway. 
 

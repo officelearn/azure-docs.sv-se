@@ -3,20 +3,20 @@ title: Konfigurera behållare - Textanalys
 titleSuffix: Azure Cognitive Services
 description: Text Analytics förser varje behållare med ett gemensamt konfigurationsramverk, så att du enkelt kan konfigurera och hantera lagring, loggning och telemetri samt säkerhetsinställningar för dina behållare.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.author: dapine
-ms.openlocfilehash: 8a39327275dca43ddb6ce0e46a3e3bb51ec4555b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: f062fb2f3a653bc1b2845b92e373fdb67ba583d8
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73795297"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878702"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Konfigurera dockerbehållare för textanalys
 
@@ -51,7 +51,7 @@ Den här inställningen finns på följande plats:
 
 |Krävs| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
-|Ja| `Billing` | String | Fakturering slutpunkt URI. Mer information om hur du hämtar fakturerings-URI finns i [samla in obligatoriska parametrar](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters). Mer information och en fullständig lista över regionala slutpunkter finns i [Anpassade underdomännamn för Cognitive Services](../cognitive-services-custom-subdomains.md). |
+|Ja| `Billing` | Sträng | Fakturering slutpunkt URI. Mer information om hur du hämtar fakturerings-URI finns i [samla in obligatoriska parametrar](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters). Mer information och en fullständig lista över regionala slutpunkter finns i [Anpassade underdomännamn för Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Eula-inställning
 
@@ -79,8 +79,8 @@ Den exakta syntaxen för värdmonteringsplatsen varierar beroende på värdopera
 
 |Valfri| Namn | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
-|Inte tillåten| `Input` | String | Text Analytics-behållare använder inte detta.|
-|Valfri| `Output` | String | Målet för utmatningsfästet. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållarloggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Inte tillåten| `Input` | Sträng | Text Analytics-behållare använder inte detta.|
+|Valfri| `Output` | Sträng | Målet för utmatningsfästet. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållarloggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exempel på dockerkörningskommandon 
 
@@ -100,7 +100,7 @@ Ersätt {_argument_name_} med dina egna värderingar:
 > Alternativen `Eula` `Billing`, `ApiKey` och måste anges för att behållaren ska kunna köras. Annars startar inte behållaren.  Mer information finns i [Fakturering](how-tos/text-analytics-how-to-install-containers.md#billing).
 > ApiKey-värdet är **nyckeln** från `Text Analytics` sidan Azure Resource keys. 
 
-#### <a name="key-phrase-extraction"></a>[Extrahering av diskussionsämne](#tab/keyphrase)
+#### <a name="key-phrase-extraction"></a>[Extrahering av nyckelfraser](#tab/keyphrase)
 
 [!INCLUDE [key-phrase-extraction-docker-examples](includes/key-phrase-extraction-docker-examples.md)]
 

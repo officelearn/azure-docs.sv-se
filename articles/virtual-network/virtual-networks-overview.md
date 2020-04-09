@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 3b908406c8717d2fa8834bc4dff1bcd27ec4761f
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 967d391d4ac9a9704688dce9636d9a71b2002549
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79241425"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879368"
 ---
 # <a name="what-is-azure-virtual-network"></a>Vad är Azure Virtual Network?
 
@@ -76,6 +76,15 @@ Azure dirigerar trafik mellan undernät, anslutna virtuella nätverk, lokala nä
 
 - **Routningstabeller:** Du kan skapa anpassade routningstabeller med vägar som styr vart trafik dirigeras för varje undernät. Läs mer om [routningstabeller](virtual-networks-udr-overview.md#user-defined).
 - **BGP-vägar (Border Gateway Protocol):** Om du ansluter ditt virtuella nätverk till ditt lokala nätverk med hjälp av en Azure VPN Gateway- eller ExpressRoute-anslutning kan du sprida de lokala BGP-vägarna till de virtuella nätverken. Lär dig mer om hur du använder BGP med [Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#dynamic-route-exchange).
+
+## <a name="virtual-network-integration-for-azure-services"></a>Integrering av virtuella nätverk för Azure-tjänster
+
+Genom att integrera Azure-tjänster i ett virtuellt Azure-nätverk kan privat åtkomst till tjänsten från virtuella datorer eller beräkningsresurser i det virtuella nätverket.
+Du kan integrera Azure-tjänster i ditt virtuella nätverk med följande alternativ:
+- Distribuera [dedikerade instanser av tjänsten](virtual-network-for-azure-services.md) till ett virtuellt nätverk. Tjänsterna kan sedan nås privat i det virtuella nätverket och från lokala nätverk.
+- Använda [Privat länk](../private-link/private-link-overview.md) för att komma åt privat en specifik instans av tjänsten från ditt virtuella nätverk och från lokala nätverk.
+- Du kan också komma åt tjänsten med offentliga slutpunkter genom att utöka ett virtuellt nätverk till tjänsten, via [tjänstenslutpunkter](virtual-network-service-endpoints-overview.md). Tjänstslutpunkter gör att tjänstresurser kan skyddas till det virtuella nätverket.
+ 
 
 ## <a name="azure-vnet-limits"></a>Azure VNet-gränser
 

@@ -1,5 +1,5 @@
 ---
-title: Uppdatera RDP-användarnamnet och lösenordet i Powershell
+title: Uppdatera användarnamn och lösenord för RDP i PowerShell
 description: Skriptexempel för Azure PowerShell – Uppdatera RDP-användarnamnet och lösenordet för alla noder i Service Fabric-klustret av en viss nodtyp.
 services: service-fabric
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 03/19/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 0cf9f8362d3fa683084aef840cf35cd9a843608a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b7f229162ed745408121d898f5af516d22a0c039
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614816"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984937"
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>Uppdatera administratörens användarnamn och lösenord för de virtuella datorerna i ett kluster
 
@@ -42,6 +42,10 @@ Det här skriptet använder följande kommandon: varje kommando i tabellen länk
 | [Get-AzVmss](/powershell/module/az.compute/get-azvmss) | Hämtar egenskaperna för en klusternodstyp (en VM-skalningsuppsättning).   |
 | [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension)| Lägger till ett tillägg till VM-skalningsuppsättningen.|
 | [Update-AzVmss](/powershell/module/az.compute/update-azvmss)|Uppdaterar tillståndet för VM-skalningsuppsättningen till ett lokalt VMSS-objekts tillstånd.|
+
+## <a name="duration"></a>Varaktighet
+
+En enda nodtyp med fem noder har till exempel en varaktighet på 45 till 60 minuter för att ändra användarnamnet eller lösenordet. 
 
 ## <a name="next-steps"></a>Nästa steg
 

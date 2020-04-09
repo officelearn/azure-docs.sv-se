@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2019
 ms.author: sharadag
-ms.openlocfilehash: 0ee35f4f0b4bd8c46a0445e2905ae3b50d11f721
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b2ee41324cfaefa4d5aec3aa02b2d0d8c75da78f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79471663"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879130"
 ---
 # <a name="what-is-azure-front-door"></a>Vad är Azure Front Door?
 Med Azure Front Door kan du definiera, hantera och övervaka den globala routningen för din webbtrafik genom att optimera för bästa prestanda och omedelbar global redundans för hög tillgänglighet. Med Ytterdörren kan du omvandla dina globala konsument- och företagsprogram (flera regioner) till robusta, högpresterande anpassade moderna program, API:er och innehåll som når en global publik med Azure.
@@ -51,12 +51,12 @@ På liknande sätt kan du ha två olika domäner, `www.contoso.com` och `www.fab
 ## <a name="session-affinity"></a>Sessionstillhörighet
 Den cookie-baserade sessionstillhörighetsfunktionen är användbar när du vill behålla en användarsession i samma programserverdel. Med hjälp av Front Doors hanterade cookies, dirigeras efterföljande trafik från en användarsession till samma programserverdel för bearbetning. Den här funktionen är viktig i de fall där sessionstillstånd har sparats lokalt på serverdelen för en användarsession.
 
-## <a name="secure-sockets-layer-ssl-termination"></a>Secure Sockets Layer-avslutning (SSL)
-Front Door har stöd för SSL-avslutning vid gränsen vilket innebär att enskilda användare kan konfigurera en SSL-anslutning med Front Door-miljöer, i stället för att upprätta den med långvariga anslutningar till programserverdelen. Dessutom har Front Door stöd för både HTTP- och HTTPS-anslutning mellan Front Door-miljöer och serverdelar. Det innebär att du också kan ange en SSL-kryptering från slutpunkt till slutpunkt. Om Front Door för din programarbetsbelastning tar emot över 5 000 begäranden per minut, kommer den vid återanvändning av anslutningen till aktiva tjänster endast upprätta 500 anslutningar till din programserverdel, vilket avsevärt minskar belastningen från serverdelen.
+## <a name="tls-termination"></a>TLS-avslutning
+Ytterdörren stöder TLS-avslutning vid kanten som är, enskilda användare kan ställa in en TLS-anslutning med ytterdörr miljöer istället för att upprätta den över långväga anslutningar med programmet backend. Dessutom har Front Door stöd för både HTTP- och HTTPS-anslutning mellan Front Door-miljöer och serverdelar. Så du kan också ställa in end-to-end TLS-kryptering. Om Front Door för din programarbetsbelastning tar emot över 5 000 begäranden per minut, kommer den vid återanvändning av anslutningen till aktiva tjänster endast upprätta 500 anslutningar till din programserverdel, vilket avsevärt minskar belastningen från serverdelen.
 
 ## <a name="custom-domains-and-certificate-management"></a>Anpassade domäner och certifikatshantering
 När du använder Front Door för att leverera innehåll behövs en anpassad domän om du vill att ditt eget domännamn ska synas i din Front Door-URL. Att ha ett synligt domännamn kan vara praktiskt för dina kunder och användbart i profileringssyfte.
-Front Door har också stöd för HTTPS för anpassade domännamn. Använd denna funktion genom att antingen välja hanterade Front Door-certifikat för din trafik, eller ladda upp ditt egna anpassade SSL-certifikat.
+Front Door har också stöd för HTTPS för anpassade domännamn. Använd den här funktionen genom att antingen välja Front Door-hanterade certifikat för din trafik eller ladda upp ditt eget anpassade TLS/SSL-certifikat.
 
 ## <a name="application-layer-security"></a>Säkerhet för programskikt
 Med Azure Front Door kan du skapa WAF-regler (Custom Web Application Firewall) för åtkomstkontroll för att skydda din HTTP/HTTPS-arbetsbelastning från utnyttjande baserat på klient-IP-adresser, landskod och http-parametrar. Dessutom kan du med Front Door också skapa begränsningsregler för att bekämpa skadlig robottrafik. Mer information om brandvägg för webbprogram finns i [Brandvägg för Azure-webbprogram?](../web-application-firewall/overview.md)

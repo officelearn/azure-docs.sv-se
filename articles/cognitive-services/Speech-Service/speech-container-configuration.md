@@ -3,19 +3,19 @@ title: Konfigurera talbehållare
 titleSuffix: Azure Cognitive Services
 description: Taltjänsten ger varje behållare ett gemensamt konfigurationsramverk, så att du enkelt kan konfigurera och hantera lagring, loggning och telemetri samt säkerhetsinställningar för dina behållare.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.author: dapine
-ms.openlocfilehash: dd5a531e4a979cba9c2a766c7774762a0427ad02
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 5c74aa48b18661236eb55278d1e5a05215b2432c
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79037316"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877583"
 ---
 # <a name="configure-speech-service-containers"></a>Konfigurera behållare för taltjänst
 
@@ -52,7 +52,7 @@ Den här inställningen finns på följande plats:
 
 | Krävs | Namn | Datatyp | Beskrivning |
 | -------- | ---- | --------- | ----------- |
-| Ja | `Billing` | String | Fakturering slutpunkt URI. Mer information om hur du hämtar fakturerings-URI finns i [samla in obligatoriska parametrar](speech-container-howto.md#gathering-required-parameters). Mer information och en fullständig lista över regionala slutpunkter finns i [Anpassade underdomännamn för Cognitive Services](../cognitive-services-custom-subdomains.md). |
+| Ja | `Billing` | Sträng | Fakturering slutpunkt URI. Mer information om hur du hämtar fakturerings-URI finns i [samla in obligatoriska parametrar](speech-container-howto.md#gathering-required-parameters). Mer information och en fullständig lista över regionala slutpunkter finns i [Anpassade underdomännamn för Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Eula-inställning
 
@@ -80,8 +80,8 @@ Den exakta syntaxen för värdmonteringsplatsen varierar beroende på värdopera
 
 | Valfri | Namn | Datatyp | Beskrivning |
 | -------- | ---- | --------- | ----------- |
-| Inte tillåten | `Input` | String | Standardbehållare använder inte detta. Anpassade talbehållare använder [volymfästen](#volume-mount-settings).                                                                                    |
-| Valfri | `Output` | String | Målet för utmatningsfästet. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållarloggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output` |
+| Inte tillåten | `Input` | Sträng | Standardbehållare använder inte detta. Anpassade talbehållare använder [volymfästen](#volume-mount-settings).                                                                                    |
+| Valfri | `Output` | Sträng | Målet för utmatningsfästet. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållarloggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output` |
 
 ## <a name="volume-mount-settings"></a>Inställningar för volymmontering
 
@@ -180,7 +180,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="text-to-speech"></a>[Text-till-tal](#tab/tss)
+## <a name="text-to-speech"></a>[Text till tal](#tab/tss)
 
 ### <a name="basic-example-for-text-to-speech"></a>Grundläggande exempel för Text-till-tal
 

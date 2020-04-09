@@ -6,18 +6,18 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 2a09d5af013e804f33327855fb7b9f2104bc225c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6292c3c2d928581d0564fe457342ea7b1e17111c
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240396"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983032"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Välkommen till Azure Cosmos DB
 
-Dagens program måste alltid vara mycket responsiva och ständigt online. Instanser av dessa program måste distribueras i datacenter som ligger nära användarna för att uppnå kort svarstid och hög tillgänglighet. Programmen behöver kunna svara i realtid på stora förändringar av användningen vid hög belastning, lagra ständigt ökande datavolymer och göra dessa data tillgängliga för användare på millisekunder.
+Dagens applikationer måste vara mycket lyhörda och alltid online. Instanser av dessa program måste distribueras i datacenter som ligger nära användarna för att uppnå kort svarstid och hög tillgänglighet. Programmen behöver kunna svara i realtid på stora förändringar av användningen vid hög belastning, lagra ständigt ökande datavolymer och göra dessa data tillgängliga för användare på millisekunder.
 
-Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Med ett klick på en knapp kan du med Cosmos DB elastiskt och självständigt skala dataflöde och lagring över valfritt antal Azure-regioner över hela världen. Du kan elastiskt skala dataflöde och lagring och dra nytta av snabb, ensiffrig millisekund dataåtkomst med hjälp av ditt favorit-API, inklusive: SQL, MongoDB, Cassandra, Tables eller Gremlin. Cosmos DB tillhandahåller omfattande [servicenivåavtal](https://aka.ms/acdbsla) (SLA) för dataflöde, svarstid, tillgänglighet och konsekvensgarantier, något som ingen annan databastjänst erbjuder.
+Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Med ett klick på en knapp kan du med Cosmos DB elastiskt och självständigt skala dataflöde och lagring över valfritt antal Azure-regioner över hela världen. Du kan elastiskt skala dataflöde och lagring och dra nytta av snabb, ensiffrig millisekund dataåtkomst med hjälp av ditt favorit-API, inklusive: SQL, MongoDB, Cassandra, Tables eller Gremlin. Cosmos DB tillhandahåller omfattande [servicenivåavtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/) (SLA) för dataflöde, svarstid, tillgänglighet och konsekvensgarantier, något som ingen annan databastjänst erbjuder.
 
 Du kan [prova Azure Cosmos DB gratis](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, kostnadsfritt och åtaganden eller använda den [kostnadsfria Azure Cosmos DB-nivån](optimize-dev-test.md#azure-cosmos-db-free-tier) för att få ett konto med de första 400 RU/s och 5 GB lagringsutrymme gratis.
 
@@ -52,15 +52,15 @@ När du skapar globalt distribuerade program i Cosmos DB behöver du inte längr
 
 ### <a name="no-schema-or-index-management"></a>Ingen hantering av schema eller index
 
-Att hålla databasschema och index synkroniserade med ett programs schema är särskilt svårt för globalt distribuerade appar. Med Cosmos DB behöver du inte hantera schema- eller indexhantering. Databasmotorn är fullständigt schemaoberoende.  Eftersom ingen schema- eller indexhantering krävs, behöver du inte heller bekymra dig om programdriftstopp när du migrerar scheman. Cosmos DB [indexerar automatiskt alla data](index-policy.md) och hanterar frågor snabbt.
+Att hålla databasschemat och indexen synkroniserade med ett programs schema är särskilt smärtsamt för globalt distribuerade appar. Med Cosmos DB behöver du inte hantera schema- eller indexhantering. Databasmotorn är fullständigt schemaoberoende.  Eftersom det inte krävs något schema och indexhantering behöver du inte heller oroa dig för programstopp medan du migrerar scheman. Cosmos DB [indexerar automatiskt alla data](index-policy.md) och hanterar frågor snabbt.
 
 ### <a name="battle-tested-database-service"></a>Beprövad databastjänst
 
-Cosmos DB är en grundläggande tjänst i Azure. I nästan ett decennium har Cosmos DB använts av många av Microsofts produkter för verksamhetskritiska program i global skala, inklusive Skype, Xbox, Office 365, Azure och många andra. Idag är Cosmos DB en av de snabbast växande tjänsterna på Azure, som används av många externa kunder och verksamhetskritiska program som kräver elastisk skala, totalenergi global distribution, multimasterreplikering för låg latens och hög tillgänglighet för båda läser och skriver.
+Cosmos DB är en grundläggande tjänst i Azure. I nästan ett decennium har Cosmos DB använts av många av Microsofts produkter för verksamhetskritiska program i global skala, inklusive Skype, Xbox, Office 365, Azure och många andra. Idag är Cosmos DB en av de snabbast växande tjänsterna på Azure, som används av många externa kunder och verksamhetskritiska program som kräver elastisk skala, totalenergi global distribution, multi-master replikering för låg latens och hög tillgänglighet för både läsningar och skrivningar.
 
 ### <a name="ubiquitous-regional-presence"></a>Ständig regional närvaro
 
-Cosmos DB är tillgängligt i alla Azure-regioner över hela världen, inklusive 54+ regioner i offentligt moln, [Azure China 21Vianet,](https://www.azure.cn/en-us/)Azure Germany, Azure Government och Azure Government for Department of Defense (DoD). Se [Cosmos DB:s regionala närvaro](regional-presence.md).
+Cosmos DB är tillgängligt i alla Azure-regioner över hela världen, inklusive 54+ regioner i offentligt moln, [Azure China 21Vianet,](https://www.azure.cn/en-us/)Azure Germany, Azure Government och Azure Government for Department of Defense (DoD). Se [Cosmos DB:s regionala närvaro.](regional-presence.md)
 
 ### <a name="secure-by-default-and-enterprise-ready"></a>Säker som standard och företagsredo
 

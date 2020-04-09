@@ -2,19 +2,19 @@
 title: Konfigurera en behållare för formulärkoneformare
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du konfigurerar behållaren Formulärconformering för att tolka formulär- och tabelldata.
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.author: dapine
-ms.openlocfilehash: 5439ec0c0aab5b8c127b651147e4b25d27c58390
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: bc48c0ba23e73adec312adfeeb1fcd57dba6ceec
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75379631"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879164"
 ---
 # <a name="configure-form-recognizer-containers"></a>Konfigurera behållare för formulärkonekänningsbehållare
 
@@ -50,7 +50,7 @@ Du hittar den här inställningen i Azure-portalen i **Översikt över formulär
 
 |Krävs| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
-|Ja| `Billing` | String | Fakturering slutpunkt URI. Mer information om hur du hämtar fakturerings-URI finns i [samla in obligatoriska parametrar](form-recognizer-container-howto.md#gathering-required-parameters). Mer information och en fullständig lista över regionala slutpunkter finns i [Anpassade underdomännamn för Cognitive Services](../cognitive-services-custom-subdomains.md). |
+|Ja| `Billing` | Sträng | Fakturering slutpunkt URI. Mer information om hur du hämtar fakturerings-URI finns i [samla in obligatoriska parametrar](form-recognizer-container-howto.md#gathering-required-parameters). Mer information och en fullständig lista över regionala slutpunkter finns i [Anpassade underdomännamn för Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Eula-inställning
 
@@ -79,8 +79,8 @@ Den exakta syntaxen för värdmonteringsplatsen varierar beroende på värdopera
 
 |Valfri| Namn | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
-|Krävs| `Input` | String | Målet för ingångsfästet. Standardvärdet är `/input`.    <br><br>Exempel:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Krävs| `Output` | String | Målet för utmatningsfästet. Standardvärdet är `/output`.  <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Krävs| `Input` | Sträng | Målet för ingångsfästet. Standardvärdet är `/input`.    <br><br>Exempel:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Krävs| `Output` | Sträng | Målet för utmatningsfästet. Standardvärdet är `/output`.  <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exempel på dockerkörningskommandon
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 084f32ec9c1574dfdaf29edc24a406444de9a91d
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: b1bf2c365229a418870250a78a733f9870fb5bb0
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679928"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892384"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Snabbstart: Konvertera en modell för rendering
 
@@ -72,10 +72,10 @@ Fyll i formuläret på följande sätt:
 * Skapa en ny resursgrupp från länken under listrutan och namnge den här **ARR_Tutorial**
 * Ange ett unikt namn här för **lagringskontots namn.** **Det här namnet måste vara globalt unikt,** annars kommer det att finnas en uppmaning som informerar dig om att namnet är klart. Inom ramen för denna snabbstart, vi namn det **arrtutorialstorage**. Därför måste du ersätta den med ditt namn för alla förekomster i den här snabbstarten.
 * Välj en **plats** nära dig. Använd helst samma plats som används för att ställa in renderingen i den andra snabbstarten.
-* **Prestanda** inställd på "Standard"
-* **Kontoslag** inställt på "StorageV2 (allmänt ändamål v2)"
-* **Replikering** inställd på "Läs-tillgång geo-redundant lagring (RA-GRS)"
-* **Åtkomstnivån** inställd på "Hot"
+* **Prestanda** inställd på Standard
+* **Kontoslag** inställt på StorageV2 (allmänt ändamål v2)
+* **Replikering** inställd på geo redundant lagring av läsåtkomst (RA-GRS)
+* **Åtkomstnivå** inställd på Het
 
 Ingen av egenskaperna på andra flikar behöver ändras, så du kan fortsätta med **"Granska + skapa"** och sedan följa stegen för att slutföra installationen.
 
@@ -159,11 +159,14 @@ När modellen har konverterats skrivs den tillbaka till lagringsbehållaren som 
 
 Konfigurationsinställningen **outputAssetFileName** bestämmer namnet på den konverterade tillgången - parametern är valfri och utdatafilnamnet kommer att härledas från indatafilnamnet annars. 
 
-Öppna en PowerShell, se till att du har installerat *Azure PowerShell* som nämns i [förutsättningarna](#prerequisites). Logga sedan in på din prenumeration:
+Öppna en PowerShell, se till att du har installerat *Azure PowerShell* som nämns i [förutsättningarna](#prerequisites). Logga sedan in i din prenumeration med följande kommando och följ anvisningarna på skärmen:
 
 ```PowerShell
-Connect-AzAccount -Subscription "<your Azure subscription id>"
+Connect-AzAccount
 ```
+
+> [!NOTE]
+> Om din organisation har mer än en prenumeration kan du behöva ange argumenten SubscriptionId och Tenant. Hitta information i [Dokumentationen för Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
 
 Ändra till `azure-remote-rendering\Scripts` katalogen och kör konverteringsskriptet:
 

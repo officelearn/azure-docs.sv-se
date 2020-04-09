@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: 11201d6560319dd34ec829f1fb34bd13d45011d7
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: d2e7e157156a4049a5db37b1d5c0e02773adbcc3
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435824"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879555"
 ---
 # <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
 
@@ -29,7 +29,7 @@ Att hålla dina resurser skyddade är en gemensam uppgift för din molnleverant�
 
 Azure Security Center adresserar de tre mest brådskande säkerhetsutmaningarna:
 
--   **Snabbt förändrade arbetsbelastningar** – Det är både en styrka och en utmaning i molnet. Å ena sidan uppmuntras slutanvändarna att göra mer. Å andra sidan, hur försäkrar du dig om att de ständigt föränderliga tjänster som människorna använder och skapar uppfyller dina säkerhetsstandarder och följer rekommenderade säkerhetsmetoder?
+-   **Snabbt föränderliga arbetsbelastningar** – Det är både en styrka och en utmaning i molnet. Å ena sidan uppmuntras slutanvändarna att göra mer. Å andra sidan, hur försäkrar du dig om att de ständigt föränderliga tjänster som människorna använder och skapar uppfyller dina säkerhetsstandarder och följer rekommenderade säkerhetsmetoder?
 
 -   **Allt mer sofistikerade attacker** – Oavsett var du kör dina arbetsbelastningar blir attackerna ständigt alltmer avancerade. Du måste skydda dina arbetsbelastningar i det offentliga molnet, vilka i praktiken är en Internet-inriktad arbetsbelastning som kan gör dig ännu mer sårbar om du inte följer rekommenderade säkerhetsmetoder.
 
@@ -146,5 +146,7 @@ Omfattande logginsamling som innebär att loggar från både Windows och Linux b
 ## <a name="next-steps"></a>Nästa steg
 
 - För att komma igång med Security Center måste du ha en prenumeration på Microsoft Azure. Om du inte har en prenumeration kan du registrera dig för en [gratis provversion](https://azure.microsoft.com/free/).
-- Security Centers kostnadsfria prisnivå är aktiverad med din Azure-prenumeration. Om du vill dra nytta av avancerade funktioner för säkerhetshantering och hotskydd måste du uppgradera till standardprisnivån. Standardnivån kan provas gratis i 30 dagar. Mer information finns på [prissidan för Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+
+- Security Centers kostnadsfria prisnivå är aktiverad på alla dina aktuella Azure-prenumerationer när du besöker Azure Security Center-instrumentpanelen i Azure Portal för första gången, eller om den aktiveras programmässigt via API. Om du vill dra nytta av avancerade funktioner för säkerhetshantering och hotidentifiering måste du uppgradera till standardprisnivån. Standardnivån kan provas gratis i 30 dagar. På [prissättningssidan för Security Center](https://azure.microsoft.com/pricing/details/security-center/) finns det mer information.
+
 - Om du är redo att aktivera Security Center-standarden nu går [snabbstart: Ombord på din Azure-prenumeration på Security Center Standard](security-center-get-started.md) igenom stegen.

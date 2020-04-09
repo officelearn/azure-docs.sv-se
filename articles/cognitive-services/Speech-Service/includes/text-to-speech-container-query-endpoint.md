@@ -1,19 +1,19 @@
 ---
 title: Frågeslutpunkt för behållare för text till tal
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 11/04/2019
-ms.author: dapine
-ms.openlocfilehash: 8460ddca5cff2b3da540b5fa8cf66e0687892789
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 6fe07da1e658efa8150c8cafb95bc5719c780aff
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73491143"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879043"
 ---
 Behållaren tillhandahåller [REST-baserade endpoint API:er](../rest-text-to-speech.md). Det finns många [exempel på källkodsprojekt](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/) för plattforms-, ram- och språkvariationer.
 

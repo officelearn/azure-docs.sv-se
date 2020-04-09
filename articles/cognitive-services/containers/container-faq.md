@@ -3,18 +3,18 @@ title: Cognitive Services-behållare med vanliga frågor och svar (FAQ)
 titleSuffix: Azure Cognitive Services
 description: Vanliga frågor och svar.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 11/11/2019
-ms.author: dapine
-ms.openlocfilehash: 33b99d50db4384c7de818a7dd0bb8492c86bef97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 8aae650065e8de11ccdc55a8a056c379a219fcb4
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73961880"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876514"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Cognitive Services-behållare (Vanliga frågor och svar)
 
@@ -26,10 +26,10 @@ ms.locfileid: "73961880"
 
 > [!div class="checklist"]
 > * [Avvikelseidentifiering][ad-containers]
-> * [Datorseende][cv-containers]
+> * [Visuellt innehåll][cv-containers]
 > * [Ansikte][fa-containers]
 > * [Formigenkänning][fr-containers]
-> * [Språk understanding (LUIS)][lu-containers]
+> * [Language Understanding (LUIS)][lu-containers]
 > * [Speech Service API][sp-containers]
 > * [Textanalys][ta-containers]
 
@@ -108,10 +108,10 @@ Utforska följande taggar för potentiella frågor och svar som stämmer överen
 **A.** Kunder debiteras baserat på förbrukning, liknande cognitive services-molnet. Behållarna måste konfigureras för att skicka data för mätning till Azure och transaktioner faktureras därefter. Resurser som används i de värdbaserade och lokala tjänsterna läggs till en kvot med nivåindelad prissättning, vilket räknar mot båda användningarna. Mer information finns på prissidan för motsvarande erbjudande.
 
 * [Avvikelseidentifiering][ad-containers-billing]
-* [Datorseende][cv-containers-billing]
+* [Visuellt innehåll][cv-containers-billing]
 * [Ansikte][fa-containers-billing]
 * [Formigenkänning][fr-containers-billing]
-* [Språk understanding (LUIS)][lu-containers-billing]
+* [Language Understanding (LUIS)][lu-containers-billing]
 * [Speech Service API][sp-containers-billing]
 * [Textanalys][ta-containers-billing]
 
@@ -135,10 +135,10 @@ Utforska följande taggar för potentiella frågor och svar som stämmer överen
 **A.** Cognitive Services-behållare är x64-baserade behållare som kan köra alla kompatibla Linux-nod-, VM- och kantenheter som stöder x64 Linux Docker Containers. De kräver alla CPU-processorer. De minsta och rekommenderade konfigurationerna för varje containererbjudande finns tillgängliga nedan:
 
 * [Avvikelseidentifiering][ad-containers-recommendations]
-* [Datorseende][cv-containers-recommendations]
+* [Visuellt innehåll][cv-containers-recommendations]
 * [Ansikte][fa-containers-recommendations]
 * [Formigenkänning][fr-containers-recommendations]
-* [Språk understanding (LUIS)][lu-containers-recommendations]
+* [Language Understanding (LUIS)][lu-containers-recommendations]
 * [Speech Service API][sp-containers-recommendations]
 * [Textanalys][ta-containers-recommendations]
  

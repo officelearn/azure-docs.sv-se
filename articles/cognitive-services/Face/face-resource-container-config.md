@@ -3,20 +3,20 @@ title: Konfigurera behållare - Ansikte
 titleSuffix: Azure Cognitive Services
 description: Face-behållarens körningsmiljö är `docker run` konfigurerad med hjälp av kommandoargumenten. Det finns både obligatoriska och valfria inställningar.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.author: dapine
-ms.openlocfilehash: 3c78c9eb85c3a8be236be5c3a24bd877db204b6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 2f608843e27b79d02697df8e2a7f2aba6695e10a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76167982"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878433"
 ---
 # <a name="configure-face-docker-containers"></a>Konfigurera Face Docker-behållare
 
@@ -53,7 +53,7 @@ Kom ihåg _Face_ att lägga till ansiktsdirigeringen i slutpunkts-URI:n enligt e
 
 |Krävs| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
-|Ja| `Billing` | String | Fakturering slutpunkt URI. Mer information om hur du hämtar fakturerings-URI finns i [samla in obligatoriska parametrar](face-how-to-install-containers.md#gathering-required-parameters). Mer information och en fullständig lista över regionala slutpunkter finns i [Anpassade underdomännamn för Cognitive Services](../cognitive-services-custom-subdomains.md). |
+|Ja| `Billing` | Sträng | Fakturering slutpunkt URI. Mer information om hur du hämtar fakturerings-URI finns i [samla in obligatoriska parametrar](face-how-to-install-containers.md#gathering-required-parameters). Mer information och en fullständig lista över regionala slutpunkter finns i [Anpassade underdomännamn för Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 <!-- specific to face only -->
 
@@ -82,9 +82,9 @@ Lagringsscenarier och associerade konfigurationsinställningar hanteras av `Stor
 
 | Namn | Datatyp | Beskrivning |
 |------|-----------|-------------|
-| `StorageScenario` | String | Lagringsscenariot som stöds av behållaren. Följande värden är tillgängliga<br/>`Memory`- Standardvärde. Behållaren använder icke-beständig, icke-distribuerad och minnesbaserad lagring, för tillfällig användning med enkel nod. Om behållaren stoppas eller tas bort förstörs lagringen för den behållaren.<br/>`Azure`- Behållaren använder Azure-resurser för lagring. Om behållaren stoppas eller tas bort sparas lagringen för den behållaren.|
-| `ConnectionStringOfAzureStorage` | String | Anslutningssträngen för Azure Storage-resursen som används av behållaren.<br/>Den här inställningen `Azure` gäller endast `StorageScenario` om anges för konfigurationsinställningen. |
-| `ConnectionStringOfCosmosMongo` | String | MongoDB-anslutningssträngen för Azure Cosmos DB-resursen som används av behållaren.<br/>Den här inställningen `Azure` gäller endast `StorageScenario` om anges för konfigurationsinställningen. |
+| `StorageScenario` | Sträng | Lagringsscenariot som stöds av behållaren. Följande värden är tillgängliga<br/>`Memory`- Standardvärde. Behållaren använder icke-beständig, icke-distribuerad och minnesbaserad lagring, för tillfällig användning med enkel nod. Om behållaren stoppas eller tas bort förstörs lagringen för den behållaren.<br/>`Azure`- Behållaren använder Azure-resurser för lagring. Om behållaren stoppas eller tas bort sparas lagringen för den behållaren.|
+| `ConnectionStringOfAzureStorage` | Sträng | Anslutningssträngen för Azure Storage-resursen som används av behållaren.<br/>Den här inställningen `Azure` gäller endast `StorageScenario` om anges för konfigurationsinställningen. |
+| `ConnectionStringOfCosmosMongo` | Sträng | MongoDB-anslutningssträngen för Azure Cosmos DB-resursen som används av behållaren.<br/>Den här inställningen `Azure` gäller endast `StorageScenario` om anges för konfigurationsinställningen. |
 
 Följande kommando anger till exempel Azure-lagringsscenariot och tillhandahåller exempelanslutningssträngar för Azure Storage- och Cosmos DB-resurser som används för att lagra data för Face-behållaren.
 
@@ -124,8 +124,8 @@ Den exakta syntaxen för värdmonteringsplatsen varierar beroende på värdopera
 
 |Valfri| Namn | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
-|Inte tillåten| `Input` | String | Ansiktsbehållare använder inte detta.|
-|Valfri| `Output` | String | Målet för utmatningsfästet. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållarloggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Inte tillåten| `Input` | Sträng | Ansiktsbehållare använder inte detta.|
+|Valfri| `Output` | Sträng | Målet för utmatningsfästet. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållarloggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exempel på dockerkörningskommandon 
 

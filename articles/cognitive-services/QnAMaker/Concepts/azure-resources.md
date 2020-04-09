@@ -3,12 +3,12 @@ title: Azure-resurser - QnA Maker
 description: QnA Maker använder flera Azure-källor, var och en med ett annat syfte. Om du förstår hur de används individuellt kan du planera för och välja rätt prisnivå eller veta när du ska ändra din prisnivå. Förstå hur de används i kombination kan du hitta och åtgärda problem när de uppstår.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 1bd491ecbd878cb7bb05a7eaa5712c75653f2cba
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: 581029d2372f7a2ef704dcf02f266b66440aa246
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804307"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80873913"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Azure-resurser för QnA Maker
 
@@ -49,6 +49,16 @@ Följande tabell ger dig några riktlinjer på hög nivå.
 | Experimentering        | Gratis SKU             | Gratis nivå   | Gratis nivå    | Publicera upp till 2 KBs, 50 MB storlek  |
 | Utvecklings-/testmiljö   | Standard-SKU         | Delad      | Basic        | Publicera upp till 14 KBs, 2 GB storlek    |
 | Produktionsmiljö | Standard-SKU         | Basic       | Standard     | Publicera upp till 49 KBs, 25 GB storlek |
+
+## <a name="recommended-settings"></a>Rekommenderade inställningar
+
+|Mål QPS | App Service | Azure Cognitive Search |
+| -------------------- | ----------- | ------------ |
+| 3             | S1, 1 Instans   | S1, 1 Instans    |
+| 50         | S3, 10 instanser       | S1, 12 instanser         |
+| 80         | S3, 10 instanser      |  S3, 12 instanser  |
+| 100         | P3V2, 10 instanser  | S3, 12 instanser, 3 partitioner   |
+| 200 till 250         | P3V2, 20 instanser | S3, 12 instanser, 3 partitioner    |
 
 ## <a name="when-to-change-a-pricing-tier"></a>När du ska ändra en prisnivå
 
@@ -164,7 +174,7 @@ Använd dessa nycklar när du gör förfrågningar till tjänsten via API:er.
 
 |Namn|Location|Syfte|
 |--|--|--|
-|Skapa nyckel|[Azure Portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|Dessa nycklar används för att komma åt [QnA Maker-hanteringstjänsten API:er](https://go.microsoft.com/fwlink/?linkid=2092179). Med de här API:erna kan du redigera frågorna och svaren i din kunskapsbas och publicera kunskapsbasen. Dessa nycklar skapas när du skapar en ny QnA Maker-tjänst.<br><br>Hitta dessa nycklar på **cognitive services-resursen** på sidan **Nycklar.**|
+|Skapa nyckel|[Azure-portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|Dessa nycklar används för att komma åt [QnA Maker-hanteringstjänsten API:er](https://go.microsoft.com/fwlink/?linkid=2092179). Med de här API:erna kan du redigera frågorna och svaren i din kunskapsbas och publicera kunskapsbasen. Dessa nycklar skapas när du skapar en ny QnA Maker-tjänst.<br><br>Hitta dessa nycklar på **cognitive services-resursen** på sidan **Nycklar.**|
 |Frågeslutpunktsnyckel|[QnA Maker-portalen](https://www.qnamaker.ai)|Dessa nycklar används för att fråga den publicerade kunskapsbasens slutpunkt för att få ett svar på en användarfråga. Du använder vanligtvis den här frågeslutpunkten i chattroboten eller i klientprogramkoden som ansluter till QnA Maker-tjänsten. Dessa nycklar skapas när du publicerar din QnA Maker-kunskapsbas.<br><br>Leta reda på dessa nycklar på sidan **Tjänstinställningar.** Hitta den här sidan från användarens meny längst upp till höger på sidan på rullgardinsmenyn.|
 
 ### <a name="subscription-keys"></a>Prenumerationsnycklar

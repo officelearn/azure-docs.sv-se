@@ -3,20 +3,20 @@ title: Installera och köra behållare - Textanalys
 titleSuffix: Azure Cognitive Services
 description: Så här hämtar, installerar och kör du behållare för TextAnalys i den här genomgången självstudiekurs.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.author: dapine
-ms.openlocfilehash: 65033f9b6599d690b1097b4b78aa01148a40fc39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/01/2020
+ms.author: aahi
+ms.openlocfilehash: 2d44df1bb828140e662b06ffbe5fb14f207f68e0
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79037510"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877081"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installera och kör Textanalys-containrar
 
@@ -51,7 +51,7 @@ Du måste uppfylla följande förutsättningar innan du använder Text Analytics
 
 I följande tabell beskrivs de minsta och rekommenderade CPU-kärnorna, minst 2,6 gigahertz (GHz) eller snabbare, och minne, i gigabyte (GB), att allokera för varje Text Analytics-behållare.
 
-# <a name="key-phrase-extraction"></a>[Extrahering av diskussionsämne](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[Extrahering av nyckelfraser](#tab/keyphrase)
 
 [!INCLUDE [key-phrase-extraction-container-requirements](../includes/key-phrase-extraction-container-requirements.md)]
 
@@ -74,7 +74,7 @@ Kärna och minne `--cpus` motsvarar `--memory` och inställningar, som används 
 
 Behållaravbildningar för TextAnalys finns i Microsofts behållarregister.
 
-# <a name="key-phrase-extraction"></a>[Extrahering av diskussionsämne](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[Extrahering av nyckelfraser](#tab/keyphrase)
 
 [!INCLUDE [key-phrase-extraction-container-repository](../includes/key-phrase-extraction-container-repository.md)]
 
@@ -92,7 +92,7 @@ Behållaravbildningar för TextAnalys finns i Microsofts behållarregister.
 
 ### <a name="docker-pull-for-the-text-analytics-containers"></a>Docker dra för Text Analytics-behållarna
 
-# <a name="key-phrase-extraction"></a>[Extrahering av diskussionsämne](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[Extrahering av nyckelfraser](#tab/keyphrase)
 
 [!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
@@ -119,7 +119,7 @@ Använd [kommandot docker run](https://docs.docker.com/engine/reference/commandl
 
 [Exempel](../text-analytics-resource-container-config.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga.
 
-# <a name="key-phrase-extraction"></a>[Extrahering av diskussionsämne](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[Extrahering av nyckelfraser](#tab/keyphrase)
 
 [!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
 
@@ -175,7 +175,7 @@ Mer information om dessa alternativ finns i [Konfigurera behållare](../text-ana
 I den här artikeln har du lärt dig begrepp och arbetsflöden för att hämta, installera och köra Text Analytics-behållare. Sammanfattningsvis:
 
 * Text Analytics tillhandahåller tre Linux-behållare för Docker, som kapslar in olika funktioner:
-   * *Extrahering av diskussionsämne*
+   * *Extrahering av nyckelfraser*
    * *Språkidentifiering*
    * *Attitydanalys*
 * Behållaravbildningar hämtas från MCR (Microsoft Container Registry) i Azure.

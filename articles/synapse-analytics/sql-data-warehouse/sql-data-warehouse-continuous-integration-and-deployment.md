@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 82fbaf7fceec72c925f07e002847611dfd0e4b65
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: c5a326c07c8c2b0e5482361060c25c06d25643c1
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745341"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874151"
 ---
 # <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Kontinuerlig integrering och distribution för datalagring
 
@@ -46,7 +46,7 @@ Nu har du en enkel miljö där alla incheckningar till källkontrolldatabasens h
 
 ## <a name="continuous-deployment-with-the-azure-sql-data-warehouse-or-database-deployment-task"></a>Kontinuerlig distribution med distributionsuppgiften för Azure SQL Data Warehouse (eller Databas)
 
-1. Lägg till en ny uppgift med hjälp av [distributionsuppgiften för Azure SQL Database](/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och fyll i de obligatoriska fälten för att ansluta till ditt måldatalager. När den här aktiviteten körs distribueras DACPAC som genererats från den tidigare byggprocessen till måldatalagret. Du kan också använda [distributionsuppgiften för Azure SQL Data Warehouse](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment).
+1. Lägg till en ny uppgift med hjälp av [distributionsuppgiften för Azure SQL Database](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-sqldb?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och fyll i de obligatoriska fälten för att ansluta till ditt måldatalager. När den här aktiviteten körs distribueras DACPAC som genererats från den tidigare byggprocessen till måldatalagret. Du kan också använda [distributionsuppgiften för Azure SQL Data Warehouse](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment).
 
       ![Distributionsaktivitet](./media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "Distributionsaktivitet")
 

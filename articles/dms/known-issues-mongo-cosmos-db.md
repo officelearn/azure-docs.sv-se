@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 194da036260a78b27748dfc7f755212ab4f30b1e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae5d5f2d282c546f5172ca1c8cb0e420d3b6e96b
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78256036"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878059"
 ---
 # <a name="known-issuesmigration-limitations-with-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Kända problem/migreringsbegränsningar med migreringar från MongoDB till Azure Cosmos DB:s API för MongoDB
 
@@ -45,7 +45,7 @@ Kända problem och begränsningar som är associerade med migreringar från Mong
 
 | Orsak         | Lösning |
 | ------------- | ------------- |
-| Du försöker migrera till Azure Cosmos DB från en version av MongoDB som inte stöds. | När nya versioner av MongoDB släpps testas de för att säkerställa kompatibilitet med Azure Database Migration Service och tjänsten uppdateras regelbundet för att acceptera den senaste versionen(er). Om det finns ett omedelbart behov av att migrera kan du som en lösning exportera databaser/samlingar till Azure Storage och peka källan till den resulterande dumpen. Skapa SAS på blob-behållaren i Storage Explorer och använd sedan URL:en med sas-information för behållare som anslutningssträng för källinformation.<br><br> |
+| Du försöker migrera till Azure Cosmos DB från en version av MongoDB som inte stöds. | När nya versioner av MongoDB släpps testas de för att säkerställa kompatibilitet med Azure Database Migration Service och tjänsten uppdateras regelbundet för att acceptera den senaste versionen(er). Om det finns ett omedelbart behov av att migrera kan du som en lösning exportera databaser/samlingar till Azure Storage och sedan peka källan till den resulterande dumpen. Skapa SAS på blob-behållaren i Storage Explorer och använd sedan URL:en med sas-information för behållare som anslutningssträng för källinformation.<br><br> |
 
 ## <a name="next-steps"></a>Nästa steg
 

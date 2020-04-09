@@ -5,32 +5,28 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/18/2019
-ms.openlocfilehash: 9498f2cf56f0bfe20d0806e5dc9872403dabb180
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/07/2020
+ms.openlocfilehash: 67d5481b82b7469c5ae55704768ce494dbc9dca5
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979096"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879147"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Skapa Apache Hadoop-kluster i HDInsight med hjälp av Resource Manager-mallar
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-I den här artikeln lär du dig flera sätt att skapa Azure HDInsight-kluster med Azure Resource Manager-mallar. Mer information finns i [Distribuera ett program med Azure Resource Manager-mall](../azure-resource-manager/templates/deploy-powershell.md). Om du vill veta mer om andra verktyg och funktioner för att skapa kluster klickar du på flikväljaren högst upp på den här sidan eller läser [Metoder för att skapa kluster](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods).
+I den här artikeln lär du dig flera sätt att skapa Azure HDInsight-kluster med [Azure Resource Manager-mallar](../azure-resource-manager/templates/deploy-powershell.md). Om du vill veta mer om andra verktyg och funktioner för att skapa kluster klickar du på flikväljaren högst upp på den här sidan. Se även [metoder för att skapa kluster](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods).
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="prerequisites"></a>Krav
-
-* En [Azure-prenumeration](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Azure PowerShell och/eller Azure CLI.
-
-### <a name="resource-manager-templates"></a>Mallar för Resurshanteraren
+## <a name="resource-manager-templates"></a>Mallar för Resurshanteraren
 
 En Resource Manager-mall gör det enkelt att skapa följande resurser för ditt program i en enda samordnad åtgärd:
+
 * HDInsight-kluster och deras beroende resurser (till exempel standardlagringskontot).
 * Andra resurser (till exempel Azure SQL Database för att använda [Apache Sqoop](https://sqoop.apache.org/)).
 

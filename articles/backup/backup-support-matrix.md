@@ -3,12 +3,12 @@ title: Stödmatris för Azure Backup
 description: Innehåller en sammanfattning av stödinställningar och begränsningar för Azure Backup-tjänsten.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: d036e527880a98d323e8de2f3a8721d7e12dbb07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 120882b15dcf9f27c280984ff6d0df31e38ebb73
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79273272"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878960"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Supportmatris för Azure Backup
 
@@ -135,7 +135,7 @@ Säkerhetskopiering stöder komprimering av säkerhetskopieringstrafik, som samm
 
 ## <a name="retention-limits"></a>Gräns för kvarhållning
 
-**Inställning** | **Gränser**
+**Inställning** | **Begränsningar**
 --- | ---
 **Max återställningspunkter per skyddad instans (maskin eller arbetsbelastning)** | 9,999
 **Maximal förfallotid för en återställningspunkt** | Obegränsad
@@ -151,7 +151,7 @@ Azure Backup har lagt till funktionen Återställning av flera regioner för att
 
 | Typ av säkerhetskopieringshantering | Stöds                                                    | Regioner som stöds |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | Ja. Offentlig begränsad förhandsversion stöds för krypterade virtuella datorer och virtuella datorer med mindre än 4 TB diskar | USA, västra centrala   |
+| Azure VM               | Ja.   Stöds för krypterade virtuella datorer och virtuella datorer med mindre än 4 TB diskar | Alla offentliga Azure-regioner.  |
 | MARS Agent/På plats | Inga                                                           | Ej tillämpligt               |
 | SQL /SAP HANA          | Inga                                                           | Ej tillämpligt               |
 | Afs                    | Inga                                                           | Ej tillämpligt               |

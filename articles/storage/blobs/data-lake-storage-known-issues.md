@@ -8,28 +8,28 @@ ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 4f8fae6580272ed53b8d440ba3e74c6a1ed1e61a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f69f17dc9d0cab2491a2c7f37b5bd082cc96b2d6
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061515"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985430"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
 I den här artikeln beskrivs begränsningar och kända problem med Azure Data Lake Storage Gen2.
 
-## <a name="supported-blob-storage-features"></a>Blob-lagringsfunktioner som stöds
+## <a name="supported-blob-storage-features"></a>Blob Storage-funktioner som stöds
 
 Ett ökande antal Blob-lagringsfunktioner fungerar nu med konton som har ett hierarkiskt namnområde. En fullständig lista finns [i Blob Storage-funktioner som är tillgängliga i Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
 
 ## <a name="supported-azure-service-integrations"></a>Integreringar av Azure-tjänster som stöds
 
-Gen2 för DataSjölagring stöder flera Azure-tjänster som du kan använda för att använda data, utföra analyser och skapa visuella representationer. En lista över Azure-tjänster som stöds finns i [Azure-tjänster som stöder Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
+Azure Data Lake Storage Gen2 stöder flera Azure-tjänster som du kan använda för att använda för att få tillgång till data, utföra analyser och skapa visuella representationer. En lista över Azure-tjänster som stöds finns i [Azure-tjänster som stöder Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
 Se [Azure-tjänster som stöder Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
-## <a name="supported-open-source-platforms"></a>Plattformar med öppen källkod som stöds
+## <a name="supported-open-source-platforms"></a>Plattformar för öppen källkod som stöds
 
 Flera plattformar med öppen källkod stöder Data Lake Storage Gen2. En fullständig lista finns i [Plattformar med öppen källkod som stöder Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
@@ -112,11 +112,8 @@ Program från tredje part som använder REST-API:er för att fungera fortsätter
 
 Om [anonym läsåtkomst](storage-manage-access-to-resources.md) har beviljats till en behållare har ACL:er ingen effekt på behållaren eller filerna i behållaren.
 
-## <a name="windows-azure-storage-blob-wasb-driver"></a>Windows Azure Storage Blob (WASB) drivrutin
+## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-adls-gen2"></a>Windows Azure Storage Blob (WASB) drivrutin (stöds inte med ADLS Gen2)
 
-För närvarande finns det flera problem med att använda WASB-drivrutinen tillsammans med konton som har ett hierarkiskt namnområde. Vi rekommenderar att du använder [ABFS-drivrutinen (Azure Blob File System)](data-lake-storage-abfs-driver.md) i dina arbetsbelastningar. 
+För närvarande stöter WASB-drivrutinen - som endast har utformats för att fungera med Blob API - på problem i några vanliga scenarier, det vill än när det är en klient till ett namnområdesaktiverat lagringskonto. Observera att MPA (Multi-Protocol Access) inte heller minskar dessa problem. 
 
-
-
-
-
+För närvarande (och troligen inom överskådlig framtid), kommer vi inte att stödja kunder som använder WASB-drivrutinen som klient till ett namnområdesaktiverat lagringskonto. Vi rekommenderar istället att du väljer att använda [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) drivrutin i din Hadoop-miljö. Om du försöker migrera från en lokal Hadoop-miljö med en tidigare version än Hadoop branch-3, öppnar du en Azure-supportbiljett så att vi kan komma i kontakt med dig på rätt väg framåt för dig och din organisation.

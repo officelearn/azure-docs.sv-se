@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 01e683e31905281d25fdcf976bc58397c052a6c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9c1cff53d5d0f0385d3d61938c7fb6309efb7b1
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243190"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985396"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrera en virtuell SQL Server-dator i Azure med SQL VM-resursprovidern
 
@@ -42,7 +42,7 @@ Distribuera en SQL Server VM Azure Marketplace avbildning via Azure-portalen reg
    $vms | Where-Object {$_.sqlServerLicenseType -eq "AHUB"}
    ```
 
-   # <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+   # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
    ```powershell-interactive
    Get-AzSqlVM | Where-Object {$_.LicenseType -eq 'AHUB'}
@@ -113,7 +113,7 @@ Registrera din SQL VM-resursleverantör till din Azure-prenumeration med antinge
 az provider register --namespace Microsoft.SqlVirtualMachine 
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell-interactive
 # Register the SQL VM resource provider to your subscription
@@ -142,7 +142,7 @@ Registrera VIRTUELL SQL Server i lättviktsläge med Az CLI:
   ```
 
 
-# <a name="powershell"></a>[Powershell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Registrera virtuell SQL Server i lättläge med PowerShell:  
 
@@ -178,7 +178,7 @@ Om du vill registrera din VIRTUELLA SQL Server direkt i fullt läge (och eventue
 
 SQL Server 2008 och 2008 R2 installerat på Windows Server 2008 _(inte R2_) kan registreras med SQL VM-resursprovidern i [noagentläge](#management-modes). Det här alternativet säkerställer efterlevnad och gör att SQL Server-virtuella datorer kan övervakas i Azure-portalen med begränsad funktionalitet.
 
-Ange `AHUB`antingen `PAYG`, `DR` , eller som **sqlLicenseType**och antingen `SQL2008-WS2008` eller `SQL2008R2-WS2008` som **sqlImageOffer**. 
+Ange `AHUB`antingen `PAYG`, `DR` , eller som **sqlLicenseType**och `SQL2008-WS2008` eller `SQL2008R2-WS2008`som **sqlImageOffer**. 
 
 Om du vill registrera SQL Server 2008- eller 2008 R2-instansen i Windows Server 2008 använder du följande Az CLI- eller PowerShell-kodavsnitt: 
 
@@ -190,7 +190,7 @@ Registrera din virtuella SQL Server 2008-dator i NoAgent-läge med Az CLI:
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
    --license-type PAYG --sql-mgmt-type NoAgent 
-   --image-sku Enterprise --image-offer SQL2008-WS2008R2
+   --image-sku Enterprise --image-offer SQL2008-WS2008
  ```
  
  
@@ -199,10 +199,10 @@ Registrera din VIRTUELLA SQL Server 2008 R2 i NoAgent-läge med Az CLI:
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
    --license-type PAYG --sql-mgmt-type NoAgent 
-   --image-sku Enterprise --image-offer SQL2008R2-WS2008R2
+   --image-sku Enterprise --image-offer SQL2008R2-WS2008
  ```
 
-# <a name="powershell"></a>[Powershell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Registrera virtuell DATOR FÖR SQL Server 2008 i NoAgent-läge med PowerShell: 
 
@@ -267,7 +267,7 @@ Kör följande Az CLI-kodavsnitt:
   az sql vm update --name <vm_name> --resource-group <resource_group_name> --sql-mgmt-type full  
   ```
 
-# <a name="powershell"></a>[Powershell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Kör följande PowerShell-kodavsnitt:
 
@@ -304,7 +304,7 @@ Verifiera aktuell registreringsstatus för SQL Server-vm med antingen Az CLI ell
   az sql vm show -n <vm_name> -g <resource_group>
  ```
 
-# <a name="powershell"></a>[Powershell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
   ```powershell-interactive
   Get-AzSqlVM -Name <vm_name> -ResourceGroupName <resource_group>
@@ -356,7 +356,7 @@ az sql vm delete
   --yes 
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Om du vill avregistrera den virtuella SQL Server-datorn från resursprovidern med Azure CLI använder du kommandot [Ny-AzSqlVM.](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) Detta tar bort sql server-resursen *för* virtuella datorer, men tar inte bort den virtuella datorn. 
 
 ```powershell-interactive

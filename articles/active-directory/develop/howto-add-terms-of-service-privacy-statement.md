@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/22/2019
 ms.author: ryanwi
-ms.reviwer: lenalepa, sureshja
+ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 8fc85781f139b45e9e37f6e0f7cc36974041352d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40e7a05505bc501c1c622e627a6d97cc57db1cfa
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78300017"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884247"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Så här konfigurerar du användarvillkor och sekretesspolicy för en app
 
@@ -55,7 +55,7 @@ När användarvillkoren och sekretesspolicyn är klara kan du lägga till länka
 * [Använda appobjektet JSON](#app-object-json)
 * [Använda Microsoft Graph API](#msgraph-rest-api)
 
-### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Använda Azure-portalen
+### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Använda Azure Portal
 Följ dessa steg i Azure-portalen.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).

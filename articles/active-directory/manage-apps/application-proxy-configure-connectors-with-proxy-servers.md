@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 04/07/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fe3a63e119fed6825982b9de13bc78cb7da5415
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0aafb971ca1ce812a68045f7d0c0c2ab7f532133
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481406"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877396"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Arbeta med befintliga lokala proxyservrar
 
@@ -27,6 +27,7 @@ Vi börjar med att titta på dessa huvudsakliga distributionsscenarier:
 
 * Konfigurera kopplingar för att kringgå lokala utgående proxyservrar.
 * Konfigurera kopplingar för att använda en utgående proxy för att komma åt Azure AD Application Proxy.
+* Konfigurera med hjälp av en proxy mellan anslutnings- och serverkopplingsprogrammet.
 
 Mer information om hur anslutningsappar fungerar finns i avsnittet om att [förstå anslutningsappar för Azure AD-programproxy](application-proxy-connectors.md).
 
@@ -137,6 +138,23 @@ Anslutningen gör utgående TLS-baserade anslutningar med hjälp av CONNECT-meto
 #### <a name="tls-inspection"></a>TLS inspektion
 
 Använd inte TLS-inspektion för anslutningstrafiken eftersom det orsakar problem för anslutningstrafiken. Anslutningen använder ett certifikat för att autentisera till application proxy-tjänsten och det certifikatet kan gå förlorat under TLS-inspektionen.
+
+## <a name="configure-using-a-proxy-between-the-connector-and-backend-application"></a>Konfigurera med hjälp av en proxy mellan anslutnings- och serverkopplingsprogrammet
+Att använda en framåtproxy för kommunikationen mot backend-programmet kan vara ett särskilt krav i vissa miljöer.
+Så här aktiverar du följande steg:
+
+### <a name="step-1-add-the-required-registry-value-to-the-server"></a>Steg 1: Lägga till det registervärde som krävs på servern
+1. Om du vill aktivera användning av standardproxy `UseDefaultProxyForBackendRequests = 1` lägga till följande registervärde (DWORD) i registernyckeln för anslutningskonfiguration i "HKEY_LOCAL_MACHINE\Software\Microsoft\Microsoft AAD App Proxy Connector".
+
+### <a name="step-2-configure-the-proxy-server-manually-using-netsh-command"></a>Steg 2: Konfigurera proxyservern manuellt med kommandot netsh
+1.  Aktivera grupprincipen Gör proxyinställningar per dator. Detta finns i: Datorkonfiguration\Principer\Administrativa mallar\Windows-komponenter\Internet Explorer. Detta måste ställas in i stället för att den här principen ska ställas in per användare.
+2.  Kör `gpupdate /force` på servern eller starta om servern för att säkerställa att den använder de uppdaterade grupprincipinställningarna.
+3.  Starta en upphöjd kommandotolk `control inetcpl.cpl`med administratörsrättigheter och ange .
+4.  Konfigurera de proxyinställningar som krävs. 
+
+Dessa inställningar gör att anslutningen använder samma vidarebefordra proxy för kommunikationen till Azure och till backend-programmet. Om anslutningen till Azure-kommunikationen inte kräver någon vidarebefordran proxy eller en annan vidarebefordra proxy, kan du ställa in detta med att ändra filen ApplicationProxyConnectorService.exe.config som beskrivs i avsnitten Kringgå utgående proxyservrar eller Använd den utgående proxyservern.
+
+Anslutningsuppdateringstjänsten kommer också att använda maskinproxyn. Det här problemet kan ändras genom att ändra filen ApplicationProxyConnectorUpdaterService.exe.config.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>Felsöka problem med anslutningsproxy och problem med tjänstanslutningen
 

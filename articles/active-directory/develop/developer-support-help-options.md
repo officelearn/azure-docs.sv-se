@@ -1,10 +1,9 @@
 ---
-title: Support- och hjälpalternativ för Azure AD-apputvecklare | Microsoft-dokument
+title: Support- och hjälpalternativ för Azure AD-apputvecklare
 description: Lär dig hur du får hjälp och stöd för utvecklingsrelaterade frågor och problem när du skapar program som integreras med Microsoft-identiteter (Azure Active Directory och Microsoft-konto)
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
@@ -13,16 +12,16 @@ ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 89bf49fb44d8575b251a0b33698bc4ce8425cc2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea1afd2ecac8974c0e865e235288da545a9f1244
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77160975"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885539"
 ---
 # <a name="support-and-help-options-for-developers"></a>Support- och hjälpalternativ för utvecklare
 
-Om du precis har börjat integrera med Azure Active Directory (Azure AD), Microsoft-identiteter eller Microsoft Graph API, eller när du implementerar en ny funktion i ditt program, finns det tillfällen då du behöver få hjälp från communityn eller förstå supportalternativ som du har som utvecklare. Den här artikeln hjälper dig att förstå dessa alternativ, inklusive:
+Om du precis har börjat integrera med Azure Active Directory (Azure AD), Microsoft-identiteter eller Microsoft Graph API, eller när du implementerar en ny funktion i ditt program, finns det tillfällen då du behöver få hjälp från communityn eller förstå de supportalternativ som du har som utvecklare. Den här artikeln hjälper dig att förstå dessa alternativ, inklusive:
 
 > [!div class="checklist"]
 > * Så här söker du efter om din fråga inte har besvarats av communityn eller om det redan finns en befintlig dokumentation för funktionen som du försöker implementera

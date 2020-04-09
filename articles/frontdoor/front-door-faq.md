@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 1cfee9749bf2eb30799efb05ac875843bcde6651
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0fe5d245d629c731a47ca5441afd2a3388a22de4
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372618"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878025"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Vanliga frågor och svar för Azure Front Door
 
@@ -34,7 +34,7 @@ Azure Front Door är ett ADN-nätverk (Application Delivery Network) som en tjä
 
 ### <a name="what-features-does-azure-front-door-support"></a>Vilka funktioner stöder Azure Front Door?
 
-Azure Front Door stöder dynamisk webbplatsacceleration (DSA), SSL-avlastning och på SSL, brandvägg för webbprogram, cookie-baserad sessionstillhörighet, url-sökvägsbaserad routning, kostnadsfria certifikat och flera domänhanteringer och andra. En fullständig lista över funktioner som stöds finns i [Översikt över Azure Front Door](front-door-overview.md).
+Azure Front Door stöder dynamisk webbplatsacceleration (DSA), TLS/SSL-avlastning och på TLS, webbprogrambrandvägg, cookie-baserad sessionstillhörighet, url-sökvägsbaserad routning, kostnadsfria certifikat och flera domänhanteringer och andra. En fullständig lista över funktioner som stöds finns i [Översikt över Azure Front Door](front-door-overview.md).
 
 ### <a name="what-is-the-difference-between-azure-front-door-and-azure-application-gateway"></a>Vad är skillnaden mellan Azure Front Door och Azure Application Gateway?
 
@@ -46,7 +46,7 @@ De viktigaste scenarierna varför man bör använda Application Gateway bakom Yt
 
 - Ytterdörren kan utföra sökvägsbaserad belastningsutjämning endast på global nivå, men om man vill belastningsjämna trafik ytterligare inom sitt virtuella nätverk (VNET) så bör de använda Application Gateway.
 - Eftersom ytterdörren inte fungerar på en VM/container-nivå, så det kan inte göra anslutningsdränning. Med Application Gateway kan du dock göra anslutningsdränning. 
-- Med en Application Gateway bakom AFD kan man uppnå 100% SSL avlastning och dirigera endast HTTP-begäranden inom deras virtuella nätverk (VNET).
+- Med en Application Gateway bakom AFD kan man uppnå 100% TLS/SSL avlastning och dirigera endast HTTP-begäranden inom deras virtuella nätverk (VNET).
 - Ytterdörren och Application Gateway stöder båda sessionstillhörighet. Front Door kan dirigera efterföljande trafik från en användarsession till samma kluster eller serverdel i en viss region, men Application Gateway kan direkt affinera trafiken till samma server i klustret.  
 
 ### <a name="can-we-deploy-azure-load-balancer-behind-front-door"></a>Kan vi distribuera Azure Load Balancer bakom ytterdörren?
@@ -118,7 +118,7 @@ Läs mer om [http-rubriker som stöds](front-door-http-headers-protocol.md)av yt
 
 En ny frontdörr skapande eller några uppdateringar av en befintlig ytterdörr tar ca 3 till 5 minuter för global distribution. Det innebär att om cirka 3 till 5 minuter kommer din frontdörrkonfiguration att distribueras över alla våra POP globalt.
 
-Det tar cirka 30 minuter att distribuera anpassade SSL-certifikatuppdateringar som ska distribueras globalt.
+Anpassade TLS/SSL-certifikatuppdateringar tar cirka 30 minuter att distribuera globalt.
 
 Alla uppdateringar av vägar eller backend-pooler etc. är sömlösa och orsakar noll driftstopp (om den nya konfigurationen är korrekt). Certifikatuppdateringar är också atomära och kommer inte att orsaka något avbrott, om inte byta från "AFD Managed" till "Använd din egen cert" eller vice versa.
 
@@ -139,7 +139,7 @@ Lär dig mer om alla dokumenterade [timeout och gränser för Azure Front Door](
 
 Azure Front Door är en globalt distribuerad plattform för flera innehavare med stor kapacitet för att tillgodose programmets skalbarhetsbehov. Front Door levereras från kanten av Microsofts globala nätverk och erbjuder globala belastningsutjämningsfunktioner som gör att du kan växla över hela programmet eller till och med enskilda mikrotjänster över regioner eller olika moln.
 
-## <a name="ssl-configuration"></a>SSL-konfiguration
+## <a name="tls-configuration"></a>TLS-konfiguration
 
 ### <a name="what-tls-versions-are-supported-by-azure-front-door"></a>Vilka TLS-versioner stöds av Azure Front Door?
 
@@ -150,12 +150,12 @@ Ytterdörren stöder TLS version 1.0, 1.1 och 1.2. TLS 1.3 stöds ännu inte.
 ### <a name="what-certificates-are-supported-on-azure-front-door"></a>Vilka certifikat stöds på Azure Front Door?
 
 Om du vill aktivera HTTPS-protokollet för att på ett säkert sätt leverera innehåll på en anpassad domän för ytterdörren kan du välja att använda ett certifikat som hanteras av Azure Front Door eller använda ditt eget certifikat.
-Ytterdörrens hanterade alternativ etablerar ett standard SSL-certifikat via Digicert och lagras i Front Door's Key Vault. Om du väljer att använda ditt eget certifikat kan du gå in på ett certifikat från en certifikatutfärdare som stöds och kan vara ett standard-SSL-, utökat valideringscertifikat eller till och med ett jokerteckencertifikat. Självsignerade certifikat stöds inte. Lär dig hur du [aktiverar HTTPS för en anpassad domän](https://aka.ms/FrontDoorCustomDomainHTTPS).
+Ytterdörrens hanterade alternativ etablerar ett standard-TLS/SSL-certifikat via Digicert och lagras i Front Door's Key Vault. Om du väljer att använda ditt eget certifikat kan du gå in på ett certifikat från en certifikatutfärdare som stöds och kan vara ett standard-TLS- utökat valideringscertifikat eller till och med ett jokerteckencertifikat. Självsignerade certifikat stöds inte. Lär dig hur du [aktiverar HTTPS för en anpassad domän](https://aka.ms/FrontDoorCustomDomainHTTPS).
 
 ### <a name="does-front-door-support-autorotation-of-certificates"></a>Stöder ytterdörren autorotation av certifikat?
 
 För alternativet Ytterdörr hanteras certifikat, är certifikaten autorotated av ytterdörren. Om du använder ett certifikat för ytterdörrshanterad och se till att certifikatets utgångsdatum är mindre än 60 dagar bort lämnar du in en supportbiljett.
-</br>För ditt eget anpassade SSL-certifikat stöds inte autorotation. I likhet med hur det inrättades första gången för en viss anpassad domän, måste du peka ytterdörren till rätt certifikatversion i key vault och se till att tjänstens huvudnamn för Ytterdörren fortfarande har tillgång till Key Vault. Den här uppdaterade certifikatutrullningen av Ytterdörren är atomär och orsakar ingen produktionspåverkan förutsatt att ämnesnamnet eller SAN för certifikatet inte ändras.
+</br>För ditt eget anpassade TLS/SSL-certifikat stöds inte autorotation. I likhet med hur det inrättades första gången för en viss anpassad domän, måste du peka ytterdörren till rätt certifikatversion i key vault och se till att tjänstens huvudnamn för Ytterdörren fortfarande har tillgång till Key Vault. Den här uppdaterade certifikatutrullningen av Ytterdörren är atomär och orsakar ingen produktionspåverkan förutsatt att ämnesnamnet eller SAN för certifikatet inte ändras.
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door"></a>Vilka är de aktuella chiffersviterna som stöds av Azure Front Door?
 
@@ -182,13 +182,13 @@ Följande är de aktuella chiffersviterna som stöds av Azure Front Door:
 - TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 - TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 
-### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>Kan jag konfigurera SSL-principen för att styra SSL-protokollversioner?
+### <a name="can-i-configure-tls-policy-to-control-tls-protocol-versions"></a>Kan jag konfigurera TLS-principen för att styra TLS-protokollversioner?
 
 Du kan konfigurera en minsta TLS-version i Azure Front Door i de anpassade domän-HTTPS-inställningarna via Azure-portalen eller [Azure REST API](https://docs.microsoft.com/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). För närvarande kan du välja mellan 1,0 och 1,2.
 
 ### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>Kan jag konfigurera ytterdörren så att den bara stöder specifika chiffersviter?
 
-Nej, det går inte att konfigurera ytterdörren för specifika chiffersviter. Du kan dock få ett eget anpassat SSL-certifikat från certifikatutfärdaren (t.o.d. Verisign, Entrust eller Digicert) och ha specifika chiffersviter markerade på certifikatet när du har genererat det. 
+Nej, det går inte att konfigurera ytterdörren för specifika chiffersviter. Du kan dock få ditt eget anpassade TLS/SSL-certifikat från certifikatutfärdaren (t.o.d. Verisign, Entrust eller Digicert) och ha specifika chiffersviter markerade på certifikatet när du har genererat det. 
 
 ### <a name="does-front-door-support-ocsp-stapling"></a>Har Ytterdörren stöd OCSP häftning?
 
@@ -196,20 +196,20 @@ Ja, OCSP häftning stöds som standard av Ytterdörren och ingen konfiguration k
 
 ### <a name="does-azure-front-door-also-support-re-encryption-of-traffic-to-the-backend"></a>Stöder Azure Front Door också omkryptering av trafik till backend?
 
-Ja, Azure Front Door stöder SSL-avlastning och end to end SSL, som krypterar om trafiken till backend. Eftersom anslutningarna till serverdelen sker över den offentliga IP-adressen rekommenderar vi att du konfigurerar ytterdörren så att den använder HTTPS som vidarebefordringsprotokoll.
+Ja, Azure Front Door stöder TLS/SSL-avlastning och end to end TLS, som krypterar om trafiken till backend. Eftersom anslutningarna till serverdelen sker över den offentliga IP-adressen rekommenderar vi att du konfigurerar ytterdörren så att den använder HTTPS som vidarebefordringsprotokoll.
 
 ### <a name="does-front-door-support-self-signed-certificates-on-the-backend-for-https-connection"></a>Stöder Ytterdörren självsignerade certifikat på serverdelen för HTTPS-anslutning?
 
 Nej, självsignerade certifikat stöds inte på ytterdörren och begränsningen gäller både:
 
 1. **Serverföringar:** Du kan inte använda självsignerade certifikat när du vidarebefordrar trafiken som HTTPS- eller HTTPS-hälsoavsökningar eller fyller cacheminnet för från-ursprung för routningsregler med cachelagring aktiverad.
-2. **Klientdel:** Du kan inte använda självsignerade certifikat när du använder ditt eget anpassade SSL-certifikat för att aktivera HTTPS på din anpassade domän.
+2. **Klientdel:** Du kan inte använda självsignerade certifikat när du använder ditt eget anpassade TLS/SSL-certifikat för att aktivera HTTPS på din anpassade domän.
 
 ### <a name="why-is-https-traffic-to-my-backend-failing"></a>Varför misslyckas HTTPS-trafik till min backend?
 
 För att ha lyckade HTTPS-anslutningar till serveringen oavsett om det gäller hälsoavsökningar eller för vidarebefordringsbegäranden kan det finnas två orsaker till att HTTPS-trafik kan misslyckas:
 
-1. **Certifikatämnesnamn matchar inte:** För HTTPS-anslutningar förväntar sig Front Door att serverdelen visar certifikat från en giltig certifikatutfärdare med ämnesnamn som matchar serverdelsvärden. Om ditt serverdelsvärdnamn är inställt `myapp-centralus.contosonews.net` på och certifikatet som serverdelen presenterar under `myapp-centralus.contosonews.net` SSL-handskakningen varken har eller `*myapp-centralus*.contosonews.net` i ämnesnamnet, kommer ytterdörren att avvisa anslutningen och resultera i ett fel. 
+1. **Certifikatämnesnamn matchar inte:** För HTTPS-anslutningar förväntar sig Front Door att serverdelen visar certifikat från en giltig certifikatutfärdare med ämnesnamn som matchar serverdelsvärden. Om ditt serverdelsvärdnamn är inställt `myapp-centralus.contosonews.net` på och certifikatet som serverdelen visar under TLS-handskakningen varken har `myapp-centralus.contosonews.net` eller `*myapp-centralus*.contosonews.net` i ämnesnamnet, kommer ytterdörren att vägra anslutningen och resultera i ett fel. 
     1. **Lösning**: Även om det inte rekommenderas från en efterlevnad synvinkel, kan du lösa det här felet genom att inaktivera certifikatämnesnamn kontrollera din ytterdörr. Detta finns under Inställningar i Azure-portalen och under BackendPoolsSettings i API:et.
 2. **Serverdelsvärd certifikat från ogiltig certifikatutfärdare:** Endast certifikat från [giltiga certifikatutfärdare](/azure/frontdoor/front-door-troubleshoot-allowed-ca) kan användas i serverdelen med ytterdörren. Certifikat från interna certifikatutfärdare eller självsignerade certifikat är inte tillåtna.
 

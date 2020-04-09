@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 8b4ec003888d75a582d25feef8ed2ce010fa7996
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: f25abb70a95f559cf0cc14efa6cf9f0e81ec9ec0
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546240"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876300"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Referensguide för Azure Active Directory-autentiseringsåtgärder
 
@@ -64,7 +64,7 @@ Använd tabellen nedan för att hitta den rekommenderade lösningen för att min
 | Ingen mekanism för att skydda mot svaga lösenord | Aktivera [Azure AD-självbetjäningslösenordsåterställning (SSPR)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks) och [lösenordsskydd](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) |
 | Ingen mekanism för att upptäcka läckta lösenord | Aktivera [PHS (Password Hash Sync)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) för att få insikter |
 | Använda AD FS och inte gå över till hanterad autentisering | Aktivera [AD FS Extranet Smart Lockout](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) och /eller Azure AD Smart [Lockout](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout) |
-| Lösenordsprincipen använder komplexitetsbaserade regler som längd, flera teckenuppsättningar eller förfallodatum | Ompröva till förmån för [Microsofts rekommenderade metoder](https://aka.ms/passwordguidance) och byt metod till lösenordshantering och distribuera [Azure AD-lösenordsskydd](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad). |
+| Lösenordsprincipen använder komplexitetsbaserade regler som längd, flera teckenuppsättningar eller förfallodatum | Ompröva till förmån för [Microsofts rekommenderade metoder](https://www.microsoft.com/research/publication/password-guidance/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F265143%2Fmicrosoft_password_guidance.pdf) och byt metod till lösenordshantering och distribuera [Azure AD-lösenordsskydd](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad). |
 | Användare är inte registrerade för att använda multifaktorautentisering (MFA) | [Registrera alla användares säkerhetsinformation](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-mfa-policy) så att den kan användas som en mekanism för att verifiera användarens identitet tillsammans med deras lösenord |
 | Det finns ingen återkallande av lösenord baserat på användarrisk | Distribuera Azure AD [Identity Protection användarriskprinciper](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy) för att tvinga lösenordsändringar på läckta autentiseringsuppgifter med SSPR |
 | Det finns ingen smart utelåsningsmekanism för att skydda skadlig autentisering från dåliga aktörer som kommer från identifierade IP-adresser | Distribuera molnhanterad autentisering med antingen lösenordshim-synkronisering eller [direktautentisering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) (PTA) |
@@ -101,11 +101,11 @@ Om din lokala organisation saknar en strategi för återhämtning av avbrott ell
 
 ![synkroniseringsflöde för lösenord hash](./media/active-directory-ops-guide/active-directory-ops-img5.png)
 
-Information om hur du bättre förstår dina autentiseringsalternativ finns i [Välja rätt autentiseringsmetod för azure Active Directory-hybrididentitetslösningen](https://docs.microsoft.com/azure/active-directory/hybrid/choose-ad-authn).
+Information om hur du bättre förstår dina autentiseringsalternativ finns i [Välja rätt autentiseringsmetod för azure Active Directory-hybrididentitetslösningen](../hybrid/choose-ad-authn.md).
 
 ### <a name="programmatic-usage-of-credentials"></a>Programmatisk användning av autentiseringsuppgifter
 
-Azure AD-skript som använder PowerShell eller program som använder Microsoft Graph API kräver säker autentisering. Dålig autentiseringshantering som kör dessa skript och verktyg ökar risken för stöld av autentiseringsuppgifter. Om du använder skript eller program som är beroende av hårdkodade lösenord eller lösenordspromptar bör du först granska lösenord i konfigurationsfiler eller källkod, sedan ersätta dessa beroenden och använda Azure Managed Identities, Integrated-Windows Authentication eller [certifikat](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates) när det är möjligt. För program där de tidigare lösningarna inte är möjliga kan du överväga att använda [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+Azure AD-skript som använder PowerShell eller program som använder Microsoft Graph API kräver säker autentisering. Dålig autentiseringshantering som kör dessa skript och verktyg ökar risken för stöld av autentiseringsuppgifter. Om du använder skript eller program som är beroende av hårdkodade lösenord eller lösenordspromptar bör du först granska lösenord i konfigurationsfiler eller källkod, sedan ersätta dessa beroenden och använda Azure Managed Identities, Integrated-Windows Authentication eller [certifikat](../reports-monitoring/tutorial-access-api-with-certificates.md) när det är möjligt. För program där de tidigare lösningarna inte är möjliga kan du överväga att använda [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 Om du upptäcker att det finns tjänsthuvudnamn med lösenordsautentiseringsuppgifter och du är osäker på hur dessa lösenordsuppgifter skyddas av skript eller program kontaktar du programmets ägare för att bättre förstå användningsmönster.
 
@@ -115,7 +115,7 @@ Microsoft rekommenderar också att du kontaktar programägare för att förstå 
 
 ### <a name="on-premises-authentication"></a>Lokal autentisering
 
-Federerad autentisering med integrerad Windows-autentisering (IWA) eller SSO (Seamless Single Sign-On) hanterad autentisering med lösenordsh/H-synkronisering eller vidareströmningsautentisering är den bästa användarupplevelsen när du är inne i företagsnätverket med siktlinje till lokala domänkontrollanter. Det minimerar autentiseringsuppgifter snabb trötthet och minskar risken för användare faller offer för phishing-attacker. Om du redan använder molnhanterad autentisering med PHS eller PTA, men användarna fortfarande måste skriva in sitt lösenord när de autentiserar lokalt, bör du omedelbart [distribuera Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso). Å andra sidan, om du för närvarande är federerad med planer på att så småningom migrera till molnhanterad autentisering, bör du implementera Sömlös SSO som en del av migreringsprojektet.
+Federerad autentisering med integrerad Windows-autentisering (IWA) eller SSO (Seamless Single Sign-On) hanterad autentisering med lösenordsh/H-synkronisering eller vidareströmningsautentisering är den bästa användarupplevelsen när du är inne i företagsnätverket med siktlinje till lokala domänkontrollanter. Det minimerar autentiseringsuppgifter snabb trötthet och minskar risken för användare faller offer för phishing-attacker. Om du redan använder molnhanterad autentisering med PHS eller PTA, men användarna fortfarande måste skriva in sitt lösenord när de autentiserar lokalt, bör du omedelbart [distribuera Seamless SSO](../hybrid/how-to-connect-sso.md). Å andra sidan, om du för närvarande är federerad med planer på att så småningom migrera till molnhanterad autentisering, bör du implementera Sömlös SSO som en del av migreringsprojektet.
 
 ### <a name="device-trust-access-policies"></a>Principer för åtkomst till enhetsförtroende
 
@@ -123,66 +123,66 @@ Precis som en användare i organisationen är en enhet en kärnidentitet som du 
 
 - Undvika friktion, till exempel med MFA, när enheten är betrodd
 - Blockera åtkomst från ej betrodda enheter
-- För Windows 10-enheter tillhandahåller [du enkel inloggning till lokala resurser sömlöst.](https://docs.microsoft.com/azure/active-directory/devices/azuread-join-sso)
+- För Windows 10-enheter tillhandahåller [du enkel inloggning till lokala resurser sömlöst.](../devices/azuread-join-sso.md)
 
 Du kan utföra det här målet genom att skapa enhetsidentiteter och hantera dem i Azure AD med någon av följande metoder:
 
 - Organisationer kan använda [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) för att hantera enheten och tillämpa efterlevnadsprinciper, intyga enhetens hälsotillstånd och ange principer för villkorlig åtkomst baserat på om enheten är kompatibel. Microsoft Intune kan hantera iOS-enheter, Mac-datorer (Via JAMF-integrering), Windows-datorer (inbyggt med Mobile Device Management för Windows 10 och samhantering med Microsoft Endpoint Configuration Manager) och Mobila Android-enheter.
-- [Hybrid Azure AD-koppling](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains) ger hantering med grupprinciper eller Microsoft Endpoint Configuration Manager i en miljö med Active Directory-domänanslutna datorenheter. Organisationer kan distribuera en hanterad miljö antingen via PHS eller PTA med Sömlös SSO. Genom att föra dina enheter till Azure AD maximeras användarnas produktivitet via SSO i molnet och lokala resurser samtidigt som du kan skydda åtkomsten till molnet och lokala resurser med [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) samtidigt.
+- [Hybrid Azure AD-koppling](../devices/hybrid-azuread-join-managed-domains.md) ger hantering med grupprinciper eller Microsoft Endpoint Configuration Manager i en miljö med Active Directory-domänanslutna datorenheter. Organisationer kan distribuera en hanterad miljö antingen via PHS eller PTA med Sömlös SSO. Genom att föra dina enheter till Azure AD maximeras användarnas produktivitet via SSO i molnet och lokala resurser samtidigt som du kan skydda åtkomsten till molnet och lokala resurser med [villkorlig åtkomst](../conditional-access/overview.md) samtidigt.
 
-Om du har domänanslutna Windows-enheter som inte är registrerade i molnet, eller domänanslutna Windows-enheter som är registrerade i molnet men utan principer för villkorlig åtkomst, bör du registrera de oregistrerade enheterna och i båda fallen [använda Hybrid Azure AD-koppling som en kontroll](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) i dina principer för villkorlig åtkomst.
+Om du har domänanslutna Windows-enheter som inte är registrerade i molnet, eller domänanslutna Windows-enheter som är registrerade i molnet men utan principer för villkorlig åtkomst, bör du registrera de oregistrerade enheterna och i båda fallen [använda Hybrid Azure AD-koppling som en kontroll](../conditional-access/require-managed-devices.md) i dina principer för villkorlig åtkomst.
 
 ![En skärmbild av beviljande i principen för villkorlig åtkomst som kräver hybridenhet](./media/active-directory-ops-guide/active-directory-ops-img6.png)
 
-Om du hanterar enheter med MDM eller Microsoft Intune, men inte använder enhetskontroller i dina principer för villkorlig åtkomst, rekommenderar vi att du använder [Krävenhet som ska markeras som kompatibel](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices#require-device-to-be-marked-as-compliant) som en kontroll i dessa principer.
+Om du hanterar enheter med MDM eller Microsoft Intune, men inte använder enhetskontroller i dina principer för villkorlig åtkomst, rekommenderar vi att du använder [Krävenhet som ska markeras som kompatibel](../conditional-access/require-managed-devices.md#require-device-to-be-marked-as-compliant) som en kontroll i dessa principer.
 
 ![En skärmbild av beviljande i principen för villkorlig åtkomst som kräver enhetsefterlevnad](./media/active-directory-ops-guide/active-directory-ops-img7.png)
 
 #### <a name="device-trust-access-policies-recommended-reading"></a>Principer för åtkomst till enhetsförtroende rekommenderas läsning
 
-- [Så här planerar du implementering av hybrid-Azure Active Directory-anslutning](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
+- [Så här planerar du implementering av hybrid-Azure Active Directory-anslutning](../devices/hybrid-azuread-join-plan.md)
 - [Konfigurationer för identitets- och enhetsåtkomst](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
 ### <a name="windows-hello-for-business"></a>Windows Hello för företag
 
 I Windows 10 ersätter [Windows Hello för företag](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification) lösenord med stark tvåfaktorsautentisering på datorer. Windows Hello för företag möjliggör en mer strömlinjeformad MFA-upplevelse för användarna och minskar ditt beroende av lösenord. Om du inte har börjat distribuera Windows 10-enheter, eller bara delvis har distribuerat dem, rekommenderar vi att du uppgraderar till Windows 10 och [aktiverar Windows Hello för företag](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) på alla enheter.
 
-Om du vill veta mer om lösenordslös autentisering läser du [En värld utan lösenord med Azure Active Directory](https://aka.ms/passwordlessdoc).
+Om du vill veta mer om lösenordslös autentisering läser du [En värld utan lösenord med Azure Active Directory](../authentication/concept-authentication-passwordless.md).
 
 ## <a name="application-authentication-and-assignment"></a>Autentisering och tilldelning av program
 
 ### <a name="single-sign-on-for-apps"></a>Enkel inloggning för appar
 
-Att tillhandahålla en standardiserad enda inloggningsmekanism till hela företaget är avgörande för bästa användarupplevelse, minskad risk, förmåga att rapportera och styrning. Om du använder program som stöder SSO med Azure AD men för närvarande är konfigurerade för att använda lokala konton, bör du konfigurera om dessa program för att använda SSO med Azure AD. Om du använder program som stöder SSO med Azure AD men använder en annan identitetsprovider bör du konfigurera om dessa program så att de även använder SSO med Azure AD. För program som inte stöder federationsprotokoll men stöder formulärbaserad autentisering rekommenderar vi att du konfigurerar programmet så att det använder [lösenordsvalv](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-password-vaulting) med Azure AD Application Proxy.
+Att tillhandahålla en standardiserad enda inloggningsmekanism till hela företaget är avgörande för bästa användarupplevelse, minskad risk, förmåga att rapportera och styrning. Om du använder program som stöder SSO med Azure AD men för närvarande är konfigurerade för att använda lokala konton, bör du konfigurera om dessa program för att använda SSO med Azure AD. Om du använder program som stöder SSO med Azure AD men använder en annan identitetsprovider bör du konfigurera om dessa program så att de även använder SSO med Azure AD. För program som inte stöder federationsprotokoll men stöder formulärbaserad autentisering rekommenderar vi att du konfigurerar programmet så att det använder [lösenordsvalv](../manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md) med Azure AD Application Proxy.
 
 ![AppProxy Lösenordsbaserad inloggning](./media/active-directory-ops-guide/active-directory-ops-img8.png)
 
 > [!NOTE]
 > Om du inte har någon mekanism för att identifiera ohanterade program i din organisation rekommenderar vi att du implementerar en identifieringsprocess med hjälp av en lösning för säkerhetsutjämning för molnåtkomst (CASB), till exempel [Microsoft Cloud App Security](https://www.microsoft.com/enterprise-mobility-security/cloud-app-security).
 
-Slutligen, om du har ett Azure AD-appgalleri och använder program som stöder SSO med Azure AD, rekommenderar vi [att du listar programmet i appgalleriet](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing).
+Slutligen, om du har ett Azure AD-appgalleri och använder program som stöder SSO med Azure AD, rekommenderar vi [att du listar programmet i appgalleriet](../azuread-dev/howto-app-gallery-listing.md).
 
 #### <a name="single-sign-on-recommended-reading"></a>Enkel inloggning rekommenderad läsning
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ### <a name="migration-of-ad-fs-applications-to-azure-ad"></a>Migrering av AD FS-program till Azure AD
 
-[Migrera appar från AD FS till Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure) möjliggör ytterligare funktioner för säkerhet, mer konsekvent hanterbarhet och en bättre samarbetsupplevelse. Om du har konfigurerat program i AD FS som stöder SSO med Azure AD bör du konfigurera om dessa program för att använda SSO med Azure AD. Om du har konfigurerat program i AD FS med ovanliga konfigurationer som inte stöds av Azure AD, bör du kontakta appägarna för att förstå om den särskilda konfigurationen är ett absolut krav för programmet. Om det inte krävs bör du konfigurera om programmet för att använda SSO med Azure AD.
+[Migrera appar från AD FS till Azure AD](../manage-apps/migrate-adfs-apps-to-azure.md) möjliggör ytterligare funktioner för säkerhet, mer konsekvent hanterbarhet och en bättre samarbetsupplevelse. Om du har konfigurerat program i AD FS som stöder SSO med Azure AD bör du konfigurera om dessa program för att använda SSO med Azure AD. Om du har konfigurerat program i AD FS med ovanliga konfigurationer som inte stöds av Azure AD, bör du kontakta appägarna för att förstå om den särskilda konfigurationen är ett absolut krav för programmet. Om det inte krävs bör du konfigurera om programmet för att använda SSO med Azure AD.
 
 ![Azure AD som primär identitetsprovider](./media/active-directory-ops-guide/active-directory-ops-img9.png)
 
 > [!NOTE]
-> [Azure AD Connect Health för ADFS](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs) kan användas för att samla in konfigurationsinformation om varje program som eventuellt kan migreras till Azure AD.
+> [Azure AD Connect Health för ADFS](../hybrid/how-to-connect-health-adfs.md) kan användas för att samla in konfigurationsinformation om varje program som eventuellt kan migreras till Azure AD.
 
 ### <a name="assign-users-to-applications"></a>Tilldela användare till program
 
-[Att tilldela användare till program](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) mappas bäst med hjälp av grupper eftersom de ger större flexibilitet och möjlighet att hantera i stor skala. Fördelarna med att använda grupper är [attributbaserat dynamiskt gruppmedlemskap](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership) och [delegering till appägare](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners). Om du redan använder och hanterar grupper rekommenderar vi därför att du vidtar följande åtgärder för att förbättra hanteringen i stor skala:
+[Att tilldela användare till program](../manage-apps/assign-user-or-group-access-portal.md) mappas bäst med hjälp av grupper eftersom de ger större flexibilitet och möjlighet att hantera i stor skala. Fördelarna med att använda grupper är [attributbaserat dynamiskt gruppmedlemskap](../users-groups-roles/groups-dynamic-membership.md) och [delegering till appägare](../fundamentals/active-directory-accessmanagement-managing-group-owners.md). Om du redan använder och hanterar grupper rekommenderar vi därför att du vidtar följande åtgärder för att förbättra hanteringen i stor skala:
 
 - Delegera grupphantering och styrning till programägare.
 - Tillåt självbetjäningsåtkomst till programmet.
 - Definiera dynamiska grupper om användarattribut konsekvent kan avgöra åtkomst till program.
-- Implementera attestation till grupper som används för programåtkomst med hjälp av [Azure AD-åtkomstgranskningar](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview).
+- Implementera attestation till grupper som används för programåtkomst med hjälp av [Azure AD-åtkomstgranskningar](../governance/access-reviews-overview.md).
 
 Å andra sidan, om du hittar program som har tilldelning till enskilda användare, se till att implementera [styrning](https://docs.microsoft.com/azure/active-directory/governance/index) runt dessa program.
 
@@ -223,12 +223,12 @@ Om du redan äger Azure AD Premium P2-licenser som stöder användning av risker
 
 #### <a name="risk-based-access-policies-recommended-reading"></a>Riskbaserade åtkomstprinciper rekommenderas läsning
 
-- [Så här konfigurerar du principen för inloggningsrisk](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)
-- [Så här konfigurerar du användarriskprincipen](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)
+- [Så här konfigurerar du principen för inloggningsrisk](../identity-protection/howto-identity-protection-configure-risk-policies.md)
+- [Så här konfigurerar du användarriskprincipen](../identity-protection/howto-identity-protection-configure-risk-policies.md)
 
 ### <a name="client-application-access-policies"></a>Principer för klientprogramåtkomst
 
-Microsoft Intune Application Management (MAM) ger möjlighet att driva dataskyddskontroller som lagringskryptering, PIN-kod, fjärrlagringsrensning etc. till kompatibla klientmobilprogram som Outlook Mobile. Dessutom kan principer för villkorlig åtkomst skapas för att [begränsa åtkomsten](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) till molntjänster som Exchange Online från godkända eller kompatibla appar.
+Microsoft Intune Application Management (MAM) ger möjlighet att driva dataskyddskontroller som lagringskryptering, PIN-kod, fjärrlagringsrensning etc. till kompatibla klientmobilprogram som Outlook Mobile. Dessutom kan principer för villkorlig åtkomst skapas för att [begränsa åtkomsten](../conditional-access/app-based-conditional-access.md) till molntjänster som Exchange Online från godkända eller kompatibla appar.
 
 Om dina anställda installerar MAM-kompatibla program som Office-mobilappar för att komma åt företagsresurser som Exchange Online eller SharePoint Online, och du även stöder BYOD (ta med din egen enhet), rekommenderar vi att du distribuerar MAM-principer för program för att hantera programkonfigurationen på personligt ägda enheter utan MDM-registrering och sedan uppdaterar dina principer för villkorlig åtkomst så att de endast tillåter åtkomst från MAM-kompatibla klienter.
 
@@ -245,10 +245,10 @@ Villkorlig åtkomst är ett viktigt verktyg för att förbättra säkerhetsposit
 - Undvik att använda **alla användare** som filter och oavsiktligt lägga till **gäster**
 - **Migrera alla "äldre" principer till Azure-portalen**
 - Fånga alla kriterier för användare, enheter och program
-- Använd principer för villkorlig åtkomst för att [implementera MFA](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access)i stället för att använda en **MFA per användare**
+- Använd principer för villkorlig åtkomst för att [implementera MFA](../conditional-access/plan-conditional-access.md)i stället för att använda en **MFA per användare**
 - Har en liten uppsättning grundläggande principer som kan tillämpas på flera program
 - Definiera tomma undantagsgrupper och lägga till dem i principerna för att ha en undantagsstrategi
-- Planera för [break glass-konton](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure#break-glass-what-to-do-in-an-emergency) utan MFA-kontroller
+- Planera för [break glass-konton](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency) utan MFA-kontroller
 - Se till att office 365-klientprogram får en konsekvent upplevelse, till exempel Teams, OneDrive för företag, Outlook osv.) genom att implementera samma uppsättning kontroller för tjänster som Exchange Online och Sharepoint Online
 - Tilldelning till policyer bör genomföras genom grupper, inte individer
 - Gör regelbundna granskningar av undantagsgrupper som används i principer för att begränsa den tid som användarna har utanför säkerhetspositionen. Om du äger Azure AD P2 kan du använda åtkomstgranskningar för att automatisera processen

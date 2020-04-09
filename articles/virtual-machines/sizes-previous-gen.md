@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: 7f13ab3cd6ff765bc3b1bee8e8fad7e7273f6c7d
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 6cf43df756e9bed0438169c9c01b868653d84b57
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673913"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985736"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Tidigare generationer av storlekar på virtuella datorer
 
@@ -342,7 +342,7 @@ Cachelagring av premiumlagring: Stöds inte
 <sup>1</sup> Instans är isolerad till hårdvara tillägnad en enda kund.
 <br>
 
-# <a name="nv-series"></a>NV-serien
+## <a name="nv-series"></a>NV-serien
 **Nyare storlek rekommendation:** [NVv3-serien](nvv3-series.md) och [NVv4-serien](nvv4-series.md)
 
 De virtuella datorerna i NV-serien drivs av [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU:er och NVIDIA GRID-teknik för stationära accelererade program och virtuella skrivbord där kunderna kan visualisera sina data eller simuleringar. Användare kan visualisera sina grafikintensiva arbetsflöden på NV-instanserna för att få överlägsen grafikkapacitet och dessutom köra arbetsbelastningar med enkel precision, till exempel kodning och rendering. NV-serien virtuella datorer drivs också av Intel Xeon E5-2690 v3 (Haswell) processorer.

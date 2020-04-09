@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.openlocfilehash: 3e99263f6bf472c256e1747b8567249bbd62a445
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c265665be26dcc6868ea9a303b0c12c52dfe05b
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78969620"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878314"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Förhandsgranskningsfunktioner i Azure Stream Analytics
 
@@ -47,9 +47,9 @@ Du kan testa dina frågor mot livedata på din lokala dator innan du skickar job
 Azure Stream Analytics-jobb kan skapas i Visual Studio Code. Se vår [VS-kod komma igång handledning](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code).
 
 
-### <a name="integration-with-azure-machine-learning"></a>Integrering med Azure Machine Learning
+### <a name="real-time-high-performance-scoring-with-custom-ml-models-managed-by-azure-machine-learning"></a>Prestandabedömning i realtid med anpassade ML-modeller som hanteras av Azure Machine Learning
 
-Du kan skala Stream Analytics-jobb med machine learning-funktioner (MACHINE Learning). Om du vill veta mer om hur du kan använda ML-funktioner i ditt Stream Analytics-jobb besöker du [Skala ditt Stream Analytics-jobb med Azure Machine Learning-funktioner](stream-analytics-scale-with-machine-learning-functions.md). Kolla in ett verkligt scenario med [Utföra sentimentanalys med hjälp av Azure Stream Analytics och Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
+Azure Stream Analytics stöder högpresterande realtidsbedömning genom att utnyttja anpassade förutbildade Machine Learning-modeller som hanteras av Azure Machine Learning och finns i Azure Kubernetes Service (AKS) eller Azure Container Instances (ACI), med hjälp av ett arbetsflöde som inte kräver att du skriver kod. [Registrera dig](https://aka.ms/asapreview1) för förhandsgranskning
 
 
 ### <a name="live-data-testing-in-visual-studio"></a>Testning av livedata i Visual Studio
@@ -64,10 +64,6 @@ Med .NET-standardanvändardefinierade funktioner kan du köra .NET Standard-kod 
 ## <a name="other-previews"></a>Andra förhandsgranskningar
 
 Följande funktioner är också tillgängliga i förhandsversion på begäran.
-
-### <a name="real-time-high-performance-scoring-with-custom-ml-models-managed-by-azure-machine-learning"></a>Prestandabedömning i realtid med anpassade ML-modeller som hanteras av Azure Machine Learning
-
-Azure Stream Analytics stöder högpresterande realtidsbedömning genom att utnyttja anpassade förutbildade Machine Learning-modeller som hanteras av Azure Machine Learning och finns i Azure Kubernetes Service (AKS) eller Azure Container Instances (ACI), med hjälp av ett arbetsflöde som inte kräver att du skriver kod. [Registrera dig](https://aka.ms/asapreview1) för förhandsgranskning
 
 ### <a name="support-for-azure-stack"></a>Stöd för Azure Stack
 Den här funktionen aktiveras på Azure IoT Edge-körningen, utnyttjar anpassade Azure Stack-funktioner, till exempel inbyggt stöd för lokala indata och utdata som körs på Azure Stack (till exempel eventhubbar, IoT Hub, Blob Storage). Med den här nya integreringen kan du skapa hybridarkitekturer som kan analysera dina data nära där de genereras, sänka svarstiden och maximera insikter.

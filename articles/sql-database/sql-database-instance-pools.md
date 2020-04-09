@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: c1e740fbfa4bf1e8a77a2d9d6060ab39dba7ae7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0938fbe94cb0d1e6dae3dcb84950a11f90dd9db8
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256216"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878161"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>Vad är SQL Database-instanspooler (förhandsversion)?
 
@@ -59,7 +59,7 @@ Följande lista innehåller de huvudsakliga användningsfall där instanspooler 
 
 ## <a name="architecture-of-instance-pools"></a>Förekomstpoolernas arkitektur
 
-Instanspooler har liknande arkitektur som vanliga hanterade instanser (*enstaka instanser*). Om du vill stödja [distributioner inom Virtuella Azure-nätverk (VNets)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) och för att tillhandahålla isolering och säkerhet för kunder, är instanspooler också beroende av [virtuella kluster](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Virtuella kluster representerar en dedikerad uppsättning isolerade virtuella datorer som distribueras i kundens virtuella nätverksundernät.
+Instanspooler har liknande arkitektur som vanliga hanterade instanser (*enstaka instanser*). Om du vill stödja [distributioner inom Virtuella Azure-nätverk (VNets)](../virtual-network/virtual-network-for-azure-services.md) och för att tillhandahålla isolering och säkerhet för kunder, är instanspooler också beroende av [virtuella kluster](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Virtuella kluster representerar en dedikerad uppsättning isolerade virtuella datorer som distribueras i kundens virtuella nätverksundernät.
 
 Den största skillnaden mellan de två distributionsmodellerna är att instanspooler tillåter flera SQL Server-processdistributioner på samma klientdatornod, som styrs med hjälp av [Windows-jobbobjekt](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), medan enskilda instanser alltid är ensamma på en nod för virtuella datorer.
 

@@ -2,26 +2,22 @@
 title: Azure AD-autentisering & auktoriseringsfelkoder
 description: Lär dig mer om AADSTS-felkoderna som returneras från Azure AD-säkerhetstokentjänsten (STS).
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
-ms.date: 03/31/2020
+ms.date: 04/07/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 91d285e2a839a7d6266c5d58f52901a48a7a8c84
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 40a7406ea91c95daad2f180b9d0f4620cdbbf454
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80473166"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875936"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD-autentiserings- och auktoriseringsfelkoder
 
@@ -133,6 +129,7 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS50180 | WindowsIntegratedAuthMissing - Integrerad Windows-autentisering behövs. Aktivera klientorganisationen för sömlös SSO. |
 | AADSTS50187 | DeviceInformationNotProvided - Tjänsten kunde inte utföra enhetsautentisering. |
 | AADSTS50196 | LoopDetected - En klientloop har upptäckts. Kontrollera appens logik för att säkerställa att tokencacheing implementeras och att felvillkor hanteras korrekt.  Appen har gjort för många av samma begäran på för kort tid, vilket indikerar att den är i ett felaktigt tillstånd eller är felaktigt begär token. |
+| AADSTS50197 | ConflictingIdentities - Det gick inte att hitta användaren. Försök logga in igen. |
 | AADSTS50199 | CmsiInterrupt - Av säkerhetsskäl krävs användarbekräftelse för den här begäran.  Eftersom detta är ett "interaction_required"-fel bör klienten göra interaktiva autentisering.  Detta beror på att en systemwebbvy har använts för att begära en token för ett inbyggt program - användaren måste uppmanas att fråga om detta verkligen var appen de tänkt logga in på.|
 | AADSTS51000 | RequiredFeatureNotEnabled - Funktionen är inaktiverad. |
 | AADSTS51001 | DomainHintMustbePresent - Domäntips måste finnas med lokal säkerhetsidentifierare eller lokal UPN. |

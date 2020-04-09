@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mjbrown
-ms.openlocfilehash: 345fc329df1c57cab7dd66c609bf3701fa3a6124
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: c92f045f2c8d4443d596697596363bda3d0df975
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619131"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985294"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Säkerhet i Azure Cosmos DB – översikt
 
@@ -23,7 +23,7 @@ Kryptering i vila är nu tillgänglig för dokument och säkerhetskopior som lag
 
 ## <a name="how-do-i-secure-my-database"></a>Hur skyddar jag min databas
 
-Datasäkerhet är ett delat ansvar mellan dig, kunden och databasleverantören. Beroende på vilken databasleverantör du väljer kan det ansvar du bär variera. Om du väljer en lokal lösning måste du tillhandahålla allt från slutpunktsskydd till fysisk säkerhet för maskinvaran – vilket inte är någon lätt uppgift. Om du väljer en PaaS-molndatabasleverantör som Azure Cosmos DB minskar ditt problemområde avsevärt. Följande avbildning, som lånats från Microsofts [delade ansvar för cloud computing-faktablad,](https://aka.ms/sharedresponsibility) visar hur ditt ansvar minskar med en PaaS-leverantör som Azure Cosmos DB.
+Datasäkerhet är ett delat ansvar mellan dig, kunden och databasleverantören. Beroende på vilken databasleverantör du väljer kan det ansvar du bär variera. Om du väljer en lokal lösning måste du tillhandahålla allt från slutpunktsskydd till fysisk säkerhet för maskinvaran – vilket inte är någon lätt uppgift. Om du väljer en PaaS-molndatabasleverantör som Azure Cosmos DB minskar ditt problemområde avsevärt. Följande avbildning, som lånats från Microsofts [delade ansvar för cloud computing-faktablad,](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91) visar hur ditt ansvar minskar med en PaaS-leverantör som Azure Cosmos DB.
 
 ![Ansvar för kund- och databasleverantörer](./media/database-security/nosql-database-security-responsibilities.png)
 
@@ -70,7 +70,7 @@ Låt oss gräva i var och en i detalj.
 |Återställa borttagna data|De automatiska online-säkerhetskopiorna kan användas för att återställa data som du av misstag har tagit bort upp till ~ 30 dagar efter händelsen. <br><br>Läs mer i [Automatisk säkerhetskopiering och återställning online med Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md)|
 |Skydda och isolera känsliga data|Alla data i de regioner som anges i Nyheter? krypteras nu i vila.<br><br>Personuppgifter och andra konfidentiella uppgifter kan isoleras till specifik behållare och läs-och skriv-, eller skrivskyddad åtkomst kan begränsas till specifika användare.|
 |Övervaka för attacker|Genom att använda [granskningsloggning och aktivitetsloggar](logging.md)kan du övervaka ditt konto efter normal och onormal aktivitet. Du kan visa vilka åtgärder som utfördes på dina resurser, som initierade åtgärden, när åtgärden inträffade, åtgärdens status och mycket mer som visas i skärmbilden efter den här tabellen.|
-|Svara på attacker|När du har kontaktat Azure-supporten för att rapportera en potentiell attack, sparkas en 5-stegs incidentsvarsprocess igång. Målet med 5-stegsprocessen är att återställa normal servicesäkerhet och drift så snabbt som möjligt efter att ett problem har upptäckts och en undersökning har startats.<br><br>Läs mer i [Microsoft Azure Security Response i molnet](https://aka.ms/securityresponsepaper).|
+|Svara på attacker|När du har kontaktat Azure-supporten för att rapportera en potentiell attack, sparkas en 5-stegs incidentsvarsprocess igång. Målet med 5-stegsprocessen är att återställa normal servicesäkerhet och drift så snabbt som möjligt efter att ett problem har upptäckts och en undersökning har startats.<br><br>Läs mer i [Microsoft Azure Security Response i molnet](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).|
 |Geo-stängsel|Azure Cosmos DB säkerställer datastyrning för suveräna regioner (till exempel Tyskland, Kina, US Gov).|
 |Skyddade anläggningar|Data i Azure Cosmos DB lagras på SSD:er i Azures skyddade datacenter.<br><br>Läs mer i [Microsofts globala datacenter](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
 |HTTPS/SSL/TLS-kryptering|Alla anslutningar till Azure Cosmos DB stöder HTTPS. Azure Cosmos DB stöder också TLS 1.2.<br>Det är möjligt att framtvinga en minsta TLS-version server-sida. För att göra [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com)det, vänligen kontakta .|

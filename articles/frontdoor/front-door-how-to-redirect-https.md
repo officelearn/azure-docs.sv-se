@@ -7,22 +7,22 @@ ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: b7385ef27cd17705f2c86b6f57d4780511b6935c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1b8c033a3ec230d60c30f6168de8ce013a80ac6
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246865"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878008"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Skapa en ytterdörr med HTTP till HTTPS-omdirigering med Azure-portalen
 
-Du kan använda Azure-portalen för att skapa en [ytterdörr](front-door-overview.md) med ett certifikat för SSL-avslutning. En routningsregel används för att omdirigera HTTP-trafik till HTTPS.
+Du kan använda Azure-portalen för att skapa en [ytterdörr](front-door-overview.md) med ett certifikat för TLS-avslutning. En routningsregel används för att omdirigera HTTP-trafik till HTTPS.
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Skapa en ytterdörr med en befintlig Web App-resurs
-> * Lägga till en anpassad domän med SSL-certifikat 
+> * Lägga till en anpassad domän med TLS/SSL-certifikat 
 > * Konfigurera HTTPS-omdirigering på den anpassade domänen
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
@@ -87,7 +87,7 @@ När du har lagt till CNAME ser sidan med DNS-poster ut så här:
 ### <a name="enable-https-on-your-custom-domain"></a>Aktivera HTTPS på din anpassade domän
 
 1. Klicka på den anpassade domänen som lades till och ändra statusen till **Aktiverad**under avsnittet **Anpassad domän HTTPS**.
-2. Du kan lämna **certifikathanteringstypen** inställd på _Ytterdörren som hanteras_ för det kostnadsfria certifikat som underhålls, hanteras och roteras automatiskt av ytterdörren. Du kan också välja att använda ditt eget anpassade SSL-certifikat som lagras med Azure Key Vault. Den här självstudien förutsätter att användningen av Front Door hanterat certifikat.
+2. Du kan lämna **certifikathanteringstypen** inställd på _Ytterdörren som hanteras_ för det kostnadsfria certifikat som underhålls, hanteras och roteras automatiskt av ytterdörren. Du kan också välja att använda ditt eget anpassade TLS/SSL-certifikat som lagras med Azure Key Vault. Den här självstudien förutsätter att användningen av Front Door hanterat certifikat.
 ![Aktivera HTTPS för anpassad domän](./media/front-door-url-redirect/front-door-custom-domain-https.png)
 
 3. Klicka på **Uppdatera** för att spara markeringen och klicka sedan på **Spara**.

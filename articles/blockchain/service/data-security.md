@@ -4,12 +4,12 @@ description: Azure Blockchain Service-dataåtkomst och säkerhetsbegrepp
 ms.date: 11/22/2019
 ms.topic: conceptual
 ms.reviewer: janders
-ms.openlocfilehash: 06bf4e0fa4037b07505a4f816fc7af56c14576d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 989d9f2afad30517a85185878d694c0b6640e987
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75982228"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879606"
 ---
 # <a name="azure-blockchain-service-security"></a>Azure Blockchain-tjänst säkerhet
 
@@ -27,7 +27,7 @@ Användardata lagras i Azure-lagring. Användardata krypteras i rörelse och i v
 
 ## <a name="authentication"></a>Autentisering
 
-Transaktioner kan skickas till blockchain-noder via en RPC-slutpunkt. Klienter kommunicerar med en transaktionsnod med hjälp av en omvänd proxyserver som hanterar användarautentisering och krypterar data via SSL.
+Transaktioner kan skickas till blockchain-noder via en RPC-slutpunkt. Klienter kommunicerar med en transaktionsnod med hjälp av en omvänd proxyserver som hanterar användarautentisering och krypterar data via TLS.
 
 ![Diagram över autentisering](./media/data-security/authentication.png)
 

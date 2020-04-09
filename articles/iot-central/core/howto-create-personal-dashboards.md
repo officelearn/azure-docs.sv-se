@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: db886006ff5b9adf3de0932951f6cce4958e8ebd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 06225e284000d7f10f575be08cd683488abec339
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158137"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985498"
 ---
 # <a name="create-and-manage-multiple-dashboards"></a>Skapa och hantera flera instrumentpaneler
 
-**Instrumentpanelen** är den sida som läses in när du navigerar till ditt program. En **byggare** i programmet definierar standardprograminstrumentpanelen för alla användare. Du kan ersätta den här standardinstrumentpanelen med din egen, anpassade programinstrumentpanel. Du kan ha flera instrumentpaneler som visar olika data och växlar mellan dem. 
+**Instrumentpanelen** är den sida som läses in när du navigerar till ditt program. En **byggare** i programmet definierar standardprograminstrumentpanelen för alla användare. Du kan dessutom skapa en egen, personlig programinstrumentpanel. Du kan ha flera instrumentpaneler som visar olika data och växlar mellan dem.
 
 Om du är **administratör för** programmet kan du också skapa upp till 10 instrumentpaneler på programnivå som du kan dela med andra användare av programmet. Endast **administratörer** har möjlighet att skapa, redigera och ta bort instrumentpaneler på programnivå. 
 

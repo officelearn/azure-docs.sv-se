@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95f1877ae630919ba7da5a851b5f8291ade2d165
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 343671c1d9ee82950a9822648f9831588da7e9f8
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76897578"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80876192"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Lägga till organisationens sekretessinformation med Azure Active Directory
 I den här artikeln beskrivs hur en klientadministratör kan lägga till sekretessrelaterad information till en organisations Azure Active Directory-klientorganisation (Azure AD) via Azure-portalen.
@@ -32,15 +32,15 @@ Du lägger till din organisations sekretessinformation i området **Egenskaper**
 
 ### <a name="to-access-the-properties-area-and-add-your-privacy-information"></a>Så här öppnar du området Egenskaper och lägger till din sekretessinformation
 
-1.  Logga in på Azure-portalen som klientadministratör.
+1.    Logga in på Azure-portalen som klientadministratör.
 
-2.  I det vänstra navigeringsfältet väljer du **Azure Active Directory**och väljer sedan **Egenskaper**.
+2.    I det vänstra navigeringsfältet väljer du **Azure Active Directory**och väljer sedan **Egenskaper**.
 
     Området **Egenskaper** visas.
 
     ![Azure AD-egenskapsområdet som belyser området för sekretessinformation](media/active-directory-properties-area/properties-area.png)
 
-3.  Lägg till din sekretessinformation för dina anställda:
+3.    Lägg till din sekretessinformation för dina anställda:
 
     - **Teknisk kontakt.** Skriv e-postadressen för den person som ska kontaktas för teknisk support inom organisationen.
     
@@ -53,8 +53,8 @@ Du lägger till din organisations sekretessinformation i området **Egenskaper**
 
         ![B2B Samarbetsgranskningsbehörigheterruta med meddelande](media/active-directory-properties-area/active-directory-no-privacy-statement-or-contact.png)
 
-4.  Välj **Spara**.
+4.    Välj **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Inlösen av Azure Active Directory B2B-samarbetsinbjudan](https://aka.ms/b2bredemption)
+- [Inlösen av Azure Active Directory B2B-samarbetsinbjudan](../b2b/redemption-experience.md)
 - [Lägga till eller ändra profilinformation för en användare i Azure Active Directory](active-directory-users-profile-azure-portal.md)

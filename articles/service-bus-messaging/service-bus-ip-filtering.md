@@ -11,17 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: a20882de34cb306b767959e21327180ff284e658
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 24591c20ed707d9541eece0698ecd6e6b5ddee35
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475951"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878195"
 ---
 # <a name="configure-ip-firewall-rules-for-azure-service-bus"></a>Konfigurera IP-brandväggsregler för Azure Service Bus
 Som standard är Service Bus-namnområden tillgängliga från internet så länge begäran levereras med giltig autentisering och auktorisering. Med IP-brandväggen kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adressintervall i [CIDR-notation (Classless Inter-Domain Routing).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
 
 Den här funktionen är användbar i scenarier där Azure Service Bus endast ska vara tillgänglig från vissa välkända platser. Med brandväggsregler kan du konfigurera regler för att acceptera trafik som kommer från specifika IPv4-adresser. Om du till exempel använder Service Bus med [Azure Express Route][express-route]kan du skapa en **brandväggsregel** för att tillåta trafik från endast dina lokala IP-adresser eller adresser till en FÖRETAGS NAT-gateway. 
+
+> [!IMPORTANT]
+> Brandväggar och virtuella nätverk stöds endast i **premiumnivån** för Service Bus. Om uppgradering till **den premier** nivån inte är ett alternativ rekommenderar vi att du håller SAS-token (Shared Access Signature) säker och delar med endast behöriga användare. Information om SAS-autentisering finns i [Autentisering och auktorisering](service-bus-authentication-and-authorization.md#shared-access-signature).
 
 ## <a name="ip-firewall-rules"></a>REGLER för IP-brandväggen
 IP-brandväggsreglerna tillämpas på servicebussnamnområdesnivå. Därför gäller reglerna för alla anslutningar från klienter som använder protokoll som stöds. Alla anslutningsförsök från en IP-adress som inte matchar en tillåten IP-regel på tjänstbussens namnområde avvisas som obehöriga. Svaret nämner inte IP-regeln. IP-filterregler tillämpas i ordning och den första regeln som matchar IP-adressen bestämmer åtgärden acceptera eller avvisa.
@@ -44,8 +47,6 @@ I det här avsnittet visas hur du använder Azure-portalen för att skapa IP-bra
 ## <a name="use-resource-manager-template"></a>Använda Resource Manager-mallar
 Det här avsnittet innehåller ett exempel på En Azure Resource Manager-mall som skapar ett virtuellt nätverk och en brandväggsregel.
 
-> [!IMPORTANT]
-> Brandväggar och virtuella nätverk stöds endast i **premiumnivån** för Service Bus.
 
 Med följande Resource Manager-mall kan du lägga till en virtuell nätverksregel i ett befintligt Service Bus-namnområde.
 

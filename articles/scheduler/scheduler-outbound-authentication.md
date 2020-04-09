@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: bcd14e618323aec1c7ce47fcebb25099fa96be81
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a8d79af9f45731971cb1be1f39fc193f9d0f0d9
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898500"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878977"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Utgående autentisering för Azure Scheduler
 
@@ -47,8 +47,8 @@ När du lägger till autentisering med `ClientCertificate` hjälp av modellen an
 
 | Element | Krävs | Beskrivning |
 |---------|----------|-------------|
-| **autentisering** (överordnat element) | Autentiseringsobjektet för att använda ett SSL-klientcertifikat |
-| **Typ** | Ja | Autentiseringstypen. För SSL-klientcertifikat är `ClientCertificate`värdet . |
+| **autentisering** (överordnat element) | Autentiseringsobjektet för att använda ett SSL/TLS-klientcertifikat |
+| **Typ** | Ja | Autentiseringstypen. För SSL/TLS-klientcertifikat är `ClientCertificate`värdet . |
 | **Pfx** | Ja | Det base64-kodade innehållet i PFX-filen |
 | **lösenord** | Ja | Lösenordet för åtkomst till PFX-filen |
 ||| 
@@ -59,8 +59,8 @@ När en begäran skickas med autentiseringsinformation innehåller svaret dessa 
 
 | Element | Beskrivning | 
 |---------|-------------| 
-| **autentisering** (överordnat element) | Autentiseringsobjektet för att använda ett SSL-klientcertifikat |
-| **Typ** | Autentiseringstypen. För SSL-klientcertifikat är `ClientCertificate`värdet . |
+| **autentisering** (överordnat element) | Autentiseringsobjektet för att använda ett SSL/TLS-klientcertifikat |
+| **Typ** | Autentiseringstypen. För SSL/TLS-klientcertifikat är `ClientCertificate`värdet . |
 | **certificateThumbprint** |Certifikatets tumavtryck |
 | **certifikatSugnamn** |Certifikatet ämne framstående namn |
 | **certifikatExpiration** | Certifikatets utgångsdatum |

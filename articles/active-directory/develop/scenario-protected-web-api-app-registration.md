@@ -3,25 +3,21 @@ title: Registrering av skyddad webb-API-app | Azure
 titleSuffix: Microsoft identity platform
 description: Läs om hur du skapar ett skyddat webb-API och den information du behöver för att registrera appen.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2d9e5d051f101288b8528b47fa88b4783a040950
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2cdf3ff45a400d4b8d0b2605bf7ddc364aff1fe6
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262508"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80882394"
 ---
 # <a name="protected-web-api-app-registration"></a>Skyddat webb-API: Appregistrering
 

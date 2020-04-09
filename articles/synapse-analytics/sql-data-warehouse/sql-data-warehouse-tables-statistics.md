@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5fae2bba0acc4ab462c91f7272694d032fc6ceaa
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 6f2af87cf5cef1b5a80bc16d962fba579b4ff309
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742659"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985872"
 ---
 # <a name="table-statistics-in-synapse-sql-pool"></a>Tabellstatistik i Synapse SQL-pool
 
@@ -146,11 +146,11 @@ Mer information finns i allmän vägledning för [statistik](/sql/relational-dat
 
 ## <a name="implementing-statistics-management"></a>Genomförande av statistikhantering
 
-Det är ofta en bra idé att utöka datainläsningsprocessen för att säkerställa att statistiken uppdateras i slutet av belastningen.
+Det är ofta en bra idé att utöka datainläsningsprocessen för att säkerställa att statistiken uppdateras i slutet av belastningen för att undvika/minimera blockering eller resurskonkurrent mellan samtidiga frågor.  
 
 Databelastningen är när tabeller oftast ändrar sin storlek och/eller sin fördelning av värden. Datainläsning är en logisk plats för att implementera vissa hanteringsprocesser.
 
-Följande vägledande principer finns för att uppdatera din statistik under belastningsprocessen:
+Följande vägledande principer finns för att uppdatera din statistik:
 
 - Kontrollera att varje inläst tabell har minst ett statistikobjekt uppdaterat. Detta uppdaterar tabellstorleken (radantal och antal sidor) som en del av statistikuppdateringen.
 - Fokusera på kolumner som deltar i JOIN-, GROUP BY-, ORDER BY- och DISTINCT-satser.

@@ -1,25 +1,27 @@
 ---
-title: Skapa ett erbjudande om konsulttjänster i Partner Center - Azure Marketplace
+title: Skapa ett konsultserviceerbjudande i Partner Center - Azure Marketplace
 description: Lär dig hur du publicerar ett erbjudande om konsulttjänster till Antingen Azure Marketplace eller AppSource med Partner Center.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/26/2020
-ms.openlocfilehash: ce8df36d3417417a5f70a5385aa94d9c8c7ff0cc
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.date: 04/06/2020
+ms.openlocfilehash: f1354ce824bc4e57ab55846c714d4a0a73a46966
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674285"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80873828"
 ---
-# <a name="consulting-service-creation-overview"></a>Översikt över att skapa konsulttjänster
+# <a name="create-a-consulting-service-offer"></a>Skapa ett konsultserviceerbjudande
 
 > [!IMPORTANT]
 > Vi flyttar hanteringen av dina konsulttjänster från Cloud Partner Portal till Partner Center. Tills dina erbjudanden har migrerats följer du instruktionerna i [Azure och Dynamics 365 konsulttjänsterbjudande](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) för Cloud Partner Portal för att hantera dina erbjudanden.
 
-I den här artikeln beskrivs hur du publicerar ett erbjudande om konsulttjänster på antingen [Azure Marketplace](https://azuremarketplace.microsoft.com/) eller [AppSource](https://appsource.microsoft.com/). Listkonsulttjänster erbjuder baserat på Microsoft [Dynamics 365](https://dynamics.microsoft.com/) och Power Platform på AppSource. Erbjudanden om listkonsulttjänster baserat på Microsoft Azure på Azure Marketplace.
+I den här artikeln beskrivs hur du publicerar ett erbjudande om konsulttjänster på antingen [Azure Marketplace](https://azuremarketplace.microsoft.com/) eller [AppSource](https://appsource.microsoft.com/). List Consulting-tjänsten erbjuder baserat på Microsoft [Dynamics 365](https://dynamics.microsoft.com/) och Power Platform på AppSource. List Consulting-tjänsterbjudanden baserade på Microsoft Azure på Azure Marketplace.
+
+Om du vill skapa ett erbjudande om konsulttjänster i Azure Marketplace eller AppSource Consulting måste du först [ha ett utgivarkonto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)och ditt konto måste vara registrerat i det kommersiella marketplace-programmet. Innan du skapar ditt erbjudande bör du gå igenom förutsättningarna i [konsulttjänster.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/consulting-service-prerequisites)
 
 ## <a name="publishing-benefits"></a>Publiceringsförmåner
 
@@ -30,58 +32,7 @@ Fördelar med att publicera på den kommersiella marknaden:
 - Få högkvalitativa leads från dessa marknadsplatser.
 - Få dina tjänster marknadsförda av Microsoft-fält- och telefonförsäljningsteamen
 
-## <a name="requirements"></a>Krav
-
-### <a name="business-requirements"></a>Affärskrav
-
-För erbjudanden där Azure väljs som primärprodukt måste ditt erbjudande lista minst en av följande fullständiga intjänade kompetenser:
-
-- Apputveckling
-- Integrering av program
-- Hantering av programmets livscykel
-- Molnplattform
-- Dataanalys
-- Datacenter
-- Dataplattform
-- DevOps
-
-För erbjudanden med något av följande alternativ som valts som primärprodukt måste du uppfylla respektive behörighetskrav som anges eller ha ett samförsäljningserbjudande för den primära produkt som tjänsteerbjudandet är relaterat till.
-
-**Program för kundengagemang**
-
-- **Gäller för:** Dynamics 365 Sales, Dynamics 365 Marketing, Dynamics 365 Customer Service, Dynamics 365 Field Service, Dynamics 365 Human Resources
-
-- **Kriterier:** Måste vara guld- eller silvercertifierade i [molnet affärsprogram kompetens](https://partner.microsoft.com/membership/cloud-business-applications-competency) för kundengagemang alternativ.
-
-**Finansierings- och verksamhetsapplikationer**
-
-- **Gäller för:** Dynamics 365 Finance, Dynamics 365 Operations, Dynamics 365 Commerce, Dynamics 365 Human Resources, Dynamics 365 Project Service Automation
-
-- **Villkor:** Måste vara guld- eller silvercertifierade i [cloud business applications-kompetensen](https://partner.microsoft.com/membership/cloud-business-applications-competency) för unified operations-alternativet.
-
-**Dynamics 365 Customer Insights**
-
-- **Kriterier**: Måste ha minst en lyckad implementering av [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) med minst fem mått och fem segment.
-
-**Dynamics 365 Business Central**
-
-- **Villkor:** Måste vara guld- eller silvercertifierat i [kompetensen Företagsresursplanering](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) och betjäna minst tre kunder eller ha publicerat ett Business Central-program i Microsoft AppSource.
-
-**Power BI**
-
-- **Villkor:** Måste anges på [Power BI-partner showcase](https://powerbi.microsoft.com/partner-showcase/).
-
-**Power Apps**
-
-- **Kriterier:** Måste vara berättigade till avancerade förmåner i [Power Apps Partnership-programmet.](https://aka.ms/PowerAppsPartner)
-
-Mer information om hur du uppfyller dessa förutsättningar finns i [förutsättningarna för konsulttjänster](consulting-service-prerequisites.md).
-
-### <a name="logistical-requirements"></a>Logistiska krav
-
-Om du vill skapa ett erbjudande om konsulttjänster på Antingen Azure Marketplace eller AppSource måste du först [ha ett utgivarkonto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)och ditt konto måste vara registrerat i det kommersiella marketplace-programmet.
-
-## <a name="create-a-new-consulting-service-offer-in-partner-center"></a>Skapa ett nytt konsultserviceerbjudande i Partner Center
+## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
 När du har uppfyllat de krav som beskrivs ovan följer du dessa steg för att skapa ett konsultserviceerbjudande.
 
@@ -139,7 +90,7 @@ Välj **Spara utkast** innan du fortsätter till nästa avsnitt, Egenskaper.
 
 ### <a name="properties"></a>Egenskaper
 
-På den här sidan kan du ställa in den primära produkt som din konsulttjänst erbjuder bäst täcker, ange en konsulttjänsttyp och välja tillämpliga produkter.
+På den här sidan kan du ställa in den primära produkt som din konsulttjänst erbjuder bäst omslag, ange en konsulttjänsttyp och välja tillämpliga produkter.
 
 1. Välj en **primär produkt** i listrutan.
 2. Välj en **konsulttjänsttyp** i listrutan:
@@ -153,7 +104,7 @@ På den här sidan kan du ställa in den primära produkt som din konsulttjänst
 1. Om du har valt en primär produkt av **Azure**väljer du upp till tre **lösningsområden**. Dessa gör det enklare för kunder på Azure Marketplace att hitta ditt erbjudande. Om du inte&#39;du inte valde Azure hoppar du över det här steget.
 2. Om du har valt en _annan_ primärprodukt än Azure väljer du upp till tre **tillämpliga produkter**. Dessa gör det enklare för kunder i AppSource att hitta ditt erbjudande. Mer information finns i [Microsoft AppSource Consulting Service Listing Guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
 3. Välj upp till sex **branscher** som ditt erbjudande gäller för. Detta kommer att göra det lättare för kunderna att hitta ditt erbjudande.
-4. Lägg till upp till tre **kompetenser** som ditt företag har tjänat för att visa på din konsulttjänster erbjudande notering. Minst en kompetens krävs förutom Azure Expert MSP&#39;s och Azure Networking MSP&#39;s.
+4. Lägg till upp till tre **kompetenser** som ditt företag har tjänat för att visa på din Konsulttjänster erbjudande notering. Minst en kompetens krävs förutom Azure Expert MSP&#39;s och Azure Networking MSP&#39;s.
 
 Välj **Spara utkast** innan du fortsätter till nästa avsnitt, Offer list.
 
@@ -261,7 +212,7 @@ Här definierar du element som prissättning, marknad och en privat nyckel.
 
 När du har slutfört alla nödvändiga avsnitt i erbjudandet kan du skicka in ditt erbjudande om att granska och publicera.
 
-1. När du är redo att publicera ditt konsulttjänsterbjudande klickar du på **Granska och publicera**.
+1. När du är redo att publicera erbjudandet om konsulttjänster klickar du på **Granska och publicera**.
 2. Gå igenom detaljerna på den slutliga inlämningssidan.
 3. Om det behövs, skriv en anteckning till certifieringsteamet om du tror att någon av detaljerna i ditt erbjudande kräver förklaring.
 4. När du är klar väljer du **Skicka**.

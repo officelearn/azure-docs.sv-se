@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: fd1f06bcb92ea97e0e9e9a6eefeac957031575a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a088e52f742f96a13ba61969c2d7a6697c96b145
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471565"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879300"
 ---
 # <a name="routing-architecture-overview"></a>Översikt över routningsarkitektur
 
@@ -35,7 +35,7 @@ Routning till Azure Front Door-miljöer utnyttjar [Anycast](https://en.wikipedia
 [Split TCP](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) är en teknik för att minska latenser och TCP problem genom att bryta en anslutning som skulle medföra en hög rundresa tid i mindre bitar.  Genom att placera frontdörrsmiljöerna närmare slutanvändarna och avsluta TCP-anslutningar inuti ytterdörrens miljö, delas en TCP-anslutning med en stor rundresa (RTT) till ansökan backend upp i två TCP-anslutningar. Den korta anslutningen mellan slutanvändaren och ytterdörren miljön innebär att anslutningen blir etablerad över tre korta tur och returresor i stället för tre långa rundresor, vilket sparar latens.  Den långa anslutningen mellan ytterdörren och backend kan förkonetables och återanvändas över flera slutanvändare samtal, återigen spara TCP anslutningstiden.  Effekten multipliceras när du upprättar en SSL/TLS-anslutning (Transport Layer Security), eftersom det finns fler tur- och returresor för att säkra anslutningen.
 
 ## <a name="processing-request-to-match-a-routing-rule"></a>Bearbeta begäran om att matcha en routningsregel
-När du har upprättat en anslutning och gjort ett SSL-handslag är det första steget att matcha en routningsregel när en begäran hamnar på en ytterdörrsmiljö. Den här matchningen avgör i princip från alla konfigurationer i Ytterdörren, vilken särskild routningsregel som ska matcha begäran till. Läs om hur Ytterdörren gör [ruttmatchning](front-door-route-matching.md) för att lära dig mer.
+När du har upprättat en anslutning och gjort ett TLS-handslag, när en begäran landar på en ytterdörrsmiljö, är matchning av en routningsregel det första steget. Den här matchningen avgör i princip från alla konfigurationer i Ytterdörren, vilken särskild routningsregel som ska matcha begäran till. Läs om hur Ytterdörren gör [ruttmatchning](front-door-route-matching.md) för att lära dig mer.
 
 ## <a name="identifying-available-backends-in-the-backend-pool-for-the-routing-rule"></a>Identifiera tillgängliga backends i backend-poolen för routningsregeln
 När Ytterdörren har en matchning för en routningsregel baserat på den inkommande begäran och om det inte finns någon cachelagring, är nästa steg att dra hälsoavsökningsstatusen för serverdelspoolen som är associerad med den matchade vägen. Läs om hur Front Door övervakar backend hälsa med hjälp av [Hälsosonder](front-door-health-probes.md) för att lära sig mer.

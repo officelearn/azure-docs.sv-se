@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 821007e40eaa91c98f157ee0b28fe01f37e3cbc9
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 019711f35d249e6684013feddb6b453d509f66d4
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743956"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985362"
 ---
 # <a name="update-an-existing-iot-edge-module-offer"></a>Uppdatera ett befintligt IoT Edge-modulerbjudande
 
 >[!Important]
->Från och med den 30 mars 2020 börjar vi flytta hanteringen av dina IoT Edge-modulerbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa ett IoT Edge-modulerbjudande](https://aka.ms/AzureCreateIoT) för att hantera dina migrerade erbjudanden.
+>Från och med den 13 april 2020 börjar vi flytta hanteringen av din IoT Edge-modul till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa ett IoT Edge-modulerbjudande](https://aka.ms/AzureCreateIoT) för att hantera dina migrerade erbjudanden.
 
 Den här artikeln går igenom de olika aspekterna av att uppdatera ditt IoT Edge-modulerbjudande i [Cloud Partner Portal](https://cloudpartner.azure.com/) och sedan publicera erbjudandet igen.
 

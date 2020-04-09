@@ -1,26 +1,22 @@
 ---
-title: Konfigurera ett nytt program för flera innehavare | Microsoft-dokument
+title: Konfigurera ett nytt program för flera innehavare
 description: Lär dig hur du konfigurerar ett program som flera innehavare och hur program med flera innehavare fungerar
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.openlocfilehash: ae5f0f0cd42c4b734e14a66bc7ba9cf5bbfe61a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a27524f860f17642dcd0640bcb740fc04c187407
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76701492"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881391"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>Konfigurera ett nytt program med flera innehavare
 

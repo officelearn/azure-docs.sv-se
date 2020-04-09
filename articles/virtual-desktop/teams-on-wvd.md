@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 702df1bfaf0701a40e514f8a47151f96917adf38
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: cfec30e56b0fd523896cbc1a7e84e92f639075a8
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811592"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879062"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Använda Microsoft Teams på Virtuellt Windows-skrivbord
 
@@ -40,7 +40,7 @@ Om du vill aktivera installation per dator ställer du in följande registernyck
 ```shell
   [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams\IsWVDEnvironment]
   Type: REG_DWORD
-  Value: 0x1
+  Value: 1
 ```
 
 ### <a name="install-microsoft-teams"></a>Installera Microsoft Teams
@@ -66,4 +66,4 @@ Du kan distribuera Teams-skrivbordsappen med hjälp av en installation per dator
       ```
 
       > [!NOTE]
-      > Om du installerar Teams med MSI-inställningen ALLUSERS=1 inaktiveras automatiska uppdateringar. Vi rekommenderar att du uppdaterar Teams minst en gång i månaden.
+      > Om du installerar Teams med MSI-inställningen ALLUSER=1 inaktiveras automatiska uppdateringar. Vi rekommenderar att du uppdaterar Teams minst en gång i månaden.

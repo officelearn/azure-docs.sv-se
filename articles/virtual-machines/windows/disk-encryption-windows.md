@@ -7,18 +7,18 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7e96f9484c103ebe75e21705b94cf35b9e16c54f
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: b51f7a8b62d7131b7bbfc77101e60fab22e1f148
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529337"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985804"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Azure Disk Encryption-scenarier på virtuella Windows-datorer
 
-Azure Disk Encryption använder BitLocker extern nyckelskydd för att tillhandahålla volymkryptering för operativsystem och datadiskar för virtuella Azure-datorer (VMs) och är integrerad med Azure Key Vault för att hjälpa dig att styra och hantera diskkrypteringsnycklar och hemligheter. En översikt över tjänsten finns i [Azure Disk Encryption för virtuella datorer i Windows](disk-encryption-overview.md).
+Azure Disk Encryption för virtuella Datorer i Windows använder Bitlocker-funktionen i Windows för att tillhandahålla fullständig diskkryptering av WindOS-disken och datadisken. Dessutom ger det kryptering av den tillfälliga resursdisken när parametern VolumeType är Allt.
 
-Det finns många diskkrypteringsscenarier och stegen kan variera beroende på scenariot. Följande avsnitt beskriver scenarierna mer i detalj för virtuella datorer i Windows.
+Azure Disk Encryption är [integrerad med Azure Key Vault](disk-encryption-key-vault.md) för att hjälpa dig att kontrollera och hantera diskkrypteringsnycklar och hemligheter. En översikt över tjänsten finns i [Azure Disk Encryption för virtuella datorer i Windows](disk-encryption-overview.md).
 
 Du kan bara använda diskkryptering på virtuella datorer med [vm-storlekar och operativsystem som stöds](disk-encryption-overview.md#supported-vms-and-operating-systems). Du måste också uppfylla följande förutsättningar:
 
@@ -39,9 +39,6 @@ Du kan bara använda diskkryptering på virtuella datorer med [vm-storlekar och 
 
 ## <a name="enable-encryption-on-an-existing-or-running-windows-vm"></a>Aktivera kryptering på en befintlig eller körad Windows VM
 I det här fallet kan du aktivera kryptering med hjälp av Resource Manager-mallen, PowerShell-cmdlets eller CLI-kommandon. Om du behöver schemainformation för tillägget för den virtuella datorn läser du artikeln [Azure Disk Encryption for Windows-tillägg.](../extensions/azure-disk-enc-windows.md)
-
-## <a name="enable-encryption-on-existing-or-running-iaas-windows-vms"></a>Aktivera kryptering på befintliga eller körande virtuella IaaS Windows-datorer
-Du kan aktivera kryptering med hjälp av en mall, PowerShell-cmdlets eller CLI-kommandon. Om du behöver schemainformation för tillägget för den virtuella datorn läser du artikeln [Azure Disk Encryption for Windows-tillägg.](../extensions/azure-disk-enc-windows.md)
 
 ### <a name="enable-encryption-on-existing-or-running-vms-with-azure-powershell"></a>Aktivera kryptering på befintliga eller krävda virtuella datorer med Azure PowerShell 
 Använd [cmdleten Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) för att aktivera kryptering på en virtuell IaaS-dator i Azure. 

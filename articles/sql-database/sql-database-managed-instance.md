@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 04/02/2020
-ms.openlocfilehash: 06242af6cb00e3adebbc80da722898fb8e348e36
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 04b07ff60c882501c49ad58607db867e7e99897c
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585357"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879079"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Vad är Azure SQL Database-hanterad instans?
 
@@ -46,7 +46,7 @@ Hanterad instans kombinerar de bästa funktionerna som är tillgängliga både i
 | --- | --- |
 |Inga inköp och hantering av maskinvara <br>Inga hanteringskostnader för hantering av underliggande infrastruktur <br>Snabb etablering och serviceskalning <br>Automatisk korrigering och versionsuppgradering <br>Integration med andra PaaS-datatjänster |99.99% upptid SLA  <br>Inbyggd [hög tillgänglighet](sql-database-high-availability.md) <br>Data skyddas med [automatiska säkerhetskopior](sql-database-automated-backups.md) <br>Kundkonfigurerbar lagringsperiod för säkerhetskopiering <br>Säkerhetskopierade [säkerhetskopieringar som initierats av](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) användaren <br>[Tidsgränsen för återställning av databas](sql-database-recovery-using-backups.md#point-in-time-restore) |
 |**Säkerhet och efterlevnad** | **Hantering**|
-|Isolerad miljö ([VNet-integrering,](sql-database-managed-instance-connectivity-architecture.md)enklienttjänst, dedikerad beräkning och lagring) <br>[Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-autentisering](sql-database-aad-authentication.md), enkel inloggningsstöd <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD-serverhuvudnamn (inloggningar)</a>  <br>Följer efterlevnadsstandarder på samma sätt som Azure SQL-databas <br>[SQL-granskning](sql-database-managed-instance-auditing.md) <br>[Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) |Api för Azure Resource Manager-API för automatisering av tjänstetablering och skalning <br>Azure-portalfunktioner för manuell tjänstetablering och skalning <br>Datamigreringstjänst
+|Isolerad miljö ([VNet-integrering,](sql-database-managed-instance-connectivity-architecture.md)enklienttjänst, dedikerad beräkning och lagring) <br>[Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-autentisering](sql-database-aad-authentication.md), enkel inloggningsstöd <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD-serverhuvudnamn (inloggningar)</a>  <br>Följer efterlevnadsstandarder på samma sätt som Azure SQL-databas <br>[SQL-granskning](sql-database-managed-instance-auditing.md) <br>[Avancerat hotskydd](sql-database-managed-instance-threat-detection.md) |Api för Azure Resource Manager-API för automatisering av tjänstetablering och skalning <br>Azure-portalfunktioner för manuell tjänstetablering och skalning <br>Datamigreringstjänst
 
 > [!IMPORTANT]
 > Azure SQL Database (alla distributionsalternativ) har certifierats mot ett antal efterlevnadsstandarder. Mer information finns i [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) där du hittar den senaste listan över SQL Database-efterlevnadscertifieringar.
@@ -121,7 +121,7 @@ Hitta mer information om skillnaden mellan tjänstnivåer i [resursgränser för
 
 Azure SQL Database innehåller hanteringsåtgärder som du kan använda för att automatiskt distribuera nya hanterade instanser, uppdatera instansegenskaper och ta bort instanser när de inte längre behövs. Det här avsnittet innehåller information om hanteringsåtgärder och deras typiska varaktigheter.
 
-För att stödja [distributioner inom Virtuella Azure-nätverk (VIRTUELLA nätverk)](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) och tillhandahålla isolering och säkerhet för kunder, förlitar sig hanterad instans på [virtuella kluster](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture), som representerar en dedikerad uppsättning isolerade virtuella datorer som distribueras i kundens virtuella nätverksundernät. I huvudsak resulterar varje hanterad instansdistribution i ett tomt undernät i en ny virtuell klusterversion.
+För att stödja [distributioner inom Virtuella Azure-nätverk (VIRTUELLA nätverk)](../virtual-network/virtual-network-for-azure-services.md) och tillhandahålla isolering och säkerhet för kunder, förlitar sig hanterad instans på [virtuella kluster](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture), som representerar en dedikerad uppsättning isolerade virtuella datorer som distribueras i kundens virtuella nätverksundernät. I huvudsak resulterar varje hanterad instansdistribution i ett tomt undernät i en ny virtuell klusterversion.
 
 Efterföljande åtgärder på distribuerade hanterade instanser kan också ha effekter på det underliggande virtuella klustret. Detta påverkar varaktigheten för hanteringsåtgärder, eftersom distribution av ytterligare virtuella datorer levereras med en overhead som måste beaktas när du planerar nya distributioner eller uppdateringar av befintliga hanterade instanser.
 
@@ -150,14 +150,14 @@ I följande tabell sammanfattas åtgärder och typiska totala varaktigheter:
 |Distribution |Första instansen av en annan maskinvarugenerering i ett icke-tomt undernät (till exempel första Gen 5-instansen i ett undernät med Gen 4-instanser)|Skapande av virtuellt kluster*|90% av verksamheten avslutas i 4 timmar|
 |Distribution |Första instans skapande av 4 virtuella kärnor, i ett tomt eller icke-tomt undernät|Skapande av virtuellt kluster**|90% av verksamheten avslutas i 4 timmar|
 |Distribution |Efterföljande förekomstskapande i det icke-tomma undernätet (2:a, 3:e, etc. instans)|Storlek på virtuellt kluster|90% av verksamheten avslutas på 2,5 timmar|
-|**Uppdatering** |Ändring av instansegenskap (administratörslösenord, AAD-inloggning, Azure Hybrid-förmånsflagga)|Ej tillämpligt|Upp till 1 minut|
-|Uppdatering |Upp/ned för instanslagring (tjänstnivå för allmänt ändamål)|Bifoga databasfiler|90% av verksamheten avslutas på 5 minuter|
-|Uppdatering |Upp/ned för instanslagring (business critical service-nivå)|- Storlek på virtuellt kluster<br>- Alltid på tillgänglighet grupp sådd|90% av verksamheten avslutas i 2,5 timmar + tid att så alla databaser (220 GB / timme)|
-|Uppdatering |Instansberäkning (vCores) skala upp och ned (allmänt syfte)|- Storlek på virtuellt kluster<br>- Bifoga databasfiler|90% av verksamheten avslutas på 2,5 timmar|
-|Uppdatering |Instansberäkning (vCore) skala upp och ned (affärskritisk)|- Storlek på virtuellt kluster<br>- Alltid på tillgänglighet grupp sådd|90% av verksamheten avslutas i 2,5 timmar + tid att så alla databaser (220 GB / timme)|
-|Uppdatering |Instans skala ner till 4 virtuella kärnor (allmänt syfte)|- Virtual cluster resizing (om det görs för första gången, kan det kräva virtuell kluster skapande **)<br>- Bifoga databasfiler|90% av verksamheten avslutas i 4 h 5 min **|
-|Uppdatering |Instans skala ner till 4 virtuella kärnor (affärskritisk)|- Virtual cluster resizing (om det görs för första gången, kan det kräva virtuell kluster skapande **)<br>- Alltid på tillgänglighet grupp sådd|90% av verksamheten avslutas i 4 timmar + tid att så alla databaser (220 GB / timme)|
-|Uppdatering |Ändring av instanstjänstnivå (allmänt syfte till affärskritisk och vice versa)|- Storlek på virtuellt kluster<br>- Alltid på tillgänglighet grupp sådd|90% av verksamheten avslutas i 2,5 timmar + tid att så alla databaser (220 GB / timme)|
+|**Uppdatera** |Ändring av instansegenskap (administratörslösenord, AAD-inloggning, Azure Hybrid-förmånsflagga)|Ej tillämpligt|Upp till 1 minut|
+|Uppdatera |Upp/ned för instanslagring (tjänstnivå för allmänt ändamål)|Bifoga databasfiler|90% av verksamheten avslutas på 5 minuter|
+|Uppdatera |Upp/ned för instanslagring (business critical service-nivå)|- Storlek på virtuellt kluster<br>- Alltid på tillgänglighet grupp sådd|90% av verksamheten avslutas i 2,5 timmar + tid att så alla databaser (220 GB / timme)|
+|Uppdatera |Instansberäkning (vCores) skala upp och ned (allmänt syfte)|- Storlek på virtuellt kluster<br>- Bifoga databasfiler|90% av verksamheten avslutas på 2,5 timmar|
+|Uppdatera |Instansberäkning (vCore) skala upp och ned (affärskritisk)|- Storlek på virtuellt kluster<br>- Alltid på tillgänglighet grupp sådd|90% av verksamheten avslutas i 2,5 timmar + tid att så alla databaser (220 GB / timme)|
+|Uppdatera |Instans skala ner till 4 virtuella kärnor (allmänt syfte)|- Virtual cluster resizing (om det görs för första gången, kan det kräva virtuell kluster skapande **)<br>- Bifoga databasfiler|90% av verksamheten avslutas i 4 h 5 min **|
+|Uppdatera |Instans skala ner till 4 virtuella kärnor (affärskritisk)|- Virtual cluster resizing (om det görs för första gången, kan det kräva virtuell kluster skapande **)<br>- Alltid på tillgänglighet grupp sådd|90% av verksamheten avslutas i 4 timmar + tid att så alla databaser (220 GB / timme)|
+|Uppdatera |Ändring av instanstjänstnivå (allmänt syfte till affärskritisk och vice versa)|- Storlek på virtuellt kluster<br>- Alltid på tillgänglighet grupp sådd|90% av verksamheten avslutas i 2,5 timmar + tid att så alla databaser (220 GB / timme)|
 |**Borttagning**|Borttagning av instans|Logga svans säkerhetskopiering för alla databaser|90% operationer avslutas i upp till 1 minut.<br>Om den sista instansen i undernätet tas bort schemaläggs virtuell klusterborttagning efter 12 timmar***|
 |Borttagning|Borttagning av virtuellt kluster (som användarinitierad åtgärd)|Borttagning av virtuellt kluster|90% av verksamheten avslutas på upp till 1,5 timmar|
 
@@ -188,11 +188,11 @@ I följande tabell sammanfattas möjligheten att avbryta specifika hanteringsåt
 Kategori  |Åtgärd  |Kan avbrytas  |Beräknad avbruten varaktighet  |
 |---------|---------|---------|---------|
 |Distribution |Skapa instans |Inga |  |
-|Uppdatering |Upp/ned för instanslagring (allmänt syfte) |Inga |  |
-|Uppdatering |Förekomstlagringsskalning upp/ned (affärskritiskt) |Ja |90% av verksamheten avslutas på 5 minuter |
-|Uppdatering |Instansberäkning (vCores) skala upp och ned (allmänt syfte) |Ja |90% av verksamheten avslutas på 5 minuter |
-|Uppdatering |Instansberäkning (vCore) skala upp och ned (affärskritisk) |Ja |90% av verksamheten avslutas på 5 minuter |
-|Uppdatering |Ändring av instanstjänstnivå (allmänt syfte till affärskritisk och vice versa) |Ja |90% av verksamheten avslutas på 5 minuter |
+|Uppdatera |Upp/ned för instanslagring (allmänt syfte) |Inga |  |
+|Uppdatera |Förekomstlagringsskalning upp/ned (affärskritiskt) |Ja |90% av verksamheten avslutas på 5 minuter |
+|Uppdatera |Instansberäkning (vCores) skala upp och ned (allmänt syfte) |Ja |90% av verksamheten avslutas på 5 minuter |
+|Uppdatera |Instansberäkning (vCore) skala upp och ned (affärskritisk) |Ja |90% av verksamheten avslutas på 5 minuter |
+|Uppdatera |Ändring av instanstjänstnivå (allmänt syfte till affärskritisk och vice versa) |Ja |90% av verksamheten avslutas på 5 minuter |
 |Ta bort |Borttagning av instans |Inga |  |
 |Ta bort |Borttagning av virtuellt kluster (som användarinitierad åtgärd) |Inga |  |
 
@@ -239,7 +239,7 @@ Azure SQL Database innehåller en uppsättning avancerade säkerhetsfunktioner s
 - [Granskning av hanterade instanser](sql-database-managed-instance-auditing.md) spårar databashändelser och skriver dem till en granskningsloggfil som placeras i ditt Azure-lagringskonto. Granskning kan bidra till att upprätthålla regelefterlevnad, förstå databasaktivitet och få insikt i avvikelser och avvikelser som kan tyda på affärsproblem eller misstänkta säkerhetsöverträdelser.
 - Datakryptering i rörelse – en hanterad instans skyddar dina data genom att tillhandahålla kryptering för data i rörelse med hjälp av Transport Layer Security. Förutom transportlagersäkerhet erbjuder distributionsalternativet för hanterade instanser skydd av känsliga data under flygning, i vila och under frågebearbetning med [Alltid krypterad](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted är först i branschen med att erbjuda oslagbar datasäkerhet mot överträdelser, inklusive stöld av viktiga data. Med alltid krypterade lagras kreditkortsnummer till exempel krypterade i databasen alltid, även under frågebearbetning, vilket möjliggör dekryptering vid användningspunkten av behörig personal eller program som behöver bearbeta dessa data.
 - [Avancerat skydd mot hot](sql-database-managed-instance-threat-detection.md) kompletterar [granskningen](sql-database-managed-instance-auditing.md) genom att tillhandahålla ett extra lager av säkerhetsinformation som är inbyggd i tjänsten och som upptäcker ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser. Du får ett meddelande om misstänkta aktiviteter, potentiella sårbarheter och SQL-injektionsattacker samt avvikande databasåtkomstmönster. Avancerade hotskyddsaviseringar kan visas från [Azure Security Center](https://azure.microsoft.com/services/security-center/) och ge information om misstänkt aktivitet och rekommendera åtgärder för hur du undersöker och minskar hotet.  
-- [Dynamisk datamaskering](/sql/relational-databases/security/dynamic-data-masking) begränsar känslig dataexponering genom att maskera den för icke-privilegierade användare. Dynamisk datamaskering hjälper till att förhindra obehörig åtkomst till känsliga data genom att du kan ange hur mycket av känsliga data som ska visas med minimal påverkan på programlagret. Det är en principbaserad säkerhetsfunktion som fungerar genom att dölja känslig data i resultatuppsättningen för en fråga över angivna databasfält, medan data i databasen förblir oförändrad.
+- [Dynamisk datamaskering](/sql/relational-databases/security/dynamic-data-masking) begränsar känslig dataexponering genom att maskera den för icke-privilegierade användare. Dynamisk datamaskering hjälper till att förhindra obehörig åtkomst till känsliga data genom att du kan ange hur mycket av känsliga data som ska visas med minimal påverkan på programlagret. Det är en principbaserad säkerhetsfunktion som döljer känsliga data i resultatuppsättningen för en fråga över angivna databasfält, medan data i databasen inte ändras.
 - [Med säkerhet på radnivå](/sql/relational-databases/security/row-level-security) kan du styra åtkomsten till rader i en databastabell baserat på egenskaperna hos den användare som kör en fråga (till exempel efter gruppmedlemskap eller körningskontext). Säkerheten på radnivå (RLS) förenklar design och kodning av säkerheten i ditt program. RLS låter dig implementera begränsningar för dataåtkomst för raden. Se till exempel till att arbetstagare bara kan komma åt de datarader som är relevanta för deras avdelning, eller begränsa dataåtkomst till endast relevanta data.
 - [Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) krypterar hanterade instansdatafiler, så kallade krypteringsdata i vila. TDE utför I/O-kryptering i realtid och dekryptering av data- och loggfiler. Krypteringen använder en databaskrypteringsnyckel (DEK), som lagras i databasens startpost för tillgänglighet under återställningen. Du kan skydda alla dina databaser i en hanterad instans med transparent datakryptering. TDE är SQL Servers beprövade krypterings-at-rest-teknik som krävs av många efterlevnadsstandarder för att skydda mot stöld av lagringsmedia.
 

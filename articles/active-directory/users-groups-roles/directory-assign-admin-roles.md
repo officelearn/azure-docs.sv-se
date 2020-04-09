@@ -9,23 +9,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 02/28/2020
+ms.date: 04/07/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63e561ff1b976b3de993414607b694e621b1d536
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: e097173712693754baab99912301c98ee336f64f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346952"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877923"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
 
 Med Azure Active Directory (Azure AD) kan du ange begränsade administratörer för att hantera identitetsuppgifter i mindre privilegierade roller. Administratörer kan tilldelas för sådana ändamål som att lägga till eller ändra användare, tilldela administrativa roller, återställa användarlösenord, hantera användarlicenser och hantera domännamn. Standardanvändarbehörigheterna kan bara ändras i användarinställningar i Azure AD.
 
-## <a name="limit-the-use-of-global-administrator"></a>Begränsa användningen av global administratör
+## <a name="limit-use-of-global-administrator"></a>Begränsa användningen av global administratör
 
 Användare som har tilldelats rollen Global administratör kan läsa och ändra alla administrativa inställningar i din Azure AD-organisation. Som standard tilldelas den person som registrerar sig för en Azure-prenumeration rollen Global administratör för Azure AD-organisationen. Endast globala administratörer och administratörer för privilegierade roller kan delegera administratörsroller. För att minska risken för ditt företag rekommenderar vi att du tilldelar den här rollen till minsta möjliga personer i organisationen.
 
@@ -70,7 +70,8 @@ Användare i den här rollen kan skapa programregistreringar när inställningen
 
 ### <a name="authentication-administrator"></a>[Administratör för autentisering](#authentication-administrator-permissions)
 
-Användare i den här rollen kan ange eller återställa autentiseringsuppgifter som inte är lösenord, uppdatera lösenord, kräva att registrera sig mot befintliga icke-lösenordsautentiseringsuppgifter (till exempel MFA eller FIDO) och återkalla **kom ihåg MFA på enheten** (som frågar efter MFA vid nästa inloggning) för användare som inte är administratörer eller endast tilldelat följande roller:
+Rollen Autentiseringsadministratör är för närvarande i offentlig förhandsversion. Användare med den här rollen kan ange eller återställa autentiseringsuppgifter som inte är lösenord och kan uppdatera lösenord för alla användare. Autentiseringsadministratörer kan kräva att användare registrerar sig mot befintliga icke-lösenordsautentiseringsuppgifter (till exempel MFA eller FIDO) och **återkallar kom ihåg MFA på enheten**, som frågar efter MFA vid nästa inloggning av användare som inte är administratörer eller endast tilldelat följande roller:
+
 * Administratör för autentisering
 * Katalogläsare
 * Gäst inbjudna
@@ -113,7 +114,7 @@ Användaren kan skapa och hantera principnycklar och hemligheter för tokenkrypt
 
 ### <a name="b2c-ief-policy-administrator"></a>[B2C IEF-principadministratör](#b2c-ief-policy-administrator-permissions)
 
-Användare i den här rollen har möjlighet att skapa, läsa, uppdatera och ta bort alla anpassade principer i Azure AD B2C och har därför full kontroll över Identity Experience Framework i relevant Azure AD B2C-klientorganisation. Genom att redigera principer kan den här användaren upprätta direkt federation med externa identitetsleverantörer, ändra katalogschemat, ändra allt användarvänt innehåll (HTML, CSS, JavaScript), ändra kraven för att slutföra en autentisering, skapa nya användare, skicka användardata till externa system, inklusive fullständiga migreringar, och redigera all användarinformation, inklusive känsliga fält som lösenord och telefonnummer. Omvänt kan den här rollen inte ändra krypteringsnycklarna eller redigera hemligheterna som används för federationen i klienten.
+Användare i den här rollen har möjlighet att skapa, läsa, uppdatera och ta bort alla anpassade principer i Azure AD B2C och har därför full kontroll över Identity Experience Framework i relevant Azure AD B2C-klientorganisation. Genom att redigera principer kan den här användaren upprätta direkt federation med externa identitetsleverantörer, ändra katalogschemat, ändra allt användarvänt innehåll (HTML, CSS, JavaScript), ändra kraven för att slutföra en autentisering, skapa nya användare, skicka användardata till externa system, inklusive fullständiga migreringar, och redigera all användarinformation inklusive känsliga fält som lösenord och telefonnummer. Omvänt kan den här rollen inte ändra krypteringsnycklarna eller redigera hemligheterna som används för federationen i klienten.
 
 > [!IMPORTANT]
 > B2 IEF-principadministratören är en mycket känslig roll som bör tilldelas på en mycket begränsad basis för klienter i produktionen.Aktiviteter som utförs av dessa användare bör granskas noggrant, särskilt för hyresgäster i produktionen.
@@ -139,7 +140,7 @@ Användare i den här rollen kan aktivera, inaktivera och ta bort enheter i Azur
 
 ### <a name="compliance-administrator"></a>[Efterlevnadsadministratör](#compliance-administrator-permissions)
 
-Användare med den här rollen har behörighet att hantera efterlevnadsrelaterade funktioner i Microsoft 365 compliance center, Microsoft 365 admincenter, Azure och Office 365 Security & Compliance Center. Tilldelade kan också skapa supportärenden för Azure och Microsoft 365. Mer information finns på [Om Office 365-administratörsroller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Användare med den här rollen har behörighet att hantera efterlevnadsrelaterade funktioner i Microsoft 365 compliance center, Microsoft 365 admincenter, Azure och Office 365 Security & Compliance Center. Tilldelade kan också hantera alla funktioner i Administrationscentret för Exchange och Teams & Administrationscenter för Skype för företag och skapa supportärenden för Azure och Microsoft 365. Mer information finns på [Om Office 365-administratörsroller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 I | Kan göra
 ----- | ----------
@@ -214,7 +215,7 @@ Användare med den här rollen har globala behörigheter inom Microsoft Exchange
 Den här administratören hanterar federationen mellan Azure Active Directory-klienter och externa identitetsleverantörer.Med den här rollen kan användare lägga till nya identitetsleverantörer och konfigurera alla tillgängliga inställningar (t.ex. autentiseringssökväg, tjänst-ID, tilldelade nyckelbehållare).Den här användaren kan göra det möjligt för klienten att lita på autentiseringar från externa identitetsleverantörer.Den resulterande effekten på slutanvändarens upplevelser beror på vilken typ av klientorganisation:
 
 * Azure Active Directory-klienter för anställda och partner: Tillägget av en federation (t.ex. med Gmail) påverkar omedelbart alla gäst inbjudningar som ännu inte har lösts in. Se [Lägga till Google som identitetsleverantör för B2B-gästanvändare](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
-* Azure Active Directory B2C-klienter: Tillägget av en federation (till exempel med Facebook eller med en annan Azure AD-organisation) påverkar inte direkt slutanvändarflödena förrän identitetsprovidern läggs till som ett alternativ i ett användarflöde (kallas även inbyggd politik). Se [Konfigurera ett Microsoft-konto som en identitetsleverantör](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) för ett exempel.För att ändra användarflöden krävs den begränsade rollen för "B2C User Flow Administrator".
+* Azure Active Directory B2C-klienter: Tillägget av en federation (till exempel med Facebook eller med en annan Azure AD-organisation) påverkar inte direkt slutanvändarflöden förrän identitetsprovidern läggs till som ett alternativ i ett användarflöde (kallas även en inbyggd princip). Se [Konfigurera ett Microsoft-konto som en identitetsleverantör](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) för ett exempel.För att ändra användarflöden krävs den begränsade rollen för "B2C User Flow Administrator".
 
 ### <a name="global-administrator--company-administrator"></a>[Global administratör / Företagsadministratör](#company-administrator-permissions)
 
@@ -764,7 +765,10 @@ Kan läsa och hantera efterlevnadskonfiguration och rapporter i Azure AD och Off
 | microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure-supportbiljetter. |
 | microsoft.office365.webPortal/alla enheter/grundläggande/läs | Läs grundläggande egenskaper för alla resurser i microsoft.office365.webPortal. |
 | microsoft.office365.complianceManager/alla enheter/allaTasks | Hantera alla aspekter av Efterlevnadshanteraren för Office 365 |
+| microsoft.office365.exchange/alla enheter/allaTasker | Hantera alla aspekter av Exchange Online. |
 | microsoft.office365.serviceHealth/alla enheter/allaTasks | Läs och konfigurera Office 365 Service Health. |
+| microsoft.office365.sharepoint/alla enheter/allaTasker | Skapa och ta bort alla resurser och läs och uppdatera standardegenskaper i microsoft.office365.sharepoint. |
+| microsoft.office365.skypeForBusiness/alla enheter/allaTasks | Hantera alla aspekter av Skype för företag – Online. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbiljetter. |
 
 ### <a name="compliance-data-administrator-permissions"></a>Behörigheter för efterlevnadsdataadministratör
@@ -784,7 +788,10 @@ Skapar och hanterar efterlevnadsinnehåll.
 | microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure-supportbiljetter. |
 | microsoft.office365.webPortal/alla enheter/grundläggande/läs | Läs grundläggande egenskaper för alla resurser i microsoft.office365.webPortal. |
 | microsoft.office365.complianceManager/alla enheter/allaTasks | Hantera alla aspekter av Efterlevnadshanteraren för Office 365 |
+| microsoft.office365.exchange/alla enheter/allaTasker | Hantera alla aspekter av Exchange Online. |
 | microsoft.office365.serviceHealth/alla enheter/allaTasks | Läs och konfigurera Office 365 Service Health. |
+| microsoft.office365.sharepoint/alla enheter/allaTasker | Skapa och ta bort alla resurser och läs och uppdatera standardegenskaper i microsoft.office365.sharepoint. |
+| microsoft.office365.skypeForBusiness/alla enheter/allaTasks | Hantera alla aspekter av Skype för företag – Online. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbiljetter. |
 
 ### <a name="conditional-access-administrator-permissions"></a>Administratörsbehörigheter för villkorlig åtkomst
@@ -1755,8 +1762,31 @@ Följande roller bör inte användas. De har tagits bort och kommer att tas bort
 * Administratör för postlåda
 * Anslutning till arbetsplatsenheter
 
+## <a name="roles-not-shown-in-the-portal"></a>Roller som inte visas i portalen
+
+Alla roller som returneras av PowerShell- eller MS Graph API visas inte i Azure-portalen. I följande tabell ordnas dessa skillnader.
+
+API-namn | Namn på Azure-portal | Anteckningar
+-------- | ------------------- | -------------
+Företagsadministratör | Global administratör | [Namnet ändrats för bättre tydlighet](directory-assign-admin-roles.md#role-template-ids)
+Administratör för CRM-tjänster | Dynamics 365-administratör | [Återspeglar nuvarande produktvarumärke](directory-assign-admin-roles.md#role-template-ids)
+Enhetsanslutning | Inaktuell | [Dokumentation för inaktuella roller](directory-assign-admin-roles.md#deprecated-roles)
+Enhetshanterare | Inaktuell | [Dokumentation för inaktuella roller](directory-assign-admin-roles.md#deprecated-roles)
+Enhetsanvändare | Inaktuell | [Dokumentation för inaktuella roller](directory-assign-admin-roles.md#deprecated-roles)
+Konton för katalogsynkronisering | Visas inte eftersom det inte bör användas | [Dokumentation för katalogsynkroniseringskonton](directory-assign-admin-roles.md#directory-synchronization-accounts)
+Katalog författare | Visas inte eftersom det inte bör användas | [Dokumentation för katalogförfattare](directory-assign-admin-roles.md#directory-writers)
+Gästanvändare | Visas inte eftersom det inte kan användas  | Ej tillämpligt
+Administratör för Lync-tjänsten | Skype for Business-administratör | [Återspeglar nuvarande produktvarumärke](directory-assign-admin-roles.md#role-template-ids)
+Support för partnernivå 1 | Visas inte eftersom det inte bör användas | [Supportdokumentation för partnernivå1](directory-assign-admin-roles.md#partner-tier1-support)
+Support för partnernivå 2 | Visas inte eftersom det inte bör användas | [Dokumentation för support på partnernivå2](directory-assign-admin-roles.md#partner-tier2-support)
+Skrivaradministratör | Pågående arbete | Pågående arbete
+Skrivartekniker | Pågående arbete | Pågående arbete
+Begränsad gästanvändare | Visas inte eftersom det inte kan användas | Ej tillämpligt
+Användare | Visas inte eftersom det inte kan användas | Ej tillämpligt
+Anslutning till arbetsplatsenheter | Inaktuell | [Dokumentation för inaktuella roller](directory-assign-admin-roles.md#deprecated-roles)
+
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du tilldelar en användare som administratör för en Azure-prenumeration finns i [Hantera åtkomst med RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md)
-* Mer information om hur resursåtkomsten hanteras i Microsoft Azure finns i [Förstå resursåtkomst i Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+* Mer information om hur du tilldelar en användare som administratör för en Azure-prenumeration finns i [Hantera åtkomst med Azure-roller (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
+* Mer information om hur resursåtkomst styrs i Microsoft Azure finns i [Förstå de olika rollerna](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Mer information om hur Azure Active Directory relaterar till din Azure-prenumeration finns i [Hur Azure-prenumerationer är associerade med Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

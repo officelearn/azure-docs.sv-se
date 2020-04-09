@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 04/08/2020
 ms.author: juliako
-ms.openlocfilehash: e6f2ad2c5c30e3c75e8d3588e386ea14e8e3350b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a00f7c0ec76510cc521966acf98b7250e723697
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065952"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985906"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Live-evenemang och liveutgångar i medietjänster
 
@@ -112,8 +112,11 @@ Du kan antingen använda icke-anpassade eller anpassade URL:er.
 * Url till fåfänga
 
     Fåfänga-läget föredras av stora medieprogram som använder maskinvarusändningskodare och inte vill konfigurera om sina kodare när de startar Live Event. De vill ha en prediktiv intags-URL, som inte ändras med tiden.
+    
+    > [!NOTE]
+    > I Azure-portalen heter url:en för fåfänga "*Beständig indata-URL*".
 
-    Om du vill ange `vanityUrl` `true` det här läget `false`ställer du in på vid skapande (standard är ). Du måste också skicka din`LiveEventInput.accessToken`egen åtkomsttoken ( ) vid skapande tid. Du anger tokenvärdet för att undvika en slumpmässig token i URL:en. Åtkomsttoken måste vara en giltig GUID-sträng (med eller utan bindestreck). När läget har ställts in kan det inte uppdateras.
+    Om du vill ange det `vanityUrl` `true` här läget i `false`API:et anger du till vid skapandetillfället (standard är ). Du måste också skicka din`LiveEventInput.accessToken`egen åtkomsttoken ( ) vid skapande tid. Du anger tokenvärdet för att undvika en slumpmässig token i URL:en. Åtkomsttoken måste vara en giltig GUID-sträng (med eller utan bindestreck). När läget har ställts in kan det inte uppdateras.
 
     Åtkomsttoken måste vara unik i ditt datacenter. Om din app behöver använda en url för fåfänga rekommenderar vi att du alltid skapar en ny GUID-instans för din åtkomsttoken (i stället för att återanvända någon befintlig GUID).
 

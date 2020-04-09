@@ -2,25 +2,21 @@
 title: Skaffa token för att anropa ett webb-API (daemonapp) – Microsoft identity platform | Azure
 description: Lär dig hur du skapar en daemon app som anropar webb-API:er (hämta token)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7f1010949a72f95ef2836c43666e6cea9281e04d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a81f3ffb7ec190943c50127b129523badf0ef0a7
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262651"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80882989"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Daemon app som anropar webb-API: er - skaffa en token
 

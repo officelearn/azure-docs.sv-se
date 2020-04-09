@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 09/12/2019
-ms.openlocfilehash: 9f115d51657993562642391a235de79420aa434a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ce88f9a61b8aa7c2588a6e077d694afa6fb8631
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73823364"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878858"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Skapa ett virtuellt nätverk för Hanterad instans för Azure SQL Database
 
@@ -29,13 +29,13 @@ Azure SQL Database Managed Instance måste distribueras i ett [virtuellt Azure-n
 - Ansluta en hanterad instans till länkad server eller ett annat lokalt datalager
 - Ansluta en hanterad instans till Azure-resurser  
 
-> [!Note]
+> [!NOTE]
 > Du bör [bestämma storleken på undernätet för hanterad instans](sql-database-managed-instance-determine-size-vnet-subnet.md) innan du distribuerar den första instansen. Du kan inte ändra storlek på undernätet när du har placerat resurserna inuti.
 >
 > Om du planerar att använda ett befintligt virtuellt nätverk måste du ändra nätverkskonfigurationen så att den passar din hanterade instans. Mer information finns i [Ändra ett befintligt virtuellt nätverk för hanterad instans](sql-database-managed-instance-configure-vnet-subnet.md).
 >
-> När en hanterad instans har skapats stöds inte att flytta den hanterade instansen eller det virtuella nätverket till en annan resursgrupp eller prenumeration.
-
+> När en hanterad instans har skapats stöds inte att flytta den hanterade instansen eller det virtuella nätverket till en annan resursgrupp eller prenumeration.  Det går inte heller att flytta den hanterade instansen till ett annat undernät.
+>
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 

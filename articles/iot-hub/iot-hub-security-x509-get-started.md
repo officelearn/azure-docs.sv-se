@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 968241eff1bcab449f9a4def7a394a508461ec95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a22808b1d7ab2b2451f50470e8da3770d07407a5
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271179"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985668"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Konfigurera X.509-baserad säkerhet i din Azure IoT-hubb
 
@@ -38,6 +38,9 @@ Du kan välja något av följande sätt att hämta dina certifikat:
 * Skapa dina egna X.509-certifikat med hjälp av ett verktyg från tredje part, till exempel [OpenSSL](https://www.openssl.org/). Denna teknik är bra för test- och utvecklingsändamål. Mer information om hur du genererar certifikatutfärdare med Hjälp av PowerShell eller Bash finns i [Hantera certifikatutfärdarcertifikat för testcertifikat.](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) Resten av den här självstudien använder testcertifikatutfärdare som genereras genom att följa instruktionerna i [Hantera certifikatutfärdarcertifikat för testcertifikat för exempel och självstudier](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
 * Generera ett [X.509-intermediärt ca-certifikat](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust) som signerats av ett befintligt rotcertifikatutfärdarcertifikat och överför det till navet. När det mellanliggande certifikatet har laddats upp och verifierats, enligt instruktionerna nedan, kan det användas i stället för ett rotcertifikatutfärdarcertifikat som nämns nedan. Verktyg som OpenSSL ([openssl req](https://www.openssl.org/docs/man1.1.0/man1/req.html) och [openssl ca](https://www.openssl.org/docs/man1.1.0/man1/ca.html)) kan användas för att generera och signera ett mellanliggande CA-certifikat.
+
+> [!NOTE]
+> Ladda inte upp roten från tredje part om den inte är unik för dig eftersom det skulle göra det möjligt för andra kunder i tredje part att ansluta sina enheter till din IoT Hub.
 
 ## <a name="register-x509-ca-certificates-to-your-iot-hub"></a>Registrera X.509 CA-certifikat till din IoT-hubb
 

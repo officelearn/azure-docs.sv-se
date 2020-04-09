@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 9d335bcf6daf0b38e7a68ca2d40894dd64c93e40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: af17f9c2ef7eea5eb531327d4df13d5885a49b7e
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75442161"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985600"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Översikt över massexecutor-biblioteket i Azure Cosmos DB
  
@@ -51,4 +51,4 @@ Bulk executor biblioteket ser till att maximalt utnyttja dataflödet som tilldel
 * Läs mer genom att prova exempelprogrammen som använder massutdrivarbiblioteket i [.NET](bulk-executor-dot-net.md) och [Java](bulk-executor-java.md).  
 * Kolla in massutn0-körorn SDK-information och viktig information i [.NET](sql-api-sdk-bulk-executor-dot-net.md) och [Java](sql-api-sdk-bulk-executor-java.md).
 * Massutnämningsbiblioteket är integrerat i Cosmos DB Spark-kopplingen, mer information finns i azure [cosmos DB Spark-anslutningsartikeln.](spark-connector.md)  
-* Massutnämningsbiblioteket är också integrerat i en ny version av [Azure Cosmos DB-anslutning](https://aka.ms/bulkexecutor-adf-v2) för Azure Data Factory för att kopiera data.
+* Massutnämningsbiblioteket är också integrerat i en ny version av [Azure Cosmos DB-anslutning](../data-factory/connector-azure-cosmos-db.md) för Azure Data Factory för att kopiera data.

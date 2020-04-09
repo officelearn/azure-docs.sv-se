@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 7b5569738721038beadc78d94c81393803b6d36a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa0cf5d698bc2186928e0db19be173ec725485e8
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79250990"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985940"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenarier och tillgängligheten för Media Services-funktioner i datacenter
 
@@ -169,7 +169,7 @@ Det här avsnittet innehåller information om tillgängligheten för Media Servi
 
 #### <a name="availability"></a>Tillgänglighet
 
-Om du vill fastställa om Media Services är tillgängligt i ett datacenter, går du till https://azure.microsoft.com/status/ och bläddra till MEDIA-tabellen.
+Använd [Azure-produkter efter region](https://azure.microsoft.com/global-infrastructure/services/?products=media-services&regions=all) för att avgöra om Media Services är tillgängligt i ett visst datacenter.
 
 ### <a name="streaming-endpoints"></a>Slutpunkter för direktuppspelning 
 
@@ -225,7 +225,7 @@ Med Microsoft Azure Media Services kan du skydda dina mediefiler från att filer
 
 |Kryptering|Status|Datacenter|
 |---|---|---| 
-|Lagring|Allmän tillgänglighet (GA)|Alla|
+|Storage|Allmän tillgänglighet (GA)|Alla|
 |128-bitars AES-nycklar|Allmän tillgänglighet (GA)|Alla|
 |Fairplay|Allmän tillgänglighet (GA)|Alla|
 |PlayReady|Allmän tillgänglighet (GA)|Alla|

@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb0b5e37843413667e51112f52e6a69534e3425
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f4a961e601949689db89f8819f0a1fe1c5a7b3a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77063636"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875800"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Vanliga frågor och svar om Azure Active Directory
 Azure Active Directory (Azure AD) är en omfattande IDaaS-lösning (Identity as a Service) som omfattar alla aspekter relaterade till identiteter, åtkomsthantering och säkerhet.
@@ -27,16 +27,17 @@ Mer information finns i [Vad är Azure Active Directory?](active-directory-whati
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>Kom åt Azure och Azure Active Directory
-**F: Varför visas ett meddelande om att inga prenumerationer hittades när jag försöker komma åt Microsoft Azure Active Directory på Azure-portalen?**
+**F: Varför får jag "Inga prenumerationer hittades" när jag försöker komma åt Azure AD i Azure-portalen?**
 
-**S:** För att komma åt Azure-portalen behöver varje användare ha behörighet med en Azure-prenumeration. Om du har en betald Office 365- [https://aka.ms/accessAAD](https://aka.ms/accessAAD) eller Azure AD-prenumeration går du till för ett engångsaktiveringssteg. Annars måste du aktivera ett kostnadsfritt [Azure-konto](https://azure.microsoft.com/pricing/free-trial/) eller en betald prenumeration.
+**S:** För att komma åt Azure-portalen behöver varje användare ha behörighet med en Azure-prenumeration. Om du inte har en betald Office 365- eller Azure AD-prenumeration måste du aktivera ett kostnadsfritt [Azure-konto](https://azure.microsoft.com/free/
+) eller en betald prenumeration.
 
 Mer information finns i:
 
 * [Hur Azure-prenumerationer är associerade med Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 
 ---
-**F: Hur är Azure AD, Office 365 och Azure kopplade till varandra?**
+**F: Vad är förhållandet mellan Azure AD, Office 365 och Azure?**
 
 **S:** Azure AD tillhandahåller gemensamma identitets- och åtkomstfunktioner för alla webbtjänster. Oavsett om du använder Office 365, Microsoft Azure, Intune eller andra tjänster använder du redan Azure AD för hjälp med inloggnings- och åtkomsthantering för alla dessa tjänster.
 
@@ -138,9 +139,9 @@ För Azure AD-konton kan administratörer återställa lösenord med någon av f
 
 Vi använder en mer avancerad strategi för att låsa konton.  Den är baserad på IP-adressen för begäran och det lösenord som anges. Låsningens varaktighet ökar också beroende på sannolikheten för att det rör sig om ett angrepp.  
 
-**Fråga: Vissa (vanliga) lösenord avvisas med meddelandet ”lösenordet har använts för många gånger”. Gäller detta lösenord som används i aktuell Active Directory?**
+**F: Vissa (vanliga) lösenord avvisas med meddelandena "det här lösenordet har använts för att många gånger", refererar detta till lösenord som används i den aktuella active directory?**
 
-Det här gäller lösenord som är allmänt vanliga, till exempel varianter av "Lösenord" och "123456".
+Detta refererar till lösenord som är globalt vanliga, till exempel alla varianter av "Lösenord" och "123456".
 
 **Fråga: Blockeras inloggningsbegäranden från misstänkta källor (botnät, Tor-slutpunkt) på en B2C-klient eller kräver detta att klienten har en Basic- eller Premium-utgåva?**
 
@@ -157,7 +158,7 @@ En fullständig lista över redan integrerade program finns på [Active Director
 ---
 **F: Vad gör jag om jag inte hittar det program som jag behöver på Azure AD-Marketplace?**
 
-**S:** Med Azure AD Premium kan du lägga till och konfigurera de program du vill. Beroende på programmets funktioner och dina preferenser kan du konfigurera enkel inloggning (SSO) och automatisk etablering.  
+**S:** Med Azure AD Premium kan du lägga till och konfigurera de program du vill. Beroende på programmets funktioner och dina inställningar kan du konfigurera SSO och automatisk etablering.  
 
 Mer information finns i:
 
@@ -199,7 +200,7 @@ Mer information finns i [Ge säker fjärråtkomst till lokala program](../manage
 
 **A.** Med Azure AD-villkorlig åtkomst kan du tilldela en unik åtkomstprincip för varje program. Du kan välja att alltid kräva Multi-Factor Authentication eller bara kräva det när användarna inte är anslutna till det lokala nätverket.  
 
-Mer information finns i [Skydda åtkomsten till Office 365 och andra appar som är anslutna till Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+Mer information finns i [Skydda åtkomsten till Office 365 och andra appar som är anslutna till Azure Active Directory](../conditional-access/overview.md).
 
 ---
 **F: Vad är automatisk användaretablering för SaaS-appar?**
@@ -211,4 +212,4 @@ Mer information finns i [Automatisera användaretablering och avetablering för 
 ---
 **F: Kan jag skapa en säker LDAP-anslutning med Azure AD?**
 
-**A.**  Nej. Azure AD stöder inte LDAP-protokollet (Lightweight Directory Access Protocol) eller Secure LDAP direkt. Det är dock möjligt att aktivera Azure AD Domain Services (Azure AD DS) instans på din Azure AD-klient med korrekt konfigurerade nätverkssäkerhetsgrupper via Azure Networking för att uppnå LDAP-anslutning. Mer information finns i https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.
+**A.**  Nej. Azure AD stöder inte LDAP-protokollet (Lightweight Directory Access Protocol) eller Secure LDAP direkt. Det är dock möjligt att aktivera Azure AD Domain Services (Azure AD DS) instans på din Azure AD-klient med korrekt konfigurerade nätverkssäkerhetsgrupper via Azure Networking för att uppnå LDAP-anslutning. Mer information finns i [Konfigurera säker LDAP för en hanterad Azure Active Directory Domain Services-domän](../../active-directory-domain-services/tutorial-configure-ldaps.md)

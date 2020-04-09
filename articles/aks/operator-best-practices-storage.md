@@ -5,12 +5,12 @@ description: Lär dig metodtips för klusteroperatören för lagring, datakrypte
 services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 90abf2e36fd46c707904d87f00362091fe931743
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 843b775f7761af7cd40140c9bf34768d63eb5a50
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668104"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877906"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Metodtips för lagring och säkerhetskopiering i Azure Kubernetes Service (AKS)
 
@@ -40,7 +40,7 @@ I följande tabell beskrivs tillgängliga lagringstyper och deras funktioner:
 
 De två primära typerna av lagring som tillhandahålls för volymer i AKS backas upp av Azure Disks eller Azure Files. För att förbättra säkerheten använder båda typerna av lagring Azure Storage Service Encryption (SSE) som standard som krypterar data i vila. Diskar kan för närvarande inte krypteras med Azure Disk Encryption på AKS-nodnivå.
 
-Azure-filer är för närvarande tillgängliga på standardprestandanivån. Azure-diskar är tillgängliga på prestandanivåer standard och Premium:
+Både Azure-filer och Azure-diskar är tillgängliga på standard- och premiumprestandanivåer:
 
 - *Premiumdiskar* backas upp av högpresterande SSD-diskar (Solid State). Premiumdiskar rekommenderas för alla produktionsarbetsbelastningar.
 - *Standarddiskar* backas upp av vanliga snurrande diskar (HÅRDDISKAR) och är bra för arkivering eller sällan åtkomna data.

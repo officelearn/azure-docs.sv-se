@@ -11,30 +11,30 @@ ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/04/2019
+ms.date: 03/16/2020
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: e1249913300be532cc6514f1478bbc6f4183c001
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5d5ebda850163989e6ef1af94ec623d2d758f07
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78300561"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878297"
 ---
-# <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Oracle-programlösningar som integrerar Microsoft Azure och Oracle Cloud Infrastructure (förhandsversion)
+# <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Oracle-programlösningar som integrerar Microsoft Azure- och Oracle-molninfrastruktur
 
 Microsoft och Oracle samarbetar för att ge låg latens, hög genomströmning cross-cloud anslutning, så att du kan dra nytta av det bästa av båda molnen. 
 
 Med den här anslutningsövergripande molnanslutningen kan du partitionera ett program på flera nivåer för att köra din databasnivå på Oracle Cloud Infrastructure (OCI) och programmet och andra nivåer på Microsoft Azure. Upplevelsen liknar att köra hela lösningsstacken i ett enda moln. 
-
-> [!IMPORTANT]
-> Den här cross-cloud-funktionen är för närvarande i förhandsversion och [begränsningar gäller](#region-availability). För att upprätta anslutning med låg latens mellan Azure och OCI måste din Azure-prenumeration först aktiveras för den här funktionen. Du måste registrera dig i förhandsgranskningen genom att fylla i det här korta [undersökningsformuläret](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Du får ett e-postmeddelande tillbaka när din prenumeration har registrerats. Du kan inte använda funktionen förrän du får en bekräftelse via e-post. Du kan också kontakta din Microsoft-representant för att aktiveras för den här förhandsversionen. Åtkomst till förhandsversionen är beroende av tillgänglighet och begränsas av Microsoft efter eget gottfinnande. Slutförandet av undersökningen garanterar inte tillgång. Den här förhandsversionen tillhandahålls utan ett servicenivåavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i de [kompletterande användarvillkoren](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) för Microsoft Azure Previews. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
 Om du är intresserad av att distribuera Oracle-lösningar helt på Azure-infrastruktur läser du [Oracles VM-avbildningar och deras distribution på Microsoft Azure](oracle-vm-solutions.md).
 
 ## <a name="scenario-overview"></a>Scenarioöversikt
 
 Anslutning mellan moln ger dig en lösning för att köra Oracles branschledande program och dina egna anpassade program på virtuella Azure-datorer samtidigt som du kan dra nytta av fördelarna med värdbaserade databastjänster i OCI. 
+
+> [!IMPORTANT]
+> Oracle kommer att certifiera dessa program för att köras i Azure när du använder Azure / Oracle Cloud sammanlänkningslösningen senast i maj 2020.
 
 Program som du kan köra i en konfiguration över flera moln är:
 

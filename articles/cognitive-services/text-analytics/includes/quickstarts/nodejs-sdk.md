@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: a0616a8a2cc401b6b4c42c9882c14da2f123c6df
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 0cfe651a91cc16e7d4b58af67dac29fe5106a48c
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79481882"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80986623"
 ---
 <a name="HOLTop"></a>
 
@@ -61,7 +61,7 @@ npm init
 Installera `@azure/ai-text-analytics` NPM-paketen:
 
 ```console
-npm install --save @azure/ai-text-analytics
+npm install --save @azure/ai-text-analytics@1.0.0-preview.3
 ```
 
 > [!TIP]
@@ -354,7 +354,7 @@ Document ID: 0
         Score: 0.85
 ```
 
-## <a name="entity-linking"></a>Länkning av entiteter
+## <a name="entity-linking"></a>Entity Linking
 
 Skapa en matris med strängar som innehåller det dokument som du vill analysera. Anropa klientens `recognizeLinkedEntities()` metod och `RecognizeLinkedEntitiesResult` hämta objektet. Iterera genom resultatlistan och skriv ut entitetsnamn, ID, datakälla, url och matchningar. Varje objekt `matches` i matrisen innehåller förskjutning, längd och poäng för den matchen.
 

@@ -11,18 +11,18 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/04/2019
+ms.date: 03/16/2020
 ms.author: rogirdh
-ms.openlocfilehash: 6ab41182d59f8c96edfca4854aad5f9a13f53436
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 101cfc9edce8f4df1ad2388c08a5bd9702dffe68
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74806617"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878229"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Översikt över Oracle-program och lösningar på Azure
 
-Den här artikeln introducerar funktioner för att köra Oracle-lösningar med Azure-infrastruktur. Se även detaljerade introduktioner till tillgängliga [Oracle VM-avbildningar](oracle-vm-solutions.md) på Azure Marketplace och förhandsgranskningsfunktionen för att [koppla samman Azure med Oracle Cloud Infrastructure (OCI).](oracle-oci-overview.md)
+Den här artikeln introducerar funktioner för att köra Oracle-lösningar med Azure-infrastruktur. Se även detaljerade introduktioner till tillgängliga [Oracle VM-avbildningar](oracle-vm-solutions.md) på Azure Marketplace och möjligheten att [koppla samman Azure med Oracle Cloud Infrastructure (OCI).](oracle-oci-overview.md)
 
 ## <a name="oracle-databases-on-azure-infrastructure"></a>Oracle-databaser på Azure-infrastruktur
 
@@ -58,7 +58,7 @@ Kör företagsprogram i Azure på Oracle-operativsystem som stöds. Följande av
 
 * Säkerhetskopiera din Oracle-databas med Oracle RMAN och använd eventuellt [Azure Blob Fuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux) för att montera ett [mycket röddraget Azure Blob Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-redundancy) och skriva dina RMAN-säkerhetskopior till den för extra återhämtning.
 
-## <a name="integration-of-azure-with-oci-preview"></a>Integrering av Azure med OCI (förhandsversion)
+## <a name="integration-of-azure-with-oci"></a>Integrering av Azure med OCI
 
 Kör Oracle-program i Azure-infrastruktur, anslutna till backend-databaser i Oracle Cloud Infrastructure (OCI). Den här lösningen använder följande funktioner: 
 
@@ -67,7 +67,10 @@ Kör Oracle-program i Azure-infrastruktur, anslutna till backend-databaser i Ora
 
 ### <a name="deploy-oracle-applications-on-azure"></a>Distribuera Oracle-program på Azure
 
-Använd Terraform-mallar för att konfigurera Azure-infrastruktur och installera Oracle-program som validerats och stöds för att köras i konfigurationen mellan moln:
+Använd Terraform-mallar för att konfigurera Azure-infrastruktur och installera Oracle-program. 
+
+> [!IMPORTANT]
+> Oracle kommer att certifiera dessa program för att köras i Azure när du använder Azure / Oracle Cloud sammanlänkningslösningen senast i maj 2020.
 
 * Svit E-Business
 * JD Edwards EnterpriseOne

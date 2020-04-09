@@ -2,24 +2,21 @@
 title: Konfigurera en webbapp som loggar in användare – Microsoft identity platform | Azure
 description: Lär dig hur du skapar en webbapp som loggar in användare (kodkonfiguration)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 51cd7ff97af4588139721930bd4d08ffd0f95e73
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3de1edc8560cfc85f52293c095fa824b364d2058
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297549"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80881646"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Webbapp som loggar in användare: Kodkonfiguration
 

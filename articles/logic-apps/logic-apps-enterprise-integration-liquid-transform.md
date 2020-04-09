@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 04/01/2020
-ms.openlocfilehash: 0ab9297e772a3b75a077da1c2ae74e5058b2731f
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: d2598dfe9d7972dcb764abf4a1239613a1e8417a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657190"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879181"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Utföra avancerade JSON-omvandlingar med flytande mallar i Azure Logic Apps
 
@@ -33,7 +33,7 @@ Innan du kan utföra en flytande omvandling i logikappen måste du först defini
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Skapa flytande mall eller karta för ditt integrationskonto
 
-1. I det här exemplet skapar du exempelmallen Flytande som beskrivs i det här steget. I din liquid-mall kan du använda [Flytande filter](https://shopify.github.io/liquid/basics/introduction/#filters), som använder [DotLiquid](https://dotliquidmarkup.org/) och C# namngivningskonventioner.
+1. I det här exemplet skapar du exempelmallen Flytande som beskrivs i det här steget. I din liquid-mall kan du använda [Flytande filter](https://shopify.github.io/liquid/basics/introduction/#filters), som använder [DotLiquid](https://github.com/dotliquid/dotliquid) och C# namngivningskonventioner.
 
    > [!NOTE]
    > Kontrollera att filternamnen använder *meningshölje* i mallen. Annars fungerar inte filtren. Kartor har också [filstorleksgränser](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits).

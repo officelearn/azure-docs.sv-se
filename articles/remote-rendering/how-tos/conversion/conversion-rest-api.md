@@ -5,14 +5,14 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 064a7b8adaec6f47a153743b58f4e1caf50db723
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 38116efc9e87eca8e2514a0a84045a69b8d42326
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80681511"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887052"
 ---
-# <a name="use-the-model-conversion-rest-api"></a>Använda REST-APIN för modellkonvertering
+# <a name="use-the-model-conversion-rest-api"></a>Använda REST API:et för modellkonvertering
 
 [Modellkonverteringstjänsten](model-conversion.md) styrs via ett [REST API](https://en.wikipedia.org/wiki/Representational_state_transfer). I den här artikeln beskrivs API-informationen för konverteringstjänsten.
 
@@ -47,7 +47,7 @@ Ditt Azure Remote Rendering-konto måste ha åtkomst till det angivna lagringsko
 
 | Slutpunkt | Metod |
 |-----------|:-----------|
-| /v1/accounts/**accountID**accountID/conversion/create | POST |
+| /v1/accounts/**accountID**/konverteringar/skapa | POST |
 
 Returnerar ID:et för den pågående konverteringen, insvept i ett JSON-dokument. Fältnamnet är "conversionId".
 
@@ -77,7 +77,7 @@ Om ditt ARR-konto inte är länkat till ditt lagringskonto kan du med det här R
 
 | Slutpunkt | Metod |
 |-----------|:-----------|
-| /v1/accounts/ accountID/conversion/createWithSharedAccessSignature /v1/accounts/ accountID/conversion/createWithSharedAccessSignature /v1/accounts/**accountID**/conversion/createWithSharedAccessSignature /v | POST |
+| /v1/accounts/ accountID /conversions/createWithSharedAccessSignature /v1/accounts/ accountID/conversions/createWithSharedAccessSignature /v1/accounts/**accountID**/conversions/createWithSharedAccessSignature /v | POST |
 
 Returnerar ID:et för den pågående konverteringen, insvept i ett JSON-dokument. Fältnamnet är "conversionId".
 
@@ -128,5 +128,5 @@ Om statusen är "Fel" kommer det att finnas ett ytterligare "fel" fält med ett 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Använda Azure Blob Storage för modellkonvertering](blob-storage.md)
+- [Använda Azure-Blob Storage för modellkonvertering](blob-storage.md)
 - [Modellkonvertering](model-conversion.md)

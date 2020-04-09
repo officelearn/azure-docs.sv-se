@@ -3,12 +3,12 @@ title: Lär dig att granska innehållet i virtuella datorer
 description: Lär dig hur Azure Policy använder agenten Gästkonfiguration för att granska inställningar i virtuella datorer.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: cc2ba11f75da5f993b99c90e5d0cc1030003203e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 889e99e94b2c81a6654fcbe7851e93c40163a0c6
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257264"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985328"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure-principens gästkonfiguration
 
@@ -18,7 +18,7 @@ Förutom att granska och [åtgärda](../how-to/remediate-resources.md) Azure-res
 - Programkonfiguration eller förekomst
 - Miljöinställningar
 
-För närvarande granskar Azure Policy-gästkonfigurationen endast inställningar i datorn. Den tillämpar inte konfigurationer.
+För närvarande granskar de flesta Azure Policy Guest Configuration-principer endast inställningarna inuti datorn. De tillämpar inte konfigurationer. Undantaget är en inbyggd princip [som refereras nedan](#applying-configurations-using-guest-configuration).
 
 ## <a name="extension-and-client"></a>Tillägg och klient
 
@@ -62,11 +62,12 @@ I följande tabell visas en lista över de lokala verktyg som används i varje o
 |Operativsystem|Valideringsverktyg|Anteckningar|
 |-|-|-|
 |Windows|[Windows PowerShell önskad tillståndskonfiguration](/powershell/scripting/dsc/overview/overview) v2| |
-|Linux|[Inspec](https://www.chef.io/inspec/)| Ruby och Python installeras av tillägget Gästkonfiguration. |
+|Linux|[Kock Inspec](https://www.chef.io/inspec/)| Om Ruby och Python inte finns på datorn installeras de av tillägget Gästkonfiguration. |
 
 ### <a name="validation-frequency"></a>Valideringsfrekvens
 
-Gästkonfigurationsklienten söker efter nytt innehåll var femte minut. När en gästuppgift har tagits emot kontrolleras inställningarna på ett 15-minutersintervall. Resultaten skickas till resursleverantören gästkonfiguration så snart granskningen är klar. När en [principutvärderingsutlösare](../how-to/get-compliance-data.md#evaluation-triggers) inträffar skrivs datorns tillstånd till resursleverantören gästkonfiguration. Den här uppdateringen gör att Azure-principen utvärderar Azure Resource Manager-egenskaperna. En Azure-principutvärdering på begäran hämtar det senaste värdet från resursleverantören gästkonfiguration. Det utlöser dock inte en ny granskning av konfigurationen i datorn.
+Gästkonfigurationsklienten söker efter nytt innehåll var femte minut. När en gästtilldelning har tagits emot kontrolleras inställningarna för den konfigurationen på nytt med ett 15-minutersintervall.
+Resultaten skickas till resursleverantören gästkonfiguration när granskningen är klar. När en [principutvärderingsutlösare](../how-to/get-compliance-data.md#evaluation-triggers) inträffar skrivs datorns tillstånd till resursleverantören gästkonfiguration. Den här uppdateringen gör att Azure-principen utvärderar Azure Resource Manager-egenskaperna. En Azure-principutvärdering på begäran hämtar det senaste värdet från resursleverantören gästkonfiguration. Det utlöser dock inte en ny granskning av konfigurationen i datorn.
 
 ## <a name="supported-client-types"></a>Klienttyper som stöds
 
@@ -78,12 +79,9 @@ I följande tabell visas en lista över operativsystem som stöds på Azure-avbi
 |Credativ (credativ)|Debian|8, 9|
 |Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
 |Microsoft|Windows-klient|Windows 10|
-|OpenLogic|CentOS|7.3, 7.4, 7.5|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6|
+|OpenLogic|CentOS|7.3, 7.4, 7.5, 7.6, 7.7|
+|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6, 7.7|
 |Suse|SLES|12 SP3 (PÅ ANDRA)|
-
-> [!IMPORTANT]
-> Gästkonfiguration kan granska noder som kör ett operativsystem som stöds. Om du vill granska virtuella datorer som använder en anpassad avbildning måste du duplicera definitionen **DeployIfNotExists** och ändra avsnittet **Om** så att de innehåller dina bildegenskaper.
 
 ### <a name="unsupported-client-types"></a>Klienttyper som inte stöds
 
@@ -139,10 +137,6 @@ De granskningsprinciper som är tillgängliga för gästkonfiguration omfattar r
 ### <a name="multiple-assignments"></a>Flera tilldelningar
 
 Gästkonfigurationsprinciper stöder för närvarande endast tilldelning av samma gästtilldelning en gång per dator, även om principtilldelningen använder olika parametrar.
-
-## <a name="built-in-resource-modules"></a>Inbyggda resursmoduler
-
-När du installerar tillägget Gästkonfiguration ingår PowerShell-modulen "GuestConfiguration" i den senaste versionen av DSC-resursmoduler. Denna modul kan laddas ner från PowerShell Gallery med hjälp av "Manuell nedladdning" länken från modulsidan [GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/). Filformatet ".nupkg" kan döpas om till '.zip' för att packa upp och granska.
 
 ## <a name="client-log-files"></a>Loggfiler för klient
 

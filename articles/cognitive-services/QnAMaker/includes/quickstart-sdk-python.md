@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: a77041c0e53c2f0f8b6d0891a0f755e8ca474923
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03aa3919e1da982bb8a8c235bb598f5b94df1ebf
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75946350"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80986767"
 ---
 
 Använd QnA Maker-klientbiblioteket för python för att:
@@ -68,7 +68,7 @@ Skapa variabler för resursens Azure-slutpunkt och -nyckel. Om du har skapat mil
 
 |Miljövariabel|Variabel|Exempel|
 |--|--|--|
-|`QNAMAKER_SUBSCRIPTION_KEY`|`subscription_key`|Nyckeln är en 32 teckensträng och är tillgänglig i Azure-portalen, på QnA Maker-resursen, på snabbstartssidan. Detta är inte samma sak som förutsägelseslutpunktsnyckeln.|
+|`QNAMAKER_KEY`|`subscription_key`|Nyckeln är en 32 teckensträng och är tillgänglig i Azure-portalen, på QnA Maker-resursen, på snabbstartssidan. Detta är inte samma sak som förutsägelseslutpunktsnyckeln.|
 |`QNAMAKER_HOST`|`host`| Din redigeringsslutpunkt, i `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`formatet , innehåller ditt **resursnamn**. Det här är inte samma URL som används för att fråga ut förutsägelseslutpunkten.|
 
 [!code-python[Azure resource variables](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=resourcekeys)]
@@ -144,5 +144,5 @@ python knowledgebase_quickstart.py
 
 Om du vill rensa och ta bort en Cognitive Services-prenumeration kan du ta bort resursen eller resursgruppen. Om du tar bort resursgruppen tas även alla andra resurser som är associerade bort.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portalen](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)

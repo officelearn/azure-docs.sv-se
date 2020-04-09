@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/21/2018
 ms.author: ramkris
-ms.openlocfilehash: 3dc2a2d7c0e9fae425340ab1aa91790070708cd1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1a5de2647df5b8092fdcf8e6233f1fddc1690b03
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73606194"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981332"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Java bulk executor bibliotek: Ladda ner information
 
@@ -25,7 +25,7 @@ ms.locfileid: "73606194"
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [Resten](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [Bulkutnrutören - .NET](sql-api-sdk-bulk-executor-dot-net.md)
@@ -38,5 +38,5 @@ ms.locfileid: "73606194"
 |**Bibliotek för massutnrör i GitHub**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
 | **API-dokumentation**| [Dokumentation för Java API-referens](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
 |**Kom igång**|[Komma igång med massutnämningsbiblioteket Java SDK](bulk-executor-java.md)|
-|**Minsta körning som stöds**|[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)|
+|**Minsta körning som stöds**|[Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)|
 

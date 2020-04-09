@@ -1,26 +1,26 @@
 ---
-title: Aktivera SSL med sidovagnsbehållare
+title: Aktivera TLS med sidovagnsbehållare
 description: Skapa en SSL- eller TLS-slutpunkt för en behållargrupp som körs i Azure Container Instances genom att köra Nginx i en sidovagnsbehållare
 ms.topic: article
 ms.date: 02/14/2020
-ms.openlocfilehash: 43b39c7c13d6d5e52aae2ce1706e4880ab27d225
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9ea9367219db694b89d6bf4a1e52efb373c71c4
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294945"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984614"
 ---
-# <a name="enable-an-ssl-endpoint-in-a-sidecar-container"></a>Aktivera en SSL-slutpunkt i en sidovagnsbehållare
+# <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>Aktivera en TLS-slutpunkt i en sidovagnsbehållare
 
-Den här artikeln visar hur du skapar en [behållargrupp](container-instances-container-groups.md) med en programbehållare och en sidovagnsbehållare som kör en SSL-provider. Genom att konfigurera en behållargrupp med en separat SSL-slutpunkt aktiverar du SSL-anslutningar för ditt program utan att ändra programkoden.
+Den här artikeln visar hur du skapar en [behållargrupp](container-instances-container-groups.md) med en programbehållare och en sidovagnsbehållare som kör en TLS/SSL-provider. Genom att konfigurera en behållargrupp med en separat TLS-slutpunkt aktiverar du TLS-anslutningar för ditt program utan att ändra programkoden.
 
 Du kan ställa in en exempelbehållaregrupp som består av två behållare:
 * En programbehållare som kör en enkel webbapp med den offentliga Microsoft [aci-helloworld-avbildningen.](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) 
-* En sidovagnsbehållare som kör den offentliga [Nginx-avbildningen,](https://hub.docker.com/_/nginx) konfigurerad för att använda SSL. 
+* En sidovagnsbehållare som kör den offentliga [Nginx-avbildningen,](https://hub.docker.com/_/nginx) konfigurerad för att använda TLS. 
 
 I det här exemplet exponerar behållargruppen endast port 443 för Nginx med sin offentliga IP-adress. Nginx dirigerar HTTPS-begäranden till den medföljande webbappen, som lyssnar internt på port 80. Du kan anpassa exemplet för behållarappar som lyssnar på andra portar. 
 
-Se [Nästa steg](#next-steps) för andra metoder för att aktivera SSL i en behållargrupp.
+Se [Nästa steg](#next-steps) för andra metoder för att aktivera TLS i en behållargrupp.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -28,9 +28,9 @@ Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för 
 
 ## <a name="create-a-self-signed-certificate"></a>Skapa ett självsignerat certifikat
 
-Om du vill konfigurera Nginx som SSL-leverantör behöver du ett SSL-certifikat. Den här artikeln visar hur du skapar och konfigurerar ett självsignerat SSL-certifikat. För produktionsscenarier bör du hämta ett certifikat från en certifikatutfärdar.
+Om du vill konfigurera Nginx som TLS-provider behöver du ett TLS/SSL-certifikat. Den här artikeln visar hur du skapar och konfigurerar ett självsignerat TLS/SSL-certifikat. För produktionsscenarier bör du hämta ett certifikat från en certifikatutfärdar.
 
-Om du vill skapa ett självsignerat SSL-certifikat använder du [OpenSSL-verktyget](https://www.openssl.org/) som är tillgängligt i Azure Cloud Shell och många Linux-distributioner, eller använder ett jämförbart klientverktyg i operativsystemet.
+Om du vill skapa ett självsignerat TLS/SSL-certifikat använder du [OpenSSL-verktyget](https://www.openssl.org/) som är tillgängligt i Azure Cloud Shell och många Linux-distributioner, eller använder ett jämförbart klientverktyg i operativsystemet.
 
 Skapa först en certifikatbegäran (.csr-fil) i en lokal arbetskatalog:
 
@@ -48,11 +48,11 @@ openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
 
 Du bör nu se tre filer i`ssl.csr`katalogen: certifikatbegäran ( ), den privata nyckeln (`ssl.key`) och det självsignerade certifikatet (`ssl.crt`). Du `ssl.key` använder `ssl.crt` och i senare steg.
 
-## <a name="configure-nginx-to-use-ssl"></a>Konfigurera Nginx för att använda SSL
+## <a name="configure-nginx-to-use-tls"></a>Konfigurera Nginx för att använda TLS
 
 ### <a name="create-nginx-configuration-file"></a>Skapa Nginx-konfigurationsfil
 
-I det här avsnittet skapar du en konfigurationsfil för Nginx för att använda SSL. Börja med att kopiera följande text `nginx.conf`till en ny fil med namnet . I Azure Cloud Shell kan du använda Visual Studio-kod för att skapa filen i arbetskatalogen:
+I det här avsnittet skapar du en konfigurationsfil för Nginx för att använda TLS. Börja med att kopiera följande text `nginx.conf`till en ny fil med namnet . I Azure Cloud Shell kan du använda Visual Studio-kod för att skapa filen i arbetskatalogen:
 
 ```console
 code nginx.conf
@@ -93,7 +93,7 @@ http {
         ssl_ciphers                ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:ECDHE-RSA-RC4-SHA:ECDHE-ECDSA-RC4-SHA:AES128:AES256:RC4-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!3DES:!MD5:!PSK;
         ssl_prefer_server_ciphers  on;
 
-        # Optimize SSL by caching session parameters for 10 minutes. This cuts down on the number of expensive SSL handshakes.
+        # Optimize TLS/SSL by caching session parameters for 10 minutes. This cuts down on the number of expensive TLS/SSL handshakes.
         # The handshake is the most CPU-intensive operation, and by default it is re-negotiated on every new/parallel connection.
         # By enabling a cache (of type "shared between all Nginx workers"), we tell the client to re-use the already negotiated state.
         # Further optimization can be achieved by raising keepalive_timeout, but that shouldn't be done unless you serve primarily HTTPS.
@@ -124,7 +124,7 @@ http {
 
 ### <a name="base64-encode-secrets-and-configuration-file"></a>Base64-koda hemligheter och konfigurationsfil
 
-Base64-koda Nginx-konfigurationsfilen, SSL-certifikatet och SSL-nyckeln. I nästa avsnitt anger du det kodade innehållet i en YAML-fil som används för att distribuera behållargruppen.
+Base64-koda Nginx-konfigurationsfilen, TLS/SSL-certifikatet och TLS-tangenten. I nästa avsnitt anger du det kodade innehållet i en YAML-fil som används för att distribuera behållargruppen.
 
 ```console
 cat nginx.conf | base64 > base64-nginx.conf
@@ -221,7 +221,7 @@ Name          ResourceGroup    Status    Image                                  
 app-with-ssl  myresourcegroup  Running   nginx, mcr.microsoft.com/azuredocs/aci-helloworld        52.157.22.76:443     Public     1.0 core/1.5 gb  Linux     westus
 ```
 
-## <a name="verify-ssl-connection"></a>Verifiera SSL-anslutning
+## <a name="verify-tls-connection"></a>Verifiera TLS-anslutning
 
 Använd webbläsaren för att navigera till den offentliga IP-adressen för behållargruppen. IP-adressen som visas `52.157.22.76`i det här **https://52.157.22.76**exemplet är , så webbadressen är . Du måste använda HTTPS för att se programmet som körs på grund av Nginx-serverkonfigurationen. Försök att ansluta via HTTP misslyckas.
 
@@ -234,11 +234,11 @@ Använd webbläsaren för att navigera till den offentliga IP-adressen för beh�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln visar hur du konfigurerar en Nginx-behållare för att aktivera SSL-anslutningar till en webbapp som körs i behållargruppen. Du kan anpassa det här exemplet för appar som lyssnar på andra portar än port 80. Du kan också uppdatera Nginx-konfigurationsfilen för att automatiskt omdirigera serveranslutningar på port 80 (HTTP) för att använda HTTPS.
+Den här artikeln visar hur du konfigurerar en Nginx-behållare för att aktivera TLS-anslutningar till en webbapp som körs i behållargruppen. Du kan anpassa det här exemplet för appar som lyssnar på andra portar än port 80. Du kan också uppdatera Nginx-konfigurationsfilen för att automatiskt omdirigera serveranslutningar på port 80 (HTTP) för att använda HTTPS.
 
-Medan den här artikeln använder Nginx i sidovagnen kan du använda en annan SSL-leverantör som [Caddy](https://caddyserver.com/).
+Medan den här artikeln använder Nginx i sidovagnen, kan du använda en annan TLS-leverantör som [Caddy](https://caddyserver.com/).
 
-Om du distribuerar din behållargrupp i ett [virtuellt Azure-nätverk](container-instances-vnet.md)kan du överväga andra alternativ för att aktivera en SSL-slutpunkt för en serverdelsbehållareinstans, inklusive:
+Om du distribuerar din behållargrupp i ett [virtuellt Azure-nätverk](container-instances-vnet.md)kan du överväga andra alternativ för att aktivera en TLS-slutpunkt för en serverdelsbehållareinstans, inklusive:
 
 * [Azure-funktioner proxyservrar](../azure-functions/functions-proxies.md)
 * [Azure API Management](../api-management/api-management-key-concepts.md)

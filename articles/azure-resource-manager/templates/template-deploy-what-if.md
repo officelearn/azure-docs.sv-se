@@ -3,29 +3,68 @@ title: Malldistribution what-if (förhandsgranska)
 description: Bestäm vilka ändringar som ska hända med dina resurser innan du distribuerar en Azure Resource Manager-mall.
 author: mumian
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 04/06/2020
 ms.author: jgao
-ms.openlocfilehash: bc42585204e5cc2c3ece5293a3934fd22fe8507b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9e0d0d572e08961b585a93e66e400b8c2e54bf7f
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156454"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886848"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Arm-malldistribution vad händer om -åtgärd (förhandsversion)
 
 Innan du distribuerar en ARM-mall (Azure Resource Manager) kanske du vill förhandsgranska de ändringar som ska ske. Azure Resource Manager tillhandahåller vad händer om-åtgärden så att du kan se hur resurser kommer att ändras om du distribuerar mallen. Vad händer om-åtgärden gör inga ändringar i befintliga resurser. I stället förutses ändringarna om den angivna mallen distribueras.
 
 > [!NOTE]
-> Vad händer om-åtgärden är för närvarande i förhandsversion. Om du vill använda den måste du [registrera dig för förhandsgranskningen](https://aka.ms/armtemplatepreviews). Som en förhandsversion kan resultaten ibland visa att en resurs ändras när det faktiskt inte sker någon ändring. Vi arbetar för att minska dessa frågor, men vi behöver din hjälp. Vänligen rapportera dessa [https://aka.ms/whatifissues](https://aka.ms/whatifissues)frågor på .
+> Vad händer om-åtgärden är för närvarande i förhandsversion. Som en förhandsversion kan resultaten ibland visa att en resurs ändras när det faktiskt inte sker någon ändring. Vi arbetar för att minska dessa frågor, men vi behöver din hjälp. Vänligen rapportera dessa [https://aka.ms/whatifissues](https://aka.ms/whatifissues)frågor på .
 
 Du kan använda vad händer om-åtgärden med PowerShell-kommandona eller REST API-åtgärder.
+
+## <a name="install-powershell-module"></a>Installera PowerShell-modul
+
+Om du vill använda vad händer i PowerShell installerar du en förhandsversion av modulen Az.Resources från PowerShell-galleriet.
+
+### <a name="uninstall-alpha-version"></a>Avinstallera alfaversion
+
+Om du tidigare har installerat en alfaversion av vad-händer-om-modulen avinstallerar du modulen. Alfaversionen var endast tillgänglig för användare som registrerade sig för en tidig förhandsversion. Om du inte har installerat förhandsversionen kan du hoppa över det här avsnittet.
+
+1. Kör PowerShell som administratör
+1. Kontrollera dina installerade versioner av Modulen Az.Resources.
+
+   ```powershell
+   Get-InstalledModule -Name Az.Resources -AllVersions | select Name,Version
+   ```
+
+1. Om du har en installerad version med versionsnummer i formatet **2.x.x-alpha**avinstallerar du den versionen.
+
+   ```powershell
+   Uninstall-Module Az.Resources -RequiredVersion 2.0.1-alpha5 -AllowPrerelease
+   ```
+
+1. Avregistrera den vad händer om-databas som du använde för att installera förhandsgranskningen.
+
+   ```powershell
+   Unregister-PSRepository -Name WhatIfRepository
+   ```
+
+### <a name="install-preview-version"></a>Installera förhandsgranskningsversion
+
+Om du vill installera förhandsgranskningsmodulen använder du:
+
+```powershell
+Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
+```
+
+Du är redo att använda vad-händer om.
+
+## <a name="see-results"></a>Se resultat
 
 I PowerShell innehåller utdata färgkodade resultat som hjälper dig att se de olika typerna av ändringar.
 
 ![Resurshanterarens malldistribution what-if-åtgärd fullresourcepayload och ändra typer](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
 
-Texten ouptput är:
+Textutdata är:
 
 ```powershell
 Resource and property changes are indicated with these symbols:
@@ -72,11 +111,8 @@ Du kan också `-Confirm` använda switchparametern för att förhandsgranska än
 
 De föregående kommandona returnerar en textsammanfattning som du kan granska manuellt. Om du vill hämta ett objekt som du kan programmässigt inspektera för ändringar använder du:
 
-* `$results = Get-AzResourceGroupDeploymentWhatIf`för resursgruppsdistributioner
-* `$results = Get-AzSubscriptionDeploymentWhatIf`eller `$results = Get-AzDeploymentWhatIf` för prenumerationsnivådistributioner
-
-> [!NOTE]
-> Innan version 2.0.1-alpha5 släpptes använde `New-AzDeploymentWhatIf` du kommandot. Det här kommandot har `Get-AzDeploymentWhatIf` `Get-AzResourceGroupDeploymentWhatIf`ersatts `Get-AzSubscriptionDeploymentWhatIf` av kommandona , och . Om du har använt en tidigare version måste du uppdatera syntaxen. Parametern `-ScopeType` har tagits bort.
+* `$results = Get-AzResourceGroupDeploymentWhatIfResult`för resursgruppsdistributioner
+* `$results = Get-AzSubscriptionDeploymentWhatIfResult`eller `$results = Get-AzDeploymentWhatIfResult` för prenumerationsnivådistributioner
 
 ### <a name="azure-rest-api"></a>REST-API för Azure
 
@@ -223,7 +259,7 @@ Vissa av de egenskaper som visas som borttagna ändras inte. Egenskaper kan rapp
 Nu ska vi programmässigt utvärdera vad händer om-resultaten genom att ange kommandot till en variabel.
 
 ```azurepowershell
-$results = Get-AzResourceGroupDeploymentWhatIf `
+$results = Get-AzResourceGroupDeploymentWhatIfResult `
   -ResourceGroupName ExampleGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json"
 ```

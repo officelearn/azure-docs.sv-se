@@ -1,15 +1,16 @@
 ---
-title: Skapa virtuella noder med Azure CLI i Azure Kubernetes Services (AKS)
+title: Skapa virtuella noder med Azure CLI
+titleSuffix: Azure Kubernetes Service
 description: Lär dig hur du använder Azure CLI för att skapa ett AKS-kluster (Azure Kubernetes Services) som använder virtuella noder för att köra poddar.
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 05e32b6b0017e945044bc7593d4d6dbc543a5b64
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: b6d44ceb9b447d670c4e51c951b547e90dfce38f
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80616468"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984682"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Skapa och konfigurera ett AKS-kluster (Azure Kubernetes Services) för att använda virtuella noder med Azure CLI
 
@@ -66,7 +67,7 @@ Funktionen Virtuella noder är starkt beroende av ACI:s funktionsuppsättning. F
 * [Värdalias](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Argument](../container-instances/container-instances-exec.md#restrictions) för exec i ACI
 * [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) distribuerar inte poddar till den virtuella noden
-* [Windows Server-noder (för närvarande i förhandsversion i AKS)](windows-container-cli.md) stöds inte tillsammans med virtuella noder. Du kan använda virtuella noder för att schemalägga Windows Server-behållare utan att windows servernoder behöver användas i ett AKS-kluster.
+* Virtuella noder stöder schemaläggning av Linux-poddar. Du kan manuellt installera [Virtual Kubelet ACI-providern](https://github.com/virtual-kubelet/azure-aci) med öppen källkod för att schemalägga Windows Server-behållare till ACI. 
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 

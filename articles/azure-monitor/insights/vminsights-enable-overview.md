@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/27/2020
-ms.openlocfilehash: 26ed33e967aff1714d2a6fb174eab623e71534c2
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.date: 04/08/2020
+ms.openlocfilehash: 5bb5d5dd5110f176b59a99f6a3aa223184158da5
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80382740"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982318"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Aktivera Azure Monitor för virtuella datorer översikt
 
@@ -60,7 +60,7 @@ Azure Monitor för virtuella datorer stöder en Log Analytics-arbetsyta i följa
 
 Om du inte har en Log Analytics-arbetsyta kan du skapa en med hjälp av en av resurserna:
 * [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)
-* [Powershell](../../azure-monitor/learn/quick-create-workspace-posh.md)
+* [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
 * [Azure-portal](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 
@@ -175,8 +175,8 @@ Du kan hämta beroendeagenten från följande platser:
 
 | Fil | Operativsystem | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.2.9060 | B7725B6B205CF8C336D9AAD87956336C816412740E9D6499BCACB6F862AE3896  |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.2.9060 | C6995A67A7782AEC312647D74A99C3C823F68F5FFA490FD4BB6006A2FF2941B0 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.3.9380 | 40763BD0A5B60707DF3F9E7BCC17D917F5CE995F2F5A4633D8B733F3BE143921  |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.3.9380 | BB41BB59BDD293968F02A9EF821F9639406AA1BDF1F67925DB9EE00D54AA7F0B |
 
 ## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 

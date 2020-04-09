@@ -1,23 +1,23 @@
 ---
-title: Analys av användarkvarhållning för webbprogram med Azure Application Insights | Microsoft-dokument
+title: Analysera lagring av webbappanvändare med Azure Application Insights
 description: Hur många användare återvänder till din app?
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 37ae97d5fbc62e507f726c452999a7f6e7c989c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6d9be6bc6d7f90153e2fb58aa404e281568dbdd
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670975"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892418"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analys av användarkvarhållning för webbprogram med Application Insights
 
 Lagringsfunktionen i [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) hjälper dig att analysera hur många användare som återvänder till din app och hur ofta de utför vissa uppgifter eller uppnår mål. Om du till exempel kör en spelwebbplats kan du jämföra antalet användare som återvänder till webbplatsen efter att ha förlorat ett spel med numret som återvänder efter att ha vunnit. Denna kunskap kan hjälpa dig att förbättra både din användarupplevelse och din affärsstrategi.
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 Om du ännu inte ser data i lagringsverktyget i application insights-portalen [kan du läsa om hur du kommer igång med användningsverktygen](usage-overview.md).
 
@@ -25,7 +25,7 @@ Om du ännu inte ser data i lagringsverktyget i application insights-portalen [k
 
 ![Kvarhållningsverktyg](./media/usage-retention/retention.png)
 
-1. Verktygsfältet tillåter användare att skapa nya lagringsrapporter, öppna befintliga lagringsrapporter, spara aktuell lagringsrapport eller spara som, återställa ändringar som gjorts i sparade rapporter, uppdatera data i rapporten, dela rapport via e-post eller direktlänk och komma åt dokumentationen Sida. 
+1. Verktygsfältet tillåter användare att skapa nya lagringsrapporter, öppna befintliga lagringsrapporter, spara aktuell kvarhållningsrapport eller spara som, återställa ändringar som gjorts i sparade rapporter, uppdatera data i rapporten, dela rapport via e-post eller direktlänk och komma åt dokumentationssidan. 
 2. Som standard visar kvarhållningen alla användare som gjorde något och sedan kom tillbaka och gjorde något annat under en period. Du kan välja olika kombinationer av händelser för att begränsa fokus på specifika användaraktiviteter.
 3. Lägg till ett eller flera filter på egenskaper. Du kan till exempel fokusera på användare i ett visst land eller en viss region. Klicka på **Uppdatera** när du har ställt in filtren. 
 4. Det övergripande kvarhållningsdiagrammet visar en sammanfattning av användarens kvarhållning under den valda tidsperioden. 

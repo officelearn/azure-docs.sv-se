@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 50fb0c1c13ceba88b1894fa0f3165dd40b8e23cf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2376f039b93ca22d3d5a988818538419489d2456
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76278416"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985617"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Självstudie: Skala en VM-skalningsuppsättning automatiskt med Azure PowerShell
 
@@ -209,7 +209,7 @@ För att tillåta att verktyget **CPU Stress** fortsätter att köras, lämna b�
 
 
 ## <a name="monitor-the-active-autoscale-rules"></a>Övervaka de aktiva reglerna för automatisk skalning
-Du övervakar antalet virtuella datorinstanser i din skalningsuppsättning med **while**. Det tar 5 minuter för skalorna för automatisk skalning att börja utskalningsprocessen till svar på den CPU-belastning som skapas av *CPUStress* på var och en av de virtuella datorinstanserna:
+Du övervakar antalet virtuella datorinstanser i din skalningsuppsättning med **while**. Det tar 5 minuter för den automatiska skalningsskalan att påbörja skalningsprocessen som svar på CPU-belastningen som genereras av **CPUStress** på var och en av VM-instanserna:
 
 ```azurepowershell-interactive
 while (1) {Get-AzureRmVmssVM `

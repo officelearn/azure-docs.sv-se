@@ -1,18 +1,18 @@
 ---
-title: Exempel på PowerShell-skript
+title: PowerShell-exempelskript
 description: Exempel som visar hur du använder klientdelen via PowerShell-skript
 author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
-ms.openlocfilehash: d7238c899301d76edde86d52c6db74468ffe18ad
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: c45d2fc34ccbab6d813f12563678d036f9f35753
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679480"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80891500"
 ---
-# <a name="example-powershell-scripts"></a>Exempel på PowerShell-skript
+# <a name="example-powershell-scripts"></a>PowerShell-exempelskript
 
 Azure Remote Rendering innehåller följande två REST API:er:
 
@@ -35,9 +35,12 @@ För att köra exempelskripten behöver du en funktionell installation av [Azure
 
 1. [Förbereda ett Azure Storage-konto](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts)
 
-1. Logga in på prenumerationen som innehåller ditt Azure Remote Rendering-konto:
+1. Logga in på din prenumeration som innehåller ditt Azure Remote Rendering-konto:
     1. Öppna ett PowerShell
-    1. Köra:`Connect-AzAccount -Subscription "<your Azure subscription id>"`
+    1. Kör: `Connect-AzAccount` och följ anvisningarna på skärmen.
+
+> [!NOTE]
+> Om din organisation har mer än en prenumeration kan du behöva ange argumenten SubscriptionId och Tenant. Hitta information i [Dokumentationen för Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
 
 1. Hämta *mappen Skript* från [Azure Remote Rendering GithHub-databasen](https://github.com/Azure/azure-remote-rendering).
 

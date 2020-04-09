@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a71c5328c6fa85f85db4bd7e6103f6470b86d99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 723411191d0990583d039a0fc9651437480807b4
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258336"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983270"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Synkronisering av Azure Active Directory Connect: Konfigurera önskad dataplats för Office 365-resurser
 Syftet med det här avsnittet är att gå igenom hur du konfigurerar attributet för önskad dataplats i Azure Active Directory (Azure AD) Connect-synkronisering. När någon använder Multi-Geo-funktioner i Office 365 använder du det här attributet för att ange geografisk plats för användarens Office 365-data. (Termerna *region* och *geo* används omväxlande.)
@@ -51,6 +51,7 @@ Geos i Office 365 som är tillgängliga för Multi-Geo är:
 | Japan | JPN |
 | Korea | KOR |
 | Sydafrika | ZAF (andra) |
+| Schweiz | Che |
 | Förenade Arabemiraten | Är |
 | Storbritannien | Gbr |
 | USA | Nam |
@@ -154,7 +155,7 @@ Den inkommande synkroniseringsregeln gör att attributvärdet kan flöda från k
 
     | Flödestyp | Målattribut | Källa | Ansök en gång | Kopplingstyp |
     | --- | --- | --- | --- | --- |
-    |Direct | preferredDataLocation | Välj källattributet | Avmarkerat | Uppdatering |
+    |Direct | preferredDataLocation | Välj källattributet | Avmarkerat | Uppdatera |
 
 7. Om du vill skapa den inkommande regeln väljer du **Lägg till**.
 
@@ -191,7 +192,7 @@ Regeln för utgående synkronisering gör att attributvärdet kan flöda från m
 
     | Flödestyp | Målattribut | Källa | Ansök en gång | Kopplingstyp |
     | --- | --- | --- | --- | --- |
-    | Direct | preferredDataLocation | preferredDataLocation | Avmarkerat | Uppdatering |
+    | Direct | preferredDataLocation | preferredDataLocation | Avmarkerat | Uppdatera |
 
 7. Stäng **Lägg till** för att skapa den utgående regeln.
 

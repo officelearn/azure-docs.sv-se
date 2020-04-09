@@ -13,19 +13,17 @@ ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 961444e15ae1c45db1fc7423a6ac3cc96cc7b3fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89c4fa536994ecc8cecb50c907d43df2110be7df
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75768018"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982607"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Hantera app- och resursåtkomst med Azure Active Directory-grupper
 Med Azure Active Directory (Azure AD) kan du använda grupper för att hantera åtkomst till dina molnbaserade appar, lokala appar och dina resurser. Dina resurser kan ingå i Azure AD-organisationen, till exempel behörigheter för att hantera objekt via roller i Azure AD, eller externa till organisationen, till exempel för SaaS-appar (Software as a Service), Azure-tjänster, SharePoint-webbplatser och lokala resurser.
 
 >[!NOTE]
->För att använda Azure Active Directory behöver du ett Azure-konto. Om du inte har ett Azure-konto kan du [registrera dig för ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
->
 > I Azure-portalen kan du se några grupper vars medlemskap och gruppinformation som du inte kan hantera i portalen:
 >
 > - Grupper som synkroniseras från lokala Active Directory kan endast hanteras i lokal Active Directory.

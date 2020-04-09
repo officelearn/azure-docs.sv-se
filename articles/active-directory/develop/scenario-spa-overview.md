@@ -2,24 +2,21 @@
 title: Scenario med ensidig app i JavaScript – Microsoft identity platform | Azure
 description: Lär dig hur du skapar ett ensidigt program (scenarioöversikt) med hjälp av Microsofts identitetsplattform.
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b430778bed811656b5c8aadc75ba3cf35917f737
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ead0ea58c6860519f027eb6a7450df37396bd89
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76701883"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885199"
 ---
 # <a name="scenario-single-page-application"></a>Scenario: Ensidig applikation
 

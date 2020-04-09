@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 06897fffda490cdfcbb2a9cf6f55c7945e8afda0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c68b83726371d346019d18d0b066173f93196e6d
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276132"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982063"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetrikorrelation i Application Insights
 
@@ -63,7 +63,7 @@ Application Insights övergår till [W3C Trace-Context](https://w3c.github.io/tr
 
 Den senaste versionen av Program Insights SDK stöder Trace-Context-protokollet, men du kan behöva välja det. (Bakåtkompatibilitet med det tidigare korrelationsprotokollet som stöds av SDK för Application Insights bibehålls.)
 
-[Korrelationen HTTP-protokollet, även kallat Request-Id,](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)håller på att inaktuell. Det här protokollet definierar två rubriker:
+[Korrelationen HTTP-protokollet, även kallat Request-Id,](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)håller på att inaktuell. Det här protokollet definierar två rubriker:
 
 - `Request-Id`: Bär det globalt unika ID:t för samtalet.
 - `Correlation-Context`: Bär namn-värde par samling av distribuerade spåregenskaper.
@@ -202,13 +202,13 @@ Den här `Microsoft.ApplicationInsights.JavaScript`funktionen finns i . Den är 
 
 [OpenTracing datamodellspecifikation](https://opentracing.io/) och Application Insights datamodeller mappas på följande sätt:
 
-| Application Insights                  | ÖppnaTracing                                       |
-|------------------------------------   |-------------------------------------------------  |
-| `Request`, `PageView`                 | `Span`Med`span.kind = server`                  |
-| `Dependency`                          | `Span`Med`span.kind = client`                  |
-| `Id`av `Request` och`Dependency`    | `SpanId`                                          |
-| `Operation_Id`                        | `TraceId`                                         |
-| `Operation_ParentId`                  | `Reference`av `ChildOf` typen (det överordnade intervallet)   |
+| Application Insights                   | ÖppnaTracing                                        |
+|------------------------------------    |-------------------------------------------------    |
+| `Request`, `PageView`                  | `Span`Med`span.kind = server`                    |
+| `Dependency`                           | `Span`Med`span.kind = client`                    |
+| `Id`av `Request` och`Dependency`     | `SpanId`                                            |
+| `Operation_Id`                         | `TraceId`                                           |
+| `Operation_ParentId`                   | `Reference`av `ChildOf` typen (det överordnade intervallet)     |
 
 Mer information finns i [Telemetridatamodellen Application Insights](../../azure-monitor/app/data-model.md).
 
@@ -320,19 +320,12 @@ Det finns en ny HTTP-modul, [Microsoft.AspNet.TelemetryCorrelation](https://www.
 Application Insights SDK, som börjar med version 2.4.0-beta1, använder `DiagnosticSource` och `Activity` samlar in telemetri och associerar den med den aktuella aktiviteten.
 
 <a name="java-correlation"></a>
-## <a name="telemetry-correlation-in-the-java-sdk"></a>Telemetrikorrelation i Java SDK
+## <a name="telemetry-correlation-in-the-java"></a>Telemetrikorrelation i Java
 
-[Application Insights SDK för Java](../../azure-monitor/app/java-get-started.md) version 2.0.0 eller senare stöder automatisk korrelation av telemetri. Den fylls `operation_id` i automatiskt för all telemetri (som spårningar, undantag och anpassade händelser) som utfärdas inom ramen för en begäran. Det sprider också korrelationsrubriker (beskrivs tidigare) för service-till-tjänst-anrop via HTTP, om [Java SDK-agenten](../../azure-monitor/app/java-agent.md) är konfigurerad.
+[Application Insights Java-agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) samt [Java SDK](../../azure-monitor/app/java-get-started.md) version 2.0.0 eller senare stöder automatisk korrelation av telemetri. Den fylls `operation_id` i automatiskt för all telemetri (som spårningar, undantag och anpassade händelser) som utfärdas inom ramen för en begäran. Det sprider också korrelationsrubriker (beskrivs tidigare) för service-till-tjänst-anrop via HTTP, om [Java SDK-agenten](../../azure-monitor/app/java-agent.md) är konfigurerad.
 
 > [!NOTE]
-> Endast samtal som görs via Apache HttpClient stöds för korrelationsfunktionen. Både Spring RestTemplate och Feign kan användas med Apache HttpClient under huven.
-
-För närvarande stöds inte automatisk kontextspridning mellan meddelandetekniker (som Kafka, RabbitMQ och Azure Service Bus). Det är möjligt att koda sådana `trackDependency` `trackRequest` scenarier manuellt med hjälp av och metoder. I dessa metoder representerar en beroendetelemetri ett meddelande som enqueueras av en producent. Begäran representerar ett meddelande som bearbetas av en konsument. I det här `operation_id` `operation_parentId` fallet både och bör spridas i meddelandets egenskaper.
-
-### <a name="telemetry-correlation-in-asynchronous-java-applications"></a>Telemetrikorrelation i asynkrona Java-program
-
-Mer information om hur du korrelerar telemetri i ett asynkront springstart-program finns [i Distribuerad spårning i asynkrona Java-program](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications). Denna artikel ger vägledning för instrumentering Vårens [ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) och [ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html).
-
+> Application Insights Java-agent samlar automatiskt in begäranden och beroenden för JMS, Kafka, Netty/Webflux med mera. För Java SDK stöds endast samtal som görs via Apache HttpClient för korrelationsfunktionen. Automatisk kontextspridning över meddelandetekniker (som Kafka, RabbitMQ och Azure Service Bus) stöds inte i SDK. 
 
 <a name="java-role-name"></a>
 ## <a name="role-name"></a>Rollnamn

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/05/2019
+ms.date: 04/07/2020
 ms.subservice: app-mgmt
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9ecd193282ed9b7333df44689530b4d057ad7f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f027fbce66a73306165a0ad35d1ba3faa7a5c0bc
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68693905"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983899"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD-programproxy: Versionsversionshistorik
 I den här artikeln visas de versioner och funktioner i Azure Active Directory (Azure AD) Application Proxy som har släppts. Azure AD-teamet uppdaterar regelbundet programproxy med nya funktioner och funktioner. Application Proxy-kopplingar uppdateras automatiskt när en ny version släpps. 
@@ -35,6 +35,22 @@ Resurs |  Information
 Aktivera programproxy | Förutsättningar för att aktivera Programproxy och installera och registrera en anslutning beskrivs i den här [självstudien](application-proxy-add-on-premises-application.md).
 Förstå Azure AD-programproxy-kopplingar | Läs mer om [anslutningshantering](application-proxy-connectors.md) och hur kopplingar [automatiskt uppgraderas](application-proxy-connectors.md#automatic-updates).
 Hämtning av Azure AD-programproxyanslutning |  [Ladda ner den senaste kontakten](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download).
+
+## <a name="1515260"></a>1.5.1526.0
+
+### <a name="release-status"></a>Versionsstatus
+
+April 07, 2020: Släppt för nedladdning
+
+### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
+-   Kopplingar använder endast TLS 1.2 för alla anslutningar. Se [Anslutningsförespråkarna](application-proxy-add-on-premises-application.md#before-you-begin) för mer information.
+- Förbättrad signalering mellan Connector- och Azure-tjänsterna. Detta inkluderar att stödja tillförlitliga sessioner för WCF-kommunikation mellan Connector- och Azure-tjänsterna och förbättringar av DNS-cachelagring för WebSocket-kommunikation.
+- Stöd för att konfigurera en proxy mellan kopplingen och serverkopplingsprogrammet. Mer information finns i [Arbeta med befintliga lokala proxyservrar](application-proxy-configure-connectors-with-proxy-servers.md).
+
+### <a name="fixed-issues"></a>Åtgärdade problem
+- Tog bort att falla tillbaka till port 8080 för kommunikation från Anslutningsappen till Azure-tjänsterna.
+- Lade till felsökningsspårningar för WebSocket-kommunikation. 
+- Löst bevara SameSite-attributet när det är inställt på bakåtsträvningsprogramcookies.
 
 ## <a name="156120"></a>1.5.612.0
 

@@ -2,13 +2,13 @@
 title: Översikt över mallar
 description: Beskriver fördelarna med Azure Resource Manager-mallar för distribution av resurser.
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: 4570f5471ef6baf6f3f4a920be4d93c3f5a90438
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/06/2020
+ms.openlocfilehash: 02602b4d12ae4333c88b352e4c13923d67f2c591
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258132"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885743"
 ---
 # <a name="what-are-arm-templates"></a>Vad är ARM-mallar?
 
@@ -30,11 +30,17 @@ Om du försöker välja mellan att använda ARM-mallar och någon av de andra in
 
    ![Jämförelse av malldistribution](./media/overview/template-processing.png)
 
-* **Inbyggd validering**: Mallen distribueras först efter validering. Resource Manager kontrollerar mallen innan distributionen startas för att se till att distributionen lyckas. Din distribution är mindre benägna att stoppa i ett halvfärdigt tillstånd.
-
 * **Modulära filer:** Du kan dela upp mallarna i mindre, återanvändbara komponenter och länka ihop dem vid distributionen. Du kan också kapsla en mall i en annan mall.
 
 * **Skapa en Azure-resurs:** Du kan omedelbart använda nya Azure-tjänster och -funktioner i mallar. Så fort en resursprovider introducerar nya resurser kan du distribuera dessa resurser via mallar. Du behöver inte vänta på att verktyg eller moduler ska uppdateras innan du använder de nya tjänsterna.
+
+* **Utökningsbarhet:** Med [distributionsskript](deployment-script-template.md)kan du lägga till PowerShell- eller Bash-skript i mallarna. Distributionsskripten utökar din möjlighet att konfigurera resurser under distributionen. Ett skript kan inkluderas i mallen eller lagras i en extern källa och refereras i mallen. Distributionsskript ger dig möjlighet att slutföra din end-to-end-miljöinställning i en enda ARM-mall.
+
+* **Testning**: Du kan se till att mallen följer rekommenderade riktlinjer genom att testa den med ARM-mallverktygssatsen (arm-ttk). Det här testpaketet är ett PowerShell-skript som du kan hämta från [GitHub](https://github.com/Azure/arm-ttk). Verktygslådan gör det enklare för dig att utveckla expertis med mallspråket.
+
+* **Förhandsgranskningsändringar**: Du kan använda [vad händer om-åtgärden](template-deploy-what-if.md) för att få en förhandsgranskning av ändringar innan du distribuerar mallen. Med vad händer om ser du vilka resurser som ska skapas, uppdateras eller tas bort och alla resursegenskaper som ändras. Vad händer om-åtgärden kontrollerar det aktuella tillståndet för din miljö och eliminerar behovet av att hantera tillstånd.
+
+* **Inbyggd validering**: Mallen distribueras först efter validering. Resource Manager kontrollerar mallen innan distributionen startas för att se till att distributionen lyckas. Din distribution är mindre benägna att stoppa i ett halvfärdigt tillstånd.
 
 * **Spårade distributioner**: I Azure-portalen kan du granska distributionshistoriken och få information om malldistributionen. Du kan se mallen som har distribuerats, parametervärdena skickades in och eventuella utdatavärden. Annan infrastruktur som kodtjänster spåras inte via portalen.
 

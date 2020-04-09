@@ -2,26 +2,21 @@
 title: Skapa en multitenant daemon som använder slutpunkten för Microsoft identity platform
 description: I den här självstudien kan du läsa om hur du anropar ett ASP.NET webb-API som skyddas av Azure Active Directory från ett WPF-program (Windows Desktop). WPF-klienten autentiserar en användare, begär en åtkomsttoken och anropar webb-API:et.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 635b12cc2ffc4d318eaaa74fffc17e4ce4d58c0b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a4d7030f7a58a6252c6e596fc2c248163694a1e8
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79129962"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80880881"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Självstudiekurs: Skapa en multitenant daemon som använder slutpunkten för Microsoft-identitetsplattform
 

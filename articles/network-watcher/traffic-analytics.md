@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 83164a615cacc067e5f1ea6a1dd6ce0f0fd9d540
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adba282a96f9d250569e090e186859c04e89ebda
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298856"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981553"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -183,8 +183,8 @@ Markera följande alternativ, som visas på bilden:
 
 1. Välj *På* för **status**
 2. Välj *version 2* för **flödesloggar version**. Version 2 innehåller flödessessionsstatistik (byte och paket)
-3. Välj ett befintligt lagringskonto om du vill lagra flödesloggarna. Om du vill lagra data för alltid anger du värdet till *0*. Du ådrar dig Azure Storage-avgifter för lagringskontot. Kontrollera att lagringen inte har "Data Lake Storage Gen2 Hierarchical Namespace Enabled" inställd på true.
-4. Ange **Kvarhållning** till det antal dagar som du vill lagra data för.
+3. Välj ett befintligt lagringskonto om du vill lagra flödesloggarna. Kontrollera att lagringen inte har "Data Lake Storage Gen2 Hierarchical Namespace Enabled" inställd på true.
+4. Ange **Kvarhållning** till det antal dagar som du vill lagra data för. Om du vill lagra data för alltid anger du värdet till *0*. Du ådrar dig Azure Storage-avgifter för lagringskontot. 
 5. Välj *På* för **trafikanalysstatus**.
 6. Välj bearbetningsintervall. Baserat på ditt val kommer flödesloggar att samlas in från lagringskontot och bearbetas av Traffic Analytics. Du kan välja bearbetningsintervall för varje 1 timme eller var 10:e minut. 
 7. Välj en befintlig LOG Analytics -arbetsyta (OMS) eller välj **Skapa ny arbetsyta** för att skapa en ny. En Log Analytics-arbetsyta används av Traffic Analytics för att lagra de aggregerade och indexerade data som sedan används för att generera analyserna. Om du väljer en befintlig arbetsyta måste den finnas i en av de [regioner som stöds](#supported-regions-log-analytics-workspaces) och har uppgraderats till det nya frågespråket. Om du inte vill uppgradera en befintlig arbetsyta eller inte har en arbetsyta i en region som stöds skapar du en ny. Mer information om frågespråk finns i [Azure Log Analytics-uppgradering till ny loggsökning](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).

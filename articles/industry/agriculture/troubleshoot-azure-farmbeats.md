@@ -5,16 +5,19 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 2270ee7c850c528bd24fa2e58c2b1684acfc24d6
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 74522502f5405b56a3a604f20a695de83ef3c3a5
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585300"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886491"
 ---
 # <a name="troubleshoot"></a>Felsöka
 
 Den här artikeln innehåller lösningar på vanliga Azure FarmBeats-problem. För ytterligare hjälp, kontakta vårt [supportforum](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) eller maila oss på farmbeatssupport@microsoft.com.
+
+> [!NOTE]
+  > Om du har installerat FarmBeats under april och dina jobb misslyckas med ett tomt felmeddelande kanske installationen inte har tilldelats någon batchkvot på grund av att alla resurser riktas mot nödsituationer, hälso- och sjukvård och andra kritiska behov. Du måste begära att virtuella datorer ska tilldelas batchkontot.
 
 ## <a name="install-issues"></a>Installera problem
 

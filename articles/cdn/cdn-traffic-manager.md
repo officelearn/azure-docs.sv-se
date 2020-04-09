@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: de91f61385942db077bc98721eabe9f3f0b8624c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d44e53520481e4ada5c2f16f0c56a4a6a724ec1
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74083007"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892486"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Konfigurera redundans över flera Azure CDN-slutpunkter med Azure Traffic Manager
 
@@ -82,7 +82,7 @@ När du har konfigurerat CDN- och Traffic Manager-profilerna följer du dessa st
     Azure CDN använder underdomänen *cdnverify* för att validera DNS-mappningen för att slutföra den här registreringsprocessen. Mer information finns i [Skapa en CNAME DNS-post](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Det här steget gör det möjligt för Azure CDN att känna igen den anpassade domänen så att den kan svara på sina begäranden.
     
     > [!NOTE]
-    > Om du vill aktivera SSL på en **Azure CDN från Akamai-profiler** måste du direkt cname den anpassade domänen till din slutpunkt. cdnverify för att aktivera SSL stöds ännu inte. 
+    > Om du vill aktivera TLS på en **Azure CDN från Akamai-profiler** måste du direkt cname den anpassade domänen till din slutpunkt. cdnverify för att aktivera TLS stöds ännu inte. 
     >
 
 3.  Gå tillbaka till webbplatsen för domänleverantören för din anpassade domän och uppdatera den första DNS-mappningen som du skapade i så att den anpassade domänen mappas till din andra CDN-slutpunkt.

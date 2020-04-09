@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 9f8d1959549eaddfb4a2c9ea271094db0073c788
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 44af14a01e7b045b7abb6a84db89a67f3dd22445
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471718"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875290"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Belastningsutjämning med Azures paket för programleverans
 
@@ -37,7 +37,7 @@ Genom att kombinera globala och regionala tjänster i ditt program kan du skapa 
 - Prioriterad routning för att dirigera all trafik till en backend, med andra backends som backup.
 - Viktad rundhakardirigering, som distribuerar trafik baserat på den viktning som tilldelas varje backend.
 - Geografisk routning för att säkerställa att beställare som finns i specifika geografiska regioner dirigeras till de backends som mappas till dessa regioner (till exempel bör alla begäranden från Spanien dirigeras till regionen France Central Azure)
-- Undernätsdirigering som gör att du kan mappa IP-adressintervall till serverdel så att begäranden som kommer från dessa skickas till den angivna serverdelen (till exempel bör alla användare som ansluter från företagets HUVUDKONTORs IP-adressintervall få annat webbinnehåll än den allmänna användare)
+- Undernätsdirigering som gör att du kan mappa IP-adressintervall till serverdel så att begäranden som kommer från dessa skickas till den angivna serverdelen (till exempel bör alla användare som ansluter från företagets HUVUDKONTORs IP-adressintervall få annat webbinnehåll än de allmänna användarna)
 
 Klienten ansluter direkt till den medd-knappen. Azure Traffic Manager identifierar när en serverdel är felaktig och omdirigerar sedan klienterna till en annan felfri instans. Läs [Dokumentationen](../traffic-manager/traffic-manager-overview.md) till Azure Traffic Manager om du vill veta mer om tjänsten.
 
@@ -45,7 +45,7 @@ Klienten ansluter direkt till den medd-knappen. Azure Traffic Manager identifier
 Ytterdörren avslutar HTTP-begäranden i utkanten av Microsofts nätverk och avsökningar aktivt för att identifiera program- eller infrastrukturhälso- eller svarstidsändringar.  Ytterdörren sedan alltid rutter trafik till den snabbaste och tillgängliga (friska) backend. Se Front Doors [routningsarkitekturinformation](front-door-routing-architecture.md) och [trafikroutningsmetoder](front-door-routing-methods.md) för att lära dig mer om tjänsten.
 
 ## <a name="regional-load-balancing"></a>Regional belastningsutjämning
-Application Gateway tillhandahåller ADC (Application Delivery Controller) som en tjänst som erbjuder olika load-balancing-funktioner för Layer 7 för ditt program. Det gör det möjligt för kunder att optimera webbgruppens produktivitet genom att avlasta CPU-intensiv SSL-avslutning till programgatewayen. Andra routningsfunktioner för Layer 7 inkluderar distribution av round-robin av inkommande trafik, cookie-baserad sessionstillhörighet, URL-sökvägsbaserad routning och möjligheten att vara värd för flera webbplatser bakom en enda programgateway. Application Gateway kan konfigureras som en Internet-vänd gateway, en intern-bara gateway, eller en kombination av båda. Application Gateway är helt Azure-hanterad, skalbar och högtillgänglig. För att få en bättre hantering ingår en omfattande uppsättning diagnostik- och loggningsfunktioner.
+Application Gateway tillhandahåller ADC (Application Delivery Controller) som en tjänst som erbjuder olika load-balancing-funktioner för Layer 7 för ditt program. Det gör det möjligt för kunder att optimera webbgruppens produktivitet genom att avlasta CPU-intensiva TLS-avslutning till programgatewayen. Andra routningsfunktioner för Layer 7 inkluderar distribution av round-robin av inkommande trafik, cookie-baserad sessionstillhörighet, URL-sökvägsbaserad routning och möjligheten att vara värd för flera webbplatser bakom en enda programgateway. Application Gateway kan konfigureras som en Internet-vänd gateway, en intern-bara gateway, eller en kombination av båda. Application Gateway är helt Azure-hanterad, skalbar och högtillgänglig. För att få en bättre hantering ingår en omfattande uppsättning diagnostik- och loggningsfunktioner.
 Belastningsutjämnare är en integrerad del av Azure SDN-stacken, vilket ger högpresterande layer 4-belastningsutjämningstjänster med låg latens för alla UDP- och TCP-protokoll. Den hanterar inkommande och utgående anslutningar. Du kan konfigurera offentliga och interna belastningsutjämnade slutpunkter och definiera regler för att mappa inkommande anslutningar till serverdelspooldestinationer med TCP- och HTTP-avsökningsalternativ för att hantera tjänstens tillgänglighet.
 
 
@@ -58,7 +58,7 @@ När du väljer en global belastningsutjämnare mellan Traffic Manager och Azure
 
 | Traffic Manager | Azure Front Door |
 | --------------- | ------------------------ |
-|**Alla protokoll:** Eftersom Traffic Manager fungerar på DNS-lagret kan du dirigera alla typer av nätverkstrafik. HTTP, TCP, UDP, etc. | **HTTP-acceleration:** Med Ytterdörren trafiken är proxied i utkanten av Microsofts nätverk.  På grund av detta ser HTTP(S) begäranden svarstid och dataflödesförbättringar som minskar svarstiden för SSL-förhandling och använder heta anslutningar från AFD till ditt program.|
+|**Alla protokoll:** Eftersom Traffic Manager fungerar på DNS-lagret kan du dirigera alla typer av nätverkstrafik. HTTP, TCP, UDP, etc. | **HTTP-acceleration:** Med Ytterdörren trafiken är proxied i utkanten av Microsofts nätverk.  På grund av detta ser HTTP(S) begäranden svarstid och dataflödesförbättringar som minskar svarstiden för TLS-förhandling och använder heta anslutningar från AFD till ditt program.|
 |**Lokal routning:** Med routning på ett DNS-lager går trafiken alltid från punkt till punkt.  Routning från filialkontoret till ditt lokala datacenter kan ta en direkt sökväg. även i ditt eget nätverk med Traffic Manager. | **Oberoende skalbarhet:** Eftersom ytterdörren fungerar med HTTP-begäran kan begäranden till olika URL-sökvägar dirigeras till olika backend / regional servicepooler (mikrotjänster) baserat på regler och hälsotillståndet för varje programmikrotjänst.|
 |**Faktureringsformat:** DNS-baserad faktureringsskalor med användarna och för tjänster med fler användare, platåer för att minska kostnaderna vid högre användning. |**Infogad säkerhet:** Ytterdörren gör det möjligt för regler som hastighetsbegränsning och IP ACL-ning så att du kan skydda dina backends innan trafiken når ditt program. 
 
@@ -78,7 +78,7 @@ Följande diagram visar arkitekturen i det här scenariot:
 ![Detaljerad arkitektur för Application Delivery Suite][2] 
 
 > [!NOTE]
-> Det här exemplet är bara en av många möjliga konfigurationer av belastningsutjämningstjänster som Azure erbjuder. Traffic Manager, Ytterdörren, Application Gateway och Load Balancer kan blandas och matchas för att bäst passa dina belastningsutjämningsbehov. Om SSL-avlastning eller layer 7-bearbetning till exempel inte är nödvändig kan belastningsutjämning användas i stället för Application Gateway.
+> Det här exemplet är bara en av många möjliga konfigurationer av belastningsutjämningstjänster som Azure erbjuder. Traffic Manager, Ytterdörren, Application Gateway och Load Balancer kan blandas och matchas för att bäst passa dina belastningsutjämningsbehov. Om TLS/SSL-avlastning eller Layer 7-bearbetning till exempel inte är nödvändig kan belastningsutjämning användas i stället för Application Gateway.
 
 
 ## <a name="next-steps"></a>Efterföljande moment

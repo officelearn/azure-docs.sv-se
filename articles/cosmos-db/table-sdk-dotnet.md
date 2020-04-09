@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: 5a5305ffd388d2573d250d93131c1fed236008b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9356ab0aec375a046a8f200838df296b2cf74bce
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76771620"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984988"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET API: Hämta och viktig information
 
@@ -26,8 +26,8 @@ ms.locfileid: "76771620"
 
 |   |   |
 |---|---|
-|**SDK nedladdning**|[NuGet](https://aka.ms/acdbtablenuget)|
-|**Quickstart**|[Azure Cosmos DB: Skapa en app med .NET och tabell-API:et](create-table-dotnet.md)|
+|**SDK nedladdning**|[NuGet (nuget)](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)|
+|**Snabbstart**|[Azure Cosmos DB: Skapa en app med .NET och tabell-API:et](create-table-dotnet.md)|
 |**Självstudier**|[Azure Cosmos DB: Utveckla med tabell-API i .NET](tutorial-develop-table-dotnet.md)|
 |**Nuvarande ramverk som stöds**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 

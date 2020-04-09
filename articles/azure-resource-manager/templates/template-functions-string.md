@@ -2,13 +2,13 @@
 title: Mallfunktioner - sträng
 description: Beskriver de funktioner som ska användas i en Azure Resource Manager-mall för att arbeta med strängar.
 ms.topic: conceptual
-ms.date: 07/31/2019
-ms.openlocfilehash: 070133c3db538e5df76644b62c25ced916adc4af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/08/2020
+ms.openlocfilehash: c0517375b273384f263e8ba421995d4afb6c193b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156284"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982422"
 ---
 # <a name="string-functions-for-arm-templates"></a>Strängfunktioner för ARM-mallar
 
@@ -36,7 +36,7 @@ Resource Manager innehåller följande funktioner för att arbeta med strängar 
 * [Hoppa över](#skip)
 * [split](#split)
 * [börjarMed](#startswith)
-* [sträng](#string)
+* [Sträng](#string)
 * [Delsträng](#substring)
 * [Ta](#take)
 * [toLower (TillLågare)](#tolower)
@@ -46,7 +46,6 @@ Resource Manager innehåller följande funktioner för att arbeta med strängar 
 * [Uri](#uri)
 * [uriKompent](#uricomponent)
 * [uriKompent TillString](#uricomponenttostring)
-* [utcNow (olikartade)](#utcnow)
 
 ## <a name="base64"></a>base64
 
@@ -109,8 +108,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| bas64Utflöde | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | Ett två tre |
+| bas64Utflöde | Sträng | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Sträng | Ett två tre |
 | tillJsonOutput | Objekt | {"en": "a", "två": "b"} |
 
 ## <a name="base64tojson"></a>bas64ToJson
@@ -174,8 +173,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| bas64Utflöde | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | Ett två tre |
+| bas64Utflöde | Sträng | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Sträng | Ett två tre |
 | tillJsonOutput | Objekt | {"en": "a", "två": "b"} |
 
 ## <a name="base64tostring"></a>base64ToString
@@ -239,8 +238,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| bas64Utflöde | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | Ett två tre |
+| bas64Utflöde | Sträng | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Sträng | Ett två tre |
 | tillJsonOutput | Objekt | {"en": "a", "två": "b"} |
 
 ## <a name="concat"></a>Concat
@@ -290,7 +289,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| concatOutput (concatOutput) | String | prefix-5yj4yjf5mbg72 |
+| concatOutput (concatOutput) | Sträng | prefix-5yj4yjf5mbg72 |
 
 Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) visar hur du kombinerar två matriser.
 
@@ -466,8 +465,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| dataUriOutput | String | data:text/oformaterad;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Hej världen! |
+| dataUriOutput | Sträng | data:text/oformaterad;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | Sträng | Hej världen! |
 
 ## <a name="datauritostring"></a>dataUriToString
 
@@ -521,8 +520,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| dataUriOutput | String | data:text/oformaterad;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Hej världen! |
+| dataUriOutput | Sträng | data:text/oformaterad;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | Sträng | Hej världen! |
 
 ## <a name="empty"></a>tomt
 
@@ -704,8 +703,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| arrayOutput | String | en |
-| stringOutput | String | O |
+| arrayOutput | Sträng | en |
+| stringOutput | Sträng | O |
 
 ## <a name="format"></a>format
 
@@ -762,7 +761,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| formatTest | String | Hej, användare. Formaterat tal: 8 175 133 |
+| formatTest | Sträng | Hej, användare. Formaterat tal: 8 175 133 |
 
 ## <a name="guid"></a>Guid
 
@@ -945,8 +944,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| arrayOutput | String | tre |
-| stringOutput | String | e |
+| arrayOutput | Sträng | tre |
+| stringOutput | Sträng | e |
 
 ## <a name="lastindexof"></a>lastIndexOf
 
@@ -1097,6 +1096,8 @@ Du kan bara använda den här funktionen i ett uttryck för standardvärdet för
 
 Funktionen newGuid skiljer sig från [guid-funktionen](#guid) eftersom den inte tar några parametrar. När du anropar guid med samma parameter returneras samma identifierare varje gång. Använd guid när du behöver tillförlitligt generera samma GUID för en viss miljö. Använd newGuid när du behöver en annan identifierare varje gång, till exempel distribuera resurser till en testmiljö.
 
+Den nya Guid-funktionen använder [Guid-strukturen](/dotnet/api/system.guid) i .NET Framework för att generera den globalt unika identifieraren.
+
 Om du använder [alternativet för att distribuera om en tidigare lyckad distribution](rollback-on-error.md)och den tidigare distributionen innehåller en parameter som använder newGuid, omvärderas inte parametern. I stället återanvänds parametervärdet från den tidigare distributionen automatiskt i återställningsdistributionen.
 
 I en testmiljö kan du behöva distribuera resurser som bara visas flera gånger under en kort tid. I stället för att skapa unika namn kan du använda newGuid med [uniqueString](#uniquestring) för att skapa unika namn.
@@ -1230,7 +1231,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| stringOutput | String | 0000000123 |
+| stringOutput | Sträng | 0000000123 |
 
 ## <a name="replace"></a>Ersätta
 
@@ -1282,8 +1283,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| firstOutput (förstaUtklippet) | String | 1231231234 |
-| andraUtskrift | String | 123-123-xxxx |
+| firstOutput (förstaUtklippet) | Sträng | 1231231234 |
+| andraUtskrift | Sträng | 123-123-xxxx |
 
 ## <a name="skip"></a>hoppa över
 
@@ -1351,7 +1352,7 @@ Utdata från föregående exempel med standardvärdena är:
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Matris | ["tre"] |
-| stringOutput | String | två tre |
+| stringOutput | Sträng | två tre |
 
 ## <a name="split"></a>split
 
@@ -1545,9 +1546,9 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| objectOutput (objektOutput) | String | {"valueA":10,"valueB":"Exempeltext"} |
-| arrayOutput | String | ["a","b","c"] |
-| intOutput (intOutput) | String | 5 |
+| objectOutput (objektOutput) | Sträng | {"valueA":10,"valueB":"Exempeltext"} |
+| arrayOutput | Sträng | ["a","b","c"] |
+| intOutput (intOutput) | Sträng | 5 |
 
 ## <a name="substring"></a>Delsträng
 
@@ -1608,7 +1609,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| delsträngUtomslag | String | två |
+| delsträngUtomslag | Sträng | två |
 
 ## <a name="take"></a>Ta
 
@@ -1676,7 +1677,7 @@ Utdata från föregående exempel med standardvärdena är:
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Matris | ["en", "två"] |
-| stringOutput | String | på |
+| stringOutput | Sträng | på |
 
 ## <a name="tolower"></a>toLower (TillLågare)
 
@@ -1726,8 +1727,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| toLowerOutput | String | Ett två tre |
-| tillUpperOutput | String | Ett två tre |
+| toLowerOutput | Sträng | Ett två tre |
+| tillUpperOutput | Sträng | Ett två tre |
 
 ## <a name="toupper"></a>tillUpper
 
@@ -1777,8 +1778,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| toLowerOutput | String | Ett två tre |
-| tillUpperOutput | String | Ett två tre |
+| toLowerOutput | Sträng | Ett två tre |
+| tillUpperOutput | Sträng | Ett två tre |
 
 ## <a name="trim"></a>Trimma
 
@@ -1824,7 +1825,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| återgå | String | Ett två tre |
+| återgå | Sträng | Ett två tre |
 
 ## <a name="uniquestring"></a>uniqueString (unikSträngning)
 
@@ -1876,7 +1877,7 @@ I följande exempel visas hur du skapar ett unikt namn för ett lagringskonto ba
     ...
 ```
 
-Om du behöver skapa ett nytt unikt namn varje gång du distribuerar en mall och inte tänker uppdatera resursen kan du använda [funktionen utcNow](#utcnow) med uniqueString. Du kan använda den här metoden i en testmiljö. Ett exempel finns i [utcNow](#utcnow).
+Om du behöver skapa ett nytt unikt namn varje gång du distribuerar en mall och inte tänker uppdatera resursen kan du använda [funktionen utcNow](template-functions-date.md#utcnow) med uniqueString. Du kan använda den här metoden i en testmiljö. Ett exempel finns i [utcNow](template-functions-date.md#utcnow).
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1980,9 +1981,9 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| uriOutput (uriOutput) | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-| komponentUtflöde | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput (uriOutput) | Sträng | `http://contoso.com/resources/nested/azuredeploy.json` |
+| komponentUtflöde | Sträng | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | Sträng | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponent"></a>uriKompent
 
@@ -2035,9 +2036,9 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| uriOutput (uriOutput) | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-| komponentUtflöde | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput (uriOutput) | Sträng | `http://contoso.com/resources/nested/azuredeploy.json` |
+| komponentUtflöde | Sträng | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | Sträng | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponenttostring"></a>uriKompent TillString
 
@@ -2090,118 +2091,9 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| uriOutput (uriOutput) | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-| komponentUtflöde | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-
-## <a name="utcnow"></a>utcNow (olikartade)
-
-`utcNow(format)`
-
-Returnerar det aktuella datetime-värdet (UTC) i det angivna formatet. Om inget format tillhandahålls används ISO 8601-formatet (yyyyMMddTHHmmssZ). **Den här funktionen kan bara användas i standardvärdet för en parameter.**
-
-### <a name="parameters"></a>Parametrar
-
-| Parameter | Krävs | Typ | Beskrivning |
-|:--- |:--- |:--- |:--- |
-| format |Inga |sträng |Uri-kodat värde som ska konverteras till en sträng. Använd antingen [standardformatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade formatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
-
-### <a name="remarks"></a>Anmärkningar
-
-Du kan bara använda den här funktionen i ett uttryck för standardvärdet för en parameter. Om du använder den här funktionen någon annanstans i en mall returneras ett fel. Funktionen är inte tillåten i andra delar av mallen eftersom den returnerar ett annat värde varje gång den anropas. Om du distribuerar samma mall med samma parametrar skulle inte samma resultat ge samma resultat på ett tillförlitligt sätt.
-
-Om du använder [alternativet för att distribuera om en tidigare lyckad distribution](rollback-on-error.md)och den tidigare distributionen innehåller en parameter som använder utcNow, omvärderas inte parametern. I stället återanvänds parametervärdet från den tidigare distributionen automatiskt i återställningsdistributionen.
-
-Var försiktig med att distribuera om en mall som är beroende av funktionen utcNow för ett standardvärde. När du distribuerar om och inte anger något värde för parametern omvärderas funktionen. Om du vill uppdatera en befintlig resurs i stället för att skapa en ny, skicka in parametervärdet från den tidigare distributionen.
-
-### <a name="return-value"></a>Returvärde
-
-Det aktuella UTC-datetime-värdet.
-
-### <a name="examples"></a>Exempel
-
-I följande exempelmall visas olika format för datetime-värdet.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "utcValue": {
-            "type": "string",
-            "defaultValue": "[utcNow()]"
-        },
-        "utcShortValue": {
-            "type": "string",
-            "defaultValue": "[utcNow('d')]"
-        },
-        "utcCustomValue": {
-            "type": "string",
-            "defaultValue": "[utcNow('M d')]"
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "utcOutput": {
-            "type": "string",
-            "value": "[parameters('utcValue')]"
-        },
-        "utcShortOutput": {
-            "type": "string",
-            "value": "[parameters('utcShortValue')]"
-        },
-        "utcCustomOutput": {
-            "type": "string",
-            "value": "[parameters('utcCustomValue')]"
-        }
-    }
-}
-```
-
-Utdata från föregående exempel varierar för varje distribution, men liknar:
-
-| Namn | Typ | Värde |
-| ---- | ---- | ----- |
-| utcOutput (utcOutput) | sträng | 20190305T175318Z |
-| utcShortOutput | sträng | 03/05/2019 |
-| utcCustomOutput | sträng | 3 5 |
-
-I nästa exempel visas hur du använder ett värde från funktionen när du anger ett taggvärde.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "utcShort": {
-            "type": "string",
-            "defaultValue": "[utcNow('d')]"
-        },
-        "rgName": {
-            "type": "string"
-        }
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Resources/resourceGroups",
-            "apiVersion": "2018-05-01",
-            "name": "[parameters('rgName')]",
-            "location": "westeurope",
-            "tags":{
-                "createdDate": "[parameters('utcShort')]"
-            },
-            "properties":{}
-        }
-    ],
-    "outputs": {
-        "utcShort": {
-            "type": "string",
-            "value": "[parameters('utcShort')]"
-        }
-    }
-}
-```
+| uriOutput (uriOutput) | Sträng | `http://contoso.com/resources/nested/azuredeploy.json` |
+| komponentUtflöde | Sträng | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | Sträng | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="next-steps"></a>Nästa steg
 * En beskrivning av avsnitten i en Azure Resource Manager-mall finns i [Redigera Azure Resource Manager-mallar](template-syntax.md).

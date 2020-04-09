@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/26/2020
+ms.date: 03/30/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1497b757d77d12cb5b963953224fa8929e987853
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 4af7dc5d55e451e4f6873df42e2b740fd1e5cd56
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385503"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80891755"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-anyconnect"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med Cisco AnyConnect
 
@@ -96,6 +96,9 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 1. Kopiera lämpliga webbadresser baserat på dina krav i avsnittet **Konfigurera Cisco AnyConnect.**
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+> [!NOTE]
+> Om du vill ombord på flera TGTs av servern måste du lägga till flera instans av Cisco AnyConnect ansökan från galleriet. Du kan också välja att ladda upp ditt eget certifikat i Azure AD för alla dessa programinstanser. På så sätt kan du ha samma certifikat för programmen, men du kan konfigurera olika identifierare och svars-URL för varje program.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 

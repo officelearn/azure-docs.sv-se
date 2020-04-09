@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: b65feeb99bb51419e19a8e4b537515be14c54ba8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d906a3dd072770a05b818fd3ca8de359b8427728
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334937"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80986618"
 ---
 Här följer användningsbegränsningarna och andra tjänstbegränsningar för Azure Active Directory-tjänsten (Azure AD).
 
 | Kategori | Gräns |
 | --- | --- |
-| Kataloger | En enskild användare kan som mest tillhöra 500 Azure AD-kataloger som medlem eller gäst.<br/>En enskild användare kan som mest skapa 20 kataloger. |
+| Kataloger | En enskild användare kan som mest tillhöra 500 Azure AD-kataloger som medlem eller gäst.<br/>En enskild användare kan skapa högst 200 kataloger. |
 | Domäner | Du kan som mest lägga till 900 hanterade domännamn. Om du konfigurerar alla dina domäner för federation lokalt med Active Directory kan du som mest lägga till 450 domännamn i varje katalog. |
 |Resurser |<ul><li>Högst 50 000 Azure AD-resurser kan skapas i en enda katalog av användare av den kostnadsfria utgåvan av Azure Active Directory som standard. Om du har minst en verifierad domän utökas standardkvoten för Azure AD-tjänsten för din organisation till 300 000 Azure AD-resurser. Den här tjänstgränsen är inte relaterad till prisnivågränsen på 500 000 resurser på azure AD-prissidan. Om du vill gå längre än standardkvoten måste du kontakta Microsoft Support.</li><li>En användare som inte är administratörer kan skapa högst 250 Azure AD-resurser. Både aktiva resurser och borttagna resurser som är tillgängliga för att återställa räknas in i den här kvoten. Endast borttagna Azure AD-resurser som togs bort för mindre än 30 dagar sedan är tillgängliga för återställning. Borttagna Azure AD-resurser som inte längre är tillgängliga för att återställa antalet mot den här kvoten till ett värde av en fjärdedel i 30 dagar. Om du har utvecklare som sannolikt kommer att överskrida den här kvoten upprepade gånger under sina vanliga uppgifter kan du [skapa och tilldela en anpassad roll](../articles/active-directory/users-groups-roles/roles-quickstart-app-registration-limits.md) med behörighet att skapa ett obegränsat antal appregistreringar.</li></ul> |
 | Schematillägg |<ul><li>Tillägg av strängtyp får maximalt innehålla 256 tecken. </li><li>Tillägg av binär typ är begränsade till 256 byte.</li><li>Endast 100 tilläggsvärden, för *alla* typer och *alla* program, kan skrivas till en enda Azure AD-resurs.</li><li>Endast entiteter av typen User, Group, TenantDetail, Device, Application och ServicePrincipal kan utökas med strängtypen eller enkelvärdesattribut av den binära typen.</li><li>Schematillägg är bara tillgängliga i förhandsversionen av Graph API-version 1.21. Programmet måste beviljas skrivbehörighet för att det ska vara möjligt att registrera ett tillägg.</li></ul> |

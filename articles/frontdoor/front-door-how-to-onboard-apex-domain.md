@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: bb1042e15d4366923174996388eeb2fb99aef429
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b74338f22a82d76ef13126ee0862b841bd89a99
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74184619"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878892"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Ombord på en rot- eller apex-domän på ytterdörren
 Azure Front Door använder CNAME-poster för att validera domänägarskap för introduktion av anpassade domäner. Ytterdörren exponerar inte heller ip-adressen för klientsidan som är associerad med din front door-profil och därför kan du inte mappa din apex-domän till en IP-adress, om avsikten är att gå in på den till Azure Front Door.
@@ -26,7 +26,7 @@ Mappa din apex eller rotdomän till din Front Door-profil kräver i princip CNAM
 > [!NOTE]
 > Det finns även andra DNS-leverantörer som stöder CNAME-förenkling eller DNS-jakt, men Azure Front Door rekommenderar att du använder Azure DNS för sina kunder för att vara värd för sina domäner.
 
-Du kan använda Azure-portalen för att gå in på en apex-domän på ytterdörren och aktivera HTTPS på den genom att associera den med ett certifikat för SSL-avslutning. Apex-domäner kallas också rot- eller nakna domäner.
+Du kan använda Azure-portalen för att gå in på en apex-domän på ytterdörren och aktivera HTTPS på den genom att associera den med ett certifikat för TLS-avslutning. Apex-domäner kallas också rot- eller nakna domäner.
 
 I den här artikeln kan du se hur du:
 
@@ -65,7 +65,7 @@ I den här artikeln kan du se hur du:
 2. Välj **typen Certifikathantering** för _att använda mitt eget certifikat._
 
 > [!WARNING]
-> Hanteringstyp för front door-hanterade certifikat stöds för närvarande inte för apex- eller rotdomäner. Det enda alternativet som är tillgängligt för att aktivera HTTPS på en apex- eller rotdomän för Ytterdörren använder ditt eget anpassade SSL-certifikat som finns på Azure Key Vault.
+> Hanteringstyp för front door-hanterade certifikat stöds för närvarande inte för apex- eller rotdomäner. Det enda alternativet som är tillgängligt för att aktivera HTTPS på en apex- eller rotdomän för Ytterdörren använder ditt eget anpassade TLS/SSL-certifikat som finns på Azure Key Vault.
 
 3. Se till att du har ställt in rätt behörigheter för ytterdörren för att komma åt ditt nyckelvalv som anges i användargränssnittet, innan du fortsätter till nästa steg.
 4. Välj ett **Key Vault-konto** från din aktuella prenumeration och välj sedan lämplig **hemlig** och **hemlig version** för att mappa till rätt certifikat.

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 22283833ebb414372de16cbe4ce7d3986cd400a9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 04c6ddf03f1c0433ad4e2d0808f118f42670ee08
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238708"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80891279"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Självstudiekurs: Lägga till en anpassad domän i Azure CDN-slutpunkten
 Den här självstudien visar hur du lägger till en anpassad domän till en slutpunkt i Azure Content Delivery Network (CDN). När du använder en CDN-slutpunkt för att leverera innehåll behövs en anpassad domän om du vill att ditt eget domännamn ska synas i din URL för CDN. Att ha ett synligt domännamn kan vara praktiskt för dina kunder och användbart i profileringssyfte. 
@@ -50,7 +50,7 @@ Innan du kan använda en anpassad domän med en Azure CDN-slutpunkt måste du f�
 En anpassad domän och dess underdomän kan endast associeras med en slutpunkt åt gången. Men du kan använda olika underdomäner från samma anpassade domän för olika Azure-tjänstslutpunkter genom att använda flera CNAME-poster. Du kan också mappa en anpassad domän med olika underdomäner till samma CDN-slutpunkt.
 
 > [!NOTE]
-> Alla aliasposttyper kan användas för anpassade domäner om du använder Azure DNS som domänleverantör. Genomgången används posttypen CNAME. Om du använder A- eller AAAA-posttyper följer du samma steg nedan och ersätter CNAME med den posttyp du väljer. Om du använder en aliaspost för att lägga till en rotdomän som en anpassad domän och vill aktivera SSL måste du använda manuell validering enligt beskrivningen i [den här artikeln](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint). Mer information finns i [Punktzon apex till Azure CDN-slutpunkter](https://docs.microsoft.com/azure/dns/dns-alias#point-zone-apex-to-azure-cdn-endpoints).
+> Alla aliasposttyper kan användas för anpassade domäner om du använder Azure DNS som domänleverantör. Genomgången används posttypen CNAME. Om du använder A- eller AAAA-posttyper följer du samma steg nedan och ersätter CNAME med den posttyp du väljer. Om du använder en aliaspost för att lägga till en rotdomän som en anpassad domän och vill aktivera TLS måste du använda manuell validering enligt beskrivningen i [den här artikeln](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint). Mer information finns i [Punktzon apex till Azure CDN-slutpunkter](https://docs.microsoft.com/azure/dns/dns-alias#point-zone-apex-to-azure-cdn-endpoints).
 
 ## <a name="map-the-temporary-cdnverify-subdomain"></a>Mappa den tillfälliga underdomänen cdnverify
 

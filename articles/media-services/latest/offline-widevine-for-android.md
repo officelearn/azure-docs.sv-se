@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 04/07/2020
 ms.author: willzhan
-ms.openlocfilehash: 64cd93acc78f4cb5b7ebc4266e7359aec662890c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 94edec8261d9916b7575fb247e1698273f244130
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295422"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887205"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Offline Widevine streaming för Android med Media Services v3
 
@@ -153,65 +153,13 @@ Pwa-appen ovan med öppen källkod skapas i Node.js. Om du vill vara värd för 
     - Certifikatet måste ha betrodd certifikatutfärdare och ett självsignerat utvecklingscertifikat fungerar inte
     - Certifikatet måste ha ett KN som matchar DNS-namnet på webbservern eller gatewayen
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="faqs"></a>Vanliga frågor och svar
 
-### <a name="question"></a>Fråga
-
-Hur kan jag leverera beständiga licenser (offlineaktiverade) för vissa klienter/användare och icke-beständiga licenser (offline inaktiverade) för andra? Måste jag duplicera innehållet och använda separat innehållsnyckel?
-
-### <a name="answer"></a>Svar
-Eftersom Media Services v3 tillåter en tillgång att ha flera StreamingLocators. Du kan få
-
-1.    En ContentKeyPolicy med license_type = "persistent", ContentKeyPolicyRestriction med anspråk på "persistent" och dess StreamingLocator;
-2.    En annan ContentKeyPolicy med license_type="nonpersistent", ContentKeyPolicyRestriction med anspråk på "nonpersistent" och dess StreamingLocator.
-3.    De två StreamingLocators har olika ContentKey.
-
-Beroende på affärslogiken för anpassade STS utfärdas olika anspråk i JWT-token. Med token kan endast motsvarande licens erhållas och endast motsvarande WEBBADRESS kan spelas upp.
-
-### <a name="question"></a>Fråga
-
-För Widevine-säkerhetsnivåer definierar Googles dokument "Widevine DRM Architecture Overview" tre olika säkerhetsnivåer. I [Azure Media Services-dokumentationen på Widevine-licensmallen](widevine-license-template-overview.md)beskrivs dock fem olika säkerhetsnivåer. Vad är relationen eller mappningen mellan de två olika uppsättningarna säkerhetsnivåer?
-
-### <a name="answer"></a>Svar
-
-Googles doc "Widevine DRM Architecture Review" definierar följande tre säkerhetsnivåer:
-
-1.  Säkerhetsnivå 1: All innehållsbearbetning, kryptografi och kontroll utförs i TEE (Trusted Execution Environment). I vissa implementeringsmodeller kan säkerhetsbearbetning utföras i olika marker.
-2.  Säkerhetsnivå 2: Utför kryptografi (men inte videobearbetning) inom TEE: dekrypterade buffertar returneras till programdomänen och bearbetas via separat videomaskinvara eller programvara. På nivå 2 bearbetas dock kryptografisk information fortfarande endast inom TEE.
-3.  Säkerhetsnivå 3 Har ingen TEE på enheten. Lämpliga åtgärder kan vidtas för att skydda kryptografisk information och dekrypterat innehåll i värdoperativsystemet. En nivå 3-implementering kan också innehålla en kryptografisk maskinvarumotor, men som bara förbättrar prestanda, inte säkerhet.
-
-I Azure Media [Services-dokumentationen på Widevine-licensmallen](widevine-license-template-overview.md)kan security_level-egenskapen för content_key_specs ha följande fem olika värden (klients robusthetskrav för uppspelning):
-
-1.  Programvarubaserad white-box krypto krävs.
-2.  Programvarukrypt och en fördunklad dekoder krävs.
-3.  Nyckelmaterialet och kryptoåtgärderna måste utföras inom en maskinvarubaserad TEE.
-4.  Krypto och avkodning av innehåll måste utföras inom en maskinvarubaserad TEE.
-5.  Krypto, avkodning och all hantering av mediet (komprimerad och okomprimerad) måste hanteras inom en maskinvarubaserad TEE.
-
-Båda säkerhetsnivåerna definieras av Google Widevine. Skillnaden är i dess användningsnivå: arkitekturnivå eller API-nivå. De fem säkerhetsnivåerna används i Widevine API. Det content_key_specs objektet, som innehåller security_level är deserialiserat och skickas till Widevine globala leveranstjänst av Azure Media Services Widevine-licenstjänsten. Tabellen nedan visar mappningen mellan de två uppsättningarna säkerhetsnivåer.
-
-| **Säkerhetsnivåer definierade i Widevine-arkitektur** |**Säkerhetsnivåer som används i Widevine API**|
-|---|---| 
-| **Säkerhetsnivå 1:** All innehållsbearbetning, kryptografi och kontroll utförs i TEE (Trusted Execution Environment). I vissa implementeringsmodeller kan säkerhetsbearbetning utföras i olika marker.|**security_level=5**: Krypto, avkodning och all hantering av mediet (komprimerad och okomprimerad) måste hanteras inom en maskinvarubackad TEE.<br/><br/>**security_level=4**: Krypto och avkodning av innehåll måste utföras i en maskinvarubackad TEE.|
-**Säkerhetsnivå 2:** Utför kryptografi (men inte videobearbetning) inom TEE: dekrypterade buffertar returneras till programdomänen och bearbetas via separat videomaskinvara eller programvara. På nivå 2 bearbetas dock kryptografisk information fortfarande endast inom TEE.| **security_level=3**: Nyckelmaterialet och kryptoåtgärderna måste utföras inom en maskinvarubaserad TEE. |
-| **Säkerhetsnivå 3:** Har ingen TEE på enheten. Lämpliga åtgärder kan vidtas för att skydda kryptografisk information och dekrypterat innehåll i värdoperativsystemet. En nivå 3-implementering kan också innehålla en kryptografisk maskinvarumotor, men som bara förbättrar prestanda, inte säkerhet. | **security_level=2**: Programvarukrypt och en fördunklad dekoder krävs.<br/><br/>**security_level=1**: Programvarubaserad whiteboxkrypt krävs.|
-
-### <a name="question"></a>Fråga
-
-Varför tar nedladdningen av innehåll så lång tid?
-
-### <a name="answer"></a>Svar
-
-Det finns två sätt att förbättra nedladdningshastigheten:
-
-1.  Aktivera CDN så att slutanvändarna är mer benägna att träffa CDN istället för ursprung / streaming slutpunkt för nedladdning av innehåll. Om användaren träffar slutpunkten för direktuppspelning paketeras och krypteras varje HLS-segment eller DASH-fragment dynamiskt. Även om den här svarstiden är i millisekundskala för varje segment/fragment, kan den ackumulerade svarstiden vara stor och orsaka längre hämtning.
-2.  Ge slutanvändare möjlighet att selektivt ladda ner videokvalitet lager och ljudspår i stället för allt innehåll. För offline-läge är det ingen idé att hämta alla kvalitetslager. Det finns två sätt att uppnå detta:
-    1.  Klientkontrollerad: antingen väljer spelarens app automatiskt eller så väljer användaren videokvalitetslager och ljudspår att ladda ned.
-    2.  Tjänststyrd: man kan använda funktionen Dynamiskt manifest i Azure Media Services för att skapa ett (globalt) filter som begränsar HLS-spellista eller DASH MPD till ett enda videokvalitetslager och valda ljudspår. Då nedladdnings-URL presenteras för slutanvändare kommer att innehålla detta filter.
+Mer information finns i [Vanliga frågor om Widevine](frequently-asked-questions.md#widevine-streaming-for-android).
 
 ## <a name="additional-notes"></a>Ytterligare information
 
-* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av användarvillkoren och sekretesspolicyn för Google, Inc.
+Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av användarvillkoren och sekretesspolicyn för Google, Inc.
 
 ## <a name="summary"></a>Sammanfattning
 

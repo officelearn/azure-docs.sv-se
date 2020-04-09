@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 55fa14f367dbf24e951fde8e9075a34499a510b1
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: f8f21405a79a6fcf70adef9815ba06a229d6954d
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547077"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886984"
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
@@ -193,11 +193,11 @@ Tilldelningar av SNAT-portar är IP-transportprotokollspecifika (TCP och UDP und
 Det här avsnittet är avsett att hjälpa till att minska SNAT-utmattning och som kan uppstå med utgående anslutningar i Azure.
 
 ### <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a>Hantera utmattning av SNAT-portar
-[Efemära portar](#preallocatedports) som används för [PAT](#pat) är en uttömbar resurs, enligt beskrivningen i [fristående virtuell dator utan en offentlig IP-adress](#defaultsnat) och [belastningsbalanserad virtuell dator utan en offentlig IP-adress](#lb).
+[Efemära portar](#preallocatedports) som används för [PAT](#pat) är en uttömbar resurs, enligt beskrivningen i [fristående virtuell dator utan en offentlig IP-adress](#defaultsnat) och [belastningsbalanserad virtuell dator utan en offentlig IP-adress](#lb). Du kan övervaka din användning av tillfälliga portar och jämföra med din nuvarande allokering för att fastställa risken för eller bekräfta SNAT exhuastion med hjälp av [denna](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) guide.
 
 Om du vet att du initierar många utgående TCP- eller UDP-anslutningar till samma mål-IP-adress och port, och du observerar misslyckade utgående anslutningar eller får råd av stöd om att du uttömmer SNAT-portar (förallokerade [efemära portar](#preallocatedports) som används av [PAT)](#pat)har du flera allmänna begränsningsalternativ. Granska dessa alternativ och bestäm vad som är tillgängligt och bäst för ditt scenario. Det är möjligt att en eller flera kan hjälpa till att hantera det här scenariot.
 
-Om du har problem med att förstå beteendet för utgående anslutning kan du använda IP-stackstatistik (netstat). Eller det kan vara bra att observera anslutningsbeteenden med hjälp av paketinfångningar. Du kan utföra dessa paketinsamlingar i gästoperativsystemet för din instans eller använda [Network Watcher för paketfångst](../network-watcher/network-watcher-packet-capture-manage-portal.md).
+Om du har problem med att förstå beteendet för utgående anslutning kan du använda IP-stackstatistik (netstat). Eller det kan vara bra att observera anslutningsbeteenden med hjälp av paketinfångningar. Du kan utföra dessa paketinsamlingar i gästoperativsystemet för din instans eller använda [Network Watcher för paketfångst](../network-watcher/network-watcher-packet-capture-manage-portal.md). 
 
 #### <a name="modify-the-application-to-reuse-connections"></a><a name="connectionreuse"></a>Ändra programmet för återanvändning av anslutningar 
 Du kan minska efterfrågan på tillfälliga portar som används för SNAT genom att återanvända anslutningar i ditt program. Detta gäller särskilt för protokoll som HTTP/1.1, där återanvändning av anslutningar är standard. Och andra protokoll som använder HTTP som transport (till exempel REST) kan dra nytta i sin tur. 

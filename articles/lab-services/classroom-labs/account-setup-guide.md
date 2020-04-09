@@ -13,113 +13,101 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/18/2020
 ms.author: spelluru
-ms.openlocfilehash: 88b37ea4ff717689f05afbb41d33a56a8cbb2c22
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 8fcc46487e7f7c2d075639f10a30cae9950ff31b
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547626"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879589"
 ---
 # <a name="lab-account-setup-guide"></a>Installationsguide för labbkonto
 
-Det första steget som måste slutföras av administratörer är att konfigurera ett labbkonto i din Azure-prenumeration.  Ett labbkonto är en behållare för dina klassrumslabb och tar bara några minuter att konfigurera.
+Som ett första steg bör administratörer konfigurera ett labbkonto i din Azure-prenumeration. Ett labbkonto är en behållare för dina klassrumslabb och tar bara några minuter att konfigurera.
 
 ## <a name="understand-your-schools-lab-account-requirements"></a>Förstå skolans krav på labbkonto
 
-Om du vill förstå hur du konfigurerar ditt labbkonto baserat på skolans behov bör du tänka på följande frågor:
+Om du vill förstå hur du konfigurerar ditt labbkonto baserat på skolans behov bör du överväga dessa frågor.
 
-**Har jag åtkomst till en Azure-prenumeration?**
+### <a name="do-i-have-access-to-an-azure-subscription"></a>Har jag åtkomst till en Azure-prenumeration?
 
-Om du vill skapa ett labbkonto behöver du åtkomst till en Azure-prenumeration som är konfigurerad för din skola. din skola kan ha en eller flera prenumerationer.  En prenumeration används för att hantera fakturering och säkerhet för alla dina Azure-resurser\tjänster som används i den, inklusive labbkonton.
+För att skapa ett labbkonto behöver du åtkomst till en Azure-prenumeration som är konfigurerad för din skola. Din skola kan ha en eller flera prenumerationer. Du använder en prenumeration för att hantera fakturering och säkerhet för alla dina Azure-resurser och -tjänster, inklusive labbkonton.
 
-**Hur många labbkonton behöver skapas?**
+### <a name="how-many-lab-accounts-need-to-be-created"></a>Hur många labbkonton behöver skapas?
 
-För att komma igång snabbt är en rimlig metod att skapa ett enda labbkonto och sedan skapa ytterligare labbkonton efter behov.  Du kan till exempel så småningom utvecklas till att ha ett labbkonto per avdelning.
+För att komma igång snabbt, skapa ett enda labbkonto och sedan skapa ytterligare labbkonton efter behov. Du kan till exempel så småningom ha ett labbkonto per avdelning.
 
-**Vem ska vara ägare och bidragsgivare till labbkontot?**
+### <a name="who-should-be-owners-and-contributors-of-the-lab-account"></a>Vem ska vara ägare och bidragsgivare till labbkontot?
 
-Administratörerna är vanligtvis ägare\bidragsgivare för ett labbkonto eftersom de är ansvariga för att hantera de principer som gäller för alla labb som finns i labbkontot.  Den person som skapar labbkontot är automatiskt ägare.  Du kan lägga till ytterligare ägare\deltagare (vanligtvis från AAD-klienten som är associerad med din prenumeration) för att hantera ett labbkonto genom att tilldela rollen Ägare\Contributor på labbkontonivå.
+Administratörerna är vanligtvis ägare och bidragsgivare för ett labbkonto. De ansvarar för att hantera de principer som gäller för alla labb som finns i labbkontot. Den person som skapar labbkontot är automatiskt ägare. Du kan lägga till ytterligare ägare och deltagare, vanligtvis från Azure Active Directory (Azure AD) klient som är associerad med din prenumeration. Detta kan vara användbart för att hantera ett labbkonto genom att tilldela antingen ägar- eller deltagarrollen på labbkontonivå.
 
-**Vem får skapa labb?**
+### <a name="who-will-be-allowed-to-create-and-manage-labs"></a>Vem får skapa och hantera labb?
 
-Du kan välja att låta administratörer och\eller fakultetsmedlemmar skapa och hantera labb. Dessa användare (vanligtvis från AAD-klienten som är associerade med din prenumeration) tilldelas rollen Lab Creator i labbkontot.
+Du kan välja att låta administratörer och fakultetsmedlemmar skapa och hantera labb. Dessa användare (vanligtvis från Azure AD-klienten som är associerad med din prenumeration) tilldelas rollen Lab Creator i labbkontot.
 
-**Vill du ge labbskapare möjlighet att spara bilder som kan delas över labb?**
+### <a name="do-you-want-to-give-lab-creators-the-ability-to-save-images-that-can-be-shared-across-labs"></a>Vill du ge labbskapare möjlighet att spara bilder som kan delas över labb?
 
-Ett delat bildgalleri är en databas som du kan använda för att spara och dela bilder.  Fördelen med detta är att om du har flera klasser som behöver samma bilder, lab skapare kan skapa bilden en gång och dela den över labb.  Men för att komma igång är det fullt rimligt att starta utan ett delat bildgalleri. och du kan alltid välja att lägga till en senare.
+Ett delat bildgalleri är en databas som du kan använda för att spara och dela bilder. Om du har flera klasser som behöver samma bilder kan labbskapare skapa avbildningen en gång och dela den över labben. Men för att komma igång behöver du inte nödvändigtvis ett delat bildgalleri, eftersom du alltid kan lägga till ett senare.
 
-Om du har svarat ja på den här frågan måste du skapa och\eller bifoga ett delat bildgalleri till ditt labbkonto.  Om du svarade: "Jag vet inte", då kan du skjuta upp detta beslut till senare.
+Om du svarade "ja" på den här frågan måste du skapa eller bifoga ett delat bildgalleri till ditt labbkonto. Om du svarade "Jag vet inte", kan du skjuta upp detta beslut till senare.
 
-När du har ett delat bildgalleri kopplat till ditt labbkonto
+### <a name="which-images-in-azure-marketplace-will-your-classroom-labs-use"></a>Vilka avbildningar i Azure Marketplace kommer dina klassrumslabb att använda?
 
-**Vilka avbildningar på Azure Marketplace kommer dina klassrumslabb att använda?**
+Azure Marketplace innehåller hundratals avbildningar som du kan aktivera så att labbskapare kan använda avbildningen för att skapa sitt labb. Vissa bilder kan innehålla allt som ett labb redan behöver. I andra fall kan du använda en avbildning som utgångspunkt och sedan kan labbskaparen anpassa den genom att installera ytterligare program eller verktyg.
 
-Azure Marketplace innehåller hundratals avbildningar som du kan aktivera så att labbskapare kan använda avbildningen för att skapa sitt labb.  Vissa bilder kan innehålla allt som ett labb redan behöver.  I andra fall kan du använda en bild som utgångspunkt och sedan labbet skaparen kan anpassa den genom att installera ytterligare program, verktyg, etc.
-
-Om du inte vet vilka bilder du behöver använda kan du alltid komma tillbaka till detta senare för att aktivera dem.  Dessutom är det bästa sättet att se vilka bilder som är tillgängliga att först skapa ett labbkonto - detta ger dig tillgång så att du kan granska listan över tillgängliga bilder och deras innehåll.  Mer information ges nedan.
+Om du inte vet vilka bilder du behöver använda kan du alltid komma tillbaka till detta senare för att aktivera dem. Det bästa sättet att se vilka bilder som är tillgängliga är också att först skapa ett labbkonto. Detta ger dig åtkomst, så att du kan granska listan över tillgängliga bilder och deras innehåll.
   
-**Behöver labbets virtuella datorer ha åtkomst till andra Azure- eller on-prem-resurser?**
+### <a name="do-the-labs-virtual-machines-need-to-have-access-to-other-azure-or-on-premises-resources"></a>Behöver labbets virtuella datorer ha åtkomst till andra Azure- eller lokala resurser?
 
-När du konfigurerar ett labbkonto har du också möjlighet att peer med ett virtuellt nätverk (VNet).  Om du vill bestämma om du behöver peer med ett virtuella nätverk bör du tänka på följande frågor:
+När du konfigurerar ett labbkonto har du också möjlighet att peer med ett virtuellt nätverk. För att avgöra om du behöver detta, överväga följande frågor:
 
 - **Behöver du ge åtkomst till en licensieringsserver?**
   
-   Om du planerar att använda Azure Marketplace-avbildningar paketeras kostnaden för OS-licensen i prissättningen för Lab Services, så du behöver *inte* tillhandahålla licenser för själva operativsystemet.  För ytterligare program\program som är installerade måste du dock tillhandahålla en licens efter behov.
+   Om du planerar att använda Azure Marketplace-avbildningar paketeras kostnaden för operativsystemets licens i prissättningen för labbtjänster. Därför behöver du inte tillhandahålla licenser för själva operativsystemet. Men för ytterligare programvara och program som är installerade, behöver du ange en licens som är lämplig.
 
-- **Behöver labbdammarna åtkomst till andra on-prem-resurser, till exempel filresurs, databas osv.?**
+- **Behöver labbdammarna åtkomst till andra lokala resurser, till exempel en filresurs eller databas?**
 
-   Ett virtuellt nätverk måste skapas för att ge åtkomst till resurser på prem, vanligtvis med hjälp av en virtuell nätverksgateway från plats till plats.  Om du inte har konfigurerat ett virtuella nätverk måste ytterligare tid investeras för detta.  Mer information om hur du ställer in detta finns nedan.
+   Du skapar ett virtuellt nätverk för att ge åtkomst till lokala resurser, vanligtvis med hjälp av en virtuell nätverksgateway för plats till plats. Om du inte har konfigurerat ett virtuellt nätverk måste du investera ytterligare tid för detta.
 
-- **Behöver labb-virtuella datorer åtkomst till andra Azure-resurser som finns i ett virtuella nätverk?**
+- **Behöver labb-virtuella datorer åtkomst till andra Azure-resurser som finns i ett virtuellt nätverk?**
 
-    Om du behöver åtkomst till Azure-resurser som *inte* är skyddade i ett virtuella nätverk kan du komma åt dessa resurser via det offentliga internet utan att göra någon peering.
+   Om du behöver åtkomst till Azure-resurser som *inte* är skyddade i ett virtuellt nätverk kan du komma åt dessa resurser via det offentliga internet utan att göra någon peering.
 
-    Om du svarade "Ja" på en eller flera frågor måste du peer labbkontot till ett virtuella nätverk.  Om du svarade, "Jag vet inte", då kan du skjuta upp detta beslut till senare eftersom du alltid kan välja att peer ett VNet efter att ha skapat labbkontot.
+Om du svarade "ja" på en eller flera frågor måste du peer labbkontot till ett virtuellt nätverk. Om du svarade "Jag vet inte", då kan du skjuta upp detta beslut till senare. Du kan alltid välja att peer ett virtuellt nätverk när du har skapat labbkontot.
 
 ## <a name="set-up-your-lab-account"></a>Konfigurera ditt labbkonto
 
-När du förstår kraven för ditt labbkonto är du redo att konfigurera det.  Följ länkarna i det här avsnittet om du vill se hur du konfigurerar ditt labbkonto:
+När du har förstått kraven för ditt labbkonto är du redo att konfigurera det.
 
-1. **Skapa ditt labbkonto**
+1. **Skapa ditt labbkonto.** Se handledningen om [hur du skapar ett labbkonto](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#create-a-lab-account) för instruktioner.
 
-   Se handledningen om [hur du skapar ett labbkonto](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#create-a-lab-account) för instruktioner.
-
-   När du skapar ett labbkonto kan det vara bra att bekanta dig med de azure-resurser som ingår. Se följande lista för mer information och vägledning om hur du skapar dessa resurser:
+   När du skapar ett labbkonto kan det vara bra att bekanta dig med de azure-resurser som ingår. Mer information finns i följande artiklar:
 
    - [Prenumeration](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#subscription)
    - [Resursgrupp](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#resource-group)
    - [Labbkonto](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#lab-account)
    - [Labb i klassrummet](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#classroom-lab)
-   - [Välja en region\Plats](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#regionslocations)
+   - [Välja en region och plats](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#regionslocations)
    - [Namnge vägledning för resurser](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#naming)
 
-2. **Lägga till användare i rollen Labbskapare**
+2. **Lägg till användare i rollen som labbskaparskapare.** Instruktioner finns i [lägga till användare i rollen labbskapare](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#add-a-user-to-the-lab-creator-role).
 
-   Se självstudien om [hur du lägger till användare i rollen Lab Creator](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#add-a-user-to-the-lab-creator-role) för instruktioner.
+   Mer information om de olika roller som kan tilldelas användare som hanterar labbkonton och labb finns i [guiden för hantering av identitet](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#manage-identity).
 
-   Mer information om de olika roller som kan tilldelas användare som hanterar labblabbkonton och labb finns i [guiden för hantering av identitet](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#manage-identity).
+3. **Anslut till ett virtuellt peer-nätverk.** Instruktioner finns i [ansluta labbets nätverk med ett virtuellt peer-nätverk](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network).
 
-3. **Ansluta till ett peer-nätverk**
+   Du kan också behöva läsa instruktioner om hur du [konfigurerar labbets virtuella datorers adressintervall](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-lab-accounts#specify-an-address-range-for-vms-in-the-lab).
 
-   Se instruktionsguiden om hur du [ansluter labbets nätverk med ett peer-nätverk](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) för instruktioner.
+4. **Aktivera och granska bilder.** Instruktioner finns [i aktivera Azure Marketplace-avbildningar för labbskapare](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
 
-   Du kan också behöva läsa instruktionerna för att [konfigurera labbets virtuella datorers adressintervall](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-lab-accounts#specify-an-address-range-for-vms-in-the-lab).
+   Om du vill granska innehållet i varje Azure Marketplace-avbildning markerar du avbildningsnamnet. Följande skärmbild visar till exempel information om avbildningen ubuntu Data Science VM:
 
-4. **Aktivera och granska bilder**
+   ![Skärmbild av Granska Azure Marketplace-avbildningar](../media/setup-guide/review-marketplace-images.png)
 
-    Se instruktioner om hur du [aktiverar Marketplace-avbildningar för labbskapare.](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images)
+   Om du har ett delat bildgalleri kopplat till ditt labbkonto och du vill aktivera anpassade bilder som ska delas av labbskapare, kan du slutföra stegen som liknar dem som visas i följande skärmbild:
 
-    Om du vill granska innehållet i varje Marketplace-bild klickar du på bildnamnet.  Se till exempel följande skärmbild som visar information om Ubuntu Data Science VM-avbildningen:
-
-    ![Granska Marketplace-bilder](../media/setup-guide/review-marketplace-images.png)
-
-    Om du har ett delat bildgalleri kopplat till ditt labbkonto och vill aktivera att anpassade bilder delas av labbskapare måste du utföra liknande steg som visas i följande skärmbild:
-
-    ![Aktivera anpassade bilder i det delade bildgalleriet](../media/setup-guide/enable-sig-custom-images.png)
+   ![Skärmbild av Aktivera anpassade bilder i ett delat bildgalleri](../media/setup-guide/enable-sig-custom-images.png)
 
 ## <a name="next-steps"></a>Nästa steg
-
-Se följande artiklar:
 
 - [Hantera labbkonton](how-to-manage-lab-accounts.md)
 

@@ -3,12 +3,12 @@ title: Registrera en kund för Azure-delegerad resurshantering
 description: Lär dig hur du lägger till en kund till Azure-delegerad resurshantering, så att deras resurser kan nås och hanteras via din egen klientorganisation.
 ms.date: 03/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6a5f4ce03f762b5903e8b3d6f10810819e02e422
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9eef2e73de7812fc65104131dfd319bf8dfb014e
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246882"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984597"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Registrera en kund för Azure-delegerad resurshantering
 
@@ -126,17 +126,17 @@ Vilken mall du väljer beror på om du tecknar en hel prenumeration, en resursgr
 
 |För att gå ombord på detta  |Använda den här Azure Resource Manager-mallen  |Och ändra den här parameterfilen |
 |---------|---------|---------|
-|Prenumeration   |[delegeradResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegeradResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
-|Resursgrupp   |[rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
-|Flera resursgrupper inom en prenumeration   |[multipleRgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
-|Prenumeration (när du använder ett erbjudande som publiceras på Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
+|Prenumeration   |[delegeradResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegeradResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
+|Resursgrupp   |[rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
+|Flera resursgrupper inom en prenumeration   |[multipleRgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
+|Prenumeration (när du använder ett erbjudande som publiceras på Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
 > Processen som beskrivs här kräver en separat distribution på prenumerationsnivå för varje prenumeration som är inskriven, även om du tecknar prenumerationer i samma kundklient. Separata distributioner krävs också om du anlöpar flera resursgrupper inom olika prenumerationer i samma kundklient. Inbyggt flera resursgrupper inom en enda prenumeration kan dock göras i en distribution på prenumerationsnivå.
 >
 > Separata distributioner krävs också för att flera erbjudanden ska tillämpas på samma prenumeration (eller resursgrupper inom en prenumeration). Varje erbjudande som tillämpas måste använda ett annat **mspOfferName**.
 
-I följande exempel visas en **modifierad delegatedResourceManagement.parameters.json-fil** som kan användas för att lägga till en prenumeration. Parameterfilerna för resursgrupp (som finns i mappen [rg-delegated-resource-management)](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management) är likartade, men innehåller också en **rgName-parameter** för att identifiera de specifika resursgrupper som ska finnas ombord.
+I följande exempel visas en **modifierad delegatedResourceManagement.parameters.json-fil** som kan användas för att lägga till en prenumeration. Parameterfilerna för resursgrupp (som finns i mappen [rg-delegated-resource-management)](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) är likartade, men innehåller också en **rgName-parameter** för att identifiera de specifika resursgrupper som ska finnas ombord.
 
 ```json
 {
@@ -242,7 +242,7 @@ az deployment create --name <deploymentName> \
 
 ## <a name="confirm-successful-onboarding"></a>Bekräfta lyckad introduktion
 
-När en kundprenumeration har varit inbyggd i Azure-delegerad resurshantering kan användare i tjänsteleverantörens klientorganisation se prenumerationen och dess resurser (om de har beviljats åtkomst till den via processen ovan, antingen individuellt eller som medlem i en Azure AD-grupp med rätt behörighet). Kontrollera att prenumerationen visas på något av följande sätt för att bekräfta detta.  
+När en kundprenumeration har lagts ombord på Azure-delegerad resurshantering kan användare i tjänsteleverantörens klientorganisation se prenumerationen och dess resurser (om de har beviljats åtkomst till den via processen ovan, antingen individuellt eller som medlem i en Azure AD-grupp med rätt behörighet). Kontrollera att prenumerationen visas på något av följande sätt för att bekräfta detta.  
 
 ### <a name="azure-portal"></a>Azure Portal
 

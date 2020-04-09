@@ -1,5 +1,5 @@
 ---
-title: Hantera vanliga ml-modellfallgropar med automatiserad maskininlärning.
+title: Undvik övermontering & obalanserade data med AutoML
 titleSuffix: Azure Machine Learning
 description: Identifiera och hantera vanliga fallgropar med ML-modeller med Azure Machine Learnings automatiserade maskininlärningslösningar.
 services: machine-learning
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 03/27/2020
-ms.openlocfilehash: e0bc1aa48dfb40ea146fa79fdfd57da841ca1404
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.date: 04/09/2020
+ms.openlocfilehash: 76f920ad6aae68defb567a7a6623d1ffd488af5f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385537"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874865"
 ---
-# <a name="manage-ml-pitfalls-with-automated-machine-learning"></a>Hantera ML-fallgropar med automatiserad maskininlärning
+# <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Förhindra övermontering och obalanserade data med automatiserad maskininlärning
 
 Översittande och obalanserade data är vanliga fallgropar när du bygger maskininlärningsmodeller. Som standard tillhandahåller Azure Machine Learnings automatiserade maskininlärning diagram och mått som hjälper dig att identifiera dessa risker och implementerar metodtips för att minska dem. 
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 12bde51222e1e648f97476d5dab039b4ad2adfe8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b3accb1bb8c79d1842c4effe3b99fe2a904fa832
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80067047"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878875"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Självstudie: Skapa och använd diskar med en VM-skalningsuppsättning med Azure CLI
 VM-skalningsuppsättningar använder diskar för att lagra den virtuella datorinstansens operativsystem, program och data. När du skapar och hanterar en skalningsuppsättning, är det viktigt att välja en diskstorlek och konfiguration som lämpar sig för den förväntade arbetsbelastningen. Den här självstudien beskriver hur du skapar och hanterar virtuella datordiskar. I den här guiden får du lära du dig hur man:
@@ -51,18 +51,7 @@ När en skalningsuppsättning skapas eller skalas, ansluts två diskar automatis
 
 
 ## <a name="azure-data-disks"></a>Azure-datadiskar
-Du kan lägga till ytterligare datadiskar om du behöver installera program och lagra data. Datadiskar används när du behöver hållbar och responsiv datalagring. Varje datadisk har en maxkapacitet på 4 TB. Storleken på den virtuella datorinstansen avgör hur många datadiskar som kan anslutas. Två datadiskar kan kopplas för varje VM vCPU.
-
-### <a name="max-data-disks-per-vm"></a>Maximalt antal datadiskar per VM
-| Typ | Normala storlekar | Maximalt antal datadiskar per VM |
-|----|----|----|
-| [Generellt syfte](../virtual-machines/linux/sizes-general.md) | A-, B- och D-serien | 64 |
-| [Beräkningsoptimerad](../virtual-machines/linux/sizes-compute.md) | F-serien | 64 |
-| [Minnesoptimerad](../virtual-machines/linux/sizes-memory.md) | D-, E-, G- och M-serien | 64 |
-| [Lagringsoptimerad](../virtual-machines/linux/sizes-storage.md) | L-serien | 64 |
-| [GPU](../virtual-machines/linux/sizes-gpu.md) | N-serien | 64 |
-| [Höga prestanda](../virtual-machines/linux/sizes-hpc.md) | A- och H-serien | 64 |
-
+Du kan lägga till ytterligare datadiskar om du behöver installera program och lagra data. Datadiskar används när du behöver hållbar och responsiv datalagring. Varje datadisk har en maxkapacitet på 4 TB. Storleken på den virtuella datorinstansen avgör hur många datadiskar som kan anslutas. För varje virtuell virtuell dator vCPU kan två datadiskar kopplas upp till ett absolut maximum på 64 diskar per virtuell dator.
 
 ## <a name="vm-disk-types"></a>VM-disktyper
 Azure tillhandahåller två disktyper.

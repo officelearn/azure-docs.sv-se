@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 03/01/2020
-ms.openlocfilehash: d39cf8745c6f53cb11bb12561fd452325fe52ac6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f6723992ac3335e6abdd78f2008130dfe136f7df
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79296956"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80873896"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Skapa ett datamärkningsprojekt och exportetiketter 
 
@@ -20,14 +20,14 @@ ms.locfileid: "79296956"
 
 Märkning omfattande data i maskininlärningsprojekt är ofta en huvudvärk. Projekt som har en datorseendekomponent, till exempel bildklassificering eller objektidentifiering, kräver i allmänhet etiketter för tusentals bilder.
  
-[Azure Machine Learning](https://ml.azure.com/) ger dig en central plats för att skapa, hantera och övervaka märkningsprojekt. Använd den för att samordna data, etiketter och gruppmedlemmar för att effektivt hantera märkningsuppgifter. Machine Learning stöder bildklassificering, antingen multietikett eller multiklass, och objektidentifiering med avgränsade rutor.
+[Azure Machine Learning](https://ml.azure.com/) ger dig en central plats för att skapa, hantera och övervaka märkningsprojekt (offentlig förhandsversion). Använd den för att samordna data, etiketter och gruppmedlemmar för att effektivt hantera märkningsuppgifter. Machine Learning stöder bildklassificering, antingen multietikett eller multiklass, och objektidentifiering med avgränsade rutor.
 
 Machine Learning spårar förloppet och upprätthåller kön med ofullständiga märkningsuppgifter. Labelers behöver inte ett Azure-konto för att delta. När de har autentiserats med ditt Microsoft-konto eller [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)kan de göra så mycket märkning som deras tid tillåter.
 
 Du startar och stoppar projektet, lägger till och tar bort etiketter och team och övervakar märkningsförloppet. Du kan exportera märkta data i COCO-format eller som en Azure Machine Learning-datauppsättning.
 
 > [!Important]
-> Endast bildklassificerings- och objektidentifieringsetikettprojekt stöds för närvarande. Dessutom måste dataavbildningarna vara tillgängliga i ett Azure blob-datalager. (Om du inte har ett befintligt datalager kan du ladda upp bilder när du skapas.) 
+> Endast bildklassificerings- och objektidentifieringsetikettprojekt stöds för närvarande. Dessutom måste dataavbildningarna vara tillgängliga i ett Azure blob-datalager. (Om du inte har ett befintligt datalager kan du ladda upp bilder när du skapas.)
 
 I den här artikeln får du lära dig hur du:
 
@@ -41,6 +41,7 @@ I den här artikeln får du lära dig hur du:
 
 ## <a name="prerequisites"></a>Krav
 
+
 * De data som du vill märka, antingen i lokala filer eller i Azure blob storage.
 * Den uppsättning etiketter som du vill använda.
 * Instruktionerna för märkning.
@@ -51,11 +52,12 @@ I den här artikeln får du lära dig hur du:
 
 Märkningsprojekt administreras från Azure Machine Learning. Du kan använda sidan **Märkningsprojekt** för att hantera dina projekt och personer. Ett projekt har tilldelats en eller flera team och ett team har en eller flera personer som tilldelats det.
 
-Om dina data redan finns i Azure Blob-lagring bör du göra dem tillgängliga som ett datalager innan du skapar etikettprojektet. Mer information finns i [Skapa och registrera datalager](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores).
+Om dina data redan finns i Azure Blob-lagring bör du göra dem tillgängliga som ett datalager innan du skapar etikettprojektet. Ett exempel på hur du använder ett datalager finns i [Självstudiekurs: Skapa ditt första bildklassificeringsmärkningsprojekt](tutorial-labeling.md).
 
 Om du vill skapa ett projekt väljer du **Lägg till projekt**. Ge projektet ett lämpligt namn och välj **Märkningsaktivitetstyp**.
 
 ![Guiden För att skapa projekt](./media/how-to-create-labeling-projects/labeling-creation-wizard.png)
+
 
 * Välj Flera klasser för **bildklassificering** för projekt när du bara vill använda en *enda klass* från en uppsättning klasser på en bild.
 * Välj **Multietikett** för bildklassificering för projekt när du vill använda *en eller flera* etiketter från en uppsättning klasser på en bild. Till exempel kan ett foto av en hund vara märkt med både *hund* och *dagtid*.
@@ -168,9 +170,9 @@ När märkningsprojektet har initierats är vissa aspekter av projektet oförän
 
 ## <a name="manage-teams-and-people"></a>Hantera team och personer
 
-Som standard får varje märkningsprojekt som du skapar ett nytt team med dig som medlem. Men team kan också delas mellan projekt. Och projekt kan ha mer än ett team. Om du vill skapa ett team väljer du **Lägg till team** på sidan **Teams.**
+Som standard får varje märkningsprojekt som du skapar ett nytt team med dig som medlem. Men team kan också delas mellan projekt. Och projekt kan ha mer än ett team. Om du vill skapa ett team väljer du **Lägg till team** på sidan **Teams.** 
 
-Du hanterar personer på sidan **Kontakter.** Lägg till och ta bort personer via e-postadress. Varje etikett måste autentisera via ditt Microsoft-konto eller Azure Active Directory, om du använder den.  
+Du hanterar personer på sidan **Labelers.** Lägg till och ta bort personer via e-postadress. Varje etikett måste autentisera via ditt Microsoft-konto eller Azure Active Directory, om du använder den.  
 
 När du har lagt till en person kan du tilldela den personen till ett eller flera team: Gå till **teams-sidan,** välj teamet och välj sedan Tilldela **personer** eller Ta bort **personer**.
 
@@ -216,5 +218,6 @@ COCO-filen skapas i standardblob-arkivet för Arbetsytan Azure Machine Learning 
 
 ## <a name="next-steps"></a>Nästa steg
 
+* [Självstudiekurs: Skapa ditt första bildklassificeringsmärkningsprojekt](tutorial-labeling.md).
 * Etikettbilder för [bildklassificering eller objektidentifiering](how-to-label-images.md)
 * Läs mer om [Azure Machine Learning och Machine Learning Studio (klassisk)](compare-azure-ml-to-studio-classic.md)

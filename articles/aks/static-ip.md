@@ -1,15 +1,16 @@
 ---
-title: Använda en statisk IP-adress och DNS-etikett med Azure Kubernetes Service (AKS) belastningsutjämnare
+title: Använd statisk IP med belastningsutjämnare
+titleSuffix: Azure Kubernetes Service
 description: Lär dig hur du skapar och använder en statisk IP-adress med Azure Kubernetes Service (AKS) belastningsutjämnare.
 services: container-service
 ms.topic: article
 ms.date: 03/09/2020
-ms.openlocfilehash: 6c219976db21fb05ea1ad313b4effdf95906f986
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5051232f29ad51d9fee893a4a660fc81f6e60d77
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80047955"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886746"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Använda en statisk offentlig IP-adress och DNS-etikett med Azure Kubernetes Service (AKS) belastningsutjämnare
 

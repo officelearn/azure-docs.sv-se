@@ -3,12 +3,12 @@ title: Filtrering och förbearbetning i SDK för Azure Application Insights | Mi
 description: Skriv telemetriprocessorer och telemetriinitierare för SDK att filtrera eller lägga till egenskaper till data innan telemetri skickas till Application Insights-portalen.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.openlocfilehash: 53b6ecc51961feba35d571eab3115c8e7ccf9964
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 8f2064f73821a017046cbb552a8dcf592ce13267
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366307"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983766"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrering och förbearbetning telemetri i Application Insights SDK
 
@@ -21,7 +21,7 @@ Du kan skriva och konfigurera plugin-program för Programstatistik SDK för att 
 
 Innan du börjar:
 
-* Installera lämplig SDK för ditt program: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Icke HTTP/Worker för .NET/.NET Core](worker-service.md), [Java](../../azure-monitor/app/java-get-started.md) eller [JavaScript](javascript.md)
+* Installera lämplig SDK för ditt program: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Icke HTTP/Worker för .NET/.NET Core](worker-service.md)eller [JavaScript](javascript.md)
 
 <a name="filtering"></a>
 
@@ -203,7 +203,7 @@ public void Process(ITelemetry item)
    ```JS
    var filteringFunction = (envelope) => {
      if (envelope.data.someField === 'tobefilteredout') {
-        return false;
+         return false;
      }
   
      return true;
@@ -307,28 +307,8 @@ För appar som skrivs med [ASP.NET Core](asp-net-core.md#adding-telemetryinitial
     services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
 }
 ```
-
-### <a name="java-telemetry-initializers"></a>Java telemetri initializers
-
-[Dokumentation för Java SDK](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.telemetryinitializer?view=azure-java-stable)
-
-```Java
-public interface TelemetryInitializer
-{ /** Initializes properties of the specified object. * @param telemetry The {@link com.microsoft.applicationinsights.telemetry.Telemetry} to initialize. */
-
-void initialize(Telemetry telemetry); }
-```
-
-Registrera sedan den anpassade initialiseraren i filen applicationinsights.xml.
-
-```xml
-<Add type="mypackage.MyConfigurableContextInitializer">
-    <Param name="some_config_property" value="some_value" />
-</Add>
-```
-
 ### <a name="javascript-telemetry-initializers"></a>JavaScript telemetriinitierare
-*Javascript*
+*JavaScript*
 
 Infoga en telemetriinitierare direkt efter initieringskoden som du fick från portalen:
 
@@ -545,4 +525,4 @@ Vad är skillnaden mellan telemetriprocessorer och telemetriinitierare?
 ## <a name="next-steps"></a><a name="next"></a>Nästa steg
 * [Sök händelser och loggar](../../azure-monitor/app/diagnostic-search.md)
 * [Samling](../../azure-monitor/app/sampling.md)
-* [Troubleshooting](../../azure-monitor/app/troubleshoot-faq.md) (Felsökning)
+* [Felsökning](../../azure-monitor/app/troubleshoot-faq.md)

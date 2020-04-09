@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: surmb
-ms.openlocfilehash: 71e1f8be2af5556d86996175e8a1ddbccc9c7de1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a16120194b1b8015466005f42336828c2b4ace6c
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72001663"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983848"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Felsöka hälsoproblem för bakåtsträvning i Programgateway
 ==================================================
@@ -170,7 +170,7 @@ Kontrollera också om någon NSG/UDR/Firewall blockerar åtkomsten till ip- och 
 
 **Meddelande:** Statuskoden för serverd\'s HTTP-svar matchade inte avsökningsinställningen. Förväntat:{HTTPStatusCode0} mottaget:{HTTPStatusCode1}.
 
-**Orsak:** När TCP-anslutningen har upprättats och ett SSL-handslag har slutförts (om SSL är aktiverat) skickar Application Gateway avsökningen som en HTTP GET-begäran till serverdservern. Som beskrivits tidigare kommer standardavsökningen att \<vara protokoll\>://127.0.0.1:\<port\>/, och den anser att svarsstatuskoder i rage 200 till 399 är felfria. Om servern returnerar någon annan statuskod markeras den som fel med det här meddelandet.
+**Orsak:** När TCP-anslutningen har upprättats och en TLS-handskakning har slutförts (om TLS är aktiverat) skickar Application Gateway avsökningen som en HTTP GET-begäran till serverdservern. Som beskrivits tidigare kommer standardavsökningen att \<vara protokoll\>://127.0.0.1:\<port\>/, och den anser att svarsstatuskoder i rage 200 till 399 är felfria. Om servern returnerar någon annan statuskod markeras den som fel med det här meddelandet.
 
 **Lösning:** Beroende på serverdserverns svarskod kan du vidta följande åtgärder. Några av de gemensamma statuskoderna listas här:
 
@@ -208,7 +208,7 @@ Läs mer om [avsökningsmatchning av programgateway](https://docs.microsoft.com/
 **Meddelande:** Servercertifikatet som används av serverdaten signeras inte av en välkänd certifikatutfärdarcertifikatutfärdaren. Vitlista serverdelen på Application Gateway genom att ladda upp rotcertifikatet för servercertifikatet som används av serverdelen.
 
 **Orsak:** End-to-end SSL med Application Gateway v2 kräver att serverdelsserverns certifikat verifieras för att servern ska vara felfri.
-För att ett SSL-certifikat ska vara tillförlitligt måste det certifikatet för serverdservern utfärdas av en certifikatutfärdar som ingår i det betrodda arkivet för Application Gateway. Om certifikatet inte har utfärdats av en betrodd certifikatutfärdare (till exempel om ett självsignerat certifikat användes) bör användare överföra utfärdarens certifikat till Application Gateway.
+För att ett TLS/SSL-certifikat ska vara tillförlitligt måste det certifikatet för serverdservern utfärdas av en certifikatutfärdar som ingår i det betrodda arkivet för Application Gateway. Om certifikatet inte har utfärdats av en betrodd certifikatutfärdare (till exempel om ett självsignerat certifikat användes) bör användare överföra utfärdarens certifikat till Application Gateway.
 
 **Lösning:** Följ dessa steg för att exportera och överföra det betrodda rotcertifikatet till Application Gateway. (De här stegen gäller För Windows-klienter.)
 
@@ -241,7 +241,7 @@ Mer information om hur du extraherar och överför betrodda rotcertifikat i Appl
 **Meddelande:** Rotcertifikatet för servercertifikatet som används av serverkopplingen matchar inte det betrodda rotcertifikat som lagts till i programgatewayen. Se till att du lägger till rätt rotcertifikat för att vitlista serverdelen
 
 **Orsak:** End-to-end SSL med Application Gateway v2 kräver att serverdelsserverns certifikat verifieras för att servern ska vara felfri.
-För att ett SSL-certifikat ska vara tillförlitligt måste serveråtkomstservercertifikatet utfärdas av en certifikatutfärdaren som ingår i det betrodda arkivet för Application Gateway. Om certifikatet inte utfärdades av en betrodd certifikatutfärdare (till exempel ett självsignerat certifikat användes), bör användare ladda upp utfärdarens certifikat till Application Gateway.
+För att ett TLS/SSL-certifikat ska vara tillförlitligt måste serveråtkomstservercertifikatet utfärdas av en certifikatutfärdaren som ingår i det betrodda arkivet för Application Gateway. Om certifikatet inte utfärdades av en betrodd certifikatutfärdare (till exempel ett självsignerat certifikat användes), bör användare ladda upp utfärdarens certifikat till Application Gateway.
 
 Certifikatet som har överförts till HTTP-inställningarna för Programgateway måste matcha rotcertifikatet för servercertifikatet för serverservern.
 
@@ -280,7 +280,7 @@ Om utdata inte visar hela kedjan av certifikatet som returneras exporterar du ce
 
 **Meddelande:** Det gemensamma namnet (CN) för serverdcertifikatet matchar inte värdhuvudet för avsökningen.
 
-**Orsak:** Programgateway kontrollerar om värdnamnet som anges i HTTP-inställningarna för serverda matchar det i DET CN som visas av serverdaserverns SSL-certifikat. Detta är Standard_v2 och WAF_v2 SKU beteende. Standard- och WAF-SKU:s servernamnsindikering (SNI) anges som FQDN i servergruppsadressen.
+**Orsak:** Programgateway kontrollerar om värdnamnet som anges i HTTP-inställningarna för serverda matchar det i DET CN som visas av serverdaserverns TLS/SSL-certifikat. Detta är Standard_v2 och WAF_v2 SKU beteende. Standard- och WAF-SKU:s servernamnsindikering (SNI) anges som FQDN i servergruppsadressen.
 
 Om det finns en standardavsökning (ingen anpassad avsökning har konfigurerats och associerats) ställs SNI in från värdnamnet som nämns i HTTP-inställningarna. Om "Välj värdnamn från backend-adress" nämns i HTTP-inställningarna, där backend-adresspoolen innehåller ett giltigt FQDN, tillämpas den här inställningen.
 
@@ -321,9 +321,9 @@ För Linux med OpenSSL:
 
 **Meddelande:** Serveringscertifikatet är ogiltigt. Aktuellt datum ligger \"inte\" \"inom\" intervallet Giltig från och Giltigt till datum på certifikatet.
 
-**Orsak:** Varje certifikat levereras med ett giltighetsområde och HTTPS-anslutningen är inte säker om inte serverns SSL-certifikat är giltigt. De aktuella uppgifterna måste vara inom giltigt **från** och **giltigt till** intervall. Om det inte är fallet anses certifikatet vara ogiltigt och det skapar ett säkerhetsproblem där Application Gateway markerar serveråtkomstservern som felfritt.
+**Orsak:** Varje certifikat levereras med ett giltighetsområde och HTTPS-anslutningen är inte säker om inte serverns TLS/SSL-certifikat är giltigt. De aktuella uppgifterna måste vara inom giltigt **från** och **giltigt till** intervall. Om det inte är fallet anses certifikatet vara ogiltigt och det skapar ett säkerhetsproblem där Application Gateway markerar serveråtkomstservern som felfritt.
 
-**Lösning:** Om SSL-certifikatet har upphört att gälla förnyar du certifikatet med leverantören och uppdaterar serverinställningarna med det nya certifikatet. Om det är ett självsignerat certifikat måste du generera ett giltigt certifikat och överföra rotcertifikatet till HTTP-inställningarna för Programgateway. Det gör du genom att följa dessa steg:
+**Lösning:** Om TLS/SSL-certifikatet har upphört att gälla förnyar du certifikatet med leverantören och uppdaterar serverinställningarna med det nya certifikatet. Om det är ett självsignerat certifikat måste du generera ett giltigt certifikat och överföra rotcertifikatet till HTTP-inställningarna för Programgateway. Det gör du genom att följa dessa steg:
 
 1.  Öppna HTTP-inställningarna för programgateway i portalen.
 
@@ -333,7 +333,7 @@ För Linux med OpenSSL:
 
 #### <a name="certificate-verification-failed"></a>Certifikatverifieringen misslyckades
 
-**Meddelande:** Det gick inte att verifiera giltigheten för serverdcertifikatet. Om du vill ta reda på orsaken kontrollerar du Öppna SSL-diagnostik för meddelandet som är associerat med felkoden {errorCode}
+**Meddelande:** Det gick inte att verifiera giltigheten för serverdcertifikatet. Om du vill ta reda på orsaken kontrollerar du OpenSSL-diagnostik för meddelandet som är associerat med felkoden {errorCode}
 
 **Orsak:** Det här felet uppstår när Application Gateway inte kan verifiera certifikatets giltighet.
 

@@ -5,12 +5,12 @@ author: radicmilos
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: 3660ece7add8f279292340aae9ab445b682fe045
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: edcf2774873cc23a74a47cc1c9a12e2daa2ed419
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75452090"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984545"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introduktion till automatisk skalning
 Automatisk skalning är en ytterligare funktion för Service Fabric för att dynamiskt skala dina tjänster baserat på den belastning som tjänsterna rapporterar eller baserat på deras användning av resurser. Automatisk skalning ger stor elasticitet och möjliggör etablering av ytterligare instanser eller partitioner av tjänsten på begäran. Hela den automatiska skalningsprocessen är automatiserad och transparent, och när du har ställt in dina principer för en tjänst finns det inget behov av manuell skalning på servicenivå. Automatisk skalning kan aktiveras antingen vid skapande av tjänster eller när som helst genom att uppdatera tjänsten.
@@ -136,6 +136,9 @@ På samma sätt som med mekanism som använder skalning genom att lägga till el
 
 ### <a name="using-application-manifest"></a>Använda programmanifest
 ``` xml
+<NamedPartition>
+    <Partition Name="0" />
+</NamedPartition>
 <ServiceScalingPolicies>
     <ScalingPolicy>
         <AverageServiceLoadScalingTrigger MetricName="servicefabric:/_MemoryInMB" LowerLoadThreshold="300" UpperLoadThreshold="500" ScaleIntervalInSeconds="600"/>

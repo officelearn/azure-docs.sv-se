@@ -6,12 +6,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: c2f384370c3ceaf24164e4a27adc05b1a1e1ddf7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 83575aa7f9b63615f453e00bd06b00a5540b9a9e
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294963"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892265"
 ---
 # <a name="what-is-distributed-tracing"></a>Vad är distribuerad spårning?
 
@@ -27,17 +27,17 @@ Azure Monitor erbjuder också en [programkartvy](https://docs.microsoft.com/azur
 
 ## <a name="how-to-enable-distributed-tracing"></a>Aktivera distribuerad spårning
 
-Att aktivera distribuerad spårning över tjänsterna i ett program är lika enkelt som att lägga till rätt SDK eller bibliotek till varje tjänst, baserat på det språk som tjänsten implementerades i.
+Det är lika enkelt att aktivera distribuerad spårning över tjänsterna i ett program som att lägga till rätt agent, SDK eller bibliotek till varje tjänst, baserat på vilket språk tjänsten har implementerats i.
 
-## <a name="enabling-via-application-insights-sdks"></a>Aktivera via Application Insights SDK:er
+## <a name="enabling-via-application-insights-through-auto-instrumentation-or-sdks"></a>Aktivera via Application Insights via automatisk instrumentering eller SDK:er
 
-Programstatistiken för SDK:er för .NET, .NET Core, Java, Node.js och JavaScript stöder alla distribuerad spårning internt. Instruktioner för att installera och konfigurera varje Program Insights SDK finns nedan:
+Application Insights-agenterna och/eller SDK:erna för .NET, .NET Core, Java, Node.js och JavaScript stöder alla distribuerad spårning internt. Instruktioner för att installera och konfigurera varje Program Insights SDK finns nedan:
 
 * [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
-* [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
+* [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
 * [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
-* [Javascript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
+* [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
 * [Python](opencensus-python.md)
 
 Med rätt Application Insights SDK installerat och konfigurerat samlas spårningsinformation automatiskt in för populära ramverk, bibliotek och tekniker av SDK-beroende automatiska samlare. Den fullständiga listan över tekniker som stöds finns i [dokumentationen för automatisk insamling av beroende.](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies)

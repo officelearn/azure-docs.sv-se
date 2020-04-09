@@ -6,16 +6,16 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 84cd201cd758293082a61a87528332c7d8c58811
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ef511c203caa11aad4dea1047c982158810c4038
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76264313"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982131"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Global datadistribution med Azure Cosmos DB – Översikt
 
-Dagens program måste alltid vara mycket responsiva och ständigt online. Instanser av dessa program måste distribueras i datacenter som ligger nära användarna för att uppnå kort svarstid och hög tillgänglighet. Dessa program distribueras vanligtvis i flera datacenter och kallas globalt distribuerade. Globalt distribuerade program behöver en globalt distribuerad databas som transparent kan replikera data var som helst i världen så att programmen kan köras med en datakopia som ligger nära användarna. 
+Dagens applikationer måste vara mycket lyhörda och alltid online. Instanser av dessa program måste distribueras i datacenter som ligger nära användarna för att uppnå kort svarstid och hög tillgänglighet. Dessa program distribueras vanligtvis i flera datacenter och kallas globalt distribuerade. Globalt distribuerade program behöver en globalt distribuerad databas som transparent kan replikera data var som helst i världen så att programmen kan köras med en datakopia som ligger nära användarna. 
 
 Azure Cosmos DB är en globalt distribuerad databastjänst som är utformad för att ge låg latens, elastisk skalbarhet för dataflöde, väldefinierad semantik för datakonsekvens och hög tillgänglighet. Kort sagt, om ditt program behöver garanterad snabb svarstid var som helst i världen, om det krävs för att alltid vara online, och behöver obegränsad och elastisk skalbarhet av dataflöde och lagring, bör du bygga ditt program på Azure Cosmos DB.
 
@@ -41,7 +41,7 @@ Genom att använda Azure Cosmos DB multi-homing API:er är ditt program medvetet
 
 **Upprätthålla kontinuitet i verksamheten vid regionala avbrott.** Azure Cosmos DB stöder [automatisk redundans](how-to-manage-database-account.md#automatic-failover) under ett regionalt avbrott. Under ett regionalt avbrott fortsätter Azure Cosmos DB att upprätthålla sina svarstider, tillgänglighet, konsekvens och dataflödesslakrotar. Cosmos DB erbjuder ett manuellt redundans-API för att simulera ett regionalt avbrott för att säkerställa att hela programmet är mycket tillgängligt. Genom att använda det här API:et kan du utföra regelbundna övningar i affärskontinuitet.
 
-**Skala läs- och skrivdataflöde globalt.** Du kan göra det möjligt för varje region att vara skrivbar och elastiskt skala läser och skriver över hela världen. Dataflödet som ditt program konfigurerar på en Azure Cosmos-databas eller en behållare kommer garanterat att levereras i alla regioner som är associerade med ditt Azure Cosmos-konto. Det etablerade genomströmningen garanteras av [ekonomiskt säkerhetskopierade SLA.](https://aka.ms/acdbsla)
+**Skala läs- och skrivdataflöde globalt.** Du kan göra det möjligt för varje region att vara skrivbar och elastiskt skala läser och skriver över hela världen. Dataflödet som ditt program konfigurerar på en Azure Cosmos-databas eller en behållare kommer garanterat att levereras i alla regioner som är associerade med ditt Azure Cosmos-konto. Det etablerade genomströmningen garanteras av [ekonomiskt säkerhetskopierade SLA.](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)
 
 **Välj mellan flera väldefinierade konsekvensmodeller.** Azure Cosmos DB-replikeringsprotokollet erbjuder fem väldefinierade, praktiska och intuitiva konsekvensmodeller. Varje modell har en kompromiss mellan konsekvens och prestanda. Använd dessa konsekvensmodeller för att enkelt skapa globalt distribuerade program.
 

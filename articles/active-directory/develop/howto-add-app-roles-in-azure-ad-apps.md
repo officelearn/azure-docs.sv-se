@@ -3,7 +3,6 @@ title: Lägg till approller och hämta dem från en token | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig hur du lägger till approller i ett program som är `roles` registrerat i Azure Active Directory, tilldelar användare och grupper till dessa roller och tar emot dem i anspråket i token.
 services: active-directory
-documentationcenter: ''
 author: kkrishna
 manager: CelesteDG
 ms.service: active-directory
@@ -14,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3a911db36fd03ebcb5e0fc53d4d7f36d68648249
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 144fad249011d547ac6a8cf2d404cb3f8fe74f96
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399084"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80884264"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Så här lägger du till approller i ditt program och får dem i token
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/1/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: f1af388d1f8b9542d196a53cc6c143f9b48e6d5a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f27adb6098ac339ee188b3e84e1c225faa9f72a6
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238722"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892503"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Självstudiekurs: Konfigurera HTTPS på en anpassad Azure CDN-domän
 
@@ -58,8 +58,8 @@ Dessutom måste du associera en anpassad Azure CDN-domän på CDN-slutpunkten. M
 
 ---
 
-## <a name="ssl-certificates"></a>SSL-certifikat
-Om du vill aktivera protokollet HTTPS för säker leverans av innehåll i en anpassad Azure CDN-domän måste du använda ett SSL-certifikat. Du kan välja att använda ett certifikat som hanteras av Azure CDN eller använda ett eget certifikat.
+## <a name="tlsssl-certificates"></a>TLS/SSL-certifikat
+Om du vill aktivera HTTPS-protokollet för att på ett säkert sätt leverera innehåll på en anpassad Azure CDN-domän måste du använda ett TLS/SSL-certifikat. Du kan välja att använda ett certifikat som hanteras av Azure CDN eller använda ett eget certifikat.
 
 
 # <a name="option-1-default-enable-https-with-a-cdn-managed-certificate"></a>[Alternativ 1 (standard): Aktivera HTTPS med ett CDN-hanterat certifikat](#tab/option-1-default-enable-https-with-a-cdn-managed-certificate)
@@ -99,7 +99,7 @@ Följ dessa steg om du vill aktivera HTTPS på en anpassad domän:
 > Det här alternativet är endast tillgängligt med **Azure CDN från Microsoft** och Azure **CDN från** Verizon-profiler. 
 >
  
-Du kan använda ditt eget certifikat för att aktivera HTTPS. Detta görs via en integrering med Azure Key Vault där du kan lagra certifikaten säkert. Azure CDN använder denna säkerhetsmekanism för att hämta certifikatet, och det krävs några ytterligare steg. När du skapar ett SSL-certifikat måste du skapa det med en tillåten certifikatutfärdare (CA). Om du använder en icke-tillåten certifikatutfärdare kan din begäran avvisas. En lista över tillåtna certifikatutfärdare finns i [Tillåtna certifikatutfärdare för att aktivera anpassad HTTPS på Azure CDN](cdn-troubleshoot-allowed-ca.md). För **Azure CDN från Verizon**accepteras alla giltiga certifikatutfärdaren. 
+Du kan använda ditt eget certifikat för att aktivera HTTPS. Detta görs via en integrering med Azure Key Vault där du kan lagra certifikaten säkert. Azure CDN använder denna säkerhetsmekanism för att hämta certifikatet, och det krävs några ytterligare steg. När du skapar TLS/SSL-certifikatet måste du skapa det med en tillåten certifikatutfärdar .When you create your TLS/SSL certificate, you must create it with an allowed certificate authority (CA). Om du använder en icke-tillåten certifikatutfärdare kan din begäran avvisas. En lista över tillåtna certifikatutfärdare finns i [Tillåtna certifikatutfärdare för att aktivera anpassad HTTPS på Azure CDN](cdn-troubleshoot-allowed-ca.md). För **Azure CDN från Verizon**accepteras alla giltiga certifikatutfärdaren. 
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Förbered ditt Azure Key Vault-konto och certifikat
  
@@ -308,7 +308,7 @@ I följande tabell visas åtgärdsförloppet när du inaktiverar HTTPS. När du 
 
 4. *Är det mindre säkert att använda ett SAN-certifikat än att använda ett dedikerat certifikat?*
     
-    Ett SAN-certifikat följer samma standarder för kryptering och säkerhet som ett dedikerat certifikat. Alla utfärdade SSL-certifikat använder SHA-256 för förbättrad serversäkerhet.
+    Ett SAN-certifikat följer samma standarder för kryptering och säkerhet som ett dedikerat certifikat. Alla utfärdade TLS/SSL-certifikat använder SHA-256 för förbättrad serversäkerhet.
 
 5. *Behöver jag en CAA-post (Certificate Authority Authorization) med DNS-leverantören?*
 
@@ -320,7 +320,7 @@ I följande tabell visas åtgärdsförloppet när du inaktiverar HTTPS. När du 
 
 7. *Hur fungerar cert-förnyelser med Bring Your Own Certificate?*
 
-    För att säkerställa att ett nyare certifikat distribueras till PoP-infrastrukturen laddar du bara upp ditt nya certifikat till Azure KeyVault och väljer sedan den senaste certifikatversionen i dina SSL-inställningar på Azure CDN och sparar. Azure CDN sprider sedan ditt nya uppdaterade certifikat. 
+    För att säkerställa att ett nyare certifikat distribueras till PoP-infrastrukturen, ladda bara upp ditt nya certifikat till Azure KeyVault och välj sedan den senaste certifikatversionen i dina TLS-inställningar på Azure CDN och spara. Azure CDN sprider sedan ditt nya uppdaterade certifikat. 
 
 ## <a name="next-steps"></a>Nästa steg
 

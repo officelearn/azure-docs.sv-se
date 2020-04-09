@@ -4,12 +4,12 @@ description: Skapa en ny funktionsapp i Azure från portalen.
 ms.topic: how-to
 ms.date: 08/29/2019
 ms.custom: mvc
-ms.openlocfilehash: 6c17dc28d7eea4897759c1c832fdb1aba7f1e445
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 001b4e4f0ea7fbacd232b2a87abfe353f34919bd
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756540"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985022"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Skapa en funktionsapp från Azure Portal
 
@@ -36,7 +36,7 @@ När du skapar en funktionsapp måste du skapa eller länka till ett Azure Stora
 >[!NOTE]
 >När du använder förbrukningsvärdplanen lagras funktionskoden och bindningskonfigurationsfilerna i Azure File Storage i huvudlagringskontot. När du tar bort huvudlagringskontot tas även det här innehållet bort och kan inte återställas.
 
-Mer information om lagringskontotyper finns i [introduktionen till Azure Storage Services](../storage/common/storage-introduction.md#azure-storage-services). 
+Mer information om lagringskontotyper finns i [introduktionen till Azure Storage Services](../storage/common/storage-introduction.md#core-storage-services). 
 
 ## <a name="next-steps"></a>Nästa steg
 

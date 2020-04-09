@@ -3,16 +3,16 @@ title: Begränsningar för namngivning av resurser
 description: Visar regler och begränsningar för att namnge Azure-resurser.
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 580b7efd26d5729baf236b59452f63483c003e44
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: f6203f987654b33b32da72bfec030a9d0ab69df8
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366217"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981536"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Namngivningsregler och begränsningar för Azure-resurser
 
-Den här artikeln sammanfattar namngivningsregler och begränsningar för Azure-resurser. Rekommendationer om hur du namnger resurser finns i [Klar: Rekommenderad namngivning och taggning konventioner](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+Den här artikeln sammanfattar namngivningsregler och begränsningar för Azure-resurser. Rekommendationer om hur du namnger resurser finns i [Rekommenderade namngivnings- och taggningskonventioner](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
 Resursnamn är skiftlägesokänsliga om de inte uttryckligen anges i kolumnen giltiga tecken.
 

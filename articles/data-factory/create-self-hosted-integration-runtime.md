@@ -10,13 +10,13 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 03/10/2020
-ms.openlocfilehash: 6302a7d6ffe7218d339121ec98a624f8e98356f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/13/2020
+ms.openlocfilehash: 3fe5a58046776d00ce68189cf724a995380869eb
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065597"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887322"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera lokalt installerad integrationskörning
 
@@ -62,11 +62,14 @@ Följ följande steg för att skapa en självvärd IR med Azure Data Factory UI.
 
    ![Skapa Integration Runtime](media/create-self-hosted-integration-runtime/new-integration-runtime.png)
 
-1. I **fönstret Inställningar för integreringskörning** väljer du **Utföra dataflyttnings- och leveransaktiviteter till externa beräkningar**och väljer **Fortsätt**.
+1. På **inställningssidan för integreringskörning** väljer du **Azure, Självvärd och**väljer sedan **Fortsätt**. 
+
+1. På följande sida väljer du **Självvärd** för att skapa en självvärd ir och väljer sedan **Fortsätt**.
+   ![Skapa en självbehärskade IR](media/create-self-hosted-integration-runtime/new-selfhosted-ir.png)
 
 1. Ange ett namn på din IR och välj **Skapa**.
 
-1. Välj länken under **Alternativ 1** för att öppna expresskonfigurationen på datorn. Eller följ stegen under **Alternativ 2** för att ställa in manuellt. Följande instruktioner baseras på manuell installation:
+1. På **inställningssidan för integreringskörning** väljer du länken under **Alternativ 1** för att öppna expressinställningarna på datorn. Eller följ stegen under **Alternativ 2** för att ställa in manuellt. Följande instruktioner baseras på manuell installation:
 
    ![Installation av Integration Runtime](media/create-self-hosted-integration-runtime/integration-runtime-setting-up.png)
 

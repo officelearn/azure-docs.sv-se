@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 11/28/2019
-ms.openlocfilehash: 69acfd4f2edab9be1b1dcfbb52eafbd00aec712f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/31/2020
+ms.openlocfilehash: dea7e8d5679c8c5a14d6a4253b8a4b36343e6ed8
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75934568"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887103"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installera och använda Hue på HDInsight Hadoop-kluster
 
@@ -51,7 +51,7 @@ Använd informationen i tabellen nedan för skriptåtgärden. Se [Anpassa HDInsi
 
 ## <a name="use-hue-with-hdinsight-clusters"></a>Använda Hue med HDInsight-kluster
 
-SSH-tunnel är det enda sättet att komma åt Hue i klustret när det körs. Tunnelning via SSH gör det möjligt för trafiken att gå direkt till huvudnoden för klustret där Hue körs. När klustret har etablerats är det att använda följande steg för att använda Hue i ett HDInsight-kluster.
+Du kan bara ha ett användarkonto med Hue i vanliga kluster. Aktivera [Enterprise Security Package](./domain-joined/hdinsight-security-overview.md) i klustret för åtkomst för flera användare. SSH-tunnel är det enda sättet att komma åt Hue i klustret när det körs. Tunnelning via SSH gör det möjligt för trafiken att gå direkt till huvudnoden för klustret där Hue körs. När klustret har etablerats är det att använda följande steg för att använda Hue i ett HDInsight-kluster.
 
 > [!NOTE]  
 > Vi rekommenderar att du använder webbläsaren Firefox för att följa instruktionerna nedan.
@@ -113,9 +113,9 @@ SSH-tunnel är det enda sättet att komma åt Hue i klustret när det körs. Tun
 
 1. Under installationen startas flera Hadoop-tjänster (HDFS, YARN, MR2, Oozie) om för att uppdatera konfigurationen. När skriptet har installerats kan det ta lite tid innan andra Hadoop-tjänster startar. Detta kan påverka Hues prestanda från början. När alla tjänster har börjat kommer Hue att vara fullt fungerande.
 
-1. Hue förstår inte Apache Tez jobb, vilket är den aktuella standard för Hive. Om du vill använda MapReduce som Hive-körningsmotor uppdaterar du skriptet så att du använder följande kommando i skriptet:
+1. Hue förstår inte Apache Tez-jobb, vilket är den aktuella standardinställningen för Hive. Om du vill använda MapReduce som Hive-körningsmotor uppdaterar du skriptet så att du använder följande kommando i skriptet:
 
-        set hive.execution.engine=mr;
+         set hive.execution.engine=mr;
 
 1. Med Linux-kluster kan du ha ett scenario där dina tjänster körs på den primära headnoden medan Resource Manager kan köras på sekundärt. Ett sådant scenario kan resultera i fel (visas nedan) när du använder Hue för att visa information om jobb som körs i klustret. Du kan dock visa jobbinformationen när jobbet har slutförts.
 

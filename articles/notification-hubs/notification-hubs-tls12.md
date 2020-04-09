@@ -5,27 +5,25 @@ services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: ''
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/30/2020
+ms.date: 04/07/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2020
-ms.openlocfilehash: 87309e20efd9d6f8bd1a659451e5a603e6b95bc8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4da96df50e961f4291029a37e883fdcf88c6c87f
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76908532"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885760"
 ---
 # <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
 
-För att säkerställa en högre säkerhetsnivå inaktiverar Notification Hubs stöd för TLS-versionerna 1.0 och 1.1 den 30 april 2020. Dessa äldre protokoll ger svag kryptografi och är sårbara för BEAST- och PUDELattacker. Program som distribueras till enheter som kör Android version 5 eller senare, eller iOS version 5 eller mer, påverkas inte av den här ändringen eftersom dessa operativsystem stöder TLS 1.2 och klienten och servern kommer att förhandla fram den högsta versionen av protokoll vid anslutning.
+För att säkerställa en högre säkerhetsnivå inaktiverar Notification Hubs stöd för TLS-versionerna 1.0 och 1.1 den 31 maj 2020 (förlängt från den 30 april 2020). Dessa äldre protokoll ger svag kryptografi och är sårbara för BEAST- och PUDELattacker. Program som distribueras till enheter som kör Android version 5 eller senare, eller iOS version 5 eller mer, påverkas inte av den här ändringen eftersom dessa operativsystem stöder TLS 1.2 och klienten och servern kommer att förhandla fram den högsta ömsesidigt stödda versionen av protokollet vid anslutningen.
 
 Vi rekommenderar att du granskar alla dina program som använder Azure Notification Hubs för att säkerställa att de använder de mest tillämpliga biblioteken och TLS-staplarna som stöder TLS 1.2.
 

@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 1bcf06056dd7fdaf22716409f53d86da7321b94d
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: f4fb5fba78cdea7996d006d34b2f07f3ac5e58fa
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745584"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981298"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Fliken Information om Power BI-app Skyltfönster
 
 >[!Important]
->Från och med den 30 mars 2020 börjar vi flytta hanteringen av dina Power BI-appar till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [översikten över hur du skapar Power BI-appar](https://aka.ms/AzureCreatePBIServiceApp) för att hantera dina migrerade erbjudanden.
+>Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Power BI-appar till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [översikten över hur du skapar Power BI-appar](https://aka.ms/AzureCreatePBIServiceApp) för att hantera dina migrerade erbjudanden.
 
 På sidan **Nytt erbjudande** använder du fliken **Butiksuppgifter** för att tillhandahålla marknadsföring, försäljning och juridisk information för dina potentiella kunder. På den här fliken kan du också ställa in hantering för leads som Azure Marketplace genererar. Det här långa formuläret är indelat i sex avsnitt: **Erbjudandeinformation**, **Listningsinformation**, **Marknadsföringsartefakter**, **Juridisk,** **Kundsupport**och **Lead Management**.  En asterisk (*) i slutet av en fältetikett betyder att fältet krävs.
 

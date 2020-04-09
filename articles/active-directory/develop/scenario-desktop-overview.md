@@ -2,24 +2,21 @@
 title: Skapa en skrivbordsapp som anropar webb-API:er – Microsoft identity platform | Azure
 description: Lär dig hur du skapar en skrivbordsapp som anropar webb-API:er (översikt)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 196102769c1f5f68df316918a63079b09baad32d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 09cc43dec2eff48754f5a6e693badd6bb1907cce
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76702155"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883009"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Scenario: Skrivbordsapp som anropar webb-API:er
 
@@ -29,7 +26,7 @@ Lär dig allt du behöver för att skapa en skrivbordsapp som anropar webb-API:e
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 Om du inte redan har gjort det skapar du ditt första program genom att följa snabbstarten för .NET-skrivbordet, snabbstarten för Universell Windows-plattformen (UWP) eller snabbstarten för macOS-appen:
 

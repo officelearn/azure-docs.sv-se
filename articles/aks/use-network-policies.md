@@ -1,15 +1,16 @@
 ---
-title: Säkra poddar med nätverksprinciper i Azure Kubernetes Service (AKS)
+title: Säker pod-trafik med nätverksprincipen
+titleSuffix: Azure Kubernetes Service
 description: Lär dig hur du skyddar trafik som flödar in och ut ur poddar med hjälp av Kubernetes nätverksprinciper i Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 37b6ebd1c8b147db0a9cead4678a0b2bb4ed234d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 01ba9e7353b6783d1b4fd1649291a64405fd9382
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473616"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886712"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Säker trafik mellan poddar med hjälp av nätverksprinciper i Azure Kubernetes Service (AKS)
 
@@ -24,7 +25,7 @@ Du behöver Azure CLI version 2.0.61 eller senare installerad och konfigurerad. 
 > [!TIP]
 > Om du använde nätverksprincipfunktionen under förhandsversionen rekommenderar vi att du [skapar ett nytt kluster](#create-an-aks-cluster-and-enable-network-policy).
 > 
-> Om du vill fortsätta använda befintliga testkluster som använde nätverksprincip under förhandsversionen uppgraderar du klustret till en ny Kubernetes-version för den senaste GA-versionen och distribuerar sedan följande YAML-manifest för att åtgärda kraschningsmåttservern och Kubernetes-servern Instrumentpanelen. Den här korrigeringsfilen krävs endast för kluster som använde Calico-nätverksprincipmotorn.
+> Om du vill fortsätta använda befintliga testkluster som använde nätverksprincipen under förhandsversionen uppgraderar du klustret till en ny Kubernetes-version för den senaste GA-versionen och distribuerar sedan följande YAML-manifest för att åtgärda kraschningsmåttservern och Kubernetes-instrumentpanelen. Den här korrigeringsfilen krävs endast för kluster som använde Calico-nätverksprincipmotorn.
 >
 > Som en säkerhetspraxis [bör du granska innehållet i det här YAML-manifestet][calico-aks-cleanup] för att förstå vad som distribueras i AKS-klustret.
 >

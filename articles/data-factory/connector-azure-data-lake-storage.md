@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: 3c7ff0061a57d1a1a7525ec03b4f77c117415ca5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/08/2020
+ms.openlocfilehash: 929b9548661fe48fe90a55f0cacef234c3078cda
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80155858"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887273"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Kopiera och omvandla data i Azure Data Lake Storage Gen2 med Azure Data Factory
 
@@ -44,10 +44,8 @@ För kopieringsaktivitet kan du med den här kopplingen:
 >[!IMPORTANT]
 >Om du aktiverar alternativet **Tillåt betrodda Microsoft-tjänster för att komma åt det här lagringskontot** på Azure Storage-brandväggsinställningar och vill använda Azure-integreringskörning för att ansluta till din DataSjölagringsgen2, måste du använda [hanterad identitetsautentisering](#managed-identity) för ADLS Gen2.
 
->[!TIP]
->Om du aktiverar det hierarkiska namnområdet finns det för närvarande ingen interoperabilitet mellan API:er för Blob och Data Lake Storage Gen2. Om du stöter på felet "ErrorCode=FilesystemNotFound" med meddelandet "Det angivna filsystemet finns inte", orsakas det av det angivna sink-filsystemet som skapades via Blob API i stället för Data Lake Storage Gen2 API någon annanstans. Du åtgärdar problemet genom att ange ett nytt filsystem med ett namn som inte finns som namnet på en Blob-behållare. Sedan skapas det filsystemet automatiskt under datakopiering.
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 >[!TIP]
 >En genomgång av hur du använder Data Lake Storage Gen2-kopplingen finns [i Läs in data i Azure Data Lake Storage Gen2](load-azure-data-lake-storage-gen2.md).
@@ -393,7 +391,7 @@ När du omvandlar data i mappningsdataflödet kan du läsa och skriva filer frå
 
 ### <a name="source-transformation"></a>Omvandling av källa
 
-I källomvandlingen kan du läsa från en behållare, mapp eller enskild fil i Azure Data Lake Storage Gen2. På fliken **Källalternativ** kan du hantera hur filerna läss. 
+I källomvandlingen kan du läsa från en behållare, mapp eller en enskild fil i Azure Data Lake Storage Gen2. På fliken **Källalternativ** kan du hantera hur filerna läss. 
 
 ![Alternativ för källa](media/data-flow/sourceOptions1.png "Alternativ för källa")
 

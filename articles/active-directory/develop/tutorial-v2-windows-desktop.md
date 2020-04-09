@@ -1,26 +1,22 @@
 ---
-title: Komma igång med Microsoft identity platform Windows desktop | Microsoft-dokument
+title: Komma igång med Microsoft identity platform Windows desktop
 description: Hur ett XAML-program (Windows Desktop .NET) kan hämta en åtkomsttoken och anropa ett API som skyddas av Microsofts identitetsplattform.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 422251da25ae0ef911eb723bb0342a84fe99559c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3cca48c44add92b935e3a21f35e38bb4990ff9de
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79129920"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886423"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Anropa Microsoft Graph API från en Windows Desktop-app
 

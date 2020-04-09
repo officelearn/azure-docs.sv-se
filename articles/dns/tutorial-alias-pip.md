@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
-ms.openlocfilehash: d4517314742f3ec8e9968d20745ffb697d96f324
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d3017d09e94040d16950598dad360fe32930c16b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77149940"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985447"
 ---
 # <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Självstudie: Konfigurera en aliaspost för att referera till en offentlig IP-adress i Azure 
 
@@ -20,8 +20,8 @@ I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en nätverksinfrastruktur.
-> * Skapa en virtuell webbserverdator.
-> * Skapa en aliaspost.
+> * Skapa en virtuell dator för webbserver med en offentlig IP.
+> * Skapa en aliaspost som pekar på den offentliga IP-adressen.
 > * Testa aliasposten.
 
 
@@ -48,7 +48,7 @@ Skapa först ett virtuellt nätverk och ett undernät för att placera dina webb
 4. Som **Inställningar** väljer du det virtuella nätverket **VNet-Servers** och undernätet **SN-Web**. För inkommande portar för offentliga inkommande portar väljer du **HTTP** > **HTTPS** > **RDP (3389)** och väljer sedan **OK**.
 5. På sidan **Sammanfattning** väljer du **Skapa**.
 
-Den här proceduren tar några minuter att slutföra.
+Den här proceduren tar några minuter att slutföra. Den virtuella datorn kommer att ha ett anslutet nätverkskort, som kommer att ha en grundläggande dynamisk offentlig IP som kallas Web-01-ip. Den offentliga IP-adressen ändras varje gång den virtuella datorn startas om.
 
 ### <a name="install-iis"></a>Installera IIS
 

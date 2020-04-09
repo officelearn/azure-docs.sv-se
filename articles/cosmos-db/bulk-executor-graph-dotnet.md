@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: cf51d418a008d332bfcea01a7a9dc1a265116e29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adf512fc521ef553f0bbd6ef6dd8ee19e398b37b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75442176"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982711"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Använda graph bulk executor .NET-biblioteket för att utföra massåtgärder i Azure Cosmos DB Gremlin API
 
 Den här självstudien innehåller instruktioner om hur du använder Azure CosmosDB:s massutdelservör .NET-bibliotek för att importera och uppdatera diagramobjekt till en Azure Cosmos DB Gremlin API-behållare. Den här processen använder klassen Graph i [massutfyllnadsbiblioteket](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview) för att skapa Vertex- och Edge-objekt programmässigt för att sedan infoga flera av dem per nätverksbegäran. Det här beteendet kan konfigureras via massutförandeörsbiblioteket för att utnyttja både databasresurser och lokala minnesresurser på bästa sätt.
 
-I motsats till att skicka Gremlin-frågor till en databas, där kommandot utvärderas och sedan körs en i taget, med hjälp av bulk executor biblioteket i stället kräver att skapa och validera objekt lokalt. När objekten har skapats gör biblioteket att du kan skicka diagramobjekt till databasen sekventiellt. Med den här metoden kan hastigheten för datainmatning bli upp till 100 gånger snabbare, vilket gör metoden utmärkt för initiala datamigreringar eller periodiska dataflyttningsåtgärder. Läs mer genom att besöka GitHub-sidan i [exempelprogrammet Azure Cosmos DB Graph-exekveringsutnämningsanordning](https://aka.ms/graph-bulkexecutor-sample).
+I motsats till att skicka Gremlin-frågor till en databas, där kommandot utvärderas och sedan körs en i taget, med hjälp av bulk executor biblioteket i stället kräver att skapa och validera objekt lokalt. När objekten har skapats gör biblioteket att du kan skicka diagramobjekt till databasen sekventiellt. Med den här metoden kan hastigheten för datainmatning bli upp till 100 gånger snabbare, vilket gör metoden utmärkt för initiala datamigreringar eller periodiska dataflyttningsåtgärder. Läs mer genom att besöka GitHub-sidan i [exempelprogrammet Azure Cosmos DB Graph-exekveringsutnämningsanordning](https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started).
 
 ## <a name="bulk-operations-with-graph-data"></a>Massåtgärder med diagramdata
 
@@ -120,7 +120,7 @@ e.AddProperty("customProperty", "value");
 * Git. Mer information finns på [sidan för Git-nedladdningar](https://git-scm.com/downloads).
 
 ### <a name="clone-the-sample-application"></a>Klona exempelprogrammet
-I den här självstudien följer vi stegen för att komma igång med att använda [azure Cosmos DB Graph bulk executor-exemplet](https://aka.ms/graph-bulkexecutor-sample) som finns på GitHub. Det här programmet består av en .NET-lösning som slumpmässigt genererar hörn- och kantobjekt och därefter kör massinfogningar till det angivna diagramdatabaskontot. För att hämta programmet kör du `git clone`-kommandot nedan:
+I den här självstudien följer vi stegen för att komma igång med att använda [azure Cosmos DB Graph bulk executor-exemplet](https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started) som finns på GitHub. Det här programmet består av en .NET-lösning som slumpmässigt genererar hörn- och kantobjekt och därefter kör massinfogningar till det angivna diagramdatabaskontot. För att hämta programmet kör du `git clone`-kommandot nedan:
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started.git

@@ -4,12 +4,12 @@ description: Så här aktiverar du stöd för hanterade identiteter i ett befint
 ms.topic: article
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: cb6e4ab00afd80cba41881e46296f7046a905919
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 396978546b301884087c4ea51e242258d64a6b0b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934952"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983814"
 ---
 # <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster-preview"></a>Konfigurera stöd för hanterad identitet i ett befintligt Service Fabric-kluster (förhandsversion)
 
@@ -40,7 +40,7 @@ Om du vill aktivera tjänsten Hanterad identitetstoken i ett befintligt kluster 
 ]
 ```
 
-För att ändringarna ska börja gälla måste du också ändra uppgraderingsprincipen för att ange en kraftfull omstart av Service Fabric-körningen på varje nod när uppgraderingen fortskrider genom klustret. Den här omstarten säkerställer att den nyligen aktiverade systemtjänsten startas och körs på varje nod. I kodavsnittet nedan, `forceRestart` är den väsentliga inställningen; använda dina befintliga värden för resten av inställningarna.  
+För att ändringarna ska börja gälla måste du också ändra uppgraderingsprincipen för att ange en kraftfull omstart av Service Fabric-körningen på varje nod när uppgraderingen fortskrider genom klustret. Den här omstarten säkerställer att den nyligen aktiverade systemtjänsten startas och körs på varje nod. I kodavsnittet nedan `forceRestart` är den viktigaste inställningen för att aktivera omstart. För de återstående parametrarna använder du värden som beskrivs nedan eller använder befintliga anpassade värden som redan har angetts för klusterresursen. Anpassade inställningar för fabric upgrade policy ("upgradeDescription") kan visas från Azure Portal genom att välja alternativet Fabric Upgrades på Service Fabric-resursen eller resources.azure.com. Standardalternativ för uppgraderingsprincipen (upgradeDescription) kan inte visas från powershell eller resources.azure.com. Mer information finns i [ClusterUpgradePolicy.](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.servicefabric.models.clusterupgradepolicy?view=azure-dotnet)  
 
 ```json
 "upgradeDescription": {

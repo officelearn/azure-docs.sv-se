@@ -17,12 +17,12 @@ ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 077671ab4e964d7641aa3a0f0b435b39117eb6aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9b2a0d0b77b6db481b13785907a1359d2bbe3e9b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65139398"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984512"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Ändra lösenordet för ADSync-tjänstkontot
 Om du ändrar ADSync-tjänstkontots lösenord kan synkroniseringstjänsten inte starta korrekt förrän du har övergett krypteringsnyckeln och initierat adsync-tjänstkontots lösenord. 
@@ -84,7 +84,7 @@ Först kan du stoppa tjänsten i Windows Service Control Manager.  Kontrollera a
 
 2. Starta en ny PowerShell-session.
 
-3. Navigera till mappen:`$env:Program Files\Microsoft Azure AD Sync\bin\`
+3. Navigera till mappen:`'$env:ProgramFiles\Microsoft Azure AD Sync\bin\'`
 
 4. Kör kommandot:`./miiskmu.exe /a`
 

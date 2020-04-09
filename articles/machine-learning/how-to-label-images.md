@@ -7,16 +7,16 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 2e14b669aadeec4c6a7245be8940051ec604059b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 371b99c794feb4a64eb3e9af389020e25d14eedb
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79409566"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879436"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Tagga bilder i ett etikettprojekt
 
-När projektadministratören [har skapat ett märkningsprojekt](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) i Azure Machine Learning kan du använda etikettverktyget för att snabbt förbereda data för ett Machine Learning-projekt. I den här artikeln beskrivs:
+När projektadministratören [har skapat ett märkningsprojekt](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) i Azure Machine Learning kan du använda etikettverktyget (offentlig förhandsversion) för att snabbt förbereda data för ett Machine Learning-projekt. I den här artikeln beskrivs:
 
 > [!div class="checklist"]
 > * Så här kommer du åt dina märkningsprojekt
@@ -45,7 +45,9 @@ Gå till **Visa detaljerade instruktioner**. Dessa instruktioner är specifika f
 
 I alla bildetiketteringsuppgifter väljer du en lämplig tagg eller taggar från en uppsättning som anges av projektadministratören. Du kan välja de första nio taggarna med hjälp av sifferknapparna på tangentbordet.  
 
-I bildklassificeringsuppgifter kan du välja att visa flera bilder samtidigt. Använd ikonerna ovanför bildområdet för att välja layouten. Om du vill markera alla bilder som visas samtidigt använder **du Markera alla**. Om du vill markera enskilda bilder använder du den cirkulära markeringsknappen i bildens övre högra hörn. Du måste markera minst en bild om du vill använda en tagg. Om du väljer flera bilder används alla taggar som du väljer på alla markerade bilder.
+I bildklassificeringsuppgifter kan du välja att visa flera bilder samtidigt. Använd ikonerna ovanför bildområdet för att välja layouten. 
+
+Om du vill markera alla bilder som visas samtidigt använder **du Markera alla**. Om du vill markera enskilda bilder använder du den cirkulära markeringsknappen i bildens övre högra hörn. Du måste markera minst en bild om du vill använda en tagg. Om du väljer flera bilder används alla taggar som du väljer på alla markerade bilder.
 
 Här har vi valt en två-av-två layout och är på väg att tillämpa taggen "Däggdjur" på bilderna av björnen och orca. Bilden av hajen var redan märkt som "Broskfisk", och leguanen har inte märkts ännu.
 

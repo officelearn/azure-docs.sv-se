@@ -1,15 +1,16 @@
 ---
-title: Återställa autentiseringsuppgifterna för ett AKS-kluster (Azure Kubernetes Service)
+title: Återställa autentiseringsuppgifterna för ett kluster
+titleSuffix: Azure Kubernetes Service
 description: Lär dig hur du uppdaterar eller återställer tjänstens huvudnamn eller AAD-programbehörighet för ett AKS-kluster (Azure Kubernetes Service)
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: b7d652be3733cb130a3973909de59489047efe0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0203321af32bcc2ae70b726737b85870d08be86f
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475552"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886763"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Uppdatera eller rotera autentiseringsuppgifterna för Azure Kubernetes Service (AKS)
 

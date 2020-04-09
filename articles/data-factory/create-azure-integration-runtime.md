@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 03/13/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 87633abaaae1f6034709c6e552be6647533115ec
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cf3bb7e6733ef55a85d0b4ae26a4ce05059a8fb9
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260766"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887183"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Så här skapar och konfigurerar du Azure Integration Runtime
 Integration Runtime (IR) är den beräkningsinfrastruktur som används av Azure Data Factory för att tillhandahålla dataintegrationsfunktioner i olika nätverksmiljöer. Mer information om IR finns i [Integrationskörning](concepts-integration-runtime.md).
@@ -30,6 +30,10 @@ Det här dokumentet introducerar hur du kan skapa och konfigurera Azure Integrat
 Som standard har varje datafabrik en Azure IR i serveringen som stöder åtgärder på molndatalager och beräkningstjänster i det offentliga nätverket. Platsen för den Azure IR-er är automatisk lösning. Om **connectVia-egenskapen** inte anges i den länkade tjänstdefinitionen används standardvärdet för Azure IR. Du behöver bara uttryckligen skapa en Azure IR när du vill uttryckligen definiera platsen för IR, eller om du vill praktiskt taget gruppera aktivitetskörningarna på olika IR:er för hanteringsändamål. 
 
 ## <a name="create-azure-ir"></a>Skapa Azure IR
+
+Om du vill skapa och konfigurera en Azure IR kan du använda följande procedurer.
+
+### <a name="create-an-azure-ir-via-azure-powershell"></a>Skapa en Azure IR via Azure PowerShell
 Integration Runtime kan skapas med hjälp av **Set-AzDataFactoryV2IntegrationRuntime** PowerShell cmdlet. Om du vill skapa en Azure IR anger du namn, plats och typ till kommandot. Här är ett exempelkommando för att skapa en Azure IR med plats inställd på "Västeuropa":
 
 ```powershell
@@ -39,9 +43,30 @@ För Azure IR måste typen anges till **Hanterad**. Du behöver inte ange beräk
 
 Du kan konfigurera en befintlig Azure IR för att ändra dess plats med hjälp av Cmdlet Set-AzDataFactoryV2IntegrationRuntime PowerShell. Mer information om platsen för en Azure IR finns i [Introduktion till integrationskörning](concepts-integration-runtime.md).
 
+### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Skapa ett Azure IR via Azure Data Factory UI
+Följ följande steg för att skapa en Azure IR med Azure Data Factory UI.
+
+1. På sidan **Låt oss komma igång i** Azure Data Factory-användargränssnittet väljer du fliken **Författare** i den vänstra rutan.
+
+   ![Knappen Författarsida på startsidan](media/doc-common-process/get-started-page-author-button.png)
+
+1. Välj **Anslutningar** längst ned i den vänstra rutan och välj **Integrationskörningar** i fönstret **Anslutningar.** Välj **+Nytt**.
+
+   ![Skapa Integration Runtime](media/create-azure-integration-runtime/new-integration-runtime.png)
+
+1. På **inställningssidan för integreringskörning** väljer du **Azure, Självvärd och**väljer sedan **Fortsätt**. 
+
+1. På följande sida väljer du **Azure** för att skapa en Azure IR och väljer sedan **Fortsätt**.
+   ![Skapa Integration Runtime](media/create-azure-integration-runtime/new-azure-ir.png)
+
+1. Ange ett namn för din Azure IR och välj **Skapa**.
+   ![Skapa en Azure IR](media/create-azure-integration-runtime/create-azure-ir.png)
+
+1. Du ser ett popup-meddelande när skapandet är klart. På sidan **Integration runtimes** kontrollerar du att du ser den nyskapade IR:et i listan.
+
 ## <a name="use-azure-ir"></a>Använda Azure IR
 
-När en Azure IR har skapats kan du referera till den i definitionen av länkad tjänst. Nedan följer ett exempel på hur du kan referera till Azure Integration Runtime som skapats ovan från en Azure Storage Linked Service:  
+När en Azure IR har skapats kan du referera till den i definitionen av länkad tjänst. Nedan följer ett exempel på hur du kan referera till Azure Integration Runtime som skapats ovan från en Azure Storage Linked Service:
 
 ```json
 {

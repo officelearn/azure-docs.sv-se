@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 04/08/2020
 ms.author: anavin
-ms.openlocfilehash: 12fb7e03062600745cd8511d37b439ce44f2ef78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9604d5567e74ef470c3e798b6a3df9e48d6fde5d
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75640728"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985311"
 ---
 # <a name="public-ip-address-prefix"></a>Prefix för offentliga IP-adresser
 
@@ -56,7 +56,7 @@ Du kan associera följande resurser till en statisk offentlig IP-adress från et
 ## <a name="constraints"></a>Villkor
 
 - Du kan inte ange IP-adresserna för prefixet. Azure allokerar IP-adresserna för prefixet, baserat på den storlek som du anger.
-- Du kan skapa ett prefix på upp till 16 IP-adresser eller en /28. Mer information finns i [Azure-gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+- Du kan skapa ett prefix på upp till 16 IP-adresser eller en /28 som standard. Granska [nätverksbegränsningar ökar begäranden](https://docs.microsoft.com/azure/azure-portal/supportability/networking-quota-requests) och [Azure-gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) för mer information.
 - Du kan inte ändra intervallet när du har skapat prefixet.
 - Endast statiska offentliga IP-adresser som skapats med standard-SKU kan tilldelas från prefixets intervall. Mer information om offentliga IP-adressSku:er finns i [offentlig IP-adress](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 - Adresser från intervallet kan endast tilldelas Azure Resource Manager-resurser. Adresser kan inte tilldelas resurser i den klassiska distributionsmodellen.

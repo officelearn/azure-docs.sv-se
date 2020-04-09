@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: 6bc7f45d84d525156a3d25bdceef4d1012844afa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2966f32fcf7f8be2a93d1639f0a63f49768c306
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75931977"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981859"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Översikt över IPv6 för Azure Load Balancer
 
@@ -81,6 +81,7 @@ Begränsningar
 * Det **går inte att**ändra parametern loadDistributionMethod för IPv6.
 * Reserverade IPv6-IP-adresser (där IPAllocationMethod = statisk) **för närvarande inte stöds**.
 * NAT64 (översättning av IPv6 till IPv4) stöds inte.
+* Det **går inte att**ansluta ett sekundärt nätverkskort som refererar till ett IPv6-undernät till en backend-pool .
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -3,12 +3,12 @@ title: Övervaka delegeringsändringar i hanteringsklienten
 description: Lär dig hur du övervakar delegeringsaktivitet från kundklienter till din hantering av klienten.
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 82c41c392210e088c85af510b9698e0140f660e5
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 322580cc3d0246f7a34e28cdae94da57fda070b5
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421910"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985158"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Övervaka delegeringsändringar i hanteringsklienten
 
@@ -73,7 +73,7 @@ När du har skapat tjänstens huvudkonto och tilldelat rollen Övervakningsläsa
 
 När du har skapat ett nytt huvudkonto för tjänsten med övervakningsläsare åtkomst till rotomfånget för din hanterande klient kan du använda det för att fråga och rapportera om delegeringsaktivitet i din klientorganisation. 
 
-[Det här Azure PowerShell-skriptet](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/tools/monitor-delegation-changes) kan användas för att fråga de senaste 1 aktivitetsdagarna och rapporter om alla tillagda eller borttagna delegeringar (eller försök som inte lyckades). Den frågar [efter klientaktivitetsloggdata](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) och konstruerar sedan följande värden för att rapportera om delegeringar som läggs till eller tas bort:
+[Det här Azure PowerShell-skriptet](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) kan användas för att fråga de senaste 1 aktivitetsdagarna och rapporter om alla tillagda eller borttagna delegeringar (eller försök som inte lyckades). Den frågar [efter klientaktivitetsloggdata](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) och konstruerar sedan följande värden för att rapportera om delegeringar som läggs till eller tas bort:
 
 - **DelegatedResourceId**: ID för den delegerade prenumerationen eller resursgruppen
 - **CustomerTenantId**: Kundens klient-ID

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: b9b66c379714c2f4fa2421876fda3bdb500ce6c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db9e86706ecd4e5b2526e1d801dda45ed6b345c6
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250421"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80887256"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Övervakning av Azure Cosmos DB
 När du har kritiska program och affärsprocesser som förlitar sig på Azure-resurser, vill du övervaka dessa resurser för deras tillgänglighet, prestanda och drift. I den här artikeln beskrivs övervakningsdata som genereras av Azure Cosmos-databaser och hur du kan använda funktionerna i Azure Monitor för att analysera och avisera om dessa data.
@@ -63,10 +63,6 @@ Du kan också filtrera mått och diagrammet som visas av ett visst **CollectionN
 Du kan gruppera mått med alternativet **Använd delning.** Du kan till exempel gruppera begäranheterna per operationstyp och visa diagrammet för alla operationer samtidigt som visas i följande bild:
 
 ![Lägg till delningsfilter för apply](./media/monitor-cosmos-db/apply-metrics-splitting.png)
-
-Här är ett annat exempel för att visa svarstidsmått på serversidan för en viss databas, behållare eller en åtgärd:
-
-![Svarsmått på serversidan](./media/monitor-cosmos-db/serverside-latency-metric.png)
 
 ## <a name="monitoring-data-collected-from-azure-cosmos-db"></a>Övervaka data som samlats in från Azure Cosmos DB
 

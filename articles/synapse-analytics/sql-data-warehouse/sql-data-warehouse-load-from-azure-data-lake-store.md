@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 03/04/2020
+ms.date: 04/08/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 8ca51e0ed33d2a5dfb484520335e32ac547deb72
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: aeaa95090dc40c6e161f0c336c43032a50e5aad0
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633249"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983576"
 ---
 # <a name="load-data-from-azure-data-lake-storage-for-sql-analytics"></a>Läsa in data från Azure Data Lake Storage för SQL Analytics
 
@@ -93,7 +93,7 @@ WITH
 
 ## <a name="create-the-external-data-source"></a>Skapa den externa datakällan
 
-Använd det här kommandot [SKAPA EXTERN DATAKÄLLA](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att lagra platsen för data. Om du autentiserar med AAD-genomströmning krävs inte parametern AUTENTISERINGSUPPGIFTER.
+Använd det här kommandot [SKAPA EXTERN DATAKÄLLA](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att lagra platsen för data. Om du autentiserar med AAD-genomströmning krävs inte parametern AUTENTISERINGSUPPGIFTER. Om du autentiserar med hanterade identitet för tjänstslutpunkter följer du den här [dokumentationen](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#azure-sql-data-warehouse-polybase) för att konfigurera den externa datakällan. 
 
 ```sql
 -- C (for Gen1): Create an external data source

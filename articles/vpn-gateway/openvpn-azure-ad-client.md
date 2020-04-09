@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/28/2020
+ms.date: 04/07/2020
 ms.author: alzam
-ms.openlocfilehash: 9250464e3d28bdac20840aa9f69cfac707f73b30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7bc28a03476e773325d14808e1c7ac99103b2d5d
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371496"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879453"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Konfigurera en VPN-klient för P2S OpenVPN-protokollanslutningar: Azure AD-autentisering
 
@@ -230,6 +230,16 @@ Du kan ändra den nedladdade profil-XML-filen och lägga till ** \< \<exkluderin
 </clientconfig>
 </azvpnprofile>
 ```
+
+### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>Kan jag importera profilen från en kommandotolkfråga?
+
+Du kan importera profilen från en kommandotumfråga genom att placera den nedladdade **azurevpnconfig.xml-filen** i mappen **%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState** och köra följande kommando:
+
+```
+azurevpn -i azurevpnconfig.xml 
+```
+för att tvinga importen att använda **-f-växeln** samt
+
 
 ## <a name="next-steps"></a>Nästa steg
 

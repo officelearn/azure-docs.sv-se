@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 9/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 348633ffc91bc25a226b05743a18d2c87533a01d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2895944dea6417949488076186135680523e19db
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280651"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874978"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Spårning av kundanvändning för Azure-partner
 
@@ -232,7 +232,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Rapport
 
-Du hittar rapporten för attribution för kundanvändning i instrumentpanelen För analys av partnercenter. ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). För att kunna se rapporten måste du använda dina partnercenteruppgifter för att logga in. Om du stöter på problem med rapporten eller logga in skapar du en supportbegäran enligt instruktionen i avsnittet Hämta support.
+Du hittar rapporten för attribution för kundanvändning[https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)i instrumentpanelen i Partnercenter ( ). För att kunna se rapporten måste du använda dina partnercenteruppgifter för att logga in. Om du stöter på problem med rapporten eller logga in skapar du en supportbegäran enligt instruktionen i avsnittet Hämta support.
 
 Välj Spårad mall i listrutan för partnerassociationstyp för att se rapporten.
 
@@ -267,7 +267,7 @@ Om du behöver hjälp med Marketplace Onboarding och/eller kundanvändningsattri
 1. Välj **kategori** för ditt problem:
 
    - För problem med användningsassociationen väljer du **Annat**.
-   - Om du vill ha åtkomstproblem med Azure Marketplace CPP väljer du **Åtkomstproblem**.
+   - Om du vill ha åtkomstproblem med Azure Marketplace väljer du **Åtkomstproblem**.
 
      ![Välj ärendekategori](media/marketplace-publishers-guide/lu-article-incident.png)
 
@@ -315,7 +315,7 @@ Ja, en kund eller implementeringspartner kan anpassa mallen och ändra eller ta 
 
 **Kan jag spåra mallar som distribuerats från en databas som inte kommer från Microsoft, till exempel GitHub?**
 
-Ja, så länge GUID finns när mallen distribueras spåras användningen. Partner måste ha en profil i CPP för att registrera GUID:er som används för distributionen utanför Azure Marketplace.
+Ja, så länge GUID finns när mallen distribueras spåras användningen. Partner måste ha en profil i den kommersiella marketplace-registreringen i Partner Center för att registrera GUID:er som används för distributionen utanför Azure Marketplace.
 
 **Får kunden också rapportering?**
 

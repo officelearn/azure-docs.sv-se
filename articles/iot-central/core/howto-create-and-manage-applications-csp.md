@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: 5d876d7db13ce73603f212ec11544cb2f680bf46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02481d5dcbaba15c9b17a27348207d9af64f3355
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158188"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982046"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Skapa och hantera ett Azure IoT Central-program från CSP-portalen
 
@@ -33,7 +33,7 @@ Du landar på sidan Azure IoT Central Application Manager. Azure IoT Central beh
 
 ![Skapa hanteraren för CSP:er](media/howto-create-and-manage-applications-csp/image3.png)
 
-Om du vill skapa ett Azure IoT Central-program väljer du **Skapa** i den vänstra menyn. Välj en av branschmallarna eller välj **Äldre program** för att skapa ett program från grunden. Då läses sidan Programskapande in. Du måste fylla i alla fält på den här sidan och sedan välja **Skapa**. Du hittar mer information om vart och ett av fälten nedan.
+Om du vill skapa ett Azure IoT Central-program väljer du **Skapa** i den vänstra menyn. Välj en av branschmallarna eller välj **Anpassad app** för att skapa ett program från grunden. Då läses sidan Programskapande in. Du måste fylla i alla fält på den här sidan och sedan välja **Skapa**. Du hittar mer information om vart och ett av fälten nedan.
 
 ![Skapa programsida för CSP:er](media/howto-create-and-manage-applications-csp/image4.png)
 

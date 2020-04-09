@@ -3,14 +3,14 @@ author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 10/16/2019
+ms.date: 04/04/2020
 ms.author: mimart
-ms.openlocfilehash: 71a6654acd436c27bd2370646dede81778113860
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee63c1c0913baf3700d77e6fba1582fe7027ead7
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78186157"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80875709"
 ---
 #### <a name="applications"></a>[Program](#tab/applications/)
 
@@ -28,8 +28,8 @@ ms.locfileid: "78186157"
 1. Välj fliken **Mina API:er.**
 1. Välj det API som webbprogrammet ska beviljas åtkomst till. Till exempel *webapi1*.
 1. Expandera **demo**under **Behörighet**och välj sedan de scope som du definierade tidigare. Till exempel *demo.read* och *demo.write*.
-1. Välj **Lägg till behörigheter**. Enligt anvisningarna väntar du några minuter innan du fortsätter till nästa steg.
+1. Välj **Lägg till behörigheter**.
 1. Välj **Bevilja administratörsmedgivande för (ditt klientnamn)**.
-1. Välj ditt inloggade administratörskonto eller logga in med ett konto i din Azure AD B2C-klient som har tilldelats åtminstone *rollen cloud application administrator.*
-1. Välj **Acceptera**.
-1. Välj **Uppdatera**och kontrollera sedan att "Beviljad för ..." visas under **Status** för båda scopea. Det kan ta några minuter innan behörigheterna sprids.
+1. Om du uppmanas att välja ett konto väljer du ditt inloggade administratörskonto eller loggar in med ett konto i din Azure AD B2C-klient som har tilldelats åtminstone *rollen cloud-programadministratör.*
+1. Välj **Ja**.
+1. Välj **Uppdatera**och kontrollera sedan att "Beviljad för ..." visas under **Status** för båda scopea.

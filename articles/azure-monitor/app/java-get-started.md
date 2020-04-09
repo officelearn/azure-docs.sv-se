@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: efa498ba600a664beab4b9a49eae2b2c3f1c8397
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2355cb7ab995cab3060c7a94c9e7ea344bd9e92b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298300"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984648"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Snabbstart: Kom igång med Application Insights i ett Java-webbprojekt
 
@@ -223,7 +223,7 @@ Och för automatisk namngivning.
 
 Application Insights Java SDK stöder nu [W3C distribuerad spårning](https://w3c.github.io/trace-context/).
 
-Den inkommande SDK-konfigurationen förklaras ytterligare i vår artikel om [korrelation](correlation.md#telemetry-correlation-in-the-java-sdk).
+Den inkommande SDK-konfigurationen förklaras ytterligare i vår artikel om [korrelation](correlation.md).
 
 Utgående SDK-konfiguration definieras i filen [AI-Agent.xml.](java-agent.md)
 
@@ -258,7 +258,7 @@ Du kan ange ytterligare prestandaräknare som du vill samla in data från.
 * `displayName` – Namnet visas på Application Insights-portalen.
 * `objectName` – JMX-objektnamnet.
 * `attribute` – Attributet för JMX-objektnamnet som ska hämtas
-* `type` (valfritt) – Typen för JMX-objektets attribut:
+* `type`(valfritt) - Den typ av JMX-objektets attribut:
   * Standardvärde: en enkel typ, till exempel int eller long.
   * `composite`: prestandaräknardata har formatet ”Attribute.Data”
   * `tabular`: prestandaräknardata har tabellradsformat

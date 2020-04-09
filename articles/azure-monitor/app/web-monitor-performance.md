@@ -4,12 +4,12 @@ description: Kom igång med Application Insights. Analysera användning, tillgä
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: e398f23559729580ae4ad8b6507c2f09328052b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 873fc41585c387246d83008a8f97d6c4d9a32c3b
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79275625"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985073"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Övervaka prestanda i webbprogram
 
@@ -26,8 +26,7 @@ Om du ännu inte har lagt till Application Insights i projektet (det vill säga 
 * [ASP.NET-webbappar](../../azure-monitor/app/asp-net.md)
   * [Lägg till undantagsövervakning](../../azure-monitor/app/asp-net-exceptions.md)
   * [Lägg till beroendeövervakning](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Java EE-webbappar](../../azure-monitor/app/java-get-started.md)
-  * [Lägg till beroendeövervakning](../../azure-monitor/app/java-agent.md)
+* [Java EE-webbappar](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
 
 ## <a name="exploring-performance-metrics"></a><a name="view"></a>Utforska prestandamått
 I [Azure-portalen](https://portal.azure.com)bläddrar du till den Application Insights-resurs som du konfigurerar för ditt program. Översiktsbladet visar grundläggande prestandadata:

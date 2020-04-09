@@ -5,21 +5,21 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 06/26/2019
-ms.openlocfilehash: 6e46d7403e251bccd69467cfcdaa1d5073b4e454
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: hdinsightactive,mvc
+ms.date: 04/07/2020
+ms.openlocfilehash: 963f5bd4dfdd9dda78a437bdb1111c9eec2795dc
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73494571"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878450"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Självstudiekurs: Skapa ett Apache Spark-maskininlärningsprogram i Azure HDInsight
 
-I den här självstudien lär du dig att använda [Jupyter Notebook](https://jupyter.org/) för att skapa ett [Apache Spark](https://spark.apache.org/)-maskininlärningsprogram för Azure HDInsight.
+I den här självstudien lär du dig att använda [Jupyter Notebook](https://jupyter.org/) för att skapa ett [Apache Spark](./apache-spark-overview.md)-maskininlärningsprogram för Azure HDInsight.
 
-[MLib](https://spark.apache.org/docs/latest/ml-guide.html) är Sparks skalbara Machine Learning-bibliotek som består av vanliga algoritmer och verktyg, inklusive klassificering, regression, klustring, samarbetsfilter, dimensionsminskning samt underliggande optimeringsprimitiver.
+[MLlib](https://spark.apache.org/docs/latest/ml-guide.html) är Sparks anpassningsbara maskininlärningsbibliotek bestående av vanliga inlärningsalgoritmer och verktyg. (Klassificering, regression, klustring, samarbetsfiltrering och dimensionsreducering. Dessutom underliggande optimering primitiver.)
 
 I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
@@ -33,13 +33,13 @@ I den här självstudiekursen får du lära du dig att:
 
 ## <a name="understand-the-data-set"></a>Förstå datauppsättningen
 
-Programmet använder exempel **HVAC.csv-data** som är tillgängliga i alla kluster som standard. Filen finns på `\HdiSamples\HdiSamples\SensorSampleData\hvac`. Data visar måltemperaturen och den faktiska temperaturen för några byggnader som har installerade HVAC-system. Kolumnen **System** representerar system-ID:t, och kolumnen **SystemAge** representerar antalet år som HVAC-systemet har funnits i byggnaden. Med dessa data kan du förutsäga om en byggnad kommer att bli varmare eller kallare baserat på måltemperaturen baserat på ett system-ID och systemets ålder.
+Programmet använder exempel **HVAC.csv-data** som är tillgängliga i alla kluster som standard. Filen finns på `\HdiSamples\HdiSamples\SensorSampleData\hvac`. Data visar måltemperaturen och den faktiska temperaturen för några byggnader som har installerade HVAC-system. Kolumnen **System** representerar system-ID:t, och kolumnen **SystemAge** representerar antalet år som HVAC-systemet har funnits i byggnaden. Du kan förutsäga om en byggnad blir varmare eller kallare baserat på måltemperaturen, givet system-ID och systemålder.
 
 ![Ögonblicksbild av data som används för Spark-maskininlärningsexempel](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Ögonblicksbild av data som används för Spark-maskininlärningsexempel")
 
 ## <a name="develop-a-spark-machine-learning-application-using-spark-mllib"></a>Utveckla ett Spark-maskininlärningsprogram med Spark MLlib
 
-I det här programmet använder du en Spark [ML-pipeline](https://spark.apache.org/docs/2.2.0/ml-pipeline.html) för att utföra en dokumentklassificering. ML-pipelines tillhandahåller en enhetlig uppsättning högnivå-API:er som har skapats på DataFrames som hjälper användare att skapa och justera praktiska machine learning-pipelines. I pipelinen delar du upp dokumentet i ord, konverterar orden till en numerisk funktionsvektor och slutligen skapa en förutsägelsemodell med funktionsvektorer och etiketter. Skapa programmet genom att utföra stegen nedan.
+Det här programmet använder en Spark [ML-pipeline](https://spark.apache.org/docs/2.2.0/ml-pipeline.html) för att göra en dokumentklassificering. ML Pipelines ger en enhetlig uppsättning API:er på hög nivå som bygger ovanpå DataFrames. DataFrames hjälper användare att skapa och justera praktiska machine learning-pipelines. I pipelinen delar du upp dokumentet i ord, konverterar orden till en numerisk funktionsvektor och slutligen skapa en förutsägelsemodell med funktionsvektorer och etiketter. Gör följande för att skapa programmet.
 
 1. Skapa en Jupyter-anteckningsbok med PySpark-kerneln. Instruktioner finns i [Skapa en Jupyter-anteckningsbok](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
@@ -143,9 +143,9 @@ I det här programmet använder du en Spark [ML-pipeline](https://spark.apache.o
 
     ![Ögonblicksbild av utdata för Spark-maskininlärningsexempel](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Ögonblicksbild av utdata för Spark-maskininlärningsexempel")
 
-    Lägg märke till att den faktiska temperaturen är lägre än måltemperaturen, vilket indikerar att byggnaden är kall. I utbildningsutdata är därför värdet för **etikett** i den första raden **0.0**, vilket betyder att byggnaden inte är varm.
+    Lägg märke till att den faktiska temperaturen är lägre än måltemperaturen, vilket indikerar att byggnaden är kall. Värdet för **etiketten** på den första raden är **0,0**, vilket innebär att byggnaden inte är varm.
 
-1. Förbered en datauppsättning att köra träningsmodellen mot. För att göra det skickar du ett system-ID och en systemålder (betecknas som **SystemInfo** i utbildningsutdata). Modellen förutsäger om byggnaden med det system-ID:t och den systemåldern kommer att bli varmare (betecknas av 1.0) eller kallare (betecknas med 0.0).
+1. Förbered en datauppsättning att köra träningsmodellen mot. För att göra det skickar du vidare ett system-ID och systemålder (betecknas som **SystemInfo** i träningsutgången). Modellen förutsäger om byggnaden med det system-ID och systemåldern kommer att vara varmare (betecknas med 1,0) eller kylare (betecknas med 0,0).
 
     ```PySpark
     # SystemInfo here is a combination of system ID followed by system age
@@ -180,7 +180,7 @@ I det här programmet använder du en Spark [ML-pipeline](https://spark.apache.o
     Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
     ```
 
-   Från den första raden i förutsägelsen kan du se att för ett HVAC-system med ID 20 och en systemålder på 25 år är byggnaden varm (**förutsägelse=1.0**). Det första värdet för DenseVector (0,49999) motsvarar förutsägelsen 0.0 och det andra värdet (0,5001) motsvarar förutsägelsen 1.0. I utdata, trots att det andra värdet bara är marginellt högre, visar modellen **förutsägelse=1.0**.
+   Observera den första raden i förutsägelsen. För ett VVS-system med ID 20 och systemålder på 25 år är byggnaden varm (**prediction=1.0**). Det första värdet för DenseVector (0,49999) motsvarar förutsägelsen 0.0 och det andra värdet (0,5001) motsvarar förutsägelsen 1.0. I utdata, trots att det andra värdet bara är marginellt högre, visar modellen **förutsägelse=1.0**.
 
 1. Stäng anteckningsboken för att frigöra resurser. Du gör det genom att välja **Stäng och stoppa** i anteckningsbokens **Fil**-meny. Åtgärden stänger anteckningsboken.
 

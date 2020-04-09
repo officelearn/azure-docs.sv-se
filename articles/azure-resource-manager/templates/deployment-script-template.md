@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: jgao
-ms.openlocfilehash: aa49b313f0fb10175dc6c0003f1a919f61731269
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: f84707adfa406011989c8f9bfdf1e8d9270698a6
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743312"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984801"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Använda distributionsskript i mallar (förhandsgranskning)
 
@@ -313,7 +313,7 @@ Livscykeln för dessa resurser styrs av följande egenskaper i mallen:
 
 Körning av distributionsskript är en idempotent åtgärd. Om ingen av distributionScripts-resursegenskaperna (inklusive infogade skriptet) ändras körs inte skriptet när du distribuerar om mallen. Distributionsskripttjänsten jämför resursnamnen i mallen med befintliga resurser i samma resursgrupp. Det finns två alternativ om du vill köra samma distributionsskript flera gånger:
 
-- Ändra namnet på distributionsskriptresursen. Använd till exempel [mallfunktionen utcNow](./template-functions-string.md#utcnow) som resursnamn eller som en del av resursnamnet. Om du ändrar resursnamnet skapas en ny distributionScripts-resurs. Det är bra för att hålla en historia av manus utförande.
+- Ändra namnet på distributionsskriptresursen. Använd till exempel [mallfunktionen utcNow](./template-functions-date.md#utcnow) som resursnamn eller som en del av resursnamnet. Om du ändrar resursnamnet skapas en ny distributionScripts-resurs. Det är bra för att hålla en historia av manus utförande.
 
     > [!NOTE]
     > Funktionen utcNow kan bara användas i standardvärdet för en parameter.

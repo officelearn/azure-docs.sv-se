@@ -4,12 +4,12 @@ description: Aktivera eller inaktivera datainsamlingsmoduler och lägga till pre
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.reviewer: olegan
-ms.openlocfilehash: b2c407036277b17c0f8c08f3261c932a6dc66624
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 460bd79e3a37c492301f7438112fef4487618fed
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276184"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982097"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Konfigurera Application Insights SDK:n med ApplicationInsights.config eller .xml
 Application Insights .NET SDK består av ett antal NuGet-paket. [Kärnpaketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights) tillhandahåller API:et för att skicka telemetri till Application Insights. [Ytterligare paket](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) innehåller telemetrimoduler och *initialiserare* för automatisk spårning av telemetri från ditt program och dess kontext. *modules* Genom att justera konfigurationsfilen kan du aktivera eller inaktivera telemetrimoduler och initializers och ange parametrar för vissa av dem.
@@ -165,65 +165,6 @@ Det finns också en [standardprovtagning telemetriprocessor](../../azure-monitor
      </Add>
    </TelemetryProcessors>
 
-```
-
-
-
-## <a name="channel-parameters-java"></a>Kanalparametrar (Java)
-Dessa parametrar påverkar hur Java SDK ska lagra och tömma telemetridata som samlas in.
-
-#### <a name="maxtelemetrybuffercapacity"></a>MaxTelemetryBufferCapacity
-Antalet telemetriobjekt som kan lagras i SDK:s minneslagring. När det här numret har uppnåtts rensas telemetribufferten - det vill än telemetriobjekten skickas till application insights-servern.
-
-* Min: 1
-* Max: 1000
-* Standard: 500
-
-```
-
-  <ApplicationInsights>
-      ...
-      <Channel>
-       <MaxTelemetryBufferCapacity>100</MaxTelemetryBufferCapacity>
-      </Channel>
-      ...
-  </ApplicationInsights>
-```
-
-#### <a name="flushintervalinseconds"></a>FlushIntervalInSeconds
-Avgör hur ofta data som lagras i minneslagringen ska tömmas (skickas till Application Insights).
-
-* Min: 1
-* Max: 300
-* Standard: 5
-
-```
-
-    <ApplicationInsights>
-      ...
-      <Channel>
-        <FlushIntervalInSeconds>100</FlushIntervalInSeconds>
-      </Channel>
-      ...
-    </ApplicationInsights>
-```
-
-#### <a name="maxtransmissionstoragecapacityinmb"></a>MaxTransmissionStorageCapacityInMB
-Bestämmer den maximala storleken i MB som tilldelas den beständiga lagringen på den lokala disken. Den här lagringen används för beständiga telemetriobjekt som inte kunde överföras till slutpunkten Application Insights. När lagringsstorleken har uppfyllts tas nya telemetriartiklar bort.
-
-* Min: 1
-* Max: 100
-* Standard: 10
-
-```
-
-   <ApplicationInsights>
-      ...
-      <Channel>
-        <MaxTransmissionStorageCapacityInMB>50</MaxTransmissionStorageCapacityInMB>
-      </Channel>
-      ...
-   </ApplicationInsights>
 ```
 
 ## <a name="instrumentationkey"></a>Instrumenteringsnyckel

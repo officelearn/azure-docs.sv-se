@@ -2,27 +2,22 @@
 title: OAuth 2.0 implicit bidragsflöde - Microsofts identitetsplattform | Azure
 description: Säkra ensidiga appar med microsoft identity platform implicit flöde.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 3605931f-dc24-4910-bb50-5375defec6a8
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 53d498f4aed8ec86cc57c35824a9fb8aa471dc1d
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 4ef8ca9e116328e14182ca77c787befa837041d0
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80419670"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886236"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsofts identitetsplattform och implicita bidragsflöde
 

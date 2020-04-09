@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: 3e8cd2f1e594cd6a60296b2df135f275641df313
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3738da806ff36cdb7e8d561b88a457a5264eb76
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77086978"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80886933"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Skapa brandväggsprinciper för webbprogram för Application Gateway
 
@@ -24,6 +24,8 @@ Om programgatewayen har en princip tillämpad och du sedan tillämpar en annan p
 
    > [!NOTE]
    > Waf-principer per plats och per URI finns i offentlig förhandsversion. Det innebär att den här funktionen omfattas av Microsofts kompletterande användarvillkor. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+   > [!NOTE]
+   > När en brandväggsprincip är associerad med en WAF måste det alltid finnas en princip som är associerad med waf. Du kan skriva över den principen, men att ta bort en princip från WAF helt stöds inte. 
 
 Alla nya Web Application Firewall's WAF inställningar (anpassade regler, hanterade rulset konfigurationer, undantag, etc.) lever inuti en WAF-princip. Om du har en befintlig WAF kan dessa inställningar fortfarande finnas kvar i DIN WAF-konfiguration. Steg om hur du flyttar till den nya WAF-principen finns i [Migrera din WAF Config till en WAF-princip](#migrate) senare i den här artikeln. 
 

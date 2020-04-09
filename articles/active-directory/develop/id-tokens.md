@@ -1,5 +1,5 @@
 ---
-title: Microsoft-referens för identitetsplattforms-ID-token | Microsoft-dokument
+title: Tokenreferens för Microsoft-identitetsplattform
 description: Lär dig hur du använder id_tokens som avges av slutpunkterna Azure AD v1.0 och Microsoft Identity Platform (v2.0).
 services: active-directory
 author: rwike77
@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 1efd027edb85cabcfdc2a170771ef19182b5c9f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3ede70719c124caebc541df8578ab2720fc68cd5
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77160958"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80885522"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft-identitetsplattforms-ID-token
 
@@ -53,9 +53,9 @@ Visa den här v2.0-exempeltoken i [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAiOiJK
 |Begär | Format | Beskrivning |
 |-----|--------|-------------|
 |`typ` | String - alltid "JWT" | Anger att token är en JWT.|
-|`alg` | String | Anger algoritmen som användes för att signera token. Exempel: "RS256" |
-|`kid` | String | Tumavtryck för den offentliga nyckeln som används för att signera den här token. Ut avges i både v1.0 `id_tokens`och v2.0 . |
-|`x5t` | String | Samma (i bruk och `kid`värde) som . Detta är dock ett äldre anspråk som endast `id_tokens` släpps ut i v1.0 för kompatibilitetsändamål. |
+|`alg` | Sträng | Anger algoritmen som användes för att signera token. Exempel: "RS256" |
+|`kid` | Sträng | Tumavtryck för den offentliga nyckeln som används för att signera den här token. Ut avges i både v1.0 `id_tokens`och v2.0 . |
+|`x5t` | Sträng | Samma (i bruk och `kid`värde) som . Detta är dock ett äldre anspråk som endast `id_tokens` släpps ut i v1.0 för kompatibilitetsändamål. |
 
 ### <a name="payload-claims"></a>Anspråk på nyttolast
 
@@ -69,19 +69,19 @@ Den här listan visar de anspråk som finns i de flesta id_tokens som standard (
 |`idp`|Sträng, vanligtvis en STS URI | Registrerar den identitetsprovider som har autentiserat subjektet för token. Det här värdet är identiskt med värdet på Utfärdaranspråket om inte användarkontot inte finns i samma klient som utfärdaren - till exempel gäster. Om anspråket inte finns betyder det att `iss` värdet på kan användas i stället.  För personliga konton som används i en organisationskontext (till exempel ett `idp` personligt konto som bjudits in till en Azure AD-klient) kan anspråket vara "live.com" eller en STS URI som innehåller Microsoft-kontoklienten `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 |`nbf` |  int, en UNIX-tidsstämpel | I påståendet "nbf" (ej före) anges den tid före vilken JWT INTE FÅR godkännas för behandling.|
 |`exp` |  int, en UNIX-tidsstämpel | Anspråket "exp" (utgångstid) identifierar utgångstiden på eller efter vilken JWT INTE FÅR accepteras för bearbetning.  Det är viktigt att notera att en resurs kan avvisa token före denna tid också - om till exempel en ändring i autentisering krävs eller en tokenåterkallning har upptäckts. |
-| `c_hash`| String |Kodhhen ingår endast i ID-token när ID-token utfärdas med en OAuth 2.0-auktoriseringskod. Den kan användas för att verifiera äktheten av en auktoriseringskod. Mer information om hur du utför den här valideringen finns i [OpenID Connect-specifikationen](https://openid.net/specs/openid-connect-core-1_0.html). |
-|`at_hash`| String |Åtkomsttokenhh ingår endast i ID-token när ID-token utfärdas med en OAuth 2.0-åtkomsttoken. Den kan användas för att verifiera äktheten av en åtkomsttoken. Mer information om hur du utför den här valideringen finns i [OpenID Connect-specifikationen](https://openid.net/specs/openid-connect-core-1_0.html). |
+| `c_hash`| Sträng |Kodhhen ingår endast i ID-token när ID-token utfärdas med en OAuth 2.0-auktoriseringskod. Den kan användas för att verifiera äktheten av en auktoriseringskod. Mer information om hur du utför den här valideringen finns i [OpenID Connect-specifikationen](https://openid.net/specs/openid-connect-core-1_0.html). |
+|`at_hash`| Sträng |Åtkomsttokenhh ingår endast i ID-token när ID-token utfärdas med en OAuth 2.0-åtkomsttoken. Den kan användas för att verifiera äktheten av en åtkomsttoken. Mer information om hur du utför den här valideringen finns i [OpenID Connect-specifikationen](https://openid.net/specs/openid-connect-core-1_0.html). |
 |`aio` | Ogenomskinlig sträng | Ett internt anspråk som används av Azure AD för att registrera data för återanvändning av token. Bör ignoreras.|
-|`preferred_username` | String | Det primära användarnamnet som representerar användaren. Det kan vara en e-postadress, ett telefonnummer eller ett allmänt användarnamn utan ett angivet format. Dess värde är föränderligt och kan ändras med tiden. Eftersom det är föränderligt får det här värdet inte användas för att fatta auktoriseringsbeslut. Omfattningen `profile` krävs för att ta emot detta anspråk.|
-|`email` | String | Anspråket `email` finns som standard för gästkonton som har en e-postadress.  Din app kan begära e-postanspråk för hanterade användare (de `email` från samma klientorganisation som resursen) med hjälp av det [valfria anspråket](active-directory-optional-claims.md).  På v2.0-slutpunkten kan din app `email` också begära OpenID Connect-scopet – du behöver inte begära både det valfria anspråket och omfånget för att få anspråket.  E-postanspråket stöder endast adresserbar e-post från användarens profilinformation. |
-|`name` | String | Anspråket `name` ger ett läsbart värde som identifierar tokens ämne. Värdet är inte garanterat att vara unikt, det är föränderligt och det är utformat för att användas endast för visningsändamål. Omfattningen `profile` krävs för att ta emot detta anspråk. |
-|`nonce`| String | Nonce matchar parametern som ingår i den ursprungliga /authorize-begäran till IDP. Om det inte matchar, bör ditt program avvisa token. |
+|`preferred_username` | Sträng | Det primära användarnamnet som representerar användaren. Det kan vara en e-postadress, ett telefonnummer eller ett allmänt användarnamn utan ett angivet format. Dess värde är föränderligt och kan ändras med tiden. Eftersom det är föränderligt får det här värdet inte användas för att fatta auktoriseringsbeslut. Omfattningen `profile` krävs för att ta emot detta anspråk.|
+|`email` | Sträng | Anspråket `email` finns som standard för gästkonton som har en e-postadress.  Din app kan begära e-postanspråk för hanterade användare (de `email` från samma klientorganisation som resursen) med hjälp av det [valfria anspråket](active-directory-optional-claims.md).  På v2.0-slutpunkten kan din app `email` också begära OpenID Connect-scopet – du behöver inte begära både det valfria anspråket och omfånget för att få anspråket.  E-postanspråket stöder endast adresserbar e-post från användarens profilinformation. |
+|`name` | Sträng | Anspråket `name` ger ett läsbart värde som identifierar tokens ämne. Värdet är inte garanterat att vara unikt, det är föränderligt och det är utformat för att användas endast för visningsändamål. Omfattningen `profile` krävs för att ta emot detta anspråk. |
+|`nonce`| Sträng | Nonce matchar parametern som ingår i den ursprungliga /authorize-begäran till IDP. Om det inte matchar, bör ditt program avvisa token. |
 |`oid` | Sträng, ett GUID | Den oföränderliga identifieraren för ett objekt i Microsofts identitetssystem, i det här fallet ett användarkonto. Det här ID:t identifierar användaren unikt i alla program – två olika `oid` program som loggar in samma användare får samma värde i anspråket. Microsoft Graph returnerar detta ID som `id` egenskap för ett visst användarkonto. Eftersom `oid` flera appar kan korrelera `profile` användare krävs omfånget för att ta emot det här anspråket. Observera att om en enskild användare finns i flera klienter, kommer användaren att innehålla ett annat objekt-ID i varje klient - de betraktas som olika konton, även om användaren loggar in på varje konto med samma autentiseringsuppgifter. Anspråket `oid` är ett GUID och kan inte återanvändas. |
 |`roles`| Matris med strängar | Den uppsättning roller som har tilldelats den användare som loggar in. |
 |`rh` | Ogenomskinlig sträng |Ett internt anspråk som används av Azure för att förnya token. Bör ignoreras. |
 |`sub` | Sträng, ett GUID | Huvudbeloppet som token bekräftar information om, till exempel användaren av en app. Det här värdet är oföränderligt och kan inte tilldelas om eller återanvändas. Ämnet är en parvis identifierare - den är unik för ett visst program-ID. Om en enskild användare loggar in på två olika appar med två olika klient-ID:er får dessa appar två olika värden för ämnesanspråket. Detta kanske eller kanske inte är önskat beroende på din arkitektur och dina sekretesskrav. |
 |`tid` | Sträng, ett GUID | Ett GUID som representerar Azure AD-klienten som användaren kommer från. För arbets- och skolkonton är GUID det oföränderliga klient-ID:et för den organisation som användaren tillhör. För personliga konton är `9188040d-6c67-4c5b-b112-36a304b66dad`värdet . Omfattningen `profile` krävs för att ta emot detta anspråk. |
-|`unique_name` | String | Innehåller ett läsbart värde som identifierar subjektet för token. Det här värdet är unikt vid en viss tidpunkt, men eftersom e-postmeddelanden och andra identifierare kan återanvändas kan det här värdet visas på andra konton och bör därför endast användas för visningsändamål. Utfärdas endast i v1.0 `id_tokens`. |
+|`unique_name` | Sträng | Innehåller ett läsbart värde som identifierar subjektet för token. Det här värdet är unikt vid en viss tidpunkt, men eftersom e-postmeddelanden och andra identifierare kan återanvändas kan det här värdet visas på andra konton och bör därför endast användas för visningsändamål. Utfärdas endast i v1.0 `id_tokens`. |
 |`uti` | Ogenomskinlig sträng | Ett internt anspråk som används av Azure för att förnya token. Bör ignoreras. |
 |`ver` | Sträng, antingen 1,0 eller 2,0 | Anger versionen av id_token. |
 

@@ -1,5 +1,5 @@
 ---
-title: Så här fungerar Azure Active Directory-appmanifestet | Microsoft-dokument
+title: Förstå Azure Active Directory-appmanifestet
 description: Detaljerad täckning av Azure Active Directory-appmanifestet, som representerar ett programs identitetskonfiguration i en Azure AD-klientorganisation, och används för att underlätta OAuth-auktorisering, medgivandeupplevelse med mera.
 services: active-directory
 author: rwike77
@@ -12,12 +12,12 @@ ms.date: 03/23/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 6d9a4af5ee814282589959fcf840c1061358ca18
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 487559aaf632a30b7efcda490f92a90d4f59b8f5
+ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80383947"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80883482"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory-appmanifest
 
@@ -90,7 +90,7 @@ Exempel:
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| allowPublicClient | Boolean |
+| allowPublicClient | Boolesk |
 
 Anger programtypen för återgång. Azure AD härleder programtypen från replyUrlsWithType som standard. Det finns vissa scenarier där Azure AD inte kan avgöra klientapptypen. Ett sådant scenario är till exempel [ROPC-flödet](https://tools.ietf.org/html/rfc6749#section-4.3) där HTTP-begäran sker utan en URL-omdirigering). I sådana fall tolkar Azure AD programtypen baserat på värdet för den här egenskapen. Om det här värdet är inställt på true anges reservprogramtypen som offentlig klient, till exempel en installerad app som körs på en mobil enhet. Standardvärdet är falskt vilket innebär att reservprogramtypen är konfidentiell klient, till exempel webbapp.
 
@@ -104,7 +104,7 @@ Exempel:
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| tillgängligTillOtherTenants | Boolean |
+| tillgängligTillOtherTenants | Boolesk |
 
 Ange till true om programmet delas med andra klienter. annars falskt.
 
@@ -115,7 +115,7 @@ Ange till true om programmet delas med andra klienter. annars falskt.
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| appId | String |
+| appId | Sträng |
 
 Anger den unika identifieraren för appen som tilldelas en app av Azure AD.
 
@@ -154,7 +154,7 @@ Exempel:
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| displayName | String |
+| displayName | Sträng |
 
 Appens visningsnamn.
 
@@ -165,7 +165,7 @@ Appens visningsnamn.
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| errorUrl | String |
+| errorUrl | Sträng |
 
 Unsupported.
 
@@ -173,7 +173,7 @@ Unsupported.
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-|gruppMedlemskapKlamerna | String |
+|gruppMedlemskapKlamerna | Sträng |
 
 Konfigurerar `groups` anspråket som utfärdats i en användare eller OAuth 2.0-åtkomsttoken som appen förväntar sig. Om du vill ange det här attributet använder du något av följande giltiga strängvärden:
 
@@ -191,7 +191,7 @@ Exempel:
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| Hemsida |String |
+| Hemsida |Sträng |
 
 URL:en till programmets startsida.
 
@@ -202,7 +202,7 @@ URL:en till programmets startsida.
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-|Objectid | String |
+|Objectid | Sträng |
 
 Den unika identifieraren för appen i katalogen.
 
@@ -218,7 +218,7 @@ Exempel:
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| tillvalKlamörer | String |
+| tillvalKlamörer | Sträng |
 
 De valfria anspråk som returneras i token av säkerhetstokentjänsten för den här specifika appen.
 
@@ -234,7 +234,7 @@ Exempel:
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| id | String |
+| id | Sträng |
 
 Den unika identifieraren för appen i katalogen. Det här ID:t är inte den identifierare som används för att identifiera appen i en protokolltransaktion. Den används för att referera till objektet i katalogfrågor.
 
@@ -262,7 +262,7 @@ Exempel:
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| informationsurer | String |
+| informationsurer | Sträng |
 
 Anger länkarna till appens användarvillkor och sekretesspolicy. Villkoren för tjänsten och sekretesspolicyn visas för användarna genom användarsamtyckesupplevelsen. Mer information finns i [Så här lägger du till användarvillkor och sekretesspolicy för registrerade Azure AD-appar](howto-add-terms-of-service-privacy-statement.md).
 
@@ -319,7 +319,7 @@ Exempel:
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| logoUrl (logotypUrl) | String |
+| logoUrl (logotypUrl) | Sträng |
 
 Skrivskyddat värde som pekar på CDN-URL:en till-logotypen som laddades upp i portalen.
 
@@ -333,7 +333,7 @@ Exempel:
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| logoutUrl | String |
+| logoutUrl | Sträng |
 
 URL:en för att logga ut från appen.
 
@@ -347,7 +347,7 @@ Exempel:
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| namn | String |
+| namn | Sträng |
 
 Appens visningsnamn.
 
@@ -361,7 +361,7 @@ Exempel:
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| oauth2AllowImplicitFlow | Boolean |
+| oauth2AllowImplicitFlow | Boolesk |
 
 Anger om den här webbappen kan begära OAuth2.0 implicita flödesåtkomsttoken. Standardvärdet är falskt. Den här flaggan används för webbläsarbaserade appar, till exempel JavaScript-appar med en sida. Om du vill `OAuth 2.0 implicit grant flow` veta mer anger du i innehållsförteckningen och läser avsnitten om implicit flöde.
 
@@ -375,7 +375,7 @@ Exempel:
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| oauth2AllowIdTokenImplicitFlow | Boolean |
+| oauth2AllowIdTokenImplicitFlow | Boolesk |
 
 Anger om den här webbappen kan begära OAuth2.0 implicita flödes-ID-token. Standardvärdet är falskt. Den här flaggan används för webbläsarbaserade appar, till exempel JavaScript-appar med en sida.
 
@@ -414,7 +414,7 @@ Exempel:
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| oauth2RequiredPostResponse | Boolean |
+| oauth2RequiredPostResponse | Boolesk |
 
 Anger om Azure AD, som en del av OAuth 2.0-tokenbegäranden, tillåter POST-begäranden, i motsats till GET-begäranden. Standardvärdet är falskt, vilket anger att endast GET-begäranden tillåts.
 
@@ -428,7 +428,7 @@ Exempel:
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| föräldrakontroller | String |
+| föräldrakontroller | Sträng |
 
 - `countriesBlockedForMinors`anger i vilka länder appen är blockerad för minderåriga.
 - `legalAgeGroupRule`anger den regel om juridisk åldersgrupp som gäller för användare av appen. Kan ställas `Allow`in `RequireConsentForPrivacyServices` `RequireConsentForMinors`på `RequireConsentForKids`, `BlockMinors`, , eller .  
@@ -489,7 +489,7 @@ Exempel:
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| offentligaClient | Boolean|
+| offentligaClient | Boolesk|
 
 Anger om det här programmet är en offentlig klient (till exempel ett installerat program som körs på en mobil enhet). 
 
@@ -499,7 +499,7 @@ Den här egenskapen är endast tillgänglig i **appregistreringarna (Legacy)** u
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| utgivareDomain | String |
+| utgivareDomain | Sträng |
 
 Den verifierade utgivardomänen för programmet. Skrivskyddad.
 
@@ -574,7 +574,7 @@ Exempel:
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| samlMetadataUrl | String |
+| samlMetadataUrl | Sträng |
 
 URL:en till SAML-metadata för appen.
 
@@ -588,7 +588,7 @@ Exempel:
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| signInUrl | String |
+| signInUrl | Sträng |
 
 Anger URL:en till appens startsida.
 
@@ -602,7 +602,7 @@ Exempel:
 
 | Nyckel | Värdetyp |
 | :--- | :--- |
-| teckenInAudience | String |
+| teckenInAudience | Sträng |
 
 Anger vilka Microsoft-konton som stöds för det aktuella programmet. Värden som stöds är:
 - `AzureADMyOrg`- Användare med ett Microsoft-arbets- eller skolkonto i organisationens Azure AD-klientorganisation (till exempel en enda klientorganisation)

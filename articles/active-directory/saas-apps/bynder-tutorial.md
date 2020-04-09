@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 456fc2a736b3213a14e5704f89a808c120c45b33
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1848610250e696807acef118384f43d2a51442ca
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73158677"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984495"
 ---
 # <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>Självstudiekurs: Integrera Bynder med Azure Active Directory
 
@@ -84,13 +84,25 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
 1. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** anger du värdena för följande fält:
 
-    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://<company name>.getbynder.com`
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
+    
+    För en standarddomän:`https://<company name>.getbynder.com`
+    
+    För en anpassad domän:`https;//<subdomain>.<domain>.com`
 
-    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<company name>.getbynder.com/sso/SAML/authenticate/`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster:
+    
+     För en standarddomän:`https://<company name>.getbynder.com/sso/SAML/authenticate/`
+    
+    För en anpassad domän:`https://<subdomain>.<domain>.com/sso/SAML/authenticate/`
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<company name>.getbynder.com/login/`
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
+    
+     För en standarddomän:`https://<company name>.getbynder.com/login/`
+    
+     För en anpassad domän:` https://<subdomain>.<domain>.com/login/`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Bynder-klientens supportteam](https://www.bynder.com/en/support/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

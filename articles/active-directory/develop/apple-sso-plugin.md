@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 7233a0bba5cf30eab018bfa744a7322303300604
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: a6af1a78582ebf62aed82bad8fa06cac37f511ea
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80550323"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80982590"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Microsoft Enterprise SSO-plugin-program för Apple-enheter (förhandsversion)
 
@@ -27,7 +27,7 @@ ms.locfileid: "80550323"
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-*Microsoft Enterprise SSO-plugin-programmet för Apple-enheter* tillhandahåller SSO (Single Sign-on) för Active Directory-konton i alla program som stöder Apples [enstaka inloggningsfunktion för Företag.](https://developer.apple.com/documentation/authenticationservices) Microsoft har haft ett nära samarbete med Apple för att utveckla den här plugin-modulen för att öka programmets användbarhet samtidigt som det ger det bästa skydd som Apple och Microsoft kan ge.
+*Microsoft Enterprise SSO-plugin-programmet för Apple-enheter* tillhandahåller SSO-konton (Single Sign-on) för Azure Active Directory (Azure AD) i alla program som stöder Apples funktion för [enkel inloggning i Företag.](https://developer.apple.com/documentation/authenticationservices) Microsoft har haft ett nära samarbete med Apple för att utveckla den här plugin-modulen för att öka programmets användbarhet samtidigt som det ger det bästa skydd som Apple och Microsoft kan ge.
 
 I den här versionen av public preview är Enterprise SSO-plugin-programmet endast tillgängligt för iOS-enheter och distribueras i vissa Microsoft-program.
 
@@ -37,7 +37,7 @@ Vår första användning av Enterprise SSO plug-in är med vår nya [delade enhe
 
 Microsoft Enterprise SSO-plugin-programmet för Apple-enheter erbjuder följande fördelar:
 
-- Tillhandahåller SSO för Active Directory-konton i alla program som stöder Apples enstaka inloggningsfunktion för företag.
+- Tillhandahåller SSO för Azure AD-konton i alla program som stöder Apples funktion för enkel inloggning i Företag.
 - Levereras automatiskt i Microsoft Authenticator och kan aktiveras av alla MDM-lösningar (Mobile Device Management).
 
 ## <a name="requirements"></a>Krav

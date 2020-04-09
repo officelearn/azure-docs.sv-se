@@ -2,20 +2,22 @@
 title: Samla in & analysera resursloggar
 description: Lär dig hur du skickar resursloggar och händelsedata från behållargrupper i Azure Container Instances till Azure Monitor-loggar
 ms.topic: article
-ms.date: 01/08/2020
+ms.date: 04/07/2020
 ms.author: danlep
-ms.openlocfilehash: 304e98fff386911b878877d2f03d489d0eef5dd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd21a511641d5ea027c18bedb4dce47749110bcb
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75770551"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892401"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Behållargrupp och instansloggning med Azure Monitor-loggar
 
 Log Analytics-arbetsytor ger en centraliserad plats för lagring och fråga loggdata inte bara från Azure-resurser, men också lokala resurser och resurser i andra moln. Azure Container Instances innehåller inbyggt stöd för att skicka loggar och händelsedata till Azure Monitor-loggar.
 
-Om du vill skicka logg- och händelsedata för behållargrupper till Azure Monitor-loggar anger du ett befintligt logganalysarbetsyte-ID och arbetsytenyckel när du skapar en behållargrupp. I följande avsnitt beskrivs hur du skapar en loggningsaktiverad behållargrupp och hur du frågar efter loggar.
+Om du vill skicka logg- och händelsedata för behållargrupper till Azure Monitor-loggar anger du ett befintligt logganalysarbetsyte-ID och arbetsytenyckel när du konfigurerar en behållargrupp. 
+
+I följande avsnitt beskrivs hur du skapar en loggningsaktiverad behållargrupp och hur du frågar efter loggar. Du kan också [uppdatera en behållargrupp](container-instances-update.md) med ett arbetsyte-ID och arbetsytenyckel för att aktivera loggning.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

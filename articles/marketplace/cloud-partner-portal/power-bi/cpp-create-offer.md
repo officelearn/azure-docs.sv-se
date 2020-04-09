@@ -7,17 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
-ms.openlocfilehash: 43bb34a80d8d62cfa2bde445b94fb97da25ccda3
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: c396468bff0edef5cfceccd3d3c3394662111c10
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745474"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80984852"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Skapa ett Power BI-apperbjudande
 
 >[!Important]
->Från och med den 30 mars 2020 börjar vi flytta hanteringen av dina Power BI-appar till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [översikten över hur du skapar Power BI-appar](https://aka.ms/AzureCreatePBIServiceApp) för att hantera dina migrerade erbjudanden.
+>Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Power BI-appar till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [översikten över hur du skapar Power BI-appar](https://aka.ms/AzureCreatePBIServiceApp) för att hantera dina migrerade erbjudanden.
 
 I den här artikeln visas de steg som ska följas för att skapa ett nytt Power BI-apperbjudande för [AppSource](https://appsource.microsoft.com). Varje erbjudande visas som sin egen entitet i AppSource. När du skapar ett nytt erbjudande i [Cloud Partner Portal](https://cloudpartner.azure.com/)måste du ange fyra grupper av tillgångar för ditt erbjudande.
 
@@ -44,7 +44,7 @@ När du har loggat in på Cloud Partner Portal väljer du **Nytt erbjudande** i 
 
 I följande artiklar beskrivs flikarna på sidan **Nytt erbjudande** för en Power BI-app-erbjudandetyp. I varje artikel beskrivs tillgångsgrupperna och stödtjänsterna för ditt nya Power BI-apperbjudande.
 
--  [fliken Erbjudandeinställningar](./cpp-offer-settings-tab.md)
+-  [Fliken Erbjudandeinställningar](./cpp-offer-settings-tab.md)
 -  [Fliken Teknisk information](./cpp-technical-info-tab.md)
 -  [Fliken Butiksinformation](./cpp-storefront-details-tab.md)
 -  [Fliken Kontakter](./cpp-contacts-tab.md)

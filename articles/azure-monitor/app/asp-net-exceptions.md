@@ -3,12 +3,12 @@ title: Diagnostisera fel och undantag med Azure Application Insights
 description: Samla in undantag från ASP.NET appar tillsammans med begärandetelemetri.
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: ccfcb354e27d36f40810b114a1729cf6addf8fb6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f24f09e7d2ef0a3e5f3a8f6546a9115118473ab
+ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294694"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80892350"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostisera undantag i dina webbappar med Application Insights
 Undantag i din live-webbapp rapporteras av [Application Insights](../../azure-monitor/app/app-insights-overview.md). Du kan korrelera misslyckade begäranden med undantag och andra händelser på både klienten och servern, så att du snabbt kan diagnostisera orsakerna.
@@ -19,7 +19,7 @@ Undantag i din live-webbapp rapporteras av [Application Insights](../../azure-mo
   * Azure VM och Azure virtual machine scale set IIS-värdappar: Lägg till [tillägget programövervakning](../../azure-monitor/app/azure-vm-vmss-apps.md)
   * Installera [Application Insights SDK](../../azure-monitor/app/asp-net.md) i din appkod, eller
   * IIS-webbservrar: Kör [Application Insights Agent](../../azure-monitor/app/monitor-performance-live-website-now.md); Eller
-  * Java-webbappar: Installera [Java-agenten](../../azure-monitor/app/java-agent.md)
+  * Java-webbappar: Aktivera [Java-agenten](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
 * Installera [JavaScript-kodavsnittet](../../azure-monitor/app/javascript.md) på webbsidorna för att fånga upp webbläsarundantag.
 * I vissa programramverk eller med vissa inställningar måste du vidta några extra åtgärder för att fånga fler undantag:
   * [Webbformulär](#web-forms)

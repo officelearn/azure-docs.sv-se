@@ -1,19 +1,19 @@
 ---
-title: Använda mallreferens
+title: Använd mallreferens
 description: Använd mallreferensen för Azure Resource Manager för att skapa en mall.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: b742982121a20a2b057eba4211584b0386dde411
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b713d508a5e28291778d3727c15e12972eea3a77
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80373430"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878529"
 ---
-# <a name="tutorial-utilize-the-arm-template-reference"></a>Självstudiekurs: Använd ARM-mallreferensen
+# <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Självstudiekurs: Använd mallreferensen för Resurshanteraren
 
 Lär dig hur du hittar mallschemainformationen och använder informationen för att skapa ARM-mallar (Azure Resource Manager).
 
@@ -65,9 +65,13 @@ För att kunna följa stegen i den här artikeln behöver du:
     * **resources** (resurser): ange de resurstyper som distribueras eller uppdateras i en resursgrupp.
     * **outputs** (utdata): ange de värden som returneras efter distributionen.
 
-1. Expandera **resurser**. Det finns en `Microsoft.Storage/storageAccounts`-resurs som definierats.
+1. Expandera **resurser**. Det finns en `Microsoft.Storage/storageAccounts`-resurs som definierats. SKU-namnet använder ett parametervärde.  Parametern kallas **storageAccountType**.
 
     ![Definition av lagringskonto för Resource Manager-mall](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resource.png)
+
+1. Expandera **parametrar för** att se hur **storageAccountType** definieras. Parametern har fyra tillåtna värden. Du hittar de andra tillåtna värdena och ändrar sedan parameterdefinitionen.
+
+    ![Resurser för lagringskonto för Resurshanterarens mallkonto](./media/template-tutorial-use-template-reference/resource-manager-template-storage-resources-skus-old.png)
 
 ## <a name="find-the-template-reference"></a>Leta upp mallreferensen
 
@@ -84,7 +88,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 
     ![Resurshanterarens referenslagringskontotyper versioner](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts-types-versions.png)
 
-1. Välj den senaste versionen av **resurstypen storageAccount.**  Den senaste versionen är **2019-06-01** när den här artikeln är skriven.
+1. Välj den senaste versionen av **resurstypen storageAccount.** Den senaste versionen är **2019-06-01** när den här artikeln är skriven. Kontrollera att den här versionen matchar den version som används för lagringskontoresursen i mallen. Om du uppdaterar API-versionen kontrollerar du att resursdefinitionen matchar mallreferensen.
 
 1. På den här sidan visas information om resurstypen storageAccount.  Den visar till exempel de tillåtna värdena för **Sku-objektet.** Det finns fler skus än vad som anges i snabbstartsmallen som du öppnade tidigare. Du kan anpassa snabbstartsmallen så att den innehåller alla tillgängliga lagringstyper.
 
@@ -98,7 +102,21 @@ Från Visual Studio Code lägger du till ytterligare lagringskontotyper som visa
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-Mer information finns i avsnittet [Distribuera mallen](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) i Visual Studio Code-snabbstarten för distributionen. När du distribuerar mallen anger du parametern **storageAccountType** med ett nytt mervärde, till exempel **Premium_ZRS**. Distributionen misslyckas om du använder den ursprungliga snabbstartsmallen eftersom **Premium_ZRS** inte var ett tillåtet värde.
+Mer information finns i avsnittet [Distribuera mallen](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) i Visual Studio Code-snabbstarten för distributionen. När du distribuerar mallen anger du parametern **storageAccountType** med ett nytt mervärde, till exempel **Premium_ZRS**. Distributionen misslyckas om du använder den ursprungliga snabbstartsmallen eftersom **Premium_ZRS** inte var ett tillåtet värde.  Om du vill skicka parametervärdet lägger du till följande växel i distributionskommandot:
+
+# <a name="cli"></a>[CLI](#tab/CLI)
+
+```azurecli
+--parameters storageAccountType='Premium_ZRS'
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell
+-storageAccountType "Premium_ZRS"
+```
+
+---
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

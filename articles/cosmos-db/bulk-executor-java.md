@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: bf2a2385b3129ddf24ede7f6d851701186b0e33c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f5c6562c6def1fa588724b3bc5da502536b16aa9
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75445716"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80985651"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Använda massexecutor-biblioteket i Java för att utföra massåtgärder på Azure Cosmos DB-data
 
@@ -28,7 +28,7 @@ För närvarande stöds massutnämningsbiblioteket endast av Azure Cosmos DB SQL
 
 * Du kan [prova Azure Cosmos DB gratis](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, kostnadsfritt och åtaganden. Du kan också använda [Azure Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator) med `https://localhost:8081` slutpunkten. Primärnyckeln finns i [Autentisera begäranden](local-emulator.md#authenticating-requests).  
 
-* [Java Development Kit (JDK) 1,7+](https://aka.ms/azure-jdks)  
+* [Java Development Kit (JDK) 1,7+](/java/azure/jdk/?view=azure-java-stable)  
   - I Ubuntu kör du `apt-get install default-jdk` för att installera JDK-paketet.  
 
   - Tänk på att ställa in miljövariabeln JAVA_HOME så att den pekar på den mapp där JDK-paketet är installerat.
@@ -130,7 +130,7 @@ Den klonade databasen innehåller två exempel "bulkimport" och "bulkupdate" i f
 6. När målberoendena har genererats kan du anropa massimportörsprogrammet med hjälp av följande kommando:  
 
    ```java
-   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB’s endpoint>*  -masterKey *<Fill in your Azure Cosmos DB’s master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
+   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB's endpoint>*  -masterKey *<Fill in your Azure Cosmos DB's master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
    Massimportören skapar en ny databas och en samling med databasnamn, samlingsnamn och dataflödesvärden som anges i filen App.config. 
@@ -150,7 +150,7 @@ Du kan uppdatera befintliga dokument med hjälp av MassUpdateAsync API. I det h�
    updateOperations.add(descriptionUpdate);
 
    List<UpdateItem> updateItems = new ArrayList<>(cfg.getNumberOfDocumentsForEachCheckpoint());
-   IntStream.range(0, cfg.getNumberOfDocumentsForEachCheckpoint()).mapToObj(j -> {                      
+   IntStream.range(0, cfg.getNumberOfDocumentsForEachCheckpoint()).mapToObj(j -> {                        
     return new UpdateItem(Long.toString(prefix + j), Long.toString(prefix + j), updateOperations);
     }).collect(Collectors.toCollection(() -> updateItems));
    ```
@@ -182,7 +182,7 @@ Du kan uppdatera befintliga dokument med hjälp av MassUpdateAsync API. I det h�
    |int getNumberOfDocumentsUpdated()  |   Det totala antalet dokument som har uppdaterats av de dokument som lämnats till API-anropet för massuppdatering.      |
    |dubbel getTotalRequestUnitsConsumed() |  De totala begärandeenheter (RU) som förbrukas av API-anropet för massuppdatering.       |
    |Varaktighet getTotalTimeTaken()  |   Den totala tid det tar för massuppdaterings-API-anropet att slutföra körningen.      |
-   |Lista\<undantag> getErrors()   |    Hämtar listan över fel om vissa dokument från batchen som levereras till API-anropet för massuppdatering inte kunde infogas.      |
+   |Lista\<undantag> getErrors()   |       Hämtar listan över fel om vissa dokument från batchen som levereras till API-anropet för massuppdatering inte kunde infogas.      |
 
 3. När du har massuppdateringsprogrammet klart skapar du kommandoradsverktyget från källan med kommandot "mvn clean package". Det här kommandot genererar en jar-fil i målmappen:  
 
@@ -193,7 +193,7 @@ Du kan uppdatera befintliga dokument med hjälp av MassUpdateAsync API. I det h�
 4. När målberoendena har genererats kan du anropa massuppdateringsprogrammet med hjälp av följande kommando:
 
    ```
-   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB’s endpoint>* -masterKey **<Fill in your Azure Cosmos DB’s master key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
+   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB's endpoint>* -masterKey **<Fill in your Azure Cosmos DB's master key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
 ## <a name="performance-tips"></a>Prestandatips 

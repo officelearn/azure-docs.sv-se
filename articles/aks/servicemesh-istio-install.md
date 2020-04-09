@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/19/2020
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: f0fe4ab46bfe5c0c0c2ea67aa2e2694321628be5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1d02cb42a86023e5c341daab678c39f22f75dda
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136371"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877702"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installera och använda Istio i Azure Kubernetes Service (AKS)
 
@@ -97,7 +97,10 @@ Helm-installationsmetoden för Istio kommer att vara föråldrad i framtiden. [H
 > Istio måste för närvarande schemaläggas för att köras på Linux-noder. Om du har Windows Server-noder i klustret måste du se till att Istio-poddarna endast är schemalagda att köras på Linux-noder. Vi använder [nodväljare][kubernetes-node-selectors] för att se till att poddar är schemalagda till rätt noder.
 
 > [!CAUTION]
-> [SDS (secret discovery service)][istio-feature-sds] och [Istio CNI][istio-feature-cni] Istio funktioner är för närvarande i [Alpha][istio-feature-stages], så tänkte bör ges innan du aktiverar dessa. Dessutom är [funktionen Service Account Token Volume Projection][kubernetes-feature-sa-projected-volume] Kubernetes (ett krav för SDS) inte aktiverad i aktuella AKS-versioner.
+> [SDS (secret discovery service)][istio-feature-sds] och [Istio CNI][istio-feature-cni] Istio funktioner är för närvarande i [Alpha][istio-feature-stages], så tänkte bör ges innan du aktiverar dessa. 
+>
+> Observera att [funktionen Service Account Token Volume Projection][kubernetes-feature-sa-projected-volume] Kubernetes (ett krav för SDS) nu är **aktiverad** för alla Kubernetes 1.13 och högre versioner på AKS.
+
 Skapa en `istio.aks.yaml` fil som anropas med följande innehåll. Den här filen kommer att innehålla [Itio kontrollplan spec][istio-control-plane] detaljer för att konfigurera Istio.
 
 ```yaml

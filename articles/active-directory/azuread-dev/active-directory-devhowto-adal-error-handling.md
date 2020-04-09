@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9fc45ead65a29f2e7567133b5af4667bdb7c79ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8973412b2d6575d524874ba05b34af7661655e19
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80154992"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981077"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Metodtips för felhantering för ADAL-klienter (Azure Active Directory Authentication Library)
 
@@ -543,7 +543,7 @@ För att utforska specifika ADAL-fel är källkoden i [den azure-activedirectory
 
 #### <a name="operating-system-errors"></a>Operativsystemfel
 
-iOS-fel kan uppstå vid inloggning när användare använder webbvyer och vilken typ av autentisering det innebär. Detta kan orsakas av tillstånd som SSL-fel, timeout eller nätverksfel:
+iOS-fel kan uppstå vid inloggning när användare använder webbvyer och vilken typ av autentisering det innebär. Detta kan orsakas av tillstånd som TLS-fel, timeout eller nätverksfel:
 
 - För berättigandedelning är inloggningar inte beständiga och cachen visas tom. Du kan lösa genom att lägga till följande kodrad i nyckelringen:`[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
 - För NsUrlDomain-uppsättningen fel ändras åtgärden beroende på applogiken. Se [referensdokumentationen NSURLErrorDomain](https://developer.apple.com/documentation/foundation/nsurlerrordomain#declarations) för specifika instanser som kan hanteras.

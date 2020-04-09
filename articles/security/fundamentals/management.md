@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2019
+ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: e50eb561bcbb924ea093722d6c61bbe51747b328
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: e1223560c5d7b19bf9da4c7c16a56c4741e582a0
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811271"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80981315"
 ---
 # <a name="security-management-in-azure"></a>Säkerhetshantering i Azure
 Azure-prenumeranter kan hantera sina molnmiljöer från flera enheter, inklusive hantering av arbetsstationer, utvecklardatorer och även privilegierade slutanvändarens enheter som har uppgiftsspecifika behörigheter. I vissa fall kan administrativa funktioner utförs via webbaserade konsoler som [Azure-portalen](https://azure.microsoft.com/features/azure-portal/). I andra fall kan det finnas direkta anslutningar till Azure från lokala system över virtuella privata nätverk (VPN), Terminal Services, klientprotokoll för program eller (programmässigt) Azure Service Management API (SMAPI). Dessutom kan klientslutpunkter vara antingen domänanslutna eller isolerade och ohanterade, till exempel surfplattor eller smartphones.
@@ -145,9 +145,6 @@ Vi rekommenderar tre primära konfigurationer för en förstärkt dator. De stö
 | - | Tydlig uppdelning av uppgifter | - |
 | Företagets dator som virtuell dator |Minskade maskinvarukostnader | - |
 | - | Uppdelning av roll och program | - |
-| Windows To Go med BitLocker-diskkryptering |Kompatibilitet med de flesta datorer |Tillgångar |
-| - | Kostnadseffektivitet och portabilitet | - |
-| - | Isolerad hanteringsmiljö |- |
 
 Det är viktigt att den förstärkta datorn är värden och inte gäst, utan något mellan värdoperativsystemet och maskinvaran. Att följa ”principen om ren källa” (även kallat ”säkert ursprung”) innebär att värden ska vara den som är mest förstärkt. I annat fall kan den förstärkta datorn (gäst) utsättas för angrepp i det system som är värd.
 
@@ -170,15 +167,6 @@ I fall där en separat fristående strikt dator är kostnadshindrande eller olä
 Du kan undvika flera säkerhetsrisker som kan uppstå när du använder en dator för systemhantering och andra dagliga arbetsuppgifter genom att distribuera en virtuell Windows Hyper-V-dator till den strikta datorn. Den här virtuella datorn kan användas som företagets dator. Företagsdatorn kan förbli isolerad från värden, vilket minskar dess angreppsyta och tar bort användarens dagliga aktiviteter (till exempel mejl) så att de inte finns tillsammans med känsliga administrativa uppgifter.
 
 Företagets virtuella dator körs i ett skyddat utrymme och tillhandahåller användarprogram. Värden är en ”ren källa” och tillämpar strikta nätverksprinciper i rotoperativsystemet (till exempel att blockera RDP-åtkomst från den virtuella datorn).
-
-### <a name="windows-to-go"></a>Windows To Go
-Ett annat alternativ till att kräva en fristående strikt dator är att använda en [Windows To Go](https://technet.microsoft.com/library/hh831833.aspx)-enhet, en funktion som har stöd för en funktion för USB-start på klientsidan. Med Windows To Go kan användare starta en kompatibel dator till en isolerad systemavbildning som körs från en krypterad USB-enhet. Det innehåller ytterligare kontroller för slutpunkter för fjärradministration eftersom avbildningen kan hanteras helt av företagets IT-grupp med strikta säkerhetsprinciper, en minimal OS-version och TP-stöd.
-
-I bilden nedan är den bärbara avbildningen ett domänanslutet system som är förinställt att bara ansluta till Azure, kräva multifaktorautentisering och blockera all trafik som inte rör hantering. Om en användare startar samma dator till företagets standardavbildning och försöker komma åt RD Gateway för Azure-hanteringsverktyg blockeras sessionen. Windows To Go blir operativsystemet på rotnivå och inga ytterligare lager krävs (värdoperativsystem, hypervisor, virtuell dator) som kan vara mer sårbara för angrepp utifrån.
-
-![](./media/management/hardened-workstation-using-windows-to-go-on-a-usb-flash-drive.png)
-
-Det är viktigt att komma ihåg att USB-flash-enheter försvinner lättare än en genomsnittlig stationär dator. Om du använder BitLocker för att kryptera hela volymen, tillsammans med ett starkt lösenord, minskar risken för att en angripare kan använda enhetsavbildningen i skadliga syften. Dessutom kan du minska exponeringen genom att återkalla och [utfärda ett nytt certifikat](https://technet.microsoft.com/library/hh831574.aspx) samt göra en snabb återställning av lösenordet om USB-flash-enheten skulle försvinna. Med hjälp av administrativa granskningsloggar i Azure, inte på klienten, kan du ytterligare reducera potentiella dataförluster.
 
 ## <a name="best-practices"></a>Bästa praxis
 Tänk även på följande riktlinjer när du hanterar program och data i Azure.
@@ -215,7 +203,7 @@ Genom att minimera antalet uppgifter som administratörer kan utföra på en hä
 * Grupprincip. Skapa en global administrativ princip som tillämpas på alla domändatorer som används för hantering (och blockera åtkomst från alla andra) samt för användarkonton som autentiseras på datorerna.
 * Säkrare etablering. Skydda dig mot manipulation genom att skydda baslinjens härdade datoravbildning. Använd säkerhetsåtgärder som kryptering och isolering för att lagra avbildningar, virtuella datorer och skript och begränsa åtkomsten (till exempel genom att använda en granskningsbar in-/utcheckningsprocess).
 * Korrigering. Underhåll en konsekvent avbildning (eller ha separata avbildningar för utveckling, åtgärder och andra administrativa uppgifter), sök regelbundet efter ändringar och skadlig kod, uppdatera kontinuerligt  och aktivera bara datorer när de behövs.
-* Kryptering. Kontrollera att hanteringsdatorerna har en TPM så att du kan aktivera [krypterande filsystem](https://technet.microsoft.com/library/cc700811.aspx) (EFS) och BitLocker på ett säkert sätt. Om du använder Windows To Go använder du bara krypterade USB-nycklar tillsammans med BitLocker.
+* Kryptering. Kontrollera att hanteringsdatorerna har en TPM så att du kan aktivera [krypterande filsystem](https://technet.microsoft.com/library/cc700811.aspx) (EFS) och BitLocker på ett säkert sätt.
 * Styrning. Styr alla administratörens Windows-gränssnitt (till exempel fildelning) genom att använda AD DS-grupprincipobjekt. Inkludera hanteringsdatorer processerna för granskning, övervakning och loggning. Spåra alla administratörers och utvecklares åtkomst och användning.
 
 ## <a name="summary"></a>Sammanfattning

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: fae4206e555c85fe0555ce1c4366cd57dd386f1e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: efe2c96c619aaf92efc5b4abf76b6b89c96ebd37
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79471837"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878042"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Självstudiekurs: Konfigurera HTTPS på en anpassad Front Door-domän
 
@@ -37,7 +37,7 @@ I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
 > - Aktivera HTTPS-protokollet på din anpassade domän.
 > - Använda ett AFD-hanterat certifikat 
-> - Använda ditt eget certifikat, det vill säga ett anpassat SSL-certifikat
+> - Använd ditt eget certifikat, det villa om ett anpassat TLS/SSL-certifikat
 > - Verifiera domänen
 > - Inaktivera HTTPS-protokollet på en anpassad domän
 
@@ -48,9 +48,9 @@ I den här självstudiekursen får du lära du dig att:
 
 Innan du kan slutföra stegen i den här kursen måste du först skapa en Front Door och med minst en anpassad domän publicerad. Mer information finns i [Självstudiekurs: Lägga till en anpassad domän i din Front Door](front-door-custom-domain.md).
 
-## <a name="ssl-certificates"></a>SSL-certifikat
+## <a name="tlsssl-certificates"></a>TLS/SSL-certifikat
 
-Om du vill aktivera protokollet HTTPS för säker leverans av innehåll i en anpassad Front Door-domän måste du använda ett SSL-certifikat. Du kan välja att använda ett certifikat som hanteras av Azure Front Door eller använda ditt eget certifikat.
+Om du vill aktivera HTTPS-protokollet för att på ett säkert sätt leverera innehåll på en anpassad domän för ytterdörren måste du använda ett TLS/SSL-certifikat. Du kan välja att använda ett certifikat som hanteras av Azure Front Door eller använda ditt eget certifikat.
 
 
 ### <a name="option-1-default-use-a-certificate-managed-by-front-door"></a>Alternativ 1 (standard): Använd ett certifikat som hanteras av Front Door
@@ -72,7 +72,7 @@ Följ dessa steg om du vill aktivera HTTPS på en anpassad domän:
 
 ### <a name="option-2-use-your-own-certificate"></a>Alternativ 2: Använda ditt eget certifikat
 
-Du kan använda ditt eget certifikat för att aktivera HTTPS. Detta görs via en integrering med Azure Key Vault där du kan lagra certifikaten säkert. Azure Front Door använder den här säkra mekanismen för att hämta ditt certifikat och det kräver några ytterligare steg. När du skapar ett SSL-certifikat måste du skapa det med en tillåten certifikatutfärdare (CA). Om du använder en icke-tillåten certifikatutfärdare kan din begäran avvisas. En lista över tillåtna certifikatutfärdare finns i [Tillåtna certifikatutfärdare för att aktivera anpassad HTTPS på Azure Front Door](front-door-troubleshoot-allowed-ca.md).
+Du kan använda ditt eget certifikat för att aktivera HTTPS. Detta görs via en integrering med Azure Key Vault där du kan lagra certifikaten säkert. Azure Front Door använder den här säkra mekanismen för att hämta ditt certifikat och det kräver några ytterligare steg. När du skapar TLS/SSL-certifikatet måste du skapa det med en tillåten certifikatutfärdar .When you create your TLS/SSL certificate, you must create it with an allowed certificate authority (CA). Om du använder en icke-tillåten certifikatutfärdare kan din begäran avvisas. En lista över tillåtna certifikatutfärdare finns i [Tillåtna certifikatutfärdare för att aktivera anpassad HTTPS på Azure Front Door](front-door-troubleshoot-allowed-ca.md).
 
 #### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Förbered ditt Azure Key Vault-konto och certifikat
  
@@ -84,7 +84,7 @@ Du kan använda ditt eget certifikat för att aktivera HTTPS. Detta görs via en
 2. Azure Key Vault-certifikat: Om du redan har ett certifikat kan du ladda upp det direkt till ditt Azure Key Vault-konto. Du kan också skapa ett nytt certifikat direkt via Azure Key Vault från en av partnercertifikatutfärdarna som Azure Key Vault integreras med. Ladda upp certifikatet som ett **certifikatobjekt** i stället för ett **hemligt**.
 
 > [!NOTE]
-> För ditt eget SSL-certifikat stöder Ytterdörren inte certifikat med EC-krypteringsalgoritmer.
+> För ditt eget TLS/SSL-certifikat stöder Ytterdörren inte certifikat med EC-krypteringsalgoritmer.
 
 #### <a name="register-azure-front-door"></a>Registrera Azure ytterdörr
 
@@ -260,7 +260,7 @@ I följande tabell visas åtgärdsförloppet när du inaktiverar HTTPS. När du 
 
 4. *Är det mindre säkert att använda ett SAN-certifikat än att använda ett dedikerat certifikat?*
     
-    Ett SAN-certifikat följer samma standarder för kryptering och säkerhet som ett dedikerat certifikat. Alla utfärdade SSL-certifikat använder SHA-256 för förbättrad serversäkerhet.
+    Ett SAN-certifikat följer samma standarder för kryptering och säkerhet som ett dedikerat certifikat. Alla utfärdade TLS/SSL-certifikat använder SHA-256 för förbättrad serversäkerhet.
 
 5. *Behöver jag en CAA-post (Certificate Authority Authorization) med DNS-leverantören?*
 

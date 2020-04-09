@@ -16,12 +16,12 @@ ms.date: 06/25/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5486a8d8bd4c295f49e0ab847daf45d0fcab47ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d3f6b698922440c6e3e9b488cca93ca8d98d9c59
+ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78300544"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80983083"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Tjänstfunktioner för Azure AD Connect-synkronisering
 
@@ -89,12 +89,14 @@ Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 
 ## <a name="synchronize-userprincipalname-updates"></a>Synkronisera uppdateringar för userPrincipalName
 
-Historiskt sett har uppdateringar av attributet UserPrincipalName med synkroniseringstjänsten från lokala spärrats, såvida inte båda dessa villkor är sanna:
+Historiskt sett har uppdateringar av attributet UserPrincipalName med synkroniseringstjänsten från lokala spärrats, såvida inte båda dessa villkor var uppfyllda:
 
 * Användaren hanteras (icke-federerade).
 * Användaren har inte tilldelats någon licens.
 
-Mer information finns [i Användarnamn i Office 365, Azure eller Intune matchar inte det lokala UPN- eller alternativa inloggnings-ID:t](https://support.microsoft.com/kb/2523192).
+> [!NOTE]
+> Från och med mars 2019 tillåts synkronisering av UPN-ändringar för federerade användarkonton.
+> 
 
 Om du aktiverar den här funktionen kan synkroniseringsmotorn uppdatera användarenPrincipalName när den ändras lokalt och du använder synkronisering av lösenord hash- eller direktautentisering.
 

@@ -39,6 +39,8 @@
       href: streaming-technologies.md
     - name: Välja ett jobbutvecklingsverktyg
       href: feature-comparison.md
+    - name: Utveckla lokalt
+      href: develop-locally.md
     - name: Indatatyper för ett jobb
       items:
         - name: Översikt över indata

@@ -6,12 +6,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 0f7c48c47e400c2db53b024267fbf9d9690ea404
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a39cd7aa2c15fedeaf69408d8c8ae8c6b0848fed
+ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79204689"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80677390"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-azure-dedicated-hosts"></a>Så tillämpas rabatten för Azure-reservation på Azure Dedicated Hosts
 
@@ -21,7 +21,7 @@ När du har köpt en reserverad Azure Dedicated Hosts-instans tillämpas reserva
 
 Reservationsrabatter *går förlorade om de inte används*. Om du inte har några matchande resurser för en viss timme förlorar du därmed en reservationskvantitet för den timmen. Det går inte att föra vidare oanvända reserverade timmar.
 
-När du tar bort en reserverad värd tillämpas reservationsrabatten automatiskt på en annan matchande resurs i det angivna omfånget. Om det inte finns några matchande resurser i det angivna omfånget går de reserverade timmarna  *förlorade*.
+När du tar bort en reserverad värd tillämpas reservationsrabatten automatiskt på en annan matchande resurs i det angivna omfånget. Om det inte finns några matchande resurser i det angivna omfånget går de reserverade timmarna *förlorade*.
 
 ## <a name="reservation-discount-for-dedicated-hosts"></a>Reservationsrabatt för reserverade värdar
 

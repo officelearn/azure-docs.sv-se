@@ -9,12 +9,12 @@ metadata:
   author: ggailey777
   ms.author: azfundocs
   ms.date: 09/17/2019
-  ms.openlocfilehash: 58280fd65558cc6785cc40df94138f3a663dabb8
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: a08908b699d50a7e1e740f162a0b3f53fa96e434
+  ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77047236"
+  ms.lasthandoff: 04/08/2020
+  ms.locfileid: "80886576"
 landingContent:
 - title: Om Azure Functions
   linkLists:
@@ -43,7 +43,7 @@ landingContent:
     - text: Skapa din första funktion (C#)
       url: functions-create-your-first-function-visual-studio.md
     - text: Skapa din första funktion (Java)
-      url: functions-create-first-java-maven.md
+      url: functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java
     - text: Skapa din första funktion (JavaScript)
       url: functions-create-first-function-vs-code.md?pivots=programming-language-javascript
     - text: Skapa din första funktion (PowerShell)
@@ -142,7 +142,7 @@ landingContent:
     links:
     - text: Premium-värdplan
       url: functions-premium-plan.md
-    - text: Pålitliga funktioner
+    - text: Bestående funktioner
       url: durable/durable-functions-overview.md
   - linkListType: learn
     links:

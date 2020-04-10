@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 3e0dd6e0bb81aef340dc83288e6e5c0af0bf11c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ca913a4c197e04e20c962c4a4a7a1e479a3cdf92
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75867375"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990896"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Kopiera data från en REST-slutpunkt med hjälp av Azure Data Factory
 
@@ -46,7 +46,7 @@ Denna generiska REST-kontakt stöder:
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -60,7 +60,7 @@ Följande egenskaper stöds för den REST-länkade tjänsten:
 |:--- |:--- |:--- |
 | typ | **Egenskapen Type** måste vara **restservice**. | Ja |
 | url | Rest-tjänstens bas-URL. | Ja |
-| aktiveraServerCertificateValidation | Om SSL-certifikatet på serversidan ska valideras vid anslutning till slutpunkten. | Inga<br /> (standardvärdet är **sant)** |
+| aktiveraServerCertificateValidation | Om TLS/SSL-certifikat på serversidan ska valideras vid anslutning till slutpunkten. | Inga<br /> (standardvärdet är **sant)** |
 | authenticationType | Typ av autentisering som används för att ansluta till REST-tjänsten. Tillåtna värden är **Anonym**, **Basic**, **AadServicePrincipal** och **ManagedServiceIdentity**. Se motsvarande avsnitt nedan om fler egenskaper respektive exempel. | Ja |
 | connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. Läs mer från avsnittet [Förutsättningar.](#prerequisites) Om det inte anges använder den här egenskapen standardkörningen för Azure Integration. |Inga |
 

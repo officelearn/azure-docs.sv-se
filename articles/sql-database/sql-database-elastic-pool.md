@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
-ms.date: 08/06/2019
-ms.openlocfilehash: 8139ed8f4f4799a963a051eed96dd87c4ac38aec
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 04/09/2020
+ms.openlocfilehash: 3252ecb030234e4c5543c07dfb4fc702f850a73e
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981434"
+ms.locfileid: "80998977"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastiska pooler hjälper dig att hantera och skala flera Azure SQL-databaser
 
@@ -110,9 +110,9 @@ Den bästa storleken för en pool beror på de samlade resurser som behövs för
 - Maximala resurser som används av alla databaser i poolen (antingen maximala DTU:er eller högsta virtuella kärnor beroende på ditt val av resursmodell).
 - Högsta lagringsutrymme i byte som används av alla databaser i poolen.
 
-För tillgängliga tjänstnivåer för varje resursmodell finns i den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) eller den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
+För tillgängliga tjänstnivåer och begränsningar för varje resursmodell finns i den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) eller den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
 
-I de fall då du inte kan använda verktygsuppsättningar kan du följa stegen nedan för att ta reda på om en pool är ett mer kostnadseffektivt alternativ än enskilda databaser:
+Följande steg kan hjälpa dig att uppskatta om en pool är mer kostnadseffektiv än enskilda databaser:
 
 1. Uppskatta de eDTUs eller virtuella kärnor som behövs för poolen enligt följande:
 
@@ -126,6 +126,10 @@ I de fall då du inte kan använda verktygsuppsättningar kan du följa stegen n
 3. För den DTU-baserade inköpsmodellen tar du det större av eDTU-uppskattningarna från steg 1 och steg 2. För den vCore-baserade inköpsmodellen tar du vCore-uppskattningen från steg 1.
 4. Se [prissidan för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) och hitta den minsta poolstorleken som är större än uppskattningen från steg 3.
 5. Jämför poolpriset från steg 5 till priset för att använda lämpliga beräkningsstorlekar för enskilda databaser.
+
+> [!IMPORTANT]
+> Om antalet databaser i en pool närmar sig det maximala stöd, se till att överväga [resurshantering i täta elastiska pooler](sql-database-elastic-pool-resource-management.md).
+> 
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>Använda andra SQL Database-funktioner med elastiska pooler
 
@@ -218,7 +222,7 @@ Mer information finns [i skapa SQL Database-aviseringar i Azure Portal](sql-data
 
 - [Daxko/CSI](https://customers.microsoft.com/story/726277-csi-daxko-partner-professional-service-azure)    
 
-   Daxko/CSI använder elastiska pooler med Azure SQL Database för att påskynda utvecklingscykeln och förbättra sina kundtjänster och prestanda.   
+   Daxko/CSI använder elastiska pooler med Azure SQL Database för att påskynda utvecklingscykeln och förbättra sina kundtjänster och prestanda.    
 
 ## <a name="next-steps"></a>Nästa steg
 

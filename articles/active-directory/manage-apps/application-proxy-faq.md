@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: ec9eeb0c35d96ee777771260686178faa536e909
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: d1929f937d86001a0f2a399b1ebd92e47bbd2c86
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80877311"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990913"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Vanliga frågor och svar om Vanliga frågor och svar om Active Directory-programproxy (Azure AD)
 
@@ -52,6 +52,9 @@ Rekommendationer finns i [Hög tillgänglighet och belastningsutjämning av prog
 ### <a name="is-tls-termination-tlshttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>Stöds TLS-avslutning (TLS/HTTPS-inspektion eller acceleration) på trafik från anslutningsservrarna till Azure?
 
 Application Proxy Connector utför certifikatbaserad autentisering till Azure. TLS-avslutning (TLS/HTTPS-inspektion eller acceleration) bryter den här autentiseringsmetoden och stöds inte. Trafik från anslutningen till Azure måste kringgå alla enheter som utför TLS-avslutning.  
+
+### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>Kan jag placera en proxyenhet framåt mellan anslutningsservern/anslutningsservrarna och backend-programservern?
+Ja, det här scenariot stöds från anslutningsversionen 1.5.1526.0. Se [Arbeta med befintliga lokala proxyservrar](application-proxy-configure-connectors-with-proxy-servers.md).
 
 ### <a name="should-i-create-a-dedicated-account-to-register-the-connector-with-azure-ad-application-proxy"></a>Ska jag skapa ett dedikerat konto för att registrera kopplingen med Azure AD Application Proxy?
 

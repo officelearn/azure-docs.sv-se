@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: bf2596f5a8e287799285f97f3d1be9f3fe10f644
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a9e8574ea2d7222871c7f065383e6c0c62057dd3
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77123218"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "81007868"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Generera begäran om certifikatsignering
 
@@ -74,11 +74,21 @@ Om du vill skicka push-meddelanden till en iOS-app registrerar du din ansökan h
 
 4. Leta upp det app-ID-radobjekt som du just skapade under **Identifierare**på sidan **Certifikat, identifierar** & profiler och markera dess rad för att visa skärmen **Redigera app-ID-konfigurationen.**
 
-5. Bläddra ned till alternativet markerade **push-meddelanden** och välj sedan **Konfigurera** för att skapa certifikatet.
+## <a name="creating-a-certificate-for-notification-hubs"></a>Skapa ett certifikat för meddelandehubbar
+Ett certifikat krävs för att meddelandehubben ska fungera med **APNS**. Detta kan göras på ett av två sätt:
+
+1. Skapa en **P12** som kan överföras direkt till Meddelandehubben.  
+2. Skapa en **.p8** som kan användas för [tokenbaserad autentisering](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification) (*den nyare metoden*).
+
+Den nyare metoden har ett antal fördelar (jämfört med att använda certifikat) som dokumenteras i [tokenbaserad (HTTP/2) autentisering för APNS](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification). Det har dock tagits åtgärder för båda tillvägagångssätten. 
+
+### <a name="option-1-creating-a-p12-push-certificate-that-can-be-uploaded-directly-to-notification-hub"></a>ALTERNATIV 1: Skapa ett .p12-push-certifikat som kan överföras direkt till Meddelandehubben
+
+1. Bläddra ned till alternativet markerade **push-meddelanden** och välj sedan **Konfigurera** för att skapa certifikatet.
 
     ![Redigera sidan för App-ID:n](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-edit-appid.png)
 
-6. Fönstret **SSL-certifikat** för Tjänsten Apple Push Notification visas. Välj knappen **Skapa certifikat** under avsnittet **Utveckling SSL-certifikat.**
+2. Fönstret **SSL-certifikat** för Tjänsten Apple Push Notification visas. Välj knappen **Skapa certifikat** under avsnittet **Utveckling SSL-certifikat.**
 
     ![Skapa certifikat för knappen för App-ID](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
 
@@ -87,9 +97,9 @@ Om du vill skicka push-meddelanden till en iOS-app registrerar du din ansökan h
     > [!NOTE]
     > Den här guiden använder ett utvecklarcertifikat. Du använder samma process när du registrerar ett driftscertifikat. Se bara till att du använder samma certifikattyp när du skickar meddelanden.
 
-1. Välj **Välj fil**, bläddra till den plats där du sparade CSR-filen från den första uppgiften och dubbelklicka sedan på certifikatnamnet för att läsa in den. Välj sedan **Fortsätt**.
+3. Välj **Välj fil**, bläddra till den plats där du sparade CSR-filen från den första uppgiften och dubbelklicka sedan på certifikatnamnet för att läsa in den. Välj sedan **Fortsätt**.
 
-1. När portalen har skapat certifikatet väljer du knappen **Hämta.** Spara certifikatet och kom ihåg den plats där det sparas.
+4. När portalen har skapat certifikatet väljer du knappen **Hämta.** Spara certifikatet och kom ihåg den plats där det sparas.
 
     ![Nedladdningssidan för genererade certifikat](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-download-cert.png)
 
@@ -100,14 +110,14 @@ Om du vill skicka push-meddelanden till en iOS-app registrerar du din ansökan h
     > [!NOTE]
     > Som standard heter det hämtade utvecklingscertifikatet **aps_development.cer**.
 
-1. Dubbelklicka på det hämtade push-certifikatet **aps_development.cer**. Den här åtgärden installerar det nya certifikatet i nyckelringen enligt följande bild:
+5. Dubbelklicka på det hämtade push-certifikatet **aps_development.cer**. Den här åtgärden installerar det nya certifikatet i nyckelringen enligt följande bild:
 
     ![Nya certifikat visas i listan med certifikat för nyckelhanteraren](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-in-keychain.png)
 
     > [!NOTE]
     > Även om namnet i certifikatet kan vara annorlunda, kommer namnet att föregås av **Apple Development iOS Push Services**.
 
-1. I nyckelhanteraren högerklickar du på det nya push-certifikatet som du skapade i **Certifikat**-kategorin. Välj **Exportera**, namnge filen, markera **.p12-formatet** och välj sedan **Spara**.
+6. I nyckelhanteraren högerklickar du på det nya push-certifikatet som du skapade i **Certifikat**-kategorin. Välj **Exportera**, namnge filen, markera **.p12-formatet** och välj sedan **Spara**.
 
     ![Exportera certifikatet i p12-format](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-export-cert-p12.png)
 
@@ -115,6 +125,45 @@ Om du vill skicka push-meddelanden till en iOS-app registrerar du din ansökan h
 
     > [!NOTE]
     > Filnamnet och platsen .p12 kan skilja sig från vad som visas i den här självstudien.
+
+### <a name="option-2-creating-a-p8-certificate-that-can-be-used-for-token-based-authentication"></a>ALTERNATIV 2: Skapa ett P8-certifikat som kan användas för tokenbaserad autentisering
+
+1. Anteckna följande uppgifter:
+
+    - **Prefix för app-ID** (det här är ett **team-ID)**
+    - **Samlings-ID**
+    
+2. Tillbaka i **certifikat, identifierare & profiler**, klicka på **Nycklar**.
+
+   > [!NOTE]
+   > Om du redan har konfigurerat en nyckel för **APNS**kan du återanvända P8-certifikatet som du hämtade direkt efter att det skapades. Om så är fallet kan du ignorera steg **3** till **5**.
+
+3. Klicka **+** på knappen (eller knappen **Skapa en nyckel)** för att skapa en ny nyckel.
+4. Ange ett lämpligt **nyckelnamnsvärde,** kontrollera sedan alternativet **Apple Push Notifications service (APNs)** och klicka sedan på **Fortsätt**, följt av **Registrera på** nästa skärm.
+5. Klicka på **Hämta** och sedan flytta **.p8-filen** (föregås av *AuthKey_)* till en säker lokal katalog och klicka sedan på **Klar**.
+
+   > [!NOTE] 
+   > Se till att hålla p8-filen på en säker plats (och spara en säkerhetskopia). När du har hämtat nyckeln kan den inte hämtas igen eftersom serverkopian tas bort.
+  
+6. På **tangenter**klickar du på den tangent som du just skapade (eller en befintlig nyckel om du har valt att använda den i stället).
+7. Anteckna **värdet nyckel-ID.**
+8. Öppna ditt P8-certifikat i ett lämpligt program som du väljer, till exempel [**Visual Studio Code**](https://code.visualstudio.com) och anteckna sedan nyckelvärdet. Det här är värdet mellan **-----BEGIN PRIVATE KEY-----** och **-----END PRIVATE KEY-----** .
+
+    ```
+    -----BEGIN PRIVATE KEY-----
+    <key_value>
+    -----END PRIVATE KEY-----
+    ```
+
+    > [!NOTE]
+    > Det här är **tokenvärdet** som kommer att användas senare för att konfigurera **Notification Hub**. 
+
+I slutet av dessa steg bör du ha följande information för användning senare i [Konfigurera meddelandehubben med APN-information:](#configure-your-notification-hub-with-apns-information)
+
+- **Team-ID** (se steg 1)
+- **Bunt-ID** (se steg 1)
+- **Nyckel-ID** (se steg 7)
+- **Tokenvärde** d.v.s. nyckelvärdet .p8 (se steg 8)
 
 ## <a name="create-a-provisioning-profile-for-the-app"></a>Skapa en etableringsprofil för appen
 
@@ -153,13 +202,18 @@ Om du vill skicka push-meddelanden till en iOS-app registrerar du din ansökan h
 
 ## <a name="create-a-notification-hub"></a>Skapa en meddelandehubb
 
-I det här avsnittet skapar du en meddelandehubb och konfigurerar autentisering med APN med hjälp av push-certifikatet .p12 som du tidigare skapade. Om du vill använda en meddelandehubb som du redan har skapat kan du hoppa till steg 5.
+I det här avsnittet skapar du en meddelandehubb och konfigurerar autentisering med APN med hjälp av push-certifikatet .p12 eller tokenbaserad autentisering. Om du vill använda en meddelandehubb som du redan har skapat kan du hoppa till steg 5.
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](notification-hubs-portal-create-new-hub.md)]
 
 ## <a name="configure-your-notification-hub-with-apns-information"></a>Konfigurera meddelandehubben med APNs-information
 
-1. Under **Meddelandetjänster**väljer du **Apple (APNS)**.
+Under **Meddelandetjänster**väljer du **Apple (APNS)** och följer sedan lämpliga steg baserat på den metod du valde tidigare i avsnittet [Skapa ett certifikat för meddelandehubbar.](#creating-a-certificate-for-notification-hubs)  
+
+> [!NOTE]
+> Använd endast **produktionsläget** för **program** om du vill skicka push-meddelanden till användare som har köpt appen från butiken.
+
+### <a name="option-1-using-a-p12-push-certificate"></a>ALTERNATIV 1: Använda ett .p12-push-certifikat
 
 1. Välj **Certifikat**.
 
@@ -169,10 +223,23 @@ I det här avsnittet skapar du en meddelandehubb och konfigurerar autentisering 
 
 1. Om det behövs anger du rätt lösenord.
 
-1. Välj **Sandbox**-läge. Använd läget **Produktion** enbart om du vill skicka push-meddelanden till användare som har köpt din app i butiken.
+1. Välj **Sandbox**-läge.
 
     ![Konfigurera APNs-certifikat i Azure-portalen](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-apple-config-cert.png)
 
 1. Välj **Spara**.
+
+### <a name="option-2-using-token-based-authentication"></a>ALTERNATIV 2: Använda tokenbaserad autentisering
+
+1. Välj **token**.
+1. Ange följande värden som du har fått tidigare:
+
+    - **Nyckel-ID**
+    - **Samlings-ID**
+    - **Team-ID**
+    - **Token** 
+
+1. Välj **Sandbox**
+1. Välj **Spara**. 
 
 Du har nu konfigurerat meddelandehubben med APN.You've now configured your notification hub with APNs. Du har också anslutningssträngarna för att registrera din app och skicka push-meddelanden.

@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/08/2020
 ms.author: juliako
-ms.openlocfilehash: 8a00f7c0ec76510cc521966acf98b7250e723697
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 8eca95f9fca47fca4d54bacbab35f3a0ffc3ba31
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985906"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010587"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Live-evenemang och liveutgångar i medietjänster
 
@@ -111,7 +111,7 @@ Du kan antingen använda icke-anpassade eller anpassade URL:er.
 
 * Url till fåfänga
 
-    Fåfänga-läget föredras av stora medieprogram som använder maskinvarusändningskodare och inte vill konfigurera om sina kodare när de startar Live Event. De vill ha en prediktiv intags-URL, som inte ändras med tiden.
+    Fåfänga-läget föredras av stora medieprogram som använder maskinvarusändningskodare och inte vill konfigurera om sina kodare när de startar Live Event. Dessa programföretag vill ha en prediktiv intag URL som inte ändras med tiden.
     
     > [!NOTE]
     > I Azure-portalen heter url:en för fåfänga "*Beständig indata-URL*".

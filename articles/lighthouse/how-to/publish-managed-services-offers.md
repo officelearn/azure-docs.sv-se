@@ -1,21 +1,21 @@
 ---
-title: Publicera ett hanterat tjänsterbjudande på Azure Marketplace
-description: Lär dig hur du publicerar ett hanterat tjänsterbjudande som ombordar kunder till Azure-delegerad resurshantering.
+title: Publicera ett erbjudande om hanterad tjänst på Azure Marketplace
+description: Lär dig hur du publicerar ett erbjudande om hanterad tjänst som ombordar kunder till Azure-delegerad resurshantering.
 ms.date: 04/08/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4791b1d2ae233b0cc7aad33dd5b15b6ea94b2018
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 247f711188fa10de19cece27f164fdfa71612d1b
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984562"
+ms.locfileid: "80991917"
 ---
-# <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicera ett hanterat tjänsterbjudande på Azure Marketplace
+# <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicera ett erbjudande om hanterad tjänst på Azure Marketplace
 
 > [!IMPORTANT]
-> Från och med den 14 april 2020 börjar vi flytta hanteringen av dina managed service-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa nya hanterade serviceerbjudanden](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) för att hantera dina migrerade erbjudanden.
+> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina managed service-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa ett nytt erbjudande om hanterad tjänst](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) för att hantera dina migrerade erbjudanden.
 
-I den här artikeln får du lära dig hur du publicerar ett offentligt eller privat hanterat tjänsterbjudande till [Azure Marketplace](https://azuremarketplace.microsoft.com) med Cloud [Partner Portal](https://cloudpartner.azure.com/). Kunder som köper erbjudandet kan sedan lägga ombord på prenumerationer och resursgrupper för [Azure-delegerad resurshantering](../concepts/azure-delegated-resource-management.md).
+I den här artikeln får du lära dig hur du publicerar ett offentligt eller privat erbjudande om hanterad tjänst på [Azure Marketplace](https://azuremarketplace.microsoft.com) med Cloud [Partner Portal](https://cloudpartner.azure.com/). Kunder som köper erbjudandet kan sedan lägga ombord på prenumerationer och resursgrupper för [Azure-delegerad resurshantering](../concepts/azure-delegated-resource-management.md).
 
 ## <a name="publishing-requirements"></a>Publiceringskrav
 

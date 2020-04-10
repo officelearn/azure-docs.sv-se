@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: jingwang
-ms.openlocfilehash: 0bfae10d3b3b491c3662385055b23cc585a6e24d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dcd8e400b978b2139de7a9f53b87cf6ec04e7484
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77471167"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992002"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Kopiera data från MySQL med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -65,7 +65,7 @@ En typisk anslutningssträng är `Server=<server>;Port=<port>;Database=<database
 
 | Egenskap | Beskrivning | Alternativ | Krävs |
 |:--- |:--- |:--- |:--- |
-| SSLMode (SSLMode) | Det här alternativet anger om drivrutinen använder SSL-kryptering och verifiering vid anslutning till MySQL. E.g.`SSLMode=<0/1/2/3/4>`| FUNKTIONSHINDRADE (0) / PREFERRED (1) **(Standard)** / KRÄVS (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Inga |
+| SSLMode (SSLMode) | Det här alternativet anger om drivrutinen använder TLS-kryptering och verifiering när du ansluter till MySQL. E.g.`SSLMode=<0/1/2/3/4>`| FUNKTIONSHINDRADE (0) / PREFERRED (1) **(Standard)** / KRÄVS (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Inga |
 | AnvändaSystemTrustStore | Det här alternativet anger om ett certifikatutfärdarcertifikat ska användas från systemets förtroendearkivet eller från en angiven PEM-fil. T.ex. `UseSystemTrustStore=<0/1>;`| Aktiverad (1) / Inaktiverad (0) **(standard)** | Inga |
 
 **Exempel:**

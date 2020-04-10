@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 883dbc95ee77d03aee4c3231c6ab8c03f9f7f6e4
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 02213feb507e9a032a50241fddf31714b9dfd7ee
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387843"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011093"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installera AMD GPU-drivrutiner på virtuella datorer i N-serien som kör Windows
 
@@ -40,7 +40,7 @@ Grundläggande specifikationer, lagringskapacitet och diskinformation finns i [G
 
 2. Om du är en NVv4 förhandsgranska kund sedan stoppa den virtuella datorn och vänta tills den ska flytta till Stoppad (Deallocated) tillstånd.
 
-3. Starta den virtuella datorn och ladda ner den senaste [AMD Cleanup Utility](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe). Avinstallera den befintliga drivrutinen genom att köra "amdcleanuputility-x64.exe". Använd INTE något exisitng rensningsverktyg som installerades med den tidigare drivrutinen.  
+3. Starta den virtuella datorn och ladda ner den senaste [AMD Cleanup Utility](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe). Avinstallera den befintliga drivrutinen genom att köra "amdcleanuputility-x64.exe". Använd INTE något befintligt rensningsverktyg som installerades med den tidigare drivrutinen.  
 
 4. Ladda ner och installera den senaste drivrutinen.
 
@@ -52,6 +52,12 @@ Du kan verifiera drivrutinsinstallationen i Enhetshanteraren. The following exam
 <br />
 ![Egenskaper för GPU-drivrutin](./media/n-series-amd-driver-setup/device-manager.png)
 
-Du kan använda dxdiag för att verifiera GPU-visningsegenskaperna, inklusive video-RAM-minnet. Följande exempel visar en 1/8:e partition av Radeon Instinct MI25-kortet på en Azure NVv4-virtuell dator.
+Du kan använda dxdiag för att verifiera GPU-visningsegenskaperna, inklusive video-RAM-minnet. Följande exempel visar en 1/2-partition av Radeon Instinct MI25-kortet på en Azure NVv4 VM.
 <br />
-![Egenskaper för GPU-drivrutin](./media/n-series-amd-driver-setup/dxdiag.png)
+![Egenskaper för GPU-drivrutin](./media/n-series-amd-driver-setup/dxdiag-output.png)
+
+Om du kör Windows 10 bygga 1903 eller högre då dxdiag kommer att visa någon information i "Display" fliken. Använd alternativet "Spara all information" längst ner och utdatafilen visar informationen om AMD MI25 GPU.
+
+![Egenskaper för GPU-drivrutin](./media/n-series-amd-driver-setup/dxdiag-details.png)
+
+

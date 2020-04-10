@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/17/2020
-ms.openlocfilehash: 214b2868f9733dfc6790c492543fb86a832f18b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/09/2020
+ms.openlocfilehash: dd13a08b3c2f63baf509efbb730032edd4eba61a
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065499"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011556"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Kopiera och omvandla data i Azure Blob-lagring med hjälp av Azure Data Factory
 
@@ -25,7 +25,8 @@ ms.locfileid: "80065499"
 
 I den här artikeln beskrivs hur du använder Kopiera aktivitet i Azure Data Factory för att kopiera data från och till Azure Blob-lagring och använda Dataflöde för att omvandla data i Azure Blob-lagring. Mer information om Azure Data Factory finns i den [inledande artikeln](introduction.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+>[!TIP]
+>För datasjö- eller informationslagermigreringsscenario kan du läsa mer från [Använd Azure Data Factory för att migrera data från datasjöen eller informationslager till Azure](data-migration-guidance-overview.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -48,7 +49,7 @@ För kopieringsaktivitet stöder den här Blob-lagringsappen:
 >[!IMPORTANT]
 >Om du aktiverar alternativet **Tillåt betrodda Microsoft-tjänster för att komma åt det här lagringskontot** på Azure Storage-brandväggsinställningar och vill använda Azure-integreringskörning för att ansluta till din Blob Storage, måste du använda [autentisering av hanterad identitet](#managed-identity).
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -64,7 +65,7 @@ Azure Blob connector stöder följande autentiseringstyper, se motsvarande avsni
 - [Hanterade identiteter för Azure-resursautentisering](#managed-identity)
 
 >[!NOTE]
->När du använder PolyBase för att läsa in data i SQL Data Warehouse, om din källa eller mellanlagring Blob-lagring är konfigurerad med slutpunkten för virtuellt nätverk, måste du använda hanterad identitetsautentisering enligt PolyBase och använda Självvärdförd integrationskörning med version 3.18 eller högre. Se avsnittet [autentisering av hanterad identitet](#managed-identity) med fler konfigurationsförutnämningar.
+>När du använder PolyBase för att läsa in data i SQL Data Warehouse, om din källa eller mellanlagring Blob-lagring är konfigurerad med slutpunkten för virtuellt nätverk, måste du använda hanterad identitetsautentisering enligt polybasens sida och använda Självvärdförd integrationskörning med version 3.18 eller högre. Se avsnittet [autentisering av hanterad identitet](#managed-identity) med fler konfigurationsförutnämningar.
 
 >[!NOTE]
 >HDInsights- och Azure Machine Learning-aktiviteter stöder endast azure blob-lagringskontonyckelautentisering.
@@ -136,11 +137,6 @@ En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt lagr
 > [!NOTE]
 >- Data Factory stöder nu både **signaturer för delad åtkomst till tjänsten** och **signaturer för delad åtkomst till kontot**. Mer information om signaturer för delad åtkomst finns i [Bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av SAS (Shared Access Signatures).](../storage/common/storage-sas-overview.md)
 >- I senare datauppsättningskonfiguration är mappsökvägen den absoluta sökvägen från behållarnivå. Du måste konfigurera en som är justerad med sökvägen i SAS URI.
-
-> [!TIP]
-> Om du vill generera en signatur för delad åtkomst för tjänsten för ditt lagringskonto kan du köra följande PowerShell-kommandon. Ersätt platshållarna och bevilja nödvändig behörighet.
-> `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
-> `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Om du vill använda autentisering av signatur för delad åtkomst stöds följande egenskaper:
 

@@ -3,12 +3,12 @@ title: Lär dig att granska innehållet i virtuella datorer
 description: Lär dig hur Azure Policy använder agenten Gästkonfiguration för att granska inställningar i virtuella datorer.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 889e99e94b2c81a6654fcbe7851e93c40163a0c6
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 9e8486af2a9b7ab9e18b8c16f08e51759d1123d7
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985328"
+ms.locfileid: "80998842"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure-principens gästkonfiguration
 
@@ -91,6 +91,13 @@ Windows Server Nano Server stöds inte i någon version.
 
 För att kommunicera med resursleverantören gästkonfiguration i Azure kräver datorer utgående åtkomst till Azure-datacenter i port **443**. Om du använder ett privat virtuellt nätverk i Azure som inte tillåter utgående trafik konfigurerar du undantag med [regler för nätverkssäkerhetsgrupp.](../../../virtual-network/manage-network-security-group.md#create-a-security-rule)
 [Servicemärket](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" kan användas för att referera till tjänsten Gästkonfiguration.
+
+## <a name="azure-managed-identity-requirements"></a>Azure-kraven för hanterad identitet
+
+**DeployIfNotExists-principerna** som lägger till tillägget till virtuella datorer aktiverar också en systemtilldelad hanterad identitet, om det inte finns någon.
+
+> [!WARNING]
+> Undvik att aktivera användartilldelade hanterad identitet till virtuella datorer i omfång för principer som aktiverar systemtilldelade hanterade identitet. Den tilldelade användarens identitet ersätts och kan datorn inte svara.
 
 ## <a name="guest-configuration-definition-requirements"></a>Definitionskrav för gästkonfiguration
 

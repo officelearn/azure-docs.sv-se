@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: rogarana
-ms.openlocfilehash: 081ee364b3ddee5d1d1be75613309a4ae427066f
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: ae575eebf700f5495ea20d2bd3732ca21ad32315
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80666818"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011435"
 ---
 # <a name="enable-active-directory-authentication-over-smb-for-azure-file-shares"></a>Aktivera Active Directory-autentisering över SMB för Azure-filresurser
 
@@ -36,7 +36,9 @@ När du aktiverar AD för Azure-filresurser via SMB kan ad-domänens anslutna da
 AD-identiteter som används för att komma åt Azure-filresurser måste synkroniseras med Azure AD för att framtvinga filbehörigheter på delningsnivå via [rbac-modellen (Standard Role-Based Access Control).](../../role-based-access-control/overview.md) [Windows-stil DACLs](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) på filer / kataloger som överförs från befintliga filservrar kommer att bevaras och verkställas. Den här funktionen erbjuder sömlös integrering med företagets AD-domäninfrastruktur. När du ersätter filservrar på prem med Azure-filresurser kan befintliga användare komma åt Azure-filresurser från sina nuvarande klienter med en enda inloggningsupplevelse, utan att de autentiseringsuppgifter som används ändras.  
 
 > [!NOTE]
-> För att hjälpa dig att konfigurera Azure Files AD-autentisering för vanliga användningsfall publicerade vi [två videor](https://docs.microsoft.com/azure/storage/files/storage-files-introduction#videos) med steg för steg-vägledning om hur du ersätter lokala filservrar med Azure-filer och använder Azure-filer som profilbehållare för Windows Virtual Desktop.
+> För att hjälpa dig att konfigurera Azure Files AD-autentisering för vanliga användningsfall publicerade vi [två videor](https://docs.microsoft.com/azure/storage/files/storage-files-introduction#videos) med steg för steg vägledning om 
+> * Ersätta lokala filservrar med Azure Files (inklusive installation på privat länk för filer och AD-autentisering)
+> * Använda Azure Files som profilbehållare för Windows Virtual Desktop (inklusive installation på AD-autentisering och FsLogix-konfiguration)
  
 ## <a name="prerequisites"></a>Krav 
 
@@ -111,8 +113,7 @@ Du kan använda följande skript för att utföra registreringen och aktivera fu
 ### <a name="12-domain-join-your-storage-account"></a>1.2 Domän ansluter till ditt lagringskonto
 Kom ihåg att ersätta platshållarvärdena med dina egna i parametrarna nedan innan du kör det i PowerShell.
 > [!IMPORTANT]
-> Vi rekommenderar att du tillhandahåller en AD-organisationsenhet (OU) som INTE framtvingar lösenordets förfallodatum. Om du använder en organisationsenhet med lösenordsförfallodatum konfigurerat måste du uppdatera lösenordet före den maximala lösenordsåldern. Om AD-kontolösenordet inte uppdateras resulterar det autentiseringsfel vid åtkomst till Azure-filresurser. Mer information om hur du uppdaterar lösenordet finns i [Uppdatera AD-kontolösenord](#5-update-ad-account-password).
-
+> Domänanslutnings-cmdleten nedan skapar ett AD-konto som representerar lagringskontot (filresursen) i AD. Du kan välja att registrera dig som ett datorkonto eller tjänstinloggningskonto. För datorkonton finns det en standardålder för slutdatum för lösenord som anges i AD vid 30 dagar. På samma sätt kan tjänstinloggningskontot ha en standardålder för slutdatum för lösenord inställd på AD-domänen eller organisationsenhet (OU). Vi rekommenderar starkt att du kontrollerar vad som är lösenordets förfalloålder som konfigurerats i din AD-miljö och planerar att [uppdatera AD-kontolösenordet](#5-update-ad-account-password) för AD-kontot nedan före den maximala lösenordsåldern. Om AD-kontolösenordet inte uppdateras resulterar det autentiseringsfel vid åtkomst till Azure-filresurser. Du kan överväga att [skapa en ny AD-organisationsenhet (OU) i AD](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) och inaktivera principen för förfallodatum för lösenord på [datorkonton](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)?redirectedfrom=MSDN) eller tjänstinloggningskonton i enlighet med detta. 
 
 ```PowerShell
 #Change the execution policy to unblock importing AzFilesHybrid.psm1 module
@@ -138,6 +139,11 @@ Join-AzStorageAccountForAuth `
         -Name "<storage-account-name-here>" `
         -DomainAccountType "ComputerAccount" `
         -OrganizationalUnitName "<ou-name-here>" or -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>"
+
+#If you don't provide the OU name as an input parameter, the AD identity that represents the storage account will be created under the root directory.
+
+#
+
 ```
 
 Följande beskrivning sammanfattar alla åtgärder `Join-AzStorageAccountForAuth` som utförs när cmdleten körs. Du kan utföra dessa steg manuellt om du föredrar att inte använda kommandot:

@@ -1,16 +1,16 @@
 ---
-title: API-referens för Azure Application Insights-agent
+title: Inaktivera Azure Application Insights-agent
 description: Api-referens för Application Insights Agent. Inaktivera InstrumentationEngine. Övervaka webbplatsens prestanda utan att distribuera om webbplatsen. Fungerar med ASP.NET webbappar som finns lokalt, i virtuella datorer eller på Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: dafa12db95a10df467bf0d042cfd9395720648b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c52d429b527c437db5bb8aaf7e3cc1f1c52af57
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671383"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998373"
 ---
 # <a name="application-insights-agent-api-disable-instrumentationengine"></a>Api för programinsikter agent: Disable-InstrumentationEngine
 

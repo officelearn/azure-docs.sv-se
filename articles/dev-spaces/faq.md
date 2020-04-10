@@ -5,12 +5,12 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Hitta svar på några av de vanligaste frågorna om Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, servicenät, routning av tjänstnät, kubectl, k8s '
-ms.openlocfilehash: e7b4620faa01aa9f6d46c34bafb1c623c338beb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f3ac6ec3c3ddbe8ff508befba2eb4a8423e66f07
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240501"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998724"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Vanliga frågor och svar om Azure Dev Spaces
 
@@ -81,6 +81,14 @@ När du använder Visual Studio för att förbereda projektet kan du aktivera in
 
 Azure Dev Spaces stöder för närvarande inte att använda [pod-hanterade identiteter][aks-pod-managed-id] på AKS-kluster med Azure Dev Spaces aktiverat. Om du har pod hanterade identiteter installerade och vill avinstallera det, kan du hitta mer information i [avinstallera anteckningar][aks-pod-managed-id-uninstall].
 
+## <a name="can-i-use-azure-dev-spaces-with-multiple-microservices-in-an-application"></a>Kan jag använda Azure Dev Spaces med flera mikrotjänster i ett program?
+
+Ja, du kan använda Azure Dev Spaces i ett program med flera mikrotjänster, men du måste förbereda och köra de enskilda mikrotjänsterna vid roten. Azure Dev Spaces CLI, Azure Dev Spaces VS-kodtillägg och Visual Studio Azure Development-arbetsbelastningen förväntar sig att *azds.yaml-filen* ska vara roten till mikrotjänsten för att köra och felsöka. Se [exempelprogrammet Bike Sharing][bike-sharing] för ett exempel på flera mikrotjänster i ett enda program.
+
+I Visual Studio-kod är det möjligt att [öppna separata projekt på en enda arbetsyta][vs-code-multi-root-workspaces] och felsöka dem separat via Azure Dev Spaces. Vart och ett av projekten måste vara fristående och förberedda för Azure Dev Spaces.
+
+I Visual Studio är det möjligt att konfigurera .NET Core-lösningar för felsökning via Azure Dev Spaces.
+
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled
 [aks-auth-range-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
@@ -89,6 +97,7 @@ Azure Dev Spaces stöder för närvarande inte att använda [pod-hanterade ident
 [aks-pod-managed-id]: ../aks/developer-best-practices-pod-security.md#use-pod-managed-identities
 [aks-pod-managed-id-uninstall]: https://github.com/Azure/aad-pod-identity#uninstall-notes
 [aks-restrict-egress-traffic]: ../aks/limit-egress-traffic.md
+[bike-sharing]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
 [dev-spaces-prep]: how-dev-spaces-works-prep.md
 [dev-spaces-routing]: how-dev-spaces-works-routing.md#how-routing-works
 [ingress-nginx]: how-to/ingress-https-nginx.md#configure-a-custom-nginx-ingress-controller
@@ -97,4 +106,5 @@ Azure Dev Spaces stöder för närvarande inte att använda [pod-hanterade ident
 [ingress-https-traefik]: how-to/ingress-https-traefik.md#configure-the-traefik-ingress-controller-to-use-https
 [quickstart-cli]: quickstart-cli.md
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
+[vs-code-multi-root-workspaces]: https://code.visualstudio.com/docs/editor/multi-root-workspaces
 [windows-containers]: how-to/run-dev-spaces-windows-containers.md

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.openlocfilehash: a48e69f19db88c7823365964c2fe9c0629a078bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd2da798cae92a7e47bd879b69dd108618463402
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75412676"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010778"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Så här använder du kommandoradsverktyget Redis med Azure Cache för Redis
 
@@ -38,9 +38,9 @@ I det här avsnittet hämtar du nycklarna från Azure-portalen.
 
 ## <a name="enable-access-for-redis-cliexe"></a>Aktivera åtkomst för redis-cli.exe
 
-Med Azure Cache för Redis är endast SSL-porten (6380) aktiverad som standard. Kommandoradsverktyget `redis-cli.exe` stöder inte SSL. Du har två konfigurationsalternativ för att använda den:
+Med Azure Cache för Redis är endast TLS-porten (6380) aktiverad som standard. Kommandoradsverktyget `redis-cli.exe` stöder inte TLS. Du har två konfigurationsalternativ för att använda den:
 
-1. [Aktivera icke-SSL-porten (6379)](cache-configure.md#access-ports) - **Den här konfigurationen rekommenderas inte** eftersom åtkomstnycklarna i den här konfigurationen skickas via TCP i klartext. Den här ändringen kan äventyra åtkomsten till cacheminnet. Det enda scenariot där du kan överväga den här konfigurationen är när du bara har åtkomst till en testcache.
+1. [Aktivera icke-TLS-porten (6379)](cache-configure.md#access-ports) - **Den här konfigurationen rekommenderas inte** eftersom åtkomstnycklarna i den här konfigurationen skickas via TCP i klartext. Den här ändringen kan äventyra åtkomsten till cacheminnet. Det enda scenariot där du kan överväga den här konfigurationen är när du bara har åtkomst till en testcache.
 
 2. Ladda ner och installera [stunnel](https://www.stunnel.org/downloads.html).
 
@@ -74,7 +74,7 @@ redis-cli.exe -p 6380 -a YourAccessKey
 
 ![stunnel med redis-cli](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
-Om du använder en testcache med den **osäkra** `redis-cli.exe` icke-SSL-porten kör du och skickar *värdnamnet,* *porten*och *åtkomstnyckeln* (primär eller sekundär) för att ansluta till testcachen.
+Om du använder en testcache med den **osäkra** icke-TLS-porten `redis-cli.exe` kör och skickar *du värdnamnet,* *porten*och *åtkomstnyckeln* (primär eller sekundär) för att ansluta till testcachen.
 
 ```
 redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey

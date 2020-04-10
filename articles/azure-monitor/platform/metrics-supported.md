@@ -7,19 +7,25 @@ ms.topic: reference
 ms.date: 04/06/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 846e8da889e3913c4a8eaab7808495bbd8afad29
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 80e38893d764f35511793d8b31f596dcbf16dd42
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754660"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991900"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
 
 > [!NOTE]
 > Den här listan genereras till stor del automatiskt från REST-API:et för Azure Monitor Metrics. Alla ändringar som görs i denna lista via Github kan skrivas över utan förvarning. Kontakta författaren till den här artikeln om du vill ha mer information om hur du gör permanenta uppdateringar.
 
-Azure Monitor innehåller flera sätt att interagera med mått, inklusive att kartlägga dem i portalen, komma åt dem via REST API eller fråga dem med PowerShell eller CLI. Nedan finns en fullständig lista över alla mått som för närvarande är tillgängliga med Azure Monitors måttpipeline. Andra mått kan vara tillgängliga i portalen eller med hjälp av äldre API:er. Den här listan nedan innehåller endast mått som är tillgängliga med den konsoliderade Azure Monitor-måttpipelinen. Måtten är ordnade efter namnområde. En lista över tjänster och namnområden som tillhör dem finns i [Resursleverantörer för Azure-tjänster](../../azure-resource-manager/management/azure-services-resource-providers.md). Om du vill fråga efter och komma åt dessa mått programmässigt använder du [api-versionen 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
+Azure Monitor innehåller flera sätt att interagera med mått, inklusive att kartlägga dem i portalen, komma åt dem via REST API eller fråga dem med PowerShell eller CLI. 
+
+Den här artikeln är en komplett lista över alla plattformsmått (som automatiskt samlas in) som för närvarande är tillgängliga med Azure Monitor konsoliderade måttpipeline. Listan uppdaterades senast 27 mars 2020. Mått som ändrats eller lagts till efter detta datum kanske inte visas nedan. Om du vill fråga efter och komma åt listan över mått programmässigt använder du [api-versionen 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
+
+Andra mått kan vara tillgängliga i portalen eller med hjälp av äldre API:er. Mått för gästoperativsystemet (gäst-os) som körs i Azure Virtual Machines, Service Fabric och Cloud Services visas **INTE** här. Dessa måste samlas in via en eller flera agenter som körs på eller som en del av operativsystemet. Du kan skicka agentmåtten till plattformsmåttdatabasen med hjälp av [API:et för anpassade mått,](metrics-custom-overview.md) som för närvarande är i offentlig förhandsversion. Då kan du kartlägga, avisera och på annat sätt använda gäst-os-mått som plattformsmått. Mer information finns i [Översikt över övervakningsagenter](agents-overview.md).    
+
+Måtten är ordnade efter namnområde. En lista över tjänster och namnområden som tillhör dem finns i [Resursleverantörer för Azure-tjänster](../../azure-resource-manager/management/azure-services-resource-providers.md). 
 
 > [!NOTE]
 > Det går för närvarande inte att skicka flerdimensionella mätvärden via diagnostikinställningar. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
@@ -1844,7 +1850,7 @@ Azure Monitor innehåller flera sätt att interagera med mått, inklusive att ka
 |Average_Bytes Totalt/sek|Totalt antal byte per sekund|Antal|Medel|Average_Bytes Totalt/sek|Dator,ObjectName,InstanceName,CounterPath,SourceSystem|
 |kölängd Average_Processor|Längden på processorkön|Antal|Medel|kölängd Average_Processor|Dator,ObjectName,InstanceName,CounterPath,SourceSystem|
 |Pulsslag|Pulsslag|Antal|Totalt|Pulsslag|Dator,OSType,Version,SourceComputerId|
-|Uppdatering|Uppdatering|Antal|Medel|Uppdatering|Dator,Produkt,Klassificering,UpdateState,Valfritt,Godkänd|
+|Uppdatera|Uppdatera|Antal|Medel|Uppdatera|Dator,Produkt,Klassificering,UpdateState,Valfritt,Godkänd|
 |Händelse|Händelse|Antal|Medel|Händelse|Källa,EventLog,Dator,EventKategori,EventLevel,EventLevelName,EventID|
 
 ## <a name="microsoftpeeringpeeringservices"></a>Microsoft.Peering/peeringServices

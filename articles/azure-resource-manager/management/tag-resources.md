@@ -3,18 +3,21 @@ title: Tagga resurser, resursgrupper och prenumerationer för logisk organisatio
 description: Visar hur du använder taggar för att ordna Azure-resurser för fakturering och hantering.
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 76f9f61b3fe7002508bbd884f427efcfee698579
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 44759db59ef7e7556c8fbfca3bbc58ef84796198
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548485"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010808"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Använda taggar för att organisera dina Azure-resurser och hanteringshierarki
 
 Du använder taggar på dina Azure-resurser, resursgrupper och prenumerationer för att logiskt ordna dem till en taxonomi. Varje tagg består av ett namn och ett värdepar. Du kan till exempel använda namnet ”Miljö” och värdet ”Produktion” för alla resurser i produktionsmiljön.
 
 Rekommendationer om hur du implementerar en taggningsstrategi finns i [Resursnamngivning och taggningsbeslutguide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
+
+> [!IMPORTANT]
+> Taggnamnen är skiftlägesokänsliga. Taggvärden är skiftlägeskänsliga.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 

@@ -5,27 +5,36 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/18/2019
+ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b819264895e35c6ef4fe9dc5263444dcac17eaa2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5e0e459800e7cb57672518597f3d04a74f53118
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74935809"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008661"
 ---
 För nu, ultra diskar har ytterligare begränsningar, de är följande:
 
-- Stöds i följande regioner, med varierande antal tillgänglighetszoner per region:
-    - USA, östra 2
-    - USA, östra
-    - USA, västra 2
-    - Sydostasien
-    - Europa, norra
-    - Europa, västra
-    - Storbritannien, södra 
-- Kan endast användas med tillgänglighetszoner (tillgänglighetsuppsättningar och enstaka VM-distributioner utanför zoner kommer inte att ha möjlighet att koppla en ultradisk)
+De enda alternativ för redundans för infrastruktur som för närvarande är tillgängliga för ultradiskar är tillgänglighetszoner. Virtuella datorer som använder andra redundansalternativ kan inte ansluta en ultradisk.
+
+I följande tabell beskrivs de regioner som ultradiskar är tillgängliga i, samt motsvarande tillgänglighetsalternativ:
+
+> [!NOTE]
+> Vissa tillgänglighetszon inom dessa regioner erbjuder inte ultradiskar.
+
+|Regioner  |Ingen infrastruktur redundans  |Tillgänglighetszoner  |
+|---------|---------|---------|
+|USA, västra     |Ja         |Inga         |
+|USA, västra 2    |Inga         |Ja         |
+|USA, östra     |Inga         |Ja         |
+|USA, östra 2     |Inga         |Ja         |
+|Sydostasien     |Inga         |Ja         |
+|Europa, norra     |Inga         |Ja         |
+|Europa, västra     |Inga         |Ja         |
+|Storbritannien, södra     |Inga         |Ja         |
+
 - Stöds endast i följande VM-serie:
     - [ESv3 (på andra sätt)](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)
     - [DSv3 (på andra sätt)](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)
@@ -35,7 +44,8 @@ För nu, ultra diskar har ytterligare begränsningar, de är följande:
 - Alla vm-storlekar är inte tillgängliga i alla regioner som stöds med ultradiskar
 - Är endast tillgängliga som datadiskar och stöder endast 4k fysisk sektorstorlek. På grund av ultradiskens 4K-storlek i den inbyggda sektoren finns det vissa program som inte är kompatibla med ultradiskar. Ett exempel skulle vara Oracle Database, som kräver release 12.2 eller senare för att stödja ultra diskar.  
 - Kan bara skapas som tomma diskar  
-- Har ännu inte stöd för ögonblicksbilder av disk, VM-avbildningar, tillgänglighetsuppsättningar och Azure-diskkryptering
-- Har ännu inte stöd för integrering med Azure Backup eller Azure Site Recovery
+- Stöder för närvarande inte ögonblicksbilder av disk, VM-avbildningar, tillgänglighetsuppsättningar, Azure Dedicated Hosts eller Azure-diskkryptering
+- Stöder för närvarande inte integrering med Azure Backup eller Azure Site Recovery
 - Den nuvarande maximala gränsen för IOPS på virtuella ga-datorer är 80 000.
-- Om du vill delta i en begränsad förhandsvisning av en virtuell dator som kan åstadkomma 160.000 IOPS med ultra diskar, vänligen e-post UltraDiskFeedback@microsoft .com
+
+Azure ultra diskar erbjuder upp till 16 TiB per region per prenumeration som standard, men ultra diskar stöder högre kapacitet på begäran. Om du vill begära en kapacitetsökning kontaktar du Azure Support.

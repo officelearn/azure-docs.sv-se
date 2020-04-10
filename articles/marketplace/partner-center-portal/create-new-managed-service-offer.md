@@ -8,17 +8,17 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: de6e08534722deccb8be11248dd8af3ca2e66739
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 6baf5d77b70fa6e2717b492163826f27d80fbb88
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983225"
+ms.locfileid: "80991628"
 ---
 # <a name="create-a-new-managed-service-offer"></a>Skapa ett nytt erbjudande om hanterad tjänst
 
 > [!IMPORTANT]
-> Vi flyttar hanteringen av dina erbjudanden om hanterade tjänster från Cloud Partner Portal till Partner Center. Tills dina erbjudanden har migrerats följer du instruktionerna i [Publicera ett hanterat tjänsterbjudande till Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md) för att hantera dina erbjudanden.
+> Vi flyttar hanteringen av dina erbjudanden om hanterade tjänster från Cloud Partner Portal till Partner Center. Tills dina erbjudanden har migrerats följer du instruktionerna i [Publicera ett erbjudande om hanterad tjänst till Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md) för att hantera dina erbjudanden i Cloud Partner Portal.
 
 Managed Service erbjuder hjälp för att aktivera [Azure Lighthouse-scenarier.](../../lighthouse/overview.md) När en kund accepterar ett erbjudande om hanterad tjänst kan de sedan använda inbyggda resurser för [Azure-delegerad resurshantering](../../lighthouse/concepts/azure-delegated-resource-management.md).
 

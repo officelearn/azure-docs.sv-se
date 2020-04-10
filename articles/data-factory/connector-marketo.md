@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 74d56d553c4049a98b4401c66b27ae33e31da5c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40a16d559a96c88a864ef809d40d798b99746230
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927122"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992104"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Kopiera data från Marketo med Azure Data Factory (förhandsversion)
 
@@ -37,7 +37,7 @@ Du kan kopiera data från Marketo till alla sink-datalager som stöds. En lista 
 Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, därför behöver du inte installera någon drivrutin manuellt med den här anslutningen.
 
 >[!NOTE]
->Denna Marketo-kontakt är byggd ovanpå Marketo REST API. Tänk på att Marketo har [samtidig begäran gräns](https://developers.marketo.com/rest-api/) på servicesidan. Om du stöter på fel som säger "Fel när du försöker använda REST API: Max hastighetsgräns "100" överskrids med i '20' seks (606)" eller "Fel när du försöker använda REST API: Samtidig åtkomstgräns '10' nått (615)", överväg att minska den samtidiga kopieringsaktiviteten körs till minska antalet begäranden till tjänsten.
+>Denna Marketo-kontakt är byggd ovanpå Marketo REST API. Tänk på att Marketo har [samtidig begäran gräns](https://developers.marketo.com/rest-api/) på servicesidan. Om du stöter på fel som säger "Fel när du försöker använda REST API: Max hastighetsgräns " 100' överskrids med i '20' seks (606)" eller "Fel när du försöker använda REST API: Samtidig åtkomstgräns '10' nått (615)", överväga att minska den samtidiga kopieringsaktiviteten körs för att minska antalet begäranden till tjänsten.
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -56,8 +56,8 @@ Följande egenskaper stöds för Marketo-länkade tjänsten:
 | ClientID | Kund-ID för din Marketo-tjänst.  | Ja |
 | clientSecret (klientSecret) | Kundhemligheten för din Marketo-tjänst. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | användaKrypteradeEndpoints | Anger om slutpunkterna för datakällan är krypterade med HTTPS. Standardvärdet är True.  | Inga |
-| useHostVerification | Anger om värdnamnet i serverns certifikat ska behövas för att matcha serverns värdnamn när den ansluter via SSL. Standardvärdet är True.  | Inga |
-| användaUppvering | Anger om serverns identitet ska verifieras när den ansluter via SSL. Standardvärdet är True.  | Inga |
+| useHostVerification | Anger om värdnamnet i serverns certifikat ska behövas för att matcha serverns värdnamn när du ansluter via TLS. Standardvärdet är True.  | Inga |
+| användaUppvering | Anger om serverns identitet ska verifieras när den ansluter via TLS. Standardvärdet är True.  | Inga |
 
 **Exempel:**
 

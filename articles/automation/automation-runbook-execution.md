@@ -5,18 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: c8968eb72b29b004d94e25433da65d3262287147
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1907eb7cde482927ee8e6b0a2522158f05c1808f
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367150"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010944"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Körning av Runbook i Azure Automation
 
 Runbooks körs baserat på logiken som definierats inuti dem. Om en runbook avbryts startas runbooken om i början. Detta kräver att du skriver runbooks som stöder startas om om tillfälliga problem uppstår.
 
-Starta en runbook i Azure Automation skapar ett jobb. Ett jobb är en enda körningsinstans av runbooken. Varje jobb har åtkomst till Azure-resurser genom att göra en anslutning till din Azure-prenumeration. Jobbet har bara åtkomst till resurser i ditt datacenter om dessa resurser är tillgängliga från det offentliga molnet.
+Starta en runbook i Azure Automation skapar ett jobb, vilket är en enda körningsinstans av runbook. Varje jobb har åtkomst till Azure-resurser genom att göra en anslutning till din Azure-prenumeration. Jobbet har bara åtkomst till resurser i ditt datacenter om dessa resurser är tillgängliga från det offentliga molnet.
 
 Azure Automation tilldelar en arbetare att köra varje jobb under körning av runbook. Medan arbetare delas av många Azure-konton, är jobb från olika Automation-konton isolerade från varandra. Du har inte kontroll över vilka arbetartjänster din jobbbegäran.
 

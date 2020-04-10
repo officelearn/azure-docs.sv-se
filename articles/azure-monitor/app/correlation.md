@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: c68b83726371d346019d18d0b066173f93196e6d
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 6ceace1ee93fab8c0a46ed4a67850fc87a5cdad2
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/09/2020
-ms.locfileid: "80982063"
+ms.locfileid: "80991236"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetrikorrelation i Application Insights
 
@@ -129,6 +129,11 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Aktivera W3C-stöd för distribuerad spårning för Java-appar
 
+#### <a name="java-30-agent"></a>Java 3.0-agent
+
+  Java 3.0-agenten stöder W3C ur kartongen och ingen ytterligare konfiguration behövs. 
+
+#### <a name="java-sdk"></a>Java SDK
 - **Inkommande konfiguration**
 
   - För Java EE-appar lägger `<TelemetryModules>` du till följande i taggen i ApplicationInsights.xml:
@@ -320,17 +325,32 @@ Det finns en ny HTTP-modul, [Microsoft.AspNet.TelemetryCorrelation](https://www.
 Application Insights SDK, som börjar med version 2.4.0-beta1, använder `DiagnosticSource` och `Activity` samlar in telemetri och associerar den med den aktuella aktiviteten.
 
 <a name="java-correlation"></a>
-## <a name="telemetry-correlation-in-the-java"></a>Telemetrikorrelation i Java
+## <a name="telemetry-correlation-in-java"></a>Telemetrikorrelation i Java
 
-[Application Insights Java-agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) samt [Java SDK](../../azure-monitor/app/java-get-started.md) version 2.0.0 eller senare stöder automatisk korrelation av telemetri. Den fylls `operation_id` i automatiskt för all telemetri (som spårningar, undantag och anpassade händelser) som utfärdas inom ramen för en begäran. Det sprider också korrelationsrubriker (beskrivs tidigare) för service-till-tjänst-anrop via HTTP, om [Java SDK-agenten](../../azure-monitor/app/java-agent.md) är konfigurerad.
+[Java-agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) samt [Java SDK](../../azure-monitor/app/java-get-started.md) version 2.0.0 eller senare stöder automatisk korrelation av telemetri. Den fylls `operation_id` i automatiskt för all telemetri (som spårningar, undantag och anpassade händelser) som utfärdas inom ramen för en begäran. Det sprider också korrelationsrubriker (beskrivs tidigare) för service-till-tjänst-anrop via HTTP, om [Java SDK-agenten](../../azure-monitor/app/java-agent.md) är konfigurerad.
 
 > [!NOTE]
 > Application Insights Java-agent samlar automatiskt in begäranden och beroenden för JMS, Kafka, Netty/Webflux med mera. För Java SDK stöds endast samtal som görs via Apache HttpClient för korrelationsfunktionen. Automatisk kontextspridning över meddelandetekniker (som Kafka, RabbitMQ och Azure Service Bus) stöds inte i SDK. 
 
-<a name="java-role-name"></a>
-## <a name="role-name"></a>Rollnamn
+> [!NOTE]
+> För att samla in anpassad telemetri måste du instrumentera programmet med Java 2.6 SDK. 
+
+### <a name="role-names"></a>Rollnamn
 
 Du kanske vill anpassa hur komponentnamn visas i [programöversikten](../../azure-monitor/app/app-map.md). För att göra detta kan `cloud_RoleName` du manuellt ställa in genom att vidta någon av följande åtgärder:
+
+- För Application Insights Java agent 3.0 anger du molnetrollnamnet på följande sätt:
+
+    ```json
+    {
+      "instrumentationSettings": {
+        "preview": {
+          "roleName": "my cloud role name"
+        }
+      }
+    }
+    ```
+    Du kan också ange molnet rollnamnet `APPLICATIONINSIGHTS_ROLE_NAME`med hjälp av miljövariabeln .
 
 - Med Application Insights Java SDK 2.5.0 och `cloud_RoleName` senare `<RoleName>` kan du ange filen ApplicationInsights.xml:
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: df80668f5e4a31d6247e9e9806e3de0667fd9036
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 451e83fa6ab547536a4cfd85304930e749a8247f
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656015"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998402"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Så här arbetar du med sökresultat i Azure Cognitive Search
 
@@ -94,7 +94,11 @@ Ett annat alternativ är att använda en [anpassad bedömningsprofil](index-add-
 
 Med träffmarkering avses textformatering (till exempel fet eller gul markering) som används för att matcha termen i ett resultat, vilket gör det enkelt att upptäcka matchen. Instruktioner för träffmarkering finns på [frågebegäran](https://docs.microsoft.com/rest/api/searchservice/search-documents). Sökmotorn omsluter den matchande termen `highlightPreTag` i `highlightPostTag`taggar och , och koden hanterar svaret (till exempel med hjälp av ett fetstilt teckensnitt).
 
-Formatering tillämpas på hela termfrågor. I följande exempel är termerna "sandy", "sand", "stränder", "beach" som finns i fältet Beskrivning märkta för markering. Frågor om partiella termer, till exempel fuzzy search eller jokerteckensökning som resulterar i frågeexpansion i motorn, kan inte använda träffmarkering.
+Formatering tillämpas på hela termfrågor. I följande exempel är termerna "sandy", "sand", "stränder", "beach" som finns i fältet Beskrivning märkta för markering. Frågor som utlöser frågeexpansion i motorn, till exempel fuzzy och jokertecken sökning, har begränsat stöd för träffmarkering.
+
+```http
+GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2019-05-06 
+```
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 

@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 745be21c2a7a09a09fdbbfd57a305d09a4fac3ed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c54f864b5bd562fdc0a84b2903198704032b360
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72793430"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998485"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Använd den "fullständiga" lucene-söksyntaxen (avancerade frågor i Azure Cognitive Search)
 
@@ -86,7 +86,7 @@ Det här första exemplet är inte Lucene-specifika, men vi leder med det för a
 
 För enkelhetens skull riktar sig frågan endast *till business_title* fältet och anger att endast affärstitlar returneras. Parametern **searchFields** begränsar frågekörningen till bara business_title fältet och **väljer** anger vilka fält som ingår i svaret.
 
-### <a name="partial-query-string"></a>Partiell frågesträng
+### <a name="search-expression"></a>Sökkriterier
 
 ```http
 &search=*&searchFields=business_title&$select=business_title
@@ -119,7 +119,7 @@ Du kanske har lagt märke till sökpoängen i svaret. Enhetliga poäng på 1 int
 
 Fullständig Lucene-syntax stöder omfång för enskilda sökuttryck till ett visst fält. Det här exemplet söker efter affärstitlar med termen senior i dem, men inte junior.
 
-### <a name="partial-query-string"></a>Partiell frågesträng
+### <a name="search-expression"></a>Sökkriterier
 
 ```http
 $select=business_title&search=business_title:(senior NOT junior)
@@ -156,7 +156,7 @@ Fältet som anges i **fieldName:searchExpression** måste vara ett sökbart fäl
 
 Fullständig Lucene syntax stöder också fuzzy sökning, matchning på termer som har en liknande konstruktion. Om du vill göra en suddig `~` sökning lägger du till tildesymbolen i slutet av ett enda ord med en valfri parameter, ett värde mellan 0 och 2, som anger redigeringsavståndet. Till `blue~` exempel, `blue~1` eller skulle återvända blå, blues och lim.
 
-### <a name="partial-query-string"></a>Partiell frågesträng
+### <a name="search-expression"></a>Sökkriterier
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:asosiate~
@@ -186,7 +186,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## <a name="example-4-proximity-search"></a>Exempel 4: Närhetssökning
 Närhetssökningar används för att hitta termer som är nära varandra i ett dokument. Infoga en tilde "~"-symbol i slutet av en fras följt av antalet ord som skapar närhetsgränsen. Till exempel hittar "hotellflygplats"~5 termerna hotell och flygplats inom 5 ord från varandra i ett dokument.
 
-### <a name="partial-query-string"></a>Partiell frågesträng
+### <a name="search-expression"></a>Sökkriterier
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
@@ -239,7 +239,7 @@ När du ställer in faktornivån, desto högre ökningsfaktor, desto mer relevan
 
 En sökning i reguljära uttryck hittar en matchning baserat på innehållet mellan snedstrecken "/", som dokumenteras i [klassen RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).
 
-### <a name="partial-query-string"></a>Partiell frågesträng
+### <a name="search-expression"></a>Sökkriterier
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
@@ -262,7 +262,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## <a name="example-7-wildcard-search"></a>Exempel 7: Jokerteckenssökning
 Du kan använda allmänt erkända\*syntax för jokerteckensökningar med flera ( ) eller enstaka (?). Den Lucene-frågetolken stöder användningen av dessa symboler med en enda term och inte en fras.
 
-### <a name="partial-query-string"></a>Partiell frågesträng
+### <a name="search-expression"></a>Sökkriterier
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:prog*
@@ -292,4 +292,4 @@ Ytterligare syntaxreferens, frågearkitektur och exempel finns i följande länk
 + [Exempel på enkel syntaxfråga](search-query-simple-examples.md)
 + [Så här fungerar fulltextsökning i Azure Cognitive Search](search-lucene-query-architecture.md)
 + [Enkel frågesyntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-+ [Fullständig Lucene-frågesyntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [Fullständigt Lucene-frågesyntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)

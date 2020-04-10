@@ -2,24 +2,23 @@
 title: Azure Security Baseline för HDInsight
 description: Azure Security Baseline för HDInsight
 author: msmbaldwin
-manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/28/2020
+ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 61c2b914671020b822814fc283b5f2641c2e787b
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 93a5bcd77bb4f42d9099cc1ddb1b5c3130c19059
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657458"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010145"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Azure Security Baseline för HDInsight
 
 Azure Security Baseline för HDInsight innehåller rekommendationer som hjälper dig att förbättra säkerhetspositionen för distributionen.
 
-Baslinjen för de här tjänsterna hämtas från [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), som ger rekommendationer om hur du kan skydda dina molnlösningar på Azure med vår vägledning om bästa praxis.
+Baslinjen för den här tjänsten hämtas från [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), som ger rekommendationer om hur du kan skydda dina molnlösningar på Azure med vår vägledning om bästa praxis.
 
 Mer information finns i [översikt över Azure Security Baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
 
@@ -31,10 +30,11 @@ Mer information finns i [översikt över Azure Security Baselines](https://docs.
 
 **Vägledning**: Perimetersäkerhet i Azure HDInsight uppnås via virtuella nätverk. En företagsadministratör kan skapa ett kluster i ett virtuellt nätverk och använda en nätverkssäkerhetsgrupp (NSG) för att begränsa åtkomsten till det virtuella nätverket. Endast tillåtna IP-adresser i de inkommande reglerna för nätverkssäkerhetsgruppen kan kommunicera med Azure HDInsight-klustret. Den här konfigurationen ger perimetersäkerhet. Alla kluster som distribueras i ett virtuellt nätverk har också en privat slutpunkt som matchar till en privat IP-adress i det virtuella nätverket för privat HTTP-åtkomst till klustergateways.
 
+Om du vill minska risken för dataförlust via exfiltration begränsar du utgående nätverkstrafik för Azure HDInsight-kluster med Azure-brandväggen.
 
-Distribuera Azure HDInsight i ett virtuellt nätverk och skydda med en nätverkssäkerhetsgrupp:
+Distribuera Azure HDInsight i ett virtuellt nätverk och skydda med en nätverkssäkerhetsgrupp:https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
 
-https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
+Så här begränsar du utgående trafik för Azure HDInsight-kluster med Azure-brandväggen:https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
 
 **Övervakning av Azure Security Center**: Ja
 
@@ -44,16 +44,13 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
 
 **Vägledning**: Använd Azure Security Center och åtgärda nätverksskyddsrekommendationer för det virtuella nätverket, undernätet och nätverkssäkerhetsgruppen som används för att skydda ditt Azure HDInsight-kluster. Aktivera NSG-flödesloggar (Network Security Group) och skicka loggar till ett Azure Storage-konto till trafikgranskning. Du kan också skicka NSG-flödesloggar till en Azure Log Analytics Workspace och använda Azure Traffic Analytics för att ge insikter om trafikflödet i ditt Azure-moln. Vissa fördelar med Azure Traffic Analytics är möjligheten att visualisera nätverksaktivitet och identifiera aktiva punkter, identifiera säkerhetshot, förstå trafikflödesmönster och identifiera felkonfigurationer för nätverk.
 
-
 Aktivera NSG-flödesloggar:
 
 https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-
 Aktivera och använda Azure Traffic Analytics:
 
 https://docs.microsoft.com/azure/network-watcher/traffic-analytics
-
 
 Förstå nätverkssäkerhet som tillhandahålls av Azure Security Center:
 
@@ -75,11 +72,9 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 
 **Vägledning**: För skydd mot DDoS-attacker aktiverar du Azure DDoS Standard-skydd i det virtuella nätverket där din Azure HDInsight distribueras. Använd Azure Security Center-integrerad hotinformation för att neka kommunikation med kända skadliga eller oanvända IP-adresser på Internet.
 
-
 KonfigureraR du DDoS-skydd:
 
 https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
-
 
 Förstå Azure Security Center Integrated Threat Intelligence:
 
@@ -91,13 +86,11 @@ https://docs.microsoft.com/azure/security-center/security-center-alerts-service-
 
 ### <a name="15-record-network-packets-and-flow-logs"></a>1.5: Spela in nätverkspaket och flödesloggar
 
-**Vägledning**: Aktivera NSG-flödesloggar (Network Security Group) för NSG som är anslutna till undernätet som används för att skydda ditt Azure HDInsight-kluster. Registrera NSG-flödesloggarna i ett Azure Storage-konto för att generera flödesposter. Om det behövs för att undersöka avvikande aktivitet aktiverar du Azure Network Watcher-paketfångst.
-
+**Vägledning**: Aktivera NSG-flogloggar (Network Security Group) för NSG som är anslutna till undernätet som används för att skydda ditt Azure HDInsight-kluster. Registrera NSG-flödesloggarna i ett Azure Storage-konto för att generera flödesposter. Om det behövs för att undersöka avvikande aktivitet aktiverar du Azure Network Watcher-paketfångst.
 
 Aktivera NSG-flödesloggar:
 
 https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
-
 
 Aktivera Network Watcher:
 
@@ -112,6 +105,8 @@ https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 **Vägledning**: Krav kan uppfyllas Azure security control ID 1.1; Distribuera Azure HDInsight-kluster till ett virtuellt nätverk och skydda med en nätverkssäkerhetsgrupp (NSG).
 
 Det finns flera beroenden för Azure HDInsight som kräver inkommande trafik. Den inkommande hanteringstrafiken kan inte skickas via en brandväggsenhet. Källadresserna för nödvändig hanteringstrafik är kända och publicerade. Skapa regler för nätverkssäkerhetsgruppen med den här informationen om du vill tillåta trafik från endast betrodda platser, vilket skyddar inkommande trafik till klustren.
+
+Om du vill minska risken för dataförlust via exfiltration begränsar du utgående nätverkstrafik för Azure HDInsight-kluster med Azure-brandväggen.
 
 Distribuera HDInsight i ett virtuellt nätverk och skydda med en nätverkssäkerhetsgrupp:https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
 
@@ -135,7 +130,6 @@ IP-adresser för HDInsight-hantering:https://docs.microsoft.com/azure/hdinsight/
 
 **Vägledning**: Använd taggar för virtuella nätverkstjänst för att definiera nätverksåtkomstkontroller för nätverkssäkerhetsgrupper (NSG) som är kopplade till undernätet som ditt Azure HDInsight-kluster distribueras i. Du kan använda tjänsttaggar i stället för specifika IP-adresser när du skapar säkerhetsregler. Genom att ange tjänsttagnamnet (t.ex. ApiManagement) i lämpligt käll- eller målfält för en regel kan du tillåta eller neka trafik för motsvarande tjänst. Microsoft hanterar adressprefixen som omfattas av servicetag och uppdaterar automatiskt servicetag när adresserna ändras.
 
-
 Förstå och använda tjänsttaggar för Azure HDInsight:
 
 https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags
@@ -148,19 +142,15 @@ https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags
 
 **Vägledning**: Definiera och implementera standardsäkerhetskonfigurationer för nätverksresurser som är relaterade till azure HDInsight-klustret. Använd Azure Policy-alias i namnområdena "Microsoft.HDInsight" och "Microsoft.Network" för att skapa anpassade principer för granskning eller framtvingning av nätverkskonfigurationen för ditt Azure HDInsight-kluster.
 
-
 Du kan också använda Azure Blueprints för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljöartefakter, till exempel Azure Resource Manager-mallar, RBAC-kontroller och principer, i en enda skissdefinition. Använd enkelt skissen på nya prenumerationer och miljöer och finjustera kontroll och hantering genom versionshantering.
-
 
 Så här visar du tillgängliga Azure-principalias:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-
 Konfigurera och hantera Azure-princip:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
 
 Så här skapar du en Azure Blueprint:
 
@@ -174,22 +164,17 @@ https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 **Vägledning**: Använd taggar för nätverkssäkerhetsgrupp (NSG) och andra resurser som är relaterade till nätverkssäkerhet och trafikflöde som är associerade med ditt Azure HDInsight-kluster. För enskilda NSG-regler använder du fältet "Beskrivning" för att ange affärsbehov och/eller varaktighet (etc.) för alla regler som tillåter trafik till/från ett nätverk.
 
-
 Använd någon av de inbyggda Azure-principdefinitionerna som är relaterade till taggning, till exempel "Kräv tagg och dess värde" för att säkerställa att alla resurser skapas med taggar och för att meddela dig om befintliga otaggade resurser.
 
-
 Du kan använda AZURE PowerShell eller Azure command-line interface (CLI) för att söka efter eller utföra åtgärder på resurser baserat på deras taggar.
-
 
 Så här skapar och använder du Taggar:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-
 Så här skapar du ett virtuellt nätverk:
 
 https://docs.microsoft.com/azure/virtual-network/quick-create-portal
-
 
 Hur man skapar en NSG med en Security Config:
 
@@ -203,11 +188,9 @@ https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
 **Vägledning**: Använd Azure Activity Log för att övervaka nätverksresurskonfigurationer och identifiera ändringar för nätverksresurser relaterade till dina Azure HDInsight-distributioner. Skapa aviseringar i Azure Monitor som utlöses när ändringar av kritiska nätverksresurser sker.
 
-
 Så här visar och hämtar du Azure Activity Log-händelser:
 
 https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
-
 
 Så här skapar du aviseringar i Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
@@ -223,7 +206,6 @@ Så här skapar du aviseringar i Azure Monitor:https://docs.microsoft.com/azure/
 
 **Vägledning:** Microsoft underhåller tidskällor för Azure HDInsight-klusterkomponenter, du kan uppdatera tidssynkronisering för dina beräkningsdistributioner.
 
-
 Konfigurera tidssynkronisering för Azure-beräkningsresurser:
 
 https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
@@ -236,11 +218,9 @@ https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
 
 **Vägledning:** Du kan gå in på ditt Azure HDInsight-kluster till Azure Monitor för att aggregera säkerhetsdata som genereras av klustret. Utnyttja anpassade frågor för att identifiera och svara på hot i miljön. 
 
-
 Så här går du till ett Azure HDInsight-kluster till Azure Monitor:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial
-
 
 Så här skapar du anpassade frågor för ett Azure HDInsight-kluster:
 
@@ -254,11 +234,9 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-us
 
 **Vägledning**: Aktivera Azure Monitor för HDInsight-klustret, dirigera den till en Log Analytics-arbetsyta. Detta loggar relevant klusterinformation och OS-mått för alla Azure HDInsight-klusternoder.
 
-
 Aktivera loggning för HDInsight-kluster:
 
  https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial
-
 
 Så här frågar du HDInsight-loggar:
 
@@ -272,11 +250,9 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-us
 
 **Vägledning:** Inbyggd Azure HDInsight-kluster till Azure Monitor. Kontrollera att arbetsytan Log Analytics som används har logglagringsperioden inställd enligt organisationens efterlevnadsregler.
 
-
 Så här går du till ett Azure HDInsight-kluster till Azure Monitor:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial
-
 
 Konfigurerar lagringsperiod för logganalysarbetsyta:
 
@@ -290,11 +266,9 @@ https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage
 
 **Vägledning:** Inbyggd Azure HDInsight-kluster till Azure Monitor. Kontrollera att arbetsytan Azure Log Analytics som används har logglagringsperioden inställd enligt organisationens efterlevnadsregler.
 
-
 Så här går du till ett Azure HDInsight-kluster till Azure Monitor:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial
-
 
 Konfigurerar lagringsperiod för logganalysarbetsyta:
 
@@ -308,7 +282,6 @@ https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage
 
 **Vägledning**: Använda Azure Log Analytics arbetsytefrågor för att fråga Azure HDInsight-loggar:
 
-
 Skapa anpassade frågor för Azure HDInsight-kluster:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-use-queries
@@ -321,11 +294,9 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-us
 
 **Vägledning**: Använd Azure Log Analytics-arbetsytan för övervakning och avisering om avvikande aktiviteter i säkerhetsloggar och händelser relaterade till ditt Azure HDInsight-kluster.
 
-
 Hantera aviseringar i Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts
-
 
 Så här varnar du för logganalysloggdata:
 
@@ -338,7 +309,6 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 ### <a name="28-centralize-anti-malware-logging"></a>2.8: Centralisera loggning av skadlig kod
 
 **Vägledning:** Azure HDInsight levereras med Clamscan förinstallerad och aktiverad för klusternodavbildningar, men du måste hantera programvaran och manuellt samla in/övervaka alla loggar Clamscan producerar.
-
 
 Förstå Clamscan:
 
@@ -372,19 +342,15 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificat
 
 **Vägledning**: Underhåll posten för det lokala administrativa konto som skapas under klusteretablering av Azure HDInsight-kluster samt alla andra konton som du skapar. Om Azure AD-integrering används har Azure AD dessutom inbyggda roller som uttryckligen måste tilldelas och därför kan ifrågasättas. Använd Azure AD PowerShell-modulen för att utföra adhoc-frågor för att identifiera konton som är medlemmar i administrativa grupper.
 
-
 Dessutom kan du använda Azure Security Center Identity and Access Management rekommendationer.
-
 
 Så här skaffar du en katalogroll i Azure AD med PowerShell:
 
 https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
 
-
 Så här hämtar du medlemmar i en katalogroll i Azure AD med PowerShell:
 
 https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
-
 
 Så här övervakar du identitet och åtkomst med Azure Security Center:
 
@@ -398,7 +364,6 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Vägd:** När du etablerar ett kluster kräver Azure att du skapar nya lösenord för webbportalen och SSH-åtkomsten (Secure Shell). Det finns inga standardlösenord att ändra, men du kan ange olika lösenord för SSH- och webbportalåtkomst.
 
-
 Ange lösenord när du etablerar ett Azure HDInsight-kluster:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix
@@ -411,14 +376,11 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix
 
 **Vägledning**: Integrera autentisering för Azure HDInsight-kluster med Azure Active Directory. Skapa principer och procedurer kring användningen av dedikerade administrativa konton.
 
-
 Dessutom kan du använda Azure Security Center Identity and Access Management rekommendationer.
-
 
 Så här integrerar du Azure HDInsight-autentisering med Azure Active Directory:
 
 https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds
-
 
 Så här övervakar du identitet och åtkomst med Azure Security Center:
 
@@ -432,7 +394,6 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Vägledning**: Använd Azure HDInsight ID Broker för att logga in på ESP-kluster (Enterprise Security Package) med hjälp av Multifaktorautentisering, utan att ange några lösenord. Om du redan har loggat in på andra Azure-tjänster, till exempel Azure-portalen, kan du logga in på ditt Azure HDInsight-kluster med en enkel inloggningsupplevelse (SSO).
 
-
 Aktivera Azure HDInsight ID Broker:
 
 https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker#enable-hdinsight-id-broker
@@ -445,11 +406,9 @@ https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker#enable-
 
 **Vägledning**: Aktivera Azure AD MFA och följ Azure Security Center Identity and Access Management-rekommendationerna. Azure HDInsight-kluster med Enterprise Security Package som konfigurerats kan anslutas till en domän så att domänanvändare kan använda sina domänautentiseringsuppgifter för att autentisera med klustren och köra stordatajobb. När du autentiserar med MFA (Multi Factor Authentication) aktiverat kommer användarna att utmanas att tillhandahålla en andra autentiseringsfaktor.
 
-
 Aktivera MFA i Azure:
 
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
-
 
 Så här övervakar du identitet och åtkomst i Azure Security Center:
 
@@ -463,11 +422,9 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Vägledning**: Använd PAWs (privilegierade åtkomstarbetsstationer) med MFA (Multifaktor authentication) konfigurerade för att logga in på och konfigurera Dina Azure HDInsight-kluster och relaterade resurser.
 
-
 Läs mer om arbetsstationer för privilegierad åtkomst:
 
 https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
-
 
 Aktivera MFA i Azure:
 
@@ -481,11 +438,9 @@ https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getst
 
 **Vägledning:** Azure HDInsight-kluster med Enterprise Security Package som konfigurerats kan anslutas till en domän så att domänanvändare kan använda sina domänautentiseringsuppgifter för att autentisera. Du kan använda Säkerhetsrapporter för Azure Active Directory (AAD) för generering av loggar och aviseringar när misstänkt eller osäker aktivitet inträffar i AAD-miljön. Använd Azure Security Center för att övervaka identitets- och åtkomstaktivitet.
 
-
 Så här identifierar du AAD-användare som flaggats för riskfylld aktivitet:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
-
 
 Så här övervakar du användarnas identitets- och åtkomstaktivitet i Azure Security Center:
 
@@ -498,7 +453,6 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8: Hantera Azure-resurser från endast godkända platser
 
 **Vägledning:** Azure HDInsight-kluster med Enterprise Security Package som konfigurerats kan anslutas till en domän så att domänanvändare kan använda sina domänautentiseringsuppgifter för att autentisera. Använd namngivna platser för villkorlig åtkomst för att tillåta åtkomst från endast specifika logiska grupperingar av IP-adressintervall eller länder/regioner.
-
 
 Konfigurera namngivna platser i Azure:
 
@@ -514,11 +468,9 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-
 
 Azure HDInsight-kluster med ESP (Enterprise Security Package) konfigurerat kan anslutas till en domän så att domänanvändare kan använda sina domänautentiseringsuppgifter för att autentisera med klustren.
 
-
 Så här skapar och konfigurerar du en AAD-instans:
 
 https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
-
 
 Konfigurera Enterprise Security Package med Azure Active Directory Domain Services i Azure HDInsight:
 
@@ -532,7 +484,6 @@ https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-co
 
 **Vägledning**: Använd Azure Active Directory (AAD) autentisering med ditt Azure HDInsight-kluster. AAD tillhandahåller loggar som hjälper dig att upptäcka inaktuella konton. Dessutom kan du använda Azure Identity Access Reviews för att effektivt hantera gruppmedlemskap, åtkomst till företagsprogram och rolltilldelningar. Användarens åtkomst kan granskas regelbundet för att se till att endast rätt användare har fortsatt åtkomst. 
 
-
 Så här använder du Azure Identity Access Reviews:
 
 https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
@@ -545,9 +496,7 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 
 **Vägledning**: Använd Azure Active Directory (AAD) Inloggnings- och granskningsloggar för att övervaka för försök att komma åt inaktiverade konton. dessa loggar kan integreras i alla siem/övervakningsverktyg från tredje part.
 
-
 Du kan effektivisera den här processen genom att skapa diagnostikinställningar för AAD-användarkonton, skicka granskningsloggar och inloggningsloggar till en Azure Log Analytics-arbetsyta. Konfigurera önskade aviseringar i Azure Log Analytics-arbetsytan.
-
 
 Så här integrerar du Azure Activity Logs i Azure Monitor:
 
@@ -561,11 +510,9 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integ
 
 **Vägledning:** Azure HDInsight-kluster med ESP (Enterprise Security Package) konfigurerat kan anslutas till en domän så att domänanvändare kan använda sina domänautentiseringsuppgifter för att autentisera med klustren.  Använd Azure Active Directory (AAD) Riskidentifieringar och identitetsskyddsfunktionen för att konfigurera automatiska svar på identifierade misstänkta åtgärder relaterade till användaridentiteter. Dessutom kan du matsätta data i Azure Sentinel för vidare undersökning.
 
-
 Så här visar du riskfyllda AAD-inloggningar:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
-
 
 Konfigurera och aktivera riskprinciper för identitetsskydd:
 
@@ -582,6 +529,7 @@ https://docs.microsoft.com/azure/active-directory/identity-protection/howto-iden
 Lista över tjänster som stöds av Customer Lockbox:https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
 
+
 **Övervakning av Azure Security Center**: För närvarande inte tillgänglig
 
 **Ansvar**: Kund
@@ -593,7 +541,6 @@ Lista över tjänster som stöds av Customer Lockbox:https://docs.microsoft.com/
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Föra en inventering av känslig information
 
 **Vägledning**: Använd taggar på resurser som är relaterade till dina Azure HDInsight-distributioner för att hjälpa till att spåra Azure-resurser som lagrar eller bearbetar känslig information.
-
 
 Så här skapar och använder du taggar:
 
@@ -607,16 +554,13 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 **Vägledning**: Implementera separata prenumerationer och/eller hanteringsgrupper för utveckling, test och produktion. Azure HDInsight-kluster och alla associerade lagringskonton bör avgränsas med virtuellt nätverk/undernät, taggas på rätt sätt och skyddas inom en nätverkssäkerhetsgrupp (NSG) eller Azure-brandvägg. Klusterdata bör finnas i ett skyddat Azure Storage-konto eller Azure Data Lake Storage (Gen1 eller Gen2).
 
-
 Välj lagringsalternativ för Ditt Azure HDInsight-kluster:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-compare-storage-options
 
-
 Så här skyddar du Azure Data Lake Storage:
 
 https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overview
-
 
 Så här skyddar du Azure Storage-konton:
 
@@ -630,14 +574,11 @@ https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
 **Vägledning**: För Azure HDInsight-kluster som lagrar eller bearbetar känslig information markerar du klustret och relaterade resurser som känsliga med hjälp av taggar. Om du vill minska risken för dataförlust via exfiltration begränsar du utgående nätverkstrafik för Azure HDInsight-kluster med Azure-brandväggen.
 
-
 För den underliggande plattformen som hanteras av Microsoft behandlar Microsoft allt kundinnehåll som känsligt och gör stora ansträngningar för att skydda mot förlust av kunddata och exponering. För att säkerställa att kunddata i Azure förblir säkra har Microsoft implementerat och underhållit en uppsättning robusta dataskyddskontroller och funktioner.
-
 
 Så här begränsar du utgående trafik för Azure HDInsight-kluster med Azure-brandväggen:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
-
 
 Förstå kunddataskyddet i Azure:
 
@@ -651,15 +592,13 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Vägledning**: Kryptera all känslig information under transport. Kontrollera att alla klienter som ansluter till ditt Azure HDInsight-kluster- eller klusterdatalager (Azure Storage Accounts eller Azure Data Lake Storage Gen1/Gen2) kan förhandla fram TLS 1.2 eller senare. Microsoft Azure-resurser förhandlar som standard om TLS 1.2. 
 
-
 Förstå Azure Data Lake Storage-kryptering under överföringen:
 
 https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overview
 
-
 Förstå Azure Storage-kontokryptering under överföring:
 
-https://docs.microsoft.com/azure/storage/blobs/security-recommendations
+https://docs.microsoft.com/azure/storage/common/storage-security-guide#encryption-in-transit
 
 **Övervakning av Azure Security Center**: Ja
 
@@ -669,11 +608,7 @@ https://docs.microsoft.com/azure/storage/blobs/security-recommendations
 
 **Vägledning**: Funktioner för dataidentifiering, klassificering och förlustförebyggande är ännu inte tillgängliga för Azure Storage- eller beräkningsresurser. Implementera tredjepartslösning om det behövs för efterlevnadsändamål.
 
-
-
 För den underliggande plattformen som hanteras av Microsoft behandlar Microsoft allt kundinnehåll som känsligt och gör stora ansträngningar för att skydda mot förlust av kunddata och exponering. För att säkerställa att kunddata i Azure förblir säkra har Microsoft implementerat och underhållit en uppsättning robusta dataskyddskontroller och funktioner.
-
-
 
 Förstå kunddataskyddet i Azure:
 
@@ -689,9 +624,13 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 Genom att konfigurera RBAC-principer med Apache Ranger kan du associera behörigheter med en roll i organisationen. Detta lager av abstraktion gör det lättare att se till att människor bara har de behörigheter som behövs för att utföra sina arbetsuppgifter.
 
-Konfigurationer av företagssäkerhetspaket med Azure Active Directory Domain Services i HDInsight:https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds
+Konfigurationer av företagssäkerhetspaket med Azure Active Directory Domain Services i HDInsight:
 
-Översikt över företagssäkerhet i Azure HDInsight:https://docs.microsoft.com/azure/hdinsight/domain-joined/hdinsight-security-overview
+https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds
+
+Översikt över företagssäkerhet i Azure HDInsight:
+
+https://docs.microsoft.com/azure/hdinsight/domain-joined/hdinsight-security-overview
 
 
 
@@ -703,9 +642,7 @@ Konfigurationer av företagssäkerhetspaket med Azure Active Directory Domain Se
 
 **Vägledning**: För Azure HDInsight-kluster som lagrar eller bearbetar känslig information markerar du klustret och relaterade resurser som känsliga med hjälp av taggar. Dataidentifiering, klassificering och förlustförebyggande funktioner är ännu inte tillgängliga för Azure Storage eller beräkningsresurser. Implementera tredjepartslösning om det behövs för efterlevnadsändamål.
 
-
 För den underliggande plattformen som hanteras av Microsoft behandlar Microsoft allt kundinnehåll som känsligt och gör stora ansträngningar för att skydda mot förlust av kunddata och exponering. För att säkerställa att kunddata i Azure förblir säkra har Microsoft implementerat och underhållit en uppsättning robusta dataskyddskontroller och funktioner.
-
 
 Förstå kunddataskyddet i Azure:
 
@@ -719,25 +656,17 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Vägledning:** Om du använder Azure SQL Database för att lagra Apache Hive- och Apache Oozie-metadata, se till att SQL-data förblir krypterade hela tiden. För Azure Storage-konton och DataSjölagring (Gen1 eller Gen2) rekommenderas att Microsoft kan hantera dina krypteringsnycklar, men du har möjlighet att hantera dina egna nycklar.
 
-
-
 Hantera krypteringsnycklar för Azure Storage-konton:
 
 https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
-
-
 
 Skapa Azure Data Lake Storage med kundhanterade krypteringsnycklar:
 
 https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
 
-
-
 Förstå kryptering för Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview#data-encryption
-
-
 
 Konfigurera transparent datakryptering för SQL Database med hjälp av kundhanterade nycklar:
 
@@ -751,11 +680,9 @@ https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-
 
 **Vägledning**: Konfigurera diagnostikinställningar för Azure Storage-konton som är associerade med Azure HDInsight-kluster för att övervaka och logga alla CRUD-åtgärder mot klusterdata. Aktivera granskning för alla lagringskonton eller datasjölager som är associerade med Azure HDInsight-klustret.
 
-
 Aktivera ytterligare loggning/granskning för ett Azure Storage-konto:
 
 https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account
-
 
 Aktivera ytterligare loggning/granskning för Azure Data Lake Storage:
 
@@ -773,19 +700,15 @@ https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnos
 
 **Vägledning**: Implementera en lösning för sårbarhetshantering från tredje part.
 
-
 Om du har en Rapid7-, Qualys- eller någon annan prenumeration på säkerhetsproblemhanteringsplattformen kan du använda skriptåtgärder för att installera sårbarhetsbedömningsagenter på dina Azure HDInsight-klusternoder och hantera noderna via respektive portal.
-
 
 Så här installerar du Rapid7 Agent manuellt:
 
-https://insightvm.help.rapid7.com/docs/azure-security-center
-
+https://insightvm.help.rapid7.com/v1.0/docs/agent-installation-on-linux
 
 Så här installerar du Qualys Agent manuellt:
 
 https://www.qualys.com/docs/qualys-cloud-agent-linux-install-guide.pdf
-
 
 Så här använder du skriptåtgärder:
 
@@ -799,9 +722,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-li
 
 **Vägledning:** Automatiska systemuppdateringar har aktiverats för klusternodavbildningar, men du måste regelbundet starta om klusternoder för att säkerställa att uppdateringar tillämpas.
 
-
 Microsoft för att underhålla och uppdatera bas Azure HDInsight nod avbildningar.
-
 
 Konfigurerar korrigeringsschemat för OPERATIVSYSTEM för HDInsight-kluster:
 
@@ -815,11 +736,9 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-os-patching
 
 **Vägledning**: Använd skriptåtgärder eller andra mekanismer för att korrigera dina Azure HDInsight-kluster. Nyskapade kluster kommer alltid att ha de senaste tillgängliga uppdateringarna, inklusive de senaste säkerhetskorrigeringarna.
 
-
 Konfigurera operativsystemets korrigeringsschema för Linux-baserade Azure HDInsight-kluster:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-os-patching
-
 
 Så här använder du skriptåtgärder:
 
@@ -853,19 +772,15 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-li
 
 **Vägledning**: Använd Azure Resource Graph för att fråga/identifiera alla resurser (till exempel beräkning, lagring, nätverk, portar och protokoll osv.), inklusive Azure HDInsight-kluster, inom dina prenumerationer.  Se till att du har lämpliga (läs) behörigheter i din klientorganisation och kan räkna upp alla Azure-prenumerationer samt resurser i dina prenumerationer.
 
+Även om klassiska Azure-resurser kan identifieras via Resource Graph, rekommenderas det starkt att skapa och använda Azure Resource Manager-resurser framöver.
 
-Även om klassiska Azure-resurser kan identifieras via Azure Resource Graph, rekommenderas det starkt att skapa och använda Azure Resource Manager-resurser framöver.
-
-
-Så här skapar du frågor med Azure Resource Graph:
+Så här skapar du frågor med Azure Graph:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
-
 
 Så här visar du dina Azure-prenumerationer:
 
 https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
-
 
 Förstå Azure RBAC:
 
@@ -879,7 +794,6 @@ https://docs.microsoft.com/azure/role-based-access-control/overview
 
 **Vägledning**: Använd taggar på Azure-resurser som ger metadata för att logiskt ordna dem till en taxonomi.
 
-
 Så här skapar och använder du taggar:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
@@ -892,16 +806,13 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 **Vägledning**: Använd taggning, hanteringsgrupper och separata prenumerationer, där så är lämpligt, för att organisera och spåra tillgångar. Stämma av lager regelbundet och se till att obehöriga resurser tas bort från prenumerationen i tid.
 
-
 Så här skapar du ytterligare Azure-prenumerationer:
 
 https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-
 Så här skapar du hanteringsgrupper:
 
 https://docs.microsoft.com/azure/governance/management-groups/create
-
 
 Så här skapar och använder du taggar:
 
@@ -924,13 +835,15 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 **Vägledning**: Använd Azure-principen för att begränsa vilken typ av resurser som kan skapas i kundprenumerationer med hjälp av följande inbyggda principdefinitioner:
 
 - Otillåtna resurstyper
+
 - Tillåtna resurstyper
 
 Använd Azure Resource Graph för att fråga/identifiera resurser i dina prenumerationer. Se till att alla Azure-resurser som finns i miljön är godkända.
 
 Konfigurera och hantera Azure-princip:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Så här skapar du frågor med Azure Resource Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Så här skapar du frågor med Azure Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+
 
 
 **Övervakning av Azure Security Center**: För närvarande inte tillgänglig
@@ -949,8 +862,7 @@ Så här skapar du frågor med Azure Resource Graph:https://docs.microsoft.com/a
 
 **Vägledning**: Använd Azure Resource Graph för att fråga/identifiera alla resurser (till exempel beräkning, lagring, nätverk, portar och protokoll osv.), inklusive Azure HDInsight-kluster, inom dina prenumerationer.  Ta bort alla icke godkända Azure-resurser som du upptäcker. För Azure HDInsight-klusternoder implementerar du en tredjepartslösning för att ta bort eller avisera på icke godkänd programvara.
 
-
-Så här skapar du frågor med Azure Resource Graph:
+Så här skapar du frågor med Azure Graph:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -962,6 +874,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Vägledning**: För Azure HDInsight-klusternoder implementerar du en tredjepartslösning för att förhindra att obehörig programvara körs.
 
+
 **Övervakning av Azure Security Center**: För närvarande inte tillgänglig
 
 **Ansvar**: Kund
@@ -971,13 +884,13 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 **Vägledning**: Använd Azure-principen för att begränsa vilken typ av resurser som kan skapas i kundprenumerationer med hjälp av följande inbyggda principdefinitioner:
 
 - Otillåtna resurstyper
-- Tillåtna resurstyper
 
+- Tillåtna resurstyper
 
 Konfigurera och hantera Azure-princip:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-
 Så här nekar du en viss resurstyp med Azure Policy:https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+
 
 **Övervakning av Azure Security Center**: För närvarande inte tillgänglig
 
@@ -987,6 +900,7 @@ Så här nekar du en viss resurstyp med Azure Policy:https://docs.microsoft.com/
 
 **Vägledning**: För Azure HDInsight-klusternoder implementerar du en tredjepartslösning för att förhindra att obehöriga filtyper körs.
 
+
 **Övervakning av Azure Security Center**: För närvarande inte tillgänglig
 
 **Ansvar**: Kund
@@ -995,8 +909,8 @@ Så här nekar du en viss resurstyp med Azure Policy:https://docs.microsoft.com/
 
 **Vägledning**: Använd Azure Villkorlig åtkomst för att begränsa användarnas möjlighet att interagera med Azure Resource Manager genom att konfigurera "Blockera åtkomst" för "Microsoft Azure Management"-appen.
 
-
 Konfigurera villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager:https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+
 
 **Övervakning av Azure Security Center**: För närvarande inte tillgänglig
 
@@ -1026,11 +940,9 @@ Konfigurera villkorlig åtkomst för att blockera åtkomst till Azure Resource M
 
 **Vägledning**: Använd Azure Policy-alias i namnområdet "Microsoft.HDInsight" för att skapa anpassade principer för granskning eller framtvingning av nätverkskonfigurationen för ditt HDInsight-kluster.
 
-
 Så här visar du tillgängliga Azure-principalias:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
 
 Konfigurera och hantera Azure-princip:
 
@@ -1044,6 +956,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Vägledning**: Azure HDInsight Operativsystem avbildningar hanteras och underhålls av Microsoft. Kunden som ansvarar för att implementera säkra konfigurationer för klusternodernas operativsystem. 
 
+
 **Övervakning av Azure Security Center**: För närvarande inte tillgänglig
 
 **Ansvar**: Kund
@@ -1052,11 +965,9 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Vägledning**: Använd Azure-principen [neka] och [distribuera om det inte finns] för att framtvinga säkra inställningar för dina Azure HDInsight-kluster och relaterade resurser.
 
-
 Konfigurera och hantera Azure-princip:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
 
 Förstå Azure-principeffekter:
 
@@ -1070,6 +981,7 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Vägledning**: Azure HDInsight Operativsystem avbildningar hanteras och underhålls av Microsoft. Kunden som ansvarar för att implementera tillståndskonfiguration på OS-nivå.
 
+
 **Övervakning av Azure Security Center**: För närvarande inte tillgänglig
 
 **Ansvar**: Delat
@@ -1078,13 +990,9 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Vägledning:** Om du använder anpassade Azure-principdefinitioner använder du Azure DevOps eller Azure Repos för att lagra och hantera din kod på ett säkert sätt.
 
-
-
 Så här lagrar du kod i Azure DevOps:
 
 https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
-
-
 
 Dokumentation för Azure Repos:
 
@@ -1106,8 +1014,6 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Vägd:** Använd Azure Policy-alias i namnområdet "Microsoft.HDInsight" för att skapa anpassade principer för aviseringar, granskning och genomdämning av systemkonfigurationer. Dessutom, utveckla en process och pipeline för att hantera principundantag.
 
-
-
 Konfigurera och hantera Azure-princip:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
@@ -1128,11 +1034,9 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Vägledning**: Använd Azure Policy-alias i namnområdet "Microsoft.HDInsight" för att skapa anpassade principer för granskning eller framtvingning av konfigurationen av ditt HDInsight-kluster.
 
-
 Så här visar du tillgängliga Azure-principalias:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
 
 Konfigurera och hantera Azure-princip:
 
@@ -1154,17 +1058,13 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Vägledning:** Azure HDInsight innehåller BYOK-stöd (Bring Your Own Key) för Apache Kafka. Med den här funktionen kan du äga och hantera de nycklar som används för att kryptera data i vila.
 
-
 Alla hanterade diskar i Azure HDInsight skyddas med Azure Storage Service Encryption (SSE). Som standard krypteras data på dessa diskar med Microsoft-hanterade nycklar. Om du aktiverar BYOK tillhandahåller du krypteringsnyckeln för Azure HDInsight för att använda och hantera den med Azure Key Vault.
 
-
 Key Vault kan också användas med Azure HDInsight-distributioner för att hantera nycklar för klusterlagring (Azure Storage-konton och Azure Data Lake Storage)
-
 
 Så här tar du med din egen nyckel till Apache Kafka på Azure HDInsight:
 
 https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok
-
 
 Hantera krypteringsnycklar för Azure Storage-konton:
 
@@ -1178,7 +1078,6 @@ https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
 
 **Vägledning**: Hanterade identiteter kan användas i Azure HDInsight så att dina kluster kan komma åt Azure Active Directory-domäntjänster, komma åt Azure Key Vault eller komma åt filer i Azure Data Lake Storage Gen2.
 
-
 Förstå hanterade identiteter med Azure HDInsight:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-managed-identities
@@ -1190,7 +1089,6 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-managed-identities
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Eliminera oavsiktlig exponering för autentiseringsuppgifter
 
 **Vägledning:** Om du använder någon kod som är relaterad till din Azure HDInsight-distribution kan du implementera autentiseringsläsare för att identifiera autentiseringsuppgifter i kod. Autentiseringsläsare kommer också att uppmuntra flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault. 
-
 
 Så här konfigurerar du autentiseringsskanner:
 
@@ -1208,7 +1106,6 @@ https://secdevtools.azurewebsites.net/helpcredscan.html
 
 **Vägledning:** Azure HDInsight levereras med Clamscan förinstallerad och aktiverad för klusternodavbildningar, men du måste hantera programvaran och manuellt samla in/övervaka alla loggar Clamscan producerar.
 
-
 Förstå Clamscan för Azure HDInsight:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates
@@ -1221,9 +1118,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificat
 
 **Vägledning**: Microsoft Antimalware är aktiverat på den underliggande värden som stöder Azure-tjänster, men det körs inte på kundinnehåll.
 
-
 Förskansa alla filer som överförs till alla Azure-resurser som är relaterade till din Azure HDInsight-klusterdistribution, till exempel DataSjölagring, Blob Storage osv. Microsoft kan inte komma åt kunddata i dessa fall.
-
 
 Förstå Microsoft Antimalware för Azure Cloud Services och virtuella datorer:
 
@@ -1236,7 +1131,6 @@ Förstå Microsoft Antimalware för Azure Cloud Services och virtuella datorer:
 ### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8.3: Se till att programvara och signaturer mot skadlig kod uppdateras
 
 **Vägledning**: Azure HDInsight levereras med Clamscan förinstallerad och aktiverad för klusternodavbildningar. Clamscan kommer att utföra motor- och definitionsuppdateringar automatiskt, men aggregering och hantering av loggar måste utföras manuellt.
-
 
 Förstå Clamscan för Azure Azure HDInsight:
 
@@ -1254,11 +1148,9 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificat
 
 **Vägledning**: När du använder ett Azure Storage-konto för HDInsight-klusterdatalagret väljer du lämpligt redundansalternativ (LRS, ZRS, GRS, RA-GRS).  När du använder en Azure SQL-databas för Azure HDInsight-klusterdatalagring konfigurerar du Active Geo-replication.
 
-
 Konfigurera lagringsredundans för Azure Storage-konton:
 
 https://docs.microsoft.com/azure/storage/common/storage-redundancy
-
 
 Konfigurera redundans för Azure SQL-databaser:
 
@@ -1272,16 +1164,13 @@ https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replicatio
 
 **Vägledning:** När du använder ett Azure Storage-konto för Azure HDInsight-klusterdatalagret väljer du lämpligt redundansalternativ (LRS, ZRS, GRS, RA-GRS). Om du använder Azure Key Vault för någon del av din Azure HDInsight-distribution, se till att dina nycklar säkerhetskopieras.
 
-
 Välj lagringsalternativ för Ditt Azure HDInsight-kluster:
 
 https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-compare-storage-options
 
-
 Konfigurera lagringsredundans för Azure Storage-konton:
 
 https://docs.microsoft.com/azure/storage/common/storage-redundancy
-
 
 Så här säkerhetskopierar du Key Vault-nycklar i Azure:
 
@@ -1295,11 +1184,9 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvau
 
 **Vägledning**: Om Azure Key Vault används med din Azure HDInsight-distribution testar du återställning av säkerhetskopierade kundhanterade nycklar.
 
-
 Så här tar du med din egen nyckel till Apache Kafka på Azure HDInsight:
 
 https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok
-
 
 Så här återställer du nyckelvalvsnycklar i Azure:
 
@@ -1313,10 +1200,9 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 **Vägledning:** Om Azure Key Vault används med din Azure HDInsight-distribution aktiverar du Mjukborttagning i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
 
-
 Aktivera Mjuk borttagning i Azure Key Vault:
 
-https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete
+https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
 **Övervakning av Azure Security Center**: För närvarande inte tillgänglig
 
@@ -1329,8 +1215,6 @@ https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Skapa en vägledning för incidenthantering
 
 **Vägledning**: Se till att det finns skriftliga incidenthanteringsplaner som definierar personalens roller samt faser av incidenthantering/hantering.
-
-
 
 Konfigurera arbetsflödesautomatiseringar i Azure Security Center:
 
@@ -1360,8 +1244,6 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 **Vägledning**: Kontaktinformation för säkerhetsincidenter kommer att användas av Microsoft för att kontakta dig om Microsoft Security Response Center (MSRC) upptäcker att dina data har använts av en olaglig eller obehörig part.
 
-
-
 Så här ställer du in säkerhetskontakten för Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
@@ -1374,13 +1256,9 @@ https://docs.microsoft.com/azure/security-center/security-center-provide-securit
 
 **Vägledning**: Exportera dina Azure Security Center-aviseringar och rekommendationer med hjälp av funktionen Kontinuerlig export. Kontinuerlig export gör att du kan exportera aviseringar och rekommendationer antingen manuellt eller på ett kontinuerligt sätt. Du kan använda Azure Security Center-dataanslutningen för att strömma aviseringarna Sentinel.
 
-
-
 Konfigurera kontinuerlig export:
 
 https://docs.microsoft.com/azure/security-center/continuous-export
-
-
 
 Så här streamar du aviseringar till Azure Sentinel:
 
@@ -1393,8 +1271,6 @@ https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: Automatisera svaret på säkerhetsvarningar
 
 **Vägledning**: Använd funktionen Automatisering av arbetsflöde i Azure Security Center för att automatiskt utlösa svar via "Logic Apps" på säkerhetsaviseringar och rekommendationer.
-
-
 
 Konfigurerar automatiserings- och logikappar för arbetsflöde:
 
@@ -1413,8 +1289,6 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 **Vägledning**: Följ Microsofts insatsregler för att säkerställa att dina penetrationstester inte bryter mot Microsofts policyer:
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
-
-
 
 Du hittar mer information om Microsofts strategi och genomförande av Red Teaming och penetrationstester på webbplatser på flera webbplatser mot Microsofts hanterade molninfrastruktur, tjänster och program, här:https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 

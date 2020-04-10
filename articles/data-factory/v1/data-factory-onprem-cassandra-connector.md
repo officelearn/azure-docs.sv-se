@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 05cee60fb1f4d43d1b4ce371aa9f22650b4782da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f96680f1ea91434c84d6606e3637c68c1cb5a84
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79281306"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991509"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Flytta data från en lokal Cassandra-databas med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -75,7 +75,7 @@ I följande tabell beskrivs beskrivning av JSON-element som är specifika för C
 | krypteradKnuren |Autentiseringsuppgifter krypteras av gatewayen. |Inga |
 
 >[!NOTE]
->För närvarande stöds inte anslutning till Cassandra med SSL.
+>För närvarande stöds inte anslutning till Cassandra med TLS.
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln [Skapa datauppsättningar.](data-factory-create-datasets.md) Avsnitt som struktur, tillgänglighet och princip för en datauppsättning JSON är liknande för alla datauppsättningstyper (Azure SQL, Azure blob, Azure-tabell osv.).
@@ -261,20 +261,20 @@ Se Egenskaper för [RelationsSource-typ](#copy-activity-properties) för listan 
 ### <a name="type-mapping-for-cassandra"></a>Typmappning för Cassandra
 | Cassandra Typ | .NET-baserad typ |
 | --- | --- |
-| ASCII |String |
+| ASCII |Sträng |
 | BIGINT |Int64 |
 | Blob |Byte[] |
-| Boolean |Boolean |
+| Boolean |Boolesk |
 | DECIMAL |Decimal |
 | DOUBLE |Double |
 | Flyta |Enkel |
-| Inet |String |
+| Inet |Sträng |
 | INT |Int32 |
-| TEXT |String |
+| TEXT |Sträng |
 | TIMESTAMP |DateTime |
 | TIMEUUID (PÅ LÄNGE) |GUID |
 | Uuid |GUID |
-| VARCHAR |String |
+| VARCHAR |Sträng |
 | VARINT (OLIKA) |Decimal |
 
 > [!NOTE]

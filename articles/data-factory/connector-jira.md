@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 04509ac2ca229ee6175ca7be827eabb0caf0bc70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ecb982f461fcb2afe3e538dfde8aed368bdacb6c
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929243"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992138"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory"></a>Kopiera data från Jira med Azure Data Factory
 
@@ -51,8 +51,8 @@ Följande egenskaper stöds för Jira-länkad tjänst:
 | användarnamn | Användarnamnet som du använder för att komma åt Jira-tjänsten.  | Ja |
 | password | Lösenordet som motsvarar användarnamnet som du angav i användarnamnsfältet. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | användaKrypteradeEndpoints | Anger om slutpunkterna för datakällan är krypterade med HTTPS. Standardvärdet är True.  | Inga |
-| useHostVerification | Anger om värdnamnet i serverns certifikat ska behövas för att matcha serverns värdnamn när den ansluter via SSL. Standardvärdet är True.  | Inga |
-| användaUppvering | Anger om serverns identitet ska verifieras när den ansluter via SSL. Standardvärdet är True.  | Inga |
+| useHostVerification | Anger om värdnamnet i serverns certifikat ska behövas för att matcha serverns värdnamn när du ansluter via TLS. Standardvärdet är True.  | Inga |
+| användaUppvering | Anger om serverns identitet ska verifieras när den ansluter via TLS. Standardvärdet är True.  | Inga |
 
 **Exempel:**
 

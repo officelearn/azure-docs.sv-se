@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 1f6404da163e075b63a99a1d8474cdba4e064b06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bdb2dc283287bf83410f1846aca11f233e93d01b
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930886"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990862"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Kopiera data från Xero med Azure Data Factory
 
@@ -55,8 +55,8 @@ Följande egenskaper stöds för Xero-länkad tjänst:
 | consumerKey (consumerKey) | Konsumentnyckeln som är associerad med Xero-programmet. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | privateKey (privateKey) | Den privata nyckeln från .pem-filen som genererades för ditt privata Xero-program finns i [Skapa ett offentligt/privat nyckelpar](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Observera att **generera privatekey.pem med domningar av 512** med `openssl genrsa -out privatekey.pem 512`; 1024 stöds inte. Inkludera all text från PEM-filen inklusive Unix-radändelser(\n), se exemplet nedan.<br/><br/>Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | användaKrypteradeEndpoints | Anger om slutpunkterna för datakällan är krypterade med HTTPS. Standardvärdet är True.  | Inga |
-| useHostVerification | Anger om värdnamnet krävs i serverns certifikat för att matcha serverns värdnamn när den ansluter via SSL. Standardvärdet är True.  | Inga |
-| användaUppvering | Anger om serverns identitet ska verifieras när den ansluter via SSL. Standardvärdet är True.  | Inga |
+| useHostVerification | Anger om värdnamnet krävs i serverns certifikat för att matcha serverns värdnamn när du ansluter via TLS. Standardvärdet är True.  | Inga |
+| användaUppvering | Anger om serverns identitet ska verifieras när den ansluter via TLS. Standardvärdet är True.  | Inga |
 
 **Exempel:**
 

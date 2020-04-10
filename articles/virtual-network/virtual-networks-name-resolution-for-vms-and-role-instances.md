@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
-ms.openlocfilehash: 20a5c4befaa30383c54ac9536a3fd26dce3db4d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: fasttrack-edit
+ms.openlocfilehash: d7d0699718642a7eb9f85b2e8a86623092c34365
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80059975"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010570"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Namnmatchning för resurser i virtuella nätverk i Azure
 
@@ -185,8 +186,7 @@ Om vidarebefordran av frågor till Azure inte passar dina behov bör du tillhand
 * Skyddas mot tillgång från Internet, för att minska hot som externa agenter utgör.
 
 > [!NOTE]
-> För bästa prestanda bör IPv6 inaktiveras när du använder Virtuella Azure-datorer som DNS-servrar. En [offentlig IP-adress](virtual-network-public-ip-address.md) ska tilldelas varje virtuell DNS-server. 
-> 
+> För bästa prestanda bör IPv6 inaktiveras när du använder Virtuella Azure-datorer som DNS-servrar.
 
 ### <a name="web-apps"></a>Webbappar
 Anta att du måste utföra namnmatchning från webbappen som skapats med hjälp av App Service, länkad till ett virtuellt nätverk, till virtuella datorer i samma virtuella nätverk. Förutom att konfigurera en anpassad DNS-server som har en DNS-vidarebefordrare som vidarebefordrar frågor till Azure (virtuell IP 168.63.129.16), utför du följande steg:

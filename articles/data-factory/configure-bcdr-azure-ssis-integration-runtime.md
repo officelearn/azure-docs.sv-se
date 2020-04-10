@@ -11,13 +11,13 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/14/2018
-ms.openlocfilehash: 92f7d25a9c19409b220b6a71fba87da91e51a415
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/09/2020
+ms.openlocfilehash: 532258cecd823e10057ddc3536cd24071e444581
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74928504"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992070"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Konfigurera Azure-SSIS Integration Runtime med Azure SQL Database geo-replication och redundans
 
@@ -112,9 +112,11 @@ När en ADF- eller Azure-SSIS IR-katastrof inträffar i den aktuella regionen ka
 
 ### <a name="steps"></a>Steg
 
-Följ dessa steg för att stoppa din Azure-SSIS IR, växla IR till en ny region och starta den igen.
+Följ dessa steg för att flytta din Azure-SSIS IR till en ny region.
+> [!NOTE]
+> Steg 3 (skapandet av IR) måste göras via PowerShell. Azure-portalen rapporterar ett fel som anger att SSISDB redan finns.
 
-1. Kör lagrad procedur för att göra SSISDB ansluten till ** \<new_data_factory_name\> ** eller ** \<new_integration_runtime_name\>**.
+1. Kör lagrad procedur för att uppdatera metadata i SSISDB för att acceptera anslutningar från ** \<new_data_factory_name\> ** och ** \<new_integration_runtime_name\>**.
    
   ```SQL
     EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'

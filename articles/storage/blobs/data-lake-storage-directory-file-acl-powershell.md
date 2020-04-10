@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 58548c5cb1aa6aba6dda09d5d420b36bb8154726
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 9b0e0b39b7ac7d7834c9cdcbd79ba45b024c823a
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656402"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992019"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Använda PowerShell för att hantera kataloger, filer och ACL:er i Azure Data Lake Storage Gen2 (förhandsversion)
 
@@ -151,7 +151,7 @@ Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
 > [!NOTE]
 > Använd `-Force` parametern om du vill skriva över utan uppmaningar.
 
-I det här `my-directory` exemplet flyttas en `my-directory-2` katalog `my-subdirectory`med namnet till en underkatalog med namnet . I det här exemplet används även en umask på underkatalogen.
+I det här `my-directory` exemplet flyttas en `my-directory-2` katalog `my-subdirectory`med namnet till en underkatalog med namnet . 
 
 ```powershell
 $filesystemName = "my-file-system"

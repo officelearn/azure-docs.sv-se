@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 04/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 68e234b9db269c30dc9f24106ae1942c01304da7
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 534e5c913685eeac92022f6694ea31b24816da5d
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422508"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011658"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Kopiera data från och till Oracle med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -37,6 +37,7 @@ Du kan kopiera data från en Oracle-databas till alla sink-datalager som stöds.
 Specifikt stöder den här Oracle-anslutningen:
 
 - Följande versioner av en Oracle-databas:
+    - Oracle 19c R1 (19,1) och högre
     - Oracle 18c R1 (18.1) och högre
     - Oracle 12c R1 (12.1) och högre
     - Oracle 11g R1 (11,1) och högre
@@ -84,9 +85,9 @@ Om du vill aktivera kryptering på Oracle-anslutning har du två alternativ:
 
 -   Om du vill använda **Triple-DES Encryption (3DES) och Advanced Encryption Standard (AES)** går du till Oracle Advanced Security (OAS) på Oracle-serversidan och konfigurerar krypteringsinställningarna. Mer information finns i den här [Oracle-dokumentationen](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). Oracle Application Development Framework (ADF) -anslutningen förhandlar automatiskt om krypteringsmetoden för att använda den du konfigurerar i OAS när du upprättar en anslutning till Oracle.
 
--   Så här använder du **SSL:**
+-   Så här använder du **TLS:**
 
-    1.  Hämta SSL-certifikatinformationen. Hämta der-kodade certifikatinformation (Distinguished Encoding Rules) för ditt SSL-certifikat och spara utdata (----- Begin-certifikat ... Avsluta certifikat -----) som en textfil.
+    1.  Hämta TLS/SSL-certifikatinformationen. Hämta der-kodade certifikatinformation (Distinguished Encoding Rules) för din TLS/SSL-cert och spara utdata (----- Begin-certifikat ... Avsluta certifikat -----) som en textfil.
 
         ```
         openssl x509 -inform DER -in [Full Path to the DER Certificate including the name of the DER Certificate] -text
@@ -350,25 +351,25 @@ När du kopierar data från och till Oracle gäller följande mappningar. Mer in
 |:--- |:--- |
 | BFILE (BFILE) |Byte[] |
 | Blob |Byte[]<br/>(endast stöds på Oracle 10g och högre) |
-| CHAR |String |
-| Clob |String |
+| CHAR |Sträng |
+| Clob |Sträng |
 | DATE |DateTime |
 | Flyta |Decimal, Sträng (om precision > 28) |
 | INTEGER |Decimal, Sträng (om precision > 28) |
-| Lång |String |
+| Lång |Sträng |
 | LÅNG RÅ |Byte[] |
-| Nchar |String |
-| NCLOB (på andra sätt) |String |
+| Nchar |Sträng |
+| NCLOB (på andra sätt) |Sträng |
 | Nummer |Decimal, Sträng (om precision > 28) |
-| NVARCHAR2 (olika) |String |
+| NVARCHAR2 (olika) |Sträng |
 | Raw |Byte[] |
-| ROWID (RADID) |String |
+| ROWID (RADID) |Sträng |
 | TIMESTAMP |DateTime |
-| TIDSSTÄMPEL MED LOKAL TIDSZON |String |
-| TIDSSTÄMPEL MED TIDSZON |String |
+| TIDSSTÄMPEL MED LOKAL TIDSZON |Sträng |
+| TIDSSTÄMPEL MED TIDSZON |Sträng |
 | OSIGNERAT HELTAL |Tal |
-| VARCHAR2 (OLIKA) |String |
-| XML |String |
+| VARCHAR2 (OLIKA) |Sträng |
+| XML |Sträng |
 
 > [!NOTE]
 > Datatyperna INTERVALL ÅR TILL MÅNAD OCH INTERVALL DAG TILL SEKUND stöds inte.

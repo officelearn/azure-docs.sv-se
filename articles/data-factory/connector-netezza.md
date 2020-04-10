@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: c7e17f7c4493560bd6118b8d4837fd795a6ab0c8
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 69e2a0fe63be65a2b5d51f7bd2e0885fcbfc5bbb
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422866"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991679"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Kopiera data från Netezza med hjälp av Azure Data Factory
 
@@ -63,8 +63,8 @@ En typisk anslutningssträng är `Server=<server>;Port=<port>;Database=<database
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| SäkerhetNivå | Den säkerhetsnivå (SSL/TLS) som drivrutinen använder för anslutningen till datalagret. Exempel: `SecurityLevel=preferredSecured`. Värden som stöds är:<br/>- **Endast osäker** **(endastOSecured):** Drivrutinen använder inte SSL.<br/>- **Föredragen oskyddad (preferredUnSecured) (standard):** Om servern ger ett val använder drivrutinen inte SSL. <br/>- **Önskad säker (preferredSecured):** Om servern ger ett val använder drivrutinen SSL. <br/>- **Endast säker (onlySecured)**: Drivrutinen ansluter inte om inte en SSL-anslutning är tillgänglig. | Inga |
-| CaCertFile (cacertfile) | Den fullständiga sökvägen till SSL-certifikatet som används av servern. Exempel: `CaCertFile=<cert path>;`| Ja, om SSL är aktiverat |
+| SäkerhetNivå | Den säkerhetsnivå (SSL/TLS) som drivrutinen använder för anslutningen till datalagret. Exempel: `SecurityLevel=preferredSecured`. Värden som stöds är:<br/>- **Endast osäkrade** **(onlyUnSecured):** Drivrutinen använder inte TLS.<br/>- **Föredragen oskyddad (preferredUnSecured) (standard):** Om servern ger ett val använder drivrutinen inte TLS. <br/>- **Önskad säker (preferredSecured):** Om servern ger ett val använder drivrutinen TLS. <br/>- **Endast säker (onlySecured)**: Drivrutinen ansluter inte om inte en TLS-anslutning är tillgänglig. | Inga |
+| CaCertFile (cacertfile) | Den fullständiga sökvägen till TLS/SSL-certifikatet som används av servern. Exempel: `CaCertFile=<cert path>;`| Ja, om TLS är aktiverat |
 
 **Exempel**
 

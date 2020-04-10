@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 758ac037fcd224d02f62239b3408b41b50390147
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 58fc71ab05c34e8acd252e7a1984c55996d1b3a7
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77167251"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80999042"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>Självstudiekurs: Använda enhetsgrupper för att analysera enhetstelemetri
 
@@ -29,7 +29,7 @@ I den här självstudiekursen får du lära du dig att:
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar bör du slutföra [create an Azure IoT Central-programmet](./quick-deploy-iot-central.md) och Lägga till en simulerad enhet i snabbstarten för [IoT Central-programmet](./quick-create-pnp-device.md) för att skapa **MXChip IoT** DevKit-enhetsmallen som du kan arbeta med.
+Innan du börjar bör du slutföra [create an Azure IoT Central-programmet](./quick-deploy-iot-central.md) och Lägga till en simulerad enhet i snabbstarten för [IoT Central-programmet](./quick-create-simulated-device.md) för att skapa **MXChip IoT** DevKit-enhetsmallen som du kan arbeta med.
 
 ## <a name="create-simulated-devices"></a>Skapa simulerade enheter
 

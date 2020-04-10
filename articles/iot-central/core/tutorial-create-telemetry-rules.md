@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 0d55bafc513ef7553952ee2096ea32db65d6205d
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 555da74da65f3b1897a276cf819a263334cfa053
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673772"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80999046"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Självstudiekurs: Skapa en regel och konfigurera meddelanden i ditt Azure IoT Central-program
 
@@ -34,11 +34,11 @@ I den här självstudiekursen får du lära du dig att:
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar slutför du [create an Azure IoT Central application](./quick-deploy-iot-central.md) and Add a [simulated device to your IoT Central application](./quick-create-pnp-device.md) quickstarts to create the **MXChip IoT DevKit** device template to work with.
+Innan du börjar slutför du [create an Azure IoT Central application](./quick-deploy-iot-central.md) and Add a [simulated device to your IoT Central application](./quick-create-simulated-device.md) quickstarts to create the **MXChip IoT DevKit** device template to work with.
 
 ## <a name="create-a-rule"></a>Skapa en regel
 
-Om du vill skapa en telemetriregel måste enhetsmallen innehålla minst ett telemetrivärde. Den här självstudien använder en simulerad **MXChip IoT DevKit-enhet** som skickar telemetri för temperatur och luftfuktighet. Du har lagt till den här enhetsmallen och skapat en simulerad enhet i [snabbstarten Lägg till en simulerad enhet i snabbstarten för IoT Central-programmet.](./quick-create-pnp-device.md) Regeln övervakar den temperatur som rapporteras av enheten och skickar ett e-postmeddelande när det går över 70 grader.
+Om du vill skapa en telemetriregel måste enhetsmallen innehålla minst ett telemetrivärde. Den här självstudien använder en simulerad **MXChip IoT DevKit-enhet** som skickar telemetri för temperatur och luftfuktighet. Du har lagt till den här enhetsmallen och skapat en simulerad enhet i [snabbstarten Lägg till en simulerad enhet i snabbstarten för IoT Central-programmet.](./quick-create-simulated-device.md) Regeln övervakar den temperatur som rapporteras av enheten och skickar ett e-postmeddelande när det går över 70 grader.
 
 1. Välj **Regler**i den vänstra rutan .
 

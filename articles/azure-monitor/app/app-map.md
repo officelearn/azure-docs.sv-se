@@ -4,12 +4,12 @@ description: Övervaka komplexa programtopologier med programkartan
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 0823dd5d880c778f9b7a231ac14f1cbba1940927
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 7c5c9173704535b1e34ffde5867bd512e3e02ed8
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657394"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80989535"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Programkarta: Triage distribuerade program
 
@@ -155,7 +155,25 @@ För [ASP.NET Core-program](asp-net-core.md#adding-telemetryinitializers) görs 
 
 # <a name="java"></a>[Java](#tab/java)
 
-Från och med Application Insights Java SDK 2.5.0 kan `<RoleName>` du `ApplicationInsights.xml` ange molnetrollnamnet genom att lägga till filen, t.ex.
+**Java-agent**
+
+För [Java-agent 3.0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) anges molnrollnamnet på följande sätt:
+
+```json
+{
+  "instrumentationSettings": {
+    "preview": {
+      "roleName": "my cloud role name"
+    }
+  }
+}
+```
+
+Du kan också ange molnet rollnamnet ```APPLICATIONINSIGHTS_ROLE_NAME```med hjälp av miljövariabeln .
+
+**Java SDK**
+
+Om du använder SDK, som börjar med Application Insights Java SDK 2.5.0, kan du ange molnetrollnamnet genom att lägga `<RoleName>` till filen, `ApplicationInsights.xml` t.ex.
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>

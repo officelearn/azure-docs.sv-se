@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 17404388b2b6c3fee1c6ab666f7233a66817f642
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe186e2ba8f3cafeb4d186066ba65ae036302f70
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74082875"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010519"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-key-vault-preview"></a>Azure Event Grid-händelseschema för Azure Key Vault (förhandsversion)
 
@@ -25,13 +25,13 @@ Ett Azure Key Vault-konto genererar följande händelsetyper:
 | Evenemanget fullständigt namn | Namn på visning av händelser | Beskrivning |
 | ---------- | ----------- |---|
 | Microsoft.KeyVault.certificateNewVersionSkaperad | Certifikat ny version skapad | Utlöses när ett nytt certifikat eller ny certifikatversion skapas. |
-| Microsoft.KeyVault.certificateNearExpiry | Certifikat nära utgångsdatum | Utlöses när den aktuella versionen av certifikatet håller på att upphöra att gälla. (Standardvärdet är 30 dagar före utgångsdatumet.) |
+| Microsoft.KeyVault.certificateNearExpiry | Certifikat nära utgångsdatum | Utlöses när den aktuella versionen av certifikatet håller på att upphöra att gälla. (Händelsen utlöses 30 dagar före utgångsdatumet.) |
 | Microsoft.KeyVault.certificateExpirerat | Certifikatet har utgått | Utlöses när certifikatet har upphört att gälla. |
 | Microsoft.KeyVault.KeyNewVersionSkaperad | Nyckel ny version skapad | Utlöses när en ny nyckel eller ny nyckelversion skapas. |
-| Microsoft.KeyVault.KeyNearExpiry | Nyckel nära utgångsdatum | Utlöses när den aktuella versionen av en nyckel håller på att upphöra att gälla. (Standardvärdet är 30 dagar före utgångsdatumet.) |
+| Microsoft.KeyVault.KeyNearExpiry | Nyckel nära utgångsdatum | Utlöses när den aktuella versionen av en nyckel håller på att upphöra att gälla. (Händelsen utlöses 30 dagar före utgångsdatumet.) |
 | Microsoft.KeyVault.KeyExpirerad | Nyckeln har upphört att gälla | Utlöses när en nyckel har upphört att gälla. |
 | Microsoft.KeyVault.SecretNewVersionSkaperad | Hemlig ny version skapad | Utlöses när en ny hemlig eller ny hemlig version skapas. |
-| Microsoft.KeyVault.SecretNearExpiry | Hemlighet nära utgångsdatum | Utlöses när den aktuella versionen av en hemlighet håller på att upphöra att gälla. (Standardvärdet är 30 dagar före utgångsdatumet.) |
+| Microsoft.KeyVault.SecretNearExpiry | Hemlighet nära utgångsdatum | Utlöses när den aktuella versionen av en hemlighet håller på att upphöra att gälla. (Händelsen utlöses 30 dagar före utgångsdatumet.) |
 | Microsoft.KeyVault.SecretExpirerad | Hemligheten har upphört att gälla | Utlöses när en hemlighet har upphört att gälla. |
 
 ## <a name="event-examples"></a>Exempel på evenemang

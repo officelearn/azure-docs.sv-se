@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 04/09/2020
 ms.author: sstein
-ms.openlocfilehash: 9fa93af72c2869efd7b6d2f1e8b96b0e667f8b16
-ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
+ms.openlocfilehash: b677fd7fe2b14e1c42443478a887ddfa2481dfbf
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80607538"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011454"
 ---
 # <a name="sql-database-release-notes"></a>Viktig information om SQL-databas
 
@@ -22,12 +22,11 @@ I den här artikeln visas SQL Database-funktioner som för närvarande förhands
 
 ## <a name="features-in-public-preview"></a>Funktioner i offentlig förhandsversion
 
-### <a name="single-database"></a>[Enskild databas](#tab/single-database)
+### <a name="single-database"></a>[Enkel databas](#tab/single-database)
 
 | Funktion | Information |
 | ---| --- |
 | Nya hårdvarugenerationer i Fsv2-serien och M-serien| Mer information finns i [Maskinvarugenerationer](sql-database-service-tiers-vcore.md#hardware-generations).|
-| [Privat azure-länk](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| Private Link förenklar nätverksarkitekturen och säkrar anslutningen mellan slutpunkter i Azure genom att behålla data i Azure-nätverket, vilket eliminerar exponering för internet. Med Private Link kan du också skapa och återge egna tjänster på Azure. |
 | Snabbare databasåterställning med enstaka databaser och elastiska pooler | Mer information finns i [Accelererad databasåterställning](sql-database-accelerated-database-recovery.md).|
 |Ungefärlig antal distinkt|Information finns i [Ungefärlig antal distinkt](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
 |Batchläge på Rowstore (under kompatibilitetsnivå 150)|Mer information finns i [Batch-läge på Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore).|

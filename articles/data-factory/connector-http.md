@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 1ca439d1a82e3cdbe2cc0274cf63653d39048057
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a05d955be88f68b3c0db1f4a29b3f6e1155aa0d
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79532560"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992189"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Kopiera data från en HTTP-slutpunkt med hjälp av Azure Data Factory
 
@@ -54,7 +54,7 @@ Du kan använda den här HTTP-kopplingen för att:
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -68,7 +68,7 @@ Följande egenskaper stöds för den HTTP-länkade tjänsten:
 |:--- |:--- |:--- |
 | typ | **Egenskapen Type** måste anges till **HttpServer**. | Ja |
 | url | Bas-URL:en till webbservern. | Ja |
-| aktiveraServerCertificateValidation | Ange om server-SSL-certifikatvalidering ska aktiveras när du ansluter till en HTTP-slutpunkt. Om HTTPS-servern använder ett självsignerat certifikat anger du den här egenskapen till **false**. | Inga<br /> (standardvärdet är **sant)** |
+| aktiveraServerCertificateValidation | Ange om server-TLS/SSL-certifikatvalidering ska aktiveras när du ansluter till en HTTP-slutpunkt. Om HTTPS-servern använder ett självsignerat certifikat anger du den här egenskapen till **false**. | Inga<br /> (standardvärdet är **sant)** |
 | authenticationType | Anger autentiseringstypen. Tillåtna värden är **Anonym**, **Basic,** **Digest**, **Windows**och **ClientCertificate**. <br><br> Se avsnitten som följer den här tabellen för fler egenskaper och JSON-exempel för dessa autentiseringstyper. | Ja |
 | connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. Läs mer från avsnittet [Förutsättningar.](#prerequisites) Om inget anges används standardkörningen för Azure Integration Runtime. |Inga |
 

@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 128b4203d34b99df8363ef19783baa4a7b608aa5
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 654aeddbb305124ea00a883dbef9d8b5ad585a36
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631321"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990794"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-sql-analytics"></a>Designvägledning för användning av replikerade tabeller i SQL Analytics
 
@@ -124,7 +124,7 @@ Vi återskapade `DimDate` `DimSalesTerritory` och som replikerade tabeller och k
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>Prestandaöverväganden för ändring av replikerade tabeller
 
-SQL Analytics implementerar en replikerad tabell genom att underhålla en huvudversion av tabellen. Den kopierar huvudversionen till en distributionsdatabas på varje beräkningsnod. När det sker en ändring uppdaterar SQL Analytics första gången huvudtabellen. Sedan återskapas tabellerna på varje beräkningsnod. En ombyggnad av en replikerad tabell inkluderar att kopiera tabellen till varje beräkningsnod och sedan skapa indexen.  En replikerad tabell på en DW400 har till exempel 5 kopior av data.  En huvudkopia och en fullständig kopia på varje beräkningsnod.  Alla data lagras i distributionsdatabaser. SQL Analytics använder den här modellen för att stödja snabbare dataändringssatser och flexibla skalningsåtgärder.
+SQL Analytics implementerar en replikerad tabell genom att underhålla en huvudversion av tabellen. Huvudversionen kopieras till den första distributionsdatabasen på varje beräkningsnod. När det sker en ändring uppdaterar SQL Analytics först huvudversionen och återskapar sedan tabellerna på varje beräkningsnod. En ombyggnad av en replikerad tabell inkluderar att kopiera tabellen till varje beräkningsnod och sedan skapa indexen.  En replikerad tabell på en DW2000c har till exempel 5 kopior av data.  En huvudkopia och en fullständig kopia på varje beräkningsnod.  Alla data lagras i distributionsdatabaser. SQL Analytics använder den här modellen för att stödja snabbare dataändringssatser och flexibla skalningsåtgärder.
 
 Ombyggnader krävs efter:
 

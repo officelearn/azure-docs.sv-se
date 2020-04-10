@@ -1,20 +1,20 @@
 ---
 title: Skapa en Azure-skalningsuppsättning som använder tillgänglighetszoner
 description: Lär dig hur du skapar Azure-skalningsuppsättningar för virtuella datorer som använder tillgänglighetszoner för ökad redundans mot avbrott
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.author: cynthn
-ms.openlocfilehash: 11695eb889a10dc689b00399a37382a3b9772eae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: jushiman
+ms.openlocfilehash: c8795f46e47b2ab43898f6f436b9ee6026a22fa7
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76274412"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011573"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Skapa en skalningsuppsättning för virtuella datorer som använder tillgänglighetszoner
 
@@ -58,7 +58,7 @@ När du skapar en skalningsuppsättning i en enda zon styr du vilken zon alla de
 
 Om du vill använda tillgänglighetszoner måste skalningsuppsättningen skapas i en [Azure-region som stöds](../availability-zones/az-overview.md#services-support-by-region). Du kan skapa en skalningsuppsättning som använder tillgänglighetszoner med någon av följande metoder:
 
-- [Azure-portal](#use-the-azure-portal)
+- [Azure Portal](#use-the-azure-portal)
 - Azure CLI
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure Resource Manager-mallar](#use-azure-resource-manager-templates)

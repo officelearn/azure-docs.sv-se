@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: a916645f153f73a98e7fc5d4046bdf557e8acf2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5ea0fd252d1792d4c40cc6d7869f4ba57edc1ad
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73823516"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011369"
 ---
 # <a name="split-merge-security-configuration"></a>Säkerhetskonfiguration för delad koppling
 
@@ -26,7 +26,7 @@ Om du vill använda tjänsten Dela/slå samman måste du konfigurera säkerheten
 
 Certifikat konfigureras på två sätt. 
 
-1. [Så här konfigurerar du SSL-certifikatet](#to-configure-the-ssl-certificate)
+1. [Så här konfigurerar du TLS/SSL-certifikatet](#to-configure-the-tlsssl-certificate)
 2. [Så här konfigurerar du klientcertifikat](#to-configure-client-certificates) 
 
 ## <a name="to-obtain-certificates"></a>Så här hämtar du certifikat
@@ -49,26 +49,26 @@ Om dessa alternativ inte är tillgängliga kan du generera **självsignerade cer
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
 * Hämta WDK från [Windows 8.1: Ladda ned paket och verktyg](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
-## <a name="to-configure-the-ssl-certificate"></a>Så här konfigurerar du SSL-certifikatet
+## <a name="to-configure-the-tlsssl-certificate"></a>Så här konfigurerar du TLS/SSL-certifikatet
 
-Ett SSL-certifikat krävs för att kryptera kommunikationen och autentisera servern. Välj den mest tillämpliga av de tre scenarierna nedan och kör alla dess steg:
+Ett TLS/SSL-certifikat krävs för att kryptera kommunikationen och autentisera servern. Välj den mest tillämpliga av de tre scenarierna nedan och kör alla dess steg:
 
 ### <a name="create-a-new-self-signed-certificate"></a>Skapa ett nytt självsignerat certifikat
 
 1. [Skapa ett självsignerat certifikat](#create-a-self-signed-certificate)
-2. [Skapa PFX-fil för självsignerat SSL-certifikat](#create-pfx-file-for-self-signed-ssl-certificate)
-3. [Ladda upp SSL-certifikat till molntjänsten](#upload-ssl-certificate-to-cloud-service)
-4. [Uppdatera SSL-certifikat i tjänstkonfigurationsfilen](#update-ssl-certificate-in-service-configuration-file)
-5. [Importera SSL-certifikatutfärdare](#import-ssl-certification-authority)
+2. [Skapa PFX-fil för självsignerat TLS/SSL-certifikat](#create-pfx-file-for-self-signed-tlsssl-certificate)
+3. [Ladda upp TLS/SSL-certifikat till molntjänsten](#upload-tlsssl-certificate-to-cloud-service)
+4. [Uppdatera TLS/SSL-certifikat i tjänstkonfigurationsfilen](#update-tlsssl-certificate-in-service-configuration-file)
+5. [Importera TLS/SSL-certifikatutfärdare](#import-tlsssl-certification-authority)
 
 ### <a name="to-use-an-existing-certificate-from-the-certificate-store"></a>Så här använder du ett befintligt certifikat från certifikatarkivet
-1. [Exportera SSL-certifikat från certifikatarkivet](#export-ssl-certificate-from-certificate-store)
-2. [Ladda upp SSL-certifikat till molntjänsten](#upload-ssl-certificate-to-cloud-service)
-3. [Uppdatera SSL-certifikat i tjänstkonfigurationsfilen](#update-ssl-certificate-in-service-configuration-file)
+1. [Exportera TLS/SSL-certifikat från certifikatarkivet](#export-tlsssl-certificate-from-certificate-store)
+2. [Ladda upp TLS/SSL-certifikat till molntjänsten](#upload-tlsssl-certificate-to-cloud-service)
+3. [Uppdatera TLS/SSL-certifikat i tjänstkonfigurationsfilen](#update-tlsssl-certificate-in-service-configuration-file)
 
 ### <a name="to-use-an-existing-certificate-in-a-pfx-file"></a>Så här använder du ett befintligt certifikat i en PFX-fil
-1. [Ladda upp SSL-certifikat till molntjänsten](#upload-ssl-certificate-to-cloud-service)
-2. [Uppdatera SSL-certifikat i tjänstkonfigurationsfilen](#update-ssl-certificate-in-service-configuration-file)
+1. [Ladda upp TLS/SSL-certifikat till molntjänsten](#upload-tlsssl-certificate-to-cloud-service)
+2. [Uppdatera TLS/SSL-certifikat i tjänstkonfigurationsfilen](#update-tlsssl-certificate-in-service-configuration-file)
 
 ## <a name="to-configure-client-certificates"></a>Så här konfigurerar du klientcertifikat
 Klientcertifikat krävs för att autentisera begäranden till tjänsten. Välj den mest tillämpliga av de tre scenarierna nedan och kör alla dess steg:
@@ -102,7 +102,7 @@ Ett certifikat krävs för att kryptera autentiseringsuppgifterna som lagras i m
 
 ### <a name="use-a-new-self-signed-certificate"></a>Använda ett nytt självsignerat certifikat
 1. [Skapa ett självsignerat certifikat](#create-a-self-signed-certificate)
-2. [Skapa PFX-fil för självsignerat krypteringscertifikat](#create-pfx-file-for-self-signed-ssl-certificate)
+2. [Skapa PFX-fil för självsignerat krypteringscertifikat](#create-pfx-file-for-self-signed-tlsssl-certificate)
 3. [Ladda upp krypteringscertifikat till molntjänsten](#upload-encryption-certificate-to-cloud-service)
 4. [Uppdatera krypteringscertifikat i tjänstkonfigurationsfilen](#update-encryption-certificate-in-service-configuration-file)
 
@@ -186,7 +186,7 @@ Mer information om dynamisk IP-säkerhet i IIS finns i dokumentationen för dyna
 ## <a name="operations-for-configuring-service-certificates"></a>Åtgärder för att konfigurera tjänstcertifikat
 Det här avsnittet är endast till referens. Följ konfigurationsstegen som beskrivs i:
 
-* Konfigurera SSL-certifikatet
+* Konfigurera TLS/SSL-certifikatet
 * Konfigurera klientcertifikat
 
 ## <a name="create-a-self-signed-certificate"></a>Skapa ett självsignerat certifikat
@@ -204,7 +204,7 @@ Så här anpassar du:
 * -n med tjänstens URL. Jokertecken ("CN=*.cloudapp.net") och alternativa namn ("CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net") stöds.
 * -e med certifikatets utgångsdatum Skapa ett starkt lösenord och ange det när du uppmanas att göra det.
 
-## <a name="create-pfx-file-for-self-signed-ssl-certificate"></a>Skapa PFX-fil för självsignerat SSL-certifikat
+## <a name="create-pfx-file-for-self-signed-tlsssl-certificate"></a>Skapa PFX-fil för självsignerat TLS/SSL-certifikat
 Utföra:
 
         pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
@@ -214,24 +214,24 @@ Ange lösenord och exportera sedan certifikat med följande alternativ:
 * Ja, exportera den privata nyckeln
 * Exportera alla utökade egenskaper
 
-## <a name="export-ssl-certificate-from-certificate-store"></a>Exportera SSL-certifikat från certifikatarkivet
+## <a name="export-tlsssl-certificate-from-certificate-store"></a>Exportera TLS/SSL-certifikat från certifikatarkivet
 * Hitta certifikat
 * Klicka på Åtgärder -> Alla aktiviteter -> Exportera...
 * Exportera certifikat till en . PFX-fil med följande alternativ:
   * Ja, exportera den privata nyckeln
   * Inkludera alla certifikat i certifieringssökvägen om möjligt *Exportera alla utökade egenskaper
 
-## <a name="upload-ssl-certificate-to-cloud-service"></a>Ladda upp SSL-certifikat till molntjänst
-Ladda upp certifikat med befintliga eller genererade . PFX-fil med SSL-nyckelparet:
+## <a name="upload-tlsssl-certificate-to-cloud-service"></a>Ladda upp TLS/SSL-certifikat till molntjänsten
+Ladda upp certifikat med befintliga eller genererade . PFX-fil med TLS-tangentparet:
 
 * Ange lösenordet som skyddar den privata nyckelinformationen
 
-## <a name="update-ssl-certificate-in-service-configuration-file"></a>Uppdatera SSL-certifikat i tjänstkonfigurationsfilen
+## <a name="update-tlsssl-certificate-in-service-configuration-file"></a>Uppdatera TLS/SSL-certifikat i tjänstkonfigurationsfilen
 Uppdatera tumavtrycksvärdet för följande inställning i tjänstkonfigurationsfilen med tumavtrycket för certifikatet som överförs till molntjänsten:
 
     <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
 
-## <a name="import-ssl-certification-authority"></a>Importera SSL-certifikatutfärdare
+## <a name="import-tlsssl-certification-authority"></a>Importera TLS/SSL-certifikatutfärdare
 Följ dessa steg i alla konto/datorer som kommunicerar med tjänsten:
 
 * Dubbelklicka på . CER-fil i Utforskaren
@@ -248,7 +248,7 @@ Endast klientcertifikatbaserad autentisering stöds och inaktivera den ger offen
 <Setting name="SetupWebserverForClientCertificates" value="false" />
 ```
 
-Kopiera sedan samma tumavtryck som SSL-certifikatet i certifikatutfärdarcertifikatinställningen:
+Kopiera sedan samma tumavtryck som TLS/SSL-certifikatet i certifikatinställningen för certifikatutfärdaren:
 
 ```xml
 <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
@@ -411,7 +411,7 @@ Uppdatera tumavtrycksvärdet för följande inställningar i tjänstkonfiguratio
 ```
 
 ## <a name="common-certificate-operations"></a>Vanliga certifikatåtgärder
-* Konfigurera SSL-certifikatet
+* Konfigurera TLS/SSL-certifikatet
 * Konfigurera klientcertifikat
 
 ## <a name="find-certificate"></a>Hitta certifikat
@@ -477,7 +477,7 @@ I [Azure Portal](https://portal.azure.com/)
 7. När du är klar kopierar du certifikatets tumavtryck från den nya posten i listan.
 
 ## <a name="other-security-considerations"></a>Andra säkerhetsöverväganden
-SSL-inställningarna som beskrivs i det här dokumentet krypterar kommunikationen mellan tjänsten och dess klienter när HTTPS-slutpunkten används. Detta är viktigt eftersom autentiseringsuppgifter för databasåtkomst och potentiellt annan känslig information finns i kommunikationen. Observera dock att tjänsten behåller intern status, inklusive autentiseringsuppgifter, i sina interna tabeller i Microsoft Azure SQL-databasen som du har angett för metadatalagring i din Microsoft Azure-prenumeration. Databasen definierades som en del av följande inställning i tjänstkonfigurationsfilen (. CSCFG-fil): 
+TLS-inställningarna som beskrivs i det här dokumentet krypterar kommunikationen mellan tjänsten och dess klienter när HTTPS-slutpunkten används. Detta är viktigt eftersom autentiseringsuppgifter för databasåtkomst och potentiellt annan känslig information finns i kommunikationen. Observera dock att tjänsten behåller intern status, inklusive autentiseringsuppgifter, i sina interna tabeller i Microsoft Azure SQL-databasen som du har angett för metadatalagring i din Microsoft Azure-prenumeration. Databasen definierades som en del av följande inställning i tjänstkonfigurationsfilen (. CSCFG-fil): 
 
 ```xml
 <Setting name="ElasticScaleMetadata" value="Server=…" />

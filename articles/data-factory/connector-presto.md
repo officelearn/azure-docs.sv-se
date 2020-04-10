@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 71bff5e3761d72236e6896733b96bd6e01460e52
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8364468277123205d967871ab7bf2d048db64a82
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927807"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991798"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Kopiera data från Presto med Azure Data Factory (förhandsversion)
 
@@ -56,10 +56,10 @@ Följande egenskaper stöds för Presto-länkad tjänst:
 | authenticationType | Autentiseringsmekanismen som används för att ansluta till Presto-servern. <br/>Tillåtna värden är: **Anonym**, **LDAP** | Ja |
 | användarnamn | Användarnamnet som används för att ansluta till Presto-servern.  | Inga |
 | password | Lösenordet som motsvarar användarnamnet. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Inga |
-| enableSsl enableSsl enableSsl enableS | Anger om anslutningarna till servern är krypterade med SSL. Standardvärdet är false.  | Inga |
-| betroddaCertPath | Den fullständiga sökvägen till PEM-filen som innehåller betrodda CERTIFIKATUTfärdare för att verifiera servern när du ansluter via SSL. Den här egenskapen kan bara ställas in när ssl används på självvärdbaserad IR. The default value is the cacerts.pem file installed with the IR.  | Inga |
+| enableSsl enableSsl enableSsl enableS | Anger om anslutningarna till servern är krypterade med TLS. Standardvärdet är false.  | Inga |
+| betroddaCertPath | Den fullständiga sökvägen till PEM-filen som innehåller betrodda certifikatutfärdare för att verifiera servern när du ansluter via TLS. Den här egenskapen kan bara ställas in när du använder TLS på självvärdbaserad IR. The default value is the cacerts.pem file installed with the IR.  | Inga |
 | användaSystemTrustStore | Anger om ett CERTIFIKAT FRÅN systemförtroendearkivet eller från en angiven PEM-fil ska användas. Standardvärdet är false.  | Inga |
-| allowHostNameCNMismatch | Anger om ett CERTIFIKATUTFÄRDAT SSL-certifikatnamn ska behövas för att matcha serverns värdnamn när du ansluter via SSL. Standardvärdet är false.  | Inga |
+| allowHostNameCNMismatch | Anger om ett certifikatutfärdat TLS/SSL-certifikatnamn ska krävas för att matcha serverns värdnamn när du ansluter via TLS. Standardvärdet är false.  | Inga |
 | tillåtVälsignedServerCert | Anger om självsignerade certifikat ska tillåtas från servern. Standardvärdet är false.  | Inga |
 | timeZoneID | Den lokala tidszon som används av anslutningen. Giltiga värden för det här alternativet anges i IANA:s tidszonsdatabas. Standardvärdet är systemets tidszon.  | Inga |
 

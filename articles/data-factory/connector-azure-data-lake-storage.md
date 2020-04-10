@@ -11,18 +11,21 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/08/2020
-ms.openlocfilehash: 929b9548661fe48fe90a55f0cacef234c3078cda
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: a061df302680488377c3006dcef57b818a101d67
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887273"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011539"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Kopiera och omvandla data i Azure Data Lake Storage Gen2 med Azure Data Factory
 
 Azure Data Lake Storage Gen2 (ADLS Gen2) är en uppsättning funktioner som är avsedda för stordataanalys som är inbyggda i [Azure Blob-lagring](../storage/blobs/storage-blobs-introduction.md). Du kan använda den för att samverka med dina data med hjälp av både filsystem och objektlagringsparadigm.
 
 I den här artikeln beskrivs hur du använder Kopiera aktivitet i Azure Data Factory för att kopiera data från och till Azure Data Lake Storage Gen2 och använda dataflöde för att omvandla data i Azure Data Lake Storage Gen2. Mer information om Azure Data Factory finns i den [inledande artikeln](introduction.md).
+
+>[!TIP]
+>För datasjö- eller informationslagermigreringsscenario kan du läsa mer från [Använd Azure Data Factory för att migrera data från datasjöen eller informationslager till Azure](data-migration-guidance-overview.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/22/2018
-ms.openlocfilehash: af003f1f0422c2351bcdf9b0c0010e38785c0344
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1d8189068278b46e3ec3ea66875d79bb91e5e16
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530333"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010213"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>ASP.NET utdatacacheprovider för Azure Cache för Redis
 
@@ -54,9 +54,9 @@ Konfigurera attributen med värdena från cachebladet i Microsoft Azure-portalen
 | Attribut | Typ | Default | Beskrivning |
 | --------- | ---- | ------- | ----------- |
 | *Värd* | sträng | "Lokalt" | Redis-serverns IP-adress eller värdnamn |
-| *Port* | positivt heltal | 6379 (icke-SSL)<br/>6380 (SSL) | Redis-serverport |
+| *Port* | positivt heltal | 6379 (icke-TLS/SSL)<br/>6380 (TLS/SSL) | Redis-serverport |
 | *Accesskey* | sträng | "" | Redis-serverlösenord när Redis-auktorisering är aktiverat. Värdet är tom sträng som standard, vilket innebär att sessionstillståndsprovidern inte använder något lösenord när du ansluter till Redis-servern. **Om Redis-servern finns i ett allmänt tillgängligt nätverk som Azure Redis Cache måste du aktivera Redis-auktorisering för att förbättra säkerheten och ange ett säkert lösenord.** |
-| *Ssl* | boolean | **Falska** | Om du vill ansluta till Redis-servern via SSL. Det här värdet är **falskt** som standard eftersom Redis inte stöder SSL utanför ramarna. **Om du använder Azure Redis Cache som stöder SSL utanför ramrutan, se till att ställa in detta på true för att förbättra säkerheten.**<br/><br/>Observera att icke-SSL-porten är inaktiverad som standard för nya cacheminnen. Ange **sant** för den här inställningen om SSL-porten ska användas. Mer information om hur du aktiverar icke-SSL-porten finns i avsnittet [Access-portar](cache-configure.md#access-ports) i avsnittet [Konfigurera en cache.](cache-configure.md) |
+| *Ssl* | boolean | **Falska** | Om du vill ansluta till Redis-servern via TLS. Det här värdet är **falskt** som standard eftersom Redis inte stöder TLS-läge. **Om du använder Azure Redis Cache som stöder SSL utanför ramrutan, se till att ställa in detta på true för att förbättra säkerheten.**<br/><br/>Den icke-TLS-porten är inaktiverad som standard för nya cacheminnen. Ange **sant** för den här inställningen om du vill använda TLS-porten. Mer information om hur du aktiverar icke-TLS-porten finns i avsnittet [Access-portar](cache-configure.md#access-ports) i avsnittet [Konfigurera en cache.](cache-configure.md) |
 | *databasIdNumber* | positivt heltal | 0 | *Det här attributet kan bara anges via antingen web.config eller AppSettings.*<br/><br/>Ange vilken Redis-databas som ska användas. |
 | *anslutningTimeoutInMilliseconds* | positivt heltal | Tillhandahålls av StackExchange.Redis | Används för att ställa in *ConnectTimeout* när du skapar StackExchange.Redis.ConnectionMultiplexer. |
 | *operationTimeoutInMilliseconds* | positivt heltal | Tillhandahålls av StackExchange.Redis | Används för att ange *SyncTimeout* när du skapar StackExchange.Redis.ConnectionMultiplexer. |

@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/14/2019
+ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0d081a8cec088f4743bd0dc7d3cc37a9fade61d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dfb094bc9f84e7129a3e1c733a054c5f6cd96372
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80117110"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008659"
 ---
 Azure ultra diskar erbjuder högt dataflöde, hög IOPS och konsekvent låg latens disklagring för Azure IaaS virtuella datorer (VMs). Det här nya erbjudandet ger förstklassig prestanda på samma tillgänglighetsnivåer som våra befintliga diskerbjudanden. En stor fördel med ultradiskar är möjligheten att dynamiskt ändra SSD:s prestanda tillsammans med dina arbetsbelastningar utan att behöva starta om dina virtuella datorer. Ultradiskar är lämpliga för dataintensiva arbetsbelastningar som SAP HANA, databaser på toppnivå och transaktionskrävande arbetsbelastningar.
 
@@ -23,9 +23,11 @@ Azure ultra diskar erbjuder högt dataflöde, hög IOPS och konsekvent låg late
 
 ## <a name="determine-vm-size-and-region-availability"></a>Bestäm vm-storlek och regiontillgänglighet
 
+### <a name="vms-using-availability-zones"></a>Virtuella datorer med hjälp av tillgänglighetszoner
+
 Om du vill utnyttja ultradiskar måste du bestämma vilken tillgänglighetszon du befinner dig i. Alla regioner stöder inte alla virtuella datorer med ultradiskar. Om du vill ta reda på om storleken på din region, zon och virtuell dator stöder ultradiskar kör du något av följande kommandon genom att först ersätta **regionen,** **vmSize**och prenumerationsvärdena: **subscription**
 
-Cli:
+#### <a name="cli"></a>CLI
 
 ```azurecli
 $subscription = "<yourSubID>"
@@ -37,7 +39,7 @@ $vmSize = "<yourVMSize>"
 az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].locationInfo[0].zoneDetails[0].Name" --subscription $subscription
 ```
 
-PowerShell:
+#### <a name="powershell"></a>PowerShell
 
 ```powershell
 $region = "southeastasia"
@@ -57,6 +59,55 @@ Bevara **zonvärdet,** det representerar din tillgänglighetszon och du behöver
 > Om det inte fanns något svar från kommandot stöds inte den valda vm-storleken med ultradiskar i den valda regionen.
 
 Nu när du vet vilken zon som ska distribueras till följer du distributionsstegen i den här artikeln för att antingen distribuera en virtuell dator med en ultradisk ansluten eller ansluta en ultradisk till en befintlig virtuell dator.
+
+### <a name="vms-with-no-redundancy-options"></a>Virtuella datorer utan redundansalternativ
+
+Ultra diskar som distribueras i västra USA måste distribueras utan några redundans alternativ, för nu. Alla diskstorlekar som stöder ultradiskar kan dock inte finnas i den här regionen. Om du vill ta reda på vilka i västra USA som stöder ultradiskar kan du använda något av följande kodavsnitt. Se till att `vmSize` `subscription` ersätta och värden först:
+
+```azurecli
+$subscription = "<yourSubID>"
+$region = "westus"
+# example value is Standard_E64s_v3
+$vmSize = "<yourVMSize>"
+
+az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].capabilities" --subscription $subscription
+```
+
+```azurepowershell
+$region = "westus"
+$vmSize = "Standard_E64s_v3"
+(Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) })[0].Capabilities
+```
+
+Svaret kommer att likna följande `UltraSSDAvailable   True` formulär, anger om den virtuella datorns storlek stöder ultra diskar i den här regionen.
+
+```
+Name                                         Value
+----                                         -----
+MaxResourceVolumeMB                          884736
+OSVhdSizeMB                                  1047552
+vCPUs                                        64
+HyperVGenerations                            V1,V2
+MemoryGB                                     432
+MaxDataDiskCount                             32
+LowPriorityCapable                           True
+PremiumIO                                    True
+VMDeploymentTypes                            IaaS
+vCPUsAvailable                               64
+ACUs                                         160
+vCPUsPerCore                                 2
+CombinedTempDiskAndCachedIOPS                128000
+CombinedTempDiskAndCachedReadBytesPerSecond  1073741824
+CombinedTempDiskAndCachedWriteBytesPerSecond 1073741824
+CachedDiskBytes                              1717986918400
+UncachedDiskIOPS                             80000
+UncachedDiskBytesPerSecond                   1258291200
+EphemeralOSDiskSupported                     True
+AcceleratedNetworkingEnabled                 True
+RdmaEnabled                                  False
+MaxNetworkInterfaces                         8
+UltraSSDAvailable                            True
+```
 
 ## <a name="deploy-an-ultra-disk-using-azure-resource-manager"></a>Distribuera en ultradisk med Azure Resource Manager
 
@@ -151,6 +202,18 @@ Ersätt eller ange **$vmname**, **$rgname**, **$diskname** **,** **$location**$p
 az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location
 ```
 
+### <a name="enable-ultra-disk-compatibility-on-an-existing-vm"></a>Aktivera ultradiskkompatibilitet på en befintlig virtuell dator
+
+Om den virtuella datorn uppfyller kraven i [GA-scope och begränsningar](#ga-scope-and-limitations) och finns i [rätt zon för ditt konto](#determine-vm-size-and-region-availability)kan du aktivera ultradiskkompatibilitet på den virtuella datorn.
+
+Om du vill aktivera ultradiskkompatibilitet måste du stoppa den virtuella datorn. När du har stoppat den virtuella datorn kan du aktivera kompatibilitet, ansluta en ultradisk och sedan starta om den virtuella datorn:
+
+```azurecli
+az vm deallocate -n $vmName -g $rgName
+az vm update -n $vmName -g $rgName --ultra-ssd-enabled true
+az vm start -n $vmName -g $rgName
+```
+
 ### <a name="create-an-ultra-disk-using-cli"></a>Skapa en ultradisk med CLI
 
 Nu när du har en virtuell dator som kan ansluta ultra diskar, kan du skapa och bifoga en ultra disk till den.
@@ -214,9 +277,22 @@ New-AzVm `
     -Name $vmName `
     -Location "eastus2" `
     -Image "Win2016Datacenter" `
-    -EnableUltraSSD `
+    -EnableUltraSSD $true `
     -size "Standard_D4s_v3" `
     -zone $zone
+```
+
+### <a name="enable-ultra-disk-compatibility-on-an-existing-vm"></a>Aktivera ultradiskkompatibilitet på en befintlig virtuell dator
+
+Om den virtuella datorn uppfyller kraven i [GA-scope och begränsningar](#ga-scope-and-limitations) och finns i [rätt zon för ditt konto](#determine-vm-size-and-region-availability)kan du aktivera ultradiskkompatibilitet på den virtuella datorn.
+
+Om du vill aktivera ultradiskkompatibilitet måste du stoppa den virtuella datorn. När du har stoppat den virtuella datorn kan du aktivera kompatibilitet, ansluta en ultradisk och sedan starta om den virtuella datorn:
+
+```azurepowershell
+#stop the VM
+$vm1 = Get-AzureRMVM -name $vmName -ResourceGroupName $rgName
+Update-AzureRmVM -ResourceGroupName $rgName -VM $vm1 -UltraSSDEnabled 1
+#start the VM
 ```
 
 ### <a name="create-an-ultra-disk-using-powershell"></a>Skapa en ultradisk med PowerShell
@@ -265,7 +341,3 @@ Ultra diskar har en unik funktion som gör att du kan justera deras prestanda, �
 $diskupdateconfig = New-AzDiskUpdateConfig -DiskMBpsReadWrite 2000
 Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate $diskupdateconfig
 ```
-
-## <a name="next-steps"></a>Nästa steg
-
-Om du vill prova den nya åtkomsten för begäran om disktyp [med den här undersökningen](https://aka.ms/UltraDiskSignup).

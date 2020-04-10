@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 192e46fd7f86b6053eaf658fa65e3c6cdfa3a4e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93c21656a768ae458572e0b4917412c8103b2f2d
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528616"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992223"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Åtkomstkontroll i Azure Data Lake Storage Gen2
 
@@ -54,7 +54,7 @@ SAS-token innehåller tillåtna behörigheter som en del av token. Behörigheter
 Du kan associera ett säkerhetsobjekt med en åtkomstnivå för filer och kataloger. Dessa associationer fångas in i en *åtkomstkontrollista (ACL)*. Varje fil och katalog i ditt lagringskonto har en åtkomstkontrolllista.
 
 > [!NOTE]
-> ACL:er gäller endast för säkerhetsobjekt i samma klient. Du kan inte associera en gästanvändare med en åtkomstnivå.  
+> ACL:er gäller endast för säkerhetsobjekt i samma klient. 
 
 Om du har tilldelat en roll till ett säkerhetsobjekt på lagringskontonivå kan du använda åtkomstkontrollistor för att bevilja säkerhetsobjektet förhöjd åtkomst till specifika filer och kataloger.
 
@@ -73,7 +73,7 @@ Information om hur du anger behörigheter på fil- och katalognivå finns i någ
 |Python|[Använda Python för att hantera kataloger, filer och ACL:er i Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md)|
 |PowerShell|[Använda PowerShell för att hantera kataloger, filer och ACL:er i Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md)|
 |Azure CLI|[Använda Azure CLI för att hantera kataloger, filer och ACL:er i Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md)|
-|REST API |[Sökväg - Uppdatering](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
+|REST-API |[Sökväg - Uppdatering](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
 > Om säkerhetsobjektet är ett *tjänsthuvudnamn* är det viktigt att använda objekt-ID:t för tjänstens huvudnamn och inte objekt-ID för den relaterade appregistreringen. Om du vill hämta objekt-ID:et för tjänstens `az ad sp show --id <Your App ID> --query objectId`huvudnamn öppnar du Azure CLI och använder sedan det här kommandot: . se till att `<Your App ID>` ersätta platshållaren med app-ID för din appregistrering.

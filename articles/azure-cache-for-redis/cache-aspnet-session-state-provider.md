@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 25cef95e2d01012506148f03be45104e455e1fcd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8083efe833ec80290713fc14d9cb89acd8263fa2
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79530282"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010910"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Provider av ASP.NET-sessionstillstånd för Azure Cache for Redis
 
@@ -82,10 +82,10 @@ Det kommenterade avsnittet innehåller ett exempel på attribut och exempelinst�
 Konfigurera attributen med värdena från cachebladet i Microsoft Azure-portalen och konfigurera de andra värdena efter behov. Instruktioner om hur du kommer åt cacheegenskaperna finns i [Konfigurera Azure Cache för Redis-inställningar](cache-configure.md#configure-azure-cache-for-redis-settings).
 
 * **värd** – ange cacheslutpunkten.
-* **port** – använd antingen din icke-SSL-port eller din SSL-port, beroende på ssl-inställningarna.
+* **port** – använd antingen din icke-TLS/SSL-port eller din TLS/SSL-port, beroende på TLS-inställningarna.
 * **accessKey** – använd antingen den primära eller sekundära nyckeln för cacheminnet.
-* **ssl** – sant om du vill skydda cache/klientkommunikation med ssl; annars falskt. Var noga med att ange rätt port.
-  * Observera att icke-SSL-porten är inaktiverad som standard för nya cacheminnen. Ange sant för den här inställningen om SSL-porten ska användas. Mer information om hur du aktiverar icke-SSL-porten finns i avsnittet [Access-portar](cache-configure.md#access-ports) i avsnittet [Konfigurera en cache.](cache-configure.md)
+* **ssl** – sant om du vill skydda cache/klientkommunikation med TLS; annars falskt. Var noga med att ange rätt port.
+  * Den icke-TLS-porten är inaktiverad som standard för nya cacheminnen. Ange sant för den här inställningen om du vill använda TLS-porten. Mer information om hur du aktiverar icke-TLS-porten finns i avsnittet [Access-portar](cache-configure.md#access-ports) i avsnittet [Konfigurera en cache.](cache-configure.md)
 * **throwOnError** – sant om du vill att ett undantag ska utlösas om det finns ett fel, eller falskt om du vill att åtgärden ska misslyckas tyst. Du kan söka efter ett fel genom att kontrollera den statiska egenskapen Microsoft.Web.Redis.RedisSessionStateProvider.LastException. Standardinställningen är sann.
 * **retryTimeoutInMilliseconds** – Åtgärder som misslyckas görs om under det här intervallet, som anges i millisekunder. Det första återförsöket sker efter 20 millisekunder och sedan försök inträffar varje sekund tills intervallet för återförsökTimeoutInMilliseconds upphör att gälla. Omedelbart efter detta intervall görs åtgärden på nytt en sista gång. Om åtgärden fortfarande misslyckas genereras undantaget tillbaka till anroparen, beroende på inställningen throwOnError. Standardvärdet är 0, vilket innebär inga återförsök.
 * **databaseId** – Anger vilken databas som ska användas för cacheutdata. Om inget anges används standardvärdet 0.

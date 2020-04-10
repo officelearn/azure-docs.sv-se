@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 9339fff820c0a0d915258ce3a0bc5371242ad50d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6aac3f1bb29ccfab0de4cb0a807ca0831a62af7e
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75892835"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991560"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Kopiera data från Cassandra med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -69,7 +69,7 @@ Följande egenskaper stöds för Cassandra-länkad tjänst:
 | connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. Läs mer från avsnittet [Förutsättningar.](#prerequisites) Om det inte anges används standardkörningen för Azure Integration. |Inga |
 
 >[!NOTE]
->För närvarande stöds inte anslutning till Cassandra med SSL.
+>För närvarande stöds inte anslutning till Cassandra med TLS.
 
 **Exempel:**
 
@@ -180,20 +180,20 @@ När du kopierar data från Cassandra används följande mappningar från Cassan
 
 | Cassandra-datatyp | Data fabrik interim datatyp |
 |:--- |:--- |
-| ASCII |String |
+| ASCII |Sträng |
 | BIGINT |Int64 |
 | Blob |Byte[] |
-| Boolean |Boolean |
+| Boolean |Boolesk |
 | DECIMAL |Decimal |
 | DOUBLE |Double |
 | Flyta |Enkel |
-| Inet |String |
+| Inet |Sträng |
 | INT |Int32 |
-| TEXT |String |
+| TEXT |Sträng |
 | TIMESTAMP |DateTime |
 | TIMEUUID (PÅ LÄNGE) |GUID |
 | Uuid |GUID |
-| VARCHAR |String |
+| VARCHAR |Sträng |
 | VARINT (OLIKA) |Decimal |
 
 > [!NOTE]

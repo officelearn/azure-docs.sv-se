@@ -5,19 +5,30 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/18/2020
+ms.date: 04/09/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 77fc6070010791bf96c944114929eba95842c9d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e53dda2c6cb293a9204f344d152daa1937aa38b
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77471724"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008375"
 ---
-I förhandsgranskningen omfattas hanterade diskar som har delade diskar av följande begränsningar:
+I förhandsgranskningen är det bara att aktivera delade diskar för en delmängd av disktyper. För närvarande kan endast ultradiskar och premium-SSD-enheter aktivera delade diskar. Varje hanterad disk som har aktiverat delade diskar omfattas av följande begränsningar, ordnade efter disktyp:
 
-- För närvarande endast tillgänglig med premium SSD.
+### <a name="ultra-disks"></a>Ultradiskar
+
+Ultra diskar har sin egen separata lista över begränsningar, utan samband med delade diskar. För ultra disk begränsningar, se [Använda Azure ultra diskar](../articles/virtual-machines/linux/disks-enable-ultra-ssd.md).
+
+När du delar ultradiskar har de följande ytterligare begränsningar:
+
+- För närvarande endast stöds i västra USA.
+- För närvarande begränsad till Azure Resource Manager eller SDK-stöd.
+- Endast grundläggande diskar kan användas med vissa versioner av Windows Server Failover Cluster, mer information se [Maskinvarukrav för redundanskluster och lagringsalternativ](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
+
+### <a name="premium-ssds"></a>Premium SSD:er
+
 - För närvarande endast stöds i västra centrala USA regionen.
 - Alla virtuella datorer som delar en disk måste distribueras i samma [närhetsplaceringsgrupper](../articles/virtual-machines/windows/proximity-placement-groups.md).
 - Kan bara aktiveras på datadiskar, inte OS-diskar.

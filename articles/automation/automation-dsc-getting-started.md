@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9fce9a769dd6d88c9926913d22716666284938c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c33fbed6c547897847c79cc1260d2bdc9ec6b17
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74850966"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010332"
 ---
-# <a name="getting-started-with-azure-automation-state-configuration"></a>Komma igång med Azure Automation State Configuration
+# <a name="get-started-with-azure-automation-state-configuration"></a>Komma igång med Azure Automation State Configuration
 
 I den här artikeln beskrivs hur du utför de vanligaste uppgifterna med Azure Automation State Configuration, till exempel skapa, importera och kompilera konfigurationer, introduktionsdatorer för att hantera och visa rapporter. En översikt över vad Azure Automation State Configuration är finns i [Översikt över Azure Automation State Configuration](automation-dsc-overview.md). Dokumentation för DSC (Desired State Configuration) finns i [översikt över konfiguration av windows PowerShell-önskad tillståndskonfiguration](/powershell/scripting/dsc/overview/overview).
 

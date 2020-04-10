@@ -3,12 +3,12 @@ title: Skala upp en nodtyp för Azure Service Fabric
 description: Lär dig hur du skalar ett Service Fabric-kluster genom att lägga till en skaluppsättning för virtuella datorer.
 ms.topic: article
 ms.date: 02/13/2019
-ms.openlocfilehash: 33d535cb093eeb95e0ce95bdd5722bfd21150a40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4dbb9e4fbfeb27c5b8b13f70207888cf37bbb0e0
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75464221"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998929"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Skala upp en primär nodtyp för Service Fabric-klustret
 I den här artikeln beskrivs hur du skalar upp en primär nodtyp för service fabric-kluster genom att öka resurserna för den virtuella datorn. Ett Service Fabric-kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras till. En dator eller virtuell dator som ingår i ett kluster kallas en nod. Skala uppsättningar för virtuella datorer är en Azure-beräkningsresurs som du använder för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Azure-kluster [ställs in som en separat skalningsuppsättning](service-fabric-cluster-nodetypes.md). Varje nodtyp kan sedan hanteras separat. När du har skapat ett Service Fabric-kluster kan du skala en klusternodtyp lodrätt (ändra nodernas resurser) eller uppgradera operativsystemet för de virtuella datorerna för nodtyp.  Du kan skala klustret när som helst, även när arbetsbelastningar körs i klustret.  När klustret skalas skalas även dina program automatiskt.
@@ -34,7 +34,7 @@ Här är processen för att uppdatera vm-storlek och operativsystem för den pri
     Om du vill hitta den nya skalningsuppsättningen i mallen söker du efter resursen "Microsoft.Compute/virtualMachineScaleSets" som namnges av parametern *vmNodeType2Name.*  Den nya skaluppsättningen läggs till i den primära nodtypen med inställningen egenskaper >virtualMachineProfile->->->->egenskaper->inställningar->nodeTypeRef-inställningen.
 4. Kontrollera klustrets hälsa och kontrollera att alla noder är felfria.
 5. Inaktivera noderna i den gamla skaluppsättningen för den primära nodtypen med avsikt att ta bort noden. Du kan inaktivera alla på en gång och åtgärderna står i kö. Vänta tills alla noder är inaktiverade, vilket kan ta lite tid.  När de äldre noderna i nodtypen är inaktiverade migrerar systemtjänsterna och frönoderna till de virtuella datorerna i den nya skalan som angetts i den primära nodtypen.
-6. Ta bort den äldre skaluppsättningen från den primära nodtypen.
+6. Ta bort den äldre skaluppsättningen från den primära nodtypen. (När noderna har inaktiverats som i steg 5, i det virtuella datorskaleuppsättningsbladet i Azure-portalen, frigör du noderna från den gamla nodens typ en efter en.)
 7. Ta bort belastningsutjämnaren som är associerad med den gamla skaluppsättningen. Klustret är inte tillgängligt medan den nya offentliga IP-adressen och belastningsutjämnaren är konfigurerade för den nya skalningsuppsättningen.  
 8. Lagra DNS-inställningar för den offentliga IP-adress som är associerad med den gamla primära nodtypsskalan som angetts i en variabel och ta bort den offentliga IP-adressen.
 9. Ersätt DNS-inställningarna för den offentliga IP-adress som är associerad med den nya primära nodtypsskalan som har angetts med DNS-inställningarna för den borttagna offentliga IP-adressen.  Klustret kan nu nås igen.

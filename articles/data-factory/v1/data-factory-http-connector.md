@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e668f44bbc3d2e381edeb80c568a41355584a4ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36592151385a08d75b9b34e85bfa9d62342fc8cd
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260428"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991577"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Flytta data från en HTTP-källa med hjälp av Azure Data Factory
 
@@ -38,7 +38,7 @@ Du kan använda den här HTTP-anslutningen för att hämta data från *både ett
 
 När du kopierar data från en lokal HTTP-slutpunkt måste du installera Data Management Gateway i den lokala miljön eller i en Azure VM.When you copy data from an on-premises HTTP endpoint, you must install Data Management Gateway in the on-premises environment or in an Azure VM. Mer information om Data Management Gateway och steg-för-steg-instruktioner om hur du konfigurerar gatewayen finns i [Flytta data mellan lokala platser och molnet](data-factory-move-data-between-onprem-and-cloud.md).
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 Du kan skapa en pipeline som har en kopieringsaktivitet för att flytta data från en HTTP-källa med hjälp av olika verktyg eller API:er:
 
@@ -55,7 +55,7 @@ I följande tabell beskrivs JSON-element som är specifika för den HTTP-länkad
 | typ | **Egenskapen Type** måste anges till **Http**. | Ja |
 | url | Bas-URL:en till webbservern. | Ja |
 | authenticationType | Anger autentiseringstypen. Tillåtna värden är **Anonym**, **Basic,** **Digest**, **Windows**och **ClientCertificate**. <br><br> Mer information om följande avsnitt finns i senare avsnitt i den här artikeln för fler egenskaper och JSON-exempel för dessa autentiseringstyper. | Ja |
-| aktiveraServerCertificateValidation | Anger om server-SSL-certifikatvalidering ska aktiveras om källan är en HTTPS-webbserver. När HTTPS-servern använder ett självsignerat certifikat anger du att det är **falskt**. | Inga<br /> (standardvärdet är **sant)** |
+| aktiveraServerCertificateValidation | Anger om server-TLS/SSL-certifikatverifiering ska aktiveras om källan är en HTTPS-webbserver. När HTTPS-servern använder ett självsignerat certifikat anger du att det är **falskt**. | Inga<br /> (standardvärdet är **sant)** |
 | gatewayName (gatewayName) | Namnet på den Data Management Gateway-instans som ska användas för att ansluta till en lokal HTTP-källa. | Ja, om du kopierar data från en lokal HTTP-källa |
 | krypteradKnuren | Den krypterade autentiseringsåtkomsten för åtkomst till HTTP-slutpunkten. Värdet skapas automatiskt när du konfigurerar autentiseringsinformationen i kopieringsguiden eller med hjälp av dialogrutan **ClickOnce.** | Inga<br /> (gäller endast när du kopierar data från en lokal HTTP-server) |
 

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: f10be8efcd2d8e838b4b5f62310eb405f6ed0158
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3f0de52782694e6cbc8fdb6b55d545191dbbb350
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278745"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010315"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Konfigurera Azure Cache för Redis
 I det här avsnittet beskrivs de konfigurationer som är tillgängliga för dina Azure-cache för Redis-instanser. Det här avsnittet täcker även standardkonfigurationen för Redis-server för Azure Cache för Redis-instanser.
@@ -44,7 +44,7 @@ Du kan visa och konfigurera följande inställningar med hjälp av **Resursmenyn
     * [Data persistens](#redis-data-persistence)
     * [Schemauppdateringar](#schedule-updates)
     * [Geo-replikering](#geo-replication)
-    * [Virtuellt nätverk](#virtual-network)
+    * [Virtual Network](#virtual-network)
     * [Brandvägg](#firewall)
     * [Egenskaper](#properties)
     * [Lås](#locks)
@@ -96,7 +96,7 @@ I avsnittet **Inställningar** kan du komma åt och konfigurera följande instä
 * [Data persistens](#redis-data-persistence)
 * [Schemauppdateringar](#schedule-updates)
 * [Geo-replikering](#geo-replication)
-* [Virtuellt nätverk](#virtual-network)
+* [Virtual Network](#virtual-network)
 * [Brandvägg](#firewall)
 * [Egenskaper](#properties)
 * [Lås](#locks)
@@ -117,10 +117,10 @@ Följande inställningar är konfigurerade på bladet **Avancerade inställninga
 * [Keyspace-meddelanden (avancerade inställningar)](#keyspace-notifications-advanced-settings)
 
 #### <a name="access-ports"></a>Åtkomstportar
-Som standard är icke-SSL-åtkomst inaktiverad för nya cacheminnen. Om du vill aktivera icke-SSL-porten klickar du på **Nej** för **Tillåt åtkomst endast via SSL** på bladet Avancerade **inställningar** och klickar sedan på **Spara**.
+Som standard är icke-TLS/SSL-åtkomst inaktiverad för nya cacheminnen. Om du vill aktivera porten som inte är TLS klickar du på **Nej** för **tillåt åtkomst endast via SSL** på bladet Avancerade **inställningar** och klickar sedan på **Spara**.
 
 > [!NOTE]
-> SSL-åtkomst till Azure Cache för Redis stöder TLS 1.0, 1.1 och 1.2 för närvarande, men versionerna 1.0 och 1.1 dras snart tillbaka.  Läs vår [Ta bort TLS 1.0 och 1.1 sida](cache-remove-tls-10-11.md) för mer information.
+> TLS-åtkomst till Azure Cache för Redis stöder TLS 1.0, 1.1 och 1.2 för närvarande, men versionerna 1.0 och 1.1 dras snart tillbaka.  Läs vår [Ta bort TLS 1.0 och 1.1 sida](cache-remove-tls-10-11.md) för mer information.
 
 ![Azure Cache för Redis Access-portar](./media/cache-configure/redis-cache-access-ports.png)
 
@@ -193,7 +193,7 @@ Varje prisnivå har olika gränser för klientanslutningar, minne och bandbredd.
 Om du vill uppgradera cacheminnet klickar du på **Uppgradera nu** om du vill ändra prisnivån och [skala](#scale) cacheminnet. Mer information om hur du väljer en prisnivå finns i [Vad Azure Cache för Redis-erbjudande och storlek ska jag använda?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
 
-### <a name="scale"></a>Skalning
+### <a name="scale"></a>Skala
 Klicka på **Skala** om du vill visa eller ändra prisnivån för cacheminnet. Mer information om skalning finns i [Skala Azure Cache för Redis](cache-how-to-scale.md).
 
 ![Azure Cache för Redis-prisnivå](./media/cache-configure/pricing-tier.png)

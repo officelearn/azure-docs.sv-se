@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 1d6fa75beabdc36750525310008add9594562228
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 951f24ad06014f6d95f10c91e1bad8e99bbbc736
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887120"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991781"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Standard Load Balancer-diagnostik med mått, aviseringar och resurshälsa
 
@@ -86,6 +86,7 @@ Så här konfigurerar du varningar:
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Vanliga diagnostiska scenarier och rekommenderade vyer
 
 #### <a name="is-the-data-path-up-and-available-for-my-load-balancer-vip"></a>Är datasökvägen uppe och tillgänglig för min belastningsutjämnare VIP?
+<details><summary>Visa</summary>
 
 Vip-tillgänglighetsmåttet beskriver hälsotillståndet för datasökvägen i regionen till beräkningsvärden där dina virtuella datorer finns. Måttet är en återspegling av hälsotillståndet för Azure-infrastrukturen. Du kan använda måttet för att:
 - Övervaka tjänstens externa tillgänglighet
@@ -113,9 +114,11 @@ VIP-tillgänglighet misslyckas av följande skäl:
 För diagnostikändamål kan du använda [måttet Tillgänglighet för datasökväg tillsammans med hälsoavsökningsstatusen](#vipavailabilityandhealthprobes).
 
 Använd **Medel** som aggregering för de flesta scenarier.
+</details>
 
 #### <a name="are-the-back-end-instances-for-my-vip-responding-to-probes"></a>Svarar backend-instanserna för min VIP på sonder?
-
+<details>
+  <summary>Visa</summary>
 Hälsoavsökningsstatusmåttet beskriver hälsotillståndet för programdistributionen som konfigurerats av dig när du konfigurerar hälsoavsökningen för din belastningsutjämnare. Belastningsutjämnaren använder hälsoavsökningens status för att avgöra var nya flöden ska skickas. Hälsoavsökningar kommer från en Azure-infrastrukturadress och är synliga i gästoperativsystemet för den virtuella datorn.
 
 Så här hämtar du hälsoavsökningsstatus för standardbelastningsutjämningsresurserna:
@@ -127,9 +130,11 @@ Hälsoavsökningar misslyckas av följande skäl:
 - Avsökningen är inte tillåten av nätverkssäkerhetsgruppen, den virtuella datorns gäst-OS-brandvägg eller programlagerfiltren.
 
 Använd **Medel** som aggregering för de flesta scenarier.
+</details>
 
 #### <a name="how-do-i-check-my-outbound-connection-statistics"></a>Hur kollar jag min utgående anslutningsstatistik? 
-
+<details>
+  <summary>Visa</summary>
 SNAT-anslutningarna beskriver volymen för lyckade och misslyckade anslutningar för [utgående flöden](https://aka.ms/lboutbound).
 
 En misslyckad anslutningsvolym på större än noll indikerar utmattning av SNAT-portar. Du måste undersöka ytterligare för att avgöra vad som kan orsaka dessa fel. SNAT-portutmatt manifesterar som ett misslyckande med att upprätta ett [utgående flöde](https://aka.ms/lboutbound). Läs artikeln om utgående anslutningar för att förstå scenarier och mekanismer på jobbet och lär dig hur du kan minska och utforma för att undvika utmattning av SNAT-portar. 
@@ -141,10 +146,12 @@ Så här hämtar du SNAT-anslutningsstatistik:
 ![SNAT-anslutning](./media/load-balancer-standard-diagnostics/LBMetrics-SNATConnection.png)
 
 *Bild: Antal SNAT-anslutningar för belastningsutjämnare*
+</details>
 
 
 #### <a name="how-do-i-check-my-snat-port-usage-and-allocation"></a>Hur kontrollerar jag min SNAT-portanvändning och allokering?
-
+<details>
+  <summary>Visa</summary>
 SNAT-användningsmåttet anger hur många unika flöden som upprättas mellan en internetkälla och en serverad virtuell dator eller virtuell datorskalauppsättning som ligger bakom en belastningsutjämnare och inte har en offentlig IP-adress. Genom att jämföra detta med SNAT-allokeringsmåttet kan du avgöra om din tjänst har erfarenhet eller riskerar SNAT-utmattning och resulterande utgående flödesfel. 
 
 Om dina mått indikerar risk för [utgående flödesfel](https://aka.ms/lboutbound) refererar du till artikeln och vidtar åtgärder för att minska detta för att säkerställa tjänstens hälsotillstånd.
@@ -166,9 +173,11 @@ Så här visar du SNAT-portanvändning och allokering:
 ![SNAT-användning efter serverd-instans](./media/load-balancer-standard-diagnostics/snat-usage-split.png)
 
 *Bild: TCP SNAT-portanvändning per serveradinstans*
+</details>
 
 #### <a name="how-do-i-check-inboundoutbound-connection-attempts-for-my-service"></a>Hur kontrollerar jag inkommande/utgående anslutningsförsök för min tjänst?
-
+<details>
+  <summary>Visa</summary>
 Ett SYN-paketmått beskriver volymen av TCP SYN-paket, som har anlänt eller skickats (för [utgående flöden)](https://aka.ms/lboutbound)som är associerade med en specifik klientdel. Du kan använda det här måttet för att förstå TCP-anslutningsförsök till din tjänst.
 
 Använd **Summa** som aggregering för de flesta scenarier.
@@ -176,10 +185,12 @@ Använd **Summa** som aggregering för de flesta scenarier.
 ![SYN-anslutning](./media/load-balancer-standard-diagnostics/LBMetrics-SYNCount.png)
 
 *Figur: Syn-antal belastningsutjämnare*
+</details>
 
 
 #### <a name="how-do-i-check-my-network-bandwidth-consumption"></a>Hur kontrollerar jag mobilens bandbredd? 
-
+<details>
+  <summary>Visa</summary>
 Måttet byte och paketräknare beskriver volymen av byte och paket som skickas eller tas emot av din tjänst per front-end-basis.
 
 Använd **Summa** som aggregering för de flesta scenarier.
@@ -193,9 +204,11 @@ Så här hämtar du statistik över antal byte eller paket:
 ![Antal byte](./media/load-balancer-standard-diagnostics/LBMetrics-ByteCount.png)
 
 *Bild: Antal belastningsutjämnare byte*
+</details>
 
 #### <a name="how-do-i-diagnose-my-load-balancer-deployment"></a><a name = "vipavailabilityandhealthprobes"></a>Hur diagnostiserar jag min belastningsutjämnad distribution?
-
+<details>
+  <summary>Visa</summary>
 Genom att använda en kombination av VIP-tillgänglighet och hälsoavsökningsmått på ett enda diagram kan du identifiera var du ska leta efter problemet och lösa problemet. Du kan få en försäkran om att Azure fungerar korrekt och använda den här kunskapen för att slutgiltigt fastställa att konfigurationen eller programmet är grundorsaken.
 
 Du kan använda hälsoavsökningsmått för att förstå hur Azure visar hälsotillståndet för din distribution enligt den konfiguration du har angett. Att titta på hälso-sonder är alltid ett bra första steg i övervakning eller fastställande av en orsak.
@@ -211,6 +224,7 @@ Diagrammet visar följande information:
 - Hälsoavsökningsstatusen (DIP-tillgänglighet), som indikeras av den lila spårningen, är 0 procent i början av diagrammet. Det inringade området i gröna högdagrar där hälsoavsökningsstatusen (DIP-tillgänglighet) blev felfri och då kunde kundens distribution acceptera nya flöden.
 
 Diagrammet gör det möjligt för kunder att felsöka distributionen på egen hand utan att behöva gissa eller fråga support om andra problem uppstår. Tjänsten var inte tillgänglig eftersom hälsoavsökningar misslyckades på grund av antingen en felkonfiguration eller ett misslyckat program.
+</details>
 
 ## <a name="resource-health-status"></a><a name = "ResourceHealth"></a>Hälsostatus för resurser
 

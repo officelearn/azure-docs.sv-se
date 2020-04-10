@@ -1,18 +1,18 @@
 ---
 title: Arbeta med lagrade procedurer, utlösare och UDFs i Azure Cosmos DB
 description: Den här artikeln introducerar begrepp som lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.author: mjbrown
+ms.date: 04/09/2020
+ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 23a14e7590eca6f63c92acdf6336ffaef8b54381
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13256377b8a8aaebf59196df57eef67d3b960cb8
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065899"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010553"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Lagrade procedurer, utlösare och användardefinierade funktioner
 
@@ -69,7 +69,7 @@ Lagrade procedurer och utlösare körs alltid på den primära repliken för en 
 
 Alla Azure Cosmos DB-åtgärder måste slutföras inom den angivna tidsgränsen. Det här villkoret gäller för JavaScript-funktioner - lagrade procedurer, utlösare och användardefinierade funktioner. Om en åtgärd inte slutförs inom den tidsgränsen återställs transaktionen.
 
-Du kan antingen se till att dina JavaScript-funktioner slutförs inom tidsgränsen eller implementera en fortsättningsbaserad modell för batch-/återupptakörning. För att förenkla utvecklingen av lagrade procedurer och utlösare för att hantera tidsgränser returnerar alla funktioner under Azure Cosmos-behållaren (till exempel skapa, läsa, uppdatera och ta bort objekt) ett booleskt värde som representerar om åtgärden ska Komplett. Om det här värdet är falskt är det en indikation på att proceduren måste avsluta körningen eftersom skriptet förbrukar mer tid eller etablerat dataflöde än det konfigurerade värdet. Åtgärder som köats före den första ej accepterade arkivet är garanterade att slutföras om den lagrade proceduren slutförs i tid och inte köar några fler begäranden. Åtgärder bör därför köas en i taget med hjälp av JavaScript:s motringningskonvention för att hantera skriptets kontrollflöde. Eftersom skript körs i en servermiljö styrs de strikt. Skript som upprepade gånger bryter mot körningsgränser kan markeras inaktiva och inte kan köras, och de bör återskapas för att respektera körningsgränserna.
+Du kan antingen se till att dina JavaScript-funktioner slutförs inom tidsgränsen eller implementera en fortsättningsbaserad modell för batch-/återupptakörning. För att förenkla utvecklingen av lagrade procedurer och utlösare för att hantera tidsgränser returnerar alla funktioner under Azure Cosmos-behållaren (till exempel skapa, läsa, uppdatera och ta bort objekt) ett booleskt värde som representerar om åtgärden ska slutföras. Om det här värdet är falskt är det en indikation på att proceduren måste avsluta körningen eftersom skriptet förbrukar mer tid eller etablerat dataflöde än det konfigurerade värdet. Åtgärder som köats före den första ej accepterade arkivet är garanterade att slutföras om den lagrade proceduren slutförs i tid och inte köar några fler begäranden. Åtgärder bör därför köas en i taget med hjälp av JavaScript:s motringningskonvention för att hantera skriptets kontrollflöde. Eftersom skript körs i en servermiljö styrs de strikt. Skript som upprepade gånger bryter mot körningsgränser kan markeras inaktiva och inte kan köras, och de bör återskapas för att respektera körningsgränserna.
 
 JavaScript-funktioner omfattas också av [etablerad dataflödeskapacitet](request-units.md). JavaScript-funktioner kan eventuellt sluta använda ett stort antal begärandeenheter inom en kort tid och kan vara räntebegränsade om den etablerade kapacitetsgränsen för dataflöde uppnås. Det är viktigt att notera att skript förbrukar ytterligare dataflöde utöver det dataflöde som används för att köra databasåtgärder, även om dessa databasåtgärder är något billigare än att köra samma åtgärder från klienten.
 
@@ -90,7 +90,7 @@ I likhet med förutlösare, efter utlösare, är också associerade med en åtg�
 
 ## <a name="user-defined-functions"></a><a id="udfs"></a>Användardefinierade funktioner
 
-Användardefinierade funktioner (UDFs) används för att enkelt utöka SQL API-frågespråksyntaxen och implementera anpassad affärslogik. De kan bara anropas i frågor. UDF har inte åtkomst till kontextobjektet och är avsedda att användas som beräkning endast JavaScript. Därför kan UDF-filer köras på sekundära repliker. Exempel nedan finns i Så här skriver du artikel [med användardefinierade funktioner.](how-to-write-stored-procedures-triggers-udfs.md#udfs)
+[Användardefinierade funktioner](sql-query-udfs.md) (UDFs) används för att enkelt utöka SQL API-frågespråksyntaxen och implementera anpassad affärslogik. De kan bara anropas i frågor. UDF har inte åtkomst till kontextobjektet och är avsedda att användas som beräkning endast JavaScript. Därför kan UDF-filer köras på sekundära repliker. Exempel nedan finns i Så här skriver du artikel [med användardefinierade funktioner.](how-to-write-stored-procedures-triggers-udfs.md#udfs)
 
 ## <a name="javascript-language-integrated-query-api"></a><a id="jsqueryapi"></a>JavaScript språkintegrerat fråge-API
 

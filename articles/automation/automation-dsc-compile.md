@@ -1,18 +1,18 @@
 ---
-title: Kompilera konfigurationer i Azure Automation State Configuration
+title: Kompilera DSC-konfigurationer i Azure Automation State Configuration
 description: I den här artikeln beskrivs hur du kompilerar DSC-konfigurationer (Desired State Configuration) för Azure Automation.
 services: automation
 ms.subservice: dsc
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: b366777cce4dd4212a2e3ec0cdcd180e0d7164f4
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 6ce55b83f5547534e44d689adccdd952abc025d5
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80757185"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010961"
 ---
-# <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Kompilera DSC-konfigurationer i Azure Automation State Configuration
+# <a name="compile-dsc-configurations-in-azure-automation-state-configuration"></a>Kompilera DSC-konfigurationer i Azure Automation State Configuration
 
 Du kan kompilera DSC-konfigurationer (Desired State Configuration) i Azure Automation State Configuration på följande sätt:
 

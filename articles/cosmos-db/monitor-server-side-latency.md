@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: kanshiG
 ms.author: govindk
 ms.date: 04/07/2020
-ms.openlocfilehash: 38f5778e363a16117bab482a758666ec81352afd
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 62c10a2ada9ff7d3bf7090028dd9684192517d02
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887572"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991434"
 ---
 # <a name="how-to-monitor-the-server-side-latency-for-operations-in-an-azure-cosmos-db-container-or-account"></a>Övervaka svarstiden på serversidan för åtgärder i en Azure Cosmos DB-behållare eller -konto
 
@@ -35,11 +35,11 @@ Du kan slå upp diagnostikloggen för att se storleken på data som returneras. 
 
 1. Välj **en resurs** > > välja den **prenumeration**och **resursgrupp**som krävs i fönstret **Mått.** För **resurstypen**väljer du **Azure Cosmos DB-konton,** väljer ett av dina befintliga Azure Cosmos-konton och väljer **Använd**.
    
-   ![Välj ett Cosmos DB-konto för att visa mått](./media/monitor-server-side-latency/select-cosmosdb-account.png)
+   ![Välj ett Cosmos DB-konto för att visa mått](./media/monitor-server-side-latency/select-cosmos-db-account.png)
 
 1. Välj sedan måttet **Svarstid för serversidan** i listan över tillgängliga mått. Mer information om alla tillgängliga mått i den här listan finns i artikeln [Mått efter kategori.](monitor-cosmos-db-reference.md) I det här exemplet ska vi välja **Svarstid på serversidan** och **Genomsnittlig** som aggregeringsvärde. Utöver dessa uppgifter kan du också välja **tidsintervall och** **tidsgranularitet** för måtten. På max kan du visa mått för de senaste 30 dagarna.  När du har tillämpat filtret visas ett diagram baserat på filtret. Du kan se det genomsnittliga antalet begärandeenheter som förbrukas per minut för den valda perioden.  
 
-   ![Välj svarstidsmåttet på serversidan från Azure-portalen](./media/monitor-server-side-latency/serverside-latency-metric.png)
+   ![Välj svarstidsmåttet på serversidan från Azure-portalen](./media/monitor-server-side-latency/server-side-latency-metric.png)
 
 ## <a name="filters-for-server-side-latency"></a>Filter för svarstid på serversidan
 
@@ -49,7 +49,7 @@ Om du vill filtrera måtten väljer du **Lägg till filter** och väljer den ege
 
 Svarstidsmåtten **serversida** för varje åtgärd visas enligt följande bild:
 
-![Filter för svarstider på serversidan](./media/monitor-server-side-latency/serverside-latency-filters.png)
+![Filter för svarstider på serversidan](./media/monitor-server-side-latency/server-side-latency-filters.png)
 
 Du kan också gruppera måtten med alternativet **Använd delning.**  
 

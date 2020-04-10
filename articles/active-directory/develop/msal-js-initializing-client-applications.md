@@ -13,12 +13,12 @@ ms.date: 04/12/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: a0a2c5fc971c3f1f3283d95c5617bdf1e88a6a58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fbd700c787a844fa7538ed198f76ed5c06af2c28
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77084039"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010162"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Initiera klientprogram med MSAL.js
 I den här artikeln beskrivs initiering av Microsoft Authentication Library for JavaScript (MSAL.js) med en instans av ett användaragentprogram. Programmet för användaragent är en form av offentligt klientprogram där klientkoden körs i en användaragent, till exempel en webbläsare. Dessa klienter lagrar inte hemligheter, eftersom webbläsarkontexten är öppet tillgänglig. Mer information om klientprogramtyper och programkonfigurationsalternativ finns i [översikten](msal-client-applications.md).
@@ -35,7 +35,7 @@ Innan du initierar ett program måste du först [registrera det med Azure-portal
 
 Du kan använda MSAL.js på följande sätt i ett vanligt JavaScript/Typescript-program. Initiera MSAL-autentiseringskontext `UserAgentApplication` genom att instansiera med ett konfigurationsobjekt. Det minsta som krävs config att initiera MSAL.js är klient-ID för ditt program som du bör få från ansökan registrering portalen.
 
-För autentiseringsmetoder med`loginRedirect` `acquireTokenRedirect`omdirigeringsflöden ( och ) måste `handleRedirectCallback()` du uttryckligen registrera en motringning för framgång eller fel via metod. Detta behövs eftersom omdirigeringsflöden inte returnerar löften som metoderna med en popup-upplevelse gör.
+För autentiseringsmetoder med`loginRedirect` `acquireTokenRedirect`omdirigeringsflöden ( och ), i MSAL.js 1.2.x eller `handleRedirectCallback()` tidigare, måste du uttryckligen registrera en motringning för framgång eller fel via metod. Detta behövs eftersom omdirigeringsflöden inte returnerar löften som metoderna med en popup-upplevelse gör. Detta blev valfritt i MSAL.js version 1.3.0.
 
 ```javascript
 // Configuration object constructed

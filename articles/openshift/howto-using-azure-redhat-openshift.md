@@ -7,17 +7,17 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
 keywords: aro, openshift, az aro, röd hatt, cli
-ms.openlocfilehash: 423f09c135da51b8401c1933a4a271d0becd2c8f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 9488ef593cf4ec8600dcb42ea4a2cefa4fcb1446
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349438"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998798"
 ---
 # <a name="create-access-and-manage-an-azure-red-hat-openshift-43-cluster"></a>Skapa, komma åt och hantera ett Azure Red Hat OpenShift 4.3-kluster
 
 > [!IMPORTANT]
-> Observera att Azure Red Hat OpenShift 4.3 för närvarande endast är tillgängligt i privat förhandsversion i östra USA. Accepterar privat förhandsgranskning sker endast genom inbjudan. Var noga med att registrera din prenumeration innan du försöker aktivera den här funktionen: [Azure Red Hat OpenShift Private Preview Registration](https://aka.ms/aro-preview-register)
+> Observera att Azure Red Hat OpenShift 4.3 för närvarande endast är tillgängligt i privat förhandsversion i östra USA och östra USA 2. Accepterar privat förhandsgranskning sker endast genom inbjudan. Var noga med att registrera din prenumeration innan du försöker aktivera den här funktionen: [Azure Red Hat OpenShift Private Preview Registration](https://aka.ms/aro-preview-register)
 
 > [!NOTE]
 > Förhandsversionsfunktioner är självbetjäning och tillhandahålls i dess fall och är undantagna från servicenivåavtalet (SLA) och begränsad garanti. Därför är funktionerna inte avsedda för produktionsanvändning.
@@ -65,7 +65,7 @@ Tillägget `az aro` kan du skapa, komma åt och ta bort Azure Red Hat OpenShift-
    az -v
    ...
    Extensions:
-   aro                                0.1.0
+   aro                                0.3.0
    ...
    ```
   
@@ -108,7 +108,7 @@ Följ dessa steg för att skapa ett virtuellt nätverk som innehåller två tomm
 4. Lägg till två tomma undernät i det virtuella nätverket.
 
    ```console
-    for subnet in "$CLUSTER-master" "$CLUSTER-worker"; do
+   for subnet in "$CLUSTER-master" "$CLUSTER-worker"; do
      az network vnet subnet create \
        -g "$RESOURCEGROUP" \
        --vnet-name vnet \
@@ -141,6 +141,8 @@ az aro create \
   --vnet vnet \
   --master-subnet "$CLUSTER-master" \
   --worker-subnet "$CLUSTER-worker" \
+  --cluster-resource-group "aro-$CLUSTER" \
+  --domain "$CLUSTER" \
   --pull-secret "$PULL_SECRET"
 ```
 

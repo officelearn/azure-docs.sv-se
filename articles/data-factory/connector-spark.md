@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.openlocfilehash: 63e352ce47c5934171594ae87ee307603fff4c35
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb628ec73430d542295a83773401c256421605a0
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74931016"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990879"
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Kopiera data från Spark med Azure Data Factory 
 
@@ -58,10 +58,10 @@ Följande egenskaper stöds för Spark-länkad tjänst:
 | användarnamn | Det användarnamn som du använder för att komma åt Spark Server.  | Inga |
 | password | Lösenordet som motsvarar användaren. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Inga |
 | httpPath (på ett sätt) | Den partiella URL:en som motsvarar Spark-servern.  | Inga |
-| enableSsl enableSsl enableSsl enableS | Anger om anslutningarna till servern är krypterade med SSL. Standardvärdet är false.  | Inga |
-| betroddaCertPath | Den fullständiga sökvägen till PEM-filen som innehåller betrodda CERTIFIKATUTfärdare för att verifiera servern när du ansluter via SSL. Den här egenskapen kan bara ställas in när ssl används på självvärdbaserad IR. The default value is the cacerts.pem file installed with the IR.  | Inga |
+| enableSsl enableSsl enableSsl enableS | Anger om anslutningarna till servern är krypterade med TLS. Standardvärdet är false.  | Inga |
+| betroddaCertPath | Den fullständiga sökvägen till PEM-filen som innehåller betrodda certifikatutfärdare för att verifiera servern när du ansluter via TLS. Den här egenskapen kan bara ställas in när du använder TLS på självvärdbaserad IR. The default value is the cacerts.pem file installed with the IR.  | Inga |
 | användaSystemTrustStore | Anger om ett CERTIFIKAT FRÅN systemförtroendearkivet eller från en angiven PEM-fil ska användas. Standardvärdet är false.  | Inga |
-| allowHostNameCNMismatch | Anger om ett CERTIFIKATUTFÄRDAT SSL-certifikatnamn ska behövas för att matcha serverns värdnamn när du ansluter via SSL. Standardvärdet är false.  | Inga |
+| allowHostNameCNMismatch | Anger om ett certifikatutfärdat TLS/SSL-certifikatnamn ska krävas för att matcha serverns värdnamn när du ansluter via TLS. Standardvärdet är false.  | Inga |
 | tillåtVälsignedServerCert | Anger om självsignerade certifikat ska tillåtas från servern. Standardvärdet är false.  | Inga |
 | connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. Läs mer från avsnittet [Förutsättningar.](#prerequisites) Om det inte anges används standardkörningen för Azure Integration. |Inga |
 

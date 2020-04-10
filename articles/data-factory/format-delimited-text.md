@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 04/09/2020
 ms.author: jingwang
-ms.openlocfilehash: f2e70a7b900ad918cda05ce34204e2de1e6e67ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 47d26ad452b8494e591ee919076e5ade8bf19cd7
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75830198"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011403"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Avgränsat textformat i Azure Data Factory
 
@@ -30,14 +30,14 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 | ---------------- | ------------------------------------------------------------ | -------- |
 | typ             | Egenskapen Type property för datauppsättningen måste anges till **AvgränsadText**. | Ja      |
 | location         | Platsinställningar för filen/filerna. Varje filbaserad koppling har sin egen platstyp och egenskaper som stöds under `location`.  | Ja      |
-| columnDelimiter  | De tecken som används för att separera kolumner i en fil. För närvarande stöds multi-char-avgränsare endast för mappning av dataflöde men inte kopiera aktivitet. <br>Standardvärdet är **komma `,` **, När kolumn avgränsaren definieras som tom sträng, vilket innebär ingen avgränsare, tas hela raden som en enda kolumn. | Inga       |
-| rowDelimiter     | Det enstaka tecknet eller "\r\n" som används för att separera rader i en fil.<br>Standardvärdet är något av följande värden **som ska läsas: ["\r\n", "\r", "\n"]** och **"\n" eller "\r\n" vid skrivning** genom att mappa dataflöde respektive Kopiera aktivitet. <br>När `rowDelimiter` är inställt på ingen avgränsare `columnDelimiter` (tom sträng), måste ställas in som ingen avgränsare (tom sträng) också, vilket innebär att behandla hela innehållet som ett enda värde. | Inga       |
+| columnDelimiter  | De tecken som används för att separera kolumner i en fil. <br>Standardvärdet är **kommatecken `,` **. När kolumn avgränsaren definieras som tom sträng, vilket innebär ingen avgränsare, tas hela raden som en enda kolumn.<br>För närvarande stöds kolumnavgränsare som tom sträng eller multitecken endast för mappning av dataflöde men inte Kopiera aktivitet.  | Inga       |
+| rowDelimiter     | Det enstaka tecknet eller "\r\n" som används för att separera rader i en fil. <br>Standardvärdet är något av följande värden **som ska läsas: ["\r\n", "\r", "\n"]** och **"\n" eller "\r\n" vid skrivning** genom att mappa dataflöde respektive Kopiera aktivitet. <br>När rad avgränsaren är inställd på ingen avgränsare (tom sträng) måste kolumn avgränsaren anges som ingen avgränsare (tom sträng) också, vilket innebär att hela innehållet behandlas som ett enda värde.<br>För närvarande stöds radavgränsare som tom sträng endast för mappning av dataflöde men inte Kopiera aktivitet. | Inga       |
 | quoteChar        | Ett tecken som ska citera kolumnvärden om det innehåller kolumnavgränsare. <br>Standardvärdet är **dubbla citattecken** `"`. <br>För mappning `quoteChar` av dataflöde kan det inte vara en tom sträng. <br>För kopiera aktivitet, när `quoteChar` definieras som tom sträng, betyder det att det inte `escapeChar` finns någon citattecken och kolumnvärde inte citeras och används för att undkomma kolumnavgränsaren och sig själv. | Inga       |
 | escapeChar       | Det enda teckenet för att undkomma citat inuti ett citerat värde.<br>Standardvärdet är **omvänt `\`snedstreck **. <br>För mappning `escapeChar` av dataflöde kan det inte vara en tom sträng. <br/>För kopieringsaktivitet, när `escapeChar` det definieras `quoteChar` som tom sträng, måste det också anges som tom sträng, och se till att alla kolumnvärden inte innehåller avgränsare. | Inga       |
 | firstRowAsHeader | Anger om den första raden ska behandlas/skapas som en rubrikrad med namn på kolumner.<br>Tillåtna värden är **sanna** och **falska** (standard). | Inga       |
 | nullValue        | Anger strängrepresentation av null-värde. <br>Standardvärdet är **tom sträng**. | Inga       |
-| encodingName     | Kodningstypen som används för att läsa/skriva testfiler. <br>Tillåtna värden är följande: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", " IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149" , "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", " WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".<br>Dataflöde för anteckningar stöder inte UTF-7-kodning. | Inga       |
-| komprimeringCodec | Komprimeringscodec som används för att läsa/skriva textfiler. <br>Tillåtna värden är **bzip2,** **gzip**, **deflate**, **ZipDeflate**, **snappy**eller **lz4**. att använda när du sparar filen. <br>Kopiera aktivitet stöder för närvarande inte "snappy" & "lz4", och mappningsdataflödet stöder inte "ZipDeflate". <br>Observera att när du använder kopieringsaktivitet för att expandera ZipDeflate-filer och skriva till filbaserat `<path specified in dataset>/<folder named as source zip file>/`sink-datalager extraheras filerna till mappen: . | Inga       |
+| encodingName     | Kodningstypen som används för att läsa/skriva testfiler. <br>Allowed values are as follows: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".<br>Dataflöde för anteckningar stöder inte UTF-7-kodning. | Inga       |
+| komprimeringCodec | Komprimeringscodec som används för att läsa/skriva textfiler. <br>Tillåtna värden är **bzip2,** **gzip**, **deflate**, **ZipDeflate**, **snappy**eller **lz4**. Standard är inte komprimerat. <br>**Kopiera** aktivitet stöder för närvarande inte "snappy" & "lz4", och mappningsdataflödet stöder inte "ZipDeflate". <br>**Observera** att när du använder kopieringsaktivitet för att expandera ZipDeflate-filer och skriva till filbaserat `<path specified in dataset>/<folder named as source zip file>/`sink-datalager extraheras filerna till mappen: . | Inga       |
 | komprimeringNivå | Kompressionsförhållandet. <br>Tillåtna värden är **Optimal** eller **Snabbaste**.<br>- **Snabbast:** Komprimeringsåtgärden bör slutföras så snabbt som möjligt, även om den resulterande filen inte är optimalt komprimerad.<br>- **Optimal**: Komprimeringsoperationen ska komprimeras optimalt, även om operationen tar längre tid att slutföra. Mer information finns i avsnittet [Komprimeringsnivå.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | Inga       |
 
 Nedan följer ett exempel på avgränsad textdatauppsättning på Azure Blob Storage:
@@ -60,6 +60,7 @@ Nedan följer ett exempel på avgränsad textdatauppsättning på Azure Blob Sto
             },
             "columnDelimiter": ",",
             "quoteChar": "\"",
+            "escapeChar": "\"",
             "firstRowAsHeader": true,
             "compressionCodec": "gzip"
         }

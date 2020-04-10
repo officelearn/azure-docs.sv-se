@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0b3c47e1bbe5efdc5ee303305e52a785a49d0c00
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: b470f9278bdca94d1fe98c64b11b070fb36cb075
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586878"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998477"
 ---
-# <a name="set-up-azure-multi-factor-authentication"></a>Konfigurera Azure Multi Factor-autentisering
+# <a name="set-up-azure-multi-factor-authentication"></a>Konfigurera multifaktorautentisering i Azure
 
 Windows-klienten för Windows Virtual Desktop är ett utmärkt alternativ för att integrera Windows Virtual Desktop med din lokala dator. Men när du konfigurerar ditt Windows Virtual Desktop-konto till Windows-klienten finns det vissa åtgärder som du måste vidta för att skydda dig själv och dina användare.
 
@@ -32,7 +32,7 @@ Det här behöver du för att komma igång:
   - Azure Active Directory Premium P1 eller P2
   - Enterprise Mobility + Säkerhet E3 eller E5
 - En Azure Active Directory-grupp med användarna som tilldelats som gruppmedlemmar.
-- Aktivera Azure MFA för alla dina användare. Mer information om hur du gör det finns i Så här kräver du [tvåstegsverifiering för en användare](/active-directory/authentication/howto-mfa-userstates).
+- Aktivera Azure MFA för alla dina användare. Mer information om hur du gör det finns i Så här kräver du [tvåstegsverifiering för en användare](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user).
 
 >[!NOTE]
 >Följande inställning gäller även för [webbklienten för Windows Virtual Desktop](https://rdweb.wvd.microsoft.com/webclient/index.html).

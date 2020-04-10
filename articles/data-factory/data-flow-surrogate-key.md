@@ -1,55 +1,83 @@
 ---
-title: Omformning av ersättningsnyckel för dataflöde
+title: Ersättningsnyckelomvandling vid mappning av dataflöde
 description: Så här använder du Azure Data Factorys mappningsdataflöde Surrogatnyckelomvandling för att generera sekventiella nyckelvärden
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/12/2019
-ms.openlocfilehash: bab48aa9079c1b8020bb828a6bb91bd244a78cf1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/08/2020
+ms.openlocfilehash: e5ac25c002da121be3adadf0eed978dd60ba26d9
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930204"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010679"
 ---
-# <a name="mapping-data-flow-surrogate-key-transformation"></a>Omformning av ersättningsnyckel för dataflöde
+# <a name="surrogate-key-transformation-in-mapping-data-flow"></a>Ersättningsnyckelomvandling vid mappning av dataflöde 
 
+Använd omformningen av surrogatnyckeln för att lägga till ett stegvis nyckelvärde till varje datarad. Detta är användbart när du utformar dimensionstabeller i en analysdatamodell för stjärnschema. I ett stjärnschema kräver varje medlem i dimensionstabellerna en unik nyckel som är en icke-affärsnyckel.
 
-
-Använd surrogatnyckelomvandlingen för att lägga till ett stegvis godtyckligt nyckelvärde som inte är affärsmässigt i dataflödesraduppsättningen. Detta är användbart när du utformar dimensionstabeller i en analysdatamodell för stjärnschema där varje medlem i dimensionstabellerna måste ha en unik nyckel som är en icke-affärsnyckel, en del av Kimball DW-metoden.
+## <a name="configuration"></a>Konfiguration
 
 ![Transformera surrogatnyckel](media/data-flow/surrogate.png "Omvandling av surrogatnyckel")
 
-"Nyckelkolumn" är det namn som du ska ge till den nya kolumnen för surrogatnyckel.
+**Nyckelkolumn:** Namnet på den genererade kolumnen för surrogatnyckel.
 
-"Startvärde" är början på det inkrementella värdet.
+**Startvärde:** Det lägsta nyckelvärdet som kommer att genereras.
 
 ## <a name="increment-keys-from-existing-sources"></a>Öka nycklar från befintliga källor
 
-Om du vill starta sekvensen från ett värde som finns i en källa kan du använda en härledd kolumnomvandling direkt efter omformningen av surrogatnyckeln och lägga till de två värdena tillsammans:
+Om du vill starta sekvensen från ett värde som finns i en källa använder du en härledd kolumnomvandling efter surrogatnyckelomvandlingen för att lägga till de två värdena tillsammans:
 
 ![SK lägga till Max](media/data-flow/sk006.png "Summering av surrogatnyckel")
 
-För att så nyckelvärdet med föregående max finns det två tekniker som du kan använda:
+### <a name="increment-from-existing-maximum-value"></a>Öka från befintligt högsta värde
 
-### <a name="database-sources"></a>Databaskällor
+För att så nyckelvärdet med föregående max finns det två tekniker som du kan använda baserat på var källdata finns.
 
-Använd alternativet "Fråga" för att välja MAX() från källan med hjälp av källomvandlingen:
+#### <a name="database-sources"></a>Databaskällor
+
+Använd ett SQL-frågealternativ för att välja MAX() från källan. Till exempel kan`Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`/
 
 ![Fråga om surrogatnyckel](media/data-flow/sk002.png "Fråga om omvandling av surrogatnyckel")
 
-### <a name="file-sources"></a>Filkällor
+#### <a name="file-sources"></a>Filkällor
 
-Om ditt tidigare maxvärde finns i en fil kan du använda källomvandlingen tillsammans med en mängdomvandling och använda uttrycksfunktionen MAX() för att få det tidigare maxvärdet:
+Om ditt tidigare maxvärde finns i `max()` en fil använder du funktionen i den sammanlagda omvandlingen för att få det tidigare maxvärdet:
 
 ![Nyckelfil för surrogat](media/data-flow/sk008.png "Nyckelfil för surrogat")
 
-I båda fallen måste du koppla dina inkommande nya data tillsammans med källan som innehåller det tidigare maxvärdet:
+I båda fallen måste du koppla dina inkommande nya data tillsammans med källan som innehåller det tidigare maxvärdet.
 
 ![Anslutning av surrogatnyckel](media/data-flow/sk004.png "Anslutning av surrogatnyckel")
+
+## <a name="data-flow-script"></a>Dataflödesskript
+
+### <a name="syntax"></a>Syntax
+
+```
+<incomingStream> 
+    keyGenerate(
+        output(<surrogateColumnName> as long),
+        startAt: <number>L
+    ) ~> <surrogateKeyTransformationName>
+```
+
+### <a name="example"></a>Exempel
+
+![Transformera surrogatnyckel](media/data-flow/surrogate.png "Omvandling av surrogatnyckel")
+
+Dataflödesskriptet för konfigurationen av ovanstående surrogatnyckel finns i kodavsnittet nedan.
+
+```
+AggregateDayStats
+    keyGenerate(
+        output(key as long),
+        startAt: 1L
+    ) ~> SurrogateKey1
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

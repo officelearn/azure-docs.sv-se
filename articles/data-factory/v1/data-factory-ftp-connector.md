@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 55c8bf2210eb0990a91aeff1f90e4af4db2c22ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eeeb122d240d8c3eae4ebe1650f67cf0e4b9dac6
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79281410"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992053"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Flytta data från en FTP-server med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -39,7 +39,7 @@ Om du flyttar data från en **lokal FTP-server** till ett molndatalager (till ex
 
 Det är möjligt att installera gatewayen på samma lokala dator eller IaaS VM som FTP-servern. Vi rekommenderar dock att du installerar gatewayen på en separat dator eller IaaS VM för att undvika resurskonkurrens och för bättre prestanda. När du installerar gatewayen på en separat dator bör datorn kunna komma åt FTP-servern.
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 Du kan skapa en pipeline med en kopieringsaktivitet som flyttar data från en FTP-källa med hjälp av olika verktyg eller API:er.
 
 Det enklaste sättet att skapa en pipeline är att använda **guiden Kopia av Data Factory**. Se [självstudiekurs: Skapa en pipeline med hjälp av kopieringsguiden](data-factory-copy-data-wizard-tutorial.md) för en snabb genomgång.
@@ -73,7 +73,7 @@ I följande tabell beskrivs JSON-element som är specifika för en FTP-länkad t
 | gatewayName (gatewayName) |Ange namnet på gatewayen i Data Management Gateway för att ansluta till en lokal FTP-server. |Inga |&nbsp; |
 | port |Ange den port som FTP-servern lyssnar på. |Inga |21 |
 | enableSsl enableSsl enableSsl enableS |Ange om FTP ska användas via en SSL/TLS-kanal. |Inga |true |
-| aktiveraServerCertificateValidation |Ange om server-SSL-certifikatvalidering ska aktiveras när du använder FTP via SSL/TLS-kanal. |Inga |true |
+| aktiveraServerCertificateValidation |Ange om du vill aktivera validering av TLS/SSL-certifikat för server när du använder FTP via SSL/TLS-kanal. |Inga |true |
 
 >[!NOTE]
 >FTP-anslutningen stöder åtkomst till FTP-server med antingen ingen kryptering eller explicit SSL/TLS-kryptering. Den stöder inte implicit SSL/TLS-kryptering.

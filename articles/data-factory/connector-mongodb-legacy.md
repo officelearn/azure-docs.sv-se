@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.openlocfilehash: 0bdd8d454b979250b57cf657d347309b99a86ede
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 31588f9657a883e9c4a5600d2d164125a5f68edf
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75892557"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991951"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Kopiera data från MongoDB med Azure Data Factory
 
@@ -65,7 +65,7 @@ Följande egenskaper stöds för MongoDB-länkad tjänst:
 | användarnamn |Användarkonto för att komma åt MongoDB. |Ja (om grundläggande autentisering används). |
 | password |Lösenordet för användaren. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja (om grundläggande autentisering används). |
 | authSource |Namnet på den MongoDB-databas som du vill använda för att kontrollera dina autentiseringsuppgifter. |Nej. För grundläggande autentisering är standard att använda administratörskontot och databasen som anges med hjälp av egenskapen databaseName. |
-| enableSsl enableSsl enableSsl enableS | Anger om anslutningarna till servern är krypterade med SSL. Standardvärdet är false.  | Inga |
+| enableSsl enableSsl enableSsl enableS | Anger om anslutningarna till servern är krypterade med TLS. Standardvärdet är false.  | Inga |
 | tillåtVälsignedServerCert | Anger om självsignerade certifikat ska tillåtas från servern. Standardvärdet är false.  | Inga |
 | connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. Läs mer från avsnittet [Förutsättningar.](#prerequisites) Om det inte anges används standardkörningen för Azure Integration. |Inga |
 
@@ -180,13 +180,13 @@ Vid kopiering av data från MongoDB används följande mappningar från MongoDB-
 | Datatyp för MongoDB | Data fabrik interim datatyp |
 |:--- |:--- |
 | Binär |Byte[] |
-| Boolean |Boolean |
-| Datum |DateTime |
+| Boolesk |Boolesk |
+| Date |DateTime |
 | AntalDouble |Double |
 | NumberInt (olika) |Int32 |
 | AntalLångt |Int64 |
-| ObjectID |String |
-| String |String |
+| ObjectID |Sträng |
+| Sträng |Sträng |
 | Uuid |GUID |
 | Objekt |Renormalized till platta kolumner med "_" som kapslad avgränsare |
 

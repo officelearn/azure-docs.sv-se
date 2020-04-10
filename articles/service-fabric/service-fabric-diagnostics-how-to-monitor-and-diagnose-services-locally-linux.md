@@ -3,12 +3,12 @@ title: Felsöka Azure Service Fabric-appar i Linux
 description: Lär dig hur du övervakar och diagnostiserar dina Service Fabric-tjänster på en lokal Linux-utvecklingsdator.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: d8b5ec2f2190586f5eced5eee112b190a82504c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa8c4053a348c539c2e9e7a87d002d0fcf4a4d52
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75526302"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991338"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>Övervaka och diagnostisera tjänster i en lokal linux-maskinutvecklingsinstallation
 
@@ -59,7 +59,7 @@ Mer information finns [i kodexemplen i GitHub](https://github.com/Azure-Samples/
 ## <a name="debugging-service-fabric-c-applications"></a>Felsökning av Program för service fabric C#
 
 
-Flera ramverk är tillgängliga för att spåra CoreCLR-program på Linux. Mer information finns i [GitHub: loggning](http:/github.com/aspnet/logging).  Eftersom EventSource är bekant för C#-utvecklare använder den här artikeln EventSource för spårning i CoreCLR-exempel på Linux.
+Flera ramverk är tillgängliga för att spåra CoreCLR-program på Linux. Mer information finns i [.NET-tillägg för loggning](https://github.com/dotnet/extensions/tree/master/src/Logging).  Eftersom EventSource är bekant för C#-utvecklare använder den här artikeln EventSource för spårning i CoreCLR-exempel på Linux.
 
 Det första steget är att inkludera System.Diagnostics.Tracing så att du kan skriva loggarna till minne, utdataströmmar eller konsolfiler.  För loggning med EventSource lägger du till följande projekt i project.json:
 

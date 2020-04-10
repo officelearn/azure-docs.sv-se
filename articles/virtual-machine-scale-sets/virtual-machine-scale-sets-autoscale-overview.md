@@ -1,21 +1,21 @@
 ---
 title: Översikt över automatisk skalning med VM-skalningsuppsättningar i Azure
 description: Lär dig mer om de olika sätt som du automatiskt kan skala en Azure-skala för virtuell dator baserat på prestanda eller på ett fast schema
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eb96be187502afcccfd3fb2c88f709facfbc3b59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b3af40de107fd9273ec50425c58afc9772ea426
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76278149"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010349"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Översikt över automatisk skalning med VM-skalningsuppsättningar i Azure
 En Azure-skalningsuppsättning för virtuella datorer kan automatiskt öka eller minska antalet VM-instanser som kör ditt program. Detta automatiserade och elastiska beteende minskar hanteringen för att övervaka och optimera programmets prestanda. Du skapar regler som definierar den godtagbara prestandan för en positiv kundupplevelse. När de definierade tröskelvärdena uppfylls vidtar regler för automatisk skalning för att justera kapaciteten för din skalningsuppsättning. Du kan också schemalägga händelser så att de automatiskt ökar eller minskar kapaciteten för din skala som ställts in vid fasta tider. Den här artikeln innehåller en översikt över vilka prestandamått som är tillgängliga och vilka åtgärder automatisk skalning kan utföra.
@@ -34,7 +34,7 @@ Du kan skapa regler för automatisk skalning som inbyggda värdmått som är til
 
 Regler för automatisk skalning som använder värdbaserade mått kan skapas med något av följande verktyg:
 
-- [Azure-portal](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](tutorial-autoscale-powershell.md)
 - [Azure CLI](tutorial-autoscale-cli.md)
 - [Azure-mall](tutorial-autoscale-template.md)

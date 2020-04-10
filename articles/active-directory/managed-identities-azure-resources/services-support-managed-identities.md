@@ -4,18 +4,18 @@ description: Lista över tjänster som stöder hanterade identiteter för Azure-
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 04/03/2020
+ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c7a65df100cd58561ce12ac2ae01281eebd419a
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 45a248300cd61a0e57b9f35c8905d7c335069a27
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656053"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991287"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Tjänster som stöder hanterade identiteter för Azure-resurser
 
@@ -109,7 +109,7 @@ Hanterad identitetstyp | Alla allmänt tillgängliga<br>Globala Azure-regioner |
 Se följande lista för att konfigurera hanterad identitet för Azure Logic Apps (i regioner där det är tillgängligt):
 
 - [Azure Portal](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
-- [Azure Resource Manager-mall](/azure/app-service/overview-managed-identity)
+- [Azure Resource Manager-mall](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
 
@@ -270,6 +270,9 @@ I följande lista för att konfigurera åtkomst till Azure Resource Manager:
 | Azure Government | `https://*.asazure.usgovcloudapi.net` | ![Tillgängliga][check] |
 | Azure Tyskland | `https://*.asazure.cloudapi.de` | ![Tillgängliga][check] |
 | Azure Kina 21Vianet | `https://*.asazure.chinacloudapi.cn` | ![Tillgängliga][check] |
+
+> [!Note]
+> Microsoft Power BI stöder också [hanterade identiteter](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity).
 
 
 [check]: media/services-support-managed-identities/check.png "Tillgängliga"

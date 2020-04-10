@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: 8f5065a0f4a2a96a747a45f64e00e86f7990bfb8
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 3a16a8263c80852127ca61db3c666ebf0f7f1e4c
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437799"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011709"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiera och omvandla data i Azure SQL Database med hjälp av Azure Data Factory
 
@@ -493,7 +493,7 @@ BEGIN
 END
 ```
 
-**Alternativ 2:** Du kan också välja att [anropa en lagrad procedur i kopieringsaktiviteten](#invoke-a-stored-procedure-from-a-sql-sink). Den här metoden körs varje rad i källtabellen i stället för att använda massinfogning som standardmetod i kopieringsaktiviteten, vilket inte är lämpligt för storskalig upsert.
+**Alternativ 2:** Du kan också välja att [anropa en lagrad procedur i kopieringsaktiviteten](#invoke-a-stored-procedure-from-a-sql-sink). Den här metoden körs varje `writeBatchSize` batch (som styrs av egenskapen) i källtabellen i stället för att använda massinfogning som standardmetod i kopieringsaktiviteten.
 
 ### <a name="overwrite-the-entire-table"></a>Skriva över hela tabellen
 
@@ -508,10 +508,7 @@ Stegen för att skriva data med anpassad logik liknar dem som beskrivs i avsnitt
 
 ## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a><a name="invoke-a-stored-procedure-from-a-sql-sink"></a>Anropa en lagrad procedur från en SQL-diskho
 
-När du kopierar data till Azure SQL Database kan du också konfigurera och anropa en användarspecificerad lagrad procedur med ytterligare parametrar. Funktionen lagrad procedur utnyttjar [tabellvärdade parametrar](https://msdn.microsoft.com/library/bb675163.aspx).
-
-> [!TIP]
-> När du anropar en lagrad procedur bearbetas dataraden för rad i stället för med hjälp av en massåtgärd, som vi inte rekommenderar för storskalig kopia. Läs mer från [Bästa praxis för att läsa in data i Azure SQL Database](#best-practice-for-loading-data-into-azure-sql-database).
+När du kopierar data till Azure SQL Database kan du också konfigurera och anropa en användarspecificerad lagrad procedur med ytterligare parametrar i varje batch i källtabellen. Funktionen lagrad procedur utnyttjar [tabellvärdade parametrar](https://msdn.microsoft.com/library/bb675163.aspx).
 
 Du kan använda en lagrad procedur när inbyggda kopieringsmekanismer inte tjänar syftet. Ett exempel är när du vill använda extra bearbetning innan den slutliga insättningen av källdata i måltabellen. Några extra bearbetningsexempel är när du vill sammanfoga kolumner, slå upp ytterligare värden och infoga i mer än en tabell.
 
@@ -614,7 +611,7 @@ När data kopieras från eller till Azure SQL Database används följande mappni
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |Boolean |
+| bit |Boolesk |
 | char |Sträng, Röding[] |
 | date |DateTime |
 | Datumtid |DateTime |

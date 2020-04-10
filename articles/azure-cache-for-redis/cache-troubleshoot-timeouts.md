@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: 4b8cfed883ffef780de2e82e3f309e97bcb5515c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4301a55e3f5ea5b445ef1540ee59d1b5c28ca0ed
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278251"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010825"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Felsöka överskridna tidsgränser för Azure Cache for Redis
 
@@ -82,7 +82,7 @@ Du kan använda följande steg för att undersöka möjliga grundorsaker.
    - Kontrollera om du får CPU-bunden på servern genom att övervaka [prestandamåttet för CPU-cachen](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Begäranden som kommer in medan Redis är CPU-bunden kan orsaka att dessa begäranden time out. Om du vill åtgärda det här villkoret kan du distribuera belastningen över flera shards i en premiumcache eller uppgradera till en större storlek eller prisnivå. Mer information finns i [Bandbreddsbegränsning på serversidan](cache-troubleshoot-server.md#server-side-bandwidth-limitation).
 1. Finns det kommandon som tar lång tid att bearbeta på servern? Långvariga kommandon som tar lång tid att bearbeta på redis-servern kan orsaka timeout. Mer information om långvariga kommandon finns i [Kommandon med lång drift](cache-troubleshoot-server.md#long-running-commands). Du kan ansluta till Azure Cache för Redis-instans med redis-cli-klienten eller [Redis-konsolen](cache-configure.md#redis-console). Kör sedan [kommandot SLOWLOG](https://redis.io/commands/slowlog) för att se om det finns begäranden långsammare än förväntat. Redis Server och StackExchange.Redis är optimerade för många små begäranden i stället för färre stora begäranden. Att dela upp dina data i mindre bitar kan förbättra saker här.
 
-    Information om hur du ansluter till cachens SSL-slutpunkt med redis-cli och stunnel finns i blogginlägget [Announcing ASP.NET Session State Provider for Redis Preview Release](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
+    Information om hur du ansluter till cachens TLS/SSL-slutpunkt med redis-cli och stunnel finns i blogginlägget [Announcing ASP.NET Session State Provider for Redis Preview Release](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
 1. Hög Redis-serverbelastning kan orsaka timeout. Du kan övervaka serverbelastningen `Redis Server Load` genom att övervaka [cacheprestandamåttet](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). En serverbelastning på 100 (maximalt värde) innebär att redis-servern har varit upptagen, utan inaktiv tid, bearbetningsbegäranden. Om du vill se om vissa begäranden tar upp alla serverfunktioner kör du kommandot SlowLog enligt beskrivningen i föregående stycke. Mer information finns i Hög CPU-användning / Server Load.
 1. Fanns det någon annan händelse på klientsidan som kunde ha orsakat ett nätverk blip? Vanliga händelser är: skala antalet klientinstanser uppåt eller nedåt, distribuera en ny version av klienten eller aktiverad automatisk skalning. I våra tester har vi funnit att automatisk skalning eller skalning upp / ned kan orsaka utgående nätverksanslutning att gå förlorade i flera sekunder. StackExchange.Redis-koden är motståndskraftig mot sådana händelser och återansluter. När du ansluter igen kan alla begäranden i kön ta time out.
 1. Fanns det en stor begäran som föregick flera små begäranden till cachen som timelade ut? Parametern `qs` i felmeddelandet visar hur många begäranden som skickades från klienten till servern, men har inte bearbetat något svar. Det här värdet kan fortsätta växa eftersom StackExchange.Redis använder en enda TCP-anslutning och bara kan läsa ett svar i taget. Även om den första åtgärden tog time out, hindrar det inte mer data från att skickas till eller från servern. Andra begäranden blockeras tills den stora begäran är klar och kan orsaka time outs. En lösning är att minimera risken för timeout genom att se till att cachen är tillräckligt stor för din arbetsbelastning och dela upp stora värden i mindre segment. En annan möjlig lösning är `ConnectionMultiplexer` att använda en pool med `ConnectionMultiplexer` objekt i klienten och välja den minst inlästa när du skickar en ny begäran. Inläsning över flera anslutningsobjekt bör förhindra att en enda timeout orsakar att andra begäranden också kan ta timeout.

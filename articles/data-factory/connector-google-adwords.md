@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/25/2019
-ms.openlocfilehash: b01dcad71747da6b7aa770e3993cb82892ae55fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d536b706db85603624e0fa2362df7c537958f6f2
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929440"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991611"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory"></a>Kopiera data från Google AdWords med Azure Data Factory
 
@@ -55,7 +55,7 @@ Följande egenskaper stöds för den länkade tjänsten i Google AdWords:
 | clientSecret (klientSecret) | Klienthemligheten för google-programmet som används för att hämta uppdateringstoken. Du kan välja att markera det här fältet som en SecureString för att lagra det säkert i ADF, eller lagra lösenord i Azure Key Vault och låta ADF kopiera aktivitet hämta därifrån när du utför datakopiering - läs mer från [Store-autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Inga |
 | e-post | E-post-ID för tjänstkontot som används för ServiceAuthentication och kan endast användas på självvärdbaserad IR.  | Inga |
 | keyFilePath | Den fullständiga sökvägen till .p12-nyckelfilen som används för att autentisera e-postadressen för tjänstkontot och som endast kan användas på självvärdbaserad IR.  | Inga |
-| betroddaCertPath | Den fullständiga sökvägen till PEM-filen som innehåller betrodda CERTIFIKATUTfärdare för att verifiera servern när du ansluter via SSL. Den här egenskapen kan bara ställas in när ssl används på självvärdbaserad IR. The default value is the cacerts.pem file installed with the IR.  | Inga |
+| betroddaCertPath | Den fullständiga sökvägen till PEM-filen som innehåller betrodda certifikatutfärdare för att verifiera servern när du ansluter via TLS. Den här egenskapen kan bara ställas in när du använder TLS på självvärdbaserad IR. The default value is the cacerts.pem file installed with the IR.  | Inga |
 | användaSystemTrustStore | Anger om ett CERTIFIKAT FRÅN systemförtroendearkivet eller från en angiven PEM-fil ska användas. Standardvärdet är false.  | Inga |
 
 **Exempel:**

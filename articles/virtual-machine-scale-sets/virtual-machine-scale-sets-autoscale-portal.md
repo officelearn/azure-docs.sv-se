@@ -1,19 +1,19 @@
 ---
 title: Skalning av virtuella datorskaleuppsättningar automatiskt i Azure-portalen
 description: Skapa regler för automatisk skalning för skalningsuppsättningar för virtuella datorer i Azure-portalen
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: cynthn
-ms.openlocfilehash: ecd80f49f0161c8bbc6ab7309f2af89e2ded1fe9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: jushiman
+ms.openlocfilehash: 1915b144aec5a5447504c70d18dbf420d255a08e
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76278186"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010298"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Skala en skala för en virtuell dator automatiskt i Azure-portalen
 När du skapar en skalningsuppsättning, definierar du antalet virtuella datorinstanser som du vill köra. När ditt program behöver ändras, kan du automatiskt öka eller minska antalet virtuella datorinstanser. Möjligheten att skala automatiskt låter dig hålla dig uppdaterad med kundernas behov eller svara på ändringar i programprestandan under hela livscykeln för din app.
@@ -96,7 +96,7 @@ Om du vill visa antalet och statusen för VM-instanser väljer du **Instanser** 
 
 
 ## <a name="autoscale-based-on-a-schedule"></a>Automatisk skalning baserat på ett schema
-De tidigare exemplen skalade automatiskt en skala som anges i eller ut med grundläggande värdmått som CPU-användning. Du kan också skapa regler för automatisk skalning baserat på scheman. Med de här schemabaserade reglerna kan du automatiskt skala ut antalet VM-instanser före en förväntad ökning av programmets efterfrågan, till exempel grundläggande arbetstid, och sedan automatiskt skala antalet instanser vid en tidpunkt som du räknar med mindre efterfrågan, till exempel helgen.
+De tidigare exemplen skalade automatiskt en skala som anges i eller ut med grundläggande värdmått som CPU-användning. Du kan också skapa regler för automatisk skalning baserat på scheman. Med de här schemabaserade reglerna kan du automatiskt skala ut antalet VM-instanser före en förväntad ökning av programbehovet, till exempel grundläggande arbetstid, och sedan automatiskt skala antalet instanser vid en tidpunkt som du förutser mindre efterfrågan, till exempel helgen.
 
 1. Välj **Skala** på menyn till vänster i skalningsfönstret. Om du vill ta bort de befintliga reglerna för automatisk skalning som skapats i föregående exempel väljer du papperskorgen.
 

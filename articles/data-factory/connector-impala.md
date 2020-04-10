@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: f465fe4bb69bc5ae81db6c78df51bf5133de1b60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3c7690390936a05dd472796eb6f50f582f652e35
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929309"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80990857"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory"></a>Kopiera data från Impala med hjälp av Azure Data Factory
 
@@ -37,7 +37,7 @@ Data Factory tillhandahåller en inbyggd drivrutin för anslutning. Därför beh
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -55,10 +55,10 @@ Följande egenskaper stöds för Impala-länkad tjänst.
 | authenticationType | Den autentiseringstyp som ska användas. <br/>Tillåtna värden är **Anonym**, **SASLUsername**och **UsernameAndPassword**. | Ja |
 | användarnamn | Användarnamnet som används för att komma åt Impala-servern. Standardvärdet är anonymt när du använder SASLUsername.  | Inga |
 | password | Lösenordet som motsvarar användarnamnet när du använder UsernameAndPassword. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Inga |
-| enableSsl enableSsl enableSsl enableS | Anger om anslutningarna till servern krypteras med ssl. Standardvärdet är **falskt**.  | Inga |
-| betroddaCertPath | Den fullständiga sökvägen till PEM-filen som innehåller betrodda certifikatutfärdare som används för att verifiera servern när du ansluter via SSL. Den här egenskapen kan bara ställas in när du använder SSL på självvärdbaserad integrationskörning. Standardvärdet är filen cacerts.pem som är installerad med integrationskörningen.  | Inga |
+| enableSsl enableSsl enableSsl enableS | Anger om anslutningarna till servern krypteras med hjälp av TLS. Standardvärdet är **falskt**.  | Inga |
+| betroddaCertPath | Den fullständiga sökvägen till PEM-filen som innehåller betrodda certifikatutfärdare som används för att verifiera servern när du ansluter via TLS. Den här egenskapen kan bara ställas in när du använder TLS på självvärdbaserad integrationskörning. Standardvärdet är filen cacerts.pem som är installerad med integrationskörningen.  | Inga |
 | användaSystemTrustStore | Anger om ett CERTIFIKAT FRÅN systemförtroendearkivet eller från en angiven PEM-fil ska användas. Standardvärdet är **falskt**.  | Inga |
-| allowHostNameCNMismatch | Anger om ett CERTIFIKATUTFÄRDAT SSL-certifikatnamn ska krävas för att matcha serverns värdnamn när du ansluter via SSL. Standardvärdet är **falskt**.  | Inga |
+| allowHostNameCNMismatch | Anger om ett certifikatutfärdat TLS/SSL-certifikatnamn ska krävas för att matcha serverns värdnamn när du ansluter via TLS. Standardvärdet är **falskt**.  | Inga |
 | tillåtVälsignedServerCert | Anger om självsignerade certifikat ska tillåtas från servern. Standardvärdet är **falskt**.  | Inga |
 | connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. Läs mer från avsnittet [Förutsättningar.](#prerequisites) Om det inte anges används standardkörningen för Azure Integration. |Inga |
 

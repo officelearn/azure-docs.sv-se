@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 12/12/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 8f71c039aa6666cec1b871a158d84a6f5a2a107c
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: c88f5a4dd4f2997ce01b1f6a3ae192c62f530e76
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80666821"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011436"
 ---
 ## <a name="2-assign-access-permissions-to-an-identity"></a>2. Tilldela åtkomstbehörigheter till en identitet
 
-För att komma åt Azure Files-resurser med identitetsbaserad autentisering måste en identitet (en användare, grupp eller tjänsthuvudnamn) ha de behörigheter som krävs på resursnivå. Den här processen påminner om att ange Windows-resursbehörigheter, där du anger vilken typ av åtkomst som en viss användare har till en filresurs. Den allmänna rekommendationen är att använda behörighet på resursnivå för åtkomsthantering på hög nivå till ett team eller en grupp och sedan utnyttja NTFS-behörigheter för detaljerad åtkomstkontroll på katalog-/filnivå. Vägledningen i det här avsnittet visar hur du tilldelar läs-, skriv- eller borttagningsbehörigheter för en filresurs till en identitet. 
+För att komma åt Azure Files-resurser med identitetsbaserad autentisering måste en identitet (en användare, grupp eller tjänsthuvudnamn) ha de behörigheter som krävs på resursnivå. Den här processen påminner om att ange Windows-resursbehörigheter, där du anger vilken typ av åtkomst som en viss användare har till en filresurs. Vägledningen i det här avsnittet visar hur du tilldelar läs-, skriv- eller borttagningsbehörigheter för en filresurs till en identitet. 
 
 Vi har introducerat tre azure-inbyggda roller för att bevilja behörigheter på delningsnivå till användare:
 
@@ -32,6 +32,8 @@ Du kan använda Azure-portalen, PowerShell eller Azure CLI för att tilldela de 
 
 > [!NOTE]
 > Kom ihåg att synkronisera dina AD-autentiseringsuppgifter till Azure AD om du planerar att använda din AD för autentisering. Synkronisering av lösenord hash från AD till Azure AD är valfritt. Behörighet på delningsnivå beviljas till Azure AD-identiteten som synkroniseras från AD.
+
+Den allmänna rekommendationen är att använda behörighet på resursnivå för åtkomsthantering på hög nivå till en AD-grupp som representerar en grupp användare och identiteter och sedan utnyttja NTFS-behörigheter för detaljerad åtkomstkontroll på katalog-/filnivå. 
 
 #### <a name="azure-portal"></a>Azure Portal
 Så här tilldelar du en RBAC-roll till en Azure AD-identitet: [Azure portal](https://portal.azure.com)

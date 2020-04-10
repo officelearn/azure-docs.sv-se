@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.openlocfilehash: c0eb043ce040f154050ef4c3675f165dad326e32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9fe6b494398337dd49bd8f0fe53b24666412a1b0
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929430"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991594"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Kopiera data från Google BigQuery med hjälp av Azure Data Factory
 
@@ -37,7 +37,7 @@ Data Factory tillhandahåller en inbyggd drivrutin för anslutning. Därför beh
 >[!NOTE]
 >Den här Google BigQuery-kontakten är byggd ovanpå BigQuery-API:erna. Tänk på att BigQuery begränsar den maximala hastigheten för inkommande begäranden och tillämpar lämpliga kvoter per projekt, se [Kvoter & Gränser - API-begäranden](https://cloud.google.com/bigquery/quotas#api_requests). Se till att du inte utlöser för många samtidiga begäranden till kontot.
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -99,7 +99,7 @@ Ange egenskapen "authenticationType" till **ServiceAuthentication**och ange föl
 |:--- |:--- |:--- |
 | e-post | E-post-ID för tjänstkontot som används för ServiceAuthentication. Den kan endast användas på självvärderade integrationskörning.  | Inga |
 | keyFilePath | Den fullständiga sökvägen till nyckelfilen .p12 som används för att autentisera e-postadressen för tjänstkontot. | Inga |
-| betroddaCertPath | Den fullständiga sökvägen till PEM-filen som innehåller betrodda certifikatutfärdare som används för att verifiera servern när du ansluter via SSL. Den här egenskapen kan bara ställas in när du använder SSL på självvärdbaserad integrationskörning. Standardvärdet är filen cacerts.pem som är installerad med integrationskörningen.  | Inga |
+| betroddaCertPath | Den fullständiga sökvägen till PEM-filen som innehåller betrodda certifikatutfärdare som används för att verifiera servern när du ansluter via TLS. Den här egenskapen kan bara ställas in när du använder TLS på självvärdbaserad integrationskörning. Standardvärdet är filen cacerts.pem som är installerad med integrationskörningen.  | Inga |
 | användaSystemTrustStore | Anger om ett certifikatutfärdarcertifikat ska användas från systemförtroendearkivet eller från en angiven PEM-fil. Standardvärdet är **falskt**.  | Inga |
 
 **Exempel:**

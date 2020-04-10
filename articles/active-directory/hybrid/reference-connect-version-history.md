@@ -12,12 +12,12 @@ ms.date: 04/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60dca30496aa17ad7add00ca4eca914cb58fddd7
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 5d2e3f8da4a05feedb8c1ab585fabcc74edbc71a
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655983"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998751"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Versionshistorik för Azure AD Connect
 Azure Active Directory (Azure AD) -teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla målgrupper.
@@ -48,6 +48,13 @@ Alla versioner av Azure AD Connect kommer inte att göras tillgängliga för aut
 >
 >Se [den här artikeln](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) om du vill veta mer om hur du uppgraderar Azure AD Connect till den senaste versionen.
 
+## <a name="15200"></a>1.5.20.0
+
+### <a name="release-status"></a>Versionsstatus
+2020-04-09: Släppt för nedladdning
+
+### <a name="fixed-issues"></a>Åtgärdade problem
+Den här snabbkorrigeringsversionen åtgärdar ett problem med build 1.5.18.0 om du har funktionen Gruppfiltrering aktiverad och använder mS-DS-ConsistencyGuid som källankare.
 
 ## <a name="15180"></a>1.5.18.0
 

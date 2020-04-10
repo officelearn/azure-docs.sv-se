@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2020
+ms.date: 04/07/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 42b83963dc4996a7347d57be712451086fa79b26
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: c3491a54682e8f2b244c0400480a69e083335f5c
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548632"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81008398"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption-at-Rest
 
@@ -241,7 +241,7 @@ Microsoft Azure Services stöder var och en av krypteringsmodellerna i vila. Fö
 
 Alla kunder som använder Azure Infrastructure as a Service (IaaS) funktioner kan uppnå kryptering i vila för sina IaaS virtuella datorer och diskar via Azure Disk Encryption. Mer information om Azure Disk-kryptering finns i [dokumentationen för Azure Disk Encryption](../azure-security-disk-encryption-overview.md).
 
-#### <a name="azure-storage"></a>Azure Storage
+#### <a name="azure-storage"></a>Azure-lagring
 
 Alla Azure Storage-tjänster (Blob-lagring, kölagring, Tabelllagring och Azure-filer) stöder kryptering på serversidan i vila. Vissa tjänster stöder dessutom kundhanterade nycklar och kryptering på klientsidan. 
 
@@ -263,22 +263,30 @@ Kryptering på klientsidan av Azure SQL Database-data stöds via funktionen [All
 |                                  | **Använda tjänsthanterad nyckel på serversidan**     | **Server-side med hjälp av kundhanterad nyckel**             | **Klientsidan med klienthanterad nyckel**      |
 | **AI och maskininlärning**      |                    |                    |                    |
 | Azure Cognitive Search           | Ja                | Ja                | -                  |
+| Azure Cognitive Services         | Ja                | Ja                | -                  |
 | Azure Machine Learning           | Ja                | Ja                | -                  |
 | Azure Machine Learning Studio    | Ja                | Förhandsgranskning, RSA 2048-bitars | -               |
+| Content Moderator                | Ja                | Ja                | -                  |
+| Ansikte                             | Ja                | Ja                | -                  |
+| Språkförståelse           | Ja                | Ja                | -                  |
+| Personanpassning                     | Ja                | Ja                | -                  |
+| QnA Maker                        | Ja                | Ja                | -                  |
+| Speech Services                  | Ja                | Ja                | -                  |
+| Translator Text                  | Ja                | Ja                | -                  |
 | Power BI                         | Ja                | Förhandsgranskning, RSA 2048-bitars | -                  |
 | **Analys**                    |                    |                    |                    |
-| Azure Stream Analytics           | Ja                | -                  | -                  |
+| Azure Stream Analytics           | Ja                | Ej tillämpligt\*            | -                  |
 | Event Hubs                       | Ja                | Ja, alla RSA längder. | -                  |
 | Functions                        | Ja                | Ja, alla RSA längder. | -                  |
 | Azure Analysis Services          | Ja                | -                  | -                  |
 | Azure Data Catalog               | Ja                | -                  | -                  |
-| Apache Kafka på Azure HDInsight  | Ja                | Alla RSA-längder.   | -                  |
+| Azure HDInsight                  | Ja                | Alla                | -                  |
 | Insikter för Azure Monitor-program | Ja                | Ja                | -                  |
 | Azure Monitor Log Analytics | Ja                | Ja                | -                  |
 | Azure-datautforskaren              | Ja                | Ja                | -                  |
 | Azure Data Factory               | Ja                | Ja                | -                  |
 | Azure Data Lake Store            | Ja                | Ja, RSA 2048-bitars  | -                  |
-| **Behållare**                   |                    |                    |                    |
+| **Containrar**                   |                    |                    |                    |
 | Azure Kubernetes Service         | Ja                | Ja                | -                  |
 | Container Instances              | Ja                | Ja                | -                  |
 | Container Registry               | Ja                | Ja                | -                  |
@@ -305,7 +313,7 @@ Kryptering på klientsidan av Azure SQL Database-data stöds via funktionen [All
 | Azure Cosmos DB                  | Ja                | Ja                | -                  |
 | Azure Databricks                 | Ja                | Ja                | -                  |
 | **DevOps**                       |                    |                    |                    |
-| Azure DevOps                     | Ja                | -                  | Ja                |
+| Azure DevOps Services            | Ja                | -                  | Ja                |
 | Azure-lagringsplatser                      | Ja                | -                  | Ja                |
 | **Identitet**                     |                    |                    |                    |
 | Azure Active Directory           | Ja                | -                  | -                  |
@@ -316,24 +324,35 @@ Kryptering på klientsidan av Azure SQL Database-data stöds via funktionen [All
 | API Management                   | Ja                | -                  | -                  |
 | **IoT-tjänster**                 |                    |                    |                    |
 | IoT Hub                          | Ja                | Ja                | Ja                |
+| Etablera ioT-hubbenhet      | Ja                | Ja                | -                  |
 | **Hantering och styrning**    |                    |                    |                    |
 | Azure Site Recovery              | Ja                | -                  | -                  |
+| Azure Migrate                    | Ja                | Ja                | -                  |
 | **Media**                        |                    |                    |                    |
 | Media Services                   | Ja                | -                  | Ja                |
-| **Lagring**                      |                    |                    |                    |
+| **Säkerhet**                     |                    |                    |                    |
+| Azure Security Center för IoT    | Ja                | Ja                | -                  |
+| Azure Sentinel                   | Ja                | Ja                | -                  |
+| **Storage**                      |                    |                    |                    |
 | Blob Storage                     | Ja                | Ja, RSA 2048-bitars  | Ja                |
+| Premium Blob-lagring             | Ja                | Ja, RSA 2048-bitars  | Ja                |
 | Disklagring                     | Ja                | Ja                | -                  |
+| Ultra Disk lagring               | Ja                | Ja                | -                  |
 | Hanterad disklagring             | Ja                | Ja                | -                  |
 | File Storage                     | Ja                | Ja, RSA 2048-bitars  | -                  |
+| Lagring av filpremier             | Ja                | Ja, RSA 2048-bitars  | -                  |
+| File Sync                         | Ja                | Ja, RSA 2048-bitars  | -                  |
 | Queue Storage                    | Ja                | Ja                | Ja                |
 | Avere vFXT                       | Ja                | -                  | -                  |
-| Azure NetApp Files               | Ja                | -                  | -                  |
+| Azure NetApp Files               | Ja                | Ja                | -                  |
 | Arkivlagring                  | Ja                | Ja, RSA 2048-bitars  | -                  |
 | StorSimple                       | Ja                | Ja, RSA 2048-bitars  | Ja                |
 | Azure Backup                     | Ja                | Ja                | Ja                |
 | Data Box                         | Ja                | -                  | Ja                |
 | Data Box Edge                    | Ja                | Ja                | -                  |
 
+\*Den här tjänsten bevarar inte data. Eventuella tillfälliga cacheminnen krypteras med en Microsoft-nyckel.
+
 ## <a name="conclusion"></a>Slutsats
 
-Skydd av kunddata som lagras i Azure Services är av största vikt för Microsoft. Alla Azure-värdbaserade tjänster har åtagit sig att tillhandahålla kryptering vid vila alternativ. Grundläggande tjänster som Azure Storage, Azure SQL Database och viktiga analys- och underrättelsetjänster tillhandahåller redan alternativ för kryptering i vila. Vissa av dessa tjänster stöder antingen kundstyrda nycklar och kryptering på klientsidan samt tjänsthanterade nycklar och kryptering. Microsoft Azure-tjänster förbättrar i stort sett kryptering i vila tillgänglighet och nya alternativ planeras för förhandsversion och allmän tillgänglighet under de kommande månaderna.
+Skydd av kunddata som lagras i Azure Services är av största vikt för Microsoft. Alla Azure-värdbaserade tjänster har åtagit sig att tillhandahålla kryptering vid vila alternativ. Azure-tjänster stöder antingen tjänsthanterade nycklar, kundhanterade nycklar eller kryptering på klientsidan. Azure-tjänster förbättrar i stort sett kryptering i vila tillgänglighet och nya alternativ planeras för förhandsversion och allmän tillgänglighet under de kommande månaderna.

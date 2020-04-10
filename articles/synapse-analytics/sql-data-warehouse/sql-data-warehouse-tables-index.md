@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 0d63f2c29bfdbdf320185647bd33ec30500ed874
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 8cb4af8faccb68c455928c0d3c5405ef2d3e70df
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742705"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81011029"
 ---
 # <a name="indexing-tables-in-synapse-sql-pool"></a>Indexera tabeller i Synapse SQL-pool
 
@@ -52,9 +52,9 @@ Det finns några scenarier där klustrade columnstore kanske inte är ett bra al
 
 ## <a name="heap-tables"></a>Heap-tabeller
 
-När du tillfälligt landar data i Synapse SQL-pool kan det hända att det går snabbare att använda en heap-tabell. Detta beror på att belastningar till högar är snabbare än att indexera tabeller och i vissa fall kan den efterföljande läsningen göras från cacheminnet.  Om du läser in data bara för att iscensätta dem innan du kör fler omvandlingar är det mycket snabbare att läsa in tabellen till heap-tabellen än att läsa in data i en grupperad columnstore-tabell. Dessutom läses data in i en [tillfällig tabell](sql-data-warehouse-tables-temporary.md) snabbare än att läsa in en tabell till permanent lagring.  
+När du tillfälligt landar data i Synapse SQL-pool kan det hända att det går snabbare att använda en heap-tabell. Detta beror på att belastningar till högar är snabbare än att indexera tabeller och i vissa fall kan den efterföljande läsningen göras från cacheminnet.  Om du läser in data bara för att iscensätta dem innan du kör fler omvandlingar är det mycket snabbare att läsa in tabellen till heap-tabellen än att läsa in data i en grupperad columnstore-tabell. Dessutom läses data in i en [tillfällig tabell](sql-data-warehouse-tables-temporary.md) snabbare än att läsa in en tabell till permanent lagring.  När du har läst in data kan du skapa index i tabellen för snabbare frågeprestanda.  
 
-För små uppslagstabeller, mindre än 60 miljoner rader, är ofta heap-tabeller meningsfulla.  Kluster columnstore tabeller börjar uppnå optimal komprimering när det finns mer än 60 miljoner rader.
+Kluster columnstore tabeller börjar uppnå optimal komprimering när det finns mer än 60 miljoner rader.  För små uppslagstabeller, mindre än 60 miljoner rader, överväg att använda HEAP eller klustrade index för snabbare frågeprestanda. 
 
 Om du vill skapa en heap-tabell anger du bara HÖGEN i WITH-satsen:
 

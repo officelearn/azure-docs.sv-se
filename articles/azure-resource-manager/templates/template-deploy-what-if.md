@@ -3,14 +3,14 @@ title: Malldistribution what-if (förhandsgranska)
 description: Bestäm vilka ändringar som ska hända med dina resurser innan du distribuerar en Azure Resource Manager-mall.
 author: mumian
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/09/2020
 ms.author: jgao
-ms.openlocfilehash: 9e0d0d572e08961b585a93e66e400b8c2e54bf7f
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b8e94d0b4f364e2873dfc21792a67f11c33483bf
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886848"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010197"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Arm-malldistribution vad händer om -åtgärd (förhandsversion)
 
@@ -24,6 +24,14 @@ Du kan använda vad händer om-åtgärden med PowerShell-kommandona eller REST A
 ## <a name="install-powershell-module"></a>Installera PowerShell-modul
 
 Om du vill använda vad händer i PowerShell installerar du en förhandsversion av modulen Az.Resources från PowerShell-galleriet.
+
+### <a name="install-preview-version"></a>Installera förhandsgranskningsversion
+
+Om du vill installera förhandsgranskningsmodulen använder du:
+
+```powershell
+Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
+```
 
 ### <a name="uninstall-alpha-version"></a>Avinstallera alfaversion
 
@@ -47,14 +55,6 @@ Om du tidigare har installerat en alfaversion av vad-händer-om-modulen avinstal
    ```powershell
    Unregister-PSRepository -Name WhatIfRepository
    ```
-
-### <a name="install-preview-version"></a>Installera förhandsgranskningsversion
-
-Om du vill installera förhandsgranskningsmodulen använder du:
-
-```powershell
-Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
-```
 
 Du är redo att använda vad-händer om.
 

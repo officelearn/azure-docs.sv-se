@@ -8,20 +8,20 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 7f001a0d443e4ec668aedaabb7505884163bf37e
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: faafc1e12f0703c38b4e602700b1e775bf13a061
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80666774"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998339"
 ---
-# <a name="partial-term-search-and-patterns-with-special-characters---azure-cognitive-search-wildcard-regex-patterns"></a>Partiell termsökning och mönster med specialtecken - Azure Cognitive Search (jokertecken, regex, mönster)
+# <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Partiell termsökning och mönster med specialtecken (jokertecken, regex, mönster)
 
 En *partiell termsökning* refererar till frågor som består av termfragment, till exempel de första, sista eller inre delarna av en sträng. Ett *mönster* kan en kombination av fragment, ibland med specialtecken som streck eller snedstreck som ingår i frågan. Vanliga användningsfall är att fråga efter delar av ett telefonnummer, URL, personer eller produktkoder eller sammansatta ord.
 
 Partiell sökning kan vara problematiskt om indexet inte har termer i det format som krävs för mönstermatchning. Under textanalysfasen av indexeringen, med hjälp av standardstandardanalysatorn, ignoreras specialtecken, sammansatta och sammansatta strängar delas upp, vilket gör att mönsterfrågor misslyckas när ingen matchning hittas. Ett telefonnummer `+1 (425) 703-6214`som (tokeniserat som `"1"` `"425"`, `"703"` `"6214"`, ) visas till `"3-62"` exempel inte i en fråga eftersom innehållet inte finns i indexet. 
 
-Lösningen är att anropa en analysator som bevarar en komplett sträng, inklusive blanksteg och specialtecken om det behövs, så att du kan stödja partiella termer och mönster. Att skapa ytterligare ett fält för en intakt sträng, plus att använda en innehållsbevarande analysator, är grunden för lösningen.
+Lösningen är att anropa en analysator som bevarar en komplett sträng, inklusive blanksteg och specialtecken om det behövs, så att du kan matcha på partiella termer och mönster. Att skapa ytterligare ett fält för en intakt sträng, plus att använda en innehållsbevarande analysator, är grunden för lösningen.
 
 ## <a name="what-is-partial-search-in-azure-cognitive-search"></a>Vad är partiell sökning i Azure Cognitive Search
 
@@ -64,7 +64,7 @@ Analysatorer tilldelas per fält, vilket innebär att du kan skapa fält i index
   "type": "Edm.String",
   "retrievable": true,
   "searchable": true,
-  "analyzer": "my_customanalyzer"
+  "analyzer": "my_custom_analyzer"
 },
 ```
 

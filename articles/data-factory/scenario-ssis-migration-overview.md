@@ -11,18 +11,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: 52629b8e2e190cc041116e6f65488480712baf01
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ad5bb26959916f60973a8c0274e17eee03aa7a1
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929796"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991474"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Migrera lokala SSIS-arbetsbelastningar till SSIS i ADF
 
 ## <a name="overview"></a>Översikt
 
-När du migrerar dina databasarbetsbelastningar från SQL Server lokalt till Azure-databastjänster, nämligen Azure SQL Database eller Azure SQL Database hanterad instans, är dina ETL-arbetsbelastningar på SQL Server Integration Services (SSIS) som ett av de primära mervärdet tjänster kommer också att behöva migreras.
+När du migrerar dina databasarbetsbelastningar från SQL Server lokalt till Azure-databastjänster, nämligen Azure SQL Database eller Azure SQL Database hanterad instans, måste dina ETL-arbetsbelastningar på SQL Server Integration Services (SSIS) som en av de primära mervärdestjänsterna också migreras.
 
 Azure-SSIS Integration Runtime (IR) i Azure Data Factory (ADF) stöder körning av SSIS-paket. När Azure-SSIS IR har etablerats kan du sedan använda välbekanta verktyg, till exempel SQL Server Data Tools (SSDT)/SQL Server Management Studio (SSMS) och kommandoradsverktyg, till exempel dtinstall/dtutil/dtexec, för att distribuera och köra dina paket i Azure. Mer information finns i [Översikt över Azure SSIS-lyft och skift](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
 
@@ -63,7 +63,7 @@ Beroende på [lagringstyperna](#four-storage-types-for-ssis-packages) av käll-S
 | **Typ av paketlagring** |Så här batch-migreraR SSIS-paket|Så här batch-migrerar SSIS-jobb|
 |-|-|-|
 |SSISDB (SSISDB)|[Migrera **SSISDB**](scenario-ssis-migration-ssisdb-mi.md)|[Migrera SSIS-jobb till Azure SQL Database-hanterad instansagent](scenario-ssis-migration-ssisdb-mi.md#ssis-jobs-to-azure-sql-database-managed-instance-agent)|
-|Filsystem|Distribuera om dem till filresurser/Azure-filer via dtinstall/dtutil/manuell kopia, eller för att hålla i filsystem för åtkomst via VNet/Self-Hosted IR. Mer information finns i [verktyget dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|Konvertera dem till ADF-pipelines/aktiviteter/utlösare via skript/SSMS/ADF-portal. Mer information finns i [SSMS-schemaläggningsfunktionen](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
+|Filsystem|Distribuera om dem till filresurser/Azure-filer via dtinstall/dtutil/manuell kopia, eller för att hålla i filsystem för åtkomst via VNet/Self-Hosted IR. Mer information finns i [verktyget dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|<li> Migrera med [guiden Jobbmigrering i SSMS] i SSIS. (how-to-migrate-ssis-job-ssms.md) <li>Konvertera dem till ADF-pipelines/aktiviteter/utlösare via skript/SSMS/ADF-portal. Mer information finns i [SSMS-schemaläggningsfunktionen](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 |SQL Server (MSDB)|Exportera dem till filsystem/filresurser/Azure-filer via SSMS/dtutil. Mer information finns i [Exportera SSIS-paket](https://docs.microsoft.com/sql/integration-services/import-and-export-packages-ssis-service).|Konvertera dem till ADF-pipelines/aktiviteter/utlösare via skript/SSMS/ADF-portal. Mer information finns i [SSMS-schemaläggningsfunktionen](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 |Paketbutik|Exportera dem till filsystem/filresurser/Azure-filer via SSMS/dtutil eller distribuera om dem till filresurser/Azure-filer via dtinstall/dtutil/manuell kopia eller förvara dem i filsystem för åtkomst via VNet/Self-Hosted IR. Mer information finns i verktyget dtutil. Mer information finns i [verktyget dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|Konvertera dem till ADF-pipelines/aktiviteter/utlösare via skript/SSMS/ADF-portal. Mer information finns i [SSMS-schemaläggningsfunktionen](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 
@@ -72,7 +72,7 @@ Beroende på [lagringstyperna](#four-storage-types-for-ssis-packages) av käll-S
 | **Typ av paketlagring** |Så här batch-migreraR SSIS-paket|Så här batch-migrerar du jobb|
 |-|-|-|
 |SSISDB (SSISDB)|Distribuera om till Azure-SSISDB via SSDT/SSMS. Mer information finns i [Distribuera SSIS-paket i Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial).|Konvertera dem till ADF-pipelines/aktiviteter/utlösare via skript/SSMS/ADF-portal. Mer information finns i [SSMS-schemaläggningsfunktionen](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
-|Filsystem|Distribuera om dem till filresurser/Azure-filer via dtinstall/dtutil/manuell kopia, eller för att hålla i filsystem för åtkomst via VNet/Self-Hosted IR. Mer information finns i [verktyget dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|Konvertera dem till ADF-pipelines/aktiviteter/utlösare via skript/SSMS/ADF-portal. Mer information finns i [SSMS-schemaläggningsfunktionen](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
+|Filsystem|Distribuera om dem till filresurser/Azure-filer via dtinstall/dtutil/manuell kopia, eller för att hålla i filsystem för åtkomst via VNet/Self-Hosted IR. Mer information finns i [verktyget dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|<li> Migrera med [guiden Jobbmigrering i SSMS] i SSIS. (how-to-migrate-ssis-job-ssms.md) <li> Konvertera dem till ADF-pipelines/aktiviteter/utlösare via skript/SSMS/ADF-portal. Mer information finns i [SSMS-schemaläggningsfunktionen](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 |SQL Server (MSDB)|Exportera dem till filsystem/filresurser/Azure-filer via SSMS/dtutil. Mer information finns i [Exportera SSIS-paket](https://docs.microsoft.com/sql/integration-services/import-and-export-packages-ssis-service).|Konvertera dem till ADF-pipelines/aktiviteter/utlösare via skript/SSMS/ADF-portal. Mer information finns i [SSMS-schemaläggningsfunktionen](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 |Paketbutik|Exportera dem till filsystem/filresurser/Azure-filer via SSMS/dtutil eller distribuera om dem till filresurser/Azure-filer via dtinstall/dtutil/manuell kopia eller förvara dem i filsystem för åtkomst via VNet/Self-Hosted IR. Mer information finns i verktyget dtutil. Mer information finns i [verktyget dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|Konvertera dem till ADF-pipelines/aktiviteter/utlösare via skript/SSMS/ADF-portal. Mer information finns i [SSMS-schemaläggningsfunktionen](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 

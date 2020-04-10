@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/08/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 5b532908df4b8dd58177b7e128f4e55aa96458e6
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: d03b053f2aa5de4a6f7874dbf4e6ccb3a305a964
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409955"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80992087"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor Logs
 
@@ -88,6 +88,9 @@ Du kan också [ange prisnivån via Azure Resource Manager](https://docs.microsof
 Prenumerationer som hade en log Analytics-arbetsyta eller Application Insights-resurs i den före den 2 april 2018, eller som är länkade till ett Enterprise-avtal som startade före den 1 februari 2019, kommer att fortsätta att ha åtkomst till att använda äldre prisnivåer: **Gratis**, **Fristående (Per GB)** och **Per Node (OMS)**.  Arbetsytor på den kostnadsfria prisnivån har dagligt datainmatning begränsat till 500 MB (förutom säkerhetsdatatyper som samlas in av Azure Security Center) och datalagringen är begränsad till 7 dagar. Den kostnadsfria prisnivån är endast avsedd för utvärderingsändamål. Arbetsytor på prisnivåerna Fristående eller per nod har användarkonfigurerbar kvarhållning från 30 till 730 dagar.
 
 Prisnivånivån per nod per övervakad virtuell dator (nod) på en timmes granularitet. För varje övervakad nod tilldelas arbetsytan 500 MB data per dag som inte faktureras. Den här allokeringen aggregeras på arbetsytasnivå. Data som intas ovanför den sammanlagda dagliga dataallokeringen faktureras per GB som dataöverpris. Observera att på din faktura kommer tjänsten att vara **Insight och Analytics** för Log Analytics-användning om arbetsytan finns på prisnivån per nod. 
+
+> [!TIP]
+> Om arbetsytan har åtkomst till prisnivån **per nod,** men du undrar om det skulle kosta mindre på en pay-as-you-go-nivå, kan du [använda frågan nedan](#evaluating-the-legacy-per-node-pricing-tier) för att enkelt få en rekommendation. 
 
 Arbetsytor som skapats före april 2016 kan också komma åt de ursprungliga **standard-** och **premiumprisnivåerna** som har fast datalagring på 30 respektive 365 dagar. Nya arbetsytor kan inte skapas på prisnivåerna **Standard** eller **Premium,** och om en arbetsyta flyttas från dessa nivåer kan den inte flyttas tillbaka. 
 
@@ -434,6 +437,49 @@ Om du vill se antalet olika Automation-noder använder du frågan:
        | extend lowComputer = tolower(Computer) | summarize by lowComputer, ComputerEnvironment
  ) on lowComputer
  | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc
+```
+
+## <a name="evaluating-the-legacy-per-node-pricing-tier"></a>Utvärdera den äldre prisnivån per nod
+
+Beslutet om huruvida arbetsytor med åtkomst till den äldre per **nodprisnivån** har det bättre på den nivån eller på en aktuell **nivå för användningsbaserad betalning** eller **kapacitetsreservation** är ofta svårt för kunder att bedöma.  Detta innebär att förstå avvägningen mellan den fasta kostnaden per övervakad nod i prisnivån per nod och dess inkluderade dataallokering av 500 MB/nod/dag och kostnaden för att bara betala för intas data i nivån Betala per gb (Per GB). 
+
+För att underlätta den här utvärderingen kan följande fråga användas för att göra en rekommendation för den optimala prisnivån baserat på en arbetsytas användningsmönster.  Den här frågan tittar på de övervakade noderna och data som intas i en arbetsyta under de senaste 7 dagarna och utvärderar för varje dag vilken prisnivå som skulle ha varit optimal. Om du vill använda frågan måste du ange om arbetsytan `workspaceHasSecurityCenter` `true` ska `false`använda Azure Security Center genom att ange eller och sedan (eventuellt) uppdatera de priser per nod och per GB som din organizaiton tar emot. 
+
+```kusto
+// Set these paramaters before running query
+let workspaceHasSecurityCenter = true;  // Specify if the workspace has Azure Security Center
+let PerNodePrice = 15.; // Enter your price per node / month 
+let PerGBPrice = 2.30; // Enter your price per GB 
+// ---------------------------------------
+let SecurityDataTypes=dynamic(["SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent", "Update", "UpdateSummary"]);
+union withsource = tt * 
+| where TimeGenerated >= startofday(now(-7d)) and TimeGenerated < startofday(now())
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize nodesPerHour = dcount(computerName) by bin(TimeGenerated, 1h)  
+| summarize nodesPerDay = sum(nodesPerHour)/24.  by day=bin(TimeGenerated, 1d)  
+| join (
+    Usage 
+    | where TimeGenerated > ago(8d)
+    | where StartTime >= startofday(now(-7d)) and EndTime < startofday(now())
+    | where IsBillable == true
+    | extend NonSecurityData = iff(DataType !in (SecurityDataTypes), Quantity, 0.)
+    | extend SecurityData = iff(DataType in (SecurityDataTypes), Quantity, 0.)
+    | summarize DataGB=sum(Quantity)/1000., NonSecurityDataGB=sum(NonSecurityData)/1000., SecurityDataGB=sum(SecurityData)/1000. by day=bin(StartTime, 1d)  
+) on day
+| extend AvgGbPerNode =  NonSecurityDataGB / nodesPerDay
+| extend PerGBDailyCost = iff(workspaceHasSecurityCenter,
+             (NonSecurityDataGB + max_of(SecurityDataGB - 0.5*nodesPerDay, 0.)) * PerGBPrice,
+             DataGB * PerGBPrice)
+| extend OverageGB = iff(workspaceHasSecurityCenter, 
+             max_of(DataGB - 1.0*nodesPerDay, 0.), 
+             max_of(DataGB - 0.5*nodesPerDay, 0.))
+| extend PerNodeDailyCost = nodesPerDay * PerNodePrice / 31. + OverageGB * PerGBPrice
+| extend Recommendation = iff(PerNodeDailyCost < PerGBDailyCost, "Per Node tier", 
+             iff(NonSecurityDataGB > 85., "Capacity Reservation tier", "Pay-as-you-go (Per GB) tier"))
+| project day, nodesPerDay, NonSecurityDataGB, SecurityDataGB, OverageGB, AvgGbPerNode, PerGBDailyCost, PerNodeDailyCost, Recommendation | sort by day asc
+| project day, Recommendation // Comment this line to see details
+| sort by day asc
 ```
 
 ## <a name="create-an-alert-when-data-collection-is-high"></a>Skapa en avisering när datainsamlingen är hög

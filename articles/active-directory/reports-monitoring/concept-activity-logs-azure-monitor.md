@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/22/2019
+ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46e29fff3308f35b16dbff2f9cead82abc222a5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 595c87d2b8182c9044baeb2662e34871d9e52c52
+ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266551"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80991253"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure AD-aktivitetsloggar i Azure Monitor
 
@@ -179,7 +179,7 @@ Det här avsnittet innehåller svar på vanliga frågor och beskriver kända pro
 
 **F: Vilka SIEM-verktyg stöds för närvarande?** 
 
-**S:** Azure Monitor stöds för närvarande av [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar och [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory). Mer information om hur anslutningsapparna fungerar finns på sidan om att [strömma Azure-övervakningsdata till en händelsehubb för användning av ett externt verktyg](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+**S**: **A**: För närvarande stöds Azure Monitor av [Splunk](tutorial-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight,](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight)LogRhythm och Logz.io. Mer information om hur anslutningsapparna fungerar finns på sidan om att [strömma Azure-övervakningsdata till en händelsehubb för användning av ett externt verktyg](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 ---
 

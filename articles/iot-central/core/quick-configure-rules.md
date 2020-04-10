@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 4bbf571d6b73a6f43c1c3b1ce261da6963a74183
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 66c3bd8650d1194d5d753c1dc967ec8e870c8748
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77169479"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998970"
 ---
 # <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Snabbstart: Konfigurera regler och åtgärder för din enhet i Azure IoT Central
 
@@ -24,7 +24,7 @@ I den här snabbstarten skapar du en regel som skickar ett e-postmeddelande när
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar bör du slutföra de två tidigare snabbstarterna [Skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md) och [Lägg till en simulerad enhet i ditt IoT Central-program](./quick-create-pnp-device.md) för att skapa **MXChip IoT** DevKit-enhetsmallen som du kan arbeta med.
+Innan du börjar bör du slutföra de två tidigare snabbstarterna [Skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md) och [Lägg till en simulerad enhet i ditt IoT Central-program](./quick-create-simulated-device.md) för att skapa **MXChip IoT** DevKit-enhetsmallen som du kan arbeta med.
 
 ## <a name="create-a-telemetry-based-rule"></a>Skapa en telemetribaserad regel
 

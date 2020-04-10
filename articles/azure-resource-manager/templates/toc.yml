@@ -291,6 +291,8 @@
           href: template-functions-array.md
         - name: Jämförelsefunktioner
           href: template-functions-comparison.md
+        - name: Datumfunktioner
+          href: template-functions-date.md
         - name: Distributionsfunktioner
           href: template-functions-deployment.md
         - name: Logiska funktioner

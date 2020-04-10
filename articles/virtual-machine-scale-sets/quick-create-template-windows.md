@@ -1,19 +1,19 @@
 ---
 title: Snabbstart – Skapa en windows-skalningsuppsättning för virtuella datorer med en Azure-mall
 description: Lär dig hur du snabbt skapar en skalningsuppsättning för virtuella Windows-datorer med en Azure Resource Manager-mall som distribuerar en exempelapp och konfigurerar regler för automatisk skalning
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 03/27/2020
-ms.author: cynthn
-ms.openlocfilehash: 89d82a140a55c9409ff0cc2dbf30e884a7431ca6
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.author: jushiman
+ms.openlocfilehash: 030479a02b33a92c3917ba112d99c9bcef4f7f32
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411398"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010451"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>Snabbstart: Skapa en VM-skalningsuppsättning med en Azure-mall i Windows
 

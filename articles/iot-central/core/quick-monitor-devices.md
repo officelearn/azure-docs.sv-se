@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: e56b733a567c706c2a15f2c30ed93a47c244db11
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1dec52bbf1435cd7e363edf111f769d3e2cffb6a
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77168699"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998923"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>Snabbstart: Använd Azure IoT Central för att övervaka dina enheter
 
@@ -24,7 +24,7 @@ Den här snabbstarten visar hur du som operatör använder ditt Microsoft Azure 
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar bör du slutföra de tre tidigare snabbstarterna [Skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md), [Lägg till en simulerad enhet i ditt IoT Central-program](./quick-create-pnp-device.md) och [Konfigurera regler och åtgärder för din enhet](quick-configure-rules.md).
+Innan du börjar bör du slutföra de tre tidigare snabbstarterna [Skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md), [Lägg till en simulerad enhet i ditt IoT Central-program](./quick-create-simulated-device.md) och [Konfigurera regler och åtgärder för din enhet](quick-configure-rules.md).
 
 ## <a name="receive-a-notification"></a>Få ett meddelande
 

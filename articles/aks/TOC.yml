@@ -140,10 +140,14 @@
           href: cluster-autoscaler.md
         - name: Använda tillgänglighetszoner
           href: availability-zones.md
-        - name: Använda flera nodpooler
-          href: use-multiple-node-pools.md
-        - name: Använda punktnodpooler (förhandsversion)
-          href: spot-node-pool.md
+        - name: Använda nodpooler
+          items:
+            - name: Använda flera nodpooler
+              href: use-multiple-node-pools.md
+            - name: Använda punktnodpooler (förhandsversion)
+              href: spot-node-pool.md
+            - name: Använda systemnodpooler
+              href: use-system-pools.md
         - name: Distribuera AKS med Terraform
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true

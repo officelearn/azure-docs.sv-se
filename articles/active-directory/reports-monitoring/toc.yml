@@ -23,7 +23,7 @@
       href: tutorial-access-api-with-certificates.md
     - name: Strömma loggar till händelsehubb
       href: tutorial-azure-monitor-stream-logs-to-event-hub.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Planera en rapporterings- och övervakningsdistribution
       href: plan-monitoring-and-reporting.md
@@ -45,11 +45,13 @@
       href: concept-reporting-api.md
     - name: Azure AD-loggar i Azure Monitor
       href: concept-activity-logs-azure-monitor.md
-- name: Instruktionsguider
+- name: Anvisningar
   expanded: true
   items:
     - name: Rapporter
       items:
+        - name: Hantera inaktiva användarkonton i Azure AD
+          href: howto-manage-inactive-user-accounts.md
         - name: Hitta aktivitetsrapporter
           href: howto-find-activity-reports.md
         - name: Felsöka inloggningsfel för en användare

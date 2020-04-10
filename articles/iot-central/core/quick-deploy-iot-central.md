@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: d69a761df8066b4a84312c0c3ae8be5a79490960
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0ed32a4c1272c23c9500b35e05c383eac6dea185
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77169450"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80998953"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Skapa ett Azure IoT Central-program
 
@@ -62,4 +62,4 @@ Så här skapar du ett nytt Azure IoT Central-program från den **anpassade prog
 I den här snabbstarten har skapat du ett IoT Central-program. Här är nästa föreslagna steg:
 
 > [!div class="nextstepaction"]
-> [Lägga till en simulerad enhet i ditt IoT Central-program](./quick-create-pnp-device.md)
+> [Lägga till en simulerad enhet i ditt IoT Central-program](./quick-create-simulated-device.md)

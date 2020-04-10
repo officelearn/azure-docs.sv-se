@@ -9,12 +9,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 6c2514bd078cc3feee4bd2802cf314079b824311
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f1f83fdd73816e6e30c5cac7d193719591bb8dc1
+ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77022128"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80999025"
 ---
 # <a name="in-store-analytics-architecture"></a>Analysarkitektur i butik
 
@@ -48,10 +48,10 @@ Azure IoT Central-programmet förtärer data från olika typer av IoT-sensorer s
 Azure IoT Central ger också en skräddarsydd upplevelse för butiksoperatören så att de kan fjärrövervaka och hantera infrastrukturenheterna.
 
 ## <a name="data-transform"></a>Datatransformering
-Azure IoT Central-programmet i en lösning kan konfigureras för att exportera råa eller aggregerade insikter till en uppsättning Azure PaaS -tjänster (Platform-as-a Service) som kan utföra datamanipulering och berika dessa insikter innan de skickas i ett företag Program. 
+Azure IoT Central-programmet i en lösning kan konfigureras för att exportera råa eller aggregerade insikter till en uppsättning Azure PaaS -tjänster (Platform-as-a Service) som kan utföra datamanipulering och berika dessa insikter innan de skickas i ett affärsprogram. 
 
 ## <a name="business-application"></a>Affärsprogram
-IoT-data kan användas för att driva olika typer av affärsprogram som distribueras i en butiksmiljö. En butikschef eller anställd kan använda dessa program för att visualisera affärsinsikter och vidta meningsfulla åtgärder i realtid. Om du vill veta hur du skapar en Power BI-instrumentpanel i realtid för ditt detaljhandelsteam följer du [självstudien](./tutorial-in-store-analytics-create-app-pnp.md).
+IoT-data kan användas för att driva olika typer av affärsprogram som distribueras i en butiksmiljö. En butikschef eller anställd kan använda dessa program för att visualisera affärsinsikter och vidta meningsfulla åtgärder i realtid. Om du vill veta hur du skapar en Power BI-instrumentpanel i realtid för ditt detaljhandelsteam följer du [självstudien](./tutorial-in-store-analytics-create-app.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * Kom igång med programmallarna [För analyssökning](https://aka.ms/checkouttemplate) i butik och programmallar [för analysövervakning i butik.](https://aka.ms/conditiontemplate) 

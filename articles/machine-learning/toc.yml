@@ -15,24 +15,27 @@
 - name: Självstudier
   expanded: true
   items:
-    - name: Studio & Designer
+    - name: Studio
       items:
-        - name: Designer (dra och släpp)
+        - name: Designern (dra och släpp)
           items:
-            - name: 'Designer: 1. Träna en regressionsmodell'
+            - name: 1. Träna en regressionsmodell
               displayName: studio
               href: tutorial-designer-automobile-price-train-score.md
-            - name: 'Designer: 2. Distribuera modellen'
+            - name: 2. Distribuera modellen
               displayName: studio
               href: tutorial-designer-automobile-price-deploy.md
         - name: Automatisk ML (användargränssnitt)
           items:
-            - name: Skapa ett automatiskt ML-experiment
+            - name: Skapa automatiska ML-experiment
               displayName: 'automl, automated, auto ml, portal, ui'
               href: tutorial-first-experiment-automated-ml.md
-            - name: Prognostisera efterfrågan med automatiserad ML (cykeldelningsdata)
+            - name: Prognostiserad efterfrågan (data om cykeldelning)
               displayName: 'automl, automated, auto ml, portal, ui'
               href: tutorial-automated-ml-forecast.md
+        - name: Bilddata om etiketter
+          displayName: 'tag, tagging, images'
+          href: tutorial-labeling.md
     - name: Python SDK
       items:
         - name: Skapa ett första ML-experiment
@@ -78,14 +81,14 @@
     - name: Jupyter Notebook
       displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
-    - name: Azure Open Datasets
-      href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
     - name: Designer-datamängder
       href: sample-designer-datasets.md
+    - name: Exempelpipelines i Designer
+      href: samples-designer.md
     - name: MLOps-exempel från slutpunkt till slutpunkt
       href: 'https://github.com/microsoft/MLOps'
-    - name: Designer-pipelines
-      href: samples-designer.md
+    - name: Open Datasets (offentlig version)
+      href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Begrepp
   items:
     - name: Arbetsyta
@@ -115,10 +118,10 @@
       href: /azure/machine-learning/algorithm-cheat-sheet
     - name: Så här väljer du algoritmer
       href: /azure/machine-learning/how-to-select-algorithms
-    - name: Automatiserad maskininlärning
+    - name: Automatisk ML
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
-    - name: Hantera fallgropar med ML
+    - name: Överanpassning och obalanserade data
       displayName: 'automl, auto ml, risks'
       href: concept-manage-ml-pitfalls.md
     - name: Beräkninsinstans
@@ -351,6 +354,8 @@
       items:
         - name: Skapa ML-pipelines (Python)
           href: how-to-create-your-first-pipeline.md
+        - name: Flytta data till och mellan olika steg i ML-pipelinen (Python)
+          href: how-to-move-data-in-out-of-pipelines.md
         - name: Schemalägga en pipeline (Python)
           href: how-to-schedule-pipelines.md
         - name: Utlösa en pipeline

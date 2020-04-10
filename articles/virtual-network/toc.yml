@@ -71,7 +71,11 @@
           href: ../expressroute/cross-network-connectivity.md?toc=%2fazure%2fvirtual-network%2ftoc.json
         - name: Peering
           href: virtual-network-peering-overview.md
-        - name: Virtuellt nätverk för Azure-tjänster
+    - name: Integrering för Azure-tjänster
+      items:
+        - name: Tjänstslutpunkter
+          href: virtual-network-service-endpoints-overview.md
+        - name: Distribuera en dedikerad tjänst
           href: virtual-network-for-azure-services.md
     - name: IP-tjänster
       items:
@@ -91,8 +95,6 @@
           href: application-security-groups.md
         - name: Tjänsttaggar
           href: service-tags-overview.md
-        - name: Tjänstslutpunkter
-          href: virtual-network-service-endpoints-overview.md
         - name: Principer för tjänstslutpunkter
           href: virtual-network-service-endpoint-policies-overview.md
         - name: Nätverksprinciper för Kubernetes

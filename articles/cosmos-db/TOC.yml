@@ -480,6 +480,8 @@
       items:
         - name: Översikt över ändringsflöde
           href: change-feed.md
+        - name: Designmönster för ändringsflöde
+          href: change-feed-design-patterns.md
         - name: Läsning av ändringsflöde
           href: read-change-feed.md
         - name: Ändringsflödesprocessor
@@ -1033,6 +1035,8 @@
       items:
         - name: Övervaka Cosmos DB
           href: monitor-cosmos-db.md
+        - name: Övervaka svarstiden på serversidan
+          href: monitor-server-side-latency.md
         - name: Övervaka med diagnostikloggar
           href: cosmosdb-monitor-resource-logs.md
         - name: Granska kontrollplansloggar
@@ -1155,7 +1159,7 @@
     - name: Översiktsblad för frågor
       href: query-cheat-sheet.md
     - name: SQL-spelplan
-      href: 'https://aka.ms/cosmos-db-playground'
+      href: 'https://www.documentdb.com/sql/demo'
     - name: VANLIGA FRÅGOR OCH SVAR
       href: faq.md
     - name: Faktablad

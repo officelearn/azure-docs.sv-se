@@ -4,7 +4,7 @@
       href: oracle-overview.md
     - name: Lösningar på virtuella Azure-datorer
       href: oracle-vm-solutions.md
-    - name: Lösningar med OCI – förhandsversion
+    - name: Lösningar med OCI
       href: oracle-oci-overview.md
 - name: Snabbstarter
   items:
@@ -18,7 +18,7 @@
       href: configure-oracle-dataguard.md
     - name: Konfigurera Oracle GoldenGate
       href: configure-oracle-golden-gate.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Oracle-programarkitekturer
       href: oracle-oci-applications.md
@@ -30,9 +30,9 @@
       href: oracle-backup-recovery.md
     - name: Haveriberedskapsalternativ för Oracle
       href: oracle-disaster-recovery.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
-    - name: Sammankoppling av Azure och OCI – förhandsversion
+    - name: Sammankoppling av Azure och OCI
       href: configure-azure-oci-networking.md
 - name: Resurser
   items:

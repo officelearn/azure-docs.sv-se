@@ -3,50 +3,50 @@
 - name: Översikt
   items:
     - name: Skapa lösningar för detaljhandeln med Azure IoT Central
-      href: overview-iot-central-retail-pnp.md
+      href: overview-iot-central-retail.md
 - name: Självstudier
   items:
     - name: Analys i butik för kassan
       items:
         - name: 1 – Skapa ett program för detaljhandeln
-          href: tutorial-in-store-analytics-create-app-pnp.md
+          href: tutorial-in-store-analytics-create-app.md
         - name: 2 – Anpassa instrumentpanelerna för operatörer
-          href: tutorial-in-store-analytics-customize-dashboard-pnp.md
+          href: tutorial-in-store-analytics-customize-dashboard.md
         - name: 3 – Exportera data och visualisera insikter
-          href: tutorial-in-store-analytics-export-data-visualize-insights-pnp.md
+          href: tutorial-in-store-analytics-export-data-visualize-insights.md
     - name: Smart lagerhantering
       items:
         - name: Skapa ett program för smart lagerhantering
-          href: tutorial-iot-central-smart-inventory-management-pnp.md
+          href: tutorial-iot-central-smart-inventory-management.md
     - name: Ansluten logistik
       items:
         - name: Skapa ett anslutet logistikprogram
-          href: tutorial-iot-central-connected-logistics-pnp.md
+          href: tutorial-iot-central-connected-logistics.md
     - name: Digitalt distributionscenter
       items:
         - name: Skapa ett program för digitala distributionscenter
-          href: tutorial-iot-central-digital-distribution-center-pnp.md
+          href: tutorial-iot-central-digital-distribution-center.md
     - name: Mikrofullgörelsecenter
       items:
         - name: Skapa ett program för mikrofullgörelsecenter
-          href: tutorial-micro-fulfillment-center-pnp.md
-- name: Koncept
+          href: tutorial-micro-fulfillment-center.md
+- name: Begrepp
   items:
     - name: Arkitektur för mall för anslutna logistik-program
-      href: architecture-connected-logistics-pnp.md
+      href: architecture-connected-logistics.md
     - name: Arkitektur för mall för digitala distributionscenter-program
-      href: architecture-digital-distribution-center-pnp.md
+      href: architecture-digital-distribution-center.md
     - name: Arkitektur för mall för program för smart lagerhantering
-      href: architecture-smart-inventory-management-pnp.md
+      href: architecture-smart-inventory-management.md
     - name: Arkitektur för lageranalys
       href: store-analytics-architecture.md
     - name: Arkitektur för mall för mikrofullgörelsecenter
-      href: architecture-micro-fulfillment-center-pnp.md
+      href: architecture-micro-fulfillment-center.md
     - name: Anslutning
       href: ../core/concepts-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: Vad är programmallar?
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Ansluta enheter
       items:
@@ -118,7 +118,7 @@
       items:
         - name: IoT Hub
           href: /azure/iot-hub
-        - name: IoT Hub Device Provisioning-tjänst
+        - name: IoT Hub Device Provisioning Service
           href: /azure/iot-dps
         - name: IoT Central
           href: 'https://docs.microsoft.com/microsoft-iot-central/'
@@ -127,7 +127,7 @@
         - name: IoT-lösningsacceleratorer
           href: /azure/iot-accelerators
         - name: IoT Plug and Play
-          href: /azure/iot-pnp
+          href: /azure/iot
         - name: Azure Maps
           href: /azure/azure-maps
         - name: Time Series Insights

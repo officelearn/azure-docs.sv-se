@@ -12,7 +12,7 @@
     - name: 1. Skapa ett nytt program
       href: quick-deploy-iot-central.md
     - name: 2. Lägga till en simulerad enhet
-      href: quick-create-pnp-device.md
+      href: quick-create-simulated-device.md
     - name: 3. Konfigurera regler och åtgärder
       href: quick-configure-rules.md
     - name: 4. Övervaka dina enheter

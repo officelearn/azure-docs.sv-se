@@ -113,6 +113,8 @@
       items:
         - name: Vad är text-till-tal?
           href: text-to-speech.md
+        - name: Grunderna inom text-till-tal
+          href: text-to-speech-basics.md
     - name: Snabbstart
       items:
         - name: Syntetisera tal till en högtalare
@@ -545,6 +547,8 @@
       href: sovereign-clouds.md
     - name: Priser och begränsningar
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/#cognitive-services'
     - name: Efterlevnad
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Kryptering

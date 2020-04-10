@@ -213,6 +213,8 @@
     - name: Felsöka
       items:
         - name: Felsökningsguide
+          href: service-bus-troubleshooting-guide.md
+        - name: Meddelandeundantag
           href: service-bus-messaging-exceptions.md
         - name: Resource Manager-undantag
           href: service-bus-resource-manager-exceptions.md

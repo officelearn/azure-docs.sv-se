@@ -10,12 +10,12 @@ ms.custom:
 - mvc
 - seo-python-october2019
 ms.date: 11/05/2019
-ms.openlocfilehash: 7b05f12ad3fd3a0f56605d708bbbf06df7e341ed
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6ce3dd1cbb694988af3555765342a1c4ca3850b5
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75433471"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81010859"
 ---
 # <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>Snabbstart: Skapa en Python-app som använder Azure Cache för Redis
 
@@ -54,7 +54,7 @@ b'bar'
 ```
 
 > [!IMPORTANT]
-> För Azure Cache för Redis version 3.0 eller senare tillämpas SSL-certifikatkontrollen. ssl_ca_certs måste uttryckligen anges när du ansluter till Azure Cache för Redis. För RedHat Linux finns ssl_ca_certs i certifikatmodulen */etc/pki/tls/certs/ca-bundle.crt.*
+> För Azure Cache för Redis version 3.0 eller senare tillämpas TLS/SSL-certifikatkontrollen. ssl_ca_certs måste uttryckligen anges när du ansluter till Azure Cache för Redis. För RedHat Linux finns ssl_ca_certs i certifikatmodulen */etc/pki/tls/certs/ca-bundle.crt.*
 
 ## <a name="create-a-python-sample-app"></a>Skapa en Python-exempelapp
 

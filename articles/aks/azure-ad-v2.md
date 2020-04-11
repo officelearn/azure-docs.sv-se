@@ -5,12 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 03/24/2020
-ms.openlocfilehash: 27abdfe28e2594c98778b51532fbd22f95bfa3ac
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: b121830192a2b88185bbbbc9a92934e51b32a61c
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984716"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114653"
 ---
 # <a name="integrate-azure-ad-in-azure-kubernetes-service-preview"></a>Integrera Azure AD i Azure Kubernetes-tjänsten (förhandsversion)
 
@@ -98,12 +98,12 @@ Kommandot ovan skapar ett AKS-kluster med tre noder, men användaren, som skapad
 När du har skapat en grupp och lagt till dig själv (och andra) som medlem kan du uppdatera klustret med Azure AD-gruppen med följande kommando
 
 ```azurecli-interactive
-az aks update -g MyResourceGroup -n MyManagedCluster [--aad-admin-group-object-ids <id1,id2>] [--aad-tenant-id <id>]
+az aks update -g MyResourceGroup -n MyManagedCluster [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
 ```
 Alternativt, om du först skapar en grupp och lägger till medlemmar, kan du aktivera Azure AD-gruppen vid skapande tid med hjälp av följande kommando,
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id1,id2>] [--aad-tenant-id <id>]
+az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
 ```
 
 En lyckad skapande av ett Azure AD v2-kluster har följande avsnitt i svarstexten

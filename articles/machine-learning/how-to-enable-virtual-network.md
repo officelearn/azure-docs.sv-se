@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 03/13/2020
-ms.openlocfilehash: 4d845514965a8d60c636902660ce838926cbf3c9
-ms.sourcegitcommit: 515482c6348d5bef78bb5def9b71c01bb469ed80
+ms.openlocfilehash: ca4bf1b0043a2c73851eab48ff8b9b6b7a987b72
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80607618"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115302"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Skydda Azure ML-experiment och slutledningsjobb i ett virtuellt Azure-nätverk
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,6 +43,11 @@ Den här artikeln innehåller också detaljerad information om *avancerade säke
 + Ett befintligt virtuellt nätverk och ett befintligt virtuellt nätverk och ett befintligt befintligt virtuellt nätverk som ska användas med beräkningsresurserna.
 
 ## <a name="use-a-storage-account-for-your-workspace"></a>Använda ett lagringskonto för din arbetsyta
+
+> [!WARNING]
+> Om du har datavetare som använder Azure Machine Learning-designern visas ett felmeddelande när data visualiseras från ett lagringskonto i ett virtuellt nätverk. Följande text är det fel som de får:
+>
+> __Fel: Det gick inte att profilera den här datauppsättningen. Det kan bero på att dina data lagras bakom ett virtuellt nätverk eller att dina data inte stöder profilen.__
 
 Så här använder du ett Azure-lagringskonto för arbetsytan i ett virtuellt nätverk:
 

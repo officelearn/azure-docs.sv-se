@@ -5,28 +5,30 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 03/10/2020
+ms.date: 04/10/2020
 ms.author: victorh
-ms.openlocfilehash: d3f8e52b4582c9467ae3ec61ee984771b801fe4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93677b3e473ab825665fed5590ac345a8cfcc300
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264783"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113439"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Regelbearbetningslogik för Azure Firewall
-Du kan konfigurera NAT-regler, nätverksregler och programregler på Azure-brandväggen. Reglerna bearbetas enligt regeltypen. 
+Du kan konfigurera NAT-regler, nätverksregler och programregler på Azure-brandväggen. Regelsamlingar bearbetas enligt regeltypen i prioritetsordning, lägre siffror till högre tal från 100 till 65 000. Ett regelsamlingsnamn kan bara ha bokstäver, siffror, understreck, punkter eller bindestreck. Det måste börja med en bokstav eller siffra, och sluta med en bokstav, siffra eller understreck. Den maximala namnlängden är 80 tecken.
+
+Det är bäst att inledningsvis utrymme din regel samling prioritetsnummer i 100 steg (100, 200, 300 och så vidare) så att du har utrymme för att lägga till fler regelsamlingar om det behövs.
 
 > [!NOTE]
 > Om du aktiverar filtrering baserad på hotinformation har dessa regler högsta prioritet och bearbetas alltid först. Hot-intelligens filtrering kan neka trafik innan några konfigurerade regler bearbetas. Mer information finns i [Azure Firewall threat intelligence-baserad filtrering](threat-intel.md).
 
-## <a name="outbound"></a>Utgående
+## <a name="outbound-connectivity"></a>Utgående anslutning
 
 ### <a name="network-rules-and-applications-rules"></a>Regler för nätverk och program
 
 Om du konfigurerar nätverksregler och programregler tillämpas nätverksregler i prioritetsordning före programregler. Reglerna är avslutande. Så om en matchning hittas i en nätverksregel bearbetas inga andra regler.  Om det inte finns någon nätverksregelmatchning, och om protokollet är HTTP, HTTPS eller MSSQL, utvärderas paketet sedan av programreglerna i prioritetsordning. Om det fortfarande inte finns någon matchning utvärderas paketet mot [infrastrukturregelsamlingen](infrastructure-fqdns.md). Om det fortfarande inte finns någon matchning nekas paketet som standard.
 
-## <a name="inbound"></a>Inkommande
+## <a name="inbound-connectivity"></a>Inkommande anslutning
 
 ### <a name="nat-rules"></a>NAT-regler
 

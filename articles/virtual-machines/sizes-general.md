@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: 4b36f456f70eb79cff1f615c7c136b8fe4b1b3d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 22826c32dc2aee0e580ec0b2a05c7eb8f08b7570
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78226712"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115315"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Storlekar för virtuella datorer för allmänna ändamål
 
@@ -32,7 +32,7 @@ Vm-storlekar för allmänna ändamål ger ett balanserat förhållande mellan pr
 
 - [B-serien sprängbar](sizes-b-series-burstable.md) Virtuella datorer är idealiska för arbetsbelastningar som inte behöver full prestanda för processorn kontinuerligt, som webbservrar, små databaser och utvecklings- och testmiljöer. Dessa arbetsbelastningar har vanligtvis burstable prestandakrav. B-serien ger dessa kunder möjlighet att köpa en VM-storlek med en prismedveten baslinjeprestanda som gör att VM-instansen kan bygga upp krediter när den virtuella datorn använder mindre än basprestanda. När den virtuella datorn har ackumulerat kredit kan den virtuella datorn brista ovanför den virtuella datorns baslinje med upp till 100 % av processorn när ditt program kräver högre CPU-prestanda.
 
-- [Dav4 och Dasv4-serien](dav4-dasv4-series.md) är nya storlekar som använder AMD: s 2.35Ghz EPYC<sup>TM</sup> 7452-processor i en flertrådad konfiguration med upp till 256 MB L3 cache dedikera 8 GB av att L3 cache till varje 8 kärnor öka kundalternativ för att köra sina allmänna ändamål arbetsbelastningar. Dav4-serien och Dasv4-serien har samma minnes- och diskkonfigurationer som D & Dsv3-serien.
+- [Dav4 och Dasv4-serien](dav4-dasv4-series.md) är nya storlekar som använder AMD: s 2.35Ghz EPYC<sup>TM</sup> 7452-processor i en flertrådad konfiguration med upp till 256 MB L3 cache dedikera 8 MB av att L3 cache till varje 8 kärnor öka kundalternativ för att köra sina allmänna ändamål arbetsbelastningar. Dav4-serien och Dasv4-serien har samma minnes- och diskkonfigurationer som D & Dsv3-serien.
 
 - [DCv2-serien](dcv2-series.md) kan skydda sekretessen och integriteten för dina data och din kod medan den bearbetas i det offentliga molnet. Dessa maskiner backas upp av den senaste generationen av Intel XEON E-2288G-processor med SGX-teknik. Med Intel Turbo Boost Technology kan dessa maskiner gå upp till 5,0 GHz. DCv2-serien instanser gör det möjligt för kunder att bygga säkra enklav-baserade program för att skydda sin kod och data medan den används.
 

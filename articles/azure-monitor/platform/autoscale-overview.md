@@ -1,15 +1,15 @@
 ---
-title: Översikt över automatisk skalning i virtuella datorer, molntjänster och webbappar
+title: Automatisk skalning i virtuella datorer, molntjänster och webbappar
 description: Automatisk skalning i Microsoft Azure. Gäller virtuella datorer, skalningsuppsättningar för virtuella datorer, molntjänster och webbappar.
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: a60c03f1928b38c78a59edca4b5493307d7d19d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eeb8b301bf087efa164a7864cdce3a04952f45ed
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75364381"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114146"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Översikt över autoskalning i Microsoft Azure Virtual Machines, Cloud Services och Web Apps
 I den här artikeln beskrivs vad automatisk skalning av Microsoft Azure är, dess fördelar och hur du kommer igång med den.  
@@ -91,8 +91,8 @@ Däremot är vertikal skalning annorlunda. Det håller samma antal virtuella dat
 ## <a name="methods-of-access"></a>Metoder för tillgång
 Du kan ställa in automatisk skalning via
 
-* [Azure-portal](../../azure-monitor/platform/autoscale-get-started.md)
-* [Powershell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
+* [Azure Portal](../../azure-monitor/platform/autoscale-get-started.md)
+* [PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
 * [Plattformsoberoende kommandoradsgränssnitt (CLI):](../../azure-monitor/platform/cli-samples.md#autoscale)
 * [REST-API:et för Azure Monitor](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
@@ -100,7 +100,7 @@ Du kan ställa in automatisk skalning via
 | Tjänst | Schema & dokument |
 | --- | --- |
 | Web Apps |[Skala webbappar](../../azure-monitor/platform/autoscale-get-started.md) |
-| Molntjänster |[Skala en molntjänst automatiskt](../../cloud-services/cloud-services-how-to-scale-portal.md) |
+| Cloud Services |[Skala en molntjänst automatiskt](../../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Virtuella datorer: Klassisk |[Skala klassiska tillgänglighetsuppsättningar för virtuella datorer](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
 | Virtuella datorer: Windows-skalningsuppsättningar |[Skalning av skalning av skalning av virtuella datorer i Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Virtuella datorer: Linux-skalningsuppsättningar |[Skalning av skalning av skalning av skalning av skalning av skalning av skalning av skalning av skalning](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |

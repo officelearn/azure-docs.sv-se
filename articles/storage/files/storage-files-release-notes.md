@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/16/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 765decb8c65254d63ef5267cbc496d2320f58f6e
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: c6455930f88d02e11cb0c45d29594ae40eaad9e3
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991934"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113298"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Viktig information om Azure File Sync-agenten
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Dina Windows Server-installationer omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS). Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -25,7 +25,7 @@ Följande versioner av Azure File Sync-agenten stöds:
 
 | Milstolpe | Agentversionsnummer | Utgivningsdatum | Status |
 |----|----------------------|--------------|------------------|
-| V10-utgåva - [KB4522359](https://support.microsoft.com/en-us/help/4522409/azure-file-sync-agent-v10-release-march-2020)| 10.0.0.0 | Den 9 april 2020 | Stöds |
+| V10-utgåva - [KB4522359](https://support.microsoft.com/en-us/help/4522409/azure-file-sync-agent-v10-release-march-2020)| 10.0.0.0 | Den 9 april 2020 | Under flygning |
 | Samlad uppdatering i december 2019 - [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | den 12 december 2019 | Stöds |
 | V9 Release - [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | den 2 december 2019 | Stöds |
 | V8 Release - [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | den 8 oktober 2019 | Stöds |
@@ -68,7 +68,6 @@ Följande versionsfakturor gäller version 10.0.0.0 av Azure File Sync-agenten (
  
 - Diverse prestanda- och tillförlitlighetsförbättringar
     - Ändringsidentifiering på Azure-filresursen kan misslyckas om virtuella nätverk (VNET) och brandväggsregler har konfigurerats på lagringskontot.
-    - Gränsen för 2KB-säkerhetsbeskrivare är inte längre längre 2 0B-säkerhet för synkronisering av diskretionära åtkomstkontrollistor (DACLs).  
     - Minskad minnesförbrukning som är associerad med återkallelse. 
     - Förbättrad prestanda när du använder cmdleten [Invoke-AzStorageSyncChangeDetection.](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection)
     - Andra diverse tillförlitlighetsförbättringar. 

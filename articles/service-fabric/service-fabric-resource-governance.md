@@ -3,12 +3,12 @@ title: Resursstyrning för container och tjänster
 description: Azure Service Fabric kan du ange resursgränser för tjänster som körs i eller utanför behållare.
 ms.topic: conceptual
 ms.date: 8/9/2017
-ms.openlocfilehash: 85520876d7f0c89450b572d28dee6cb66ed2231d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11ca6e29829d911717a829b3e4dee0a190856a52
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75772388"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115146"
 ---
 # <a name="resource-governance"></a>Resursstyrning
 
@@ -31,7 +31,8 @@ För dessa två mått spårar [Cluster Resource Manager](service-fabric-cluster-
 * Klustret kan [defragmenteras](service-fabric-cluster-resource-manager-defragmentation-metrics.md) enligt dessa två mått.
 * När [du beskriver ett kluster](service-fabric-cluster-resource-manager-cluster-description.md)kan buffrad kapacitet ställas in för dessa två mått.
 
-[Dynamisk inläsningsrapportering](service-fabric-cluster-resource-manager-metrics.md) stöds inte för dessa mått och belastningar för dessa mått definieras vid skapande.
+> [!NOTE]
+> [Dynamisk inläsningsrapportering](service-fabric-cluster-resource-manager-metrics.md) stöds inte för dessa mått. belastningar för dessa mått definieras vid skapande tid.
 
 ## <a name="resource-governance-mechanism"></a>Mekanism för resursstyrning
 

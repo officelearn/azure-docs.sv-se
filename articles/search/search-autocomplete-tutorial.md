@@ -1,27 +1,27 @@
 ---
-title: Lägga till förslag och komplettera automatiskt i en sökruta
+title: Lägga till komplettera automatiskt och förslag i en sökruta
 titleSuffix: Azure Cognitive Search
-description: Aktivera typeahead-frågeåtgärder i Azure Cognitive Search genom att skapa förslagsställare och formulera begäranden som fyller i en sökruta med slutförda termer eller fraser.
+description: Aktivera sök-som-du-typ frågeåtgärder i Azure Cognitive Search genom att skapa förslagsställare och formulera begäranden som automatiskt komplettera en sökruta med färdiga termer eller fraser. Du kan också returnera föreslagna matchningar.
 manager: nitinme
-author: mrcarter8
-ms.author: mcarter
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
-ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 64c4e65ca7b69c7d61c706b48591ac19be3bfcf5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.topic: conceptual
+ms.date: 04/10/2020
+ms.openlocfilehash: d6c1819366fede0b1e81e43bc92ed56af93b39fd
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72792512"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114949"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-cognitive-search-application"></a>Lägga till förslag eller komplettera automatiskt i ditt Azure Cognitive Search-program
 
 I den här artikeln kan du läsa om hur du använder [förslag](https://docs.microsoft.com/rest/api/searchservice/suggestions) och [komplettera automatiskt](https://docs.microsoft.com/rest/api/searchservice/autocomplete) för att skapa en kraftfull sökruta som stöder sök-som-du-typ beteenden.
 
-+ *Förslag föreslås* resultat som genereras när du skriver, där varje förslag är ett enda resultat från indexet som matchar det du har skrivit hittills. 
++ *Förslag* genererar sökresultat medan du skriver, där varje förslag är ett enda resultat eller ett sökdokument från indexet som matchar det du har skrivit hittills. 
 
-+ *Komplettera automatiskt* "avslutar" ordet eller frasen som en användare för närvarande skriver. I stället för att returnera resultat slutförs en fråga som du sedan kan köra för att returnera resultat. Precis som med förslag baseras ett färdigt ord eller en fras i en fråga på en matchning i indexet. Tjänsten erbjuder inte frågor som returnerar noll resultat i indexet.
++ *Komplettera automatiskt* genererar frågor genom att "avsluta" ordet eller frasen. I stället för att returnera resultat slutförs en fråga som du sedan kan köra för att returnera resultat. Precis som med förslag baseras ett färdigt ord eller en fras i en fråga på en matchning i indexet. Tjänsten erbjuder inte frågor som returnerar noll resultat i indexet.
 
 Du kan hämta och köra exempelkoden i **DotNetHowToAutocomplete** för att utvärdera dessa funktioner. Exempelkoden är inriktad på ett fördefinierat index som fylls med [NYCJobs demodata](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). Den NYCJobs index innehåller en [Suggester konstruera](index-add-suggesters.md), vilket är ett krav för att använda antingen förslag eller komplettera automatiskt. Du kan använda det förberedda indexet som finns i en sandbox-tjänst eller [fylla i ditt eget index](#configure-app) med hjälp av en datainläsare i EXEMPELlösningen FÖR NYCJobs. 
 

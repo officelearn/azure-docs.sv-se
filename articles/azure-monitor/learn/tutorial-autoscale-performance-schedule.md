@@ -1,5 +1,5 @@
 ---
-title: Autoskala Azure-resurser automatiskt baserat på prestanda eller ett schema
+title: Skala Azure-resurser automatiskt baserat på data eller schema
 description: Skapa en autoskalningsinställning för en App Service-plan med hjälp av mätvärden och ett schema
 author: anirudhcavale
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 85ae76d9dcb0b4a1f95992c2f5da48a81fb12677
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a4502a9ec7866d9b1ecb0f2aa2257e759fd417c8
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77661660"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114681"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Skapa en autoskalningsinställning för Azure-resurser baserat på prestanda eller ett schema
 

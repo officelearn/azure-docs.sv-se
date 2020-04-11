@@ -1,17 +1,17 @@
 ---
-title: Växla från äldre API för Logganalysvarningar till nytt Azure Alerts API
+title: Växla till det nya Azure Alerts-API:et
 description: Översikt över äldre sparadeSökbaserat Log Analytics Alert API och process för att växla varningsregler till nya ScheduledQueryRules API, med information om vanliga kundproblem.
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.subservice: alerts
-ms.openlocfilehash: c1ca85ba9c79f828b5ddcf0d640cfe7f8b6e097c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7950b3f584c36b68a4eff66b05e83ba94c1ec1dd
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79249443"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114355"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Växla API-inställningar för loggaviseringar
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: a4ab59ab5b988b54333c419ced7fa852da531eaa
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 8ef791759a33d08aaff068b0dd2634e5f21bb1b6
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984341"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114997"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Vanliga frågor och svar om Azure Disk Encryption för virtuella Datorer i Windows
 
@@ -64,7 +64,7 @@ Azure Disk Encryption tillhandahåller end-to-end-kryptering för OS-disken, dat
 
 - Om dina krav omfattar kryptering av alla ovanstående och end-to-end-kryptering använder du Azure Disk Encryption. 
 - Om dina krav omfattar kryptering endast av data i vila med kundhanterad nyckel använder du [kryptering på serversidan med kundhanterade nycklar](disk-encryption.md). Du kan inte kryptera en disk med både Azure Disk Encryption och Storage server-side kryptering med kundhanterade nycklar.
-_ Om du använder ett scenario som [anropas](disk-encryption-windows.md#unsupported-scenarios)i scenarier som inte stöds för Windows bör du överväga kryptering på [serversidan med kundhanterade nycklar](disk-encryption.md). 
+- Om du använder ett scenario som [anropas](disk-encryption-windows.md#unsupported-scenarios)i scenarier som inte stöds för Windows bör du överväga kryptering på [serversidan med kundhanterade nycklar](disk-encryption.md). 
 - Om din organisations princip tillåter dig att kryptera innehåll i vila med en Azure-hanterad nyckel behövs ingen åtgärd - innehållet krypteras som standard. För hanterade diskar krypteras innehållet i lagringen som standard med kryptering på serversidan med plattformshanterad nyckel. Nyckeln hanteras av Azure Storage-tjänsten. 
 
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Hur roterar jag hemligheter eller krypteringsnycklar?

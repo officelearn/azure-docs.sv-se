@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: kanshiG
 ms.author: govindk
 ms.date: 04/07/2020
-ms.openlocfilehash: 62c10a2ada9ff7d3bf7090028dd9684192517d02
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 0f1e6d07afb3b7b4d26081bc9e34ac257b280d0f
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991434"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113914"
 ---
 # <a name="how-to-monitor-the-server-side-latency-for-operations-in-an-azure-cosmos-db-container-or-account"></a>Övervaka svarstiden på serversidan för åtgärder i en Azure Cosmos DB-behållare eller -konto
 
@@ -25,7 +25,7 @@ Om du ser ovanligt stor latens för punktåtgärder som:
 
 Du kan slå upp diagnostikloggen för att se storleken på data som returneras. Om du ser en ihållande hög latens för frågeåtgärder kan du söka efter storleken på data som returneras, [dataflöde eller RU/s](cosmosdb-monitor-resource-logs.md#diagnostic-queries) som används, eller antalet sådana åtgärder under en viss period. På så sätt kan du felsöka svarstidsproblem på serversidan.
 
-## <a name="view-server-side-latency-metric"></a>Visa svarstidsmått på serversidan
+## <a name="view-the-server-side-latency-metric"></a>Visa svarstiden på serversidan
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -35,15 +35,15 @@ Du kan slå upp diagnostikloggen för att se storleken på data som returneras. 
 
 1. Välj **en resurs** > > välja den **prenumeration**och **resursgrupp**som krävs i fönstret **Mått.** För **resurstypen**väljer du **Azure Cosmos DB-konton,** väljer ett av dina befintliga Azure Cosmos-konton och väljer **Använd**.
    
-   ![Välj ett Cosmos DB-konto för att visa mått](./media/monitor-server-side-latency/select-cosmos-db-account.png)
+   ![Välj Azure Cosmos DB-konto för att visa mått](./media/monitor-server-side-latency/select-cosmos-db-account.png)
 
-1. Välj sedan måttet **Svarstid för serversidan** i listan över tillgängliga mått. Mer information om alla tillgängliga mått i den här listan finns i artikeln [Mått efter kategori.](monitor-cosmos-db-reference.md) I det här exemplet ska vi välja **Svarstid på serversidan** och **Genomsnittlig** som aggregeringsvärde. Utöver dessa uppgifter kan du också välja **tidsintervall och** **tidsgranularitet** för måtten. På max kan du visa mått för de senaste 30 dagarna.  När du har tillämpat filtret visas ett diagram baserat på filtret. Du kan se det genomsnittliga antalet begärandeenheter som förbrukas per minut för den valda perioden.  
+1. Välj sedan måttet **Svarstid för serversidan** i listan över tillgängliga mått. Mer information om alla tillgängliga mått i den här listan finns i artikeln [Mått efter kategori.](monitor-cosmos-db-reference.md) I det här exemplet ska vi välja **Svarstid på serversidan** och **Genomsnittlig** som aggregeringsvärde. Utöver dessa uppgifter kan du också välja **tidsintervall och** **tidsgranularitet** för måtten. På max kan du visa mått för de senaste 30 dagarna.  När du har tillämpat filtret visas ett diagram baserat på filtret. Du kan se svarstiden på serversidan per minut för den valda perioden.  
 
    ![Välj svarstidsmåttet på serversidan från Azure-portalen](./media/monitor-server-side-latency/server-side-latency-metric.png)
 
 ## <a name="filters-for-server-side-latency"></a>Filter för svarstid på serversidan
 
-Du kan också filtrera mått och diagrammet som visas av ett visst **CollectionName,** **ConnectionMode**, **DatabaseName**, **OperationType**, **Region**och **PublicAPIType**. 
+Du kan också filtrera mått och hämta diagrammen som visas av ett visst **CollectionName,** **ConnectionMode**, **DatabaseName**, **OperationType**, **Region**och **PublicAPIType**. 
 
 Om du vill filtrera måtten väljer du **Lägg till filter** och väljer den egenskap som krävs, till exempel **PublicAPIType,** och väljer värde **sql**. Lägg till ytterligare ett filter för **OperationType**. Diagrammet visar sedan svarstiden på serversidan för olika åtgärder under den valda perioden. De åtgärder som utförs via lagrad procedur loggas inte så att de inte är tillgängliga under OperationType-måttet.
 
@@ -55,5 +55,5 @@ Du kan också gruppera måtten med alternativet **Använd delning.**
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Övervaka Azure Cosmos DB-data med hjälp av [diagnostikinställningar](cosmosdb-monitor-resource-logs.md) i Azure
+* Övervaka Azure Cosmos DB-data med hjälp av [diagnostikinställningar](cosmosdb-monitor-resource-logs.md) i Azure.
 * [Granska Azure Cosmos DB-kontrollplansåtgärder](audit-control-plane-logs.md)

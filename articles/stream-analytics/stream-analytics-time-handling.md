@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: 367b7c2e1ce1c8b3c0dbc02003218b76096b409d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55537fb923b26de4e02be35fdb817dee147584d7
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75354653"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115129"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Förstå tidshantering i Azure Stream Analytics
 
@@ -96,7 +96,7 @@ Du kanske har märkt ett annat koncept som kallas tidig ankomst fönster, som se
 
 Eftersom Azure Stream Analytics garanterar att det alltid genererar fullständiga resultat kan du bara ange **jobbstarttid** som jobbets första utdatatid, inte inmatningstiden. Starttiden för jobbet krävs så att hela fönstret bearbetas, inte bara från mitten av fönstret.
 
-Stream Analytics hämtar sedan starttiden från frågespecifikationen. Men eftersom indatahändelsemäklare bara indexeras efter ankomsttid måste systemet översätta starthändelsetiden till ankomsttid. Systemet kan börja bearbeta händelser från den punkten i indatahändelsemäklaren. Med den tidiga ankomstfönstergränsen är översättningen enkel. Det är startdatum minus 5 minuter tidigt ankomst fönster. Den här beräkningen innebär också att systemet släpper alla händelser som ses med händelsetid 5 minuter större än ankomsttiden.
+Stream Analytics hämtar sedan starttiden från frågespecifikationen. Men eftersom indatahändelsemäklare bara indexeras efter ankomsttid måste systemet översätta starthändelsetiden till ankomsttid. Systemet kan börja bearbeta händelser från den punkten i indatahändelsemäklaren. Med den tidiga ankomstfönstergränsen är översättningen enkel. Det är starttiden minus 5 minuter tidigt ankomst fönster. Denna beräkning innebär också att systemet släpper alla händelser som anses ha en händelsetid 5 minuter ealier än ankomsttiden.
 
 Detta koncept används för att säkerställa att bearbetningen kan upprepas oavsett var du börjar mata ut från. Utan en sådan mekanism skulle det inte vara möjligt att garantera repeterbarhet, vilket många andra streamingsystem hävdar att de gör.
 

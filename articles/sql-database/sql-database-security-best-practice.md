@@ -9,12 +9,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 39747ac0a7133562bed526f44e30bf4a656127c0
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 7b3a223ca504bff380afad54afda73880717814f
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673612"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115374"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database"></a>Playbook för att åtgärda gemensamma säkerhetskrav med Azure SQL Database
 
@@ -89,14 +89,14 @@ Central identitetshantering erbjuder följande fördelar:
 
 - Skapa en Azure AD-klientorganisation och [skapa användare](../active-directory/fundamentals/add-users-azure-active-directory.md) för att representera mänskliga användare och skapa [tjänsthuvudnamn](../active-directory/develop/app-objects-and-service-principals.md) för att representera appar, tjänster och automatiseringsverktyg. Tjänsthuvudnamn motsvarar tjänstkonton i Windows och Linux. 
 
-- Tilldela åtkomsträttigheter till resurser till Azure AD-huvudnamn via grupptilldelning: Skapa Azure AD-grupper, bevilja åtkomst till grupper och lägg till enskilda medlemmar i grupperna. Skapa databasanvändare som mappar dina Azure AD-grupper i databasen. Om du vill tilldela behörigheter i databasen placerar du användare i databasroller med rätt behörighet.
+- Tilldela åtkomsträttigheter till resurser till Azure AD-huvudnamn via grupptilldelning: Skapa Azure AD-grupper, bevilja åtkomst till grupper och lägg till enskilda medlemmar i grupperna. Skapa databasanvändare som mappar dina Azure AD-grupper i databasen. Om du vill tilldela behörigheter i databasen placerar du de användare som är associerade med dina Azure AD-grupper i databasroller med rätt behörighet.
   - Se artiklarna, [Konfigurera och hantera Azure Active Directory-autentisering med SQL](sql-database-aad-authentication-configure.md) och Använd Azure AD för [autentisering med SQL](sql-database-aad-authentication.md).
   > [!NOTE]
   > I en hanterad instans kan du också skapa inloggningar som mappas till Azure AD-huvudnamn i huvuddatabasen. Se [SKAPA INLOGGNING (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
 - Genom att använda Azure AD-grupper förenklas behörighetshanteringen och både gruppägaren och resursägaren kan lägga till/ta bort medlemmar till/från gruppen. 
 
-- Skapa en separat grupp för Azure AD-administratör för SQL DB-servrar.
+- Skapa en separat grupp för Azure AD-administratörer för varje SQL DB-server.
 
   - Se [artikeln, Etablera en Azure Active Directory-administratör för din Azure SQL Database-server](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server).
 
@@ -108,7 +108,7 @@ Central identitetshantering erbjuder följande fördelar:
 > [!NOTE]
 > - Azure AD-autentisering registreras i Azure SQL-granskningsloggar, men inte i Azure AD-inloggningsloggar.
 > - RBAC-behörigheter som beviljas i Azure gäller inte för Azure SQL DB-behörigheter. Sådana behörigheter måste skapas/mappas manuellt i SQL DB med befintliga SQL-behörigheter.
-> - Azure AD-autentisering på klientsidan behöver åtkomst till internet eller via UDR (User Defined Route) till ett virtuella nätverk.
+> - På klientsidan behöver Azure AD-autentisering åtkomst till internet eller via UDR (User Defined Route) till ett virtuella nätverk.
 > - Azure AD-åtkomsttoken cachelagras på klientsidan och dess livstid beror på tokenkonfiguration. Se artikeln, [Konfigurerbara token livstider i Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md)
 > - Mer information om felsökning av Azure AD-autentiseringsproblem finns i följande blogg:<https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
@@ -213,7 +213,7 @@ SQL-autentisering refererar till autentisering av en användare när du ansluter
 
 ## <a name="access-management"></a>Åtkomsthantering
 
-Åtkomsthantering är processen att kontrollera och hantera behöriga användares åtkomst och privilegier till Azure SQL Database.
+Åtkomsthantering (kallas även auktorisering) är processen att kontrollera och hantera behöriga användares åtkomst och privilegier till Azure SQL Database.
 
 ### <a name="implement-principle-of-least-privilege"></a>Genomföra principen om lägsta privilegium
 
@@ -225,7 +225,7 @@ Principen om lägsta behörighet anger att användarna inte ska ha fler privileg
 
 Tilldela endast nödvändiga [behörigheter](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) för att slutföra de uppgifter som krävs:
 
-- I SQL Data Plane: 
+- I SQL-databaser: 
     - Använd detaljerade behörigheter och användardefinierade databasroller (eller serverroller i MI): 
         1. Skapa de roller som krävs
             - [SKAPA ROLL](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
@@ -294,7 +294,7 @@ Separation av arbetsuppgifter, även kallad Segregering av arbetsuppgifter beskr
   - Skapa serverroller för serveromfattande uppgifter (skapa nya inloggningar, databaser) i en hanterad instans. 
   - Skapa databasroller för uppgifter på databasnivå.
 
-- För vissa känsliga uppgifter bör du överväga att skapa särskilda lagrade procedurer som signerats av ett certifikat för att utföra uppgifterna för användarnas räkning. 
+- För vissa känsliga uppgifter bör du överväga att skapa särskilda lagrade procedurer som signerats av ett certifikat för att utföra uppgifterna för användarnas räkning. En viktig fördel med digitalt signerade lagrade procedurer är att om proceduren ändras tas de behörigheter som beviljades till den tidigare versionen av proceduren omedelbart bort.
   - Exempel: [Självstudiekurs: Signera lagrade procedurer med ett certifikat](https://docs.microsoft.com/sql/relational-databases/tutorial-signing-stored-procedures-with-a-certificate) 
 
 - Implementera transparent datakryptering (TDE) med kundhanterade nycklar i Azure Key Vault för att aktivera åtskillnad av uppgifter mellan dataägare och säkerhetsägare. 
@@ -303,7 +303,7 @@ Separation av arbetsuppgifter, även kallad Segregering av arbetsuppgifter beskr
 - Om du vill vara säkra på att en DBA inte kan se data som anses vara mycket känsliga och fortfarande kan utföra DBA-uppgifter kan du använda Alltid krypterad med rollseparering. 
   - Se artiklarna Översikt [över nyckelhantering för alltid krypterad,](https://docs.microsoft.com/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted) [nyckeletablering med rollseparering](https://docs.microsoft.com/sql/relational-databases/security/encryption/configure-always-encrypted-keys-using-powershell#KeyProvisionWithRoles)och [kolumnnyckelrotation med rollseparering](https://docs.microsoft.com/sql/relational-databases/security/encryption/rotate-always-encrypted-keys-using-powershell#column-master-key-rotation-with-role-separation). 
 
-- I de fall då det inte är möjligt åtminstone inte utan större kostnader och insatser som kan göra systemet nära oanvändbart, kan kompromisser göras och mildras med hjälp av kompenserande kontroller såsom: 
+- I de fall där användning av Alltid krypterad inte är genomförbar, eller åtminstone inte utan större kostnader och insatser som även kan göra systemet nära oanvändbart, kan kompromisser göras och mildras med hjälp av kompenserande kontroller som: 
   - Mänsklig inblandning i processer. 
   - Granskningshistorik – mer information om granskning finns i [Granska kritiska säkerhetshändelser](#audit-critical-security-events).
 
@@ -315,11 +315,11 @@ Separation av arbetsuppgifter, även kallad Segregering av arbetsuppgifter beskr
 
 - Använd inbyggda roller när behörigheterna matchar exakt de behörigheter som behövs – om union av alla behörigheter från flera inbyggda roller leder till en 100% matchning, kan du också tilldela flera roller samtidigt. 
 
-- Skapa och använd anpassade roller när inbyggda roller ger för många behörigheter eller otillräckliga behörigheter. 
+- Skapa och använd användardefinierade roller när inbyggda roller ger för många behörigheter eller otillräckliga behörigheter. 
 
 - Rolltilldelningar kan också göras tillfälligt, även kallat DSD (Dynamic Separation of Duties), antingen inom SQL Agent Job steps i T-SQL eller med Azure PIM för RBAC-roller. 
 
-- Kontrollera att dbas inte har tillgång till krypteringsnycklar eller nyckellager och säkerhetsadministratörer med tillgång till nycklarna har ingen tillgång till databasen i sin tur. 
+- Kontrollera att dbas inte har tillgång till krypteringsnycklar eller nyckellager, och att säkerhetsadministratörer med åtkomst till nycklarna inte har någon åtkomst till databasen i tur och ordning. Användningen av [Extensible Key Management (EKM)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-ekm) kan göra denna separation lättare att uppnå. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) kan användas för att implementera EKM. 
 
 - Se alltid till att ha en granskningsspårning för säkerhetsrelaterade åtgärder. 
 
@@ -440,7 +440,7 @@ De principer som avgör vilka data som är känsliga och om känsliga data måst
 
 - Alltid krypterad stöder inte enkelt att bevilja tillfällig åtkomst till nycklarna (och skyddade data). Till exempel, om du behöver dela nycklarna med en DBA så att DBA att göra vissa rensningsåtgärder på känsliga och krypterade data. Det enda sättet att tillförlitlighet återkalla åtkomsten till data från DBA kommer att rotera både kolumn krypteringsnycklar och kolumn huvudnycklar skydda data, vilket är en dyr åtgärd. 
 
-- För att komma åt oformaterade värden i krypterade kolumner måste en användare ha åtkomst till CMK som skyddar kolumnerna, som är konfigurerad i nyckelarkivet som innehåller CMK. Användaren måste också ha **visa alla kolumn huvudnyckel definition** och visa alla kolumn kryptering nyckel **definition** databas behörigheter.
+- För att komma åt värdena för klartext i krypterade kolumner måste en användare ha åtkomst till kolumnhuvudnyckeln (CMK) som skyddar kolumner, som är konfigurerade i nyckelarkivet som innehåller CMK. Användaren måste också ha **visa alla kolumn huvudnyckel definition** och visa alla kolumn kryptering nyckel **definition** databas behörigheter.
 
 ### <a name="control-access-of-application-users-to-sensitive-data-through-encryption"></a>Kontrollera programanvändarnas åtkomst till känsliga data via kryptering
 

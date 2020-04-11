@@ -1,22 +1,22 @@
 ---
-title: Skapa ett nytt Dynamics 365 Business Central-erbjudande på den kommersiella marknadsplatsen
-description: Så här skapar du ett nytt Dynamics 365 Business Central-erbjudande för att lista eller sälja i Azure Marketplace, AppSource eller csp-programmet (Cloud Solution Provider) med hjälp av Portalen Commercial Marketplace på Microsoft Partner Center.
+title: Skapa ett nytt Dynamics 365 Business Central-erbjudande på Microsofts kommersiella marknadsplats
+description: Så här skapar du ett nytt Dynamics 365 Business Central-erbjudande för att lista eller sälja i Azure Marketplace, Microsoft AppSource eller csp-programmet (Cloud Solution Provider) med hjälp av den kommersiella marknadsplatsportalen på Microsoft Partner Center.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: 908d0fb9d494ec048e6b254f91ec1faf56b47c90
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.date: 04/09/2020
+ms.openlocfilehash: 9bb1059087bdf8fc4eb852be7a995febc3336713
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529404"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115285"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Skapa ett nytt Dynamics 365 Business Central-erbjudande
 
-I det här avsnittet beskrivs hur du skapar ett nytt Dynamics 365 Business Central-erbjudande. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) är ett affärssystem för resursplanering (ERP) som hanterar ett brett spektrum av affärsprocesser, inklusive ekonomi, drift, leveranskedja, CRM och projektledning och elektronisk handel. Premiumpaket stöder också klassisk distributionsmodell och tillverkning. Alla erbjudanden för Dynamics 365 Business Central måste gå igenom vår certifieringsprocess.
+I den här artikeln beskrivs hur du skapar ett nytt Dynamics 365 Business Central-erbjudande. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) är ett affärssystem för resursplanering (ERP) som hanterar ett brett spektrum av affärsprocesser, inklusive ekonomi, drift, leveranskedja, CRM och projektledning och elektronisk handel. Premiumpaket stöder också klassisk distributionsmodell och tillverkning. Alla erbjudanden för Dynamics 365 Business Central måste gå igenom vår certifieringsprocess.
 
 Om du vill börja skapa Dynamics 365 Business Central-erbjudanden kontrollerar du att du först [skapar ett Partner Center-konto](./create-account.md) och öppnar [instrumentpanelen för kommersiella marknadsplatser](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)med sidan **Översikt** vald.
 
@@ -113,16 +113,14 @@ Ange dina egna juridiska villkor i fältet **Regler och villkor.** Du kan också
 
 ## <a name="offer-listing"></a>Lista över erbjudande
 
-På sidan Erbjudandelista visas de språk på vilka ditt erbjudande visas. För närvarande är **engelska (USA)** det enda tillgängliga alternativet.
-
-Du måste definiera marknadsplatsinformation (erbjudandenamn, beskrivning, bilder, etc.) för varje språk/marknad. Välj språk-/marknadsnamn för att ange den här informationen.
+Sidan Erbjudandelistning är den plats där du definierar information för ditt erbjudande (t.ex. namn, beskrivning, bilder osv.).
 
 > [!NOTE]
-> Erbjudande notering innehåll (såsom beskrivning, dokument, skärmdumpar, användarvillkor, etc.) är inte skyldig att vara på engelska, så länge erbjudandet beskrivningen börjar med frasen"Denna ansökan är endast tillgänglig på [icke-engelska språket]." Det är också acceptabelt att ange en *användbar länk-URL* för att erbjuda innehåll på ett annat språk än det som används i innehåll för erbjudandelistor.
+> Du kan bara ange information om erbjudandelistor på ett språk. Det behöver inte vara på engelska, så länge erbjudandebeskrivningen börjar med frasen "Denna ansökan är endast tillgänglig på [icke-engelska]." Det är också acceptabelt att ange en webbadress för *hjälplänkar* för att erbjuda innehåll på ett annat språk än det som används i innehåll för erbjudandelistor.
 
 ### <a name="name"></a>Namn
 
-Namnet du anger här visas för kunderna som titeln på din erbjudandebeskrivning. Det här fältet är förifyllt med den text som du angav för **Offer alias** när du skapade erbjudandet, men du kan ändra det här värdet. Detta namn kan vara varumärkesskyddat (och du kan inkludera varumärkes- eller upphovsrättssymboler). Namnet får inte vara fler än 50 tecken och kan inte innehålla några emojis.
+Namnet du anger här visas för kunderna som titeln på din erbjudandebeskrivning. Det här fältet fylls i i förinfyllt med den text som du angav för **Offeralias** när du skapade erbjudandet, men du kan ändra det här värdet. Detta namn kan vara varumärkesskyddat (och du kan inkludera varumärkes- eller upphovsrättssymboler). Namnet får inte vara fler än 50 tecken och kan inte innehålla några emojis.
 
 ### <a name="short-description"></a>Kort beskrivning
 
@@ -169,23 +167,23 @@ Du kan också ange upp till tre sökord för att hjälpa kunderna att hitta ditt
 
 Om du vill att kunderna ska veta att din app fungerar med specifika produkter anger du upp till tre produktnamn här.
 
-### <a name="support-urls"></a>Stöd webbadresser
+### <a name="helpprivacy-urls"></a>Url:er för hjälp/sekretess
 
 I det här avsnittet kan du tillhandahålla länkar som hjälper kunderna att förstå mer om ditt erbjudande.
 
 #### <a name="help-link"></a>Länk till hjälp
 
-Ange webbadressen där kunderna kan läsa mer om ditt erbjudande.
+Ange webbadressen där kunderna kan läsa mer om ditt erbjudande. Din **hjälplänk** kan inte vara samma som din **support-URL** (beskrivs nedan).
 
-#### <a name="privacy-policy-url"></a>Url till sekretesspolicy
+#### <a name="privacy-policy-link"></a>Länk till sekretesspolicy
 
 Ange webbadressen till organisationens sekretesspolicy. Du är ansvarig för att din app följer sekretesslagar och sekretessregler och för att tillhandahålla en giltig sekretesspolicy.
 
-### <a name="contacts"></a>Contacts
+### <a name="contact-information"></a>Kontaktinformation
 
 I det här avsnittet måste du ange namn, e-post och telefonnummer för en **supportkontakt** och en **teknisk kontakt**. Den här informationen visas inte för kunder, men kommer att vara tillgänglig för Microsoft och kan tillhandahållas CSP-partner.
 
-I avsnittet **Supportkontakt** måste du också ange **support-URL:en** där CSP-partner kan hitta support för ditt erbjudande.
+I avsnittet **Supportkontakt** måste du också ange **support-URL:en** där CSP-partner kan hitta support för ditt erbjudande. Support-URL:en kan inte vara samma som **hjälplänken**.
 
 ### <a name="supporting-documents"></a>Verifikationer
 
@@ -193,15 +191,7 @@ Ange minst ett (och upp till tre) relaterade marknadsföringsdokument här, till
 
 ### <a name="marketplace-images"></a>Marketplace-bilder
 
-I det här avsnittet kan du ange logotyper och bilder som ska användas när du visar ditt erbjudande till kunden. Alla bilder måste vara i PNG-format.
-
-#### <a name="store-logos"></a>Lagra logotyper
-
-Ange erbjudandets logotyp i två storlekar: **Small (48 x 48)** och **Large (216 x 216)**.
-
-#### <a name="hero"></a>Hjälte
-
-Hjältebilden är valfri. Om du anger en, måste den mäta 815 x 290 pixlar.
+I det här avsnittet kan du ange logotyper och bilder som ska användas när du visar ditt erbjudande till kunden. Alla bilder måste vara i PNG-format. Ladda upp din erbjudandelogotyp i två storlekar: **Small (48 x 48)** och **Large (216 x 216)**.
 
 #### <a name="screenshots"></a>Skärmbilder
 
@@ -350,7 +340,11 @@ Kom ihåg att **spara** innan du går vidare till nästa avsnitt!
 
 ### <a name="test-drive-marketplace-listings"></a>Listor över marketplace-testkörningar
 
-Alternativet **Marketplace-listning** som finns på fliken **Testenhet** visar de språk på vilka provkörningen är tillgänglig. För närvarande **engelska (USA)** är den enda tillgängliga platsen. Välj språknamn för att ange information som beskriver provkörningsupplevelsen.
+Alternativet **Marketplace-listning** som finns under fliken **Testenhet** är där du definierar information för provkörningsupplevelsen.
+
+> [!NOTE]
+> Du kan bara ange provkörningsinformation på ett språk. Det behöver inte vara på engelska, så länge erbjudandebeskrivningen börjar med frasen "Denna ansökan är endast tillgänglig på [icke-engelska]." Det är också acceptabelt att ange en webbadress för *hjälplänkar* för att erbjuda innehåll på ett annat språk än det som används i provkörningslistans innehåll.
+
 
 - **Beskrivning** (obligatoriskt): Beskriv din provkörning, vad som visas, mål för användaren att experimentera med, funktioner att utforska och all relevant information som hjälper användaren att avgöra om du vill hämta ditt erbjudande. Upp till 3 000 tecken text kan anges i det här fältet. 
 

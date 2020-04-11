@@ -1,15 +1,15 @@
 ---
-title: Översikt över klassiska aviseringar i Microsoft Azure och Azure Monitor
+title: Översikt över klassiska aviseringar i Azure Monitor
 description: Klassiska aviseringar är inaktuella. Aviseringar kan du övervaka Azure-resursmått, händelser eller loggar och meddelas när ett villkor som du anger uppfylls.
 ms.topic: conceptual
 ms.date: 05/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 098efd3075c6b099bdfc925cb4f09163f83532a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e9c269db870f582c176783a4654b5de251e24412
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77668274"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114489"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Vad är klassiska aviseringar i Microsoft Azure?
 
@@ -28,20 +28,20 @@ Du kan bara visa klassiska aviseringar på användarskärmen för klassiska avis
  ![Varningsalternativ i Azure-portalen](media/alerts-classic.overview/monitor-alert-screen2.png)
 
 Den nya användarupplevelsen för aviseringar har följande fördelar jämfört med den klassiska aviseringarupplevelsen:
--   **Bättre meddelandesystem** - Alla nyare aviseringar använder åtgärdsgrupper, som heter grupper av meddelanden och åtgärder som kan återanvändas i flera aviseringar. Klassiska måttaviseringar och äldre Log Analytics-aviseringar använder inte åtgärdsgrupper.
--   **En enhetlig redigeringsupplevelse** – Alla aviseringar för mått, loggar och aktivitetslogg över Azure Monitor, Log Analytics och Application Insights finns på ett ställe.
--   **Visa aviseringar för sparkenlogganalys i Azure-portalen** – Nu kan du även se aviseringar om sparken i din prenumeration. Tidigare var dessa i en separat portal.
--   **Separation av avfyrade aviseringar och varningsregler** - Varningsregler (definitionen av villkor som utlöser en avisering) och avfyrade aviseringar (en instans av aviseringsregeln bränning) differentieras, så drift- och konfigurationsvyerna separeras.
--   **Bättre arbetsflöde** - De nya aviseringar som skapar erfarenhet vägleder användaren längs processen att konfigurera en varningsregel, vilket gör det enklare att upptäcka rätt saker att få aviseringar på.
--   **Konsolidering och** **inställning** av aviseringar för smarta aviseringar – Nyare aviseringar inkluderar automatisk grupperingsfunktion som visar liknande aviseringar tillsammans för att minska överbelastningen i användargränssnittet. 
+- **Bättre meddelandesystem** - Alla nyare aviseringar använder åtgärdsgrupper, som heter grupper av meddelanden och åtgärder som kan återanvändas i flera aviseringar. Klassiska måttaviseringar och äldre Log Analytics-aviseringar använder inte åtgärdsgrupper.
+- **En enhetlig redigeringsupplevelse** – Alla aviseringar för mått, loggar och aktivitetslogg över Azure Monitor, Log Analytics och Application Insights finns på ett ställe.
+- **Visa aviseringar för sparkenlogganalys i Azure-portalen** – Nu kan du även se aviseringar om sparken i din prenumeration. Tidigare var dessa i en separat portal.
+- **Separation av avfyrade aviseringar och varningsregler** - Varningsregler (definitionen av villkor som utlöser en avisering) och avfyrade aviseringar (en instans av aviseringsregeln bränning) differentieras, så drift- och konfigurationsvyerna separeras.
+- **Bättre arbetsflöde** - De nya aviseringar som skapar erfarenhet vägleder användaren längs processen att konfigurera en varningsregel, vilket gör det enklare att upptäcka rätt saker att få aviseringar på.
+- **Konsolidering och** **inställning** av aviseringar för smarta aviseringar – Nyare aviseringar inkluderar automatisk grupperingsfunktion som visar liknande aviseringar tillsammans för att minska överbelastningen i användargränssnittet. 
 
 De nyare måttaviseringarna har följande fördelar jämfört med de klassiska måttaviseringarna:
--   **Förbättrad svarstid:** Nyare måttaviseringar kan köras lika ofta som var en minut. Äldre måttaviseringar körs alltid med en frekvens på 5 minuter. Nyare aviseringar har ökat mindre fördröjning från utfärdande förekomst till anmälan eller åtgärd (3 till 5 minuter). Äldre varningar är 5 till 15 minuter beroende på typ.  Loggaviseringar har vanligtvis 10 till 15 minuters fördröjning på grund av den tid det tar att inta loggarna, men nyare bearbetningsmetoder minskar den tiden. 
--   **Stöd för flerdimensionella mått:** Du kan varna för dimensionella mått så att du kan övervaka ett intressant segment av måttet.
--   **Mer kontroll över metriska villkor**: Du kan definiera rikare varningsregler. De nyare aviseringarna stöder övervakning av de högsta, lägsta, genomsnittliga och totala värdena för mått.
--   **Kombinerad övervakning av flera mått**: Du kan övervaka flera mått (för närvarande upp till två mått) med en enda regel. En avisering utlöses om båda måtten bryter mot sina respektive tröskelvärden för den angivna tidsperioden.
--   **Bättre meddelandesystem:** Alla nyare aviseringar använder [åtgärdsgrupper](../../azure-monitor/platform/action-groups.md), som heter grupper av meddelanden och åtgärder som kan återanvändas i flera aviseringar.  Klassiska måttaviseringar och äldre Log Analytics-aviseringar använder inte åtgärdsgrupper. 
--   **Mått från loggar** (offentlig förhandsversion): Loggdata som går in i Log Analytics kan nu extraheras och konverteras till Azure Monitor-mått och sedan aviseras på precis som andra mått. Se [Aviseringar (klassisk)](alerts-classic.overview.md) för den terminologi som är specifik för klassiska aviseringar. 
+- **Förbättrad svarstid:** Nyare måttaviseringar kan köras lika ofta som var en minut. Äldre måttaviseringar körs alltid med en frekvens på 5 minuter. Nyare aviseringar har ökat mindre fördröjning från utfärdande förekomst till anmälan eller åtgärd (3 till 5 minuter). Äldre varningar är 5 till 15 minuter beroende på typ.  Loggaviseringar har vanligtvis 10 till 15 minuters fördröjning på grund av den tid det tar att inta loggarna, men nyare bearbetningsmetoder minskar den tiden. 
+- **Stöd för flerdimensionella mått:** Du kan varna för dimensionella mått så att du kan övervaka ett intressant segment av måttet.
+- **Mer kontroll över metriska villkor**: Du kan definiera rikare varningsregler. De nyare aviseringarna stöder övervakning av de högsta, lägsta, genomsnittliga och totala värdena för mått.
+- **Kombinerad övervakning av flera mått**: Du kan övervaka flera mått (för närvarande upp till två mått) med en enda regel. En avisering utlöses om båda måtten bryter mot sina respektive tröskelvärden för den angivna tidsperioden.
+- **Bättre meddelandesystem:** Alla nyare aviseringar använder [åtgärdsgrupper](../../azure-monitor/platform/action-groups.md), som heter grupper av meddelanden och åtgärder som kan återanvändas i flera aviseringar.  Klassiska måttaviseringar och äldre Log Analytics-aviseringar använder inte åtgärdsgrupper. 
+- **Mått från loggar** (offentlig förhandsversion): Loggdata som går in i Log Analytics kan nu extraheras och konverteras till Azure Monitor-mått och sedan aviseras på precis som andra mått. Se [Aviseringar (klassisk)](alerts-classic.overview.md) för den terminologi som är specifik för klassiska aviseringar. 
 
 
 ## <a name="classic-alerts-on-azure-monitor-data"></a>Klassiska aviseringar på Azure Monitor-data

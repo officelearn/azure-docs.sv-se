@@ -17,12 +17,12 @@ ms.date: 11/04/2019
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6e0c697f9ab9796feade9b4d5c2a64794f3980b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 30cc8be6ad9ebffcad58c5b2412ae15ff3f26fa5
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73612802"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113316"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Etablera rapporter i Azure Active Directory-portalen (förhandsversion)
 
@@ -90,38 +90,19 @@ Välj ett objekt i listvyn om du vill ha mer detaljerad information.
 
 ## <a name="filter-provisioning-activities"></a>Filtrera etableringsaktiviteter
 
-Om du vill begränsa de rapporterade data till en nivå som fungerar för dig kan du filtrera etableringsdata med hjälp av följande standardfält. Observera att värdena i filtren är dynamiskt ifyllda baserat på din klient. Om du till exempel inte har några skapa händelser i din klientorganisation finns det inget filteralternativ för att skapa.
+Du kan filtrera etableringsdata. Vissa filtervärden fylls dynamiskt baserat på din klient. Om du till exempel inte har några skapa händelser i din klientorganisation finns det inget filteralternativ för att skapa.
+I standardvyn kan du välja följande filter:
 
 - Identitet
-- Åtgärd
-- Källsystem
-- Målsystem
+- Date
 - Status
-- Datum
+- Åtgärd
 
 
-![Filter](./media/concept-provisioning-logs/filter.png "Filter")
+![Filter](./media/concept-provisioning-logs/default-filter.png "Filter")
 
 Med **filtret Identitet** kan du ange namnet eller identiteten som du bryr dig om. Den här identiteten kan vara en användare, grupp, roll eller ett annat objekt. Du kan söka efter objektets namn eller ID. ID varierar beroende på scenario. När ett objekt etableras från Azure AD till SalesForce är till exempel käll-ID för användaren i Azure AD medan TargetID är ID för användaren i Salesforce. Vid etablering från arbetsdag till Active Directory är käll-ID arbetstagar-ID: n arbetsdagsanställd. Observera att användarens namn kanske inte alltid finns i kolumnen Identitet. Det kommer alltid att finnas ett ID. 
 
-Med **källsystemet** kan du ange var identiteten ska etableras från. Till exempel när du etablerar ett objekt från Azure AD till ServiceNow, är source-systemet Azure AD. 
-
-Med filtret **Målsystem** kan du ange var identiteten ska etableras. När du till exempel etablerar ett objekt från Azure AD till ServiceNow är målsystemet ServiceNow. 
-
-Med **filtret Status** kan du välja:
-
-- Alla
-- Lyckades
-- Fel
-- Överhoppad
-
-Med **Action** åtgärdsfiltret kan du filtrera:
-
-- Skapa 
-- Uppdatering
-- Ta bort
-- Inaktivera
-- Annat
 
 Med filtret **Datum** kan du definiera en tidsram för de data som returneras.  
 Möjliga värden:
@@ -135,7 +116,35 @@ Möjliga värden:
 När du väljer en anpassad tidsram kan du konfigurera ett startdatum och ett slutdatum.
 
 
-Förutom standardfälten kan du även inkludera följande fält i filtret när du är markerad:
+Med **filtret Status** kan du välja:
+
+- Alla
+- Lyckades
+- Fel
+- Överhoppad
+
+
+
+Med **Action** åtgärdsfiltret kan du filtrera:
+
+- Skapa 
+- Uppdatera
+- Ta bort
+- Inaktivera
+- Annat
+
+Dessutom kan du också ange följande filter för filtren i standardvyn:
+
+- Jobb-ID
+- Cykel-ID
+- Ändra ID
+- Käll-ID
+- Mål-ID
+- Program
+
+
+![Välj ett fält](./media/concept-provisioning-logs/add-filter.png "Välj ett fält")
+
 
 - **Jobb-ID** - Ett unikt jobb-ID är associerat med varje program som du har aktiverat etablering för.   
 
@@ -144,8 +153,13 @@ Förutom standardfälten kan du även inkludera följande fält i filtret när d
 - **Ändrings-ID** - Unik identifierare för etableringshändelsen. Du kan dela det här ID:t som stöd för att slå upp etableringshändelsen.   
 
 
+- **Källsystem** - Gör att du kan ange var identiteten etableras från. Till exempel när du etablerar ett objekt från Azure AD till ServiceNow, är source-systemet Azure AD. 
 
-  
+- **Målsystem** - Gör att du kan ange var identiteten etableras. När du till exempel etablerar ett objekt från Azure AD till ServiceNow är målsystemet ServiceNow. 
+
+- **Program** - Gör att du bara kan visa poster av program med ett visningsnamn som innehåller en viss sträng.
+
+ 
 
 ## <a name="provisioning-details"></a>Information om etablering 
 

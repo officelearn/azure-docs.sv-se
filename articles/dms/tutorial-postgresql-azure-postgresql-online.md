@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 02/17/2020
-ms.openlocfilehash: 44df35957dfbd3aa4856d256dc1a7d9e6527fde0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/11/2020
+ms.openlocfilehash: e8f79512e132ff4632c067b23ad6e80a76b8d4cf
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240678"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113889"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Självstudiekurs: Migrera PostgreSQL till Azure DB för PostgreSQL online med DMS via Azure CLI
 
@@ -44,7 +44,7 @@ För att slutföra den här kursen behöver du:
 
 * Ladda ned och installera [PostgreSQL Community Edition](https://www.postgresql.org/download/) 9.5, 9.6 eller 10. PostgreSQL-källserverversionen måste vara 9.5.11, 9.6.7, 10 eller senare. Mer information finns i artikeln [Versioner av PostgreSQL Database som stöds](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
 
-    Dessutom måste den lokala PostgreSQL-version matcha Azure Database for PostgreSQL-versionen. Exempelvis kan PostgreSQL 9.5.11.5 endast migreras till Azure Database for PostgreSQL 9.5.11 och inte till version 9.6.7.
+    Observera också att mål azure-databasen för PostgreSQL-versionen måste vara lika med eller senare än den lokala PostgreSQL-versionen. PostgreSQL 9.6 kan till exempel bara migrera till Azure Database för PostgreSQL 9.6, 10 eller 11, men inte till Azure Database för PostgreSQL 9.5.
 
 * [Skapa en instans i Azure Database för PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) eller [Skapa en Azure-databas för Citus-server (Hyperscale).](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal)
 * Skapa en Microsoft Azure Virtual Network for Azure Database Migration Service med hjälp av distributionsmodellen för Azure Resource Manager, som tillhandahåller anslutning från plats till plats till dina lokala källservrar med hjälp av [Antingen ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Mer information om hur du skapar ett virtuellt nätverk finns i [dokumentationen](https://docs.microsoft.com/azure/virtual-network/)till det virtuella nätverket och särskilt snabbstartsartiklarna med steg-för-steg-information.

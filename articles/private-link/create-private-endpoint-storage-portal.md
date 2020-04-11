@@ -7,20 +7,17 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 8c76333d5a2be8a2c589dbe54389b023fef34854
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 111e6e2f80c3460f363c496b7b32befdca16250d
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252536"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115115"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Ansluta privat till ett lagringskonto med hjälp av privat Azure-slutpunkt
 Azure Private Endpoint är den grundläggande byggstenen för Privat länk i Azure. Det gör det möjligt för Azure-resurser, som virtuella datorer ( VMs), att kommunicera privat med Private Link-resurser.
 
 I den här snabbstarten får du lära dig hur du skapar en virtuell dator i ett virtuellt Azure-nätverk, ett lagringskonto med en privat slutpunkt med Azure-portalen. Sedan kan du komma åt lagringskontot från den virtuella datorn på ett säkert sätt.
-
-> [!NOTE]
-> Privata slutpunkter är inte tillåtna tillsammans med tjänstslutpunkter i samma undernät!
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 

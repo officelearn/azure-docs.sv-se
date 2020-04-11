@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: 2a00405a2100c3e565ca4f8ea4149540a5199b43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab17137f162b893b54942d870b07a36f87d1b71d
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651414"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115074"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ansluta till lokala filsystem med Azure Logic Apps
 
@@ -69,7 +69,7 @@ Den här artikeln visar hur du kan ansluta till ett lokalt filsystem enligt besk
    | -------- | -------- | ----- | ----------- |
    | **Anslutningsnamn** | Ja | <*anslutningsnamn*> | Namnet du vill använda för anslutningen |
    | **Rotmappen** | Ja | <*rotmapp-namn*> | Rotmappen för filsystemet, till exempel om du har installerat den lokala datagatewayen, till exempel en lokal mapp på datorn där den lokala datagatewayen är installerad, eller mappen för en nätverksresurs som datorn kan komma åt. <p>Exempel: `\\PublicShare\\DropboxFiles` <p>Rotmappen är den överordnade huvudmappen, som används för relativa sökvägar för alla filrelaterade åtgärder. |
-   | **Typ av autentisering** | Inga | <*auth-typ*> | Den typ av autentisering som filsystemet använder, till exempel **Windows** |
+   | **Typ av autentisering** | Inga | <*auth-typ*> | Den typ av autentisering som filsystemet använder: **Windows** |
    | **Användarnamn** | Ja | <*domain*>domän<*username* \\användarnamn> | Användarnamnet för datorn där du har ditt filsystem |
    | **Lösenord** | Ja | <*ditt lösenord*> | Lösenordet för datorn där du har ditt filsystem |
    | **Gateway** | Ja | <*installerat gateway-namn*> | Namnet på den tidigare installerade gatewayen |

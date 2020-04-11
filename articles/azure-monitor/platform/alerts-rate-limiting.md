@@ -1,17 +1,17 @@
 ---
-title: Hastighetsbegränsning för SMS, e-post, Azure App push-meddelanden och webhooks
+title: Hastighetsbegränsning för SMS, e-post, push-meddelanden
 description: Förstå hur Azure begränsar antalet möjliga SMS-, e-post-, Azure App-push- eller webhook-meddelanden från en åtgärdsgrupp.
 author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
 ms.date: 3/12/2018
 ms.subservice: alerts
-ms.openlocfilehash: 066fcac24571c8e982784a3845a010525ff9088a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61e6cc22171815b15b865dd6ed5670bd9c446ead
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77665535"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114331"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Hastighetsbegränsning för röst-, SMS-meddelanden, e-postmeddelanden, Azure App push-meddelanden och webhook-inlägg
 Hastighetsbegränsning är en avstängning av meddelanden som inträffar när för många skickas till ett visst telefonnummer, e-postadress eller enhet. Hastighetsbegränsning säkerställer att aviseringar är hanterbara och genomförbara.

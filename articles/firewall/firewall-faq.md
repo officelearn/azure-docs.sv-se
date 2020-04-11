@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 04/10/2020
 ms.author: victorh
-ms.openlocfilehash: 5ddbb58837fbda0f14a07186d5a3053055954454
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: af66da115e228efe39e4cd5dda3c494b71428676
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677439"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113563"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor och svar om Azure-brandväggen
 
@@ -172,17 +172,11 @@ Nej. Azure-brandväggen behöver inte ett undernät som är större än /26.
 
 ## <a name="how-can-i-increase-my-firewall-throughput"></a>Hur kan jag öka mitt brandväggsdataflöde?
 
-Azure Firewall ursprungliga dataflödeskapacitet är 2,5 - 3 Gbit/s och skalas ut till 30 Gbit/s. Den skalas ut baserat på CPU-användning och dataflöde. Kontakta supporten för att öka brandväggens dataflödeskapacitet.
+Azure Firewall ursprungliga dataflödeskapacitet är 2,5 - 3 Gbit/s och skalas ut till 30 Gbit/s. Den skalas ut automatiskt baserat på CPU-användning och dataflöde.
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Hur lång tid tar det för Azure-brandväggen att skala ut?
 
-Det tar från fem till sju minuter för Azure Firewall att skala ut. Kontakta supporten för att öka brandväggens initiala dataflödeskapacitet om du har skurar som kräver en snabbare automatisk skalning.
-
-Följande punkter bör beaktas när du testar brandväggen automatisk skalning:
-
-- Prestanda för ett enda TCP-flöde är begränsat till 1,4 Gbit/s. Därför måste ett prestandatest upprätta flera TCP-flöden.
-- Prestandaverktyg måste kontinuerligt upprätta nya anslutningar för att de ska kunna ansluta till de uppskalade serverda brandväggsinstanserna. Om testet upprättar anslutningar en gång i början, kommer de bara att ansluta till de första serverdinstanserna. Även om brandväggen skalas upp ser du ingen ökad prestanda eftersom anslutningarna är associerade med de första instanserna.
-
+Azure-brandväggen skalas gradvis när genomsnittlig dataflöde eller CPU-förbrukning är på 60%. Skala ut tar fem till sju minuter. När prestandatestning ska du se till att du testar i minst 10 till 15 minuter och initierar nya anslutningar för att dra nytta av nyskapade brandväggsnoder.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Tillåter Azure-brandväggen åtkomst till Active Directory som standard?
 

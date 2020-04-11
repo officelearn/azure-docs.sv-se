@@ -1,5 +1,5 @@
 ---
-title: Regler för dynamiskt gruppmedlemskap - Azure AD | Microsoft-dokument
+title: Regler för dynamiskt fyllnadsmedlemskap - Azure AD | Microsoft-dokument
 description: Så här skapar du medlemskapsregler för att automatiskt fylla i grupper och en regelreferens.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da983f87977de922ec547c3ade2972dfb4d69363
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6f8237ac13744e56baa8551f8cced12b2785a48
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79253083"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114728"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Dynamiska medlemskapsregler för grupper i Azure Active Directory
 
@@ -78,8 +78,8 @@ Ordningen på delarna i ett uttryck är viktiga för att undvika syntaxfel.
 
 Det finns tre typer av egenskaper som kan användas för att skapa en medlemskapsregel.
 
-- Boolean
-- String
+- Boolesk
+- Sträng
 - Strängsamling
 
 Följande är de användaregenskaper som du kan använda för att skapa ett enda uttryck.
@@ -326,7 +326,7 @@ user.objectId -ne null
 Om du vill att gruppen ska utesluta gästanvändare och endast inkludera medlemmar i din klientorganisation kan du använda följande syntax:
 
 ```
-(user.objectId -ne null) -and (user.userType -eq “Member”)
+(user.objectId -ne null) -and (user.userType -eq "Member")
 ```
 
 ### <a name="create-an-all-devices-rule"></a>Skapa en regel "Alla enheter"

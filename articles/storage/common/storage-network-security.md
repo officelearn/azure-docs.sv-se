@@ -9,12 +9,12 @@ ms.date: 01/21/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 77ad8579f31ce900a67e2ba3ddc53a5b034b6d42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7120ba2cf71c9af5373b830d04d0b67952922887
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79454677"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113510"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage-brandväggar och virtuella nätverk
 
@@ -252,7 +252,7 @@ IP-nätverksregler är endast tillåtna för **offentliga IP-adresser på Intern
    > IP-nätverksregler har ingen effekt på begäranden som kommer från samma Azure-region som lagringskontot. Använd [virtuella nätverksregler](#grant-access-from-a-virtual-network) för att tillåta begäranden i samma region.
 
   > [!NOTE]
-  > Tjänster som distribueras i samma region som lagringskontot använder privata Azure IP-adresser för kommunikation. Därför kan du inte begränsa åtkomsten till specifika Azure-tjänster baserat på deras offentliga inkommande IP-adressintervall.
+  > Tjänster som distribueras i samma region som lagringskontot använder privata Azure IP-adresser för kommunikation. Därför kan du inte begränsa åtkomsten till specifika Azure-tjänster baserat på deras offentliga utgående IP-adressintervall.
 
 Endast IPV4-adresser stöds för konfiguration av lagringsbrandväggsregler.
 

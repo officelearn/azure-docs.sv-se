@@ -8,12 +8,12 @@ ms.date: 4/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: dd24631f8e6b4f3f87438bf22654016dd7699950
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 6bc74e82dd04e5845e95bdec5c841d0264dd1d3e
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618308"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115084"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Förbered att distribuera din IoT Edge-lösning i produktion
 
@@ -134,25 +134,28 @@ När du flyttar från testscenarier till produktionsscenarier, kom ihåg att ta 
   * Hantera åtkomst till behållarregistret
   * Använda taggar för att hantera versioner
 
-### <a name="manage-access-to-your-container-registry-with-a-service-principal"></a>Hantera åtkomst till behållarregistret med ett huvudnamn för tjänsten
+### <a name="manage-access-to-your-container-registry"></a>Hantera åtkomst till behållarregistret
 
 Innan du distribuerar moduler för att skapa IoT Edge-enheter ska du kontrollera åtkomsten till behållarregistret så att utomstående inte kan komma åt eller göra ändringar i behållaravbildningarna. Använd ett privat, inte offentligt, behållarregister för att hantera behållaravbildningar.
 
-I självstudierna och annan dokumentation instruerar vi dig att använda samma autentiseringsuppgifter för behållarregister på din IoT Edge-enhet som du använder på din utvecklingsmaskin. Dessa instruktioner är endast avsedda att hjälpa dig att ställa in test- och utvecklingsmiljöer lättare och bör inte följas i ett produktionsscenario. Azure Container Registry rekommenderar [autentisering med tjänsthuvudnamn](../container-registry/container-registry-auth-service-principal.md) när program eller tjänster hämtar behållaravbildningar på ett automatiserat eller på annat sätt obevakat sätt (huvudlös), som IoT Edge-enheter gör.
+I självstudierna och annan dokumentation instruerar vi dig att använda samma autentiseringsuppgifter för behållarregister på din IoT Edge-enhet som du använder på din utvecklingsmaskin. Dessa instruktioner är endast avsedda att hjälpa dig att ställa in test- och utvecklingsmiljöer lättare och bör inte följas i ett produktionsscenario.
 
-Om du vill skapa ett huvudnamn för tjänsten kör du de två skripten som beskrivs i [skapa ett huvudnamn för tjänsten](../container-registry/container-registry-auth-aci.md#create-a-service-principal). Dessa skript utför följande uppgifter:
+Om du vill ha en säkrare åtkomst till registret kan du välja [autentiseringsalternativ](../container-registry/container-registry-authentication.md). En populär och rekommenderad autentisering är att använda ett huvudnamn för Active Directory-tjänsten som är väl lämpad för program eller tjänster för att hämta behållaravbildningar på ett automatiserat eller på annat sätt obevakat (huvudlöst) som IoT Edge-enheter gör.
+
+Om du vill skapa ett huvudnamn för tjänsten kör du de två skripten som beskrivs i [skapa ett huvudnamn för tjänsten](../container-registry/container-registry-auth-service-principal.md#create-a-service-principal). Dessa skript utför följande uppgifter:
 
 * Det första skriptet skapar tjänstens huvudnamn. Den matar ut tjänstens huvud-ID och tjänstens huvudlösenord. Lagra dessa värden säkert i dina poster.
 
-* Det andra skriptet skapar rolltilldelningar som ska beviljas tjänstens huvudnamn, som kan köras därefter om det behövs. Vi rekommenderar att du använder **användarrollen acrPull** för parametern. `role` En lista över roller finns i [Azure Container Registry roller och behörigheter](../container-registry/container-registry-roles.md)
+* Det andra skriptet skapar rolltilldelningar som ska beviljas tjänstens huvudnamn, som kan köras därefter om det behövs. Vi rekommenderar att du använder **användarrollen acrPull** för parametern. `role` En lista över roller finns i [Azure Container Registry roller och behörigheter](../container-registry/container-registry-roles.md).
 
-Om du vill autentisera med hjälp av ett tjänsthuvudnamn anger du tjänstens huvud-ID och lösenord som du fick från det första skriptet.
+Om du vill autentisera med hjälp av ett tjänsthuvudnamn anger du tjänstens huvud-ID och lösenord som du fick från det första skriptet. Ange dessa autentiseringsuppgifter i distributionsmanifestet.
 
 * För användarnamnet eller klient-ID:t anger du tjänstens huvud-ID.
 
 * För lösenordet eller klienthemligheten anger du tjänstens huvudlösenord.
 
-Ett exempel på att starta en behållarinstans med Azure CLI finns i [Autentisera med tjänstens huvudnamn](../container-registry/container-registry-auth-aci.md#authenticate-using-the-service-principal).
+> [!NOTE]
+> När du har implementerat en förbättrad säkerhetsautentisering inaktiverar **du administratörsanvändarinställningen** så att standardåtkomsten för användarnamn/lösenord inte längre är tillgänglig. Välj **Åtkomstnycklar**på menyn i den vänstra rutan under **Inställningar**i behållarregistret i Azure-portalen.
 
 ### <a name="use-tags-to-manage-versions"></a>Använda taggar för att hantera versioner
 

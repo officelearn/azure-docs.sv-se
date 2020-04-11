@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 23fa1a2a0b035d04334c51c02411de6de70f2cad
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2a30222902fd8797908202562a04018209842af2
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79453654"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115062"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Bedöma servrar med hjälp av importerade data
 
@@ -126,22 +126,8 @@ I följande tabell sammanfattas de filfält som ska fyllas i:
 **Nätverk i dataflöde** | Inga | Data som tas emot av servern, i MB per sekund.
 **Dataflöde för nätverk** | Inga | Data som överförs av servern, i MB per sekund.
 **Typ av inbyggd programvara** | Inga | Serverns inbyggda programvara. Värden kan vara "BIOS" eller "UEFI".
-**Servertyp** | Inga | Värden kan vara "fysiska" eller "virtuella".
-**Hypervisor** | Inga | Hypervisor som en maskin körs på. <br/> Värden kan vara "VMware", "Hyper-V", "Xen", "AWS", "GCP" eller "Övrigt".
-**Hypervisor versionsnummer** | Inga | Hypervisor version.
-**Id för virtuell dator** | Inga | VM-identifierare. Det här är **värdet InstanceUUid** för en VMware vCenter-virtuell dator eller **Hyper-V VM-ID** för Hyper-V.
-**Id för hanteraren för virtuell dator** | Inga | Det här är **värdet InstanceUUid** för VMWare vCenter. Det behövs inte för Hyper-V.
 **MAC-adress**| Inga | Server MAC-adress.
-**BIOS-ID** | Inga | BIOS-ID för server.
-**Anpassat server-ID** | Inga | Lokalt, unikt server-ID lokalt. <br/> Användbart för att spåra den importerade servern med lokalt ID.
-**Namn på tillämpning 1** | Inga | Namn på arbetsbelastning som körs på servern.<br/>Du kan lägga till information om fler appar genom [att lägga till kolumner](#add-multiple-applications) i mallen. Du kan lägga till upp till fem program.
-**Typ av program 1** | Inga | Typ av arbetsbelastning som körs på servern
-**Ansökan 1 version** | Inga | Version av arbetsbelastningen som körs på servern.
-**Ansökan 1 licens löper ut** | Inga | Licensen upphör att gälla (om tillämpligt).
-**Affärsenhet** | Inga | Affärsenhet som servern tillhör.
-**Företagare** | Inga | Ägare av affärsenhet.
-**Namn på affärsprogram** | Inga | Namn på det program som appen tillhör.
-**Location** | Inga | Datacenter där servern finns.
+
 
 ### <a name="add-operating-systems"></a>Lägg till operativsystem
 
@@ -159,19 +145,6 @@ Om du till exempel vill ange alla fält för en andra disk lägger du till följ
 - Disk 2 läsflöde
 - Skrivflöde för disk 2
 
-### <a name="add-multiple-applications"></a>Lägga till flera program
-
-Mallen innehåller fält för ett enskilt program. Du kan lägga till liknande kolumner för upp till fem appar.  
-
-Om du till exempel vill ange alla fält för en andra app lägger du till följande kolumner:
-
-- Namn på tillämpning 2
-- Typ av program 2
-- Version av program 2
-- Ansökan 2 licens löper ut
-
-> [!NOTE]
-> Appinformation är användbar när du utvärderar din lokala miljö för migrering. Azure Migrate Server Assessment utför dock för närvarande inte utvärdering på appnivå eller tar hänsyn till appar när du skapar en utvärdering.
 
 ## <a name="import-the-server-information"></a>Importera serverinformationen
 

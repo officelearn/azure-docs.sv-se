@@ -10,12 +10,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 3/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 39ff4f42457451dfa4aae90b281d6b163c56b4cd
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 7b839df5940ab26e5c1a99a1bda1fbd2545f8cc4
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80522243"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113125"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Guide till att kontrollera Windows avstängningsbeteende
 
@@ -58,7 +58,7 @@ Om du vill ange den inaktiva tidsgränsen för RDP-sessionen kan du ansluta till
 
 ```powershell
 # The MaxIdleTime is in milliseconds; by default, this script sets MaxIdleTime to 15 minutes.
-$maxIdleTime = 15 * 60 * 90
+$maxIdleTime = 15 * 60 * 1000
 
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" -Name "MaxIdleTime" -Value $maxIdleTime -Force
 ```
@@ -79,6 +79,9 @@ Du kan också välja att följa de här manuella stegen med hjälp av mallen VM:
     ![Gräns för inaktiv session](../media/how-to-windows-shutdown/edit-idle-time-limit.png)
 
 1. Slutligen, för att kombinera detta beteende med den **automatiska avstängningen vid frånkoppling** inställning, bör du följa stegen i how-to artikeln: [Aktivera automatisk avstängning av virtuella datorer på frånkoppling](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect).
+
+> [!WARNING]
+> När du har konfigurerat den här inställningen med hjälp av PowerShell för att ändra registerinställningen direkt eller manuellt med hjälp av redigeraren för grupprinciper måste du först starta om den virtuella datorn för att inställningarna ska börja gälla.  Om du konfigurerar inställningen med hjälp av registret uppdateras inte alltid redigeraren för grupprinciper för att återspegla ändringar i registerinställningen. Registerinställningen börjar dock fortfarande gälla som förväntat och rdp-sessionen kommer att kopplas från när den är inaktiv under den tid som du har angett.
 
 ## <a name="remove-windows-shutdown-command-from-start-menu"></a>Ta bort kommandot Windows-avstängning från Start-menyn
 

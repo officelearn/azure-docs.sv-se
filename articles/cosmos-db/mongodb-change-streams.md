@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: tisande
-ms.openlocfilehash: ecfa98241f74aac43a827b645a6ed877624d643d
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 38e262abefe5444c1fe7586810f4b971cc7baf6c
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437814"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114150"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Ändra strömmar i Azure Cosmos DB:s API för MongoDB
 
@@ -26,7 +26,8 @@ ms.locfileid: "80437814"
 Följande begränsningar gäller vid användning av ändringsströmmar:
 
 * Egenskaperna `operationType` `updateDescription` och stöds ännu inte i utdatadokumentet.
-* `insert`Typerna `update`, `replace` och åtgärder stöds för närvarande. Borttagning eller andra händelser stöds ännu inte.
+* `insert`Typerna `update`, `replace` och åtgärder stöds för närvarande. 
+* Borttagning eller andra händelser stöds ännu inte.
 
 På grund av dessa begränsningar krävs $match steg, $project och fullständigadokumentalternativ som visas i föregående exempel.
 

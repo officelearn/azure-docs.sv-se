@@ -1,17 +1,17 @@
 ---
-title: Förbered för klassisk migrering av klassiska aviseringar i Azure Monitor genom att uppdatera dina logikappar och runbooks
+title: Uppdatera logikappar & runbooks för migrering av aviseringar
 description: Lär dig hur du ändrar dina webbkrokar, logikappar och runbooks för att förbereda för frivillig migrering.
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 9219e105acb98424939030af76b526d475585619
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f31fcc07bed0287c2f86ca4fe52bf02a2a1d2a71
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77665600"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114415"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Förbered dina logikappar och runbooks för migrering av klassiska aviseringsregler
 
@@ -30,7 +30,7 @@ Följande tabell är en referens till programmatiska gränssnitt för både klas
 
 |         |Klassiska aviseringar  |Nya måttaviseringar |
 |---------|---------|---------|
-|REST API     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
+|REST-API     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
 |Azure CLI     | [az övervaka varning](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az övervaka mått varning](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
 |PowerShell      | [Referens](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Referens](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Azure Resource Manager-mall | [För klassiska varningar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[För nya måttaviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
@@ -43,7 +43,7 @@ Använd följande tabell för att mappa webhook nyttolastfält från det klassis
 
 |  |Klassiska aviseringar  |Nya måttaviseringar |
 |---------|---------|---------|
-|Aktiverades eller löstes aviseringen?    | **status**       | **data.status** |
+|Aktiverades eller löstes aviseringen?    | **Status**       | **data.status** |
 |Kontextuell information om aviseringen     | **Sammanhang**        | **data.kontext**        |
 |Tidsstämpel vid vilken varningen aktiverades eller löstes     | **context.timestamp**       | **data.context.timestamp**        |
 | ID för varningsregel | **context.id** | **data.context.id** |

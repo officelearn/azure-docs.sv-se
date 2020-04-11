@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/02/2020
-ms.openlocfilehash: faafc1e12f0703c38b4e602700b1e775bf13a061
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.date: 04/09/2020
+ms.openlocfilehash: db60a864ff29ff9eccdcfbdc0bd63587375d4bbd
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998339"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114966"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Partiell termsökning och mönster med specialtecken (jokertecken, regex, mönster)
 
-En *partiell termsökning* refererar till frågor som består av termfragment, till exempel de första, sista eller inre delarna av en sträng. Ett *mönster* kan en kombination av fragment, ibland med specialtecken som streck eller snedstreck som ingår i frågan. Vanliga användningsfall är att fråga efter delar av ett telefonnummer, URL, personer eller produktkoder eller sammansatta ord.
+En *partiell termsökning* refererar till frågor som består av termfragment, där du i stället för en hel term kanske bara har början, mitten eller slutet av termen (kallas ibland prefix- eller infix- eller suffixfrågor). Ett *mönster* kan vara en kombination av fragment, ofta med specialtecken som streck eller snedstreck som ingår i frågesträngen. Vanliga användningsfall är att fråga efter delar av ett telefonnummer, URL, personer eller produktkoder eller sammansatta ord.
 
-Partiell sökning kan vara problematiskt om indexet inte har termer i det format som krävs för mönstermatchning. Under textanalysfasen av indexeringen, med hjälp av standardstandardanalysatorn, ignoreras specialtecken, sammansatta och sammansatta strängar delas upp, vilket gör att mönsterfrågor misslyckas när ingen matchning hittas. Ett telefonnummer `+1 (425) 703-6214`som (tokeniserat som `"1"` `"425"`, `"703"` `"6214"`, ) visas till `"3-62"` exempel inte i en fråga eftersom innehållet inte finns i indexet. 
+Partiell sökning och mönstersökning kan vara problematiskt om indexet inte har termer i det förväntade formatet. Under den [lexikala analysfasen](search-lucene-query-architecture.md#stage-2-lexical-analysis) av indexering (förutsatt att standardstandardanalysatorn) ignoreras specialtecken, sammansatta och sammansatta strängar delas upp och blanktecken tas bort. alla som kan orsaka mönsterfrågor misslyckas när ingen matchning hittas. Ett telefonnummer `+1 (425) 703-6214` som (tokeniserat som `"1"` `"425"`, `"703"` `"6214"`, ) visas till `"3-62"` exempel inte i en fråga eftersom innehållet inte finns i indexet. 
 
 Lösningen är att anropa en analysator som bevarar en komplett sträng, inklusive blanksteg och specialtecken om det behövs, så att du kan matcha på partiella termer och mönster. Att skapa ytterligare ett fält för en intakt sträng, plus att använda en innehållsbevarande analysator, är grunden för lösningen.
 
@@ -27,21 +27,21 @@ Lösningen är att anropa en analysator som bevarar en komplett sträng, inklusi
 
 I Azure Cognitive Search är partiell sökning och mönster tillgängligt i följande formulär:
 
-+ [Prefixsökning](query-simple-syntax.md#prefix-search), `search=cap*`till exempel , matchning på "Cap'n Jack's Waterfront Inn" eller "Gacc Capital". Du kan använda helt enkelt frågesyntaxen för prefixsökning.
++ [Prefixsökning](query-simple-syntax.md#prefix-search), `search=cap*`till exempel , matchning på "Cap'n Jack's Waterfront Inn" eller "Gacc Capital". Du kan använda den enkla frågesyntaxen eller den fullständiga Lucene-frågesyntaxen för prefixsökning.
 
-+ [Jokerteckensökning](query-lucene-syntax.md#bkmk_wildcard) eller [Reguljära uttryck](query-lucene-syntax.md#bkmk_regex) som söker efter ett mönster eller delar av en inbäddad sträng, inklusive suffixet. Jokertecken och reguljära uttryck kräver den fullständiga Lucene-syntaxen. 
++ [Jokerteckensökning](query-lucene-syntax.md#bkmk_wildcard) eller [Reguljära uttryck](query-lucene-syntax.md#bkmk_regex) som söker efter ett mönster eller delar av en inbäddad sträng. Jokertecken och reguljära uttryck kräver den fullständiga Lucene-syntaxen. Suffix- och indexfrågor formuleras som ett reguljärt uttryck.
 
-  Några exempel på partiell termsökning är följande. För en suffixfråga, med tanke på termen "alfanumerisk", använder du en jokerteckensökning (`search=/.*numeric.*/`) för att hitta en matchning. För en delterm som innehåller tecken, till exempel ett URL-fragment, kan du behöva lägga till escape-tecken. I JSON, en `/` framåt snedstreck `\`flyr med en bakåt snedstreck . Som sådan `search=/.*microsoft.com\/azure\/.*/` är syntaxen för URL-fragmentet "microsoft.com/azure/".
+  Några exempel på partiell termsökning är följande. För en suffixfråga, med tanke på termen "alfanumerisk", använder du en jokerteckensökning (`search=/.*numeric.*/`) för att hitta en matchning. För en delterm som innehåller invändiga tecken, till exempel ett URL-fragment, kan du behöva lägga till escape-tecken. I JSON, en `/` framåt snedstreck `\`flyr med en bakåt snedstreck . Som sådan `search=/.*microsoft.com\/azure\/.*/` är syntaxen för URL-fragmentet "microsoft.com/azure/".
 
 Som nämnts kräver alla ovanstående att indexet innehåller strängar i ett format som bidrar till mönstermatchning, vilket standardanalysatorn inte tillhandahåller. Genom att följa stegen i den här artikeln kan du se till att det finns nödvändigt innehåll för att stödja dessa scenarier.
 
-## <a name="solving-partial-search-problems"></a>Lösa partiella sökproblem
+## <a name="solving-partialpattern-search-problems"></a>Lösa partiella/mönstersökproblem
 
-När du behöver söka på mönster eller specialtecken kan du åsidosätta standardanalysatorn med en anpassad analysator som fungerar under enklare tokeniseringsregler och behålla hela strängen. Med ett steg tillbaka ser tillvägagångssättet ut så här:
+När du behöver söka efter fragment eller mönster eller specialtecken kan du åsidosätta standardanalysatorn med en anpassad analysator som fungerar under enklare tokeniseringsregler och behålla hela strängen. Med ett steg tillbaka ser tillvägagångssättet ut så här:
 
 + Definiera ett fält för att lagra en intakt version av strängen (förutsatt att du vill ha analyserad och icke-analyserad text)
-+ Välj en fördefinierad analysator eller definiera en anpassad analysator för att mata ut en intakt sträng
-+ Tilldela analysatorn till fältet
++ Välj en fördefinierad analysator eller definiera en anpassad analysator för att mata ut en icke-analyserad intakt sträng
++ Tilldela den anpassade analysatorn till fältet
 + Skapa och testa indexet
 
 > [!TIP]
@@ -222,6 +222,10 @@ I föregående avsnitt förklarades logiken. Det här avsnittet går igenom varj
 + [Test Analyzer](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) introducerades i [Välj en analysator](#choose-an-analyzer). Testa några av strängarna i indexet med hjälp av en mängd olika analysatorer för att förstå hur termer tokeniseras.
 
 + [Sökdokument](https://docs.microsoft.com/rest/api/searchservice/search-documents) förklarar hur du skapar en frågebegäran med hjälp av [antingen enkel syntax](query-simple-syntax.md) eller fullständig [Lucene-syntax](query-lucene-syntax.md) för jokertecken och reguljära uttryck.
+
+  För partiella termfrågor, till exempel att fråga "3-6214" för att hitta en matchning på "+1 (425) 703-6214", kan du använda den enkla syntaxen: `search=3-6214&queryType=simple`.
+
+  För infix- och suffixfrågor, till exempel frågar "num" eller "numeriskt för att hitta en matchning på "alfanumerisk", använder du den fullständiga Lucene-syntaxen och ett reguljärt uttryck:`search=/.*num.*/&queryType=full`
 
 ## <a name="tips-and-best-practices"></a>Tips och regelverk
 

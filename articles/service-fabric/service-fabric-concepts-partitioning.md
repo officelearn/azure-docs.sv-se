@@ -3,12 +3,12 @@ title: Tjänster för partitionering av tjänst fabric
 description: Beskriver hur du partitionerar tillståndskänsliga tjänst för Service Fabric. Partitioner möjliggör datalagring på de lokala datorerna så att data och beräkning kan skalas tillsammans.
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: 1f3ee2196bad8b8a0c992ed498d40b4cf5820f2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4edfaa74fe109c688cad733d16031e87fff1e46f
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79258621"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115153"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partitionera tillförlitliga Service Fabric-tjänster
 Den här artikeln innehåller en introduktion till de grundläggande begreppen för partitionering av azure service fabric-tillförlitliga tjänster. Källkoden som används i artikeln finns också på [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -25,7 +25,7 @@ Det finns egentligen två typer av statslösa servicelösningar. Den första är
 
 I båda fallen är partitionering av en tillståndslös tjänst ett mycket sällsynt scenario – skalbarhet och tillgänglighet uppnås normalt genom att lägga till fler instanser. Den enda gången du vill överväga flera partitioner för tillståndslösa tjänstinstanser är när du behöver uppfylla särskilda routningsbegäranden.
 
-Som ett exempel bör du överväga ett fall där användare med ID:er i ett visst intervall endast ska betjänas av en viss tjänstinstans. Ett annat exempel på när du kan partitionera en tillståndslös tjänst är när du har en verkligt partitionerad servergrupp (t.ex. en fragmenterad SQL-databas) och du vill styra vilken tjänstinstans som ska skriva till databasen shard - eller utföra andra förberedelsearbete inom tillståndslös tjänst som kräver samma partitioneringsinformation som används i backend. Dessa typer av scenarier kan också lösas på olika sätt och behöver inte nödvändigtvis tjänstpartitionering.
+Som ett exempel bör du överväga ett fall där användare med ID:er i ett visst intervall endast ska betjänas av en viss tjänstinstans. Ett annat exempel på när du kan partitionera en tillståndslös tjänst är när du har en verkligt partitionerad servergrupp (t.ex. en fragmenterad SQL-databas) och du vill styra vilken tjänstinstans som ska skriva till databasen shard - eller utföra andra förberedelsearbete inom den tillståndslösa tjänsten som kräver samma partitioneringsinformation som används i serverda. Dessa typer av scenarier kan också lösas på olika sätt och behöver inte nödvändigtvis tjänstpartitionering.
 
 Resten av den här genomgången fokuserar på tillståndskänsliga tjänster.
 
@@ -348,9 +348,6 @@ Eftersom vi bokstavligen vill ha en partition per bokstav, kan vi använda 0 som
     ![Skärmdump av webbläsare](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
 Hela källkoden för exemplet är tillgänglig på [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
-
-## <a name="reliable-services-and-actor-forking-subprocesses"></a>Tillförlitliga tjänster och aktör forking underprocesser
-Service Fabric stöder inte tillförlitliga tjänster och därefter pålitliga aktörer forking underprocesser. Ett exempel på varför det inte stöds är [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) kan inte användas för att registrera en underprocess som inte stöds, och annulleringstoken skickas endast till registrerade processer. vilket resulterar i alla typer av problem, till exempel uppgraderingsfel, när underprocesser inte stängs efter att den överordnade processen har fått en annulleringstoken. 
 
 ## <a name="next-steps"></a>Nästa steg
 Information om service fabric-koncept finns i följande:

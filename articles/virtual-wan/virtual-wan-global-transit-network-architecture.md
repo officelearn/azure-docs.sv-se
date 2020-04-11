@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 17d0e678008c76da32f20562aa795e83e49c80e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9515058bc78a2d56dc1734c046dac5d5b04f68d9
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77064979"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113166"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Global transitnätverksarkitektur och Virtuellt WAN
 
@@ -47,7 +47,7 @@ I Azure Virtual WAN-arkitekturen etableras virtuella WAN-hubbar i Azure-regioner
 
 Du kan upprätta ett virtuellt WAN genom att skapa ett enda virtuellt WAN-nav i regionen som har det största antalet ekrar (grenar, virtuella nätverk, användare) och sedan ansluta ekrar som finns i andra regioner till navet. Detta är ett bra alternativ när ett företag fotavtryck är mestadels i en region med några avlägsna ekrar.  
   
-## <a name="hub-to-hub-connectivity"></a><a name="hubtohub"></a>Anslutning mellan nav och nav
+## <a name="hub-to-hub-connectivity-preview"></a><a name="hubtohub"></a>Hub-to-hub-anslutning (förhandsversion)
 
 Ett företagsmolnavtryck kan sträcka sig över flera molnområden och det är optimalt (latensmässigt) att komma åt molnet från en region som ligger närmast deras fysiska webbplats och användare. En av de viktigaste principerna för global transitnätverksarkitektur är att möjliggöra anslutning mellan regioner mellan alla moln och lokala nätverksslutpunkter. Det innebär att trafik från en gren som är ansluten till molnet i en region kan nå en annan gren eller ett virtuella nätverk i en annan region med hjälp av hub-to-hub-anslutning som aktiveras av [Azure Global Network](https://azure.microsoft.com/global-infrastructure/global-network/).
 

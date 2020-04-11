@@ -1,54 +1,50 @@
 ---
-title: Lägga till typeahead-frågor i ett index
+title: Skapa en förslagsställare
 titleSuffix: Azure Cognitive Search
 description: Aktivera frågeåtgärder för typ framåt i Azure Cognitive Search genom att skapa förslagsförespråkare och formulera begäranden som anropar automatiskt kompatibel eller efterföljande frågetermer.
 manager: nitinme
-author: Brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: a312068d5c8c574e7b069263cf37e3b855810e4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/10/2020
+ms.openlocfilehash: a6c4051a5b3d557f9ac2927a62492425e7636c0d
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72790108"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113471"
 ---
-# <a name="add-suggesters-to-an-index-for-typeahead-in-azure-cognitive-search"></a>Lägga till förslagsskrivare i ett index för typeahead i Azure Cognitive Search
+# <a name="create-a-suggester-to-enable-autocomplete-and-suggestions-in-azure-cognitive-search"></a>Skapa en förslagsman för att aktivera komplettera automatiskt och förslag i Azure Cognitive Search
 
-I Azure Cognitive Search baseras "sök-som-du-typ" eller typeahead-funktioner på en **förslagsförd** konstruktion som du lägger till i ett [sökindex](search-what-is-an-index.md). Det är en lista över ett eller flera fält som du vill ha typhuvud aktiverat för.
+I Azure Cognitive Search baseras "sök-som-du-typ" eller typeahead-funktioner på en **förslagsförd** konstruktion som du lägger till i ett [sökindex](search-what-is-an-index.md). En förslagsställare stöder två varianter av sök-som du-typ: *komplettera automatiskt*, som slutför termen eller frasen du skriver, och förslag som *returnerar* en kort lista med matchande dokument.  
 
-En förslagsställare stöder två typeahead-varianter: *komplettera automatiskt*, som kompletterar termen eller frasen du skriver, och förslag som *returnerar* en kort lista med matchande dokument.  
-
-Följande skärmbild, från appen [Skapa din första app i C#-exemplet,](tutorial-csharp-type-ahead-and-suggestions.md) illustrerar typeahead. Komplettera automatiskt förutser vad användaren kan skriva i sökrutan. Faktisk ingång är "tw", som komplettera automatiskt slutar med "i", lösa som "twin" som den potentiella söktermen. Förslag visualiseras i listrutan. Förslag på förslag kan du visa alla delar av ett dokument som bäst beskriver resultatet. I det här exemplet är förslagen hotellnamn. 
+Följande skärmbild, från exemplet [Skapa din första app i C#,](tutorial-csharp-type-ahead-and-suggestions.md) illustrerar båda upplevelserna. Komplettera automatiskt förutser vad användaren kan skriva, efterbehandling "tw" med "i" som den potentiella söktermen. Förslag är faktiska sökresultat, var och en som representerar ett matchande dokument. Förslag på förslag kan du visa alla delar av ett dokument som bäst beskriver resultatet. I det här exemplet representeras förslagen av fältet för hotellnamn.
 
 ![Visuell jämförelse av automatisk komplettering och föreslagna frågor](./media/index-add-suggesters/hotel-app-suggestions-autocomplete.png "Visuell jämförelse av automatisk komplettering och föreslagna frågor")
 
 För att implementera dessa beteenden i Azure Cognitive Search finns det en index- och frågekomponent. 
 
-+ Lägg till en förslagsman i ett index i indexet. Du kan använda portalen, [REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)eller [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Resten av den här artikeln är inriktad på att skapa en förslagsman. 
++ Lägg till en förslagsman i ett index i indexet. Du kan använda portalen, [REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)eller [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Resten av den här artikeln är inriktad på att skapa en förslagsman.
 
 + Anropa ett av de [API:er som anges nedan](#how-to-use-a-suggester)i frågebegäran.
 
 Stöd för söktyp är aktiverat per fält. Du kan implementera båda typeahead-beteenden i samma söklösning om du vill ha en upplevelse som liknar den som anges i skärmbilden. Båda begärandena riktar sig till *dokumentsamlingen* med specifikt index och svar returneras efter att en användare har angett minst en indatasträng med tre tecken.
 
+## <a name="what-is-a-suggester"></a>Vad är en förslagsman?
+
+En förslagsställare är en datastruktur som stöder sök-som-du-typ beteenden genom att lagra prefix för matchning på partiella frågor. I likhet med tokeniserade termer lagras prefix i inverterade index, ett för varje fält som anges i en förslagsfältssamling.
+
+När du skapar prefix har en förslagsställare en egen analyskedja, liknande den som används för fulltextsökning. Men till skillnad från analys i fulltextsökning kan en förslagsställare endast använda fördefinierade analysatorer (standard Lucene, [språkanalysatorer](index-add-language-analyzers.md)eller andra analysatorer i den [fördefinierade analysatorlistan](index-add-custom-analyzers.md#predefined-analyzers-reference). [Anpassade analysatorer](index-add-custom-analyzers.md) och konfigurationer är uttryckligen otillåtna för att undvika slumpmässiga konfigurationer som ger dåliga resultat.
+
+> [!NOTE]
+> Om du behöver kringgå analysatorbegränsningen använder du två separata fält för samma innehåll. Detta gör att ett av fälten kan ha en förslagsman, medan det andra kan ställas in med en anpassad analysatorkonfiguration.
+
 ## <a name="create-a-suggester"></a>Skapa en förslagsställare
 
 Även om en förslagsansvarig har flera egenskaper är det i första hand en samling fält som du aktiverar en typeahead-upplevelse för. En reseapp kanske till exempel vill aktivera typrubriksökning på destinationer, städer och attraktioner. Därför skulle alla tre fälten gå i fältsamlingen.
 
-Om du vill skapa en förslagsfören lägger du till ett i ett indexschema. Du kan ha en förslagsman i ett index (närmare bestämt en förslagsman i förslagssamlingen). 
+Om du vill skapa en förslagsfören lägger du till ett i ett indexschema. Du kan ha en förslagsman i ett index (närmare bestämt en förslagsman i förslagssamlingen).
 
 ### <a name="when-to-create-a-suggester"></a>När du ska skapa en förslagsman
 
@@ -78,7 +74,6 @@ Lägg till förslagsföreare i REST API via [Skapa index](https://docs.microsoft
     ]
   }
   ```
-
 
 ### <a name="create-using-the-net-sdk"></a>Skapa med hjälp av .NET SDK
 
@@ -110,13 +105,6 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 |`name`        |Namnet på förslagsen.|
 |`searchMode`  |Den strategi som används för att söka efter kandidatfraser. Det enda läge `analyzingInfixMatching`som för närvarande stöds är , som utför flexibel matchning av fraser i början eller i mitten av meningar.|
 |`sourceFields`|En lista över ett eller flera fält som är källan till innehållet för förslag. Fälten måste `Edm.String` vara `Collection(Edm.String)`av typen och . Om en analysator anges i fältet måste den vara en namngiven analysator från [den här listan](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) (inte en anpassad analysator).<p/>Det bästa är att ange endast de fält som lämpar sig för ett förväntat och lämpligt svar, oavsett om det är en slutförd sträng i ett sökfält eller en listruta.<p/>Ett hotellnamn är en bra kandidat eftersom det har precision. Utförliga fält som beskrivningar och kommentarer är för täta. På samma sätt är repetitiva fält, till exempel kategorier och taggar, mindre effektiva. I exemplen inkluderar vi "kategori" ändå för att visa att du kan inkludera flera fält. |
-
-### <a name="analyzer-restrictions-for-sourcefields-in-a-suggester"></a>Analysatorbegränsningar för sourceFields i en förslagskälla
-
-Azure Cognitive Search analyserar fältinnehållet för att aktivera frågor om enskilda termer. Förslagsställare kräver prefix som ska indexeras utöver fullständiga termer, vilket kräver ytterligare analys över källfälten. Anpassade analysatorkonfigurationer kan kombinera någon av de olika tokenizers och filter, ofta på ett sätt som skulle göra producera prefix som krävs för förslag omöjligt. Därför förhindrar Azure Cognitive Search att fält med anpassade analysatorer inkluderas i en förslagsskrivare.
-
-> [!NOTE] 
->  Om du behöver kringgå ovanstående begränsning använder du två separata fält för samma innehåll. Detta gör att ett av fälten kan ha en förslagsman, medan det andra kan ställas in med en anpassad analysatorkonfiguration.
 
 <a name="how-to-use-a-suggester"></a>
 

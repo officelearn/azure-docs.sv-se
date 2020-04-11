@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 554508b1bf784e306cd12a4a601f908e06320933
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a644e211cc933ca686f0bd6a13b0d2ba8ae20162
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71154980"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114100"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Vanliga problem som gör att roller återvinns
 I den här artikeln beskrivs några av de vanligaste orsakerna till distributionsproblem och felsökningstips som hjälper dig att lösa dessa problem. En indikation på att ett problem finns med ett program är när rollinstansen inte startar, eller om den växlar mellan initierings-, upptagen- och stopptillstånden.
@@ -58,7 +58,7 @@ Kontrollera följande `DiagnosticsConnectionString` för att säkerställa att d
   Om du utvecklar ditt program med hjälp av Azure Tools för Microsoft Visual Studio kan du använda egenskapssidorna för att ange det här värdet.
 
 ## <a name="exported-certificate-does-not-include-private-key"></a>Exporterat certifikat innehåller inte privat nyckel
-Om du vill köra en webbroll under SSL måste du se till att det exporterade hanteringscertifikatet innehåller den privata nyckeln. Om du använder *Windows-certifikathanteraren* för att exportera certifikatet måste du välja **Ja** för alternativet **Exportera den privata nyckeln.** Certifikatet måste exporteras i PFX-format, vilket är det enda format som för närvarande stöds.
+Om du vill köra en webbroll under TLS måste du se till att det exporterade hanteringscertifikatet innehåller den privata nyckeln. Om du använder *Windows-certifikathanteraren* för att exportera certifikatet måste du välja **Ja** för alternativet **Exportera den privata nyckeln.** Certifikatet måste exporteras i PFX-format, vilket är det enda format som för närvarande stöds.
 
 ## <a name="next-steps"></a>Nästa steg
 Visa fler [felsökningsartiklar](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) för molntjänster.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 8608aaab7bb8b6d10e67f27678c17f20a6c243da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ce7ef15f0bf13182e4799fb640e83136d0d4695
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370861"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115029"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services – administratörsguide
 IT-administratörer (Information Technology) som hanterar ett universitets molnresurser är vanligtvis ansvariga för att konfigurera labbkontot för sin skola. När ett labbkonto har konfigurerats skapar administratörer eller lärare klassrumslabb som finns i labbkontot. Den här artikeln innehåller en översikt på hög nivå över de azure-resurser som ingår och vägledningen för att skapa dem.
@@ -156,6 +156,9 @@ Platsen som ett klassrumslabb finns i varierar beroende på följande faktorer:
        
     När det inte finns **några** VNet-peered och [lab skapare tillåts att välja labbplats,](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location)de platser som kan väljas av labbet skapare är baserade på tillgänglig kapacitet.
 
+> [!NOTE]
+> För att säkerställa att det finns tillräcklig vm-kapacitet för en region är det viktigt att du först begär kapacitet via labbkontot eller när du skapar labbet.
+
 En allmän regel är att ange en resurs region till en som är närmast sina användare. För klassrumslabb innebär det att skapa klassrumslabbet närmast dina elever. För onlinekurser där studenter finns över hela världen måste du använda ditt bästa omdöme för att skapa ett klassrumslabb som är centralt beläget. Du kan också dela upp en klass i flera klassrumslabb baserat på elevernas region.
 
 ### <a name="shared-image-gallery"></a>Galleri för delad bild
@@ -169,7 +172,7 @@ När administratörer eller labbskapare skapar ett klassrumslabb kan de välja m
 | ---- | ----- | ------ | ------------- |
 | Liten| <ul><li>2 kärnor</li><li>3,5 GB RAM</li> | [Standard_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Den här storleken passar bäst för kommandoraden, öppna webbläsare, låg trafik webbservrar, små till medelstora databaser. |
 | Medel | <ul><li>4 Kärnor</li><li>7 GB RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Den här storleken passar bäst för relationsdatabaser, cachelagring i minnet och analyser. |
-| Medium (kapslad virtualisering) | <ul><li>4 Kärnor</li><li>16 GB RAM</li></ul> | [Standard_DC4s_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Den här storleken passar bäst för relationsdatabaser, cachelagring i minnet och analyser.  Den här storleken stöder också kapslad virtualisering. |
+| Medium (kapslad virtualisering) | <ul><li>4 Kärnor</li><li>16 GB RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Den här storleken passar bäst för relationsdatabaser, cachelagring i minnet och analyser.  Den här storleken stöder också kapslad virtualisering. |
 | Stor | <ul><li>8 kärnor</li><li>32 GB RAM</li></ul>  | [Standard_DC8_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Den här storleken passar bäst för program som behöver snabbare processorer, bättre lokal diskprestanda, stora databaser, stora minnescacheminnen.  Den här storleken stöder också kapslad virtualisering. |
 | Liten GPU (visualisering) | <ul><li>6 Kärnor</li><li>56 GB RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Den här storleken passar bäst för fjärrvisualisering, streaming, spel, kodning med ramverk som OpenGL och DirectX. |
 | Liten GPU (beräkning) | <ul><li>6 Kärnor</li><li>56 GB RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Den här storleken passar bäst för datorintensiva program som artificiell intelligens och djupinlärning. |

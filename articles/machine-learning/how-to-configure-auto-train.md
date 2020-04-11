@@ -1,5 +1,5 @@
 ---
-title: Skapa automatiserade ML-experiment
+title: Skapa automatiska ML-experiment
 titleSuffix: Azure Machine Learning
 description: Automatiserad maskininlärning väljer en algoritm åt dig och genererar en modell som är klar för distribution. Lär dig vilka alternativ du kan använda för att konfigurera automatiserade maskininlärningsexperiment.
 author: cartacioS
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 03e1d4aa74d2f71ab2f32ac55f4ad3d46f672f5c
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 18de50473e3dd6ca8ddda9575a247e00530032e8
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618545"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115419"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,24 +43,27 @@ Innan du påbörjar experimentet bör du bestämma vilken typ av maskininlärnin
 
 Automatiserad maskininlärning stöder följande algoritmer under automatiserings- och justeringsprocessen. Som användare behöver du inte ange algoritmen.
 
+> [!NOTE]
+> Om du planerar att exportera dina automatiska ML-skapade modeller till en [ONNX-modell](concept-onnx.md)kan endast de algoritmer som anges med ett * konverteras till ONNX-formatet. Läs mer om [hur du konverterar modeller till ONNX](concept-automated-ml.md#use-with-onnx). <br> <br> Observera också att ONNX endast stöder klassificerings- och regressionsaktiviteter just nu. 
+
 Klassificering | Regression | Prognostisering för tidsserier
 |-- |-- |--
-[Logistisk regression](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Elastiskt nät](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [Elastiskt nät](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
-[Ljus GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Ljus GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Ljus GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
-[Uppbackning av övertoning](https://scikit-learn.org/stable/modules/ensemble.html#classification)|[Uppbackning av övertoning](https://scikit-learn.org/stable/modules/ensemble.html#regression)|[Uppbackning av övertoning](https://scikit-learn.org/stable/modules/ensemble.html#regression)
-[Beslut Träd](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[Beslut Träd](https://scikit-learn.org/stable/modules/tree.html#regression)|[Beslut Träd](https://scikit-learn.org/stable/modules/tree.html#regression)
-[K Närmaste grannar](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K Närmaste grannar](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K Närmaste grannar](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
-[Linjär SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
-[Stöd vektorklassificering (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[Stokastisk lutningsnedstigning (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[Stokastisk lutningsnedstigning (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
-[Slumpmässig skog](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Slumpmässig skog](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Slumpmässig skog](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
-[Extremt randomiserade träd](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Extremt randomiserade träd](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Extremt randomiserade träd](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
-[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)|[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)| [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
-[DNN-klassificerare](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[DNN Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
-[KLASSIFICERARE FÖR DNN-linjära](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[Linjär regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[Linjär regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|[Snabb linjär regressor](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[Auto-ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
-[Stokastisk lutningsnedstigning (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|[Online Gradient Descent Regressor](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest)|[Profeten](https://facebook.github.io/prophet/docs/quick_start.html)
+[Logistisk regression](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)* | [Elastiskt nät](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)* | [Elastiskt nät](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
+[Ljus GBM](https://lightgbm.readthedocs.io/en/latest/index.html)* |[Ljus GBM](https://lightgbm.readthedocs.io/en/latest/index.html)*|[Ljus GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
+[Uppbackning av övertoning](https://scikit-learn.org/stable/modules/ensemble.html#classification)* |[Uppbackning av övertoning](https://scikit-learn.org/stable/modules/ensemble.html#regression)* |[Uppbackning av övertoning](https://scikit-learn.org/stable/modules/ensemble.html#regression)
+[Beslut Träd](https://scikit-learn.org/stable/modules/tree.html#decision-trees)* |[Beslut Träd](https://scikit-learn.org/stable/modules/tree.html#regression)* |[Beslut Träd](https://scikit-learn.org/stable/modules/tree.html#regression)
+[K Närmaste grannar](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* |[K Närmaste grannar](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* |[K Närmaste grannar](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
+[Linjär SVC](https://scikit-learn.org/stable/modules/svm.html#classification)* |[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)* |[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
+[Stöd vektorklassificering (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)* |[Stokastisk lutningsnedstigning (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)* |[Stokastisk lutningsnedstigning (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
+[Slumpmässig skog](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Slumpmässig skog](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Slumpmässig skog](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
+[Extremt randomiserade träd](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Extremt randomiserade träd](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Extremt randomiserade träd](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
+[Xgboost (mycket)](https://xgboost.readthedocs.io/en/latest/parameter.html)* |[Xgboost (mycket)](https://xgboost.readthedocs.io/en/latest/parameter.html)* | [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
+[DNN-klassificerare](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier) |[DNN Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
+[KLASSIFICERARE FÖR DNN-linjära](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[Linjär regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor) |[Linjär regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
+[Naiva Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[Snabb linjär regressor](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[Auto-ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[Stokastisk lutningsnedstigning (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* |[Online Gradient Descent Regressor](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest)|[Profeten](https://facebook.github.io/prophet/docs/quick_start.html)
 |[Genomsnittlig Perceptron klassificerare](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)||PrognosTCN
-|[Linjär SVM-klassificerare](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)||
+|[Linjär SVM-klassificerare](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)* ||
 
 Använd `task` parametern `AutoMLConfig` i konstruktorn för att ange experimenttypen.
 

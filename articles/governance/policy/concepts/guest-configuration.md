@@ -3,12 +3,12 @@ title: Lär dig att granska innehållet i virtuella datorer
 description: Lär dig hur Azure Policy använder agenten Gästkonfiguration för att granska inställningar i virtuella datorer.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9e8486af2a9b7ab9e18b8c16f08e51759d1123d7
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 4a2989badc099a199bf21f7e020ca8e6256ddaf0
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998842"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113418"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure-principens gästkonfiguration
 
@@ -26,32 +26,11 @@ Om du vill granska inställningarna i en dator aktiveras ett [tillägg för den 
 
 ### <a name="limits-set-on-the-extension"></a>Gränser för förlängningen
 
-För att begränsa tillägget från att påverka program som körs inuti datorn, är gästkonfigurationen inte tillåtet att överskrida mer än 5% av CPU-användningen. Den här begränsningen finns för både inbyggda och anpassade definitioner.
+För att begränsa tillägget från att påverka program som körs inuti datorn, är gästkonfigurationen inte tillåtet att överskrida mer än 5% av CPU. Den här begränsningen finns för både inbyggda och anpassade definitioner.
 
 ## <a name="register-guest-configuration-resource-provider"></a>Registrera resursleverantör för gästkonfiguration
 
-Innan du kan använda Gästkonfiguration måste du registrera resursleverantören. Du kan registrera dig via portalen eller via PowerShell. Resursleverantören registreras automatiskt om tilldelning av en princip för gästkonfiguration görs via portalen.
-
-### <a name="registration---portal"></a>Registrering - Portal
-
-Så här registrerar du resursleverantören för gästkonfiguration via Azure-portalen:
-
-1. Starta Azure-portalen och klicka på **Alla tjänster**. Sök efter och välj **Prenumerationer**.
-
-1. Sök och klicka på den prenumeration som du vill aktivera Gästkonfiguration för.
-
-1. Klicka på **Resursleverantörer**på menyn prenumerationsmeny. **Subscription**
-
-1. Filtrera efter eller rulla tills du hittar **Microsoft.GuestConfiguration**och klicka sedan på **Registrera** på samma rad.
-
-### <a name="registration---powershell"></a>Registrering - PowerShell
-
-Om du vill registrera resursleverantören för gästkonfiguration via PowerShell kör du följande kommando:
-
-```azurepowershell-interactive
-# Login first with Connect-AzAccount if not using Cloud Shell
-Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
-```
+Innan du kan använda Gästkonfiguration måste du registrera resursleverantören. Du kan registrera dig via [portalen,](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)eller [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli). Resursleverantören registreras automatiskt om tilldelning av en princip för gästkonfiguration görs via portalen.
 
 ## <a name="validation-tools"></a>Valideringsverktyg
 
@@ -89,7 +68,7 @@ Windows Server Nano Server stöds inte i någon version.
 
 ## <a name="guest-configuration-extension-network-requirements"></a>Nätverkskrav för gästkonfigurationstillägg
 
-För att kommunicera med resursleverantören gästkonfiguration i Azure kräver datorer utgående åtkomst till Azure-datacenter i port **443**. Om du använder ett privat virtuellt nätverk i Azure som inte tillåter utgående trafik konfigurerar du undantag med [regler för nätverkssäkerhetsgrupp.](../../../virtual-network/manage-network-security-group.md#create-a-security-rule)
+För att kommunicera med resursleverantören gästkonfiguration i Azure kräver datorer utgående åtkomst till Azure-datacenter i port **443**. Om ett nätverk i Azure inte tillåter utgående trafik konfigurerar du undantag med regler [för nätverkssäkerhetsgrupp.](../../../virtual-network/manage-network-security-group.md#create-a-security-rule)
 [Servicemärket](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" kan användas för att referera till tjänsten Gästkonfiguration.
 
 ## <a name="azure-managed-identity-requirements"></a>Azure-kraven för hanterad identitet
@@ -101,7 +80,7 @@ För att kommunicera med resursleverantören gästkonfiguration i Azure kräver 
 
 ## <a name="guest-configuration-definition-requirements"></a>Definitionskrav för gästkonfiguration
 
-Varje granskning som körs av gästkonfiguration kräver två principdefinitioner, en **DeployIfNotExists-definition** och en **AuditIfNotExists-definition.** **DeployIfNotExists-definitionen** används för att förbereda datorn med gästkonfigurationsagenten och andra komponenter för att stödja [valideringsverktygen](#validation-tools).
+Varje granskning som körs av gästkonfiguration kräver två principdefinitioner, en **DeployIfNotExists-definition** och en **AuditIfNotExists-definition.** 
 
 **Principdefinitionen DeployIfNotExists** validerar och korrigerar följande objekt:
 
@@ -112,24 +91,24 @@ Varje granskning som körs av gästkonfiguration kräver två principdefinitione
 
 Om **distributionomexistenstilldelningen** inte är kompatibel kan en [reparationsuppgift](../how-to/remediate-resources.md#create-a-remediation-task) användas.
 
-När **distributionomnotnotexisterna-tilldelningen** är kompatibel använder **AuditIfNotExists** principtilldelning de lokala valideringsverktygen för att avgöra om konfigurationstilldelningen är kompatibel eller icke-kompatibel. Valideringsverktyget ger resultaten till gästkonfigurationsklienten. Klienten vidarebefordrar resultatet till gästtillägget, vilket gör dem tillgängliga via resursleverantören Gästkonfiguration.
+När **distributionomnotnotexisternas** tilldelning är kompatibel avgör **AuditIfNotExists-principtilldelningen** om gästtilldelningen är kompatibel eller icke-kompatibel. Valideringsverktyget ger resultaten till gästkonfigurationsklienten. Klienten vidarebefordrar resultatet till gästtillägget, vilket gör dem tillgängliga via resursleverantören Gästkonfiguration.
 
 Azure Policy använder egenskapen Compliance Status **för att** rapportera efterlevnad i noden **Efterlevnad.** Mer information finns i [hämta efterlevnadsdata](../how-to/get-compliance-data.md).
 
 > [!NOTE]
 > Principen **DeployIfNotExists** krävs för att **auditifnotexister-principen** ska returnera resultat. Utan **DeployIfNotExists**visar **auditifnotexisterna-principen** "0 av 0" resurser som status.
 
-Alla inbyggda principer för gästkonfiguration ingår i ett initiativ för att gruppera definitionerna för användning i tilldelningar. Det inbyggda initiativet _ \[\]Preview: Audit Password security settings inside Linux and Windows machines_ innehåller 18 principer. Det finns sex **DeployIfNotExists** och **AuditIfNotExists** par för Windows och tre par för Linux. [Principdefinitionslogiken](definition-structure.md#policy-rule) verifierar att endast måloperativsystemet utvärderas.
+Alla inbyggda principer för gästkonfiguration ingår i ett initiativ för att gruppera definitionerna för användning i tilldelningar. Det inbyggda initiativet _ \[\]Preview: Audit Password security inuti Linux- och Windows-datorer_ innehåller 18 principer. Det finns sex **DeployIfNotExists** och **AuditIfNotExists** par för Windows och tre par för Linux. [Principdefinitionslogiken](definition-structure.md#policy-rule) verifierar att endast måloperativsystemet utvärderas.
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Granska inställningar för operativsystemet efter branschens baslinjer
 
-Ett av de initiativ som är tillgängliga i Azure Policy ger möjlighet att granska operativsysteminställningar i virtuella datorer efter en "baslinje" från Microsoft. Definition, _ \[förhandsversion:\]Granska virtuella Windows-datorer som inte matchar Azure-säkerhetsbaslinjeinställningar_ innehåller en fullständig uppsättning granskningsregler baserat på inställningar från Active Directory-grupprincipen.
+Ett initiativ i Azure Policy ger möjlighet att granska operativsysteminställningar efter en "baslinje". Definition, _ \[förhandsversion:\]Granska virtuella windows-datorer som inte matchar Azure-säkerhetsbaslinjeinställningar_ innehåller en uppsättning regler som baseras på Active Directory-grupprincip.
 
-De flesta inställningarna är tillgängliga som parametrar. Med den här funktionen kan du anpassa vad som granskas för att anpassa principen till dina organisationskrav eller för att mappa principen till information från tredje part, till exempel branschregleringsstandarder.
+De flesta inställningarna är tillgängliga som parametrar. Med parametrar kan du anpassa det som granskas. Anpassa principen till dina krav eller mappa principen till information från tredje part, till exempel branschregleringsstandarder.
 
-Vissa parametrar stöder ett heltalsvärdeintervall. Parametern Maximum Password Age kan till exempel ställas in med hjälp av en intervalloperator för att ge flexibilitet till maskinägare. Du kan granska att den effektiva grupprincipinställningen som kräver att användarna ändrar sina lösenord inte bör vara mer än 70 dagar, men bör inte vara mindre än en dag. Som beskrivs i informationsbubblan för parametern anger du värdet till "1,70" för att göra den här affärsprincipen till det effektiva granskningsvärdet.
+Vissa parametrar stöder ett heltalsvärdeintervall. Inställningen Maximal lösenordsålder kan till exempel granska den effektiva grupprincipinställningen. En "1,70" intervall skulle bekräfta att användarna är skyldiga att ändra sina lösenord minst var 70 dagar, men inte mindre än en dag.
 
-Om du tilldelar principen med hjälp av en Distributionsmall för Azure Resource Manager kan du använda en parameterfil för att hantera dessa inställningar från källkontrollen. Använda ett verktyg som Git för att hantera ändringar i granskningsprinciper med kommentarer vid varje incheckningsdokument bevis på varför en tilldelning bör vara ett undantag från det förväntade värdet.
+Om du tilldelar principen med hjälp av en Distributionsmall för Azure Resource Manager använder du en parameterfil för att hantera undantag. Checka in filerna till ett versionskontrollsystem som Git. Kommentarer om filändringar ger bevis för varför en tilldelning är ett undantag från det förväntade värdet.
 
 #### <a name="applying-configurations-using-guest-configuration"></a>Använda konfigurationer med gästkonfiguration
 
@@ -162,7 +141,7 @@ Om det inte lyckas kan insamling av klientloggar hjälpa till att diagnostisera 
 
 #### <a name="windows"></a>Windows
 
-Om du vill använda azure VM Run Command-funktionen för att samla in information från loggfiler i Windows-datorer kan följande exempel PowerShell-skript vara till hjälp. Mer information finns [i Köra PowerShell-skript i windows VM med kommandot Kör](../../../virtual-machines/windows/run-command.md).
+Samla in information från loggfiler med hjälp av [Azure VM Run Command](../../../virtual-machines/windows/run-command.md), följande exempel PowerShell-skript kan vara till hjälp.
 
 ```powershell
 $linesToIncludeBeforeMatch = 0
@@ -173,7 +152,7 @@ Select-String -Path $logPath -pattern 'DSCEngine','DSCManagedEngine' -CaseSensit
 
 #### <a name="linux"></a>Linux
 
-Om du vill använda azure VM Run Command-funktionen för att samla in information från loggfiler i Linux-datorer kan följande exempel Bash-skript vara till hjälp. Mer information finns [i Kör skalskript i din Virtuella Linux-dator med Kommandot Kör](../../../virtual-machines/linux/run-command.md)
+Samla in information från loggfiler med hjälp av [Azure VM Run Command](../../../virtual-machines/linux/run-command.md), följande exempel Bash skript kan vara till hjälp.
 
 ```Bash
 linesToIncludeBeforeMatch=0
@@ -184,7 +163,7 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 
 ## <a name="guest-configuration-samples"></a>Exempel på gästkonfiguration
 
-Källa för de inbyggda initiativen för principgästenskonfiguration finns på följande platser:
+Inbyggda principexempel för gästkonfiguration finns på följande platser:
 
 - [Inbyggda principdefinitioner - Gästkonfiguration](../samples/built-in-policies.md#guest-configuration)
 - [Inbyggda initiativ - Gästkonfiguration](../samples/built-in-initiatives.md#guest-configuration)
@@ -192,6 +171,7 @@ Källa för de inbyggda initiativen för principgästenskonfiguration finns på 
 
 ## <a name="next-steps"></a>Nästa steg
 
+- Lär dig hur du visar information om varje inställning från [efterlevnadsvyn gästkonfiguration](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)
 - Granska exempel på [Azure Policy-exempel](../samples/index.md).
 - Granska [Azure Policy-definitionsstrukturen](definition-structure.md).
 - Granska [Förstå policy-effekter](effects.md).

@@ -5,12 +5,12 @@ author: harahma
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: 69c7edb08693937aad5a658e0b22b00cd2a81647
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82bc5068be651b05eb24efa3b05e46c1e7c1e24d
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79282398"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115041"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Värdmodell för Azure Service Fabric
 Den här artikeln innehåller en översikt över programvärdmodeller som tillhandahålls av Azure Service Fabric och beskriver skillnaderna mellan modeller **för delad process** och exklusiv **process.** Den beskriver hur ett distribuerat program ser ut på en Service Fabric-nod och relationen mellan repliker (eller instanser) för tjänsten och tjänstvärdprocessen.
@@ -168,6 +168,10 @@ I aktiveringen av "MultiTypeServicePackage" för repliken av partition **P1** av
 
 
 I föregående exempel kanske du tror att om "MyCodePackageA" registrerar både "MyServiceTypeA" och "MyServiceTypeB", och det inte finns någon "MyCodePackageB", så finns det inget redundant *CodePackage* som körs. Även om detta är korrekt, stämmer inte den här programmodellen överens med den exklusiva processvärdmodellen. Om målet är att placera varje replik i sin egen dedikerade process behöver du inte registrera båda *ServiceTypes* från samma *CodePackage*. Istället lägger du helt enkelt varje *ServiceType* i sitt eget *ServicePackage*.
+
+### <a name="reliable-services-and-actor-forking-subprocesses"></a>Tillförlitliga tjänster och aktör forking underprocesser
+
+Service Fabric stöder inte tillförlitliga tjänster och därefter pålitliga aktörer forking underprocesser. Ett exempel på varför det inte stöds är [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) kan inte användas för att registrera en underprocess som inte stöds, och annulleringstoken skickas endast till registrerade processer. vilket resulterar i alla typer av problem, till exempel uppgraderingsfel, när underprocesser inte stängs efter att den överordnade processen har fått en annulleringstoken.
 
 ## <a name="next-steps"></a>Nästa steg
 [Paketera ett program][a4] och gör det klart att distribuera.

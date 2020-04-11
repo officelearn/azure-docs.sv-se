@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: b8f55b0693b7ffdf10516cfb19b67ccc5a94dc5a
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: d10b6c52310da3d799a7fe78c83284960318f82e
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742904"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115252"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är Azure Private Endpoint?
 
@@ -113,7 +113,7 @@ Du kan använda följande alternativ för att konfigurera DNS-inställningarna f
 > [!IMPORTANT]
 > Det rekommenderas inte att åsidosätta en zon som används aktivt för att lösa offentliga slutpunkter. Anslutningar till resurser kan inte matchas korrekt utan att DNS vidarebefordras till den offentliga DNS:en. För att undvika problem, skapa ett annat domännamn eller följ det föreslagna namnet för varje tjänst nedan. 
  
-För Azure-tjänster använder du de rekommenderade zonnamnen enligt beskrivningen i följande tabell:
+För Azure-tjänster använder du zonnamnen enligt beskrivningen i följande tabell:
 
 |Resurstyp för privat länk   |Subresource (Delkälla)  |Zonnamn  |
 |---------|---------|---------|

@@ -5,19 +5,19 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 74522502f5405b56a3a604f20a695de83ef3c3a5
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: a40c64910260a2d63a529d25e1089fb618fcec1b
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886491"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113498"
 ---
 # <a name="troubleshoot"></a>Felsöka
 
 Den här artikeln innehåller lösningar på vanliga Azure FarmBeats-problem. För ytterligare hjälp, kontakta vårt [supportforum](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) eller maila oss på farmbeatssupport@microsoft.com.
 
 > [!NOTE]
-  > Om du har installerat FarmBeats under april och dina jobb misslyckas med ett tomt felmeddelande kanske installationen inte har tilldelats någon batchkvot på grund av att alla resurser riktas mot nödsituationer, hälso- och sjukvård och andra kritiska behov. Du måste begära att virtuella datorer ska tilldelas batchkontot.
+  > Om du har installerat FarmBeats under april och dina jobb misslyckas med ett tomt felmeddelande kanske installationen inte har tilldelats någon batchkvot för att prioritera stöd för kritiska arbetsmiljöorganisationer. Se [här](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) för mer information. Du måste begära virtuella datorer som ska allokeras till batch-kontot för att köra jobb.
 
 ## <a name="install-issues"></a>Installera problem
 
@@ -45,7 +45,9 @@ Kontakta oss med följande information:
 - Följ stegen nedan för att bifoga loggfilen för distributionsfel:
 
     1. Navigera till **resursgruppen** i Azure-portalen.
+
     2. Välj **Distributioner** under **avsnittet Inställningar** till vänster.
+
     3. För varje distribution som visar **Misslyckades**väljer du informationen och hämtar distributionsinformationen. Bifoga den här filen till e-postmeddelandet.
 
 ## <a name="sensor-telemetry"></a>Sensor telemetri

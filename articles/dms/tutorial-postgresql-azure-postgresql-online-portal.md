@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 03/25/2020
-ms.openlocfilehash: 4985c492c8ca71da87cf1a519ebc658c203d3952
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/11/2020
+ms.openlocfilehash: e01cc1c07d720c4743a03b5001e640f8b851dd5c
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246984"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114004"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-portal"></a>Självstudiekurs: Migrera PostgreSQL till Azure DB för PostgreSQL online med DMS via Azure-portalen
 
@@ -45,7 +45,7 @@ För att slutföra den här kursen behöver du:
 
 * Ladda ner och installera [PostgreSQL community edition](https://www.postgresql.org/download/) 9.4, 9.5, 9.6 eller 10. Källversionen av PostgreSQL Server måste vara 9.4, 9.5, 9.6, 10 eller 11. Mer information finns i artikeln [Versioner av PostgreSQL Database som stöds](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
 
-    Dessutom måste den lokala PostgreSQL-version matcha Azure Database for PostgreSQL-versionen. PostgreSQL 9.6 kan till exempel bara migrera till Azure Database för PostgreSQL 9.6, 10 eller 11, men inte till Azure Database för PostgreSQL 9.5.
+    Observera också att mål azure-databasen för PostgreSQL-versionen måste vara lika med eller senare än den lokala PostgreSQL-versionen. PostgreSQL 9.6 kan till exempel migrera till Azure Database för PostgreSQL 9.6, 10 eller 11, men inte till Azure Database för PostgreSQL 9.5.
 
 * [Skapa en Azure-databas för PostgreSQL-server](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) eller [Skapa en Azure-databas för Citus-server (Hyperscale ).](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal)
 * Skapa en Microsoft Azure Virtual Network for Azure Database Migration Service med hjälp av distributionsmodellen för Azure Resource Manager, som tillhandahåller anslutning från plats till plats till dina lokala källservrar med hjälp av [Antingen ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Mer information om hur du skapar ett virtuellt nätverk finns i [dokumentationen](https://docs.microsoft.com/azure/virtual-network/)till det virtuella nätverket och särskilt snabbstartsartiklarna med steg-för-steg-information.

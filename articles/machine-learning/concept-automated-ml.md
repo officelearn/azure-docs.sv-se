@@ -10,21 +10,18 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 02/28/2020
-ms.openlocfilehash: c8864e00be9f491d87478c253286070b9334a26e
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 095561f02fdeff6688b78d69cc1becc4ee0f8901
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80383199"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115217"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatiserad maskininlärning?
 
 Automatiserad maskininlärning, även kallad automatiserad ML, är processen att automatisera tidskrävande, iterativa uppgifter maskininlärning modellutveckling. Det gör det möjligt för datavetare, analytiker och utvecklare att bygga ML-modeller med hög skala, effektivitet och produktivitet samtidigt som modellkvaliteten upprätthålls. Automated ML bygger på ett genombrott från vår [Microsoft Research-avdelning.](https://arxiv.org/abs/1705.05355)
 
 Traditionell maskininlärningsmodellutveckling är resurskrävande, vilket kräver betydande domänkunskap och tid för att producera och jämföra dussintals modeller. Med automatiserad maskininlärning påskyndar du den tid det tar att få produktionsklara ML-modeller med stor lätthet och effektivitet.
-
- 
-
 
 ## <a name="when-to-use-automated-ml"></a>När ska automatiserad ML användas
 
@@ -139,9 +136,13 @@ Automatiserad maskininlärning stöder ensemblemodeller som är aktiverade som s
 
 Se [hur du](how-to-configure-auto-train.md#ensemble) ändrar standardinställningarna för ensemble i automatiserad maskininlärning.
 
-## <a name="use-with-onnx-in-c-apps"></a>Använd med ONNX i C#-appar
+## <a name="use-with-onnx"></a>Använd med ONNX
 
-Med Azure Machine Learning kan du använda automatiserad ML för att skapa en Python-modell och få den konverterad till ONNX-formatet. ONNX-körningen stöder C#, så du kan använda den modell som skapats automatiskt i dina C#-appar utan att behöva ändra om eller någon av de nätverksdynningar som REST-slutpunkter introducerar. Prova ett exempel på detta flöde [i denna Jupyter anteckningsbok](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
+Med Azure Machine Learning kan du använda automatiserad ML för att skapa en Python-modell och få den konverterad till ONNX-formatet. När modellerna är i ONNX-format kan de köras på en mängd olika plattformar och enheter. Läs mer om [att accelerera ML-modeller med ONNX](concept-onnx.md).
+
+Se hur du konverterar till ONNX-format [i det här exemplet på Den bärbara Jupyter.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) Lär dig vilka algoritmer som [stöds i ONNX](how-to-configure-auto-train.md#select-your-experiment-type).
+
+ONNX-körningen stöder också C#, så du kan använda den modell som skapats automatiskt i dina C#-appar utan att behöva ändra om eller någon av de nätverksdynningar som REST-slutpunkter introducerar. Läs mer om [att dra in ONNX-modeller med ONNX-körningen C# API](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md). 
 
 ## <a name="automated-ml-in-azure-machine-learning"></a>Automatiserat ML i Azure Machine Learning
 
@@ -151,7 +152,7 @@ Azure Machine Learning erbjuder två upplevelser för att arbeta med automatiser
 
 * För kunder med begränsad/ingen kodupplevelse kan Azure Machine Learning studio på[https://ml.azure.com](https://ml.azure.com/)  
 
-Följande sammanfattar den höga nivå automatiserade ML-funktioner som stöds i varje upplevelse.
+Följande sammanfattar de automatiserade ML-funktioner på hög nivå som stöds i varje upplevelse.
 
 <a name="parity"></a>
 

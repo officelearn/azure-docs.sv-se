@@ -4,17 +4,17 @@ description: Azure Storage skyddar dina data genom att automatiskt kryptera dem 
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/12/2020
+ms.date: 04/10/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f8f6f40f8ce8297b3cbfe6b3afcbf10df4db6572
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f112a4523bc5af9ecae57e93dfb90795d3fe9c50
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409838"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81113277"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage-kryptering för data i vila
 
@@ -34,7 +34,7 @@ Mer information om kryptografiska moduler som ligger till grund för Azure Stora
 
 ## <a name="about-encryption-key-management"></a>Om hantering av krypteringsnyckel
 
-Som standard krypteras data i ett lagringskonto med Microsoft-hanterade nycklar. Du kan lita på Microsoft-hanterade nycklar för kryptering av dina data, eller så kan du hantera kryptering med dina egna nycklar. Om du väljer att hantera kryptering med dina egna nycklar har du två alternativ:
+Data i ett nytt lagringskonto krypteras med Microsoft-hanterade nycklar. Du kan lita på Microsoft-hanterade nycklar för kryptering av dina data, eller så kan du hantera kryptering med dina egna nycklar. Om du väljer att hantera kryptering med dina egna nycklar har du två alternativ:
 
 - Du kan ange en *kundhanterad nyckel* med Azure Key Vault som ska användas för att kryptera och dekryptera data i Blob-lagring och i Azure-filer. <sup>1,2</sup> Mer information om kundhanterade nycklar finns i [Använda kundhanterade nycklar med Azure Key Vault för att hantera Azure Storage-kryptering](encryption-customer-managed-keys.md).
 - Du kan ange en *kundad nyckel* för Blob-lagringsåtgärder. En klient som gör en läs- eller skrivbegäran mot Blob-lagring kan innehålla en krypteringsnyckel på begäran om detaljerad kontroll över hur blob-data krypteras och dekrypteras. Mer information om nycklar som tillhandahålls av kunden finns i [Ange en krypteringsnyckel på en begäran till Blob-lagring (förhandsversion).](encryption-customer-provided-keys.md)
@@ -47,8 +47,7 @@ I följande tabell jämförs viktiga hanteringsalternativ för Azure Storage-kry
 |    Azure Storage-tjänster stöds    |    Alla                                                |    Blob-lagring, Azure-filer<sup>1,2</sup>                                                                                                               |    Blob Storage                                                                  |
 |    Nyckellagring                         |    Microsoft-nyckelbutik    |    Azure Key Vault                                                                                                                              |    Azure Key Vault eller någon annan nyckelbutik                                                                 |
 |    Nyckelrotationsansvar         |    Microsoft                                          |    Kund                                                                                                                                     |    Kund                                                                      |
-|    Nyckelanvändning                           |    Microsoft                                          |    Azure portal, REST API för lagringsresurser,Azure Storage-hanteringsbibliotek, PowerShell, CLI        |    AZURE Storage REST API (Blob storage), Azure Storage-klientbibliotek    |
-|    Tillgång till nyckel                          |    Endast Microsoft                                     |    Microsoft, Kund                                                                                                                    |    Endast kund                                                                 |
+|    Nyckelkontroll                          |    Microsoft                                     |    Kund                                                                                                                    |    Kund                                                                 |
 
 <sup>1</sup> Information om hur du skapar ett konto som stöder användning av kundhanterade nycklar med Kölagring finns i [Skapa ett konto som stöder kundhanterade nycklar för köer](account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).<br />
 <sup>2</sup> Information om hur du skapar ett konto som stöder användning av kundhanterade nycklar med Tabelllagring finns i [Skapa ett konto som stöder kundhanterade nycklar för tabeller](account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).

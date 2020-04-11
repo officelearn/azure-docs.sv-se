@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: f69f17dc9d0cab2491a2c7f37b5bd082cc96b2d6
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 204b5dd4661b34aae8b76d65505a65e20f293f0f
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985430"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81115332"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -112,8 +112,8 @@ Program från tredje part som använder REST-API:er för att fungera fortsätter
 
 Om [anonym läsåtkomst](storage-manage-access-to-resources.md) har beviljats till en behållare har ACL:er ingen effekt på behållaren eller filerna i behållaren.
 
-## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-adls-gen2"></a>Windows Azure Storage Blob (WASB) drivrutin (stöds inte med ADLS Gen2)
+## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-data-lake-storage-gen2"></a>Windows Azure Storage Blob (WASB) drivrutin (stöds inte med Data Lake Storage Gen2)
 
-För närvarande stöter WASB-drivrutinen - som endast har utformats för att fungera med Blob API - på problem i några vanliga scenarier, det vill än när det är en klient till ett namnområdesaktiverat lagringskonto. Observera att MPA (Multi-Protocol Access) inte heller minskar dessa problem. 
+För närvarande stöter WASB-drivrutinen, som har utformats för att fungera med Blob API bara, problem i några vanliga scenarier. Specifikt när det är en klient till ett hierarkiskt namnområdesaktiverat lagringskonto. Åtkomst med flera protokoll på DataSjölagring minskar inte dessa problem. 
 
-För närvarande (och troligen inom överskådlig framtid), kommer vi inte att stödja kunder som använder WASB-drivrutinen som klient till ett namnområdesaktiverat lagringskonto. Vi rekommenderar istället att du väljer att använda [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) drivrutin i din Hadoop-miljö. Om du försöker migrera från en lokal Hadoop-miljö med en tidigare version än Hadoop branch-3, öppnar du en Azure-supportbiljett så att vi kan komma i kontakt med dig på rätt väg framåt för dig och din organisation.
+För närvarande (och troligen inom överskådlig framtid) kommer vi inte att stödja kunder som använder WASB-drivrutinen som klient till ett hierarkiskt namnområdesaktiverat lagringskonto. I stället rekommenderar vi att du väljer att använda [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) drivrutin i din Hadoop-miljö. Om du försöker migrera från en lokal Hadoop-miljö med en tidigare version än Hadoop branch-3, öppna sedan en Azure-supportbiljett så att vi kan komma i kontakt med dig på rätt väg framåt för dig och din organisation.

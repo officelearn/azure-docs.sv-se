@@ -145,8 +145,6 @@
               href: service-fabric-containers-overview.md
             - name: Docker Compose (förhandsversion)
               href: service-fabric-docker-compose.md
-            - name: Resursstyrning
-              href: service-fabric-resource-governance.md
         - name: Reliable Services
           items:
             - name: Översikt över Reliable Services
@@ -193,6 +191,8 @@
               href: service-fabric-reliable-actors-notes-on-actor-type-serialization.md
         - name: Körbara gästfiler
           href: service-fabric-guest-executables-introduction.md
+        - name: Resursstyrning
+          href: service-fabric-resource-governance.md
     - name: Program och tjänster
       items:
         - name: Programmodell
@@ -408,8 +408,6 @@
           items:
             - name: Docker Compose (förhandsversion)
               href: service-fabric-docker-compose.md
-            - name: Resursstyrning för container och tjänster
-              href: service-fabric-resource-governance.md
             - name: Drivrutiner för volym och loggning
               href: service-fabric-containers-volume-logging-drivers.md
             - name: Visa containerloggar

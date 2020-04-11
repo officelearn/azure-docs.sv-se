@@ -262,7 +262,7 @@
           href: /powershell/scripting/dsc/overview/overview
     - name: Snabbstarter
       items:
-        - name: Komma igång
+        - name: Kom igång
           href: automation-dsc-getting-started.md
           displayName: DSC
         - name: Hantera konfigurationen för en dator
@@ -278,18 +278,15 @@
         - name: Konfigurera servrar till önskad status och hantera drift med Statuskonfiguration
           href: tutorial-configure-servers-desired-state.md
           displayName: 'DSC, compliance'
-        - name: Konfigurera datorer för hantering
-          href: automation-dsc-onboarding.md
-          displayName: 'DSC, state configuration'
         - name: Kompilera DSC-konfigurationer
           href: automation-dsc-compile.md
           displayName: 'state configuration, composite resources, configurationData'
         - name: Åtgärda icke-kompatibla DSC-servrar
           href: automation-dsc-remediate.md
           displayName: 'state configuration, DSC, remediate'
-        - name: Skapa DSC-konfigurationer med sammansatta resurser
+        - name: Skapa DSC-konfigurationer med hjälp av sammansatta resurser
           href: compose-configurationwithcompositeresources.md
-        - name: Kontinuerlig distribution med Chocolatey
+        - name: Ge kontinuerlig distribution med hjälp av Chocolatey
           href: automation-dsc-cd-chocolatey.md
           displayName: 'dsc, state configuration'
         - name: Vidarebefordra rapportdata från State Configuration till Azure Monitor-loggar
@@ -297,12 +294,12 @@
           displayName: DSC
     - name: Felsöka
       items:
-        - name: Publicering
+        - name: Felsöka registrering
           href: troubleshoot/onboarding.md
           displayName: troubleshoot
         - name: Felsöka State Configuration (DSC)
           href: troubleshoot/desired-state-configuration.md
-          displayName: 'Desired State Configuration, troubleshoot'
+          displayName: 'state configuration, DSC, troubleshoot'
     - name: Referens
       items:
         - name: Community-lösningar

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 98345e8585a3f6653659e0d41eb5c3308a0a6634
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b7fa447e8564fcbf77702f1d3d474cceb48705c5
+ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80057420"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81114639"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Skapa och använda en apptjänstmiljö för intern belastningsutjämning 
 
@@ -60,6 +60,9 @@ Så här skapar du en intern belastningsutjämnare i apptjänstmiljö:
 
     ![ASE-generering](media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase.png)
 
+> [!NOTE]
+> Namnet på apptjänstmiljön får inte vara fler än 37 tecken.
+
 6. Välj Nätverk
 
 7. Markera eller skapa ett virtuellt nätverk. Om du skapar ett nytt virtuella nätverk här definieras det med ett adressintervall på 192.168.250.0/23. Om du vill skapa ett virtuellt nätverk med ett annat adressintervall eller i en annan resursgrupp än ASE använder du portalen för att skapa Azure Virtual Network. 
@@ -69,6 +72,7 @@ Så här skapar du en intern belastningsutjämnare i apptjänstmiljö:
     ![ASE-nätverk][1]
 
 7. Välj **Granska och skapa** och välj sedan **Skapa**.
+
 
 ## <a name="create-an-app-in-an-ilb-ase"></a>Skapa en app i en ILB ASE ##
 
@@ -126,7 +130,7 @@ Mer information om hur du konfigurerar din ILB ASE med en WAF-enhet finns i [Kon
 
 ILB ASEs som gjordes före maj 2019 krävde att du ställer in domänsuffixet när ASE skapades. De krävde också att du skulle ladda upp ett standardcertifikat som baserades på det domänsuffixet. Dessutom, med en äldre ILB ASE kan du inte utföra enda inloggning till Kudu-konsolen med appar i den ILB ASE. När du konfigurerar DNS för en äldre ILB ASE måste du ange jokertecken A-posten i en zon som matchar till domänsuffixet. 
 
-## <a name="get-started"></a>Komma igång ##
+## <a name="get-started"></a>Kom igång ##
 
 * Information om hur du kommer igång med ASE finns i [Introduktion till App Service-miljöer][Intro]. 
 

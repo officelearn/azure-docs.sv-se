@@ -4,16 +4,20 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/12/2020
 ms.author: glenga
-ms.openlocfilehash: 256510f855256e648ae9203f46eb9f66c9ffaed6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8665b4cec3357baee5d6c1b77b5719645575419
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77029275"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81112848"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicera projektet på Azure
 
 I det här avsnittet skapar du en funktionsapp och relaterade resurser i din Azure-prenumeration och distribuerar sedan din kod. 
+
+> [!IMPORTANT]
+> Om du publicerar till en befintlig funktionsapp skrivs innehållet i den appen över i Azure. 
+
 
 1. Välj Azure-ikonen i aktivitetsfältet och välj sedan knappen **Distribuera för att fungera app...** i området **Azure: Functions.**
 
@@ -23,11 +27,8 @@ I det här avsnittet skapar du en funktionsapp och relaterade resurser i din Azu
 
     + **Välj prenumeration**: Välj den prenumeration som ska användas. Det ser du inte om du bara har en prenumeration.
 
-    + **Välj Funktionsapp**i `+ Create new Function App` Azure `Advanced`: Välj (inte ). Den här artikeln stöder inte det [avancerade publiceringsflödet](../articles/azure-functions/functions-develop-vs-code.md#enable-publishing-with-advanced-create-options). 
-    
-    >[!IMPORTANT]
-    > Om du publicerar till en befintlig funktionsapp skrivs innehållet i den appen över i Azure. 
-    
+    + **Välj funktionsapp i Azure:** Välj `+ Create new Function App`. (Välj inte alternativet, som inte ingår i den `Advanced` här artikeln.)
+      
     + **Ange ett globalt unikt namn för funktionsappen**: Skriv ett namn som är giltigt i en URL-sökväg. Namnet du skriver valideras för att se till att det är unikt i Azure Functions. 
     
     ::: zone pivot="programming-language-python"
@@ -40,13 +41,13 @@ I det här avsnittet skapar du en funktionsapp och relaterade resurser i din Azu
 
     + **Välj en plats för nya resurser**: Välj en [region](https://azure.microsoft.com/regions/) nära dig för bättre prestanda. 
     
-1.  När du är klar skapas följande Azure-resurser i din prenumeration:
-
-    + **[Resursgrupp](../articles/azure-resource-manager/management/overview.md)**: Innehåller alla skapade Azure-resurser. Namnet baseras på funktionsappens namn.
-    + **[Lagringskonto](../articles//storage/common/storage-introduction.md#types-of-storage-accounts)**: Ett standardlagringskonto skapas med ett unikt namn som baseras på funktionsappnamnet.
-    + **[Värdplan](../articles/azure-functions/functions-scale.md)**: En förbrukningsplan skapas i regionen västra USA för att vara värd för din serverlösa funktionsapp.
-    + **Funktionsapp:** Projektet distribueras till och körs i den här nya funktionsappen.
-    + **Application Insights**: En instans som är ansluten till din funktionsapp skapas baserat på ditt funktionsnamn.
+1.  När du är klar skapas följande Azure-resurser i din prenumeration med namn baserat på funktionsappens namn:
+    
+    + En resursgrupp, som är en logisk behållare för relaterade resurser.
+    + Ett standardkonto för Azure Storage, som upprätthåller tillstånd och annan information om dina projekt.
+    + En förbrukningsplan som definierar den underliggande värden för din serverlösa funktionsapp. 
+    + En funktionsapp som tillhandahåller miljön för att köra din funktionskod. Med en funktionsapp kan du gruppera funktioner som en logisk enhet för enklare hantering, distribution och delning av resurser i samma värdplan.
+    + En Application Insights-instans som är ansluten till funktionsappen och som spårar användningen av din serverlösa funktion.
 
     Ett meddelande visas när funktionsappen har skapats och distributionspaketet har tillämpats. 
     

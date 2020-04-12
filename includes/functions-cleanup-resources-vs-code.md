@@ -4,16 +4,16 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/12/2020
 ms.author: glenga
-ms.openlocfilehash: fcfc86a3aca4aae042ce3589988aa91d821dce98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d95055e79356b9e0fe9c4c0e64f5935619204b3
+ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76842207"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81112851"
 ---
 1. Öppna kommandopaletten genom att trycka på F1 i Visual Studio Code. Sök efter och välj `Azure Functions: Open in portal`i kommandopaletten .
 
-1. Välj funktionsapp och tryck på Retur. Funktionsappsidan öppnas i [Azure-portalen](https://portal.azure.com).
+1. Välj funktionsapp och tryck på Retur. Funktionsappsidan öppnas i Azure-portalen.
 
 1. Välj den namngivna länken under **Resursgrupp**på fliken **Översikt** .
 

@@ -20,7 +20,7 @@
   items:
     - name: Skapa en dynamiskt uppdaterad grupp
       href: groups-dynamic-tutorial.md
-- name: Koncept
+- name: Begrepp
   expanded: true
   items:
     - name: Delegera administratörsroller i Azure AD
@@ -33,7 +33,7 @@
       href: /azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Hantera åtkomst med grupper
       href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-- name: Instruktionsguider
+- name: Anvisningar
   expanded: true
   items:
     - name: Hantera användare
@@ -124,6 +124,8 @@
               href: groups-create-rule.md
             - name: Syntax för dynamiska gruppregler
               href: groups-dynamic-membership.md
+            - name: Verifiera en medlemskapsregel
+              href: groups-dynamic-rule-validation.md
             - name: Ändra typ av gruppmedlemskap
               href: groups-change-type.md
     - name: Tilldela licenser

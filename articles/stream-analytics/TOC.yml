@@ -61,14 +61,18 @@
           href: stream-analytics-sql-output-perf.md
         - name: Anpassade sökvägsmönster för blobar
           href: stream-analytics-custom-path-patterns-blob-storage-output.md
-    - name: Användardefinierade funktioner
+    - name: Utöka frågor med funktioner
       items:
-        - name: UDF för maskininlärning
-          href: machine-learning-udf.md
-        - name: 'UDF för C#'
-          href: stream-analytics-edge-csharp-udf-methods.md
+        - name: Översikt av funktioner
+          href: functions-overview.md
         - name: UDF för JavaScript
           href: stream-analytics-javascript-user-defined-functions.md
+        - name: JavaScript UDA
+          href: stream-analytics-javascript-user-defined-aggregates.md
+        - name: 'UDF för C#'
+          href: stream-analytics-edge-csharp-udf-methods.md
+        - name: UDF för maskininlärning
+          href: machine-learning-udf.md
     - name: Optimera Stream Analytics-jobbet
       items:
         - name: Förstå och justera direktuppspelningsenheter
@@ -140,8 +144,6 @@
           href: stream-analytics-edge.md
         - name: Vägtull för sensordataanalys
           href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
-        - name: Köra JavaScript UDA
-          href: stream-analytics-javascript-user-defined-aggregates.md
         - name: Handel med hög frekvens
           href: stream-analytics-high-frequency-trading.md
         - name: Bearbeta IoT-strömningsdata

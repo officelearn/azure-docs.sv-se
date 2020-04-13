@@ -85,9 +85,9 @@
     - name: Databassäkerhet
       items:
         - name: Översikt
-          href: database-security-overview.md
+          href: ../../sql-database/sql-database-security-overview.md
         - name: Bästa praxis
-          href: database-best-practices.md
+          href: ../../sql-database/sql-database-security-best-practice.md
         - name: Säkerhetskontrollista
           href: database-security-checklist.md
     - name: Lagringssäkerhetsguide
@@ -115,6 +115,8 @@
       href: log-audit.md
     - name: Säkerhetshantering och övervakning
       href: management-monitoring-overview.md
+    - name: Förbättra fjärrhantering
+      href: management.md
     - name: Driftsäkerhet
       items:
         - name: Översikt

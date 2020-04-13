@@ -144,7 +144,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=data-factory'
     - name: Azure PowerShell
       href: samples-powershell.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Pipelines och aktiviteter
       href: concepts-pipelines-activities.md
@@ -190,7 +190,7 @@
       href: pricing-concepts.md
     - name: Namngivningsregler
       href: naming-rules.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Författare
       items:
@@ -607,6 +607,8 @@
           href: configure-bcdr-azure-ssis-integration-runtime.md
         - name: Rensa SSISDB-loggar med Elastic Database-jobb
           href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+        - name: Migrera SSIS-jobb med SSMS
+          href: how-to-migrate-ssis-job-ssms.md
     - name: Skapa utlösare
       items:
         - name: Skapa en händelsebaserad utlösare
@@ -683,7 +685,7 @@
       href: /dotnet/api/microsoft.azure.management.datafactory
     - name: PowerShell
       href: /powershell/module/az.datafactory/
-    - name: REST API
+    - name: REST-API
       href: /rest/api/datafactory
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.datafactory/allversions
@@ -705,7 +707,7 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
     - name: Begär en funktion
       href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/data-factory/'
     - name: Tillgänglighet efter region
       href: 'https://azure.microsoft.com/global-infrastructure/services/'

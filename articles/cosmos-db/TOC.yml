@@ -1037,6 +1037,8 @@
           href: monitor-cosmos-db.md
         - name: Övervaka svarstiden på serversidan
           href: monitor-server-side-latency.md
+        - name: Övervaka användning av enheter för programbegäran
+          href: monitor-request-unit-usage.md
         - name: Övervaka med diagnostikloggar
           href: cosmosdb-monitor-resource-logs.md
         - name: Granska kontrollplansloggar

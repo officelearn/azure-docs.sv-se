@@ -1,36 +1,36 @@
 ---
-title: C# handledning om automatisk komplettering och förslag
+title: Komplettera automatiskt och förslag
 titleSuffix: Azure Cognitive Search
-description: Den här självstudien visar automatisk komplettering och förslag som ett sätt att samla in söktermen från användare med hjälp av listrutan. Det bygger på ett befintligt hotellprojekt.
+description: Den här självstudien visar komplettera automatiskt och förslag som ett sätt att samla in söktermen från användare med hjälp av listrutan. Det bygger på ett befintligt hotellprojekt.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/10/2020
-ms.openlocfilehash: 8f244d64fe33a1529cf66314515bbe16e05ccffb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 03/12/2020
+ms.openlocfilehash: 4391b565b684b74258b9c71da88600d4628b5c6f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77121531"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259773"
 ---
-# <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>C# självstudiekurs: Lägg till automatisk komplettering och förslag - Azure Cognitive Search
+# <a name="c-tutorial-add-autocomplete-and-suggestions---azure-cognitive-search"></a>C# självstudiekurs: Lägg till komplettera automatiskt och förslag - Azure Cognitive Search
 
-Lär dig hur du implementerar automatisk komplettering (type-ahead och förslag) när en användare börjar skriva i sökrutan. I den här guiden kommer vi att visa typ-ahead resultat och förslagsresultat separat, sedan visa en metod för att kombinera dem för att skapa en rikare användarupplevelse. En användare kanske bara behöver skriva två eller tre nycklar för att hitta alla tillgängliga resultat. Den här självstudien bygger på det växlingsprojekt som skapats i [C#-självstudien: Sökresultatuppväxling -](tutorial-csharp-paging.md) Azure Cognitive Search-självstudien.
+Lär dig hur du implementerar komplettera automatiskt (typeahead-frågor och föreslagna dokument) när en användare börjar skriva i en sökruta. I den här självstudien visar vi automatiskt ammar frågor och förslagsresultat separat, och visar sedan en metod för att kombinera dem för att skapa en rikare användarupplevelse. En användare kanske bara behöver skriva två eller tre tecken för att hitta alla tillgängliga resultat.
 
 I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
 > * Lägga till förslag
 > * Lägga till markering i förslagen
-> * Lägg till automatisk komplettering
+> * Lägg till komplettera automatiskt
 > * Kombinera komplettera automatiskt och förslag
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här kursen behöver du:
+Den här självstudien är en del av en serie och bygger på det växlingsprojekt som skapats i [C# Tutorial: Sökresultat sidnumreringen - Azure Cognitive Search](tutorial-csharp-paging.md).
 
-Har [C# Tutorial: Sökresultat sidnumrering - Azure Cognitive Search](tutorial-csharp-paging.md) projektet igång. Det här projektet kan antingen vara din egen version, som du slutförde i föregående självstudiekurs eller installera den från GitHub: [Skapa den första appen](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Alternativt kan du ladda ner och köra lösningen för den här specifika självstudien: [3-tillägg-typeahead](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/3-add-typeahead).
 
 ## <a name="add-suggestions"></a>Lägga till förslag
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: a69babdf2fffb4cb9d963f1806f3c85755e50294
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c28872e6cffa973f01b3f5a87c423d9dd93a2aa5
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74454355"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259110"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Så här delegerar du användarregistrering och produktprenumeration
 
@@ -186,9 +186,9 @@ Mer information om delegering finns i följande video:
 
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[begära en SSO-token (Single-sign-on)]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/User/GenerateSsoUrl
-[skapa en användare]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user/createorupdate
-[anropa REST API för prenumerationer]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate
+[begära en SSO-token (Single-sign-on)]: https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/User/GenerateSsoUrl
+[skapa en användare]: https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user/createorupdate
+[anropa REST API för prenumerationer]: https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription/createorupdate
 [Next steps]: #next-steps
 [exempelkod som anges nedan]: #delegate-example-code
 

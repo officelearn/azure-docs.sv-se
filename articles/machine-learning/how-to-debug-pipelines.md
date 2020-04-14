@@ -1,7 +1,7 @@
 ---
-title: Felsöka pipelines för maskininlärning
+title: Felsöka felsöka ML-pipelines & felsöka
 titleSuffix: Azure Machine Learning
-description: Felsöka och felsöka pipelines för maskininlärning i Azure Machine Learning SDK för Python. Lär dig vanliga fallgropar för att utveckla pipelines och tips som hjälper dig att felsöka skripten före och under fjärrkörning. Lär dig hur du använder Visual Studio-kod för att interaktivt felsöka dina pipelines för maskininlärning.
+description: Felsöka dina Azure Machine Learning-pipelines i Python. Lär dig vanliga fallgropar för att utveckla pipelines och tips som hjälper dig att felsöka skripten före och under fjärrkörning. Lär dig hur du använder Visual Studio-kod för att interaktivt felsöka dina pipelines för maskininlärning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.openlocfilehash: b68efbb64e9634ade001373e8cd9d61355bf786f
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.openlocfilehash: 9c2e00ed14a45c6df7cf72845db2ecd069381ca5
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80388992"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257226"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Felsöka pipelines för maskininlärning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ Följande avsnitt innehåller en översikt över vanliga fallgropar när du skap
 
 ### <a name="testing-scripts-locally"></a>Testa skript lokalt
 
-Ett av de vanligaste felen i en pipeline är att ett bifogat skript (datarensningsskript, bedömningsskript osv.) inte körs som avsett eller innehåller körningsfel i fjärrberäkningskontexten som är svåra att felsöka på arbetsytan i Azure Machine Lärande studio. 
+Ett av de vanligaste felen i en pipeline är att ett bifogat skript (datarensningsskript, bedömningsskript osv.) inte körs som avsett eller innehåller körningsfel i fjärrberäkningskontexten som är svåra att felsöka på arbetsytan i Azure Machine Learning-studion. 
 
 Pipelines själva kan inte köras lokalt, men om du kör skripten isolerat på den lokala datorn kan du felsöka snabbare eftersom du inte behöver vänta på beräknings- och miljöbyggprocessen. Vissa utvecklingsarbete krävs för att göra detta:
 
@@ -50,7 +50,7 @@ När du har en skriptkonfiguration för att köras på din lokala miljö är det
 
 ### <a name="debugging-scripts-from-remote-context"></a>Felsöka skript från fjärrkontext
 
-Att testa skript lokalt är ett bra sätt att felsöka stora kodfragment och komplex logik innan du börjar bygga en pipeline, men någon gång kommer du sannolikt att behöva felsöka skript under själva pipelinekörningen, särskilt när du diagnostiserar beteenden som uppstår under interaktionen mellan rörledningssteg. Vi rekommenderar liberal `print()` användning av satser i dina stegskript så att du kan se objekttillstånd och förväntade värden under fjärrkörning, på samma sätt som du skulle felsöka JavaScript-kod.
+Att testa skript lokalt är ett bra sätt att felsöka stora kodfragment och komplex logik innan du börjar skapa en pipeline, men någon gång kommer du sannolikt att behöva felsöka skript under själva pipelinekörningen, särskilt när du diagnostiserar beteenden som uppstår under interaktionen mellan pipeline-steg. Vi rekommenderar liberal `print()` användning av satser i dina stegskript så att du kan se objekttillstånd och förväntade värden under fjärrkörning, på samma sätt som du skulle felsöka JavaScript-kod.
 
 Loggfilen `70_driver_log.txt` innehåller: 
 

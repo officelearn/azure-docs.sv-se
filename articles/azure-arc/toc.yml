@@ -1,21 +1,23 @@
 - name: Azure Arc-dokumentation
   href: index.yml
 - name: Översikt
-  expanded: true
   items:
     - name: Vad är Azure Arc för servrar?
       href: ./servers/overview.md
-- name: Ansluta till Azure Arc
-  expanded: true
+- name: Anvisningar
   items:
-    - name: Ansluta datorer till Azure Arc från Microsoft Azure-portalen
-      href: ./servers/onboard-portal.md
-    - name: Ansluta datorer i stor skala med ett huvudnamn för tjänsten
-      href: ./servers/onboard-service-principal.md
-    - name: Ansluta datorer till Azure Arc med PowerShell DSC
-      href: ./servers/onboard-dsc.md
-- name: Hantera agent
-  href: ./servers/manage-agent.md
+    - name: Ansluta till Azure Arc
+      items:
+        - name: Ansluta datorer till Azure Arc från Microsoft Azure-portalen
+          href: ./servers/onboard-portal.md
+        - name: Ansluta datorer i stor skala med ett huvudnamn för tjänsten
+          href: ./servers/onboard-service-principal.md
+        - name: Ansluta datorer till Azure Arc med PowerShell DSC
+          href: ./servers/onboard-dsc.md
+    - name: Hantera
+      items:
+        - name: Hantera agent
+          href: ./servers/manage-agent.md
 - name: Referens
   items:
     - name: Azure Connected Machine Agent CLI-gränssnitt

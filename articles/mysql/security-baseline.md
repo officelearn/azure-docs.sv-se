@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 362b35af191c1caebeb30149ce060a5366182ec4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cffefb294aaeeb4d66358ceae72c98becd04cc58
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289425"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261966"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Azure Security Baseline för Azure Database för MySQL
 
@@ -134,7 +134,7 @@ Förstå tjänsttag-användning för Azure Database för MySQL:https://docs.micr
 
 Konfigurera och hantera Azure-princip:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Azure Princip-exempel för nätverk:https://docs.microsoft.com/azure/governance/policy/samples/#network
+Azure Princip-exempel för nätverk:https://docs.microsoft.com/azure/governance/policy/samples/
 
 Så här skapar du en Azure Blueprint:https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
@@ -904,7 +904,7 @@ Så här tillhandahåller du Key Vault-autentisering med en hanterad identitet:h
 
 **Vägledning:** Azure Database for MySQL-instans stöder Azure Active Directory-autentisering (i förhandsversion) för åtkomst till databaser.  När du skapar Azure-databasen för MySQL-instansen anger du autentiseringsuppgifter för en administratörsanvändare. Den här administratören kan användas för att skapa ytterligare databasanvändare.  
 
-För virtuella Azure-datorer eller webbprogram som körs på Azure App Service som används för att komma åt dina Azure-databas för MySQL-instanser använder du Hanterad tjänstidentitet tillsammans med Azure Key Vault för att lagra och hämta autentiseringsuppgifter för Azure Database for MySQL Instans. Kontrollera att Key Vault Soft Delete är aktiverat.
+För Virtuella Azure-datorer eller webbprogram som körs på Azure App Service som används för att komma åt dina Azure-databas för MySQL-instanser använder du Hanterad tjänstidentitet tillsammans med Azure Key Vault för att lagra och hämta autentiseringsuppgifter för Azure Database för MySQL-instans. Kontrollera att Key Vault Soft Delete är aktiverat.
 
 Använd hanterade identiteter för att tillhandahålla Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory (AD). Med hanterade identiteter kan du autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan några autentiseringsuppgifter i koden.
 

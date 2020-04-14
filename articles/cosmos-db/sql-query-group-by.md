@@ -4,14 +4,14 @@ description: Läs mer om GROUP BY-satsen för Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 04/10/2020
 ms.author: tisande
-ms.openlocfilehash: e41e81457421bfe27e3c0313fc06e39e6df4cdce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a3cbbafc066747b62f79934f2cd12301aa1ba17
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73819110"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261609"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>GROUP BY-satsen i Azure Cosmos DB
 
@@ -52,6 +52,12 @@ SATSGRUPP BY delar upp frågans resultat enligt värdena för en eller flera ang
 - Aliasegenskaper eller aliassystemfunktioner (aliasing är fortfarande tillåtet inom SELECT-satsen)
 - Underfrågor
 - Aggregerade systemfunktioner (dessa är endast tillåtna i SELECT-satsen)
+
+Frågor med en mängdsystemfunktion och en `GROUP BY` underkvent med stöds inte. Följande fråga stöds till exempel inte:
+
+```sql
+SELECT COUNT(UniqueLastNames) FROM (SELECT AVG(f.age) FROM f GROUP BY f.lastName) AS UniqueLastNames
+```
 
 ## <a name="examples"></a>Exempel
 

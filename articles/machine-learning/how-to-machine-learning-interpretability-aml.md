@@ -1,5 +1,5 @@
 ---
-title: Modelltolkbarhet för lokala och fjärranslutna körningar
+title: Förklara maskininlärningsmodeller och förutsägelser
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du får förklaringar till hur din maskininlärningsmodell avgör funktionens betydelse och gör förutsägelser när du använder Azure Machine Learning SDK.
 services: machine-learning
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
-ms.date: 04/02/2020
-ms.openlocfilehash: 1ff42149ccb629a0a7094e6dfede422d4dd7f61f
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.date: 04/12/2020
+ms.openlocfilehash: c1282ed16c9e3b92e7d5ec3f9969bee6fc3d917f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632028"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257213"
 ---
-# <a name="model-interpretability-for-local-and-remote-runs"></a>Modelltolkbarhet för lokala och fjärranslutna körningar
+# <a name="explain-machine-learning-models-and-predictions"></a>Förklara maskininlärningsmodeller och förutsägelser
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -30,7 +30,6 @@ I den här programguiden lär du dig att använda tolkningspaketet i Azure Machi
 
 * Förklara beteendet för hela modellen och enskilda förutsägelser i Azure.
 
- 
 * Använd en instrumentpanel för visualisering för att interagera med dina modellförklaringar.
 
 * Distribuera en bedömningsut explainer tillsammans med din modell för att observera förklaringar under inferencing.

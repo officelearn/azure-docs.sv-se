@@ -7,20 +7,23 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: dc106ecf40367172f28c0f339bbcce8bddb50a34
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 09e82b9905104df9b1902b0f64f6cfdf812aabb8
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278083"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81274029"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Skapa certifikat för Azure Key Vault
 
+> [!IMPORTANT]
+> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Azure VM-avbildningscertifiering](https://aks.ms/CertifyVMimage) för att hantera dina migrerade erbjudanden.
+
 I den här artikeln beskrivs hur du etablerar de självsignerade certifikat som krävs för att upprätta en WinRM-anslutning (Windows Remote Management) till en virtuell virtuell dator som är värd för Azure.This article explains how to provision the self-signed certificates required to establish a Windows Remote Management (WinRM) connectivity to an Azure-hosted virtual machine (VM). Den här processen består av tre steg:
 
-1.  Skapa säkerhetscertifikatet. 
-2.  Skapa Azure Key Vault för att lagra det här certifikatet. 
-3.  Lagra certifikaten till det här nyckelvalvet. 
+1.    Skapa säkerhetscertifikatet. 
+2.    Skapa Azure Key Vault för att lagra det här certifikatet. 
+3.    Lagra certifikaten till det här nyckelvalvet. 
 
 Du kan använda antingen en ny eller en befintlig Azure-resursgrupp för det här arbetet.  Det tidigare tillvägagångssättet används i följande förklaring.
 

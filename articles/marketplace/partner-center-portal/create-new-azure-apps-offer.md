@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 0ff1bbd976273a7d0cbfb22effebdf45c84d2f41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 260193b3c71e29a32e0589f50864ffcca2e9a67c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277250"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262272"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 
@@ -66,7 +66,7 @@ Granska följande Azure-programdokumentation, som innehåller snabbstarter, sjä
     * [Skapa definitionsfiler](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
     * [Publicera marknadsplatsprogram](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)
 
-* Exempel:
+* Prover:
 
     * [Azure CLI](https://docs.microsoft.com/azure/managed-applications/cli-samples)
     * [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
@@ -93,7 +93,7 @@ Välj en eller båda av följande skriptmiljöer för att hantera ditt Azure-pro
 
 Vi rekommenderar att du lägger till följande verktyg i utvecklingsmiljön:
 
-* [Utforskaren för Azure Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [Azure Lagringsutforskaren](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 * [Visual Studio-kod](https://code.visualstudio.com/) med följande tillägg:
     * Tillägg: [Verktyg för Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     * Förlängning: [Försköna](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -103,7 +103,7 @@ Du kan granska de tillgängliga verktygen på sidan [Azure Developer Tools.](htt
 
 ## <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 
-Innan du kan skapa ett Azure-programerbjudande måste du först [skapa ett Partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) och öppna [instrumentpanelen för Kommersiella Marknadsplatser](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), med fliken **Översikt** vald.
+Innan du kan skapa ett Azure-programerbjudande måste du först [skapa ett Partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) och öppna [instrumentpanelen för kommersiella marknadsplatser](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), med fliken **Översikt** vald.
 
 >[!Note]
 >När ett erbjudande har publicerats uppdateras redigeringarna av erbjudandet i Partner Center endast i systemet och skyltfönster efter återpublicering.  Se till att du skickar in erbjudandet för publicering när du har gjort ändringar.

@@ -8,57 +8,63 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: d6c1819366fede0b1e81e43bc92ed56af93b39fd
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 8b64a583c11e794c30e1de12eb66941874a25462
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81114949"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262236"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-cognitive-search-application"></a>Lägga till förslag eller komplettera automatiskt i ditt Azure Cognitive Search-program
 
-I den här artikeln kan du läsa om hur du använder [förslag](https://docs.microsoft.com/rest/api/searchservice/suggestions) och [komplettera automatiskt](https://docs.microsoft.com/rest/api/searchservice/autocomplete) för att skapa en kraftfull sökruta som stöder sök-som-du-typ beteenden.
+Det här exemplet visar en sökruta som stöder sök-som-du-typ beteenden. Det finns två funktioner som du kan använda tillsammans eller separat:
 
 + *Förslag* genererar sökresultat medan du skriver, där varje förslag är ett enda resultat eller ett sökdokument från indexet som matchar det du har skrivit hittills. 
 
 + *Komplettera automatiskt* genererar frågor genom att "avsluta" ordet eller frasen. I stället för att returnera resultat slutförs en fråga som du sedan kan köra för att returnera resultat. Precis som med förslag baseras ett färdigt ord eller en fras i en fråga på en matchning i indexet. Tjänsten erbjuder inte frågor som returnerar noll resultat i indexet.
 
-Du kan hämta och köra exempelkoden i **DotNetHowToAutocomplete** för att utvärdera dessa funktioner. Exempelkoden är inriktad på ett fördefinierat index som fylls med [NYCJobs demodata](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). Den NYCJobs index innehåller en [Suggester konstruera](index-add-suggesters.md), vilket är ett krav för att använda antingen förslag eller komplettera automatiskt. Du kan använda det förberedda indexet som finns i en sandbox-tjänst eller [fylla i ditt eget index](#configure-app) med hjälp av en datainläsare i EXEMPELlösningen FÖR NYCJobs. 
+Exempelkod visar både förslag och komplettera automatiskt, i både C# och JavaScript-språkversioner. 
 
-**Exemplet DotNetHowToAutocomplete** visar både förslag och komplettera automatiskt, i både C# och JavaScript-språkversioner. C#-utvecklare kan gå igenom ett ASP.NET MVC-baserat program som använder [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk). Logiken för att göra automatisk komplettering och föreslagna frågeanrop finns i HomeController.cs filen. JavaScript-utvecklare hittar motsvarande frågelogik i IndexJavaScript.cshtml, som innehåller direkta anrop till [AZURE Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/). 
+C#-utvecklare kan gå igenom ett ASP.NET MVC-baserat program som använder [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk). Logiken för att göra automatisk komplettering och föreslagna frågeanrop finns i HomeController.cs filen. 
+
+JavaScript-utvecklare hittar motsvarande frågelogik i IndexJavaScript.cshtml, som innehåller direkta anrop till [AZURE Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/). 
 
 För båda språkversionerna baseras frontend-användarupplevelsen på [biblioteken jQuery UI](https://jqueryui.com/autocomplete/) och [XDSoft.](https://xdsoft.net/jqplugins/autocomplete/) Vi använder dessa bibliotek för att skapa sökrutan som stöder både förslag och komplettera automatiskt. Indata som samlas in i sökrutan paras ihop med förslag och åtgärder för automatisk komplettering, till exempel de som definieras i HomeController.cs eller IndexJavaScript.cshtml.
 
-Den här övningen går igenom följande uppgifter:
-
-> [!div class="checklist"]
-> * Implementera en sökinmatningsruta i JavaScript och utfärda begäranden om föreslagna matchningar eller autocompleted termer
-> * I C#, definiera förslag och komplettera automatiskt åtgärder i HomeController.cs
-> * I JavaScript anropar du REST-API:erna direkt för att tillhandahålla samma funktioner
-
 ## <a name="prerequisites"></a>Krav
 
-En Azure Cognitive Search-tjänst är valfri för den här övningen eftersom lösningen använder en live-sandlådetjänst som är värd för ett förberett NYCJobs-demoindex. Om du vill köra det här exemplet på din egen söktjänst läser [du Konfigurera NYC Jobs-index](#configure-app) för instruktioner.
++ [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), vilken utgåva som helst. Exempelkod och instruktioner testades på den kostnadsfria gemenskapsutgåvan.
+En Azure Cognitive Search-tjänst är valfri för den här övningen eftersom lösningen använder en värdbaserad tjänst och NYCJobs demoindex. Om du vill skapa det här indexet på din egen söktjänst läser du [Skapa NYC Jobs-index](#configure-app) för instruktioner. Annars kan du använda den befintliga tjänsten och indexet för att stödja en JavaScript-klientapp.
 
-* Ladda ner [exemplet DotNetHowToAutoComplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete).
+<!-- The sample is comprehensive, covering suggestions, autocomplete, faceted navigation, and client-side caching. Review the readme and comments for a full description of what the sample offers. -->
 
-Exemplet är omfattande, som omfattar förslag, komplettera automatiskt, fasterad navigering och cachelagring på klientsidan. Granska readme och kommentarer för en fullständig beskrivning av vad exemplet erbjuder.
+## <a name="download-files"></a>Hämta filer
+
+Exempelkod för både C#- och JavaScript-utvecklare finns i [mappen DotNetHowToAutoComplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) i **Azure-Samples/search-dotnet-getting-started** GitHub-databasen.
+
+Exemplet riktar sig till en befintlig demosöktjänst och ett fördefinierat index som fylls med [NYCJobs demodata](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). Den NYCJobs index innehåller en [Suggester konstruera](index-add-suggesters.md), vilket är ett krav för att använda antingen förslag eller komplettera automatiskt.
 
 ## <a name="run-the-sample"></a>Kör exemplet
 
-1. Öppna **Komplettera automatisktTutorial.sln** i Visual Studio. Lösningen innehåller ett ASP.NET MVC-projekt med en anslutning till NYC Jobs demoindex.
+1. Öppna **Komplettera automatisktTutorial.sln** i Visual Studio. Lösningen innehåller ett ASP.NET MVC-projekt med en anslutning till en befintlig söktjänst och ett befintligt index.
 
-2. Tryck på F5 för att köra projektet och läsa in sidan i din webbläsare.
+1. Uppdatera NuGet-paketen:
+
+   1. Högerklicka på **DotNetHowToAutoComplete** i Solution Explorer och välj **Hantera NuGet-paket**.  
+   1. Välj fliken **Uppdateringar,** markera alla paket och klicka på **Uppdatera**. Acceptera alla licensavtal. Mer än ett pass kan krävas för att uppdatera alla paket.
+
+1. Tryck på F5 för att köra projektet och läsa in sidan i en webbläsare.
 
 Överst på sidan visas en möjlighet att välja C# eller JavaScript. Alternativet C# anropar HomeController från webbläsaren och använder Azure Cognitive Search .NET SDK för att hämta resultat. 
 
 JavaScript-alternativet anropar AZURE Cognitive Search REST API direkt från webbläsaren. Det här alternativet har normalt märkbart bättre prestanda eftersom kontrollanten tas bort från flödet. Du kan välja det alternativ som passar dina behov och språkinställningar. Det finns flera exempel på automatisk komplettering på sidan med viss vägledning för vart och ett av dem. Varje exempel har rekommenderad exempeltext som du kan prova.  
 
+![Exempel på startsida](media/search-autocomplete-tutorial/startup-page.png "Exempel på startsida i localhost")
+
 Prova att skriva in ett par tecken i varje sökruta och se vad som händer.
 
-## <a name="search-box"></a>Sökruta
+## <a name="query-inputs"></a>Fråga indata
 
 För både C# och JavaScript-versioner är sökrutans implementering exakt densamma. 
 
@@ -229,7 +235,7 @@ De andra exemplen på sidan följer samma mönster för att lägga till träffma
 
 ## <a name="javascript-example"></a>JavaScript-exempel
 
-En Javascript-implementering av komplettera automatiskt och förslag anropar REST API, med hjälp av en URI som källa för att ange index och åtgärder. 
+En JavaScript-implementering av komplettera automatiskt och förslag anropar REST API, med hjälp av en URI som källa för att ange index och drift. 
 
 Om du vill granska JavaScript-implementeringen öppnar du **IndexJavaScript.cshtml**. Observera att funktionen automatisk komplettering av jQuery UI också används för sökrutan, samla in söktermsindata och ringa asynkrona anrop till Azure Cognitive Search för att hämta föreslagna matchningar eller slutförda termer. 
 
@@ -287,7 +293,7 @@ På rad 148 hittar du ett `autocompleteUri`skript som anropar . Det första `sug
 
 <a name="configure-app"></a>
 
-## <a name="configure-nycjobs-to-run-on-your-service"></a>Konfigurera NYCJobs så att de körs på din tjänst
+## <a name="create-an-nycjobs-index"></a>Skapa ett NYCJobs-index
 
 Hittills har du använt värd NYCJobs demoindex. Om du vill ha full insyn i all kod, inklusive indexet, följer du dessa instruktioner för att skapa och läsa in indexet i din egen söktjänst.
 
@@ -318,4 +324,3 @@ Som ett nästa steg, försöker integrera förslag och komplettera automatiskt i
 > [Komplettera REST API-förslag](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
 > automatiskt REST
 > [API-indexattribut för REST API-fasetter på ett REST-API för skapa index på ett rest-API för skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index) [Suggestions REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions)
-

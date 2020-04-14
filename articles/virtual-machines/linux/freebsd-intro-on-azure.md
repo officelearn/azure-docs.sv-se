@@ -6,13 +6,13 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
-ms.author: huishao
-ms.openlocfilehash: fe64418e254289a29aafd155b92396082bff5b6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: 0825a29b45ea701315a57ff5248731e64e29de32
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78945092"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261643"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Introduktion till FreeBSD på Azure
 Den här artikeln innehåller en översikt över hur du kör en virtuell FreeBSD-dator i Azure.

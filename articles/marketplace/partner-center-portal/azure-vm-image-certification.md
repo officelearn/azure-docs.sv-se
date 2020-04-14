@@ -1,0 +1,655 @@
+---
+title: Certifiering av virtuella Azure-datorer – Azure Marketplace
+description: Lär dig hur du testar och skickar ett erbjudande om virtuella datorer på den kommersiella marknadsplatsen.
+author: emuench
+ms.author: mingshen
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.openlocfilehash: 009a8e3db097790788f71486431a3b5b05c488ea
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81265972"
+---
+# <a name="azure-virtual-machine-vm-image-certification"></a>Azure-avbildningscertifiering (Virtual Machine)
+
+> [!NOTE]
+> Vi flyttar hanteringen av dina Azure VM-erbjudanden från Cloud Partner Portal till Partner Center. Tills dina erbjudanden har migrerats fortsätter du att följa instruktionerna i [Skapa certifikat för Azure Key Vault](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert) i Cloud Partner Portal för att hantera dina erbjudanden.
+
+I den här artikeln beskrivs hur du testar och skickar in en virtuell datoravbildning (VM) på den kommersiella marknadsplatsen för att säkerställa att den uppfyller de senaste publiceringskraven för Azure Marketplace.
+
+Gör så här innan du skickar in ditt VM-erbjudande:
+
+1. Skapa och distribuera certifikat.
+2. Distribuera en Virtuell Azure-dator med hjälp av din generaliserade avbildning.
+3. Kör valideringar.
+
+## <a name="create-and-deploy-certificates-for-azure-key-vault"></a>Skapa och distribuera certifikat för Azure Key Vault
+
+I det här avsnittet beskrivs hur du skapar och distribuerar de självsignerade certifikat som krävs för att konfigurera WinRM-anslutning (Windows Remote Management) till en virtuell Azure-värddator.
+
+### <a name="create-certificates-for-azure-key-vault"></a>Skapa certifikat för Azure Key Vault
+
+Den här processen består av tre steg:
+
+1. Skapa säkerhetscertifikatet.
+2. Skapa Azure Key Vault för att lagra certifikatet.
+3. Lagra certifikaten till nyckelvalvet.
+
+Du kan använda antingen en ny eller en befintlig Azure-resursgrupp för det här arbetet.
+
+#### <a name="create-the-security-certificate"></a>Skapa säkerhetscertifikatet
+
+Redigera och kör följande Azure PowerShell-skript för att skapa certifikatfilen (.pfx) i en lokal mapp. Ersätt värdena för de parametrar som visas i följande tabell.
+
+| **Parametern** | **Beskrivning** |
+| --- | --- |
+| $certroopath | Lokal mapp för att spara PFX-filen till. |
+| $location | En av Azure-standardge geographic locations. |
+| $vmName | Namnet på den planerade virtuella Azure-datorn. |
+| $certname | Intygets namn. måste matcha det fullständigt kvalificerade domännamnet för den planerade virtuella datorn. |
+| $certpassword | Lösenord för certifikaten måste matcha lösenordet som används för den planerade virtuella datorn. |
+| | |
+
+```PowerShell
+   # Certification creation script
+
+    # pfx certification stored path
+    $certroopath = "C:\certLocation"
+
+    # location of the resource group
+    $location = "westus"
+
+    # Azure virtual machine name that we are going to create
+    $vmName = "testvm000000906"
+
+    # Certification name - should match with FQDN of Windows Azure creating VM
+    $certname = "$vmName.$location.cloudapp.azure.com"
+
+    # Certification password - should be match with password of Windows Azure creating VM
+    $certpassword = "SecretPassword@123"
+
+    $cert=New-SelfSignedCertificate -DnsName "$certname" -CertStoreLocation cert:\LocalMachine\My
+    $pwd = ConvertTo-SecureString -String $certpassword -Force -AsPlainText
+    $certwithThumb="cert:\localMachine\my\"+$cert.Thumbprint
+    $filepath="$certroopath\$certname.pfx"
+    Export-PfxCertificate -cert $certwithThumb -FilePath $filepath -Password $pwd
+    Remove-Item -Path $certwithThumb
+
+```
+
+> [!TIP]
+> Håll samma Azure PowerShell-konsolsession öppen och körs under dessa steg för att behålla värdena för de olika parametrarna.
+
+> [!WARNING]
+> Om du sparar skriptet sparar du det bara på en säker plats eftersom det innehåller säkerhetsinformation (ett lösenord).
+
+#### <a name="create-the-azure-key-vault-to-store-the-certificate"></a>Skapa Azure-nyckelvalvet för att lagra certifikatet
+
+Kopiera innehållet i mallen nedan till en fil på den lokala datorn. I exempelskriptet nedan är `C:\certLocation\keyvault.json`den här resursen ).
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "keyVaultName": {
+      "type": "string",
+      "defaultValue":"isvkv0001",
+      "metadata": {
+        "description": "Name of the Vault"
+      }
+    },
+    "tenantId": {
+      "type": "string",
+      "defaultValue":"72f988bf-86f1-41af-91ab-2d7cd011db47",
+      "metadata": {
+        "description": "Tenant Id of the subscription. Get using Get-AzureSubscription cmdlet or Get Subscription API"
+      }
+    },
+    "objectId": {
+      "type": "string",
+      "defaultValue":"d55739bf-d5d6-4ce0-be1c-49ade53c4315",
+      "metadata": {
+        "description": "Object Id of the AD user. Get using Get-AzureADUser or Get-AzureADServicePrincipal cmdlets"
+      }
+    },
+    "keysPermissions": {
+      "type": "array",
+      "defaultValue": ["all"],
+      "metadata": {
+        "description": "Permissions to keys in the vault. Valid values are: all, create, import, update, get, list, delete, backup, restore, encrypt, decrypt, wrapkey, unwrapkey, sign, and verify."
+      }
+    },
+    "secretsPermissions": {
+      "type": "array",
+      "defaultValue": ["all"],
+      "metadata": {
+        "description": "Permissions to secrets in the vault. Valid values are: all, get, set, list, and delete."
+      }
+    },
+    "skuName": {
+      "type": "string",
+      "defaultValue": "Standard",
+      "allowedValues": [
+        "Standard",
+        "Premium"
+      ],
+      "metadata": {
+        "description": "SKU for the vault"
+      }
+    },
+    "enableVaultForDeployment": {
+      "type": "bool",
+      "defaultValue": true,
+      "allowedValues": [
+        true,
+        false
+      ],
+      "metadata": {
+        "description": "Specifies if the vault is enabled for a VM deployment"
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.KeyVault/vaults",
+      "name": "[parameters('keyVaultName')]",
+      "apiVersion": "2015-06-01",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "enabledForDeployment": "[parameters('enableVaultForDeployment')]",
+        "tenantId": "[parameters('tenantId')]",
+        "accessPolicies": [
+          {
+            "tenantId": "[parameters('tenantId')]",
+            "objectId": "[parameters('objectId')]",
+            "permissions": {
+              "keys": "[parameters('keysPermissions')]",
+              "secrets": "[parameters('secretsPermissions')]"
+            }
+          }
+        ],
+        "sku": {
+          "name": "[parameters('skuName')]",
+          "family": "A"
+        }
+      }
+    }
+  ]
+}
+
+```
+
+Redigera och kör följande Azure PowerShell-skript för att skapa ett Azure Key Vault och den associerade resursgruppen. Ersätta värdena för de parametrar som visas i följande tabell
+
+| **Parametern** | **Beskrivning** |
+| --- | --- |
+| $postfix | Slumpmässig numerisk sträng kopplad till distributionsidentifierare. |
+| $rgName | Azure resource group (RG) namn att skapa. |
+| $location | En av Azure-standardge geographic locations. |
+| $kvTemplateJson | Sökväg till filen (keyvault.json) som innehåller Resource Manager-mall för nyckelvalv. |
+| $kvname | Namnet på det nya nyckelvalvet.|
+|   |   |
+
+```PowerShell
+    # Creating Key vault in resource group
+
+    # "Random" number for deployment identifiers
+    $postfix = "0101048"
+
+    # Resource group name
+    $rgName = "TestRG$postfix"
+
+    # Location of Resource Group
+    $location = "westus"
+
+    # Key vault template location
+    $kvTemplateJson = "C:\certLocation\keyvault.json"
+
+    # Key vault name
+    $kvname = "isvkv$postfix"
+
+    # code snippet to get the Azure user object ID
+    try
+       {
+        $accounts = Get-AzureAccount
+        $accountNum = 0
+        $accounts.Id | %{ ++$accountNum; Write-Host $accountNum $_}
+        Write-Host "`nPlease select User, e.g. 1:" -ForegroundColor DarkYellow
+        [Int] $accountChoice = Read-Host
+
+        While($accountChoice -lt 1 -or $accountChoice -gt $accounts.Length)
+        {
+            Write-Host "incorrect input" -ForegroundColor Red
+            Write-Host "`nPlease select User, e.g. 1:" -ForegroundColor DarkYellow
+            [Int] $accountChoice = Read-Host
+        }
+
+        $accountSelected = $accounts[$accountChoice-1]
+        echo $accountSelected
+        $id = $accountSelected.Id
+
+        Write-Host "User $id Selected"
+        $myobjectId=(Get-AzADUser -Mail $id)[0].Id
+      }
+      catch
+      {
+      Write-Host $_.Exception.Message
+      Break
+      }
+
+    # code snippet to get Azure User Tenant Id
+      # SELECT Subscriptions
+        #**************************************
+        try
+        {
+        $subslist=Get-AzureSubscription
+        for($i=1; $i -le $subslist.Length;$i++)
+        {
+           Write-Host ($i.ToString() +":"+ $subslist[$i-1].SubscriptionName)
+        }
+        Write-Host "`nPlease pick subscription from above, e.g. 1:" -ForegroundColor DarkYellow
+        [int] $selectedsub=Read-Host
+
+        While($selectedsub -lt 1 -or $selectedsub -gt $subslist.Length)
+        {
+            Write-Host "incorrect input" -ForegroundColor Red
+            for($i=1; $i -le $subslist.Length;$i++)
+             {
+              Write-Host ($i.ToString() +":"+ $subslist[$i-1].SubscriptionName)
+             }
+            Write-Host "`nPlease pick subscription from above, e.g. 1:" -ForegroundColor DarkYellow
+           [int] $selectedsub=Read-Host
+        }
+        if($selectedsub -ge 1 -and $selectedsub -le $subslist.Length)
+        {
+        $mysubid=$subslist[$selectedsub-1].SubscriptionId
+        $mysubName=$subslist[$selectedsub-1].SubscriptionName
+        $mytenantId=$subslist[$selectedsub-1].TenantId
+        Write-Host "$mysubName selected"
+        }
+        }
+        catch
+        {
+        Write-Host $_.Exception.Message
+        Break
+        }
+
+    # Create a resource group
+     Write-Host "Creating Resource Group $rgName"
+     Create-ResourceGroup -rgName $rgName -location $location
+     Write-Host "-----------------------------------"
+
+    # Create key vault and configure access
+    New-AzResourceGroupDeployment -Name "kvdeploy$postfix" -ResourceGroupName $rgName -TemplateFile $kvTemplateJson -keyVaultName $kvname -tenantId $mytenantId -objectId $myobjectId
+
+    Set-AzKeyVaultAccessPolicy -VaultName $kvname -ObjectId $myobjectId -PermissionsToKeys all -PermissionsToSecrets all
+
+```
+
+#### <a name="store-the-certificates-to-the-key-vault"></a>Lagra certifikaten till nyckelvalvet
+
+Lagra certifikaten i PFX-filen till det nya nyckelvalvet med det här skriptet:
+
+```PowerShell
+     $fileName =$certroopath+"\$certname"+".pfx"
+
+     $fileContentBytes = get-content $fileName -Encoding Byte
+     $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
+
+            $jsonObject = @"
+    {
+    "data": "$filecontentencoded",
+    "dataType" :"pfx",
+    "password": "$certpassword"
+    }
+"@
+            echo $certpassword
+            $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
+            $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
+            $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
+            $objAzureKeyVaultSecret=Set-AzureKeyVaultSecret -VaultName $kvname -Name "ISVSecret$postfix" -SecretValue $secret
+            echo $objAzureKeyVaultSecret.Id
+
+```
+
+## <a name="deploy-an-azure-vm-using-your-generalized-image"></a>Distribuera en virtuell Azure-dator med hjälp av den generaliserade avbildningen
+
+I det här avsnittet beskrivs hur du distribuerar en generaliserad VHD-avbildning för att skapa en ny Azure VM-resurs. För den här processen använder vi den medföljande Azure Resource Manager-mallen och Azure PowerShell-skriptet.
+
+### <a name="prepare-an-azure-resource-manager-template"></a>Förbereda en Azure Resource Manager-mall
+
+Kopiera följande Azure Resource Manager-mall för VHD-distribution till en lokal fil med namnet VHDtoImage.json. Nästa skript kommer att begära platsen på den lokala datorn för att använda denna JSON.
+
+```JSON
+{
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "userStorageAccountName": {
+            "type": "string"
+        },
+        "userStorageContainerName": {
+            "type": "string",
+            "defaultValue": "vhds"
+        },
+        "dnsNameForPublicIP": {
+            "type": "string"
+        },
+        "adminUserName": {
+            "defaultValue": "isv",
+            "type": "string"
+        },
+        "adminPassword": {
+            "type": "securestring",
+            "defaultValue": "Password@123"
+        },
+        "osType": {
+            "type": "string",
+            "defaultValue": "windows",
+            "allowedValues": [
+                "windows",
+                "linux"
+            ]
+        },
+        "subscriptionId": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "vmSize": {
+            "type": "string"
+        },
+        "publicIPAddressName": {
+            "type": "string"
+        },
+        "vmName": {
+            "type": "string"
+        },
+        "virtualNetworkName": {
+            "type": "string"
+        },
+        "nicName": {
+            "type": "string"
+        },
+        "vaultName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the KeyVault"
+            }
+        },
+        "vaultResourceGroup": {
+            "type": "string",
+            "metadata": {
+                "description": "Resource Group of the KeyVault"
+            }
+        },
+        "certificateUrl": {
+            "type": "string",
+            "metadata": {
+                "description": "Url of the certificate with version in KeyVault e.g. https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7"
+            }
+        },
+        "vhdUrl": {
+            "type": "string",
+            "metadata": {
+                "description": "VHD Url..."
+            }
+        }
+    },
+        "variables": {
+            "addressPrefix": "10.0.0.0/16",
+            "subnet1Name": "Subnet-1",
+            "subnet2Name": "Subnet-2",
+            "subnet1Prefix": "10.0.0.0/24",
+            "subnet2Prefix": "10.0.1.0/24",
+            "publicIPAddressType": "Dynamic",
+            "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
+            "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]",
+            "osDiskVhdName": "[concat('http://',parameters('userStorageAccountName'),'.blob.core.windows.net/',parameters('userStorageContainerName'),'/',parameters('vmName'),'osDisk.vhd')]"
+        },
+        "resources": [
+            {
+                "apiVersion": "2015-05-01-preview",
+                "type": "Microsoft.Network/publicIPAddresses",
+                "name": "[parameters('publicIPAddressName')]",
+                "location": "[parameters('location')]",
+                "properties": {
+                    "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
+                    "dnsSettings": {
+                        "domainNameLabel": "[parameters('dnsNameForPublicIP')]"
+                    }
+                }
+            },
+            {
+                "apiVersion": "2015-05-01-preview",
+                "type": "Microsoft.Network/virtualNetworks",
+                "name": "[parameters('virtualNetworkName')]",
+                "location": "[parameters('location')]",
+                "properties": {
+                    "addressSpace": {
+                        "addressPrefixes": [
+                            "[variables('addressPrefix')]"
+                        ]
+                    },
+                    "subnets": [
+                        {
+                            "name": "[variables('subnet1Name')]",
+                            "properties": {
+                                "addressPrefix": "[variables('subnet1Prefix')]"
+                            }
+                        },
+                        {
+                            "name": "[variables('subnet2Name')]",
+                            "properties": {
+                                "addressPrefix": "[variables('subnet2Prefix')]"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "apiVersion": "2015-05-01-preview",
+                "type": "Microsoft.Network/networkInterfaces",
+                "name": "[parameters('nicName')]",
+                "location": "[parameters('location')]",
+                "dependsOn": [
+                    "[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIPAddressName'))]",
+                    "[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]"
+                ],
+                "properties": {
+                    "ipConfigurations": [
+                        {
+                            "name": "ipconfig1",
+                            "properties": {
+                                "privateIPAllocationMethod": "Dynamic",
+                                "publicIPAddress": {
+                                    "id": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIPAddressName'))]"
+                                },
+                                "subnet": {
+                                    "id": "[variables('subnet1Ref')]"
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "apiVersion": "2015-06-15",
+                "type": "Microsoft.Compute/virtualMachines",
+                "name": "[parameters('vmName')]",
+                "location": "[parameters('location')]",
+                "dependsOn": [
+                    "[concat('Microsoft.Network/networkInterfaces/', parameters('nicName'))]"
+                ],
+                "properties": {
+                    "hardwareProfile": {
+                        "vmSize": "[parameters('vmSize')]"
+                    },
+                    "osProfile": {
+                        "computername": "[parameters('vmName')]",
+                        "adminUsername": "[parameters('adminUsername')]",
+                        "adminPassword": "[parameters('adminPassword')]",
+                        "secrets": [
+                            {
+                                "sourceVault": {
+                                    "id": "[resourceId(parameters('vaultResourceGroup'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+                                },
+                                "vaultCertificates": [
+                                    {
+                                        "certificateUrl": "[parameters('certificateUrl')]",
+                                        "certificateStore": "My"
+                                    }
+                                ]
+                            }
+                        ],
+                        "windowsConfiguration": {
+                            "provisionVMAgent": "true",
+                            "winRM": {
+                                "listeners": [
+                                    {
+                                        "protocol": "http"
+                                    },
+                                    {
+                                        "protocol": "https",
+                                        "certificateUrl": "[parameters('certificateUrl')]"
+                                    }
+                                ]
+                            },
+                            "enableAutomaticUpdates": "true"
+                        }
+                    },
+                    "storageProfile": {
+                        "osDisk": {
+                            "name": "[concat(parameters('vmName'),'-osDisk')]",
+                            "osType": "[parameters('osType')]",
+                            "caching": "ReadWrite",
+                            "image": {
+                                "uri": "[parameters('vhdUrl')]"
+                            },
+                            "vhd": {
+                                "uri": "[variables('osDiskVhdName')]"
+                            },
+                            "createOption": "FromImage"
+                        }
+                    },
+                    "networkProfile": {
+                        "networkInterfaces": [
+                            {
+                                "id": "[resourceId('Microsoft.Network/networkInterfaces',parameters('nicName'))]"
+                            }
+                        ]
+                    },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[concat('http://', parameters('userStorageAccountName'), '.blob.core.windows.net')]"
+                    }
+                }
+                }
+            }
+        ]
+    }
+
+```
+
+Redigera den här filen om du vill ange värden för dessa parametrar:
+
+| **Parametern** | **Beskrivning** |
+| --- | --- |
+| ResourceGroupName | Befintligt Azure-resursgruppnamn. Använd vanligtvis samma RG som nyckelvalvet. |
+| TemplateFile | Fullständigt sökvägsnamn till filen VHDtoImage.json. |
+| användareStoraRedovisningsnamn | Namn på lagringskontot. |
+| sNameForPublicIP | DNS-namn för den offentliga IP-adressen. måste vara gemener. |
+| subscriptionId | Azure-prenumerationsidentifierare. |
+| Location | Standard Azure geografisk plats för resursgruppen. |
+| vmName | Namnet på den virtuella datorn. |
+| vaultName (valvNamn) | Namn på nyckelvalvet. |
+| valvResourceGroup | Resursgruppen för nyckelvalvet. |
+| certifikatUrl | Url(URL) för certifikatet, inklusive version som lagras i `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7`nyckelvalvet, till exempel: . |
+| vhdUrl (på) | Webbadress till den virtuella hårddisken. |
+| vmSize | Storleken på instansen för den virtuella datorn. |
+| publicIPAddressName | Namn på den offentliga IP-adressen. |
+| virtualNetworkName | Namn på det virtuella nätverket. |
+| nicName (nicName) | Namn på nätverkskortet för det virtuella nätverket. |
+| adminUserName | Användarnamn för administratörskontot. |
+| adminPassword | Administratörslösenord. |
+|   |   |
+
+### <a name="deploy-an-azure-vm"></a>Distribuera en virtuell Azure-dator
+
+Kopiera och redigera följande skript för `$storageaccount` `$vhdUrl` att ange värden för variablerna och variablerna. Kör den för att skapa en Azure VM-resurs från din befintliga generaliserade VIRTUELLA HÅRDDISK.
+
+```PowerShell
+
+# storage account of existing generalized VHD
+
+$storageaccount = "testwinrm11815"
+
+# generalized VHD URL
+
+$vhdUrl = "https://testwinrm11815.blob.core.windows.net/vhds/testvm1234562016651857.vhd"
+
+echo "New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile "C:\certLocation\VHDtoImage.json" -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id  -vhdUrl "$vhdUrl" -vmSize "Standard\_A2" -publicIPAddressName "myPublicIP1" -virtualNetworkName "myVNET1" -nicName "myNIC1" -adminUserName "isv" -adminPassword $pwd"
+
+# deploying VM with existing VHD
+
+New-AzResourceGroupDeployment -Name"dplisvvm$postfix" -ResourceGroupName"$rgName" -TemplateFile"C:\certLocation\VHDtoImage.json" -userStorageAccountName"$storageaccount" -dnsNameForPublicIP"$vmName" -subscriptionId"$mysubid" -location"$location" -vmName"$vmName" -vaultName"$kvname" -vaultResourceGroup"$rgName" -certificateUrl$objAzureKeyVaultSecret.Id  -vhdUrl"$vhdUrl" -vmSize"Standard\_A2" -publicIPAddressName"myPublicIP1" -virtualNetworkName"myVNET1" -nicName"myNIC1" -adminUserName"isv" -adminPassword$pwd
+
+```
+
+## <a name="run-validations"></a>Kör valideringar
+
+Det finns två sätt att köra valideringar på den distribuerade avbildningen:
+
+- Använda testverktyg för certifiering för Azure-certifierad
+- Använda självtest-API:et
+
+### <a name="download-and-run-the-certification-test-tool"></a>Ladda ned och kör testverktyget för certifiering
+
+Certifieringstestverktyget för Azure Certified körs på en lokal Windows-dator men testar en Azure-baserad Windows eller Linux VM. Det intygar att din virtuellavbildning kan användas med Microsoft Azure och att vägledningen och kraven kring att förbereda din virtuella hårddisk har uppfyllts. Utdata för verktyget är en kompatibilitetsrapport som du överför till Partner Center-portalen för att begära VM-certifiering.
+
+1. Hämta och installera det senaste [certifieringstestverktyget för Azure Certified](https://www.microsoft.com/download/details.aspx?id=44299).
+2. Öppna certifieringsverktyget och välj sedan **Starta nytt test**.
+3. På skärmen **Testinformation** anger du ett **testnamn** för testkörningen.
+4. Välj **plattform** för din virtuella dator, antingen Windows Server eller Linux. Ditt plattformsval påverkar de återstående alternativen.
+5. Om den virtuella datorn använder den här databastjänsten markerar du kryssrutan **Testa för Azure SQL Database.**
+
+### <a name="connect-the-certification-tool-to-a-vm-image"></a>Ansluta certifieringsverktyget till en vm-avbildning
+
+Verktyget ansluter till Windows-baserade virtuella datorer med [Azure PowerShell](https://docs.microsoft.com/powershell/) och ansluter till virtuella Linux-datorer via [SSH.Net](https://www.ssh.com/ssh/protocol/).
+
+### <a name="connect-the-certification-tool-to-a-linux-vm-image"></a>Anslut certifieringsverktyget till en Linux VM-avbildning
+
+1. Välj **SSH-autentiseringsläge:** Lösenordsautentisering eller nyckelfilautentisering.
+2. Om du använder lösenordsbaserad autentisering anger du värden för **VM DNS-namn,** **användarnamn**och **lösenord**. Du kan också ändra standardnumret för **SSH-port.**
+
+    ![Azure Certified Test Tool, lösenordsautentisering av Linux VM-avbildning](media/avm-cert2.png)
+
+3. Om du använder nyckelfilbaserad autentisering anger du värden för **VM DNS-namn,** **användarnamn**och **privat nyckelplats.** Du kan också inkludera en **Lösenfras** eller ändra standardnumret för **SSH-port.**
+
+### <a name="connect-the-certification-tool-to-a-windows-based-vm-image"></a>**Ansluta certifieringsverktyget till en Windows-baserad VM-avbildning**
+
+1. Ange det fullständigt kvalificerade **VM-DNS-namnet** (till exempel MyVMName.Cloudapp.net).
+2. Ange värden för **användarnamn** och **lösenord**.
+
+    ![Azure Certified Test Tool, lösenordsautentisering av Windows-baserad VM-avbildning](media/avm-cert4.png)
+
+### <a name="run-a-certification-test"></a>Kör ett certifieringstest
+
+När du har angett parametervärdena för vm-avbildningen i certifieringsverktyget väljer du **Testa anslutning** för att skapa en giltig anslutning till den virtuella datorn. När en anslutning har verifierats väljer du **Nästa** för att starta testet. När testet är klart visas testresultaten i en tabell. Kolumnen Status visar (Godkänd/underkänd/varning) för varje test. Om något av testerna misslyckas är bilden _inte_ certifierad. I det här fallet granskar du kraven och felmeddelandena, gör de föreslagna ändringarna och kör testet igen.
+
+När det automatiska testet är klart anger du ytterligare information om vm-avbildningen på de två flikarna på **skärmen Enkät,** **Allmän bedömning** och **Kernel-anpassning**och väljer sedan **Nästa**.
+
+Den sista skärmen kan du ge mer information, till exempel SSH-åtkomstinformation för en Linux VM-avbildning, och en förklaring till eventuella misslyckade utvärderingar om du letar efter undantag.
+
+Slutligen väljer du **Generera rapport för** att hämta testresultaten och loggfilerna för de utförda testfallen tillsammans med dina svar på enkäten. Spara resultaten i samma behållare som dina virtuella hårddiskar.
+
+## <a name="next-step"></a>Nästa steg
+
+- [Generera en enhetlig resursidentifierare (URI) för varje virtuell hårddisk](https://aka.ms/AzureSASURI)

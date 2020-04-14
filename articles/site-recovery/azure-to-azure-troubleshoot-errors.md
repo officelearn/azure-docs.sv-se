@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 0882eaa8b54966c7a804cf78a3928771b238e056
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 243fea8fae071368a91bf482190442f15c372fc1
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885012"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271309"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Felsöka azure-till-Azure VM-replikeringsfel
 
-I den här artikeln beskrivs felsÃ¶kning av vanliga fel i Azure Site Recovery under replikering och återställning av virtuella Azure-datorer (VMs) från en region till en annan. Mer information om konfigurationer som stöds finns i [supportmatrisen för replikering av virtuella Azure-datorer](azure-to-azure-support-matrix.md).
+I den här artikeln beskrivs felsÃ¶kning av vanliga fel i Azure Site Recovery under replikering och återställning av virtuella Azure-datorer (VM) från en region till en annan. Mer information om konfigurationer som stöds finns i [supportmatrisen för replikering av virtuella Azure-datorer](azure-to-azure-support-matrix.md).
 
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Problem med Azure-resurskvoter (felkod 150097)
 
@@ -169,11 +169,11 @@ Eftersom SUSE Linux använder symboliska länkar, eller symlänkar, för att und
    -rw-r--r-- 1 root root 1774 Jan  8 09:52 b204d74a.0
    ```
 
-## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Utgående anslutning för url:er eller IP-intervall för webbplatsåterställning (felkod 151037 eller 151072)
+## <a name="outbound-urls-or-ip-ranges-error-code-151037-or-151072"></a>Utgående webbadresser eller IP-intervall (felkod 151037 eller 151072)
 
 För att site recovery-replikering ska fungera krävs utgående anslutning till specifika webbadresser från den virtuella datorn. Om den virtuella datorn ligger bakom en brandvägg eller använder NSG-regler (Network Security Group) för att styra utgående anslutning kan du ställas inför ett av dessa problem. Vi fortsätter att stödja utgående åtkomst via webbadresser, men med hjälp av en tillåtslista över IP-intervall stöds inte längre.
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195"></a>Problem 1: Det gick inte att registrera virtuell Azure-dator med Site Recovery (151195)
+### <a name="issue-1-failed-to-register-azure-vm-with-site-recovery-151195"></a>Problem 1: Det gick inte att registrera Azure VM med Site Recovery (151195)
 
 #### <a name="possible-causes"></a>Möjliga orsaker
 
@@ -216,7 +216,7 @@ Det går inte att upprätta en anslutning till slutpunkter för Azure Site Recov
 
 Om du använder NSG-regler (Azure Network Security Group) för att styra utgående nätverksanslutning på den virtuella datorn kontrollerar du att du använder tjänsttaggar. Vi har inte längre stöd för att använda en tillåtslista över IP-adresser via NSG:er för Azure Site Recovery.
 
-### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problem 4: Azure till Azure-replikering misslyckades när nätverkstrafiken går igenom lokal proxyserver (151072)
+### <a name="issue-4-replication-fails-when-network-traffic-uses-on-premises-proxy-server-151072"></a>Problem 4: Replikeringen misslyckas när nätverkstrafik använder lokal proxyserver (151072)
 
 #### <a name="possible-cause"></a>Möjlig orsak
 
@@ -245,7 +245,7 @@ De anpassade proxyinställningarna är ogiltiga och mobilitetstjänsten agenten 
 
 Om du vill ange [nödvändiga URL:er](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) eller de [IP-intervall som krävs](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)följer du anvisningarna i Om nätverk i Azure till Azure [replication](azure-to-azure-about-networking.md).
 
-## <a name="disk-not-found-in-the-machine-error-code-150039"></a>Det gick inte att hitta disken i datorn (felkod 150039)
+## <a name="disk-not-found-in-vm-error-code-150039"></a>Det gick inte att hitta disken i den virtuella datorn (felkod 150039)
 
 En ny disk som är kopplad till den virtuella datorn måste initieras. Om disken inte hittas visas följande meddelande:
 
@@ -267,7 +267,7 @@ Kontrollera att datadiskarna initieras och försök sedan igen.
 
 Om problemet kvarstår kontaktar du supporten.
 
-## <a name="one-or-more-disks-are-available-for-protection-error-code-153039"></a>En eller flera diskar är tillgängliga för skydd (felkod 153039)
+## <a name="multiple-disks-available-for-protection-error-code-153039"></a>Flera diskar tillgängliga för skydd (felkod 153039)
 
 ### <a name="possible-causes"></a>Möjliga orsaker
 
@@ -292,7 +292,7 @@ Om du vill göra replikeringsstatusen för den virtuella datorn felfri igen kan 
 
    :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="Stäng av en varning för ny disk.":::
 
-## <a name="remove-the-virtual-machine-from-the-vault-completed-with-information-error-code-150225"></a>Ta bort den virtuella datorn från valvet som slutförts med information (felkod 150225)
+## <a name="vm-removed-from-vault-completed-with-information-error-code-150225"></a>VM bort från valvet kompletteras med information (felkod 150225)
 
 När Site Recovery skyddar den virtuella datorn skapas länkar på den virtuella datorn för källan. När du tar bort skyddet eller inaktiverar replikering tar Site Recovery bort dessa länkar som en del av rensningsjobbet. Om den virtuella datorn har ett resurslås slutförs rensningsjobbet med informationen. Informationen säger att den virtuella datorn har tagits bort från Recovery Services-valvet, men att vissa av de inaktuella länkarna inte kunde rensas på källdatorn.
 
@@ -317,7 +317,7 @@ Du kan ignorera den här varningen om du aldrig tänker skydda den här virtuell
 1. Kör skriptet, _Cleanup-unakt-asr-config-Azure-VM.ps1_. Ange **prenumerations-ID,** **VM-resursgrupp**och **VM-namn** som parametrar.
 1. Om du uppmanas att ange Azure-autentiseringsuppgifter anger du dem. Kontrollera sedan att skriptet körs utan några fel.
 
-## <a name="replication-cant-be-enabled-because-of-stale-resource-links-on-the-vm-error-code-150226"></a>Replikering kan inte aktiveras på grund av inaktuella resurslänkar på den virtuella datorn (felkod 150226)
+## <a name="replication-not-enabled-on-vm-with-stale-resources-error-code-150226"></a>Replikering är inte aktiverat på den virtuella datorn med inaktuella resurser (felkod 150226)
 
 ### <a name="possible-causes"></a>Möjliga orsaker
 
@@ -342,9 +342,9 @@ En inaktuell konfiguration kan uppstå på en virtuell Azure-dator om du har akt
 1. Kör skriptet, _Cleanup-unakt-asr-config-Azure-VM.ps1_. Ange **prenumerations-ID,** **VM-resursgrupp**och **VM-namn** som parametrar.
 1. Om du uppmanas att ange Azure-autentiseringsuppgifter anger du dem. Kontrollera sedan att skriptet körs utan några fel.
 
-## <a name="unable-to-see-the-azure-vm-or-resource-group-for-the-selection-in-the-enable-replication-job"></a>Det gick inte att se den virtuella azure-datorn eller resursgruppen för valet i aktivera replikeringsjobbet
+## <a name="cant-select-vm-or-resource-group-in-enable-replication-job"></a>Det går inte att välja virtuell dator eller resursgrupp i aktivera replikeringsjobb
 
-### <a name="issue-1-the-resource-group-and-source-virtual-machine-are-in-different-locations"></a>Problem 1: Resursgruppen och den virtuella källdatorn finns på olika platser
+### <a name="issue-1-the-resource-group-and-source-vm-are-in-different-locations"></a>Problem 1: Resursgruppen och källdatorn är på olika platser
 
 Site Recovery kräver för närvarande att källregionens resursgrupp och virtuella datorer finns på samma plats. Om de inte är det kan du inte hitta den virtuella datorn eller resursgruppen när du försöker tillämpa skydd.
 
@@ -375,7 +375,7 @@ Du kanske inte ser den virtuella datorn som du vill aktivera för replikering om
 1. Kör skriptet, _Cleanup-unakt-asr-config-Azure-VM.ps1_. Ange **prenumerations-ID,** **VM-resursgrupp**och **VM-namn** som parametrar.
 1. Om du uppmanas att ange Azure-autentiseringsuppgifter anger du dem. Kontrollera sedan att skriptet körs utan några fel.
 
-## <a name="unable-to-select-a-virtual-machine-for-protection"></a>Det går inte att välja en virtuell dator för skydd
+## <a name="unable-to-select-a-vm-for-protection"></a>Det går inte att välja en virtuell dator för skydd
 
 ### <a name="possible-cause"></a>Möjlig orsak
 
@@ -385,7 +385,7 @@ Den virtuella datorn har ett tillägg installerat i ett feltillstånd eller inte
 
 Gå till**Tillägg** för**inställningar** >  **för virtuella datorer** > och kontrollera om det finns några tillägg i ett misslyckat tillstånd. Avinstallera ett misslyckat tillägg och försök sedan igen för att skydda den virtuella datorn.
 
-## <a name="the-vms-provisioning-state-isnt-valid-error-code-150019"></a>Den virtuella datorns etableringstillstånd är ogiltigt (felkod 150019)
+## <a name="vm-provisioning-state-isnt-valid-error-code-150019"></a>Etableringstillstånd för virtuella datorer är ogiltigt (felkod 150019)
 
 Om du vill aktivera replikering på den virtuella datorn måste dess **etableringstillstånd lyckades**. Så här kontrollerar du etableringstillståndet:
 
@@ -400,15 +400,15 @@ Om du vill aktivera replikering på den virtuella datorn måste dess **etablerin
 - Om **etableringstaten** **har misslyckats**kontaktar du supporten med information som du kan felsöka.
 - Om **etableringstaten** **uppdateras**kan ett annat tillägg distribueras. Kontrollera om det finns några pågående åtgärder på den virtuella datorn, vänta tills de är klara och försök sedan igen det misslyckade site recovery-jobbet för att aktivera replikering.
 
-## <a name="unable-to-select-target-vm-network-selection-tab-is-unavailable"></a>Det går inte att välja mål-VM (fliken nätverksval är inte tillgänglig)
+## <a name="unable-to-select-target-vm"></a>Det går inte att välja mål-VM
 
-### <a name="issue-1-your-vm-is-attached-to-a-network-thats-already-mapped-to-a-target-network"></a>Problem 1: Den virtuella datorn är ansluten till ett nätverk som redan är mappat till ett målnätverk
+### <a name="issue-1-vm-is-attached-to-a-network-thats-already-mapped-to-a-target-network"></a>Problem 1: Den virtuella datorn är kopplad till ett nätverk som redan är mappat till ett målnätverk
 
 Om källdatorn är en del av ett virtuellt nätverk och en annan virtuell dator från samma virtuella nätverk redan är mappad med ett nätverk i målgruppen för nätverksval, är listrutan för nätverksval inte tillgänglig (visas nedtonad) som standard.
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="Listan för nätverksval är inte tillgänglig.":::
 
-### <a name="issue-2-you-previously-protected-the-vm-by-using-site-recovery-and-then-you-disabled-the-replication"></a>Problem 2: Du har tidigare skyddat den virtuella datorn med hjälp av Site Recovery och sedan inaktiverat replikeringen
+### <a name="issue-2-you-previously-protected-the-vm-and-then-you-disabled-the-replication"></a>Problem 2: Du har tidigare skyddat den virtuella datorn och sedan inaktiverat replikeringen
 
 Om du inaktiverar replikering av en virtuell dator tas inte nätverksmappningen bort. Mappningen måste tas bort från valvet för återställningstjänster där den virtuella datorn skyddades. Gå till **Återställningstjänster valv** > **Site Recovery Infrastructure** > **Network Mapping**.
 
@@ -420,9 +420,9 @@ Målnätverket som konfigurerades under inställningarna för haveriberedskap ka
 
 Om du ändrar nätverksmappning påverkas alla skyddade virtuella datorer som använder samma nätverksmappning.
 
-## <a name="com-or-volume-shadow-copy-service-error-error-code-151025"></a>COM+ eller Volym shadow copy-tjänsten (felkod 151025)
+## <a name="com-or-vss-error-code-151025"></a>COM+ eller VSS (felkod 151025)
 
-När det här felet uppstår visas följande meddelande:
+När VSS-felet (VOLUME Shadow Copy Service) inträffar visas följande meddelande:
 
 ```Output
 Site Recovery extension failed to install.
@@ -458,7 +458,7 @@ Disken är mindre än storleken på 1024 MB som stöds.
 
 Kontrollera att diskstorleken ligger inom storleksintervallet som stöds och försök sedan igen.
 
-## <a name="protection-wasnt-enabled-because-the-grub-configuration-includes-the-device-name-instead-of-the-uuid-error-code-151126"></a>Skyddet aktiverades inte eftersom GRUB-konfigurationen innehåller enhetsnamnet i stället för UUID (felkod 151126)
+## <a name="protection-not-enabled-when-grub-uses-device-name-error-code-151126"></a>Skyddet är inte aktiverat när GRUB använder enhetsnamn (felkod 151126)
 
 ### <a name="possible-causes"></a>Möjliga orsaker
 
@@ -493,7 +493,7 @@ Ersätt varje enhetsnamn med motsvarande UUID:
 
 1. Försök igen.
 
-## <a name="enable-protection-failed-because-the-device-mentioned-in-the-grub-configuration-doesnt-exist-error-code-151124"></a>Aktivera skydd misslyckades eftersom enheten som nämns i GRUB-konfigurationen inte finns (felkod 151124)
+## <a name="protection-failed-because-grub-device-doesnt-exist-error-code-151124"></a>Skyddet misslyckades eftersom GRUB-enheten inte finns (felkod 151124)
 
 ### <a name="possible-cause"></a>Möjlig orsak
 
@@ -517,7 +517,7 @@ I varje exempel måste GRUB identifiera två LVM-enheter med namnen `root` och `
 
 Om LVM-enheten inte finns, antingen skapa den eller ta bort motsvarande parametrar från GRUB konfigurationsfiler. Försök sedan igen för att aktivera skydd.
 
-## <a name="a-site-recovery-mobility-service-update-finished-with-warnings-error-code-151083"></a>En uppdatering av tjänsten Site Recovery Mobility har avslutats med varningar (felkod 151083)
+## <a name="mobility-service-update-finished-with-warnings-error-code-151083"></a>Uppdateringen av mobilitetstjänsten avslutad med varningar (felkod 151083)
 
 Tjänsten Site Recovery Mobility har många komponenter, varav en kallas filterdrivrutinen. Filterdrivrutinen läses bara in i systemminnet under omstarten av systemet. När en uppdatering av mobilitetstjänsten innehåller filterdrivrutinsändringar uppdateras datorn, men du ser fortfarande en varning om att vissa korrigeringar kräver en omstart. Varningen visas eftersom filterdrivrutinskorrigeringarna endast kan börja gälla när den nya filterdrivrutinen läses in, vilket bara sker under en omstart.
 
@@ -526,7 +526,9 @@ Tjänsten Site Recovery Mobility har många komponenter, varav en kallas filterd
 >
 > Förutom filterdrivrutinen börjar fördelarna med andra förbättringar och korrigeringar i uppdateringen av mobilitetstjänsten att gälla utan att kräva en omstart.
 
-## <a name="protection-couldnt-be-enabled-because-the-replica-managed-disk-already-exists-without-expected-tags-in-the-target-resource-group-error-code-150161"></a>Det gick inte att aktivera skyddet eftersom den replikhanterade disken redan finns, utan förväntade taggar, i målresursgruppen (felkod 150161)
+## <a name="protection-not-enabled-if-replica-managed-disk-exists"></a>Skyddet är inte aktiverat om det finns en replikhanterad disk
+
+Det här felet uppstår när den replikhanterade disken redan finns, utan förväntade taggar, i målresursgruppen.
 
 ### <a name="possible-cause"></a>Möjlig orsak
 

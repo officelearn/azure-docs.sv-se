@@ -8,14 +8,14 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 04/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 1418205843fefc76db4e73832736b308d0cc79a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6720a018cdc3fff95192b0956b3d1040be263ab2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76122618"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261900"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Lagra autentiseringsuppgifter i Azure Key Vault
 
@@ -32,7 +32,7 @@ Den här funktionen är beroende av datafabrikens hanterade identitet. Lär dig 
 Om du vill referera till en autentiseringsuppgifter som lagras i Azure Key Vault måste du:
 
 1. **Hämta datafabrikens hanterade identitet** genom att kopiera värdet "Managed Identity Object ID" som genereras tillsammans med din fabrik. Om du använder ADF-redigeringsgränssnitt visas det hanterade identitetsobjekt-ID:t i fönstret Azure Key Vault-länkade tjänstskapande. Du kan också hämta den från Azure-portalen, referera till [Hämta data fabrikshanterad identitet](data-factory-service-identity.md#retrieve-managed-identity).
-2. **Bevilja den hanterade identitetsåtkomsten till ditt Azure Key Vault.** I nyckelvalvet -> Access-principer -> Lägg till nya -> sök i den här hanterade identiteten för att bevilja **Hämta** behörighet i rullgardinsmenyn Hemliga behörigheter. Det gör att denna utsedda fabrik att komma åt hemlighet i nyckelvalvet.
+2. **Bevilja den hanterade identitetsåtkomsten till ditt Azure Key Vault.** Sök i den här hanterade identiteten > > i listrutan **Hemliga** behörigheter i listrutan Hemliga behörigheter i listrutan Hemliga behörigheter i rullgardinsmenyn Hemliga behörigheter. Det gör att denna utsedda fabrik att komma åt hemlighet i nyckelvalvet.
 3. **Skapa en länkad tjänst som pekar på ditt Azure Key Vault.** Se [azure key vault-länkad tjänst](#azure-key-vault-linked-service).
 4. **Skapa datalagerlänkad tjänst, inuti vilken referens motsvarande hemlighet lagras i nyckelvalvet.** Se [referenshemlighet som lagras i nyckelvalvet](#reference-secret-stored-in-key-vault).
 
@@ -47,13 +47,13 @@ Följande egenskaper stöds för Azure Key Vault-länkad tjänst:
 
 **Använda användargränssnittet för redigering:**
 
-Klicka på **Anslutningar** -> **Länkade tjänster** -> **+Ny** -> söka efter "Azure Key Vault":
+Välj **Anslutningar** -> **Länkade tjänster** -> **Ny**. I Ny länkad tjänst söker du efter och väljer "Azure Key Vault":
 
-![Sök AKV](media/store-credentials-in-key-vault/search-akv.png)
+![Sök i Azure Key Vault](media/store-credentials-in-key-vault/search-akv.png)
 
 Välj det etablerade Azure Key Vault där dina autentiseringsuppgifter lagras. Du kan göra **Test Connection** för att se till att din AKV-anslutning är giltig. 
 
-![Konfigurera AKV](media/store-credentials-in-key-vault/configure-akv.png)
+![Konfigurera Azure Key Vault](media/store-credentials-in-key-vault/configure-akv.png)
 
 **JSON exempel:**
 
@@ -87,7 +87,7 @@ Välj **Azure Key Vault** för hemliga fält när du skapar anslutningen till di
 >[!TIP]
 >För kopplingar som använder anslutningssträng i länkad tjänst som SQL Server, Blob storage, etc., kan du välja att antingen bara lagra det hemliga fältet, t.ex. Du hittar båda alternativen i användargränssnittet.
 
-![Konfigurera AKV-hemlighet](media/store-credentials-in-key-vault/configure-akv-secret.png)
+![Konfigurera Secret för Azure Key Vault](media/store-credentials-in-key-vault/configure-akv-secret.png)
 
 **JSON exempel: (se avsnittet "lösenord" )**
 

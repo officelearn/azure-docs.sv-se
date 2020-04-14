@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d44391624e29d2bdd182bb07452e0e8def2d1407
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c4d0f753e23e42b1064fec3f56957dfe97c30ca4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67656696"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261201"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Självstudiekurs: Azure Active Directory-integrering med ITRP
 
@@ -113,7 +113,7 @@ Så här konfigurerar du en enkel Azure AD-inloggning med ITRP:
        `https://<tenant-name>.itrp.com`
 
     > [!NOTE]
-    > Dessa värden är platshållare. Du måste använda den faktiska inloggnings-URL:en och identifieraren. Kontakta [ITRP:s supportteam](https://www.itrp.com/support) för att få värdena. Du kan också referera till de mönster som visas i dialogrutan **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är platshållare. Du måste använda den faktiska inloggnings-URL:en och identifieraren. Kontakta [ITRP:s supportteam](https://www.4me.com/support/) för att få värdena. Du kan också referera till de mönster som visas i dialogrutan **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. Öppna dialogrutan **Edit** **SAML-signeringscertifikat** i avsnittet **SAML-signeringscertifikat:**
 

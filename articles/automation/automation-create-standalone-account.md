@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 22efb5e94049b975780c6f6ea69aa94a71cc9992
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f06480767b697dca8fe41e484c02aefc58f040bf
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279018"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261338"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Skapa ett fristående Azure Automation-konto
 
@@ -92,7 +92,7 @@ När Automation-kontot har skapats skapas flera resurser automatiskt. När dessa
 | AzureRunAsCertificate |En certifikattillgång som skapas automatiskt när Automation-kontot skapas eller med hjälp av ett PowerShell-skript för ett befintligt konto. Certifikatet autentiserar med Azure så att du kan hantera Azure Resource Manager-resurser från runbooks. Det här certifikatet har en livslängd på ett år. |
 | AzureRunAsConnection |En anslutningstillgång som skapas automatiskt när Automation-kontot skapas eller med hjälp av ett PowerShell-skript för ett befintligt konto. |
 
-## <a name="classic-run-as-accounts"></a>Klassiska körningskonton
+## <a name="create-a-classic-run-as-account"></a>Skapa ett klassiskt run-as-konto
 
 Klassiska run-as-konton skapas inte längre, som standard, när du skapar ett Azure Automation-konto. Om du fortfarande behöver ett klassiskt körkonto utför du följande steg.
 

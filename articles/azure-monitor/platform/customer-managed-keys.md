@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 04/08/2020
-ms.openlocfilehash: 5b99e2f31d82630e2adc138c11485201a617af81
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.date: 04/12/2020
+ms.openlocfilehash: dbd217c7135172c52a5ec7459930977960c452aa
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892333"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260877"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Azure Monitor kundhanterad nyckelkonfiguration 
 
@@ -95,8 +95,7 @@ Proceduren stöds inte i användargränssnittet för närvarande och etablerings
 Ett exempel:
 
 ```rst
-GET
-https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>?api-version=2015-11-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
 Authorization: Bearer eyJ0eXAiO....
 ```
 
@@ -106,8 +105,8 @@ Du kan hämta token med någon av dessa metoder:
 
 1. Använd metoden [Appregistreringar.](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens)
 2. I Azure-portalen
-    1. Navigera till Azure-portalen i "utvecklarverktyg (F12)
-    1. Leta efter auktoriseringssträng under "Begär rubriker" i en av instanserna "batch?api-version". Det ser lik: "bemyndigande: Bäraretoken \<\>". 
+    1. Navigera till Azure-portalen i "utvecklarverktyg" (F12)
+    1. Leta efter auktoriseringssträng under "Begär rubriker" i en av instanserna "batch?api-version". Det ser ut som: "tillstånd: Bearer eyJ0eXAiO ....". 
     1. Kopiera och lägg till det i ditt API-anrop enligt exemplen nedan.
 3. Navigera till Azure REST-dokumentationswebbplatsen. Tryck på "Prova" på alla API och kopiera Innehavartoken.
 
@@ -115,29 +114,52 @@ Du kan hämta token med någon av dessa metoder:
 
 Vissa av åtgärderna i den här konfigurationsproceduren körs asynkront eftersom de inte kan slutföras snabbt. Svaret för asynkron åtgärd returnerar inledningsvis en HTTP-statuskod 200 (OK) och ett huvud med egenskapen *Azure-AsyncOperation* när den godkänns:
 ```json
-"Azure-AsyncOperation": "https://management.azure.com/subscriptions/ subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2015-11-01-preview"
+"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-03-01-preview"
 ```
 
 Du kan kontrollera status för den asynkrona åtgärden genom att skicka en *GET-begäran till azure-AsyncOperation-huvudvärdet:*
 ```rst
-GET "https://management.azure.com/subscriptions/ subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2015-11-01-preview
+GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 ```
 
-Brödtexten för svaret från åtgärden innehåller information om åtgärden och egenskapen *Status* anger dess tillstånd. Asynkrona åtgärder i den här konfigurationsproceduren och deras status är:
+Svaret innehåller information om åtgärden och dess *status*. Det kan vara något av följande:
 
-**Skapa en *klusterresurs***
-* EtableringSkerakt -- ADX-klustret etablerar 
-* Lyckades – ADX-klusteretablering har slutförts
+Operationen pågår
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "InProgress", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+}
+```
 
-**Bevilja behörigheter till key vault**
-* Uppdatering - Uppdatering av nyckelidentifierare pågår
-* Lyckades – uppdateringen har slutförts
+Åtgärden är slutförd
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "Succeeded", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+    "endTime": "2017-01-06T20:56:56.002812+00:00",
+}
+```
 
-**Associera log analytics-arbetsytor**
-* Länka – Arbetsyteasasociation till kluster pågår
-* Lyckades – Föreningen har slutförts
-
+Åtgärden misslyckades
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "Failed", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+    "endTime": "2017-01-06T20:56:56.002812+00:00",
+    "error" : { 
+        "code": "error-code",  
+        "message": "error-message" 
+    }
+}
+```
 
 ### <a name="subscription-whitelisting"></a>Vitlistning av prenumeration
 
@@ -149,6 +171,8 @@ CMK-funktionen är en funktion för tidig åtkomst. Prenumerationerna där du pl
 ### <a name="storing-encryption-key-kek"></a>Lagra krypteringsnyckel (KEK)
 
 Skapa eller använd ett Azure Key Vault som du redan måste generera eller importera en nyckel som ska användas för datakryptering. Azure Key Vault måste konfigureras som återställningsbara för att skydda din nyckel och åtkomsten till dina data i Azure Monitor. Du kan verifiera den här konfigurationen under egenskaper i Key Vault, både *Mjukt borttagnings-* och *rensningsskydd* ska aktiveras.
+
+![Inställningar för mjuk borttagning och rensning av skydd](media/customer-managed-keys/soft-purge-protection.png)
 
 Dessa inställningar är tillgängliga via CLI och PowerShell:
 - [Mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
@@ -189,11 +213,10 @@ Identiteten tilldelas *klusterresursen* när den skapas.
 
 **Svar**
 
-200 OK och header när de accepteras.
->[!Important]
-> Under funktionens tidiga åtkomstperiod etableras ADX-klustret manuellt. Det tar visserligen att etablera det underliggande ADX-klustret ett tag att slutföra, men du kan kontrollera etableringstillståndet på två sätt:
-> 1. Kopiera *URL-värdet för Azure-AsyncOperation* från svaret och använd det för åtgärdens statuskontroll i [asynkrona åtgärder](#asynchronous-operations-and-status-check)
-> 2. Skicka en GET-begäran på *klusterresursen* och titta på *etableringstatsvärdet.* Det är *etableringKonto vid* etablering och lyckades när den har *slutförts.*
+200 OK och header.
+Under funktionens tidiga åtkomstperiod etableras ADX-klustret manuellt. Det tar visserligen att etablera det underliggande ADX-klustret ett tag att slutföra, men du kan kontrollera etableringstillståndet på två sätt:
+1. Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ [statuskontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
+2. Skicka en GET-begäran på *klusterresursen* och titta på *etableringstatsvärdet.* Det är *etableringKonto vid* etablering och lyckades när den har *slutförts.*
 
 ### <a name="azure-monitor-data-store-adx-cluster-provisioning"></a>Adx-kluster (Azure Monitor data-store)
 
@@ -205,7 +228,7 @@ Authorization: Bearer <token>
 ```
 
 > [!IMPORTANT]
-> Kopiera och spara svaret eftersom du behöver dess information i senare steg
+> Kopiera och spara svaret eftersom du behöver informationen i nästa steg.
 
 **Svar**
 
@@ -260,11 +283,11 @@ Uppdatera *klusterresursen* KeyVaultProperties med information om nyckelidentifi
 
 Den här Resource Manager-begäran är asynkron åtgärd.
 
->[!Warning]
+> [!Warning]
 > Du måste ange en hel *brödtext* i klusterresursuppdatering som innehåller *identitet*, *sku*, *KeyVaultProperties* och *plats*. Om du saknar *keyVaultProperties-informationen* tas nyckelidentifieraren bort från *klusterresursen* och [orsaka nyckelåterkallelse](#cmk-kek-revocation).
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -290,11 +313,10 @@ Content-type: application/json
 
 **Svar**
 
-200 OK och header när de accepteras.
->[!Important]
-> Det tar att sprida nyckelidentifieraren några minuter att slutföra. Du kan kontrollera etableringstillståndet på två sätt:
-> 1. Kopiera *URL-värdet för Azure-AsyncOperation* från svaret och använd det för åtgärdens statuskontroll i [asynkrona åtgärder](#asynchronous-operations-and-status-check)
-> 2. Skicka en GET-begäran på *klusterresursen* och titta på egenskaperna *KeyVaultProperties.* Din nyligen uppdaterade nyckelidentifierare bör returneras i svaret.
+200 OK och header.
+Det tar att sprida nyckelidentifieraren några minuter att slutföra. Du kan kontrollera etableringstillståndet på två sätt:
+1. Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ [statuskontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
+2. Skicka en GET-begäran på *klusterresursen* och titta på egenskaperna *KeyVaultProperties.* Din nyligen uppdaterade nyckelidentifierare bör returneras i svaret.
 
 Ett svar på GET-begäran på *klusterresursen* ska se ut så här när uppdateringen av nyckelidentifieraren är klar:
 
@@ -330,8 +352,6 @@ Ett svar på GET-begäran på *klusterresursen* ska se ut så här när uppdater
 ### <a name="workspace-association-to-cluster-resource"></a>Arbetsyteasasociation till *klusterresurs*
 För CMK-konfiguration för Application Insights följer du tilläggsinnehållet för det här steget.
 
-Den här Resource Manager-begäran är asynkron åtgärd.
-
 Du måste ha "skriv"-behörigheter till både arbetsytan och *klusterresursen* för att utföra den här åtgärden, vilket inkluderar följande åtgärder:
 
 - På arbetsytan: Microsoft.OperationalInsights/workspaces/write
@@ -345,7 +365,7 @@ Du måste ha "skriv"-behörigheter till både arbetsytan och *klusterresursen* f
 Den här Resource Manager-begäran är asynkron åtgärd.
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2019-08-01-preview 
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview 
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -358,15 +378,13 @@ Content-type: application/json
 
 **Svar**
 
-200 OK och header när de accepteras.
->[!Important]
-> Det kan fungera upp till 90 minuter att slutföra. Data som används på dina arbetsytor lagras krypterade med den hanterade nyckeln först efter en lyckad arbetsytorsasociation.
-> Om du vill kontrollera tillståndet för arbetsyteasociationen kopierar du *URL-värdet för Azure-AsyncOperation* från svaret och använder det för åtgärdens statuskontroll i [asynkrona åtgärder](# asynchronous-operations-and-status-check)
-
-Du kan kontrollera *klusterresursen* som är kopplad till arbetsytan genom att skicka en GET-begäran till [arbetsytor – Hämta](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) och observera svaret. *ClusterResourceId* anger på *Cluster* klusterresurs-ID.
+200 OK och header.
+Intövda data lagras krypterade med din hanterade nyckel efter associationsåtgärden, vilket kan ta upp till 90 minuter att slutföra. Du kan kontrollera arbetsytssocieringstillståndet på två sätt:
+1. Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ [statuskontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
+2. Skicka en [arbetsyta – Hämta](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) begäran och observera svaret, associerad arbetsyta kommer att ha en clusterResourceId under "funktioner".
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
 ```
 
 **Svar**
@@ -455,7 +473,7 @@ Alla dina data är tillgängliga efter nyckelrotationen, inklusive data som inta
 - Hämta alla *klusterresurser* för en resursgrupp:
 
   ```rst
-  GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2019-08-01-preview
+  GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
   Authorization: Bearer <token>
   ```
     
@@ -492,7 +510,7 @@ Alla dina data är tillgängliga efter nyckelrotationen, inklusive data som inta
 - Hämta alla *klusterresurser* för en prenumeration:
 
   ```rst
-  GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2019-08-01-preview
+  GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
   Authorization: Bearer <token>
   ```
     
@@ -503,8 +521,7 @@ Alla dina data är tillgängliga efter nyckelrotationen, inklusive data som inta
 - Ta bort *klusterresursen* – en mjuk borttagningsåtgärd utförs för att möjliggöra återställning av klusterresursen, dina data och associerade arbetsytor inom 14 dagar, oavsett om borttagningen var oavsiktlig eller avsiktlig. *Klusterresursnamnet* förblir reserverat under den mjuka borttagningsperioden och du kan inte skapa ett nytt kluster med det namnet. Efter mjukborttagningsperioden kan *klusterresursen* och dina data inte återställas. Associerade arbetsytor är avabestärade från *klusterresursen* och nya data intas i delad lagring och krypteras med Microsoft-nyckel.
 
   ```rst
-  DELETE
-  https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
   Authorization: Bearer <token>
   ```
 
@@ -540,8 +557,10 @@ Den här resursen används som mellanliggande identitetsanslutning mellan Key Va
 
 **Skapa**
 
+Den här Resource Manager-begäran är asynkron åtgärd.
+
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -562,10 +581,10 @@ Content-type: application/json
 
 **Svar**
 
-202 Accepterad. Detta är ett standardt Resource Manager-svar för asynkrona åtgärder.
-
->[!Important]
-> Det tar etableringen av det underliggande ADX-klustret några minuter att slutföra. Du kan verifiera etableringstillståndet när du utför GET REST API-anrop på *klusterresursen* och titta på *etableringstatsvärdet.* Det är *etableringKonto vid* etablering och "Lyckades" när den är klar.
+200 OK och header.
+Under funktionens tidiga åtkomstperiod etableras ADX-klustret manuellt. Det tar visserligen att etablera det underliggande ADX-klustret ett tag att slutföra, men du kan kontrollera etableringstillståndet på två sätt:
+1. Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ [statuskontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
+2. Skicka en GET-begäran på *klusterresursen* och titta på *etableringstatsvärdet.* Det är *etableringKonto vid* etablering och lyckades när den har *slutförts.*
 
 ### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-update-api"></a>Associera en komponent till en *klusterresurs* med [komponenter – Skapa eller uppdatera](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate) API
 
@@ -579,7 +598,7 @@ Du måste ha skrivbehörighet för både komponenten och *klusterresursen* för 
 > Om du vill kontrollera att ADX-klustret är etablerat kör du *klusterresursen* Hämta REST API och kontrollera att *etableringstate-värdet* *har lyckats*.
 
 ```rst
-GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 ```
 
@@ -614,7 +633,7 @@ Authorization: Bearer <token>
 ```
 
 > [!IMPORTANT]
-> Kopiera och behåll värdet "princip-id"eftersom du behöver det i nästa steg.
+> Kopiera och behåll svaret eftersom du behöver det i nästa steg.
 
 **Associera en komponent**
 

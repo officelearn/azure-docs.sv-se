@@ -9,21 +9,21 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3c54f864b5bd562fdc0a84b2903198704032b360
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: bc691299f38d562aee5c08a89e10372331663f8e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998485"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262816"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Använd den "fullständiga" lucene-söksyntaxen (avancerade frågor i Azure Cognitive Search)
 
 När du skapar frågor för Azure Cognitive Search kan du ersätta [standardspråkaren](query-simple-syntax.md) för enkla frågor med den mer expansiva [Lucene Query-parsern i Azure Cognitive Search](query-lucene-syntax.md) för att formulera specialiserade och avancerade frågedefinitioner. 
 
-Lucene-parsern stöder komplexa frågekonstruktioner, till exempel fältomfattade frågor, fuzzy- och prefixhcardsökning, närhetssökning, termförbsökning och sökning med reguljära uttryck. Den extra kraften levereras med ytterligare bearbetningskrav så du bör förvänta dig en något längre körningstid. I den här artikeln kan du gå igenom exempel som visar frågeåtgärder som är tillgängliga när du använder den fullständiga syntaxen.
+Lucene-parsern stöder komplexa frågekonstruktioner, till exempel fältomfattade frågor, fuzzy search, infix och suffix wildcard search, proximity search, term boosting och regular expression search. Den extra kraften levereras med ytterligare bearbetningskrav så du bör förvänta dig en något längre körningstid. I den här artikeln kan du gå igenom exempel som visar frågeåtgärder som är tillgängliga när du använder den fullständiga syntaxen.
 
 > [!Note]
-> Många av de specialiserade frågekonstruktioner som aktiveras via den fullständiga Lucene-frågesyntaxen är inte [textanalyserade](search-lucene-query-architecture.md#stage-2-lexical-analysis), vilket kan vara förvånande om du förväntar dig att hejda eller lemmatisering. Lexikal analys utförs endast på fullständiga villkor (en termfråga eller frasfråga). Frågetyper med ofullständiga termer (prefixfråga, jokerteckenfråga, regex-fråga, fuzzy query) läggs till direkt i frågeträdet och kringgår analysfasen. Den enda omvandlingen som utförs på ofullständiga frågetermer är att sänkacasingen. 
+> Många av de specialiserade frågekonstruktioner som aktiveras via den fullständiga Lucene-frågesyntaxen är inte [textanalyserade](search-lucene-query-architecture.md#stage-2-lexical-analysis), vilket kan vara förvånande om du förväntar dig att hejda eller lemmatisering. Lexikal analys utförs endast på fullständiga villkor (en termfråga eller frasfråga). Frågetyper med ofullständiga termer (prefixfråga, jokerteckenfråga, regex-fråga, fuzzy query) läggs till direkt i frågeträdet och kringgår analysfasen. Den enda omvandlingen som utförs på partiella frågetermer är att minska. 
 >
 
 ## <a name="formulate-requests-in-postman"></a>Formulera förfrågningar i Postman

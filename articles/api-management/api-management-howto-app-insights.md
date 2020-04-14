@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 12aeea8393a00d7d2662c826f847265bdbdc0119
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 48a83fad3395f6ecf06fb1f1ba95aa1b06a53431
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75442717"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259144"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Så integrerar du Azure API Management med Azure Application Insights
 
@@ -51,7 +51,7 @@ Innan du kan använda Azure Application Insights måste du först skapa en insta
     ![Loggar för App Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> Bakom scenen skapas en [Logger-entitet](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger/createorupdate) i din API Management-instans, som innehåller instrumenteringsnyckeln för application insights-instansen.
+> Bakom scenen skapas en [Logger-entitet](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate) i din API Management-instans, som innehåller instrumenteringsnyckeln för application insights-instansen.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Aktivera application insights-loggning för ditt API
 
@@ -70,7 +70,7 @@ Innan du kan använda Azure Application Insights måste du först skapa en insta
 > Om du åsidosätter standardvärdet **0** i fältet **Första byte i brödtexten** kan avsevärt försämra prestanda för dina API:er.
 
 > [!NOTE]
-> Bakom scenen skapas en [diagnostikentitet](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/diagnostic/createorupdate) med namnet applicationinsights på API-nivå.
+> Bakom scenen skapas en [diagnostikentitet](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) med namnet applicationinsights på API-nivå.
 
 | Inställningsnamn                        | Värdetyp                        | Beskrivning                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

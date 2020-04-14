@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: dsindona
-ms.openlocfilehash: 9c0b4ca6e9a26f13d1539845ca9fb43f31a1a9dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd9f98d42efcb35dbab4f3c0a06c5a11360e36b6
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281722"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270357"
 ---
 # <a name="containers"></a>Containrar
+
+> [!IMPORTANT]
+> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Container-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa ett Azure Container-erbjudande](https://aka.ms/CreateContainerOffer) för att hantera dina migrerade erbjudanden.
 
 <table> <tr> <td>I det här avsnittet beskrivs hur du publicerar en behållaravbildning till <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>.  
 Behållaren erbjudandetyp stöder Docker-behållaravbildningar som etablerats som <a href="https://docs.microsoft.com/azure/aks/index">Azure Kubernetes</a> Service-instanser eller <a href="https://docs.microsoft.com/azure/container-instances/container-instances-overview">Azure Container Instances</a> och finns i en <a href="https://docs.microsoft.com/azure/container-registry">Azure Container Registry-databas.</a> </td> <td><img src="./media/container-icon.png"  alt="Azure container icon" /></td> </tr> </table>

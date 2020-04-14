@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8cb6cf49e302122849dc2402bcff008e72e15608
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 870f7b0ab0f1d7b247435cdbb74e21801b3b052a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472366"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257189"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Vad är fältprogrammerbara grindmatriser (FPGA) och hur du distribuerar
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -51,7 +51,7 @@ Microsoft Azure är världens största molninvestering i FPGA. Med hjälp av den
 FPGA på Azure stöder:
 
 + Scenarier för bildklassificering och igenkänning
-+ TensorFlow-distribution
++ TensorFlow-distribution (kräver Tensorflow 1.x)
 + Intel FPGA-maskinvara
 
 Dessa DNN-modeller är för närvarande tillgängliga:
@@ -115,9 +115,8 @@ Du kan distribuera en modell som en webbtjänst på FPGA med Azure Machine Learn
 - Python SDK för maskinvaruaccelererad modell:
 
     ```bash
-    pip install --upgrade azureml-accel-models
+    pip install --upgrade azureml-accel-models[cpu]
     ```
-
 
 ## <a name="1-create-and-containerize-models"></a>1. Skapa och behålla modeller
 
@@ -364,7 +363,7 @@ aks_service.wait_for_deployment(show_output=True)
 #### <a name="test-the-cloud-service"></a>Testa molntjänsten
 Docker-avbildningen stöder gRPC och TensorFlow-serveringen "förutsäga" API.  Använd exempelklienten för att anropa Docker-avbildningen för att få förutsägelser från modellen.  Exempelklientkod är tillgänglig:
 - [Python](https://github.com/Azure/aml-real-time-ai/blob/master/pythonlib/amlrealtimeai/client.py)
-- [C#](https://github.com/Azure/aml-real-time-ai/blob/master/sample-clients/csharp)
+- [C #](https://github.com/Azure/aml-real-time-ai/blob/master/sample-clients/csharp)
 
 Om du vill använda TensorFlow-servering kan du [hämta en exempelklient](https://www.tensorflow.org/serving/setup).
 

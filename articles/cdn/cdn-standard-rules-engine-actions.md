@@ -2,17 +2,17 @@
 title: Åtgärder i standardreglersmotorn för Azure CDN | Microsoft-dokument
 description: Referensdokumentation för åtgärder i standardreglersmotorn för Azure Content Delivery Network (Azure CDN).
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: magattus
-ms.openlocfilehash: 53280bc90f629d93ff8a045c80f34a73970b43f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 29138b4fc6716ae5361cc4d7f97ceba41b90c2da
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74171639"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259960"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Åtgärder i standardreglersmotorn för Azure CDN
 
@@ -63,9 +63,9 @@ Använd den här åtgärden om du vill ändra rubriker som finns i begäranden s
 
 Åtgärd | HTTP-huvudnamn | Värde
 -------|------------------|------
-Lägg till | När det här alternativet är markerat och regeln matchar läggs huvudet som anges i **Sidhuvudsnamn** till i begäran med det angivna värdet. Om huvudet redan finns läggs värdet till i det befintliga värdet. | String
-Skriv över | När det här alternativet är markerat och regeln matchar läggs huvudet som anges i **Sidhuvudsnamn** till i begäran med det angivna värdet. Om huvudet redan finns skriver det angivna värdet över det befintliga värdet. | String
-Ta bort | När det här alternativet är markerat matchar regeln och det huvud som anges i regeln finns, tas huvudet bort från begäran. | String
+Lägg till | När det här alternativet är markerat och regeln matchar läggs huvudet som anges i **Sidhuvudsnamn** till i begäran med det angivna värdet. Om huvudet redan finns läggs värdet till i det befintliga värdet. | Sträng
+Skriv över | När det här alternativet är markerat och regeln matchar läggs huvudet som anges i **Sidhuvudsnamn** till i begäran med det angivna värdet. Om huvudet redan finns skriver det angivna värdet över det befintliga värdet. | Sträng
+Ta bort | När det här alternativet är markerat matchar regeln och det huvud som anges i regeln finns, tas huvudet bort från begäran. | Sträng
 
 ### <a name="modify-response-header"></a>Ändra svarshuvud
 
@@ -75,9 +75,9 @@ Använd den här åtgärden om du vill ändra rubriker som finns i svar som retu
 
 Åtgärd | HTTP-huvudnamn | Värde
 -------|------------------|------
-Lägg till | När det här alternativet är markerat och regeln matchar läggs huvudet som anges i **Sidhuvudsnamn** till i svaret med hjälp av det angivna **värdet**. Om huvudet redan finns läggs **värde** till i det befintliga värdet. | String
-Skriv över | När det här alternativet är markerat och regeln matchar läggs huvudet som anges i **Sidhuvudsnamn** till i svaret med hjälp av det angivna **värdet**. Om huvudet redan finns skriver **Value** över det befintliga värdet. | String
-Ta bort | När det här alternativet är markerat matchar regeln och det huvud som anges i regeln finns, tas huvudet bort från svaret. | String
+Lägg till | När det här alternativet är markerat och regeln matchar läggs huvudet som anges i **Sidhuvudsnamn** till i svaret med hjälp av det angivna **värdet**. Om huvudet redan finns läggs **värde** till i det befintliga värdet. | Sträng
+Skriv över | När det här alternativet är markerat och regeln matchar läggs huvudet som anges i **Sidhuvudsnamn** till i svaret med hjälp av det angivna **värdet**. Om huvudet redan finns skriver **Value** över det befintliga värdet. | Sträng
+Ta bort | När det här alternativet är markerat matchar regeln och det huvud som anges i regeln finns, tas huvudet bort från svaret. | Sträng
 
 ### <a name="url-redirect"></a>URL-omdirigering
 

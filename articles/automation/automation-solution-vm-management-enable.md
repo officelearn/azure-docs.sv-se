@@ -5,19 +5,19 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4f4b0805e2a9247aff881a9e34b0bd1cd4c6ca27
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 7b619d3c9b4b334e637d6a1c456256cb33ad5134
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80550414"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261388"
 ---
 # <a name="enable-azure-startstop-vms-solution"></a>Aktivera Azure Start/Stop VMs-lösning
 
 Utför följande steg för att lägga till start-/stopp-virtuella datorer under ledig tid i ett nytt eller befintligt Automation-konto och länkad Log Analytics-arbetsyta. När du har slutfört introduktionsprocessen konfigurerar du variablerna för att anpassa lösningen.
 
 >[!NOTE]
->Om du vill använda den här lösningen med klassiska virtuella datorer behöver du ett klassiskt RunAs-konto, som inte skapas som standard. Instruktioner om hur du skapar ett klassiskt RunAs-konto finns i [Klassiska körningskonton](automation-create-standalone-account.md#classic-run-as-accounts).
+>Om du vill använda den här lösningen med klassiska virtuella datorer behöver du ett klassiskt kör som-konto, som inte skapas som standard. Instruktioner om hur du skapar ett klassiskt kör som-konto finns i [Skapa ett klassiskt kör som-konto](automation-create-standalone-account.md#create-a-classic-run-as-account).
 >
 
 ## <a name="enable-solution"></a>Aktivera lösning

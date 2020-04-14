@@ -13,21 +13,20 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 8f3497f113981ae563023750ad8979c88c640f5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 968cc9ed9d938bb04d1243102855c134147ddf3b
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80123337"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269881"
 ---
 # <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
 <a name="network-security-groups"></a>
 
-Du kan filtrera nätverkstrafik till och från Azure-resurser i ett virtuellt nätverk i Azure med en nätverkssäkerhetsgrupp. En nätverkssäkerhetsgrupp innehåller säkerhetsregler som tillåter eller nekar inkommande nätverkstrafik till, eller utgående nätverkstrafik från, flera typer av Azure-resurser. Information om vilka Azure-resurser du kan distribuera till ett virtuellt nätverk och associera med nätverkssäkerhetsgrupper finns i [Virtual network integration for Azure services](virtual-network-for-azure-services.md) (Integrering av virtuella nätverk för Azure-tjänster). För varje regel kan du ange källa och mål, port och protokoll.
+Du kan använda Azure-nätverkssäkerhetsgrupp för att filtrera nätverkstrafik till och från Azure-resurser i ett virtuellt Azure-nätverk. En nätverkssäkerhetsgrupp innehåller [säkerhetsregler](#security-rules) som tillåter eller nekar inkommande nätverkstrafik till, eller utgående nätverkstrafik från, flera typer av Azure-resurser. För varje regel kan du ange källa och mål, port och protokoll.
+I den här artikeln beskrivs egenskaperna för en regel för nätverkssäkerhetsgrupper, [standardsäkerhetsreglerna](#default-security-rules) som tillämpas och de regelegenskaper som du kan ändra för att skapa en [utökad säkerhetsregel](#augmented-security-rules).
 
-Den här artikeln beskriver vad nätverkssäkerhetsgrupper är, så att du kan använda dem så effektivt som möjligt. Om du aldrig har skapat en nätverkssäkerhetsgrupp kan du gå en snabb [självstudie](tutorial-filter-network-traffic.md) för att få lite erfarenhet. Om du redan är bekant med nätverkssäkerhetsgrupper och vill lära dig hur du hanterar dem läser du [Hantera en nätverkssäkerhetsgrupp](manage-network-security-group.md). Om du har kommunikationsproblem och behöver felsöka nätverkssäkerhetsgrupper läser du [Diagnose a virtual machine network traffic filter problem](diagnose-network-traffic-filter-problem.md) (Diagnostisera problem med filtreringen av nätverkstrafik för virtuella nätverk). Du kan aktivera [flödesloggar för nätverkssäkerhetsgrupper](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) om du vill analysera nätverkstrafik till och från resurser som har en associerad nätverkssäkerhetsgrupp.
-
-## <a name="security-rules"></a>Säkerhetsregler
+## <a name="security-rules"></a><a name="security-rules"></a>Säkerhetsregler
 
 En nätverkssäkerhetsgrupp kan innehålla noll regler, eller så många regler du vill, inom Azure-prenumerationens [gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Varje regel anger följande egenskaper:
 
@@ -46,7 +45,7 @@ Befintliga anslutningar kanske inte avbryts när du tar bort en säkerhetsregel 
 
 Det finns gränser för hur många säkerhetsregler du kan skapa i en nätverkssäkerhetsgrupp. Läs mer i informationen om [begränsningar för Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-### <a name="default-security-rules"></a>Standardsäkerhetsregler
+### <a name="default-security-rules"></a><a name="default-security-rules"></a>Standardsäkerhetsregler
 
 Azure skapar följande standardregler i varje nätverkssäkerhetsgrupp som du skapar:
 
@@ -94,7 +93,7 @@ I kolumnerna **Källa** och **Mål** är *VirtualNetwork*, *AzureLoadBalancer*, 
  
 Du kan inte ta bort standardreglerna, men du kan åsidosätta dem genom att skapa regler med högre prioritet.
 
-### <a name="augmented-security-rules"></a>Förhöjda säkerhetsregler
+### <a name="augmented-security-rules"></a><a name="augmented-security-rules"></a>Utökade säkerhetsregler
 
 Förhöjda säkerhetsregler förenklar säkerhetsdefinitionen för virtuella nätverk så att du kan definiera större och mer komplexa nätverkssäkerhetsprinciper med färre regler. Du kan kombinera flera portar och flera explicita IP-adresser och IP-intervall i en enda, lättbegriplig säkerhetsregel. Använd förhöjda regler i fälten för källa, mål och port för en regel. För att göra det enklare att underhålla definitionen av dina säkerhetsregler kan du kombinera förhöjda säkerhetsregler med [tjänsttaggar](service-tags-overview.md) eller [programsäkerhetsgrupper](#application-security-groups). Det finns gränser för antalet adresser, intervall och portar som du kan ange i en regel. Läs mer i informationen om [begränsningar för Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
@@ -170,4 +169,8 @@ Du kan enkelt granska vilka regler som tillämpas för ett nätverksgränssnitt 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs om hur du [skapar en nätverkssäkerhetsgrupp](tutorial-filter-network-traffic.md).
+* Mer information om vilka Azure-resurser som kan distribueras till ett virtuellt nätverk och ha nätverkssäkerhetsgrupper associerade till dem finns i [Integrering av virtuella nätverk för Azure-tjänster](virtual-network-for-azure-services.md)
+* Om du aldrig har skapat en nätverkssäkerhetsgrupp kan du gå en snabb [självstudie](tutorial-filter-network-traffic.md) för att få lite erfarenhet. 
+* Om du redan är bekant med nätverkssäkerhetsgrupper och vill lära dig hur du hanterar dem läser du [Hantera en nätverkssäkerhetsgrupp](manage-network-security-group.md). 
+* Om du har kommunikationsproblem och behöver felsöka nätverkssäkerhetsgrupper läser du [Diagnose a virtual machine network traffic filter problem](diagnose-network-traffic-filter-problem.md) (Diagnostisera problem med filtreringen av nätverkstrafik för virtuella nätverk). 
+* Lär dig hur du aktiverar [flödesloggar för nätverkssäkerhetsgrupper](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) för att analysera nätverkstrafik till och från resurser som har en associerad nätverkssäkerhetsgrupp.

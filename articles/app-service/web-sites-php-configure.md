@@ -5,27 +5,29 @@ author: msangapu-msft
 ms.assetid: 95c4072b-8570-496b-9c48-ee21a223fb60
 ms.devlang: php
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/13/2020
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c73fb55e485d0c92d27eac2ac197a81337b9d5e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 208f4f7b4c2d8562d5237a40f52e4774ea5c5606
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77016807"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272482"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Konfigurera PHP i Azure App Service
 
 ## <a name="introduction"></a>Introduktion
 
-Den här guiden visar hur du konfigurerar den inbyggda PHP-körningen för webbappar, mobila bakåtslut och API-appar i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714), ger en anpassad PHP-körning och aktiverar tillägg. Om du vill använda App Service registrerar du dig för den [kostnadsfria utvärderingsversionen]. För att få ut det mesta av den här guiden bör du först skapa en PHP-app i App Service.
+Den här guiden visar hur du konfigurerar den inbyggda PHP-körningen för webbappar och API-appar i [Azure App Service,](https://go.microsoft.com/fwlink/?LinkId=529714)tillhandahåller en anpassad PHP-körning och aktiverar tillägg. Om du vill använda App Service registrerar du dig för den [kostnadsfria utvärderingsversionen]. För att få ut det mesta av den här guiden bör du först skapa en PHP-app i App Service.
 
 ## <a name="how-to-change-the-built-in-php-version"></a>Så här: Ändra den inbyggda PHP-versionen
 
-Som standard installeras PHP 5.6 och är omedelbart tillgängligt för användning när du skapar en App Service-app. Det bästa sättet att se den tillgängliga versionen revidering, dess standardkonfiguration, och de aktiverade tillägg är att distribuera ett skript som anropar [phpinfo()] funktion.
+När du skapar en webbapp kan du välja den version av PHP som ska konfigureras. Se [PHP på App Service](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md) för aktuell information om versioner som stöds för närvarande.
 
-PHP 7.0 och PHP 7.2 versioner finns också, men inte aktiverat som standard. För att uppdatera PHP-versionen, följ en av dessa metoder:
+Om du vill kontrollera den befintliga körningsversionen av appen kan du distribuera ett skript som anropar funktionen [phpinfo().]
+
+För att uppdatera PHP-versionen, följ en av dessa metoder:
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -49,7 +51,7 @@ Om du vill använda Azure Command-Line-gränssnittet måste du [installera Azure
 
 2. Ställ in PHP-versionen för appen.
 
-        az webapp config set --php-version {5.6 | 7.0 | 7.1 | 7.2} --name {app-name} --resource-group {resource-group-name}
+        az webapp config set --php-version {5.6 | 7.2 | 7.3} --name {app-name} --resource-group {resource-group-name}
 
 3. PHP-versionen är nu inställd. Du kan bekräfta följande inställningar:
 
@@ -79,7 +81,7 @@ Som ett alternativ `.user.ini` till att använda en fil kan du använda funktion
 
 1. Lägga till en appinställning i `PHP_INI_SCAN_DIR` appen med nyckeln och värdet`d:\home\site\ini`
 1. Skapa `settings.ini` en fil med Kudu Console&lt;(http://&gt;platsnamn .scm.azurewebsite.net) `d:\home\site\ini` i katalogen.
-1. Lägg till konfigurationsinställningar i `settings.ini` filen med samma `php.ini` syntax som du skulle använda i en fil. Om du till exempel vill `curl.cainfo` peka `*.crt` inställningen på en fil och ange inställningen "wincache.maxfilesize" till 512 000, innehåller `settings.ini` filen den här texten:
+1. Lägg till konfigurationsinställningar i `settings.ini` filen med samma `php.ini` syntax som du skulle använda i en fil. Om du till exempel vill `curl.cainfo` peka `*.crt` inställningen på en fil och ange inställningen "wincache.maxfilesize" till 512 K, skulle `settings.ini` filen innehålla den här texten:
 
         ; Example Settings
         curl.cainfo="%ProgramFiles(x86)%\Git\bin\curl-ca-bundle.crt"

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 7ce7ef15f0bf13182e4799fb640e83136d0d4695
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 55e319ba8aecb9205c00dda4a400e37f7c010649
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115029"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257784"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services – administratörsguide
 IT-administratörer (Information Technology) som hanterar ett universitets molnresurser är vanligtvis ansvariga för att konfigurera labbkontot för sin skola. När ett labbkonto har konfigurerats skapar administratörer eller lärare klassrumslabb som finns i labbkontot. Den här artikeln innehåller en översikt på hög nivå över de azure-resurser som ingår och vägledningen för att skapa dem.
@@ -59,7 +59,7 @@ I följande lista framhävers scenarier där mer än ett labbkonto kan vara för
     
     När du konfigurerar ett labbkonto anger du principer som gäller för *alla* klassrumslabb under labbkontot, till exempel:
     - Det virtuella Azure-nätverket med delade resurser som klassrumslabbet kan komma åt. Du kan till exempel ha en uppsättning klassrumslabb som behöver åtkomst till en delad datauppsättning i ett virtuellt nätverk.
-    - Avbildningar för den virtuella datorn (VM) som klassrumslabben kan använda för att skapa virtuella datorer. Du kan till exempel ha en uppsättning klassrumslabb som behöver åtkomst till [data science-datorn för Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) Marketplace-avbildningen. 
+    - Avbildningar för den virtuella datorn (VM) som klassrumslabben kan använda för att skapa virtuella datorer. Du kan till exempel ha en uppsättning klassrumslabb som behöver åtkomst till [data science-datorn för Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) Marketplace-avbildningen. 
     
     Om du har klassrumslabb som har unika principkrav från varandra kan det vara fördelaktigt att skapa separata labbkonton för att hantera dessa klassrumslabb separat.
 

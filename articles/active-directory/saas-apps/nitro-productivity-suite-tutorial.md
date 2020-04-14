@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/02/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 249710aa34ff99e7c4755e7df7228d3006f15e31
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 05aed032eeb3a3cd925a718516ba9c8ffb87f65e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668974"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261116"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nitro-productivity-suite"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med Nitro Productivity Suite
 
@@ -37,7 +37,7 @@ Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är progr
 För att komma igång behöver du följande:
 
 * En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
-* Nitro Productivity Suite enkel inloggning (SSO) aktiverad prenumeration.
+* En Nitro Productivity Suite [Enterprise-prenumeration](https://www.gonitro.com/pricing).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -78,40 +78,56 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
 1. Leta reda på avsnittet **Hantera** på sidan **Nitro Productivity Suite-program** i [Azure-portalen](https://portal.azure.com/)och välj **enkel inloggning**.
 1. På sidan **Välj en enda inloggningsmetod** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
+1. På avsnittet **SAML-signeringscertifikat:**
+
+    a. Hitta **certifikat (Base64)** och välj **Hämta** för att hämta certifikatet och spara det på datorn.
+
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
+    
+1. På avsnittet **Konfigurera Nitro Productivity Suite:**
+
+    a. Klicka på kopieringsikonen bredvid **Inloggningsadressen**
+    
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+    
+1. I [Nitro Admin-portalen](https://admin.gonitro.com/)hittar du avsnittet **Enkel inloggning** på sidan **Företagsinställningar** och klickar på knappen **Konfigurera SAML SSO.**
+
+    a. Klistra in **inloggningsadressen** från steget ovan i fältet **Logga in URL.**
+    
+    a. Ladda upp **certifikatet (Base64)** från det tidigare steget ovan i fältet **X509 Signeringscertifikat.**
+    
+    a. Klicka på **Skicka**
+    
+    a. Klicka på **Aktivera enkel inloggning**
+
+
+1. Gå tillbaka till [Azure-portalen,](https://portal.azure.com/)på sidan **Konfigurera enkel inloggning med SAML,** klicka på redigera/penna-ikonen för grundläggande **SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
 1. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** anger du värdena för följande fält:
 
-    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`urn:auth0:gonitro-prod:<ENVIRONMENT>`
+    a. Kopiera och klistra in **fältet SAML Entitets-ID** i textrutan **Identifierare** från [Nitro Admin-portalen](https://admin.gonitro.com/). Det bör ha följande mönster:`urn:auth0:gonitro-prod:<ENVIRONMENT>`
 
-    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://gonitro-prod.eu.auth0.com/login/callback?connection=<ENVIRONMENT>`
+    b. Kopiera och klistra in **URL-fältet för ACS** i textrutan **Svara** URL från [Nitro Admin-portalen](https://admin.gonitro.com/). Det bör ha följande mönster:`https://gonitro-prod.eu.auth0.com/login/callback?connection=<ENVIRONMENT>`
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     I rutan **Inloggnings-URL** anger du följande URL: `https://sso.gonitro.com/login`
 
-    > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [Nitro Productivity Suite Client support team](https://www.gonitro.com/support) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+1. Klicka på Spara.
 
 1. Nitro Productivity Suite-programmet förväntar sig SAML-påståenden i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. I följande skärmbild visas listan över standardattribut.
 
     ![image](common/default-attributes.png)
 
-1. Utöver ovanstående förväntar sig Nitro Productivity Suite-programmet att få fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda men du kan granska dem enligt dina krav.
+1. Dessutom förväntar sig Nitro Productivity Suite-programmet att ytterligare några attribut skickas tillbaka i SAML-svaret, som visas i följande tabell. Dessa attribut är förifyllda, men du kan granska dem enligt dina krav.
     
     | Namn  |  Källattribut|
-    | ---------------| --------------- | --------- |
+    | ---------------| --------------- |
     | medarbetareAntal |  user.objectid |
 
-1. På sidan **Konfigurera enkel inloggning med SAML** i avsnittet **SAML-signeringscertifikat** hittar du **Certifikat (Base64)** och väljer **Hämta** för att hämta certifikatet och spara det på datorn.
 
-    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
-
-1. Kopiera lämpliga webbadresser i avsnittet **Konfigurera Nitro Productivity Suite** baserat på dina krav.
-
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
 I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B.Simon.

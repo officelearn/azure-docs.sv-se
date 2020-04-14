@@ -1,5 +1,5 @@
 ---
-title: Instrumentpanelen för Marketplace Insights i analys av kommersiella marknadsplatser i Partner Center
+title: Instrumentpanelen för Marketplace Insights i kommersiell marketplace-analys på Partner Center
 description: Få tillgång till en sammanfattning av marketplace-webbanalys, som gör det möjligt för utgivare att mäta kundengagemang i AppSource- och Azure Marketplace-skyltfönster.
 author: dsindona
 ms.author: dsindona
@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: a547ced9df98298361360ecab88036599cd86027
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 05389f0aea7e2637dd28281236e7fd7ec2b412fd
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275857"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81251715"
 ---
-# <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Instrumentpanelen för Marketplace Insights i analyser på kommersiella marknadsplatser
+# <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Instrumentpanelen för Marketplace Insights i kommersiell marknadsplatsanalys
 
 Den här artikeln innehåller information om instrumentpanelen för Marketplace Insights i Partner Center. Den här instrumentpanelen visar en sammanfattning av marketplace-webbanalys, som gör det möjligt för utgivare att mäta kundengagemang för sina respektive produktinformationssidor som anges på marknadsplatsfönster: AppSource och Azure Marketplace.
 
@@ -34,7 +34,7 @@ Du kan visa grafiska representationer av följande objekt:
 - [Informationstabell för Marketplace Insights](#marketplace-insights-details-table)
 
 >[!NOTE]
-> Detaljerade definitioner av analysterminologi finns [i Vanliga frågor och terminologi för Analys av kommersiella marknadsplatser](./faq-terminology.md).
+> Detaljerade definitioner av analysterminologi finns i [Vanliga frågor och terminologi för kommersiell marknadsplatsanalys](./faq-terminology.md).
 
 ### <a name="insights-dashboard-layout"></a>Instrumentpanelslayout för insikter
 
@@ -134,11 +134,11 @@ Den här tabellen innehåller en listvy över sidbesöken och uppmaningarna för
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt över analysrapporter som är tillgängliga på Den kommersiella marknaden för partnercenter finns i [Analytics för den kommersiella marknadsplatsen i Partner Center](./analytics.md).
-- Diagram, trender och värden för aggregerade data som sammanfattar marketplace-aktivitet för ditt erbjudande finns [i Sammanfattningsinstrumentpanel i analys av kommersiella marknadsplatser](./summary-dashboard.md).
-- Information om dina beställningar i ett grafiskt och nedladdningsbart format finns [i Instrumentpanelen för order i Analys av Kommersiella marknadsplatser](./orders-dashboard.md).
-- För virtuell dator (VM) erbjuder användnings- och datapriser för faktureringsmått finns [i Användningsinstrumentpanel i kommersiell marketplace-analys](./usage-dashboard.md).
-- Detaljerad information om dina kunder, inklusive tillväxttrender, finns [i Customer Dashboard i Kommersiell Marketplace-analys](./customer-dashboard.md).
-- En lista över dina hämtningsbegäranden under de senaste 30 dagarna finns [i Hämta instrumentpanel i Kommersiell Marketplace-analys](./downloads-dashboard.md).
-- Information om hur du ser en konsoliderad vy över kundfeedback för erbjudanden på Azure Marketplace och AppSource finns [i instrumentpanelen Klassificeringar och recensioner i Kommersiell Marketplace-analys](./ratings-reviews.md).
-- Vanliga frågor och svar om Analys av kommersiella marknadsplatser och en omfattande ordlista med datatermer finns i [Vanliga frågor och terminologi för Kommersiell Marketplace-analys](./faq-terminology.md).
+- En översikt över analysrapporter som är tillgängliga på den kommersiella marknaden för Partner Center finns i [Analytics för den kommersiella marknadsplatsen i Partner Center](./analytics.md).
+- Diagram, trender och värden för aggregerade data som sammanfattar marketplace-aktivitet för ditt erbjudande finns [i Sammanfattningsinstrumentpanel i kommersiell marknadsplatsanalys](./summary-dashboard.md).
+- Information om dina beställningar i ett grafiskt och nedladdningsbart format finns [i Order dashboard i kommersiell marknadsplatsanalys](./orders-dashboard.md).
+- För virtuell dator (VM) erbjuder användnings- och datapriser för faktureringsmått, se [Användningsinstrumentpanel i kommersiell marknadsplatsanalys](./usage-dashboard.md).
+- Detaljerad information om dina kunder, inklusive tillväxttrender, finns [i Kundinstrumentpanelen i kommersiell marknadsplatsanalys](./customer-dashboard.md).
+- En lista över dina hämtningsbegäranden under de senaste 30 dagarna finns [i Hämta instrumentpanel i kommersiell marknadsplatsanalys](./downloads-dashboard.md).
+- Information om hur du ser en konsoliderad vy över kundfeedback för erbjudanden på Azure Marketplace och AppSource finns [i instrumentpanelen Klassificeringar och recensioner i kommersiell marketplace-analys](./ratings-reviews.md).
+- Vanliga frågor och svar om kommersiell marknadsplatsanalys och en omfattande ordlista med datatermer finns i [Vanliga frågor och terminologi för kommersiell marknadsplatsanalys](./faq-terminology.md).

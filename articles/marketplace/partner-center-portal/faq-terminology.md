@@ -1,20 +1,20 @@
 ---
-title: Vanliga frågor och terminologi för Den kommersiella marketplace-analysen i Partner Center
-description: Läs om hur du tar itu med vanliga frågor om analys av kommersiella marknadsplatser. Innehåller en dataordlista för analysterminologi.
+title: Vanliga frågor och terminologi för den kommersiella marknadsplatsen analytics i Partner Center
+description: Läs om hur du tar itu med vanliga frågor om kommersiell marknadsplatsanalys. Innehåller en dataordlista för analysterminologi.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: d53ae01fb302382ca5bc2d31e729e153aea6c838
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7367e58de818c20723c02a6763b1bf1e3b18f24
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286089"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81251834"
 ---
-# <a name="frequently-asked-questions-and-terminology-for-commercial-marketplace-analytics"></a>Vanliga frågor och terminologi för analys av kommersiella marknadsplatser
+# <a name="frequently-asked-questions-and-terminology-for-commercial-marketplace-analytics"></a>Vanliga frågor och terminologi för kommersiell marknadsplatsanalys
 
 Den här artikeln tar upp vanliga frågor om analysmeddelanden i Partner Center och innehåller även en ordlista med analysterminologi.
 
@@ -29,14 +29,14 @@ Det här avsnittet innehåller svar på vanliga frågor om **meddelanden om anal
 Varför du kanske får det här meddelandet:
 
 - Det finns för närvarande inga förvärv för dina publicerade erbjudanden på marketplace. Det kan innebära att dina erbjudanden visas på marknadsplatsen och får visningar från kunder på produktvisningssidorna, men kunderna har ännu inte vidtagit åtgärder för att köpa och distribuera dem.
-- Publiceringen av erbjudandet kan vara på gång och är inte live än. Endast liveerbjudanden kan förvärvas av kunder. Mer om du vill kontrollera status för dina erbjudanden finns i Översikt i [instrumentpanelen Analysera](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). Mer information finns [i Sammanfattningsinstrumentpanel i Kommersiell Marketplace-analys](./summary-dashboard.md).
+- Publiceringen av erbjudandet kan vara på gång och är inte live än. Endast liveerbjudanden kan förvärvas av kunder. Mer om du vill kontrollera status för dina erbjudanden finns i Översikt i [instrumentpanelen Analysera](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). Mer information finns [i Sammanfattningsinstrumentpanel i kommersiell marknadsplatsanalys](./summary-dashboard.md).
 - Dina erbjudanden kan listas som **Kontakta mig**, som är list-only erbjudanden och kan inte köpas av kunder på marknaden. Även om dessa erbjudanden genererar leads och delas med dig, skapas inte order för dessa erbjudanden eftersom de inte kan köpas. Om du vill kontrollera typen av erbjudandeuppgifter går du till inställningssidan.
 
 **Jag vet att jag har analysdata, men meddelandet nedan visas:**
 
 ![Inga data för givet datumintervall](./media/analytics-faq-data-range.png)
 
-Om du får det här meddelandet betyder det att du har analysdata men det finns inte data för det datumintervall du valde. Välj ett annat datumintervall eller anpassat datumintervall om du vill visa data sedan 2010. Mer information finns i avsnittet Datumintervall [i Summary Dashboard i Kommersiell Marketplace-analys](./summary-dashboard.md).
+Om du får det här meddelandet betyder det att du har analysdata men det finns inte data för det datumintervall du valde. Välj ett annat datumintervall eller anpassat datumintervall om du vill visa data sedan 2010. Mer information finns i avsnittet Datumintervall [i sammanfattningsinstrumentpanelen i kommersiell marketplace-analys](./summary-dashboard.md).
 
 ## <a name="dictionary-of-data-terms"></a>Ordlista med datatermer
 
@@ -96,10 +96,10 @@ Om du får det här meddelandet betyder det att du har analysdata men det finns 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt över analysrapporter som är tillgängliga på Den kommersiella marknaden för partnercenter finns i [Analytics för den kommersiella marknadsplatsen i Partner Center](./analytics.md).
-- Diagram, trender och värden för aggregerade data som sammanfattar marketplace-aktivitet för ditt erbjudande finns [i Sammanfattningsinstrumentpanel i analys av kommersiella marknadsplatser](./summary-dashboard.md).
-- Information om dina beställningar i ett grafiskt och nedladdningsbart format finns [i Instrumentpanelen för order i Analys av Kommersiella marknadsplatser](./orders-dashboard.md).
-- För virtuell dator (VM) erbjuder användnings- och datapriser för faktureringsmått finns [i Användningsinstrumentpanel i kommersiell marketplace-analys](./usage-dashboard.md).
-- Detaljerad information om dina kunder, inklusive tillväxttrender, finns [i Customer Dashboard i Kommersiell Marketplace-analys](./customer-dashboard.md).
-- En lista över dina hämtningsbegäranden under de senaste 30 dagarna finns [i Hämta instrumentpanel i Kommersiell Marketplace-analys](./downloads-dashboard.md).
-- Information om hur du ser en konsoliderad vy över kundfeedback för erbjudanden på Azure Marketplace och AppSource finns [i instrumentpanelen Klassificeringar och recensioner i Kommersiell Marketplace-analys](./ratings-reviews.md).
+- En översikt över analysrapporter som är tillgängliga på den kommersiella marknaden för Partner Center finns i [Analytics för den kommersiella marknadsplatsen i Partner Center](./analytics.md).
+- Diagram, trender och värden för aggregerade data som sammanfattar marketplace-aktivitet för ditt erbjudande finns [i Sammanfattningsinstrumentpanel i kommersiell marknadsplatsanalys](./summary-dashboard.md).
+- Information om dina beställningar i ett grafiskt och nedladdningsbart format finns [i Order dashboard i kommersiell marknadsplatsanalys](./orders-dashboard.md).
+- För virtuell dator (VM) erbjuder användnings- och datapriser för faktureringsmått, se [Användningsinstrumentpanel i kommersiell marknadsplatsanalys](./usage-dashboard.md).
+- Detaljerad information om dina kunder, inklusive tillväxttrender, finns [i Kundinstrumentpanelen i kommersiell marknadsplatsanalys](./customer-dashboard.md).
+- En lista över dina hämtningsbegäranden under de senaste 30 dagarna finns [i Hämta instrumentpanel i kommersiell marknadsplatsanalys](./downloads-dashboard.md).
+- Information om hur du ser en konsoliderad vy över kundfeedback för erbjudanden på Azure Marketplace och AppSource finns [i instrumentpanelen Klassificeringar och recensioner i kommersiell marketplace-analys](./ratings-reviews.md).

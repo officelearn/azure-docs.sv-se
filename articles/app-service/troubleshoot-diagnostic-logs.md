@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
-ms.openlocfilehash: 433f8fa36f17f7cb145261273586a684658acda5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f22d5b2140e42f5f4b8ef5787d22b4be399c7e8
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280474"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272533"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för appar i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -188,7 +188,7 @@ I följande tabell visas de loggtyper och beskrivningar som stöds:
 | AppServiceHTTPLogs | Ja | Ja | Webbserverloggar |
 | AppServiceMiljöPlattformar | Ja | Ja | App Service-miljö: skalning, konfigurationsändringar och statusloggar|
 | AppServiceAuditLogs | Ja | Ja | Inloggningsaktivitet via FTP och Kudu |
-| AppServiceFileAuditLogs | Tba | Ja | Filändringar via FTP och Kudu |
+| AppServiceFileAuditLogs | Ja | TBD | Filändringar via FTP och Kudu |
 | AppServiceAppLogs | Tba | Java SE & Tomcat | Programloggar |
 
 ## <a name="next-steps"></a><a name="nextsteps"></a>Nästa steg

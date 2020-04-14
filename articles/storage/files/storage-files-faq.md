@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: c6062ec008a7a12c720cf28c2d79531e805ebba0
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 9398820c88120400d97fbaf8cb0da100c2bdbf81
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984443"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261762"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via [SMB-protokollet (Industry-Standard Server Message Block).](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära där data används.
@@ -217,7 +217,7 @@ Den här artikeln besvarar vanliga frågor om Azure Files-funktioner, inklusive 
 * <a id="ad-aad-smb-files"></a>
 **Hur kan jag kontrollera om jag har aktiverat AD-autentisering på mitt lagringskonto och AD-domäninformation?**
 
-    Du kan läsa instruktionerna [här](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#enable-ad-authentication-for-your-account) för att verifiera om AZURE Files AD-autentisering är aktiverad på ditt lagringskonto och hämta AD-domäninformationen.
+    Du kan läsa instruktionerna [här](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account) för att verifiera om AZURE Files AD-autentisering är aktiverad på ditt lagringskonto och hämta AD-domäninformationen.
     
 * <a id="encryption-at-rest"></a>
 **Hur kan jag se till att min Azure-filresurs krypteras i vila?**  

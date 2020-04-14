@@ -15,18 +15,18 @@ ms.topic: tutorial
 ms.date: 04/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7792ab2dc9fe7386accab96b0fb00aa93e6e4196
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: d3d33634a8e6c3f7fd311ab70ab04f2839672191
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668981"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261150"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mongodb-cloud"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med MongoDB Cloud
 
 I den här självstudien får du lära dig hur du integrerar MongoDB Cloud med Azure Active Directory (Azure AD). När du integrerar MongoDB Cloud med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till MongoDB Cloud.
+* Kontroll i Azure AD som har åtkomst till MongoDB Cloud, MongoDB Atlas, MongoDB-communityn, universitetet och supporten.
 * Aktivera dina användare så att de automatiskt loggas in i MongoDB Cloud med sina Azure AD-konton.
 * Hantera dina konton på en central plats - Azure-portalen.
 
@@ -146,11 +146,11 @@ I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning ge
 
 ## <a name="configure-mongodb-cloud-sso"></a>Konfigurera MongoDB Cloud SSO
 
-Om du vill konfigurera enkel inloggning på **MongoDB Cloud-sidan** måste du skicka den nedladdade **XML-koden för federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [MongoDB Cloud supportteam](https://support.mongodb.com/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **MongoDB Cloud-sidan** behöver du lämpliga url:er som kopieras från Azure-portalen och du måste konfigurera federationsprogrammet för din MongoDB Cloud Organization. Följ instruktionerna i [MongoDB Cloud Docs](https://docs.atlas.mongodb.com/security/federated-authentication/index.html). Om du stöter på några problem kan du kontakta [MongoDB Cloud supportteam](https://support.mongodb.com/) för hjälp.
 
 ### <a name="create-mongodb-cloud-test-user"></a>Skapa MongoDB Cloud-testanvändare
 
-I det här avsnittet skapas en användare som heter Britta Simon i MongoDB Cloud. MongoDB Cloud stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i MongoDB Cloud skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som heter B.Simon i MongoDB Cloud. MongoDB Cloud stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i MongoDB Cloud skapas en ny efter autentisering.
 
 ## <a name="test-sso"></a>Testa SSO 
 
@@ -165,6 +165,8 @@ När du klickar på panelen MongoDB Cloud på åtkomstpanelen ska du automatiskt
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Registrera dig för MongoDB Atlas på Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/mongodb.mongodb_atlas_azure_08082019?tab=Overview)
 
 - [Prova MongoDB Cloud med Azure AD](https://aad.portal.azure.com/)
 

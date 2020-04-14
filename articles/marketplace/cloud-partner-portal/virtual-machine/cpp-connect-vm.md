@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: 2b7eb6d321a64835254b684c8faeedc53645dffe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f2652a98aa081b62ba80951212ef3a3de513593
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278066"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272669"
 ---
 # <a name="connect-to-your-azure-based-virtual-machine"></a>Anslut till din Azure-baserade virtuella dator
+
+> [!IMPORTANT]
+> Från och med den 13 april 2020 börjar vi den rörliga hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i Skapa dina tekniska resurser för [din virtuella Azure-dator](https://aka.ms/AzureVMTechAsset) för att hantera dina migrerade erbjudanden.
 
 I den här artikeln beskrivs hur du ansluter till och loggar in på de virtuella datorer som du skapade på Azure.  När du har anslutit kan du arbeta med den virtuella datorn som om du var lokalt inloggad på värdservern. 
 

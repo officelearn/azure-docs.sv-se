@@ -5,20 +5,23 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 6a0131cf94759fc529a52ea33d5392a60c5ef30c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33359883df86091120295b93618a13476e428d2f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281603"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262759"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Konfigurera leadhantering med hjälp av en HTTPS-slutpunkt
 
-Om ditt CRM-system (Customer Relationship Management) inte uttryckligen stöds i Partner Center för att ta emot Azure Marketplace- och AppSource-leads kan du använda en HTTPS-slutpunkt i MS Flow för att hantera dessa leads. Med en HTTPS-slutpunkt kan dessa leads skickas ut som ett e-postmeddelande eller skrivas till ett CRM-system (Customer Relationship Management) som stöds av MS Flow. Instruktionerna i den här artikeln kommer att gå igenom den grundläggande processen för att skapa ett nytt flöde med Hjälp av Microsoft Flow, som kommer att generera HTTP POST URL som du kommer att ange i publiceringsportalen för Lead Management > **HTTPS Slutpunkt URL-fält.** Dessutom ingår instruktioner om hur du kan testa ditt flöde med hjälp av ett verktyg som kallas [Brevbäraren](https://www.getpostman.com/downloads/) som finns på nätet.
+>[!Note]
+>Power Automate-kontakten som används i dessa instruktioner kräver en betald prenumeration på Power Automate. Vänligen ta hänsyn till detta innan du följer instruktionerna i detta dokument.
 
-## <a name="create-a-flow-using-microsoft-flow"></a>Skapa ett flöde med Microsoft Flow
+Om ditt CRM-system (Customer Relationship Management) inte uttryckligen stöds i Partner Center för att ta emot Azure Marketplace- och AppSource-leads kan du använda en HTTPS-slutpunkt i Power Automate för att hantera dessa leads. Med en HTTPS-slutpunkt kan dessa leads skickas ut som ett e-postmeddelande eller skrivas till ett CRM-system (Customer Relationship Management) som stöds av Power Automate. Instruktionerna i den här artikeln kommer att gå igenom den grundläggande processen för att skapa ett nytt flöde med Hjälp av Power Automate, som kommer att generera HTTP POST URL som du kommer att ange i publiceringsportalen för Lead Management > **HTTPS Slutpunkt URL-fältet.** Dessutom ingår instruktioner om hur du kan testa ditt flöde med hjälp av ett verktyg som kallas [Brevbäraren](https://www.getpostman.com/downloads/) som finns på nätet.
+
+## <a name="create-a-flow-using-power-automate"></a>Skapa ett flöde med Power Automate
 
 1. Öppna webbsidan [Flöde.](https://flow.microsoft.com/) Välj **Logga in**, eller om du inte redan har ett konto väljer du Registrera dig **gratis** för att skapa ett fritt Flow-konto.
 
@@ -168,7 +171,7 @@ Du kan testa att allt fungerar som förväntat med hjälp av följande steg med 
 
    ![Testa mitt flöde](./media/commercial-marketplace-lead-management-instructions-https/test-my-flow.png)
 
-4. Klistra in HTTP POST-URL:en från flödet som du skapade i MS Flow där det står *Ange URL för begäran*.
+4. Klistra in HTTP POST-URL:en från flödet som du skapade i Power Automate där det står *Retur-url för begäran*.
 
    ![Klistra in HTTP POST-URL:en](./media/commercial-marketplace-lead-management-instructions-https/paste-http-post-url.png)
 
@@ -202,7 +205,10 @@ När du är redo att konfigurera leadhanteringsinformationen för ditt erbjudand
 1. Navigera till **inställningssidan** för Erbjudandet för ditt erbjudande.
 2. Välj **Anslut** under avsnittet LeadHantering.
 3. I popup-fönstret Anslutningsinformation väljer du **HTTPS-slutpunkt** för **leadmålet** och klistrar in HTTP POST-URL:en från flödet som du skapade genom att följa tidigare steg i **HTTPS-slutpunkts-URL-fältet.**
-4. Välj **Spara**. 
+4. **Kontakta e-post** - Ge e-post till personer i ditt företag som ska få e-postmeddelanden när ett nytt lead tas emot. Du kan tillhandahålla flera e-postmeddelanden genom att separera dem med ett semikolon.
+5. Välj **OK**.
+
+Om du vill vara säker på att du har anslutit till ett leadmål klickar du på knappen validera. Om det lyckas kommer du att ha en testledning i leaddestinationen.
 
 >[!Note] 
 >Du måste slutföra konfigurationen av resten av erbjudandet och publicera det innan du kan ta emot leads för erbjudandet.
@@ -213,5 +219,5 @@ När leads genereras skickar Microsoft leads till flödet, som dirigeras till CR
 
 ![Anslutningsinformation](./media/commercial-marketplace-lead-management-instructions-https/connection-details.png)
 
-![Anslutningsinformation](./media/commercial-marketplace-lead-management-instructions-https/connection-details-1.png)
+![Anslutningsinformation](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
 

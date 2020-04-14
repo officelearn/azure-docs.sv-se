@@ -1,16 +1,16 @@
 ---
 title: 'Snabbstart: Använd cURL & REST för att hantera kunskapsbas - QnA Maker'
 description: Den här snabbstarten visar hur du skapar, publicerar och frågar kunskapsbasen med hjälp av REST-API:erna.
-ms.date: 02/27/2020
+ms.date: 04/13/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: quickstart
-ms.openlocfilehash: 00ec52fe20fb0e6a976f3e7142386e835713c98c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: facc45ab8f916181f7eeceb65c5102a60ae7d7e9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78851202"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261711"
 ---
 # <a name="quickstart-use-curl-and-rest-to-manage-knowledge-base"></a>Snabbstart: Använd cURL och REST för att hantera kunskapsbas
 
@@ -21,9 +21,9 @@ Den här snabbstarten hjälper dig att skapa, publicera och fråga din kunskapsb
 ## <a name="prerequisites"></a>Krav
 
 * Den aktuella versionen av [cURL](https://curl.haxx.se/). Flera kommandoradsväxlar används i snabbstarterna, som noteras i [cURL-dokumentationen](https://curl.haxx.se/docs/manpage.html).
-* Du måste ha en [QnA Maker-resurs](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta nyckel- och resursnamnet väljer du **Snabbstart** för din resurs i Azure-portalen. Resursnamnet är den första delen av slutpunkts-URL:en:
+* Du måste ha en [QnA Maker-resurs](../How-To/set-up-qnamaker-service-azure.md)för att kunna använda nyckeln och resursnamnet. Du angav **resursnamnet** när du skapade resursen och sedan skapades nyckeln åt dig. Resursnamnet används som underdomän för slutpunkten. Om du vill hämta nyckel- och resursnamnet väljer du **Snabbstart** för din resurs i Azure-portalen. Resursnamnet är den första underdomänen i slutpunkts-URL:en:
 
-    `https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
+    `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v4.0`
 
 > [!CAUTION]
 > Följande BASH-exempel `\` använder linjefortsättningstecknet. Om du konsolen eller terminalen använder ett annat linjefortsättningstecken använder du det här tecknet.

@@ -1,20 +1,20 @@
 ---
-title: Publiceringsguide för Azure Marketplace och AppSource
-description: En översikt över Azure Marketplace och Microsoft AppSource för app- och tjänstutgivare.
+title: Guide för publicering av kommersiella marknadsplatser
+description: En översikt över den kommersiella marknadsplatsen för app- och tjänstutgivare.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/05/2018
+ms.date: 04/12/2020
 ms.author: dsindona
-ms.openlocfilehash: 368cb4fdce23e695c074b4893dcdc314c974dd54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c41a24ecb3e12618ac8cfcdfb756a33114f0f8a2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288401"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262000"
 ---
-# <a name="azure-marketplace-and-appsource-publishing-guide"></a>Publiceringsguide för Azure Marketplace och AppSource
+# <a name="commercial-marketplace-publishing-guide"></a>Guide för publicering av kommersiella marknadsplatser
 
 Marketplaces publiceringsguide är utformad för att hjälpa nya och befintliga utgivare att lära sig hur du använder skyltfönster på [Azure Marketplace](https://azuremarketplace.microsoft.com) och [Microsoft AppSource](https://appsource.microsoft.com) för att utöka sin verksamhet i samarbete med Microsoft genom att ange program och tjänster.
 
@@ -62,7 +62,7 @@ Nya listor på Marketplace är berättigade till en mängd olika kostnadsfria f�
 
 *   Samförsäljning: Påbörja eller påskynda din resa till att sälja med Microsoft via Marketplace. Få tillgång till program och support för att driva gemensam försäljning med Microsoft-team.
 
-När du [har skickat in din lösning](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) till Marketplace kontaktar vårt introduktionsteam dig för att stödja din publiceringsupplevelse.  Mer information finns i [hur du skapar ett Partner Center-konto.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)
+När du [har skickat in din lösning](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) till Marketplace kontaktar vårt introduktionsteam dig för att stödja din publiceringsupplevelse.  Mer information finns i [hur du skapar ett Partner Center-konto.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)
 
 Läs mer om dina [kommersiella marknadsplatsfördelar.](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits)
 

@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: ff5f7a80e2dcedb1795bae14ee9140c2842303a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 373fc2829e599d0989b59c6386757c8f5f3e1d66
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76984600"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81251732"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autentisering och auktorisering för Azure Time Series Insights API
 
@@ -104,7 +104,7 @@ I det här avsnittet beskrivs vanliga HTTP-begäranden och parametrar som använ
 
 ### <a name="authentication"></a>Autentisering
 
-Om du vill utföra autentiserade frågor mot [TIME Series Insights REST-API:er](https://docs.microsoft.com/rest/api/time-series-insights/)måste en giltig OAuth 2.0-bärarekäken skickas i [auktoriseringshuvudet](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) med valfri REST-klient (Postman, JavaScript, C#). 
+Om du vill utföra autentiserade frågor mot [TIME Series Insights REST-API:er](https://docs.microsoft.com/rest/api/time-series-insights/)måste en giltig OAuth 2.0-bärarekäken skickas i [auktoriseringshuvudet](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) med valfri REST-klient (Postman, JavaScript, C#). 
 
 > [!TIP]
 > Läs den värdbaserade Azure Time Series [Insights-klienten SDK-exempelvisualisering](https://tsiclientsample.azurewebsites.net/) för att lära dig hur du autentiserar med Time Series Insights API:er som programmässigt använder [JavaScript Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) tillsammans med diagram och diagram.

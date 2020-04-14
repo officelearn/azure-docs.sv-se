@@ -2,17 +2,17 @@
 title: Matcha villkor i standardregler motorn för Azure CDN | Microsoft-dokument
 description: Referensdokumentation för matchningsvillkor i standardreglersmotorn för Azure Content Delivery Network (Azure CDN).
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: magattus
-ms.openlocfilehash: 425266e2a7ca42bb17ca598ddfc2f2b86591f32e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: b8050b973027ac91ede0ba98f4d1c76831da9828
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74900184"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259942"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Matcha villkor i standardregler motorn för Azure CDN
 
@@ -58,7 +58,7 @@ Identifierar förfrågningar baserat på cookie-information i den inkommande beg
 
 Namn på cookie | Operator | Cookie-värde | Handlägga omformning
 ------------|----------|--------------|---------------
-String | [Standardoperatorlista](#standard-operator-list) | Sträng, Int | Ingen transformering, till versaler, till gemener
+Sträng | [Standardoperatorlista](#standard-operator-list) | Sträng, Int | Ingen transformering, till versaler, till gemener
 
 #### <a name="key-information"></a>Viktig information
 
@@ -77,7 +77,7 @@ Identifierar begäranden baserat på argument som definierats för post-begäran
 
 Argumentnamn | Operator | Argumentvärde | Handlägga omformning
 --------------|----------|----------------|---------------
-String | [Standardoperatorlista](#standard-operator-list) | Sträng, Int | Ingen transformering, till versaler, till gemener
+Sträng | [Standardoperatorlista](#standard-operator-list) | Sträng, Int | Ingen transformering, till versaler, till gemener
 
 ### <a name="query-string"></a>Frågesträng
 
@@ -132,7 +132,7 @@ Identifierar begäranden som använder ett visst huvud i begäran.
 
 Huvudnamn | Operator | Huvudvärde | Handlägga omformning
 ------------|----------|--------------|---------------
-String | [Standardoperatorlista](#standard-operator-list) | Sträng, Int | Ingen transformering, till versaler, till gemener
+Sträng | [Standardoperatorlista](#standard-operator-list) | Sträng, Int | Ingen transformering, till versaler, till gemener
 
 ### <a name="request-method"></a>Metod för begäran
 

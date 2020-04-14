@@ -1,6 +1,6 @@
 ---
-title: Fastställ publiceringsalternativet i Microsoft AppSource och Azure Marketplace
-description: I den här artikeln beskrivs kvalificeringskriterierna och publiceringskravspartner som försöker förstå hur du publicerar appar på Microsoft AppSource och Azure Marketplace.
+title: Bestäm ditt publiceringsalternativ på den kommersiella marknaden
+description: I den här artikeln beskrivs kvalificeringskriterierna och publiceringskravspartner som försöker förstå hur du publicerar appar på den kommersiella marknadsplatsen.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: dsindona
 ms.service: marketplace
@@ -8,18 +8,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: dsindona
-ms.openlocfilehash: 4c41fcbb8766feb68db7d60d591e914a6ba0aea2
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 84d5c351f3997fe5430ea1ce517c2dca13203c03
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349529"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261694"
 ---
 # <a name="determine-your-publishing-option"></a>Fastställa publiceringsalternativ
 
 Publiceringsalternativet som du väljer för ditt erbjudande gäller direkt till både behörighetskraven och gtm-förmåner på kommersiella marknadsplatser. Ännu viktigare är att valet av publiceringsalternativ och erbjudandetyp definierar hur användarna kommer att interagera med ditt kommersiella marknadsplatserbjudande.
 
-För att konfigurera erbjudandet måste du förstå följande viktiga kommersiella marknadsplatskoncept: publiceringsalternativen, erbjudandetyperna och konfigurationen och uppmaningar som styr hur och var ditt erbjudande presenteras på den kommersiella marknaden Skyltfönster.
+För att konfigurera erbjudandet måste du förstå följande viktiga kommersiella marknadsplatskoncept: publiceringsalternativen, erbjudandetyperna och konfigurationen och uppmaningar som styr hur och var ditt erbjudande presenteras i de kommersiella marknadsplatsfönsteren.
 
 ![Microsofts kommersiella marknadsplats skyltfönster och publiceringsalternativ](./media/marketplace-publishers-guide/storefronts_options_table.png)
 

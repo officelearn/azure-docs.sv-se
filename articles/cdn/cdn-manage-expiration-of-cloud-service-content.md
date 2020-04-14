@@ -3,7 +3,7 @@ title: Hantera förfallodatum för webbinnehåll i Azure CDN | Microsoft-dokumen
 description: Lär dig hur du hanterar förfallodatum för Azure Web Apps/Cloud Services, ASP.NET eller IIS-innehåll i Azure CDN.
 services: cdn
 documentationcenter: .NET
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
-ms.author: magattus
-ms.openlocfilehash: a701c332659181081184906a73826b7137d8c49c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 4598e6cee6ffbaaeb2a99727842fcd17fe0046c7
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67593722"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260572"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Hantera utgång av webbinnehåll i Azure CDN
 > [!div class="op_single_selector"]
 > * [Azure-webbinnehåll](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Azure Blob-lagring](cdn-manage-expiration-of-blob-content.md)
+> * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 > 
 
 Filer från webbservrar med allmänt tillgängligt ursprung kan cachelagras i CDN (Azure Content Delivery Network) tills deras tid att vara (TTL) förflutet. TTL bestäms av `Cache-Control` huvudet i HTTP-svaret från ursprungsservern. I den hÃ¤r artikeln beskrivs hur du anger `Cache-Control` rubriker fÃ¤r webbappfunktionen fÃ¤r Microsoft Azure App Service, Azure Cloud Services, ASP.NET applications och Internet Information Services (IIS) sites, som alla är konfigurerade på samma sätt. Du kan `Cache-Control` ställa in huvudet antingen med hjälp av konfigurationsfiler eller programmässigt. 

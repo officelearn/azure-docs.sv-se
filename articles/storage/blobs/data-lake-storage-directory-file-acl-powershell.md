@@ -6,15 +6,15 @@ author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 04/10/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 9b0e0b39b7ac7d7834c9cdcbd79ba45b024c823a
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: b59c68e3f2edc0fbe5eee3c3861a3e5116d4fac6
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80992019"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262391"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Använda PowerShell för att hantera kataloger, filer och ACL:er i Azure Data Lake Storage Gen2 (förhandsversion)
 
@@ -270,15 +270,14 @@ Du kan `-Force` använda parametern för att ta bort filen utan en fråga.
 
 ## <a name="manage-access-permissions"></a>Hantera åtkomstbehörigheter
 
-Du kan hämta, ange och uppdatera åtkomstbehörigheter för filsystem, kataloger och filer.
+Du kan hämta, ange och uppdatera åtkomstbehörigheter för filsystem, kataloger och filer. Dessa behörigheter fångas in i åtkomstkontrollistor (ACL).
 
 > [!NOTE]
 > Om du använder Azure Active Directory (Azure AD) för att auktorisera kommandon kontrollerar du att säkerhetsobjektet har tilldelats [rollen Lagringsblobbdataägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Mer information om hur ACL-behörigheter tillämpas och effekterna av att ändra dem finns [i Åtkomstkontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
-### <a name="get-permissions"></a>Få behörigheter
+### <a name="get-an-acl"></a>Skaffa en ACL
 
 Hämta åtkomstkontrollistan för en katalog `Get-AzDataLakeGen2Item`eller fil med hjälp av cmdleten.
-
 
 Det här exemplet hämtar åtkomstkontrollistan för ett **filsystem** och skriver sedan ut åtkomstkontrollistan till konsolen.
 
@@ -311,7 +310,7 @@ Följande bild visar utdata efter att ha hämtat åtkomstkontrollistan för en k
 
 I det här exemplet har den ägande användaren läst, skrivit och kör behörigheter. Den ägande gruppen har bara läs- och körningsbehörigheter. Mer information om åtkomstkontrollistor finns [i Åtkomstkontroll i Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
-### <a name="set-or-update-permissions"></a>Ange eller uppdatera behörigheter
+### <a name="set-an-acl"></a>Ange en åtkomstkontrollista
 
 Använd `set-AzDataLakeGen2ItemAclObject` cmdleten för att skapa en åtkomstkontrollista för den egna användaren, ägargruppen eller andra användare. Använd sedan `Update-AzDataLakeGen2Item` cmdleten för att begå åtkomstkontrollistan.
 
@@ -359,7 +358,7 @@ Följande bild visar utdata när du har ställt in åtkomstkontrollistan för en
 I det här exemplet har den ägande användaren och den ägande gruppen bara läs- och skrivbehörighet. Alla andra användare har skriv- och körningsbehörighet. Mer information om åtkomstkontrollistor finns [i Åtkomstkontroll i Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 
-### <a name="set-permissions-on-all-items-in-a-file-system"></a>Ange behörigheter för alla objekt i ett filsystem
+### <a name="set-acls-on-all-items-in-a-file-system"></a>Ange åtkomstkontrollistor för alla objekt i ett filsystem
 
 Du kan `Get-AzDataLakeGen2Item` använda `-Recurse` parametern och `Update-AzDataLakeGen2Item` parametern tillsammans med cmdleten för att rekursivt ställa in åtkomstkontrollistan för alla kataloger och filer i ett filsystem. 
 
@@ -370,6 +369,41 @@ $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- 
 $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission -wx -InputObject $acl
 Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse | Update-AzDataLakeGen2Item -Acl $acl
 ```
+### <a name="add-or-update-an-acl-entry"></a>Lägga till eller uppdatera en ACL-post
+
+Först, hämta ACL. Använd sedan `set-AzDataLakeGen2ItemAclObject` cmdlet för att lägga till eller uppdatera en ACL-post. Använd `Update-AzDataLakeGen2Item` cmdleten för att begå åtkomstkontrollistan.
+
+I det här exemplet skapas eller uppdateras åtkomstkontrollistan i en **katalog** för en användare.
+
+```powershell
+$filesystemName = "my-file-system"
+$dirname = "my-directory/"
+$acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname).ACL
+$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityID xxxxxxxx-xxxx-xxxxxxxxxxx -Permission r-x -InputObject $acl 
+Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
+```
+
+### <a name="remove-an-acl-entry"></a>Ta bort en ACL-post
+
+I det här exemplet tas en post bort från en befintlig åtkomstkontrollista.
+
+```powershell
+$id = "xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+
+# Create the new ACL object.
+[Collections.Generic.List[System.Object]]$aclnew =$acl
+
+foreach ($a in $aclnew)
+{
+    if ($a.AccessControlType -eq "User"-and $a.DefaultScope -eq $false -and $a.EntityId -eq $id)
+    {
+        $aclnew.Remove($a);
+        break;
+    }
+}
+Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $aclnew
+```
+
 <a id="gen1-gen2-map" />
 
 ## <a name="gen1-to-gen2-mapping"></a>Gen1 till Gen2-mappning

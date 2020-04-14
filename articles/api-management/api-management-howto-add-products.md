@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 813117bce4abd3550ac559109c1650ea4a7cff5c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 686d6e2ff01fd4d8283350ab8097e1f73c914af0
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74538244"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261004"
 ---
 # <a name="create-and-publish-a-product"></a>Skapa och publicera en produkt  
 
@@ -85,7 +85,7 @@ Utvecklare måste först prenumerera på en produkt för att få åtkomst till A
 4. Välj ett API och klicka på **Välj**.
 
 > [!TIP]
-> Du kan skapa eller uppdatera användarens prenumeration till en *produkt* med anpassade prenumerationsnycklar [via REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate) eller PowerShell-kommando.
+> Du kan skapa eller uppdatera användarens prenumeration till en *produkt* med anpassade prenumerationsnycklar [via REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription/createorupdate) eller PowerShell-kommando.
 
 ## <a name="next-steps"></a>Nästa steg
 

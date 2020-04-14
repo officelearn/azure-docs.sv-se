@@ -1,5 +1,5 @@
 ---
-title: Stöd för Azure Marketplace och AppSource | Azure
+title: Stöd till den kommersiella marknaden | Azure
 description: Supportinformation och länkar för Azure Marketplace och AppSource
 author: dsindona
 ms.service: marketplace
@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 3/19/2020
 ms.author: dsindona
-ms.openlocfilehash: 6cb08e11910bc0afdd4b2f454582612395cbd50f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b2dba23bdf07233a9945086fba2274602cb2dcf1
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284933"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81252242"
 ---
 # <a name="support-for-the-marketplace"></a>Stöd för Marketplace  
 Här är en lista över supportalternativ för Marketplace.  
@@ -47,7 +47,7 @@ Dessutom kan du få många av dina frågor besvarade i [Marketplace-kanalen för
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Besök [sidan Azure Marketplace och AppSource Publisher Guide](https://docs.microsoft.com/azure/marketplace/).
-* Läs mer om [support för programmet Commercial Marketplace i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+* Besök den [kommersiella marknadsplatsen förläggare guide sida](https://docs.microsoft.com/azure/marketplace/).
+* Läs mer om [stöd för det kommersiella marknadsplatsprogrammet i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
 
 ---

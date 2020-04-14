@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: bcacf4ff66e114f65ac75f0aadd1564875f15f62
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a83f47942e986e882d99528be3f03f616c2a7e04
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79501365"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257070"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Djupinlärning kontra maskininlärning
 
@@ -52,7 +52,7 @@ I följande tabell jämförs de två teknikerna mer i detalj:
 |  **Mediseringsprocess** | Kräver att funktioner identifieras och skapas korrekt av användare. | Lär sig funktioner på hög nivå från data och skapar nya funktioner av sig själv. |
 |  **Inlärningsmetod** | Delar upp inlärningsprocessen i mindre steg. Den kombinerar sedan resultaten från varje steg till en utgång. | Rör dig genom inlärningsprocessen genom att lösa problemet från slutna till. |
 |  **Körningstid** | Tar jämförelsevis lite tid att träna, allt från några sekunder till några timmar. | Vanligtvis tar lång tid att träna eftersom en djupinlärningsalgoritm involverar många lager. |
-|  **Produktionen** | Utdata är vanligtvis ett numeriskt värde, som en poäng eller en klassificering. | Utdata kan ha flera format, till exempel en text, en poäng eller ett ljud. |
+|  **Resultat** | Utdata är vanligtvis ett numeriskt värde, som en poäng eller en klassificering. | Utdata kan ha flera format, till exempel en text, en poäng eller ett ljud. |
 
 ## <a name="deep-learning-use-cases"></a>Användningsfall med djupinlärning
 
@@ -118,6 +118,6 @@ Följande artiklar visar hur du använder djupinlärningsteknik i [Azure Machine
 
 - [Klassificera bilder med hjälp av en Pytorch-modell](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
 
-- [Klassificera handskrivna siffror med hjälp av en Chainer-modell](https://docs.microsoft.com/azure/machine-learning/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)
+- [Klassificera handskrivna siffror med hjälp av en Chainer-modell](https://docs.microsoft.com/azure/machine-learning/how-to-train-ml-models)
 
 Använd också [machine learning-algoritmens fuskblad](../synapse-analytics/sql-data-warehouse/cheat-sheet.md) för att välja algoritmer för din modell.

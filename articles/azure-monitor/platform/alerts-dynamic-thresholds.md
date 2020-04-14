@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 9345138e948d84e0ea3c804dbd7a4b3c21daca2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d21c7ed93ac2ce2ab61282707d57fbf43e0b71a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77668153"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261082"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Måttaviseringar med dynamiska tröskelvärden i Azure Monitor
 
@@ -93,7 +93,8 @@ När en varningsregel först skapas beräknas tröskelvärdena i diagrammet base
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>Hur mycket data behövs för att utlösa en avisering?
 
-Om du har en ny resurs eller saknade måttdata utlöser dynamiska tröskelvärden inte aviseringar innan tre dagar eller 30 exempel på måttdata är tillgängliga för att säkerställa korrekta tröskelvärden.
+Om du har en ny resurs eller saknade måttdata utlöser dynamiska tröskelvärden inte aviseringar före tre dagar och minst 30 exempel på måttdata är tillgängliga för att säkerställa korrekta tröskelvärden.
+För befintliga resurser med tillräckliga måttdata kan dynamiska tröskelvärden utlösa aviseringar omedelbart.
 
 ## <a name="dynamic-thresholds-best-practices"></a>Metodtips för dynamiska tröskelvärden
 

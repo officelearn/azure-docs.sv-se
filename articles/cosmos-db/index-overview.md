@@ -4,14 +4,14 @@ description: Förstå hur indexering fungerar i Azure Cosmos DB, olika typer av 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 04/13/2020
 ms.author: thweiss
-ms.openlocfilehash: 65186262095560d7ae54d32b218d1c01f1fb921d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 684799ee12715c789910accf80aa5b4afec763d4
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74873632"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273247"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexering i Azure Cosmos DB – Översikt
 
@@ -82,7 +82,7 @@ Azure Cosmos DB stöder för närvarande tre typer av index.
 
    Likhetsmatchning för ett matriselement
    ```sql
-    SELECT * FROM c WHERE ARRAY_CONTAINS(c.tags, "tag1”)
+    SELECT * FROM c WHERE ARRAY_CONTAINS(c.tags, "tag1")
     ```
 
 - Intervallfrågor:
@@ -164,7 +164,7 @@ Rumsliga index kan användas på korrekt formaterade [GeoJSON-objekt.](geospatia
  SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
 ```
 
-Så länge ett filter predikat använder på av index slag, kommer frågemotorn utvärdera det först innan du skannar resten. Om du till exempel har en SQL-fråga som`SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
+Så länge ett filter predikat använder en av index typen, kommer frågemotorn utvärdera det först innan du skannar resten. Om du till exempel har en SQL-fråga som`SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
 
 * Ovanstående fråga filtreras först efter poster där förnamn = "Andrew" med hjälp av indexet. Det passerar sedan alla firstName = "Andrew" poster genom en efterföljande pipeline för att utvärdera CONTAINS-filtret predikat.
 

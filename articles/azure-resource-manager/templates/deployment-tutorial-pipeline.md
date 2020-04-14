@@ -4,12 +4,12 @@ description: Lär dig hur du kontinuerligt skapar, testar och distribuerar Azure
 ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 303edac9221b2a58986129388e33c84c3817d96e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6ce6f176a52a742a3216a5b761b34254027a1c5b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369364"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255081"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Självstudiekurs: Kontinuerlig integrering av Azure Resource Manager-mallar med Azure Pipelines
 
@@ -44,7 +44,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 ## <a name="prepare-a-github-repository"></a>Förbereda en GitHub-lagringsplats
 
-GitHub används för att lagra projektets källkod, inklusive Resource Manager-mallar. Andra databaser som stöds finns i [databaser som stöds av Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops#supported-repository-types).
+GitHub används för att lagra projektets källkod, inklusive Resource Manager-mallar. Andra databaser som stöds finns i [databaser som stöds av Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops).
 
 ### <a name="create-a-github-repository"></a>Skapa en GitHub-databas
 

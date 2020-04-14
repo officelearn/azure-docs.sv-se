@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/17/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: f779781eee81bf85f6420e5bae6b0feb62680b8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f1d23f11cf73680a8861c9f1ac6cbd40ad497a4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064177"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257342"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning: Arkitektur och begrepp
 
@@ -27,7 +27,7 @@ Lär dig mer om arkitektur, koncept och arbetsflöde för Azure Machine Learning
 
 Arbetsflödet för maskininlärningsmodell följer i allmänhet den här sekvensen:
 
-1. **Tåg**
+1. **Träna**
     + Utveckla maskininlärningsskript i **Python,** **R**eller med den visuella designern.
     + Skapa och konfigurera ett **beräkningsmål**.
     + **Skicka skripten** till ett konfigurerat beräkningsmål som ska köras i den miljön. Under träningen kan skripten läsa från eller skriva till **datalager**. Loggar och utdata som produceras under träningen sparas som **körs** på **arbetsytan** och grupperas under **experiment**.
@@ -187,7 +187,7 @@ Mer information finns i följande artiklar:
 * [Tåg ML modeller med skattställare](how-to-train-ml-models.md).
 * [Träna Pytorch-djupinlärningsmodeller i stor skala med Azure Machine Learning](how-to-train-pytorch.md).
 * [Träna och registrera TensorFlow-modeller i stor skala med Azure Machine Learning](how-to-train-tensorflow.md).
-* [Träna och registrera Chainer-modeller i stor skala med Azure Machine Learning](how-to-train-chainer.md).
+* [Träna och registrera Chainer-modeller i stor skala med Azure Machine Learning](how-to-train-ml-models.md).
 
 ### <a name="endpoints"></a>Slutpunkter
 

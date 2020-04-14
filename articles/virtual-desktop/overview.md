@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 03/19/2020
+ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 01767e88714bfb4e134957298505edd218d462d3
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 927696d029bf1b8742dc0001e03799322f368191
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546924"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261728"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop? 
 
@@ -99,10 +99,8 @@ De virtuella Azure-datorer som du skapar för Windows Virtual Desktop måste ha 
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Windows-aktivering|Internet|
 
-
-
 >[!IMPORTANT]
->Att öppna dessa webbadresser är viktigt för en tillförlitlig Windows Virtual Desktop-distribution. Att blockera åtkomst till dessa url:er stöds inte och påverkar tjänstens funktioner. Dessa url:er motsvarar bara Windows virtuella skrivbordsplatser och resurser och innehåller inte webbadresser för andra tjänster som Azure Active Directory.
+>Vi rekommenderar att du använder tjänsttaggarna i stället för webbadresser i de flesta fall för att förhindra serviceproblem. Att avblockera dessa webbadresser är viktigt för en tillförlitlig Windows Virtual Desktop-distribution. Att blockera åtkomst till dessa url:er stöds inte och påverkar tjänstens funktioner. Dessa url:er motsvarar bara Windows virtuella skrivbordsplatser och resurser och innehåller inte webbadresser för andra tjänster som Azure Active Directory.
 
 I följande tabell visas valfria url:er som dina virtuella Azure-datorer kan ha åtkomst till:
 
@@ -142,7 +140,7 @@ Följande klienter för fjärrskrivbord stöder Windows Virtual Desktop:
 
 * [Windows-skrivbordet](connect-windows-7-and-10.md)
 * [Webb](connect-web.md)
-* [Macos](connect-macos.md)
+* [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
 * [Android (förhandsgranskning)](connect-android.md)
 

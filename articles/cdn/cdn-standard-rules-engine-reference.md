@@ -2,19 +2,19 @@
 title: Standardregler motorreferens för Azure CDN | Microsoft-dokument
 description: Referensdokumentation för matchningsvillkor och åtgärder i standardreglersmotorn för Azure Content Delivery Network (Azure CDN).
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: magattus
-ms.openlocfilehash: aa401150ee7a0f02e809ad702b8247e18081c8a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 6d4fa4451c3db3d6f2a506eabd5676d18b0219f4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74171563"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259909"
 ---
-# <a name="standard-rules-engine-reference-for-azure-cdn"></a>Motorreferens för standardregler för Azure CDN
+# <a name="standard-rules-engine-reference-for-azure-cdn"></a>Referens för standardregelmotor för Azure CDN
 
 I [standardregelmotorn](cdn-standard-rules-engine.md) för Azure Content Delivery Network (Azure CDN) består en regel av ett eller flera matchningsvillkor och en åtgärd. Den här artikeln innehåller detaljerade beskrivningar av matchningsvillkor och funktioner som är tillgängliga i standardreglersmotorn för Azure CDN.
 

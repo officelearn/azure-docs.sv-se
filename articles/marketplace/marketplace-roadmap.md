@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/02/2019
-ms.openlocfilehash: c9c69bb475c943003f78a69df1142653c3d5249e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c6a3ac701442fb30e471bcc2c8f317e3988980f7
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288384"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261983"
 ---
 # <a name="microsoft-commercial-marketplace-roadmap"></a>Microsofts färdplan för kommersiella marknadsplatser
 
@@ -29,7 +29,7 @@ När en funktion är live tas den bort från översikten. Funktioner som har lag
 
 * [Marketplace + CSP Update Blogg](https://aka.ms/marketplacemarchupdateblog)
 * [Publicera erbjudanden i CSP-kanal (ISV)](https://aka.ms/publishtocsp)
-* [Sälja Marketplace-erbjudanden (CSP)](hhttps://aka.ms/marketplaceincsp)
+* [Sälja Marketplace-erbjudanden (CSP)](https://aka.ms/marketplaceincsp)
 * [Standardavtal](https://aka.ms/standardcontract)
 * [Api för SaaS-uppfyllelse](https://aka.ms/saasapiv2)
 * [Marknadsplatsgeo och valutor](https://aka.ms/marketplacegeos)

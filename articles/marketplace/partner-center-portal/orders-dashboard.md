@@ -7,21 +7,21 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: d0db6553a774a69bb8a55538cbd2b4a333be9316
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 148b80a6843168b11e4feb3558f6bf08eaeb3ace
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281416"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261269"
 ---
-# <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Order instrumentpanel i Kommersiell Marketplace-analys
+# <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Beställer instrumentpanel i kommersiell marknadsplatsanalys
 
 Den här artikeln innehåller information om **instrumentpanelen Order** i Partnercenter. Den här instrumentpanelen visar information om dina beställningar i ett grafiskt och nedladdningsbart format.
 
 Om du vill komma åt **instrumentpanelen Order** i analysverktygen för Partner Center öppnar du **[instrumentpanelen Analysera](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** under Kommersiell marknadsplats.
 
 >[!NOTE]
-> Detaljerade definitioner av analysterminologi finns [i Vanliga frågor och terminologi för Analys av kommersiella marknadsplatser](./faq-terminology.md).
+> Detaljerade definitioner av analysterminologi finns i [Vanliga frågor och terminologi för kommersiell marknadsplatsanalys](./faq-terminology.md).
 
 ## <a name="orders-dashboard"></a>Orderinstrumentpanel
 
@@ -36,7 +36,7 @@ Om du vill komma åt **instrumentpanelen Order** i analysverktygen för Partner 
 - [Tabell för orderinformation](#order-details-table)
 
 > [!NOTE]
-> Det finns skillnader mellan hur analysrapporter visas i Cloud Partner Portal (CPP) och det nya kommersiella marketplace-programmet i Partner Center. Ett specifikt sätt är att **säljaren Insights** i CPP har en **order & användning** fliken, som visar data för användningsbaserade erbjudanden och icke-användningsbaserade erbjudanden. I Partnercenter har sidan **Order** en separat flik för SaaS-erbjudanden.
+> Det finns skillnader mellan hur analysrapporter visas i Cloud Partner Portal (CPP) och det nya kommersiella marknadsplatsprogrammet i Partner Center. Ett specifikt sätt är att **säljaren Insights** i CPP har en **order & användning** fliken, som visar data för användningsbaserade erbjudanden och icke-användningsbaserade erbjudanden. I Partnercenter har sidan **Order** en separat flik för SaaS-erbjudanden.
 
 ## <a name="order-dashboard-details"></a>Information om beställning av instrumentpanel
 
@@ -124,10 +124,10 @@ Du kan välja flera filter för att återge diagrammet för de villkor du välje
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt över analysrapporter som är tillgängliga på Den kommersiella marknaden för partnercenter finns i [Analytics för den kommersiella marknadsplatsen i Partner Center](./analytics.md).
-- Diagram, trender och värden för aggregerade data som sammanfattar marketplace-aktivitet för ditt erbjudande finns [i Sammanfattningsinstrumentpanel i Analys av kommersiella marknadsplatser](./summary-dashboard.md).
-- För virtuell dator (VM) erbjuder användnings- och datapriser för faktureringsmått finns [i instrumentpanelen Användning i Kommersiell Marketplace-analys](./usage-dashboard.md).
-- Detaljerad information om dina kunder, inklusive tillväxttrender, finns [i Kundinstrumentpanelen i Kommersiell Marketplace-analys](./customer-dashboard.md).
-- En lista över dina hämtningsbegäranden under de senaste 30 dagarna finns [i Instrumentpanelen Hämta filer i Kommersiell Marketplace-analys](./downloads-dashboard.md).
-- Information om hur du ser en konsoliderad vy över kundfeedback för erbjudanden på Azure Marketplace och AppSource finns [i instrumentpanelen Klassificeringar och recensioner i Kommersiell Marketplace-analys](./ratings-reviews.md).
-- Vanliga frågor och svar om Analys av kommersiella marknadsplatser och en omfattande ordlista med datatermer finns i [Vanliga frågor och terminologi för Kommersiell Marketplace-analys](./faq-terminology.md).
+- En översikt över analysrapporter som är tillgängliga på den kommersiella marknaden för Partner Center finns i [Analytics för den kommersiella marknadsplatsen i Partner Center](./analytics.md).
+- Diagram, trender och värden för aggregerade data som sammanfattar marketplace-aktivitet för ditt erbjudande finns [i Sammanfattningsinstrumentpanel i kommersiell marknadsplatsanalys](./summary-dashboard.md).
+- För virtuell dator (VM) erbjuder användnings- och datapriser för faktureringsmått, se [Instrumentpanelen för användning i kommersiell marknadsplatsanalys](./usage-dashboard.md).
+- Detaljerad information om dina kunder, inklusive tillväxttrender, finns [i Kundens instrumentpanel i kommersiell marknadsplatsanalys](./customer-dashboard.md).
+- En lista över dina hämtningsbegäranden under de senaste 30 dagarna finns [i Instrumentpanelen Hämta i kommersiell marknadsplatsanalys](./downloads-dashboard.md).
+- Information om hur du ser en konsoliderad vy över kundfeedback för erbjudanden på Azure Marketplace och AppSource finns [i instrumentpanelen Klassificeringar och recensioner i kommersiell marketplace-analys](./ratings-reviews.md).
+- Vanliga frågor och svar om kommersiell marknadsplatsanalys och en omfattande ordlista med datatermer finns i [Vanliga frågor och terminologi för kommersiell marknadsplatsanalys](./faq-terminology.md).

@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/10/2020
-ms.openlocfilehash: 8a7dfd7c690d79d8430f7c33a25b38949dbd06c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 31a5195038ef25acadc08e2acbedf8471b25833c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79086322"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261422"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Använda hanterad identitet för att autentisera ditt Azure Stream Analytics-jobb till Power BI
 
@@ -160,7 +160,7 @@ Nu när Stream Analytics-jobbet har skapats kan det få åtkomst till en Power B
 ### <a name="use-the-power-bi-ui"></a>Använda Power BI-användargränssnittet
 
    > [!Note]
-   > För att lägga till Stream Analytics-jobbet på din Power BI-arbetsyta med hjälp av användargränssnittet måste du också aktivera tjänstens huvudåtkomst i **utvecklarinställningarna** i Power BI-administratörsportalen. Se [Kom igång med ett tjänsthuvudnamn](https://docs.microsoft.com/power-bi/developer/embed-service-principal#get-started-with-a-service-principal) för mer information.
+   > För att lägga till Stream Analytics-jobbet på din Power BI-arbetsyta med hjälp av användargränssnittet måste du också aktivera tjänstens huvudåtkomst i **utvecklarinställningarna** i Power BI-administratörsportalen. Se [Kom igång med ett tjänsthuvudnamn](https://docs.microsoft.com/power-bi/developer/embed-service-principal) för mer information.
 
 1. Navigera till arbetsytans åtkomstinställningar. Se den här artikeln för mer information: [Ge tillgång till din arbetsyta](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace).
 

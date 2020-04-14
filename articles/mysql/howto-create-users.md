@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/2/2020
-ms.openlocfilehash: 99b614de87c666d1cb1fb8a34eaafadf6fa82849
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: f8c020da72e9cdf8777a3eefac266e97e4a312bd
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632556"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263479"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Skapa användare i Azure Database för MySQL-server
 
@@ -92,4 +92,4 @@ När Azure Database for MySQL-servern har skapats kan du använda det första an
 
 Öppna brandväggen för IP-adresserna för de nya användarnas datorer så att de kan ansluta: [Skapa och hantera Azure Database for MySQL-brandväggsregler med hjälp av Azure-portalen](howto-manage-firewall-using-portal.md) eller Azure [CLI](howto-manage-firewall-using-cli.md).
 
-Mer information om hantering av användarkonton finns i MySQL-produktdokumentation för [hantering av användarkonton,](https://dev.mysql.com/doc/refman/5.7/en/user-account-management.html) [GRANT-syntax](https://dev.mysql.com/doc/refman/5.7/en/grant.html)och [Privilegier](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).
+Mer information om hantering av användarkonton finns i MySQL-produktdokumentation för [hantering av användarkonton,](https://dev.mysql.com/doc/refman/5.7/en/access-control.html) [GRANT-syntax](https://dev.mysql.com/doc/refman/5.7/en/grant.html)och [Privilegier](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).

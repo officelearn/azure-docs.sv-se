@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 419a71acbca59c00bd0ffecf39d5d1ff38833b08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be5fae45ee513dddf002995ce9c37c6b6565f50c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284595"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258396"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Förstå och använda Azure IoT Hub SDK:er
 
@@ -45,7 +45,7 @@ Microsoft Azure IoT-enheten SDK:er innehåller kod som underlättar att skapa pr
 
 Azure IoT Hub-enhet SDK för .NET: 
 
-* Ladda ner från [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/).  Namnområdet är Microsoft.Azure.Devices.Clients, som innehåller IoT Hub Device Clients (DeviceClient, ModuleClient).
+* Ladda ner från [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/).  Namnområdet är Microsoft.Azure.Devices.Clients, som innehåller IoT Hub Device Clients (DeviceClient, ModuleClient).
 * [Källkod](https://github.com/Azure/azure-iot-sdk-csharp)
 * [API-referens](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices?view=azure-dotnet)
 * [Modulreferens](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)
@@ -84,7 +84,7 @@ Azure IoT Hub-enheten SDK för Python:
 Azure IoT Hub-enhet SDK för iOS: 
 
 * Installera från [CocoaPod](https://cocoapods.org/pods/AzureIoTHubClient)
-* [Prover](https://github.com/Azure-Samples/azure-iot-samples-ios)
+* [Exempel](https://github.com/Azure-Samples/azure-iot-samples-ios)
 * API-referens: se [C API-referens](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 
 ## <a name="azure-iot-hub-service-sdks"></a>Azure IoT Hub-tjänst SDK:er
@@ -93,7 +93,7 @@ Azure IoT-tjänsten SDK:er innehåller kod för att underlätta att skapa progra
 
 Azure IoT Hub-tjänst SDK för .NET:
 
-* Ladda ner från [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Devices/).  Namnområdet är Microsoft.Azure.Devices, som innehåller IoT Hub Service Clients (RegistryManager, ServiceClients).
+* Ladda ner från [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices/).  Namnområdet är Microsoft.Azure.Devices, som innehåller IoT Hub Service Clients (RegistryManager, ServiceClients).
 * [Källkod](https://github.com/Azure/azure-iot-sdk-csharp)
 * [API-referens](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices)
 
@@ -116,13 +116,13 @@ Azure IoT Hub-tjänst SDK för Python:
 
 Azure IoT Hub-tjänst SDK för C: 
 
-* Ladda ner från [apt-get, MBED, Arduino IDE eller Nuget](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md)
+* Ladda ner från [apt-get, MBED, Arduino IDE eller NuGet](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md)
 * [Källkod](https://github.com/Azure/azure-iot-sdk-c)
 
 Azure IoT Hub-tjänst SDK för iOS: 
 
 * Installera från [CocoaPod](https://cocoapods.org/pods/AzureIoTHubServiceClient)
-* [Prover](https://github.com/Azure-Samples/azure-iot-samples-ios)
+* [Exempel](https://github.com/Azure-Samples/azure-iot-samples-ios)
 
 > [!NOTE]
 > Se readme-filerna i GitHub-databaserna för information om hur du använder språk- och plattformsspecifika pakethanterare för att installera binärfiler och beroenden på din utvecklingsdator.
@@ -157,7 +157,7 @@ Azure-etableringsenhet och tjänst-SDK:er för Node.js:
 
 Azure-etableringsenhet och tjänst-SDK:er för Python:
 
-* [Källkod](https://github.com/Azure/azure-iot-device)
+* [Källkod](https://github.com/Azure/azure-iot-sdk-python)
 * Ladda ner [Device SDK](https://pypi.org/project/azure-iot-device/) och [Service SDK](https://pypi.org/project/azure-iothub-provisioningserviceclient/) från pip
 
 ## <a name="next-steps"></a>Nästa steg

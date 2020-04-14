@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
-ms.openlocfilehash: e5353797aaa7d40e1b6a95685b79cb3fe99f5ecd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 94be2e5d3c2c941ab17401a743ea86acbe8b6252
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277658"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273808"
 ---
 # <a name="virtual-machine-offer-settings-tab"></a>Fliken Inställningar för erbjudande på virtuell dator
+
+> [!IMPORTANT]
+> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa ett Azure Virtual Machine-erbjudande](https://aka.ms/CreateAzureVMoffer) för att hantera dina migrerade erbjudanden.
 
 Sidan **Nytt erbjudande** för virtuella datorer öppnas på den första fliken med namnet **Erbjudandeinställningar**.  
 

@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
-ms.openlocfilehash: 567dc83e36020ef9af328f52dae89ef37b6e4908
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 156a405d93aeac27f27fe617e1a5485044309846
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277729"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273825"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Fliken Marknadsplats för virtuell dator
+
+> [!IMPORTANT]
+> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa ett Azure Virtual Machine-erbjudande](https://aka.ms/CreateAzureVMoffer) för att hantera dina migrerade erbjudanden.
 
 På fliken **Marketplace** på sidan **Nytt erbjudande** kan du förse dina potentiella kunder med marknadsföring, försäljning och juridisk information och avtal och hantera leads som genereras från marknadsplatsen. Det här långa formuläret är indelat i fyra avsnitt: **Översikt**, **Marknadsföringsartefakter**, **Lead Management**och **Legal**.
 
@@ -52,7 +55,7 @@ I följande tabell beskrivs syftet med och innehållet i dessa fält. Obligatori
 |  ---------                |     ---------------                                                          |
 | *Logotyper*  |  |
 | **Liten\***                 | 40x40 pixel .ico bitmapp                                                      |
-| **Medium\***                | 90x90 pixel .ico bitmapp                                                      |
+| **Medel\***                | 90x90 pixel .ico bitmapp                                                      |
 | **Stor\***                 | 115x115 pixel .ico-bitmapp                                                   |
 | **Brett\***                  | 255 x 115 pixlar .ico-bitmapp                                                    |
 | **Hjälte**                  | 815x290 bitmapp.  Valfritt, men när du har laddat upp hjälteikonen kan inte tas bort. |

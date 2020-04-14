@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: 7237bb7e0538ba1a9b6333ccb6589efe657a247d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f91ee5654b4add37d3cce4f875be1f9c2b398ab9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74423959"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259501"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Felsöka replikeringsproblem för virtuella datorer med VMware och fysiska servrar
 
@@ -30,7 +30,7 @@ Vi rekommenderar att du övervakar hälsotillståndet för processservrar i port
 
 ## <a name="step-2-troubleshoot-connectivity-and-replication-issues"></a>Steg 2: Felsöka anslutnings- och replikeringsproblem
 
-Inledande och pågående replikeringsfel orsakas ofta av anslutningsproblem mellan källservern och processservern eller mellan processservern och Azure. 
+Inledande och pågående replikeringsfel orsakas ofta av anslutningsproblem mellan källservern och processservern eller mellan processservern och Azure.
 
 Lös dessa problem genom [att felsöka anslutning och replikering](vmware-physical-azure-troubleshoot-process-server.md#check-connectivity-and-replication).
 
@@ -96,7 +96,7 @@ LÃ¶s problemet genom att anã¶ndra nÃ¤r du ã¤ndrar nÃ¤r nÃ¤r nÃ¤lln
 4. På källmaskinen undersöker du loggarna på platsen för felinformation:
 
        C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
-    
+
 ### <a name="process-server-with-no-heartbeat-error-806"></a>Processserver utan pulsslag [fel 806]
 Om det inte finns några pulsslag från Process Server (PS), kontrollera att:
 1. PS VM är igång
@@ -116,7 +116,7 @@ LÃ¶s problemet genom att anã¤ nÃ¤r du ansÃ¶ser servicestatus:
 2. Logga in på den virtuella datorn för huvudmål med ett konto som har administratörsbehörighet.
     - Kontrollera att tjänsten är igång. Om den körs startar du om tjänsten
     - Kontrollera loggarna på platsen för felinformation:
-        
+
           C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
 3. Om du vill registrera huvudmålet med konfigurationsservern navigerar du till mappen **%PROGRAMDATA%\ASR\Agent**och kör följande i kommandotolken:
    ```
@@ -132,38 +132,38 @@ LÃ¶s problemet genom att anã¤ nÃ¤r du ansÃ¶ser servicestatus:
 
 ## <a name="error-id-78144---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>Fel-ID 78144 - Ingen appkonsekvent återställningspunkt tillgänglig för den virtuella datorn under de senaste XXX-minuterna
 
-Förbättringar har gjorts i mobility agent [9.23](vmware-physical-mobility-service-overview.md#from-923-version-onwards) & [9.27](site-recovery-whats-new.md#update-rollup-39) versioner för att hantera VSS-installationsfel. Se till att du är på de senaste versionerna för bästa vägledning om felsökning VSS-fel.
+Förbättringar har gjorts i mobility agent [9.23](vmware-physical-mobility-service-overview.md#mobility-service-agent-version-923-and-higher) & [9.27](site-recovery-whats-new.md#update-rollup-39) versioner för att hantera VSS-installationsfel. Se till att du är på de senaste versionerna för bästa vägledning om felsökning VSS-fel.
 
 Några av de vanligaste problemen listas nedan
 
-#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>Orsak 1: Känt problem i SQL-servern 2008/2008 R2 
+#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>Orsak 1: Känt problem i SQL-servern 2008/2008 R2
 **Så här åtgärdar du** : Det finns ett känt problem med SQL-servern 2008/2008 R2. Se den här [KB-artikeln Azure Site Recovery Agent eller andra VSS-säkerhetskopiering som inte är komponent misslyckas för en server som är värd för SQL Server 2008 R2](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
 
-#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-auto_close-dbs"></a>Orsak 2: Azure Site Recovery-jobb misslyckas på servrar som är värdar för alla versioner av SQL Server-instanser med AUTO_CLOSE DBs 
-**Så här fixar du:** Se [kb-artikel](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 
+#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-auto_close-dbs"></a>Orsak 2: Azure Site Recovery-jobb misslyckas på servrar som är värdar för alla versioner av SQL Server-instanser med AUTO_CLOSE DBs
+**Så här fixar du:** Se [kb-artikel](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser)
 
 
 #### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>Orsak 3: Känt problem i SQL Server 2016 och 2017
-**Så här fixar du:** Se [kb-artikel](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 
+**Så här fixar du:** Se [kb-artikel](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component)
 
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>Fler orsaker på grund av VSS-relaterade problem:
 
 Om du vill felsöka ytterligare kontrollerar du filerna på källmaskinen för att få den exakta felkoden för fel:
-    
+
     C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
 
 Hur hittar du felen i filen?
 Sök efter strängen "vacpError" genom att öppna filen vacp.log i en redigerare
-        
+
     Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
 
 I exemplet ovan är **2147754994** felkoden som berättar om felet som visas nedan
 
-#### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS-brännare är inte installerad - Fel 2147221164 
+#### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS-brännare är inte installerad - Fel 2147221164
 
 *Åtgärda:* För att generera programkonsekvenstagg använder Azure Site Recovery Microsoft Volume Shadow copy Service (VSS). Den installerar en VSS-provider för dess funktion för att ta ögonblicksbilder av appkonsekvenser. Denna VSS-provider installeras som en tjänst. Om VSS Provider-tjänsten inte är installerad misslyckas skapandet av ögonblicksbilder av programkonsekvens med fel-ID 0x80040154 "Klassen har inte registrerats". </br>
-Se [artikel för felsökning av VSS-brännareinstallation](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 
+Se [artikel för felsökning av VSS-brännareinstallation](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures)
 
 #### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS-brännare är inaktiverad - Fel 2147943458
 
@@ -178,12 +178,13 @@ Se [artikel för felsökning av VSS-brännareinstallation](https://docs.microsof
 
 ####  <a name="vss-provider-not_registered---error-2147754756"></a>VSS-LEVERANTÖR NOT_REGISTERED - Fel 2147754756
 
-**Åtgärda:** För att generera programkonsekvenstagg använder Azure Site Recovery Microsoft Volume Shadow copy Service (VSS). Kontrollera om tjänsten Azure Site Recovery VSS Provider är installerad eller inte. </br>
+**Åtgärda:** För att generera programkonsekvenstagg använder Azure Site Recovery Microsoft Volume Shadow copy Service (VSS).
+Kontrollera om tjänsten Azure Site Recovery VSS Provider är installerad eller inte. </br>
 
 - Försök igen providerinstallationen med följande kommandon:
 - Avinstallera befintlig provider: C:\Program-filer (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd
 - Installera om: C:\Program-filer (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd
- 
+
 Kontrollera att starttypen för VSS Provider-tjänsten är inställd **på Automatisk**.
     - Starta om följande tjänster:
         - VSS-tjänst

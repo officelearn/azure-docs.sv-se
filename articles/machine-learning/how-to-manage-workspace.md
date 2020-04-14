@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: f38b0895b0d6eddcf63c082d3df205f4d9de9d50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b4b64bcca57e1dc98cdba10626597532ae1461c
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297069"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269744"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Skapa och hantera Azure Machine Learning-arbetsytor i Azure-portalen
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -90,6 +90,8 @@ Du kan uppgradera arbetsytan från Basic edition till Enterprise Edition för at
 
 ## <a name="find-a-workspace"></a><a name="view"></a>Hitta en arbetsyta
 
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+
 1. Skriv **Maskininlärning**i det övre sökfältet .  
 
 1. Välj **Maskininlärning**.
@@ -102,9 +104,9 @@ Du kan uppgradera arbetsytan från Basic edition till Enterprise Edition för at
 
 ## <a name="delete-a-workspace"></a>Ta bort en arbetsyta
 
-Använd knappen Ta bort högst upp på arbetsytan som du vill ta bort.
+I [Azure-portalen](https://portal.azure.com/)väljer du **Ta bort** högst upp på arbetsytan som du vill ta bort.
 
-  ![Knappen Ta bort](./media/how-to-manage-workspace/delete-workspace.png)
+:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Ta bort arbetsyta":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

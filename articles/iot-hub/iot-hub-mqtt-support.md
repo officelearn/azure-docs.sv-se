@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 2b200692610302bb135982e5419dcda36d5cfe60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ccfaa57b8e8fdea325bed908ffe8815b09d0d15
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271166"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257801"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Kommunicera med din IoT-hubb med MQTT-protokollet
 
@@ -49,7 +49,7 @@ Följande tabell innehåller länkar till kodexempel för varje språk som stöd
 | [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-device-mqtt. Mqtt (på) | azure-iot-device-mqtt. MqttWs ( |
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable). MQTT (på andra sätt) | IotHubClientProtocol.MQTT_WS |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet). Mqtt (på) | TransportType.Mqtt faller tillbaka till MQTT över web sockets om MQTT misslyckas. Om du bara vill ange MQTT över webbuttag använder du TransportType.Mqtt_WebSocket_Only |
+| [C #](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet). Mqtt (på) | TransportType.Mqtt faller tillbaka till MQTT över web sockets om MQTT misslyckas. Om du bara vill ange MQTT över webbuttag använder du TransportType.Mqtt_WebSocket_Only |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | Stöder MQTT som standard | Lägg `websockets=True` till i anropet för att skapa klienten |
 
 Följande fragment visar hur du anger MQTT över Web Sockets-protokollet när du använder Azure IoT Node.js SDK:
@@ -118,7 +118,7 @@ Om en enhet inte kan använda enhetens SDK:er kan den fortfarande ansluta till d
 
   Mer information om hur du genererar SAS-token finns i enhetsavsnittet [i Använda IoT Hub-säkerhetstoken](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
-  När du testar kan du också använda Azure IoT Tools för Flera plattformar [för Visual Studio-kod](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) eller Device [Explorer-verktyget](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) för att snabbt generera en SAS-token som du kan kopiera och klistra in i din egen kod:
+  När du testar kan du också använda [Azure IoT Tools för Visual Studio-kod](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) över flera plattformar eller kommandot CLI-tillägg az [iot hub generate-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) för att snabbt generera en SAS-token som du kan kopiera och klistra in i din egen kod:
 
 ### <a name="for-azure-iot-tools"></a>För Azure IoT-verktyg
 
@@ -129,16 +129,6 @@ Om en enhet inte kan använda enhetens SDK:er kan den fortfarande ansluta till d
 3. Ställ in **utgångstiden** och tryck på "Retur".
   
 4. SAS-token skapas och kopieras till Urklipp.
-
-### <a name="for-device-explorer"></a>För Enhetsutforskaren
-
-1. Gå till fliken **Hantering** i **Enhetsutforskaren**.
-
-2. Klicka på **SAS-token** (uppe till höger).
-
-3. På **SASTokenForm**väljer du enheten i listrutan **DeviceID.** Ställ in **din TTL**.
-
-4. Klicka på **Generera** för att skapa din token.
 
    SAS-token som genereras har följande struktur:
 

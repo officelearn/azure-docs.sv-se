@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 03/12/2020
-ms.openlocfilehash: 418be090e7ff78ec0089c115c9884ffeffdda871
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4359c5581d14f4a918a49cf2b91ac58561ea93d3
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284023"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257461"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Information om begränsningar och konfiguration för Azure Logic Apps
 
@@ -84,7 +84,7 @@ Här är gränserna för en enkel logikappkörning:
 
 | Namn | Gräns | Anteckningar |
 | ---- | ----- | ----- |
-| Concurrency | - Obegränsad när samtidighetskontrollen är avstängd <p><p>- 25 är standardgränsen när samtidighetskontrollen är aktiverad, vilket inte kan ångras när du har aktiverat kontrollen. Du kan ändra standardvärdet till ett värde mellan 1 och 50. | Den här gränsen beskriver det högsta antalet logikappinstanser som kan köras samtidigt eller parallellt. <p><p>**Obs:** När samtidighet är aktiverat reduceras SplitOn-gränsen till 100 objekt för [att diskutera matriser](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Information om hur du ändrar standardgränsen till ett värde mellan 1 och 50 i följd finns i [Ändra utlösar samtidighetsgräns](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) eller [utlösa instanser sekventiellt](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Concurrency | - Obegränsad när samtidighetskontrollen är avstängd <p><p>- 25 är standardgränsen när samtidighetskontrollen är aktiverad, som du inte kan ångra när du har aktiverat samtidighet. Du kan ändra standardvärdet till ett värde mellan 1 och 50. | Den här gränsen beskriver det högsta antalet logikappinstanser som kan köras samtidigt eller parallellt. <p><p>**Obs:** När samtidighet är aktiverat reduceras SplitOn-gränsen till 100 objekt för [att diskutera matriser](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Information om hur du ändrar standardgränsen till ett värde mellan 1 och 50 i följd finns i [Ändra utlösar samtidighetsgräns](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) eller [utlösa instanser sekventiellt](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Maximala väntetider | - Utan samtidighet är det minsta antalet väntekörningar 1, medan det maximala antalet är 50. <p><p>- Med samtidighet är det minsta antalet väntekörningar 10 plus antalet samtidiga körningar (trigger samtidighet). Du kan ändra det maximala antalet upp till 100. | Den här gränsen beskriver det högsta antalet logikappinstanser som kan vänta med att köras när logikappen redan kör de maximala samtidiga instanserna. <p><p>Om du vill ändra standardgränsen finns i [Ändra väntekörningsgräns](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Föra cacheobjekt | 100 000 | Den här gränsen beskriver det högsta antalet matrisobjekt som en "för varje" loop kan bearbeta. <p><p>Om du vill filtrera större matriser kan du använda [frågeåtgärden](logic-apps-perform-data-operations.md#filter-array-action). |
 | Förtidskonsensenlighet | 20 är standardgränsen när samtidighetskontrollen är avstängd. Du kan ändra standardvärdet till ett värde mellan 1 och 50. | Den här gränsen är det högsta antalet "för varje" loopiterationer som kan köras samtidigt eller parallellt. <p><p>Information om hur du ändrar standardgränsen till ett värde mellan 1 och 50 i följd finns i [Ändra "för varje" samtidighetsgräns](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) eller [Kör "för varje" loopar sekventiellt](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
@@ -166,6 +166,8 @@ Vissa anslutningsåtgärder gör asynkrona anrop eller lyssnar efter webhook-beg
 | Gräns för uttrycksutvärdering | 131 072 tecken | `@concat()`Uttrycken `@base64()` `@string()` , kan inte vara längre än den här gränsen. |
 | Begränsning av begäran om URL-tecken | 16 384 tecken |
 |||
+
+<a name="retry-policy-limits"></a>
 
 #### <a name="retry-policy"></a>Återförsöksprincip
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 61b5017609d99f2f0074c67d3838cf351ea38bea
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 322ff2be4b90a945305915432a8191db9f4efee2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79365431"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81252565"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Självstudiekurs: Skapa tjänsthuvudnamn och rolltilldelningar med hjälp av PowerShell
 
@@ -77,7 +77,7 @@ Här är de tre autentiseringsuppgifterna du bör skriva ner och de cmdlets du b
     $svcPrincipal.AppId
     ```
 
-## <a name="create-a-role-assignment-in-windows-virtual-desktop-preview"></a>Skapa en rolltilldelning i förhandsversionen av Windows Virtual Desktop
+## <a name="create-a-role-assignment-in-windows-virtual-desktop"></a>Skapa en rolltilldelning i Windows Virtual Desktop
 
 Därefter måste du skapa en rolltilldelning så att tjänstens huvudnamn kan logga in på Windows Virtual Desktop. Se till att logga in med ett konto som har behörighet att skapa rolltilldelningar.
 

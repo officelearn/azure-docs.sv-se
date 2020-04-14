@@ -2,7 +2,7 @@
 title: Referensarkitekturer för Oracle-databaser på Azure | Microsoft-dokument
 description: Refererar till arkitekturer för att köra Oracle Database Enterprise Edition-databaser på Microsoft Azure Virtual Machines.
 services: virtual-machines-linux
-author: romitgirdhar
+author: mimckitt
 manager: gwallace
 tags: ''
 ms.service: virtual-machines
@@ -10,14 +10,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2019
-ms.author: rogirdh
+ms.author: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 235482f5d44877e5c4e47aed4d7eaf2baea5c3fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1dc677ded1e13a64c082d49140fa0de69c0ed9d4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75560342"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263275"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Referensarkitekturer för Oracle Database Enterprise Edition på Azure
 
@@ -177,7 +177,7 @@ Följande diagram är en referensarkitektur för Oracle Sharding med Oracle Data
 
 ![Oracle Database Sharding med hjälp av tillgänglighetszoner med Data Guard Broker - FSFO](./media/oracle-reference-architecture/oracledb_dg_sh_az.png)
 
-Systemhanterad sharding är det enklaste att konfigurera och hantera, men användardefinierad fragmentering eller sammansatt fragmentering är väl lämpad för scenarier där dina data och program är geodistribuerade eller i scenarier där du måste ha kontroll över replikeringen av varje skärva. 
+Systemhanterad sharding är det enklaste att konfigurera och hantera, men användardefinierad fragmentering eller sammansatt fragmentering är väl lämpad för scenarier där dina data och program är geodistribuerade eller i scenarier där du måste ha kontroll över replikeringen av varje shard. 
 
 I föregående arkitektur används sammansatt fragmentering för att geodistribuera data och vågrätt skala ut dina programnivåer. Sammansatt sharding är en kombination av systemhanterad och användardefinierad fragmentering och ger därmed fördelen av båda metoderna. I föregående scenario fragmenteras data först över flera fragmentområden åtskilda efter region. Sedan partitioneras data ytterligare genom konsekvent hash över flera shards i fragmentutrymmet. Varje fragmentutrymme innehåller flera shardgrupper. Varje fragmentgrupp har flera shards och är en "enhet" av replikering, i det här fallet. Varje fragmentgrupp innehåller alla data i fragmentutrymmet. Shardgroups A1 och B1 är primära shardgrupper, medan fragmentgrupperna A2 och B2 är väntelägen. Du kan välja att ha enskilda shards som replikeringsenhet i stället för en fragmentgrupp.
 

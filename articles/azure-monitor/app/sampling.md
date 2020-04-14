@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: fc9db23f7733f97ca207e834d4543fbdb1b9db5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e888e0606b7a9bcd9a7a94c28455d705c5f1bec
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79275833"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255489"
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
@@ -22,7 +22,7 @@ När måttantal presenteras i portalen renormalized de att ta hänsyn till provt
 
 * Det finns tre olika typer av provtagning: adaptiv provtagning, provtagning med fast hastighet och provtagning för intag.
 * Adaptiv sampling är aktiverad som standard i alla de senaste versionerna av Application Insights ASP.NET och ASP.NET Core Software Development Kits (SDK). Den används också av [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
-* Provsmakning med fast hastighet är tillgänglig i de senaste versionerna av Application Insights SDK:er för ASP.NET, ASP.NET Core, Java och Python.
+* Provsmakning med fast hastighet är tillgängligt i de senaste versionerna av Application Insights SDK:er för ASP.NET, ASP.NET Core, Java (både agenten och SDK) och Python.
 * Inmatningsprovtagning fungerar på tjänsten Application Insights-tjänstslutpunkten. Det gäller endast när inget annat provtagning är i kraft. Om SDK-exemplen tar prover på telemetrin inaktiveras inmatningsprovtagningen.
 * Om du loggar anpassade händelser och behöver se till att en uppsättning händelser behålls eller `OperationId` ignoreras tillsammans måste händelserna ha samma värde för webbprogram.
 * Om du skriver Analytics-frågor bör du [ta hänsyn till sampling](../../azure-monitor/log-query/aggregations.md). I synnerhet i stället för att `summarize sum(itemCount)`bara räkna poster, bör du använda .
@@ -306,7 +306,29 @@ I Metrics Explorer multipliceras priser som begäran och undantagsantal med en f
 
 ### <a name="configuring-fixed-rate-sampling-for-java-applications"></a>Konfigurera tidsbegränsad sampling för Java-program
 
-Som standard är ingen sampling aktiverad i Java SDK. För närvarande stöder den endast provtagning med fast hastighet. Adaptiv sampling stöds inte i Java SDK.
+Som standard är ingen sampling aktiverad i Java-agenten och SDK. För närvarande stöder den endast provtagning med fast hastighet. Adaptiv sampling stöds inte i Java.
+
+#### <a name="configuring-java-agent"></a>Konfigurera Java-agent
+
+1. Ladda ner [applicationinsights-agent-3.0.0-PREVIEW.2.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.2/applicationinsights-agent-3.0.0-PREVIEW.2.jar)
+
+1. Så här aktiverar du `ApplicationInsights.json` sampling genom att lägga till följande i filen:
+
+```json
+{
+  "instrumentationSettings": {
+    "preview": {
+      "sampling": {
+        "fixedRate": {
+          "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
+        }
+      }
+    }
+  }
+}
+```
+
+#### <a name="configuring-java-sdk"></a>Konfigurera Java SDK
 
 1. Ladda ner och konfigurera ditt webbprogram med de senaste [Application Insights Java SDK](../../azure-monitor/app/java-get-started.md).
 
@@ -534,7 +556,7 @@ Noggrannheten i approximationen beror till stor del på den konfigurerade sampli
 
 * Intagsprovtagning kan ske automatiskt för telemetri över en viss volym, om SDK inte utför sampling. Den här konfigurationen skulle fungera, till exempel om du använder en äldre version av ASP.NET SDK eller Java SDK.
 * Om du använder den aktuella ASP.NET eller ASP.NET Core SDK:er (finns antingen i Azure eller på din egen server) får du anpassad sampling som standard, men du kan växla till fast hastighet enligt beskrivningen ovan. Med provsmakning med fast hastighet synkroniseras webbläsarenSDK automatiskt med exempelrelaterade händelser. 
-* Om du använder den aktuella Java SDK kan du konfigurera `ApplicationInsights.xml` för att aktivera provupptagning med fast hastighet. Samplingen är inaktiverad som standard. Med provtagning med fast hastighet synkroniseras webbläsaren SDK och servern automatiskt med exempelrelaterade händelser.
+* Om du använder den aktuella Java-agenten kan du `ApplicationInsights.json` konfigurera `ApplicationInsights.xml`(för Java SDK) att aktivera provupptagning med fast hastighet. Samplingen är inaktiverad som standard. Med provtagning med fast hastighet synkroniseras webbläsaren SDK och servern automatiskt med exempelrelaterade händelser.
 
 *Det finns vissa sällsynta händelser jag alltid vill se. Hur kan jag få dem förbi samplingsmodulen?*
 

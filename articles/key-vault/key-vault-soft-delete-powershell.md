@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 26c309eeebd7226c6777ec41ae674587da796dd4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 52feeb67681bacb64cd20601e00f00109a4b810f
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78199673"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257920"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Så här använder du Key Vault mjuk borttagning med PowerShell
 
@@ -202,6 +202,34 @@ Precis som nycklar hanteras hemligheter med egna kommandon:
   Remove-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
 
+#### <a name="certificates"></a>Certifikat
+
+Du kan hantera certifikat med hjälp av nedanstående kommandon:
+
+- Ta bort ett certifikat med namnet SQLPassword: 
+  ```powershell
+  Remove-AzKeyVaultCertificate -VaultName ContosoVault -Name 'MyCert'
+  ```
+
+- Lista alla borttagna certifikat i ett nyckelvalv: 
+  ```powershell
+  Get-AzKeyVaultCertificate -VaultName ContosoVault -InRemovedState
+  ```
+
+- Återställa ett certifikat i borttaget tillstånd: 
+  ```powershell
+  Undo-AzKeyVaultCertificateRemoval -VaultName ContosoVault -Name 'MyCert'
+  ```
+
+- Rensa ett certifikat i borttaget tillstånd: 
+
+  > [!IMPORTANT]
+  > Rensa ett certifikat kommer att permanent ta bort det, och det kommer inte att kunna återställas!
+
+  ```powershell
+  Remove-AzKeyVaultcertificate -VaultName ContosoVault -Name 'MyCert' -InRemovedState 
+  ```
+  
 ## <a name="purging-a-soft-delete-protected-key-vault"></a>Rensa ett mjukt bortreda skyddade nyckelvalv
 
 > [!IMPORTANT]

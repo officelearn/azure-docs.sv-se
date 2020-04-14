@@ -3,8 +3,8 @@ title: Azure Serial Console proaktiv GRUB-konfiguration| Microsoft-dokument
 description: Konfigurera GRUB över olika distributioner som tillåter åtkomst till en användare och återställningsläge i virtuella Azure-datorer.
 services: virtual-machines-linux
 documentationcenter: ''
-author: vilibert
-manager: spogge
+author: mimckitt
+manager: vashan
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
-ms.author: vilibert
-ms.openlocfilehash: a154ab4742f0d0d7acae0376bcf894bc2b62b4cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: 573bd0797e63fc512e59b0e0882c718e4569111c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74186934"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262901"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Proaktivt se till att du har tillgång till GRUB och sysrq kan spara massor av ner tid
 
@@ -98,7 +98,7 @@ I den här artikeln kommer vi att granska olika Linux-distributioner och dokumen
 Sysrq-nyckeln är aktiverad på vissa nyare Linux-distributioner som standard, men på andra kan den konfigureras för att acceptera värden endast för vissa SysRq-funktioner.
 På äldre distributioner kan det vara inaktiverat helt.
 
-SysRq-funktionen är användbar för att starta om en kraschad eller låst virtuell dator direkt från Azure Serial Console, också användbart för att få tillgång till GRUB-menyn, alternativt starta om en virtuell dator från ett annat portalfönster eller ssh-session kan släppa din nuvarande konsolanslutning därmed utgående GRUB Timeouts som används för att visa GRUB menyn.
+SysRq-funktionen är användbar för att starta om en kraschad eller hängd virtuell dator direkt från Azure Serial Console, också användbart för att få tillgång till GRUB-menyn, alternativt starta om en virtuell dator från ett annat portalfönster eller ssh-session kan släppa din nuvarande konsolanslutning vilket utgående GRUB-timeout till vilka används för att visa GRUB-menyn.
 Den virtuella datorn måste konfigureras för att acceptera ett värde av 1 för kernel-parametern, vilket aktiverar alla funktioner i sysrq eller 128, vilket möjliggör omstart/poweroff
 
 

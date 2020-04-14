@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: overview
-ms.date: 02/04/2020
+ms.date: 04/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1e4f72300752c93659db4edd4610464dbebf2503
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 73244a635bbf14efcf33f1b978db14e9e2589581
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77014427"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271071"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>Vad är Azure Time Series Insights (förhandsversion)?
 
@@ -49,22 +49,22 @@ Följande bild visar ett typiskt IoT-dataflöde.
 
 IoT landskapet är varierat med kunder som spänner över en mängd olika industrisegment, inklusive tillverkning, fordon, energi, verktyg, smarta byggnader och rådgivning. I det här breda utbudet av industriella IoT-lösningar utvecklas fortfarande molnbaserade lösningar som tillhandahåller omfattande analyser som är inriktade på storskaliga IoT-data. 
 
-Azure Time Series Insights tillgodoser det här marknadsbehovet genom att tillhandahålla en nyckelfärdig, heltäckande IoT-analyslösning med omfattande semantisk modellering för kontextualisering av tidsseriedata, tillgångsbaserade insikter och användarupplevelse i bästa klassen för identifiering. trend, avvikelsedetektering och operativ intelligens. 
+Azure Time Series Insights åtgärdar det här marknadsbehovet genom att tillhandahålla en nyckelfärdig, heltäckande IoT-analyslösning med omfattande semantisk modellering för kontextualisering av tidsseriedata, tillgångsbaserade insikter och förstklassig användarupplevelse för identifiering, trender, avvikelseidentifiering och driftinformation. 
 
 En omfattande operativ analysplattform i kombination med våra interaktiva datautforskningsfunktioner kan du använda Time Series Insights för att härleda mer värde av data som samlats in från IoT-tillgångar. Förhandsversionserbjudandet stöder: 
 
 * Lagringslösning i flera lager med stöd för varm och kall analys som ger kunderna möjlighet att dirigera data mellan varmt och kallt för interaktiva analyser via varma data samt operativ information under årtionden av historiska data. 
 
-    *   En mycket interaktiv varm analyslösning för att utföra frekventa och ett stort antal frågor över kortare tidsintervalldata 
-    *   En skalbar, högpresterande och kostnadsoptimerad tidsseriedatasjö baserad på Azure Storage som gör det möjligt för kunder att trenda år av tidsseriedata på några sekunder. 
+    *    En mycket interaktiv varm analyslösning för att utföra frekventa och ett stort antal frågor över kortare tidsintervalldata 
+    *    En skalbar, högpresterande och kostnadsoptimerad tidsseriedatasjö baserad på Azure Storage som gör det möjligt för kunder att trenda år av tidsseriedata på några sekunder. 
 
 * Semantisk modellstöd som beskriver domänen och metadata som är associerade med de härledda och råa signalerna från tillgångar och enheter.
 
-* Flexibel analysplattform för att lagra historiska tidsseriedata i det kundägda Azure Storage-kontot, vilket gör det möjligt för kunder att äga sina IoT-data. Data lagras i Apache Parquet-format med öppen källkod som möjliggör anslutning och interop i en mängd olika datascenarier, inklusive prediktiv analys, maskininlärning och andra anpassade beräkningar som görs med välbekanta tekniker, inklusive Spark, Databricks och Jupyter.
+* Flexibel analysplattform för att lagra historiska tidsseriedata i det kundägda Azure Storage-kontot, vilket gör det möjligt för kunder att äga sina IoT-data. Data lagras i Apache Parquet-format med öppen källkod som möjliggör anslutning och interop över en mängd olika datascenarier, inklusive prediktiv analys, maskininlärning och andra anpassade beräkningar som görs med välbekanta tekniker, inklusive Spark, Databricks och Jupyter.
 
-* Omfattande analyser med förbättrade fråge-API:er och användarupplevelse som kombinerar tillgångsbaserade datainsikter med omfattande ad hoc-dataanalys med stöd för interpolation, skalär- och aggregationsfunktioner, kategoriska variabler, punktdiagram och tidsförskjutningstid seriesignaler för djupgående analys.
+* Omfattande analyser med förbättrade fråge-API:er och användarupplevelse som kombinerar tillgångsbaserade datainsikter med omfattande, ad hoc-dataanalys med stöd för interpolation, skalär- och aggregerade funktioner, kategoriska variabler, punktdiagram och tidsförskjutningstidsseriesignaler för djupgående analys.
 
-*   Plattform i företagsklass för att stödja våra IoT-kunders skal-, prestanda-, säkerhets- och tillförlitlighetsbehov.
+*    Plattform i företagsklass för att stödja våra IoT-kunders skal-, prestanda-, säkerhets- och tillförlitlighetsbehov.
 
 * Utöknings- och integrationsstöd för heltäckande analyser. Time Series Insights tillhandahåller en utökningsbar analysplattform för en mängd olika datascenarier. Time Series Insights Power BI-anslutning gör det möjligt för kunder att ta de frågor de gör i Time Series Insights direkt i Power BI för att få enhetlig bild av sin BI- och tidsserieanalys i en enda glasruta.
 

@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 42ace2444c7d8e790c7575a7c1a7b3b1219d090a
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 3a801af7b97954510139a009a6d1344b281cf056
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656425"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261813"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Skapa en enkel fråga i Azure Cognitive Search
 
 I Azure Cognitive Search anropar den [enkla frågesyntaxen](query-simple-syntax.md) standardfrågetolkaren för att köra sökfrågor i fulltext mot ett index. Den här tolken är snabb och hanterar vanliga scenarier, inklusive fulltextsökning, filtrerad och fasterad sökning och geosökning. 
 
-I den här artikeln använder vi exempel för att illustrera den enkla syntaxen.
+I den här artikeln använder vi exempel för `search=` att illustrera den enkla syntaxen och fylla i parametern för en [sökdokumentåtgärd.](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 
 En alternativ frågesyntax är [Full Lucene](query-lucene-syntax.md), som stöder mer komplexa frågestrukturer, till exempel fuzzy och jokerteckensökning, vilket kan ta ytterligare tid att bearbeta. Mer information och exempel som visar fullständig syntax finns i [Använd den fullständiga Lucen-syntaxen](search-query-lucene-examples.md).
 

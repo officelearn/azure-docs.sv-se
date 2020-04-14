@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2020
+ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: a2d0b9bdfba1b96ad42e45d54faf106b2361e29d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7cdc9f9a4503c786065b6d514f61fe17eae4ce5e
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76264803"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270918"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Konfigurera automatisk nedrullning för virtuella labb- och beräkningsdatorer i Azure DevTest Labs
 
@@ -28,7 +28,7 @@ I den här artikeln beskrivs hur du konfigurerar inställningar för automatisk 
 ## <a name="configure-autoshutdown-for-lab-vms-devtest-labs"></a>Konfigurera automatisk nedrullning för virtuella labb -datorer (DevTest Labs)
 Med Azure DevTest Labs kan du styra kostnader och minimera avfall i dina labb genom att hantera principer (inställningar) för varje labb. Den här artikeln visar hur du konfigurerar principen för automatisk nedskrivning för ett labbkonto och konfigurerar inställningar för automatisk nedskrivning för ett labb i labbkontot. Information om hur du anger alla labbprinciper finns [i Definiera labbprinciper i Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
 
-### <a name="set-auto-shut-down-policy-for-a-lab"></a>Ange automatisk avstängningsprincip för ett labb
+### <a name="set-auto-shutdown-policy-for-a-lab"></a>Ange automatisk avstängningsprincip för ett labb
 Som labbägare kan du konfigurera ett avstängningsschema för alla virtuella datorer i labbet. På så sätt kan du spara kostnader från att köra datorer som inte används (inaktiv). Du kan tillämpa en avstängningsprincip för alla virtuella labb-datorer centralt men också spara labbanvändarna från att konfigurera ett schema för sina enskilda datorer. Med den här funktionen kan du ställa in principen på ditt labbschema från att erbjuda ingen kontroll till fullständig kontroll, till dina labbanvändare. Som labbägare kan du konfigurera den här principen genom att vidta följande åtgärder:
 
 1. På startsidan för labbet väljer du **Konfiguration och principer**.
@@ -191,13 +191,34 @@ För att komma igång genom att skapa en logikapp i din Azure-prenumeration med 
 
 ## <a name="configure-autoshutdown-for-compute-vms"></a>Konfigurera automatisk nedskalning för virtuella beräkningsresurser
 
-1. På sidan **Virtuell dator** väljer du **Automatisk avstängning** på den vänstra menyn. 
+1. På sidan **Virtuell dator** väljer du **Automatisk avstängning** på den vänstra menyn i avsnittet **Operationer.** 
 2. På sidan **Automatisk avstängning** väljer du **På** för att aktivera den här principen och **Av** för att inaktivera den.
 3. Om du aktiverar den här principen anger du den **tid** (och **tidszon)** då den virtuella datorn ska stängas av.
 4. Ange **Ja** eller **Nej** för alternativet att skicka ett meddelande 30 minuter före den angivna automatiska nedskrivningstiden. Om du väljer **Ja**anger du en webhook-URL-slutpunkt eller e-postadress som anger var du vill att meddelandet ska bokföras eller skickas. Användaren får ett meddelande och ges möjlighet att fördröja avstängningen. Mer information finns i avsnittet [Meddelanden.](#notifications) 
 9. Välj **Spara**.
 
     ![Konfigurera automatisk nedrullning för en dator för beräkning](./media/devtest-lab-auto-shutdown/comnpute-auto-shutdown.png)
+
+### <a name="view-activity-logs-for-auto-shutdown-updates"></a>Visa aktivitetsloggar för uppdateringar av automatisk avstängning
+När du uppdaterar inställningen för automatisk nedteckning visas aktiviteten som loggas i aktivitetsloggen för den virtuella datorn. 
+
+1. Navigera till startsidan för den virtuella datorn i [Azure-portalen.](https://portal.azure.com)
+2. Välj **Aktivitetslogg** på den vänstra menyn. 
+3. Ta bort **resurs: mycomputevm** från filter.
+3. Bekräfta att åtgärden **Lägg till eller ändra scheman** visas i aktivitetsloggen. Om du inte ser det väntar du någon gång och uppdaterar aktivitetsloggen.
+
+    ![Aktivitetsloggpost](./media/devtest-lab-auto-shutdown/activity-log-entry.png)
+4. Välj åtgärden **Lägg till eller ändra scheman** om du vill visa följande information på sidan **Sammanfattning:**
+
+    - Åtgärdsnamn (Lägg till eller ändra scheman)
+    - Datum och tid då inställningen för automatisk nedfördelning uppdaterades.
+    - E-postadressen till den användare som uppdaterade inställningen. 
+
+        ![Sammanfattning av aktivitetsloggposten](./media/devtest-lab-auto-shutdown/activity-log-entry-summary.png)
+5. Växla till fliken **Ändra historik** på sidan Lägg till eller ändra scheman visas **ändringshistoriken** för inställningen. I följande exempel ändrades avstängningstiden från 19.00 till 18.00 den 10 april 2020 kl. Och var inställningen inaktiverad vid 15:25:09 EST. 
+
+    ![Aktivitetslogg - ändringshistorik](./media/devtest-lab-auto-shutdown/activity-log-entry-change-history.png)
+6. Om du vill se mer information om åtgärden växlar du till fliken **JSON** på sidan **Lägg till eller ändra scheman.**
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om hur du anger alla principer finns [i Definiera labbprinciper i Azure DevTest Labs](devtest-lab-set-lab-policy.md).

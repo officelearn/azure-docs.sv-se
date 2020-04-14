@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/27/2018
 ms.author: dsindona
-ms.openlocfilehash: 47702959474a352a8e13710ec850f789dee4d517
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c575389538230218e1e6e4f172ebcfbee8ee51dc
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278169"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273468"
 ---
 # <a name="common-sas-url-issues-and-fixes"></a>Vanliga problem med SAS-URL-meddelanden och korrigeringar
+
+> [!IMPORTANT]
+> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [vanliga SAS-URL-problem och korrigeringar](https://aka.ms/AzureSAS_URL_FAQ) för att hantera dina migrerade erbjudanden.
 
 I följande tabell visas några av de vanligaste problemen när du arbetar med signaturer för delad åtkomst (som används för att identifiera och dela de uppladdade virtuella hårddiskarna för din lösning), tillsammans med föreslagna lösningar.
 

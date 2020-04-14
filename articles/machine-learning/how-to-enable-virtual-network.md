@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 03/13/2020
-ms.openlocfilehash: ca4bf1b0043a2c73851eab48ff8b9b6b7a987b72
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: ea65956a73874b717ecab25d83ed25b59f2ada55
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115302"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257257"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Skydda Azure ML-experiment och slutledningsjobb i ett virtuellt Azure-nätverk
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -546,7 +546,7 @@ Mer information om hur du konfigurerar en nätverksregel finns i [Distribuera oc
     > [!IMPORTANT]
     > Ditt lagringskonto, beräkningskluster och Azure Container-registret måste alla finnas i samma undernät i det virtuella nätverket.
     
-    Mer information finns i metodreferensen [update().](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none-)
+    Mer information finns i metodreferensen [update().](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-)
 
 1. Om du använder Privat länk för din Azure Machine Learning-arbetsyta och placerar Azure Container-registret för din arbetsyta i ett virtuellt nätverk, måste du också använda följande Azure Resource Manager-mall. Med den här mallen kan arbetsytan kommunicera med ACR via den privata länken.
 

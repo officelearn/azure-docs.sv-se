@@ -4,12 +4,12 @@ description: Skapa och hantera Blockchain Data Manager för Azure Blockchain Ser
 ms.date: 03/30/2020
 ms.topic: article
 ms.reviewer: ravastra
-ms.openlocfilehash: beacef0660a253c90afb507618e8a1742f0c9d2d
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 08f5a4a807087afce13dd4a6e96c0e9dd0a36103
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529602"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260606"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Konfigurera Blockchain Data Manager med Azure-portalen
 
@@ -28,7 +28,7 @@ Om du vill konfigurera en Blockchain Data Manager-instans:
 
 ## <a name="create-instance"></a>Skapa instans
 
-En Blockchain Data Manager-instans ansluter och övervakar en Azure Blockchain Service-transaktionsnod. Endast användare med åtkomst till transaktionsnoden kan skapa en anslutning. En instans samlar in alla råblock- och råtransaktionsdata från transaktionsnoden.
+En Blockchain Data Manager-instans ansluter och övervakar en Azure Blockchain Service-transaktionsnod. Endast användare med åtkomst till transaktionsnoden kan skapa en anslutning. En instans samlar in alla råblock- och råtransaktionsdata från transaktionsnoden. Blockchain Data Manager publicerar ett **RawBlockAndTransactionMsg-meddelande** som är en superuppsättning av information som returneras från web3.eth [getBlock](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#getblock) och [getTransaction-frågor.](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#gettransaction)
 
 En utgående anslutning skickar blockchain-data till Azure Event Grid. Du konfigurerar en enda utgående anslutning när du skapar instansen. Blockchain Data Manager stöder utgående anslutningar för flera utgående eventrutnät för en viss Blockchain Data Manager-instans. Du kan skicka blockchain-data till en enda destination eller skicka blockchain-data till flera destinationer. Om du vill lägga till ett annat mål lägger du bara till ytterligare utgående anslutningar i instansen.
 

@@ -4,7 +4,7 @@ description: Lär dig hur du säkerhetskopierar och återställer en Oracle Data
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: gwallace
+manager: mimckitt
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogirdh
-ms.openlocfilehash: bae7e53a316fa6ca3158639cc551a0a3de5cb952
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: 9e2fcc9533c183a356b19c369777e1319ca7f9ae
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536929"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263207"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Säkerhetskopiera och återställa en Oracle Database 12c-databas på en virtuell Azure Linux-dator
 

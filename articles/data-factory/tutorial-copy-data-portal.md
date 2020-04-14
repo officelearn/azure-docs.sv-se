@@ -1,6 +1,6 @@
 ---
 title: Använda Azure-portalen för att skapa en pipeline för datafabrik
-description: Den här självstudien innehåller stegvisa instruktioner för att skapa en datafabrik med en pipeline i Azure-portalen. Pipelinen använder kopieringsaktiviteten för att kopiera data från Azure Blob Storage till en SQL-databas.
+description: Den här självstudien innehåller stegvisa instruktioner för att skapa en datafabrik med en pipeline i Azure-portalen. Pipelinen använder kopieringsaktiviteten för att kopiera data från Azure Blob-lagring till en Azure SQL-databas.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 06/21/2018
+ms.date: 04/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 135a18f275137e72b5ff4d79f6a32bd39bd9c00c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0e4214466a2650df833cebd704577114b8818690
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75977406"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259702"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Kopiera data från en Azure Blob Storage till en SQL-databas med Azure Data Factory
-I den här självstudiekursen skapar du en datafabrik med Azure Data Factory-användargränssnittet. Pipelinen i den här datafabriken kopierar data från Azure Blob Storage till en SQL-databas. Konfigurationsmönstret i den här självstudien gäller kopiering av ett filbaserat datalager till ett relationsdatalager. En lista över datakällor som stöds som källor och mottagare finns i tabellen över [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+I den här självstudiekursen skapar du en datafabrik med Azure Data Factory-användargränssnittet. Pipelinen i den här datafabriken kopierar data från Azure Blob-lagring till en Azure SQL-databas. Konfigurationsmönstret i den här självstudien gäller kopiering av ett filbaserat datalager till ett relationsdatalager. En lista över datakällor som stöds som källor och mottagare finns i tabellen över [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 
 > [!NOTE]
 > - Om du inte har använt datafabriken tidigare kan du läsa [Introduktion till Azure Data Factory](introduction.md).
@@ -38,7 +38,7 @@ I den här självstudien får du göra följande:
 ## <a name="prerequisites"></a>Krav
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * **Azure-lagringskonto**. Du kan använda Blob Storage som *källa* för datalagringen. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett Azure Storage-konto](../storage/common/storage-account-create.md).
-* **Azure SQL-databas**. Du använder databasen som *mottagare* för datalagringen. Om du inte har en SQL-databas kan du läsa om hur du skapar en i [Skapa en SQL-databas](../sql-database/sql-database-get-started-portal.md).
+* **Azure SQL-databas**. Du använder databasen som *mottagare* för datalagringen. Om du inte har en Azure SQL-databas läser du [Skapa en SQL-databas](../sql-database/sql-database-get-started-portal.md) för steg för att skapa en.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Skapa en blob och en SQL-tabell
 
@@ -49,6 +49,7 @@ Förbered nu Blob Storage och SQL-databasen för den här självstudien genom at
 1. Öppna Anteckningar. Kopiera följande text och spara den som en **emp.txt**-fil på din disk:
 
     ```
+    FirstName,LastName
     John,Doe
     Jane,Doe
     ```
@@ -77,10 +78,7 @@ Förbered nu Blob Storage och SQL-databasen för den här självstudien genom at
 I det här steget skapar du en datafabrik och startar sedan användargränssnittet för Data Factory för att skapa en pipeline i datafabriken.
 
 1. Öppna **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-2. På den vänstra menyn väljer du **Skapa en resurs** > **Analytics** > **Data Factory:**
-
-   ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
-
+2. Välj Skapa en **resurs** > **Analytics** > **Data Factory**på den vänstra menyn .
 3. I fönstret **Ny datafabrik**, under **Namn** anger du **ADFTutorialDataFactory**.
 
    Namnet på Azure-datafabriken måste vara *globalt unikt*. Ange ett annat namn för datafabriken om du får ett felmeddelande om namnvärdet. (till exempel ditt namnADFTutorialDataFactory). Se artikeln [Namnregler för Data Factory](naming-rules.md) för namnregler för Data Factory-artefakter.
@@ -121,33 +119,38 @@ I denna självstudie börjar du med att skapa pipelinen. Sedan skapar du länkad
 
 ### <a name="configure-source"></a>Konfigurera källan
 
+>[!TIP]
+>I den här självstudien använder du *kontonyckeln* som autentiseringstyp för källdatalagret, men du kan välja andra autentiseringsmetoder som stöds: *SAS URI*,*Tjänsthuvudnamn* och *Hanterad identitet* om det behövs. Mer information finns i motsvarande avsnitt i [den här artikeln.](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#linked-service-properties)
+>Om du vill lagra hemligheter för datalager på ett säkert sätt rekommenderas du också att använda ett Azure Key Vault. Se [den här artikeln](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) för detaljerade illustrationer.
+
 1. Gå till fliken **Källa.** Välj **+ Ny** om du vill skapa en källdatauppsättning.
 
 1. I dialogrutan **Ny datauppsättning** väljer du **Azure Blob Storage**och väljer sedan **Fortsätt**. Dina källdata finns i Blob Storage, så du väljer **Azure Blob Storage** för källdatauppsättningen.
 
 1. Välj formattyp för data i dialogrutan **Välj format** och välj sedan **Fortsätt**.
 
-    ![Typ av dataformat](./media/doc-common-process/select-data-format.png)
+1. I dialogrutan **Ange egenskaper** anger du **SourceBlobDataset** för namn. Markera kryssrutan för **Första raden som rubrik**. Välj **+ Nytt**under textrutan **Länkad tjänst** .
 
-1. I dialogrutan **Ange egenskaper** anger du **SourceBlobDataset** för namn. Vid textrutan **Länkad tjänst** väljer du **+ Nytt**.
-
-1. I dialogrutan **Ny länkad tjänst (Azure Blob Storage)** anger du **AzureStorageLinkedService** som namn och väljer ditt lagringskonto i listan **För lagringskontonamn.** Testa anslutningen och välj sedan **Slutför** för att distribuera den länkade tjänsten.
+1. I dialogrutan **Ny länkad tjänst (Azure Blob Storage)** anger du **AzureStorageLinkedService** som namn och väljer ditt lagringskonto i listan **För lagringskontonamn.** Testanslutning, välj **Skapa** för att distribuera den länkade tjänsten.
 
 1. När den länkade tjänsten har skapats navigeras den tillbaka till sidan **Ange egenskaper.** Vid **Filsökväg** väljer du **Bläddra**.
 
-1. Navigera till mappen **adftutorial/input**, välj filen **emp.txt** och klicka på **Slutför**.
+1. Navigera till **mappen adftutorial/input,** markera **filen emp.txt** och välj sedan **OK**.
 
-1. Den navigerar automatiskt till pipeline-sidan. Bekräfta att **SourceBlobDataset** är markerat på fliken **Källa.** Om du vill förhandsgranska data på den här sidan väljer du **Förhandsgranska data**.
+1. Välj **OK**. Den navigerar automatiskt till pipeline-sidan. Bekräfta att **SourceBlobDataset** är markerat på fliken **Källa.** Om du vill förhandsgranska data på den här sidan väljer du **Förhandsgranska data**.
 
     ![Källdatauppsättning](./media/tutorial-copy-data-portal/source-dataset-selected.png)
 
 ### <a name="configure-sink"></a>Konfigurera kanalmottagare
+>[!TIP]
+>I den här självstudien använder du *SQL-autentisering* som autentiseringstyp för ditt sink-datalager, men du kan välja andra autentiseringsmetoder som stöds: *Tjänsthuvudnamn* och *Hanterad identitet* om det behövs. Mer information finns i motsvarande avsnitt i [den här artikeln.](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#linked-service-properties)
+>Om du vill lagra hemligheter för datalager på ett säkert sätt rekommenderas du också att använda ett Azure Key Vault. Se [den här artikeln](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) för detaljerade illustrationer.
 
 1. Gå till fliken **Mottagare** och välj **+ Nytt** för att skapa en datauppsättning för mottagare.
 
 1. I dialogrutan **Ny datauppsättning** anger du "SQL" i sökrutan för att filtrera kopplingarna, väljer **Azure SQL Database**och väljer sedan **Fortsätt**. I dessa självstudier kopierar du data till en SQL-databas.
 
-1. I dialogrutan **Ange egenskaper** anger du **OutputSqlDataset** för namn. Vid textrutan **Länkad tjänst** väljer du **+ Nytt**. En datauppsättning måste associeras med en länkad tjänst. De länkade tjänsterna har anslutningssträngen som datafabriken använder för att ansluta till SQL-databasen vid körning. Datauppsättningen anger den container, mapp och fil (valfritt) som data kopieras till.
+1. I dialogrutan **Ange egenskaper** anger du **OutputSqlDataset** för namn. Välj **+ Nytt**i listrutan **Länkad tjänst** . En datauppsättning måste associeras med en länkad tjänst. De länkade tjänsterna har anslutningssträngen som datafabriken använder för att ansluta till SQL-databasen vid körning. Datauppsättningen anger den container, mapp och fil (valfritt) som data kopieras till.
 
 1. I dialogrutan **Ny länkad tjänst (Azure SQL Database)** gör du följande:
 
@@ -163,17 +166,17 @@ I denna självstudie börjar du med att skapa pipelinen. Sedan skapar du länkad
 
     f. Välj **Testanslutning** för att testa anslutningen.
 
-    g. Välj **Slutför** om du vill distribuera den länkade tjänsten.
+    g. Välj **Skapa** om du vill distribuera den länkade tjänsten.
 
     ![Spara ny länkad tjänst](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
 
-1. Den navigerar automatiskt till dialogrutan **Ange egenskaper.** Under **Tabell** väljer du **[dbo].[emp]**. Välj sedan **Slutför**.
+1. Den navigerar automatiskt till dialogrutan **Ange egenskaper.** Under **Tabell** väljer du **[dbo].[emp]**. Välj sedan **OK**.
 
 1. Gå till fliken med pipelinen och kontrollera i **Sink Dataset** (Datauppsättning för mottagare) att **OutputSqlDataset** har valts.
 
     ![Fliken Pipeline](./media/tutorial-copy-data-portal/pipeline-tab-2.png)       
 
-Du kan också mappa schemat för källan till motsvarande målschema genom att följa [schemamappning i kopieringsaktivitet](copy-activity-schema-and-type-mapping.md)
+Du kan också mappa schemat för källan till motsvarande målschema genom att följa [schemamappning i kopieringsaktivitet](copy-activity-schema-and-type-mapping.md).
 
 ## <a name="validate-the-pipeline"></a>Verifiera pipeline
 Verifiera pipelinen genom att välja **Verifiera** i verktygsfältet.
@@ -192,13 +195,13 @@ Du kan felsöka en pipeline innan du publicerar artefakter (länkade tjänster, 
 ## <a name="trigger-the-pipeline-manually"></a>Utlös pipelinen manuellt
 I det här steget utlöser du manuellt pipelinen du publicerade i föregående steg.
 
-1. Välj **Lägg till utlösare** i verktygsfältet och välj sedan **Utlösare nu**. På sidan **Pipeline Run** (Pipelinekörning) väljer du **Slutför**.  
+1. Välj **Utlös** i verktygsfältet och sedan **Trigger Now** (Utlös nu). Välj **OK**på sidan **Pipeline Run** .  
 
-1. Gå till fliken **Övervaka** till vänster. Du ser en pipelinekörning som är utlöst av en manuell utlösare. Du kan använda länkar i kolumnen **Åtgärder** för att visa aktivitetsinformation och köra pipelinen igen.
+1. Gå till fliken **Övervaka** till vänster. Du ser en pipelinekörning som är utlöst av en manuell utlösare. Du kan använda länkar under kolumnen **PIPELINE NAME** för att visa aktivitetsinformation och köra pipelinen igen.
 
     ![Övervaka pipelinekörningar](./media/tutorial-copy-data-portal/monitor-pipeline.png)
 
-1. Om du vill se aktivitetskörningar som är associerade med pipelinekörningen, väljer du länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Actions** (Åtgärder). I det här exemplet finns det bara en aktivitet, så du ser bara en post i listan. Om du vill se mer information om kopieringsåtgärden väljer du länken för **detaljer** (glasögonikonen) i kolumnen **Actions** (Åtgärder). Välj **Pipeline Runs** högst upp för att gå tillbaka till vyn Pipeline Runs. Välj **Uppdatera** för att uppdatera vyn.
+1. Om du vill visa aktivitetskörningar som är associerade med pipelinekörningen väljer du länken **CopyPipeline** under kolumnen **PIPELINE NAME.** I det här exemplet finns det bara en aktivitet, så du ser bara en post i listan. Om du vill ha mer information om kopieringsåtgärden väljer du länken Information (ikonen **För** glasögon) under kolumnen **AKTIVITETSNAMN.** Välj **Alla pipeline-körningar** högst upp för att gå tillbaka till vyn Pipeline Runs. Välj **Uppdatera** för att uppdatera vyn.
 
     ![Övervaka aktivitetskörningar](./media/tutorial-copy-data-portal/view-activity-runs.png)
 
@@ -209,9 +212,9 @@ I det här schemat skapar du en schemautlösare för pipelinen. Utlösaren kör 
 
 1. Gå till fliken **Författare** uppe till vänster på övervakningsfliken.
 
-1. Gå till pipelinen, klicka på **Lägg till utlösare** i verktygsfältet och välj **Ny/Redigera**.
+1. Gå till din pipeline, klicka på **Utlösare** i verktygsfältet och välj **Ny/Redigera**.
 
-1. Välj **+ Nytt** för Välj **utlösarområde** i dialogrutan Lägg till **utlösare.**
+1. Välj **+ Nytt** för Välj utlösarområde i dialogrutan **Lägg till** **utlösare.**
 
 1. Utför följande steg i fönstret **Ny utlösare**:
 
@@ -225,25 +228,24 @@ I det här schemat skapar du en schemautlösare för pipelinen. Utlösaren kör 
 
     e. Uppdatera **sluttidsdelen** så att den är några minuter efter den aktuella datumtiden. Utlösaren aktiveras enbart när du har publicerat ändringarna. Om du ställer in den på bara ett par minuters mellanrum, och du inte publicerar det då, ser du inte en utlösarkörning.
 
-    f. Välj **Använd**.
+    f. Välj **OK**.
 
     g. För **aktiverat** alternativ väljer du **Ja**.
 
-    h. Välj **Nästa**.
-
-    ![Knappen Aktiverad](./media/tutorial-copy-data-portal/trigger-activiated-next.png)
+    h. Välj **OK**.
 
     > [!IMPORTANT]
     > Det är kostnader associerade med varje pipelinekörning, så var noga med att ställa in slutdatum korrekt.
-1. På sidan **Trigger Run Parameters** (Parametrar för utlösarkörning) läser du varningen och klickar på **Slutför**. Pipelinen i det här exemplet tar inga parametrar.
 
-1. Klicka på **Publicera alla** för att publicera ändringen.
+1. På sidan **Redigera utlösare** granskar du varningen och väljer sedan **Spara**. Pipelinen i det här exemplet tar inga parametrar.
+
+1. Klicka på **Publicera alla** om du vill publicera ändringen.
 
 1. Växla till fliken **Övervakare** till vänster för att se de utlösta pipelinekörningarna.
 
     ![Utlösta pipelinekörningar](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)   
 
-1. Om du vill växla från vyn **Pipeline runs** till vyn **Utlösarkörningar** väljer du **Utlösarkörningar** högst upp i fönstret.
+1. Om du vill växla från vyn **Pipeline runs** till vyn **Utlösarkörningar** väljer du **Utlösarkörningar** till vänster i fönstret.
 
 1. Utlösarkörningarna visas i en lista.
 

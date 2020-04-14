@@ -4,12 +4,12 @@ description: Återställa en virtuell Azure-dator från en återställningspunkt
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 3c3c8a7bd47ae03a013ddfadffabaa16fd04412b
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: b9cdb187aa3b8750bead8e81ad6d0ee50dcb3d6c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677551"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254928"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Återställa Azure VM-data i Azure Portal
 
@@ -28,8 +28,6 @@ Azure Backup innehåller ett antal sätt att återställa en virtuell dator.
 
 > [!NOTE]
 > Du kan också återställa specifika filer och mappar på en Virtuell Azure.You can also recover specific files and folders on an Azure VM. [Läs mer](backup-azure-restore-files-from-vm.md).
->
-> Om du kör den [senaste versionen](backup-instant-restore-capability.md) av virtuella Azure Backup för Virtuella Azure-datorer (kallas Omedelbar återställning) sparas ögonblicksbilder i upp till sju dagar och du kan återställa en virtuell dator från ögonblicksbilder innan säkerhetskopieringsdata skickas till valvet. Om du vill återställa en virtuell dator från en säkerhetskopia från de senaste sju dagarna går det snabbare att återställa från ögonblicksbilden och inte från valvet.
 
 ## <a name="storage-accounts"></a>Lagringskonton
 

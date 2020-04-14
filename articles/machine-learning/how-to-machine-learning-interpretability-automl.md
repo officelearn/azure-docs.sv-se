@@ -1,5 +1,5 @@
 ---
-title: Modelltolkning i automatiserad maskininlärning
+title: Explanability i automatiserad maskininlärning
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du får förklaringar till hur din automatiserade ML-modell avgör funktionens betydelse och gör förutsägelser när du använder Azure Machine Learning SDK.
 services: machine-learning
@@ -8,20 +8,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
-ms.reviewer: trbye
 ms.date: 03/11/2020
-ms.openlocfilehash: e2465a2df3fab736c8f118911da14ef23c8aec86
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: ecf7cde1a7f804ef1c43b21ac5c1d2a488660590
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437282"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257172"
 ---
-# <a name="model-interpretability-in-automated-machine-learning"></a>Modelltolkning i automatiserad maskininlärning
+# <a name="interpretability-model-explanations-in-automated-machine-learning"></a>Tolkningsbarhet: modellförklaringar inom automatiserad maskininlärning
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig hur du aktiverar tolkningsfunktioner för automatiserad maskininlärning (ML) i Azure Machine Learning. Automatiserad ML hjälper dig att förstå konstruerad funktionsvikt. 
+I den här artikeln får du lära dig hur du får förklaringar till automatiserad maskininlärning (ML) i Azure Machine Learning. Automatiserad ML hjälper dig att förstå konstruerad funktionsvikt. 
 
 Alla SDK-versioner efter 1.0.85 som `model_explainability=True` standard. I SDK version 1.0.85 och tidigare `model_explainability=True` versioner `AutoMLConfig` måste användare ange objektet för att kunna använda modelltolkbarhet. 
 

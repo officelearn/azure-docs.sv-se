@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: 1703853f42b52dccc80fdfadaa09b67e18a19db8
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 3df79fb1e103ddfaafeb348641e675cd250f5858
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632897"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271700"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Vanliga problem med tvåfaktorsverifiering och ditt arbets- eller skolkonto
 
@@ -65,6 +65,7 @@ Kontrollera att du har en enhetssignal och Internetanslutning | Kontrollera att 
 Stäng av Stör ej | Kontrollera att du inte har aktiverat funktionen **Stör ej** för din mobila enhet. När den här funktionen är aktiverad tillåts inte aviseringar att varna dig på din mobila enhet. Se din mobila enhets handbok för instruktioner om hur du inaktiverar den här funktionen.
 Avblockera telefonnummer | I USA kommer röstsamtal från Microsoft från följande nummer: +1 (866) 539 4191, +1 (855) 330 8653 och +1 (877) 668 6536.
 Kontrollera dina batterirelaterade inställningar | Den här verkar lite udda på ytan, men om du har ställt in batterioptimeringen för att stoppa mindre använda appar från att förbli aktiva i bakgrunden, har ditt meddelandesystem troligen påverkats. Om du vill försöka åtgärda problemet inaktiverar du batterioptimering för autentiseringsappen och meddelandeappen och försöker sedan logga in på ditt konto igen.
+Inaktivera säkerhetsappar från tredje part | Om du har en app som skyddar textmeddelanden eller telefonsamtal för att minimera okända samtal kan de förhindra att verifieringskoden tas emot. Prova att inaktivera säkerhetsappar från tredje part på telefonen och begär sedan att en ny verifieringskod skickas.
 
 ## <a name="im-not-getting-prompted-for-my-second-verification-information"></a>Jag blir inte tillfrågad om min andra verifieringsinformation
 

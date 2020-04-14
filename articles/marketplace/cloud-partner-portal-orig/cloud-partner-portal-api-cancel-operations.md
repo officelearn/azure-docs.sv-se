@@ -5,35 +5,36 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 6d4c1f52f0f3b1e05ec06f5a66a36323f346d4eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f9e55ff2c581f9392a125f6dc3ec8d903e9876a4
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280549"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81256441"
 ---
-# <a name="cancel-operation"></a>Avbryt åtgärd 
+# <a name="cancel-operation"></a>Avbryt åtgärd
+
+> [!NOTE]
+> Api:erna för Cloud Partner Portal är integrerade med Partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. Integrationen medför små förändringar. Granska ändringarna i [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) för att säkerställa att koden fortsätter att fungera efter migreringen till Partner Center.
 
 Det här API:et avbryter en pågående åtgärd för erbjudandet. Använd [API:et](./cloud-partner-portal-api-retrieve-operations.md) hämta `operationId` åtgärder för att få ett att skicka till det här API:et. Annullering är vanligtvis en synkron åtgärd, men i vissa komplexa scenarier kan en ny åtgärd krävas för att avbryta en befintlig. I det här fallet innehåller HTTP-svarstexten åtgärdens plats som ska användas för att fråga status.
 
-Du kan ange en kommaavgränsad lista över e-postadresser med begäran, och API:et meddelar dessa adresser om åtgärdens förlopp.
-
   `POST https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/cancel?api-version=2017-10-31`
 
-<a name="uri-parameters"></a>URI-parametrar
+## <a name="uri-parameters"></a>URI-parametrar
+
 --------------
 
 |  **Namn**    |      **Beskrivning**                                  |    **Datatyp**  |
 | ------------ |     ----------------                                  |     -----------   |
-| publisherId  |  Publisher-identifierare, till exempel`contoso`         |   String          |
-| offerId (erbjudandeId)      |  Identifierare för erbjudande                                     |   String          |
-| api-version  |  Aktuell version av API                               |    Datum           |
+| publisherId  |  Publisher-identifierare, till exempel`contoso`         |   Sträng          |
+| offerId (erbjudandeId)      |  Identifierare för erbjudande                                     |   Sträng          |
+| api-version  |  Aktuell version av API                               |    Date           |
 |  |  |  |
 
-
-<a name="header"></a>Huvud
+## <a name="header"></a>Huvud
 ------
 
 |  **Namn**              |  **Värde**         |
@@ -42,8 +43,7 @@ Du kan ange en kommaavgränsad lista över e-postadresser med begäran, och API:
 |  Auktorisering         |  Bärare din token |
 |  |  |
 
-
-<a name="body-example"></a>Exempel på brödtext
+## <a name="body-example"></a>Exempel på brödtext
 ------------
 
 ### <a name="request"></a>Förfrågan
@@ -63,19 +63,22 @@ Du kan ange en kommaavgränsad lista över e-postadresser med begäran, och API:
 |  anmälan-e-post     | Kommaavgränsad lista över e-post-ID:er som ska meddelas om förloppet för publiceringsåtgärden. |
 |  |  |
 
-
 ### <a name="response"></a>Svar
 
-  `Operation-Location: https://cloudpartner.azure.com/api/publishers/contoso/offers/contoso-virtualmachineoffer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8`
+#### <a name="migrated-offers"></a>Migrerade erbjudanden
 
+`Location: /api/publishers/contoso/offers/contoso-offer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8?api-version=2017-10-31`
+
+#### <a name="non-migrated-offers"></a>Ej migrerade erbjudanden
+
+`Location: /api/operations/contoso$contoso-offer$2$preview?api-version=2017-10-31`
 
 ### <a name="response-header"></a>Svarshuvud
 
 |  **Namn**             |    **Värde**                       |
 |  ---------            |    ----------                      |
-| Operation-plats    | URL, som kan efterfrågas för att fastställa åtgärdens aktuella status. |
+| Location    | Den relativa sökvägen för att hämta åtgärdens status. |
 |  |  |
-
 
 ### <a name="response-status-codes"></a>Statuskoder för svar
 

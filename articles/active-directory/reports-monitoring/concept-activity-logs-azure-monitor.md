@@ -17,12 +17,12 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 595c87d2b8182c9044baeb2662e34871d9e52c52
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 0822bdd886a9a29f2cdb6843d3dc4404d7360f32
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991253"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261031"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure AD-aktivitetsloggar i Azure Monitor
 
@@ -98,12 +98,13 @@ Händelser batchas i intervall på ungefär fem minuter och skickas som ett ensk
 
 Exempelvis inträffar normalt cirka 18 händelser per sekund för en stor klientorganisation med fler än 100 000 användare, vilket är en hastighet som motsvarar 5 400 händelser var femte minut. Eftersom spårningsloggar är cirka 2 KB per händelse motsvarar detta 10,8 MB data. Därför skickas 43 meddelanden till händelsehubben i det femminutsintervallet. 
 
-Följande tabell innehåller uppskattad kostnad per månad för en grundläggande händelsehubb i USA, västra, beroende på mängden händelsedata. För att beräkna en tillförlitlig uppskattning av den datavolym som du förväntar dig att du behöver för programmet använder du [priskalkylatorn för händelsehubbar](https://azure.microsoft.com/pricing/details/event-hubs/).
+Följande tabell innehåller uppskattade kostnader per månad för en grundläggande händelsehubb i västra USA, beroende på volymen av händelsedata som kan variera från klient till klient enligt många faktorer som användarinloggningsbeteende etc. Om du vill beräkna en korrekt uppskattning av den datavolym som du förväntar dig för ditt program använder du [priskalkylatorn För eventhubbaratorn](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 | Loggkategori | Antal användare | Händelser per sekund | Händelser per femminutsintervall | Volym per intervall | Meddelanden per intervall | Meddelanden per månad | Kostnad per månad (uppskattad) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
 | Granska | 100 000 | 18 | 5 400 | 10,8 MB | 43 | 371 520 | 10,83 USD |
 | Granska | 1,000 | 0,1 | 52 | 104 KB | 1 | 8 640 | 10,80 USD |
+| Inloggningar | 100 000 | 18000 | 5,400,000 | 10,8 GB | 42188 | 364,504,320 | $23.9 |  
 | Inloggningar | 1,000 | 178 | 53 400 | 106,8&nbsp;MB | 418 | 3 611 520 | 11,06 USD |  
 
 ### <a name="azure-monitor-logs-cost-considerations"></a>Azure Monitor loggar kostnadsöverväganden

@@ -5,17 +5,20 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 681e71fae161100c8804f95980b9e9567dcf1863
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 66e640ab199a884ebfab69cbe7db7f562d848720
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288622"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81256356"
 ---
 <a name="create-or-modify-an-offer"></a>Skapa eller ändra ett erbjudande
 =========================
+
+> [!NOTE]
+> Api:erna för Cloud Partner Portal är integrerade med Partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. Integrationen medför små förändringar. Granska ändringarna i [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) för att säkerställa att koden fortsätter att fungera efter migreringen till Partner Center.
 
 Det här anropet uppdaterar ett specifikt erbjudande inom utgivarens namnområde eller skapar ett nytt erbjudande.
 
@@ -27,9 +30,9 @@ Det här anropet uppdaterar ett specifikt erbjudande inom utgivarens namnområde
 
 |  **Namn**         |  **Beskrivning**                      |  **Datatyp**  |
 |  --------         |  ----------------                     |  -------------  |
-| publisherId       |  Publisher-identifierare, till exempel`contoso` |   String |
-| offerId (erbjudandeId)           |  Identifierare för erbjudande                     |   String        |
-| api-version       |  Senaste versionen av API            |   Datum           |
+| publisherId       |  Publisher-identifierare, till exempel`contoso` |   Sträng |
+| offerId (erbjudandeId)           |  Identifierare för erbjudande                     |   Sträng        |
+| api-version       |  Senaste versionen av API            |   Date           |
 |  |  |  |
 
 <a name="header"></a>Huvud

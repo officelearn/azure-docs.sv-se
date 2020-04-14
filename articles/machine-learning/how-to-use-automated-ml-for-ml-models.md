@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 03/10/2020
-ms.openlocfilehash: aa85e80f1a90191a0a34a6962437c27a9d57ef65
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 0d6fa02578814c4c5d034be05cbc63093d70603b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547557"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257240"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Skapa, granska och distribuera automatiserade maskininlärningsmodeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -155,7 +155,6 @@ Varians| Mått på hur långt sprida ut denna kolumn data är från dess genomsn
 Snedhet| Mått på hur olika den här kolumnens data är från en normalfördelning.
 Toppighet| Mått på hur kraftigt tailed denna kolumn data jämförs med en normal fördelning.
 
-
 <a name="featurization"></a>
 
 ## <a name="advanced-featurization-options"></a>Avancerade mediseringsalternativ
@@ -164,12 +163,15 @@ Automatiserad maskininlärning erbjuder förbearbetning och dataskyddsräckor au
 
 ### <a name="preprocessing"></a>Förbehandling
 
+> [!NOTE]
+> Om du planerar att exportera dina automatiska ML-skapade modeller till en [ONNX-modell](concept-onnx.md)stöds endast de mediseringsalternativ som anges med ett * i ONNX-format. Läs mer om [hur du konverterar modeller till ONNX](concept-automated-ml.md#use-with-onnx). 
+
 |Steg för&nbsp;förbearbetning| Beskrivning |
 | ------------- | ------------- |
-|Släpp hög kardinalitet eller ingen varians funktioner|Släpp dessa från utbildnings- och valideringsuppsättningar, inklusive funktioner med alla värden som saknas, samma värde på alla rader eller med extremt hög kardinalitet (till exempel hashar, ID eller GUIDs).|
-|Tillskriv värden som saknas|För numeriska funktioner, imputera med medelvärdet av värden i kolumnen.<br/><br/>För kategoriska funktioner, impute med de vanligaste värdet.|
-|Generera ytterligare funktioner|För DateTime-funktioner: År, Månad, Dag, Veckodag, Veckodag, Kvartal, Vecka på året, Timme, Minut, Sekund.<br/><br/>För textfunktioner: Termfrekvens baserat på unigram, bi-gram och tri-tecken-gram.|
-|Omforma och koda |Numeriska funktioner med få unika värden omvandlas till kategoriska funktioner.<br/><br/>En-het kodning utförs för låg kardinalitet kategorisk; för hög kardinalitet, en-hot-hash kodning.|
+|Släpp hög kardinalitet eller inga variansfunktioner* |Släpp dessa från utbildnings- och valideringsuppsättningar, inklusive funktioner med alla värden som saknas, samma värde på alla rader eller med extremt hög kardinalitet (till exempel hashar, ID eller GUIDs).|
+|Tillskriv saknade värden* |För numeriska funktioner, imputera med medelvärdet av värden i kolumnen.<br/><br/>För kategoriska funktioner, impute med de vanligaste värdet.|
+|Generera ytterligare funktioner* |För DateTime-funktioner: År, Månad, Dag, Veckodag, Veckodag, Kvartal, Vecka på året, Timme, Minut, Sekund.<br/><br/>För textfunktioner: Termfrekvens baserat på unigram, bi-gram och tri-tecken-gram.|
+|Omforma och koda *|Numeriska funktioner med få unika värden omvandlas till kategoriska funktioner.<br/><br/>En-het kodning utförs för låg kardinalitet kategorisk; för hög kardinalitet, en-hot-hash kodning.|
 |Word-inbäddningar|Textstöverenare som konverterar vektorer av texttoken till meningsvektorer med hjälp av en förtränad modell. Varje ords inbäddningsvektor i ett dokument sammanställs för att skapa en dokumentfunktionsvektor.|
 |Målkodningar|För kategoriska funktioner mappar du varje kategori med medelvärdet för regressionsproblem och klasssannolikheten för varje klass för klassificeringsproblem. Frekvensbaserad viktning och k-fold cross validering tillämpas för att minska övermontering av kartläggning och buller som orsakas av glesa datakategorier.|
 |Textmålkodning|För textinmatning används en staplad linjär modell med påse ord för att generera sannolikheten för varje klass.|
@@ -178,19 +180,13 @@ Automatiserad maskininlärning erbjuder förbearbetning och dataskyddsräckor au
 
 ### <a name="data-guardrails"></a>Data skyddsräcken
 
-Data skyddsräcken används när automatisk featurization är aktiverat eller validering är inställd på auto. Data guardrails hjälper dig att identifiera potentiella problem med dina data (t.ex. saknade värden, klassobalans) och hjälpa till att vidta korrigerande åtgärder för bättre resultat. Det finns många bästa metoder som finns tillgängliga och kan tillämpas för att uppnå tillförlitliga resultat. Användare kan granska databevakningsräcken i studion på fliken **Data guardrails** i en automatiserad ML-körning eller genom att ställa ```show_output=True``` in ett experiment med Python SDK. I följande tabell beskrivs de databevakningsräcken som för närvarande stöds och de associerade statusar som användare kan stöta på när de skickar in sina experiment.
+Data skyddsräcken används när automatisk featurization är aktiverat eller validering är inställd på auto. Data guardrails hjälper dig att identifiera potentiella problem med dina data (t.ex. saknade värden, klassobalans) och hjälpa till att vidta korrigerande åtgärder för bättre resultat. 
 
-Skyddsräcke|Status|Villkor&nbsp;&nbsp;för utlösare
----|---|---
-Saknade funktionsvärden imputering |**Passerade** <br><br><br> **Klar**| Inga saknade funktionsvärden upptäcktes i dina träningsdata. Läs mer om [värdeimputering som saknas.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Saknade funktionsvärden upptäcktes i dina träningsdata och tillräknades.
-Hantering av hög kardinalitetsfunktion |**Passerade** <br><br><br> **Klar**| Dina ingångar analyserades och inga funktioner med hög kardinalitet upptäcktes. Läs mer om [identifiering av hög kardinalitetsfunktion.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Hög kardinalitet funktioner upptäcktes i dina ingångar och hanterades.
-Delningshantering för validering |**Klar**| *Valideringskonfigurationen var inställd på "auto" och träningsdata innehöll **mindre** än 20 000 rader.* <br> Varje iteration av den tränade modellen validerades genom korsvalidering. Läs mer om [valideringsdata.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data) <br><br> *Valideringskonfigurationen var inställd på "auto" och träningsdata innehöll **mer** än 20 000 rader.* <br> Indata har delats upp i en träningsdatauppsättning och en valideringsdatauppsättning för validering av modellen.
-Identifiering av klassbalansering |**Passerade** <br><br><br><br> **Larmade** | Dina indata analyserades och alla klasser är balanserade i dina träningsdata. En datauppsättning anses vara balanserad om varje klass har god representation i datauppsättningen, mätt i antal och förhållandet mellan prov. <br><br><br> Obalanserade klasser upptäcktes i dina indata. För att åtgärda modell bias fixa balansering problemet. Läs mer om [obalanserade data.](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml#imbalance)
-Identifiering av minnesproblem |**Passerade** <br><br><br><br> **Klar** |<br> De valda {horizon, lag, rolling window}-värdena analyserades och inga potentiella problem utanför minnet upptäcktes. Läs mer om [prognoskonfigurationer i tidsserier.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) <br><br><br>De valda värdena {horisont, fördröjning, rullande fönster} analyserades och kan leda till att experimentet tar. Fördröjnings- eller rullande fönsterkonfigurationer har inaktiverats.
-Frekvensdetektering |**Passerade** <br><br><br><br> **Klar** |<br> Tidsserien analyserades och alla datapunkter är i linje med den identifierade frekvensen. <br> <br> Tidsserien analyserades och datapunkter som inte stämmer överens med den identifierade frekvensen upptäcktes. Dessa datapunkter togs bort från datauppsättningen. Läs mer om [dataförberedelser för prognostisering i tidsserier.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data)
+Användare kan granska databevakningsräcken i studion på fliken **Data guardrails** i en automatiserad ML-körning eller genom att ställa ```show_output=True``` in ett experiment med Python SDK. 
 
 #### <a name="data-guardrail-states"></a>Data Guardrail stater
-Data guardrails kommer att visa en av tre stater: "Godkänd", "Klar eller "Varnad".
+
+Data guardrails visar ett av tre tillstånd: **Godkänd,** **Klar**eller **Varnad**.
 
 Status| Beskrivning
 ----|----
@@ -198,7 +194,19 @@ Passerade| Inga dataproblem upptäcktes och ingen användaråtgärd krävs.
 Klart| Ändringar har tillämpats på dina data. Vi uppmuntrar användare att granska de korrigerande åtgärder som Automated ML vidtog för att se till att ändringarna överensstämmer med de förväntade resultaten. 
 Larmade| Ett dataproblem som inte kunde åtgärdas upptäcktes. Vi uppmuntrar användare att ändra och åtgärda problemet. 
 
-Tidigare version av Automated ML visade ett fjärde tillstånd: "Fast". Nyare experiment kommer inte att visa detta tillstånd, och alla skyddsräcken som visade "Fast" tillstånd kommer nu att visa "Klar".   
+>[!NOTE]
+> Tidigare versioner av automatiserade ML-experiment visade ett fjärde tillstånd: **Fast**. Nyare experiment kommer inte att visa detta tillstånd, och alla skyddsräcken som visade **det fasta** tillståndet kommer nu att visa **Klar**.   
+
+I följande tabell beskrivs de databevakningsräcken som för närvarande stöds och de associerade statusar som användare kan stöta på när de skickar in sina experiment.
+
+Skyddsräcke|Status|Villkor&nbsp;&nbsp;för utlösare
+---|---|---
+Saknade funktionsvärden imputering |**Passerade** <br><br><br> **Klar**| Inga saknade funktionsvärden upptäcktes i dina träningsdata. Läs mer om [värdeimputering som saknas.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Saknade funktionsvärden upptäcktes i dina träningsdata och tillräknades.
+Hantering av hög kardinalitetsfunktion |**Passerade** <br><br><br> **Klar**| Dina ingångar analyserades och inga funktioner med hög kardinalitet upptäcktes. Läs mer om [identifiering av hög kardinalitetsfunktion.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Hög kardinalitet funktioner upptäcktes i dina ingångar och hanterades.
+Delningshantering för validering |**Klar**| *Valideringskonfigurationen var inställd på "auto" och träningsdata innehöll **mindre** än 20 000 rader.* <br> Varje iteration av den tränade modellen validerades genom korsvalidering. Läs mer om [valideringsdata.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data) <br><br> *Valideringskonfigurationen var inställd på "auto" och träningsdata innehöll **mer** än 20 000 rader.* <br> Indata har delats upp i en träningsdatauppsättning och en valideringsdatauppsättning för validering av modellen.
+Identifiering av klassbalansering |**Passerade** <br><br><br><br> **Larmade** | Dina indata analyserades och alla klasser är balanserade i dina träningsdata. En datauppsättning anses vara balanserad om varje klass har god representation i datauppsättningen, mätt i antal och förhållandet mellan prov. <br><br><br> Obalanserade klasser upptäcktes i dina indata. För att åtgärda modell bias fixa balansering problemet. Läs mer om [obalanserade data.](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data)
+Identifiering av minnesproblem |**Passerade** <br><br><br><br> **Klar** |<br> De valda {horizon, lag, rolling window}-värdena analyserades och inga potentiella problem utanför minnet upptäcktes. Läs mer om [prognoskonfigurationer i tidsserier.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) <br><br><br>De valda värdena {horisont, fördröjning, rullande fönster} analyserades och kan leda till att experimentet tar. Fördröjnings- eller rullande fönsterkonfigurationer har inaktiverats.
+Frekvensdetektering |**Passerade** <br><br><br><br> **Klar** |<br> Tidsserien analyserades och alla datapunkter är i linje med den identifierade frekvensen. <br> <br> Tidsserien analyserades och datapunkter som inte stämmer överens med den identifierade frekvensen upptäcktes. Dessa datapunkter togs bort från datauppsättningen. Läs mer om [dataförberedelser för prognostisering i tidsserier.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data)
 
 ## <a name="run-experiment-and-view-results"></a>Kör experiment- och visningsresultat
 

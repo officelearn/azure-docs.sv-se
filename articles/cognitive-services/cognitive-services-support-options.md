@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: 5f9ad827fa947e645f7eb4850f90a73c61a45cd3
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 00e966dbee6c1993256a94d734bcc6261aea00af
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80637112"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258444"
 ---
 # <a name="azure-cognitive-services-support-and-feedback-options"></a>Support- och feedbackalternativ för Azure Cognitive Services
 
@@ -59,10 +59,7 @@ Var `{search keywords}` är sammanhanget för din sökning. Överväg att använ
 
 Om du inte hittar ett svar på problemet med sökrutan på Stack Overflow skickar du en ny fråga. Stack Overflow är den föredragna kanalen för utvecklingsrelaterade frågor. Det är där medlemmar i Stack Overflow-communityn och Microsoft-teammedlemmarna är direkt involverade i att hjälpa dig att lösa dina problem.
 
- Använd någon av följande taggar när du formulerar frågan:
-
- - [Microsoft Cognitive](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
- - [Azure Cognitive Services](https://stackoverflow.com/questions/tagged/azure-cognitive-services)
+Post en fråga [här](https://go.microsoft.com/fwlink/?linkid=2126464). Använd lämplig tagg för din fråga, så vi är säkra på att se frågan.
 
 > [!TIP]
 > Följande inlägg från Stack Overflow innehåller tips om hur du bildar frågor och lägger till källkod. Om du följer dessa riktlinjer kan du öka chanserna för communitymedlemmar att snabbt bedöma och svara på din fråga:

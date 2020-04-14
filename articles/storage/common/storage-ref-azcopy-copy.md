@@ -4,16 +4,16 @@ description: Den här artikeln innehåller referensinformation för kommandot as
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 431372b930269c3dfa6bdc6e8b2fe4d291a8162e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0325a71fb069f3d96f05d106afac1639fc38fe42
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78933794"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253347"
 ---
 # <a name="azcopy-copy"></a>azcopy kopiera
 
@@ -169,6 +169,8 @@ Kopiera en delmängd av buckets med hjälp av en jokerteckensymbol (*) i bucket-
 
 ## <a name="options"></a>Alternativ
 
+**--backup**                               Aktiverar Windows SeBackupPrivilege för uppladdningar, eller SeRestorePrivilege för nedladdningar, så att AzCopy kan se läsa alla filer, oavsett deras filsystembehörigheter, och för att återställa alla behörigheter. Kräver att kontot som kör AzCopy redan har dessa behörigheter (t.ex. har administratörsrättigheter eller är medlem i gruppen "Säkerhetskopieringsoperatörer"). Allt den här flaggan gör är att aktivera privilegier som kontot redan har.
+
 **--blob-typ** sträng Definierar typen av blob vid målet. Detta används för att ladda upp blobbar och vid kopiering mellan konton (standard "Identifiera"). Giltiga värden är "Detect", "BlockBlob", "PageBlob" och "AppendBlob". Vid kopiering mellan konton, ett värde av "Identifiera" orsakar AzCopy att använda den typ av källa blob för att bestämma vilken typ av mål blob. När du laddar upp en fil avgör "Detect" om filen är en VIRTUELLD eller en VHDX-fil baserat på filtillägget. Om filen är eter en VHD eller VHDX-fil, azcopy behandlar filen som en sida blob. (standard "Identifiera")
 
 **--block-blob-tier** string Upload block blobbar direkt till [den åtkomstnivå](../blobs/storage-blob-storage-tiers.md) som du väljer. (standard "Ingen"). Giltiga värden är "Ingen", "Hot", "Cool" och "Arkiv". Om "Ingen" eller ingen nivå skickas, kommer bloben att ärva nivån för lagringskontot.
@@ -223,6 +225,12 @@ Kopiera en delmängd av buckets med hjälp av en jokerteckensymbol (*) i bucket-
 
 **--bevara-senast ändrade tid**          Endast tillgängligt när målet är filsystem.
 
+**--preserve-smb-behörighetssträngen** Falskt som standard. Bevarar SMB-ACL:er mellan medvetna resurser (Windows och Azure-filer). För nedladdningar måste du också `--backup` använda flaggan för att återställa behörigheter där den nya ägaren inte kommer att vara den användare som kör AzCopy. Den här flaggan gäller både filer och mappar, såvida inte ett filfilter anges (t.ex. `include-pattern`
+
+**--preserve-smb-info strängEn** Falskt som standard. Bevarar SMB-egenskapsinformation (senaste skrivtid, skapandetid, attributbitar) mellan SMB-medvetna resurser (Windows och Azure-filer). Endast attributbitarna som stöds av Azure Files överförs. alla andra kommer att ignoreras. Den här flaggan gäller både filer och mappar, såvida inte ett filfilter anges (t.ex. include-pattern). Informationen som överförs för mappar är densamma som för filer, med undantag för Senaste skrivtid som aldrig bevaras för mappar.
+
+**--bevara-ägare**                       Har bara en effekt i när data `--preserve-smb-permissions` hämtas, och endast när den används. Om värdet är sant (standard) bevaras filens ägare och grupp i hämtningar. Om den här flaggan `--preserve-smb-permissions` är inställd på false, kommer fortfarande att bevara ACL men ägare och grupp kommer att baseras på användaren som kör AzCopy.
+
 **--put-md5**                             Skapa en MD5-hash för varje fil och spara hash-värdet som egenskapen Content-MD5 för målbloben eller -filen. (Som standard skapas INTE hash-värdet.) Endast tillgängligt vid uppladdning.
 
 **--rekursiv**                            Titta på underkataloger rekursivt när du laddar upp från lokala filsystem.
@@ -243,4 +251,4 @@ Kopiera en delmängd av buckets med hjälp av en jokerteckensymbol (*) i bucket-
 
 ## <a name="see-also"></a>Se även
 
-- [azcopy (azcopy)](storage-ref-azcopy.md)
+- [azcopy](storage-ref-azcopy.md)

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dsindona
-ms.openlocfilehash: bd6c375231facc3d7afb35df74210d26b5f50ba8
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 9d2f4b02dd2b009e96abb65d4c42ef3a281e6ce1
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387792"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262833"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>Jämföra AppSource och Azure Marketplace
 Storefronts på [Azure Marketplace](https://azuremarketplace.microsoft.com) och Microsoft [AppSource](https://appsource.microsoft.com) betjänar unika kundkrav. Använd skyltfönster för att rikta kunder efter roll. Du kan erbjuda rätt lösning eller service baserat på din kund.
@@ -35,5 +35,5 @@ I följande tabell beskrivs fördelarna med att använda ett skyltfönster:
 | **Presentation i kontext för kunder** | Gör din lösning tillgänglig i Azure-upplevelsen i portalen för kontextuell sökning. Använd virtual machine- och Azure-apparna: Publiceringsalternativ för lösningsmallar. | Nå fler kunder via upplevelsen i appen för Microsoft-produkter som Dynamics 365, Power BI och Office 365. |
 
 ## <a name="next-steps"></a>Nästa steg
-*   Granska [publiceringsguiden för Azure Marketplace och AppSource](./marketplace-publishers-guide.md).
+*   Granska den [kommersiella marknadsplats publicering guide](./marketplace-publishers-guide.md).
 

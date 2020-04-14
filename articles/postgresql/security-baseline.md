@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f83cee2fb1435252f34d1a64f531b5befef66ffb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4034759dc4f20649c15236b057e348966d72409e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80289698"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261168"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Azure Security Baseline för Azure-databas för postgresQL-server
 
@@ -134,7 +134,7 @@ Förstå tjänsttaganvändning för Azure Database för PostgreSQL:https://docs.
 
 Konfigurera och hantera Azure-princip:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Azure Princip-exempel för nätverk:https://docs.microsoft.com/azure/governance/policy/samples/#network
+Azure Princip-exempel för nätverk:https://docs.microsoft.com/azure/governance/policy/samples/
 
 Så här skapar du en Azure Blueprint:https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 

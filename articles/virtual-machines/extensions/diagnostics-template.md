@@ -3,7 +3,7 @@ title: Lägga till övervakning & diagnostik på en virtuell Azure-dator
 description: Använd en Azure Resource Manager-mall för att skapa en ny virtuell Windows-dator med Azure-diagnostiktillägg.
 services: virtual-machines-windows
 documentationcenter: ''
-author: sbtron
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/31/2017
-ms.author: saurabh
+ms.author: mimckitt
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2490c3de60e0deac6a1a4ddc5abc95cb46e240b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d100f054da5f82bc4dea51e054a28cca07f5de7b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74073847"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258838"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Använda övervakning och diagnostik med mallar för Windows VM och Azure Resource Manager
 Azure Diagnostics-tillägget tillhandahåller övervaknings- och diagnostikfunktionerna på en Windows-baserad virtuell Azure-dator. Du kan aktivera dessa funktioner på den virtuella datorn genom att inkludera tillägget som en del av Azure Resource Manager-mallen. Mer information om [hur du redigerar Azure Resource Manager-mallar med VM-tillägg](../windows/template-description.md#extensions) finns i en fil som en del av en mall för den virtuella datorn. I den här artikeln beskrivs hur du kan lägga till Azure Diagnostics-tillägget i en windows-mall för virtuella datorer.  
@@ -84,7 +84,7 @@ Värdet för *name* namnegenskapen kan användas för att referera till tillägg
 Egenskaperna i *protectedSettings* (kallas ibland privat konfiguration) kan ställas in men kan inte läsas tillbaka efter att ha ställts in. Den skrivskyddade *nyckelsynken* gör det användbart för att lagra hemligheter som lagringskontonyckeln där diagnostikdata skrivs.    
 
 ## <a name="specifying-diagnostics-storage-account-as-parameters"></a>Ange diagnostiklagringskonto som parametrar
-Diagnostiktillägget json-kodavsnittet ovan förutsätter två parametrar *befintligadiagnostikStorageAccountName* och *existingdiagnosticsStorageResourceGroup* för att ange diagnostiklagringskontot där diagnostikdata lagras. Genom att ange diagnostiklagringskontot som en parameter är det enkelt att ändra diagnostiklagringskontot i olika miljöer, till exempel kanske du vill använda ett annat diagnostiklagringskonto för testning och ett annat för ditt produktionsdistribution.  
+Diagnostiktillägget json-kodavsnittet ovan förutsätter två parametrar *befintligadiagnostikStorageAccountName* och *existingdiagnosticsStorageResourceGroup* för att ange diagnostiklagringskontot där diagnostikdata lagras. Genom att ange diagnostiklagringskontot som en parameter är det enkelt att ändra diagnostiklagringskontot i olika miljöer, till exempel kanske du vill använda ett annat diagnostiklagringskonto för testning och ett annat för din produktionsdistribution.  
 
 ```json
 "existingdiagnosticsStorageAccountName": {
@@ -101,7 +101,7 @@ Diagnostiktillägget json-kodavsnittet ovan förutsätter två parametrar *befin
 }
 ```
 
-Det är bäst att ange ett diagnostiklagringskonto i en annan resursgrupp än resursgruppen för den virtuella datorn. En resursgrupp kan betraktas som en distributionsenhet med sin egen livstid, en virtuell dator kan distribueras och distribueras om när nya konfigurationsuppdateringar görs till den, men du kanske vill fortsätta lagra diagnostikdata i samma lagringskonto över distributionerna för virtuella datorer. Om du har lagringskontot i en annan resurs kan lagringskontot acceptera data från olika distributioner av virtuella datorer, vilket gör det enkelt att felsöka problem i de olika versionerna.
+Det är bäst att ange ett diagnostiklagringskonto i en annan resursgrupp än resursgruppen för den virtuella datorn. En resursgrupp kan betraktas som en distributionsenhet med sin egen livstid, en virtuell dator kan distribueras och distribueras om när nya konfigurationsuppdateringar görs till den, men du kanske vill fortsätta lagra diagnostikdata i samma lagringskonto över dessa distributioner av virtuella datorer. Om du har lagringskontot i en annan resurs kan lagringskontot acceptera data från olika distributioner av virtuella datorer, vilket gör det enkelt att felsöka problem i de olika versionerna.
 
 > [!NOTE]
 > Om du skapar en windows-mall för virtuella datorer från Visual Studio kan standardlagringskontot vara inställt på att använda samma lagringskonto där den virtuella datorns virtuella dator överförs. Detta för att förenkla den första installationen av den virtuella datorn. Räkna om mallen om du vill använda ett annat lagringskonto som kan skickas in som en parameter. 

@@ -2,15 +2,15 @@
 title: Skapa mall - Visual Studio-kod
 description: Använd Visual Studio Code och Azure Resource Manager-malltillägget för att arbeta med Resource Manager-mallar.
 author: mumian
-ms.date: 03/04/2019
+ms.date: 04/13/2020
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: a0c80f18e9cd09b765804aaddbd178b4b3e32a9d
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 96e57146fb6bb17cbb8bb5975371e07b66f3ec8b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984460"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255098"
 ---
 # <a name="quickstart-create-arm-templates-by-using-visual-studio-code"></a>Snabbstart: Skapa ARM-mallar med Visual Studio-kod
 
@@ -18,7 +18,7 @@ Lär dig hur du använder Visual Studio-kod och Azure Resource Manager Tools-til
 
 I den här snabbstarten distribuerar du ett lagringskonto:
 
-![snabbstartsdiagram för visual studio-koddiagram för resurshanterarens mall](./media/quickstart-create-templates-use-visual-studio-code/resource-manager-template-quickstart-vscode-diagram.png)
+![Snabbstarts visual studio-koddiagram för Visual Studio-mallmallar för Resurshanteraren](./media/quickstart-create-templates-use-visual-studio-code/resource-manager-template-quickstart-vscode-diagram.png)
 
 Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -86,21 +86,19 @@ Om du vill veta hur du redigerar en mall med hjälp av Visual Studio Code lägge
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-Det finns många metoder för att distribuera mallar. Azure Cloud-skalet används i den här snabbstarten. Molnskalet stöder både Azure CLI och Azure PowerShell. Använd flikväljaren för att välja mellan CLI och PowerShell.
+Det finns många metoder för att distribuera mallar. Azure Cloud Shell används i den här snabbstarten. Cloud Shell stöder både Azure CLI och Azure PowerShell. Använd flikväljaren för att välja mellan CLI och PowerShell.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-1. Logga in på [Azure Cloud Shell](https://shell.azure.com).
+1. Logga in på [Azure Cloud Shell](https://shell.azure.com)
 
 2. Välj önskad miljö genom att välja antingen **PowerShell** eller **Bash**(CLI) i det övre vänstra hörnet.  Du måste starta om gränssnittet när du byter.
 
     # <a name="cli"></a>[CLI](#tab/CLI)
 
-    ![Azure portal Cloud shell CLI](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
+    ![Azure portal Cloud Shell CLI](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
 
     # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
-    ![Azure portal Cloud shell PowerShell](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-powershell.png)
+    ![Azure portal Cloud Shell PowerShell](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-powershell.png)
 
     ---
 
@@ -108,11 +106,11 @@ Det finns många metoder för att distribuera mallar. Azure Cloud-skalet använd
 
     # <a name="cli"></a>[CLI](#tab/CLI)
 
-    ![Azure portal Cloud shell upload file](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file.png)
+    ![Ladda upp -fil för Azure portal Cloud Shell](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file.png)
 
     # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
-    ![Azure portal Cloud shell upload file](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file-powershell.png)
+    ![Ladda upp -fil för Azure portal Cloud Shell](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file-powershell.png)
 
     ---
 
@@ -122,14 +120,14 @@ Det finns många metoder för att distribuera mallar. Azure Cloud-skalet använd
 
     # <a name="cli"></a>[CLI](#tab/CLI)
 
-    ![Azure portal Cloud shell list file](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file.png)
+    ![Listfil för Azure portal Cloud Shell](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file.png)
 
     # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
-    ![Azure portal Cloud shell list file](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file-powershell.png)
+    ![Listfil för Azure portal Cloud Shell](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file-powershell.png)
 
     ---
-4. Från Cloud Shell kör du följande kommandon. Välj fliken så att du ser PowerShell-koden eller CLI-koden.
+4. Kör följande kommandon från Cloud Shell. Välj fliken så att du ser PowerShell-koden eller CLI-koden. Ange ett projektnamn som används för att generera ett resursgruppsnamn.  Resursgruppsnamnet är projektnamnet med **rg** bifogat.
 
     # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -140,7 +138,8 @@ Det finns många metoder för att distribuera mallar. Azure Cloud-skalet använd
     read location &&
     resourceGroupName="${projectName}rg" &&
     az group create --name $resourceGroupName --location "$location" &&
-    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json"
+    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json" &&
+    echo "Press [ENTER] to continue ..."
     ```
 
     # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
@@ -152,6 +151,7 @@ Det finns många metoder för att distribuera mallar. Azure Cloud-skalet använd
 
     New-AzResourceGroup -Name $resourceGroupName -Location "$location"
     New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json"
+    Write-Host "Press [ENTER] to continue ..."
     ```
 
     ---
@@ -162,11 +162,11 @@ Det finns många metoder för att distribuera mallar. Azure Cloud-skalet använd
 
     # <a name="cli"></a>[CLI](#tab/CLI)
 
-    ![Azure portal Cloud shell deploy template](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template.png)
+    ![Distribuera distributionsmall för Azure portal Cloud Shell](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template.png)
 
     # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
-    ![Azure portal Cloud shell deploy template](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template-powershell.png)
+    ![Distribuera distributionsmall för Azure portal Cloud Shell](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template-powershell.png)
 
     ---
 
@@ -181,7 +181,8 @@ Det finns många metoder för att distribuera mallar. Azure Cloud-skalet använd
     read resourceGroupName &&
     echo "Enter the Storage Account name:" &&
     read storageAccountName &&
-    az storage account show --resource-group $resourceGroupName --name $storageAccountName
+    az storage account show --resource-group $resourceGroupName --name $storageAccountName &&
+    echo "Press [ENTER] to continue ..."
     ```
 
     # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
@@ -190,6 +191,7 @@ Det finns många metoder för att distribuera mallar. Azure Cloud-skalet använd
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $storageAccountName = Read-Host -Prompt "Enter the Storage Account name"
     Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+    Write-Host "Press [ENTER] to continue ..."
     ```
 
     ---
@@ -202,12 +204,12 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 
 1. Välj **Resursgrupp** på den vänstra menyn på Azure-portalen.
 2. Ange resursgruppens namn i fältet **Filtrera efter namn**.
-3. Välj resursgruppens namn.  Du bör se totalt sex resurser i resursgruppen.
+3. Välj resursgruppens namn. Resursgruppsnamnet är projektnamnet med **rg** bifogat. Du ska se en lagringskontoresurs i resursgruppen.
 4. Välj **Ta bort resursgrupp** på den övre menyn.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Huvudfokus för den här snabb är att använda Visual Studio Code för att redigera en befintlig mall från snabbstartsmallarna i Azure. Du har även lärt dig att distribuera mallen med hjälp av CLI eller PowerShell från Azure Cloud Shell. Snabbstartsmallarna i Azure kanske inte innehåller exakt det du behöver. Mer information om mallutveckling finns i vår nya videoprogramledningsserie:
+Huvudfokus för den här snabb är att använda Visual Studio Code för att redigera en befintlig mall från snabbstartsmallarna i Azure. Du har också lärt dig hur du distribuerar mallen med cli eller PowerShell från Azure Cloud Shell. Snabbstartsmallarna i Azure kanske inte innehåller exakt det du behöver. Mer information om mallutveckling finns i vår nya videoprogramledningsserie:
 
 > [!div class="nextstepaction"]
 > [Självstudier för nybörjare](./template-tutorial-create-first-template.md)

@@ -5,12 +5,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 description: Beskriver nätverkskraven för att köra Azure Dev Spaces i Azure Kubernetes Services
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, CNI, kubenet, SDN, nätverk
-ms.openlocfilehash: 82d046aa36fe9caf6337aa7f58ca0db525062283
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e344576caf276ae7cb5fe00395c84810a4e7d32
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240574"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262051"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Konfigurera nätverk för Azure Dev Spaces i olika nätverkstopologier
 
@@ -20,9 +20,9 @@ Azure Dev Spaces körs på AKS-kluster (Azure Dev Spaces) med standardkonfigurat
 
 ## <a name="virtual-network-or-subnet-configurations"></a>Konfigurationer för virtuellt nätverk eller undernät
 
-AKS-klustret kan ha en annan virtuell nätverks- eller undernätskonfiguration för att begränsa inkommande eller utgående trafik för AKS-klustret. Klustret kan till exempel ligga bakom en brandvägg, till exempel Azure-brandväggen, eller så kan du använda nätverkssäkerhetsgrupper eller anpassade roller för att begränsa nätverkstrafiken.
+AKS-klustret kan ha en annan virtuell nätverks- eller undernätskonfiguration för att begränsa inkommande eller utgående trafik för AKS-klustret. Klustret kan till exempel ligga bakom en brandvägg, till exempel Azure-brandväggen, eller så kan du använda nätverkssäkerhetsgrupper eller anpassade roller för att begränsa nätverkstrafiken. Du hittar en exempelnätverkskonfiguration i [exempeldatabasen Azure Dev Spaces på GitHub][sample-repo].
 
-Azure Dev Spaces har vissa krav för *ingående och utgående* nätverkstrafik samt *endast inträngningstrafik.* Om du använder Azure Dev Spaces i ett AKS-kluster med ett virtuellt nätverk eller en undernätskonfiguration som begränsar trafiken för AKS-klustret måste du följa följande ingående och endast ingående och utgående trafikkrav för att Azure Dev Spaces ska kunna fungerar som den ska.
+Azure Dev Spaces har vissa krav för *ingående och utgående* nätverkstrafik samt *endast inträngningstrafik.* Om du använder Azure Dev Spaces i ett AKS-kluster med ett virtuellt nätverk eller en undernätskonfiguration som begränsar trafiken för AKS-klustret måste du följa följande ingående och endast ingående och utgående trafikkrav för att Azure Dev Spaces ska fungera korrekt.
 
 ### <a name="ingress-and-egress-network-traffic-requirements"></a>Krav på in- och utgående nätverkstrafik
 
@@ -109,4 +109,5 @@ Lär dig mer om hur Azure Dev Spaces hjälper dig att utveckla mer komplexa prog
 [endpoint-options]: #using-different-endpoint-options
 [traefik-ingress]: how-to/ingress-https-traefik.md
 [nginx-ingress]: how-to/ingress-https-nginx.md
+[sample-repo]: https://github.com/Azure/dev-spaces/tree/master/advanced%20networking
 [team-quickstart]: quickstart-team-development.md

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: cec1d3e07800dd3093ca79a87cafcf5fceafbf2f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c393ba081b480408373ed6867624ac6278c1674e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77209196"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260963"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importera en Azure-funktionsapp som API i Azure API Management | Microsoft Docs
 
@@ -118,7 +118,7 @@ Import av en Azure-funktionsapp genererar automatiskt:
 * Värdnyckel i funktionsappen med namnet apim-{*ditt Azure API Management-tjänstinstansnamn*},
 * Namngivet värde i Azure API Management-instansen med namnet {*ditt Azure Function App-förekomstnamn*}-key, som innehåller den skapade värdnyckeln.
 
-För API:er som skapats efter den 4 april 2019 skickas värdnyckeln i HTTP-begäranden från API Management till funktionsappen i ett huvud. Äldre API:er skickar värdnyckeln som [en frågeparameter](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Detta kan ändras `PATCH Backend` via [REST API-anropet](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) på *serverdentiteten* som är associerad med funktionsappen.
+För API:er som skapats efter den 4 april 2019 skickas värdnyckeln i HTTP-begäranden från API Management till funktionsappen i ett huvud. Äldre API:er skickar värdnyckeln som [en frågeparameter](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Detta kan ändras `PATCH Backend` via [REST API-anropet](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) på *serverdentiteten* som är associerad med funktionsappen.
 
 > [!WARNING]
 > Om du tar bort eller ändrar värdet för antingen värdnyckeln för Azure-funktionsappen eller det namngivna Azure API Management-värdet bryts kommunikationen mellan tjänsterna. Värdena synkroniseras inte automatiskt.

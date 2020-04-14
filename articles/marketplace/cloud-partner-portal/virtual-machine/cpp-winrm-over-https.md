@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: dsindona
-ms.openlocfilehash: 7c799c4a56ee5fc2074e4d644bdbcbc6d2b1ca5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b2a4bb107309894a7180e0a4585cdba6f04d1bee
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288758"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273043"
 ---
 # <a name="windows-remote-management-over-https"></a>Windows Remote Management via HTTPS
+
+> [!IMPORTANT]
+> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa ett Azure Virtual Machine-erbjudande](https://aka.ms/CreateAzureVMoffer) för att hantera dina migrerade erbjudanden.
 
 I det här avsnittet beskrivs hur du konfigurerar en Windows-baserad virtuell dator som är värd för Azure så att den kan hanteras och distribueras på distans med PowerShell.  Om du vill aktivera PowerShell-omvärdering måste måldatorn exponera en HTTPS-slutpunkt (Windows Remote Management) HTTPS.  Mer information om PowerShell-ommotning finns i [Köra fjärrkommandon](https://docs.microsoft.com/powershell/scripting/learn/remoting/running-remote-commands).  Mer information om WinRM finns i [Windows Remote Management](https://docs.microsoft.com/windows/desktop/WinRM/portal).
 

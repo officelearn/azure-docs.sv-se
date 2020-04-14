@@ -3,7 +3,7 @@ title: Självstudiekurs – Konfigurera HTTPS på en anpassad Azure CDN-domän |
 description: I den här kursen får du lära dig hur du aktiverar och inaktiverar HTTPS på en anpassad domän på en Azure CDN-slutpunkt.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: 10337468-7015-4598-9586-0b66591d939b
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/1/2019
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f27adb6098ac339ee188b3e84e1c225faa9f72a6
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 5cf1181c41af1edc752205f4477f18b78680f484
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892503"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254027"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Självstudiekurs: Konfigurera HTTPS på en anpassad Azure CDN-domän
 

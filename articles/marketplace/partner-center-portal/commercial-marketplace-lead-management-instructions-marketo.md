@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 35d57d117f6308863965ffd789c0e28bedd0f301
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 04eae529efcf9509d8cd43a7629bb0b76b593cd0
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281518"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81252507"
 ---
 # <a name="configure-lead-management-in-marketo"></a>Konfigurera leadhantering i Marketo
 
@@ -76,3 +76,9 @@ När du är redo att konfigurera leadhanteringsinformationen för ditt erbjudand
     >[!Note]
     >Du måste slutföra konfigurationen av resten av erbjudandet och publicera det innan du kan ta emot leads för erbjudandet. 
 
+5. **Kontakta e-post** - Ge e-post till personer i ditt företag som ska få e-postmeddelanden när ett nytt lead tas emot. Du kan tillhandahålla flera e-postmeddelanden genom att separera dem med ett semikolon.
+6. Välj **OK**.
+
+Om du vill vara säker på att du har anslutit till ett leadmål klickar du på knappen validera. Om det lyckas kommer du att ha en testledning i leaddestinationen.
+
+![Anslutningsinformation](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 01/07/2020
+ms.date: 04/13/2020
 ms.author: diberry
-ms.openlocfilehash: 30132983f37323e798efd330f5cc8f15c0a9d2b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33f8b787119e1c5d6d1a1bb28c94d9791a1c048e
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78270740"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272618"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>DatetimeV2 fördefinierad entitet för en LUIS-app
 
@@ -145,7 +145,7 @@ Varje element `values` i matrisen kan ha följande fält:
 
 |Egenskapsnamn|Beskrivning av egenskapen|
 |--|--|
-|Timex|tid, datum eller datumintervall uttryckt i TIMEX-format som följer [ISO 8601-standarden](https://en.wikipedia.org/wiki/ISO_8601) och TIMEX3-attributen för anteckningar med hjälp av TimeML-språket. Den här anteckningen beskrivs i [TIMEX-riktlinjerna](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
+|Timex|tid, datum eller datumintervall uttryckt i TIMEX-format som följer [ISO 8601-standarden](https://en.wikipedia.org/wiki/ISO_8601) och TIMEX3-attributen för anteckningar med hjälp av TimeML-språket.|
 |Mod|term som används för att beskriva `before` `after`hur du använder värdet, till exempel , .|
 |typ|Undertypen, som kan vara något `datetime`av `date` `time`följande `daterange` `timerange`objekt: , , , , , `datetimerange`, , `duration`, `set`.|
 |värde|**Valfri.** Ett datetime-objekt i Format yyyy-MM-dd (datum), HH:mm:ss (tid) yyyy-MM-dd HH:mm:ss (datetime). Om `type` `duration`är , är värdet antalet sekunder (varaktighet) <br/> Används endast `type` `datetime` om `date` `time`är eller , eller varaktighet.|

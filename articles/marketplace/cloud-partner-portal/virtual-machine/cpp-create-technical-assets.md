@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: dsindona
-ms.openlocfilehash: 57f56a341cfc3db6a5f0664503809e6ab6cf3d3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a62af1d8d751d36150c236280077cde8f6547385
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278032"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273978"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Skapa tekniska resurser för ett erbjudande om virtuell dator
+
+> [!IMPORTANT]
+> Från och med den 13 april 2020 börjar vi den rörliga hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i Skapa dina tekniska resurser för [din virtuella Azure-dator](https://aka.ms/AzureVMTechAsset) för att hantera dina migrerade erbjudanden.
 
 I det här avsnittet får du hjälp med att skapa och konfigurera de tekniska tillgångarna för ett virtuellt datorerbjudande (VM) för Azure Marketplace.  En virtuell dator innehåller två komponenter: lösningens virtuella hårddisk (VHD) och associerade datadiskar som tillval.  
 
@@ -35,26 +38,26 @@ Du måste konfigurera VM-operativsystemet, vm-storleken, portarna för att öppn
 ## <a name="fundamental-technical-knowledge"></a>Grundläggande teknisk kunskap
 
 Designa, bygga och testa dessa tillgångar tar tid och kräver teknisk kunskap om både Azure-plattformen och de tekniker som används för att skapa erbjudandet. Förutom din lösningsdomän bör ditt ingenjörsteam ha kunskap om följande Microsoft-tekniker: 
--   Grundläggande förståelse för [Azure Services](https://azure.microsoft.com/services/) 
--   Så här [utformar och arkitekt azure-program utformas](https://azure.microsoft.com/solutions/architecture/)
--   Kunskap om [virtuella Azure-datorer,](https://azure.microsoft.com/services/virtual-machines/) [Azure Storage](https://azure.microsoft.com/services/?filter=storage) och Azure [Networking](https://azure.microsoft.com/services/?filter=networking)
--   Kunskap om [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
--   Arbetskunskap om [JSON](https://www.json.org/)
+-    Grundläggande förståelse för [Azure Services](https://azure.microsoft.com/services/) 
+-    Så här [utformar och arkitekt azure-program utformas](https://azure.microsoft.com/solutions/architecture/)
+-    Kunskap om [virtuella Azure-datorer,](https://azure.microsoft.com/services/virtual-machines/) [Azure Storage](https://azure.microsoft.com/services/?filter=storage) och Azure [Networking](https://azure.microsoft.com/services/?filter=networking)
+-    Kunskap om [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
+-    Arbetskunskap om [JSON](https://www.json.org/)
 
 
 ## <a name="suggested-tools"></a>Föreslagna verktyg 
 
 Välj en eller båda av följande skriptmiljöer för att hantera virtuella hårddiskar och virtuella datorer:
--   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
--   [Azure CLI](https://docs.microsoft.com/cli/azure)
+-    [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+-    [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 Dessutom rekommenderar vi att du lägger till följande verktyg i utvecklingsmiljön: 
 
--   [Utforskaren för Azure Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
--   [Visual Studio-kod](https://code.visualstudio.com/)
-    *   Tillägg: [Verktyg för Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-    *   Förlängning: [Försköna](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-    *   Förlängning: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
+-    [Azure Lagringsutforskaren](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+-    [Visual Studio-koden](https://code.visualstudio.com/)
+    *    Tillägg: [Verktyg för Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+    *    Förlängning: [Försköna](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
+    *    Förlängning: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
 Vi föreslår också att du granskar de tillgängliga verktygen på sidan [Azure Developer Tools](https://azure.microsoft.com/tools/) och, om du använder Visual Studio, Visual Studio [Marketplace](https://marketplace.visualstudio.com/).
 

@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 2db8c05d086c7b4e8537a1c17b1ca84eedb19857
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 506412c23288d58c2f59b91a300265ddd79428bf
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277879"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273927"
 ---
-# <a name="virtual-hard-disk-deployment-template"></a>Distributionsmall för virtuell hårddisk 
+# <a name="virtual-hard-disk-deployment-template"></a>Distributionsmall för virtuell hårddisk
+
+> [!IMPORTANT]
+> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Azure VM-avbildningscertifiering](https://aks.ms/CertifyVMimage) för att hantera dina migrerade erbjudanden.
 
 Följande Azure Resource Manager-mall definierar en ny Azure-instans (VIRTUELL) som skapats från vhd-instans (Local Virtual Virtual Hard Disk).  Den här mallen används i artikeln [Distribuera en Virtuell Azure-dator från en virtuell användar-HÅRDDISK](./cpp-deploy-vm-user-image.md). 
 

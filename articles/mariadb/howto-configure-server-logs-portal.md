@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 89bdd209315445519c35f3ef2c2f1ad2555106ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/13/2020
+ms.openlocfilehash: 1e67637d36eaba55e4c6baaf6f775fc7b79fcd14
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531404"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270611"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Konfigurera och komma åt långsamma frågeloggar från Azure-portalen
 
@@ -32,11 +32,15 @@ Konfigurera åtkomst till den långsamma frågeloggen.
 
 4. Om du vill se serverparametrarna väljer du **Klicka här för att aktivera loggar och konfigurera loggparametrar**.
 
-5. Ändra de parametrar som du behöver justera, inklusive att vrida **slow_query_log** **till ON**. Alla ändringar du gör i den här sessionen markeras i lila. 
+5. Slå **slow_query_log** till **PÅ**.
 
-   När du har ändrat parametrarna väljer du **Spara**. Eller så kan du ignorera ändringarna.
+6. Välj var loggarna ska matas ut med **log_output**. Om du vill skicka loggar till både lokala lagrings- och Azure Monitor-diagnostikloggar väljer du **Arkiv**. 
 
-   ![Skärmbild av alternativ för serverparametrar](./media/howto-configure-server-logs-portal/3-save-discard.png)
+7. Ändra alla andra parametrar som behövs. 
+
+8. Välj **Spara**. 
+
+   :::image type="content" source="./media/howto-configure-server-logs-portal/3-save-discard.png" alt-text="Skärmbild av parametrar för långsam frågelogg och spara.":::
 
 På sidan **Serverparametrar** kan du gå tillbaka till listan med loggar genom att stänga sidan.
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/20/2020
+ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: cc937589b2fc4f394b44cf6890a352d770751d15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46c53c99c12ade986ab913bf013b652a931a4d22
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502035"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257750"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Hantera klassrumslabb i Azure Lab Services 
 I den här artikeln beskrivs hur du skapar och tar bort ett klassrumslabb. Den visar också hur du visar alla klassrumslabb i ett labbkonto. 
@@ -37,6 +37,8 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i
     1. Ange ett **namn** på ditt labb. 
     2. Välj **storleken på de virtuella datorer** du behöver för klassen. En lista över tillgängliga storlekar finns i avsnittet [VM-storlekar.](#vm-sizes) 
     3. Välj den **avbildning för virtuella datorer** som du vill använda för klassrumslabbet. Om du väljer en Linux-avbildning visas ett alternativ för att aktivera fjärrskrivbordsanslutning för den. Mer information finns i [Aktivera fjärrskrivbordsanslutning för Linux](how-to-enable-remote-desktop-linux.md).
+
+        Om du loggade in med hjälp av autentiseringsuppgifter för labbkontot visas ett alternativ för att aktivera fler avbildningar för labbet. Mer information finns i [Aktivera bilder när labbet skapas](specify-marketplace-images.md#enable-images-at-the-time-of-lab-creation).
     4. Granska det **totala priset per timme** som visas på sidan. 
     6. Välj **Spara**.
 

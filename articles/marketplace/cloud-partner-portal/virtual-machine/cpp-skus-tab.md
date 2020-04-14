@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
-ms.openlocfilehash: 49f1de5128325b2884ea76b010727be45f1b195d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a8dbadf959107e733a94216c8a01495e6ebf5039
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288894"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273128"
 ---
 # <a name="virtual-machine-skus-tab"></a>Fliken SKU:er för virtuell dator
+
+> [!IMPORTANT]
+> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa ett Azure Virtual Machine-erbjudande](https://aka.ms/CreateAzureVMoffer) för att hantera dina migrerade erbjudanden.
 
 På fliken **SKU:er** på sidan **Nytt erbjudande** kan du skapa en eller flera SKU:er och koppla dem till ditt nya erbjudande.  Olika SKU:er kan skilja en lösning efter funktionsuppsättningar, VM-avbildningstyper, dataflöde eller skalbarhet, faktureringsmodeller eller någon annan egenskap.
 

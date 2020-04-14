@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/02/2020
 ms.author: dapine
-ms.openlocfilehash: 81ee9b305df5e177f34b06472068913ad8a61d5f
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 852cf2710993a450fc4eb74b5392a46203c10edc
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80671585"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81275553"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -45,4 +45,5 @@ Följande 15 sekunder av talindata från mikrofonen identifieras och loggas i ko
 
 ## <a name="next-steps"></a>Nästa steg
 
-[!INCLUDE [footer](../footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
+

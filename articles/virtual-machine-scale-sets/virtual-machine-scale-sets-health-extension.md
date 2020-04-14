@@ -1,18 +1,18 @@
 ---
 title: Använda programhälsotillägg med Azure-skalningsuppsättningar för virtuella datorer
 description: Lär dig hur du använder tillägget Programhälsa för att övervaka hälsotillståndet för dina program som distribueras på skalningsuppsättningar för virtuella datorer.
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: manayar
-ms.openlocfilehash: 37d93b04e6755512eac6c2a168bd2a04f8ac298f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: cb5f1d48bb1a95db004d9da553e19a35071c73b0
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76275881"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273740"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Använda tillägget för programmets hälsotillstånd med VM-skalningsuppsättningar
 Att övervaka programmets hälsa är en viktig signal för att hantera och uppgradera distributionen. Azure-skalningsuppsättningar för virtuella datorer ger stöd för [rullande uppgraderingar,](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) inklusive automatiska uppgraderingar av [OS-avbildningar](virtual-machine-scale-sets-automatic-upgrade.md), som förlitar sig på hälsoövervakning av de enskilda instanserna för att uppgradera distributionen.
@@ -73,7 +73,7 @@ Följande JSON visar schemat för tillägget Programhälsa. Tillägget kräver m
 ## <a name="deploy-the-application-health-extension"></a>Distribuera tillägget Programhälsa
 Det finns flera sätt att distribuera tillägget Programhälsa till skalningsuppsättningarna enligt beskrivningen i exemplen nedan.
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 
 I följande exempel läggs tillägget Application Health (med namnet myHealthExtension) till tilläggetProfile i skalningsuppsättningsmodellen för en Windows-baserad skalningsuppsättning.
 

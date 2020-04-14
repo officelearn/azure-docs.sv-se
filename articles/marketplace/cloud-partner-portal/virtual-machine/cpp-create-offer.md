@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: bc1cf7a839307e65bd91eb29531663141e521472
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9d06809df2774224b61fd3fb643ab628dd2890f6
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278049"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273995"
 ---
 # <a name="create-virtual-machine-offer"></a>Skapa erbjudande om virtuell dator
+
+> [!IMPORTANT]
+> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa ett Azure Virtual Machine-erbjudande](https://aka.ms/CreateAzureVMoffer) för att hantera dina migrerade erbjudanden.
 
 I det här avsnittet visas de steg som krävs för att skapa en ny begäran om virtuell dator (VM) för Azure Marketplace.  Varje erbjudande visas som sin egen enhet på Azure Marketplace och är associerat med en eller flera SKU:er.  Ett VM-erbjudande består av följande grupperingar av tillgångar och stödtjänster: 
 
@@ -46,8 +49,8 @@ När du har loggat in på [Cloud Partner Portal](https://cloudpartner.azure.com/
 
 De efterföljande avsnitten i det här avsnittet speglar flikarna på sidan **Nytt erbjudande** (för en virtuell erbjudandetyp).  Varje artikel förklarar hur du använder den associerade fliken för att definiera tillgångsgrupper och stödtjänster för ditt nya vm-erbjudande.
 
-- [fliken Erbjudandeinställningar](./cpp-offer-settings-tab.md)
-- [fliken SKU:er](./cpp-skus-tab.md)
+- [Fliken Erbjudandeinställningar](./cpp-offer-settings-tab.md)
+- [Fliken SKU:er](./cpp-skus-tab.md)
 - [Fliken Test Drive](./cpp-test-drive-tab.md)
-- [fliken Marketplace](./cpp-marketplace-tab.md)
-- [fliken Stöd](./cpp-support-tab.md)
+- [Fliken Marketplace](./cpp-marketplace-tab.md)
+- [Fliken Stöd](./cpp-support-tab.md)

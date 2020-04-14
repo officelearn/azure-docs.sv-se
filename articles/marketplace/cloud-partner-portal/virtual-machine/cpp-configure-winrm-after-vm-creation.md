@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: dsindona
-ms.openlocfilehash: 673fe1f31f6a8602225e7cde3bf1eb4c3b28b8a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b80325594eedb87293c31de3236bb4690eb89e05
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278152"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273026"
 ---
 # <a name="configure-winrm-after-virtual-machine-creation"></a>Konfigurera WinRM när virtuell dator har skapats
+
+> [!IMPORTANT]
+> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa ett Azure Virtual Machine-erbjudande](https://aka.ms/CreateAzureVMoffer) för att hantera dina migrerade erbjudanden.
 
 I den här artikeln beskrivs hur du konfigurerar en befintlig Azure-värdbaserad virtuell dator (VM) för att aktivera WinRM via HTTPS.  Den här konfigurationen gäller endast för Windows-baserade virtuella datorer och kräver följande tvåstegsprocess:
 
@@ -26,8 +29,8 @@ I den här artikeln beskrivs hur du konfigurerar en befintlig Azure-värdbaserad
 
 WinRM-protokollet via HTTPS använder port 5986, som som standard inte är aktiverad på förkonfigurerade Virtuella Windows-datorer som erbjuds på Azure Marketplace. Om du vill aktivera det här protokollet använder du följande steg för att lägga till en ny regel i nätverkssäkerhetsgruppen (NSG) med [Azure-portalen](https://portal.azure.com).  Mer information om NSG finns i [Säkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/security-overview).
 
-1.  Navigera till bladet **Virtuella datorer >**   < *vm-namn* >   **> Inställningar/Nätverk**.
-2.  Klicka på NSG-namnet (i det här exemplet **testvm11002)** för att visa dess egenskaper:
+1. Navigera till bladet **Virtuella datorer >**   < *vm-namn* >   **> Inställningar/Nätverk**.
+2. Klicka på NSG-namnet (i det här exemplet **testvm11002)** för att visa dess egenskaper:
 
     ![Egenskaper för nätverkssäkerhetsgrupp](./media/nsg-properties.png)
  

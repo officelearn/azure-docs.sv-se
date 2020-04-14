@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
-ms.openlocfilehash: fcd9607cd630f41c67c655c2e8016254600b52e2
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: ed8dd902ac490b4e6a0f172029bf3ffa1d44acee
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745386"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81251851"
 ---
 # <a name="authenticate-to-azure-synapse-analytics"></a>Autentisera till Azure Synapse Analytics
 
@@ -76,7 +76,7 @@ Följ dessa steg för att konfigurera Azure Active Directory-autentisering.
 5. Skapa innehållna databasanvändare i databasen mappade till Azure AD-identiteter
 6. Ansluta till din SQL-pool med hjälp av Azure AD-identiteter
 
-Azure Active Directory-användare visas inte i Utforskaren för SSDT-objekt. Som en lösning visar du användarna i [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#azure-ad-features-and-limitations).
+Azure Active Directory-användare visas inte i Utforskaren för SSDT-objekt. Som en lösning visar du användarna i [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### <a name="find-the-details"></a>Hitta information
 

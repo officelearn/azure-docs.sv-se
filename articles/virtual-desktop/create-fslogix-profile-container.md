@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 04/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 272188b50fe59435031a4a2fb9c252f3f358bb6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 149fb5818ee360c7333997655ea9eb8d7ded346c
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535739"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270901"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Skapa en FSLogix-profilbehållare för en värdpool med Azure NetApp-filer
 
@@ -117,9 +117,6 @@ Därefter måste du ansluta till en Active Directory-anslutning.
     - För **SMB Server-prefix (Datorkonto)** anger du den sträng som du vill lägga till i datorkontonamnet.
     - För **Användarnamn**anger du namnet på kontot med behörighet att utföra domänanslutning.
     - För **Lösenord**anger du kontots lösenord.
-
-  >[!NOTE]
-  >Det är bäst att bekräfta att datorkontot som du skapade i [Anslut en Active Directory-anslutning](create-fslogix-profile-container.md#join-an-active-directory-connection) har dykt upp i domänkontrollanten under **Datorer** eller företagets **relevanta organisationsenhet**.
 
 ## <a name="create-a-new-volume"></a>Skapa en ny volym
 

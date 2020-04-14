@@ -5,17 +5,20 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: a83b664bb770a88f3c4c13a672655e736a46ca75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2182ed2377a392f55af2c1f723be325bd518349
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280464"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255930"
 ---
 <a name="retrieve-a-specific-offer"></a>Hämta ett specifikt erbjudande
 =========================
+
+> [!NOTE]
+> Api:erna för Cloud Partner Portal är integrerade med Partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. Integrationen medför små förändringar. Granska ändringarna i [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) för att säkerställa att koden fortsätter att fungera efter migreringen till Partner Center.
 
 Hämtar det angivna erbjudandet inom utgivarens namnområde.  
 
@@ -40,11 +43,11 @@ Du kan också hämta en viss version av erbjudandet eller hämta erbjudandet i u
 
 | **Namn**    | **Beskrivning**                                                                          | **Datatyp** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherId. Till exempel, Contoso                                                        | String        |
-| offerId (erbjudandeId)     | Guid som unikt identifierar erbjudandet.                                                 | String        |
+| publisherId | publisherId. Till exempel, Contoso                                                        | Sträng        |
+| offerId (erbjudandeId)     | Guid som unikt identifierar erbjudandet.                                                 | Sträng        |
 | version     | Version av erbjudandet som hämtas. Som standard hämtas den senaste erbjudandeversionen. | Integer       |
 | slotId (kortplats)      | Den plats från vilken erbjudandet ska hämtas, kan vara en av:      <br/>  - `Draft`(standard) hämtar erbjudandeversionen som för närvarande är i utkast.  <br/>  -  `Preview`hämtar erbjudandeversionen som för närvarande förhandsgranskas.     <br/>  -  `Production`hämtar erbjudandeversionen som för närvarande är i produktion.          |      Enum |
-| api-version | Senaste versionen av API                                                                    | Datum          |
+| api-version | Senaste versionen av API                                                                    | Date          |
 |  |  |  |
 
 

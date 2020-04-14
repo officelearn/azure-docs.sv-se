@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 02/24/2020
-ms.openlocfilehash: ba9cd2e7dc0248aa351cb7bc4519689763f1adda
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/13/2020
+ms.openlocfilehash: f793f8c4cb84f821c098cc5ce98e693d272e725f
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79239884"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272824"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension"></a>Träna och distribuera en Avbildningsklassificering TensorFlow-modell med Azure Machine Learning Visual Studio-kodtillägget
 
@@ -99,71 +99,33 @@ Så här skapar du ett beräkningsmål:
 1. Välj storlek på den virtuella datorn. Välj **Standard_F2s_v2** i listan med alternativ. Storleken på den virtuella datorn påverkar hur lång tid det tar att träna dina modeller. Mer information om vm-storlekar finns i [storlekar för virtuella Linux-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
 1. Namnge din beräkning "TeamWkspc-com" och tryck på **Retur** för att skapa din beräkning.
 
-Efter några minuter visas det nya beräkningsmålet i *beräkningsnoden* på arbetsytan.
-
-## <a name="create-a-run-configuration"></a>Skapa en körningskonfiguration
-
-När du skickar en utbildningskörning till ett beräkningsmål skickar du också in den konfiguration som behövs för att köra utbildningsjobbet. Skriptet som innehåller träningskoden och Python-beroendena som behövs för att köra den.
-
-Så här skapar du en körningskonfiguration:
-
-1. Välj **Azure-ikonen** i aktivitetsfältet Visual Studio-kod. Vyn Azure Machine Learning visas. 
-1. Expandera prenumerationsnoden. 
-1. Expandera **TeamWorkspace-noden.** 
-1. Högerklicka på beräkningsnoden **TeamWkspc-com** under arbetsytan och välj **Skapa körningskonfiguration**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Skapa en körningskonfiguration](./media/tutorial-train-deploy-image-classification-model-vscode/create-run-configuration.png)
-
-1. Namnge din körningskonfiguration "MNIST-rc" och tryck på **Retur** för att skapa din körningskonfiguration.
-1. Välj sedan **TensorFlow Single-Node Training** som utbildningsjobbtyp.
-1. Tryck på **Retur** för att bläddra i skriptfilen för att köras på beräkningen. I det här fallet är skriptet `train.py` för `vscode-tools-for-ai/mnist-vscode-docs-sample` att träna modellen filen i katalogen.
-1. Ange följande i indatarutan för att ange de paket som krävs.
-    
-    ```text
-    pip: azureml-defaults; conda: python=3.6.2, tensorflow=1.15.0
-    ```
-    
-    En fil `MNIST-rc.runconfig` som heter visas i VS-kod med innehåll som liknar den nedan:
+    En fil visas i VS-kod med innehåll som liknar den nedan:
 
     ```json
     {
-        "script": "train.py",
-        "framework": "Python",
-        "communicator": "None",
-        "target": "TeamWkspc-com",
-        "environment": {
-            "python": {
-                "userManagedDependencies": false,
-                "condaDependencies": {
-                    "dependencies": [
-                        "python=3.6.2",
-                        "tensorflow=1.15.0",
-                        {
-                            "pip": [
-                                "azureml-defaults"
-                            ]
-                        }
-                    ]
-                }
-            },
-            "docker": {
-                "baseImage": "mcr.microsoft.com/azureml/base:0.2.4",
-                "enabled": true,
-                "baseImageRegistry": {
-                    "address": null,
-                    "username": null,
-                    "password": null
-                }
+        "location": "westus2",
+        "tags": {},
+        "properties": {
+            "computeType": "AmlCompute",
+            "description": "",
+            "properties": {
+                "vmSize": "Standard_F2s_v2",
+                "vmPriority": "dedicated",
+                "scaleSettings": {
+                    "maxNodeCount": 4,
+                    "minNodeCount": 0,
+                    "nodeIdleTimeBeforeScaleDown": 120
+                },
+                "userAccountCredentials": {
+                    "adminUserName": "",
+                    "adminUserPassword": "",
+                    "adminUserSshPublicKey": ""
+                },
+                "subnetName": "",
+                "vnetName": "",
+                "vnetResourceGroupName": "",
+                "remoteLoginPortPublicAccess": ""
             }
-        },
-        "nodeCount": 1,
-        "history": {
-            "outputCollection": true,
-            "snapshotProject": false,
-            "directoriesToWatch": [
-                "logs"
-            ]
         }
     }
     ```
@@ -175,7 +137,152 @@ Så här skapar du en körningskonfiguration:
     Azure ML: Save and Continue
     ```
 
-Körningskonfigurationen `MNIST-rc` läggs till under beräkningsnoden *TeamWkspc-com.*
+Efter några minuter visas det nya beräkningsmålet i *beräkningsnoden* på arbetsytan.
+
+## <a name="create-a-run-configuration"></a>Skapa en körningskonfiguration
+
+När du skickar en utbildningskörning till ett beräkningsmål skickar du också in den konfiguration som behövs för att köra utbildningsjobbet. Skriptet som innehåller träningskoden och Python-beroendena som behövs för att köra den.
+
+Så här skapar du en körningskonfiguration:
+
+1. Välj **Azure-ikonen** i aktivitetsfältet Visual Studio-kod. Vyn Azure Machine Learning visas. 
+1. Expandera prenumerationsnoden. 
+1. Expandera **teamworkspace-noden > beräkning.** 
+1. Högerklicka på beräkningsnoden **TeamWkspc-com** under beräkningsnoden och välj **Skapa körningskonfiguration**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Skapa en körningskonfiguration](./media/tutorial-train-deploy-image-classification-model-vscode/create-run-configuration.png)
+
+1. Namnge din körningskonfiguration "MNIST-rc" och tryck på **Retur** för att skapa din körningskonfiguration.
+1. Välj sedan **Skapa ny Azure ML-miljö**. Miljöer definierar de beroenden som krävs för att köra skripten.
+1. Namnge din miljö "MNIST-env" och tryck på **Retur**.
+1. Välj **Conda-beroenden** i listan.
+1. Tryck **på Retur** för att bläddra i conda-beroendefilen. I det här fallet är `env.yml` beroendefilen `vscode-tools-for-ai/mnist-vscode-docs-sample` filen i katalogen.
+
+    En fil visas i VS-kod med innehåll som liknar den nedan:
+
+    ```json
+    {
+        "name": "MNIST-env",
+        "version": "1",
+        "python": {
+            "interpreterPath": "python",
+            "userManagedDependencies": false,
+            "condaDependencies": {
+                "name": "vs-code-azure-ml-tutorial",
+                "channels": [
+                    "defaults"
+                ],
+                "dependencies": [
+                    "python=3.6.2",
+                    "tensorflow=1.15.0",
+                    "pip",
+                    {
+                        "pip": [
+                            "azureml-defaults"
+                        ]
+                    }
+                ]
+            },
+            "baseCondaEnvironment": null
+        },
+        "environmentVariables": {},
+        "docker": {
+            "baseImage": "mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04",
+            "baseDockerfile": null,
+            "baseImageRegistry": {
+                "address": null,
+                "username": null,
+                "password": null
+            },
+            "enabled": false,
+            "arguments": []
+        },
+        "spark": {
+            "repositories": [],
+            "packages": [],
+            "precachePackages": true
+        },
+        "inferencingStackVersion": null
+    }
+    ```
+
+1. När du är nöjd med konfigurationen sparar du den genom att öppna kommandopaletten och ange följande kommando:
+
+    ```text
+    Azure ML: Save and Continue
+    ```
+
+1. Tryck på **Retur** för att bläddra i skriptfilen för att köras på beräkningen. I det här fallet är skriptet `train.py` för `vscode-tools-for-ai/mnist-vscode-docs-sample` att träna modellen filen i katalogen.
+
+    En fil `MNIST-rc.runconfig` som heter visas i VS-kod med innehåll som liknar den nedan:
+
+    ```json
+    {
+        "script": "train.py",
+        "framework": "Python",
+        "communicator": "None",
+        "target": "TeamWkspc-com",
+        "environment": {
+            "name": "MNIST-env",
+            "version": "1",
+            "python": {
+                "interpreterPath": "python",
+                "userManagedDependencies": false,
+                "condaDependencies": {
+                    "name": "vs-code-azure-ml-tutorial",
+                    "channels": [
+                        "defaults"
+                    ],
+                    "dependencies": [
+                        "python=3.6.2",
+                        "tensorflow=1.15.0",
+                        "pip",
+                        {
+                            "pip": [
+                                "azureml-defaults"
+                            ]
+                        }
+                    ]
+                },
+                "baseCondaEnvironment": null
+            },
+            "environmentVariables": {},
+            "docker": {
+                "baseImage": "mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04",
+                "baseDockerfile": null,
+                "baseImageRegistry": {
+                    "address": null,
+                    "username": null,
+                    "password": null
+                },
+                "enabled": false,
+                "arguments": []
+            },
+            "spark": {
+                "repositories": [],
+                "packages": [],
+                "precachePackages": true
+            },
+            "inferencingStackVersion": null
+        },
+        "history": {
+            "outputCollection": true,
+            "snapshotProject": false,
+            "directoriesToWatch": [
+                "logs"
+            ]
+        }
+    }
+    ```
+
+1. När du är nöjd med konfigurationen sparar du den genom att öppna kommandopaletten och ange följande kommando:
+
+    ```text
+    Azure ML: Save and Continue
+    ```
+
+Körningskonfigurationen `MNIST-rc` läggs till under beräkningsnoden *TeamWkspc-com* och miljökonfigurationen `MNIST-env` läggs till under noden *Miljöer.*
 
 ## <a name="train-the-model"></a>Träna modellen
 
@@ -264,7 +371,7 @@ Så här distribuerar du en webbtjänst som ACI:
 1. Högerklicka på **MNIST-TensorFlow-modellen** och välj **Distribuera tjänst från registrerad modell**.
 
     > [!div class="mx-imgBorder"]
-    > ![Distribuera modellen](./media/tutorial-train-deploy-image-classification-model-vscode/register-model.png)
+    > ![Distribuera modellen](./media/tutorial-train-deploy-image-classification-model-vscode/deploy-model.png)
 
 1. Välj **Azure Container Instances**.
 1. Namnge tjänsten "mnist-tensorflow-svc" och tryck på **Retur**.
@@ -300,6 +407,7 @@ Så här distribuerar du en webbtjänst som ACI:
         ]
     }
     ```
+
 1. När du är nöjd med konfigurationen sparar du den genom att öppna kommandopaletten och ange följande kommando:
 
     ```text

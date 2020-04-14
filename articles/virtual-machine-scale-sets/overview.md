@@ -1,19 +1,19 @@
 ---
 title: Översikt över azure-skalningsuppsättningar för virtuella datorer
 description: Lär dig mer om VM-skalningsuppsättningar i Azure och hur du skalar dina program automatiskt
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/26/2019
-ms.author: manayar
-ms.openlocfilehash: 1e0f7c65504637cd79a3183ce9785c73b55f6a51
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.author: mimckitt
+ms.openlocfilehash: 03e3c7b5c0696069729d3067faad8ceb91fc611f
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548564"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272550"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Vad är VM-skalningsuppsättningar?
 Med VM-skalningsuppsättningar i Azure kan du skapa och hantera grupper med identiska och belastningsutjämnade virtuella datorer. Antal VM-instanser kan automatiskt öka eller minska som svar på efterfrågan eller ett definierat schema. Skalningsuppsättningar tillhandahåller hög tillgänglighet för dina program, och låter dig centralt hantera, konfigurera och uppdatera ett stort antal virtuella datorer. Med VM-skalningsuppsättningar kan du skapa storskaliga tjänster för områden som beräkning, stordata och arbetsbelastningar i containrar.

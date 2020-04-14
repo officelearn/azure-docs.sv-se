@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: dsindona
-ms.openlocfilehash: 8ae1dcbeff6e14e6f1f7cd44ae3a0a68bd379b56
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 988121effb35949cce442ba9458789105e88feec
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387350"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273451"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Vanliga problem vid skapande av virtuella hårddiskar (VANLIGA FRÅGOR)
+
+> [!IMPORTANT]
+> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i Vanliga frågor och svar om [hur du skapar virtuella hårddiskar](https://aka.ms/VHDcreationIssues) för att hantera dina migrerade erbjudanden.
 
 Följande vanliga frågor och svar (FAQ) täcker vanliga problem som uppstår under virtuella hårddiskar (VHD) och virtuell dator (VM) skapas för VM-erbjudanden. 
 

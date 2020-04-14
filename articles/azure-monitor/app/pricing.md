@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: b782477fd29b34eda70813fc2aff29157f02acb3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ecd0ffd76650efff3a4c9f877522cba6f28d080
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79275950"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271122"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -28,6 +28,8 @@ Prissättningen för [Azure Application Insights][start] är en **Pay-As-You-Go-
 
 [Webbtester](../../azure-monitor/app/availability-multistep.md) i flera steg medför en extra kostnad. Webbtester i flera steg är webbtester som utför en sekvens av åtgärder. Det finns ingen separat avgift för *ping tester* av en enda sida. Telemetri från ping-tester och flerstegstester debiteras på samma sätt som annan telemetri från din app.
 
+Alternativet Application Insights för att [aktivera aviseringar om anpassade måttdimensioner](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) kan också generera ytterligare kostnader eftersom detta kan resultera i att ytterligare mått före aggregering skapas. [Läs mer] om loggbaserade och föraggregerade mått i Application Insights och om [priser](https://azure.microsoft.com/pricing/details/monitor/) för anpassade Azure Monitor-mått.
+
 ## <a name="estimating-the-costs-to-manage-your-application"></a>Uppskatta kostnaderna för att hantera ditt program
 
 Om du ännu inte använder Application Insights kan du använda [Azure Monitor-priskalkylatorn](https://azure.microsoft.com/pricing/calculator/?service=monitor) för att uppskatta kostnaden för att använda Application Insights. Börja med att ange "Azure Monitor" i sökrutan och klicka på den resulterande Azure Monitor-panelen. Bläddra nedåt på sidan till Azure Monitor och välj Programstatistik i listrutan Typ.  Här kan du ange antalet GB data som du förväntar dig att samla in per månad, så frågan är hur mycket data som Application Insights samlar in för att övervaka ditt program.
@@ -42,7 +44,7 @@ För SDK:er som inte stöder adaptiv sampling kan du använda [inmatningsprovtag
 
 ### <a name="learn-from-what-similar-customers-collect"></a>Lär av vad liknande kunder samlar in
 
-Om du aktiverar funktionen Uppskatta datavolym baserat på programaktivitet i Azure Monitoring Pricing calculator for Application Insights kan du ange indata om ditt program (begäranden per månad och sidvisningar per månad, om du gör det samla in telemetri på klientsidan), och sedan kommer räknaren att berätta median- och 90:e percentilens mängd data som samlas in av liknande program. Dessa program sträcker sig över intervallet Application Insights konfiguration (t.ex. vissa har [standardprovtagning](../../azure-monitor/app/sampling.md), vissa har ingen sampling etc.), så du har fortfarande kontroll för att minska mängden data som du intar långt under mediannivån med hjälp av sampling. Men detta är en utgångspunkt för att förstå vad andra, liknande kunder ser.
+Om du aktiverar funktionen Uppskatta datavolym baserat på programaktivitet i Azure Monitoring-kalkylatorn för Application Insights kan du ange indata om ditt program (begäranden per månad och sidvisningar per månad, om du samlar in telemetri på klientsidan) och räknaren sedan berättar median- och 90:e percentilens mängd data som samlas in av liknande program. Dessa program sträcker sig över intervallet Application Insights konfiguration (t.ex. vissa har [standardprovtagning](../../azure-monitor/app/sampling.md), vissa har ingen sampling etc.), så du har fortfarande kontroll för att minska mängden data som du intar långt under mediannivån med hjälp av sampling. Men detta är en utgångspunkt för att förstå vad andra, liknande kunder ser.
 
 ## <a name="understand-your-usage-and-estimate-costs"></a>Förstå dina användnings- och uppskattningskostnader
 
@@ -176,7 +178,7 @@ Om du vill [ändra det dagliga taket via Azure Resource Manager](../../azure-mon
 
 ### <a name="create-alerts-for-the-daily-cap"></a>Skapa aviseringar för Daily Cap
 
-Den dagliga programstatistiken skapar en händelse i Azure-aktivitetskog när de intas datavolymerna når varningsnivån eller den dagliga taknivån.  Du kan [skapa en avisering baserat på dessa aktivitetslogghändelser](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal). Signalnamnen för dessa händelser är:
+Den dagliga programstatistiken skapar en händelse i Azure-aktivitetsloggen när de intas datavolymerna når varningsnivån eller den dagliga taknivån.  Du kan [skapa en avisering baserat på dessa aktivitetslogghändelser](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal). Signalnamnen för dessa händelser är:
 
 * Varningströskel för Application Insights-komponent dagliga tak har uppnåtts
 
@@ -216,7 +218,7 @@ Om du vill ändra kvarhållningen går du till sidan **Användning och uppskatta
 
 ![Justera det dagliga volymlocket för telemetri](./media/pricing/pricing-005.png)
 
-Kvarhållningen kan också [ställas in programatiskt med hjälp av PowerShell](powershell.md#set-the-data-retention) med hjälp av parametern. `retentionInDays` Om du ställer in datalagringen till 30 dagar kan du dessutom `immediatePurgeDataOn30Days` utlösa en omedelbar rensning av äldre data med parametern, vilket kan vara användbart för efterlevnadsrelaterade scenarier. Den här rensningsfunktionen exponeras endast via Azure Resource Manager och bör användas med stor försiktighet. Den dagliga återställningstiden för datavolymtaket kan konfigureras med `dailyQuotaResetTime` Azure Resource Manager för att ange parametern.
+Kvarhållningen kan också [ställas in programatiskt med hjälp av PowerShell](powershell.md#set-the-data-retention) med hjälp av parametern. `retentionInDays` När kvarhållningen sänks finns det en respitperiod på flera dagar innan de äldsta data tas bort. Om du anger datalagringen till 30 dagar kan du utlösa `immediatePurgeDataOn30Days` en omedelbar rensning av äldre data med parametern, vilket kan vara användbart för efterlevnadsrelaterade scenarier. Den här rensningsfunktionen exponeras endast via Azure Resource Manager och bör användas med stor försiktighet. Den dagliga återställningstiden för datavolymtaket kan konfigureras med `dailyQuotaResetTime` Azure Resource Manager för att ange parametern.
 
 ## <a name="data-transfer-charges-using-application-insights"></a>Dataöverföringsavgifter med application insights
 
@@ -228,7 +230,7 @@ Om du skickar data till Application Insights kan det medföra avgifter för data
 
 ## <a name="disable-daily-cap-e-mails"></a>Inaktivera e-postmeddelanden med dagligt tak
 
-Om du vill inaktivera den dagliga e-postmeddelandena med volymtak väljer du **Dagligt tak**under avsnittet **Konfigurera** i application insights-resursen **Usage and estimated costs** . Det finns inställningar för att skicka e-post när locket nås, samt när en justerbar varningsnivå har uppnåtts. Om du vill inaktivera alla dagliga cap volymrelaterade e-postmeddelanden avmarkera båda rutorna.
+Om du vill inaktivera den dagliga e-postmeddelandena med volymtak väljer du **Dagligt tak**under avsnittet **Konfigurera** i application insights-resursen **Usage and estimated costs** . Det finns inställningar för att skicka e-post när locket nås, samt när en justerbar varningsnivå har uppnåtts. Om du vill inaktivera alla dagliga volymrelaterade e-postmeddelanden för tak avmarkerar du båda rutorna.
 
 ## <a name="legacy-enterprise-per-node-pricing-tier"></a>Äldre prisnivå för företag (per nod)
 

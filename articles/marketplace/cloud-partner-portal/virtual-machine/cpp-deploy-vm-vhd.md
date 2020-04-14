@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: dsindona
-ms.openlocfilehash: 5263d24c411ef8de4187c2fd750013374d779f04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f13e4066137e0d76612040d9f6e5ff3d0aa399c8
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277947"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273910"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Distribuera en virtuell dator från dina virtuella hårddiskar
+
+> [!IMPORTANT]
+> Från och med den 13 april 2020 börjar vi den rörliga hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i Skapa dina tekniska resurser för [din virtuella Azure-dator](https://aka.ms/AzureVMTechAsset) för att hantera dina migrerade erbjudanden.
 
 I det här avsnittet beskrivs hur du distribuerar en virtuell dator (VM) från en Azure-distribuerad virtuell hårddisk (VHD).  Den listar de verktyg som krävs och hur du använder dem för att skapa en användare VM-avbildning och distribuera den sedan till Azure med PowerShell-skript.
 

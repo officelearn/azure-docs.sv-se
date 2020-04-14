@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
-ms.openlocfilehash: d4fc8762e25825b21637b16b751d57a0dcbf369e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 22538047adc17a40438359e11bff7fd20e43bcc6
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288809"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273094"
 ---
 # <a name="virtual-machine-test-drive-tab"></a>Fliken Testkörning för virtuella datorer
+
+> [!IMPORTANT]
+> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa ett Azure Virtual Machine-erbjudande](https://aka.ms/CreateAzureVMoffer) för att hantera dina migrerade erbjudanden.
 
 På fliken **Provkörning** på sidan **Nytt erbjudande** kan du förse dina potentiella kunder med en praktisk, självstyrd demonstration av produktens viktigaste funktioner och fördelar, vilket visas i ett standardiserat scenario.  Test drive är en valfri funktion för de erbjudandetyper som stöder Test Drive.  Provkörning kräver att stödtillgångar implementeras korrekt.  Mer information finns i artikeln [Azure Marketplace Test Drive](https://azure.microsoft.com/blog/azure-marketplace-test-drive/).  <!--TD: Replace with migrated version of Test Drive article! -->
 

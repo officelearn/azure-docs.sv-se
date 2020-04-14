@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 957bc187b0123338947f62333c913cf82a6c66a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79754b4ce7c3dfe2a5c549f4a39ef3160be423d8
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277964"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273897"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Distribuera en virtuell Azure-dator från en virtuell dator för användare
+
+> [!IMPORTANT]
+> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Azure VM-avbildningscertifiering](https://aks.ms/CertifyVMimage) för att hantera dina migrerade erbjudanden.
 
 I den här artikeln beskrivs hur du distribuerar en generaliserad VHD-avbildning för att skapa en ny Azure VM-resurs med hjälp av den medföljande Azure Resource Manager-mallen och Azure PowerShell-skriptet.
 

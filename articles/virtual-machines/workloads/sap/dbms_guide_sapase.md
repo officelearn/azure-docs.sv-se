@@ -12,19 +12,19 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/21/2020
+ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 007e8d87c670376ad334c1c4e58fd93995930b78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 25d911869c95baba6ac9db3b893292e702e9c0e9
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77616235"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273213"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>DBMS-distribution för SAP-arbetsbelastning för SAP ASE på Azure Virtual Machines
 
-I det här dokumentet täcker flera olika områden att tänka på när du distribuerar SAP ASE i Azure IaaS. Som en förutsättning för det här dokumentet bör du ha läst dokumentet [Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning](dbms_guide_general.md) och andra guider i [SAP-arbetsbelastningen i Azure-dokumentationen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). Det här dokumentet täcker SAP ASE som körs på Linux och Windows operativsystem. Minsta release som stöds på Azure är SAP ASE 16.0 Patch Level 2.  Vi rekommenderar att du distribuerar den senaste versionen av SAP och den senaste korrigeringsnivån.  Som ett minimum SAP ASE 16.3 Patch Level 7 rekommenderas.  Den senaste versionen av SAP finns i [Targeted ASE 16.0 Release Schedule och CR list Information](https://wiki.scn.sap.com/wiki/display/SYBASE/Targeted+ASE+16.0+Release+Schedule+and+CR+list+Information).
+I det här dokumentet täcker flera olika områden att tänka på när du distribuerar SAP ASE i Azure IaaS. Som en förutsättning för det här dokumentet bör du ha läst dokumentet [Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning](dbms_guide_general.md) och andra guider i [SAP-arbetsbelastningen i Azure-dokumentationen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). Det här dokumentet täcker SAP ASE som körs på Linux och Windows operativsystem. Minsta version som stöds på Azure är SAP ASE 16.0.02 (Version 16 Support Pack 2). Vi rekommenderar att du distribuerar den senaste versionen av SAP och den senaste korrigeringsnivån.  Som ett minimum SAP ASE 16.0.03.07 (Release 16 Support Pack 3 Patch Level 7) rekommenderas.  Den senaste versionen av SAP finns i [Targeted ASE 16.0 Release Schedule och CR list Information](https://wiki.scn.sap.com/wiki/display/SYBASE/Targeted+ASE+16.0+Release+Schedule+and+CR+list+Information).
 
 Ytterligare information om utgivningsstöd med SAP-program eller installationsmediaplats finns, förutom i SAP-produkttillgänglighetsmatrisen på dessa platser:
 
@@ -84,7 +84,7 @@ Ett exempel på en konfiguration för en liten SAP ASE DB Server med en databass
 | --- | --- | --- | --- |
 | Typ av virtuell dator | E4s_v3 (4 vCPU/32 GB RAM) | E4s_v3 (4 vCPU/32 GB RAM) | --- |
 | Accelererat nätverk | Aktivera | Aktivera | ---|
-| SAP ASE-version | 16.3 PL 7 eller högre | 16.3 PL 7 eller högre | --- |
+| SAP ASE-version | 16.0.03.07 eller högre | 16.0.03.07 eller högre | --- |
 | Antal dataenheter | 4 | 4 | ---|
 | Antal loggenheter | 1 | 1 | --- |
 | Antal temp-enheter | 1 | 1 | mer för SAP BW-arbetsbelastning |
@@ -105,7 +105,7 @@ Ett exempel på en konfiguration för en medelstor SAP ASE DB Server med en data
 | --- | --- | --- | --- |
 | Typ av virtuell dator | E16s_v3 (16 vCPU/128 GB RAM) | E16s_v3 (16 vCPU/128 GB RAM) | --- |
 | Accelererat nätverk | Aktivera | Aktivera | ---|
-| SAP ASE-version | 16.3 PL 7 eller högre | 16.3 PL 7 eller högre | --- |
+| SAP ASE-version | 16.0.03.07 eller högre | 16.0.03.07 eller högre | --- |
 | Antal dataenheter | 8 | 8 | ---|
 | Antal loggenheter | 1 | 1 | --- |
 | Antal temp-enheter | 1 | 1 | mer för SAP BW-arbetsbelastning |
@@ -125,7 +125,7 @@ Ett exempel på en konfiguration för en liten SAP ASE DB Server med en databass
 | --- | --- | --- | --- |
 | Typ av virtuell dator | E64s_v3 (64 vCPU/432 GB RAM) | E64s_v3 (64 vCPU/432 GB RAM) | --- |
 | Accelererat nätverk | Aktivera | Aktivera | ---|
-| SAP ASE-version | 16.3 PL 7 eller högre | 16.3 PL 7 eller högre | --- |
+| SAP ASE-version | 16.0.03.07 eller högre | 16.0.03.07 eller högre | --- |
 | Antal dataenheter | 16 | 16 | ---|
 | Antal loggenheter | 1 | 1 | --- |
 | Antal temp-enheter | 1 | 1 | mer för SAP BW-arbetsbelastning |
@@ -146,7 +146,7 @@ Ett exempel på en konfiguration för en liten SAP ASE DB Server med en databass
 | --- | --- | --- | --- |
 | Typ av virtuell dator | M-serien (1,0 till 4,0 TB RAM)  | M-serien (1,0 till 4,0 TB RAM) | --- |
 | Accelererat nätverk | Aktivera | Aktivera | ---|
-| SAP ASE-version | 16.3 PL 7 eller högre | 16.3 PL 7 eller högre | --- |
+| SAP ASE-version | 16.0.03.07 eller högre | 16.0.03.07 eller högre | --- |
 | Antal dataenheter | 32 | 32 | ---|
 | Antal loggenheter | 1 | 1 | --- |
 | Antal temp-enheter | 1 | 1 | mer för SAP BW-arbetsbelastning |
@@ -203,7 +203,7 @@ SAP Software provisioning Manager (SWPM) ger en möjlighet att kryptera database
 
 ## <a name="sap-ase-on-azure-deployment-checklist"></a>SAP ASE på checklista för Azure-distribution
  
-- Distribuera SAP ASE 16.3 PL7 eller senare
+- Distribuera SAP ASE 16.0.03.07 eller senare
 - Uppdatera till senaste versionen och patchar av FaultManager och SAPHostAgent
 - Distribuera på senast certifierade operativsystem som är tillgängligt, till exempel Windows 2019, Suse 15.1 eller Redhat 7.6 eller senare
 - Använd SAP-certifierade virtuella datorer – azure VM-sku:er med högt minne, till exempel Es_v3 eller för x-stora system M-serien VM-SKU: er, rekommenderas
@@ -277,7 +277,7 @@ Mer information om DBA Cockpit för SAP ASE finns i följande SAP Notes:
 
 
 ## <a name="useful-links-notes--whitepapers-for-sap-ase"></a>Användbara länkar, anteckningar & whitepapers för SAP ASE
-Startsidan för [Sybase ASE 16.3 PL7 Dokumentation](https://help.sap.com/viewer/product/SAP_ASE/16.0.3.7/en-US) ger länkar till olika dokument där dokumenten för:
+Startsidan för [SAP ASE 16.0.03.07 Dokumentation](https://help.sap.com/viewer/product/SAP_ASE/16.0.3.7/en-US) ger länkar till olika dokument där dokumenten för:
 
 - SAP ASE Learning Journey - Administration & Övervakning
 - SAP ASE Learning Journey - Uppgradering & installation
@@ -303,11 +303,11 @@ Andra användbara SAP-supportanteckningar är:
 Övrig information publiceras på 
 
 - [SAP-program på SAP Adaptive Server Enterprise](https://community.sap.com/topics/applications-on-ase)
-- [Sybase infocenter](http://infocenter.sybase.com/help/index.jsp) 
+- [SAP ASE infocenter](http://infocenter.sybase.com/help/index.jsp) 
+- [SAP ASE Always-on med installation av tredje DR-nod](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199)
 
 Ett månatligt nyhetsbrev publiceras via [SAP-supportmeddelande #2381575](https://launchpad.support.sap.com/#/notes/2381575) 
 
-[Sybase ASE Always-on med 3:e DR-nodinställning](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199) 
 
 ## <a name="next-steps"></a>Nästa steg
 Kontrollera artikeln [SAP-arbetsbelastningar på Azure: checklista för planering och distribution](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)

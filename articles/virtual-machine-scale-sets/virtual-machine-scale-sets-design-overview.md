@@ -2,20 +2,20 @@
 title: Designöverväganden för Azure-skalningsuppsättningar för virtuella datorer
 description: Lär dig mer om designöverväganden för dina Azure Virtual Machine Scale Sets. Jämför skalningsuppsättningar funktioner med vm-funktioner.
 keywords: linux virtuell maskin, virtuella maskin skala uppsättningar
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.assetid: c27c6a59-a0ab-4117-a01b-42b049464ca1
 ms.service: virtual-machine-scale-sets
 ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
 ms.date: 06/01/2017
-ms.author: manayar
-ms.openlocfilehash: b427319fdba634ea3c61681baa30547450709dc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: 20f6cb08781c7c6aca7a4022e75a7be8640ef18a
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79250782"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273774"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Designöverväganden för skalningsuppsättningar
 I den här artikeln beskrivs designöverväganden för skaluppsättningar för virtuella datorer. Information om vad skaluppsättningar för virtuella datorer är finns i [översikt över skaluppsättningar för virtuella datorer](virtual-machine-scale-sets-overview.md).
@@ -39,7 +39,7 @@ Vissa funktioner är för närvarande endast tillgängliga i virtuella datorer:
 - Du kan migrera en enskild virtuell dator från inbyggda diskar till hanterade diskar, men du kan inte migrera VM-instanser i en skalningsuppsättning.
 - Du kan tilldela offentliga IPv6-IP-adresser till enskilda virtuella nätverkskort för virtuella datorer, men kan inte göra det för VM-instanser i en skalningsuppsättning. Du kan tilldela offentliga IPv6-IP-adresser till belastningsutjämnare framför enskilda virtuella datorer eller skaluppsättning virtuella datorer.
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 ### <a name="scale-sets-with-azure-managed-disks"></a>Skalningsuppsättningar med Azure-hanterade diskar
 Skalningsuppsättningar kan skapas med [Azure-hanterade diskar](../virtual-machines/windows/managed-disks-overview.md) i stället för traditionella Azure-lagringskonton. Hanterade diskar ger följande fördelar:

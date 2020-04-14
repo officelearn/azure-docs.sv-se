@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: d4d59642f638e7b1221c35a4bb281923571d5066
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 37005a722d4a1962b4f6e1ddb8bb1c7a1229d28a
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80297590"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273298"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Beständiga filer i Azure Cloud Shell
 Cloud Shell använder Azure File Storage för att spara filer över sessioner. Vid den första starten uppmanar Cloud Shell dig att associera en ny eller befintlig filresurs för att spara filer över sessioner.
@@ -50,7 +50,7 @@ Med det avancerade alternativet kan du associera befintliga resurser. När du v�
 När frågan om lagringsinställningar visas väljer du **Visa avancerade inställningar** för att visa ytterligare alternativ. Filtret ifyllt lagringsalternativ för lokalt redundant lagring (LRS), geo-redundant lagring (GRS) och zonundant lagringskonton (ZRS). 
 
 > [!NOTE]
-> Användning av GRS- eller ZRS-lagringskonton rekommenderas för ytterligare återhämtning för din säkerhetskopieringsfilresurs. Vilken typ av redundans beror på dina mål och prisinställningar. [Läs mer om replikeringsalternativ för Azure Storage-konton](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
+> Användning av GRS- eller ZRS-lagringskonton rekommenderas för ytterligare återhämtning för din säkerhetskopieringsfilresurs. Vilken typ av redundans beror på dina mål och prisinställningar. [Läs mer om replikeringsalternativ för Azure Storage-konton](../storage/common/storage-redundancy.md).
 
 ![Inställningen resursgrupp](media/persisting-shell-storage/advanced-storage.png)
 
@@ -169,5 +169,5 @@ Om du behöver definiera en funktion i en fil och anropa den från PowerShell-cm
 
 ## <a name="next-steps"></a>Nästa steg
 [Snabbstart i Molnskal](quickstart.md) <br>
-[Lär dig mer om lagring av Microsoft Azure-filer](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
+[Lär dig mer om lagring av Microsoft Azure-filer](../storage/files/storage-files-introduction.md) <br>
 [Läs mer om lagringstaggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

@@ -2,17 +2,17 @@
 title: Azure CDN från Verizon Premium regler motorfunktioner | Microsoft-dokument
 description: Referensdokumentation för Azure CDN från Verizon Premium regler motorfunktioner.
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: magattus
-ms.openlocfilehash: 9177ac544c83305ae95ad681d3dc9f84ac64ea36
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 373e7838327d11b1b54278ee0c16c6e6ae554b0b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247584"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81253500"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN från Verizon Premium regler motorfunktioner
 
@@ -846,7 +846,7 @@ Normalt, när en tillgångs max-ålder tid löper ut, pop kommer att skicka en b
 
 Om POP inte kan upprätta en anslutning till ursprungsservern när du försöker en sådan förlängning, styr den här interna maxinaktuella funktionen om och hur länge POP kan fortsätta att betjäna den nu inaktuella tillgången.
 
-Observera att det här tidsintervallet börjar när tillgångens maxålder upphör att gälla, inte när den misslyckade förlängningen inträffar. Den maximala period under vilken en tillgång kan betjänas utan lyckad förlängning är därför den tid som anges av kombinationen av max-age plus max-unken. Om en tillgång till exempel cachelagrades vid 9:00 med en maxålder på 30 minuter och en max-inaktuella på 15 minuter, skulle ett misslyckat återvalideringsförsök vid 9:44 resultera i att en slutanvändare tar emot den inaktuella cachelagrade tillgången, medan ett misslyckat revalidation-försök vid 9:46 skulle resultera i slutanvändaren får en timeout för 504 gateway.
+Observera att det här tidsintervallet börjar när tillgångens maxålder upphör att gälla, inte när den misslyckade förlängningen inträffar. Den maximala period under vilken en tillgång kan betjänas utan lyckad förlängning är därför den tid som anges av kombinationen av max-age plus max-unken. Om en tillgång till exempel cachelagrades vid 9:00 med en maxålder på 30 minuter och en max-inaktuella på 15 minuter, skulle ett misslyckat återvalideringsförsök på 9:44 resultera i att en slutanvändare tar emot den inaktuella cachelagrade tillgången, medan ett misslyckat omvalideringsförsök på 9:46 skulle resultera i att slutanvändaren får en 504 Gateway-timeout.
 
 Alla värden som konfigurerats för den `Cache-Control: must-revalidate` `Cache-Control: proxy-revalidate` här funktionen ersätts av eller rubriker som tas emot från ursprungsservern. Om något av dessa rubriker tas emot från ursprungsservern när en tillgång först cachelagras, kommer POP inte att tjäna en inaktuell cachelagrad tillgång. I så fall, om POP inte kan förnya med ursprunget när tillgångens maxåldersintervall har gått ut, returnerar POP ett 504 Gateway Timeout-fel.
 

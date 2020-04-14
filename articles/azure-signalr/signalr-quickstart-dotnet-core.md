@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: zhshang
-ms.openlocfilehash: 022780f2b37c8bed49c81774d443b69bae41e5e7
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f87625fe4f56b369f2bf4aade3ef5424084b6fe8
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73476755"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254894"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Snabbstart: Skapa ett chattrum med hjälp av SignalR-tjänsten
 
@@ -95,7 +95,7 @@ I det här avsnittet ska du lägga till [secret manager-verktyget](https://docs.
     Den här hemligheten nås med konfigurations-API:et. Ett kolon (:) fungerar i konfigurationsnamnet med konfigurations-API:et på alla plattformar som stöds. Se [Konfiguration efter miljö](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0). 
 
 
-4. Öppna *Startup.cs* och uppdatera `ConfigureServices` metoden för att använda Azure `services.AddSignalR().AddAzureSignalR()` SignalR-tjänsten genom att anropa metoden endast för ASP.NET Core 2:
+4. Öppna *Startup.cs* och uppdatera `ConfigureServices`-metoden för att använda Azure SignalR Service genom att anropa metoden `services.AddSignalR().AddAzureSignalR()`:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -104,7 +104,6 @@ I det här avsnittet ska du lägga till [secret manager-verktyget](https://docs.
         services.AddSignalR().AddAzureSignalR();
     }
     ```
-    För ASP.NET Core 3+ behövs ingen förändring `ConfigureServices` för metoden.
 
     Genom att inte `AddAzureSignalR()`skicka en parameter till använder den här koden standardkonfigurationsnyckeln för SignalR-tjänstens resursanslutningssträng. Standardkonfigurationsnyckeln är *Azure:SignalR:ConnectionString*.
 

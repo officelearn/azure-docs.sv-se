@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: f511a60b533d6d1e0b1ae8847d0ee0fb6be3500c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a36c411b9ababc42adb51d82a316df4252c01e24
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288843"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81252008"
 ---
 # <a name="configure-lead-management-using-an-azure-table"></a>Konfigurera leadhantering med hjälp av en Azure-tabell
 
@@ -66,12 +66,12 @@ Använd det här exemplet som en guide för att skapa ett enkelt flöde som auto
 
    ![Mina flöden **+ Schemalagda - från tomma**](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
 
-5.  På *fönstret Skapa ett schemalagt flöde* under *Upprepa varje* val "1" för intervall och "timme" för frekvens. Ge också flödet ett namn om du vill. Välj **Skapa**.
+5.    På *fönstret Skapa ett schemalagt flöde* under *Upprepa varje* val "1" för intervall och "timme" för frekvens. Ge också flödet ett namn om du vill. Välj **Skapa**.
 
-    >[!Note]
-    >Även om det här exemplet använder ett intervall på 1 timme kan du välja det intervall och den frekvens som är bäst för dina affärsbehov.
+>[!Note]
+>Även om det här exemplet använder ett intervall på 1 timme kan du välja det intervall och den frekvens som är bäst för dina affärsbehov.
 
-    ![Skapa ett schemalagt flöde.](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
+![Skapa ett schemalagt flöde.](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
 
 6. Välj **+ Nytt steg**.
 7. I fönstret *Välj ett åtgärdsfönster* söker du efter "komma förbi tid" och väljer sedan **Hämta tidigare tid** under Åtgärder.
@@ -92,23 +92,17 @@ I nästa uppsättning steg ansluter du till din Azure-tabell och ställer in bea
 
 9. När steget Hämta tidigare tid väljer du **+ Nytt steg**och söker sedan efter "Hämta entiteter" i fönstret Välj en *åtgärd.*
 10. Under **Åtgärder**väljer du **Hämta entiteter (Azure Table Storage)**.
-11. I fönstret **Azure Table Storage** anger du information för följande fält och väljer **Skapa:**
+11.    I fönstret **Azure Table Storage** anger du information för följande fält och väljer **Skapa:**
+* *Anslutningsnamn* - ange ett meningsfullt namn för anslutningen som du upprättar mellan det här flödet och Azure-tabellen.
+* *Namn på lagringskonto* – ange namnet på lagringskontot för din Azure-tabell. Du hittar detta på sidan **Åtkomstnycklar** för lagringskontot.
+* *Delad lagringsnyckel* – ange nyckelvärdet för ditt butikskonto för din Azure-tabell. Du hittar detta på sidan **Åtkomstnycklar** för lagringskontot.
+    ![Azure-tabelllagring.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
-    * *Anslutningsnamn* - ange ett meningsfullt namn för anslutningen som du upprättar mellan det här flödet och Azure-tabellen.
-    * *Namn på lagringskonto* – ange namnet på lagringskontot för din Azure-tabell. Du hittar detta på sidan **Åtkomstnycklar** för lagringskontot.
-    * *Delad lagringsnyckel* – ange nyckelvärdet för ditt butikskonto för din Azure-tabell. Du hittar detta på sidan **Åtkomstnycklar** för lagringskontot.
+När du har klickat på Skapa visas fönstret *Hämta entiteter.* Här väljer du **Visa avancerade alternativ** och ger information för följande fält:
+* *Tabell* - Välj namnet på din Azure Table Storage (från steg 6 med instruktioner om hur du konfigurerar en Azure-tabell). Nästa skärminspelning visar prompten när tabellen "marketplaceleads" är markerad för det här exemplet.
+    ![Azure Table hämta entiteter.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-        ![Azure-tabelllagring.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
-
-    När du har klickat på Skapa visas fönstret *Hämta entiteter.* Här väljer du **Visa avancerade alternativ** och ger information för följande fält:
-
-       * *Tabell* - Välj namnet på din Azure Table Storage (från steg 6 med instruktioner om hur du konfigurerar en Azure-tabell). Nästa skärminspelning visar prompten när tabellen "marketplaceleads" är markerad för det här exemplet.
-
-            ![Azure Table hämta entiteter.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
-
-        * *Filterfråga* - Välj det här fältet och klistra in den här funktionen i fältet:`Timestamp gt datetime'@{body('Get_past_time')}'`
-
-            ![Azure Table get entiteter - Filtrera Querry.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
+* *Filterfråga* - Välj det här fältet och `Timestamp gt datetime'@{body('Get_past_time')}'` ![klistra in den här funktionen i fältet: Azure Table get entiteter - Filterfråga.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
 12. Nu när du har konfigurerat anslutningen till Azure-tabellen väljer du **Nytt steg** för att lägga till ett villkor för att söka igenom Azure-tabellen efter nya leads. 
 
@@ -178,7 +172,10 @@ När du är redo att konfigurera leadhanteringsinformationen för ditt erbjudand
 1. Navigera till **inställningssidan** för Erbjudandet för ditt erbjudande.
 2. Välj **Anslut** under avsnittet LeadHantering.
 3. I popup-fönstret Anslutningsinformation väljer du **Azure-tabell** för **leadmålet**och klistrar in anslutningssträngen från Azure-lagringskontot som du skapade genom att följa tidigare steg i **strängfältet Lagringskontoanslutning.**
-4. Välj **Spara**. 
+4. **Kontakta e-post** - Ge e-post till personer i ditt företag som ska få e-postmeddelanden när ett nytt lead tas emot. Du kan tillhandahålla flera e-postmeddelanden genom att separera dem med semikolon.
+5. Välj **Ok**.
+
+Om du vill vara säker på att du har anslutit till ett leadmål klickar du på knappen validera. Om det lyckas kommer du att ha en testledning i leaddestinationen.
 
 >[!Note]
 >Du måste slutföra konfigurationen av resten av erbjudandet och publicera det innan du kan ta emot leads för erbjudandet.

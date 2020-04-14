@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 326b79e1aca6fa82b3275249401c755428a8b71d
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 631a20c7bf73aa2af363fdc0019ef24cccc58f9e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878569"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258668"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Anslut IoT DevKit AZ3166 till Azure IoT Hub
 
@@ -327,6 +327,17 @@ Exempelprogrammet körs när följande resultat visas:
 * Lysdioden på MXChip IoT DevKit blinkar.
 
 ![Seriell bildskärmsutgång](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/result-serial-output.png)
+
+> [!NOTE]
+> Du kan stöta på ett fel under testning där lysdioden inte blinkar, Azure-portalen visar inte inkommande data från enheten, men enhetens OLED-skärm visas som **Running...**. För att lösa problemet i Azure-portalen går du till enheten i IoT-hubben och skickar ett meddelande till enheten. Om du ser följande svar i den seriella bildskärmen i VS-kod är det möjligt att direkt kommunikation från enheten blockeras på routernivå. Kontrollera brandväggs- och routerregler som är konfigurerade för anslutningsenheterna. Se också till att utgående port 1833 är öppen.
+> 
+> FEL: mqtt_client.c (ln 454): Fel: fel vid öppnande av anslutningen till slutpunkten  
+> INFO: >>>Anslutningsstatus: frånkopplad  
+> FEL: tlsio_mbedtls.c (ln 604): Underliggande IO-öppen misslyckades  
+> FEL: mqtt_client.c (ln 1042): Fel: io_open misslyckades  
+> FEL: iothubtransport_mqtt_common.c (ln 2283): fel anslutning till adress atcsliothub.azure-devices.net.  
+> INFO: >>>Anslut igen.  
+> INFO: IoThub Version: 1.3.6  
 
 ### <a name="view-the-telemetry-received-by-azure-iot-hub"></a>Visa telemetrin som tagits emot av Azure IoT Hub
 

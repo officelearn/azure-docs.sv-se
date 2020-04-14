@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: dsindona
-ms.openlocfilehash: 0225069179e0d7d94a983c5161976a5c1933fac5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce1e001b9cafff83a3f9bf546d6903cc4a4f450f
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80278203"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273502"
 ---
 # <a name="certify-your-vm-image"></a>Certifiera din VM-avbildning
+
+> [!IMPORTANT]
+> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Azure VM-avbildningscertifiering](https://aks.ms/CertifyVMimage) för att hantera dina migrerade erbjudanden.
 
 När du har skapat och distribuerat den virtuella datorn (VM) måste du testa och skicka vm-avbildningen för Azure Marketplace-certifiering. I den här artikeln beskrivs var du kan hämta *certifieringstestverktyget för Azure Certified,* hur du använder det här verktyget för att certifiera din VM-avbildning och hur du överför verifieringsresultaten till Azure-behållaren där dina virtuella hårddiskar finns. 
 

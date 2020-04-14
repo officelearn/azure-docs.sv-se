@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 951f24ad06014f6d95f10c91e1bad8e99bbbc736
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 9003d35ce2eea18aa912a866802b026bb923aa08
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991781"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272703"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Standard Load Balancer-diagnostik med mått, aviseringar och resurshälsa
 
@@ -37,8 +37,8 @@ De olika standardbelastningsutjämningskonfigurationerna innehåller följande m
 
 | Mått | Resurstyp | Beskrivning | Rekommenderad aggregering |
 | --- | --- | --- | --- |
-| Tillgänglighet för datasökväg (VIP-tillgänglighet)| Offentlig och intern belastningsutjämnare | Standardbelastningsutjämnaren tränar kontinuerligt datasökvägen inifrån en region till belastningsutjämnarfronten, hela vägen till SDN-stacken som stöder den virtuella datorn. Så länge felfria instanser finns kvar följer mätningen samma sökväg som programmets belastningsbalanserade trafik. Den datasökväg som dina kunder använder valideras också. Mätningen är osynlig för ditt program och stör inte andra åtgärder.| Medel |
-| Hälsoavsökningsstatus(DIP-tillgänglighet) | Offentlig och intern belastningsutjämnare | Standardbelastningsutjämnaren använder en distribuerad hälsoavsökningstjänst som övervakar programmets slutpunkts hälsotillstånd enligt dina konfigurationsinställningar. Det här måttet ger en samlad eller filtrerad vy per slutpunkt för varje instansslutpunkt i belastningsutjämnaren. Du kan se hur belastningsutjämnaren visar hälsotillståndet för ditt program, vilket indikeras av hälsoavsökningskonfigurationen. |  Medel |
+| Tillgänglighet för datasökväg | Offentlig och intern belastningsutjämnare | Standardbelastningsutjämnaren tränar kontinuerligt datasökvägen inifrån en region till belastningsutjämnarfronten, hela vägen till SDN-stacken som stöder den virtuella datorn. Så länge felfria instanser finns kvar följer mätningen samma sökväg som programmets belastningsbalanserade trafik. Den datasökväg som dina kunder använder valideras också. Mätningen är osynlig för ditt program och stör inte andra åtgärder.| Medel |
+| Status för hälsoavsökning | Offentlig och intern belastningsutjämnare | Standardbelastningsutjämnaren använder en distribuerad hälsoavsökningstjänst som övervakar programmets slutpunkts hälsotillstånd enligt dina konfigurationsinställningar. Det här måttet ger en samlad eller filtrerad vy per slutpunkt för varje instansslutpunkt i belastningsutjämnaren. Du kan se hur belastningsutjämnaren visar hälsotillståndet för ditt program, vilket indikeras av hälsoavsökningskonfigurationen. |  Medel |
 | SYN-paket (synkronisera) | Offentlig och intern belastningsutjämnare | Standardbelastningsutjämnar inte TCP-anslutningar (Transmission Control Protocol) eller interagerar med TCP- eller UDP-paketflöden. Flöden och deras handslag är alltid mellan källan och VM-instansen. Om du vill felsöka dina TCP-protokollscenarier kan du använda SYN-paketräknare för att förstå hur många TCP-anslutningsförsök som görs. Måttet rapporterar antalet TCP SYN-paket som togs emot.| Medel |
 | SNAT-anslutningar | Offentlig belastningsutjämnare |Standardbelastningsutjämnaren rapporterar antalet utgående flöden som är maskerade till den offentliga IP-adressens klientdel. SNAT-portar (Source Network Address Translation) är en uttömlig resurs. Det här måttet kan ge en indikation på hur tungt ditt program är beroende av SNAT för utgående ursprungsflöden. Räknare för lyckade och misslyckade utgående SNAT-flöden rapporteras och kan användas för att felsöka och förstå hälsotillståndet för dina utgående flöden.| Medel |
 | Tilldelade SNAT-portar | Offentlig belastningsutjämnare | Standardbelastningsutjämnare rapporterar antalet SNAT-portar som allokerats per serverdelsinstans | Genomsnittliga. |
@@ -85,13 +85,13 @@ Så här konfigurerar du varningar:
 
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Vanliga diagnostiska scenarier och rekommenderade vyer
 
-#### <a name="is-the-data-path-up-and-available-for-my-load-balancer-vip"></a>Är datasökvägen uppe och tillgänglig för min belastningsutjämnare VIP?
+#### <a name="is-the-data-path-up-and-available-for-my-load-balancer-frontend"></a>Är datasökvägen uppåt och tillgänglig för min belastningsutjämnad frontend?
 <details><summary>Visa</summary>
 
-Vip-tillgänglighetsmåttet beskriver hälsotillståndet för datasökvägen i regionen till beräkningsvärden där dina virtuella datorer finns. Måttet är en återspegling av hälsotillståndet för Azure-infrastrukturen. Du kan använda måttet för att:
+Mätvärden för tillgänglighet för datasökväg beskriver hälsotillståndet för datasökvägen i regionen till den beräkningsvärd där dina virtuella datorer finns. Måttet är en återspegling av hälsotillståndet för Azure-infrastrukturen. Du kan använda måttet för att:
 - Övervaka tjänstens externa tillgänglighet
 - Gräva djupare och förstå om plattformen där din tjänst distribueras är felfri eller om gästoperativsystemet eller programinstansen är felfri.
-- Isolera om en händelse är relaterad till din tjänst eller det underliggande dataplanet. Blanda inte ihop det här måttet med hälsoavsökningsstatusen ("DIP-tillgänglighet").
+- Isolera om en händelse är relaterad till din tjänst eller det underliggande dataplanet. Blanda inte ihop det här måttet med hälsoavsökningsstatusen ("Serveringsinstanstillgänglighet").
 
 Så här hämtar du datasökvägstillgängligheten för standardbelastningsutjämningsresurserna:
 1. Kontrollera att rätt belastningsutjämnad resurs är markerad. 
@@ -107,7 +107,7 @@ Måttet genereras av en aktiv, in-band-mätning. En sonderingstjänst inom regio
 
 Ett paket som matchar distributionens klientdel och regel genereras med jämna mellanrum. Den korsar regionen från källan till värden där en virtuell dator i backend-poolen finns. Belastningsutjämnarinfrastrukturen utför samma belastningsutjämning och översättningsåtgärder som för all annan trafik. Den här avsökningen är i-bandet på din belastningsbalanserade slutpunkt. När avsökningen anländer till beräkningsvärden, där en felfri virtuell dator i backend-poolen finns, genererar beräkningsvärden ett svar på avsökningstjänsten. Den virtuella datorn ser inte den här trafiken.
 
-VIP-tillgänglighet misslyckas av följande skäl:
+Tillgängligheten för datapath-tillgänglighet misslyckas av följande skäl:
 - Distributionen har inga felfria virtuella datorer kvar i backend-poolen. 
 - Ett avbrott i infrastrukturen har inträffat.
 
@@ -116,7 +116,7 @@ För diagnostikändamål kan du använda [måttet Tillgänglighet för datasökv
 Använd **Medel** som aggregering för de flesta scenarier.
 </details>
 
-#### <a name="are-the-back-end-instances-for-my-vip-responding-to-probes"></a>Svarar backend-instanserna för min VIP på sonder?
+#### <a name="are-the-backend-instances-for-my-load-balancer-responding-to-probes"></a>Svarar serverningsinstanserna för min belastningsutjämnare på avsökningar?
 <details>
   <summary>Visa</summary>
 Hälsoavsökningsstatusmåttet beskriver hälsotillståndet för programdistributionen som konfigurerats av dig när du konfigurerar hälsoavsökningen för din belastningsutjämnare. Belastningsutjämnaren använder hälsoavsökningens status för att avgöra var nya flöden ska skickas. Hälsoavsökningar kommer från en Azure-infrastrukturadress och är synliga i gästoperativsystemet för den virtuella datorn.
@@ -209,19 +209,19 @@ Så här hämtar du statistik över antal byte eller paket:
 #### <a name="how-do-i-diagnose-my-load-balancer-deployment"></a><a name = "vipavailabilityandhealthprobes"></a>Hur diagnostiserar jag min belastningsutjämnad distribution?
 <details>
   <summary>Visa</summary>
-Genom att använda en kombination av VIP-tillgänglighet och hälsoavsökningsmått på ett enda diagram kan du identifiera var du ska leta efter problemet och lösa problemet. Du kan få en försäkran om att Azure fungerar korrekt och använda den här kunskapen för att slutgiltigt fastställa att konfigurationen eller programmet är grundorsaken.
+Genom att använda en kombination av måtten Data path Availability och Health Probe Status i ett enda diagram kan du identifiera var du ska leta efter problemet och lösa problemet. Du kan få en försäkran om att Azure fungerar korrekt och använda den här kunskapen för att slutgiltigt fastställa att konfigurationen eller programmet är grundorsaken.
 
 Du kan använda hälsoavsökningsmått för att förstå hur Azure visar hälsotillståndet för din distribution enligt den konfiguration du har angett. Att titta på hälso-sonder är alltid ett bra första steg i övervakning eller fastställande av en orsak.
 
-Du kan ta det ett steg längre och använda VIP-tillgänglighetsmått för att få insikt i hur Azure visar hälsotillståndet för det underliggande dataplanet som är ansvarigt för din specifika distribution. När du kombinerar båda mätvärdena kan du isolera var felet kan vara, vilket illustreras i det här exemplet:
+Du kan ta det ett steg längre och använda datasökvägstillgänglighetsmått för att få insikt i hur Azure visar hälsotillståndet för det underliggande dataplanet som är ansvarigt för din specifika distribution. När du kombinerar båda mätvärdena kan du isolera var felet kan vara, vilket illustreras i det här exemplet:
 
 ![Kombinera datasökvägstillgänglighet och statusmått för hälsoavsökning](./media/load-balancer-standard-diagnostics/lbmetrics-dipnvipavailability-2bnew.png)
 
 *Bild: Kombinera datasökvägstillgänglighet och statusmått för hälsoavsökning*
 
 Diagrammet visar följande information:
-- Infrastrukturen som är värd för dina virtuella datorer var inte tillgänglig och 0 procent i början av diagrammet. Senare var infrastrukturen felfri och de virtuella datorerna kunde nås och mer än en virtuell dator placerades i den bakre delen. Den här informationen indikeras av den blå spårningen för datasökvägstillgänglighet (VIP-tillgänglighet), som senare var 100 procent. 
-- Hälsoavsökningsstatusen (DIP-tillgänglighet), som indikeras av den lila spårningen, är 0 procent i början av diagrammet. Det inringade området i gröna högdagrar där hälsoavsökningsstatusen (DIP-tillgänglighet) blev felfri och då kunde kundens distribution acceptera nya flöden.
+- Infrastrukturen som är värd för dina virtuella datorer var inte tillgänglig och 0 procent i början av diagrammet. Senare var infrastrukturen felfri och de virtuella datorerna kunde nås och mer än en virtuell dator placerades i den bakre delen. Den här informationen indikeras av den blå spårningen för datasökvägstillgänglighet, som senare var 100 procent. 
+- Hälsoavsökningsstatusen, som indikeras av den lila spårningen, är 0 procent i början av diagrammet. Det inringade området i gröna höjdpunkter där hälsoavsökningsstatusen blev hälsosam, och då kunde kundens distribution acceptera nya flöden.
 
 Diagrammet gör det möjligt för kunder att felsöka distributionen på egen hand utan att behöva gissa eller fråga support om andra problem uppstår. Tjänsten var inte tillgänglig eftersom hälsoavsökningar misslyckades på grund av antingen en felkonfiguration eller ett misslyckat program.
 </details>

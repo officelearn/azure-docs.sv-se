@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 3b73c329c3db54ba78db15ced8e919af4d4a45d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0d6d69b82e80ff9bc33e49302cf59766b9c2e8d4
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79249742"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270833"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Vanliga frågor och svar om SQL Server som körs på virtuella Windows-datorer i Azure
 
@@ -53,9 +53,17 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om hur 
 
    Ja, genom att använda PowerShell. Mer information om hur du distribuerar virtuella SQL Server-datorer med PowerShell finns i Så här etablerar du [virtuella SQL Server-datorer med Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 
-1. **Kan jag skapa en generaliserad Azure SQL Server Marketplace-avbildning av min virtuella SQL Server-dator och använda den för att distribuera virtuella datorer?**
+1. **Hur kan jag generalisera SQL Server på Azure VM och använda den för att distribuera nya virtuella datorer?**
 
-   Ja, men du måste sedan [registrera varje VIRTUELL SQL Server med SQL Server VM-resursprovidern](virtual-machines-windows-sql-register-with-resource-provider.md) för att hantera din VIRTUELLA SQL Server-dator i portalen, samt använda funktioner som automatisk korrigering och automatiska säkerhetskopieringar. När du registrerar dig hos resursprovidern måste du också ange licenstypen för varje VIRTUELL SQL Server. 
+   Du kan distribuera en Virtuell Windows Server -dator (utan SQL Server installerad på den) och använda [SQL sysprep-processen](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) för att generalisera SQL Server på Azure VM (Windows) med SQL Server-installationsmedia. Kunder som har [programvarusäkring](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) kan hämta sina installationsmedia från [Volymlicensieringscentret](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Kunder som inte har programvarusäkring kan använda installationsmediet från en MARKETPLACE SQL Server VM-avbildning som har önskad utgåva.
+
+   Du kan också använda en av SQL Server-avbildningarna från Azure Marketplace för att generalisera SQL Server på Azure VM. Observera att du måste ta bort följande registernyckel i källavbildningen innan du skapar en egen avbildning. Om du inte gör det kan det leda till uppblåsthet i SQL Server-konfigurationen bootstrap-mappen och/eller SQL IaaS-tillägget i feltillstånd.
+
+   Sökväg till registernyckel:  
+   `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
+
+   > [!NOTE]
+   > Vi rekommenderar att alla virtuella SQL Server Azure-datorer, inklusive de som distribueras från anpassade generaliserade avbildningar, [registreras med en SQL VM-provider](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) för att uppfylla efterlevnadskraven och för att använda valfria funktioner som automatisk korrigering och automatisk säkerhetskopiering. Du kan också [ange licenstypen](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) för varje VIRTUELL SQL Server.
 
 1. **Kan jag använda min egen virtuella hårddisk för att distribuera en VIRTUELL SQL Server?**
 
@@ -117,13 +125,13 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om hur 
    Den passiva SQL Server-instansen betjänar inte SQL Server-data till klienter eller kör aktiva SQL Server-arbetsbelastningar. Det används endast för att synkronisera med den primära servern och på annat sätt underhålla den passiva databasen i ett varmt vänteläge. Om data betjänar data, till exempel rapporter till klienter som kör aktiva SQL Server-arbetsbelastningar, eller utför något annat arbete än vad som anges i produkttermerna, måste det vara en betald licensierad SQL Server-instans. Följande aktivitet tillåts i den sekundära instansen: databaskonsekvenskontroller eller CheckDB, fullständiga säkerhetskopior, säkerhetskopiering av transaktionsloggar och övervakning av resursanvändningsdata. Du kan också köra den primära och motsvarande katastrofåterställningsinstansen samtidigt under korta perioder av haveriberedskapstestning var 90:e dag.
    
 
-1. **Vilka scenarier kan använda distaster Recovery (DR) fördel?**
+1. **Vilka scenarier kan använda dr-förmånen (Disaster Recovery)?**
 
    [Licensieringsguiden](https://aka.ms/sql2019licenseguide) innehåller scenarier där ersättningen för katastrofåterställning kan användas. Mer information finns i dina produktvillkor och prata med dina licenskontakter eller kontohanterare.
 
 1. **Vilka prenumerationer stöder dr-förmånen (Disaster Recovery)?**
 
-   Omfattande program som erbjuder Software Assurance motsvarande teckningsrätter som en fast förmån stöder DR-förmånen. Detta inkluderar. men är inte begränsat till, Open Value (OV), Open Value Subscription (OVS), Enterprise Agreement (EA), Enterprise Subscription Agreement (EAS) och Server and Cloud Enrollment (SCE). Mer information finns i [produktvillkoren](https://www.microsoft.com/licensing/product-licensing/products) och prata med dina licenskontakter eller acocunt manager. 
+   Omfattande program som erbjuder Software Assurance motsvarande teckningsrätter som en fast förmån stöder DR-förmånen. Detta inkluderar. men är inte begränsat till, Open Value (OV), Open Value Subscription (OVS), Enterprise Agreement (EA), Enterprise Subscription Agreement (EAS) och Server and Cloud Enrollment (SCE). Mer information finns i [produktvillkoren](https://www.microsoft.com/licensing/product-licensing/products) och prata med dina licenskontakter eller kontohanterare. 
 
    
  ## <a name="resource-provider"></a>Resursprovider

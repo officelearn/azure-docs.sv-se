@@ -3,7 +3,7 @@ title: Diagnostikloggar i Azure | Microsoft-dokument
 description: Kunden kan aktivera logganalys för Azure CDN.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
-ms.author: magattus
-ms.openlocfilehash: 86696ed6715b4e43a9d02232c013eb64feb61f67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 35d028a38e6ac19f270abcc8708a532b3749eb39
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67594213"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254809"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure diagnostikloggar
 

@@ -3,12 +3,12 @@ title: Taggstöd för resurser
 description: Visar vilka Azure-resurstyper som stöder taggar. Innehåller information om alla Azure-tjänster.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: b8b1c0b738bb8b94ee53433141f1ae3dbbb3f942
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: c971d3af102faf99f97aac261882797460d71f37
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80982335"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255035"
 ---
 # <a name="tag-support-for-azure-resources"></a>Taggstöd för Azure-resurser
 I den här artikeln beskrivs om en resurstyp stöder [taggar](tag-resources.md). Kolumnen med etiketten **Stöder taggar** anger om resurstypen har en egenskap för taggen. Kolumnen Tagg **i kostnadsrapport** anger om resurstypen skickar taggen till kostnadsrapporten. Du kan visa kostnader efter taggar i [kostnadshanteringskostnadsanalysen](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) och [Azure-faktureringsfakturan och dagliga användningsdata](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -96,6 +96,7 @@ Gå till ett namnområde för resursleverantören:
 > - [Microsoft.HybridData](#microsofthybriddata)
 > - [Microsoft.Hydra (på andra)](#microsofthydra)
 > - [Microsoft.ImportExport](#microsoftimportexport)
+> - [Microsoft.Insights](#microsoftinsights)
 > - [Microsoft.Intune](#microsoftintune)
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
 > - [Microsoft.IoTSpaces](#microsoftiotspaces)
@@ -1201,6 +1202,33 @@ Gå till ett namnområde för resursleverantören:
 > | ------------- | ----------- | ----------- |
 > | Jobb | Ja | Ja |
 
+## <a name="microsoftinsights"></a>Microsoft.Insights
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Stöder taggar | Tagg i kostnadsrapport |
+> | ------------- | ----------- | ----------- |
+> | actionGroups | Ja | Ja |
+> | aktivitetLogAlerts | Ja | Ja |
+> | varningsreglerna | Ja | Ja |
+> | automatisk skalning | Ja | Ja |
+> | Komponenter | Ja | Ja |
+> | komponenter / linkedStorageAccounts | Inga | Inga |
+> | komponenter / ProactiveDetectionConfigs | Inga | Inga |
+> | diagnostikInställningar | Inga | Inga |
+> | gästDiagnosticSettings | Ja | Ja |
+> | gästDiagnosticSettingsAssociation | Ja | Ja |
+> | logprofiler | Ja | Ja |
+> | metricAlerts | Ja | Ja |
+> | privateLinkScopes | Ja | Ja |
+> | privateLinkScopes / privateEndpointConnections | Inga | Inga |
+> | privateLinkScopes / scopedResources | Inga | Inga |
+> | queryPacks | Ja | Ja |
+> | queryPacks / frågor | Inga | Inga |
+> | schemalagdakrytor | Ja | Ja |
+> | webbtests | Ja | Ja |
+> | arbetsböcker | Ja | Ja |
+> | arbetsboksmallar | Ja | Ja |
+
 ## <a name="microsoftintune"></a>Microsoft.Intune
 
 > [!div class="mx-tableFixed"]
@@ -1454,7 +1482,7 @@ Gå till ett namnområde för resursleverantören:
 > | applicationSecurityGroups | Ja | Ja |
 > | azureFirewallFqdnTags | Inga | Inga |
 > | azureFirewalls | Ja | Inga |
-> | bastionHosts (bastionHosts) | Ja | Ja |
+> | bastionHosts (bastionHosts) | Ja | Inga |
 > | bgpServiceKommuner | Inga | Inga |
 > | Anslutningar | Ja | Ja |
 > | ddosCustomPolicies | Ja | Ja |
@@ -1484,14 +1512,14 @@ Gå till ett namnområde för resursleverantören:
 > | frontdoorWebApplicationFirewallPolicies | Ja, men begränsad (se [anmärkning nedan)](#frontdoor) | Ja |
 > | getDnsResourceReference | Inga | Inga |
 > | interntAnmäl dig | Inga | Inga |
-> | loadBalancers | Ja | Inga |
+> | loadBalancers | Ja | Ja |
 > | localNetworkGateways | Ja | Ja |
 > | natGateways (natGateways) | Ja | Ja |
 > | nätverkIntentPolicies | Ja | Ja |
 > | nätverkGränssnitt | Ja | Ja |
 > | nätverkProfiler | Ja | Ja |
 > | nätverkSäkerhetsgrupper | Ja | Ja |
-> | nätverkWatchers | Ja | Inga |
+> | nätverkWatchers | Ja | Ja |
 > | nätverkWatchers / connectionMonitors | Ja | Inga |
 > | nätverkWatchers / flowLogs | Inga | Inga |
 > | nätverkWatchers / linser | Ja | Inga |
@@ -1524,8 +1552,8 @@ Gå till ett namnområde för resursleverantören:
 > | virtualNetworkGateways | Ja | Ja |
 > | virtualNetworks | Ja | Ja |
 > | virtualNetworkTaps | Ja | Ja |
-> | virtuellaWans | Ja | Ja |
-> | vpnGateways (vpnGateways) | Ja | Inga |
+> | virtuellaWans | Ja | Inga |
+> | vpnGateways (vpnGateways) | Ja | Ja |
 > | vpnSites (vpnSites) | Ja | Ja |
 > | webApplicationFirewallPolicies | Ja | Ja |
 
@@ -1821,7 +1849,7 @@ Gå till ett namnområde för resursleverantören:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder taggar | Tagg i kostnadsrapport |
 > | ------------- | ----------- | ----------- |
-> | Namnområden | Ja | Inga |
+> | Namnområden | Ja | Ja |
 > | namnrymd / tillståndsregler | Inga | Inga |
 > | namnrymd / katastrofåterupptäcktconfigs | Inga | Inga |
 > | namnområden / eventgridfilter | Inga | Inga |

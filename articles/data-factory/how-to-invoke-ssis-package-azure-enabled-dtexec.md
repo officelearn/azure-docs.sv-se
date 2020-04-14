@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/21/2019
+ms.date: 04/12/2020
 author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
-ms.openlocfilehash: a5540eea91937319a6ac947b50698ccaa8b25847
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 006d4fa9ed09170a423e796e893b817e079e861b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74931709"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261947"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Kör SQL Server Integration Services-paket med azure-aktiverade dtexec-verktyget
 I den här artikeln beskrivs kommando promptverktyget för Azure-aktiverade dtexec (AzureDTExec). Den används för att köra SSIS-paket (SQL Server Integration Services) på Azure-SSIS Integration Runtime (IR) i Azure Data Factory.
@@ -46,19 +46,19 @@ I fönstret **AzureDTExecConfig** anger du dina konfigurationsinställningar på
 - **ApplicationId**: Ange den unika identifieraren för Azure AD-appen som du skapar med rätt behörighet för att generera pipelines i din datafabrik. Mer information finns i [Skapa en Azure AD-app och tjänsthuvudnamn via Azure Portal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 - **AuthenticationKey**: Ange autentiseringsnyckeln för din Azure AD-app.
 - **TenantId**: Ange den unika identifieraren för Azure AD-klienten, under vilken din Azure AD-app skapas.
-- **SubscriptionId**: Ange den unika identifieraren för Azure-prenumerationen, under vilken din datafabrik skapades.
-- **ResourceGroup**: Ange namnet på den Azure-resursgrupp där datafabriken skapades.
 - **DataFactory**: Ange namnet på din datafabrik där unika pipelines med Kör SSIS-paketaktivitet i dem genereras baserat på värdena för alternativ som tillhandahålls när du anropar AzureDTExec.
 - **IRName**: Ange namnet på Azure-SSIS IR i din datafabrik, där paketen som anges i deras UNC-sökväg (Universal Naming Convention) körs när du anropar AzureDTExec.
-- **PackageAccessDomain**: Ange domänautentiseringsuppgifter för att komma åt dina paket i deras UNC-sökväg som anges när du anropar AzureDTExec.
-- **PackageAccessUserName**: Ange användarnamnsautentiseringsuppgifterna för att komma åt dina paket i deras UNC-sökväg som anges när du anropar AzureDTExec.
-- **PackageAccessPassword**: Ange lösenordsautentiseringsuppgifter för att komma åt dina paket i deras UNC-sökväg som anges när du anropar AzureDTExec.
-- **LogPath**: Ange UNC-sökvägen för loggmappen, där loggfiler från dina paketkörningar på Azure-SSIS IR skrivs.
-- **LogLevel**: Ange det valda omfånget för loggning från fördefinierade **null,** **Basic,** **Verbose**eller **Performance-alternativ** för dina paketkörningar på Azure-SSIS IR.
-- **LogAccessDomain**: Ange domänautentiseringsuppgifter för att komma åt loggmappen i UNC-sökvägen när du skriver loggfiler, vilket krävs när **LogPath** har angetts och **LogLevel** inte är **null**.
-- **LogAccessUserName**: Ange användarnamnsautentiseringsuppgifter för att komma åt loggmappen i UNC-sökvägen när du skriver loggfiler, vilket krävs när **LogPath** har angetts och **LogLevel** inte är **null**.
-- **LogAccessPassword**: Ange lösenordsautentiseringsuppgifter för att komma åt loggmappen i unc-sökvägen när du skriver loggfiler, vilket krävs när **LogPath** har angetts och **LogLevel** inte är **null**.
 - **PipelineNameHashStrLen**: Ange längden på hash-strängar som ska genereras från värdena för alternativ som du anger när du anropar AzureDTExec. Strängarna används för att skapa unika namn för Data Factory-pipelines som kör dina paket på Azure-SSIS IR. Vanligtvis räcker det med en längd på 32 tecken.
+- **ResourceGroup**: Ange namnet på den Azure-resursgrupp där datafabriken skapades.
+- **SubscriptionId**: Ange den unika identifieraren för Azure-prenumerationen, under vilken din datafabrik skapades.
+- **LogAccessDomain**: Ange domänautentiseringsuppgifter för att komma åt loggmappen i UNC-sökvägen när du skriver loggfiler, vilket krävs när **LogPath** har angetts och **LogLevel** inte är **null**.
+- **LogAccessPassword**: Ange lösenordsautentiseringsuppgifter för att komma åt loggmappen i unc-sökvägen när du skriver loggfiler, vilket krävs när **LogPath** har angetts och **LogLevel** inte är **null**.
+- **LogAccessUserName**: Ange användarnamnsautentiseringsuppgifter för att komma åt loggmappen i UNC-sökvägen när du skriver loggfiler, vilket krävs när **LogPath** har angetts och **LogLevel** inte är **null**.
+- **LogLevel**: Ange det valda omfånget för loggning från fördefinierade **null,** **Basic,** **Verbose**eller **Performance-alternativ** för dina paketkörningar på Azure-SSIS IR.
+- **LogPath**: Ange UNC-sökvägen för loggmappen, där loggfiler från dina paketkörningar på Azure-SSIS IR skrivs.
+- **PackageAccessDomain**: Ange domänautentiseringsuppgifter för att komma åt dina paket i deras UNC-sökväg som anges när du anropar AzureDTExec.
+- **PackageAccessPassword**: Ange lösenordsautentiseringsuppgifter för att komma åt dina paket i deras UNC-sökväg som anges när du anropar AzureDTExec.
+- **PackageAccessUserName**: Ange användarnamnsautentiseringsuppgifterna för att komma åt dina paket i deras UNC-sökväg som anges när du anropar AzureDTExec.
 
 Om du vill lagra dina paket och loggfiler i filsystem eller filresurser lokalt ansluter du till din Azure-SSIS IR till ett virtuellt nätverk som är anslutet till ditt lokala nätverk så att det kan hämta dina paket och skriva dina loggfiler. Mer information finns i [Ansluta till en Azure-SSIS IR till ett virtuellt nätverk](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
 
@@ -92,7 +92,7 @@ Att anropa AzureDTExec erbjuder liknande alternativ som att anropa dtexec. Mer i
 
 ## <a name="next-steps"></a>Nästa steg
 
-När unika pipelines med aktiviteten Kör SSIS-paket i dem genereras och körs när du har anropat AzureDTExec kan de övervakas på Data Factory-portalen. Mer information finns i [Kör SSIS-paket som datafabriksaktiviteter](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
+När unika pipelines med aktiviteten Kör SSIS-paket i dem genereras och körs när du anropar AzureDTExec, kan de övervakas på Data Factory-portalen. Du kan också tilldela datafabriksutlösare till dem om du vill dirigera/schemalägga dem med Data Factory. Mer information finns i [Kör SSIS-paket som datafabriksaktiviteter](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
 
 > [!WARNING]
 > Den genererade pipelinen förväntas endast användas av AzureDTExec. Dess egenskaper eller parametrar kan ändras i framtiden, så ändra eller återanvänd inte dem för andra ändamål. Ändringar kan bryta AzureDTExec. Om detta inträffar tar du bort pipelinen. AzureDTExec genererar en ny pipeline nästa gång den anropas.

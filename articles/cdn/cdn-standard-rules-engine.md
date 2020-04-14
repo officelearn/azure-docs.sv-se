@@ -2,17 +2,17 @@
 title: Använd en regelmotor för att framtvinga HTTPS i Azure-standard-CDN | Microsoft-dokument
 description: Använd regelmotorn för Azure CDN (Microsoft Standard Azure Content Delivery Network) för att anpassa hur Azure CDN hanterar HTTP-begäranden, inklusive att blockera leveransen av vissa typer av innehåll, definiera en cachelagringsprincip och ändra HTTP-huvuden. I den här artikeln kan du lära dig hur du skapar en regel för att omdirigera användare till HTTPS.
 services: cdn
-author: mdgattuso
+author: asudbring
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: magattus
-ms.openlocfilehash: 724861305d7a25db409072200ac2bc3bd83f0682
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: allensu
+ms.openlocfilehash: 91a442573139bf4fdd09978290bf2380c8bcb97e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74171577"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259941"
 ---
 # <a name="set-up-the-standard-rules-engine-for-azure-cdn"></a>Konfigurera standardregler för Azure CDN
 

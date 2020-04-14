@@ -1,5 +1,5 @@
 ---
-title: Fuzzy sökning
+title: Fuzzy-sökning
 titleSuffix: Azure Cognitive Search
 description: Implementera en "menade du" sökupplevelse för att automatiskt korrigera en felstavad term eller stavfel.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 95f6befa7e97984ad64a3ffb2a9b91d343945cbb
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 32ad34bcfb42bf8fc45ba7fdb7fba5e797ee6106
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "81000666"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262442"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Fuzzy sökning för att korrigera felstavningar och stavfel
 
@@ -71,7 +71,7 @@ I Azure Cognitive Search, förutom termen och avståndet (högst 2), finns det i
 > [!NOTE]
 > Under frågebearbetningen genomgår inte luddiga frågor [lexikal analys](search-lucene-query-architecture.md#stage-2-lexical-analysis). Frågeindata läggs till direkt i frågeträdet och expanderas för att skapa ett diagram med termer. Den enda omvandling som utförs är lägre hölje.
 
-## <a name="how-to-test-fuzzy-search"></a>Så här testar du fuzzy search
+## <a name="testing-fuzzy-search"></a>Testa fuzzy sökning
 
 För enkel testning rekommenderar vi [Sökutforskare eller](search-explorer.md) [Brevbärare](search-get-started-postman.md) för iterering över ett frågeuttryck. Båda verktygen är interaktiva, vilket innebär att du snabbt kan gå igenom flera varianter av en term och utvärdera svaren som kommer tillbaka.
 

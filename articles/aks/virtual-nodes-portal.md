@@ -4,12 +4,12 @@ description: Lär dig hur du använder Azure-portalen för att skapa ett AKS-klu
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 696821e12e963292107cad5b22f00a9816a94b25
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 7b9127c016fff78a8867dcecbe3260becdf02c65
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80616414"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259127"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Skapa och konfigurera ett AKS-kluster (Azure Kubernetes Services) för att använda virtuella noder i Azure-portalen
 
@@ -66,7 +66,7 @@ Funktionen Virtuella noder är starkt beroende av ACI:s funktionsuppsättning. F
 * [Värdalias](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Argument](../container-instances/container-instances-exec.md#restrictions) för exec i ACI
 * [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) distribuerar inte poddar till den virtuella noden
-* [Windows Server-noder (för närvarande i förhandsversion i AKS)](windows-container-cli.md) stöds inte tillsammans med virtuella noder. Du kan använda virtuella noder för att schemalägga Windows Server-behållare utan att windows servernoder behöver användas i ett AKS-kluster.
+* Virtuella noder stöder schemaläggning av Linux-poddar. Du kan manuellt installera [Virtual Kubelet ACI-providern](https://github.com/virtual-kubelet/azure-aci) med öppen källkod för att schemalägga Windows Server-behållare till ACI. 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 

@@ -5,35 +5,21 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 2c07e5eeedd2e4f42ec7b165bf161e142421df58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/13/2020
+ms.openlocfilehash: ffd4ab463080001dbab5b0ed9ece69c4b5f91382
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79527902"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272091"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Långsamma frågeloggar i Azure Database för MariaDB
 I Azure Database för MariaDB är den långsamma frågeloggen tillgänglig för användare. Åtkomst till transaktionsloggen stöds inte. Den långsamma frågeloggen kan användas för att identifiera flaskhalsar för prestanda för felsökning.
 
 Mer information om den långsamma frågeloggen finns i MariaDB-dokumentationen för [långsam frågelogg](https://mariadb.com/kb/en/library/slow-query-log-overview/).
 
-## <a name="access-slow-query-logs"></a>Komma åt långsamma frågeloggar
-Du kan lista och hämta Azure Database för MariaDB långsamma frågeloggar med Azure-portalen och Azure CLI.
-
-Välj din Azure-databas för MariaDB-server i Azure-portalen. Välj sidan **Serverloggar under** rubriken **Övervakning.**
-
-Mer information om Azure CLI finns i [Konfigurera och komma åt serverloggar med Azure CLI](howto-configure-server-logs-cli.md).
-
-På samma sätt kan du leda loggarna till Azure Monitor med hjälp av diagnostikloggar. Se [nedan](concepts-server-logs.md#diagnostic-logs) för mer information.
-
-## <a name="log-retention"></a>Loggkvarhållning
-Loggar är tillgängliga i upp till sju dagar från deras skapelse. Om den totala storleken på de tillgängliga loggarna överstiger 7 GB tas de äldsta filerna bort tills det finns ledigt.
-
-Loggarna roteras var 24:e timme eller 7 GB, beroende på vilket som inträffar först.
-
 ## <a name="configure-slow-query-logging"></a>Konfigurera långsam frågeloggning
-Som standard är den långsamma frågeloggen inaktiverad. Om du vill aktivera den ställer du in slow_query_log på PÅ.
+Som standard är den långsamma frågeloggen inaktiverad. Om du vill `slow_query_log` aktivera den ställer du in på ON. Detta kan aktiveras med hjälp av Azure-portalen eller Azure CLI. 
 
 Andra parametrar som du kan justera är:
 
@@ -48,6 +34,21 @@ Andra parametrar som du kan justera är:
 > Om du planerar att logga långsamma frågor under en längre tid `log_output` rekommenderar vi att du ställer in "Ingen". Om den är inställd på "Arkiv" skrivs dessa loggar till den lokala serverlagringen och kan påverka MariaDB-prestanda. 
 
 Se dokumentationen för den [långsamma frågeloggen](https://mariadb.com/kb/en/library/slow-query-log-overview/) för MariaDB för fullständiga beskrivningar av parametrarna för långsam frågelogg.
+
+## <a name="access-slow-query-logs"></a>Komma åt långsamma frågeloggar
+Det finns två alternativ för åtkomst till långsamma frågeloggar i Azure Database för MariaDB: lokal serverlagring eller Azure Monitor Diagnostic Logs. Detta är inställt `log_output` med parametern.
+
+För lokal serverlagring kan du lista och hämta långsamma frågeloggar med Azure-portalen eller Azure CLI. Navigera till servern i Azure-portalen i Azure-portalen. Välj sidan **Serverloggar under** rubriken **Övervakning.** Mer information om Azure CLI finns i [Konfigurera och komma åt serverloggar med Azure CLI](howto-configure-server-logs-cli.md). 
+
+Med Azure Monitor Diagnostic Logs kan du leda långsamma frågeloggar till Azure Monitor Logs (Log Analytics), Azure Storage eller Event Hubs. Se [nedan](concepts-server-logs.md#diagnostic-logs) för mer information.
+
+## <a name="local-server-storage-log-retention"></a>Lokal lagringsloggkvarhållning
+När du loggar till serverns lokala lagring är loggar tillgängliga i upp till sju dagar från det att de har skapats. Om den totala storleken på de tillgängliga loggarna överstiger 7 GB tas de äldsta filerna bort tills det finns ledigt.
+
+Loggarna roteras var 24:e timme eller 7 GB, beroende på vilket som inträffar först.
+
+> [!Note]
+> Ovanstående loggkvarhållning gäller inte för loggar som är piped med Hjälp av Azure Monitor Diagnostic Logs. Du kan ändra kvarhållningsperioden för de datamottagare som skickas ut till (t.ex. Azure Storage).
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 Azure Database för MariaDB är integrerad med Azure Monitor Diagnostic Logs. När du har aktiverat långsamma frågeloggar på din MariaDB-server kan du välja att låta dem släppas ut till Azure Monitor-loggar, eventhubbar eller Azure Storage. Mer information om hur du aktiverar diagnostikloggar finns i avsnittet om [diagnostikloggar](../azure-monitor/platform/platform-logs-overview.md).
@@ -81,6 +82,9 @@ I följande tabell beskrivs vad som finns i varje logg. Beroende på utdatametod
 | `server_id_s` | Server-ID |
 | `thread_id_s` | Tråd-ID |
 | `\_ResourceId` | Resurs URI |
+
+> [!Note]
+> För `sql_text`kommer loggen att trunkeras om den överskrider 2048 tecken.
 
 ## <a name="analyze-logs-in-azure-monitor-logs"></a>Analysera loggar i Azure Monitor Logs
 

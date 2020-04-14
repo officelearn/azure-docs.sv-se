@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 17ecc80fee3b024c334b8d36533663f1f3cebe4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3237fe7d87ad058f255d1c77cb6d814bcd1c292e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79136913"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262255"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
 
@@ -50,7 +50,7 @@ Om användare har åtkomst till Azure-filresursen med Active Directory (AD) elle
 
 ### <a name="solution-for-cause-3"></a>Lösning för orsak 3
 
-Information om hur du uppdaterar behörigheterna på resursnivå finns i [Tilldela åtkomstbehörigheter till en identitet](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable#assign-access-permissions-to-an-identity).
+Information om hur du uppdaterar behörigheterna på resursnivå finns i [Tilldela åtkomstbehörigheter till en identitet](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable#2-assign-access-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Fel 53, Fel 67 eller Fel 87 när du monterar eller avmonterar en Azure-filresurs

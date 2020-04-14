@@ -1,18 +1,18 @@
 ---
 title: Använd tilläggssekvenserning med Azure-skalningsuppsättningar för virtuella datorer
 description: Lär dig hur du ordnar tilläggsetablering när du distribuerar flera tillägg på skalningsuppsättningar för virtuella datorer.
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: manayar
-ms.openlocfilehash: cde3fb8b56d8509a45bde00dde55e3c69d015b8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: 737040699dd62d722b9a9ad4d8915ccb270c2d06
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76278059"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273757"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Etablera sekvenstillägg i skalningsuppsättningar för virtuella datorer
 Azure-tillägg för virtuella datorer ger funktioner som konfiguration och hantering efter distributionen, övervakning, säkerhet med mera. Produktionsdistributioner använder vanligtvis en kombination av flera tillägg som konfigurerats för VM-instanserna för att uppnå önskat resultat.
@@ -143,7 +143,7 @@ Eftersom egenskapen "provisionAfterExtensions" accepterar en matris med tillägg
 }
 ```
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 I följande exempel läggs ett nytt tillägg till ExtensionC i en skalningsuppsättningsmodell. ExtensionC har beroenden på ExtensionA och ExtensionB, som redan har definierats i skalningsuppsättningsmodellen.
 
 ```

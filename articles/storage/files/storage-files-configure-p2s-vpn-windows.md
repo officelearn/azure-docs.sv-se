@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5f12b77f5baa1a3b06a093aac7267c65a038881e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 95386af4522adca1d65e04b01c2a349a80e9ab8a
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80061023"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273485"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Konfigurera ett P2S-VPN (Point-to-Site) i Windows för användning med Azure-filer
 Du kan använda en P2S-VPN-anslutning (Point-to-Site) för att montera dina Azure-filresurser via SMB utanför Azure, utan att öppna port 445. En Punkt-till-plats VPN-anslutning är en VPN-anslutning mellan Azure och en enskild klient. Om du vill använda en P2S VPN-anslutning med Azure Files måste en P2S VPN-anslutning konfigureras för varje klient som vill ansluta. Om du har många klienter som behöver ansluta till dina Azure-filresurser från ditt lokala nätverk kan du använda en S2S-anslutning (Site-to-Site) i stället för en Point-to-Site-anslutning för varje klient. Mer information finns i [Konfigurera ett plats-till-plats-VPN för användning med Azure Files](storage-files-configure-s2s-vpn.md).
@@ -79,7 +79,7 @@ $gatewaySubnet = $virtualNetwork.Subnets | `
 ```
 
 ## <a name="create-root-certificate-for-vpn-authentication"></a>Skapa rotcertifikat för VPN-autentisering
-För att VPN-anslutningar från dina lokala Windows-datorer ska autentiseras för att komma åt det virtuella nätverket måste du skapa två certifikat: ett rotcertifikat, som ska tillhandahållas till den virtuella datorns gateway, och ett klientcertifikat, som kommer att undertecknas med rotcertifikatet. Följande PowerShell skapar rotcertifikatet. Klientcertifikatet skapas när Azure-gatewayen för virtuella nätverk har skapats med information från gatewayen. 
+För att VPN-anslutningar från dina lokala Windows-datorer ska autentiseras för att komma åt det virtuella nätverket måste du skapa två certifikat: ett rotcertifikat som ska tillhandahållas till den virtuella datorns gateway och ett klientcertifikat som signeras med rotcertifikatet. Följande PowerShell skapar rotcertifikatet. Klientcertifikatet skapas när Azure-gatewayen för virtuella nätverk har skapats med information från gatewayen. 
 
 ```PowerShell
 $rootcertname = "CN=P2SRootCert"
@@ -138,7 +138,7 @@ $vpnName = "<desired-vpn-name-here>"
 $publicIpAddressName = "$vpnName-PublicIP"
 
 $publicIPAddress = New-AzPublicIpAddress `
-    -ResourceGroupName $resourceGroupName ` 
+    -ResourceGroupName $resourceGroupName `
     -Name $publicIpAddressName `
     -Location $region `
     -Sku Basic `
@@ -242,7 +242,7 @@ foreach ($session in $sessions) {
         -ArgumentList `
             $mypwd, `
             $vpnTemp, `
-            $virtualNetworkName
+            $virtualNetworkName `
         -ScriptBlock { 
             $mypwd = $args[0] 
             $vpnTemp = $args[1]
@@ -267,7 +267,7 @@ foreach ($session in $sessions) {
 
             Add-VpnConnection `
                 -Name $virtualNetworkName `
-                -ServerAddress $vpnProfile.VpnServer ` 
+                -ServerAddress $vpnProfile.VpnServer `
                 -TunnelType Ikev2 `
                 -EncryptionLevel Required `
                 -AuthenticationMethod MachineCertificate `

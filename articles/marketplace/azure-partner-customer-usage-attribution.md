@@ -1,53 +1,95 @@
 ---
-title: Attribution för Azure-partner och kundanvändning | Azure Marketplace
-description: Översikt över hur du spårar kundanvändning för Azure Marketplace-lösningar
+title: Attribution för kommersiell marketplace-partner och kundanvändning
+description: Få en översikt över spårning av kundanvändning för Azure Marketplace-lösningar.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 9/23/2019
+ms.date: 04/13/2020
 ms.author: dsindona
-ms.openlocfilehash: 2895944dea6417949488076186135680523e19db
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 5fec72ce5f86c1bee9ec0e978e458f5be454c8e3
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80874978"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81256611"
 ---
-# <a name="azure-partner-customer-usage-attribution"></a>Spårning av kundanvändning för Azure-partner
+# <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Attribution för kommersiell marketplace-partner och kundanvändning
 
-Som programvarupartner för Azure kräver dina lösningar Azure-komponenter eller så måste de distribueras direkt på Azure-infrastrukturen. Kunder som distribuerar en partnerlösning och etablerar sina egna Azure-resurser kan ha svårt att få insyn i distributionens status och få optik i effekten på Azure-tillväxten. När du lägger till en högre nivå av synlighet anpassar du dig till Microsofts säljteam och får kredit för Microsofts partnerprogram.
+Attribution för kundanvändning är en metod för att associera Azure-resurser som körs i kundprenumerationer, som distribueras för att köra din lösning, med dig som partner. Genom att skapa dessa associationer i interna Microsoft-system får du större insyn i Azure-fotavtrycket som kör programvaran. När du använder den här spårningsfunktionen anpassar du dig till Microsofts säljteam och får kredit för Microsofts partnerprogram.
 
-Microsoft erbjuder nu en metod som hjälper partner att bättre spåra Azure-användning av kunddistributioner av sin programvara på Azure. Den nya metoden använder Azure Resource Manager för att dirigera distributionen av Azure-tjänster.
+Du kan bilda associationen via Azure Marketplace, Snabbstartsdatabasen, privata GitHub-databaser och 1:1-kundeagemang som skapar hållbar IP (till exempel utveckling av en app).
 
-Som Microsoft-partner kan du associera Azure-användning med alla Azure-resurser som du etablerar för en kunds räkning. Du kan bilda associationen via Azure Marketplace, Snabbstartsdatabasen, privata GitHub-databaser och en-mot-en kundengagemang. Attribution för kundanvändning stöder tre distributionsalternativ:
+Attribution för kundanvändning stöder tre distributionsalternativ:
 
 - Azure Resource Manager-mallar: Partner kan använda Resource Manager-mallar för att distribuera Azure-tjänsterna för att köra partnerns programvara. Partner kan skapa en Resource Manager-mall för att definiera infrastrukturen och konfigurationen av sin Azure-lösning. Med en Resource Manager-mall kan du och dina kunder distribuera din lösning under hela livscykeln. Du kan vara säker på att dina resurser distribueras i ett konsekvent tillstånd.
 - Azure Resource Manager API:er: Partner kan anropa Resource Manager-API:erna direkt för att distribuera en Resource Manager-mall eller generera API-anrop för att direkt etablera Azure-tjänster.
-- Terraform: Partner kan använda molnorkestrar som Terraform för att distribuera en Resource Manager-mall eller distribuera Azure-tjänster direkt.
+- Terraform: Partners kan använda Terraform för att distribuera en Resource Manager-mall eller distribuera Azure-tjänster direkt.
 
-Kundanvändningsattribution är för ny distribution och stöder INTE taggning av befintliga resurser som redan har distribuerats.
-
-Attribution för kundanvändning krävs på [Azure Application](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer): lösningsmallerbjudande som publiceras på Azure Marketplace.
-
+>[!IMPORTANT]
+>- Attribution för kundanvändning är inte avsedd att spåra arbetet med systemintegratörer, hanterade tjänsteleverantörer eller verktyg som utformats för att distribuera och hantera programvara som körs på Azure.
+>
+>- Kundanvändningsattribution är för nya distributioner och stöder INTE taggning av befintliga resurser som redan har distribuerats.
+>
+>- Attribution för kundanvändning krävs för [Azure Application-erbjudanden](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer) som publiceras på Azure Marketplace.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+## <a name="create-guids"></a>Skapa GUID:er
+
+En GUID är en unik referensidentifierare som har 32 hexadecimala siffror. Om du vill skapa GUID:er för spårning bör du använda en GUID-generator. Azure Storage-teamet har skapat ett [GUID-generatorformulär](https://aka.ms/StoragePartners) som skickar ett GUID-gränssnitt med rätt format och kan återanvändas över de olika spårningssystemen.
+
+> [!NOTE]
+> Vi rekommenderar starkt att du använder [Azure Storages GUID-generatorformulär](https://aka.ms/StoragePartners) för att skapa ditt GUID. För mer information, se vår [FAQ](#faq).
+
+Vi rekommenderar att du skapar ett unikt GUID för varje erbjudande och distributionskanal för varje produkt. Du kan välja att använda ett enda GUID för produktens flera distributionskanaler om du inte vill att rapporteringen ska delas.
+
+Om du distribuerar en produkt med hjälp av en mall och den är tillgänglig på både Azure Marketplace och på GitHub kan du skapa och registrera två olika GUIDS:
+
+- Produkt A på Azure Marketplace
+- Produkt A på GitHub
+
+Rapporteringen görs av Microsoft Partner Network ID och GUID.
+
+Du kan också spåra användning på en mer detaljerad nivå genom att registrera ytterligare GUID:er och ändra GUID:er mellan planer, där planer är varianter av ett erbjudande.
+
+## <a name="register-guids"></a>Registrera GUID:er
+
+GUID:erna måste vara registrerade i Partner Center för att kunna tillskrivas kundanvändning.
+
+När du har lagt till ett GUID i mallen eller i användaragenten och registrerat GUID i Partner Center spåras framtida distributioner.
+
+1. Logga in [på Partner Center](https://partner.microsoft.com/dashboard).
+
+1. Registrera dig som en [kommersiell marknadsplats utgivare](https://aka.ms/JoinMarketplace).
+
+   * Partner måste [ha en profil i Partner center](https://docs.microsoft.com/azure/marketplace/become-publisher). Du uppmanas att lista erbjudandet i Azure Marketplace eller AppSource.
+   * Partner kan registrera flera GUID:er.
+   * Partner kan registrera GUID för lösningsmallar och erbjudanden som inte är marknadsplats.
+
+1. I det övre högra hörnet väljer du inställningsväxelikonen och väljer sedan **Utvecklarinställningar**.
+
+1. På **sidan Kontoinställningar**väljer du **Lägg till GUID för spårning.**
+
+1. Ange ditt guid-GUID i rutan **GUID.** Ange bara GUID utan **pid-prefixet.** Ange ditt erbjudandenamn eller beskrivning i rutan **Beskrivning.**
+
+1. Om du vill registrera mer än ett GUID väljer du **Lägg till GUID för spårning** igen. Ytterligare rutor visas på sidan.
+
+1. Välj **Spara**.
+
 ## <a name="use-resource-manager-templates"></a>Använda Resource Manager-mallar
-Många partnerlösningar distribueras på en kunds prenumeration med hjälp av Resource Manager-mallar. Om du har en Resource Manager-mall som är tillgänglig på Azure Marketplace, på GitHub eller som en snabbstart, bör processen för att ändra mallen för att aktivera attribution för kundanvändning vara enkel.
+Många partnerlösningar distribueras med Azure Resource Manager-mallar. Om du har en Resource Manager-mall som är tillgänglig på Azure Marketplace, på GitHub eller som en snabbstart, är processen för att ändra mallen för att aktivera attribution för kundanvändning rakt fram.
 
-Mer information om hur du skapar och publicerar lösningsmallar finns i
+> [!NOTE]
+> Mer information om hur du skapar och publicerar lösningsmallar finns i
+> * [Skapa och distribuera den första Resource Manager-mallen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+>* [Azure-programerbjudande](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
+>* Video: [Skapa lösningsmallar och hanterade program för Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
-* [Skapa och distribuera den första Resource Manager-mallen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
-* [Azure-programerbjudande](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
-* Video: [Skapa lösningsmallar och hanterade program för Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
-
-
-## <a name="add-a-guid-to-your-template"></a>Lägga till ett GUID i mallen
 
 Om du vill lägga till en globalt unik identifierare (GUID) gör du en enda ändring av huvudmallfilen:
 
-1. [Skapa ett GUID](#create-guids) med den föreslagna metoden och [registrera GUID](#register-guids-and-offers).
+1. [Skapa ett GUID](#create-guids) med den föreslagna metoden och [registrera GUID](#register-guids).
 
 1. Öppna mallen Resurshanteraren.
 
@@ -96,7 +138,7 @@ Om du vill aktivera attribution för kundanvändning, när du utformar dina API-
 
 ![Exempel på GUID-format](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
-> [!Note]
+> [!NOTE]
 > Strängens format är viktigt. Om **pid-prefixet** inte ingår är det inte möjligt att fråga efter data. Olika SDK-filer spårar olika. Om du vill implementera den här metoden läser du support- och spårningsmetoden för din önskade Azure SDK.
 
 #### <a name="example-the-python-sdk"></a>Exempel: Python SDK
@@ -105,7 +147,7 @@ Använd **attributet config för** Python. Du kan bara lägga till attributet i 
 
 ![Lägga till attributet i en användaragent](media/marketplace-publishers-guide/python-for-lu.PNG)
 
-> [!Note]
+> [!NOTE]
 > Lägg till attributet för varje klient. Det finns ingen global statisk konfiguration. Du kan tagga en klientfabrik för att vara säker på att alla klienter spårar. Mer information finns i det här [exemplet på klientfabriken på GitHub](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79).
 
 #### <a name="tag-a-deployment-by-using-the-azure-powershell"></a>Tagga en distribution med hjälp av Azure PowerShell
@@ -143,50 +185,6 @@ Partner som vill få sin distribution via Terraform spåras av kundanvändning a
 
 * Skapa ett GUID (GUID ska läggas till för varje Erbjudande eller SKU)
 * Uppdatera deras Azure-provider för att ställa in värdet *för partner_id* till GUID (INTE förkorrigering GUID med "pid-", bara ställa in den till den faktiska GUID)
-
-## <a name="create-guids"></a>Skapa GUID:er
-
-En GUID är ett unikt referensnummer som har 32 hexadecimala siffror. Om du vill skapa GUID:er för spårning bör du använda en GUID-generator. Azure Storage-teamet har skapat ett [GUID-generatorformulär](https://aka.ms/StoragePartners) som skickar ett GUID-gränssnitt med rätt format och kan återanvändas över de olika spårningssystemen.
-
-> [!Note]
-> Vi rekommenderar starkt att du använder [Azure Storages GUID-generatorformulär](https://aka.ms/StoragePartners) för att skapa ditt GUID. För mer information, se vår [FAQ](#faq).
-
-Vi rekommenderar att du skapar ett unikt GUID för varje erbjudande och distributionskanal för varje produkt. Du kan välja att använda ett enda GUID för produktens flera distributionskanaler om du inte vill att rapporteringen ska delas.
-
-Om du distribuerar en produkt med hjälp av en mall och den är tillgänglig på både Azure Marketplace och på GitHub kan du skapa och registrera två olika GUIDS:
-
-*   Produkt A på Azure Marketplace
-*   Produkt A på GitHub
-
-Rapporteringen görs av partnervärdet (Microsoft Partner ID) och GUID:erna.
-
-Du kan också spåra GUID:er på en mer detaljerad nivå som SKU, där SKU:er är varianter av ett erbjudande.
-
-## <a name="register-guids-and-offers"></a>Registrera GUIDs och erbjudanden
-
-GUID:erna måste registreras för att attribution för kundanvändning ska kunna aktiveras.
-
-Alla registreringar för mall-GUIDs görs i Partner Center.
-
-När du har lagt till GUID-enheten i mallen eller i användaragenten och registrerat GUID i Partner Center spåras alla distributioner.
-
-1. Registrera dig som en [kommersiell marknadsplats utgivare](https://aka.ms/JoinMarketplace).
-
-   * Partner måste [ha en profil i Partner center](https://docs.microsoft.com/azure/marketplace/become-publisher). Du uppmanas att lista erbjudandet i Azure Marketplace eller AppSource.
-   * Partner kan registrera flera GUID:er.
-   * Partner kan registrera ett GUID för icke-Marketplace-lösningsmallar och erbjudanden.
-
-1. Logga in [på Partner Center](https://partner.microsoft.com/dashboard).
-
-1. I det övre högra hörnet väljer du inställningsväxelikonen och väljer sedan **Utvecklarinställningar**.
-
-1. På **sidan Kontoinställningar**väljer du **Lägg till GUID för spårning.**
-
-1. Ange ditt guid-GUID i rutan **GUID.** Ange bara GUID utan **pid-prefixet.** Ange ditt erbjudandenamn eller beskrivning i rutan **Beskrivning.**
-
-1. Om du vill registrera mer än ett GUID väljer du **Lägg till GUID för spårning** igen. Ytterligare rutor visas på sidan.
-
-1. Välj **Spara**.
 
 
 ## <a name="verify-the-guid-deployment"></a>Verifiera GUID-distributionen
@@ -277,7 +275,7 @@ Om du behöver hjälp med Marketplace Onboarding och/eller kundanvändningsattri
 
 1. På nästa sida anger du de värden som krävs.
 
-   > [!Important]
+   > [!IMPORTANT]
    > I rutan **Incidentrubrik** anger du **ISV Usage Tracking**. Beskriv problemet i detalj.
 
    ![Ange ISV-användningsspårning för incidenttiteln](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
@@ -315,11 +313,11 @@ Ja, en kund eller implementeringspartner kan anpassa mallen och ändra eller ta 
 
 **Kan jag spåra mallar som distribuerats från en databas som inte kommer från Microsoft, till exempel GitHub?**
 
-Ja, så länge GUID finns när mallen distribueras spåras användningen. Partner måste ha en profil i den kommersiella marketplace-registreringen i Partner Center för att registrera GUID:er som används för distributionen utanför Azure Marketplace.
+Ja, så länge GUID finns när mallen distribueras spåras användningen. Partner måste fortfarande registrera sina GUID.Partners must still register their GUIDs.
 
 **Får kunden också rapportering?**
 
-Kunder kan spåra sin användning av enskilda resurser eller kunddefinierade resursgrupper i Azure-portalen.
+Kunder kan spåra sin användning av enskilda resurser eller kunddefinierade resursgrupper i Azure-portalen. Kunderna ser inte användning delas ut av GUID.
 
 **Liknar denna metod den digitala partnern för Record (DPOR)?**
 

@@ -3,7 +3,7 @@ title: Integrera Microsoft Azure med Oracles molninfrastruktur | Microsoft-dokum
 description: Lär dig mer om lösningar som integrerar Oracle-appar som körs på Microsoft Azure med databaser i Oracle Cloud Infrastructure (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
-author: romitgirdhar
+author: mimckitt
 manager: gwallace
 tags: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/16/2020
-ms.author: rogirdh
+ms.author: mimckitt
 ms.custom: ''
-ms.openlocfilehash: b5d5ebda850163989e6ef1af94ec623d2d758f07
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 178fb805f4bfc0762ce7e4a320752e5afa00cef5
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878297"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271870"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Oracle-programlösningar som integrerar Microsoft Azure- och Oracle-molninfrastruktur
 
@@ -55,6 +55,7 @@ Anslutning mellan moln är begränsad till följande regioner:
 * Azure Uk South (uksouth) & OCI London (Södra Storbritannien)
 * Azure Canada Central (canadacentral) & OCI Toronto (Sydöstra Kanada)
 * Azure West Europe (westeurope) & OCI Amsterdam (Nederländerna Nordväst)
+* Östra Azure Japan (japaneast) & OCI Tokyo (östra Japan)
 
 ## <a name="networking"></a>Nätverk
 

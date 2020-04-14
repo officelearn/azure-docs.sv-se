@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: db60a864ff29ff9eccdcfbdc0bd63587375d4bbd
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 5a05f2973ac17460250fb3e80eb7bc0da9849940
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81114966"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262884"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Partiell termsökning och mönster med specialtecken (jokertecken, regex, mönster)
 
@@ -22,6 +22,9 @@ En *partiell termsökning* refererar till frågor som består av termfragment, d
 Partiell sökning och mönstersökning kan vara problematiskt om indexet inte har termer i det förväntade formatet. Under den [lexikala analysfasen](search-lucene-query-architecture.md#stage-2-lexical-analysis) av indexering (förutsatt att standardstandardanalysatorn) ignoreras specialtecken, sammansatta och sammansatta strängar delas upp och blanktecken tas bort. alla som kan orsaka mönsterfrågor misslyckas när ingen matchning hittas. Ett telefonnummer `+1 (425) 703-6214` som (tokeniserat som `"1"` `"425"`, `"703"` `"6214"`, ) visas till `"3-62"` exempel inte i en fråga eftersom innehållet inte finns i indexet. 
 
 Lösningen är att anropa en analysator som bevarar en komplett sträng, inklusive blanksteg och specialtecken om det behövs, så att du kan matcha på partiella termer och mönster. Att skapa ytterligare ett fält för en intakt sträng, plus att använda en innehållsbevarande analysator, är grunden för lösningen.
+
+> [!TIP]
+> Känner du till Postman- och REST-API:er? [Hämta samlingen frågeexempel](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/full-syntax-examples) för att fråga partiella termer och specialtecken som beskrivs i den här artikeln.
 
 ## <a name="what-is-partial-search-in-azure-cognitive-search"></a>Vad är partiell sökning i Azure Cognitive Search
 
@@ -74,6 +77,7 @@ När du väljer en analysator som producerar heltermtoken är följande analysat
 
 | Analyzer | Beteenden |
 |----------|-----------|
+| [språkanalysatorer](index-add-language-analyzers.md) | Bevarar bindestreck i sammansatta ord eller strängar, vokalmutationer och verbformer. Om frågemönstren innehåller streck kan det vara tillräckligt att använda en språkanalysator. |
 | [Sökord](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) | Innehållet i hela fältet tokeniseras som en enda term. |
 | [Blanksteg](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separerar endast på vita utrymmen. Termer som innehåller streck eller andra tecken behandlas som en enda token. |
 | [anpassad analysator](index-add-custom-analyzers.md) | (rekommenderas) Genom att skapa en anpassad analysator kan du ange både tokenizer- och tokenfiltret. De tidigare analysatorerna måste användas som de är. Med en anpassad analysator kan du välja vilka tokenizers och tokenfilter som ska användas. <br><br>En rekommenderad kombination är [nyckelordstokenizern](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) med ett [lågkärltokenfilter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). I sig själv, den fördefinierade [sökordsanalysator](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) inte gemener någon versaler text, vilket kan orsaka frågor misslyckas. En anpassad analysator ger dig en mekanism för att lägga till det gemena tokenfiltret. |
@@ -151,7 +155,9 @@ Oavsett om du utvärderar analysatorer eller går vidare med en specifik konfigu
 
 ### <a name="use-built-in-analyzers"></a>Använd inbyggda analysatorer
 
-Inbyggda eller fördefinierade analysatorer kan anges med `analyzer` namn på en egenskap i en fältdefinition, utan någon ytterligare konfiguration som krävs i indexet. I följande exempel visas hur `whitespace` du ställer in analysatorn på ett fält. Mer information om tillgängliga inbyggda analysatorer finns i [listan Fördefinierade analysatorer](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
+Inbyggda eller fördefinierade analysatorer kan anges med `analyzer` namn på en egenskap i en fältdefinition, utan någon ytterligare konfiguration som krävs i indexet. I följande exempel visas hur `whitespace` du ställer in analysatorn på ett fält. 
+
+Andra scenarier och mer information om andra inbyggda analysatorer finns i [listan Fördefinierade analysatorer](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
 
 ```json
     {

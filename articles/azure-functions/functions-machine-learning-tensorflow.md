@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: c64d87b2430cc1d733a67bbc1e803590a37b1714
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9d25e2e32f09cc681d85d5adffe53f1237d7200c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78190780"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255506"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Självstudiekurs: Tillämpa maskininlärningsmodeller i Azure-funktioner med Python och TensorFlow
 
@@ -79,7 +79,7 @@ Om Python inte installerade venv-paketet på din Linux-distribution kör du föl
 sudo apt-get install python3-venv
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 cd start
@@ -153,8 +153,10 @@ I Azure Functions är ett funktionsprojekt en behållare för en eller flera ens
 
 Om du `classify` vill ändra funktionen för att klassificera en avbildning baserat på dess innehåll använder du en förbyggd TensorFlow-modell som har tränats med och exporterats från Azure Custom Vision Service. Modellen, som finns i *resursmappen* i exemplet som du klonade tidigare, klassificerar en bild baserat på om den innehåller en hund eller en katt. Du lägger sedan till hjälpkod och beroenden i projektet.
 
+Om du vill skapa en egen modell med den kostnadsfria nivån för Custom Vision-tjänsten följer du instruktionerna i [exempelprojektarkivet](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
+
 > [!TIP]
-> Om du vill skapa en egen modell med den kostnadsfria nivån för Custom Vision-tjänsten följer du instruktionerna i [exempelprojektdatabasen](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
+> Om du vill vara värd för din TensorFlow-modell oberoende av funktionsappen kan du istället montera en filresurs som innehåller din modell i din Linux-funktionsapp. Mer information finns i [Montera en filresurs till en Python-funktionsapp med Azure CLI](./scripts/functions-cli-mount-files-storage-linux.md).
 
 1. I *startmappen* kör du följande kommando för att kopiera modellfilerna till *klassificera* mappen. Var noga `\*` med att inkludera i kommandot. 
 
@@ -164,7 +166,7 @@ Om du `classify` vill ändra funktionen för att klassificera en avbildning base
     cp ../resources/model/* classify
     ```
     
-    # <a name="powershell"></a>[Powershell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     copy ..\resources\model\* classify
@@ -188,7 +190,7 @@ Om du `classify` vill ändra funktionen för att klassificera en avbildning base
     cp ../resources/predict.py classify
     ```
     
-    # <a name="powershell"></a>[Powershell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     copy ..\resources\predict.py classify
@@ -272,7 +274,7 @@ Om du vill testa att anropa funktionsslutpunkten från en annan webbapp finns de
     python -m http.server
     ```
     
-    # <a name="powershell"></a>[Powershell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
     ```powershell
     py -m http.server
@@ -315,3 +317,4 @@ Se även:
 
 - [Distribuera funktionen till Azure med Visual Studio Code](https://code.visualstudio.com/docs/python/tutorial-azure-functions).
 - [Utvecklarhandboken för Azure Functions Python](./functions-reference-python.md)
+- [Montera en filresurs i en Python-funktionsapp med Azure CLI](./scripts/functions-cli-mount-files-storage-linux.md)

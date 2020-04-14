@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 02/24/2020
-ms.openlocfilehash: 583071ee22e4fb9cffc741520b1583790002a5bf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/13/2020
+ms.openlocfilehash: 731ab18346ac9f100862174312c2c9950026f1eb
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77604850"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272938"
 ---
 # <a name="set-up-azure-machine-learning-visual-studio-code-extension"></a>Konfigurera Azure Machine Learning Visual Studio-kodtillägg
 
@@ -70,36 +70,36 @@ Nu när du har loggat in på Azure med dina kontouppgifter, Följ stegen i det h
 1. När kommandopaletten expanderar följer du anvisningarna.
 
     1. Välj din Azure-prenumeration.
-    1. Välj **Skapa en ny Azure ML-arbetsyta**
-    1. Välj jobbtypen **TensorFlow Single-Node Training.**
-    1. Ange `train.py` som skript för att träna. Det här är filen som innehåller kod till en maskininlärningsmodell som kategoriserar bilder av handskrivna siffror.
-    1. Ange följande paket som krav för att köras.
-
-        ```text
-        pip: azureml-defaults; conda: python=3.6.2, tensorflow=1.15.0
-        ```
+    1. Välj **Conda dependencies-fil**i listan över miljöer .
+    1. Tryck **på Retur** för att bläddra i conda-beroendefilen. Den här filen innehåller de beroenden som krävs för att köra skriptet. I det här fallet är `env.yml` beroendefilen `mnist-vscode-docs-sample` filen i katalogen.
+    1. Tryck på **Retur** för att bläddra i skriptfilen för utbildning. Det här är filen som innehåller kod till en maskininlärningsmodell som kategoriserar bilder av handskrivna siffror. I det här fallet är skriptet `train.py` för `mnist-vscode-docs-sample` att träna modellen filen i katalogen.
 
 1. Nu visas en konfigurationsfil som liknar den nedan i textredigeraren. Konfigurationen innehåller den information som krävs för att köra utbildningsjobbet som filen som innehåller koden för att träna modellen och eventuella Python-beroenden som angetts i föregående steg.
 
     ```json
     {
-        "workspace": "WS01311608",
-        "resourceGroup": "WS01311608-rg1",
+        "workspace": "WS04131142",
+        "resourceGroup": "WS04131142-rg1",
         "location": "South Central US",
-        "experiment": "WS01311608-exp1",
+        "experiment": "WS04131142-exp1",
         "compute": {
-            "name": "WS01311608-com1",
+            "name": "WS04131142-com1",
             "vmSize": "Standard_D1_v2, Cores: 1; RAM: 3.5GB;"
         },
         "runConfiguration": {
-            "filename": "WS01311608-com1-rc1",
-            "condaDependencies": [
-                "python=3.6.2",
-                "tensorflow=1.15.0"
-            ],
-            "pipDependencies": [
-                "azureml-defaults"
-            ]
+            "filename": "WS04131142-com1-rc1",
+            "environment": {
+                "name": "WS04131142-env1",
+                "conda_dependencies": [
+                    "python=3.6.2",
+                    "tensorflow=1.15.0",
+                    "pip"
+                ],
+                "pip_dependencies": [
+                    "azureml-defaults"
+                ],
+                "environment_variables": {}
+            }
         }
     }
     ```

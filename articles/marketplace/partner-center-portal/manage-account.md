@@ -1,22 +1,22 @@
 ---
-title: Hantera ett kommersiellt Marketplace-konto i Partner Center
-description: Läs om hur du hanterar ett kommersiellt Marketplace-konto i Partner Center.
+title: Så här hanterar du ett kommersiellt marknadsplatskonto i Partner Center
+description: Läs om hur du hanterar ett kommersiellt marketplace-konto i Partner Center.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 6d3952c38703d8102a45c4117e3c59e3fa464957
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 50ea56a8c743636f9fdd9105e5b07a868e71d3d0
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275823"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262935"
 ---
-# <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Så här hanterar du ditt Commercial Marketplace-konto i Partnercenter
+# <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Så här hanterar du ditt kommersiella marketplace-konto i Partner Center
 
-När du har [skapat ett Partner Center-konto](./create-account.md)kan du hantera ditt konto och erbjudanden med [instrumentpanelen på Kommersiella Marknadsplatser](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
+När du har [skapat ett Partner Center-konto](./create-account.md)kan du hantera ditt konto och erbjudanden med hjälp av [instrumentpanelen för](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)kommersiella marknadsplatser .
 
 I den här artikeln ska vi gå in på hur du hanterar ditt Partner Center-konto, inklusive hur du:
 
@@ -40,7 +40,7 @@ Om du inte redan har gjort det bör du (eller organisationens administratör) ko
 
 ### <a name="open-developer-settings"></a>Öppna utvecklarinställningar
 
-Kontoinställningarna finns i det övre högra hörnet på [instrumentpanelen](https://partner.microsoft.com/dashboard/commercial-marketplace) för Kommersiella Marknadsplatser i Partnercenter. Välj kugghjulsikonen (nära det övre högra hörnet av instrumentpanelen) och välj sedan **Utvecklarinställningar**.
+Kontoinställningarna finns i det övre högra hörnet på [instrumentpanelen](https://partner.microsoft.com/dashboard/commercial-marketplace) för den kommersiella marknadsplatsen i Partner Center. Välj kugghjulsikonen (nära det övre högra hörnet av instrumentpanelen) och välj sedan **Utvecklarinställningar**.
 
 ![Menyn Kontoinställningar i Partnercenter](./media/dashboard-developer-settings.png)
 
@@ -67,7 +67,7 @@ I avsnittet Kontaktinformation kan du se ditt **Publisher-visningsnamn**, **Säl
 Ett utbetalningskonto är det bankkonto som intäkterna skickas till från din försäljning. Det här bankkontot måste finnas i samma land där du registrerade ditt Partner Center-konto.
 
 Om du vill konfigurera ditt utbetalningskonto måste du **koppla ditt Microsoft-konto:**
-1. Gå till [översiktssidan för Kommersiella marknadsplatser](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) i Partnercenter.
+1. Gå till [översiktssidan för](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) den kommersiella marknadsplatsen i Partnercenter.
 2. Under avsnittet Profil väljer du **Associera ditt Microsoft-konto**.
 3. Logga in med ditt Microsoft-konto (MSA) när du uppmanas att göra det. Det här kontot kan inte redan associeras med ett annat Partner Center-konto.
 4. För att slutföra konfigurationen av ditt utbetalningskonto loggar du ut helt från Partner Center och loggar sedan in igen med ditt Microsoft-konto (i stället för ditt arbetskonto).
@@ -126,8 +126,8 @@ Vi rekommenderar att du skapar ett unikt GUID för varje erbjudande och distribu
 
 Om du distribuerar en produkt med hjälp av en mall och den är tillgänglig på både Azure Marketplace och på GitHub kan du skapa och registrera två olika GUIDS:
 
-*   Produkt A på Azure Marketplace
-*   Produkt A på GitHub
+*    Produkt A på Azure Marketplace
+*    Produkt A på GitHub
 
 Rapporteringen görs av partnervärdet (Microsoft Partner ID) och GUID:erna. Du kan också spåra GUID:er på en mer detaljerad nivå som justerar till varje plan i erbjudandet.
 
@@ -308,7 +308,7 @@ Mer information om hur du hanterar roller och behörigheter i andra delar av Par
 
 ## <a name="manage-tenants"></a>Hantera klienter
 
-En Azure Active Directory-klientorganisation (AD), även kallad ditt "arbetskonto" i den här dokumentationen, är en representation av din organisation som konfigurerats i Azure-portalen och hjälper dig att hantera en viss instans av Microsofts molntjänster för din interna och externa användare. Om din organisation prenumererade på en Microsoft-molntjänst, till exempel Azure, Microsoft Intune eller Office 365, har en Azure AD-klient upprättats åt dig.
+En Azure Active Directory -klient (AD), även kallad ditt "arbetskonto" i den här dokumentationen, är en representation av din organisation som konfigurerats i Azure-portalen och hjälper dig att hantera en viss instans av Microsofts molntjänster för dina interna och externa användare. Om din organisation prenumererade på en Microsoft-molntjänst, till exempel Azure, Microsoft Intune eller Office 365, har en Azure AD-klient upprättats åt dig.
 
 Du kan ställa in flera klienter som ska användas med Partner Center. Alla användare med **rollen Manager** i Partner Center-kontot har möjlighet att lägga till och ta bort Azure AD-klienter från kontot.  
 

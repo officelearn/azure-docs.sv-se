@@ -4,15 +4,15 @@ description: Lär dig mer om Azure Analysis Services, en fullständigt hanterad 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 03/30/2020
+ms.date: 04/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7eb46e0eda1cd702f26829fac49ffe0e7916626f
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 350fd9c7057df96a4ad1abc0d9c8b5ec3871ef38
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80410389"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81271666"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
@@ -64,12 +64,14 @@ Den här nivån passar bäst för verksamhetskritiska produktionsprogram som kr�
 |S1    |    100     |    25     |
 |S2    |    200     |    50     |
 |S4    |    400     |    100     |
-|S8*    |    320     |    200     |
-|S9*    |    640    |    400     |
-|S8v2*    |    640     |    200     |
-|S9v2*    |    1280    |    400     |
+|S8 <sup>[1](#depr)</sup>, <sup>[2](#rec)</sup>    |    320    |    200     |
+|S9 <sup>[1](#depr)</sup>, <sup>[2](#rec)</sup>    |    640    |    400     |
+|S8v2 <sup> [1](#depr)</sup>   |    640     |    200     |
+|S9v2 <sup> [1](#depr)</sup>    |    1280    |    400     |
 
-\* Inte tillgänglig i alla regioner.  
+<a name="depr">1</a> - Inte tillgängligt i alla regioner.   
+<a name="rec">2</a> - Denna plan är föråldrad. v2 rekommenderas.
+
 
 ## <a name="availability-by-region"></a>Tillgänglighet efter region
 
@@ -83,15 +85,15 @@ Azure Analysis Services stöds i regioner över hela världen. Planer som stöds
 |Kanada, centrala    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |USA, östra     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |USA, östra 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|USA, östra 2     |     S8, S9, S8v2, S9v2   |    1    |
+|USA, östra 2     |     S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2   |    1    |
 |USA, norra centrala     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |USA, centrala     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |USA, södra centrala     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |USA, västra centrala   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |USA, västra     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
-|USA, västra     |    S8, S9, S8v2, S9v2   |    2  |
+|USA, västra     |    S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2   |    2  |
 |USA, västra 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
-|USA, västra 2    |    S8, S9, S8v2, S9v2  |    1     |
+|USA, västra 2    |    S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2  |    1     |
 
 ### <a name="europe"></a>Europa
 
@@ -101,17 +103,17 @@ Azure Analysis Services stöds i regioner över hela världen. Planer som stöds
 |Europa, norra     |    S8v2 , S9v2      |    3     |
 |Storbritannien, södra     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |Europa, västra     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Europa, västra    |   S8, S9, S8v2, S9v2  |  1  |
+|Europa, västra    |   S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2  |  1  |
 
 ### <a name="asia-pacific"></a>Asien och stillahavsområdet 
 
 |Region  | Planer som stöds | Frågerepliker (endast standardplaner) |
 |---------|---------|:---------:|
 |Australien, östra     |    B1, B2, S0, S1, S2, S4, D1     |    3     |
-|Australien, östra     |    S8, S9, S8v2, S9v2    |    1     |
+|Australien, östra     |    S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2    |    1     |
 |Australien, sydöstra     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Japan, östra     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Sydostasien     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
+|Sydostasien     |     B1, B2, S0, S1, S2, S4, S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2, D1     |   1      |
 |Indien, västra     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Skala efter behov

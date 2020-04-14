@@ -5,17 +5,19 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/14/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 4fc77407ae1c5854d3fe977da5a81f4226bf5305
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93b2ca700a987b86aedfdae55d58540c8ffe84ed
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280481"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255881"
 ---
-<a name="retrieve-operations"></a>Hämta åtgärder
-===================
+# <a name="retrieve-operations"></a>Hämta åtgärder
+
+> [!NOTE]
+> Api:erna för Cloud Partner Portal är integrerade med Partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. Integrationen medför små förändringar. Granska ändringarna i [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) för att säkerställa att koden fortsätter att fungera efter migreringen till Partner Center.
 
 Hämtar alla åtgärder som erbjuds eller för att få en viss åtgärd för den angivna operationId. Klienten kan använda frågeparametrar för att filtrera på åtgärder som körs.
 
@@ -28,21 +30,18 @@ Hämtar alla åtgärder som erbjuds eller för att få en viss åtgärd för den
 ```
 
 
-<a name="uri-parameters"></a>URI-parametrar
---------------
+## <a name="uri-parameters"></a>URI-parametrar
 
 |  **Namn**          |      **Beskrivning**                                                                                           | **Datatyp** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Publisher-identifierare, till exempel`Contoso`                                                                   |  String       |
-|  offerId (erbjudandeId)           |  Identifierare för erbjudande                                                                                              |  String       |
+|  publisherId       |  Publisher-identifierare, till exempel`Contoso`                                                                   |  Sträng       |
+|  offerId (erbjudandeId)           |  Identifierare för erbjudande                                                                                              |  Sträng       |
 |  operationId       |  GUID som unikt identifierar åtgärden på erbjudandet. OperationId kan hämtas med hjälp av det här API:et och returneras även i HTTP-huvudet för svaret för alla tidskrävande åtgärder, till exempel [API:et för publiceringserbjudande.](./cloud-partner-portal-api-publish-offer.md)  |   GUID   |
-|  filtreradStatus    | Valfri frågeparameter som används för `running`att filtrera efter status (till exempel ) i samlingen som returneras av det här API:et.  |   String |
-|  api-version       | Senaste versionen av API                                                                                           |    Datum      |
+|  api-version       | Senaste versionen av API |    Date      |
 |  |  |  |
 
+## <a name="header"></a>Huvud
 
-<a name="header"></a>Huvud
-------
 
 |  **Namn**          |  **Värde**           |
 |  ---------------   | -------------------- |
@@ -51,8 +50,7 @@ Hämtar alla åtgärder som erbjuds eller för att få en viss åtgärd för den
 |  |  |
 
 
-<a name="body-example"></a>Exempel på brödtext
-------------
+## <a name="body-example"></a>Exempel på brödtext
 
 ### <a name="response"></a>Svar
 
@@ -167,25 +165,35 @@ Hämtar alla åtgärder som erbjuds eller för att få en viss åtgärd för den
                     ],
                 "previewLinks": [],
                 "liveLinks": [],
-                "notificationEmails": "jondoe@contoso.com"
-            } 
+            }
         }
     ]
 ```
-
 
 ### <a name="response-body-properties"></a>Egenskaper för svarstext
 
 |  **Namn**                    |  **Beskrivning**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 |  id                          | GUID som unikt identifierar åtgärden                                                       |
-|  inlämningTyp              | Identifierar vilken typ av åtgärd som rapporteras för erbjudandet, till exempel`Publish/GGoLive`      |
+|  inlämningTyp              | Identifierar vilken typ av åtgärd som rapporteras för erbjudandet, till exempel`Publish/GoLive`      |
 |  createdDateTime             | UTC-datumtid när åtgärden skapades                                                       |
 |  lastActionDateTime          | UTC-datumtid när den senaste uppdateringen gjordes på åtgärden                                       |
 |  status                      | Åtgärdens status, `not started` \| `running` \| `failed` \| `completed`antingen . Endast en åtgärd `running` kan ha status åt gången. |
 |  fel                       | Felmeddelande för misslyckade åtgärder                                                               |
 |  |  |
 
+### <a name="response-step-properties"></a>Egenskaper för svarssteg
+
+|  **Namn**                    |  **Beskrivning**                                                                                  |
+|  --------------------        |  ------------------------------------------------------------------------------------------------ |
+| uppskattadTimeFrame | Den beräknade varaktigheten av denna operation |
+| id | Den unika identifieraren för stegprocessen |
+| description | Beskrivning av steget |
+| stepName (stegnamn) | Det egna namnet för steget |
+| status | Status för steget, `notStarted` \| `running` \| `failed` \| antingen`completed` |
+| meddelanden | Alla meddelanden eller varningar som påträffas under steget. Matris med strängar |
+| framstegPercentage | Ett heltal från 0 till 100 som anger stegprogressionen |
+| | |
 
 ### <a name="response-status-codes"></a>Statuskoder för svar
 

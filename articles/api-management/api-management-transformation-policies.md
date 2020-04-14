@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 81b7fb687bb6ef88d1ed436923d0e5ff7561c22b
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: 27bb6abb7ae8eae46bc4dea3708270ecb4b731a6
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80803253"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260912"
 ---
 # <a name="api-management-transformation-policies"></a>Omvandlingsprinciper för API Management
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om hur du lägger till och konfigurerar principer finns [i Principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -214,7 +214,7 @@ eller
 ```
 
 > [!NOTE]
-> Serveringsenheter kan hanteras via [hanterings-API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) och [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Serveringsenheter kan hanteras via [hanterings-API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) och [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### <a name="example"></a>Exempel
 
@@ -269,7 +269,7 @@ I det här exemplet dirigerar principen begäran till en service fabric-backend,
 |Namn|Beskrivning|Krävs|Default|
 |----------|-----------------|--------------|-------------|
 |bas-url|Ny url för backend-tjänstbasen.|En `base-url` av `backend-id` eller måste vara närvarande.|Ej tillämpligt|
-|backend-id|Identifierare för backend att dirigera till. (Serveringsenheter hanteras via [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) och [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|En `base-url` av `backend-id` eller måste vara närvarande.|Ej tillämpligt|
+|backend-id|Identifierare för backend att dirigera till. (Serveringsenheter hanteras via [API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend) och [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|En `base-url` av `backend-id` eller måste vara närvarande.|Ej tillämpligt|
 |sf-partition-nyckel|Gäller endast när backend är en Service Fabric-tjänst och anges med hjälp av "backend-id". Används för att lösa en viss partition från namnmatchningstjänsten.|Inga|Ej tillämpligt|
 |sf-repliktyp|Gäller endast när backend är en Service Fabric-tjänst och anges med hjälp av "backend-id". Kontrollerar om begäran ska gå till den primära eller sekundära repliken för en partition. |Inga|Ej tillämpligt|
 |sf-resolve-villkor|Gäller endast när backend är en Service Fabric-tjänst. Villkor som identifierar om anropet till Service Fabric-backend måste upprepas med ny upplösning.|Inga|Ej tillämpligt|

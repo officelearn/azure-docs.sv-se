@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 2fbd4270221cb23a4f99a0f8155bb1de76472f31
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 09569be88daa6295834e58da6b51656d0438bed4
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74976986"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270935"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Självstudie: Moderering av video och avskrift
 
@@ -82,7 +82,7 @@ Klassen `Program` i `Program.cs` är den främsta startpunkten till videoändrin
 Om det inte finns några argument på kommandoraden anropar `Main()``GetUserInputs()`. Den här metoden uppmanar användaren att ange sökvägen till en enskild videofil och att ange om en textavskrift ska genereras.
 
 > [!NOTE]
-> Konsolprogrammet använder [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) för att generera utskrifter från den uppladdade videons ljudspår. Resultaten finns i WebVTT-format. Mer information om det här formatet finns i [Web Video Text Tracks-format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
+> Konsolprogrammet använder [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) för att generera utskrifter från den uppladdade videons ljudspår. Resultaten finns i WebVTT-format. Mer information om det här formatet finns i [Web Video Text Tracks-format](https://developer.mozilla.org/docs/Web/API/WebVTT_API).
 
 ### <a name="initialize-and-processvideo-methods"></a>Metoderna Initialize och ProcessVideo
 
@@ -223,7 +223,7 @@ Resultatet från videoändringsjobbet (se [snabbstarten för videoändringar](vi
 En avskrift av ljudet från videon genereras också när `GenerateVTT`-flaggan har angetts.
 
 > [!NOTE]
-> Konsolprogrammet använder [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) för att generera utskrifter från den uppladdade videons ljudspår. Resultaten finns i WebVTT-format. Mer information om det här formatet finns i [Web Video Text Tracks-format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
+> Konsolprogrammet använder [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) för att generera utskrifter från den uppladdade videons ljudspår. Resultaten finns i WebVTT-format. Mer information om det här formatet finns i [Web Video Text Tracks-format](https://developer.mozilla.org/docs/Web/API/WebVTT_API).
 
 ## <a name="create-a-human-review"></a>Skapa en mänsklig recension
 

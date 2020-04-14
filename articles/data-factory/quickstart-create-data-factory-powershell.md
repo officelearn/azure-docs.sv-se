@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: quickstart
-ms.date: 01/22/2018
+ms.date: 04/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 7f527d3c57f086e7941505a9ca4396885c746762
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 682c35e1510834d8958b2ed6765d6fe530432ebd
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75440086"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262153"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Snabbstart: Skapa en Azure-datafabrik med PowerShell
 
@@ -111,6 +111,10 @@ Observera följande punkter:
 ## <a name="create-a-linked-service"></a>Skapa en länkad tjänst
 
 Skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I den här snabbstarten skapar du en länkad Azure Storage-tjänst som lagrar både källa och mottagare. Den länkade tjänsten har anslutningsinformationen som Data Factory-tjänsten använder vid körning för att ansluta till den.
+
+>[!TIP]
+>I den här snabbstarten använder du *kontonyckeln* som autentiseringstyp för ditt datalager, men du kan välja andra autentiseringsmetoder som stöds: *SAS URI*,*Tjänsthuvudnamn* och *Hanterad identitet* om det behövs. Mer information finns i motsvarande avsnitt i [den här artikeln.](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#linked-service-properties)
+>Om du vill lagra hemligheter för datalager på ett säkert sätt rekommenderas du också att använda ett Azure Key Vault. Se [den här artikeln](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) för detaljerade illustrationer.
 
 1. Skapa en JSON-fil med namnet **AzureStorageLinkedService.json** i mappen **C:\ADFv2QuickStartPSH** med följande innehåll: (skapa mappen ADFv2QuickStartPSH om den inte redan finns.).
 

@@ -4,22 +4,25 @@ description: Den här artikeln innehåller en samling AzCopy-exempelkommandon so
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: fbdb447905ae43fe92693dfe45c1add710f76355
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73685f124f93bb541f33b3b70727d90ce22b3cdd
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78933590"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263445"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Överföra data med AzCopy- och Blob-lagring
 
 AzCopy är ett kommandoradsverktyg som du kan använda för att kopiera data till, från eller mellan lagringskonton. Den här artikeln innehåller exempelkommandon som fungerar med Blob-lagring.
 
-## <a name="get-started"></a>Komma igång
+> [!TIP]
+> Exemplen i den här artikeln omger banargument med enstaka citattecken (''). Använd enstaka citattecken i alla kommandoskal utom Windows Command Shell (cmd.exe). Om du använder ett Windows Command Shell (cmd.exe) bifogar du sökvägsargument med dubbla citattecken ("") i stället för enstaka citattecken ('').
+
+## <a name="get-started"></a>Kom igång
 
 Se artikeln [Kom igång med AzCopy](storage-use-azcopy-v10.md) för att hämta AzCopy och lär dig mer om hur du kan tillhandahålla auktoriseringsautentiseringsuppgifter till lagringstjänsten.
 
@@ -31,9 +34,6 @@ Se artikeln [Kom igång med AzCopy](storage-use-azcopy-v10.md) för att hämta A
 > Till exempel: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## <a name="create-a-container"></a>Skapa en container
-
-> [!TIP]
-> Exemplen i det här avsnittet omger banargument med enstaka citattecken (''). Använd enstaka citattecken i alla kommandoskal utom Windows Command Shell (cmd.exe). Om du använder ett Windows Command Shell (cmd.exe) bifogar du sökvägsargument med dubbla citattecken ("") i stället för enstaka citattecken ('').
 
 Du kan använda kommandot [azcopy make](storage-ref-azcopy-make.md) för att skapa en behållare. Exemplen i det här `mycontainer`avsnittet skapar en behållare med namnet .
 
@@ -57,10 +57,16 @@ Det här avsnittet innehåller följande exempel:
 > * Ladda upp innehållet i en katalog 
 > * Ladda upp specifika filer
 
-Detaljerad referensdokument finns i [azoskopikopia](storage-ref-azcopy-copy.md).
-
 > [!TIP]
-> Exemplen i det här avsnittet omger banargument med enstaka citattecken (''). Använd enstaka citattecken i alla kommandoskal utom Windows Command Shell (cmd.exe). Om du använder ett Windows Command Shell (cmd.exe) bifogar du sökvägsargument med dubbla citattecken ("") i stället för enstaka citattecken ('').
+> Du kan justera uppladdningen med valfria flaggor. Här är några exempel.
+>
+> |Scenario|Flagga|
+> |---|---|
+> |Ladda upp filer som Tillägg Blobbar eller Sidblobar.|**--blob-typ**=\[BlockBlob\|PageBlob\|LäggdBlob\]|
+> |Ladda upp till en viss åtkomstnivå (till exempel arkivnivån).|**--block-blob-tier**=\[\|Ingen\|\|Hot Cool Arkiv\]|
+> |Komprimera filer automatiskt.|**--decompress**=\[gzip\|tömma\]|
+> 
+> En fullständig lista finns i [alternativ](storage-ref-azcopy-copy.md#options).
 
 ### <a name="upload-a-file"></a>Överför en fil
 
@@ -71,10 +77,6 @@ Detaljerad referensdokument finns i [azoskopikopia](storage-ref-azcopy-copy.md).
 | **Exempel** (hierarkiskt namnområde) | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'` |
 
 Du kan också ladda upp en fil med hjälp av en jokerteckensymbol (*) var som helst i filsökvägen eller filnamnet. Till exempel: `'C:\myDirectory\*.txt'` `C:\my*\*.txt`eller .
-
-> [!NOTE]
-> AzCopy laddar som standard upp data som blockblobar. Om du vill ladda upp filer som Tilläggsblobar `--blob-type=[BlockBlob|PageBlob|AppendBlob]`eller Sidblobar använder du flaggan .
-> AzCopy laddar som standard upp dina data för att ärva kontoåtkomstnivån. Om du vill överföra filer till `--block-blob-tier=[Hot|Cool|Archive]`en viss [åtkomstnivå](../blobs/storage-blob-storage-tiers.md)använder du flaggan .
 
 ### <a name="upload-a-directory"></a>Ladda upp en katalog
 
@@ -152,13 +154,19 @@ Det här avsnittet innehåller följande exempel:
 > * Ladda ner innehållet i en katalog
 > * Ladda ner specifika filer
 
+> [!TIP]
+> Du kan justera hämtningen med valfria flaggor. Här är några exempel.
+>
+> |Scenario|Flagga|
+> |---|---|
+> |Komprimera filer automatiskt.|**--decompress**=\[gzip\|tömma\]|
+> |Ange hur detaljerade du vill att dina kopieringsrelaterade loggposter ska vara.|**--log-nivå**=\[\|VARNING\|\|FEL INFO NONE\]|
+> |Ange om och hur du skriver över de filer och blobbar som står i konflikt vid målet.|**--skriva över**=\[\|sant\|falskt ifSourceNewer\|prompt\]|
+> 
+> En fullständig lista finns i [alternativ](storage-ref-azcopy-copy.md#options).
+
 > [!NOTE]
 > Om `Content-md5` egenskapsvärdet för en blob innehåller en hash beräknar AzCopy en MD5-hash för nedladdade data och `Content-md5` verifierar att MD5-hashen som lagras i blobens egenskap matchar den beräknade hashen. Om dessa värden inte matchar misslyckas hämtningen om du `--check-md5=NoCheck` `--check-md5=LogOnly` inte åsidosätter det här beteendet genom att lägga till eller kopiera kommandot.
-
-Detaljerad referensdokument finns i [azoskopikopia](storage-ref-azcopy-copy.md).
-
-> [!TIP]
-> Exemplen i det här avsnittet omger banargument med enstaka citattecken (''). Använd enstaka citattecken i alla kommandoskal utom Windows Command Shell (cmd.exe). Om du använder ett Windows Command Shell (cmd.exe) bifogar du sökvägsargument med dubbla citattecken ("") i stället för enstaka citattecken ('').
 
 ### <a name="download-a-file"></a>Hämta en fil
 
@@ -245,12 +253,18 @@ Det här avsnittet innehåller följande exempel:
 > * Kopiera en behållare till ett annat lagringskonto
 > * Kopiera alla behållare, kataloger och filer till ett annat lagringskonto
 
-Detaljerad referensdokument finns i [azoskopikopia](storage-ref-azcopy-copy.md).
+De här exemplen fungerar också med konton som har ett hierarkiskt namnområde. [Med åtkomst till flera protokoll i Datasjölagring](../blobs/data-lake-storage-multi-protocol-access.md) kan`blob.core.windows.net`du använda samma URL-syntax ( ) på dessa konton.
 
 > [!TIP]
-> Exemplen i det här avsnittet omger banargument med enstaka citattecken (''). Använd enstaka citattecken i alla kommandoskal utom Windows Command Shell (cmd.exe). Om du använder ett Windows Command Shell (cmd.exe) bifogar du sökvägsargument med dubbla citattecken ("") i stället för enstaka citattecken ('').
-
- De här exemplen fungerar också med konton som har ett hierarkiskt namnområde. [Med åtkomst till flera protokoll i Datasjölagring](../blobs/data-lake-storage-multi-protocol-access.md) kan`blob.core.windows.net`du använda samma URL-syntax ( ) på dessa konton. 
+> Du kan justera kopieringen med valfria flaggor. Här är några exempel.
+>
+> |Scenario|Flagga|
+> |---|---|
+> |Kopiera filer som Tilläggsblobar eller sidblobar.|**--blob-typ**=\[BlockBlob\|PageBlob\|LäggdBlob\]|
+> |Kopiera till en viss åtkomstnivå (till exempel arkivnivån).|**--block-blob-tier**=\[\|Ingen\|\|Hot Cool Arkiv\]|
+> |Komprimera filer automatiskt.|**--decompress**=\[gzip\|tömma\]|
+> 
+> En fullständig lista finns i [alternativ](storage-ref-azcopy-copy.md#options).
 
 ### <a name="copy-a-blob-to-another-storage-account"></a>Kopiera en blob till ett annat lagringskonto
 
@@ -306,10 +320,16 @@ Om du `--delete-destination` ställer `true` in flaggan på AzCopy tas filer bor
 > [!NOTE]
 > Om du vill förhindra oavsiktliga borttagningar måste du `--delete-destination=prompt|true` aktivera funktionen för mjuk [borttagning](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) innan du använder flaggan.
 
-Detaljerad referensdokument finns i [synkronisering av azokopiering](storage-ref-azcopy-sync.md).
-
 > [!TIP]
-> Exemplen i det här avsnittet omger banargument med enstaka citattecken (''). Använd enstaka citattecken i alla kommandoskal utom Windows Command Shell (cmd.exe). Om du använder ett Windows Command Shell (cmd.exe) bifogar du sökvägsargument med dubbla citattecken ("") i stället för enstaka citattecken ('').
+> Du kan justera synkroniseringen med valfria flaggor. Här är några exempel.
+>
+> |Scenario|Flagga|
+> |---|---|
+> |Ange hur strikt MD5-hashar ska valideras vid nedladdning.|**--check-md5**=\[NoCheck LogOnly FailIfDifferent FailIfDifferentOrMissing --check-md5 NoCheck LogOnly FailIfDifferent FailIfDifferentOrMissing --check-md5 NoCheck\|LogOnly\|FailIfDifferent\|FailIfDifferentOrMissing --\]|
+> |Exkludera filer baserat på ett mönster.|**--exclude-path**|
+> |Ange hur detaljerade du vill att dina synkroniseringsrelaterade loggposter ska vara.|**--log-nivå**=\[\|VARNING\|\|FEL INFO NONE\]|
+> 
+> En fullständig lista finns i [alternativ](storage-ref-azcopy-sync.md#options).
 
 ### <a name="update-a-container-with-changes-to-a-local-file-system"></a>Uppdatera en behållare med ändringar i ett lokalt filsystem
 

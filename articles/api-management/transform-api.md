@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 5dec08bd4bc0a63a419d2bdc63383348a69b02db
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9a9c6897937b73786367accc33e985a268907226
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70067473"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81258753"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformera och skydda ditt API
 
@@ -112,7 +112,7 @@ Visa det ursprungliga svaret:
 2.  Välj **Alla operationer**.
 3.  Överst på skärmen väljer du fliken **Design**.
 4.  I avsnittet **Utgående bearbetning** klickar du på ikonen **</>**.
-5.  Placera markören inuti det ** &lt;utgående&gt; ** elementet.
+5.  Placera markören i det ** &lt;utgående&gt; ** elementet och klicka på **Infoga principknappen** längst upp till höger.
 6.  Klicka på **+ Sök och ersätt sträng i brödtext** under **Transformationsprinciper** i det högra fönstret.
 7.  Ersätt URL:en så att den matchar APIM-gatewayen genom att ändra din **find-and-replace**-kod (i **\<outbound\>**-elementet). Ett exempel:
 

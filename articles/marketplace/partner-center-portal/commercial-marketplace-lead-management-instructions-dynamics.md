@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 8af6b3a451d20bcc9cab3fa4adb9643f82b85e49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b3e35b6d19905e3c5262dfea3e52511510c9ffe
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288826"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81252970"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>Konfigurera leadhantering för Dynamics 365 för kundengagemang
 
@@ -180,6 +180,7 @@ När du är redo att konfigurera leadhanteringsinformationen för ditt erbjudand
     ![Anslutningsinformation - leadmål](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-lead-destination.png)
 
 4. Ange **URL:en för Dynamics 365-instans,** till exempel `https://contoso.crm4.dynamics.com`.
+
 5. Välj metoden **för autentisering,** Azure Active Directory eller Office 365. 
 6. Om du har valt Azure Active Directory anger du `23456052-aaaa-bbbb-8662-1234df56788f` **program-ID:t (klient)-ID** `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=`(exempel: ), **katalog-ID** (exempel: `12345678-8af1-4asf-1234-12234d01db47`) och **klienthemlighet** (exempel: ).
 
@@ -188,6 +189,13 @@ När du är redo att konfigurera leadhanteringsinformationen för ditt erbjudand
 7. Om du har valt Office 365 anger `contoso@contoso.onmicrosoft.com`du **användarnamnet** `P@ssw0rd`(exempel: ) och Lösenord (exempel: ).
 
     ![Anslutningsinformation - Användarnamn](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
+
+8. **Kontakta e-post** - Ge e-post till personer i ditt företag som ska få e-postmeddelanden när ett nytt lead tas emot. Du kan tillhandahålla flera e-postmeddelanden genom att separera dem med semikolon.
+9. Välj **OK**.
+
+Om du vill vara säker på att du har anslutit till ett leadmål klickar du på knappen validera. Om det lyckas kommer du att ha en testledning i leaddestinationen.
+
+![Leadhantering - lagringskonto för anslutningsinformation](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-connection-details.png)
 
 >[!Note]
 >Du måste slutföra konfigurationen av resten av erbjudandet och publicera det innan du kan ta emot leads för erbjudandet.

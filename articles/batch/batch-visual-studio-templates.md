@@ -14,19 +14,19 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: a71dbd1b38ff58ccf1eb7a4d50daad5b24922e2f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e42917237f3b114881655d88a017c2c4366612b3
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77022757"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254571"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Använda Visual Studio-projektmallar för att starta Batch-lösningar
 
 Mallarna **Job Manager** och **Uppgiftsprocessor Visual Studio** för Batch innehåller kod som hjälper dig att implementera och köra dina beräkningsintensiva arbetsbelastningar i Batch med minsta möjliga ansträngning. Det här dokumentet beskriver dessa mallar och ger vägledning för hur du använder dem.
 
 > [!IMPORTANT]
-> I den här artikeln beskrivs endast information som är tillämplig på dessa två mallar och förutsätter att du är bekant med batchtjänsten och nyckelbegrepp relaterade till den: pooler, beräkningsnoder, jobb och uppgifter, jobbhanterare, miljövariabler och andra relevanta Information. Du hittar mer information i grunderna för [Azure Batch](batch-technical-overview.md) och [Batch-funktionsöversikt för utvecklare](batch-api-basics.md).
+> I den här artikeln beskrivs endast information som är tillämplig på dessa två mallar och förutsätter att du är bekant med batchtjänsten och nyckelbegrepp relaterade till den: pooler, beräkningsnoder, jobb och uppgifter, jobbhanterare, miljövariabler och annan relevant information. Du hittar mer information i grunderna för [Azure Batch](batch-technical-overview.md) och [Batch-funktionsöversikt för utvecklare](batch-api-basics.md).
 > 
 > 
 
@@ -215,7 +215,7 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 ```
 **Autentiseringsuppgifter för lagring**
 
-Klienten behöver vanligtvis inte ange de länkade lagringskontoautentiseringsuppgifterna till jobbhanteraruppgiften eftersom (a) de flesta jobbhanterare inte behöver uttryckligen komma åt det länkade lagringskontot och (b) det länkade lagringskontot ofta tillhandahålls till alla uppgifter som en gemensam miljöinställning för jobbet. Om du inte tillhandahåller det länkade lagringskontot via de gemensamma miljöinställningarna och jobbhanteraren kräver åtkomst till länkad lagring, bör du ange de länkade lagringsautentiseringsuppgifterna enligt följande:
+Vanligtvis behöver klienten inte ange de länkade lagringskontoautentiseringsuppgifterna till jobbhanteraruppgiften eftersom (a) de flesta jobbhanterare inte behöver uttryckligen komma åt det länkade lagringskontot och (b) det länkade lagringskontot ofta tillhandahålls till alla uppgifter som en gemensam miljöinställning för jobbet. Om du inte tillhandahåller det länkade lagringskontot via de gemensamma miljöinställningarna och jobbhanteraren kräver åtkomst till länkad lagring, bör du ange de länkade lagringsautentiseringsuppgifterna enligt följande:
 
 ```csharp
 job.JobManagerTask.EnvironmentSettings = new [] {
@@ -361,7 +361,7 @@ Implementeringen run() har åtkomst till:
 
 **Fel på aktiviteten**
 
-I händelse av fel kan du avsluta metoden Run() genom att utlösa ett undantag, men det lämnar den översta undantagshanteraren i kontroll över uppgiftsutträdeskoden. Om du behöver styra avslutningskoden så att du kan skilja mellan olika typer av fel, till exempel för diagnostiska ändamål eller för att vissa fellägen ska avsluta jobbet och andra inte bör avsluta metoden Run() genom att returnera en icke-noll utgångskoden. Detta blir uppgiftsutträdeskoden.
+I händelse av fel kan du avsluta metoden Run() genom att utlösa ett undantag, men det lämnar den översta undantagshanteraren i kontroll över uppgiftsutträdeskoden. Om du behöver styra avslutningskoden så att du kan skilja mellan olika typer av fel, till exempel för diagnostiska ändamål eller för att vissa fellägen ska avsluta jobbet och andra bör inte, bör du avsluta metoden Run() genom att returnera en icke-nollutmatningskod. Detta blir uppgiftsutträdeskoden.
 
 ### <a name="exit-codes-and-exceptions-in-the-task-processor-template"></a>Avsluta koder och undantag i mallen Uppgiftsbehandlare
 Avsluta koder och undantag ger en mekanism för att fastställa resultatet av att köra ett program, och de kan hjälpa till att identifiera eventuella problem med körningen av programmet. Mallen Uppgiftsprocessor implementerar de avslutningskoder och undantag som beskrivs i det här avsnittet.
@@ -444,7 +444,7 @@ Ett annat användbart verktyg i batchlösningsutveckling är [Azure Batch File C
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
 [process_exitcode]: https://msdn.microsoft.com/library/system.diagnostics.process.exitcode.aspx
 [vs_gallery]: https://visualstudiogallery.msdn.microsoft.com/
-[vs_gallery_templates]: https://go.microsoft.com/fwlink/?linkid=820714
+[vs_gallery_templates]: https://github.com/Azure/batch-extension-templates
 [vs_find_use_ext]: https://msdn.microsoft.com/library/dd293638.aspx
 
 [diagram01]: ./media/batch-visual-studio-templates/diagram01.png

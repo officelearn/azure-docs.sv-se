@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 18de50473e3dd6ca8ddda9575a247e00530032e8
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 11f52df683b7a85a8ad5163bbede33d786897452
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115419"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257274"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -197,7 +197,7 @@ Lär dig mer om de specifika definitionerna av dessa mått i [Förstå automatis
 
 I varje automatiserat maskininlärningsexperiment [skalas och normaliseras](concept-automated-ml.md#preprocess) dina data automatiskt för att hjälpa *vissa* algoritmer som är känsliga för funktioner som finns i olika skalor.  Du kan dock också aktivera ytterligare medsättning, till exempel saknade värden imputering, kodning och transformeringar. [Läs mer om vad medsättning ingår](how-to-use-automated-ml-for-ml-models.md#featurization).
 
-När du konfigurerar experimenten kan du `featurization`aktivera den avancerade inställningen . I följande tabell visas godkända inställningar för featurization i [ `AutoMLConfig` klassen](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+När du konfigurerar experimenten kan du `featurization`aktivera den avancerade inställningen . I följande tabell visas godkända inställningar för featurization i [klassen AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
 |Konfiguration för featurization | Beskrivning |
 | ------------- | ------------- |

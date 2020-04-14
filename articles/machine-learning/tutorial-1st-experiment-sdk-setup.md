@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: a6f977c0cdca670b40ccdc01db64a493962e3dda
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 820332b0692c0c863ed23912fe9913c419769155
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79239891"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273009"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Självstudiekurs: Kom igång med att skapa ditt första ML-experiment med Python SDK
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -86,7 +86,7 @@ Du slutför följande experimentinstallations- och körningssteg i Azure Machine
     
 1. Välj filen **tutorial-1st-experiment-sdk-train.ipynb** i din **självstudier/create-first-ml-experiment-mapp.**
 
-1. I det övre fältet väljer du en beräkningsförekomst som ska användas för att köra anteckningsboken. Dessa virtuella datorer är förkonfigurerade med [allt du behöver för att köra Azure Machine Learning](concept-compute-instance.md#contents). Du kan välja en virtuell dator som skapats av alla användare av arbetsytan. 
+1. I det övre fältet väljer du en beräkningsförekomst som ska användas för att köra anteckningsboken. Dessa virtuella datorer är förkonfigurerade med [allt du behöver för att köra Azure Machine Learning](concept-compute-instance.md#contents). 
 
 1. Om inga virtuella datorer hittas väljer du **+ Lägg till** för att skapa den virtuella datorn för beräkningsinstansen. 
 

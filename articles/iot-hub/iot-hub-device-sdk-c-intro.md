@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: robinsh
-ms.openlocfilehash: dd12f974b9b02d919752dcb932c9ce1709d7315b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 71193523a83987de2440d8c70c133c29dde4fe91
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70813786"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257886"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT-enhet SDK för C
 
@@ -21,7 +21,7 @@ ms.locfileid: "70813786"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Azure IoT-enheten SDK för C är skriven i ANSI C (C99) för att maximera portabiliteten. Den här funktionen gör biblioteken väl lämpade att fungera på flera plattformar och enheter, särskilt där det är en prioritet att minimera disk- och minnesavtryck.
+Azure IoT-enheten SDK för C är skriven i ANSI C (C99) för att maximera portabiliteten. Den här funktionen gör biblioteken väl lämpade att fungera på flera plattformar och enheter, särskilt där minimera disk och minne fotavtryck är en prioritet.
 
 Det finns ett brett utbud av plattformar där SDK har testats (se [Azure Certified for IoT-enhetskatalogen](https://catalog.azureiotsolutions.com/) för mer information). Även om den här artikeln innehåller genomgångar av exempelkod som körs på Windows-plattformen, är koden som beskrivs i den här artikeln identisk i olika plattformar som stöds.
 
@@ -73,7 +73,7 @@ Nu när du har exempel källkoden, nästa sak att göra är att få en uppsättn
 
 Det finns flera verktyg med öppen källkod som hjälper dig att hantera din IoT-hubb.
 
-* Ett Windows-program som kallas [enhetsutforskaren](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
+* Ett Windows-program som heter [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer).
 
 * Ett Visual Studio-kodtillägg över flera plattformar som kallas [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 

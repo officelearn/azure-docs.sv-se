@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: 0ef7e5d869ab2d7e085cbf861bfc32e57b1fad4b
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: e0e98b87cf3612bf01f90f806ea64ef06d08c60a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408496"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255336"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Vad övervakas av Azure Monitor?
 I den här artikeln beskrivs de olika program och tjänster som övervakas av Azure Monitor. 
@@ -31,7 +31,7 @@ Insikter ger en anpassad övervakningsupplevelse för särskilda program och tj�
 | [Azure Monitor för nätverk (förhandsversion)](insights/network-insights-overview.md) | Ger en omfattande översikt över hälso- och mått för alla nätverksresurser. Den avancerade sökfunktionen hjälper dig att identifiera resursberoenden, vilket möjliggör scenarier som att identifiera resurser som är värd för din webbplats genom att helt enkelt söka efter ditt webbplatsnamn. |
 [Azure Monitor för resursgrupper (förhandsgranskning)](insights/resource-group-insights.md) |  Triage och diagnostisera eventuella problem dina individuella resurser möter, samtidigt som sammanhang om hälsa och prestanda för resursgruppen som helhet. |
 | [Azure Monitor för lagring (förhandsversion)](insights/storage-insights-overview.md) | Ger omfattande övervakning av dina Azure Storage-konton genom att leverera en enhetlig vy över dina Azure Storage-tjänsters prestanda, kapacitet och tillgänglighet. |
-| [Azure Monitor för virtuella datorer (förhandsgranskning)](insights/container-insights-overview.md) | Övervakar dina Azure-virtuella datorer (VM) och skaluppsättningar för virtuella datorer i stor skala. Den analyserar prestanda och hälsotillstånd för dina virtuella datorer med Windows och Linux, och övervakar deras processer och beroenden på andra resurser och i externa processer. |
+| [Azure Monitor för virtuella datorer](insights/container-insights-overview.md) | Övervakar dina Azure-virtuella datorer (VM) och skaluppsättningar för virtuella datorer i stor skala. Den analyserar prestanda och hälsotillstånd för dina virtuella datorer med Windows och Linux, och övervakar deras processer och beroenden på andra resurser och i externa processer. |
 
 ### <a name="core-solutions"></a>Kärnlösningar
 
@@ -201,7 +201,7 @@ Andra lösningar finns tillgängliga för övervakning av olika program och tjä
 | [Analys av aktivitetslogg](platform/activity-log-view.md#azure-portal) | Visa aktivitetsloggposter. |
 | [DNS Analytics (förhandsgranskning)](insights/dns-analytics.md) | Samlar in, analyserar och korrelerar Windows DNS-analys- och granskningsloggar och andra relaterade data från DINA DNS-servrar. |
 | [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | Samla in, visa och analysera hälso- och prestandamått för cloud foundry-systemet över flera distributioner. |
-| [Behållare](insights/containers.md) | Visa och hantera Docker- och Windows-behållarvärdar. |
+| [Containrar](insights/containers.md) | Visa och hantera Docker- och Windows-behållarvärdar. |
 | [Bedömningar på begäran](https://docs.microsoft.com/services-hub/health/getting_started_with_on_demand_assessments) | Utvärdera och optimera tillgängligheten, säkerheten och prestandan för dina lokala, hybrid- och molnteknikmiljöer för Microsoft. |
 | [Hälsokontroll av SQL](insights/sql-assessment.md) | Utvärdera risken och hälsan för dina SQL Server-miljöer.  |
 | [Wire Data](insights/wire-data.md) | Konsoliderade nätverks- och prestandadata som samlats in från Datorer som är anslutna till Windows och Linux-anslutna med Log Analytics-agenten. |

@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/02/2020
+ms.date: 04/12/2020
 ms.author: juliako
-ms.openlocfilehash: efd8386f464bfdf2ac27d3be07e6572dc27952e1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9bea9e375e00d6fc0f6c33aa1bcc766773db2059
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78163598"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269949"
 ---
 # <a name="what-is-video-indexer"></a>Vad är Video Indexer?
 
@@ -70,9 +70,9 @@ Följande lista visar de insikter du kan hämta från dina videor med videoindex
 
 ### <a name="audio-insights"></a>Ljudinsikter
 
-* **Automatisk språkidentifiering**: Identifierar automatiskt dominant talat språk. Språk som stöds inkluderar engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, ryska och brasiliansk portugisiska. Om språket inte kan identifieras med tillförsikt förutsätter Video Indexer att det talade språket är engelska. Mer information finns i [Språkidentifieringsmodell](language-identification-model.md).
+* **Ljudtranskription**: Konverterar tal till text på 12 språk och tillåter tillägg. Språk som stöds inkluderar engelska, spanska, franska, tyska, italienska, mandarin chines, japanska, arabiska, ryska, brasiliansk portugisiska, hindi och koreanska.
+* **Automatisk språkidentifiering**: Identifierar automatiskt dominant talat språk. Språk som stöds inkluderar engelska, spanska, franska, tyska, italienska, mandarin chines, japanska, ryska och brasiliansk portugisiska. Om språket inte kan identifieras med tillförsikt förutsätter Video Indexer att det talade språket är engelska. Mer information finns i [Språkidentifieringsmodell](language-identification-model.md).
 * **Talidentifiering och transkription** på flera språk (förhandsgranskning): Identifierar automatiskt det talade språket i olika segment från ljud. Det skickar varje segment av mediefilen som ska transkriberas och sedan kombinerar transkriptionen tillbaka till en enhetlig transkription. Mer information finns i [Identifiera och transkribera innehåll med flera språk](multi-language-identification-transcription.md)automatiskt .
-* **Ljudtranskription**: Konverterar tal till text på 12 språk och tillåter tillägg. Språk som stöds inkluderar engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, arabiska, ryska, brasiliansk portugisiska, hindi och koreanska.
 * **Textning**: Skapar textning i tre format: VTT, TTML och SRT.
 * **Två kanalbearbetning:** Automatisk identifierar separat avskrift och sammanfogas till en enda tidslinje.
 * **Brusreducering**: Rensar upp telefoniljud eller bullriga inspelningar (baserat på Skype-filter).

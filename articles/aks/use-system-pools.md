@@ -4,16 +4,19 @@ description: Lär dig hur du skapar och hanterar systemnodpooler i Azure Kuberne
 services: container-service
 ms.topic: article
 ms.date: 04/06/2020
-ms.openlocfilehash: ef5400f19f68fd2da45776d220e17777f58e46e6
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: b567d9e618877463e1e659f368d35fbb787a4ef2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986322"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259076"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Hantera systemnodpooler i Azure Kubernetes Service (AKS)
 
-I Azure Kubernetes Service (AKS) grupperas noder med samma konfiguration i *nodpooler*. Nodpooler innehåller underliggande virtuella datorer som kör dina program. Systemnodpooler och användarnodpooler är två olika nodpoollägen för AKS-kluster. Systemnodspooler är värd för viktiga systemtjänster som CoreDNS. Användarnodpooler är där du placerar dina programspecifika poddar. Varje AKS-kluster måste innehålla minst en systemnodpool med minst en nod. Om du kör en enda systemnodpool för AKS-klustret rekommenderar vi att du använder minst tre noder för nodpoolen. 
+I Azure Kubernetes Service (AKS) grupperas noder med samma konfiguration i *nodpooler*. Nodpooler innehåller underliggande virtuella datorer som kör dina program. Systemnodpooler och användarnodpooler är två olika nodpoollägen för AKS-kluster. Systemnodpooler tjänar det primära syftet att vara värd för kritiska systemkapslar som CoreDNS och tunnelfront. Användarnodpooler tjänar det primära syftet med att vara värd för dina programpoddar. Programpoddar kan dock schemaläggas på systemnodpooler om du bara vill ha en pool i AKS-klustret. Varje AKS-kluster måste innehålla minst en systemnodpool med minst en nod. 
+
+> [!Important]
+> Om du kör en enda systemnodpool för AKS-klustret i en produktionsmiljö rekommenderar vi att du använder minst tre noder för nodpoolen.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 49ef78ac5a7d58d86583d91bf072f0f3131796fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 889d0d1e98f5c9947588011774d02e54f05edca1
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80109399"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81257767"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Konfigurera ett labb med fokus på djupinlärning i bearbetning av naturligt språk med Azure Lab Services
 Den här artikeln visar hur du konfigurerar ett labb med fokus på djupinlärning i bearbetning av naturligt språk (NLP) med Hjälp av Azure Lab Services. Bearbetning av naturligt språk (NLP) är en form av artificiell intelligens (AI) som möjliggör datorer med översättning, taligenkänning och andra funktioner för språks förståelse.  
@@ -39,7 +39,7 @@ Följ [den här självstudien](tutorial-setup-classroom-lab.md) för att skapa e
 | Labbinställningar | Värde/instruktioner | 
 | ------------ | ------------------ |
 | Storlek på virtuell dator (VM) | Liten GPU (Beräkning). Den här storleken passar bäst för beräkningsintensiva och nätverksintensiva program som artificiell intelligens och djupinlärning. |
-| Vm-avbildning | [Data Science Virtual Machine för Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu). Den här bilden ger ramverk och verktyg för djupinlärning för maskininlärning och datavetenskap. Om du vill visa hela listan över installerade verktyg på den här bilden läser du följande artikel: [Vad finns på DSVM?](../../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm). |
+| Vm-avbildning | [Data Science Virtual Machine för Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Den här bilden ger ramverk och verktyg för djupinlärning för maskininlärning och datavetenskap. Om du vill visa hela listan över installerade verktyg på den här bilden läser du följande artikel: [Vad finns på DSVM?](../../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm). |
 | Aktivera anslutning till fjärrskrivbord | Aktivera. <p>Om du aktiverar den här inställningen kan lärare och elever ansluta till sina virtuella datorer med fjärrskrivbord (RDP).</p><p>**Viktigt:** RDP är redan installerat och konfigurerat på Virtual Machine för Data Science för Linux-avbildningen. Därför kan lärare/elever ansluta till virtuella datorer via RDP utan några ytterligare steg. Om du behöver ansluta till det grafiska skrivbordet har den här avbildningen redan [X2Go Server](https://wiki.x2go.org/doku.php/doc:newtox2go) installerad på den virtuella datorn. Studenter måste installera X2Go-klienten på sina lokala datorer och måste använda klienten för anslutning. Mer information finns i följande guider: <ul><li>[Så här kommer du åt Virtual Machine för Data Science för Linux](../../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)</li><li>[Ansluta till mallen VM för att installera RDP- och GUI-paket](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm)</li></ul></p>   |
 
 Data Science Virtual Machine för Linux-avbildningen ger de nödvändiga ramverken och verktygen för djupinlärning som krävs för den här typen av klass. När mallens maskin har skapats behöver du därför inte anpassa den ytterligare. Den kan publiceras för studenter att använda. Välj knappen **Publicera** på mallsidan om du vill publicera mallen i labbet.  

@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/22/2019
-ms.openlocfilehash: 1e559309b8e8d9768ca2f79dabfb01ec6086a961
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.date: 04/10/2019
+ms.openlocfilehash: b8d7f995997b828c2323b3e6934b97354c2f8c8b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348724"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255251"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Hantera åtkomst till loggdata och arbetsytor i Azure Monitor
 
@@ -273,7 +273,7 @@ Om du vill skapa en roll med åtkomst till endast _tabellen SecurityBaseline_ sk
 
  Anpassade loggar skapas från datakällor som anpassade loggar och HTTP Data Collector API. Det enklaste sättet att identifiera typen av logg är genom att kontrollera tabellerna som anges under [Anpassade loggar i loggschemat](../log-query/get-started-portal.md#understand-the-schema).
 
- Du kan för närvarande inte bevilja åtkomst till enskilda anpassade loggar, men du kan bevilja åtkomst till alla anpassade loggar. Skapa en anpassad roll med hjälp av följande åtgärder om du vill skapa en roll med hjälp av följande:
+ Du kan inte bevilja åtkomst till enskilda anpassade loggar, men du kan bevilja åtkomst till alla anpassade loggar. Skapa en anpassad roll med hjälp av följande åtgärder om du vill skapa en roll med hjälp av följande:
 
 ```
 "Actions":  [
@@ -282,6 +282,9 @@ Om du vill skapa en roll med åtkomst till endast _tabellen SecurityBaseline_ sk
     "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
 ],
 ```
+En alternativ metod för att hantera åtkomst till anpassade loggar är att tilldela dem till en Azure-resurs och hantera åtkomst med hjälp av resurskontextparadigmet. Om du vill använda den här metoden måste du inkludera resurs-ID:t genom att ange det i [x-ms-AzureResourceId-huvudet](data-collector-api.md#request-headers) när data används för att logga Analytics via [HTTP Data Collector API](data-collector-api.md). Resurs-ID:t måste vara giltigt och ha åtkomstregler tillämpade på det. När loggarna har förtärs är de tillgängliga för dem med läsåtkomst till resursen, som förklaras här.
+
+Ibland kommer anpassade loggar från källor som inte är direkt kopplade till en viss resurs. Skapa i så fall en resursgrupp bara för att hantera åtkomsten till dessa loggar. Resursgruppen medför ingen kostnad, men ger dig ett giltigt resurs-ID för att styra åtkomsten till de anpassade loggarna. Om en viss brandvägg till exempel skickar anpassade loggar skapar du en resursgrupp med namnet "MyFireWallLogs" och ser till att API-begäranden innehåller resurs-ID:t för "MyFireWallLogs". Brandväggsloggposterna är sedan endast tillgängliga för användare som har beviljats åtkomst till antingen MyFireWallLogs eller de med fullständig åtkomst till arbetsytan.          
 
 ### <a name="considerations"></a>Överväganden
 

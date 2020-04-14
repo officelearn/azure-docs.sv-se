@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mjbrown
-ms.openlocfilehash: c92f045f2c8d4443d596697596363bda3d0df975
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 8a0ef4c5abcd4c4137a878adf6a7fff9e80c2764
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985294"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273519"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Säkerhet i Azure Cosmos DB – översikt
 
@@ -66,8 +66,8 @@ Låt oss gräva i var och en i detalj.
 |Global replikering|Azure Cosmos DB erbjuder total global distribution, vilket gör att du kan replikera dina data till något av Azures globala datacenter med ett klick på en knapp. Med global replikering kan du skala globalt och ge åtkomst med låg latens till dina data runt om i världen.<br><br>När det gäller säkerhet säkerställer global replikering dataskydd mot regionala fel.<br><br>Läs mer i [Distribuera data globalt](distribute-data-globally.md).|
 |Regionala redundanstestningar|Om du har replikerat dina data i mer än ett datacenter rullar Azure Cosmos DB automatiskt över dina åtgärder om ett regionalt datacenter kopplas från. Du kan skapa en prioriterad lista över redundansregioner med hjälp av de regioner där dina data replikeras. <br><br>Läs mer i [regionala redundanser i Azure Cosmos DB](high-availability.md).|
 |Lokal replikering|Även inom ett enda datacenter replikerar Azure Cosmos DB automatiskt data för hög tillgänglighet, vilket ger dig möjlighet att välja [konsekvensnivåer](consistency-levels.md). Den här replikeringen garanterar ett [serviceavtal](https://azure.microsoft.com/support/legal/sla/cosmos-db) för tillgänglighet på 99,99 % för alla konton i en region och alla konton med flera regioner med avslappnad konsekvens och 99,999 % lästillgänglighet på alla databaskonton i flera regioner.|
-|Automatiserade säkerhetskopiering online|Azure Cosmos-databaser säkerhetskopieras regelbundet och lagras i ett geo redundant arkiv. <br><br>Läs mer i [Automatisk säkerhetskopiering och återställning online med Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).|
-|Återställa borttagna data|De automatiska online-säkerhetskopiorna kan användas för att återställa data som du av misstag har tagit bort upp till ~ 30 dagar efter händelsen. <br><br>Läs mer i [Automatisk säkerhetskopiering och återställning online med Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md)|
+|Automatiserade säkerhetskopiering online|Azure Cosmos-databaser säkerhetskopieras regelbundet och lagras i ett geo redundant arkiv. <br><br>Läs mer i [Automatisk säkerhetskopiering och återställning online med Azure Cosmos DB](online-backup-and-restore.md).|
+|Återställa borttagna data|De automatiska online-säkerhetskopiorna kan användas för att återställa data som du av misstag har tagit bort upp till ~ 30 dagar efter händelsen. <br><br>Läs mer i [Automatisk säkerhetskopiering och återställning online med Azure Cosmos DB](online-backup-and-restore.md)|
 |Skydda och isolera känsliga data|Alla data i de regioner som anges i Nyheter? krypteras nu i vila.<br><br>Personuppgifter och andra konfidentiella uppgifter kan isoleras till specifik behållare och läs-och skriv-, eller skrivskyddad åtkomst kan begränsas till specifika användare.|
 |Övervaka för attacker|Genom att använda [granskningsloggning och aktivitetsloggar](logging.md)kan du övervaka ditt konto efter normal och onormal aktivitet. Du kan visa vilka åtgärder som utfördes på dina resurser, som initierade åtgärden, när åtgärden inträffade, åtgärdens status och mycket mer som visas i skärmbilden efter den här tabellen.|
 |Svara på attacker|När du har kontaktat Azure-supporten för att rapportera en potentiell attack, sparkas en 5-stegs incidentsvarsprocess igång. Målet med 5-stegsprocessen är att återställa normal servicesäkerhet och drift så snabbt som möjligt efter att ett problem har upptäckts och en undersökning har startats.<br><br>Läs mer i [Microsoft Azure Security Response i molnet](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).|

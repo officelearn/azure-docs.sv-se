@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0994e1af8ca6deccbe6224625a5320fb195a10a1
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 1a026cc241eb372e15f2600e52ec53a46efb1024
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586505"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81256016"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Azure Synapse Analytics business intelligence-partner
 
@@ -37,7 +37,7 @@ Om du vill skapa en komplett informationslagerlösning med Synapse SQL-pool i Az
 | ![Qlik](./media/sql-data-warehouse-partner-business-intelligence/qlik_logo.png) |**Qlik Sense Enterprise**<br>Skapa insiktsidentifiering med den datavisualiseringsapp som vem som helst kan använda. Med Qlik Sense kan alla i din organisation enkelt skapa flexibla, interaktiva visualiseringar och fatta meningsfulla beslut. |[Produktsida](https://www.qlik.com/us/products/qlik-sense/enterprise)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/) |
 | ![Sisense (av sisense)](./media/sql-data-warehouse-partner-business-intelligence/sisense_logo.png) |**Sisense (av sisense)**<br>SiSense är en full-stack Business Intelligence programvara som levereras med verktyg som ett företag behöver för att analysera och visualisera data: en högpresterande analytisk databas, förmågan att gå med flera källor, enkel datautvinning (ETL), och webbaserad datavisualisering. Börja analysera och visualisera stora datauppsättningar med SiSense BI och Analytics idag. |[Produktsida](https://www.sisense.com/product/)<br> |
 | ![Tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_sparkle_logo.png) |**Tableau**<br>Tableaus självbetjäningsanalys hjälper alla att se och förstå sina data, över många typer av data från platta filer till databaser. Tableau har en inbyggd, optimerad anslutning till Synapse SQL-pool som stöder både live-data och analys i minnet. |[Produktsida](https://www.tableau.com/)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/)<br>|
-| ![Targit (på andra)](./media/sql-data-warehouse-partner-business-intelligence/targit_logo.png) |**Targit (Beslutssvit)**<br>Targit Decision Suite tillhandahåller BI- och Analytics-plattform som levererar instrumentpaneler i realtid, självbetjäningsanalys, användarvänlig rapportering, fantastiska mobila funktioner och enkel dataidentifieringsteknik i en enda sammanhängande lösning. Targit ger företagen modet att agera. |[Produktsida](https://www.targit.com/en/software/deployment/targitonazure)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/)<br> |
+| ![Targit (på andra)](./media/sql-data-warehouse-partner-business-intelligence/targit_logo.png) |**Targit (Beslutssvit)**<br>Targit Decision Suite tillhandahåller BI- och Analytics-plattform som levererar instrumentpaneler i realtid, självbetjäningsanalys, användarvänlig rapportering, fantastiska mobila funktioner och enkel dataidentifieringsteknik i en enda sammanhängande lösning. Targit ger företagen modet att agera. |[Produktsida](https://www.targit.com/targit-decision-suite/analytics)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/)<br> |
 | ![Gulfenad](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_logo.png) |**Gulfenad**<br>Yellowfin är en topprankad Cloud BI-leverantör för ad hoc-rapportering och instrumentpaneler av BARC. BI-undersökningen. Anslut till Synapse SQL-pool och skapa och dela sedan vackra rapporter och instrumentpaneler med prisbelönta bi- och platsinformationsfunktioner. |[Produktsida](https://www.yellowfinbi.com/)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/yellowfin/yellowfin-for-azure-byol/) |
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->

@@ -3,12 +3,12 @@ title: Säkerhetskopiera filer och mappar - vanliga frågor
 description: Behandlar vanliga frågor om säkerhetskopiering av filer och mappar med Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 55819ce7ec5196812d935a21c096c132144d78af
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 6e9f265672ff15e40444a46a3e440e73a0051a5b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421306"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254758"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Vanliga frågor om säkerhetskopiering av filer och mappar
 
@@ -22,7 +22,7 @@ Den senaste MARS-agenten som används vid säkerhetskopiering av Windows Server-
 
 ### <a name="how-long-are-vault-credentials-valid"></a>Hur länge är valvautentiseringsuppgifter giltiga?
 
-Valvautentiseringsuppgifterna upphör att gälla efter 48 timmar. Om autentiseringsfilen upphör att gälla hämtar du filen igen från Azure-portalen.
+Valvautentiseringsuppgifter upphör att gälla efter 10 dagar. Om autentiseringsfilen upphör att gälla hämtar du filen igen från Azure-portalen.
 
 ### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>Från vilka enheter kan jag säkerhetskopiera filer och mappar?
 
@@ -185,7 +185,6 @@ Om du har samma lösenfras (som du angav under registreringen) på den ursprungl
 | --- | --- | --- |
 | Förlorade |Tillgängligt |Du kan installera och registrera MARS-agenten på en annan dator med samma lösenfras som du angav vid registreringen av den ursprungliga datorn. Välj **Återställningsalternativ** > **En annan plats** för återställningen. Mer information finns i den här [artikeln](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Förlorade |Förlorade |Det går inte att återställa data eller data som inte är tillgängliga |
-
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Vad händer om jag avbryter ett pågående återställningsjobb?
 

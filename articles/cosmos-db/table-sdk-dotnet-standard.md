@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: 48fd85e27feb3d0c7f7f722dbbd502be55684385
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f7c6829d858e36b55f079f8ee03e431f67995e66
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76771593"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81272584"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB Tabell .NET Standard API: Hämta och viktig information
 > [!div class="op_single_selector"]
@@ -26,9 +26,9 @@ ms.locfileid: "76771593"
 
 |   |   |
 |---|---|
-|**SDK nedladdning**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
+|**SDK nedladdning**|[NuGet (nuget)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
 |**Prov**|[Cosmos DB Table API .NET-exempel](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
-|**Quickstart**|[Quickstart](create-table-dotnet.md)|
+|**Snabbstart**|[Snabbstart](create-table-dotnet.md)|
 |**Självstudier**|[Självstudier](tutorial-develop-table-dotnet.md)|
 |**Nuvarande ramverk som stöds**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
 |**Rapportproblem**|[Rapportproblem](https://github.com/Azure/azure-cosmos-table-dotnet/issues)|
@@ -41,6 +41,9 @@ ms.locfileid: "76771593"
 
 ## <a name="release-notes-for-100-series"></a>Viktig information för 1.0.0-serien
 1.0.0-serien tar beroendet av [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
+
+### <a name="107"></a><a name="1.0.7"/>1.0.7
+* Prestandaförbättring genom att ange tabell SDK-standardspårningsnivå till SourceLevels.Off, som kan väljas in via app.config
 
 ### <a name="105"></a><a name="1.0.5"/>1.0.5
 * Introducera ny config under TableClientConfiguration att använda Rest Executor för att kommunicera med Cosmos DB Table API

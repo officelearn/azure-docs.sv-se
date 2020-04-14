@@ -7,15 +7,15 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: overview
-ms.date: 05/08/2019
+ms.date: 04/10/2020
 ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: 53f1b9a2fde20cacccd0730213695f26c1200fa7
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 902486f7e19f2dfd7cc64e27589e192c57ef64e8
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80132540"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255523"
 ---
 # <a name="what-is-azure-databricks"></a>Vad är Azure Databricks?
 
@@ -85,6 +85,11 @@ Azure Databricks ger Azure-säkerhet i företagsklass, inklusive integrering av 
 * Med hjälp av integrering med Azure Active Directory kan du köra fullständiga Azure-baserade lösningar med Azure Databricks.
 * Den rollbaserade åtkomsten i Azure Databricks möjliggör detaljerad användarbehörighet för bärbara datorer, kluster, jobb och data.
 * Serviceavtal i företagsklass. 
+
+> [!IMPORTANT]
+>
+> Azure Databricks är en Microsoft Azure-tjänst i första part som distribueras på den globala Azure Public Cloud-infrastrukturen. All kommunikation mellan komponenter i tjänsten, inklusive mellan de offentliga IPs i kontrollplanet och kunddataplanet, ligger kvar i Microsoft Azure-nätverkets ryggrad. Se även [Microsofts globala nätverk](https://docs.microsoft.com/azure/networking/microsoft-global-network).
+
 
 ## <a name="integration-with-azure-services"></a>Integrering med Azure-tjänster
 

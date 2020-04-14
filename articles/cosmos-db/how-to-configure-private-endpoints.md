@@ -4,14 +4,14 @@ description: Lär dig hur du konfigurerar Azure Private Link för att komma åt 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 04/13/2020
 ms.author: thweiss
-ms.openlocfilehash: 9a6a1560e169c51256c198868dc7293a020189f4
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 4b49d2aa61587d0156755bdd5c47b3eeb90090a5
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421428"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270697"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Konfigurera Azure Private Link för ett Azure Cosmos-konto
 
@@ -624,6 +624,10 @@ Följande situationer och resultat är möjliga när du använder Private Link i
 * Om du konfigurerar offentlig trafik eller en tjänstslutpunkt och skapar privata slutpunkter, auktoriseras olika typer av inkommande trafik av motsvarande typ av brandväggsregel.
 
 * Om du inte konfigurerar någon offentlig trafik- eller tjänstslutpunkt och du skapar privata slutpunkter är Azure Cosmos-kontot endast tillgängligt via de privata slutpunkterna. Om du inte konfigurerar offentlig trafik eller en tjänstslutpunkt är kontot öppet för hela nätverket när alla godkända privata slutpunkter har avvisats eller tagits bort.
+
+## <a name="blocking-public-network-access-during-account-creation"></a>Blockera åtkomst till offentligt nätverk när kontot skapas
+
+Som beskrivs i föregående avsnitt, och om inte specifika brandväggsregler har angetts, gör om du lägger till en privat slutpunkt ditt Azure Cosmos-konto endast tillgängligt via privata slutpunkter. Det innebär att Azure Cosmos-kontot kan nås från offentlig trafik när det har skapats och innan en privat slutpunkt läggs till. Om du vill vara säker på att den offentliga nätverksåtkomsten är `publicNetworkAccess` inaktiverad redan innan privata slutpunkter skapas kan du ställa in flaggan på `Disabled` när kontot skapas. Se [den här Azure Resource Manager-mallen](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) i ett exempel som visar hur du använder den här flaggan.
 
 ## <a name="update-a-private-endpoint-when-you-add-or-remove-a-region"></a>Uppdatera en privat slutpunkt när du lägger till eller tar bort en region
 

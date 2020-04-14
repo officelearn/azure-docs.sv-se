@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
-ms.openlocfilehash: 63f49946b14b003348758a5ae7ebadd7a4acf383
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0d08caf5444216666e7296b830f0af6af606dd4f
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277676"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273842"
 ---
 # <a name="key-vault-deployment-template"></a>Distributionsmall för nyckelvalv
+
+> [!IMPORTANT]
+> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Azure VM-avbildningscertifiering](https://aks.ms/CertifyVMimage) för att hantera dina migrerade erbjudanden.
 
 Följande Azure Resource Manager-mall definierar en ny Azure Key Vault-instans.  Den används i artikeln [Skapa nyckelvalvcertifikat](cpp-create-key-vault-cert.md). 
 

@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: dsindona
-ms.openlocfilehash: 6fe15fb18d8865911363a4696e44dd7fe1d90c09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2fdbc2a11bd963057b465a629757f2be51ae4061
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277811"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81273859"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Skaffa signatur-URI för delad åtkomst för vm-avbildningen
+
+> [!IMPORTANT]
+> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Virtual Machine-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Få signatur-URI för delad åtkomst för vm-avbildningen för](https://aka.ms/GetSASURI) att hantera dina migrerade erbjudanden.
 
 Under publiceringsprocessen måste du ange en enhetlig resursidentifierare (URI) för varje virtuell hårddisk (VHD) som är associerad med sku:erna. Microsoft behöver åtkomst till dessa virtuella hårddiskar under certifieringsprocessen. I den här artikeln beskrivs hur du skapar en SAS-uri (Shared Access Signature) för varje virtuell hårddisk. Du kommer att ange den här URI:n på fliken **SKU:er** i Cloud Partner Portal.
 

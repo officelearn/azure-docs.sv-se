@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: ce576d9825819770486197a6c39425adf6ac3208
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 05b166b2ec46900d9e3972025efb581d9619ec6a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80275908"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81252674"
 ---
 # <a name="customer-leads-from-your-marketplace-offer"></a>Kundleads från ditt Marketplace-erbjudande
 
@@ -133,11 +133,11 @@ Azure Blob-lead-målet stöds inte längre så du saknar alla kundleads som gene
 
 ### <a name="i-received-an-email-from-marketplace-why-cant-i-find-the-lead-in-my-crm"></a>Jag fick ett e-postmeddelande från Marketplace, varför kan jag inte hitta leadet i min CRM?
 
-Det är möjligt att slutanvändarens e-postdomän kommer från .edu. Av sekretesskäl skickar vi inte PII-data från .edu-domänen. Skicka in en supportbiljett via aka.ms/marketplacepublishersupport.
+Det är möjligt att slutanvändarens e-postdomän kommer från .edu. Av sekretessskäl skickar vi inte privat identifierbar information från .edu-domänen. Skicka in en supportbiljett via aka.ms/marketplacepublishersupport.
 
 ### <a name="i-have-configured-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>Jag har konfigurerat Azure Table som min leaddestination, hur kan jag visa leads?
 
-Du kan komma åt leaddata som lagras i Azure-tabellen från Azure Portal, eller så kan du ladda ned och installera [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) gratis för att visa tabelldata för ditt Azure-lagringskonto.
+Du kan komma åt leaddata som lagras i Azure-tabellen från Azure-portalen, eller så kan du hämta och installera [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) gratis för att visa dina Azure-lagringskontos tabelldata.
 
 ### <a name="i-have-configured-azure-table-as-my-lead-destination-can-i-get-notified-whenever-a-new-lead-is-sent-by-marketplace"></a>Jag har konfigurerat Azure Table som min leaddestination, kan jag få ett meddelande när ett nytt lead skickas av Marketplace?
 
@@ -149,13 +149,17 @@ Kontrollera om formuläret "web to lead" är ett obligatoriskt fält baserat på
 
 ### <a name="there-was-an-issue-with-my-lead-destination-and-i-missed-some-leads-can-i-have-them-sent-to-me-in-an-email"></a>Det var ett problem med min ledande destination, och jag missade några leder. Kan jag få dem skickade till mig i ett e-postmeddelande?
 
-På grund av PII-policyer (Private Identifiee Information) kan vi inte dela leadinformation via oskyddad e-post.
+På grund av privata identifierbara informationspolicyer kan vi inte dela leadinformation via oskyddad e-post.
 
 ### <a name="i-have-configured-azure-table-as-my-lead-destination-how-much-will-it-cost"></a>Jag har konfigurerat Azure Table som min leaddestination, hur mycket kostar det?
 
 Lead gen-data är låg (<1 GB för nästan alla utgivare). Kostnaden beror på antalet mottagna leads, om 1000 leads tas emot i en månad, kostar det runt 50 cent. Mer information om lagringspriser finns i [lagringspriser](https://azure.microsoft.com/pricing/details/storage/).
 
 Om din fråga fortfarande inte besvaras kontaktar du support via aka.ms/marketplacepublishersupport och väljer sedan **"skapa erbjudanden"** → **din typ av erbjudande** → **"lead management configuration".** 
+
+### <a name="i-am-receiving-email-notifications-when-new-customer-leads-are-received-how-can-i-configure-who-to-receive-these-emails"></a>Jag får e-postmeddelanden när nya kundleads tas emot. Hur kan jag konfigurera vem som ska ta emot dessa e-postmeddelanden?
+
+Öppna ditt erbjudande i Partner center och navigera till **inställningssidan för Erbjudande** -> **Lead Management** -> **Edit**. Uppdatera e-postadresserna under fältet **Kontakta e-post.**
 
 ## <a name="next-steps"></a>Nästa steg
 

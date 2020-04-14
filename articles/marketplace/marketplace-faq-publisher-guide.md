@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar om Microsoft Commercial Marketplace
+title: Vanliga frågor och svar om Microsofts kommersiella marknadsplats
 description: Svar på vanliga frågor om Azure Marketplace och Microsoft AppSource
 author: qianw211
 ms.service: marketplace
@@ -7,20 +7,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/4/2019
 ms.author: dsindona
-ms.openlocfilehash: ae5c691375d52bc7da7a877f5b2e0c2ca52cc87e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6a142ce3c082f6f9a53287885ba347fc78f77718
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288469"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262034"
 ---
-# <a name="microsoft-commercial-marketplace-faqs"></a>Vanliga frågor om Microsoft Commercial Marketplace
+# <a name="microsoft-commercial-marketplace-faqs"></a>Vanliga frågor och svar om Microsofts kommersiella marknadsplats
 
-Svar på vanliga frågor om Azure Marketplace och Microsoft AppSource.
+Svar på vanliga frågor om den kommersiella marknaden.
 
 ## <a name="faq-for-customers"></a>Vanliga frågor och svar för kunder
 
-### <a name="what-you-need-to-know-about-azure-marketplace-and-microsoft-appsource"></a>Vad du behöver veta om Azure Marketplace och Microsoft AppSource
+### <a name="what-you-need-to-know-about-the-commercial-marketplace"></a>Vad du behöver veta om den kommersiella marknaden
 
 **Vad är Azure Marketplace?**
 
@@ -168,7 +168,7 @@ Ja, för EA-kunder (Enterprise Agreement) kan registreringsadministratören inak
 
 **Vilka betalningsmetoder stöds för kommersiella marknadsplatsköp?**
 
-Kunder kan köpa erbjudanden från Azure Marketplace och Microsoft AppSource med kreditkort. Om du har en befintlig Azure-prenumeration använder inköp från Azure Marketplace betalningsmetoden som konfigurerats på kontot och visas på samma faktura som en separat radartikel. Vissa erbjudanden förbrukar Azure monetära åtagande, men de flesta kommersiella marknadsplatsköp drar inte ned Enterprise Agreement-åtaganden även om Azure-infrastrukturförbrukning kommer.
+Kunder kan köpa erbjudanden från den kommersiella marknaden med kreditkort. Om du har en befintlig Azure-prenumeration använder inköp från Azure Marketplace betalningsmetoden som konfigurerats på kontot och visas på samma faktura som en separat radartikel. Vissa erbjudanden förbrukar Azure monetära åtagande, men de flesta kommersiella marknadsplatsköp drar inte ned Enterprise Agreement-åtaganden även om Azure-infrastrukturförbrukning kommer.
 
 **Kan jag använda Azure-prenumerationskrediter eller monetära åtagandemedel i mitt konto mot Azure Marketplace-erbjudanden?**
 
@@ -258,12 +258,12 @@ Ja, det är möjligt för en kund att äga två planer från samma erbjudande sa
 
 **Skiljer sig återbetalnings- och planändringspolicyerna mellan skyltfönster?**
 
-Nej, affärspolicyerna är konsekventa på Azure Marketplace och Microsoft AppSource. Om en partner i Cloud Solution Provide-programmet säljs vidare kan partnern tillämpa en annan policy för sina kunder.
+Nej, affärspolicyerna är konsekventa på den kommersiella marknaden. Om en partner i Cloud Solution Provide-programmet säljs vidare kan partnern tillämpa en annan policy för sina kunder.
 
 
 ## <a name="faq-for-publishers"></a>Vanliga frågor och svar för utgivare
 
-### <a name="what-you-need-to-know-about-azure-marketplace-and-microsoft-appsource"></a>Vad du behöver veta om Azure Marketplace och Microsoft AppSource
+### <a name="what-you-need-to-know-about-the-commercial-marketplace"></a>Vad du behöver veta om den kommersiella marknaden
 
 **Vad är Azure Marketplace?**
 
@@ -347,7 +347,7 @@ När du har slutfört erbjudandet och ställt in en leaddestination kan listan p
 
 **Vilka länder/regioner är Azure Marketplace tillgängligt för utgivare att sälja från?**
 
-Utgivare som är baserade i följande länder/regioner kan för närvarande sälja på Azure Marketplace: Afghanistan, Albanien, Algeriet, Angola, Antigua och Barbuda, Argentina, Armenien, Australien, Österrike, Azerbajdzjan, Bahrain, Bangladesh, Vitryssland, Belgien, Benin, Bolivia, Bosnien och Hercegovina, Botswana, Brasilien, Bulgarien, Burkina Faso, Burundi, Kambodja, Kamerun, Kanada, Centralafrikanska republiken, Tchad, Chile, Colombia, Komorerna, Kongo, Kongo(DRC), Costa Rica, Elfenbenskusten, Kroatien, Cypern, Tjeckien, Danmark, Dominikanska, Dominikanska republiken, Ecuador, Egypten, El Salvador, Eritrea, Estland, Etiopien, Fijiöarna, Finland, Frankrike, Georgien, Tyskland, Ghana, Grekland, Guatemala, Guinea, Haiti, Honduras, Hong Kong SAR, Ungern, Island, Indien, Indonesien, Irak, Irland, Israel, Italien, Jamaica, Japan, Jordanien, Kazakstan, Kenya, Korea (Syd), Kuwait, Laos, Lettland, Libanon, Liberia, Liechtenstein, Litauen, Luxemburg, Madagaskar, Malawi, Malaysia, Mali, Malta, Mauritius, Mexiko, Monaco, Mongoliet, Montenegro, Marocko, Moçambique, Nepal, Nederländerna, Nya Zeeland, Nicaragua, Niger, Nigeria, Norge, Oman, Pakistan, Panama, Paraguay, Peru, Filippinerna, Polen, Portugal, Qatar, Rumänien, Ryssland, Rwanda, Saudiarabien, Senegal, Serbien, Sierra Leone, Singapore, Slovakien, Slovenien, Somalia, Sydafrika, Spanien, Sri Lanka, Sverige, Schweiz, Tadzjikistan, Tanzania, Thailand, Östtimor, Togo, Tonga, Trinidad och Tobago, Tunisien, Turkiet, Turkmenistan, Uganda, Ukraina, Förenade Arabemiraten, Förenade kungariket, Förenade kungariket, Förenade kungariket, Förenade kungariket, Förenade kungariket, Förenade kungariket, Förenade kungariket, Förenade kungariket, Uruguay, Uzbekistan, Venezuela, Vietnam, Zambia och Zimbabwe.
+Utgivare baserade i följande länder/regioner kan för närvarande sälja på Azure Marketplace: Afghanistan, Albanien, Algeriet, Angola, Antigua och Barbuda, Argentina, Armenien, Australien, Österrike, Azerbajdzjan, Bahrain, Bangladesh, Vitryssland, Belgien, Benin, Bolivia, Bosnien och Hercegovina, Botswana, Brasilien, Bulgarien, Burkina Faso, Burundi, Kambodja, Kamerun, Kanada, Centralafrikanska republiken, Tchad, Chile, Colombia, Komorerna, Kongo, Kongo(Demokratiska republiken Kongo), Costa Rica, Elfenbenskusten, Kroatien, Cypern, Tjeckien, Danmark, Dominikanska republiken, Ecuador, Egypten, El Salvador, Eritrea, Estland, Etiopien, Fijiöarna, Finland, Frankrike, Georgien, Tyskland, Ghana, Grekland, Guatemala, Guinea, Haiti, Honduras, Hong Kong SAR, Ungern, Island, Indien, Indonesien, Irak, Irland, Israel, Italien, Jamaica, Japan, Jordanien, Kazakstan, Kenya, Korea (Syd), Kuwait, Laos, Lettland, Libanon, Liberia, Liechtenstein, Litauen, Luxemburg, Madagaskar, Malawi, Malaysia, Mali, Malta, Mauritius, Mexiko, Monaco, Mongoliet, Montenegro , Marocko, Moçambique, Nepal, Nederländerna, Nya Zeeland, Nicaragua, Niger, Nigeria, Norge, Oman, Pakistan, Panama, Paraguay, Peru, Filippinerna, Polen, Portugal, Qatar, Rumänien, Ryssland, Rwanda, Saudiarabien, Senegal, Serbien, Sierra Leone, Singapore, Slovakien, Slovenien, Somalia, Sydafrika, Spanien, Sri Lanka, Sverige, Schweiz, Tadzjikistan, Tanzania, Thailand, Östtimor, Togo, Tonga, Trinidad och Tobago, Tunisien, Turkiet, Turkmenistan, Uganda, Ukraina, Förenade Arabemiraten, Storbritannien, USA, Uruguay, Uzbekistan, Venezuela, Vietnam, Zambia och Zimbabwe.
 
 **Hur tar jag bort en lista från Azure Marketplace?**
 
@@ -372,8 +372,8 @@ Mer information finns i [Ta bort ett erbjudande](./cloud-partner-portal/manage-o
 
 *O365 Appar:*
 
-1.  Logga in <https://sellerdashboard.microsoft.com> med ditt Dev-konto.
-1.  Dra tillbaka tillägget.
+1.    Logga in <https://sellerdashboard.microsoft.com> med ditt Dev-konto.
+1.    Dra tillbaka tillägget.
 
     > [!NOTE]
     > Appar försvinner från en befintlig lista efter 90 dagar.
@@ -422,7 +422,7 @@ Om du vill ha fakturerings- och prenumerationsproblem med ditt Azure Marketplace
 
 **Vem kontaktar jag med frågor om publicering eller erbjudandehantering?**
 
-Besök [Azure Marketplace Publisher Guide](marketplace-publishers-guide.md) för uppdaterade resurser och dokumentation om vanliga frågor och svar. Dessutom kan du logga en biljett med [Microsoft Support i Partner Center](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
+Besök den [kommersiella marketplace-utgivarens guide](marketplace-publishers-guide.md) för aktuella resurser och dokumentation om vanliga frågor. Dessutom kan du logga en biljett med [Microsoft Support i Partner Center](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
 
 ### <a name="azure-marketplace-for-publishers"></a>Azure Marketplace för utgivare
 
@@ -473,7 +473,7 @@ Ja, på din begäran via supportbiljett kommer Microsoft att behandla krediter t
 
 ## <a name="next-steps"></a>Nästa steg
 
-Besök [guidesidan för Azure Marketplace och AppSource Publisher.](/azure/marketplace/marketplace-publishers-guide)
+Besök den [kommersiella marknadsplatsen utgivare guide](/azure/marketplace/marketplace-publishers-guide) sida.
 
 
-[Azure-portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

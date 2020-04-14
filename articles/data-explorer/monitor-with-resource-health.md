@@ -7,12 +7,12 @@ ms.reviewer: prvavill
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 9b8b1b40e972d7719ef2cf495ed12cb4ed3478fd
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: ee42f45d8c96e908061142b5a8e6b2e5cee21993
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80479375"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262068"
 ---
 # <a name="monitor-azure-data-explorer-using-resource-health-preview"></a>Övervaka Azure Data Explorer med hjälp av resurshälsa (förhandsversion)
 
@@ -44,7 +44,7 @@ En hälsostatus **för tillgänglig** anger att din Azure Data Explorer-resurs �
 
 ### <a name="unavailable"></a>Inte tillgänglig
 
-En hälsostatus **för Otillgänglig** anger att det finns ett pågående problem med din Azure Data Explorer-resurs som gör att den inte är tillgänglig för frågor och inmatning. Noder i azure data explorer-resursen kan till exempel ha startats om oväntat. Om din Azure Data Explorer-resurs förblir i det här tillståndet under en längre tid kontaktar du [supporten]().
+En hälsostatus **för Otillgänglig** anger att det finns ett pågående problem med din Azure Data Explorer-resurs som gör att den inte är tillgänglig för frågor och inmatning. Noder i azure data explorer-resursen kan till exempel ha startats om oväntat. Om din Azure Data Explorer-resurs förblir i det här tillståndet under en längre tid kontaktar du supporten.
 
 ![Inte tillgänglig](media/monitor-with-resource-health/unavailable.png)
 

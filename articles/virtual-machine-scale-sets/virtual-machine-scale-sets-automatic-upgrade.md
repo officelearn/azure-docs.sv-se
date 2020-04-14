@@ -1,18 +1,18 @@
 ---
 title: Automatiska os-avbildningsuppgraderingar med Azure-skalningsuppsättningar för virtuella datorer
 description: Lär dig hur du automatiskt uppgraderar OS-avbildningen på VM-instanser i en skalningsuppsättning
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.author: manayar
-ms.openlocfilehash: 6d550e8e960cb8e212702796467c91d1cd1ebb23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: mimckitt
+ms.openlocfilehash: b1e5ad60041e9d3b902a06a4875206fa061c73e6
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80235182"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81269915"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Azure virtual machine scale set automatiska OS-avbildningsuppgraderingar
 
@@ -93,7 +93,7 @@ Automatisk os-avbildningsuppgradering är tillgänglig i förhandsgranskningen f
 
 För att aktivera förhandsversionen krävs en engångsanmälan för funktionen *AutomaticOSUpgradeWithGalleryImage* per prenumeration, enligt beskrivningen nedan.
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 I följande exempel beskrivs hur du aktiverar förhandsgranskningen för din prenumeration:
 
 ```
@@ -164,7 +164,7 @@ az provider register --namespace Microsoft.Compute
 ## <a name="configure-automatic-os-image-upgrade"></a>Konfigurera automatisk uppgradering av OS-avbildning
 Om du vill konfigurera automatisk uppgradering av OS-avbildningen kontrollerar du att egenskapen *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* är inställd på *true* i modelldefinitionen för skalningsuppsättning.
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 I följande exempel beskrivs hur du ställer in automatiska OS-uppgraderingar på en skalningsuppsättningsmodell:
 
 ```
@@ -243,7 +243,7 @@ Det finns flera sätt att distribuera tillägget Programhälsa till skalningsupp
 ## <a name="get-the-history-of-automatic-os-image-upgrades"></a>Hämta historiken för automatiska os-avbildningsuppgraderingar
 Du kan kontrollera historiken för den senaste OS-uppgraderingen som utförts på din skalningsuppsättning med Azure PowerShell, Azure CLI 2.0 eller REST-API:erna. Du kan få historik för de senaste fem OS-uppgraderingsförsöken under de senaste två månaderna.
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 I följande exempel används [REST API](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) för att kontrollera status för skalningsuppsättningen *myScaleSet* i resursgruppen *myResourceGroup:*
 
 ```
@@ -305,7 +305,7 @@ az vmss get-os-upgrade-history --resource-group myResourceGroup --name myScaleSe
 
 Du kan hämta tillgängliga avbildningsversioner för automatiska SKU:er som stöds av OS-uppgradering med hjälp av exemplen nedan:
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 ```
 GET on `/subscriptions/subscription_id/providers/Microsoft.Compute/locations/{location}/publishers/{publisherName}/artifacttypes/vmimage/offers/{offer}/skus/{skus}/versions?api-version=2018-10-01`
 ```
@@ -328,7 +328,7 @@ För specifika fall där du inte vill vänta på att orchestrator ska tillämpa 
 > [!NOTE]
 > Manuell utlösare av os-avbildningsuppgraderingar ger inte automatiska återställningsfunktioner. Om en instans inte återställer sin hälsotillstånd efter en uppgraderingsåtgärd kan dess tidigare OS-disk inte återställas.
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 Använd API-anropet för uppgradering av [Start OS](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) för att starta en rullande uppgradering för att flytta alla uppsättning instanser för virtuell datorskala till den senast tillgängliga versionen av avbildningsoperativsystemet. Instanser som redan kör den senaste tillgängliga OS-versionen påverkas inte. I följande exempel beskrivs hur du kan starta en rullande OS-uppgradering på en skalningsuppsättning med namnet *myScaleSet* i resursgruppen *myResourceGroup:*
 
 ```

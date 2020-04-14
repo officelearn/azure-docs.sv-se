@@ -5,16 +5,16 @@ services: azure-portal
 keywords: ''
 author: mgblythe
 ms.author: mblythe
-ms.date: 01/29/2020
+ms.date: 04/10/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: c5bba7296a05cfbb72698a991ece1ef298689bd1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 399c64c88e78079432fcf7c09dafd199da83358b
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76900654"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255057"
 ---
 # <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Skydda Azure-portalens URL:er i brandväggen eller proxyservern
 
@@ -80,13 +80,3 @@ URL-slutpunkterna till safelist för Azure-portalen är specifika för Azure-mol
 > Trafik till dessa slutpunkter använder vanliga TCP-portar för HTTP (80) och HTTPS (443).
 >
 >
-## <a name="next-steps"></a>Nästa steg
-
-Behöver du safelist IP-adresser? Hämta listan över IP-intervall för Microsoft Azure-datacenter för molnet:
-
-* [Världsomfattande](https://www.microsoft.com/download/details.aspx?id=56519)
-* [Usa:s regering](https://www.microsoft.com/download/details.aspx?id=57063)
-* [Tyskland](https://www.microsoft.com/download/details.aspx?id=57064)
-* [Kina](https://www.microsoft.com/download/details.aspx?id=57062)
-
-Andra Microsoft-tjänster använder ytterligare webbadresser och IP-adresser för anslutning. Mer om hur du optimerar nätverksanslutningen för Microsoft 365-tjänster finns i [Konfigurera nätverket för Office 365](/office365/enterprise/set-up-network-for-office-365).

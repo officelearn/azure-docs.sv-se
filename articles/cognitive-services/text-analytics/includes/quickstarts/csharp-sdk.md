@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/17/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 64eb19e43223c1953a7244f8fd29c48d085f1e96
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 2fa2e40ba2a7fe84b6df57bfb711d01332b8f523
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80116858"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81275423"
 ---
 <a name="HOLTop"></a>
 
@@ -44,7 +44,7 @@ Skapa en ny .NET Core-konsolapp med Visual Studio IDE. Detta kommer att skapa et
 
 #### <a name="version-30-preview"></a>[Version 3.0-förhandsvisning](#tab/version-3)
 
-Installera klientbiblioteket genom att högerklicka på lösningen i **Lösningsutforskaren** och välja **Hantera NuGet-paket**. I pakethanteraren som öppnar välj **Bläddra,** kontrollera **Inkludera förhandsversion**och sök efter `Azure.AI.TextAnalytics`. Välj `1.0.0-preview.3`version och **installera**sedan . Du kan också använda [Package Manager Console](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+Installera klientbiblioteket genom att högerklicka på lösningen i **Lösningsutforskaren** och välja **Hantera NuGet-paket**. I pakethanteraren som öppnar välj **Bläddra,** kontrollera **Inkludera förhandsversion**och sök efter `Azure.AI.TextAnalytics`. Välj `1.0.0-preview.4`version och **installera**sedan . Du kan också använda [Package Manager Console](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
 > [!TIP]
 > Vill du visa hela snabbstartskodfilen på en gång? Du hittar den [på GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/TextAnalytics/program.cs), som innehåller kodexemplen i den här snabbstarten. 
@@ -63,6 +63,7 @@ Installera klientbiblioteket genom att högerklicka på lösningen i **Lösnings
 Öppna *program.cs* filen och lägg `using` till följande direktiv:
 
 ```csharp
+using Azure;
 using System;
 using System.Globalization;
 using Azure.AI.TextAnalytics;
@@ -73,7 +74,7 @@ Skapa variabler `Program` för resursens nyckel och slutpunkt i programmets klas
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
 ```csharp
-private static readonly TextAnalyticsApiKeyCredential credentials = new TextAnalyticsApiKeyCredential("<replace-with-your-text-analytics-key-here>");
+private static readonly AzureKeyCredential credentials = new AzureKeyCredential("<replace-with-your-text-analytics-key-here>");
 private static readonly Uri endpoint = new Uri("<replace-with-your-text-analytics-endpoint-here>");
 ```
 
@@ -87,7 +88,6 @@ static void Main(string[] args)
     SentimentAnalysisExample(client);
     LanguageDetectionExample(client);
     EntityRecognitionExample(client);
-    EntityPIIExample(client);
     EntityLinkingExample(client);
     KeyPhraseExtractionExample(client);
 
@@ -121,14 +121,13 @@ Ersätt programmets `Main` metod. Du kommer att definiera de metoder som kallas 
 
 Text Analytics-klienten `TextAnalyticsClient` är ett objekt som autentiserar till Azure med hjälp av nyckeln och tillhandahåller funktioner för att acceptera text som enstaka strängar eller som en batch. Du kan skicka text till API-programmet synkront eller asynkront. Svarsobjektet innehåller analysinformationen för varje dokument som du skickar. 
 
-Om du använder `3.0-preview`version kan du `TextAnalyticsClientOptions` använda en valfri instans för att initiera klienten med olika standardinställningar (till exempel standardspråk eller landstips). Du kan också autentisera med en Azure Active Directory-token. 
+Om du använder `3.0-preview` versionen av tjänsten kan du `TextAnalyticsClientOptions` använda en valfri instans för att initiera klienten med olika standardinställningar (till exempel standardspråk eller landstips). Du kan också autentisera med en Azure Active Directory-token. 
 
 ## <a name="code-examples"></a>Kodexempel
 
 * [Sentimentanalys](#sentiment-analysis)
 * [Språkidentifiering](#language-detection)
-* [Namngiven entitetsigenkänning](#named-entity-recognition-ner)
-* [Identifiera personlig information](#detect-personal-information)
+* [Igenkänning av namngiven enhet](#named-entity-recognition-ner)
 * [Entitetslänkning](#entity-linking)
 * [Extraktion av nyckelfraser](#key-phrase-extraction)
 
@@ -264,7 +263,6 @@ Language: English
 
 > [!NOTE]
 > Ny i `3.0-preview`version:
-> * Entitetsigenkänning innehåller nu möjligheten att identifiera personlig information i text.
 > * Entitetslänkning är nu en separerad från entitetsredovisning.
 
 
@@ -293,33 +291,6 @@ Named Entities:
         Text: last week,        Category: DateTime,     Sub-Category: DateRange
                 Length: 9,      Score: 0.80
 ```
-
-## <a name="detect-personal-information"></a>Identifiera personlig information
-
-Skapa en ny `EntityPIIExample()` funktion som kallas som tar `RecognizePiiEntities()` klienten som du skapade tidigare, anropa dess funktion och iterera genom resultaten. I likhet med föregående `Response<IReadOnlyCollection<CategorizedEntity>>` funktion kommer det returnerade objektet att innehålla en lista över identifierade entiteter. Om det fanns ett fel, `RequestFailedException`kommer det att kasta en .
-
-```csharp
-static void EntityPIIExample(TextAnalyticsClient client)
-{
-    string inputText = "Insurance policy for SSN on file 123-12-1234 is here by approved.";
-    var response = client.RecognizePiiEntities(inputText);
-    Console.WriteLine("Personally Identifiable Information Entities:");
-    foreach (var entity in response.Value)
-    {
-        Console.WriteLine($"\tText: {entity.Text},\tCategory: {entity.Category},\tSub-Category: {entity.SubCategory}");
-        Console.WriteLine($"\t\tLength: {entity.GraphemeLength},\tScore: {entity.ConfidenceScore:F2}\n");
-    }
-}
-```
-
-### <a name="output"></a>Resultat
-
-```console
-Personally Identifiable Information Entities:
-        Text: 123-12-1234,      Category: U.S. Social Security Number (SSN),    Sub-Category:
-                Length: 11,     Score: 0.85
-```
-
 
 ## <a name="entity-linking"></a>Entitetslänkning
 

@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 395f4b5481fcf2028d6bfe736e58c3174a0c80b2
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: fdf22e4d981549b876a14aed2b0a1d7e0c76e40e
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435351"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263462"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Skydd mot hot i Azure Security Center
 
@@ -159,19 +159,20 @@ Mer information finns i:
 
 
 
-
 ## <a name="threat-protection-for-azure-storage"></a>Hotskydd för Azure Storage<a name="azure-storage"></a>
 
-> [!NOTE]
-> Den här tjänsten är tillgänglig i amerikanska myndighetsmoln, men inga andra suveräna eller Azure-myndigheters molnregioner.
+Avancerat skydd mot hot för lagring identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagringskonton. Med det här skyddslageret kan du hantera hot utan att du behöver vara säkerhetsexpert och hjälpa dig att hantera dina säkerhetsövervakningssystem.
 
-Avancerat skydd mot hot för lagring (endast tillgängligt för Blob-lagring) identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagringskonton. Med det här skyddslageret kan du hantera hot utan att du behöver vara säkerhetsexpert och hjälpa dig att hantera dina säkerhetsövervakningssystem.
+Avancerat hotskydd för Azure Storage är för närvarande endast tillgängligt för [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). 
+
+Den här tjänsten är tillgänglig i alla offentliga moln och amerikanska myndighetsmoln, men inga andra suveräna eller Azure-myndigheters molnregioner.
+
+Information om priser, inklusive en kostnadsfri utvärderingsversion på 30 dagar, finns på [prissidan för Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 Mer information finns i:
 
 * [Aktivera avancerat skydd mot hot för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
 * [Listan över hotskyddsaviseringar för Azure Storage](alerts-reference.md#alerts-azurestorage)
-
 
 > [!TIP]
 > Du kan simulera Azure Storage-aviseringar genom att följa instruktionerna i [det här blogginlägget](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).

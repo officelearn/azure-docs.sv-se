@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: fee74cb6ec5acd5fa0f171eab9769a833f04ad66
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/10/2020
+ms.openlocfilehash: d7ba62c795e23e41a1947def77300ffe5d2cc010
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72792917"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262459"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Azure Cognitive Search – vanliga frågor och svar ( Vanliga frågor och svar)
 
@@ -24,16 +24,6 @@ ms.locfileid: "72792917"
 ### <a name="how-is-azure-cognitive-search-different-from-full-text-search-in-my-dbms"></a>Hur skiljer sig Azure Cognitive Search från fulltextsökning i min DBMS?
 
 Azure Cognitive Search stöder flera datakällor, [språklig analys för många språk,](https://docs.microsoft.com/rest/api/searchservice/language-support)anpassad analys för intressanta och ovanliga [datainmatningar, sökrankningskontroller](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)via [bedömningsprofiler](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)och funktioner för användarupplevelse som typeahead, träffmarkering och aspektbaserad navigering. Den innehåller också andra funktioner, till exempel synonymer och rich query-syntax, men de skiljer i allmänhet inte funktioner.
-
-### <a name="what-is-the-difference-between-azure-cognitive-search-and-elasticsearch"></a>Vad är skillnaden mellan Azure Cognitive Search och Elasticsearch?
-
-När du jämför söktekniker frågar kunderna ofta efter detaljer om hur Azure Cognitive Search jämförs med Elasticsearch. Kunder som väljer Azure Cognitive Search över Elasticsearch för sina sökprogramprojekt gör det vanligtvis eftersom vi har gjort en nyckeluppgift enklare eller de behöver den inbyggda integreringen med andra Microsoft-tekniker:
-
-+ Azure Cognitive Search är en fullständigt hanterad molntjänst med 99,9 % servicenivåavtal (SLA) när det etableras med tillräcklig redundans (2 repliker för läsåtkomst, tre repliker för läs- och skrivning).
-+ Microsofts [naturliga språkbehandlare](https://docs.microsoft.com/rest/api/searchservice/language-support) erbjuder främre språkanalys.  
-+ [Azure Cognitive Search-indexerare](search-indexer-overview.md) kan genomsöka en mängd Olika Azure-datakällor för inledande och inkrementell indexering.
-+ Om du behöver snabba svar på fluktuationer i fråge- eller indexeringsvolymer kan du använda [skjutreglage i Azure-portalen](search-manage.md#scale-up-or-down) eller köra ett [PowerShell-skript](search-manage-powershell.md)och kringgå fragmenthantering direkt.  
-+ [Poängsättnings- och justeringsfunktioner](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) ger möjlighet att påverka poäng för sökterrang utöver vad sökmotorn ensam kan ge.
 
 ### <a name="can-i-pause-azure-cognitive-search-service-and-stop-billing"></a>Kan jag pausa Azure Cognitive Search-tjänsten och stoppa faktureringen?
 

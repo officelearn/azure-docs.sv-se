@@ -4,16 +4,16 @@ description: Lär dig hur du skapar och hanterar flera nodpooler för ett kluste
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 26fd541552ee203216af5a08d948644d82061191
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: f948c115b86abc532a121c68fa7a148ff15caae9
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984920"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81259093"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Skapa och hantera flera nodpooler för ett kluster i Azure Kubernetes Service (AKS)
 
-I Azure Kubernetes Service (AKS) grupperas noder med samma konfiguration i *nodpooler*. Dessa nodpooler innehåller underliggande virtuella datorer som kör dina program. Det ursprungliga antalet noder och deras storlek (SKU) definieras när du skapar ett AKS-kluster, som skapar en *standardnodpool*. Om du vill stödja program som har olika beräknings- eller lagringskrav kan du skapa ytterligare nodpooler. Använd till exempel dessa ytterligare nodpooler för att tillhandahålla GPU:er för beräkningsintensiva program eller åtkomst till högpresterande SSD-lagring.
+I Azure Kubernetes Service (AKS) grupperas noder med samma konfiguration i *nodpooler*. Dessa nodpooler innehåller underliggande virtuella datorer som kör dina program. Det ursprungliga antalet noder och deras storlek (SKU) definieras när du skapar ett AKS-kluster, som skapar en [systemnodpool][use-system-pool]. Om du vill stödja program som har olika beräknings- eller lagringskrav kan du skapa ytterligare *användarnodpooler*. Systemnodpooler tjänar det primära syftet att vara värd för kritiska systemkapslar som CoreDNS och tunnelfront. Användarnodpooler tjänar det primära syftet med att vara värd för dina programpoddar. Programpoddar kan dock schemaläggas på systemnodpooler om du bara vill ha en pool i AKS-klustret. Användarnodpooler är där du placerar dina programspecifika poddar. Använd till exempel dessa ytterligare användarnodpooler för att tillhandahålla GPU:er för beräkningsintensiva program eller åtkomst till högpresterande SSD-lagring.
 
 > [!NOTE]
 > Den här funktionen ger högre kontroll över hur du skapar och hanterar flera nodpooler. Därför krävs separata kommandon för att skapa/uppdatera/ta bort. Tidigare klusteråtgärder `az aks create` `az aks update` genom eller använde managedCluster API och var det enda alternativet för att ändra ditt kontrollplan och en enda nodpool. Den här funktionen exponerar en separat åtgärdsuppsättning för agentpooler `az aks nodepool` via agentPool API och kräver användning av kommandouppsättningen för att köra åtgärder på en enskild nodpool.
@@ -29,7 +29,8 @@ Du behöver Azure CLI version 2.2.0 eller senare installerad och konfigurerad. K
 Följande begränsningar gäller när du skapar och hanterar AKS-kluster som stöder flera nodpooler:
 
 * Se [Kvoter, storleksbegränsningar för virtuella datorer och regiontillgänglighet i Azure Kubernetes Service (AKS)][quotas-skus-regions].
-* Du kan inte ta bort systemnodpoolen, som standard den första nodpoolen.
+* Du kan ta bort systemnodpooler, förutsatt att du har en annan systemnodpool som ska äga rum i AKS-klustret.
+* Systempooler måste innehålla minst en nod och användarnodpooler kan innehålla noll eller fler noder.
 * AKS-klustret måste använda standard SKU-belastningsutjämnaren för att använda flera nodpooler, funktionen stöds inte med grundläggande SKU-belastningsutjämnare.
 * AKS-klustret måste använda skaluppsättningar för virtuella datorer för noderna.
 * Namnet på en nodpool får bara innehålla gemener alfanumeriska tecken och måste börja med en gemen bokstav. För Linux-nodpooler måste längden vara mellan 1 och 12 tecken, för Windows-nodpooler måste längden vara mellan 1 och 6 tecken.
@@ -37,6 +38,9 @@ Följande begränsningar gäller när du skapar och hanterar AKS-kluster som st�
 * När du skapar flera nodpooler vid klusterskapande tid måste alla Kubernetes-versioner som används av nodpooler matcha versionsuppsättningen för kontrollplanet. Detta kan uppdateras när klustret har etablerats med hjälp av per nodpoolåtgärder.
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
+
+> [!Important]
+> Om du kör en enda systemnodpool för AKS-klustret i en produktionsmiljö rekommenderar vi att du använder minst tre noder för nodpoolen.
 
 För att komma igång, skapa ett AKS-kluster med en enda nodpool. I följande exempel används kommandot [az-grupp skapa][az-group-create] för att skapa en resursgrupp med namnet *myResourceGroup* i *regionen eastus.* Ett AKS-kluster med namnet *myAKSCluster* skapas sedan med kommandot [az aks create.][az-aks-create] En *--kubernetes-version* av *1.15.7* används för att visa hur du uppdaterar en nodpool i följande steg. Du kan ange valfri [Kubernetes-version som stöds][supported-versions].
 
@@ -753,6 +757,8 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Nästa steg
 
+Läs mer om [systemnodpooler][use-system-pool].
+
 I den här artikeln lärde du dig hur du skapar och hanterar flera nodpooler i ett AKS-kluster. Mer information om hur du styr poddar över nodpooler finns [i Metodtips för avancerade schemaläggarfunktioner i AKS][operator-best-practices-advanced-scheduler].
 
 Mer om hur du skapar och använder windows server-behållarnodpooler finns [i Skapa en Windows Server-behållare i AKS][aks-windows].
@@ -788,3 +794,4 @@ Mer om hur du skapar och använder windows server-behållarnodpooler finns [i Sk
 [tag-limitation]: ../azure-resource-manager/resource-group-using-tags.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
+[use-system-pool]: use-system-pools.md

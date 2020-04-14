@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: 6ed5c509cf310b743e4ef52f411dfa34e5db09c1
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 5134a262397676aa9b59de9b0c6de61c26d21523
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411610"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262918"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Bädda in videoindexeringswidgetar i dina appar
 
@@ -56,7 +56,7 @@ Du kan använda widgeten Redigerare för att skapa nya projekt och hantera en vi
 
 |Namn|Definition|Beskrivning|
 |---|---|---|
-|`accessToken`<sup>*</sup> | String | Ger åtkomst till videor som bara finns i det konto som används för att bädda in widgeten.<br> Widgeten Redigerare `accessToken` kräver parametern. |
+|`accessToken`<sup>*</sup> | Sträng | Ger åtkomst till videor som bara finns i det konto som används för att bädda in widgeten.<br> Widgeten Redigerare `accessToken` kräver parametern. |
 |`language` | En språkkod | Styr spelarens språk. Standardvärdet är `en-US`.<br/>Exempel: `language=de-DE`. |
 |`locale` | En kort språkkod | Styr statistikspråket. Standardvärdet är `en`.<br/>Exempel: `language=de`. |
 
@@ -265,7 +265,7 @@ Som standard börjar spelaren spela upp videon. du kan välja att `&autoplay=fal
 
 ## <a name="code-samples"></a>Kodexempel
 
-Se [kodexempel repo](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Widgets) som innehåller exempel för Video Indexer API och widgets:
+Se [kodexempel repo](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) som innehåller exempel för Video Indexer API och widgets:
 
 | Fil/mapp                       | Beskrivning                                |
 |-----------------------------------|--------------------------------------------|

@@ -1,22 +1,22 @@
 ---
-title: Geografisk tillgänglighet och valutasupport | Azure
-description: Geografisk tillgänglighet i Azure Marketplace och AppSource
+title: Geografisk tillgänglighet och valutastöd | Azure
+description: Geografisk tillgänglighet på den kommersiella marknaden
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.author: dsindona
-ms.openlocfilehash: 79965180d897b91afc1fb1a27e777e385108d2c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82c3ed79bbcc566a91f9f249ec2df747bbc01cac
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288435"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262017"
 ---
 # <a name="geographic-availability-and-currency-support"></a>Geografisk tillgänglighet och valutasupport
 
-Azure Marketplace- och AppSource-erbjudanden kan köpas i 141 geografiska områden enligt kundens faktureringsadress och transaktioner kan slutföras i 17 valutor. I tabellen nedan visas varje geografisk plats som stöds, dess [tvåsiffriga ISO 3166-alfakod](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)och den tilldelade valutan.
+Kommersiella marknadsplatserbjudanden kan köpas i 141 geografiska områden enligt kundens faktureringsadress, och transaktioner kan slutföras i 17 valutor. I tabellen nedan visas varje geografisk plats som stöds, dess [tvåsiffriga ISO 3166-alfakod](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)och den tilldelade valutan.
 
 |   Namn på land/region               |   ISO-2   |   Valuta   |
 |-------------------------------------|-----------|--------------|

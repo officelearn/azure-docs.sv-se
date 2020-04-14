@@ -3,7 +3,7 @@ title: Skapa en Azure CDN-slutpunkt | Microsoft-dokument
 description: Den här artikeln visar hur du skapar en ny CDN-slutpunkt (Azure Content Delivery Network), inklusive avancerade inställningar.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 ms.service: azure-cdn
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: afd9599dd1e396dea6975c397688e4b97371fd6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a130a433c68d0d5cc8c26eae4b81ff264eb0ca2
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67593937"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81254023"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Skapa en Azure CDN-slutpunkt
 I den här artikeln beskrivs alla inställningar för att skapa en [CDN-slutpunkt (Azure Content Delivery Network)](cdn-overview.md) i en befintlig CDN-profil. När du har skapat en profil och en slutpunkt kan du börja leverera innehåll till dina kunder. En snabbstart för att skapa en profil och slutpunkt finns i [Snabbstart: Skapa en Azure CDN-profil och slutpunkt](cdn-create-new-endpoint.md).

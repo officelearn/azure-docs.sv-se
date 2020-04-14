@@ -5,17 +5,20 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 04/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 2a1022c6d041bf645b43dfed391a489de30b2fce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df94cba1f77ae3ea8cf595e7c651af7a69108bb6
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288571"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81255982"
 ---
 <a name="api-prerequisites"></a>API-förutsättningar
 ================
+
+> [!NOTE]
+> Api:erna för Cloud Partner Portal är integrerade med Partner Center och fortsätter att fungera när dina erbjudanden har migrerats till Partner Center. Integrationen medför små förändringar. Granska ändringarna i [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) för att säkerställa att koden fortsätter att fungera efter migreringen till Partner Center.
 
 Det finns två programmatiska resurser som krävs för att använda Api:erna för Cloud Partner Portal: ett tjänsthuvudnamn och en Azure Active Directory -åtkomsttoken (Azure Active Directory).
 
@@ -41,7 +44,7 @@ Följ följande steg för att lägga till tjänstens huvudnamn:
 3. Välj **Tjänsthuvudnamn** i listrutan **Typ** och lägg till följande information:
 
 -   Ett **eget namn** för tjänstens `spAccount`huvudnamn, till exempel .
--   **Program-ID**. Om du vill hitta den här identifieraren går du till [Azure Portal,](https://portal.azure.com)klickar på **Azure Active Directory,** väljer **Appregistreringar**och klickar på din app.
+-   **Program-ID**. Om du vill hitta den här identifieraren går du till [Azure-portalen,](https://portal.azure.com)klickar på **Azure Active Directory,** väljer **Appregistreringar**och klickar på din app.
 -   **Klient-ID**, även känt som **katalog-ID**, för din Azure AD-klientorganisation. Du hittar den här identifieraren på sidan Azure Active Directory i [Azure-portalen](https://portal.azure.com)under **Egenskaper**.
 -   **Objekt-ID** för tjänstens huvudobjekt. Du kan hämta den här identifieraren från Azure-portalen. Gå till **Azure Active Directory**, välj **Appregistreringar,** klicka på din app och klicka på appnamnet under **Hanterat program i lokal katalog**. Gå sedan till sidan **Egenskaper** och leta reda på objekt-ID: et. Kontrollera att du inte tar det ursprungliga objekt-ID:et som finns i appen, utan i stället objekt-ID:n i det hanterade programmet.
 -   Rollen **som** är associerad med kontot, som ska användas för RBAC.

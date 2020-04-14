@@ -7,14 +7,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: dsindona
-ms.openlocfilehash: d2a18d0fee4352cd88e4c64ab99a7dfc1b08ed75
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 25d678ad7b8c2b786239b294de873bc1d98fa5cb
+ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280090"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81270340"
 ---
 # <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Skapa ett nytt behållarerbjudande med Cloud Partner Portal
+
+> [!IMPORTANT]
+> Från och med den 13 april 2020 börjar vi flytta hanteringen av dina Azure Container-erbjudanden till Partner Center. Efter migreringen skapar och hanterar du dina erbjudanden i Partner center. Följ instruktionerna i [Skapa ett Azure Container-erbjudande](https://aka.ms/CreateContainerOffer) för att hantera dina migrerade erbjudanden.
 
 I den här artikeln beskrivs hur du skapar och publicerar en containererbjudandepost för Azure Marketplace. Varje erbjudande visas som sin egen enhet på Azure Marketplace och är associerat med en eller flera SKU:er.  Ett containererbjudande består av följande grupperingar av tillgångar och stödtjänster:
 
@@ -35,7 +38,7 @@ Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/)och välj se
 
 På sidan **Nytt erbjudande** för behållarerbjudandet finns en uppsättning flikar och formulärfält som du ska använda för att skapa ett nytt erbjudande. Var och en av följande artiklar förklarar hur du använder fliken för att definiera tillgångsgrupper och stödtjänster för ditt nya behållarerbjudande.
 
-- [fliken Erbjudandeinställningar](./cpp-offer-settings-tab.md)
-- [fliken SKU:er](./cpp-skus-tab.md)
-- [fliken Marketplace](./cpp-marketplace-tab.md)
-- [fliken Stöd](./cpp-support-tab.md)
+- [Fliken Erbjudandeinställningar](./cpp-offer-settings-tab.md)
+- [Fliken SKU:er](./cpp-skus-tab.md)
+- [Fliken Marketplace](./cpp-marketplace-tab.md)
+- [Fliken Stöd](./cpp-support-tab.md)

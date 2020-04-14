@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 7c25455e28e57ff40664a69718a2e406b52b7632
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4362d0875ac2c20fc6963d404f86898a12387dad
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75834302"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81260929"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Så här använder du namngivna värden i Azure API Management-principer
 
@@ -59,7 +59,7 @@ Namngivna värden kan innehålla bokstavliga strängar och [principuttryck](/azu
 
 När det namngivna värdet har skapats kan du redigera det genom att klicka på det. Om du ändrar det namngivna värdenamnet uppdateras alla principer som refererar till det namngivna värdet automatiskt för att använda det nya namnet.
 
-Information om hur du redigerar ett namngivet värde med REST API finns i [Redigera ett namngivet värde med REST API](/rest/api/apimanagement/2019-01-01/property?patch).
+Information om hur du redigerar ett namngivet värde med REST API finns i [Redigera ett namngivet värde med REST API](/rest/api/apimanagement/2019-12-01/property?patch).
 
 ## <a name="to-delete-a-named-value"></a>Så här tar du bort ett namngivet värde
 
@@ -68,7 +68,7 @@ Om du vill ta bort ett namngivet värde klickar du på **Ta bort** bredvid det n
 > [!IMPORTANT]
 > Om det namngivna värdet refereras av några principer kan du inte ta bort det förrän du tar bort det namngivna värdet från alla principer som använder det.
 
-Information om hur du tar bort ett namngivet värde med REST API finns i [Ta bort ett namngivet värde med REST API](/rest/api/apimanagement/2019-01-01/property/delete).
+Information om hur du tar bort ett namngivet värde med REST API finns i [Ta bort ett namngivet värde med REST API](/rest/api/apimanagement/2019-12-01/property/delete).
 
 ## <a name="to-search-and-filter-named-values"></a>Så här söker du efter och filtrerar namngivna värden
 

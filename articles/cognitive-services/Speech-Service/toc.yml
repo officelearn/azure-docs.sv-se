@@ -214,6 +214,8 @@
       items:
         - name: Vad är talöversättning?
           href: speech-translation.md
+        - name: Grundläggande om talöversättning
+          href: speech-translation-basics.md
     - name: Snabbstart
       items:
         - name: Översätta tal till text

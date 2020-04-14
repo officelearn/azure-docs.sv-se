@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/15/2019
 ms.topic: tutorial
-ms.openlocfilehash: 332d7e4cae3b65d794d48d208b54db3809b78a8f
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: f12b5c158025db89dcc64a3be03b263f95a3a64c
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632372"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261367"
 ---
 # <a name="tutorial-send-an-email-from-an-azure-automation-runbook"></a>Självstudiekurs: Skicka ett e-postmeddelande från en Azure Automation-runbook
 
@@ -81,7 +81,7 @@ Om du vill använda Azure KeyVault i en runbook behöver ditt Automation-konto f
 
 Klicka på <kbd>Distribuera till Azure Automation</kbd> på fliken Azure Automation under Installationsalternativ. Den här åtgärden öppnar Azure-portalen. På sidan Importera väljer du ditt Automation-konto och klickar på <kbd>OK</kbd>.
 
-Mer information om hur du lägger till de moduler som krävs finns i [Importera moduler](/azure/automation/shared-resources/modules#import-modules).
+Mer information om hur du lägger till de moduler som krävs finns i [Importera moduler](/azure/automation/shared-resources/modules#importing-modules).
 
 ## <a name="create-the-runbook-to-send-an-email"></a>Skapa runbooken för att skicka ett e-postmeddelande
 

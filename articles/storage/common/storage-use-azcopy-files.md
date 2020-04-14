@@ -4,15 +4,15 @@ description: Överför data med AzCopy och fillagring.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 8aa0e5304825b3f016694a40b3fc1e176518237a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 59f5733009424c60f2b9c48e68d70bbc29ad7095
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77526696"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263377"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Överföra data med AzCopy och fillagring 
 
@@ -20,16 +20,16 @@ AzCopy är ett kommandoradsverktyg som du kan använda för att kopiera blobbar 
 
 Innan du börjar kan du se artikeln [Kom igång med AzCopy](storage-use-azcopy-v10.md) för att hämta AzCopy och bekanta dig med verktyget.
 
+> [!TIP]
+> Exemplen i den här artikeln omger banargument med enstaka citattecken (''). Använd enstaka citattecken i alla kommandoskal utom Windows Command Shell (cmd.exe). Om du använder ett Windows Command Shell (cmd.exe) bifogar du sökvägsargument med dubbla citattecken ("") i stället för enstaka citattecken ('').
+
 ## <a name="create-file-shares"></a>Skapa filresurser
 
 Du kan använda kommandot [azcopy make](storage-ref-azcopy-make.md) för att skapa en filresurs. I exemplet i det här avsnittet `myfileshare`skapas en filresurs med namnet .
 
-> [!TIP]
-> Exemplen i det här avsnittet omger banargument med enstaka citattecken (''). Använd enstaka citattecken i alla kommandoskal utom Windows Command Shell (cmd.exe). Om du använder ett Windows Command Shell (cmd.exe) bifogar du sökvägsargument med dubbla citattecken ("") i stället för enstaka citattecken ('').
-
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy make 'https://<storage-account-name>.file.core.windows.net/<file-share-name>?<SAS-token>'` |
+| **Syntax** | `azcopy make 'https://<storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>'` |
 | **Exempel** | `azcopy make 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
 Detaljerad referensdokument finns i [azoskopi make](storage-ref-azcopy-make.md).
@@ -46,13 +46,20 @@ Det här avsnittet innehåller följande exempel:
 > * Ladda upp innehållet i en katalog
 > * Ladda upp en viss fil
 
+> [!TIP]
+> Du kan justera uppladdningen med valfria flaggor. Här är några exempel.
+>
+> |Scenario|Flagga|
+> |---|---|
+> |Kopiera åtkomstkontrollistor (ACL: er) tillsammans med filerna.|**--bevara-smb-behörigheter**=\[\|sant falskt\]|
+> |Kopiera SMB-egenskapsinformation tillsammans med filerna.|**--bevara-smb-info**=\[\|sant falskt\]|
+> |Ladda upp filer som Tillägg Blobbar eller Sidblobar.|**--blob-typ**=\[BlockBlob\|PageBlob\|LäggdBlob\]|
+> |Ladda upp till en viss åtkomstnivå (till exempel arkivnivån).|**--block-blob-tier**=\[\|Ingen\|\|Hot Cool Arkiv\]|
+> 
+> En fullständig lista finns i [alternativ](storage-ref-azcopy-copy.md#options).
+
 > [!NOTE]
 > AzCopy beräknar inte automatiskt och lagrar filens md5-hash-kod. Om du vill att AzCopy ska `--put-md5` göra det lägger du till flaggan i varje kopieringskommando. På så sätt, när filen hämtas, beräknar AzCopy en MD5 hash för nedladdade data och `Content-md5` verifierar att MD5-hash som lagras i filens egenskap matchar den beräknade hashen.
-
-Detaljerad referensdokument finns i [azoskopikopian](storage-ref-azcopy-copy.md).
-
-> [!TIP]
-> Exemplen i det här avsnittet omger banargument med enstaka citattecken (''). Använd enstaka citattecken i alla kommandoskal utom Windows Command Shell (cmd.exe). Om du använder ett Windows Command Shell (cmd.exe) bifogar du sökvägsargument med dubbla citattecken ("") i stället för enstaka citattecken ('').
 
 ### <a name="upload-a-file"></a>Överför en fil
 
@@ -134,13 +141,19 @@ Det här avsnittet innehåller följande exempel:
 > * Ladda ner innehållet i en katalog
 > * Ladda ner specifika filer
 
+> [!TIP]
+> Du kan justera hämtningen med valfria flaggor. Här är några exempel.
+>
+> |Scenario|Flagga|
+> |---|---|
+> |Kopiera åtkomstkontrollistor (ACL: er) tillsammans med filerna.|**--bevara-smb-behörigheter**=\[\|sant falskt\]|
+> |Kopiera SMB-egenskapsinformation tillsammans med filerna.|**--bevara-smb-info**=\[\|sant falskt\]|
+> |Komprimera filer automatiskt.|**--decompress**=\[gzip\|tömma\]|
+> 
+> En fullständig lista finns i [alternativ](storage-ref-azcopy-copy.md#options).
+
 > [!NOTE]
 > Om `Content-md5` egenskapsvärdet för en fil innehåller en hash beräknar AzCopy en MD5-hash för nedladdade data och `Content-md5` verifierar att MD5-hashen som lagras i filens egenskap matchar den beräknade hashen. Om dessa värden inte matchar misslyckas hämtningen om du `--check-md5=NoCheck` `--check-md5=LogOnly` inte åsidosätter det här beteendet genom att lägga till eller kopiera kommandot.
-
-Detaljerad referensdokument finns i [azoskopikopian](storage-ref-azcopy-copy.md).
-
-> [!TIP]
-> Exemplen i det här avsnittet omger banargument med enstaka citattecken (''). Använd enstaka citattecken i alla kommandoskal utom Windows Command Shell (cmd.exe). Om du använder ett Windows Command Shell (cmd.exe) bifogar du sökvägsargument med dubbla citattecken ("") i stället för enstaka citattecken ('').
 
 ### <a name="download-a-file"></a>Hämta en fil
 
@@ -214,37 +227,44 @@ Det här avsnittet innehåller följande exempel:
 > * Kopiera en filresurs till ett annat lagringskonto
 > * Kopiera alla filresurser, kataloger och filer till ett annat lagringskonto
 
-Detaljerad referensdokument finns i [azoskopikopia](storage-ref-azcopy-copy.md).
-
 > [!TIP]
-> Exemplen i det här avsnittet omger banargument med enstaka citattecken (''). Använd enstaka citattecken i alla kommandoskal utom Windows Command Shell (cmd.exe). Om du använder ett Windows Command Shell (cmd.exe) bifogar du sökvägsargument med dubbla citattecken ("") i stället för enstaka citattecken ('').
+> Du kan justera kopieringen med valfria flaggor. Här är några exempel.
+>
+> |Scenario|Flagga|
+> |---|---|
+> |Kopiera åtkomstkontrollistor (ACL: er) tillsammans med filerna.|**--bevara-smb-behörigheter**=\[\|sant falskt\]|
+> |Kopiera SMB-egenskapsinformation tillsammans med filerna.|**--bevara-smb-info**=\[\|sant falskt\]|
+> |Kopiera filer som Tilläggsblobar eller sidblobar.|**--blob-typ**=\[BlockBlob\|PageBlob\|LäggdBlob\]|
+> |Kopiera till en viss åtkomstnivå (till exempel arkivnivån).|**--block-blob-tier**=\[\|Ingen\|\|Hot Cool Arkiv\]|
+> 
+> En fullständig lista finns i [alternativ](storage-ref-azcopy-copy.md#options).
 
 ### <a name="copy-a-file-to-another-storage-account"></a>Kopiera en fil till ett annat lagringskonto
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>/<file-path>?<SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name>/<file-path><SAS-token>'` |
+| **Syntax** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>/<file-path><SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name>/<file-path><SAS-token>'` |
 | **Exempel** | `azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D'` |
 
 ### <a name="copy-a-directory-to-another-storage-account"></a>Kopiera en katalog till ett annat lagringskonto
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path>?<SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
+| **Syntax** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path><SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
 | **Exempel** | `azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
 
 ### <a name="copy-a-file-share-to-another-storage-account"></a>Kopiera en filresurs till ett annat lagringskonto
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>?<SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
+| **Syntax** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
 | **Exempel** | `azcopy copy 'https://mysourceaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
 
 ### <a name="copy-all-file-shares-directories-and-files-to-another-storage-account"></a>Kopiera alla filresurser, kataloger och filer till ett annat lagringskonto
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/?<SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<SAS-token>' --recursive'` |
+| **Syntax** | `azcopy copy 'https://<source-storage-account-name>.file.core.windows.net/<SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<SAS-token>' --recursive'` |
 | **Exempel** | `azcopy copy 'https://mysourceaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
 
 ## <a name="synchronize-files"></a>Synkronisera filer
@@ -258,10 +278,16 @@ Du kan synkronisera innehållet i en filresurs med en annan filresurs. Du kan oc
 
 Om du `--delete-destination` ställer `true` in flaggan på AzCopy tas filer bort utan att ange en uppmaning. Om du vill att en fråga ska visas innan `--delete-destination` AzCopy tar bort en fil ställer du in flaggan på `prompt`.
 
-Detaljerad referensdokument finns i [synkronisering av azokopiering](storage-ref-azcopy-sync.md).
-
 > [!TIP]
-> Exemplen i det här avsnittet omger banargument med enstaka citattecken (''). Använd enstaka citattecken i alla kommandoskal utom Windows Command Shell (cmd.exe). Om du använder ett Windows Command Shell (cmd.exe) bifogar du sökvägsargument med dubbla citattecken ("") i stället för enstaka citattecken ('').
+> Du kan justera synkroniseringen med valfria flaggor. Här är några exempel.
+>
+> |Scenario|Flagga|
+> |---|---|
+> |Ange hur strikt MD5-hashar ska valideras vid nedladdning.|**--check-md5**=\[NoCheck LogOnly FailIfDifferent FailIfDifferentOrMissing --check-md5 NoCheck LogOnly FailIfDifferent FailIfDifferentOrMissing --check-md5 NoCheck\|LogOnly\|FailIfDifferent\|FailIfDifferentOrMissing --\]|
+> |Exkludera filer baserat på ett mönster.|**--exclude-path**|
+> |Ange hur detaljerade du vill att dina synkroniseringsrelaterade loggposter ska vara.|**--log-nivå**=\[\|VARNING\|\|FEL INFO NONE\]|
+> 
+> En fullständig lista finns i [alternativ](storage-ref-azcopy-sync.md#options).
 
 ### <a name="update-a-file-share-with-changes-to-another-file-share"></a>Uppdatera en filresurs med ändringar i en annan filresurs
 
@@ -269,7 +295,7 @@ Den första filresursen som visas i det här kommandot är källan. Den andra ä
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy sync 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>?<SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
+| **Syntax** | `azcopy sync 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
 | **Exempel** | `azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
 
 ### <a name="update-a-directory-with-changes-to-a-directory-in-another-file-share"></a>Uppdatera en katalog med ändringar i en katalog i en annan filresurs
@@ -278,8 +304,19 @@ Den första katalogen som visas i det här kommandot är källan. Den andra är 
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy sync 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>/<directory-name>?<SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name>/<directory-name><SAS-token>' --recursive` |
+| **Syntax** | `azcopy sync 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name>/<directory-name><SAS-token>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name>/<directory-name><SAS-token>' --recursive` |
 | **Exempel** | `azcopy sync 'https://mysourceaccount.file.core.windows.net/myFileShare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.file.core.windows.net/myFileShare/myDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+
+### <a name="update-a-file-share-to-match-the-contents-of-a-share-snapshot"></a>Uppdatera en filresurs för att matcha innehållet i en ögonblicksbild av resursen
+
+Den första filresursen som visas i det här kommandot är källan. I slutet av URI lägger `&sharesnapshot=` du till strängen följt av **DateTime-värdet** för ögonblicksbilden. 
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy sync 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>&sharesnapsot<snapshot-ID>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
+| **Exempel** | `azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-03-03T20%3A24%3A13.0000000Z' 'https://mydestinationaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
+
+Mer information om ögonblicksbilder av resurs finns i [Översikt över ögonblicksbilder av resurs för Azure-filer](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files).
 
 ## <a name="next-steps"></a>Nästa steg
 

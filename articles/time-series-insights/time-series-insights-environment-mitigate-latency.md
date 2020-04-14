@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 245a0b18187ff1c1b226e94b03374f2c071e51c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2812b535c7aef7987db7106bfa6b07e15a1b61c7
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76314835"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81263394"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Övervaka och minska begränsning för att minska svarstiden i Azure Time Series Insights
 
@@ -30,7 +30,7 @@ Det är mest troligt att du drabbas av svarstid och begränsning när du:
 - Lägg till en händelsekälla som innehåller gamla data som kan överskrida din tilldelade ingressfrekvens (Time Series Insights måste komma ikapp).
 - Lägg till fler händelsekällor i en miljö, vilket resulterar i en topp från ytterligare händelser (som kan överskrida miljöns kapacitet).
 - Skicka stora mängder historiska händelser till en händelsekälla, vilket resulterar i en fördröjning (Time Series Insights måste komma ikapp).
-- Gå med i referensdata med telemetri, vilket resulterar i större händelsestorlek. Ur ett begränsningsperspektiv behandlas ett ingående datapaket med en paketstorlek på 32 kB som 32 händelser, vardera storlek 1 KB. Den maximala tillåtna händelsestorleken är 32 KB. datapaket som är större än 32 kB trunkeras.
+- Gå med i referensdata med telemetri, vilket resulterar i större händelsestorlek. Den maximala tillåtna paketstorleken är 32 KB. datapaket som är större än 32 kB trunkeras.
 
 ## <a name="video"></a>Video
 

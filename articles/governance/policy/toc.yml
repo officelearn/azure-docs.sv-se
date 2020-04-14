@@ -31,9 +31,6 @@
     - name: Hantera taggstyrning
       displayName: 'modify, append, effects'
       href: ./tutorials/govern-tags.md
-    - name: Praktiska labbövningar – Utforska Azure Policy
-      displayName: 'create, policy, training, learn'
-      href: 'https://handsonlabs.microsoft.com/handsonlabs/SelfPacedLabs?storyId=story://content-private/content/sp-azuregovernance/1-azpolicy/a-policy'
 - name: Exempel
   items:
     - name: Index

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: f9758678708338a284a35b45f7f9dd43b9a9017c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e74d7dcf8764d167e0080c9d7cca5573bd69ef1d
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335961"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261014"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Så här implementerar du haveriberedskap med hjälp av säkerhetskopiering och återställning i Azure API Management
 
@@ -131,7 +131,7 @@ Ersätt `{tenant id}` `{application id}`, `{redirect uri}` och med hjälp av fö
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Anropa säkerhetskopierings- och återställningsåtgärder
 
-REST-API:erna är [Api Management Service - Backup](/rest/api/apimanagement/2019-01-01/apimanagementservice/backup) and Api Management Service - [Restore](/rest/api/apimanagement/2019-01-01/apimanagementservice/restore).
+REST-API:erna är [Api Management Service - Backup](/rest/api/apimanagement/2019-12-01/apimanagementservice/backup) and Api Management Service - [Restore](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore).
 
 Innan du anropar åtgärderna "säkerhetskopiering och återställning" som beskrivs i följande avsnitt anger du huvudet för auktoriseringsbegäran för REST-anropet.
 

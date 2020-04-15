@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 04/13/2020
 ms.author: v-umha
-ms.openlocfilehash: fbda28ce588aad5f6bc0d89de60069c4220fa523
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: d64735e683ba1133e7d381a68611d204c4068026
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266180"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313076"
 ---
 # <a name="disaster-recovery-for-farmbeats"></a>Katastrofåterställning för FarmBeats
 
@@ -45,18 +45,18 @@ Du kan initiera redundans och återställa data som lagrats för vilka, var och 
 Kopiera åtkomstnyckeln för den återställda Cosmos DB och uppdatera det nya FarmBeats Datahub Key Vault.
 
 
-  ![Haveriberedskap](./media/disaster-recovery-for-farmbeats/keyvault-secrets.png)
+  ![Haveriberedskap](./media/disaster-recovery-for-farmbeats/key-vault-secrets.png)
 
 > [!NOTE]
 > Kopiera URL:en för återställd Cosmos DB och uppdatera den i den nya Konfigurationen av FarmBeats Datahub-apptjänst. Du kan nu ta bort Cosmos DB-konto i den nya FarmBeats-distributionen.
 
-  ![Haveriberedskap](./media/disaster-recovery-for-farmbeats/northeu-ehub-api-configuration.png)
+  ![Haveriberedskap](./media/disaster-recovery-for-farmbeats/configuration.png)
 
 ### <a name="configure-storage-account"></a>Konfigurera lagringskonto
 
 Kopiera åtkomstnyckeln för det återställda lagringskontot och uppdatera det i det nya FarmBeats Datahub Key Vault.
 
-![Haveriberedskap](./media/disaster-recovery-for-farmbeats/keyvault-7udqm-secrets.png)
+![Haveriberedskap](./media/disaster-recovery-for-farmbeats/key-vault-7-secrets.png)
 
 >[!NOTE]
 > Kontrollera att uppdatera lagringskontonamnet i den nya FarmBeats Batch VM-konfigurationsfilen.

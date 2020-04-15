@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: c7b38ad40977e1042032210d3a82a73ff6169adc
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: b458537c7cf8a254cd188c565ab1925afa202369
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411062"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312655"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Backend-hälso- och diagnostikloggar för Application Gateway
 
@@ -172,7 +172,7 @@ Azure genererar aktivitetsloggen som standard. Loggarna bevaras i 90 dagar i Azu
 |receivedBytes     | Storleken på det mottagna paketet, i byte.        |
 |sentByte| Storleken på paketet som skickas, i byte.|
 |timeTaken (timeTaken)| Tid (i millisekunder) som det tar för en begäran som ska behandlas och dess svar skickas. Detta beräknas som intervallet från den tidpunkt då Application Gateway tar emot den första bytet av en HTTP-begäran till den tidpunkt då svarssändningsåtgärden avslutas. Det är viktigt att notera att fältet Tidstaget vanligtvis innehåller den tid som förfrå och svarspaketen färdas över nätverket. |
-|sslEnabled| Om kommunikation till backend-poolerna använde SSL. Giltiga värden är på och av.|
+|sslEnabled| Om kommunikation till backend-poolerna använde TLS/SSL. Giltiga värden är på och av.|
 |värd| Värdnamnet som begäran har skickats till serverdservern för server. Om värdnamn för backend åsidosätts återspeglar det här namnet det.|
 |originalHost (originalHost)| Värdnamnet som begäran togs emot med av Application Gateway från klienten.|
 ```json
@@ -215,9 +215,9 @@ För Application Gateway och WAF v2 visar loggarna lite mer information:
 |receivedBytes     | Storleken på det mottagna paketet, i byte.        |
 |sentByte| Storleken på paketet som skickas, i byte.|
 |timeTaken (timeTaken)| Den tid (i **sekunder)** som det tar för en begäran och dess svar skickas. Detta beräknas som intervallet från den tidpunkt då Application Gateway tar emot den första bytet av en HTTP-begäran till den tidpunkt då svarssändningsåtgärden avslutas. Det är viktigt att notera att fältet Tidstaget vanligtvis innehåller den tid som förfrå och svarspaketen färdas över nätverket. |
-|sslEnabled| Om kommunikation till backend-poolerna använde SSL. Giltiga värden är på och av.|
-|sslCipher (sslCipher)| Cipher-svit som används för SSL-kommunikation (om SSL är aktiverat).|
-|sslProtocol (sslProtocol)| SSL/TLS-protokoll som används (om SSL är aktiverat).|
+|sslEnabled| Om kommunikation till backend-poolerna använde TLS. Giltiga värden är på och av.|
+|sslCipher (sslCipher)| Cipher-svit som används för TLS-kommunikation (om TLS är aktiverat).|
+|sslProtocol (sslProtocol)| SSL/TLS-protokoll som används (om TLS är aktiverat).|
 |serverUtträckt| Den server som programmets gateway dirigerar begäran till.|
 |serverStatus| HTTP-statuskod för serverdservern.|
 |serverResponseLatency| Svarstid för svaret från serverdservern.|

@@ -3,18 +3,18 @@ title: Automatiserad VM-distribution med snabbstart för Azure App-konfiguration
 description: Den här snabbstarten visar hur du använder Azure PowerShell-modulen och Azure Resource Manager-mallarna för att distribuera ett Azure App Configuration Store. Använd sedan värdena i arkivet för att distribuera en virtuell dator.
 author: lisaguthrie
 ms.author: lcozzens
-ms.date: 03/05/2020
+ms.date: 04/14/2020
 ms.topic: quickstart
 ms.service: azure-app-configuration
 ms.custom:
 - mvc
 - subject-armqs
-ms.openlocfilehash: c45f6855c33dff2790ced306fd7f049b98dd1387
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 02afa2cb36323e0c3c38c2451b1924b636f7faed
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79126376"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309100"
 ---
 # <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template"></a>Snabbstart: Automatiserad VM-distribution med mallen AppKonfiguration och Resource Manager
 
@@ -152,6 +152,9 @@ Du kan skapa ett App Configuration Store med en Azure Resource Manager-mall, men
 ## <a name="deploy-vm-using-stored-key-values"></a>Distribuera virtuell dator med lagrade nyckelvärden
 
 Nu när du har lagt till nyckelvärden i arkivet är du redo att distribuera en virtuell dator med hjälp av en Azure Resource Manager-mall. Mallen refererar till **de windowsOsVersion-** och **diskSizeGB-nycklar** som du har skapat.
+
+> [!WARNING]
+> ARM-mallar kan inte referera till nycklar i ett App Configuration Store som har Privat länk aktiverat.
 
 1. Kopiera och klistra in följande json-kod i en ny fil med namnet *azuredeploy.json*eller hämta filen från [Azure Quickstart-mallar](https://github.com/Azure/azure-quickstart-templates/blob/master/101-app-configuration/azuredeploy.json).
 
@@ -423,13 +426,13 @@ Nu när du har lagt till nyckelvärden i arkivet är du redo att distribuera en 
    |storageAccountName|Ett unikt namn för ett lagringskonto som är associerat med den virtuella datorn.|
    |domänNamnLabel|Ett unikt domännamn.|
 
-1. I powershell-fönstret kör du följande kommando för att distribuera Azure App Configuration Store. Glöm inte att ersätta resursgruppsnamnet, sökvägen till mallfilen och sökvägen till mallparameterfilen.
+1. I PowerShell-fönstret kör du följande kommando för att distribuera den virtuella datorn. Glöm inte att ersätta resursgruppsnamnet, sökvägen till mallfilen och sökvägen till mallparameterfilen.
 
    ```azurepowershell
    New-AzResourceGroupDeployment `
-       -ResourceGroupName "<your resource group>" 
-       -TemplateFile "<path to prereq.azuredeploy.json>" `
-       -TemplateParameterFile "<path to prereq.azuredeploy.parameters.json>"
+       -ResourceGroupName "<your resource group>"
+       -TemplateFile "<path to azuredeploy.json>" `
+       -TemplateParameterFile "<path to azuredeploy.parameters.json>"
    ```
 
 Grattis! Du har distribuerat en virtuell dator med konfigurationer som lagras i Azure App Configuration.

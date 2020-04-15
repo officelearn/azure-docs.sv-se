@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
-ms.date: 03/10/2020
-ms.openlocfilehash: 4c635d285f83e8e9c4c5547a9ee983686c507819
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 04/14/2020
+ms.openlocfilehash: d62d05cdbda86af3c3a38757877624e87f6d1719
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261745"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383757"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Skapa ett kommersiellt marketplace-konto i Partner Center
 
@@ -100,7 +100,7 @@ Se till att ha din kontoinformation till hands.
 
 Om du redan är registrerad i Microsoft Partner Network kan du använda det här avsnittet för att skapa ditt konto direkt från Partner center.
 
-Logga in [på Partner Center](https://partner.microsoft.com/) med ditt Microsoft Partner Network-konto så att du länkar företagets e-postkontodomän för arbete till ditt nya Partner Center-konto. Genom att associera dessa konton kan företagets anställda logga in på Partner Center med sina användarnamn och lösenord för arbetskonton.
+Logga in [på Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) med ditt Microsoft Partner Network-konto så att du länkar företagets e-postkontodomän för arbete till ditt nya Partner Center-konto. Genom att associera dessa konton kan företagets anställda logga in på Partner Center med sina användarnamn och lösenord för arbetskonton.
 
 >[!NOTE]
 >Om du vill kontrollera om ditt företag redan har ett partnercenterarbetskonto, hur du skapar ett nytt arbetskonto eller hur du ställer in flera arbetskonton som ska användas med Partner center besöker du [Ditt företagsarbetskonto och Partnercenter](./company-work-accounts.md).
@@ -130,7 +130,7 @@ Om du redan är registrerad i ett partnercenterutvecklare använder du det här 
 >
 >Enskilda konton är för enskilda utvecklare som arbetar på egen hand. Företagskonton är för organisationer och företag. Företagskonton ger dig åtkomst till att skicka appar med ytterligare funktioner. Vi kräver större verifiering för företagskonton när du har registrerat dig för att bekräfta att du har behörighet att skapa kontot för ditt företag. Den här verifieringen kan ta från några dagar till ett par veckor och innehåller ofta ett telefonsamtal till ditt företag. Med båda typerna av konton kan du skicka in appar, tillägg och tjänster. Mer information finns i [Kontotyper, platser och avgifter](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
 
-Logga in [på Partner Center](https://partner.microsoft.com/) med ditt Microsoft Partner Center-konto för att registrera dig i programmet Commercial Marketplace under samma konto. Genom att registrera dig för Commercial Marketplace med samma konto kan du se både dina befintliga programregistreringar och Kommersiella marknadsplatser i menyn för partnercenter till vänster.
+Logga in [på Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) med ditt Microsoft Partner Center-konto för att registrera dig i programmet Commercial Marketplace under samma konto. Genom att registrera dig för Commercial Marketplace med samma konto kan du se både dina befintliga programregistreringar och Kommersiella marknadsplatser i menyn för partnercenter till vänster.
 
 När du har loggat in använder du följande steg för att slutföra inrättandet av ditt konto:
 

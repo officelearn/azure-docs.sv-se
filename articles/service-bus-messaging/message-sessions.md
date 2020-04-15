@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 4df6396d156c3fe1b75e3cac3d3f4aad7f23553a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e22641e9d4f9959c26cd2043ea2acd7e260e0f0
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77660673"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314045"
 ---
 # <a name="message-sessions"></a>Meddelandesessioner
 Microsoft Azure Service Bus-sessioner möjliggör gemensam och ordnad hantering av obegränsade sekvenser av relaterade meddelanden. Sessioner kan användas i först in, först ut (FIFO) och mönster för begäran-svar. Den här artikeln visar hur du använder sessioner för att implementera dessa mönster när du använder Service Bus. 
@@ -78,7 +78,7 @@ API:erna för hantering av sessionstillstånd, [SetState](/dotnet/api/microsoft.
 
 Sessionstillståndet kvarstår så länge det inte rensas upp (returnerar **null),** även om alla meddelanden i en session förbrukas.
 
-Alla befintliga sessioner i en kö eller prenumeration kan räknas upp med **metoden SessionBrowser** i Java-API:et och med [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) i [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) och [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) i .NET-klienten.
+Alla befintliga sessioner i en kö eller prenumeration kan räknas upp med **metoden SessionBrowser** i Java-API:et och med [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) i [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) och [SubscriptionClient](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient) i .NET Framework-klienten.
 
 Sessionstillståndet som finns i en kö eller i en prenumeration räknas mot den entitetens lagringskvot. När programmet är klart med en session rekommenderas därför att programmet rensar sitt behållna tillstånd för att undvika externa hanteringskostnader.
 

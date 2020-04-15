@@ -3,12 +3,12 @@ title: 'Snabbstart: Skapa en skiss i portalen'
 description: I den här snabbstarten använder du Azure Blueprints för att skapa, definiera och distribuera artefakter via Azure-portalen.
 ms.date: 03/25/2020
 ms.topic: quickstart
-ms.openlocfilehash: 457f4f9c53f45077129b291c904bc1580b6d965e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd50b1833f16d364a4494483fcccfee017bb982b
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282060"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381895"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Snabbstart: Definiera och tilldela en skiss i portalen
 
@@ -28,7 +28,7 @@ Det första steget när du definierar ett standardmönster för efterlevnad är 
 
    Du kan också välja **Skapa** på sidan **Komma igång** för att gå direkt till att skapa en skiss.
 
-   ![Skapa en skiss från sidan Skissdefinitioner](./media/create-blueprint-portal/create-blueprint-button.png)
+   :::image type="content" source="./media/create-blueprint-portal/create-blueprint-button.png" alt-text="Skapa en skiss från sidan Skissdefinitioner" border="false":::
 
 1. Välj **Börja med tom skiss** från kortet högst upp i listan med inbyggda ritningar.
 
@@ -48,10 +48,10 @@ Det första steget när du definierar ett standardmönster för efterlevnad är 
 
    1. Välj **Lägg till** om du vill lägga till den här artefakten i skissen.
 
-   ![Rolltilldelning för en skissartefakt](./media/create-blueprint-portal/add-role-assignment.png)
+   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment.png" alt-text="Rolltilldelning för en skissartefakt" border="false":::
 
    > [!NOTE]
-   > De flesta artefakter stöder parametrar. En parameter som har tilldelats ett värde när skiss skapas är en *statisk parameter*. Om parametern tilldelas under skisstilldelningen är det en *dynamisk parameter*. Mer information finns i [Skissparametrar](./concepts/parameters.md).
+   > De flesta artefakter stöder parametrar. En parameter som har tilldelats ett värde när skiss skapas är en _statisk parameter_. Om parametern tilldelas under skisstilldelningen är det en _dynamisk parameter_. Mer information finns i [Skissparametrar](./concepts/parameters.md).
 
 1. Lägg till en principtilldelning på prenumerationsnivå:
 
@@ -144,11 +144,11 @@ Det första steget när du definierar ett standardmönster för efterlevnad är 
 
    1. Välj **Lägg till** om du vill lägga till den här artefakten i skissen.
 
-   ![Resource Manager-mall för skissartefakten](./media/create-blueprint-portal/add-resource-manager-template.png)
+   :::image type="content" source="./media/create-blueprint-portal/add-resource-manager-template.png" alt-text="Resource Manager-mall för skissartefakten" border="false":::
 
 1. Din färdiga skiss bör se ut som i det följande. Observera att varje artefakt har ** _x_ av _y_ parametrar som fylls** i kolumnen **Parametrar.** De dynamiska parametrarna anges vid varje tilldelning av skissen.
 
-   ![Slutförd skissdefinition](./media/create-blueprint-portal/completed-blueprint.png)
+   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint.png" alt-text="Slutförd skissdefinition" border="false":::
 
 1. Nu när alla planerade artefakter har lagts till väljer du **Spara utkast** längst ned på sidan.
 
@@ -174,13 +174,13 @@ I [Skapa en skiss](#create-a-blueprint)har du inte en beskrivning eller lagt til
 
    1. Sök efter och välj en användare, app eller grupp att lägga till. Den här artefakten använder en statisk parameter som ställs in på samma sätt i alla tilldelningar av den här skissen.
 
-   e. Välj **Lägg till** om du vill lägga till den här artefakten i skissen.
+   1. Välj **Lägg till** om du vill lägga till den här artefakten i skissen.
 
-   ![Andra rolltilldelningen för skissartefakten](./media/create-blueprint-portal/add-role-assignment-2.png)
+   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment-2.png" alt-text="Andra rolltilldelningen för skissartefakten" border="false":::
 
 1. Din färdiga skiss bör se ut som i det följande. Observera att den nyligen tillagda rolltilldelningen visar **1 av 1 parametrar ifyllda**. Det betyder att det är en statisk parameter.
 
-   ![Andra definitionen för den färdiga skissen](./media/create-blueprint-portal/completed-blueprint-2.png)
+   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint-2.png" alt-text="Andra definitionen för den färdiga skissen" border="false":::
 
 1. Välj **Spara utkast** nu när det har uppdaterats.
 
@@ -219,10 +219,10 @@ När en skiss har publicerats kan den tilldelas en prenumeration. Tilldela skiss
 
    1. Välj **Skapa** längst ned på sidan.
 
-   ![Skapa en prenumeration för en prenumeration på skisstilldelning](./media/create-blueprint-portal/assignment-create-subscription.png)
+      :::image type="content" source="./media/create-blueprint-portal/assignment-create-subscription.png" alt-text="Skapa en prenumeration för en prenumeration på skisstilldelning" border="false":::
 
-   > [!IMPORTANT]
-   > Den nya prenumerationen skapas direkt efter att du har valt **Skapa**.
+      > [!IMPORTANT]
+      > Den nya prenumerationen skapas direkt efter att du har valt **Skapa**.
 
    > [!NOTE]
    > En tilldelning skapas för varje prenumeration som du väljer. Du kan göra ändringar i en enskild prenumerationstilldelning vid ett senare tillfälle utan att tvinga fram ändringar på resten av de valda prenumerationerna.
@@ -235,7 +235,7 @@ När en skiss har publicerats kan den tilldelas en prenumeration. Tilldela skiss
 
 1. Låt standardvärdet **Lås inte** vara för **Lås tilldelning**. Mer information finns i [Låsning av skisser resurs](./concepts/resource-locking.md).
 
-   ![Låsa och hanterade identiteter för tilldelningen](./media/create-blueprint-portal/assignment-locking-mi.png)
+   :::image type="content" source="./media/create-blueprint-portal/assignment-locking-mi.png" alt-text="Låsa och hanterade identiteter för tilldelningen" border="false":::
 
 1. Lämna standardvärdet **system tilldelat**under **Hanterad identitet**.
 
@@ -266,7 +266,7 @@ Nu när skissen har tilldelats en prenumeration kontrollerar du hur distribution
 
 1. Högerklicka på den som du tidigare har tilldelat i listan över ritningar och välj **Visa tilldelningsinformation**.
 
-   ![Visa tilldelningsinformation från sidan Tilldelade skisser](./media/create-blueprint-portal/view-assignment-details.png)
+   :::image type="content" source="./media/create-blueprint-portal/view-assignment-details.png" alt-text="Visa tilldelningsinformation från sidan Tilldelade skisser" border="false":::
 
 1. På sidan **Skisstilldelning** verifierar du att alla artefakter har distribuerats och att det inte fanns några fel under distributionen. Om fel uppstod läser [du Felsöka ritningar](./troubleshoot/general.md) för steg för att avgöra vad som gick fel.
 

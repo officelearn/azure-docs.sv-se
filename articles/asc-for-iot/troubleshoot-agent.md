@@ -1,5 +1,5 @@
 ---
-title: Felsökningsguide för Azure Security Center för IoT Linux-säkerhetsagent| Microsoft-dokument
+title: Felsökning av start av säkerhetsagenter (Linux)
 description: Felsöka att arbeta med Azure Security Center för IoT-säkerhetsagenter för Linux.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f3bd4be3ef927f73643146a457bc551ef86a450
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 935a99dd34b0a4e3d4970e8d91f9332d2bc1489a
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68600571"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310557"
 ---
 # <a name="security-agent-troubleshoot-guide-linux"></a>Felsöknings guide för säkerhetsagent (Linux)
 
@@ -29,56 +29,70 @@ I den här artikeln beskrivs hur du löser potentiella problem i startprocessen 
 Azure Security Center för IoT-agenten startar själv direkt efter installationen. Agentstartprocessen inkluderar läsning av lokal konfiguration, anslutning till Azure IoT Hub och hämtning av fjärrtvillingkonfigurationen. Om något av dessa steg inte fungerar i något av dessa steg kan säkerhetsagenten misslyckas.
 
 I den här felsökningsguiden får du lära dig hur du:
+
 > [!div class="checklist"]
 > * Verifiera om säkerhetsagenten körs
 > * Hämta fel på säkerhetsagenten
-> * Förstå och åtgärda fel på säkerhetsagenter 
+> * Förstå och åtgärda fel på säkerhetsagenter
 
 ## <a name="validate-if-the-security-agent-is-running"></a>Verifiera om säkerhetsagenten körs
 
-1. Om du vill validera är säkerhetsagenten körs, vänta några minuter efter installation av agenten och och köra följande kommando. 
+1. Om du vill validera är säkerhetsagenten körs, vänta några minuter efter installation av agenten och och köra följande kommando.
      <br>
 
     **C-agent**
+
     ```bash
     grep "ASC for IoT Agent initialized" /var/log/syslog
     ```
+
     **C# agent**
+
     ```bash
     grep "Agent is initialized!" /var/log/syslog
     ```
-2. Om kommandot returnerar en tom rad kunde säkerhetsagenten inte startas.    
 
-## <a name="force-stop-the-security-agent"></a>Force stoppa säkerhetsagenten 
+1. Om kommandot returnerar en tom rad kunde säkerhetsagenten inte startas.
+
+## <a name="force-stop-the-security-agent"></a>Force stoppa säkerhetsagenten
+
 Om säkerhetsagenten inte kan starta, stoppa agenten med följande kommando och fortsätt sedan till feltabellen nedan:
 
 ```bash
 systemctl stop ASCIoTAgent.service
 ```
+
 ## <a name="get-security-agent-errors"></a>Hämta fel på säkerhetsagenten
+
 1. Hämta säkerhetsagentfel genom att köra följande kommando:
+
     ```bash
     grep ASCIoTAgent /var/log/syslog
     ```
-2. Kommandot hämta säkerhetsagentfel hämtar alla loggar som skapats av Azure Security Center för IoT-agenten. Använd följande tabell för att förstå felen och vidta rätt åtgärder för reparation. 
+
+1. Kommandot hämta säkerhetsagentfel hämtar alla loggar som skapats av Azure Security Center för IoT-agenten. Använd följande tabell för att förstå felen och vidta rätt åtgärder för reparation.
 
 > [!Note]
-> Felloggar visas i kronologisk ordning. Se till att notera tidsstämpeln för varje fel för att hjälpa din reparation. 
+> Felloggar visas i kronologisk ordning. Se till att notera tidsstämpeln för varje fel för att hjälpa din reparation.
 
 ## <a name="restart-the-agent"></a>Starta om agenten
 
-1. När du har lokaliserat och åtgärdat ett säkerhetsagentfel försöker du starta om agenten genom att köra följande kommando. 
+1. När du har lokaliserat och åtgärdat ett säkerhetsagentfel försöker du starta om agenten genom att köra följande kommando.
+
     ```bash
     systemctl restart ASCIoTAgent.service
     ```
-1. Upprepa föregående process för att hämta stopp och hämta felen om agenten fortsätter att misslyckas startprocessen. 
+
+1. Upprepa föregående process för att hämta stopp och hämta felen om agenten fortsätter att misslyckas startprocessen.
 
 ## <a name="understand-security-agent-errors"></a>Förstå säkerhetsagentfel
 
-De flesta säkerhetsagentfel visas i följande format: 
+De flesta säkerhetsagentfel visas i följande format:
+
 ```
 Azure Security Center for IoT agent encountered an error! Error in: {Error Code}, reason: {Error sub code}, extra details: {error specific details}
 ```
+
 | Felkod | Felunderkod | Felinformation | Åtgärda C | Åtgärda C # |
 |:-----------|:---------------|:--------|:------------|:------------|
 | Lokal konfiguration | Konfiguration som saknas saknas | En konfiguration saknas i den lokala konfigurationsfilen. Felmeddelandet ska ange vilken nyckel som saknas. | Lägg till den saknade nyckeln i filen /var/LocalConfiguration.json, se [cs-localconfig-reference](azure-iot-security-local-configuration-c.md) för mer information.| Lägg till den saknade nyckeln i filen General.config, se [c#-localconfig-reference](azure-iot-security-local-configuration-csharp.md) för mer information. |
@@ -95,14 +109,17 @@ Azure Security Center for IoT agent encountered an error! Error in: {Error Code}
 |
 
 ## <a name="restart-the-agent"></a>Starta om agenten
+
 1. När du har lokaliserat och åtgärdat ett säkerhetsagentfel startar du om agenten genom att köra följande kommando:
 
     ```bash
     systemctl restart ASCIoTAgent.service
     ```
-2. Om det behövs upprepar du föregående processer för att tvinga stoppa agenten och hämta felen om agenten fortsätter att misslyckas med startprocessen. 
+
+1. Om det behövs upprepar du föregående processer för att tvinga stoppa agenten och hämta felen om agenten fortsätter att misslyckas med startprocessen.
 
 ## <a name="next-steps"></a>Nästa steg
+
 - Läs [översikt](overview.md) över Azure Security Center for IoT-tjänsten
 - Läs mer om Azure Security Center för [IoT-arkitektur](architecture.md)
 - Aktivera Azure Security Center för [IoT-tjänsten](quickstart-onboard-iot-hub.md)

@@ -1,5 +1,5 @@
 ---
-title: Så här fungerar Azure Security Center för IoT-händelseaggregering| Microsoft-dokument
+title: Händelsesammansättning
 description: Lär dig mer om Azure Security Center för IoT-händelseaggregering.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,34 +15,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: ca1d1a5761e62b2838a474dcb83f450987972998
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f72ef8cc5161bd6f885249e7d39344a57fa2368e
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73928962"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311422"
 ---
 # <a name="azure-security-center-for-iot-event-aggregation"></a>Azure Security Center för IoT-händelseaggregering
 
-Azure Security Center för IoT-säkerhetsagenter samlar in data- och systemhändelser från din lokala enhet och skickar dessa data till Azure-molnet för bearbetning och analys. Säkerhetsagenten samlar in många typer av enhetshändelser, inklusive nya processhändelser och nya anslutningshändelser. Både nya processhändelser och nya anslutningshändelser kan legitimt inträffa ofta på en enhet inom en sekund, och även om det är viktigt för robust och omfattande säkerhet kan antalet meddelanden som säkerhetsagenter tvingas skicka snabbt nå eller överskrida din IoT Hub kvot- och kostnadsgränser. Dessa händelser innehåller dock mycket värdefull säkerhetsinformation som är avgörande för att skydda din enhet.
+Azure Security Center för IoT-säkerhetsagenter samlar in data- och systemhändelser från din lokala enhet och skickar dessa data till Azure-molnet för bearbetning och analys. Säkerhetsagenten samlar in många typer av enhetshändelser, inklusive nya processhändelser och nya anslutningshändelser. Både nya processhändelser och nya anslutningshändelser kan lagligen inträffa på en enhet inom en sekund, och även om det är viktigt för robust och omfattande säkerhet kan antalet meddelanden som säkerhetsagenter tvingas skicka snabbt nå eller överskrida din IoT Hub-kvot och kostnadsgränser. Dessa händelser innehåller dock mycket värdefull säkerhetsinformation som är avgörande för att skydda din enhet.
 
 Azure Security Center for IoT Agents samlar dessa typer av händelser för att minska den extra kvoten och kostnaderna samtidigt som dina enheter skyddas.
 
 Händelseaggregering är **På** som standard och kan inte när som helst stängas **av** manuellt.
 
 Aggregering är för närvarande tillgänglig för följande typer av händelser:
+
 * ProcessCreate
 * AnslutningSkapa
 * ProcessTerminate (endast Windows)
 
 ## <a name="how-does-event-aggregation-work"></a>Hur fungerar händelseaggregering?
+
 När händelseaggregering lämnas **på**, Azure Security Center för IoT-agenter aggregerade händelser för intervallperioden eller tidsperioden.
 När intervallperioden har passerat skickar agenten de aggregerade händelserna till Azure-molnet för vidare analys.
 De aggregerade händelserna lagras i minnet tills de skickas till Azure-molnet.
 
 För att minska agentens minnesavtryck ökar agenten träffantalet för den här specifika händelsen när agenten samlar in en identisk händelse till en som redan hålls i minnet. När aggregeringstidsfönstret passerar skickar agenten träffantalet för varje specifik typ av händelse som inträffade. Händelseaggregering är helt enkelt aggregering av träffen räknas av varje insamlad typ av händelse.
 
-Händelser anses vara identiska endast när följande villkor är uppfyllda: 
+Händelser anses vara identiska endast när följande villkor är uppfyllda:
 
 * ProcessCreate-händelser - när **kommandorad**, **körbar,** **användarnamn**och **userid** är identiska
 * ConnectionCreate-händelser – när **commandLine,** **userId,** **riktning,** **lokal adress,** **fjärradress**, **protokoll och **målport** är identiska
@@ -50,18 +52,21 @@ Händelser anses vara identiska endast när följande villkor är uppfyllda:
 
 ### <a name="working-with-aggregated-events"></a>Arbeta med aggregerade händelser
 
-Under aggregering ignoreras händelseegenskaper som inte aggregeras och visas i logganalys med värdet 0. 
+Under aggregering ignoreras händelseegenskaper som inte aggregeras och visas i logganalys med värdet 0.
+
 * ProcessCreate-händelser - **processId**och **parentProcessId** är inställda på 0
 * ConnectionCreate-händelser - **processId**och **källporten** är inställda på 0
 
-## <a name="event-aggregation-based-alerts"></a>Händelseaggregeringsbaserade aviseringar 
+## <a name="event-aggregation-based-alerts"></a>Händelseaggregeringsbaserade aviseringar
+
 Efter analys skapar Azure Security Center för IoT säkerhetsaviseringar för misstänkta aggregerade händelser. Aviseringar som skapas från aggregerade händelser visas bara en gång för varje aggregerad händelse.
 
-Aggregering starttid, sluttid och träffantal för varje händelse loggas i fältet **ExtraDetails** i Log Analytics för användning under undersökningar. 
+Aggregering starttid, sluttid och träffantal för varje händelse loggas i fältet **ExtraDetails** i Log Analytics för användning under undersökningar.
 
-Varje aggregerad händelse representerar en 24-timmarsperiod av insamlade aviseringar. Med hjälp av menyn händelsealternativ längst upp till vänster i varje händelse kan du **stänga** av varje enskild aggregerad händelse.    
+Varje aggregerad händelse representerar en 24-timmarsperiod av insamlade aviseringar. Med hjälp av menyn händelsealternativ längst upp till vänster i varje händelse kan du **stänga** av varje enskild aggregerad händelse.
 
 ## <a name="event-aggregation-twin-configuration"></a>Konfiguration av tvillingkonfiguration för händelseaggregering
+
 Gör ändringar i konfigurationen av Azure Security Center för IoT-händelseaggregering i [agentkonfigurationsobjektet](how-to-agent-configuration.md) för modulens tvillingidentitet för **azureiotsecurity-modulen.**
 
 | Konfigurationsnamn | Möjliga värden | Information | Anmärkningar |

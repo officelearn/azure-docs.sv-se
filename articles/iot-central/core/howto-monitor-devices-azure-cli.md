@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 09209c21fe1b2b115c1ba6d6e00fcd0ee59a9393
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 0fa1b58547e0260ec5486003cf4cb85d855de33a
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365415"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310218"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Övervaka enhetsanslutningar med Azure CLI
 
@@ -21,7 +21,7 @@ ms.locfileid: "80365415"
 
 Använd Azure CLI IoT-tillägget för att se meddelanden som dina enheter skickar till IoT Central och observera ändringar i enhetstvillingen. Du kan använda det här verktyget för att felsöka och observera enhetsanslutning och diagnostisera problem med enhetsmeddelanden som inte når molnet eller enheter som inte svarar på dubbla ändringar.
 
-[Mer information finns i referensen för Azure CLI-tillägg](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/central)
+[Mer information finns i referensen för Azure CLI-tillägg](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/central?view=azure-cli-latest)
 
 ## <a name="prerequisites"></a>Krav
 

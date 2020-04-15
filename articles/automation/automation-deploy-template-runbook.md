@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 keywords: powershell, runbook, json, azure automation
-ms.openlocfilehash: d4adbea42cda54380ad32dce40cfa0d8391ee490
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 575f954b346edb7d682e3fd0b432a257486bbfbb
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75366642"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383286"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Distribuera en Azure Resource Manager-mall i en Azure Automation PowerShell- runbook
 
@@ -21,6 +21,9 @@ På så sätt kan du automatisera distributionen av Azure-resurser. Du kan under
 
 I den här artikeln skapar vi en PowerShell-runbook som använder en Resource Manager-mall som lagras i [Azure Storage](../storage/common/storage-introduction.md) för att distribuera ett nytt Azure Storage-konto.
 
+>[!NOTE]
+>Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installationsinstruktioner för Az-modul på hybridkörningsarbetaren finns [i Installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med [så här uppdaterar du Azure PowerShell-moduler i Azure Automation](automation-update-azure-modules.md).
+
 ## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du följande objekt:
@@ -28,7 +31,7 @@ För att slutföra den här självstudien behöver du följande objekt:
 * En Azure-prenumeration. Om du inte har en ännu kan du [aktivera dina msdn-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller [registrera dig för ett gratis konto](https://azure.microsoft.com/free/).
 * Ett [Automation-konto för Azure](automation-sec-configure-azure-runas-account.md) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser.  Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
 * [Azure Storage-konto](../storage/common/storage-create-storage-account.md) där resource manager-mallen ska lagras
-* Azure Powershell installerat på en lokal dator. Se [Installera och konfigurera Azure Powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) för information om hur du skaffar Azure PowerShell.
+* Azure PowerShell installerat på en lokal dator. Mer information om hur du skaffar Azure PowerShell finns [i Installera Azure PowerShell-modulen.](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)
 
 ## <a name="create-the-resource-manager-template"></a>Skapa Resource Manager-mallen
 
@@ -88,21 +91,21 @@ Kopiera följande text i en textredigerare:
 }
 ```
 
-Spara filen lokalt `TemplateTest.json`som .
+Spara filen lokalt som **TemplateTest.json**.
 
 ## <a name="save-the-resource-manager-template-in-azure-storage"></a>Spara Resource Manager-mallen i Azure Storage
 
-Nu använder vi PowerShell för att skapa `TemplateTest.json` en Azure Storage-filresurs och ladda upp filen.
+Nu använder vi PowerShell för att skapa en Azure Storage-filresurs och ladda upp **filen TemplateTest.json.**
 Instruktioner om hur du skapar en filresurs och laddar upp en fil i Azure-portalen finns i [Komma igång med Azure File Storage på Windows](../storage/files/storage-dotnet-how-to-use-files.md).
 
 Starta PowerShell på den lokala datorn och kör följande kommandon för att skapa en filresurs och överföra Resource Manager-mallen till den filresursresursresursen.
 
 ```powershell
-# Login to Azure
-Connect-AzureRmAccount
+# Log into Azure
+Connect-AzAccount
 
 # Get the access key for your storage account
-$key = Get-AzureRmStorageAccountKey -ResourceGroupName 'MyAzureAccount' -Name 'MyStorageAccount'
+$key = Get-AzStorageAccountKey -ResourceGroupName 'MyAzureAccount' -Name 'MyStorageAccount'
 
 # Create an Azure Storage context using the first access key
 $context = New-AzureStorageContext -StorageAccountName 'MyStorageAccount' -StorageAccountKey $key[0].value
@@ -118,7 +121,7 @@ Set-AzureStorageFileContent -ShareName $fileShare.Name -Context $context -Source
 
 ## <a name="create-the-powershell-runbook-script"></a>Skapa PowerShell-runbook-skriptet
 
-Nu skapar vi ett PowerShell-skript som hämtar `TemplateTest.json` filen från Azure Storage och distribuerar mallen för att skapa ett nytt Azure Storage-konto.
+Nu skapar vi ett PowerShell-skript som hämtar **filen TemplateTest.json** från Azure Storage och distribuerar mallen för att skapa ett nytt Azure Storage-konto.
 
 Klistra in följande text i en textredigerare:
 
@@ -141,13 +144,11 @@ param (
     $StorageFileName
 )
 
-
-
 # Authenticate to Azure if running from Azure Automation
 $ServicePrincipalConnection = Get-AutomationConnection -Name "AzureRunAsConnection"
-Connect-AzureRmAccount `
+Connect-AzAccount `
     -ServicePrincipal `
-    -TenantId $ServicePrincipalConnection.TenantId `
+    -Tenant $ServicePrincipalConnection.TenantId `
     -ApplicationId $ServicePrincipalConnection.ApplicationId `
     -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint | Write-Verbose
 
@@ -164,17 +165,17 @@ Get-AzureStorageFileContent -ShareName 'resource-templates' -Context $Context -p
 $TemplateFile = Join-Path -Path 'C:\Temp' -ChildPath $StorageFileName
 
 # Deploy the storage account
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile $TemplateFile -TemplateParameterObject $Parameters 
+New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile $TemplateFile -TemplateParameterObject $Parameters 
 ``` 
 
-Spara filen lokalt `DeployTemplate.ps1`som .
+Spara filen lokalt som **DeployTemplate.ps1**.
 
 ## <a name="import-and-publish-the-runbook-into-your-azure-automation-account"></a>Importera och publicera runbooken i ditt Azure Automation-konto
 
 Nu använder vi PowerShell för att importera runbook till ditt Azure Automation-konto och sedan publicera runbook.
 Information om hur du importerar och publicerar en runbook i Azure-portalen finns [i Hantera runbooks i Azure Automation](manage-runbooks.md).
 
-Om `DeployTemplate.ps1` du vill importera till ditt Automation-konto som en PowerShell-runbook kör du följande PowerShell-kommandon:
+Om du vill importera **DeployTemplate.ps1** till ditt Automation-konto som en PowerShell-runbook kör du följande PowerShell-kommandon:
 
 ```powershell
 # MyPath is the path where you saved DeployTemplate.ps1
@@ -186,7 +187,7 @@ $importParams = @{
     AutomationAccountName = 'MyAutomationAccount'
     Type = 'PowerShell'
 }
-Import-AzureRmAutomationRunbook @importParams
+Import-AzAutomationRunbook @importParams
 
 # Publish the runbook
 $publishParams = @{
@@ -194,14 +195,13 @@ $publishParams = @{
     AutomationAccountName = 'MyAutomationAccount'
     Name = 'DeployTemplate'
 }
-Publish-AzureRmAutomationRunbook @publishParams
+Publish-AzAutomationRunbook @publishParams
 ```
 
 ## <a name="start-the-runbook"></a>Starta runbook
 
-Nu startar vi runbooken genom att anropa [Cmdlet start-AzureRmAutomationRunbook.](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook)
-
-Information om hur du startar en runbook i Azure-portalen finns [i Starta en runbook i Azure Automation](automation-starting-a-runbook.md).
+Nu startar vi runbooken genom att anropa [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0
+) cmdlet. Information om hur du startar en runbook i Azure-portalen finns [i Starta en runbook i Azure Automation](automation-starting-a-runbook.md).
 
 Kör följande kommandon i PowerShell-konsolen:
 
@@ -214,7 +214,7 @@ $runbookParams = @{
     StorageFileName = 'TemplateTest.json' 
 }
 
-# Set up parameters for the Start-AzureRmAutomationRunbook cmdlet
+# Set up parameters for the Start-AzAutomationRunbook cmdlet
 $startParams = @{
     ResourceGroupName = 'MyResourceGroup'
     AutomationAccountName = 'MyAutomationAccount'
@@ -223,26 +223,27 @@ $startParams = @{
 }
 
 # Start the runbook
-$job = Start-AzureRmAutomationRunbook @startParams
+$job = Start-AzAutomationRunbook @startParams
 ```
 
 Runbook körs och du kan kontrollera `$job.Status`dess status genom att köra .
 
 Runbook hämtar Resource Manager-mallen och använder den för att distribuera ett nytt Azure Storage-konto.
 Du kan se att det nya lagringskontot skapades genom att köra följande kommando:
+
 ```powershell
-Get-AzureRmStorageAccount
+Get-AzStorageAccount
 ```
 
 ## <a name="summary"></a>Sammanfattning
 
-Klart! Nu kan du använda Azure Automation- och Azure Storage- och Resource Manager-mallar för att distribuera alla dina Azure-resurser.
+Klart! Nu kan du använda Azure Automation och Azure Storage med Resource Manager-mallar för att distribuera alla dina Azure-resurser.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om Resource Manager-mallar finns i [översikt över Azure Resource Manager](../azure-resource-manager/management/overview.md)
+* Mer information om Resource Manager-mallar finns i [översikt över Azure Resource Manager](../azure-resource-manager/management/overview.md).
 * Information om hur du kommer igång med Azure Storage finns [i Introduktion till Azure Storage](../storage/common/storage-introduction.md).
 * Information om hur du hittar andra användbara Azure Automation-runbooksböcker finns i [Runbook- och modulgallerier för Azure Automation](automation-runbook-gallery.md).
-* Information om hur du hittar andra användbara Resource Manager-mallar finns i [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/)
-
-
+* Information om hur du hittar andra användbara Resource Manager-mallar finns i [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/).
+* En PowerShell-cmdlet-referens finns i [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

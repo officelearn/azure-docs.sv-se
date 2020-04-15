@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ad821036047dcf46821b2b2722e3dd17f8e318c2
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: cb2302637efb16fc31bd420bf8c4ead19d7f598d
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80386114"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81384966"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Behöver användaren ha nav och talat med SD-WAN/VPN-enheter för att kunna använda Azure Virtual WAN?
 
@@ -131,6 +131,8 @@ Ja. Se sidan med [prissättning](https://azure.microsoft.com/pricing/details/vir
 
 * Om du hade ExpressRoute gateway på grund av ExpressRoute-kretsar som ansluter till ett virtuellt nav, skulle du betala för skalenhetspriset. Varje skalningsenhet i ER är 2 Gbit/s och varje anslutningsenhet debiteras i samma takt som VPN-anslutningsenheten.
 
+* Om du hade Spoke VNETs ansluten till navet, peering avgifter på Spoke VNETs fortfarande gäller. 
+
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>Hur registreras nya partner som inte visas i startpartnerlistan?
 
 Alla virtuella WAN-API:er är öppna API: er. Du kan gå igenom dokumentationen för att bedöma teknisk genomförbarhet. Om du har några frågor, azurevirtualwan@microsoft.comskicka ett mail till . En perfekt partner är en partner som har en enhet som kan etableras för IKEv1 eller IKEv2 IPSec-anslutning.
@@ -149,7 +151,7 @@ Du kan ansluta ett virtuellt nätverk i en annan region än ditt virtuella WAN.
 
 ### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other-v2v-transit"></a>Kan eker virtuella nätverk som är anslutna till ett virtuellt nav kommunicera med varandra (V2V Transit)?
 
-Ja. Virtual WAN stöder Vnet till Vnet transitiv anslutning via virtual WAN-hubben som virtuella nätverken är anslutna till. I Virtual WAN-terminologin refererar vi till dessa sökvägar som "lokal virtuell WAN-VNet-transit" för virtuella nätverk som är anslutna till en Virtuell Wan-hubb inom en enda region och "global virtuell WAN-VNet-transit" för virtuella nätverk som är anslutna via flera virtuella WAN-hubbar över två eller flera Regioner. VNet-transit stöder upp till 3 Gbit/s dataflöde under offentlig förhandsversion. Dataflödet kommer att utökas när den globala transiten går GA.
+Ja. Virtual WAN stöder Vnet till Vnet transitiv anslutning via virtual WAN-hubben som virtuella nätverken är anslutna till. I Virtual WAN-terminologin refererar vi till dessa sökvägar som "lokal virtuell WAN-VNet-transit" för virtuella nätverk som är anslutna till en Virtuell Wan Hub inom en enda region och "global Virtual WAN VNet-transit" för virtuella nätverk som är anslutna via flera virtuella WAN-hubbar i två eller flera regioner. VNet-transit stöder upp till 3 Gbit/s dataflöde under offentlig förhandsversion. Dataflödet kommer att utökas när den globala transiten går GA.
 
 För närvarande kräver V2V-överföringsförhandsgranskningen att en VPN GW distribueras i en virtuell hubb för att utlösa routningselementen som ska startas. Den här VPN GW används inte för V2V-transitsökvägen. Detta är en känd begränsning och kommer att tas bort vid tidpunkten för V2V GA. Du kan ta bort VPN Gateway i naven(erna) när den har startats helt eftersom den inte behövs för V2V-transitfunktioner. 
 

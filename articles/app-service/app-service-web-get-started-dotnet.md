@@ -5,12 +5,12 @@ ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 03/17/2020
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: 7fb76a3189e7650183b3000fe2e1b4e7614312bb
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: be7c4a2fb65f913bc97617af1a0f21ee8fcca714
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79532918"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313288"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Snabbstart: Skapa en ASP.NET Core-webbapp i Azure
 
@@ -20,7 +20,7 @@ När du är klar har du en Azure-resursgrupp som består av en App Service-värd
 
 ## <a name="prerequisites"></a>Krav
 
-- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto gratis](https://azure.microsoft.com/free/dotnet/).
 - Den här snabbstarten distribuerar en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en .NET Core-webbapp i App Service på Linux](./containers/quickstart-dotnetcore.md).
 - Installera <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> med **arbetsbelastningen ASP.NET och webbutveckling.**
 

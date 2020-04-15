@@ -5,12 +5,12 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Hitta svar på några av de vanligaste frågorna om Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, servicenät, routning av tjänstnät, kubectl, k8s '
-ms.openlocfilehash: f3ac6ec3c3ddbe8ff508befba2eb4a8423e66f07
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 1fd176084cd0737a290e037ed19af510fcab3e78
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998724"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382002"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Vanliga frågor och svar om Azure Dev Spaces
 
@@ -79,7 +79,7 @@ När du använder Visual Studio för att förbereda projektet kan du aktivera in
 
 ## <a name="can-i-use-pod-managed-identities-with-azure-dev-spaces"></a>Kan jag använda pod-hanterade identiteter med Azure Dev Spaces?
 
-Azure Dev Spaces stöder för närvarande inte att använda [pod-hanterade identiteter][aks-pod-managed-id] på AKS-kluster med Azure Dev Spaces aktiverat. Om du har pod hanterade identiteter installerade och vill avinstallera det, kan du hitta mer information i [avinstallera anteckningar][aks-pod-managed-id-uninstall].
+Ja, du kan använda [pod-hanterade identiteter][aks-pod-managed-id] på AKS-kluster med Azure Dev Spaces aktiverat, men det finns [ytterligare konfigurationssteg][dev-spaces-pod-managed-id-steps] när du har aktiverat Azure Dev Spaces i klustret med pod-hanterade identiteter. Om du har pod hanterade identiteter installerade och vill avinstallera det, kan du hitta mer information i [avinstallera anteckningar][aks-pod-managed-id-uninstall].
 
 ## <a name="can-i-use-azure-dev-spaces-with-multiple-microservices-in-an-application"></a>Kan jag använda Azure Dev Spaces med flera mikrotjänster i ett program?
 
@@ -98,6 +98,7 @@ I Visual Studio är det möjligt att konfigurera .NET Core-lösningar för fels�
 [aks-pod-managed-id-uninstall]: https://github.com/Azure/aad-pod-identity#uninstall-notes
 [aks-restrict-egress-traffic]: ../aks/limit-egress-traffic.md
 [bike-sharing]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
+[dev-spaces-pod-managed-id-steps]: troubleshooting.md#error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state
 [dev-spaces-prep]: how-dev-spaces-works-prep.md
 [dev-spaces-routing]: how-dev-spaces-works-routing.md#how-routing-works
 [ingress-nginx]: how-to/ingress-https-nginx.md#configure-a-custom-nginx-ingress-controller

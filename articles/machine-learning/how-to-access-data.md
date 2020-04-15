@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 97aa446636ea3131246a06f69f74b5868abff608
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: ca892b5f360f523ee2b5ff875dfb0707136a5ab5
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668651"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383447"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ansluta till Azure-lagringstjänster
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -73,7 +73,7 @@ Vi rekommenderar att du skapar ett datalager för en [Azure Blob-behållare](htt
 När du skapar en arbetsyta registreras en Azure-blob-behållare och en Azure-filresurs automatiskt på arbetsytan. De är `workspaceblobstore` namngivna och `workspacefilestore`, respektive. `workspaceblobstore`används för att lagra arbetsytartefakter och experimentloggar för maskininlärning. `workspacefilestore`används för att lagra anteckningsböcker och R-skript som auktoriserats via [beräkningsinstans](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files). Behållaren `workspaceblobstore` anges som standarddatalager.
 
 > [!IMPORTANT]
-> Azure Machine Learning designer (förhandsversion) skapar ett datalager med namnet **azureml_globaldatasets** automatiskt när du öppnar ett exempel på designerns startsida. Det här datalagret innehåller bara exempeldatauppsättningar. Använd **inte** detta datalager för konfidentiell dataåtkomst!
+> Azure Machine Learning designer (förhandsversion) skapar ett datalager med namnet **azureml_globaldatasets** automatiskt när du öppnar ett exempel på designerns startsida. Det här datalagret innehåller bara exempeldatauppsättningar. Använd **inte** detta datalager för konfidentiell dataåtkomst.
 > ![Automatiskt skapat datalager för designerexempeldatauppsättningar](media/how-to-access-data/datastore-designer-sample.png)
 
 <a name="access"></a>
@@ -94,7 +94,7 @@ Alla registermetoder finns [`Datastore`](https://docs.microsoft.com/python/api/a
 Du hittar den information som du `register()` behöver för att fylla i metoden på [Azure-portalen](https://portal.azure.com).
 Välj **Lagringskonton** i den vänstra rutan och välj det lagringskonto som du vill registrera. På sidan **Översikt** finns information som kontonamn, behållare och filresursnamn. 
 
-* För autentiseringsobjekt, till exempel kontonyckel eller SAS-token, går du till **Kontonycklar** i **fönstret Inställningar.** 
+* För autentiseringsobjekt, till exempel kontonyckel eller SAS-token, går du till **Access-nycklar** i **fönstret Inställningar.** 
 
 * För tjänsthuvudobjekt som klient-ID och klient-ID går du till dina **appregistreringar** och väljer vilken app du vill använda. Motsvarande **översiktssida** innehåller dessa objekt.
 
@@ -107,13 +107,13 @@ Följande exempel visar hur du registrerar en Azure blob-behållare, en Azure-fi
 
 Om du vill registrera en Azure blob-behållare som ett datalager använder du [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-).
 
-Följande kod skapar och registrerar `blob_datastore_name` datalagret `ws` till arbetsytan. Det här datalagret `my-container-name` kommer åt `my-account-name` blob-behållaren på lagringskontot med hjälp av den angivna kontonyckeln.
+Följande kod skapar och registrerar `blob_datastore_name` datalagret `ws` till arbetsytan. Det här datalagret `my-container-name` kommer åt `my-account-name` blob-behållaren på lagringskontot med hjälp av den angivna kontoåtkomstnyckeln.
 
 ```Python
 blob_datastore_name='azblobsdk' # Name of the datastore to workspace
 container_name=os.getenv("BLOB_CONTAINER", "<my-container-name>") # Name of Azure blob container
 account_name=os.getenv("BLOB_ACCOUNTNAME", "<my-account-name>") # Storage account name
-account_key=os.getenv("BLOB_ACCOUNT_KEY", "<my-account-key>") # Storage account key
+account_key=os.getenv("BLOB_ACCOUNT_KEY", "<my-account-key>") # Storage account access key
 
 blob_datastore = Datastore.register_azure_blob_container(workspace=ws, 
                                                          datastore_name=blob_datastore_name, 
@@ -126,13 +126,13 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
 
 Om du vill registrera en Azure-filresurs som ett datalager använder du [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
 
-Följande kod skapar och registrerar `file_datastore_name` datalagret `ws` till arbetsytan. Det här datalagret kommer åt filresursen `my-fileshare-name` på `my-account-name` lagringskontot med hjälp av den angivna kontonyckeln.
+Följande kod skapar och registrerar `file_datastore_name` datalagret `ws` till arbetsytan. Det här datalagret kommer åt filresursen `my-fileshare-name` på `my-account-name` lagringskontot med hjälp av den angivna kontoåtkomstnyckeln.
 
 ```Python
 file_datastore_name='azfilesharesdk' # Name of the datastore to workspace
 file_share_name=os.getenv("FILE_SHARE_CONTAINER", "<my-fileshare-name>") # Name of Azure file share container
 account_name=os.getenv("FILE_SHARE_ACCOUNTNAME", "<my-account-name>") # Storage account name
-account_key=os.getenv("FILE_SHARE_ACCOUNT_KEY", "<my-account-key>") # Storage account key
+account_key=os.getenv("FILE_SHARE_ACCOUNT_KEY", "<my-account-key>") # Storage account access key
 
 file_datastore = Datastore.register_azure_file_share(workspace=ws,
                                                      datastore_name=file_datastore_name, 
@@ -181,7 +181,7 @@ Skapa ett nytt datalager i några få steg i Azure Machine Learning studio:
   
 Du hittar den information som du behöver för att fylla i formuläret på [Azure-portalen](https://portal.azure.com). Välj **Lagringskonton** i den vänstra rutan och välj det lagringskonto som du vill registrera. På sidan **Översikt** finns information som kontonamn, behållare och filresursnamn. 
 
-* För autentiseringsobjekt, till exempel kontonyckel eller SAS-token, går du till **Kontonycklar** i **fönstret Inställningar.** 
+* För autentiseringsobjekt, till exempel kontonyckel eller SAS-token, går du till **Access-nycklar** i **fönstret Inställningar.** 
 
 * För tjänsthuvudobjekt som klient-ID och klient-ID går du till dina **appregistreringar** och väljer vilken app du vill använda. Motsvarande **översiktssida** innehåller dessa objekt. 
 

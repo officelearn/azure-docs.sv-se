@@ -6,39 +6,39 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.openlocfilehash: 0463e3297bbb2fda50adfeefaa89f0a7a3ef8b0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: d0fd9999abc4a67ded0f66977e1a3ba5310c87be
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72901518"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383037"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Översikt över Azure HDInsight 4.0
 
-Azure HDInsight är en av de mest populära tjänsterna bland företagskunder för analys med Apache Hadoop med öppen källkod och Apache Spark på Azure. HDInsight 4.0 är en molndistribution av Apache Hadoop-komponenter. Den här artikeln innehåller information om den senaste versionen av Azure HDInsight och hur du uppgraderar.
+Azure HDInsight är en av de mest populära tjänsterna bland företagskunder för Apache Hadoop och Apache Spark. HDInsight 4.0 är en molndistribution av Apache Hadoop-komponenter. Den här artikeln innehåller information om den senaste versionen av Azure HDInsight och hur du uppgraderar.
 
 ## <a name="whats-new-in-hdinsight-40"></a>Vad är nytt i HDInsight 4.0?
 
-### <a name="apache-hive-30-and-llap"></a>Apache Hive 3.0 och LLAP
+### <a name="apache-hive-30-and-low-latency-analytical-processing"></a>Apache Hive 3.0 och analytisk bearbetning med låg latens
 
-Apache Hive LLAP (Low-Latency Analytical Processing) använder permanenta frågeservrar och minnesintern cachelagring för att leverera snabba SQL-frågeresultat för data i fjärrmolnlagring. Hive-LLAP utnyttjar en uppsättning beständiga daemons som kör delar av Hive-frågor. Frågekörningen på LLAP liknar Hive utan LLAP, med arbetaruppgifter som körs i LLAP-daemons i stället för containrar.
+Apache Hive low-lateency analytical processing (LLAP) använder beständiga frågeservrar och cachelagring i minnet. Den här processen ger snabba SQL-frågeresultat på data i fjärrmolnlagring. Hive LLAP använder en uppsättning beständiga demoner som kör fragment av Hive-frågor. Frågekörningen på LLAP liknar Hive utan LLAP, med arbetaruppgifter som körs i LLAP-daemons i stället för containrar.
 
 Fördelar med Hive LLAP:
 
-* Du kan utföra djupa SQL-analyser, till exempel komplexa anslutningar underfrågor, fönsterfunktioner, sorteringar, användardefinierade funktioner och komplexa sammanställningar, utan att offra prestanda och skalbarhet.
+* Förmåga att göra djupa SQL-analyser utan att offra prestanda och anpassningsförmåga. Till exempel komplexa kopplingar, undersekvenser, fönsterfunktioner, sortering, användardefinierade funktioner och komplexa aggregeringar.
 
 * Du kan köra interaktiva frågor mot data i samma lagring som data förbereds i. Det gör att data inte behöver flyttas från lagringen till en annan motor för analysbearbetning.
 
-* Cachelagring av frågeresultat gör att tidigare beräknade frågeresultat kan återanvändas, vilket sparar tid och resurser som har använts för att köra de klusteraktiviteter som krävs för frågan.
+* Cachelagring av frågeresultat gör att tidigare beräknade frågeresultat kan återanvändas. Den här cachen sparar tid och resurser som används för att köra de klusteraktiviteter som krävs för frågan.
 
 ### <a name="hive-dynamic-materialized-views"></a>Dynamiska materialiserade vyer i Hive
 
-Nu har Hive stöd för dynamiska materialiserade vyer, eller förbearbetning av relevanta sammanfattningar, som används för att öka hastigheten på frågebearbetningen i informationslager. Materialiserade vyer kan lagras internt i Hive, och kan använda LLAP-acceleration sömlöst.
+Hive stöder nu dynamiska materialiserade vyer eller förberäkning av relevanta sammanfattningar. Vyerna påskyndar frågebearbetning i informationslager. Materialiserade vyer kan lagras internt i Hive, och kan använda LLAP-acceleration sömlöst.
 
 ### <a name="hive-transactional-tables"></a>Transaktionstabeller i Hive
 
-I HDI 4.0 ingår Apache Hive 3, som kräver ACIP-kompatibilitet (atomicitet, konsekvens, isolering och varaktighet) för transaktionstabeller i Hive-informationslagret. ACID-kompatibla tabeller och tabelldata nås och hanteras av Hive. Data i CRUD-tabeller (skapa, hämta, uppdatera och ta bort) måste vara i ORC-filformat, tabeller för endast infogning stöder alla filformat.
+HDI 4.0 innehåller Apache Hive 3. Hive 3 kräver atomicitet, konsekvens, isolering och hållbarhetsefterlevnad för transaktionstabeller som finns i Hive-lagret. ACID-kompatibla tabeller och tabelldata nås och hanteras av Hive. Data i register för att skapa, hämta, uppdatera och ta bort (CRUD) måste vara i ORC-filformat (Optimized Row Column). Infoga-bara tabeller stöder alla filformat.
 
 * ACID v2 har prestandaförbättringar både för lagringsformat och för körningsmotorn.
 
@@ -56,7 +56,7 @@ Läs mer om [Apache Hive 3](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3
 
 ### <a name="apache-spark"></a>Apache Spark
 
-Apache Spark hämtar uppdaterbara tabeller och ACID-transaktioner med Hive Warehouse-anslutningsappen. Med Hive Warehouse-anslutningsappen kan du registrera Hive-transaktionstabeller som externa tabeller i Spark för att få tillgång till fullständiga transaktionsfunktioner. Tidigare versioner hade endast stöd för manipulering av tabellpartitioner. Hive Warehouse-anslutningsappen stöder också Streaming DataFrames för att strömma läsning och skrivning till Hive-transaktionstabeller och strömmande Hive-tabeller från Spark.
+Apache Spark hämtar uppdaterbara tabeller och ACID-transaktioner med Hive Warehouse-anslutningsappen. Med Hive Warehouse-anslutningsappen kan du registrera Hive-transaktionstabeller som externa tabeller i Spark för att få tillgång till fullständiga transaktionsfunktioner. Tidigare versioner hade endast stöd för manipulering av tabellpartitioner. Hive Warehouse Connector stöder även strömmande dataramar.  Den här processen strömmar läser och skriver i transaktionella och strömmande Hive-tabeller från Spark.
 
 Spark-utförare kan ansluta direkt till Hive LLAP-daemons för att hämta och uppdatera data transaktionsmässigt, vilket låter Hive behålla kontrollen över data.
 
@@ -67,7 +67,7 @@ Med Apache Spark i HDInsight 4.0 kan du:
 * köra ett Spark-strömningsjobb på ändringsflödet från en Hive-strömningstabell
 * skapa ORC-filer direkt från ett strukturerat Spark-strömningsjobb.
 
-Du behöver inte längre oroa dig över att av misstag komma åt Hive-transaktionstabeller direkt från Spark, vilket kan ge motsägande resultat, duplicerade data eller skadade data. I HDInsight 4.0 förvaras Spark-tabeller och Hive-tabeller i separata metabutiker. Använd anslutningsappen för Hive-informationslager för att registrera Hive-transaktionstabeller som externa Spark-tabeller.
+Du behöver inte längre oroa dig för att av misstag försöka komma åt Hive transaktionstabeller direkt från Spark. Resulterar i inkonsekventa resultat, dubblettdata eller skadade data. I HDInsight 4.0 förvaras Spark-tabeller och Hive-tabeller i separata metabutiker. Använd anslutningsappen för Hive-informationslager för att registrera Hive-transaktionstabeller som externa Spark-tabeller.
 
 Läs mer om [Apache Spark](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/spark-overview/content/analyzing_data_with_apache_spark.html).
 
@@ -83,9 +83,9 @@ Läs mer om [Apache Oozie](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.
 
 ## <a name="how-to-upgrade-to-hdinsight-40"></a>Så här uppgraderar du till HDInsight 4.0
 
-Som vid alla större uppdateringar är det viktigt att du testar dina komponenter innan du implementerar den senaste versionen i en produktionsmiljö. HDInsight 4.0 är tillgängligt för dig att påbörja uppgraderingsprocessen, men HDInsight 3.6 är standardalternativet för att förhindra oavsiktliga missöden.
+Testa dina komponenter noggrant innan du implementerar den senaste versionen i en produktionsmiljö. HDInsight 4.0 är tillgängligt för dig att påbörja uppgraderingsprocessen. HDInsight 3.6 är standardalternativet för att förhindra oavsiktliga missöden.
 
-Det finns ingen uppgraderingsväg som stöds från tidigare versioner av HDInsight till HDInsight 4.0. Eftersom metabutiks- och blob-dataformat har ändrats är HDInsight 4.0 inte kompatibelt med tidigare versioner. Det är viktigt att du håller din nya HDInsight 4.0-miljö åtskild från din nuvarande produktionsmiljö. Om du distribuerar HDInsight 4.0 till din nuvarande miljö uppgraderas metastore och kan inte återföras.  
+Det finns ingen uppgraderingsväg som stöds från tidigare versioner av HDInsight till HDInsight 4.0. Eftersom metabutiks- och blob-dataformat har ändrats är 4.0 inte kompatibelt med tidigare versioner. Det är viktigt att du håller din nya HDInsight 4.0-miljö åtskild från din nuvarande produktionsmiljö. Om du distribuerar HDInsight 4.0 till din nuvarande miljö uppgraderas Metastore permanent.  
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -93,8 +93,8 @@ Det finns ingen uppgraderingsväg som stöds från tidigare versioner av HDInsig
 * HDInsight 4.0 stöder inte Apache Storm.
 * Hive View är inte längre tillgängligt i HDInsight 4.0.
 * Shell-tolk i Apache Zeppelin stöds inte i Spark- och Interactive Query-kluster.
-* Det går inte att *inaktivera* LLAP i ett Spark-LLAP-kluster. Du kan bara inaktivera LLAP.
-* Azure Data Lake Storage Gen2 kan inte spara Juypter-anteckningsböcker i ett Spark-kluster.
+* Det går inte att *inaktivera* LLAP i ett Spark-LLAP-kluster. Du kan bara stänga av LLAP.
+* Azure Data Lake Storage Gen2 kan inte spara Jupyter-anteckningsböcker i ett Spark-kluster.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,28 +1,28 @@
 ---
-title: SSL avlastar med PowerShell - Azure Application Gateway
-description: Den här artikeln innehåller instruktioner för att skapa en programgateway med SSL-avlastning med hjälp av Azures klassiska distributionsmodell
+title: TLS avlastning med PowerShell - Azure Application Gateway
+description: Den här artikeln innehåller instruktioner för att skapa en programgateway med TLS-avlastning med hjälp av azure-klassiska distributionsmodellen
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: c456a0856adb0d36349b5f96ba0ab8bab3eec5c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2ead16b61784b8073d50b7e0e6079805a1e48e9b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74047909"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312331"
 ---
-# <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Konfigurera en programgateway för SSL-avlastning med hjälp av den klassiska distributionsmodellen
+# <a name="configure-an-application-gateway-for-tls-offload-by-using-the-classic-deployment-model"></a>Konfigurera en programgateway för TLS-avlastning med hjälp av den klassiska distributionsmodellen
 
 > [!div class="op_single_selector"]
-> * [Azure-portal](application-gateway-ssl-portal.md)
+> * [Azure Portal](application-gateway-ssl-portal.md)
 > * [PowerShell och Azure Resource Manager](application-gateway-ssl-arm.md)
 > * [Klassiska Azure-PowerShell](application-gateway-ssl.md)
 > * [Azure CLI](application-gateway-ssl-cli.md)
 
-Azure Application Gateway kan konfigureras att avsluta SSL-sessionen (Secure Sockets Layer) på gatewayen så att du undviker kostsamma SSL-dekrypteringsaktiviteter i webbservergruppen. SSL-avlastning förenklar också frontend-serverkonfigurationen och hanteringen av webbappen.
+Azure Application Gateway kan konfigureras för att avsluta Transport Layer Security (TLS), tidigare känd som Secure Sockets Layer (SSL), session vid gatewayen för att undvika kostsamma TLS-dekrypteringsuppgifter som ska utföras på webbgruppen. TLS-avlastning förenklar också klientserverinstallationen och hanteringen av webbprogrammet.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -30,10 +30,10 @@ Azure Application Gateway kan konfigureras att avsluta SSL-sessionen (Secure Soc
 2. Kontrollera att du har ett fungerande virtuellt nätverk med ett giltigt undernät. Kontrollera att inga virtuella datorer eller molndistributioner använder undernätet. Programgatewayen måste vara fristående i ett virtuellt nätverks undernät.
 3. De servrar som du konfigurerar för att använda programgatewayen måste finnas eller ha sina slutpunkter som skapas antingen i det virtuella nätverket eller med en offentlig IP-adress eller virtuell IP-adress (VIP) tilldelad.
 
-Så här konfigurerar du SSL-avlastning på en programgateway:
+Så här konfigurerar du TLS-avlastning på en programgateway:
 
 1. [Skapa en programgateway](#create-an-application-gateway)
-2. [Ladda upp SSL-certifikat](#upload-ssl-certificates)
+2. [Ladda upp TLS/SSL-certifikat](#upload-tlsssl-certificates)
 3. [Konfigurera en gateway](#configure-the-gateway)
 4. [Ange gatewaykonfiguration](#set-the-gateway-configuration)
 5. [Starta gatewayen](#start-the-gateway)
@@ -55,7 +55,7 @@ I exemplet är **Description,** **InstanceCount**och **GatewaySize** valfria par
 Get-AzureApplicationGateway AppGwTest
 ```
 
-## <a name="upload-ssl-certificates"></a>Ladda upp SSL-certifikat
+## <a name="upload-tlsssl-certificates"></a>Ladda upp TLS/SSL-certifikat
 
 Ange `Add-AzureApplicationGatewaySslCertificate` att överföra servercertifikatet i PFX-format till programgatewayen. Certifikatnamnet är ett användarvalt namn och måste vara unikt i programgatewayen. Det här certifikatet refereras till med det här namnet i alla certifikathanteringsåtgärder på programgatewayen.
 
@@ -95,12 +95,12 @@ Värdena är:
 * **Backend-serverpool:** Listan över IP-adresser för backend-servrar. IP-adresserna som anges ska tillhöra det virtuella nätverksundernätet eller vara en offentlig IP- eller VIP-adress.
 * **Serverpoolinställningar för backend:** Varje pool har inställningar som port, protokoll och cookie-baserad tillhörighet. Dessa inställningar är knutna till en pool och tillämpas på alla servrar i poolen.
 * **Front-end port**: Den här porten är den offentliga porten som öppnas på programgatewayen. Trafiken kommer till den här porten och omdirigeras till en av backend-servrarna.
-* **Lyssnare**: Lyssnaren har en frontend-port, ett protokoll (Http eller Https; dessa värden är skiftlägeskänsliga) och SSL-certifikatnamnet (om du konfigurerar en SSL-avlastning).
+* **Lyssnare**: Lyssnaren har en frontend-port, ett protokoll (Http eller Https; dessa värden är skiftlägeskänsliga) och TLS/SSL-certifikatnamnet (om du konfigurerar en TLS-avlastning).
 * **Regel**: Regeln binder lyssnaren och serverpoolen för backend och definierar vilken serverpool som ska styras när den träffar en viss lyssnare. För närvarande stöds endast regeln *basic*. Regeln *basic* använder belastningsutjämning med resursallokering.
 
 **Ytterligare konfigurationsanmärkningar**
 
-För konfiguration av SSL-certifikat bör protokollet i **HttpListener** ändras till **Https** (skiftlägeskänsligt). Lägg till **SslCert-elementet** i **HttpListener** med värdet inställt på samma namn som används i avsnittet [Ladda upp SSL-certifikat.](#upload-ssl-certificates) Front-end-porten bör uppdateras till **443**.
+För konfigurationen av TLS/SSL-certifikat ska protokollet i **HttpListener** ändras till **Https** (skiftlägeskänslig). Lägg till **SslCert-elementet** i **HttpListener** med värdet inställt på samma namn som används i avsnittet [Ladda upp TLS/SSL-certifikat.](#upload-tlsssl-certificates) Front-end-porten bör uppdateras till **443**.
 
 **Så här aktiverar du cookie-baserad tillhörighet:** Du kan konfigurera en programgateway för att säkerställa att en begäran från en klientsession alltid dirigeras till samma virtuella dator i webbgruppen. För att åstadkomma detta, infoga en sessionscookie som gör att gatewayen kan dirigera trafiken på rätt sätt. Du kan aktivera cookiebaserad tillhörighet genom att ange **CookieBasedAffinity** till **Enabled** i elementet **BackendHttpSettings**.
 

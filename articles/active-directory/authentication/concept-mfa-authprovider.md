@@ -11,21 +11,21 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a275e5ab394b54960a2340848152741762b28f8c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf50a8f58978a010fe3d8228ace8579fcf52eb38
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78269389"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309905"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>När du ska använda en Azure Multi-Factor Autentiseringsprovider
+
+> [!IMPORTANT]
+> Från och med den 1 september 2018 kan nya auth-leverantörer inte längre skapas. Befintliga auth-providers kan fortsätta att användas och uppdateras, men migrering är inte längre möjlig. Multifaktorautentisering fortsätter att vara tillgänglig som en funktion i Azure AD Premium-licenser.
 
 Tvåstegsverifiering är tillgängligt som standard för globala administratörer med Azure Active Directory och Office 365-användare. Men om du vill dra nytta av [avancerade funktioner](howto-mfa-mfasettings.md) ska du köpa den fullständiga versionen av Azure Multi-Factor Authentication (MFA).
 
 En Azure Multi-Factor Auth Provider används för att dra nytta av funktioner som tillhandahålls av Azure Multi-Factor Authentication för användare som **inte har licenser**.
-
-> [!NOTE]
-> Från och med den 1 september 2018 kan nya auth-leverantörer inte längre skapas. Befintliga auth-providers kan fortsätta att användas och uppdateras, men migrering är inte längre möjlig. Multifaktorautentisering fortsätter att vara tillgänglig som en funktion i Azure AD Premium-licenser.
 
 ## <a name="caveats-related-to-the-azure-mfa-sdk"></a>Varningar relaterade till Azure MFA SDK
 

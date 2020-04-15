@@ -12,12 +12,12 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 309e1278959a917f0cef2f419aec1f4f3afcef60
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: b899e1d651f41c9c1e1e54af1b5ec19162dfc28d
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991032"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380067"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-application"></a>Självstudiekurs: Logga in användare och anropa Microsoft Graph från ett Android-program 
 
@@ -91,7 +91,7 @@ Om du inte redan har ett Android-program följer du dessa steg för att konfigur
 
 1. I Android Studios projektfönster navigerar du till **appen\src\main\res**.
 2. Högerklicka **på res** och välj **Ny** > **katalog**. Ange `raw` som det nya katalognamnet och klicka på **OK**.
-3. Skapa en ny JSON-fil som**anropas** > **raw** `auth_configbn_single_account.json` i **app** > **src** > **main** > res raw och klistra in DEN MSAL-konfiguration som du sparade tidigare. 
+3. Skapa en ny JSON-fil som**anropas** > **raw** `auth_config_single_account.json` i **app** > **src** > **main** > res raw och klistra in DEN MSAL-konfiguration som du sparade tidigare. 
 
     Under omdirigerings-URI:en klistrar du in: 
     ```json
@@ -190,7 +190,7 @@ import com.microsoft.identity.client.exception.*;
 ## <a name="instantiate-publicclientapplication"></a>Omedelbar offentligclientApplication
 #### <a name="initialize-variables"></a>Initiera variabler 
 ```java
-private final static String[] SCOPES = {"File.Read"};
+private final static String[] SCOPES = {"Files.Read"};
 /* Azure AD v2 Configs */
 final static String AUTHORITY = "https://login.microsoftonline.com/common";
 private ISingleAccountPublicClientApplication mSingleAccountApp;

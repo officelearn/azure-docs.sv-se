@@ -1,14 +1,14 @@
 ---
 title: Använda parametrar för att skapa dynamiska ritningar
 description: Lär dig mer om statiska och dynamiska parametrar och hur du använder dem för att skapa säkra och dynamiska ritningar.
-ms.date: 03/12/2019
+ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 36735d71b746301819e5079aba1697b55fe5e183
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: ed596db2050ac788c2d98c63cb7314de473b5f4e
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677588"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383620"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Skapa dynamiska ritningar genom parametrar
 
@@ -28,8 +28,7 @@ Genom REST API kan parametrar skapas på själva skissen. Dessa parametrar skilj
 
 ### <a name="using-securestring-and-secureobject-parameters"></a>Använda säkertSträngning och säkraObjektparametrar
 
-Medan en Resource _Manager-mallartefakt_ stöder parametrar för typerna **secureString** och **secureObject,** kräver Azure Blueprints att var och en ska vara ansluten till ett Azure Key Vault.
-Denna säkerhetsåtgärd förhindrar den osäkra praxisen att lagra hemligheter tillsammans med blueprintn och uppmuntrar anställning av säkra mönster. Azure Blueprints stöder den här säkerhetsåtgärden och identifierar inkludering av en säker parameter i en _Resource Manager-mallartefakt_. Tjänsten frågar sedan under tilldelningen för följande Key Vault-egenskaper per identifierad säker parameter:
+Medan en Resource _Manager-mallartefakt_ stöder parametrar för typerna **secureString** och **secureObject,** kräver Azure Blueprints att var och en ska vara ansluten till ett Azure Key Vault. Denna säkerhetsåtgärd förhindrar den osäkra praxisen att lagra hemligheter tillsammans med blueprintn och uppmuntrar anställning av säkra mönster. Azure Blueprints stöder den här säkerhetsåtgärden och identifierar inkludering av en säker parameter i en _Resource Manager-mallartefakt_. Tjänsten frågar sedan under tilldelningen för följande Key Vault-egenskaper per identifierad säker parameter:
 
 - Resurs-ID för Nyckelvalv
 - Hemligt namn på Key Vault
@@ -62,11 +61,11 @@ Ett parametervärde som definieras i definitionen av en skiss kallas en **statis
 
 1. Artefakter som läggs till i skissen som har parameteralternativ visar **X Y-parametrar som fylls** i kolumnen **Parametrar.** Klicka på artefaktraden för att redigera artefaktparametrarna.
 
-   ![Skissparametrar för en skissdefinition](../media/parameters/parameter-column.png)
+   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Skissparametrar för en skissdefinition" border="false":::
 
 1. På sidan **Redigera artefakt** visas de värdealternativ som är lämpliga för den artefakt som klickas på. Varje parameter på artefakten har en rubrik, en värderuta och en kryssruta. Ange att rutan ska avmarkeras så att den blir en **statisk parameter**. I exemplet nedan är endast _Plats_ en **statisk parameter** eftersom den är avmarkerad och _resursgruppsnamnet_ är markerat.
 
-   ![Skissastatiska parametrar på en skissartefakt](../media/parameters/static-parameter.png)
+   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Skissastatiska parametrar på en skissartefakt" border="false":::
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Ange statiska parametrar från REST API
 
@@ -177,7 +176,7 @@ Motsatsen till en statisk parameter är en **dynamisk parameter**. Den här para
 
 1. Leta reda på avsnittet **Artefaktparametrar** på sidan **Tilldela skiss.** Varje artefakt med minst en **dynamisk parameter** visar artefakten och konfigurationsalternativen. Ange obligatoriska värden till parametrarna innan du tilldelar skissen. I exemplet nedan är _namn_ en **dynamisk parameter** som måste definieras för att slutföra skisstilldelning.
 
-   ![Dynamisk modellparameter för skisser under skisstilldelning](../media/parameters/dynamic-parameter.png)
+   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Dynamisk modellparameter för skisser under skisstilldelning" border="false":::
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Ställa in dynamiska parametrar från REST API
 

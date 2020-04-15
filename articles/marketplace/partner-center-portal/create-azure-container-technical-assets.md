@@ -1,5 +1,5 @@
 ---
-title: Förbereda dina tekniska resurser för Azure Container
+title: Skapa en teknisk azure VM-tillgång
 description: I den här artikeln beskrivs stegen och kraven för att konfigurera ett behållarerbjudande på Azure Marketplace.
 author: anbene
 ms.author: mingshen
@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 62c77681accb19183b5e8aa3ae8d80c225b2d284
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 262129084be5c6a68bfd8d8708c9a10fbb606144
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266024"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383735"
 ---
-# <a name="prepare-your-azure-container-technical-assets"></a>Förbereda dina tekniska resurser för Azure Container
+# <a name="create-an-azure-vm-technical-asset"></a>Skapa en teknisk azure VM-tillgång
 
 > [!IMPORTANT]
 > Vi flyttar hanteringen av dina Azure Container-erbjudanden från Cloud Partner Portal till Partner Center. Tills dina erbjudanden har migrerats följer du instruktionerna i [Förbered dina behållarens tekniska resurser](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-create-technical-assets) för Cloud Partner Portal för att hantera dina erbjudanden.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: anavin
-ms.openlocfilehash: 26d8ee34c735cab8f1033a9aad897ec0b1bed524
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f0c2d9757f3652b0f83b8c36d89c855f7a92fdd
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65952678"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383875"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Skapa, ändra eller ta bort ett prefix för offentlig IP-adress
 
@@ -41,7 +41,7 @@ Prefix för offentliga IP-adresser har en debitering. Mer information finns i [p
 ## <a name="create-a-public-ip-address-prefix"></a>Skapa ett offentligt IP-adressprefix
 
 1. Längst upp, till vänster i portalen, väljer **du + Skapa en resurs**.
-2. Ange *prefix för offentlig IP-adress* i rutan *Sök på Marketplace.* När **prefixet public IP-adress** visas i sökresultaten markerar du det.
+2. Ange *offentligt IP-prefix* i rutan *Sök på Marketplace.* När **prefixet public IP-adress** visas i sökresultaten markerar du det.
 3. Under **Prefix för offentlig IP-adress**väljer du **Skapa**.
 4. Ange eller välj värden för följande inställningar under **Skapa prefix för offentlig IP-adress**och välj sedan **Skapa:**
 

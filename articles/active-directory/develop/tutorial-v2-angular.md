@@ -1,7 +1,7 @@
 ---
 title: Ensidig självstudiekurs för ensidig app - Azure
 titleSuffix: Microsoft identity platform
-description: Lär dig hur Angular SPA-program kan anropa ett API som kräver åtkomsttoken från slutpunkten för Microsoft-identitetsplattform
+description: Lär dig hur Angular SPA-program kan anropa ett API som kräver åtkomsttoken från slutpunkten för Microsoft-identitetsplattformen.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -12,84 +12,87 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 63eda0c5d7b5ef4741e8244fbde290d13b54c5fb
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: ba7863d15ac0dfbebe6f14ef0d6f0daa93160b58
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80880847"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380047"
 ---
-# <a name="sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application-spa"></a>Logga in användare och anropa Microsoft Graph API från ett vinkellikt ensidigt program (SPA)
+# <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Självstudiekurs: Logga in användare och anropa Microsoft Graph API från ett kantigt ensidigt program
 
 > [!IMPORTANT]
-> Den här funktionen är för närvarande en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> Den här funktionen är för närvarande en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av den här funktionen kan ändras före allmän tillgänglighet (GA).
 
-Den här guiden visar hur ett vinkellikt ensidigt program (SPA) kan:
-- Logga in personliga konton samt arbets- och skolkonton
-- Hämta en åtkomsttoken
-- Anropa Microsoft Graph API eller andra API:er som kräver åtkomsttoken från slutpunkten för *Microsoft-identitetsplattformen*
+Den här självstudien visar hur ett vinkellikt ensidigt program (SPA) kan:
+- Logga in personliga konton, arbetskonton eller skolkonton.
+- Hämta en åtkomsttoken.
+- Anropa Microsoft Graph API eller andra API:er som kräver åtkomsttoken från slutpunkten för *Microsoft-identitetsplattformen*.
 
 >[!NOTE]
->Denna handledning kommer att gå igenom hur du skapar en ny Angular SPA med MSAL. Om du vill ladda ner en exempelapp läser du [snabbstarten](quickstart-v2-angular.md)
+>Den här självstudien visar hur du skapar ett nytt vinkelspa med hjälp av Microsoft Authentication Library (MSAL). Om du vill hämta en exempelapp läser du [snabbstarten](quickstart-v2-angular.md).
 
-## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Så här fungerar exempelappen som genereras av den här guiden
+## <a name="how-the-sample-app-works"></a>Så här fungerar exempelappen
 
-![Visar hur exempelappen som genereras av den här självstudien fungerar](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
+![Diagram som visar hur exempelappen som genereras i den här självstudien fungerar](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
 <!--start-collapse-->
 ### <a name="more-information"></a>Mer information
 
-Exempelprogrammet som skapas av den här guiden gör det möjligt för ett vinkelspalett att fråga Microsoft Graph API eller ett webb-API som accepterar token från slutpunkten för Microsoft-identitetsplattformen. MSAL för vinkelbiblioteket är ett omslag till msal.js-biblioteket. Det gör det möjligt för Angular (6+) program att autentisera företagsanvändare med Microsoft Azure Active Directory (AAD), Microsoft-kontoanvändare (MSA), användare av social identitet (Facebook, Google, LinkedIn, etc.) och få tillgång till Microsoft Cloud eller Microsoft Graph. I det här fallet när en användare loggar in, begärs en åtkomsttoken och läggs till HTTP-begäranden via auktoriseringshuvudet. Tokenförvärv och förnyelse hanteras av Microsoft Authentication Library (MSAL).
+Exempelprogrammet som skapas i den här självstudien gör det möjligt för ett vinkelspalett att fråga Microsoft Graph API eller ett webb-API som accepterar token från slutpunkten för Microsoft-identitetsplattformen. MSAL för vinkelbiblioteket är ett omslag till msal.js-biblioteket. Det gör det möjligt för Angular -program (6+) att autentisera företagsanvändare med hjälp av Microsoft Azure Active Directory, Microsoft-kontoanvändare och användare av social identitet (till exempel Facebook, Google och LinkedIn). Biblioteket gör det också möjligt för programmen att få tillgång till Microsofts molntjänster eller Microsoft Graph.
+
+I det här fallet när en användare loggar in, begärs en åtkomsttoken och läggs till HTTP-begäranden via auktoriseringshuvudet. Tokenförvärv och förnyelse hanteras av MSAL.
 
 <!--end-collapse-->
 
 <!--start-collapse-->
 ### <a name="libraries"></a>Bibliotek
 
-Den här guiden använder följande bibliotek:
+Den här självstudien använder följande bibliotek:
 
 |Bibliotek|Beskrivning|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft-autentiseringsbibliotek för JavaScript-vinkelomslag|
 
 > [!NOTE]
-> *Msal.js* riktar in sig på slutpunkten för Microsoft identity platform, som gör det möjligt för personliga konton och skol- och arbetskonton att logga in och hämta token. Slutpunkten för Microsoft-identitetsplattformen har [vissa begränsningar](../azuread-dev/azure-ad-endpoint-comparison.md#limitations).
+> *Msal.js* riktar in sig på slutpunkten för Microsoft identity platform, som gör det möjligt för personliga konton, arbetskonton och skolkonton att logga in och hämta token. Slutpunkten för Microsoft-identitetsplattformen har [vissa begränsningar](../azuread-dev/azure-ad-endpoint-comparison.md#limitations).
 > För att förstå skillnaderna mellan v1.0- och v2.0-slutpunkterna finns i [jämförelseguiden för slutpunkt](../azuread-dev/azure-ad-endpoint-comparison.md).
+
+Du hittar källkoden för MSAL.js-biblioteket i [AzureAD/microsoft-authentication-library-for-js-databasen](https://github.com/AzureAD/microsoft-authentication-library-for-js) på GitHub.
 
 <!--end-collapse-->
 
 
 ## <a name="prerequisites"></a>Krav
 
-* Om du vill köra den här självstudien behöver du en lokal webbserver, till exempel [Node.js](https://nodejs.org/en/download/)
+För att köra den här självstudien behöver du:
 
-* Installera en integrerad utvecklingsmiljö (IDE), till exempel [Visual Studio Code,](https://code.visualstudio.com/download)för att redigera projektfilerna.
-
-* Instruktionerna i den här guiden är baserade på Node.js
+* En lokal webbserver, till exempel [Node.js](https://nodejs.org/en/download/). Instruktionerna i den här självstudien baseras på Node.js.
+* En integrerad utvecklingsmiljö (IDE), till exempel [Visual Studio Code,](https://code.visualstudio.com/download)för att redigera projektfilerna.
 
 ## <a name="create-your-project"></a>Skapa ditt projekt
 
-Generera ett nytt vinkelprogram med följande npm-kommandon:
+Generera ett nytt vinkelprogram med hjälp av följande npm-kommandon:
 
 ```Bash
 npm install -g @angular/cli@8                    # Install the Angular CLI
 npm install @angular/material@8 @angular/cdk@8   # Install the Angular Material component library (optional, for UI)
 ng new my-application --routing=true --style=css # Generate a new Angular app
 npm install msal @azure/msal-angular             # Install MSAL and MSAL Angular in your application
-ng generate component page-name                  # To add a new page (such as a the home, profile page)
+ng generate component page-name                  # To add a new page (such as a home or profile page)
 ```
 
 ## <a name="register-your-application"></a>Registrera ditt program
 
-Följ instruktionerna för att registrera ett ensidigt program i [Azure-portalen.](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration)
+Följ [instruktionerna för att registrera ett ensidigt program](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) i Azure-portalen.
 
- På sidan App **översikt** av din registrering, notera **application (klient) ID-värdet** för senare användning.
+På sidan App **översikt** av din registrering, notera **application (klient) ID-värdet** för senare användning.
 
- Registrera din Redirect `http://localhost:4200/` **URI** som och aktivera implicita bidragsinställningar.
+Registrera ditt **Redirect URI-värde** som **http://localhost:4200/** och aktivera implicita bidragsinställningar.
 
-#### <a name="configure-your-angular-application"></a>Konfigurera det kantiga programmet
+## <a name="configure-the-application"></a>Konfigurera programmet
 
-1. I *src/app-mappen* *redigerar du app.module.ts* och lägger `MSALModule` till såväl `imports` i som `isIE` const som visas nedan:
+1. I *src/app-mappen* *redigerar du app.module.ts* och lägger till `MSALModule` `imports` samt konstanten: `isIE`
 
     ```javascript
     const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
@@ -103,12 +106,12 @@ Följ instruktionerna för att registrera ett ensidigt program i [Azure-portalen
         MsalModule.forRoot({
           auth: {
             clientId: 'Enter_the_Application_Id_here', // This is your client ID
-            authority: 'Enter_the_Cloud_Instance_Id_Here'/'Enter_the_Tenant_Info_Here', // This is your tenant id
+            authority: 'Enter_the_Cloud_Instance_Id_Here'/'Enter_the_Tenant_Info_Here', // This is your tenant ID
             redirectUri: 'Enter_the_Redirect_Uri_Here'// This is your redirect URI
           },
           cache: {
             cacheLocation: 'localStorage',
-            storeAuthStateInCookie: isIE, // set to true for IE 11
+            storeAuthStateInCookie: isIE, // Set to true for Internet Explorer 11
           },
         }, {
           popUp: !isIE,
@@ -129,52 +132,52 @@ Följ instruktionerna för att registrera ett ensidigt program i [Azure-portalen
     })
     ```
 
-    Ersätt dessa värden som sådana:
+    Ersätt dessa värden:
 
     |Värdenamn|Om|
     |---------|---------|
-    |Enter_the_Application_Id_Here|På sidan **Översikt för** din ansökan registrering, detta är din **Ansökan (klient) ID** |
-    |Enter_the_Cloud_Instance_Id_Here|Detta är instansen av Azure-molnet. För huvud- eller globala https://login.microsoftonline.comAzure-molnet anger du . För nationella moln (till exempel Kina), se [Nationella moln](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
-    |Enter_the_Tenant_Info_Here| Ange ett av följande alternativ: 1) Om programmet stöder *konton i den här organisationskatalogen*ersätter du det här värdet med **katalog-ID:t (klient)** eller **klientnamn** (till exempel *contoso.microsoft.com*). 2) Om ditt program stöder *konton i en organisationskatalog* **ersätter**du det här värdet med organisationer . 3) Om ditt program stöder *konton i en organisationskatalog och personliga Microsoft-konton*ersätter du det här värdet med **vanliga**. 4) Om du bara vill begränsa supporten till *personliga Microsoft-konton*ersätter du det här värdet med **konsumenter**. |
-    |Enter_the_Redirect_Uri_Here|Ersätt med`http://localhost:4200`|
+    |Enter_the_Application_Id_Here|På **sidan Översikt för** din ansökan registrering, detta är ditt **Program (klient) ID-värde.** |
+    |Enter_the_Cloud_Instance_Id_Here|Detta är instansen av Azure-molnet. För huvud- eller globala **https://login.microsoftonline.com**Azure-molnet anger du . För nationella moln (till exempel Kina), se [Nationella moln](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
+    |Enter_the_Tenant_Info_Here| Ange ett av följande alternativ: Om programmet stöder konton i den *här organisationskatalogen*ersätter du det här värdet med katalog-ID:t (klient)-ID eller klientnamn (till exempel **contoso.microsoft.com**). Om programmet stöder *konton i en organisationskatalog* **ersätter**du det här värdet med organisationer . Om programmet stöder *konton i en organisationskatalog och personliga Microsoft-konton*ersätter du det här värdet med **vanliga**. Om du bara vill begränsa supporten till *personliga Microsoft-konton*ersätter du det här värdet med **konsumenter**. |
+    |Enter_the_Redirect_Uri_Here|Ersätt **http://localhost:4200**med .|
 
     Mer information om tillgängliga konfigurerbara alternativ finns i [Initiera klientprogram](msal-js-initializing-client-applications.md).
 
-2. Lägg till följande import överst i filen i samma fil:
+2. Lägg till följande importsatsning högst upp i samma fil:
 
     ```javascript
     import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
     ```
 
-    ### <a name="import-modules"></a>Importera moduler
-    Lägg till följande importsatser högst upp i`src/app/app.component.ts`
+3. Lägg till följande importsatser `src/app/app.component.ts`högst upp i :
+
     ```javascript
     import { MsalService } from '@azure/msal-angular';
     import { Component, OnInit } from '@angular/core';
     ```
-    ## <a name="sign-in-a-user"></a>Logga in en användare
+## <a name="sign-in-a-user"></a>Logga in en användare
 
-    Lägg till följande `AppComponent` kod för att logga in en användare:
+Lägg till följande `AppComponent` kod för att logga in en användare:
 
-    ```javascript
-    export class AppComponent implements OnInit {
-        constructor(private broadcastService: BroadcastService, private authService: MsalService) { }
+```javascript
+export class AppComponent implements OnInit {
+    constructor(private broadcastService: BroadcastService, private authService: MsalService) { }
 
-        login() {
-            const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
+    login() {
+        const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
-            if (isIE) {
-              this.authService.loginRedirect({
-                extraScopesToConsent: ["user.read", "openid", "profile"]
-              });
-            } else {
-              this.authService.loginPopup({
-                extraScopesToConsent: ["user.read", "openid", "profile"]
-              });
-            }
+        if (isIE) {
+          this.authService.loginRedirect({
+            extraScopesToConsent: ["user.read", "openid", "profile"]
+          });
+        } else {
+          this.authService.loginPopup({
+            extraScopesToConsent: ["user.read", "openid", "profile"]
+          });
         }
     }
-    ```
+}
+```
 
 > [!TIP]
 > Vi rekommenderar `loginRedirect` att du använder för Internet Explorer-användare.
@@ -218,7 +221,7 @@ Ange sedan en karta över `MsalModule.forRoot()` skyddade `protectedResourceMap`
       },
       cache: {
         cacheLocation: 'localStorage',
-        storeAuthStateInCookie: isIE, // set to true for IE 11
+        storeAuthStateInCookie: isIE, // Set to true for Internet Explorer 11
       },
     },
     {
@@ -238,7 +241,7 @@ Ange sedan en karta över `MsalModule.forRoot()` skyddade `protectedResourceMap`
 });
 ```
 
-Hämta slutligen en användares profil med en HTTP-begäran.
+Hämta slutligen en användares profil med en HTTP-begäran:
 
 ```JavaScript
 const graphMeEndpoint = "https://graph.microsoft.com/v1.0/me";
@@ -252,11 +255,11 @@ getProfile() {
 ```
 
 ### <a name="acquiretokensilent-acquiretokenpopup-acquiretokenredirect"></a>förvärvTokenSilent, förvärvaTokenPopup, förvärvaTokenRedirect
-MSAL använder tre metoder för `acquireTokenRedirect` `acquireTokenPopup`att `acquireTokenSilent`hämta token: , och . Vi rekommenderar dock att du använder Interceptor istället för vinkelappar, som visas i föregående avsnitt.
+MSAL använder tre metoder för `acquireTokenRedirect` `acquireTokenPopup`att `acquireTokenSilent`hämta token: , och . Vi rekommenderar dock `MsalInterceptor` att du använder klassen i stället för vinkelappar, som visas i föregående avsnitt.
 
 #### <a name="get-a-user-token-silently"></a>Hämta en token obevakat
 
-Metoden `acquireTokenSilent` hanterar tokenförvärv och förnyelse utan användarinteraktion. När `loginRedirect` metoden `loginPopup` eller körs för första `acquireTokenSilent` gången används ofta för att hämta token som används för att komma åt skyddade resurser i efterföljande anrop. Anrop för att begära eller förnya token görs tyst.
+Metoden `acquireTokenSilent` hanterar tokenförvärv och förnyelse utan användarinteraktion. När `loginRedirect` metoden `loginPopup` eller körs för första `acquireTokenSilent` gången används ofta för att hämta token som används för att komma åt skyddade resurser i senare anrop. Anrop för att begära eller förnya token görs tyst.
 
 ```javascript
 const requestObj = {
@@ -271,7 +274,7 @@ this.authService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
 });
 ```
 
-Var `scopes` innehåller scope som begärs att returneras i åtkomsttoken för API:et.
+I den `scopes` koden innehåller scope som begärs att returneras i åtkomsttoken för API:et.
 
 Ett exempel:
 
@@ -288,7 +291,7 @@ Ibland behöver du användaren för att interagera med slutpunkten för Microsof
 
 Det rekommenderade mönstret för `acquireTokenSilent` de flesta program är att `acquireTokenPopup` ringa `acquireTokenRedirect`först, sedan fånga undantaget och sedan ringa (eller) för att starta en interaktiv begäran.
 
-Att `acquireTokenPopup` ringa resulterar i ett popup-inloggningsfönster. Du kan `acquireTokenRedirect` också omdirigera användare till slutpunkten för Microsoft identity platform. I det fönstret måste användarna bekräfta sina autentiseringsuppgifter, ge medgivande till den nödvändiga resursen eller slutföra tvåfaktorsautentisering.
+Att `acquireTokenPopup` ringa resulterar i ett popup-fönster. Du kan `acquireTokenRedirect` också omdirigera användare till slutpunkten för Microsoft identity platform. I det fönstret måste användarna bekräfta sina autentiseringsuppgifter, ge medgivande till den nödvändiga resursen eller slutföra tvåfaktorsautentisering.
 
 ```javascript
   const requestObj = {
@@ -304,11 +307,11 @@ Att `acquireTokenPopup` ringa resulterar i ett popup-inloggningsfönster. Du kan
 ```
 
 > [!NOTE]
-> Den här snabbstarten använder metoderna `loginRedirect` och `acquireTokenRedirect` med Microsoft Internet Explorer på grund av ett känt [problem](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) som rör hantering av popup-fönster av Internet Explorer.
+> Den här snabbstarten använder metoderna `loginRedirect` och `acquireTokenRedirect` med Microsoft Internet Explorer på grund av ett känt [problem](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) som är relaterat till hantering av popup-fönster av Internet Explorer.
 
 ## <a name="log-out"></a>Logga ut
 
-Lägg till följande kod för att logga ut en användare.
+Lägg till följande kod för att logga ut en användare:
 
 ```javascript
 logout() {
@@ -316,8 +319,8 @@ logout() {
 }
 ```
 
-#### <a name="add-ui"></a>Lägga till användargränssnitt
-Kassan [exempelprogrammet](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) för ett enkelt exempel på hur du lägger till användargränssnittet med komponentbiblioteket Vinkelmaterial.
+## <a name="add-ui"></a>Lägga till användargränssnitt
+Ett exempel på hur du lägger till användargränssnitt med hjälp av komponentbiblioteket Vinkelmaterial finns i [exempelprogrammet](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular).
 
 ## <a name="test-your-code"></a>Testa koden
 
@@ -332,14 +335,14 @@ Kassan [exempelprogrammet](https://github.com/Azure-Samples/active-directory-jav
 
 ### <a name="provide-consent-for-application-access"></a>Ge samtycke till tillgång till program
 
-Första gången du loggar in på ditt program uppmanas du att ge den åtkomst till din profil och logga in dig:
+Första gången du börjar logga in på ditt program uppmanas du att ge den åtkomst till din profil och låta den logga in:
 
 ![Fönstret "Begärda behörigheter"](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
 
 
 <!--start-collapse-->
-### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mer information om scope och delegerade behörigheter
+### <a name="add-scopes-and-delegated-permissions"></a>Lägga till scope och delegerade behörigheter
 
 Microsoft Graph API kräver *att användaren.läser* omfång för att läsa en användares profil. Som standard läggs det här scopet automatiskt till i alla program som är registrerade på registreringsportalen. Andra API:er för Microsoft Graph, samt anpassade API:er för backend-servern, kan kräva ytterligare scope. Microsoft Graph API kräver till exempel *scopet Calendars.Read* för att kunna visa användarens kalendrar.
 
@@ -356,7 +359,7 @@ Om ett backend-API inte kräver ett scope (rekommenderas inte) kan du använda *
 
 ## <a name="next-steps"></a>Nästa steg
 
-Bläddra i MSAL-osien för dokumentation, vanliga frågor, problem med mera:
+Lär dig sedan hur du loggar in en användare och hämtar token i den kantiga självstudien:
 
 > [!div class="nextstepaction"]
-> [MSAL.js GitHub repo](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+> [Vinkel handledning](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-angular)

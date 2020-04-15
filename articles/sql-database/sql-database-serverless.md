@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 4/3/2020
-ms.openlocfilehash: 07f29a01ae0128ba0a35504dea54ba1ae2dde944
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 6a1d2f6079280002c868702a6547c8fd359a7c21
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657068"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310123"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database serverlös
 
@@ -138,6 +138,8 @@ Autosvar utlöses om något av följande villkor är sant när som helst:
 |SYNKRONISERING AV SQL-data|Synkronisering mellan nav- och medlemsdatabaser som körs enligt ett konfigurerbart schema eller utförs manuellt|
 |Ändra vissa databasmetadata|Lägga till nya databastaggar.<br>Ändra max vCores, min vCores eller automatisk fördröjning.|
 |SQL Server Management Studio (SSMS)|Om du använder SSMS-versioner tidigare än 18.1 och öppnar ett nytt frågefönster för alla databaser på servern återupptas alla automatiskt pausade databaser på samma server. Detta inträffar inte om du använder SSMS version 18.1 eller senare.|
+
+Övervakning, hantering eller andra lösningar som utför någon av de åtgärder som anges ovan utlöser automatisk återupptagande.
 
 Autosvarning utlöses också under distributionen av vissa tjänstuppdateringar som kräver att databasen är online.
 

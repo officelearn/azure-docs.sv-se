@@ -1,5 +1,5 @@
 ---
-title: Förstå Azure Security Center för IoT-säkerhetsrekommendationer| Microsoft-dokument
+title: Säkerhetsrekommendationer
 description: Lär dig mer om begreppet säkerhetsrekommendationer och hur de används i Azure Security Center för IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,22 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
-ms.openlocfilehash: a8de821abcedf6bb9a331852a2c0af9b6439667a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 213595ac69efc90ec855b2891641e1f00bd1ba92
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78303587"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311551"
 ---
 # <a name="security-recommendations"></a>Säkerhetsrekommendationer
 
-Azure Security Center for IoT söker igenom dina Azure-resurser och IoT-enheter och ger säkerhetsrekommendationer för att minska din attackyta. Säkerhetsrekommendationer är genomförbara och syftar till att hjälpa kunderna att följa bästa säkerhetspraxis.
+Azure Security Center for IoT söker igenom dina Azure-resurser och IoT-enheter och ger säkerhetsrekommendationer för att minska din attackyta.
+Säkerhetsrekommendationer är genomförbara och syftar till att hjälpa kunderna att följa bästa säkerhetspraxis.
 
 I den här artikeln hittar du en lista med rekommendationer som kan utlösas på din IoT Hub och /eller IoT-enheter.
 
 ## <a name="recommendations-for-iot-devices"></a>Rekommendationer för IoT-enheter
 
-Enhetsrekommendationer ger insikter och förslag för att förbättra enhetens säkerhetsposition. 
+Enhetsrekommendationer ger insikter och förslag för att förbättra enhetens säkerhetsposition.
 
 | Severity | Namn                                                      | Datakälla | Beskrivning                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -53,7 +54,7 @@ Driftrekommendationer ger insikter och förslag för att förbättra konfigurati
 
 ## <a name="recommendations-for-iot-hub"></a>Rekommendationer för IoT Hub
 
-Rekommendationsvarningar ger insikt och förslag på åtgärder för att förbättra säkerhetshållningen i din miljö.  
+Rekommendationsvarningar ger insikt och förslag på åtgärder för att förbättra säkerhetshållningen i din miljö.
 
 | Severity | Namn                                                     | Datakälla | Beskrivning                                                                                                                                                                                                             |
 |----------|----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

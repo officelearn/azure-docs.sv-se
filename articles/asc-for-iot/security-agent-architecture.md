@@ -1,5 +1,5 @@
 ---
-title: Så här fungerar Azure Security Center för IoT-arkitektur för säkerhetsagent| Microsoft-dokument
+title: Arkitektur för säkerhetsagent
 description: Förstå säkerhetsagentarkitektur för agenter som används i Azure Security Center for IoT-tjänsten.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 998aeab197931a75579fc39b28e3a248b85fc57b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9029ece923b7cda09c7a57d07736791e241c9e70
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68596902"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310690"
 ---
 # <a name="security-agent-reference-architecture"></a>Referensarkitektur för säkerhetsagenter
 
@@ -38,9 +38,9 @@ Säkerhetsagenter har stöd för följande funktioner:
 
 - Konfigurera fjärrstyrd med hjälp av azureiotsecurity-modultvillingen. **azureiotsecurity** Mer information finns i [Konfigurera ett Azure Security Center för IoT-agent](how-to-agent-configuration.md).
 
-Azure Security Center för IoT-säkerhetsagenter utvecklas som projekt med öppen källkod och är tillgängliga från GitHub: 
+Azure Security Center för IoT-säkerhetsagenter utvecklas som projekt med öppen källkod och är tillgängliga från GitHub:
 
-- [Azure Security Center för IoT C-baserad agent](https://github.com/Azure/Azure-IoT-Security-Agent-C) 
+- [Azure Security Center för IoT C-baserad agent](https://github.com/Azure/Azure-IoT-Security-Agent-C)
 - [Azure Security Center för IoT C#-baserad agent](https://github.com/Azure/Azure-IoT-Security-Agent-CS)
 
 ## <a name="agent-supported-platforms"></a>Plattformar som stöds av agent

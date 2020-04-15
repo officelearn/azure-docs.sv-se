@@ -8,18 +8,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 0547f254a64cecc7072ee9ff79eb50204b34bc17
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 5ceefb076b63df942cfff202946f6b82050bbab9
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548871"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311948"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Generera ett självsignerat Azure Application Gateway-certifikat med en anpassad rotcertifikatutfärdaren
 
-Application Gateway v2 SKU introducerar användningen av betrodda rotcertifikat för att tillåta serverdserver. Detta tar bort autentiseringscertifikat som krävdes i v1 SKU. *Rotcertifikatet* är en Base-64-kodad X.509(. CER)-formatrotcertifikat från serverdingscertifikatservern. Den identifierar rotcertifikatutfärdaren som utfärdade servercertifikatet och servercertifikatet används sedan för SSL-kommunikationen.
+Application Gateway v2 SKU introducerar användningen av betrodda rotcertifikat för att tillåta serverdserver. Detta tar bort autentiseringscertifikat som krävdes i v1 SKU. *Rotcertifikatet* är en Base-64-kodad X.509(. CER)-formatrotcertifikat från serverdingscertifikatservern. Den identifierar rotcertifikatutfärdaren som utfärdade servercertifikatet och servercertifikatet används sedan för TLS/SSL-kommunikationen.
 
-Application Gateway litar på webbplatsens certifikat som standard om det är signerat av en välkänd certifikatutfärdare (till exempel GoDaddy eller DigiCert). Du behöver inte uttryckligen överföra rotcertifikatet i så fall. Mer information finns i [Översikt över SSL-avslutning och slutpunkt till SSL med Application Gateway](ssl-overview.md). Men om du har en utvecklings-/testmiljö och inte vill köpa ett verifierat certifikat för certifikatutfärdare kan du skapa en egen anpassad certifikatutfärdare och skapa ett självsignerat certifikat med den. 
+Application Gateway litar på webbplatsens certifikat som standard om det är signerat av en välkänd certifikatutfärdare (till exempel GoDaddy eller DigiCert). Du behöver inte uttryckligen överföra rotcertifikatet i så fall. Mer information finns i [Översikt över TLS-avslutning och till TLS med Application Gateway](ssl-overview.md). Men om du har en utvecklings-/testmiljö och inte vill köpa ett verifierat certifikat för certifikatutfärdare kan du skapa en egen anpassad certifikatutfärdare och skapa ett självsignerat certifikat med den. 
 
 > [!NOTE]
 > Självsignerade certifikat är inte betrodda som standard och de kan vara svåra att underhålla. Dessutom kan de använda föråldrade hash- och chiffersviter som kanske inte är starka. För bättre säkerhet, köpa ett certifikat som signerats av en välkänd certifikatutfärdar.
@@ -125,15 +125,15 @@ Kundtjänstrepresentanten är en offentlig nyckel som ges till en certifikatutf�
    - fabrikam.crt
    - fabrikam.key
 
-## <a name="configure-the-certificate-in-your-web-servers-ssl-settings"></a>Konfigurera certifikatet i webbserverns SSL-inställningar
+## <a name="configure-the-certificate-in-your-web-servers-tls-settings"></a>Konfigurera certifikatet i TLS-inställningarna för webbservern
 
-Konfigurera SSL med filerna fabrikam.crt och fabrikam.key på webbservern. Om webbservern inte kan ta två filer kan du kombinera dem med en enda .pem- eller .pfx-fil med OpenSSL-kommandon.
+Konfigurera TLS på webbservern med filerna fabrikam.crt och fabrikam.key. Om webbservern inte kan ta två filer kan du kombinera dem med en enda .pem- eller .pfx-fil med OpenSSL-kommandon.
 
 ### <a name="iis"></a>IIS
 
 Instruktioner om hur du importerar certifikat och överför dem som servercertifikat på IIS finns i [SÅ HÄR: Installera importerade certifikat på en webbserver i Windows Server 2003](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server).
 
-Instruktioner för SSL-bindning finns i [Så här konfigurerar du SSL på IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
+Instruktioner för TLS-bindning finns i [Så här konfigurerar du SSL på IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
 
 ### <a name="apache"></a>Apache
 
@@ -151,9 +151,9 @@ Följande konfiguration är ett exempel [virtuell värd konfigurerad för SSL](h
 
 ### <a name="nginx"></a>NGINX
 
-Följande konfiguration är ett exempel [på NGINX-serverblock](https://nginx.org/docs/http/configuring_https_servers.html) med SSL-konfiguration:
+Följande konfiguration är ett exempel [på NGINX-serverblock](https://nginx.org/docs/http/configuring_https_servers.html) med TLS-konfiguration:
 
-![NGINX med SSL](media/self-signed-certificates/nginx-ssl.png)
+![NGINX med TLS](media/self-signed-certificates/nginx-ssl.png)
 
 ## <a name="access-the-server-to-verify-the-configuration"></a>Öppna servern för att verifiera konfigurationen
 
@@ -232,7 +232,7 @@ $probe = Get-AzApplicationGatewayProbeConfig `
 
 ## Add the configuration to the HTTP Setting and don't forget to set the "hostname" field
 ## to the domain name of the server certificate as this will be set as the SNI header and
-## will be used to verify the backend server's certificate. Note that SSL handshake will
+## will be used to verify the backend server's certificate. Note that TLS handshake will
 ## fail otherwise and might lead to backend servers being deemed as Unhealthy by the probes
 
 Add-AzApplicationGatewayBackendHttpSettings `
@@ -272,5 +272,5 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om SSL\TLS i Application Gateway finns i [Översikt över SSL-avslutning och end to end SSL med Application Gateway](ssl-overview.md).
+Mer information om SSL\TLS i Application Gateway finns i [Översikt över TLS-avslutning och slutpunkt till TLS med Application Gateway](ssl-overview.md).
 

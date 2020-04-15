@@ -1,7 +1,7 @@
 ---
 title: Dataredundans
 titleSuffix: Azure Storage
-description: Data i ditt Microsoft Azure Storage-konto replikeras för hållbarhet och hög tillgänglighet. Redundanskonfigurationer omfattar lokalt redundant lagring (LRS), zon redundant lagring (ZRS), geo-redundant lagring (GRS), geo redundant lagring av läsåtkomst (RA-GRS), geo-zon-redundant lagring (GZRS) (förhandsversion) och läsåtkomst geo-zon-redundant lagring (RA-GZRS) (förhandsvisning).
+description: Data i ditt Microsoft Azure Storage-konto replikeras för hållbarhet och hög tillgänglighet. Redundanskonfigurationer omfattar lokalt redundant lagring (LRS), zonupptraklig lagring (ZRS), geoupptundrad lagring (GRS), geo-åtkomst geo-redundant lagring (RA-GRS), geo-zon-redundant lagring (GZRS) (förhandsversion) och läs-åtkomst geo-zon-redundant lagring (RA-GZRS) (förhandsversion).
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.date: 02/25/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 7ae5f59a1bd96362d5466b2f6363185ba168d942
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1961797f37a760fe3a31dc8aa3830889965b69b5
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255267"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81379944"
 ---
 # <a name="azure-storage-redundancy"></a>Redundans för Azure Storage
 

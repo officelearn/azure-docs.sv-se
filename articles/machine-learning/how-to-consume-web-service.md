@@ -1,7 +1,7 @@
 ---
 title: Skapa klient för modell som distribueras som webbtjänst
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder en webbtjänst som genererades när en modell distribuerades med Azure Machine Learning-modellen. Webbtjänsten exponerar ett REST API. Skapa klienter för det här API:et med hjälp av det programmeringsspråk du väljer.
+description: Lär dig hur du anropar en slutpunkt för webbtjänsten som genererades när en modell distribuerades från Azure Machine Learning. Slutpunkten visar ett REST API, som du kan anropa för att utföra inferens med modellen. Skapa klienter för det här API:et med hjälp av det programmeringsspråk du väljer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 01/07/2020
+ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: a86b8ddb59719db9bdaffea44aecd5428ad16834
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0222b63323c4e546628d790fabb881eba006494e
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282672"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383394"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använda en Azure Machine Learning-modell som distribueras som en webbtjänst
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Distribuera en Azure Machine Learning-modell som en webbtjänst skapar ett REST API. Du kan skicka data till det här API:et och ta emot förutsägelsen som returneras av modellen. I det här dokumentet får du lära dig hur du skapar klienter för webbtjänsten med hjälp av C#, Go, Java och Python.
+Distribuera en Azure Machine Learning-modell som en webbtjänst skapar en REST API-slutpunkt. Du kan skicka data till den här slutpunkten och ta emot förutsägelsen som returneras av modellen. I det här dokumentet får du lära dig hur du skapar klienter för webbtjänsten med hjälp av C#, Go, Java och Python.
 
-Du skapar en webbtjänst när du distribuerar en avbildning till Azure Container Instances, Azure Kubernetes Service eller fältprogrammerbara gate arrayer (FPGA). Du skapar bilder från registrerade modeller och poängfiler. Du hämtar URI som används för att komma åt en webbtjänst med hjälp av [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Om autentisering är aktiverat kan du också använda SDK för att hämta autentiseringsnycklarna eller token.
+Du skapar en webbtjänst när du distribuerar en modell till din lokala miljö, Azure Container Instances, Azure Kubernetes Service eller fältprogrammerbara gate arrayer (FPGA). Du hämtar URI som används för att komma åt webbtjänsten med hjälp av [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Om autentisering är aktiverat kan du också använda SDK för att hämta autentiseringsnycklarna eller token.
 
 Det allmänna arbetsflödet för att skapa en klient som använder en datorinlärningswebbtjänst är:
 
@@ -174,6 +174,17 @@ Webbtjänsten kan acceptera flera uppsättningar data i en begäran. Det returne
 ### <a name="binary-data"></a>Binära data
 
 Information om hur du aktiverar stöd för binära data i tjänsten finns i [Binära data](how-to-deploy-and-where.md#binary).
+
+> [!TIP]
+> Aktivera stöd för binära data sker i den score.py filen som används av den distribuerade modellen. Från klienten använder du HTTP-funktionen för programmeringsspråket. Följande kodavsnitt skickar till exempel innehållet i en JPG-fil till en webbtjänst:
+>
+> ```python
+> import requests
+> # Load image data
+> data = open('example.jpg', 'rb').read()
+> # Post raw data to scoring URI
+> res = request.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/> octet-stream'})
+> ```
 
 ### <a name="cross-origin-resource-sharing-cors"></a>Gemensamt för resursdelning (CORS)
 

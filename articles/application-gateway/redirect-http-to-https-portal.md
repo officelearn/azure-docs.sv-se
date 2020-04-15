@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 51c191a7815bb64243e2324e150c00c2dcb7ec4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd33d23a506bd86b9651af3d4c3bbca01673a7a4
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76705334"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312100"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Skapa en programgateway med HTTP till HTTPS-omdirigering med Azure-portalen
 
-Du kan använda Azure-portalen för att skapa en [programgateway](overview.md) med ett certifikat för SSL-avslutning. En routningsregel används för att omdirigera HTTP-trafik till HTTPS-porten i programgatewayen. I det här exemplet skapar du också en [skalningsuppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för den virtuella datorn för serverdapoolen för programgatewayen som innehåller två instanser av virtuella datorer.
+Du kan använda Azure-portalen för att skapa en [programgateway](overview.md) med ett certifikat för TLS-avslutning. En routningsregel används för att omdirigera HTTP-trafik till HTTPS-porten i programgatewayen. I det här exemplet skapar du också en [skalningsuppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för den virtuella datorn för serverdapoolen för programgatewayen som innehåller två instanser av virtuella datorer.
 
 I den här artikeln kan du se hur du:
 

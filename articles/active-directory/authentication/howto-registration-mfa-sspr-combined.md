@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f454b0296a3463d7346c2945b21162e5a38c0eb7
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: e22871114f260417e8a1514546c88ec4541064a4
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652509"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309754"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Aktivera kombinerad registrering av säkerhetsinformation (förhandsgranskning)
 
@@ -89,7 +89,7 @@ Följande princip gäller för alla valda användare som försöker registrera s
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Tvinga användare att registrera om autentiseringsmetoder](howto-mfa-userdevicesettings.md#manage-authentication-methods)
+[Tvinga användare att registrera om autentiseringsmetoder](howto-mfa-userdevicesettings.md#manage-user-authentication-options)
 
 [Tillgängliga metoder för multifaktorautentisering och SSPR](concept-authentication-methods.md)
 

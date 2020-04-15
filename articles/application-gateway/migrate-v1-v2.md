@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 96f3825288846e86771ef3907eb4da4e58630df3
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 2a6165cf2739482805d712ddffb5c6a9f5ebabf8
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475173"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312036"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrera Azure Application Gateway och brandvägg för webbprogram från v1 till v2
 
@@ -36,7 +36,7 @@ Ett Azure PowerShell-skript är tillgängligt som gör följande:
 
 * Den nya v2-gatewayen har nya offentliga och privata IP-adresser. Det går inte att flytta IP-adresser som är associerade med den befintliga v1-gatewayen sömlöst till v2. Du kan dock allokera en befintlig (oallokerad) offentlig eller privat IP-adress till den nya v2-gatewayen.
 * Du måste ange ett IP-adressutrymme för ett annat undernät i det virtuella nätverket där v1-gatewayen finns. Skriptet kan inte skapa v2-gatewayen i befintliga undernät som redan har en v1-gateway. Men om det befintliga undernätet redan har en v2-gateway, som fortfarande kan fungera förutsatt att det finns tillräckligt med IP-adressutrymme.
-* Om du vill migrera en SSL-konfiguration måste du ange alla SSL-certifikat som används i v1-gatewayen.
+* Om du vill migrera en TLS/SSL-konfiguration måste du ange alla TLS/SSL-cert som används i v1-gatewayen.
 * Om du har FIPS-läge aktiverat för din V1-gateway migreras den inte till din nya v2-gateway. FIPS-läge stöds inte i v2.
 * v2 stöder inte IPv6, så IPv6-aktiverade v1-gateways migreras inte. Om du kör skriptet kanske det inte slutförs.
 * Om v1-gatewayen bara har en privat IP-adress skapar skriptet en offentlig IP-adress och en privat IP-adress för den nya v2-gatewayen. v2-gateways stöder för närvarande inte bara privata IP-adresser.
@@ -101,7 +101,7 @@ Kör skriptet så här:
 
    * **undernätAdressRange: [String]: Obligatoriskt** - Det här är det IP-adressutrymme som du har allokerat (eller vill allokera) för ett nytt undernät som innehåller din nya v2-gateway. Detta måste anges i CIDR-notationen. Till exempel: 10.0.0.0/24. Du behöver inte skapa det här undernätet i förväg. Skriptet skapar det åt dig om det inte finns.
    * **appgwName: [String]: Valfritt**. Det här är en sträng som du anger att använda som namn för den nya Standard_v2 eller WAF_v2 gatewayen. Om den här parametern inte anges används namnet på den befintliga v1-gatewayen med suffixet *_v2* bifogat.
-   * **sslCertificates: [PSApplicationGatewaySslCertificate]: Valfritt**.  En kommaavgränsad lista över PSApplicationGatewaySslCertificate-objekt som du skapar för att representera SSL-cert från din v1-gateway måste överföras till den nya v2-gatewayen. För var och en av dina SSL-certs som konfigurerats för din Standard v1- eller WAF v1-gateway kan du skapa ett nytt PSApplicationGatewaySslCertificate-objekt via `New-AzApplicationGatewaySslCertificate` kommandot som visas här. Du behöver sökvägen till ssl-filen och lösenordet.
+   * **sslCertificates: [PSApplicationGatewaySslCertificate]: Valfritt**.  En kommaavgränsad lista över PSApplicationGatewaySslCertificate-objekt som du skapar för att representera TLS/SSL-certs från din v1-gateway måste överföras till den nya v2-gatewayen. För var och en av dina TLS/SSL-certifikat som konfigurerats för standard v1- eller WAF v1-gatewayen kan `New-AzApplicationGatewaySslCertificate` du skapa ett nytt PSApplicationGatewaySslCertificate-objekt via kommandot som visas här. Du behöver sökvägen till filen TLS/SSL Cert och lösenordet.
 
      Den här parametern är bara valfri om du inte har HTTPS-lyssnare konfigurerade för din v1-gateway eller WAF. Om du har minst en INSTÄLLNING FÖR HTTPS-lyssnare måste du ange den här parametern.
 

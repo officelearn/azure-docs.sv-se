@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/15/2018
 ms.author: victorh
-ms.openlocfilehash: c7c27f00b9f8b4fdcd8f735f842edb8f66803c6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4c0c0ab84e60335f58ac075459b95cfabb9135ac
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76278004"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311950"
 ---
 # <a name="renew-application-gateway-certificates"></a>Förnya certifikat för programgateway
 
-Vid något tillfälle måste du förnya dina certifikat om du har konfigurerat programgatewayen för SSL-kryptering.
+Vid något tillfälle måste du förnya dina certifikat om du har konfigurerat programgatewayen för TLS/SSL-kryptering.
 
 Du kan förnya ett certifikat som är associerat med en lyssnare med antingen Azure-portalen, Azure PowerShell eller Azure CLI:
 
@@ -62,4 +62,4 @@ az network application-gateway ssl-cert update \
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du konfigurerar SSL-avlastning med Azure Application Gateway finns i [Konfigurera SSL-avlastning](application-gateway-ssl-portal.md)
+Mer information om hur du konfigurerar TLS-avlastning med Azure Application Gateway finns i [Konfigurera TLS-avlastning](application-gateway-ssl-portal.md)

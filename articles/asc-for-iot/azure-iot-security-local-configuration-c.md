@@ -1,5 +1,5 @@
 ---
-title: Förstå Azure Security Center för agentlokala konfigurationer för C | Microsoft-dokument
+title: Lokal konfiguration av säkerhetsagent (C)
 description: Lär dig mer om Azure Security Center för agentlokala konfigurationer för C.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,26 +15,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 2725a824da26dafcbc215e4c302ec38ad4b5a699
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cd344b9bebb69af210c482f46af6b2dd7edf7816
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68600545"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311695"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Förstå filen LocalConfiguration.json – C-agent
 
 Azure Security Center för IoT-säkerhetsagent använder konfigurationer från en lokal konfigurationsfil.
 Säkerhetsagenten läser konfigurationen en gång, vid agentstart.
 Konfigurationen som finns i den lokala konfigurationsfilen innehåller autentiseringskonfiguration och andra agentrelaterade konfigurationer.
-Filen innehåller konfigurationer i "Key-Value" par i JSON-notation och konfigurationerna fylls i när agenten installeras. 
+Filen innehåller konfigurationer i "Key-Value" par i JSON-notation och konfigurationerna fylls i när agenten installeras.
 
 Som standard finns filen på: /var/ASCIoTAgent/LocalConfiguration.json
 
-Ändringar i konfigurationsfilen sker när agenten startas om. 
+Ändringar i konfigurationsfilen sker när agenten startas om.
 
 ## <a name="security-agent-configurations-for-c"></a>Konfigurationer av säkerhetsagenter för C
-| Konfigurationsnamn | Möjliga värden | Information | 
+
+| Konfigurationsnamn | Möjliga värden | Information |
 |:-----------|:---------------|:--------|
 | AgentId (på andra) | GUID | Agenten Unik identifierare |
 | TriggerdEventsInterval | ISO8601 sträng | Schemaschemaintervall för utlöst händelser insamling |
@@ -53,6 +54,7 @@ Som standard finns filen på: /var/ASCIoTAgent/LocalConfiguration.json
 | DiagnosticEventMinimumSeverity | 0 <= antal <= 4 | loggmeddelanden som är lika och ovanför den här allvarlighetsgraden kommer att skickas som diagnostiska händelser (0 är den lägsta allvarlighetsgraden) |
 
 ## <a name="security-agent-configurations-code-example"></a>Exempel på kodex för säkerhetsagentkonfigurationer
+
 ```JSON
 {
     "Configuration" : {
@@ -79,6 +81,7 @@ Som standard finns filen på: /var/ASCIoTAgent/LocalConfiguration.json
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 - Läs [översikt](overview.md) över Azure Security Center for IoT-tjänsten
 - Läs mer om Azure Security Center för [IoT-arkitektur](architecture.md)
 - Aktivera Azure Security Center för [IoT-tjänsten](quickstart-onboard-iot-hub.md)

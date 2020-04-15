@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3237fe7d87ad058f255d1c77cb6d814bcd1c292e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: b4e1ef4fbc3ade38b55fc06f8e4e9a119938581b
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262255"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383894"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
 
@@ -324,6 +324,30 @@ Systemfel 1359 uppstod. Ett internt fel inträffar när du försöker ansluta ti
 För närvarande kan du överväga att distribuera om din AAD DS med ett nytt DNS-domännamn som gäller med reglerna nedan:
 - Namn kan inte börja med ett numeriskt tecken.
 - Namnen måste vara mellan 3 och 63 tecken långa.
+
+## <a name="unable-to-mount-azure-files-with-ad-credentials"></a>Det går inte att montera Azure-filer med AD-autentiseringsuppgifter 
+
+### <a name="self-diagnostics-steps"></a>Steg för självdiagnostik
+Kontrollera först att du har följt alla fyra stegen för att [aktivera Azure Files AD Authentication](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable).
+
+Försök för det andra [att montera Azure-filresurs med lagringskontonyckel](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Om du inte kunde montera, ladda ner [AzFileDiagnostics.ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) för att hjälpa dig att validera klientens körmiljö, identifiera den inkompatibla klientkonfigurationen som skulle orsaka åtkomstfel för Azure-filer, ger föreskrivande vägledning om självkorrigering och samlar in diagnostikspårningar.
+
+För det tredje kan du köra cmdleten Debug-AzStorageAccountAuth för att utföra en uppsättning grundläggande kontroller av AD-konfigurationen med den inloggade AD-användaren. Denna cmdlet stöds på [AzFilesHybrid v0.1.2+ version](https://github.com/Azure-Samples/azure-files-samples/releases). Du måste köra den här cmdleten med en AD-användare som har ägarbehörighet för mållagringskontot.  
+```PowerShell
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
+Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
+```
+Cmdlet utför dessa kontroller nedan i följd och ger vägledning för fel:
+1. CheckPort445Anslutning: kontrollera att port 445 är öppen för SMB-anslutning
+2. CheckDomainJoined: verifiera att klientdatorn är domän ansluten till AD
+3. CheckADObject: bekräfta att den inloggade användaren har en giltig representation i AD-domänen att lagringskontot är kopplat till
+4. CheckGetKerberosTicket: försök att få en Kerberos-biljett för att ansluta till lagringskontot 
+5. CheckADObjectPasswordIsCorrect: se till att lösenordet som konfigurerats på AD-identiteten som representerar lagringskontot matchar nyckeln för lagringskontots trottoarkanter
+6. CheckSidHasAadUser: kontrollera att den inloggade AD-användaren är synkroniserad med Azure AD
+
+Vi arbetar aktivt med att utöka denna diagnostik cmdlet för att ge bättre felsökningsvägledning.
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 Om du fortfarande behöver hjälp [kontaktar du supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att lösa problemet snabbt.

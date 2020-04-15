@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: b19052b8a71b582b47308c41d170f50352d643e2
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 314445275f99898913bd91eb8abc2a5acdab098a
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618359"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381030"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera Blink för automatisk användaretablering
 
@@ -121,7 +121,7 @@ I det här avsnittet får du hjälp med stegen för att konfigurera Azure AD-eta
 
 9. Granska användarattributen som synkroniseras från Azure AD till Blink i avsnittet **Attributmappning.** De attribut som valts som **matchande** egenskaper används för att matcha användarkontona i Blink för uppdateringsåtgärder. Välj knappen **Spara** om du vill utföra eventuella ändringar.
 
-    ![Blinkande användarattribut](media/blink-provisioning-tutorial/User_attributes.png)
+    ![Blinkande användarattribut](media/blink-provisioning-tutorial/user-attributes.png)
 
 10. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudiefilatkursen För att visa omfånget](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

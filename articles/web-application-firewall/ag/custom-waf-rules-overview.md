@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 01/30/2020
+ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: 072c7bd5b5b292ca4f0e53c59fcb7e9771331a94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c0f802f5113e38e811c110ee913099e76fa7be0b
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77031739"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383816"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Anpassade regler för brandvägg för webbprogram v2 på Azure Application Gateway
 
@@ -125,7 +125,7 @@ Beskriver fältet för den matchvarierbara samlingen. Om matchVariable till exem
 Måste vara en av följande aktörer:
 
 - IPMatch - används endast när Match variabel är *RemoteAddr*
-- Lika med – indata är samma som MatchValue
+- Lika – indata är samma som MatchValue
 - Innehåller
 - LessThan
 - GreaterThan

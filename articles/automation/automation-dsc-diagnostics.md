@@ -9,27 +9,29 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 578fcf4cd03a2d4fc8400b9e84f53206750a588c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a75b71d43b072d366ef2fcb15bf4c901680d48fb
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77430728"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383221"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Vidarebefordra rapporteringsdata för Azure Automation State Configuration till Azure Monitor-loggar
 
-Azure Automation State Configuration behåller nodstatusdata i 30 dagar.
-Du kan skicka nodstatusdata till din Log Analytics-arbetsyta om du föredrar att behålla dessa data under en längre period.
-Efterlevnadsstatus visas i Azure-portalen eller med PowerShell, för noder och för enskilda DSC-resurser i nodkonfigurationer.
-Med Azure Monitor-loggar kan du:
+Azure Automation State Configuration behåller nodstatusdata i 30 dagar. Du kan skicka nodstatusdata till din Log Analytics-arbetsyta om du föredrar att behålla dessa data under en längre period. Efterlevnadsstatus visas i Azure-portalen eller med PowerShell, för noder och för enskilda DSC-resurser i nodkonfigurationer. 
 
-- Hämta efterlevnadsinformation för hanterade noder och enskilda resurser
-- Utlösa ett e-postmeddelande eller en avisering baserat på efterlevnadsstatus
-- Skriv avancerade frågor över dina hanterade noder
-- Korrelera efterlevnadsstatus för Automation-konton
-- Visualisera historiken för nodefterlevnad över tid
+Azure Monitor-loggar ger större operativ synlighet för dina Automation State Configuration-data och kan hjälpa till att hantera incidenter snabbare. Med Azure Monitor-loggar kan du:
+
+- Hämta efterlevnadsinformation för hanterade noder och enskilda resurser.
+- Utlösa ett e-postmeddelande eller en avisering baserat på efterlevnadsstatus.
+- Skriv avancerade frågor över dina hanterade noder.
+- Korrelera efterlevnadsstatus för Automation-konton.
+- Använd anpassade vyer och sökfrågor för att visualisera runbookresultaten, körboksjobbstatusen och andra relaterade nyckelindikatorer eller mått.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+>[!NOTE]
+>Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installationsinstruktioner för Az-modul på hybridkörningsarbetaren finns [i Installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med [så här uppdaterar du Azure PowerShell-moduler i Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -43,7 +45,7 @@ Om du vill börja skicka dina automationstillståndskonfigurationsrapporter till
 
 ## <a name="set-up-integration-with-azure-monitor-logs"></a>Konfigurera integrering med Azure Monitor-loggar
 
-Så här börjar du importera data från Azure Automation DSC till Azure Monitor-loggar:
+Så här börjar du importera data från Azure Automation State Configuration till Azure Monitor-loggar:
 
 1. Logga in på ditt Azure-konto i PowerShell. Se [Logga in med Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 1. Hämta resurs-ID:n för ditt Automation-konto genom att köra följande PowerShell-cmdlet. Om du har mer än ett automatiseringskonto väljer du resurs-ID för det konto som du vill konfigurera.
@@ -60,7 +62,7 @@ Så här börjar du importera data från Azure Automation DSC till Azure Monitor
    Get-AzResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
    ```
 
-1. Kör följande PowerShell-cmdlet `<AutomationResourceId>` `<WorkspaceResourceId>` och ersätt och med *ResourceId-värdena* från vart och ett av föregående steg.
+1. Kör följande PowerShell-cmdlet `<AutomationResourceId>` `<WorkspaceResourceId>` och `ResourceId` ersätt och med värdena från vart och ett av föregående steg.
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Category 'DscNodeStatus'
@@ -78,7 +80,7 @@ När du har konfigurerat integrering med Azure Monitor-loggar för dina Automati
 
 ![Loggar](media/automation-dsc-diagnostics/automation-dsc-logs-toc-item.png)
 
-Fönstret **Loggsökning** öppnas med ett frågeområde som är begränsat till din Automation-kontoresurs. Du kan söka i tillståndskonfigurationsloggarna för DSC-åtgärder genom att söka i Azure Monitor-loggar. Posterna för DSC-åtgärder lagras i tabellen AzureDiagnostics. Om du till exempel vill hitta noder som inte är kompatibla skriver du följande fråga.
+Fönstret Loggsökning öppnas med ett frågeområde som är begränsat till din Automation-kontoresurs. Du kan söka i tillståndskonfigurationsloggarna för DSC-åtgärder genom att söka i Azure Monitor-loggar. Posterna för DSC-åtgärder `AzureDiagnostics` lagras i tabellen. Om du till exempel vill hitta noder som inte är kompatibla skriver du följande fråga.
 
 ```AzureDiagnostics
 | where Category == 'DscNodeStatus' 
@@ -87,9 +89,9 @@ Fönstret **Loggsökning** öppnas med ett frågeområde som är begränsat till
 ```
 Filtrera detaljer:
 
-* Filtrera på *DscNodeStatusData* för att returnera åtgärder för varje tillståndskonfigurationsnod.
-* Filtrera på *DscResourceStatusData* för att returnera åtgärder för varje DSC-resurs som anropas i nodkonfigurationen som tillämpas på den resursen. 
-* Filtrera på *DscResourceStatusData* för att returnera felinformation för alla DSC-resurser som misslyckas.
+* Filtrera `DscNodeStatusData` på för att returnera åtgärder för varje tillståndskonfigurationsnod.
+* Filtrera `DscResourceStatusData` på för att returnera åtgärder för varje DSC-resurs som anropas i nodkonfigurationen som tillämpas på den resursen. 
+* Filtrera `DscResourceStatusData` på för att returnera felinformation för alla DSC-resurser som misslyckas.
 
 Mer information om hur du skapar loggfrågor för att hitta data finns [i Översikt över loggfrågor i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
@@ -97,20 +99,19 @@ Mer information om hur du skapar loggfrågor för att hitta data finns [i Övers
 
 En av våra bästa kundförfrågningar är möjligheten att skicka ett e-postmeddelande eller en text när något går fel med en DSC-konfiguration.
 
-Om du vill skapa en varningsregel börjar du med att skapa en loggsökning för rapportposterna för tillståndskonfiguration som ska anropa aviseringen. Klicka på knappen **+ Ny varningsregel** om du vill skapa och konfigurera varningsregeln.
+Om du vill skapa en varningsregel börjar du med att skapa en loggsökning för rapportposterna för tillståndskonfiguration som ska anropa aviseringen. Klicka på knappen **Ny varningsregel** om du vill skapa och konfigurera varningsregeln.
 
 1. Klicka på **Loggar**på sidan Översikt över Logganalysarbetsyta.
-1. Skapa en loggsökfråga för aviseringen genom att skriva in följande sökning i frågefältet:`Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
+1. Skapa en loggsökfråga för aviseringen genom att skriva följande sökning i frågefältet:`Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
 
-   Om du har konfigurerat loggar från mer än ett Automation-konto eller en prenumeration på din arbetsyta kan du gruppera dina aviseringar efter prenumeration och Automation-konto. Härleda kontot Automations namn från fältet Resurs i sökningen av DscNodeStatusData.
-1. Om du vill öppna skärmen **Skapa regel** klickar du på + **Ny varningsregel** högst upp på sidan. 
+   Om du har konfigurerat loggar från mer än ett Automation-konto eller en prenumeration på din arbetsyta kan du gruppera dina aviseringar efter prenumeration och Automation-konto. Härleda automationskontonamnet från `Resource` fältet i sökningen av **DscNodeStatusData-posterna.**
+1. Om du vill öppna skärmen **Skapa regel** klickar du på **Ny varningsregel** högst upp på sidan. 
 
 Mer information om alternativen för att konfigurera aviseringen finns i [Skapa en varningsregel](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Hitta misslyckade DSC-resurser för alla noder
 
-En fördel med att använda Azure Monitor-loggar är att du kan söka efter misslyckade kontroller över noder.
-Så här hittar du alla instanser av DSC-resurser som har misslyckats:
+En fördel med att använda Azure Monitor-loggar är att du kan söka efter misslyckade kontroller över noder. Så här hittar du alla instanser av DSC-resurser som har misslyckats:
 
 1. Klicka på **Loggar**på sidan Översikt över Logganalys.
 1. Skapa en loggsökfråga för aviseringen genom att skriva in följande sökning i frågefältet:`Type=AzureDiagnostics Category='DscNodeStatus' OperationName='DscResourceStatusData' ResultType='Failed'`
@@ -127,8 +128,8 @@ Den här frågan visar ett diagram över nodstatus över tid.
 
 Azure Automation-diagnostik skapar två kategorier av poster i Azure Monitor-loggar:
 
-* Nodstatusdata (DscNodeStatusData)
-* Resursstatusdata (DscResourceStatusData)
+* Nodstatusdata (**DscNodeStatusData**)
+* Resursstatusdata (**DscResourceStatusData**)
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
@@ -140,7 +141,7 @@ Azure Automation-diagnostik skapar två kategorier av poster i Azure Monitor-log
 | NodeName_s |Namnet på den hanterade noden. |
 | NodeComplianceStatus_s |Om noden är kompatibel. |
 | DscReportStatus |Om efterlevnadskontrollen kördes. |
-| ConfigurationMode | Hur konfigurationen tillämpas på noden. Möjliga värden: <ul><li>*ApplyOnly*: DSC tillämpar konfigurationen och gör ingenting längre om inte en ny konfiguration skjuts till målnoden eller när en ny konfiguration hämtas från en server. Efter det första tillämpningen av en ny konfiguration söker DSC inte efter drift från ett tidigare konfigurerat tillstånd. DSC försöker tillämpa konfigurationen tills den lyckas innan *värdet ApplyOnly* börjar gälla. </li><li>*ApplyAndMonitor*: Detta är standardvärdet. LCM tillämpar alla nya konfigurationer. Efter den första tillämpningen av en ny konfiguration, om målnoden driver från önskat tillstånd, rapporterar DSC avvikelsen i loggar. DSC försöker tillämpa konfigurationen tills den lyckas innan *värdet ApplyAndMonitor* börjar gälla.</li><li>*ApplyAndAutoCorrect*: DSC tillämpar alla nya konfigurationer. Efter det första tillämpningen av en ny konfiguration, om målnoden driver från önskat tillstånd, rapporterar DSC avvikelsen i loggar och sedan den aktuella konfigurationen.</li></ul> |
+| ConfigurationMode | Hur konfigurationen tillämpas på noden. Möjliga värden: <ul><li>`ApplyOnly`: DSC tillämpar konfigurationen och gör ingenting längre om inte en ny konfiguration skjuts till målnoden eller när en ny konfiguration hämtas från en server. Efter det första tillämpningen av en ny konfiguration söker DSC inte efter drift från ett tidigare konfigurerat tillstånd. DSC försöker tillämpa konfigurationen tills den `ApplyOnly` lyckas innan värdet börjar gälla. </li><li>`ApplyAndMonitor`: Detta är standardvärdet. LCM tillämpar alla nya konfigurationer. Efter den första tillämpningen av en ny konfiguration, om målnoden driver från önskat tillstånd, rapporterar DSC avvikelsen i loggar. DSC försöker tillämpa konfigurationen tills den `ApplyAndMonitor` lyckas innan värdet börjar gälla.</li><li>`ApplyAndAutoCorrect`: DSC tillämpar alla nya konfigurationer. Efter det första tillämpningen av en ny konfiguration, om målnoden driver från önskat tillstånd, rapporterar DSC avvikelsen i loggar och sedan den aktuella konfigurationen.</li></ul> |
 | HostName_s | Namnet på den hanterade noden. |
 | IP-adress | IPv4-adressen för den hanterade noden. |
 | Kategori | DscNodeStatus. |
@@ -166,7 +167,7 @@ Azure Automation-diagnostik skapar två kategorier av poster i Azure Monitor-log
 | Egenskap | Beskrivning |
 | --- | --- |
 | TimeGenerated |Datum och tid då efterlevnadskontrollen kördes. |
-| OperationName |DscResourceStatusData|
+| OperationName |DscResourceStatusData.|
 | Resultattyp |Om resursen är kompatibel. |
 | NodeName_s |Namnet på den hanterade noden. |
 | Kategori | DscNodeStatus. |
@@ -183,7 +184,7 @@ Azure Automation-diagnostik skapar två kategorier av poster i Azure Monitor-log
 | ErrorCode_s | Felkoden om resursen misslyckades. |
 | ErrorMessage_s |Felmeddelandet om resursen misslyckades. |
 | DscResourceDuration_d |Den tid, i sekunder, som DSC-resursen kördes. |
-| SourceSystem | Hur Azure Monitor loggar samlade in data. Alltid *Azure* för Azure-diagnostik. |
+| SourceSystem | Hur Azure Monitor loggar samlade in data. Alltid `Azure` för Azure-diagnostik. |
 | ResourceId |Anger Azure Automation-kontot. |
 | ResultatBeskrivning | Beskrivningen för den här åtgärden. |
 | SubscriptionId | Azure-prenumerations-ID (GUID) för Automation-kontot. |
@@ -192,22 +193,15 @@ Azure Automation-diagnostik skapar två kategorier av poster i Azure Monitor-log
 | ResourceType | AUTOMATIONSKONTO. |
 | CorrelationId |GUID som är korrelations-ID för efterlevnadsrapporten. |
 
-## <a name="summary"></a>Sammanfattning
-
-Genom att skicka dina konfigurationsdata för Automation State till Azure Monitor-loggar kan du få bättre insikt i status för dina Automation State Configuration-noder genom att:
-
-- Ställa in aviseringar för att meddela dig när det finns ett problem
-- Använda anpassade vyer och sökfrågor för att visualisera runbookresultaten, körboksjobbstatus och andra relaterade nyckelindikatorer eller mått.
-
-Azure Monitor-loggar ger större operativ synlighet för dina Automation State Configuration-data och kan hjälpa till att hantera incidenter snabbare.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt finns i Konfiguration av [Azure Automation State](automation-dsc-overview.md)
-- Information om hur du kommer igång finns [i Komma igång med Azure Automation State Configuration](automation-dsc-getting-started.md)
-- Mer information om hur du kompilerar DSC-konfigurationer så att du kan tilldela dem till målnoder finns [i Kompilera konfigurationer i Azure Automation State Configuration](automation-dsc-compile.md)
-- Cmdlet-referens för PowerShell finns i [cmdlets för Azure Automation State Configuration](/powershell/module/azurerm.automation/#automation)
-- Prisinformation finns i [prissättningen för Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/)
-- Information om hur du använder Azure Automation State Configuration i en pipeline för kontinuerlig distribution finns i [Kontinuerlig distribution med Azure Automation State Configuration och Chocolatey](automation-dsc-cd-chocolatey.md)
-- Mer information om hur du skapar olika sökfrågor och granskar loggarna för konfiguration av Automation-tillstånd med Azure Monitor-loggar finns [i Loggsökningar i Azure Monitor-loggar](../log-analytics/log-analytics-log-searches.md)
-- Mer information om Azure Monitor-loggar och datainsamlingskällor finns [i Samla in Azure-lagringsdata i Azure Monitor-loggloggar översikt](../azure-monitor/platform/collect-azure-metrics-logs.md)
+- En översikt finns i [Azure Automation State Configuration](automation-dsc-overview.md).
+- Information om hur du kommer igång finns [i Komma igång med Azure Automation State Configuration](automation-dsc-getting-started.md).
+- Mer information om hur du kompilerar DSC-konfigurationer så att du kan tilldela dem till målnoder finns [i Kompilera konfigurationer i Azure Automation State Configuration](automation-dsc-compile.md).
+- En PowerShell-cmdlet-referens finns i [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
+- Prisinformation finns i [prissättningen för Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).
+- Information om hur du använder Azure Automation State Configuration i en pipeline för kontinuerlig distribution finns i [Kontinuerlig distribution med Azure Automation State Configuration och Chocolatey](automation-dsc-cd-chocolatey.md).
+- Mer information om hur du skapar olika sökfrågor och granskar konfigurationsloggarna för Automation-tillstånd med Azure Monitor-loggar finns [i Loggsökningar i Azure Monitor-loggar](../log-analytics/log-analytics-log-searches.md).
+- Mer information om Azure Monitor-loggar och datainsamlingskällor finns [i Samla in Azure-lagringsdata i Azure Monitor-loggloggar översikt](../azure-monitor/platform/collect-azure-metrics-logs.md).

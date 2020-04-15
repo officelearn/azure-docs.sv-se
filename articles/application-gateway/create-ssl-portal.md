@@ -1,22 +1,22 @@
 ---
-title: 'Självstudiekurs: Konfigurera SSL-avslutning i portalen - Azure Application Gateway'
-description: I den här självstudien får du lära dig hur du konfigurerar en programgateway och lägger till ett certifikat för SSL-avslutning med Azure-portalen.
+title: 'Självstudiekurs: Konfigurera TLS-avslutning i portalen - Azure Application Gateway'
+description: I den här självstudien får du lära dig hur du konfigurerar en programgateway och lägger till ett certifikat för TLS-avslutning med Azure-portalen.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: b4278fc6d44f32921713681cb094b659901cc87c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b40eb107fc975d2ef0170944892b936680de3c9f
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74012313"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312379"
 ---
-# <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Självstudiekurs: Konfigurera en programgateway med SSL-avslutning med Azure-portalen
+# <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Självstudiekurs: Konfigurera en programgateway med TLS-avslutning med Azure-portalen
 
-Du kan använda Azure-portalen för att konfigurera en [programgateway](overview.md) med ett certifikat för SSL-avslutning som använder virtuella datorer för serverd-servrar.
+Du kan använda Azure-portalen för att konfigurera en [programgateway](overview.md) med ett certifikat för TLS-avslutning som använder virtuella datorer för serverd-servrar.
 
 I den här självstudiekursen får du lära du dig att:
 
@@ -265,4 +265,4 @@ I det här exemplet installerar du IIS på de virtuella datorerna bara för att 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Läs mer om SSL-stöd för Application Gateway](ssl-overview.md)
+> [Läs mer om TLS-stöd för Application Gateway](ssl-overview.md)

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: 706a8c554dafbf792471729929d6e6484dfa35ae
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 12dd17045715a24d1e5151b30a5e7706b0e58717
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266089"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383807"
 ---
 # <a name="create-an-azure-virtual-machine-offer"></a>Skapa ett erbjudande om virtuell azure-dator
 
@@ -116,9 +116,9 @@ Välj **Spara utkast** innan du fortsätter.
 
 På den här sidan kan du definiera de kategorier och branscher som används för att gruppera ditt erbjudande på marknadsplatsen, din appversion och de juridiska kontrakt som stöder ditt erbjudande.
 
-### <a name="category"></a>Kategori
+### <a name="categories"></a>Kategorier
 
-Välj minst en och högst tre kategorier. Dessa kategorier används för att placera ditt erbjudande i lämpliga marknadsplatssökområden. Förklara i erbjudandebeskrivningen hur ditt erbjudande stöder dessa kategorier. Erbjudanden för virtuella datorer visas under kategorin **Beräkna** på Azure Marketplace.
+Välj minst en och högst fem kategorier. Dessa kategorier används för att placera ditt erbjudande i lämpliga marknadsplatssökområden. Förklara i erbjudandebeskrivningen hur ditt erbjudande stöder dessa kategorier. Erbjudanden för virtuella datorer visas under kategorin **Beräkna** på Azure Marketplace.
 
 ### <a name="legal"></a>Juridisk information
 
@@ -234,7 +234,6 @@ Ange supportwebbplatsen där kunderna kan nå ditt supportteam.
 
 - Azure Global supportwebbplats
 - Supportwebbplats för Azure Government
-- och så vidare
 
 ### <a name="partner-support-contact"></a>Kontakt med partnersupport
 
@@ -389,6 +388,8 @@ Varje plan måste finnas tillgänglig på minst en marknad. Markera kryssrutan f
 
 Om du redan har angett priser för din plan i USA-dollar (USD) och lägger till en annan marknadsplats, beräknas priset för den nya marknaden enligt aktuella valutakurser. Granska alltid priset för varje marknad innan publicering. Granska priser med hjälp av länken **Exportpriser (xlsx)** när du har sparat ändringarna.
 
+När du tar bort en marknad kan kunder från den marknaden med aktiva distributioner inte skapa nya distributioner eller skala upp sina befintliga distributioner. Befintliga distributioner påverkas inte.
+
 #### <a name="pricing"></a>Prissättning
 
 **Licensmodell** – Välj **Användningsbaserad månadsbekturerad plan** för att konfigurera priser för det här abonnemanget eller **Ta med din egen licens** så att kunderna kan använda det här abonnemanget med sin befintliga licens.
@@ -421,7 +422,7 @@ Du kan utforma varje plan så att den är synlig för alla eller för endast en 
 
 #### <a name="hide-plan"></a>Dölj plan
 
-Om din virtuella dator är avsedd att användas endast indirekt när den refereras via en annan lösningsmall eller hanterat program väljer du den här rutan för att publicera din virtuella dator eller erbjuda, men döljer den från kunder som söker och surfar efter den direkt.
+Om din virtuella dator är avsedd att användas endast indirekt när den refereras via en annan lösningsmall eller hanterat program väljer du den här rutan för att publicera den virtuella datorn men döljer den från kunder som söker och surfar efter den direkt.
 
 > [!NOTE]
 > Dolda planer stöder inte förhandsgranskningslänkar.
@@ -430,7 +431,7 @@ Välj **Spara utkast** innan du fortsätter.
 
 ### <a name="technical-configuration"></a>Teknisk konfiguration
 
-Ange bilder och andra tekniska egenskaper som är associerade med den här planen.
+Ange bilder och andra tekniska egenskaper som är associerade med den här planen. Mer information finns i [Skapa en teknisk tillgång för Azure VM](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
 
 > [!NOTE]
 > Den här fliken visas inte om du har konfigurerat den här planen för att återanvända paket från ett annat abonnemang på fliken **Planera inställningar.**
@@ -459,7 +460,7 @@ Välj upp till sex rekommenderade storlekar för virtuella datorer som ska visas
 
 #### <a name="vm-images"></a>VM-avbildningar
 
-Ange en diskversion och SAS-URI för avbildningar för den virtuella datorn. Lägg till upp till 16 datadiskar för varje vm-avbildning. Ange endast en ny bildversion per plan i en viss inlämning. När en bild har publicerats kan du inte redigera den, men du kan ta bort den. Om du tar bort en version hindras användarna från att distribuera en ny instans av den borttagna versionen.
+Ange en diskversion och SAS-URI för avbildningar för den virtuella datorn. Lägg till upp till 16 datadiskar för varje vm-avbildning. Ange endast en ny bildversion per plan i en viss inlämning. När en bild har publicerats kan du inte redigera den, men du kan ta bort den. Om du tar bort en version hindras både nya och befintliga användare från att distribuera en ny instans av den borttagna versionen.
 
 - **Skivversionen** är den version av bilden du tillhandahåller.
 - **SAS URI** är den plats i Azure Storage där du har lagrat operativsystemet VHD.

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: 6abb4f632535f1bda7e9f337f111ba372a624f2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55373f71c78b6d45b9c78c52dea61a37b89b4a00
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239624"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383049"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Använda Azure Kubernetes-tjänsten med Apache Kafka på HDInsight
 
@@ -163,7 +163,7 @@ Nu kommunicerar Kafka och Azure Kubernetes Service via de peer-virtuella nätver
     * `var topic = 'mytopic'`: `mytopic` Ersätt med namnet på kafka-ämnet som används av det här programmet.
     * `var brokerHost = '176.16.0.13:9092`: `176.16.0.13` Ersätt med den interna IP-adressen för en av mäklarvärdarna för ditt kluster.
 
-        Information om hur du hittar den interna IP-adressen för mäklarens värdar (workernodes) i klustret finns i [Apache Ambari REST API-dokumentet.](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes) Välj IP-adress för en av de poster `wn`där domännamnet börjar med .
+        Information om hur du hittar den interna IP-adressen för mäklarens värdar (workernodes) i klustret finns i [Apache Ambari REST API-dokumentet.](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-internal-ip-address-of-cluster-nodes) Välj IP-adress för en av de poster `wn`där domännamnet börjar med .
 
 4. Från en kommandorad `src` i katalogen installerar du beroenden och använder Docker för att skapa en avbildning för distribution:
 

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 04/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 0e4214466a2650df833cebd704577114b8818690
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 9e81efd826c78bfa1af5624272ae9b190cb54348
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81259702"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313891"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Kopiera data från en Azure Blob Storage till en SQL-databas med Azure Data Factory
 I den här självstudiekursen skapar du en datafabrik med Azure Data Factory-användargränssnittet. Pipelinen i den här datafabriken kopierar data från Azure Blob-lagring till en Azure SQL-databas. Konfigurationsmönstret i den här självstudien gäller kopiering av ett filbaserat datalager till ett relationsdatalager. En lista över datakällor som stöds som källor och mottagare finns i tabellen över [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -199,11 +199,11 @@ I det här steget utlöser du manuellt pipelinen du publicerade i föregående s
 
 1. Gå till fliken **Övervaka** till vänster. Du ser en pipelinekörning som är utlöst av en manuell utlösare. Du kan använda länkar under kolumnen **PIPELINE NAME** för att visa aktivitetsinformation och köra pipelinen igen.
 
-    ![Övervaka pipelinekörningar](./media/tutorial-copy-data-portal/monitor-pipeline.png)
+    [![Övervaka pipelinekörningar](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png)](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png#lightbox)
 
 1. Om du vill visa aktivitetskörningar som är associerade med pipelinekörningen väljer du länken **CopyPipeline** under kolumnen **PIPELINE NAME.** I det här exemplet finns det bara en aktivitet, så du ser bara en post i listan. Om du vill ha mer information om kopieringsåtgärden väljer du länken Information (ikonen **För** glasögon) under kolumnen **AKTIVITETSNAMN.** Välj **Alla pipeline-körningar** högst upp för att gå tillbaka till vyn Pipeline Runs. Välj **Uppdatera** för att uppdatera vyn.
 
-    ![Övervaka aktivitetskörningar](./media/tutorial-copy-data-portal/view-activity-runs.png)
+    [![Övervaka aktivitetskörningar](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox)
 
 1. Kontrollera att två rader har lagts till i tabellen **emp** i SQL-databasen.
 
@@ -243,7 +243,7 @@ I det här schemat skapar du en schemautlösare för pipelinen. Utlösaren kör 
 
 1. Växla till fliken **Övervakare** till vänster för att se de utlösta pipelinekörningarna.
 
-    ![Utlösta pipelinekörningar](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)   
+    [![Utlösta pipelinekörningar](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png#lightbox)
 
 1. Om du vill växla från vyn **Pipeline runs** till vyn **Utlösarkörningar** väljer du **Utlösarkörningar** till vänster i fönstret.
 

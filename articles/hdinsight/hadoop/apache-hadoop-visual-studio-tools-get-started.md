@@ -1,6 +1,6 @@
 ---
 title: Apache Hadoop & Visual Studio Data Lake Tools - Azure HDInsight
-description: Lär dig hur du installerar och använder DataSjöverktyg för Visual Studio för att ansluta till Apache Hadoop-kluster i Azure HDInsight och kör sedan Hive-frågor.
+description: Lär dig hur du installerar och använder DataSjöverktyg för Visual Studio. Använd verktyget för att ansluta till Apache Hadoop-kluster i Azure HDInsight och kör sedan Hive-frågor.
 keywords: hadoop tools,hive query,visual studio,visual studio hadoop
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,21 +8,21 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 10/29/2019
-ms.openlocfilehash: 4ad58bc2d61f063dce2c23f60a65dcbec48a2303
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 7504826f267d717f30c5e88621578412c744e5f9
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272791"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383508"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Använda DataSjöverktyg för Visual Studio för att ansluta till Azure HDInsight och köra Apache Hive-frågor
 
-Lär dig hur du använder Microsoft Azure Data Lake och Stream Analytics Tools för Visual Studio (kallas även DataSjöverktyg) för att ansluta till [Apache Hadoop-kluster i Azure HDInsight](apache-hadoop-introduction.md) och skicka Hive-frågor.  
+Lär dig hur du använder Microsoft Azure Data Lake och Stream Analytics Tools för Visual Studio (Data Lake Tools). Använd verktyget för att ansluta till [Apache Hadoop-kluster i Azure HDInsight](apache-hadoop-introduction.md) och skicka Hive-frågor.  
 
 Mer information om hur du använder HDInsight finns i [Komma igång med HDInsight](apache-hadoop-linux-tutorial-get-started.md).  
 
-Mer information om hur du ansluter till ett Apache Storm-kluster finns i [Utveckla C#-topologier för Apache Storm med hjälp av datasjöverktygen för Visual Studio](../storm/apache-storm-develop-csharp-visual-studio-topology.md).
+Mer information om hur du ansluter till Apache Storm finns i [Utveckla C#topologier för Apache Storm med hjälp av verktygen DataSjö](../storm/apache-storm-develop-csharp-visual-studio-topology.md).
 
 Data Lake Tools för Visual Studio kan användas för att komma åt Azure Data Lake Analytics och HDInsight. Information om Data Lake Tools finns i [Utveckla U-SQL-skript med hjälp av Data Lake Tools för Visual Studio](../../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md).
 
@@ -38,15 +38,15 @@ Om du vill slutföra den här artikeln och använda DataSjöverktyg för Visual 
 
 Följ lämpliga instruktioner för att installera Data Lake Tools för din version av Visual Studio:
 
-- För Visual Studio 2017 eller Visual Studio 2019:
+* För Visual Studio 2017 eller Visual Studio 2019:
 
     Under Installationen av Visual Studio kontrollerar du att du inkluderar **Azure-utvecklingsarbetsbelastningen** eller **datalagrings- och bearbetningsarbetsbelastningen.**  
 
-    För befintliga Visual Studio-installationer går du till IDE-menyraden och väljer **Verktyg** > **Hämta verktyg och funktioner** för att öppna Visual Studio Installer. På fliken **Arbetsbelastningar** väljer du minst **Azure-utvecklingsarbetsbelastningen** (under **Web & Cloud**) eller **datalagrings- och bearbetningsarbetsbelastningen** (under **Andra verktygsuppsättningar**).
+    För befintliga Visual Studio-installationer går du till IDE-menyraden och väljer **Verktyg** > **Hämta verktyg och funktioner** för att öppna Visual Studio Installer. På fliken **Arbetsbelastningar** väljer du minst **Azure-utvecklingsarbetsbelastningen** (under **Web & Cloud**). Eller välj **arbetsbelastningen För datalagring och bearbetning** (under Andra **verktygsuppsättningar).**
 
   ![Val av arbetsbelastning, Visual Studio Installer](./media/apache-hadoop-visual-studio-tools-get-started/vs-installation.png)
 
-- För Visual Studio 2015:
+* För Visual Studio 2015:
 
     [Ladda ner Data Lake Tools](https://www.microsoft.com/download/details.aspx?id=49504). Välj den version av Data Lake Tools som matchar din version av Visual Studio.
 
@@ -96,7 +96,7 @@ Så här ansluter du till din Azure-prenumeration:
 
    ![Klusterlista för HDInsight, Server Explorer, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-server-explorer.png)
 
-6. Expandera ett HDInsight-kluster. Klustret innehåller noder för **Hive-databaser**, ett standardlagringskonto, eventuella ytterligare länkade lagringskonton och **Hadoop Service Log**. Du kan expandera entiteterna ytterligare.
+6. Expandera ett HDInsight-kluster. Klustret innehåller noder för **Hive-databaser**. Dessutom ett standardlagringskonto, eventuella ytterligare länkade lagringskonton och **Hadoop Service Log**. Du kan expandera entiteterna ytterligare.
 
 När du har anslutit till din Azure-prenumeration kan du utföra följande uppgifter.
 
@@ -110,7 +110,7 @@ Så här ansluter du till Azure-portalen från Visual Studio:
 
 ### <a name="offer-questions-and-feedback-from-visual-studio"></a>Ge frågor och feedback från Visual Studio
 
-Så här ställer du frågor och/eller ger feedback från Visual Studio:
+Så här ställer du frågor och, eller ger feedback från Visual Studio:
 
 1. Välj **Azure** > **HDInsight**i Server Explorer .
 
@@ -125,7 +125,7 @@ Så här länkar du ett HDInsight-kluster:
 
 1. Högerklicka på **HDInsight**och välj sedan **Länka ett HDInsight-kluster** för att visa dialogrutan Länka ett **HDInsight-kluster.**
 
-2. Ange en **anslutningsadress** i formuläret *\://\<https-klusternamn&nbsp;>.azurehdinsight.net*. **Klusternamnet** fylls automatiskt i med klusternamnsdelen av webbadressen när du går till ett annat fält. Ange sedan ett **användarnamn** och **lösenord**och välj **Nästa**.
+2. Ange en **anslutningsadress** i formuläret `https://CLUSTERNAME.azurehdinsight.net`. **Klusternamnet** fylls automatiskt i med klusternamnsdelen av webbadressen när du går till ett annat fält. Ange sedan ett **användarnamn** och **lösenord**och välj **Nästa**.
 
     ![Länka ett kluster, HDInsight, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-dialog.png)
 
@@ -136,6 +136,7 @@ Om du vill uppdatera ett länkat kluster högerklickar du på klustret och välj
 ![Redigera ett länkat kluster, HDInsight, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-update.png)
 
 ## <a name="explore-linked-resources"></a>Utforska länkade resurser
+
 Från Server Explorer kan du se standardkontot för lagring och eventuella länkade lagringskonton. Om du expanderar standardkontot för lagring kan du se containrarna på lagringskontot. Standardlagringskontot och standardcontainern är markerade.
 
 ![Datasjöverktyg för länkade resurser i Visual Studio i Utforskaren](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-linked-resources.png)
@@ -145,6 +146,7 @@ Högerklicka på en behållare och välj **Visa behållare** om du vill visa beh
 ![Containerlista och blob-åtgärder, HDInsight-kluster, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-blob-operations.png)
 
 ## <a name="run-interactive-apache-hive-queries"></a>Kör interaktiva Apache Hive-frågor
+
 [Apache Hive](https://hive.apache.org) är en infrastruktur för informationslager som bygger på Hadoop. Hive används för att sammanfatta data, frågor och analys. Du kan använda Data Lake Tools för Visual Studio för att köra Hive-frågor från Visual Studio. Mer information om Hive finns i [Vad är Apache Hive och HiveQL på Azure HDInsight?](hdinsight-use-hive.md).
 
 [Interaktiv fråga i Azure HDInsight](../interactive-query/apache-interactive-query-get-started.md) använder [Hive på LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) i Apache Hive 2.1. Interaktiv fråga ger interaktivitet till komplexa, informationslager-stil frågor på stora, lagrade datauppsättningar. Köra Hive-frågor på interaktiv fråga är mycket snabbare än traditionella Hive-batchjobb. 
@@ -152,7 +154,7 @@ Högerklicka på en behållare och välj **Visa behållare** om du vill visa beh
 > [!NOTE]  
 > Du kan bara köra interaktiva Hive-frågor när du ansluter till ett kluster med en [interaktiv HDInsight-fråga](../interactive-query/apache-interactive-query-get-started.md).
 
-Du kan också använda Data Lake Tools för Visual Studio för att se vad som finns i ett Hive-jobb. Data Lake Tools för Visual Studio samlar in och hämtar Yarn-loggarna för specifika Hive-jobb.
+Du kan också använda DataSjöverktyg för Visual Studio för att se vad som finns i ett Hive-jobb. Data Lake Tools för Visual Studio samlar in och hämtar Yarn-loggarna för specifika Hive-jobb.
 
 Välj **Azure** > **HDInsight** i **Server Explorer**och välj ditt kluster.  Den här noden är startpunkten i **Server Explorer** som avsnitten ska följa.
 
@@ -162,11 +164,11 @@ Alla HDInsight-kluster har en standardexempel i Hive-tabellen som kallas `hivesa
 
 Välj **Hive-databaser** > **som standardprogramvara** > för**hivesampletable**i klustret.
 
-- Så här `hivesampletable` visar du schemat:
+* Så här `hivesampletable` visar du schemat:
 
     Expandera **hivesampletable**. Namnen och datatyperna `hivesampletable` för kolumnerna visas.
 
-- Så här `hivesampletable` visar du data:
+* Så här `hivesampletable` visar du data:
 
     Högerklicka på **hivesampletable**och välj **Visa topp 100 rader**. Listan med 100 resultat visas i fönstret **Hivesampletable.** Den här åtgärden motsvarar att köra följande Hive-fråga med hjälp av Hive ODBC-drivrutinen:
 
@@ -175,6 +177,7 @@ Välj **Hive-databaser** > **som standardprogramvara** > för**hivesampletable**
     Du kan anpassa radantalet genom att ändra **Antal rader.** Du kan välja 50, 100, 200 eller 1000 rader i listrutan.
 
 ### <a name="create-hive-tables"></a>Skapa Hive-tabeller
+
 Du kan använda det grafiska användargränssnittet eller Hive-frågor för att skapa en Hive-tabell. Information om hur du använder Hive-frågor finns i [Skapa och köra Hive-frågor](#create-and-run-hive-queries).
 
 1. Välj **Hive-databaser** > **som standard**i klustret.
@@ -188,6 +191,7 @@ Du kan använda det grafiska användargränssnittet eller Hive-frågor för att 
     ![Skapa tabellfönster, Hive, HDInsight-kluster, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-create-hive-table.png)
 
 ### <a name="create-and-run-hive-queries"></a>Skapa och köra Hive-frågor
+
 Det finns två sätt att skapa och köra Hive-frågor:
 
 * Skapa ad hoc-frågor
@@ -229,7 +233,7 @@ Så här skapar och kör du en ad hoc-fråga:
 
     * **Batch**  
 
-        I den första listrutan väljer du **Batch**och väljer sedan **Skicka** (eller väljer listrutan bredvid **Skicka** och väljer **Avancerat**).
+        I den första listrutan väljer du **Batch**och väljer sedan **Skicka**. Eller välj listrutan bredvid **Skicka** och välj **Avancerat**.
 
         ![Batch-läge, Hive ad hoc-fråga, HDInsight-kluster, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-batch.png)
 
@@ -274,7 +278,7 @@ För närvarande visas jobbdiagram endast för Hive-jobb som använder Tez som e
 
 Om du vill visa alla operatorer i hörnet dubbelklickar du på projektdiagrammets hörn. Du kan också peka på en specifik operator för att se mer information om den.
 
-Även om Tez anges som exekveringsmotorn kanske jobbdiagrammet inte visas om ingen Tez-program startas.  Den här situationen kan uppstå eftersom jobbet inte innehåller DML-satser eller på grund av att DML-satser kan returneras utan att starta ett Tez-program. Till exempel `SELECT * FROM table1` startar inte Tez-programmet.
+Även om Tez anges som exekveringsmotorn kanske jobbdiagrammet inte visas om ingen Tez-program startas.  Den här situationen kan uppstå eftersom jobbet inte innehåller DML-satser. Eller för att DML-satser kan returneras utan att starta ett Tez-program. Till exempel `SELECT * FROM table1` startar inte Tez-programmet.
 
 ![Apache Hive jobb graf, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-fast-path-hive-execution.png)
 
@@ -288,7 +292,7 @@ I jobbdiagrammet kan du välja **Information om aktivitetskörning** för att f�
 
 Du kan visa jobbfrågor, jobbutdata, jobbloggar och Yarn-loggar för Hive-jobb.
 
-I den senaste versionen av verktygen kan du se vad som finns i dina Hive-jobb genom att samla in och visa Yarn-loggar. En Yarn-logg kan hjälpa dig att undersöka prestandaproblem. Mer information om hur HDInsight samlar in garnloggar finns i [Tillgång till Apache Hadoop YARN-programloggar](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
+I den senaste versionen av verktygen kan du se vad som finns i dina Hive-jobb genom att samla in och ytbeläggning av garnloggar. En Yarn-logg kan hjälpa dig att undersöka prestandaproblem. Mer information om hur HDInsight samlar in garnloggar finns i [Tillgång till Apache Hadoop YARN-programloggar](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
 Så här visar du Hive-jobb:
 
@@ -318,11 +322,11 @@ Så här visar du Hive-jobb:
 
 * Ett problem där resultat som har startats med null-värden inte visas har åtgärdats. Om du är blockerad för det här problemet kan du kontakta supportgruppen.
 
-* Det HQL-skript som Visual Studio skapar är kodat, beroende på användarens lokala regioninställning. Skriptet kan inte köras korrekt om du laddar upp skriptet till ett kluster som en binär fil.
+* HQL-skriptet som Skapas i Visual Studio kodas, beroende på användarens lokala regioninställning. Skriptet kan inte köras korrekt om du laddar upp skriptet till ett kluster som en binär fil.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur använder Data Lake Tools för Visual Studio för att ansluta till HDInsight-kluster från Visual Studio. Du har också lärt dig hur du kör en Hive-fråga. Mer information finns i dessa artiklar:
+I den här artikeln har du lärt dig hur använder Data Lake Tools för Visual Studio för att ansluta till HDInsight-kluster från Visual Studio. Du har också lärt dig hur du kör en Hive-fråga. 
 
 * [Köra Apache Hive-frågor med hjälp av Data Lake Tools för Visual Studio](apache-hadoop-use-hive-visual-studio.md)
 * [Vad är Apache Hive och HiveQL på Azure HDInsight?](hdinsight-use-hive.md)

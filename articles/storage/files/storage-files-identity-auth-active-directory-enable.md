@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/10/2020
 ms.author: rogarana
-ms.openlocfilehash: ae575eebf700f5495ea20d2bd3732ca21ad32315
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 172e0944fe117dc78565b10e6c0324737056ddcb
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011435"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383825"
 ---
 # <a name="enable-active-directory-authentication-over-smb-for-azure-file-shares"></a>Aktivera Active Directory-autentisering över SMB för Azure-filresurser
 
@@ -72,7 +72,7 @@ Azure Files AD-autentisering (förhandsversion) är tillgänglig i [alla regione
 
 ## <a name="workflow-overview"></a>Översikt över arbetsflöden
 
-Innan du aktiverar AD-autentisering över SMB för Azure-filresurser rekommenderar vi att du går igenom [förutsättningarna](#prerequisites) och ser till att du har slutfört alla steg. Förutsättningarna verifierar att dina AD-, Azure AD- och Azure Storage-miljöer är korrekt konfigurerade. 
+Innan du aktiverar AD-autentisering över SMB för Azure-filresurser rekommenderar vi att du går igenom [förutsättningarna](#prerequisites) och ser till att du har slutfört alla steg. Förutsättningarna verifierar att dina AD-, Azure AD- och Azure Storage-miljöer är korrekt konfigurerade. Om du planerar att aktivera nätverkskonfigurationer på filresursen rekommenderar vi att du [utvärderar nätverksövervägandet](https://docs.microsoft.com/azure/storage/files/storage-files-networking-overview) och slutför den relaterade konfigurationen först innan AD-autentisering aktiveras. 
 
 Följ sedan stegen nedan för att konfigurera Azure Files för AD-autentisering: 
 
@@ -84,7 +84,7 @@ Följ sedan stegen nedan för att konfigurera Azure Files för AD-autentisering:
 
 4. Montera en Azure-filresurs från en AD-domän som anslöt sig till VM. 
 
-5. Rotera AD-kontolösenord (valfritt)
+5. Uppdatera lösenordet för ditt lagringskontoidentitet i AD
 
 Följande diagram illustrerar arbetsflödet från slutna till slutna för att aktivera Azure AD-autentisering via SMB för Azure-filresurser. 
 
@@ -100,7 +100,7 @@ Om du vill aktivera AD-autentisering via SMB för Azure-filresurser måste du f�
 > [!IMPORTANT]
 > Cmdleten `Join-AzStorageAccountForAuth` kommer att göra ändringar i din AD-miljö. Läs följande förklaring för att bättre förstå vad den gör för att säkerställa att du har rätt behörighet att köra kommandot och att de tillämpade ändringarna stämmer överens med efterlevnads- och säkerhetsprinciperna. 
 
-Cmdleten `Join-AzStorageAccountForAuth` utför motsvarande en offlinedomänkoppling för det angivna lagringskontot. Det skapar ett konto i AD-domänen, antingen ett [datorkonto](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (standard) eller ett [tjänstinloggningskonto](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts). Det skapade AD-kontot representerar lagringskontot i AD-domänen. Om AD-kontot skapas under en AD-organisationsenhet (OU) som tillämpar lösenordsförfallodatum måste du uppdatera lösenordet före den maximala lösenordsåldern. Om AD-kontolösenordet inte uppdateras resulterar det autentiseringsfel vid åtkomst till Azure-filresurser. Mer information om hur du uppdaterar lösenordet finns i [Uppdatera AD-kontolösenord](#5-update-ad-account-password).
+Cmdleten `Join-AzStorageAccountForAuth` utför motsvarande en offlinedomänkoppling för det angivna lagringskontot. Det skapar ett konto i AD-domänen, antingen ett [datorkonto](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (standard) eller ett [tjänstinloggningskonto](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts). Det skapade AD-kontot representerar lagringskontot i AD-domänen. Om AD-kontot skapas under en AD-organisationsenhet (OU) som tillämpar lösenordsförfallodatum måste du uppdatera lösenordet före den maximala lösenordsåldern. Om AD-kontolösenordet inte uppdateras resulterar det autentiseringsfel vid åtkomst till Azure-filresurser. Mer information om hur du uppdaterar lösenordet finns i [Uppdatera lösenordet för ditt lagringskontoidentitet i AD](#5-update-the-password-of-your-storage-account-identity-in-ad).
 
 Du kan använda följande skript för att utföra registreringen och aktivera funktionen eller, alternativt, du kan manuellt utföra de åtgärder som skriptet skulle. Dessa åtgärder beskrivs i avsnittet efter skriptet. Du behöver inte göra båda.
 
@@ -113,7 +113,8 @@ Du kan använda följande skript för att utföra registreringen och aktivera fu
 ### <a name="12-domain-join-your-storage-account"></a>1.2 Domän ansluter till ditt lagringskonto
 Kom ihåg att ersätta platshållarvärdena med dina egna i parametrarna nedan innan du kör det i PowerShell.
 > [!IMPORTANT]
-> Domänanslutnings-cmdleten nedan skapar ett AD-konto som representerar lagringskontot (filresursen) i AD. Du kan välja att registrera dig som ett datorkonto eller tjänstinloggningskonto. För datorkonton finns det en standardålder för slutdatum för lösenord som anges i AD vid 30 dagar. På samma sätt kan tjänstinloggningskontot ha en standardålder för slutdatum för lösenord inställd på AD-domänen eller organisationsenhet (OU). Vi rekommenderar starkt att du kontrollerar vad som är lösenordets förfalloålder som konfigurerats i din AD-miljö och planerar att [uppdatera AD-kontolösenordet](#5-update-ad-account-password) för AD-kontot nedan före den maximala lösenordsåldern. Om AD-kontolösenordet inte uppdateras resulterar det autentiseringsfel vid åtkomst till Azure-filresurser. Du kan överväga att [skapa en ny AD-organisationsenhet (OU) i AD](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) och inaktivera principen för förfallodatum för lösenord på [datorkonton](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)?redirectedfrom=MSDN) eller tjänstinloggningskonton i enlighet med detta. 
+> Domänanslutnings-cmdleten nedan skapar ett AD-konto som representerar lagringskontot (filresursen) i AD. Du kan välja att registrera dig som ett datorkonto eller tjänstinloggningskonto, se [Vanliga frågor och svar](https://docs.microsoft.com/azure/storage/files/storage-files-faq#security-authentication-and-access-control) för mer information. För datorkonton finns det en standardålder för slutdatum för lösenord som anges i AD vid 30 dagar. På samma sätt kan tjänstinloggningskontot ha en standardålder för slutdatum för lösenord inställd på AD-domänen eller organisationsenhet (OU).
+> För båda kontotyperna rekommenderar vi starkt att du kontrollerar vad som är lösenordets förfalloålder som konfigurerats i din AD-miljö och planerar att uppdatera lösenordet för [ditt lagringskontoidentitet i AD-kontot](#5-update-the-password-of-your-storage-account-identity-in-ad) nedan före den maximala lösenordsåldern. Om AD-kontolösenordet inte uppdateras resulterar det autentiseringsfel vid åtkomst till Azure-filresurser. Du kan överväga att [skapa en ny AD-organisationsenhet (OU) i AD](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) och inaktivera principen för förfallodatum för lösenord på [datorkonton](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)?redirectedfrom=MSDN) eller tjänstinloggningskonton i enlighet med detta. 
 
 ```PowerShell
 #Change the execution policy to unblock importing AzFilesHybrid.psm1 module
@@ -128,21 +129,27 @@ Import-Module -Name AzFilesHybrid
 #Login with an Azure AD credential that has either storage account owner or contributer RBAC assignment
 Connect-AzAccount
 
+#Define parameters
+$SubscriptionId = "<your-subscription-id-here>"
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
 #Select the target subscription for the current session
-Select-AzSubscription -SubscriptionId "<your-subscription-id-here>"
+Select-AzSubscription -SubscriptionId $SubscriptionId 
 
 # Register the target storage account with your active directory environment under the target OU (for example: specify the OU with Name as "UserAccounts" or DistinguishedName as "OU=UserAccounts,DC=CONTOSO,DC=COM"). 
 # You can use to this PowerShell cmdlet: Get-ADOrganizationalUnit to find the Name and DistinguishedName of your target OU. If you are using the OU Name, specify it with -OrganizationalUnitName as shown below. If you are using the OU DistinguishedName, you can set it with -OrganizationalUnitDistinguishedName. You can choose to provide one of the two names to specify the target OU.
 # You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account, depends on the AD permission you have and preference. 
+#You can run Get-Help Join-AzStorageAccountForAuth to find more details on this cmdlet.
+
 Join-AzStorageAccountForAuth `
-        -ResourceGroupName "<resource-group-name-here>" `
-        -Name "<storage-account-name-here>" `
-        -DomainAccountType "ComputerAccount" `
-        -OrganizationalUnitName "<ou-name-here>" or -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>"
+        -ResourceGroupName $ResourceGroupName `
+        -Name $StorageAccountName `
+        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" ` #Default set to "ComputerAccount"
+        -OrganizationalUnitName "<ou-name-here>" #You can also use -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>" instead. If you don't provide the OU name as an input parameter, the AD identity that represents the storage account will be created under the root directory.
 
-#If you don't provide the OU name as an input parameter, the AD identity that represents the storage account will be created under the root directory.
-
-#
+#You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more details on the checks performed in this cmdlet, go to Azure Files FAQ.
+Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 
 ```
 
@@ -161,7 +168,7 @@ Om du vill skapa det här kontot manuellt skapar `New-AzStorageAccountKey -KeyNa
 
 När du har den nyckeln skapar du antingen en tjänst eller ett datorkonto under din organisationsenhet. Använd följande specifikation: SPN: "cifs/your-storage-account-name-here.file.core.windows.net" Lösenord: Kerberos-nyckel för ditt lagringskonto.
 
-Om din organisationsenhet tillämpar lösenordsförfallodatum måste du uppdatera lösenordet före den maximala lösenordsåldern för att förhindra autentiseringsfel vid åtkomst till Azure-filresurser. Mer information finns i [Uppdatera AD-kontolösenord.](#5-update-ad-account-password)
+Om din organisationsenhet tillämpar lösenordsförfallodatum måste du uppdatera lösenordet före den maximala lösenordsåldern för att förhindra autentiseringsfel vid åtkomst till Azure-filresurser. Mer information finns i Uppdatera lösenord för [ditt lagringskontoidentitet i AD.](#5-update-the-password-of-your-storage-account-identity-in-ad)
 
 Behåll SID för det nyskapade kontot, du behöver det för nästa steg. AD-identiteten som du just har skapat som representerar lagringskontot behöver inte synkroniseras med Azure AD.
 
@@ -207,7 +214,7 @@ Nu har du aktiverat funktionen på ditt lagringskonto. Även om funktionen är a
 
 Du har nu aktiverat AD-autentisering via SMB och tilldelat en anpassad roll som ger åtkomst till en Azure-filresurs med en AD-identitet. Om du vill ge ytterligare användare åtkomst till filresursen följer du instruktionerna i [behörigheterna Tilldela åtkomst](#2-assign-access-permissions-to-an-identity) för att använda en identitet och [konfigurera NTFS-behörigheter över SMB-avsnitt.](#3-configure-ntfs-permissions-over-smb)
 
-## <a name="5-update-ad-account-password"></a>5. Uppdatera AD-kontolösenord
+## <a name="5-update-the-password-of-your-storage-account-identity-in-ad"></a>5. Uppdatera lösenordet för ditt lagringskontoidentitet i AD
 
 Om du har registrerat AD-identiteten/kontot som representerar ditt lagringskonto under en organisationsenhet som tillämpar lösenordsförfallotid måste du rotera lösenordet före den maximala lösenordsåldern. Om du inte uppdaterar lösenordet för AD-kontot resulterar det i autentiseringsfel för att komma åt Azure-filresurser.  
 

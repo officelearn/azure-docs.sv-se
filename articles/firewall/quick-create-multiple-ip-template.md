@@ -5,22 +5,24 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
-ms.date: 04/13/2020
+ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: b14ff2e94e9df25186a13ae8fbd63d8d4044b538
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 76211014f96aee864412fd19686d58d0338ec5c2
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/14/2020
-ms.locfileid: "81274244"
+ms.locfileid: "81310240"
 ---
 # <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---resource-manager-template"></a>Snabbstart: Skapa en Azure-brandvägg med flera offentliga IP-adresser - Resource Manager-mall
 
 I den här snabbstarten använder du en Resource Manager-mall för att distribuera en Azure-brandvägg med flera offentliga IP-adresser.
 
-MED REGLER för insamling av NAT-regler tillåts RDP-anslutningar till två virtuella Windows Server 2019-datorer.
+Den distribuerade brandväggen har REGLER för insamling av NAT-regler som tillåter RDP-anslutningar till två virtuella Windows Server 2019-datorer.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Mer information om Azure-brandväggen med flera offentliga IP-adresser finns i [Distribuera en Azure-brandvägg med flera offentliga IP-adresser med Azure PowerShell](deploy-multi-public-ip-powershell.md).
 
 ## <a name="prerequisites"></a>Krav
 

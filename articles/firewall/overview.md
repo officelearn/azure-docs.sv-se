@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 04/08/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 60d936d9c2785e4723cdc09e55927fe13af8d8a1
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: bb4b654bd0b3591ebaa1bd217020095319a4938c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892316"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381918"
 ---
 # <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -53,7 +53,7 @@ Azure Firewall kan skala upp så mycket du behöver för att hantera föränderl
 
 ## <a name="application-fqdn-filtering-rules"></a>Programmets FQDN-filtreringsregler
 
-Du kan begränsa utgående HTTP/S-trafik eller Azure SQL-trafik (förhandsversion) till en angiven lista över fullständigt kvalificerade domännamn (FQDN) inklusive jokertecken. Den här funktionen kräver inte SSL-avslutning.
+Du kan begränsa utgående HTTP/S-trafik eller Azure SQL-trafik (förhandsversion) till en angiven lista över fullständigt kvalificerade domännamn (FQDN) inklusive jokertecken. Den här funktionen kräver inte TLS-avslutning.
 
 ## <a name="network-traffic-filtering-rules"></a>Regler för filtrering av nätverkstrafik
 
@@ -116,7 +116,7 @@ Nätverksfiltreringsregler för icke-TCP-/UDP-protokoll (till exempel ICMP) fung
 |Tillgänglighetszoner kan bara konfigureras under distributionen.|Tillgänglighetszoner kan bara konfigureras under distributionen. Du kan inte konfigurera tillgänglighetszoner när en brandvägg har distribuerats.|Det här är avsiktligt.|
 |SNAT på inkommande anslutningar|Förutom DNAT, anslutningar via brandväggen offentliga IP-adress (inkommande) är SNATed till en av brandväggen privata IP-adresser. Detta krav idag (även för aktiva/aktiva NVAs) för att säkerställa symmetrisk routing.|Om du vill bevara den ursprungliga källan för HTTP/S bör du överväga att använda [XFF-huvuden.](https://en.wikipedia.org/wiki/X-Forwarded-For) Använd till exempel en tjänst som [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) eller Azure Application [Gateway](../application-gateway/rewrite-http-headers.md) framför brandväggen. Du kan också lägga till WAF som en del av Azure Front Door och kedja till brandväggen.
 |Stöd för SQL FQDN-filtrering endast i proxyläge (port 1433)|För Azure SQL Database, Azure SQL Data Warehouse och Azure SQL Managed Instance:<br><br>Under förhandsgranskningen stöds SQL FQDN-filtrering endast i proxyläge (port 1433).<br><br>För Azure SQL IaaS:<br><br>Om du använder portar som inte är standard kan du ange dessa portar i programreglerna.|För SQL i omdirigeringsläge (standard om du ansluter från Azure) kan du i stället filtrera åtkomst med SQL-tjänsttaggen som en del av Azure Firewall-nätverksregler.
-|Utgående trafik på TCP-port 25 är inte tillåtet| Utgående SMTP-anslutningar som använder TCP-port 25 är blockerade. Port 25 används främst för oautentiserade e-postleverans. Detta är standardplattformsbeteendet för virtuella datorer. Mer information finns i fler [felsökningsproblem för utgående SMTP-anslutning i Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). Till skillnad från virtuella datorer är det dock för närvarande inte möjligt att aktivera den här funktionen i Azure-brandväggen.|Följ den rekommenderade metoden för att skicka e-post enligt beskrivningen i felsökningsartikeln för SMTP. Du kan också utesluta den virtuella datorn som behöver utgående SMTP-åtkomst från standardvägen till brandväggen. Konfigurera i stället utgående åtkomst direkt till Internet.
+|Utgående trafik på TCP-port 25 är inte tillåtet| Utgående SMTP-anslutningar som använder TCP-port 25 är blockerade. Port 25 används främst för oautentiserade e-postleverans. Detta är standardplattformsbeteendet för virtuella datorer. Mer information finns i fler [felsökningsproblem för utgående SMTP-anslutning i Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). Till skillnad från virtuella datorer är det dock för närvarande inte möjligt att aktivera den här funktionen i Azure-brandväggen. Om du vill tillåta autentiserade SMTP (port 587) eller SMTP över en annan port än 25, se till att du konfigurerar en nätverksregel och att inte en programregel eftersom SMTP-inspektion inte stöds just nu.|Följ den rekommenderade metoden för att skicka e-post, som dokumenteras i felsökningsartikeln för SMTP. Du kan också utesluta den virtuella datorn som behöver utgående SMTP-åtkomst från standardvägen till brandväggen. Konfigurera i stället utgående åtkomst direkt till Internet.
 |Aktiv FTP stöds inte|Aktiv FTP är inaktiverad på Azure-brandväggen för att skydda mot FTP-avvisningsattacker med kommandot FTP PORT.|Du kan använda Passiv FTP i stället. Du måste fortfarande uttryckligen öppna TCP-portar 20 och 21 på brandväggen.
 |SNAT-portutnyttjandemått visar 0%|Azure Firewall SNAT-portutnyttjandemått kan visa 0% användning även när SNAT-portar används. I det här fallet ger användning av måttet som en del av brandväggens hälsomått ett felaktigt resultat.|Problemet har åtgärdats och utbyggnaden av produktionen är avsedd för maj 2020. I vissa fall löser brandväggsomfördelningen problemet, men det är inte konsekvent. Som en mellanliggande lösning använder du bara brandväggens hälsotillstånd för att leta efter *status=försämrad*, inte för *status=felfritt*. Portutmattning visas som *degraderad*. *Inte felfri* är reserverad för framtida användning när det finns fler mått för att påverka brandväggens hälsa.
 |DNAT stöds inte med Forcerad tunnelaktiverad|Brandväggar som distribueras med forcerad tunnelkoppling aktiverad kan inte stödja inkommande åtkomst från Internet på grund av asymmetrisk routning.|Detta är avsiktligt på grund av asymmetrisk routning. Retursökvägen för inkommande anslutningar går via den lokala brandväggen, som inte har sett anslutningen upprättas.

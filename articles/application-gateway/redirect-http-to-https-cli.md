@@ -1,23 +1,23 @@
 ---
 title: HTTP till HTTPS-omdirigering med CLI
 titleSuffix: Azure Application Gateway
-description: Lär dig hur du skapar en programgateway och lägger till ett certifikat för SSL-avslutning med Azure CLI.
+description: Lär dig hur du skapar en programgateway och lägger till ett certifikat för TLS-avslutning med Azure CLI.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: victorh
-ms.openlocfilehash: 41b2fb754f1d6ead3a7475ca146ab99758aa8134
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6bf8f3b7bfb446db78f0c97a246977fec6cd54cb
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78246863"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312143"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Skapa en programgateway med HTTP till HTTPS-omdirigering med Azure CLI
 
-Du kan använda Azure CLI för att skapa en [programgateway](overview.md) med ett certifikat för SSL-avslutning. En routningsregel används för att omdirigera HTTP-trafik till HTTPS-porten i programgatewayen. I det här exemplet skapar du också en [skalningsuppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för den virtuella datorn för serverdapoolen för programgatewayen som innehåller två instanser av virtuella datorer.
+Du kan använda Azure CLI för att skapa en [programgateway](overview.md) med ett certifikat för TLS/SSL-avslutning. En routningsregel används för att omdirigera HTTP-trafik till HTTPS-porten i programgatewayen. I det här exemplet skapar du också en [skalningsuppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för den virtuella datorn för serverdapoolen för programgatewayen som innehåller två instanser av virtuella datorer.
 
 I den här artikeln kan du se hur du:
 

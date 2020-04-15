@@ -1,23 +1,23 @@
 ---
 title: 'Självstudiekurs: ETL-åtgärder med interaktiv fråga – Azure HDInsight'
-description: Självstudiekurs - Lär dig hur du extraherar data från en rå CSV-datauppsättning, omvandlar den med interaktiv fråga på HDInsight och läser sedan in transformerade data i Azure SQL-databasen med hjälp av Apache Sqoop.
+description: Självstudiekurs - Lär dig hur du extraherar data från en rå CSV-datauppsättning. Omvandla den med interaktiv fråga på HDInsight. Läs sedan in transformerade data i Azure SQL-databasen med hjälp av Apache Sqoop.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 07/02/2019
-ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
-ms.openlocfilehash: d1136c153a529f58db1de277ec84ac332b9f78ae
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 07/02/2019
+ms.openlocfilehash: 7413a32fdddb579bad61c9cfe539be6aaeae9881
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73494161"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313746"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Självstudiekurs: Extrahera, transformera och läsa in data med interaktiv fråga i Azure HDInsight
 
-I den här självstudien tar du en rå CSV-datafil med offentligt tillgängliga flygdata, importerar den till HDInsight-klusterlagring och omvandlar sedan data med hjälp av Interaktiv fråga i Azure HDInsight. När dessa data har transformerats läser du in dem till en Azure SQL-databas med hjälp av [Apache Sqoop](https://sqoop.apache.org/).
+I den här självstudien hämtar du en rå CSV-datafil med offentligt tillgängliga flygdata. Importera den till HDInsight-klusterlagring och omvandla sedan data med hjälp av interaktiv fråga i Azure HDInsight. När dessa data har transformerats läser du in dem till en Azure SQL-databas med hjälp av [Apache Sqoop](https://sqoop.apache.org/).
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -46,7 +46,7 @@ Den här självstudien omfattar följande uppgifter:
    | --- | --- |
    | Filtrera år |2019 |
    | Filtrera period |Januari |
-   | Fält |År, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   | Fält |`Year, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay`. |
 
 3. Välj **Ladda ned**. Du får en .zip-fil med de datafält du valde.
 
@@ -60,7 +60,7 @@ Det finns många sätt att överföra data till lagring som är associerade med 
     scp FILENAME.zip sshuser@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.zip
     ```
 
-    Om du uppmanas att ange ja eller nej för att fortsätta skriver du ja i kommandotolken och trycker på Retur. Texten visas inte i fönstret medan du skriver.
+    Ange ja eller nej om du vill fortsätta om du uppmanas att göra det. Texten visas inte i fönstret medan du skriver.
 
 2. När uppladdningen är klar kan du ansluta till klustret med hjälp av SSH. Redigera kommandot nedan `CLUSTERNAME` genom att ersätta med namnet på HDInsight-klustret. Ange sedan följande kommando:
 
@@ -283,13 +283,13 @@ I föregående avsnitt kopierade du omvandlade data på `/tutorials/flightdelays
     GO
     ```
 
-    Du ska se en lista över data i tabellen. Tabellen innehåller stadens namn och genomsnittlig flygförseningstid för den staden. 
+    Du ska se en lista över data i tabellen. Tabellen innehåller stadens namn och genomsnittlig flygförseningstid för den staden.
 
     Skriv `exit` för att avsluta tsql-verktyget.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du har slutfört vägledningen kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används.
+När du har slutfört vägledningen kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage, så att du kan ta bort ett kluster på ett säkert sätt när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är många gånger högre än avgifterna för lagring, är det ekonomiskt meningsfullt att ta bort kluster när de inte används.
 
 Information om hur du tar bort ett kluster finns i [Ta bort ett HDInsight-kluster med webbläsaren, PowerShell eller Azure CLI](../hdinsight-delete-cluster.md).
 
@@ -298,4 +298,4 @@ Information om hur du tar bort ett kluster finns i [Ta bort ett HDInsight-kluste
 I den här självstudien tog du en rå CSV-datafil, importerade den till en HDInsight-klusterlagring och omvandlade sedan data med hjälp av Interaktiv fråga i Azure HDInsight.  Gå vidare till nästa självstudiekurs för att lära dig mer om Apache Hive Warehouse Connector.
 
 > [!div class="nextstepaction"]
->[Integrera Apache Spark och Apache Hive med Hive Warehouse Connector](./apache-hive-warehouse-connector.md)
+> [Integrera Apache Spark och Apache Hive med Hive Warehouse Connector](./apache-hive-warehouse-connector.md)

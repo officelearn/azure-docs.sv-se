@@ -1,6 +1,6 @@
 ---
 title: Självstudiekurs - Utföra ETL-åtgärder med Azure Databricks
-description: I den här självstudien kan du läsa om hur du extraherar data från Data Lake Storage Gen2 till Azure Databricks, omvandlar data och läser sedan in data i Azure SQL Data Warehouse.
+description: I den här självstudien kan du läsa om hur du extraherar data från Data Lake Storage Gen2 till Azure Databricks, omvandlar data och läser sedan in data i Azure Synapse Analytics.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
@@ -8,22 +8,22 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: 8819b79a105b7a654a34e47c5ba9b3d351a1d926
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: fa7750a6e7888b6ca13c1ec32cabee9bcf803e65
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239421"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382728"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Självstudiekurs: Extrahera, transformera och läsa in data med hjälp av Azure Databricks
 
-I den här självstudien utför du en ETL-åtgärd (extrahera, transformera och läsa in data) med hjälp av Azure Databricks. Du extraherar data från Azure Data Lake Storage Gen2 till Azure Databricks, kör omvandlingar på data i Azure Databricks och läser in transformerade data i Azure SQL Data Warehouse.
+I den här självstudien utför du en ETL-åtgärd (extrahera, transformera och läsa in data) med hjälp av Azure Databricks. Du extraherar data från Azure Data Lake Storage Gen2 till Azure Databricks, kör omvandlingar på data i Azure Databricks och läser in transformerade data i Azure Synapse Analytics.
 
-Stegen i den här självstudiekursen använder SQL Data Warehouse-anslutningsappen så att Azure Databricks kan överföra data till Azure Databricks. Den här anslutningsappen använder i sin tur Azure Blob Storage som temporär lagring för de data som överförs mellan ett Azure Databricks-kluster och Azure SQL Data Warehouse.
+Stegen i den här självstudien använder Azure Synapse-anslutningen för Azure Databricks för att överföra data till Azure Databricks. Den här anslutningen använder i sin tur Azure Blob Storage som tillfällig lagring för data som överförs mellan ett Azure Databricks-kluster och Azure Synapse.
 
 Följande bild visar programflödet:
 
-![Azure Databricks med Data Lake Store och SQL Data Warehouse](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks med Data Lake Store och SQL Data Warehouse")
+![Azure Databricks med Data Lake Store och Azure Synapse](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks med Data Lake Store och Azure Synapse")
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -35,9 +35,9 @@ Den här självstudien omfattar följande uppgifter:
 > * Skapa ett huvudnamn för tjänsten.
 > * Extrahera data från Azure Data Lake Storage Gen2-kontot.
 > * Transformera data med Azure Databricks.
-> * Läs in data till Azure SQL Data Warehouse.
+> * Läs in data i Azure Synapse.
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 > [!Note]
 > Den här självstudien kan inte utföras med **Azure Free Trial Subscription**.
@@ -47,9 +47,9 @@ Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https:
 
 Slutför de här uppgifterna innan du startar självstudien:
 
-* Skapa ett Azure SQL-informationslager, skapa en brandväggsregel på servernivå och anslut till servern som serveradministratör. Se [Snabbstart: Skapa och fråga ett Azure SQL-informationslager i Azure-portalen](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
+* Skapa en Azure Synapse, skapa en brandväggsregel på servernivå och anslut till servern som serveradministratör. Se [Snabbstart: Skapa och fråga en Synapse SQL-pool med Azure-portalen](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
-* Skapa en huvudnyckel för Azure SQL-datalager. Se [Skapa en databashuvudnyckel](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
+* Skapa en huvudnyckel för Azure Synapse. Se [Skapa en databashuvudnyckel](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 
 * Skapa ett Azure Blob Storage-konto och en container i det. Få dessutom åtkomst till lagringskontot genom att hämta åtkomstnyckeln. Se [Snabbstart: Ladda upp, ladda ned och lista blobbar med Azure-portalen](../storage/blobs/storage-quickstart-blobs-portal.md).
 
@@ -63,7 +63,7 @@ Slutför de här uppgifterna innan du startar självstudien:
 
       Om du föredrar att använda en åtkomstkontrollista (ACL) för att associera tjänstens huvudnamn med en viss fil eller katalog, refererar du till [åtkomstkontroll i Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 
-   * När du utför stegen i avsnittet [Hämta värden för inloggning i](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artikeln klistrar du in klient-ID, app-ID och hemliga värden i en textfil. Du kommer att behöva dem snart.
+   * När du utför stegen i avsnittet [Hämta värden för inloggning i](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artikeln klistrar du in klient-ID, app-ID och hemliga värden i en textfil.
 
 * Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -73,7 +73,7 @@ Se till att du slutför kraven för den här självstudien.
 
    Innan du börjar bör du ha följande information:
 
-   :heavy_check_mark: Databasnamn, databasservernamn, användarnamn och lösenord för ditt Azure SQL Data-lager.
+   :heavy_check_mark: Databasnamn, databasservernamn, användarnamn och lösenord för din Azure Synapse.
 
    :heavy_check_mark: Åtkomstnyckeln för ditt blob-lagringskonto.
 
@@ -316,11 +316,11 @@ Filen **small_radio_json.json** med exempelrådata fångar målgruppen för en r
    +---------+----------+------+--------------------+-----------------+
    ```
 
-## <a name="load-data-into-azure-sql-data-warehouse"></a>Läs in data till Azure SQL Data Warehouse
+## <a name="load-data-into-azure-synapse"></a>Läsa in data i Azure Synapse
 
-I det här avsnittet kommer du att överföra de data du transformerade till Azure SQL Data Warehouse. Du använder Azure SQL Data Warehouse-anslutningen för Azure Databricks för att överföra en dataram direkt som en tabell i ett SQL-informationslager.
+I det här avsnittet laddar du upp transformerade data till Azure Synapse. Du använder Azure Synapse-anslutningen för Azure Databricks för att direkt överföra en dataram som en tabell i en Synapse Spark-pool.
 
-Som tidigare nämnts använder SQL Data Warehouse-anslutningen Azure Blob Storage som temporär lagring vid överföring av data mellan Azure Databricks och Azure SQL Data Warehouse. Så du börjar med att tillhandahålla den konfiguration som ska ansluta till lagringskontot. Du måste redan ha skapat kontot som en del av de nödvändiga förutsättningarna för den här artikeln.
+Som tidigare nämnts använder Azure Synapse-anslutningen Azure Blob-lagring som tillfällig lagring för att överföra data mellan Azure Databricks och Azure Synapse. Så du börjar med att tillhandahålla den konfiguration som ska ansluta till lagringskontot. Du måste redan ha skapat kontot som en del av de nödvändiga förutsättningarna för den här artikeln.
 
 1. Ange konfigurationen så att du får åtkomst till Azure Storage-kontot från Azure Databricks.
 
@@ -330,7 +330,7 @@ Som tidigare nämnts använder SQL Data Warehouse-anslutningen Azure Blob Storag
    val blobAccessKey =  "<access-key>"
    ```
 
-2. Ange en tillfällig mapp som ska användas när data flyttas mellan Azure Databricks och Azure SQL Data Warehouse.
+2. Ange en tillfällig mapp som ska användas när data flyttas mellan Azure Databricks och Azure Synapse.
 
    ```scala
    val tempDir = "wasbs://" + blobContainer + "@" + blobStorage +"/tempDirs"
@@ -343,10 +343,10 @@ Som tidigare nämnts använder SQL Data Warehouse-anslutningen Azure Blob Storag
    sc.hadoopConfiguration.set(acntInfo, blobAccessKey)
    ```
 
-4. Ange värdena för att ansluta till Azure SQL Data Warehouse-instansen. Innan du börjar måste du skapa ett SQL-informationslager. Använd det fullständigt kvalificerade servernamnet för **dwServer**. Till exempel `<servername>.database.windows.net`.
+4. Ange värdena för att ansluta till Azure Synapse-instansen. Du måste ha skapat en Azure Synapse Analytics-tjänst som en förutsättning. Använd det fullständigt kvalificerade servernamnet för **dwServer**. Till exempel `<servername>.database.windows.net`.
 
    ```scala
-   //SQL Data Warehouse related settings
+   //Azure Synapse related settings
    val dwDatabase = "<database-name>"
    val dwServer = "<database-server-name>"
    val dwUser = "<user-name>"
@@ -357,7 +357,7 @@ Som tidigare nämnts använder SQL Data Warehouse-anslutningen Azure Blob Storag
    val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ":" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
    ```
 
-5. Kör följande kodfragment för att läsa in den transformerande dataramen **renamedColumnsDf** som en tabell i ett SQL-informationslager. Det här kodfragmentet skapar en tabell med namnet **SampleTable** i SQL-databasen.
+5. Kör följande kodavsnitt för att läsa in den transformerade dataramen, **omdöptColumnsDF**, som en tabell i Azure Synapse. Det här kodfragmentet skapar en tabell med namnet **SampleTable** i SQL-databasen.
 
    ```scala
    spark.conf.set(
@@ -368,9 +368,9 @@ Som tidigare nämnts använder SQL Data Warehouse-anslutningen Azure Blob Storag
    ```
 
    > [!NOTE]
-   > Det här `forward_spark_azure_storage_credentials` exemplet använder flaggan, vilket gör att SQL Data Warehouse får åtkomst till data från blob-lagring med hjälp av en Åtkomstnyckel. Detta är den enda metod som stöds för autentisering.
+   > Det här `forward_spark_azure_storage_credentials` exemplet använder flaggan, vilket gör att Azure Synapse kommer åt data från blob-lagring med hjälp av en åtkomstnyckel. Detta är den enda metod som stöds för autentisering.
    >
-   > Om din Azure Blob Storage är begränsad till att välja virtuella nätverk, kräver SQL Data Warehouse [Managed Service Identity i stället för Access Keys](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Detta medför att felet "Den här begäran inte har behörighet att utföra den här åtgärden."
+   > Om din Azure Blob Storage är begränsad till att välja virtuella nätverk, kräver Azure Synapse [Hanterad tjänstidentitet i stället för Åtkomstnycklar](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Detta medför att felet "Den här begäran inte har behörighet att utföra den här åtgärden."
 
 6. Anslut till SQL-databasen och kontrollera att du ser en databas med namnet **SampleTable**.
 
@@ -398,7 +398,7 @@ I den här självstudiekursen lärde du dig att:
 > * Skapa en anteckningsbok i Azure Databricks
 > * Extrahera data från ett Data Lake Storage Gen2-konto
 > * Transformera data med Azure Databricks
-> * Läs in data till Azure SQL Data Warehouse
+> * Läsa in data i Azure Synapse
 
 Gå vidare till nästa självstudiekurs och lär dig mer om att strömma realtidsdata i Azure Databricks med Azure Event Hubs.
 

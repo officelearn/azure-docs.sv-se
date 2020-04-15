@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 9398820c88120400d97fbaf8cb0da100c2bdbf81
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 82c516eeac6d3e88ca7b6ac1c97ebb638ba27979
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261762"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383918"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via [SMB-protokollet (Industry-Standard Server Message Block).](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära där data används.
@@ -199,16 +199,6 @@ Den här artikeln besvarar vanliga frågor om Azure Files-funktioner, inklusive 
 
     Nej, autentisering från virtuella Linux-datorer stöds inte.
 
-* <a id="ad-multiple-forest"></a>
-**Stöder Azure Files AD-autentisering integrering med en AD-miljö med flera skogar?**    
-
-    Azure Files AD-autentisering integreras endast med skogen för AD-domäntjänsten som lagringskontot är registrerat till. För att stödja autentisering från en annan AD-skog måste din miljö ha skogsförtroende konfigurerat korrekt. Hur Azure Files registrerar sig till en AD-domäntjänst är oftast detsamma som en vanlig filserver, där den skapar ett identitets-(dator- eller tjänstinloggningskonto) i AD för autentisering. Den enda skillnaden är att det registrerade SPN för lagringskontot slutar med "file.core.windows.net" som inte matchar med domänsuffixet. Kontakta domänadministratören för att se om någon uppdatering av DNS-routningsprincipen krävs för att aktivera flera skogsautentiseringar på grund av de olika domänsuffixet.
-
-* <a id=""></a>
-**Vilka regioner är tillgängliga för Azure Files AD-autentisering (förhandsversion)?**
-
-    Mer information finns i [AD:s regionala tillgänglighet.](storage-files-identity-auth-active-directory-enable.md#regional-availability)
-
 * <a id="ad-aad-smb-afs"></a>
 **Kan jag utnyttja Azure Files Azure AD DS-autentisering eller förhandsversion av Active Directory (AD) på filresurser som hanteras av Azure File Sync?**
 
@@ -218,7 +208,7 @@ Den här artikeln besvarar vanliga frågor om Azure Files-funktioner, inklusive 
 **Hur kan jag kontrollera om jag har aktiverat AD-autentisering på mitt lagringskonto och AD-domäninformation?**
 
     Du kan läsa instruktionerna [här](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account) för att verifiera om AZURE Files AD-autentisering är aktiverad på ditt lagringskonto och hämta AD-domäninformationen.
-    
+
 * <a id="encryption-at-rest"></a>
 **Hur kan jag se till att min Azure-filresurs krypteras i vila?**  
 
@@ -243,6 +233,37 @@ Den här artikeln besvarar vanliga frågor om Azure Files-funktioner, inklusive 
 **Vilka principer för dataefterlevnad stöder Azure Files?**  
 
    Azure-filer körs ovanpå samma lagringsarkitektur som används i andra lagringstjänster i Azure Storage. Azure-filer tillämpar samma dataefterlevnadsprinciper som används i andra Azure-lagringstjänster. Mer information om Azure Storage-dataefterlevnad finns i [Azure Storage compliance offer och](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings)gå till Microsoft Trust [Center](https://microsoft.com/trustcenter/default.aspx).
+   
+### <a name="ad-authentication"></a>AD-autentisering
+* <a id=""></a>
+**Stöder Azure Files Azure AD-autentisering virtuella linux-datorer?**
+
+    Nej, autentisering från virtuella Linux-datorer stöds inte.
+
+* <a id="ad-multiple-forest"></a>
+**Stöder Azure Files AD-autentisering integrering med en AD-miljö med flera skogar?**    
+
+    Azure Files AD-autentisering integreras endast med skogen för AD-domäntjänsten som lagringskontot är registrerat till. För att stödja autentisering från en annan AD-skog måste din miljö ha skogsförtroende konfigurerat korrekt. Hur Azure Files registrerar sig till en AD-domäntjänst är oftast detsamma som en vanlig filserver, där den skapar ett identitets-(dator- eller tjänstinloggningskonto) i AD för autentisering. Den enda skillnaden är att det registrerade SPN för lagringskontot slutar med "file.core.windows.net" som inte matchar med domänsuffixet. Kontakta domänadministratören för att se om någon uppdatering av DNS-routningsprincipen krävs för att aktivera flera skogsautentiseringar på grund av de olika domänsuffixet.
+
+* <a id=""></a>
+**Vilka regioner är tillgängliga för Azure Files AD-autentisering (förhandsversion)?**
+
+    Mer information finns i [AD:s regionala tillgänglighet.](storage-files-identity-auth-active-directory-enable.md#regional-availability)
+
+* <a id="ad-aad-smb-afs"></a>
+**Kan jag utnyttja Azure Files Active Directory (AD) autentisering (förhandsversion) på filresurser som hanteras av Azure File Sync?**
+
+    Ja, du kan aktivera AD-autentisering på en filresurs som hanteras av Azure-filsynkronisering. Ändringar i katalogen/filenS-ACL:er för lokala filservrar kommer att nivåindelad till Azure-filer och vice versa.
+
+* <a id="ad-aad-smb-files"></a>
+**Hur kan jag kontrollera om jag har aktiverat AD-autentisering på mitt lagringskonto och AD-domäninformation?**
+
+    Du kan läsa instruktionerna [här](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#enable-ad-authentication-for-your-account) för att verifiera om AZURE Files AD-autentisering är aktiverad på ditt lagringskonto och hämta AD-domäninformationen.
+
+* <a id="ad-aad-smb-files"></a>
+**Finns det någon skillnad i att skapa ett datorkonto eller tjänstinloggningskonto för att representera mitt lagringskonto i AD?**
+
+    Att skapa antingen ett [datorkonto](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (standard) eller ett [tjänstinloggningskonto](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) har ingen skillnad på hur autentiseringen skulle fungera med Azure-filer. Du kan göra ditt eget val om hur du representerar ett lagringskonto som en identitet i din AD-miljö. Standarduppsättningen DomainAccountType i Join-AzStorageAccountForAuth cmdlet är datorkonto. Den ålder för lösenordsförfallotid som konfigurerats i AD-miljön kan dock vara annorlunda för dator- eller tjänstinloggningskontot och du måste ta hänsyn till det för uppdatera lösenordet för [ditt lagringskontoidentitet i AD](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#5-update-ad-account-password).
 
 ## <a name="on-premises-access"></a>Lokal åtkomst
 

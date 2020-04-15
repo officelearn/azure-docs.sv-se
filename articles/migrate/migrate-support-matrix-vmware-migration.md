@@ -3,12 +3,12 @@ title: Stöd för VMware-migrering i Azure Migrate
 description: Läs mer om stöd för VMware VM-migrering i Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 9d8dc4dadc975a0fb69ea207f6062b72231460ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf9cc471eef31edd513358a97d2ece17015ba781
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79269515"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314001"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Stödmatris för VMware-migrering
 
@@ -47,7 +47,7 @@ Läs [den här artikeln](server-migrate-overview.md) för att ta reda på vilken
 **Nödvändiga ändringar för Azure** | Vissa virtuella datorer kan kräva ändringar så att de kan köras i Azure. Azure Migrate gör dessa ändringar automatiskt för följande operativsystem:<br/> - Red Hat Enterprise Linux 6,5 +, 7,0 +<br/> - CentOS 6,5+, 7,0+</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8<br/><br/> För andra operativsystem måste du göra justeringar manuellt före migreringen. De relevanta artiklarna innehåller instruktioner om hur du gör detta.
 **Linux-start** | Om /boot finns på en dedikerad partition bör den finnas på OS-disken och inte spridas över flera diskar.<br/> Om /boot är en del av rotpartitionen (/) ska /-partitionen finnas på OS-disken och inte sträcka sig över andra diskar.
 **UEFI-start** | Virtuella datorer med UEFI-start stöds inte för migrering.
-**Diskstorlek** | 2 TB OS-disk; 4 TB för datadiskar.
+**Diskstorlek** | 2 TB OS-disk; 8 TB för datadiskar.
 **Diskgränser** |  Upp till 60 diskar per virtuell dator.
 **Krypterade diskar/volymer** | Virtuella datorer med krypterade diskar/volymer stöds inte för migrering.
 **Delat diskkluster** | Stöds inte.

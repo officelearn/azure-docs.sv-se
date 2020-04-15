@@ -1,5 +1,5 @@
 ---
-title: Förstå Azure Security Center för IoT-baslinje| Microsoft-dokument
+title: Originalplaner och anpassade kontroller
 description: Lär dig mer om konceptet Azure Security Center för IoT-baslinje.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: ce5a0625a16c5a02d03ee74f894c585820414fa4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c52a3e55e3801eaaac885b9a3c364283f74906ba
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72176622"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311646"
 ---
 # <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Azure Security Center för IoT-baslinje och anpassade kontroller
 
@@ -28,11 +28,11 @@ I den här artikeln beskrivs Azure Security Center för IoT-baslinje och alla as
 
 ## <a name="baseline"></a>Baslinje
 
-En baslinje upprättar standardbeteende för varje enhet och gör det lättare att etablera ovanligt beteende eller avvikelse från förväntade normer.  
+En baslinje upprättar standardbeteende för varje enhet och gör det lättare att etablera ovanligt beteende eller avvikelse från förväntade normer.
 
 ## <a name="baseline-custom-checks"></a>Anpassade kontroller av originalbaslinjen
 
-Anpassade kontroller vid baslinjen upprättar en anpassad lista med kontroller för varje enhets baslinje med hjälp av **enhetens modulidentitetstvilling.** 
+Anpassade kontroller vid baslinjen upprättar en anpassad lista med kontroller för varje enhets baslinje med hjälp av **enhetens modulidentitetstvilling.**
 
 ## <a name="setting-baseline-properties"></a>Ange baslinjeegenskaper
 

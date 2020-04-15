@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 085933f9a74ee37779ce63ce499d89ea53a9f7d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 767d87efcf94d720159dcf3b9dc42981ec957ef0
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77198947"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381400"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Tillgänglighet och tillförlitlighet för Apache Hadoop-kluster i HDInsight
 
@@ -33,7 +33,7 @@ Noder i ett HDInsight-kluster implementeras med hjälp av virtuella Azure-datore
 
 För att säkerställa hög tillgänglighet för Hadoop-tjänster tillhandahåller HDInsight två huvudnoder. Båda huvudnoderna är aktiva och körs i HDInsight-klustret samtidigt. Vissa tjänster, till exempel Apache HDFS eller Apache Hadoop YARN, är bara "aktiva" på en huvudnod vid en given tidpunkt. Andra tjänster som HiveServer2 eller Hive MetaStore är aktiva på båda huvudnoderna samtidigt.
 
-Om du vill hämta värdnamnen för olika nodtyper i klustret använder du [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
+Om du vill hämta värdnamnen för olika nodtyper i klustret använder du [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes).
 
 > [!IMPORTANT]  
 > Associera inte det numeriska värdet med om en nod är primär eller sekundär. Det numeriska värdet finns bara för att ge ett unikt namn för varje nod.

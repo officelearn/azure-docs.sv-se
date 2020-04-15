@@ -1,61 +1,55 @@
 ---
-title: Hantera användare och enheter Azure MFA - Azure Active Directory
-description: Hur kan administratörer ändra användarinställningar som att tvinga användarna att göra korrekturprocessen igen.
+title: Hantera användarinställningar för Azure Multi-Factor Authentication - Azure Active Directory
+description: Lär dig hur du kan konfigurera Azure Active Directory-användarinställningar för Azure Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 04/13/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25d94fa761980151c420984eb7e8c3254a3509ef
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 048224a55c2bbcbc99281d070d88d34e2dc77168
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80653500"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309758"
 ---
-# <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Hantera användarinställningar med Azure Multi-Factor Authentication i molnet
+# <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Hantera användarinställningar för Azure Multi-Factor-autentisering
 
-Som administratör kan du hantera följande användar- och enhetsinställningar:
+För att hantera användare av Azure Multi-Factor Authentication kan du kräva att användare återställer sitt lösenord, registrerar om för MFA eller återkallar befintliga MFA-sessioner. För användare som har definierat applösenord kan du också välja att ta bort dessa lösenord, vilket gör att äldre autentisering misslyckas i dessa program. Dessa åtgärder kan vara nödvändiga om du behöver ge hjälp till en användare eller vill återställa deras säkerhetsstatus.
 
-* Kräv att användarna tillhandahåller kontaktmetoder igen
-* Ta bort applösenord
-* Kräv MFA på alla betrodda enheter
+## <a name="manage-user-authentication-options"></a>Hantera alternativ för användarautentisering
 
-## <a name="manage-authentication-methods"></a>Hantera autentiseringsmetoder
-
-Som administratör som tilldelats rollen Autentiseringsadministratör kan du kräva att användare återställer sitt lösenord, registrerar om för MFA eller återkallar befintliga MFA-sessioner från sitt användarobjekt.
-
-![Hantera autentiseringsmetoder från Azure-portalen](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)
+Om du har tilldelat rollen *Autentiseringsadministratör* kan du kräva att användare återställer sitt lösenord, registrerar om för MFA eller återkallar befintliga MFA-sessioner från sitt användarobjekt. Så här hanterar du användarinställningarna:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Till vänster väljer du **Azure Active Directory** > **Users** > **All users**.
-1. Välj den användare du vill utföra en åtgärd på och välj **Autentiseringsmetoder**.
+1. Välj den användare du vill utföra en åtgärd på och välj **Autentiseringsmetoder**. Högst upp i fönstret väljer du ett av följande alternativ för användaren:
    - **Återställ lösenord** återställer användarens lösenord och tilldelar ett tillfälligt lösenord som måste ändras vid nästa inloggning.
-   - **Kräv Omregistrera MFA** kommer att göra det så att när användaren loggar in nästa gång, kommer de att uppmanas att ställa in en ny MFA autentiseringsmetod.
+   - **Kräv Re-register MFA** gör det så att när användaren loggar in nästa gång, de uppmanas att ställa in en ny MFA autentiseringsmetod.
    - **Återkalla MFA-sessioner** rensar användarens ihågkomna MFA-sessioner och kräver att de utför MFA nästa gång det krävs av principen på enheten.
+
+   ![Hantera autentiseringsmetoder från Azure-portalen](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)
 
 ## <a name="delete-users-existing-app-passwords"></a>Ta bort befintliga applösenord för användare
 
-Den här inställningen tar bort alla applösenord som en användare har skapat. Appar som inte är webbläsare som var associerade med dessa applösenord slutar fungera tills ett nytt applösenord har skapats. Globala administratörsbehörigheter krävs för att utföra den här åtgärden.
+Om det behövs kan du ta bort alla applösenord som en användare har skapat. Appar som inte är webbläsare som var associerade med dessa applösenord slutar fungera tills ett nytt applösenord har skapats. *Globala* administratörsbehörigheter krävs för att utföra den här åtgärden.
 
-### <a name="how-to-delete-users-existing-app-passwords"></a>Så här tar du bort befintliga applösenord för användare
+Så här tar du bort en användares applösenord:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Till vänster väljer du **Azure Active Directory** > **Users** > **All users**.
-3. Till höger väljer du **Multifaktorautentisering** i verktygsfältet. Sidan för multifaktorautentisering öppnas.
-4. Markera rutan bredvid den eller de användare som du vill hantera. En lista med snabbstegsalternativ visas till höger.
-5. Välj **Hantera användarinställningar**.
-6. Markera kryssrutan Ta **bort alla befintliga applösenord som genereras av de markerade användarna**.
-   ![Ta bort alla befintliga applösenord](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
-7. Klicka på **Spara**.
-8. Klicka **på stäng**.
+1. På vänster sida väljer du **Azure Active Directory** > **Users** > **All users**.
+1. Välj **Multifaktorautentisering**. Du kan behöva bläddra till höger för att se det här menyalternativet. Välj exempel skärmdump nedan för att se hela Azure portal fönster och menyplats:[![](media/howto-mfa-userstates/selectmfa-cropped.png "Välj Multifaktorautentisering i fönstret Användare i Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
+1. Markera rutan bredvid den eller de användare som du vill hantera. En lista med snabbstegsalternativ visas till höger.
+1. Välj **Hantera användarinställningar**och markera sedan kryssrutan För **Ta bort alla befintliga applösenord**som genereras av de markerade användarna , vilket visas i följande exempel: ![Ta bort alla befintliga applösenord](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
+1. Välj **spara**och **stäng**sedan .
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Få mer information om hur [du konfigurerar azure multifaktorautentiseringsinställningar](howto-mfa-mfasettings.md)
-- Om användarna behöver hjälp pekar du dem mot [användarhandboken för tvåstegsverifiering](../user-help/multi-factor-authentication-end-user.md)
+Den här artikeln hjälpte till att konfigurera enskilda användarinställningar. Information om hur du konfigurerar tjänstinställningar för Azure Multi Factor Authentication finns i [Konfigurera azure multifaktorautentiseringsinställningar](howto-mfa-mfasettings.md)
+
+Om användarna behöver hjälp läser du [användarhandboken för Azure Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user.md).

@@ -1,5 +1,5 @@
 ---
-title: Anpassningsbar säkerhetsvarningsguide för Azure Security Center för IoT| Microsoft-dokument
+title: Anpassningsbara säkerhetsaviseringar
 description: Lär dig mer om anpassningsbara säkerhetsaviseringar och rekommenderad reparation med Azure Security Center för IoT-funktioner och -tjänst.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -14,24 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 32d79267559480de8ec91e5e66196bfd57e01cf1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3b39d70c60a4c9701d0a8bafde17b241fe01cc46
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78299581"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311641"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Azure Security Center for IoT-säkerhetsaviseringar
 
 Azure Security Center for IoT analyserar kontinuerligt din IoT-lösning med hjälp av avancerad analys och hotinformation för att varna dig för skadlig aktivitet.
 
-Vi uppmuntrar dig att skapa anpassade aviseringar baserat på din kunskap om förväntat enhetsbeteende för att säkerställa att aviseringar fungerar som de mest effektiva indikatorerna på potentiell kompromettering i din unika organisationsdistribution och landskap. 
+Vi uppmuntrar dig att skapa anpassade aviseringar baserat på din kunskap om förväntat enhetsbeteende för att säkerställa att aviseringar fungerar som de mest effektiva indikatorerna på potentiell kompromettering i din unika organisationsdistribution och landskap.
 
 Följande lista över Azure Security Center för IoT-aviseringar kan definieras av dig baserat på ditt förväntade IoT Hub och/eller enhetsbeteende. Mer information om hur du anpassar varje avisering finns i [skapa anpassade aviseringar](quickstart-create-custom-alerts.md).
 
-## <a name="iot-hub-alerts-available-for-customization"></a>IoT Hub-varningar tillgängliga för anpassning 
-
-
+## <a name="iot-hub-alerts-available-for-customization"></a>IoT Hub-varningar tillgängliga för anpassning
 
 | Severity | Aviseringsnamn | Datakälla | Beskrivning | Föreslagen reparation|
 |---|---|---|---|---|
@@ -51,7 +49,7 @@ Följande lista över Azure Security Center för IoT-aviseringar kan definieras 
 | Låg      | Anpassad varning - antalet obehöriga åtgärder ligger utanför det tillåtna intervallet  | IoT Hub     | Mängden obehöriga åtgärder inom ett visst tidsfönster ligger utanför det för närvarande konfigurerade och tillåtna intervallet.|
 |
 
-## <a name="agent-alerts-available-for-customization"></a>Agentaviseringar tillgängliga för anpassning 
+## <a name="agent-alerts-available-for-customization"></a>Agentaviseringar tillgängliga för anpassning
 
 | Severity | Aviseringsnamn | Datakälla | Beskrivning | Föreslagen reparation|
 |---|---|---|---|---|

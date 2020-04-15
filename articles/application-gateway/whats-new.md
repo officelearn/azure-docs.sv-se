@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 1cfa2ab1d8bf096b1821f7473d9808801b47c547
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70014b5ab37a07e01eaa2db3d729b7d8af520842
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371169"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311767"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Vad är nytt i Azure Application Gateway?
 
@@ -33,7 +33,7 @@ Azure Application Gateway uppdateras löpande. Om du vill hålla dig uppdaterad 
 |Fler mätvärden |Vi har lagt till följande nya mått som hjälper dig att övervaka din Application Gateway v2 SKU: [Timing-relaterade mått,](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#timing-metrics)Serverd svarsstatus, mottagna byte, antal byte, skickade klient-TLS-protokoll och aktuella beräkningsenheter. Se [Mått som stöds av Application Gateway V2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-supported-by-application-gateway-v2-sku). |Augusti 2019 |
 |Anpassade WAF-regler |Application Gateway WAF_v2 stöder nu att skapa anpassade regler. Se [anpassade regler för Programgateway](custom-waf-rules-overview.md). |Juni 2019 |
 |Automatisk skalning, zonredundans, statisk VIP-stöd GA |Allmän tillgänglighet för v2 SKU, som stöder automatisk skalning, zonredundans, förbättra prestanda, statiska VIP-adresser, Nyckelvalv, Huvudredigerar. Se [dokumentation för automatisk skalning av Application Gateway](application-gateway-autoscaling-zone-redundant.md). |April 2019 |
-|Integrering av Nyckelvalv |Application Gateway stöder nu integrering med Key Vault (i offentlig förhandsversion) för servercertifikat som är kopplade till HTTPS-aktiverade lyssnare. Se [SSL-avslutning med Key Vault-certifikat](key-vault-certs.md). |April 2019 |
+|Integrering av Nyckelvalv |Application Gateway stöder nu integrering med Key Vault (i offentlig förhandsversion) för servercertifikat som är kopplade till HTTPS-aktiverade lyssnare. Se [TLS-avslutning med Key Vault-certifikat](key-vault-certs.md). |April 2019 |
 |Crud/skriva om rubrik     |Du kan nu skriva om HTTP-huvuden. Se [självstudiekurs: Skapa en programgateway och skriv om HTTP-huvuden](tutorial-http-header-rewrite-powershell.md) för mer information.|December 2018|
 |WAF-konfigurations- och undantagslista     |Vi har lagt till fler alternativ som hjälper dig att konfigurera din WAF och minska falska positiva identifieringar. Mer information finns i [storleksbegränsningar och undantagslistor för webbprogram.](application-gateway-waf-configuration.md)|December 2018|
 |Automatisk skalning, zonredundans, statisk VIP-stöd      |Med v2 SKU finns det många förbättringar som automatisk skalning, förbättrad prestanda med mera. Se [Vad är Azure Application Gateway?](overview.md)|September 2018|

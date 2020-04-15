@@ -1,22 +1,14 @@
 ---
 title: Planera din app - LUIS
-titleSuffix: Azure Cognitive Services
 description: Beskriv relevanta appavsikter och entiteter och skapa sedan dina programplaner i Language Understanding Intelligent Services (LUIS).
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/20/2019
-ms.author: diberry
-ms.openlocfilehash: 6a155f4c43da03ccdc40d289742918973aa6da7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: dfed27a05973a2ea2e9a97eaa1c233b847b33d87
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74326779"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382296"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planera luis-appschemat med ämnesdomän och dataextrahering
 
@@ -44,7 +36,7 @@ Om du inte behöver identifiera den övergripande användaravsikten lägger `Non
 
 ## <a name="create-example-utterances-for-each-intent"></a>Skapa exempelyttranden för varje avsikt
 
-Börja med att undvika att skapa för många yttranden för varje avsikt. När du har bestämt avsikter, skapa 15 till 30 exempel yttranden per avsikt. Varje uttryck bör skilja sig från de tidigare angivna yttrandena. En bra variation i yttranden inkluderar övergripande ordräkning, ordval, verb tempus och interpunktion.
+Börja med att undvika att skapa för många yttranden för varje avsikt. När du har bestämt avsikter, skapa 15 till 30 exempel yttranden per avsikt. Varje uttryck bör skilja sig från de tidigare angivna yttrandena. En bra variation i yttranden inkluderar övergripande ordräkning, ordval, verb tempus och [interpunktion](luis-reference-application-settings.md#punctuation-normalization).
 
 Mer information finns i [förstå bra yttranden för LUIS-appar](luis-concept-utterance.md).
 

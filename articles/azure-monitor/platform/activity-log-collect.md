@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/24/2020
-ms.openlocfilehash: 4265f6050b237cb40afeddfc228ade9be06be039
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.date: 04/14/2020
+ms.openlocfilehash: 098aeaa06a26c57744402722aa3eacc51ea85fb7
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396796"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382857"
 ---
 # <a name="collect-and-analyze-azure-activity-log-in-azure-monitor"></a>Samla in och analysera Azure Activity-loggen i Azure Monitor
 [Azure Activity-loggen](platform-logs-overview.md) är en [plattformslogg](platform-logs-overview.md) som ger insikt i händelser på prenumerationsnivå som har inträffat i Azure. Även om du kan visa aktivitetsloggen i Azure-portalen bör du konfigurera den för att skicka till en Log Analytics-arbetsyta för att aktivera ytterligare funktioner i Azure Monitor. I den här artikeln beskrivs hur du utför den här konfigurationen och hur du skickar aktivitetsloggen till Azure-lagrings- och händelsehubbar.
@@ -25,7 +25,8 @@ Att samla in aktivitetsloggen på en log analytics-arbetsyta ger följande förd
 - Lagra aktivitetsloggposter längre än 90 dagar.
 - Konsolidera loggposter från flera Azure-prenumerationer och klienter till en plats för analys tillsammans.
 
-
+> [!IMPORTANT]
+> Samla in loggar över klienter kräver [Azure Lighthouse](/azure/lighthouse).
 
 ## <a name="collecting-activity-log"></a>Samla in aktivitetslogg
 Aktivitetsloggen samlas in automatiskt för [visning i Azure-portalen](activity-log-view.md). Om du vill samla in den på en Log Analytics-arbetsyta eller skicka den till Azure-lagrings- eller händelsehubbar skapar du en [diagnostikinställning](diagnostic-settings.md). Detta är samma metod som används av resursloggar vilket gör det konsekvent för alla [plattformsloggar](platform-logs-overview.md).  

@@ -3,16 +3,16 @@ title: Översikt över Azure Resource Graph
 description: Förstå hur Azure Resource Graph-tjänsten möjliggör komplexa frågor om resurser i stor skala över prenumerationer och klienter.
 ms.date: 03/02/2020
 ms.topic: overview
-ms.openlocfilehash: 38ead7be09e038b19c390acd9f10e1c0ccf9d858
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f5c091f60faedb76e3ca6cd68505c06f51be21b6
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240060"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381520"
 ---
 # <a name="what-is-azure-resource-graph"></a>Vad är Azure Resource Graph?
 
-Azure Resource Graph är en tjänst i Azure som är utformad för att utöka Azure Resource Management genom att tillhandahålla effektiv och högpresterande resursutforskning med möjlighet att fråga i stor skala över en viss uppsättning prenumerationer så att du effektivt kan styra din Miljö. De här frågorna innehåller följande funktioner:
+Azure Resource Graph är en tjänst i Azure som är utformad för att utöka Azure Resource Management genom att tillhandahålla effektiv och högpresterande resursutforskning med möjlighet att fråga i stor skala över en viss uppsättning prenumerationer så att du effektivt kan styra din miljö. De här frågorna innehåller följande funktioner:
 
 - Möjlighet att fråga resurser med komplex filtrering, gruppering och sortering av resursegenskaper.
 - Förmåga att iterativt utforska resurser baserat på styrningskrav.
@@ -50,7 +50,7 @@ Resource Graph uppdaterar sedan sin databas. Resource Graph gör också en vanli
 
 Nu när du har en bättre förståelse för vad Azure Resource Graph är, låt oss dyka in i hur du konstruerar frågor.
 
-Det är viktigt att förstå att Azure Resource Graph-frågespråket baseras på [Kusto-frågespråket](../../data-explorer/data-explorer-overview.md) som används av Azure Data Explorer.
+Det är viktigt att förstå att Azure Resource Graph-frågespråket baseras på [Kusto-frågespråket](/azure/data-explorer/data-explorer-overview) som används av Azure Data Explorer.
 
 Information om åtgärder och funktioner som kan användas med Azure Resource Graph finns i [Frågespråket i Resource Graph](./concepts/query-language.md).
 Information om hur man söker efter resurser finns i [Utforska resurser](./concepts/explore-resources.md).

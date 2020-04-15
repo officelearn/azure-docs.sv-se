@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 04/07/2020
+ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e097173712693754baab99912301c98ee336f64f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: bfe8aa088538663ac3e64f5913ff031e6160b045
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80877923"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382641"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
 
@@ -228,12 +228,11 @@ Användare med den här rollen har åtkomst till alla administrativa funktioner 
 
 ### <a name="global-reader"></a>[Global läsare](#global-reader-permissions)
 
-Användare i den här rollen kan läsa inställningar och administrativ information för Microsoft 365-tjänster men kan inte vidta hanteringsåtgärder. Global läsare är den skrivskyddade motsvarigheten till global administratör. Tilldela global läsare i stället för Global administratör för planering, granskningar eller undersökningar. Använd Global läsare i kombination med andra begränsade administratörsroller som Exchange Administrator för att göra det enklare att få jobbet gjort utan att tilldela rollen Global administratör. Den globala läsaren fungerar med administrationscentret för Microsoft 365, administrationscenter för Exchange, administrationscenter för Team, Säkerhetscenter, Efterlevnadscenter, Azure AD-administrationscenter och administrationscenter för Enhetshantering.
+Användare i den här rollen kan läsa inställningar och administrativ information för Microsoft 365-tjänster men kan inte vidta hanteringsåtgärder. Global läsare är den skrivskyddade motsvarigheten till global administratör. Tilldela global läsare i stället för Global administratör för planering, granskningar eller undersökningar. Använd Global läsare i kombination med andra begränsade administratörsroller som Exchange Administrator för att göra det enklare att få jobbet gjort utan att tilldela rollen Global administratör. Den globala läsaren fungerar med Administrationscenter för Microsoft 365, administrationscenter för Exchange, Administrationscenter för SharePoint, administrationscenter för Team, Administrationscenter för team, efterlevnadscenter, Azure AD-administrationscenter och administrationscenter för Enhetshantering.
 
 > [!NOTE]
 > Global läsarroll har några begränsningar just nu -
 >
->- Administrationscenter för SharePoint - Administrationscenter för SharePoint stöder inte rollen Global reader. Du ser inte "SharePoint" i den vänstra rutan under Administrationscenter i [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home#/homepage).
 >- [Administrationscenter för OneDrive](https://admin.onedrive.com/) – Administrationscentret för OneDrive stöder inte rollen Global reader.
 >- [Azure AD-portal -](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) Global läsare kan inte läsa etableringsläget för en företagsapp.
 >- [M365 admin center](https://admin.microsoft.com/Adminportal/Home#/homepage) - Global läsare kan inte läsa kund lockbox förfrågningar. Fliken **Kundlåsboxbegäranr** hittar du inte under **Support** i den vänstra rutan i Administrationscenter för M365.

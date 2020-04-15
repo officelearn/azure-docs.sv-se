@@ -11,7 +11,7 @@
   items:
     - name: Konfigurera Azure NetApp Files och skapa en NFS-volym
       href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Tjänstnivåer för Azure NetApp Files
       href: azure-netapp-files-service-levels.md
@@ -37,9 +37,9 @@
       href: azure-netapp-files-solution-architectures.md
     - name: Vanliga frågor och svar om Azure NetApp Files
       href: azure-netapp-files-faqs.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
-    - name: Registrera dig för Azure NetApp Files
+    - name: Registrera för Azure NetApp Files
       href: azure-netapp-files-register.md
     - name: Skapa ett NetApp-konto
       href: azure-netapp-files-create-netapp-account.md
@@ -65,8 +65,6 @@
       href: azure-netapp-files-resize-capacity-pools-or-volumes.md
     - name: Utveckla
       items:
-        - name: REST
-          href: azure-netapp-files-develop-with-rest-api.md
         - name: 'SDK:er och CLI-verktyg för Azure NetApp Files'
           href: azure-netapp-files-sdk-cli.md
         - name: Felsöka fel i resursprovidern för Azure NetApp Files
@@ -79,7 +77,7 @@
       href: /azure/templates/microsoft.netapp/allversions
 - name: Resurser
   items:
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/netapp/'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=netapp'

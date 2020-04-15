@@ -1,5 +1,5 @@
 ---
-title: Undersökningsguide för Azure Security Center för IoT-enhet| Microsoft-dokument
+title: Undersöka en misstänkt enhet
 description: Det här hur du guidar förklarar hur du använder Azure Security Center för IoT för att undersöka en misstänkt IoT-enhet med Log Analytics.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,23 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 8d2fe8d63c7ece6f3b3426d8fc5a3454a61826f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f333f28dc0e02e8d010f5521f298d0f0b031dbf2
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68596252"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311038"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Undersöka en misstänkt IoT-enhet
 
-Azure Security Center för IoT-tjänstaviseringar ger tydliga indikationer när IoT-enheter misstänks vara inblandade i misstänkta aktiviteter eller när det finns indikationer på att en enhet har komprometterats. 
+Azure Security Center för IoT-tjänstaviseringar ger tydliga indikationer när IoT-enheter misstänks vara inblandade i misstänkta aktiviteter eller när det finns indikationer på att en enhet har komprometterats.
 
-I den här guiden använder du de undersökningsförslag som tillhandahålls för att fastställa de potentiella riskerna för din organisation, bestämmer hur du åtgärdar och upptäcker de bästa sätten att förhindra liknande attacker i framtiden.  
+I den här guiden använder du de undersökningsförslag som tillhandahålls för att fastställa de potentiella riskerna för din organisation, bestämmer hur du åtgärdar och upptäcker de bästa sätten att förhindra liknande attacker i framtiden.
 
 > [!div class="checklist"]
 > * Hitta enhetsdata
 > * Undersöka med kql-frågor
-
 
 ## <a name="how-can-i-access-my-data"></a>Hur kommer jag åt mina data?
 
@@ -39,15 +38,15 @@ Som standard lagrar Azure Security Center för IoT dina säkerhetsaviseringar oc
 
 Så här hittar du arbetsytan Log Analytics för datalagring:
 
-1. Öppna din IoT-hubb, 
+1. Öppna din IoT-hubb,
 1. Klicka på **Översikt**under **Säkerhet**och välj sedan **Inställningar**.
-1. Ändra konfigurationsinformationen för Logg Analytics-arbetsytan. 
-1. Klicka på **Spara**. 
+1. Ändra konfigurationsinformationen för Logg Analytics-arbetsytan.
+1. Klicka på **Spara**.
 
 Gör följande konfiguration för att komma åt data som lagras på logganalysarbetsytan:
 
-1. Välj och klicka på ett Azure Security Center för IoT-avisering i din IoT Hub. 
-1. Klicka på **Ytterligare undersökning**. 
+1. Välj och klicka på ett Azure Security Center för IoT-avisering i din IoT Hub.
+1. Klicka på **Ytterligare undersökning**.
 1. Välj **Om du vill se vilka enheter som har den här aviseringen klickar du här och visar kolumnen DeviceId**.
 
 ## <a name="investigation-steps-for-suspicious-iot-devices"></a>Undersökningssteg för misstänkta IoT-enheter
@@ -70,7 +69,7 @@ Om du vill ta reda på om andra aviseringar utlöstes ungefär samtidigt använd
 
 ### <a name="users-with-access"></a>Användare med åtkomst
 
-Så här tar du reda på vilka användare som har åtkomst till den här enheten med följande kql-fråga: 
+Så här tar du reda på vilka användare som har åtkomst till den här enheten med följande kql-fråga:
 
  ```
   let device = "YOUR_DEVICE_ID";
@@ -85,13 +84,14 @@ Så här tar du reda på vilka användare som har åtkomst till den här enheten
      UserName=extractjson("$.UserName", EventDetails, typeof(string))
   | summarize FirstObserved=min(TimestampLocal) by GroupNames, UserName
  ```
-Använd dessa data för att upptäcka: 
+Använd dessa data för att upptäcka:
+
 - Vilka användare har åtkomst till enheten?
 - Har användare med åtkomst de förväntade behörighetsnivåerna?
 
 ### <a name="open-ports"></a>Öppna portar
 
-Om du vill ta reda på vilka portar i enheten som används eller har använts använder du följande kql-fråga: 
+Om du vill ta reda på vilka portar i enheten som används eller har använts använder du följande kql-fråga:
 
  ```
   let device = "YOUR_DEVICE_ID";
@@ -112,14 +112,15 @@ Om du vill ta reda på vilka portar i enheten som används eller har använts an
  ```
 
 Använd dessa data för att upptäcka:
+
 - Vilka lyssningsuttag är aktiva på enheten?
 - Ska de lyssningsuttag som för närvarande är aktiva tillåtas?
 - Finns det några misstänkta fjärradresser anslutna till enheten?
 
 ### <a name="user-logins"></a>Användarinloggningar
 
-Så här hittar du användare som har loggat in på enheten med hjälp av följande kql-fråga: 
- 
+Så här hittar du användare som har loggat in på enheten med hjälp av följande kql-fråga:
+
  ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
@@ -143,13 +144,14 @@ Så här hittar du användare som har loggat in på enheten med hjälp av följa
  ```
 
 Använd frågeresultaten för att upptäcka:
+
 - Vilka användare loggade in på enheten?
 - Ska användarna logga in?
 - Har de användare som loggat in ansluta från förväntade eller oväntade IP-adresser?
-  
+
 ### <a name="process-list"></a>Processlista
 
-Om du vill ta reda på om processlistan är som förväntat använder du följande kql-fråga: 
+Om du vill ta reda på om processlistan är som förväntat använder du följande kql-fråga:
 
  ```
   let device = "YOUR_DEVICE_ID";
@@ -186,4 +188,4 @@ Använd frågeresultaten för att upptäcka:
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har undersökt en enhet och fått en bättre förståelse för dina risker kan du överväga att [konfigurera anpassade aviseringar](quickstart-create-custom-alerts.md) för att förbättra säkerhetshållningen för IoT-lösningen. Om du inte redan har en enhetsagent bör du överväga [att distribuera en säkerhetsagent](how-to-deploy-agent.md) eller [ändra konfigurationen av en befintlig enhetsagent](how-to-agent-configuration.md) för att förbättra dina resultat. 
+När du har undersökt en enhet och fått en bättre förståelse för dina risker kan du överväga att [konfigurera anpassade aviseringar](quickstart-create-custom-alerts.md) för att förbättra säkerhetshållningen för IoT-lösningen. Om du inte redan har en enhetsagent bör du överväga [att distribuera en säkerhetsagent](how-to-deploy-agent.md) eller [ändra konfigurationen av en befintlig enhetsagent](how-to-agent-configuration.md) för att förbättra dina resultat.

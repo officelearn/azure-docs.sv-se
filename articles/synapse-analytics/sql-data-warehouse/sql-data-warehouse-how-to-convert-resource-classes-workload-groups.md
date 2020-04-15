@@ -7,20 +7,23 @@ manager: craigg
 ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 11/4/2019
+ms.date: 04/14/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8cee874106598c7d81b923d7dd32ba91902d9326
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 5d73ba8f21fe7731fb751d42a8497ff8e1ebba7d
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745181"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383630"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Konvertera resursklasser till arbetsbelastningsgrupper
 
 Arbetsbelastningsgrupper tillhandahåller en mekanism för att isolera och innehålla systemresurser.  Dessutom kan arbetsbelastningsgrupper du ange körningsregler för begäranden som körs i dem.  Med en regel för körning av frågetidsutgång kan skena frågor som ska avbrytas utan att användaren behöver göra något.  I den här artikeln beskrivs hur du tar en befintlig resursklass och skapar en arbetsbelastningsgrupp med en liknande konfiguration.  Dessutom läggs en valfri frågetidsutgångsregel till.
+
+> [!NOTE]
+> Se [avsnittet Blanda resursklasstilldelningar med klassificerare](sql-data-warehouse-workload-classification.md#mixing-resource-class-assignments-with-classifiers) i konceptdokumentet [för arbetsbelastningsklassificering](sql-data-warehouse-workload-classification.md) för vägledning om hur du använder arbetsbelastningsgrupper och resursklasser samtidigt.
 
 ## <a name="understanding-the-existing-resource-class-configuration"></a>Förstå den befintliga resursklasskonfigurationen
 
@@ -86,4 +89,6 @@ SELECT request_id, [label], classifier_name, group_name, command
 ## <a name="next-steps"></a>Nästa steg
 
 - [Isolering av arbetsbelastning](sql-data-warehouse-workload-isolation.md)
-- [Skapa en arbetsbelastningsgrupp-länk](quickstart-configure-workload-isolation-tsql.md)
+- [Skapa en arbetsbelastningsgrupp](quickstart-configure-workload-isolation-tsql.md)
+- [SKAPA ARBETSBELASTNINGSKLASSIFICERARE (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?&view=azure-sqldw-latest)
+- [SKAPA ARBETSBELASTNINGSGRUPP (Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)

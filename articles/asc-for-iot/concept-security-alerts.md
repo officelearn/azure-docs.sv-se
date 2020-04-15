@@ -1,5 +1,5 @@
 ---
-title: Säkerhetsaviseringsguide för Azure Security Center för IoT| Microsoft-dokument
+title: Inbyggd & anpassad varningslista
 description: Lär dig mer om säkerhetsaviseringar och rekommenderad reparation med Azure Security Center för IoT-funktioner och -tjänst.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 7a319baeba3d34f3d3056ce9b42f2e733b5a874f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74a6adbd2415cfcf7d5d48cff01d189cfd8b73a5
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78296141"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311475"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Azure Security Center for IoT-säkerhetsaviseringar
 
@@ -32,11 +32,9 @@ I den här artikeln hittar du en lista över inbyggda aviseringar som kan utlös
 Förutom inbyggda aviseringar kan du med Azure Security Center for IoT definiera anpassade aviseringar baserat på förväntat IoT Hub- och/eller enhetsbeteende.
 Mer information finns i [anpassningsbara aviseringar](concept-customizable-security-alerts.md).
 
-
-
 ## <a name="built-in-alerts-for-iot-devices"></a>Inbyggda aviseringar för IoT-enheter
 
-| Namn | Severity | Datakälla | Beskrivning | Föreslagna reparationssteg|                  
+| Namn | Severity | Datakälla | Beskrivning | Föreslagna reparationssteg|
 |----------|---------------|-------------|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |**Hög** allvarlighetsgrad|  |  |  |
 |   Binär kommandorad   | Hög | Agent | LA Linux binär anropas /körs från kommandoraden upptäcktes. Den här processen kan vara legitim aktivitet eller en indikation på att enheten har komprometterats.|   Granska kommandot med användaren som körde det och kontrollera om detta är något som är legitimt förväntas köras på enheten. Om inte, eskalera aviseringen till ditt informationssäkerhetsteam. |
@@ -52,7 +50,7 @@ Mer information finns i [anpassningsbara aviseringar](concept-customizable-secur
 |  Beteende som liknar Fairware ransomware upptäckt  | Medel | Agent       | Körning av rm-rf-kommandon som tillämpas på misstänkta platser som identifierats med hjälp av analys av värddata. Eftersom rm -rf tar bort filer rekursivt används filer, används de normalt bara i diskreta mappar. I det här fallet används den på en plats som kan ta bort en stor mängd data. Fairware ransomware är känt för att köra rm-rf-kommandon i den här mappen. |Granska med användaren som körde kommandot detta var legitim aktivitet som du förväntar dig att se på enheten. Om inte, eskalera aviseringen till informationssäkerhetsteamet.
 |  Beteende som liknar ransomware upptäckt  | Medel | Agent       | Körning av filer som liknar kända ransomware som kan hindra användare från att komma åt deras system, eller personliga filer, och kan kräva lösenbetalning för att återfå åtkomsten.|Granska med användaren som körde kommandot om det var en legitim aktivitet som du förväntar dig att se på enheten. Om inte, eskalera aviseringen till informationssäkerhetsteamet.
 |   Kryptomynt gruvarbetare behållare bild upptäckt | Medel                   | Agent       | Behållare upptäcka kör kända digitala bilder valutabrytning. |  1. Om detta beteende inte är avsett, ta bort den relevanta behållaravbildningen.<br> 2. Se till att Docker-demonen inte är tillgänglig via ett osäkert TCP-uttag.<br> 3. Eskalera varningen till informationssäkerhetsteamet.|
-|  Bild av minerbild av kryptomynt  | Medel| Agent       | Genomförande av en process som normalt förknippas med digital valutabrytning har upptäckts.| Kontrollera med användaren som körde kommandot om det var legitim aktivitet på enheten. Om inte, eskalera aviseringen till informationssäkerhetsteamet.| 
+|  Bild av minerbild av kryptomynt  | Medel| Agent       | Genomförande av en process som normalt förknippas med digital valutabrytning har upptäckts.| Kontrollera med användaren som körde kommandot om det var legitim aktivitet på enheten. Om inte, eskalera aviseringen till informationssäkerhetsteamet.|
 |   Upptäckt misstänkt användning av kommandot nohup | Medel | Agent       | Misstänkt användning av nohup-kommandot på värden har upptäckts. Skadliga aktörer kör ofta nohup-kommandot från en tillfällig katalog, vilket effektivt gör att deras körbara filer kan köras i bakgrunden. Det här kommandot körs på filer som finns i en tillfällig katalog är inte förväntat eller vanligt. |Granska med användaren som körde kommandot om det var en legitim aktivitet som du förväntar dig att se på enheten. Om inte, eskalera aviseringen till informationssäkerhetsteamet.
 |   Upptäckt misstänkt användning av useradd kommandot  | Medel      | Agent       | Misstänkt användning av useradd-kommandot som upptäckts på enheten. |Granska med användaren som körde kommandot om det var en legitim aktivitet som du förväntar dig att se på enheten. Om inte, eskalera aviseringen till informationssäkerhetsteamet.
 |  Exponerad dockerdemon med TCP-uttag  | Medel | Agent | Maskinloggar visar att dockerdemonen (dockerd) exponerar ett TCP-uttag. Som standard, Docker-konfiguration, använder inte kryptering eller autentisering när en TCP-socket är aktiverad. Standardadatorkonfiguration möjliggör fullständig åtkomst till Docker-demonen, för alla som har åtkomst till den aktuella porten.|Granska med användaren som körde kommandot om det var en legitim aktivitet som du förväntar dig att se på enheten. Om inte, eskalera aviseringen till informationssäkerhetsteamet.
@@ -60,7 +58,7 @@ Mer information finns i [anpassningsbara aviseringar](concept-customizable-secur
 |  Filhämtningar från en känd skadlig källa har upptäckts   | Medel  | Agent       |  Hämtning av en fil från en känd skadlig källa har upptäckts.|Granska med användaren som körde kommandot om det var en legitim aktivitet som du förväntar dig att se på enheten. Om inte, eskalera aviseringen till informationssäkerhetsteamet.
 |   htaccess-filåtkomst har upptäckts | Medel                       | Agent       | Analys av värddata upptäckte möjliga manipulering av en htaccess-fil. Htaccess är en kraftfull konfigurationsfil som låter dig göra flera ändringar i en webbserver som kör Apache Web-programvara, inklusive grundläggande omdirigeringsfunktioner och mer avancerade funktioner, till exempel grundläggande lösenordsskydd. Illvilliga aktörer ändrar ofta htaccess-filer på komprometterade datorer för att få uthållighet. |Bekräfta att detta är legitim förväntad aktivitet på värden. Om inte, eskalera aviseringen till ditt informationssäkerhetsteam.|
 |  Känt attackverktyg  | Medel                                   | Agent       | Ett verktyg som ofta förknippas med illvilliga användare som attackerar andra datorer på något sätt upptäcktes. |Granska med användaren som körde kommandot om det var en legitim aktivitet som du förväntar dig att se på enheten. Om inte, eskalera aviseringen till informationssäkerhetsteamet.|
-|  IoT-agent försökte och kunde inte tolka modulens tvillingkonfiguration | Medel  | Agent       | Azure Security Center för IoT-säkerhetsagenten kunde inte tolka modulens tvillingkonfiguration på grund av typfel i konfigurationsobjektet|Validera modulstvillingkonfigurationen mot konfigurationsschemat för IoT-agenten, åtgärda alla avvikelser. 
+|  IoT-agent försökte och kunde inte tolka modulens tvillingkonfiguration | Medel  | Agent       | Azure Security Center för IoT-säkerhetsagenten kunde inte tolka modulens tvillingkonfiguration på grund av typfel i konfigurationsobjektet|Validera modulstvillingkonfigurationen mot konfigurationsschemat för IoT-agenten, åtgärda alla avvikelser.
 |  Lokal värdspaning har upptäckts  | Medel | Agent       | Körning av ett kommando som normalt associeras med vanliga Linux bot spaning upptäckts. |Granska den misstänkta kommandoraden för att bekräfta att den utfördes av en legitim användare. Om inte, eskalera aviseringen till ditt informationssäkerhetsteam.
 |  Obalans mellan skripttolk och filnamnstillägg  | Medel | Agent       | Obalans mellan skripttolken och tillägget av skriptfilen som anges som indata som upptäckts. Den här typen av inkompatibla är ofta associerad med skriptkörningar för angripare. |Granska med användaren som körde kommandot om det var en legitim aktivitet som du förväntar dig att se på enheten. Om inte, eskalera aviseringen till informationssäkerhetsteamet.
 |  Möjlig bakdörr upptäckt  | Medel | Agent |En misstänkt fil hämtades och kördes sedan på en värd i prenumerationen. Den här typen av aktivitet associeras ofta med installationen av en bakdörr. |Granska med användaren som körde kommandot om det var en legitim aktivitet som du förväntar dig att se på enheten. Om inte, eskalera aviseringen till informationssäkerhetsteamet.

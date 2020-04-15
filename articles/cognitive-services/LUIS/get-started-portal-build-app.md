@@ -2,13 +2,13 @@
 title: 'Snabbstart: Skapa en ny app i LUIS-portalen'
 description: I den här snabbstarten skapar du de grundläggande delarna av en app, avsikter och entiteter samt testar med exempelyttrande i LUIS-portalen.
 ms.topic: quickstart
-ms.date: 03/24/2020
-ms.openlocfilehash: f0c8f0c77f832e049dfc494f82e90edb61a8cb2a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 04/14/2020
+ms.openlocfilehash: 2d601646c43c0f0d99dc6934cf1f1c960e0b0f79
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80244622"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382572"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Snabbstart: Skapa en ny app i LUIS-portalen
 
@@ -88,11 +88,10 @@ Lägg till följande 15 exempel `FindForm` yttranden till avsikten.
 Efter design varierar de här exempelyttrandena på följande sätt:
 
 * uttryckslängd
-* Skiljetecken
+* [Skiljetecken](luis-reference-application-settings.md#punctuation-normalization)
 * ordval
 * verb tempus (är, var, kommer att vara)
 * ordföljd
-
 
 
 ## <a name="create-a-regular-expression-entity"></a>Skapa entitet för reguljärt uttryck

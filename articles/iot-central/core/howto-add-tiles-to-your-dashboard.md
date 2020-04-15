@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 49b41715d95a5f210e6e70faf09aa016d1478728
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f75e5a28f7ec56750432e74ee48ba68491a5e481
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158816"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310288"
 ---
 # <a name="configure-the-application-dashboard"></a>Konfigurera instrumentpanelen för programmet
 
@@ -74,7 +74,7 @@ I följande tabell sammanfattas användningen av paneler i Azure IoT Central:
 | Innehåll | Instrumentpaneler för program- och enhetsuppsättningar |Paneler som stöds av Markdown är klickbara paneler som visar rubrik och beskrivningstext. Du kan också använda den här panelen som en länkpanel för att göra det möjligt för en användare att navigera till en URL som är relaterad till ditt program.|
 | Bild | Instrumentpaneler för program- och enhetsuppsättningar |Bildpaneler visar en anpassad bild och kan vara klickbara. Använd en bildpanel för att lägga till bilder på en instrumentpanel och aktivera en användare så att de navigerar till en URL som är relevant för ditt program.|
 | Label (Etikett) | Instrumentpaneler för program |Etikettpaneler visar anpassad text på en instrumentpanel. Du kan välja storleken på texten. Använd en etikettpanel för att lägga till relevant information i instrumentpanelen sådana beskrivningar, kontaktuppgifter eller hjälp.|
-| Karta | Instrumentpaneler för program- och enhetsuppsättningar |Kartpaneler visar platsen och tillståndet för en enhet på en karta. Du kan till exempel visa var en enhet finns och om fläkten är påslagen.|
+| Karta | Instrumentpaneler för program och enheter |Kartpaneler visar platsen för en enhet på en karta. Du kan också visa upp till 100 punkter av en enhets platshistorik. Du kan till exempel visa en visningsursprut om var en enhet har befunnit sig den senaste veckan.|
 | Linjediagram | Instrumentpaneler för program och enheter |Paneler med linjediagram visar ett diagram över aggregerad mätning för en enhet under en tidsperiod. Du kan till exempel visa ett linjediagram som visar medeltemperaturen och trycket för en enhet för den senaste timmen.|
 | Stapeldiagram | Instrumentpaneler för program och enheter |Stapeldiagrampaneler visar ett diagram över sammanlagda mått för en enhet under en tidsperiod. Du kan till exempel visa ett stapeldiagram som visar medeltemperaturen och trycket för en enhet under den senaste timmen.|
 | Cirkeldiagram | Instrumentpaneler för program- och enhetsuppsättningar |Cirkeldiagrampaneler visar ett diagram över aggregerade mått för en enhet under en tidsperiod.|

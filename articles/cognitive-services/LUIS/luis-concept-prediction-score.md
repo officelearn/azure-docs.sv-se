@@ -1,28 +1,20 @@
 ---
 title: Förutsägelse poäng - LUIS
-titleSuffix: Azure Cognitive Services
 description: En förutsägelsepoäng anger graden av förtroende som LUIS API-tjänsten har för förutsägelseresultat, baserat på ett användarutseende.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/10/2019
-ms.author: diberry
-ms.openlocfilehash: b360bc82b80e834492b524acc5c4535b0409eda1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 709a34f0a278d8a17267c7544583798d54167dad
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74280815"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382364"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Förutsägelsepoäng indikerar förutsägelsenoggrannhet för avsikt och entiteter
 
 En förutsägelsepoäng anger graden av förtroende LUIS har för förutsägelseresultat av ett användarutseende.
 
-En förutsägelsepoäng är mellan noll (0) och en (1). Ett exempel på en mycket säker LUIS poäng är 0,99. Ett exempel på ett poängv för lågt självförtroende är 0,01. 
+En förutsägelsepoäng är mellan noll (0) och en (1). Ett exempel på en mycket säker LUIS poäng är 0,99. Ett exempel på ett poängv för lågt självförtroende är 0,01.
 
 |Poängvärde|Konfidensbedömning|
 |--|--|
@@ -33,11 +25,11 @@ En förutsägelsepoäng är mellan noll (0) och en (1). Ett exempel på en mycke
 
 ## <a name="top-scoring-intent"></a>Avsikt med högsta poäng
 
-Varje uttryck förutsägelse returnerar en top-scoring avsikt. Denna förutsägelse är en numerisk jämförelse av förutsägelsepoäng. 
+Varje uttryck förutsägelse returnerar en top-scoring avsikt. Denna förutsägelse är en numerisk jämförelse av förutsägelsepoäng.
 
 ## <a name="proximity-of-scores-to-each-other"></a>Närhet av poäng till varandra
 
-De 2 bästa poängen kan ha en mycket liten skillnad mellan dem. LUIS anger inte denna närhet annat än att returnera den högsta poängen.  
+De 2 bästa poängen kan ha en mycket liten skillnad mellan dem. LUIS anger inte denna närhet annat än att returnera den högsta poängen.
 
 ## <a name="return-prediction-score-for-all-intents"></a>Returnera förutsägelsepoäng för alla avsikter
 
@@ -74,9 +66,11 @@ Förutsägelsepoäng kan använda exponent notation, _som visas_ ovanför interv
 |--|--|
 |9.910309E-07|.0000009910309|
 
-## <a name="punctuation"></a>Skiljetecken
+<a name="punctuation"></a>
 
-[Läs mer](luis-concept-utterance.md#punctuation-marks) om hur du använder eller ignorerar interpunktion. 
+## <a name="application-settings"></a>Programinställningar
+
+Använd [programinställningar för](luis-reference-application-settings.md) att styra hur diakritiska tecken och interpunktion påverkar förutsägelsepoäng.
 
 ## <a name="next-steps"></a>Nästa steg
 

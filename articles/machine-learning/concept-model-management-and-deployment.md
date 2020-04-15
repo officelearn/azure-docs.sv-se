@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: f5aaf8adf33d27f8ebb99c8ca3a873d958632a4f
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 7857d11c625911cd1b49dfcf0e0d612fc6a3871e
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80616835"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314298"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Modellhantering, distribution och övervakning med Azure Machine Learning
 
@@ -124,6 +124,16 @@ Om du vill distribuera modellen som en webbtjänst måste du ange följande:
 
 Mer information finns i [Distribuera modeller](how-to-deploy-and-where.md).
 
+#### <a name="controlled-rollout"></a>Kontrollerad utrullning
+
+När du distribuerar till Azure Kubernetes Service kan du använda kontrollerad distribution för att aktivera följande scenarier:
+
+* Skapa flera versioner av en slutpunkt för en distribution
+* Utför A/B-testning genom att dirigera trafik till olika versioner av slutpunkten.
+* Växla mellan slutpunktsversioner genom att uppdatera trafikprocenten i slutpunktskonfigurationen.
+
+Mer information finns i [Kontrollerad utrullning av ML-modeller](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview).
+
 #### <a name="iot-edge-devices"></a>IoT Edge-enheter
 
 Du kan använda modeller med IoT-enheter via **Azure IoT Edge-moduler**. IoT Edge-moduler distribueras till en maskinvaruenhet, vilket möjliggör slutledning eller modellbedömning på enheten.
@@ -136,12 +146,20 @@ Microsoft Power BI stöder användning av maskininlärningsmodeller för dataana
 
 ## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>Samla in de styrningsdata som krävs för att samla in ml-livscykeln från sluten till
 
-Azure ML ger dig möjlighet att spåra granskningsspåret från på till sluten tid för alla dina ML-tillgångar. Mer specifikt:
+Azure ML ger dig möjlighet att spåra granskningsspåret från på till sluten tid för alla dina ML-tillgångar med hjälp av metadata.
 
 - Azure ML [integreras med Git](how-to-set-up-training-targets.md#gitintegration) för att spåra information om vilken databas /gren/genomföra koden som kom från.
-- [Azure ML-datauppsättningar](how-to-create-register-datasets.md) hjälper dig att spåra, profilera och versionsdata. 
+- [Azure ML-datauppsättningar](how-to-create-register-datasets.md) hjälper dig att spåra, profilera och versionsdata.
+- [Med tolkningsförmåga](how-to-machine-learning-interpretability.md) kan du förklara dina modeller, uppfylla regelefterlevnad och förstå hur modeller kommer fram till ett resultat för given input.
 - Azure ML Run-historik lagrar en ögonblicksbild av koden, data och beräkningar som används för att träna en modell.
 - Azure ML-modellregistret samlar in alla metadata som är associerade med din modell (som experimenterar tränade den, där den distribueras, om dess distributioner är felfria).
+- [Med integrering med Azure Event Grid](concept-event-grid-integration.md) kan du agera på händelser i ML-livscykeln. Till exempel modellregistrering, distribution, data drift och utbildning (kör) händelser.
+
+> [!TIP]
+> Medan viss information om modeller och datauppsättningar fångas in automatiskt kan du lägga till ytterligare information med hjälp av __taggar__. När du letar efter registrerade modeller och datauppsättningar på arbetsytan kan du använda taggar som filter.
+>
+> Att associera en datauppsättning med en registrerad modell är ett valfritt steg. Information om hur du refererar till en datauppsättning när du registrerar en modell finns i klassreferensen [Modell.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py)
+
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Meddela, automatisera och varna om händelser i ML-livscykeln
 Azure ML publicerar viktiga händelser till Azure EventGrid, som kan användas för att meddela och automatisera händelser i ML-livscykeln. Mer information finns i [det här dokumentet](how-to-use-event-grid.md).
@@ -157,7 +175,7 @@ Mer information finns i [Så här aktiverar du insamling av modelldata](how-to-e
 
 ## <a name="retrain-your-model-on-new-data"></a>Omskola din modell på nya data
 
-Ofta vill du uppdatera din modell, eller till och med träna om den från grunden, när du får ny information. Ibland är det en förväntad del av domänen att ta emot nya data. Andra gånger, som diskuteras i [Identifiera data drift (förhandsvisning) på datauppsättningar](how-to-monitor-datasets.md), modellprestanda kan försämras inför sådana saker som ändringar i en viss sensor, naturliga data förändringar såsom säsongsbetonade effekter, eller funktioner som skiftar i deras förhållande till andra funktioner. 
+Ofta vill du validera din modell, uppdatera den eller till och med träna om den från grunden när du får ny information. Ibland är det en förväntad del av domänen att ta emot nya data. Andra gånger, som diskuteras i [Identifiera data drift (förhandsvisning) på datauppsättningar](how-to-monitor-datasets.md), modellprestanda kan försämras inför sådana saker som ändringar i en viss sensor, naturliga data förändringar såsom säsongsbetonade effekter, eller funktioner som skiftar i deras förhållande till andra funktioner. 
 
 Det finns inget universellt svar på "Hur vet jag om jag ska omskola mig?" men Azure ML-händelse- och övervakningsverktyg som tidigare diskuterats är bra utgångspunkter för automatisering. När du har bestämt dig för att omskola dig bör du: 
 

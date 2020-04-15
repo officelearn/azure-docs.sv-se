@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 4cd2969f9a56c96af2b2c6db216f6829a080260c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7feb0f00c5431048d19d4ad6cb3860f6eb8ed052
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371283"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312709"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Automatisk skalning och zonredundant Application Gateway v2 
 
@@ -26,16 +26,16 @@ Den nya v2 SKU innehåller följande förbättringar:
   Zonredundans är endast tillgängligt där Azure Zoner är tillgängliga. I andra regioner stöds alla andra funktioner. Mer information finns [i Vad är tillgänglighetszoner i Azure?](../availability-zones/az-overview.md#services-support-by-region)
 - **Statisk VIP:** Application Gateway v2 SKU stöder statisk VIP-typ exklusivt. Detta säkerställer att VIP som är associerat med programgatewayen inte ändras för distributionens livscykel, även efter en omstart.  Det finns inte en statisk VIP i v1, så du måste använda programgateway-URL:en i stället för IP-adressen för domännamnsroutning till App Services via programgatewayen.
 - **Rubrik skriva om:** Application Gateway kan du lägga till, ta bort eller uppdatera HTTP begäran och svar rubriker med v2 SKU. Mer information finns i [Skriva om HTTP-huvuden med Application Gateway](rewrite-http-headers.md)
-- **Key Vault Integration**: Application Gateway v2 stöder integrering med Key Vault för servercertifikat som är kopplade till HTTPS-aktiverade lyssnare. Mer information finns i [SSL-avslutning med Key Vault-certifikat](key-vault-certs.md).
+- **Key Vault Integration**: Application Gateway v2 stöder integrering med Key Vault för servercertifikat som är kopplade till HTTPS-aktiverade lyssnare. Mer information finns i [TLS-avslutning med Key Vault-certifikat](key-vault-certs.md).
 - **Azure Kubernetes Service Ingress Controller**: Application Gateway v2 Ingress Controller gör att Azure Application Gateway kan användas som inträngning för en Azure Kubernetes Service (AKS) som kallas AKS Cluster. Mer information finns [i Vad är Ingress Controller för programgateway?](ingress-controller-overview.md).
-- **Prestandaförbättringar:** V2 SKU erbjuder upp till 5X bättre SSL avlastning prestanda jämfört med Standard / WAF SKU.
+- **Prestandaförbättringar:** V2 SKU erbjuder upp till 5X bättre TLS avlastningsprestanda jämfört med Standard/WAF SKU.
 - **Snabbare driftsättnings- och uppdateringstid** V2 SKU ger snabbare distribution och uppdateringstid jämfört med Standard/WAF SKU. Detta inkluderar även KONFIGURATIONSÄNDRINGAR FÖR WAF.
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-Standard_v2 och WAF_v2 SKU finns i följande regioner: Norra centrala USA, Södra centrala USA, Västra USA, Västra USA 2, Östra USA, Östra USA, Centrala USA, Norra Europa, Västeuropa, Sydostasien, Frankrike Central, Storbritannien Väst, Japan Öst, Japan Väst, Australien Öst , Sydöstra Australien, Södra Brasilien, Kanada Central, Östra Kanada, Östra Asien, Korea Central, Korea Syd, Södra Storbritannien, Centrala Indien, Västra Indien, Södra Indien.
+Standard_v2 och WAF_v2 SKU finns i följande regioner: Norra centrala USA, Södra centrala USA, Västra USA, Västra USA 2, Östra USA, Östra USA 2, Centrala USA, Norra Europa, Västeuropa, Sydostasien, Frankrike Centrala, Västra Storbritannien, Japan Öst, Japan Öst, Västra Australien, Östra Australien, Sydöstran, Södra Brasilien, Kanada Central, Kanada Öst, Östra Asien, Sydkorea Central, Korea Syd, Sydkorea , Södra Storbritannien, Centrala Indien, Västra Indien, Södra Indien.
 
 ## <a name="pricing"></a>Prissättning
 
@@ -77,7 +77,7 @@ Totalt pris = $148.8 + $297.6 = $446.4
 
 **Exempel 2**
 
-En Application Gateway standard_v2 är etablerad för en månad, med noll minsta instanser, och under denna tid tar emot 25 nya SSL-anslutningar/sek, i genomsnitt 8,88 Mbit/s dataöverföring. Förutsatt anslutningar är kortlivade, skulle ditt pris vara:
+En Application Gateway standard_v2 är etablerad för en månad, med noll minsta instanser, och under denna tid tar emot 25 nya TLS-anslutningar/sek, i genomsnitt 8,88 Mbit/s dataöverföring. Förutsatt anslutningar är kortlivade, skulle ditt pris vara:
 
 Fast pris = 744(timmar) * $0.20 = $148.8
 
@@ -105,7 +105,7 @@ I det här fallet faktureras du för hela de fem instanserna även om det inte f
 
 **Exempel 4**
 
-En Application Gateway-standard_v2 har etablerats för en månad, med minst fem instanser, men den här gången finns det ett genomsnitt på 125 MBps-dataöverföring och 25 SSL-anslutningar per sekund. Förutsatt att det inte finns någon trafik och anslutningar är kortlivade, skulle ditt pris vara:
+En Application Gateway-standard_v2 har etablerats för en månad, med minst fem instanser, men den här gången finns det ett genomsnitt på 125 Mbit/s dataöverföring och 25 TLS-anslutningar per sekund. Förutsatt att det inte finns någon trafik och anslutningar är kortlivade, skulle ditt pris vara:
 
 Fast pris = 744(timmar) * $0.20 = $148.8
 
@@ -117,7 +117,7 @@ I det här fallet debiteras du för hela fem instanser, plus sju kapacitetsenhet
 
 **Exempel 5**
 
-En application gateway-WAF_v2 har etablerats för en månad. Under denna tid tar den emot 25 nya SSL-anslutningar/sek, i genomsnitt 8,88 Mbit/s dataöverföring och gör 80 begäranden per sekund. Förutsatt att anslutningarna är kortlivade och att beräkningsenhetsberäkningen för programmet stöder 10 RPS per beräkningsenhet, skulle ditt pris vara:
+En application gateway-WAF_v2 har etablerats för en månad. Under denna tid tar den emot 25 nya TLS-anslutningar/sek, i genomsnitt 8,88 Mbit/s dataöverföring och gör 80 begäranden per sekund. Förutsatt att anslutningarna är kortlivade och att beräkningsenhetsberäkningen för programmet stöder 10 RPS per beräkningsenhet, skulle ditt pris vara:
 
 Fast pris = 744(timmar) * $0.36 = $267.84
 
@@ -152,8 +152,8 @@ I följande tabell jämförs de funktioner som är tillgängliga med varje SKU.
 | Omdirigering av trafik                               | &#x2713; | &#x2713; |
 | Brandvägg för webbaserade program (WAF)                    | &#x2713; | &#x2713; |
 | Anpassade WAF-regler                                  |          | &#x2713; |
-| Secure Sockets Layer-avslutning (SSL)            | &#x2713; | &#x2713; |
-| SSL-kryptering från slutpunkt till slutpunkt                         | &#x2713; | &#x2713; |
+| Avslutande av transportlagersäkerhet (TLS)/SSL-avslutning (Secure Sockets Layer)            | &#x2713; | &#x2713; |
+| TLS-kryptering från slutpunkt till slutpunkt                         | &#x2713; | &#x2713; |
 | Sessionstillhörighet                                  | &#x2713; | &#x2713; |
 | Anpassade felsidor                                | &#x2713; | &#x2713; |
 | WebSocket-stöd                                 | &#x2713; | &#x2713; |
@@ -167,7 +167,7 @@ I följande tabell jämförs de funktioner som är tillgängliga med varje SKU.
 
 |Skillnad|Information|
 |--|--|
-|Autentiseringscertifikat|Stöds inte.<br>Mer information finns i [Översikt över SSL från till med Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
+|Autentiseringscertifikat|Stöds inte.<br>Mer information finns i [Översikt över TLS från till med Application Gateway](ssl-overview.md#end-to-end-tls-with-the-v2-sku).|
 |Blanda Standard_v2 och standardprogramgateway i samma undernät|Stöds inte|
 |UDR (User-Defined Route) i undernätet Application Gateway|Stöds (specifika scenarier). I förhandsgranskning.<br> Mer information om scenarier som stöds finns i [konfigurationsöversikt för Programgateway](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).|
 |NSG för inkommande portområde| - 65200 till 65535 för Standard_v2 SKU<br>- 65503 till 65534 för Standard SKU.<br>Mer information finns i [vanliga frågor](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet)och svar .|

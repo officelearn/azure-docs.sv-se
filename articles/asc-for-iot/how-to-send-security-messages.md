@@ -1,5 +1,5 @@
 ---
-title: Skicka dina säkerhetsmeddelanden till Azure Security Center för IoT| Microsoft-dokument
+title: Skicka säkerhetsmeddelanden för enheter
 description: Lär dig hur du skickar dina säkerhetsmeddelanden med Azure Security Center för IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,25 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 8bbbd8248c7418b667e34389cb47bd3f6b4f06ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4877493982671b1b5db686715ef854f25c2966ea
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76963826"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310981"
 ---
 # <a name="send-security-messages-sdk"></a>Skicka säkerhetsmeddelanden SDK
 
-I den här programguiden beskrivs Azure Security Center for IoT-tjänstfunktionerna när du väljer att samla in och skicka enhetssäkerhetsmeddelanden utan att använda en Azure Security Center för IoT-agent och förklarar hur du gör det.  
+I den här programguiden beskrivs Azure Security Center for IoT-tjänstfunktionerna när du väljer att samla in och skicka enhetssäkerhetsmeddelanden utan att använda en Azure Security Center för IoT-agent och förklarar hur du gör det.
 
-I den här guiden får du lära du dig att: 
+I den här guiden får du lära du dig att:
+
 > [!div class="checklist"]
 > * Skicka säkerhetsmeddelanden med Azure IoT C SDK
 > * Skicka säkerhetsmeddelanden med Azure IoT C# SDK
 > * Skicka säkerhetsmeddelanden med Azure IoT Python SDK
 > * Skicka säkerhetsmeddelanden med Azure IoT Node.js SDK
 > * Skicka säkerhetsmeddelanden med Azure IoT Java SDK
-
 
 ## <a name="azure-security-center-for-iot-capabilities"></a>Azure Security Center för IoT-funktioner
 
@@ -42,6 +42,7 @@ Azure Security Center för IoT kan bearbeta och analysera alla typer av säkerhe
 ## <a name="security-message"></a>Säkerhetsmeddelande
 
 Azure Security Center for IoT definierar ett säkerhetsmeddelande med följande villkor:
+
 - Om meddelandet skickades med Azure IoT SDK
 - Om meddelandet överensstämmer med [säkerhetsmeddelandeschemat](https://aka.ms/iot-security-schemas)
 - Om meddelandet angavs som ett säkerhetsmeddelande innan
@@ -49,10 +50,10 @@ Azure Security Center for IoT definierar ett säkerhetsmeddelande med följande 
 Varje säkerhetsmeddelande innehåller metadata för `AgentId`avsändaren, `AgentVersion` `MessageSchemaVersion` till exempel , och en lista över säkerhetshändelser.
 Schemat definierar de giltiga och obligatoriska egenskaperna för säkerhetsmeddelandet, inklusive typer av händelser.
 
->[!Note]
-> Meddelanden som skickas och som inte överensstämmer med schemat ignoreras. Kontrollera att schemat kontrolleras innan du börjar skicka data eftersom ignorerade meddelanden för närvarande inte lagras. 
+> [!NOTE]
+> Meddelanden som skickas och som inte överensstämmer med schemat ignoreras. Kontrollera att schemat kontrolleras innan du börjar skicka data eftersom ignorerade meddelanden för närvarande inte lagras.
 
->[!Note]
+> [!NOTE]
 > Meddelanden som skickades som inte har angetts som ett säkerhetsmeddelande med Azure IoT SDK dirigeras inte till Azure Security Center för IoT-pipeline.
 
 ## <a name="valid-message-example"></a>Giltigt meddelandeexempel
@@ -89,62 +90,63 @@ När det här meddelandet har angetts som ett säkerhetsmeddelande och skickats 
 ]
 ```
 
-## <a name="send-security-messages"></a>Skicka säkerhetsmeddelanden 
+## <a name="send-security-messages"></a>Skicka säkerhetsmeddelanden
 
 Skicka säkerhetsmeddelanden *utan* att använda Azure Security Center för IoT-agent, med hjälp av [Azure IoT C-enheten SDK](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview), Azure [IoT C#-enhet SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview), Azure [IoT Node.js SDK](https://github.com/Azure/azure-iot-sdk-node), [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python)eller [Azure IoT Java SDK](https://github.com/Azure/azure-iot-sdk-java).
 
-Om du vill skicka enhetsdata från dina enheter för bearbetning av Azure Security Center för IoT använder du något av följande API:er för att markera meddelanden för korrekt routning till Azure Security Center för IoT-bearbetningspipeline. 
+Om du vill skicka enhetsdata från dina enheter för bearbetning av Azure Security Center för IoT använder du något av följande API:er för att markera meddelanden för korrekt routning till Azure Security Center för IoT-bearbetningspipeline.
 
-Alla data som skickas, även om de markeras med rätt huvud, måste också följa [Azure Security Center för IoT-meddelandeschema](https://aka.ms/iot-security-schemas). 
+Alla data som skickas, även om de markeras med rätt huvud, måste också följa [Azure Security Center för IoT-meddelandeschema](https://aka.ms/iot-security-schemas).
 
-### <a name="send-security-message-api"></a>Api för säkerhetsmeddelande 
+### <a name="send-security-message-api"></a>Api för säkerhetsmeddelande
 
-**API:et för skicka säkerhetsmeddelanden** är för närvarande tillgängligt i C och C#, Python, Node.js och Java.  
+**API:et för skicka säkerhetsmeddelanden** är för närvarande tillgängligt i C och C#, Python, Node.js och Java.
 
 #### <a name="c-api"></a>C-API
 
 ```c
 bool SendMessageAsync(IoTHubAdapter* iotHubAdapter, const void* data, size_t dataSize) {
- 
+
     bool success = true;
     IOTHUB_MESSAGE_HANDLE messageHandle = NULL;
- 
+
     messageHandle = IoTHubMessage_CreateFromByteArray(data, dataSize);
- 
+
     if (messageHandle == NULL) {
         success = false;
         goto cleanup;
     }
- 
+
     if (IoTHubMessage_SetAsSecurityMessage(messageHandle) != IOTHUB_MESSAGE_OK) {
         success = false;
         goto cleanup;
     }
- 
+
     if (IoTHubModuleClient_SendEventAsync(iotHubAdapter->moduleHandle, messageHandle, SendConfirmCallback, iotHubAdapter) != IOTHUB_CLIENT_OK) {
         success = false;
         goto cleanup;
     }
- 
+
 cleanup:
     if (messageHandle != NULL) {
         IoTHubMessage_Destroy(messageHandle);
     }
- 
+
     return success;
 }
- 
+
 static void SendConfirmCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* userContextCallback) {
     if (userContextCallback == NULL) {
         //error handling
         return;
     }
- 
+
     if (result != IOTHUB_CLIENT_CONFIRMATION_OK){
         //error handling
     }
 }
 ```
+
 #### <a name="c-api"></a>C#-API
 
 ```cs
@@ -157,6 +159,7 @@ private static async Task SendSecurityMessageAsync(string messageContent)
     await client.SendEventAsync(securityMessage);
 }
 ```
+
 #### <a name="nodejs-api"></a>Api för nod.js
 
 ```typescript
@@ -194,7 +197,7 @@ function SendSecurityMessage(messageContent)
 
 Om du vill använda Python-API:et måste du installera paketet [azure-iot-device](https://pypi.org/project/azure-iot-device/).
 
-När du använder Python-API:et kan du antingen skicka säkerhetsmeddelandet via modulen eller via enheten med hjälp av den unika anslutningssträngen för enheten eller modulen. När du använder följande Python-skriptexempel, med en enhet, använd **IoTHubDeviceClient**och använd **IoTHubModuleClient**med en modul . 
+När du använder Python-API:et kan du antingen skicka säkerhetsmeddelandet via modulen eller via enheten med hjälp av den unika anslutningssträngen för enheten eller modulen. När du använder följande Python-skriptexempel, med en enhet, använd **IoTHubDeviceClient**och använd **IoTHubModuleClient**med en modul .
 
 ```python
 from azure.iot.device.aio import IoTHubDeviceClient, IoTHubModuleClient
@@ -224,8 +227,8 @@ public void SendSecurityMessage(string message)
 }
 ```
 
-
 ## <a name="next-steps"></a>Nästa steg
+
 - Läs [översikt](overview.md) över Azure Security Center for IoT-tjänsten
 - Läs mer om Azure Security Center för [IoT-arkitektur](architecture.md)
 - Aktivera [tjänsten](quickstart-onboard-iot-hub.md)

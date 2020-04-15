@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/14/2020
 ms.author: aahi
-ms.openlocfilehash: 4d597b872cf31a823f314d9f3c67c9f45201c542
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 17582244aef173da6ac700c980f7bd7fb0fec307
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258481"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383083"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Taltjänstbehållare med vanliga frågor och svar (FAQ)
 
@@ -379,7 +379,7 @@ Doc säger att exponera en annan port, vilket jag gör, men LUIS-behållaren lys
 <b>Hur kan jag få API:er &lt;som inte är batch-api:er för att hantera ljud 15 sekunder?</b>
 </summary>
 
-**Svar:** Detta är i interaktivt läge. Om du använder diktering eller konversation som inte är ett problem.
+**Svar:** `RecognizeOnce()` i interaktivt läge bearbetar endast upp till 15 sekunder av ljud, eftersom läget är avsett för talkommando där yttranden förväntas vara korta. Om du `StartContinuousRecognition()` använder för diktering eller konversation finns det ingen gräns på 15 sekunder.
 
 
 <br>

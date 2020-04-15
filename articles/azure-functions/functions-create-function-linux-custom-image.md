@@ -5,16 +5,16 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 44ca8f721967b90be283f867f8656344ec3f1906
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 80881d96d713f3dc4127c94fd324e925e3c68792
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673419"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382935"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Skapa en funktion på Linux med en anpassad behållare
 
-I den här självstudien skapar och distribuerar du Python-kod till Azure Functions som en anpassad Docker-behållare med hjälp av en Linux-basavbildning. Du använder vanligtvis en anpassad avbildning när dina funktioner kräver en viss språkversion eller har ett specifikt beroende eller en specifik konfiguration som inte tillhandahålls av den inbyggda avbildningen.
+I den här självstudien skapar och distribuerar du koden till Azure Functions som en anpassad Docker-behållare med hjälp av en Linux-basavbildning. Du använder vanligtvis en anpassad avbildning när dina funktioner kräver en viss språkversion eller har ett specifikt beroende eller en specifik konfiguration som inte tillhandahålls av den inbyggda avbildningen.
 
 Du kan också använda en standardbehållare för Azure App Service enligt beskrivningen på [Skapa din första funktion som finns på Linux](functions-create-first-azure-function-azure-cli-linux.md). Basavbildningar som stöds för Azure Functions finns i [azure functions basavbildningar repo](https://hub.docker.com/_/microsoft-azure-functions-base).
 

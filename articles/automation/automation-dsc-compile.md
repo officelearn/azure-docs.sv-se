@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6ce55b83f5547534e44d689adccdd952abc025d5
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 3145c7db064432e443aae5dcd503905b865ffe46
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010961"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383258"
 ---
 # <a name="compile-dsc-configurations-in-azure-automation-state-configuration"></a>Kompilera DSC-konfigurationer i Azure Automation State Configuration
 
@@ -29,6 +29,9 @@ Du kan kompilera DSC-konfigurationer (Desired State Configuration) i Azure Autom
 
 Du kan också använda Azure Resource Manager-mallar med DSC-tillägg (Azure Desired State Configuration) för att skicka konfigurationer till dina virtuella Azure-datorer. Azure DSC-tillägget använder Azure VM Agent-ramverket för att leverera, anta och rapportera om DSC-konfigurationer som körs på virtuella Azure-datorer. Information om kompilering med Azure Resource Manager-mallar finns i [Tillägget För önskad tillståndskonfiguration med Azure Resource Manager-mallar](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template#details). 
 
+>[!NOTE]
+>Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installationsinstruktioner för Az-modul på hybridkörningsarbetaren finns [i Installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med [så här uppdaterar du Azure PowerShell-moduler i Azure Automation](automation-update-azure-modules.md).
+
 ## <a name="compiling-a-dsc-configuration-in-azure-state-configuration"></a>Kompilera en DSC-konfiguration i Azure State Configuration
 
 ### <a name="portal"></a>Portalen
@@ -41,13 +44,13 @@ Du kan också använda Azure Resource Manager-mallar med DSC-tillägg (Azure Des
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Du kan använda [Start-AzAutomationDscCompilationJob](/powershell/module/az.automation/start-azautomationdsccompilationjob) för att börja kompilera med Windows PowerShell. Följande exempelkod börjar sammanställa en DSC-konfiguration som heter SampleConfig.
+Du kan använda [Start-AzAutomationDscCompilationJob](/powershell/module/az.automation/start-azautomationdsccompilationjob) för att börja kompilera med Windows PowerShell. Följande exempelkod börjar sammanställa en DSC-konfiguration som heter **SampleConfig**.
 
 ```powershell
 Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
 ```
 
-**Start-AzAutomationDscCompilationJob** returnerar ett kompileringsjobbobjekt som du kan använda för att spåra jobbstatus. Du kan sedan använda det här kompileringsjobbobjektet med [Get-AzAutomationDscCompilationJob](/powershell/module/az.automation/get-azautomationdsccompilationjob) för att bestämma status för kompileringsjobbet och [Get-AzAutomationDscCompilationJobOutput](/powershell/module/az.automation/get-azautomationdscconfiguration) för att visa dess strömmar (utdata). Följande exempel startar kompileringen av SampleConfig-konfigurationen, väntar tills den har slutförts och visar sedan dess strömmar.
+`Start-AzAutomationDscCompilationJob`returnerar ett kompileringsjobbobjekt som du kan använda för att spåra jobbstatus. Du kan sedan använda det här kompileringsjobbobjektet med [Get-AzAutomationDscCompilationJob](/powershell/module/az.automation/get-azautomationdsccompilationjob) för att bestämma status för kompileringsjobbet och [Get-AzAutomationDscCompilationJobOutput](/powershell/module/az.automation/get-azautomationdscconfiguration) för att visa dess strömmar (utdata). Följande exempel startar kompileringen av SampleConfig-konfigurationen, väntar tills den har slutförts och visar sedan dess strömmar.
 
 ```powershell
 $CompilationJob = Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
@@ -65,7 +68,7 @@ $CompilationJob | Get-AzAutomationDscCompilationJobOutput –Stream Any
 
 Parameterdeklaration i DSC-konfigurationer, inklusive parametertyper och egenskaper, fungerar på samma sätt som i Azure Automation-runbooks. Se [Starta en runbook i Azure Automation](automation-starting-a-runbook.md) om du vill veta mer om runbook-parametrar.
 
-I följande exempel används två parametrar som kallas *FeatureName* och *IsPresent*för att fastställa värdena för egenskaper i konfigurationen ParametersExample.sample, som genereras under kompileringen.
+I följande `FeatureName` exempel `IsPresent` används och parametrar för att fastställa värdena för egenskaper i nodkonfigurationen **ParametersExample.sample,** som genereras under kompileringen.
 
 ```powershell
 Configuration ParametersExample
@@ -116,7 +119,7 @@ $Parameters = @{
 Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'ParametersExample' -Parameters $Parameters
 ```
 
-Information om hur du skickar PSCredentials som parametrar finns i [Referenstillgångar](#credential-assets) nedan.
+Information om `PSCredential` hur du skickar objekt som parametrar finns i [Autentiseringsuppgifter.](#credential-assets)
 
 ### <a name="compile-configurations-containing-composite-resources-in-azure-automation"></a>Kompilera konfigurationer som innehåller sammansatta resurser i Azure Automation
 
@@ -132,7 +135,7 @@ Med funktionen **Sammansatta resurser** kan du använda DSC-konfigurationer som 
 > [!NOTE]
 > När du kompilerar i Azure Automation State Configuration kan du använda **ConfigurationData** i Azure PowerShell men inte i Azure-portalen.
 
-I följande exempel använder **DSC-konfiguration ConfigurationData** via nyckelorden $ConfigurationData och $AllNodes. Du behöver också [xWebAdministration-modulen](https://www.powershellgallery.com/packages/xWebAdministration/) för det här exemplet.
+I följande exempel använder DSC-konfiguration `$AllNodes` **ConfigurationData** via nyckelorden `$ConfigurationData` och. Du behöver också [xWebAdministration-modulen](https://www.powershellgallery.com/packages/xWebAdministration/) för det här exemplet.
 
 ```powershell
 Configuration ConfigurationDataSample
@@ -153,7 +156,7 @@ Configuration ConfigurationDataSample
 }
 ```
 
-Du kan kompilera den föregående DSC-konfigurationen med Windows PowerShell. Följande skript lägger till två nodkonfigurationer till pull-tjänsten För Azure Automation State Configuration: ConfigurationDataSample.MyVM1 och ConfigurationDataSample.MyVM3.
+Du kan kompilera den föregående DSC-konfigurationen med Windows PowerShell. Följande skript lägger till två nodkonfigurationer i pull-tjänsten För Azure Automation State Configuration: **ConfigurationDataSample.MyVM1** och **ConfigurationDataSample.MyVM3**.
 
 ```powershell
 $ConfigData = @{
@@ -191,7 +194,7 @@ Tillgångsreferenser är desamma i både Azure Automation State Configuration oc
 
 #### <a name="credential-assets"></a>Autentiseringsuppgifter tillgångar
 
-DSC-konfigurationer i Azure Automation kan referera till resurser för Automation-autentiseringsuppgifter med hjälp av cmdleten **Get-AutomationPSCredential.** Om en konfiguration har en parameter som anger ett **PSCredential-objekt** använder du **Get-AutomationPSCredential** genom att skicka strängnamnet för en Azure Automation-autentiseringstillgång till cmdleten för att hämta autentiseringsuppgifterna. Använd sedan objektet för parametern som kräver **PSCredential-objektet.** Bakom kulisserna hämtas Azure Automation-autentiseringstillgången med det namnet och skickas till konfigurationen. Exemplet nedan visar det här scenariot i praktiken.
+DSC-konfigurationer i Azure Automation kan referera till `Get-AutomationPSCredential` resurser för Automation-autentiseringsuppgifter med hjälp av cmdleten. Om en konfiguration har en `PSCredential` parameter som `Get-AutomationPSCredential` anger ett objekt, använd genom att skicka strängnamnet för en Azure Automation-referenstillgång till cmdleten för att hämta autentiseringsuppgifterna. Använd sedan objektet för den parameter `PSCredential` som kräver objektet. Bakom kulisserna hämtas Azure Automation-autentiseringstillgången med det namnet och skickas till konfigurationen. Exemplet nedan visar det här scenariot i praktiken.
 
 För att autentiseringsuppgifterna ska vara säkra i nodkonfigurationer (MOF-konfigurationsdokument) måste autentiseringsuppgifterna krypteras i nodkonfigurationen MOF-fil. För närvarande måste du ge PowerShell DSC behörighet till utdataautentiseringsuppgifter i oformaterad text under nodkonfiguration MOF generation. PowerShell DSC är inte medveten om att Azure Automation krypterar hela MOF-filen efter genereringen via ett kompileringsjobb.
 
@@ -217,7 +220,7 @@ Configuration CredentialSample
 }
 ```
 
-Du kan kompilera föregående DSC-konfiguration med PowerShell. Följande PowerShell-kod lägger till två nodkonfigurationer till pullservern för Azure Automation State Configuration: CredentialSample.MyVM1 och CredentialSample.MyVM2.
+Du kan kompilera föregående DSC-konfiguration med PowerShell. Följande PowerShell-kod lägger till två nodkonfigurationer till pullservern för Azure Automation State Configuration: **CredentialSample.MyVM1** och **CredentialSample.MyVM2**.
 
 ```powershell
 $ConfigData = @{
@@ -239,16 +242,16 @@ Start-AzAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -Automa
 ```
 
 > [!NOTE]
-> När kompileringen är klar kan felmeddelandet "Microsoft.PowerShell.Management"-modulen inte importerades eftersom snapin-modulen Microsoft.PowerShell.Management redan har importerats. Du kan ignorera det här meddelandet.
+> När kompileringen är klar kan `The 'Microsoft.PowerShell.Management' module was not imported because the 'Microsoft.PowerShell.Management' snap-in was already imported.` felmeddelandet Du kan ignorera det här meddelandet på ett säkert sätt.
 
 ## <a name="compiling-your-dsc-configuration-in-windows-powershell"></a>Kompilera DSC-konfigurationen i Windows PowerShell
 
-Du kan också importera nodkonfigurationer (MOFs) som har kompilerats utanför Azure. Importen omfattar kompilering från en utvecklararbetsstation eller i en tjänst som [Azure DevOps](https://dev.azure.com). Den här metoden har flera fördelar, inklusive prestanda och tillförlitlighet.
+Du kan också importera nodkonfigurationer (MOF-filer) som har kompilerats utanför Azure. Importen omfattar kompilering från en utvecklararbetsstation eller i en tjänst som [Azure DevOps](https://dev.azure.com). Den här metoden har flera fördelar, inklusive prestanda och tillförlitlighet.
 
 Kompilering i Windows PowerShell ger också möjlighet att signera konfigurationsinnehåll. DSC-agenten verifierar en signerad nodkonfiguration lokalt på en hanterad nod. Verifieringen säkerställer att konfigurationen som tillämpas på noden kommer från en auktoriserad källa.
 
 > [!NOTE]
-> En nodkonfigurationsfil får inte vara större än 1 MB för att den ska kunna importeras till Azure Automation.
+> En nodkonfigurationsfil får inte vara större än 1 MB för att Azure Automation ska kunna importera den.
 
 Mer information om signering av nodkonfigurationer finns [i Förbättringar i WMF 5.1 - Så här signerar och modul .](/powershell/scripting/wmf/whats-new/dsc-improvements#dsc-module-and-configuration-signing-validations)
 
@@ -260,7 +263,7 @@ Du kan köra den här processen från en utvecklararbetsstation eller inom en by
 ### <a name="import-a-node-configuration-in-the-azure-portal"></a>Importera en nodkonfiguration i Azure-portalen
 
 1. Klicka på **Tillståndskonfiguration (DSC)** i ditt Automation-konto under **Konfigurationshantering**.
-1. På sidan **Tillståndskonfiguration** (DSC) klickar du på fliken Konfigurationer och sedan på **+ Lägg till**.
+1. På sidan **Tillståndskonfiguration** (DSC) klickar du på fliken Konfigurationer och sedan **på Lägg till**.
 1. Klicka på mappikonen bredvid textrutan **Nod Configuration File** på sidan Importera för att bläddra efter en nodkonfigurationsfil (MOF) på den lokala datorn.
 
    ![Bläddra efter lokal fil](./media/automation-dsc-compile/import-browse.png)
@@ -280,6 +283,7 @@ Import-AzAutomationDscNodeConfiguration -AutomationAccountName 'MyAutomationAcco
 
 - Information om hur du kommer igång finns [i Komma igång med Azure Automation State Configuration](automation-dsc-getting-started.md).
 - Mer information om hur du kompilerar DSC-konfigurationer så att du kan tilldela dem till målnoder finns [i Kompilera konfigurationer i Azure Automation State Configuration](automation-dsc-compile.md).
-- Cmdlet-referens för PowerShell finns i [cmdlets för Azure Automation State Configuration](/powershell/module/az.automation).
+- En PowerShell-cmdlet-referens finns i [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
 - Prisinformation finns i [prissättningen för Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).
 - Information om hur du använder Azure Automation State Configuration i en pipeline för kontinuerlig distribution finns i [Kontinuerlig distribution till virtuella datorer med Azure Automation State Configuration och Chocolatey](automation-dsc-cd-chocolatey.md).

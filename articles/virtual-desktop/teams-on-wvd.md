@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cfec30e56b0fd523896cbc1a7e84e92f639075a8
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 15a4c9b16b102310fd02f8db3a4fb93cff84882b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879062"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314070"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Använda Microsoft Teams på Virtuellt Windows-skrivbord
 
@@ -67,3 +67,7 @@ Du kan distribuera Teams-skrivbordsappen med hjälp av en installation per dator
 
       > [!NOTE]
       > Om du installerar Teams med MSI-inställningen ALLUSER=1 inaktiveras automatiska uppdateringar. Vi rekommenderar att du uppdaterar Teams minst en gång i månaden.
+      
+### <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Anpassa egenskaper för fjärrskrivbordsprotokoll för en värdpool
+Genom att anpassa egenskaperna för en värdpools RDP-egenskaper (Remote Desktop Protocol), till exempel multi-monitor-upplevelse, aktivera mikrofon- och ljudomdirigering, kan du ge användarna en optimal upplevelse baserat på deras behov. Du kan anpassa RDP-egenskaper i Windows Virtual Desktop med parametern **-CustomRdpProperty** i cmdleten **Set-RdsHostPool.**
+Se [rdp-filinställningar som stöds](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) för en fullständig lista över egenskaper som stöds och deras standardvärden.

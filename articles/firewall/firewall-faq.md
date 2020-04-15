@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: victorh
-ms.openlocfilehash: af66da115e228efe39e4cd5dda3c494b71428676
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: ea94e452b463fffc1800e09fa1302abacdf015cc
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113563"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383071"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor och svar om Azure-brandväggen
 
@@ -72,9 +72,9 @@ Waf (Web Application Firewall) är en funktion i Application Gateway som ger cen
 
 Azure Firewall-tjänsten kompletterar nätverkssäkerhetsgruppfunktioner. Tillsammans ger de bättre "försvar på djupet" nätverkssäkerhet. Nätverkssäkerhetsgrupper tillhandahåller distribuerad trafikfiltrering av nätverkslager för att begränsa trafiken till resurser inom virtuella nätverk i varje prenumeration. Azure Firewall är en helt tillståndskänslig, centraliserad nätverksbrandvägg som en tjänst, som ger skydd på nätverks- och programnivå för olika prenumerationer och virtuella nätverk.
 
-## <a name="are-network-security-groups-nsgs-supported-on-the-azure-firewall-subnet"></a>Stöds NSG (Network Security Groups) i undernätet för Azure-brandväggen?
+## <a name="are-network-security-groups-nsgs-supported-on-the-azurefirewallsubnet"></a>Stöds NSG (Network Security Groups) på AzureFirewallSubnet?
 
-Azure Firewall är en hanterad tjänst med flera skyddslager, inklusive plattformsskydd med NSG-kort på NIC-nivå (kan inte visas).  NSG:er på undernät på undernät på undernät för undernät på azure-brandväggen och inaktiveras för att säkerställa inget avbrott i tjänsten.
+Azure Firewall är en hanterad tjänst med flera skyddslager, inklusive plattformsskydd med NSG-kort på NIC-nivå (kan inte visas).  NSG:er på undernätsnivå krävs inte på AzureFirewallSubnet och inaktiveras för att säkerställa inget avbrott i tjänsten.
 
 ## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Hur konfigurerar jag Azure-brandväggen med mina tjänstslutpunkter?
 

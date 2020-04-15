@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 03/11/2020
-ms.openlocfilehash: 4baf7974bdb0a5efe4cb556e820e9d13aeac5d8a
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.date: 04/14/2020
+ms.openlocfilehash: 18f8b0732e4af0229ff225d9c3b423e27bf342a8
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409842"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382799"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mappa dataflödens prestanda och justeringsguide
 
@@ -31,13 +31,13 @@ När du utformar mappningsdataflöden kan du enhetstesta varje omvandling genom 
 
  Du kan använda den här informationen för att uppskatta dataflödets prestanda mot datakällor av olika storlek. Mer information finns i [Övervaka mappningsdataflöden](concepts-data-flow-monitoring.md).
 
-![Dataflödesövervakning](media/data-flow/mon003.png "Övervakare för dataflöde 3")
+![Övervakning av dataflöde](media/data-flow/mon003.png "Övervakare för dataflöde 3")
 
  För pipeline-felsökning körs krävs ungefär en minuts klusterkonfigurationstid i dina övergripande prestandaberäkningar för ett varmt kluster. Om du initierar standardkörningen för Azure Integration kan det ta cirka 5 minuter att avsluta på upptagningstiden.
 
 ## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Öka beräkningsstorleken i Azure Integration Runtime
 
-En integrationskörning med fler kärnor ökar antalet noder i Spark-beräkningsmiljöerna och ger mer processorkraft för att läsa, skriva och omvandla dina data.
+En integrationskörning med fler kärnor ökar antalet noder i Spark-beräkningsmiljöerna och ger mer processorkraft för att läsa, skriva och omvandla dina data. ADF-dataflöden använder Spark för beräkningsmotorn. Spark-miljön fungerar mycket bra på minnesoptimerade resurser.
 * Prova ett **beräkningsoptimerat** kluster om du vill att bearbetningshastigheten ska vara högre än inmatningshastigheten.
 * Prova ett **minnesoptimerat** kluster om du vill cachelagra mer data i minnet. Minne optimerad har en högre prispunkt per kärna än beräkningsoptimerad, men kommer sannolikt att resultera i snabbare omvandlingshastigheter.
 
@@ -49,7 +49,11 @@ Mer information om hur du skapar en integrationskörning finns [i Integration Ru
 
 Som standard använder du standardkörningen för Azure Integration som skapas automatiskt för varje datafabrik. Den här standardvärdet för Azure IR är inställd på åtta kärnor, fyra för en drivrutinsnod och fyra för en arbetsnod med hjälp av egenskaper för allmän beräkning. När du testar med större data kan du öka storleken på felsökningsklustret genom att skapa en Azure IR med större konfigurationer och välja den här nya Azure IR när du aktiverar felsökning. Detta instruerar ADF att använda den här Azure IR för dataförhandsgranskning och pipeline-felsökning med dataflöden.
 
-## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Optimera för Azure SQL Database och Azure SQL Data Warehouse
+### <a name="decrease-cluster-compute-start-up-time-with-ttl"></a>Minska starttiden för klusterberäkning med TTL
+
+Det finns en egenskap i Azure IR under DataFlödesegenskaper som gör att du kan stå upp en pool med klusterberäkningsresurser för din fabrik. Med den här poolen kan du skicka dataflödesaktiviteter sekventiellt för körning. När poolen har upprättats tar varje efterföljande jobb 1-2 minuter för Spark-klustret på begäran att köra jobbet. Den första uppsättningen av resurspoolen tar cirka 6 minuter. Ange hur lång tid du vill underhålla resurspoolen i inställningen för tid att leva (TTL).
+
+## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse-synapse"></a>Optimera för Azure SQL Database och Azure SQL Data Warehouse Synapse
 
 ### <a name="partitioning-on-source"></a>Partitionering vid källa
 
@@ -73,7 +77,7 @@ Under **Källalternativ** i källomvandlingen kan följande inställningar påve
 * Om du anger en fråga kan du filtrera rader vid källan innan de anländer till Dataflöde för bearbetning. Detta kan göra den första datainsamlingen snabbare. Om du använder en fråga kan du lägga till valfria frågetips för din Azure SQL DB, till exempel LÄS OENGAGERADE.
 * Läsa oengagerad ger snabbare frågeresultat på Källa omvandling
 
-![Källkod](media/data-flow/source4.png "Källa")
+![Källa](media/data-flow/source4.png "Källa")
 
 ### <a name="sink-batch-size"></a>Diskbänkssatsstorlek
 

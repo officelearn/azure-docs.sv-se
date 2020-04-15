@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: efa2885ce0534c5d78bb08bbf24da59850f6ea22
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a171dc795e685655b5a3c73d088d3963c2aaa4ae
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74075179"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312308"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Stöd för programgateway för bakåtänddar med flera innehavare, till exempel apptjänst
 
@@ -30,9 +30,9 @@ Application Gateway erbjuder en funktion där användarna kan åsidosätta HTTP-
 
 Möjligheten att ange en värd åsidosättning definieras i [HTTP-inställningarna](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) och kan tillämpas på alla backend-pool under skapandet av regeln. Följande två sätt att åsidosätta värdhuvudet och SNI-tillägget för bakåtändar med flera innehavare stöds:
 
-- Möjligheten att ange värdnamnet till ett fast värde som uttryckligen anges i HTTP-inställningarna. Den här funktionen säkerställer att värdhuvudet åsidosätts för det här värdet för all trafik till backend-poolen där de särskilda HTTP-inställningarna tillämpas. När du använder SSL för slutpunkt till slutpunkt används det åsidosatta värdnamnet i SNI-tillägget. Med den här funktionen kan scenarier där en backend-poolgrupp förväntar sig ett värdhuvud som skiljer sig från det inkommande kundvärdhuvudet.
+- Möjligheten att ange värdnamnet till ett fast värde som uttryckligen anges i HTTP-inställningarna. Den här funktionen säkerställer att värdhuvudet åsidosätts för det här värdet för all trafik till backend-poolen där de särskilda HTTP-inställningarna tillämpas. När du använder TLS från till används det här åsidosatta värdnamnet i SNI-tillägget. Med den här funktionen kan scenarier där en backend-poolgrupp förväntar sig ett värdhuvud som skiljer sig från det inkommande kundvärdhuvudet.
 
-- Möjligheten att härleda värdnamnet från IP- eller FQDN för backend-poolmedlemmarna. HTTP-inställningar ger också ett alternativ för att dynamiskt välja värdnamnet från en backend-poolmedlems FQDN om det är konfigurerat med alternativet att härleda värdnamn från en enskild backend-poolmedlem. När SSL för slutpunkt till slutpunkt används härleds det här värdnamnet från det fullständigt kvalificerade domännamnet och används i SNI-tillägget. Med den här funktionen kan scenarier där en backend-pool kan ha två eller flera PaaS-tjänster med flera innehavare, till exempel Azure-webbappar och begärans värdhuvud till varje medlem, innehåller värdnamnet som härleds från dess FQDN. För att implementera det här scenariot använder vi en växel i HTTP-inställningarna som kallas [Välj värdnamn från backend-adress](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) som dynamiskt åsidosätter värdhuvudet i den ursprungliga begäran till den som nämns i backend-poolen.  Om din backend pool FQDN innehåller "contoso11.azurewebsites.net" och "contoso22.azurewebsites.net", kommer den ursprungliga begärans värdhuvud som contoso.com åsidosättas för att contoso11.azurewebsites.net eller contoso22.azurewebsites.net när begäran skickas till lämplig servergruppsserver. 
+- Möjligheten att härleda värdnamnet från IP- eller FQDN för backend-poolmedlemmarna. HTTP-inställningar ger också ett alternativ för att dynamiskt välja värdnamnet från en backend-poolmedlems FQDN om det är konfigurerat med alternativet att härleda värdnamn från en enskild backend-poolmedlem. När du använder slut-till-slut-TLS härleds det här värdnamnet från FQDN och används i SNI-tillägget. Med den här funktionen kan scenarier där en backend-pool kan ha två eller flera PaaS-tjänster med flera innehavare, till exempel Azure-webbappar och begärans värdhuvud till varje medlem, innehåller värdnamnet som härleds från dess FQDN. För att implementera det här scenariot använder vi en växel i HTTP-inställningarna som kallas [Välj värdnamn från backend-adress](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) som dynamiskt åsidosätter värdhuvudet i den ursprungliga begäran till den som nämns i backend-poolen.  Om din servergrupp FQDN till exempel innehåller "contoso11.azurewebsites.net" och "contoso22.azurewebsites.net", åsidosätts den ursprungliga begärans värdhuvud som är contoso.com för att contoso11.azurewebsites.net eller contoso22.azurewebsites.net när begäran skickas till lämplig server för server för server för server för server för server för server för server. 
 
   ![Scenario för webbappar](./media/application-gateway-web-app-overview/scenario.png)
 
@@ -40,11 +40,11 @@ Med den här funktionen skapar kunderna lämplig konfiguration genom att konfigu
 
 ## <a name="special-considerations"></a>Särskilda överväganden
 
-### <a name="ssl-termination-and-end-to-end-ssl-with-multi-tenant-services"></a>SSL-avslutning och slutpunkt till SSL med tjänster med flera innehavare
+### <a name="tls-termination-and-end-to-end-tls-with-multi-tenant-services"></a>TLS-avslutning och till TLS med tjänster med flera innehavare
 
-Både SSL-avslutning och slutpunkt till SSL-kryptering stöds med tjänster med flera innehavare. För SSL-avslutning vid programgatewayen måste SSL-certifikatet läggas till i programgatewaylyssnaren. Vid slutet till SSL kräver dock betrodda Azure-tjänster som Azure App-tjänstwebbappar inte att du vitlistar backends i programgatewayen. Därför finns det ingen anledning att lägga till några autentiseringscertifikat. 
+Både TLS-avslutning och slutpunkt till TLS-kryptering stöds med tjänster med flera innehavare. För TLS-avslutning vid programgatewayen måste TLS-certifikatet läggas till i programgatewaylyssnaren. Vid slutet till TLS kräver dock betrodda Azure-tjänster som Azure App-tjänstwebbappar inte att du vitlistar backends i programgatewayen. Därför finns det ingen anledning att lägga till några autentiseringscertifikat. 
 
-![på SSL](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
+![på TLS](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
 
 Observera att det i bilden ovan inte finns något krav på att lägga till autentiseringscertifikat när App-tjänsten väljs som serverning.
 

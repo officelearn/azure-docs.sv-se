@@ -1,5 +1,5 @@
 ---
-title: Anpassningsguide för Azure Security Center för IoT-lösning| Microsoft-dokument
+title: Anpassa inställningar
 description: I den här guiden beskrivs hur du anpassar inställningarna i azure security center för IoT-lösning.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2019
 ms.author: mlottner
-ms.openlocfilehash: c385be0c21e7a61f66eb274ec293f4aabd4208ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: efacec21482704393d4aa6e728377311e2bc5cda
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77458893"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311265"
 ---
-# <a name="customize-your-azure-security-center-for-iot-solution"></a>Anpassa din Azure Security Center för IoT-lösning 
+# <a name="customize-your-azure-security-center-for-iot-solution"></a>Anpassa din Azure Security Center för IoT-lösning
 
-I den här guiden kan du läsa om hur du anpassar olika inställningar i Azure Security Center för IoT.  
+I den här guiden kan du läsa om hur du anpassar olika inställningar i Azure Security Center för IoT.
 
 > [!div class="checklist"]
-> * Konfigurera lösningsrekommendationer 
-> * Ändra inställningar 
+> * Konfigurera lösningsrekommendationer
+> * Ändra inställningar
 
 ## <a name="change-settings"></a>Ändra inställningar
 
@@ -36,20 +36,20 @@ Hantera din Azure Security Center för IoT-inställning:
 
 På din IoT Hub går du till säkerhetsöversiktsbladet längst upp till vänster, läser "inställningar" Så här konfigurerar du dina Azure Security Center för IoT-inställningar:
 
-1. Öppna din **IoT Hub** i Azure-portalen. 
+1. Öppna din **IoT Hub** i Azure-portalen.
 1. Välj och öppna **Översikt**på den vänstra menyn under **Säkerhet**.
-1. Under Inställningar väljer du den lösningsinställning som du vill ändra.   
-1. Kom ihåg att alltid klicka på **Spara** högst upp på en inställningsskärm för att spara inställningsändringarna. 
+1. Under Inställningar väljer du den lösningsinställning som du vill ändra.
+1. Kom ihåg att alltid klicka på **Spara** högst upp på en inställningsskärm för att spara inställningsändringarna.
 
 ## <a name="configure-solution-recommendations"></a>Konfigurera lösningsrekommendationer
 
 Så här konfigurerar du azure security center för IoT-lösningsrekommendationer:
 
-1. Öppna din **IoT Hub** i Azure-portalen. 
+1. Öppna din **IoT Hub** i Azure-portalen.
 1. Välj och öppna **Översikt** under **Säkerhet** i den vänstra menyn.
-1. Under Inställningar väljer du **Rekommenderad konfiguration** på den vänstra menyn. 
-1. Inaktivera/aktivera de lösningsrekommendationer som är relevanta för din organisation och dina arbetsflöden. 
-1. Välj **Spara** högst upp på skärmen för att spara dina val. 
+1. Under Inställningar väljer du **Rekommenderad konfiguration** på den vänstra menyn.
+1. Inaktivera/aktivera de lösningsrekommendationer som är relevanta för din organisation och dina arbetsflöden.
+1. Välj **Spara** högst upp på skärmen för att spara dina val.
 
 ## <a name="next-steps"></a>Nästa steg
 

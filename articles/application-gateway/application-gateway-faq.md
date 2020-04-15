@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: victorh
-ms.openlocfilehash: d9691a6fd5c320242b9677776cbd08be4f800921
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: e64b0a8602a4a0806ada15546972856743c38161
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80544511"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312470"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -28,11 +28,11 @@ Azure Application Gateway tillhandahåller en ADC -styrenhet (Application Delive
 
 ### <a name="what-features-does-application-gateway-support"></a>Vilka funktioner stöder Application Gateway?
 
-Application Gateway stöder automatisk skalning, SSL-avlastning och heltäckande SSL, en brandvägg för webbprogram (WAF), cookie-baserad sessionstillhörighet, URL-sökvägsbaserad routning, flerwebbplatshosting och andra funktioner. En fullständig lista över funktioner som stöds finns i [Introduktion till Programgateway](application-gateway-introduction.md).
+Application Gateway stöder automatisk skalning, TLS-avlastning och heltäckande TLS, en brandvägg för webbprogram (WAF), cookie-baserad sessionstillhörighet, URL-sökvägsbaserad routning, flervåningsvärd och andra funktioner. En fullständig lista över funktioner som stöds finns i [Introduktion till Programgateway](application-gateway-introduction.md).
 
 ### <a name="how-do-application-gateway-and-azure-load-balancer-differ"></a>Hur skiljer sig Application Gateway och Azure Load Balancer åt?
 
-Application Gateway är en belastningsutjämnare för layer 7, vilket innebär att den bara fungerar med webbtrafik (HTTP, HTTPS, WebSocket och HTTP/2). Den stöder funktioner som SSL-avslutning, cookie-baserad sessionstillhörighet och round robin för belastningsutjämningstrafik. Belastningsutjämnad belastningsutjämnar trafik vid lager 4 (TCP eller UDP).
+Application Gateway är en belastningsutjämnare för layer 7, vilket innebär att den bara fungerar med webbtrafik (HTTP, HTTPS, WebSocket och HTTP/2). Den stöder funktioner som TLS-avslutning, cookie-baserad sessionstillhörighet och round robin för belastningsutjämningstrafik. Belastningsutjämnad belastningsutjämnar trafik vid lager 4 (TCP eller UDP).
 
 ### <a name="what-protocols-does-application-gateway-support"></a>Vilka protokoll stöder Application Gateway?
 
@@ -216,7 +216,7 @@ Nej.
 
 Application Gateway v2 stöder för närvarande inte IPv6. Den kan fungera i ett VNet med dubbla staplar med endast IPv4, men gateway-undernätet måste vara endast IPv4. Application Gateway v1 stöder inte virtuella nätverk med dubbla staplar. 
 
-## <a name="configuration---ssl"></a>Konfiguration - SSL
+## <a name="configuration---tls"></a>Konfiguration - TLS
 
 ### <a name="what-certificates-does-application-gateway-support"></a>Vilka certifikat stöder Application Gateway?
 
@@ -255,13 +255,13 @@ Application Gateway stöder följande chiffersviter.
 - TLS_RSA_WITH_3DES_EDE_CBC_SHA
 - TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
-Information om hur du anpassar SSL-alternativ finns i [Konfigurera SSL-principversioner och chiffersviter på Application Gateway](application-gateway-configure-ssl-policy-powershell.md).
+Information om hur du anpassar TLS-alternativ finns i [Konfigurera TLS-principversioner och chiffersviter på Application Gateway](application-gateway-configure-ssl-policy-powershell.md).
 
 ### <a name="does-application-gateway-support-reencryption-of-traffic-to-the-backend"></a>Stöder Application Gateway återkryptering av trafik till backend?
 
-Ja. Application Gateway stöder SSL-avlastning och ssl från slutpunkt, som återkrypterar trafik till backend.
+Ja. Application Gateway stöder TLS-avlastning och end-to-end TLS, som återkrypterar trafik till backend.
 
-### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>Kan jag konfigurera SSL-principen för att styra SSL-protokollversioner?
+### <a name="can-i-configure-tls-policy-to-control-tls-protocol-versions"></a>Kan jag konfigurera TLS-principen för att styra TLS-protokollversioner?
 
 Ja. Du kan konfigurera Application Gateway för att neka TLS1.0, TLS1.1 och TLS1.2. Som standard är SSL 2.0 och 3.0 redan inaktiverade och kan inte konfigureras.
 
@@ -278,9 +278,9 @@ Ja. I Application Gateway kan du [konfigurera chiffersviter](application-gateway
 
 Application Gateway använder SHA256 till för hantering av bakåtsträvning.
 
-### <a name="how-many-ssl-certificates-does-application-gateway-support"></a>Hur många SSL-certifikat stöder Application Gateway?
+### <a name="how-many-tlsssl-certificates-does-application-gateway-support"></a>Hur många TLS/SSL-certifikat stöder Application Gateway?
 
-Application Gateway stöder upp till 100 SSL-certifikat.
+Application Gateway stöder upp till 100 TLS/SSL-certifikat.
 
 ### <a name="how-many-authentication-certificates-for-backend-reencryption-does-application-gateway-support"></a>Hur många autentiseringscertifikat för serveringsåterkryptering stöder Application Gateway?
 
@@ -288,7 +288,7 @@ Application Gateway stöder upp till 100 autentiseringscertifikat.
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>Integreras Application Gateway internt med Azure Key Vault?
 
-Ja, Application Gateway v2 SKU stöder Key Vault. Mer information finns i [SSL-avslutning med Key Vault-certifikat](key-vault-certs.md).
+Ja, Application Gateway v2 SKU stöder Key Vault. Mer information finns i [TLS-avslutning med Key Vault-certifikat](key-vault-certs.md).
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>Hur konfigurerar jag HTTPS-lyssnare för .com- och .net-webbplatser? 
 
@@ -338,7 +338,7 @@ Ja. Du kan aktivera DDoS-skydd i det virtuella nätverket där programgatewayen 
 
 ### <a name="what-is-an-ingress-controller"></a>Vad är en ingress controller?
 
-Kubernetes gör `deployment` det `service` möjligt att skapa och resurs för att exponera en grupp poddar internt i klustret. För att exponera samma tjänst [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) externt definieras en resurs som ger belastningsutjämning, SSL-avslutning och namnbaserad virtuell värd.
+Kubernetes gör `deployment` det `service` möjligt att skapa och resurs för att exponera en grupp poddar internt i klustret. För att exponera samma tjänst [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) externt definieras en resurs som ger belastningsutjämning, TLS-avslutning och namnbaserad virtuell värd.
 För att `Ingress` uppfylla den här resursen krävs en ingående styrenhet som lyssnar efter eventuella ändringar i `Ingress` resurser och konfigurerar belastningsutjämnadsprinciperna.
 
 Application Gateway Ingress Controller gör att [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) kan användas som ingående för en Azure [Kubernetes-tjänst](https://azure.microsoft.com/services/kubernetes-service/) som även kallas ett AKS-kluster.

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 04/14/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 070b7c5e0fef7d50f84271190432a65d29699bdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d59a508d03730a51e793a5e30e2c99a91af77ce8
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128624"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380203"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Arkivera loggar och rapportering om Hantering av Azure AD-berättigande i Azure Monitor
 
@@ -49,6 +49,38 @@ Arkivering av Azure AD-granskningsloggar kräver att du har Azure Monitor i en A
 1. Välj **Användning och uppskattade kostnader** och klicka på **Datakvarhållning**. Ändra skjutreglaget till hur många dagar du vill behålla data för att uppfylla granskningskraven.
 
     ![Fönstret Logga Analytics-arbetsytor](./media/entitlement-management-logs-and-reporting/log-analytics-workspaces.png)
+
+1. Om du senare vill visa datumintervallet på arbetsytan kan du använda arbetsboken *Arkiverat loggdatumintervall:*  
+    
+    1. Välj **Azure Active Directory** och klicka sedan på **Arbetsböcker**. 
+    
+    1. Expandera avsnittet **Azure Active Directory Troubleshooting**och klicka på **Arkiverat loggdatumintervall**. 
+
+
+## <a name="view-events-for-an-access-package"></a>Visa händelser för ett åtkomstpaket  
+
+Om du vill visa händelser för ett åtkomstpaket måste du ha åtkomst till den underliggande Azure-övervakararbetsytan (se [Hantera åtkomst till loggdata och arbetsytor i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) för information) och i någon av följande roller: 
+
+- Global administratör  
+- Säkerhetsadministratör  
+- Säkerhetsläsare  
+- Rapportläsare  
+- Programadministratör  
+
+Använd följande procedur för att visa händelser: 
+
+1. I Azure-portalen väljer du **Azure Active Directory** och klickar sedan på **Arbetsböcker**. Om du bara har en prenumeration går du vidare till steg 3. 
+
+1. Om du har flera prenumerationer väljer du den prenumeration som innehåller arbetsytan.  
+
+1. Välj arbetsboken Med namnet *Åtkomstpaketaktivitet*. 
+
+1. I arbetsboken väljer du ett tidsintervall (ändra till **Alla** om det inte är säkert) och väljer ett åtkomstpaket-ID i listrutan över alla åtkomstpaket som hade aktivitet under det tidsintervallet. De händelser som är relaterade till åtkomstpaketet som inträffade under det valda tidsintervallet visas.  
+
+    ![Visa åtkomstpakethändelser](./media/entitlement-management-logs-and-reporting/view-events-access-package.png) 
+
+    Varje rad innehåller tid, åtkomstpaket-ID, namnet på åtgärden, objekt-ID, UPN och visningsnamnet för den användare som startade åtgärden.  Ytterligare information ingår i JSON.   
+
 
 ## <a name="create-custom-azure-monitor-queries-using-the-azure-portal"></a>Skapa anpassade Azure Monitor-frågor med Azure-portalen
 Du kan skapa egna frågor om Azure AD-granskningshändelser, inklusive rättighetshanteringshändelser.  
@@ -86,6 +118,7 @@ Du kan komma åt loggar via PowerShell när du har konfigurerat Azure AD för at
 Se till att du, användaren eller tjänstens huvudnamn som autentiserar till Azure AD, är i lämplig Azure-roll i Log Analytics-arbetsytan. Rollalternativen är antingen Log Analytics Reader eller Log Analytics Contributor. Om du redan har en av dessa roller går du till [Hämta Logganalys-ID med en Azure-prenumeration](#retrieve-log-analytics-id-with-one-azure-subscription).
 
 Så här anger du rolltilldelningen och skapar en fråga:
+
 1. Leta reda på [arbetsytan Log Analytics](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces
 )i Azure-portalen .
 
@@ -103,7 +136,7 @@ När du har rätt rolltilldelning startar du PowerShell och [installerar Azure P
 install-module -Name az -allowClobber -Scope CurrentUser
 ```
     
-Nu är du redo att autentisera till Azure AD och hämta id:t för den Log Analytics-arbetsyta som du frågar.
+Nu är du redo att autentisera till Azure AD och hämta ID:et för den Logganalysarbetsyta som du frågar.
 
 ### <a name="retrieve-log-analytics-id-with-one-azure-subscription"></a>Hämta Log Analytics-ID med en Azure-prenumeration
 Om du bara har en enda Azure-prenumeration och en enda Log Analytics-arbetsyta skriver du följande för att autentisera till Azure AD, ansluta till den prenumerationen och hämta arbetsytan:
@@ -117,7 +150,7 @@ $wks = Get-AzOperationalInsightsWorkspace
 
  [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) fungerar i en prenumeration i taget. Så om du har flera Azure-prenumerationer, du vill se till att du ansluter till den som har Log Analytics arbetsyta med Azure AD-loggar. 
  
- Följande cmdlets visar en lista över prenumerationer och hittar id:n för prenumerationen som har log analytics-arbetsytan:
+ Följande cmdlets visar en lista över prenumerationer och hittar ID:n för den prenumeration som har log analytics-arbetsytan:
  
 ```azurepowershell
 Connect-AzAccount
@@ -128,7 +161,7 @@ $subs | ft
 Du kan återauktorisera och associera din PowerShell-session med `Connect-AzAccount –Subscription $subs[0].id`den prenumerationen med ett kommando, till exempel . Mer information om hur du autentiserar till Azure från PowerShell, inklusive icke-interaktivt, finns [i Logga in med Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
 ).
 
-Om du har flera Log Analytics-arbetsytor i den prenumerationen returnerar cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) listan över arbetsytor. Sedan kan du hitta den som har Azure AD-loggar. Fältet `CustomerId` som returneras av den här cmdleten är detsamma som värdet för "Workspace id" som visas i Azure-portalen i logganalysarbetsytaöversikten.
+Om du har flera Log Analytics-arbetsytor i den prenumerationen returnerar cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) listan över arbetsytor. Sedan kan du hitta den som har Azure AD-loggar. Fältet `CustomerId` som returneras av den här cmdleten är detsamma som värdet för "Workspace Id" som visas i Azure-portalen i logganalysarbetsytaöversikten.
  
 ```powershell
 $wks = Get-AzOperationalInsightsWorkspace
@@ -150,7 +183,7 @@ $aResponse.Results |ft
 Du kan också hämta rättighetshanteringshändelser med en fråga som:
 
 ```azurepowershell
-$bQuery = = 'AuditLogs | where Category == "EntitlementManagement"'
+$bQuery = 'AuditLogs | where Category == "EntitlementManagement"'
 $bResponse = Invoke-AzOperationalInsightsQuery -WorkspaceId $wks[0].CustomerId -Query $Query
 $bResponse.Results |ft 
 ```

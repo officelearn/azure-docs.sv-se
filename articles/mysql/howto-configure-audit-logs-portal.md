@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 188ef3a1b9777c37f8557a69e19887638a973611
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 4/13/2020
+ms.openlocfilehash: fcd436f87b24d8cdc246d2f1d33a49311e72d46b
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062534"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380289"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql-in-the-azure-portal"></a>Konfigurera och komma åt granskningsloggar för Azure Database för MySQL i Azure-portalen
 
@@ -69,4 +69,5 @@ Aktivera och konfigurera granskningsloggning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [granskningsloggar](concepts-audit-logs.md) i Azure Database för MySQL.
+- Läs mer om [granskningsloggar](concepts-audit-logs.md) i Azure Database for MySQL
+- Lär dig hur du konfigurerar granskningsloggar i [Azure CLI](howto-configure-audit-logs-cli.md)

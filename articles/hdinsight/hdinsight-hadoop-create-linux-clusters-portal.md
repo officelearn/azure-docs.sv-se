@@ -1,19 +1,19 @@
 ---
 title: Skapa Apache Hadoop-kluster med hjälp av webbläsaren Azure HDInsight
-description: Lär dig hur du skapar Apache Hadoop-, Apache HBase-, Apache Storm- eller Apache Spark-kluster på Linux för HDInsight med hjälp av en webbläsare och Azure-portalen.
+description: Lär dig att skapa Apache Hadoop-, Apache HBase-, Apache Storm- eller Apache Spark-kluster på HDInsight. Använd webbläsaren och Azure-portalen.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/19/2020
-ms.openlocfilehash: bcc71b7244ba3498b2fcde023d372e67f41d6117
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/13/2020
+ms.openlocfilehash: a5f6ac76d509a0a63c2d641f91cd91cdb2e0d19d
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77623198"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313812"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Skapa Linux-baserade kluster i HDInsight med hjälp av Azure-portalen
 
@@ -25,7 +25,7 @@ Azure-portalen är ett webbaserat hanteringsverktyg för tjänster och resurser 
 
 Azure-portalen exponerar de flesta klusteregenskaper. Genom att använda Azure Resource Manager-mallar kan du dölja många detaljer. Mer information finns i [Skapa Apache Hadoop-kluster i HDInsight med hjälp av Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="create-clusters"></a>Skapa kluster
 
@@ -51,7 +51,7 @@ Ange följande information på fliken **Grunderna:**
 |Resursgrupp|Välj din befintliga resursgrupp i listrutan eller välj **Skapa ny**.|
 |Klusternamn|Ange ett globalt unikt namn.|
 |Region|Välj en region där klustret skapas i listrutan.|
-|Klustertyp|Välj **Välj klustertyp** om du vill öppna en lista. Välj önskad klustertyp i listan. HDInsight kluster finns i en mängd olika typer. De motsvarar den arbetsbelastning eller teknik som klustret är inställt för. Det finns ingen metod som stöds för att skapa ett kluster som kombinerar flera typer.|
+|Klustertyp|Klicka på **Välj klustertyp** för att öppna en lista. Välj önskad klustertyp i listan. HDInsight-kluster finns i olika typer. De motsvarar den arbetsbelastning eller teknik som klustret är inställt för. Det finns ingen metod som stöds för att skapa ett kluster som kombinerar flera typer.|
 |Version|Välj en **version**i listrutan . Använd standardversionen om du inte vet vad du ska välja. Mer information finns i [HDInsight-klusterversioner](hdinsight-component-versioning.md).|
 |Användarnamn för klusterinloggning|Ange användarnamn, standard är **admin**.|
 |Lösenord för klusterinloggning|Ange lösenordet.|
@@ -61,13 +61,13 @@ Ange följande information på fliken **Grunderna:**
 
 Välj **Nästa: Lagring >>** för att gå vidare till nästa flik.
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 ![HDInsight skapar klusterlagring](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png "Skapa ett nytt kluster i Azure-portalen - lagring")
 
 ### <a name="primary-storage"></a>Primär lagring
 
-Välj standardlagringstypen i listrutan för **primär lagringstyp.** De efterföljande fälten som ska fyllas i varierar beroende på ditt val. För **Azure Storage:**
+Välj standardlagringstypen i listrutan för **primär lagringstyp.** De senare fälten som ska fyllas i varierar beroende på ditt val. För **Azure Storage:**
 
 1. För **markeringsmetod**väljer du **antingen Välj från-lista**eller Använd **åtkomstnyckel**.
     * För **Välj från-lista**väljer du sedan ditt **primära lagringskonto** i listrutan eller väljer **Skapa nytt**.
@@ -81,7 +81,7 @@ Valfritt: Välj **Lägg till Azure Storage** för ytterligare klusterlagring. De
 
 ### <a name="metastore-settings"></a>Inställningar för Metastore
 
-Valfritt: Ange en befintlig SQL-databas för att spara Apache Hive-, Apache Oozie- och/eller Apache Ambari-metadata utanför klustret. Azure SQL-databasen som används för metabutiken måste tillåta anslutning till andra Azure-tjänster, inklusive Azure HDInsight. När du skapar en metabutik ska du inte namnge en databas med streck eller bindestreck. Dessa tecken kan orsaka att klusterskapandeprocessen misslyckas.
+Valfritt: Ange en befintlig SQL-databas för att spara Apache Hive-, Apache Oozie- och Apache Ambari-metadata utanför klustret. Azure SQL-databasen som används för metabutiken måste tillåta anslutning till andra Azure-tjänster, inklusive Azure HDInsight. När du skapar en metabutik ska du inte namnge en databas med streck eller bindestreck. Dessa tecken kan orsaka att klusterskapandeprocessen misslyckas.
 
 Välj **Nästa: Säkerhet + nätverk >>** för att gå vidare till nästa flik.
 
@@ -158,25 +158,7 @@ Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkr
 
 Du har skapat ett HDInsight-kluster. Lär dig nu hur du arbetar med klustret.
 
-### <a name="apache-hadoop-clusters"></a>Apache Hadoop kluster
-
 * [Använda Apache Hive med HDInsight](hadoop/hdinsight-use-hive.md)
-* [Använd MapReduce med HDInsight](hadoop/hdinsight-use-mapreduce.md)
-
-### <a name="apache-hbase-clusters"></a>Apache HBase-kluster
-
 * [Komma igång med Apache HBase på HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Utveckla Java-program för Apache HBase på HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
-
-### <a name="apache-storm-clusters"></a>Apache Storm kluster
-
 * [Utveckla Java-topologier för Apache Storm på HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Använda Python-komponenter i Apache Storm på HDInsight](storm/apache-storm-develop-python-topology.md)
-* [Distribuera och övervaka topologier med Apache Storm på HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
-
-### <a name="apache-spark-clusters"></a>Apache Spark kluster
-
 * [Skapa ett fristående program med Scala](spark/apache-spark-create-standalone-application.md)
-* [Kör jobb på distans i ett Apache Spark-kluster med hjälp av Apache Livy](spark/apache-spark-livy-rest-interface.md)
-* [Apache Spark med BI: Utför interaktiv dataanalys med spark i HDInsight med BI-verktyg](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark med maskininlärning: Använd Spark i HDInsight för att förutsäga resultat för livsmedelsinspektion](spark/apache-spark-machine-learning-mllib-ipython.md)

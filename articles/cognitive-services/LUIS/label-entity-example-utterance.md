@@ -1,21 +1,14 @@
 ---
 title: Uttryck för uttryck för etikettentitet
-titleSuffix: Azure Cognitive Services
 description: Lär dig hur du märker en datorinlärd entitet med underkomponenter i ett exempelyttrande på en avsiktsdetaljsida i LUIS-portalen.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/16/2019
-ms.author: diberry
-ms.openlocfilehash: 5499e8362e1107a18b997a6a485e11343c328d0d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: ea5fbea902c9694d9a8a6a8a5bffcf5e7234bbbd
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898377"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382405"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>Etikett maskininlärd entitet i ett exempel yttrande
 
@@ -72,7 +65,7 @@ Entitetspaletten erbjuder ett alternativ till den tidigare märkningsupplevelsen
 
 ## <a name="labeling-subcomponents-of-a-machine-learned-entity"></a>Märka underkomponenter till en maskin som lärt sig entitet
 
-Underkomponenter i entiteter är märkta på exakt samma sätt som entiteter på den högsta nivån. När du markerar text är de entiteter som är tillgängliga i popup-fönstret relativa till den kontext där texten visas. Om du till exempel har en datorinlärd entitet på fem nivåer och markerar text som har märkts med 1:a och 2:a nivån (indikerad av ett märkt entitetsnamn under exempelutseendet), är de entiteter som är tillgängliga i popup-fönstret begränsade till sammanhang av komponenter på tredje nivån. Om du vill märka texten med andra entiteter väljer du **Etikett som ett annat entitetsalternativ.**
+Underkomponenter i entiteter är märkta på exakt samma sätt som entiteter på den högsta nivån. När du markerar text är de entiteter som är tillgängliga i popup-fönstret relativa till den kontext där texten visas. Om du till exempel har en datorinlärd entitet på 5-nivå och du markerar text som har märkts med 1:a och 2:a nivån (indikerad av ett märkt entitetsnamn under exempelyttrandet), är de entiteter som är tillgängliga i popup-fönstret begränsade till kontexten för komponenter på tredje nivån. Om du vill märka texten med andra entiteter väljer du **Etikett som ett annat entitetsalternativ.**
 
 > [!div class="mx-imgBorder"]
 > ![Entitetspalett för maskininlärd entitet](media/label-utterances/example-1-label-machine-learned-entity-subcomponent.png)
@@ -87,6 +80,10 @@ Entitetsroller är märkta med hjälp av entitetspaletten.
 1. När entitetspaletten har öppnats väljer du entiteten i listan över entiteter.
 1. Flytta till **entitetsinspektören**och välj antingen en befintlig roll eller skapa en ny roll.
 1. I exempelutsyttringstexten märker du texten med entitetsrollen.
+
+## <a name="labeling-for-punctuation"></a>Märkning för interpunktion
+
+Du behöver inte märka för interpunktion. Använd [programinställningar för](luis-reference-application-settings.md) att styra om interpunktion påverkar uttrycksförutsägelser.
 
 ## <a name="unlabel-entities"></a>Omärkta enheter
 

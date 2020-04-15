@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2c33fbed6c547897847c79cc1260d2bdc9ec6b17
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: eb285d15814f1105462c414541657d43b5371d98
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010332"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383246"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Komma igång med Azure Automation State Configuration
 
@@ -59,7 +59,7 @@ Du skapar en enkel [DSC-konfiguration](/powershell/scripting/dsc/configurations/
         }
     }
     ```
-1. Spara filen som `TestConfig.ps1`.
+1. Spara filen som **TestConfig.ps1**.
 
 Den här konfigurationen anropar en resurs i varje nodblock, [WindowsFeature-resursen,](/powershell/scripting/dsc/reference/resources/windows/windowsfeatureresource)som säkerställer antingen närvaron eller frånvaron av **webbserverfunktionen.**
 
@@ -105,7 +105,7 @@ Mer information om kompilering av konfigurationer finns i [DSC-konfigurationer](
    ![Skärmbild av knappen TestConfig-konfigurationssida som markerar kompileringsknappen](./media/automation-dsc-getting-started/CompileConfig.png)
 
 > [!NOTE]
-> När du kompilerar en konfiguration i Azure Automation distribueras automatiskt alla skapade nodkonfigurations-MOFs till pull-servern.
+> När du kompilerar en konfiguration i Azure Automation distribueras automatiskt alla skapade nodkonfigurations-MOF-filer till pull-servern.
 
 ## <a name="viewing-a-compilation-job"></a>Visa ett kompileringsjobb
 
@@ -123,7 +123,7 @@ När du har påbörjat en kompilering kan du visa den på panelen **Kompilerings
 
 ## <a name="viewing-node-configurations"></a>Visa nodkonfigurationer
 
-Ett kompileringsjobb har slutförts skapar en eller flera nya nodkonfigurationer. En nodkonfiguration är ett MOF-dokument som distribueras till pull-servern och som är redo att hämtas och tillämpas av en eller flera noder. Du kan visa nodkonfigurationerna i ditt Automation-konto på sidan **Tillståndskonfiguration (DSC).** En nodkonfiguration har ett namn med formuläret *ConfigurationName*. *NodeName*.
+Ett kompileringsjobb har slutförts skapar en eller flera nya nodkonfigurationer. En nodkonfiguration är ett MOF-dokument som distribueras till pull-servern och som är redo att hämtas och tillämpas av en eller flera noder. Du kan visa nodkonfigurationerna i ditt Automation-konto på sidan **Tillståndskonfiguration (DSC).** En nodkonfiguration har ett `ConfigurationName.NodeName`namn med formuläret .
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Till vänster klickar du på **Alla resurser** och sedan namnet på ditt Automation-konto.
@@ -134,7 +134,7 @@ Ett kompileringsjobb har slutförts skapar en eller flera nya nodkonfigurationer
 
 ## <a name="onboarding-an-azure-vm-for-management-with-azure-automation-state-configuration"></a>Introduktion till en Azure VM för hantering med Azure Automation State Configuration
 
-Du kan använda Azure Automation State Configuration för att hantera virtuella Azure-datorer (både Classic och Resource Manager), lokala virtuella datorer, Linux-datorer, VIRTUELLA AWS-datorer och lokala fysiska datorer. I den här artikeln får du lära dig hur du bara rapporterar virtuella Azure Resource Manager-datorer ombord. Information om introduktion av andra typer av datorer finns i [Onboarding-datorer för hantering av Azure Automation State Configuration](automation-dsc-onboarding.md).
+Du kan använda Azure Automation State Configuration för att hantera virtuella Azure-datorer (både klassiska och Resource Manager), lokala virtuella datorer, Linux-datorer, virtuella AWS-datorer och lokala fysiska datorer. I den här artikeln får du lära dig hur du bara rapporterar virtuella Azure Resource Manager-datorer ombord. Information om introduktion av andra typer av datorer finns i [Onboarding-datorer för hantering av Azure Automation State Configuration](automation-dsc-onboarding.md).
 
 ### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-state-configuration"></a>Så här går du ombord på en virtuell virtuell azure Resource Manager-dator för hantering av Azure Automation State Configuration
 

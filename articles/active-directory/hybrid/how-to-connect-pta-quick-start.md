@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fc45033cdf1bdaa6d4ecd6ab58cc7f90ff9c1ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b84e972584562be741919c7dccb6bdfe1bdea628
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80331417"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312860"
 ---
-# <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Direktautentisering i Azure Active Directory: Snabbstart
+# <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Direktautentisering i Azure Active Directory: Snabbstart
 
 ## <a name="deploy-azure-ad-pass-through-authentication"></a>Distribuera Azure AD-direktautentisering
 
@@ -66,9 +66,14 @@ Se till att följande förutsättningar är på plats.
      | **8080** (tillval) | Autentiseringsagenter rapporterar sin status var tionde minut över port 8080, om port 443 inte är tillgänglig. Den här statusen visas på Azure AD-portalen. Port 8080 används _inte_ för användarloggningar. |
      
      Om brandväggen tillämpar regler enligt de ursprungliga användarna öppnar du dessa portar för trafik från Windows-tjänster som körs som en nätverkstjänst.
-   - Om brandväggen eller proxyn tillåter DNS-vitlistning, vitlista anslutningar till ** \*.msappproxy.net** och ** \*.servicebus.windows.net**. Om inte, tillåt åtkomst till [Azure datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653), som uppdateras varje vecka.
+   - Om brandväggen eller proxyn tillåter DNS-vitlistning lägger du till anslutningar i ** \*.msappproxy.net** och ** \*.servicebus.windows.net**. Om inte, tillåt åtkomst till [Azure datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653), som uppdateras varje vecka.
    - Dina autentiseringsagenter behöver åtkomst till **login.windows.net** och **login.microsoftonline.com** för första registrering. Öppna brandväggen för dessa webbadresser också.
    - För certifikatvalidering avblockerar du följande webbadresser: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**och **www\.microsoft.com:80**. Eftersom dessa url:er används för certifikatvalidering med andra Microsoft-produkter kanske du redan har dessa url:er blockerade.
+
+### <a name="azure-government-cloud-prerequisite"></a>Azure Government moln förutsättning
+Innan du aktiverar direktautentisering via Azure AD Connect med steg 2 kan du ladda ned den senaste versionen av PTA-agenten från Azure-portalen.  Du måste se till att din agent är versioner **x.x.xxx.x** eller senare.  För att verifiera din agent se [Uppgradera autentiseringsagenter](how-to-connect-pta-upgrade-preview-authentication-agents.md)
+
+När du har hämtat den senaste versionen av agenten fortsätter du med instruktionerna nedan för att konfigurera direktautentisering via Azure AD Connect.
 
 ## <a name="step-2-enable-the-feature"></a>Steg 2: Aktivera funktionen
 
@@ -114,8 +119,8 @@ Om du planerar att distribuera direktautentisering i en produktionsmiljö bör d
 Installera flera direktautentiseringsagenter säkerställer hög tillgänglighet, men inte deterministisk belastningsutjämning mellan autentiseringsagenterna. Ta reda på hur många autentiseringsagenter du behöver för din klientorganisation genom att ta hänsyn till den högsta och genomsnittliga belastningen av inloggningsbegäranden som du förväntar dig att se på din klientorganisation. Som ett riktmärke kan en enda autentiseringsagent hantera 300 till 400 autentiseringar per sekund på en vanlig 4-kärnig CPU, 16 GB RAM-server.
 
 Om du vill uppskatta nätverkstrafiken använder du följande storleksvägledning:
-- Varje begäran har en nyttolaststorlek på (0,5 K + 1K * num_of_agents) byte; dvs data från Azure AD till autentiseringsagenten. Här anger "num_of_agents" antalet autentiseringsagenter som är registrerade på din klientorganisation.
-- Varje svar har en nyttolaststorlek på 1K-byte. dvs data från autentiseringsagenten till Azure AD.
+- Varje begäran har en nyttolaststorlek på (0,5 K + 1K * num_of_agents) byte, det villa om data från Azure AD till autentiseringsagenten. Här anger "num_of_agents" antalet autentiseringsagenter som är registrerade på din klientorganisation.
+- Varje svar har en nyttolaststorlek på 1K-byte, det villa om data från autentiseringsagenten till Azure AD.
 
 För de flesta kunder är totalt tre autentiseringsagenter tillräckliga för hög tillgänglighet och kapacitet. Du bör installera autentiseringsagenter nära domänkontrollanterna för att förbättra inloggningstiden.
 

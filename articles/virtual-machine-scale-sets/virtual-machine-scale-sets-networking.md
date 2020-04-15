@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: mimckitt
-ms.openlocfilehash: 7e6b8ea702d28fcd2747115710a8b1a8ec2bb1b2
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9f048c7d89da0ab75c321cd8e3932ea97c7ed09c
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270527"
+ms.locfileid: "81310020"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Nätverk för skalningsuppsättningar för virtuella Azure-datorer
 
@@ -69,6 +69,14 @@ az vmss create \
 
 >[!NOTE]
 > När skalningsuppsättningen har skapats kan serverdaporten inte ändras för en belastningsutjämningsregel som används av en hälsoavsökning av belastningsutjämnaren. Om du vill ändra porten kan du ta bort hälsoavsökningen genom att uppdatera Azure-skalauppsättningen för virtuella datorer, uppdatera porten och sedan konfigurera hälsoavsökningen igen. 
+
+Mer information om belastningsutjämnare och skalningsuppsättningar för virtuella datorer finns [i Virtuella nätverk och virtuella datorer i Azure](../../articles/virtual-machines/windows/network-overview.md).
+
+Följande metoder kan användas för att distribuera en skalningsuppsättning för virtuella datorer med en befintlig Azure-belastningsutjämnare.
+
+* [Konfigurera en skalningsuppsättning för virtuella datorer med en befintlig Azure Load Balancer med Azure-portalen](../../articles/load-balancer/configure-vm-scale-set-portal.md).
+* [Konfigurera en skalningsuppsättning för virtuella datorer med en befintlig Azure Load Balancer med Azure PowerShell](../../articles/load-balancer/configure-vm-scale-set-powershell.md).
+* [Konfigurera en skalningsuppsättning för virtuella datorer med en befintlig Azure Load Balancer med Azure CLI](../../articles/load-balancer/configure-vm-scale-set-cli.md).
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Skapa en skalningsuppsättning som refererar till en programgateway
 Om du vill skapa en skalningsuppsättning som använder en programgateway refererar du till programgatewayens backend-adresspool i avsnittet ipConfigurations i skaluppsättningen, som i den här ARM-mallkonfigurationen:

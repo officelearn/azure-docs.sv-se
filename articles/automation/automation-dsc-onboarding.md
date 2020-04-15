@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: 554a4c64700bb189b4b9f085bd7c259312a36b4b
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: c718b9a66b378044618c8c52eec3a1a498ace83c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80410939"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383209"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Introduktionsdatorer för hantering av Azure Automation State Configuration
 
@@ -39,6 +39,9 @@ Om du inte är redo att hantera datorkonfiguration från molnet kan du använda 
 > Hantering av virtuella Azure-datorer med Azure Automation State Configuration ingår utan extra kostnad om den installerade Azure VM Desired State Configuration-tilläggsversionen är större än 2,70. Mer information finns på [**prissidan för Automation**](https://azure.microsoft.com/pricing/details/automation/).
 
 I följande avsnitt i den här artikeln beskrivs hur du kan gå in på datorerna ovan till Azure Automation State Configuration.
+
+>[!NOTE]
+>Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installationsinstruktioner för Az-modul på hybridkörningsarbetaren finns [i Installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med [så här uppdaterar du Azure PowerShell-moduler i Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="onboarding-azure-vms"></a>Introduktion till virtuella Azure-datorer
 
@@ -280,15 +283,15 @@ Proxystöd för metakonfigurationer styrs av LCM, som är Windows PowerShell DSC
 Om PowerShell DSC LCM-standardinställningar matchar ditt användningsfall och du vill registrera datorer för att både hämta från och rapportera till Azure Automation State Configuration, kan du generera de nödvändiga DSC-metakonfigurationerna enklare med hjälp av Azure Automation-cmdlets.
 
 1. Öppna PowerShell-konsolen eller VSCode som administratör på en dator i din lokala miljö.
-2. Ansluta till Azure Resource Manager med`Connect-AzAccount`
+2. Anslut till Azure Resource Manager med [Connect-AzAccount](https://docs.microsoft.com/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0).
 3. Hämta PowerShell DSC-metakonfigurationerna för de datorer som du vill registrera från automationskontot där du konfigurerar noder.
 
    ```powershell
    # Define the parameters for Get-AzAutomationDscOnboardingMetaconfig using PowerShell Splatting
    $Params = @{
-       ResourceGroupName = 'ContosoResources'; # The name of the Resource Group that contains your Azure Automation Account
-       AutomationAccountName = 'ContosoAutomation'; # The name of the Azure Automation Account where you want a node on-boarded to
-       ComputerName = @('web01', 'web02', 'sql01'); # The names of the computers that the meta configuration will be generated for
+       ResourceGroupName = 'ContosoResources'; # The name of the Resource Group that contains your Azure Automation account
+       AutomationAccountName = 'ContosoAutomation'; # The name of the Azure Automation account where you want a node on-boarded to
+       ComputerName = @('web01', 'web02', 'sql01'); # The names of the computers that the metaconfiguration will be generated for
        OutputFolder = "$env:UserProfile\Desktop\";
    }
    # Use PowerShell splatting to pass parameters to the Azure Automation cmdlet being invoked
@@ -296,7 +299,7 @@ Om PowerShell DSC LCM-standardinställningar matchar ditt användningsfall och d
    Get-AzAutomationDscOnboardingMetaconfig @Params
    ```
 
-1. Du bör nu ha en mapp som heter **DscMetaConfigs**, som innehåller PowerShell DSC-metakonfigurationer för datorerna att vara ombord (som administratör).
+1. Du bör nu ha en **DscMetaConfigs-mapp** som innehåller PowerShell DSC-metakonfigurationer för datorerna att vara ombord (som administratör).
 
     ```powershell
     Set-DscLocalConfigurationManager -Path $env:UserProfile\Desktop\DscMetaConfigs
@@ -347,6 +350,7 @@ Mer information om felsökning finns i [Felsöka problem med DSC (Azure Automati
 
 - Information om hur du kommer igång finns [i Komma igång med Azure Automation State Configuration](automation-dsc-getting-started.md).
 - Mer information om hur du kompilerar DSC-konfigurationer så att du kan tilldela dem till målnoder finns [i Kompilera konfigurationer i Azure Automation State Configuration](automation-dsc-compile.md).
-- Cmdlet-referens för PowerShell finns i [cmdlets för Azure Automation State Configuration](/powershell/module/az.automation#automation).
+- En PowerShell-cmdlet-referens finns i [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
 - Prisinformation finns i [prissättningen för Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).
 - Ett exempel på hur du använder Azure Automation State Configuration i en pipeline för kontinuerlig distribution finns i Exempel på [användning: Kontinuerlig distribution till virtuella datorer med Azure Automation State Configuration och Chocolatey](automation-dsc-cd-chocolatey.md).

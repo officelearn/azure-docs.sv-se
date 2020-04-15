@@ -4,12 +4,12 @@ description: Förstå de tjänster och händelseschema som stöds för Azure-res
 ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
-ms.openlocfilehash: de102c5dc4104aafc44b87b14aeea0b30cb7c083
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8abd8767d9bb7e3c4336f6600b94f6b3f4ea48f1
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248819"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380525"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Tjänster, scheman och kategorier för Azure Resource Logs som stöds
 
@@ -54,7 +54,7 @@ Schemat för resursdiagnostikloggar varierar beroende på resurs- och loggkatego
 | Azure Batch |[Loggning av Azure Batch](../../batch/batch-diagnostics.md) |
 | Azure Database for MySQL | [Diagnostikloggar i Azure Database för MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database for PostgreSQL | [Azure-databas för PostgreSQL-loggar](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
-| Azure-datautforskaren | [Azure Data Explorer-loggar](../../data-explorer/using-diagnostic-logs.md) |
+| Azure-datautforskaren | [Azure Data Explorer-loggar](/azure/data-explorer/using-diagnostic-logs) |
 | Cognitive Services | [Logga för Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
 | Container Registry | [Loggning för Azure-behållarregister](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Content Delivery Network | [Azure-loggar för CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
@@ -62,7 +62,7 @@ Schemat för resursdiagnostikloggar varierar beroende på resurs- och loggkatego
 | Data Factory | [Övervaka datafabriker med Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Komma åt loggar för Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Komma åt loggar för Azure Data Lake Store](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Händelsehubbar |[Azure Event Hubs loggar](../../event-hubs/event-hubs-diagnostic-logs.md) |
+| Event Hubs |[Azure Event Hubs loggar](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | Schemat är inte tillgängligt. |
 | Azure Firewall | Schemat är inte tillgängligt. |
 | IoT Hub | [IoT Hub-verksamhet](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |

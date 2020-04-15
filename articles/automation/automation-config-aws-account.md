@@ -1,19 +1,19 @@
 ---
-title: Konfigurera autentisering med Amazon Web Services
+title: Autentisera Azure Automation-runbooks med Amazon Web Services
 description: Den här artikeln beskriver hur du skapar och validerar AWS-autentiseringsuppgifter för runbooks i Azure Automation som hanterar AWS-resurser.
 keywords: aws-autentisering, konfigurera aws
 services: automation
 ms.subservice: process-automation
 ms.date: 04/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 891db5d17ddde681f75845fdca6c9252c5b32b86
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 02ff9cedfbeaa36b2fafc84637ea3141b223a064
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520819"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310480"
 ---
-# <a name="authenticate-runbooks-with-amazon-web-services"></a>Autentisera runbooks med Amazon Web Services (AWS)
+# <a name="authenticate-azure-automation-runbooks-with-amazon-web-services"></a>Autentisera Azure Automation-runbooks med Amazon Web Services
 
 Du kan automatisera vanliga uppgifter med resurser i Amazon Web Services (AWS) med hjälp av Automation-runbooks i Azure. Du kan automatisera många aktiviteter i AWS med hjälp av Automation-runbooks precis som du kan göra med resurser i Azure. Du behöver bara två saker:
 

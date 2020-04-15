@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2019
 ms.author: victorh
-ms.openlocfilehash: c40210f3a6f0fb10be1f20deef87b2acfa076a4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fefbb038cec0c061f1fd191a77164880372555a0
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460644"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314328"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Vanliga frågor och svar om Azure Web Application-brandväggen i Azure Front Door Service
 
@@ -31,7 +31,7 @@ Azure Front Door är ett mycket skalbart, globalt distribuerat nätverk för pro
 
 ## <a name="does-azure-waf-support-https"></a>Stöder Azure WAF HTTPS?
 
-Ytterdörren erbjuder SSL avlastning. WAF är inbyggt integrerat med ytterdörren och kan inspektera en begäran efter att den har dekrypterats.
+Ytterdörren erbjuder TLS avlastning. WAF är inbyggt integrerat med ytterdörren och kan inspektera en begäran efter att den har dekrypterats.
 
 ## <a name="does-azure-waf-support-ipv6"></a>Stöder Azure WAF IPv6?
 

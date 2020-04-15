@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 03/13/2020
-ms.openlocfilehash: ea65956a73874b717ecab25d83ed25b59f2ada55
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: f70c24c91e048270696b244bb9775cb24f0ef30d
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257257"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383479"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Skydda Azure ML-experiment och slutledningsjobb i ett virtuellt Azure-nätverk
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -484,6 +484,21 @@ Innehållet i `body.json` filen som refereras av kommandot liknar följande JSON
 > För närvarande kan du inte konfigurera belastningsutjämnaren när du utför en __bifogad__ åtgärd på ett befintligt kluster. Du måste först koppla klustret och sedan utföra en uppdateringsåtgärd för att ändra belastningsutjämnaren.
 
 Mer information om hur du använder den interna belastningsutjämnaren med AKS finns i [Använda intern belastningsutjämnare med Azure Kubernetes Service](/azure/aks/internal-lb).
+
+## <a name="use-azure-container-instances-aci"></a>Använda Azure Container Instances (ACI)
+
+Azure Container Instances skapas dynamiskt när du distribuerar en modell. Om du vill att Azure Machine Learning ska kunna skapa ACI i det virtuella nätverket måste du aktivera __undernätsdelegering__ för undernätet som används av distributionen.
+
+Så här använder du ACI i ett virtuellt nätverk på arbetsytan:
+
+1. Om du vill aktivera undernätsdelegering i det virtuella nätverket använder du informationen i artikeln [Lägg till eller ta bort en undernätsdelegering.](../virtual-network/manage-subnet-delegation.md) Du kan aktivera delegering när du skapar ett virtuellt nätverk eller lägga till det i ett befintligt nätverk.
+
+    > [!IMPORTANT]
+    > När du aktiverar `Microsoft.ContainerInstance/containerGroups` delegering använder du som __undernät delegera till servicevärdet.__
+
+2. Distribuera modellen med [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-)använder du `vnet_name` `subnet_name` parametrarna och. Ställ in dessa parametrar på det virtuella nätverksnamnet och undernätet där du aktiverade delegeringen.
+
+
 
 ## <a name="use-azure-firewall"></a>Använda Azure-brandväggen
 

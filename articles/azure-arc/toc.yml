@@ -18,7 +18,3 @@
       items:
         - name: Hantera agent
           href: ./servers/manage-agent.md
-- name: Referens
-  items:
-    - name: Azure Connected Machine Agent CLI-gränssnitt
-      href: ./servers/azcmagent-reference.md

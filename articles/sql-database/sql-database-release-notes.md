@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 04/14/2020
 ms.author: sstein
-ms.openlocfilehash: b677fd7fe2b14e1c42443478a887ddfa2481dfbf
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 7d922aa0727ad28054d050a29039951d3f04985f
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011454"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383374"
 ---
 # <a name="sql-database-release-notes"></a>Viktig information om SQL-databas
 
@@ -49,6 +49,7 @@ I den här artikeln visas SQL Database-funktioner som för närvarande förhands
 | <a href="https://aka.ms/managed-instance-aadlogins">Huvudnamn på Azure AD-server på instansnivå (inloggningar)</a> | Skapa inloggningar på servernivå med hjälp av <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER-satsen.</a> |
 | [Transaktionell replikering](sql-database-managed-instance-transactional-replication.md) | Replikera ändringarna från tabellerna till andra databaser som placeras på hanterade instanser, enskilda databaser eller SQL Server-instanser eller uppdatera tabellerna när vissa rader ändras i andra hanterade instanser eller SQL Server-instans. Information finns [i Konfigurera replikering i en hanterad instansdatabas för Azure SQL Database](replication-with-sql-database-managed-instance.md). |
 | Hotidentifiering |Information finns [i Konfigurera hotidentifiering i hanterad instans i Azure SQL Database](sql-database-managed-instance-threat-detection.md).|
+| Långsiktig kvarhållning av säkerhetskopior | Mer information finns [i Konfigurera långsiktig säkerhetskopieringskvarhållning i Azure SQL Database-hanterad instans](sql-database-managed-instance-long-term-backup-retention-configure.md). | 
 
 ---
 
@@ -167,7 +168,7 @@ Dialogrutor för serviceutjämning över flera databaser slutar leverera meddela
 ### <a name="impersonification-of-azure-ad-login-types-is-not-supported"></a>Impersonification av Azure AD-inloggningstyper stöds inte
 
 Personifiering `EXECUTE AS USER` `EXECUTE AS LOGIN` med eller följande AAD-huvudnamn stöds inte:
--   Alias AAD-användare. Följande fel returneras i `15517`det här fallet .
+-    Alias AAD-användare. Följande fel returneras i `15517`det här fallet .
 - AAD loggar in och användare baserat på AAD-program eller tjänsthuvudnamn. Följande fel returneras i det `15517` `15406`här fallet och .
 
 ### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@queryparametern stöds inte i sp_send_db_mail

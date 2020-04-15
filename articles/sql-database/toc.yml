@@ -708,6 +708,8 @@
               href: sql-database-managed-instance-configure-vm.md
             - name: Punkt-till-plats-anslutning
               href: sql-database-managed-instance-configure-p2s.md
+            - name: Långsiktig kvarhållning av säkerhetskopior
+              href: sql-database-managed-instance-long-term-backup-retention-configure.md
         - name: Läsa in data
           items:
             - name: Återställa säkerhetskopia av databas

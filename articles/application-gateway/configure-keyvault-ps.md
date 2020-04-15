@@ -1,5 +1,5 @@
 ---
-title: Konfigurera SSL-avslutning med Key Vault-certifikat - PowerShell
+title: Konfigurera TLS-avslutning med Key Vault-certifikat - PowerShell
 titleSuffix: Azure Application Gateway
 description: Lär dig hur du kan integrera Azure Application Gateway med Key Vault för servercertifikat som är kopplade till HTTPS-aktiverade lyssnare.
 services: application-gateway
@@ -8,20 +8,20 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/27/2020
 ms.author: victorh
-ms.openlocfilehash: 15e10d34120ab5475f241235bbebeb0c7689ca14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1979f759f5a1b037adfd7b67a7be50cbba0f596f
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371231"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312221"
 ---
-# <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Konfigurera SSL-avslutning med Key Vault-certifikat med hjälp av Azure PowerShell
+# <a name="configure-tls-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Konfigurera TLS-avslutning med Key Vault-certifikat med hjälp av Azure PowerShell
 
-[Azure Key Vault](../key-vault/key-vault-overview.md) är ett plattformshanterad hemligt arkiv som du kan använda för att skydda hemligheter, nycklar och SSL-certifikat. Azure Application Gateway stöder integrering med Key Vault för servercertifikat som är kopplade till HTTPS-aktiverade lyssnare. Det här stödet är begränsat till Application Gateway v2 SKU.
+[Azure Key Vault](../key-vault/key-vault-overview.md) är ett plattformshanterad hemligt arkiv som du kan använda för att skydda hemligheter, nycklar och TLS/SSL-certifikat. Azure Application Gateway stöder integrering med Key Vault för servercertifikat som är kopplade till HTTPS-aktiverade lyssnare. Det här stödet är begränsat till Application Gateway v2 SKU.
 
-Mer information finns i [SSL-avslutning med Key Vault-certifikat](key-vault-certs.md).
+Mer information finns i [TLS-avslutning med Key Vault-certifikat](key-vault-certs.md).
 
-Den här artikeln visar hur du använder ett Azure PowerShell-skript för att integrera ditt nyckelvalv med programgatewayen för SSL-avslutningscertifikat.
+Den här artikeln visar hur du använder ett Azure PowerShell-skript för att integrera ditt nyckelvalv med programgatewayen för TLS/SSL-avslutningscertifikat.
 
 Den här artikeln kräver Azure PowerShell-modul version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du vill köra kommandona i den här artikeln måste `Connect-AzAccount`du också skapa en anslutning till Azure genom att köra .
 
@@ -71,7 +71,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 > [!NOTE]
-> Flaggan -EnableSoftDelete måste användas för att SSL-avslutning ska fungera korrekt. Om du konfigurerar [om Key Vault mjuk-ta bort via portalen](../key-vault/key-vault-ovw-soft-delete.md#soft-delete-behavior)måste kvarhållningsperioden behållas på 90 dagar, standardvärdet. Application Gateway stöder inte en annan kvarhållningsperiod ännu. 
+> Flaggan -EnableSoftDelete måste användas för att TLS-avslutning ska fungera korrekt. Om du konfigurerar [om Key Vault mjuk-ta bort via portalen](../key-vault/key-vault-ovw-soft-delete.md#soft-delete-behavior)måste kvarhållningsperioden behållas på 90 dagar, standardvärdet. Application Gateway stöder inte en annan kvarhållningsperiod ännu. 
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
@@ -102,7 +102,7 @@ $fp01 = New-AzApplicationGatewayFrontendPort -Name "port1" -Port 443
 $fp02 = New-AzApplicationGatewayFrontendPort -Name "port2" -Port 80
 ```
 
-### <a name="point-the-ssl-certificate-to-your-key-vault"></a>Peka SSL-certifikatet på nyckelvalvet
+### <a name="point-the-tlsssl-certificate-to-your-key-vault"></a>Peka TLS/SSL-certifikatet på nyckelvalvet
 
 ```azurepowershell
 $sslCert01 = New-AzApplicationGatewaySslCertificate -Name "SSLCert1" -KeyVaultSecretId $secretId
@@ -144,4 +144,4 @@ $appgw = New-AzApplicationGateway -Name $appgwName -Identity $appgwIdentity -Res
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Läs mer om SSL-avslutning](ssl-overview.md)
+[Läs mer om TLS-avslutning](ssl-overview.md)

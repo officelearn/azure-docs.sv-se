@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: b1bf2c365229a418870250a78a733f9870fb5bb0
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 7ba8d201c29b5e3835fec52d8c479a388ca07f71
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892384"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312998"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Snabbstart: Konvertera en modell för rendering
 
@@ -72,10 +72,10 @@ Fyll i formuläret på följande sätt:
 * Skapa en ny resursgrupp från länken under listrutan och namnge den här **ARR_Tutorial**
 * Ange ett unikt namn här för **lagringskontots namn.** **Det här namnet måste vara globalt unikt,** annars kommer det att finnas en uppmaning som informerar dig om att namnet är klart. Inom ramen för denna snabbstart, vi namn det **arrtutorialstorage**. Därför måste du ersätta den med ditt namn för alla förekomster i den här snabbstarten.
 * Välj en **plats** nära dig. Använd helst samma plats som används för att ställa in renderingen i den andra snabbstarten.
-* **Prestanda** inställd på Standard
-* **Kontoslag** inställt på StorageV2 (allmänt ändamål v2)
-* **Replikering** inställd på geo redundant lagring av läsåtkomst (RA-GRS)
-* **Åtkomstnivå** inställd på Het
+* **Prestanda** inställd på "Standard"
+* **Kontoslag** inställt på "StorageV2 (allmänt ändamål v2)"
+* **Replikering** inställd på "Läs-tillgång geo-redundant lagring (RA-GRS)"
+* **Åtkomstnivån** inställd på "Hot"
 
 Ingen av egenskaperna på andra flikar behöver ändras, så du kan fortsätta med **"Granska + skapa"** och sedan följa stegen för att slutföra installationen.
 

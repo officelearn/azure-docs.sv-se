@@ -1,5 +1,5 @@
 ---
-title: Förstå Azure Security Center för IoT-säkerhetsmodul för IoT Edge| Microsoft-dokument
+title: Säkerhetsmodul för IoT Edge
 description: Förstå arkitekturen och funktionerna i Azure Security Center för IoT-säkerhetsmodul för IoT Edge.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 148c68234a937efde554ef00a6014cdc1a350f34
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0eb68f517c4c5b04dd4f92dd1a804dcf5ad24362
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71315893"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310633"
 ---
 # <a name="azure-iot-edge-security-module"></a>Säkerhetsmodulen Azure IoT Edge
 
@@ -36,7 +36,7 @@ Mer information finns i [Konfigurera din agent.](how-to-agent-configuration.md)
 Azure Security Center för IoT-säkerhetsmodul för IoT Edge erbjuder följande funktioner:
 
 - Samlar in råsäkerhetshändelser från det underliggande operativsystemet (Linux) och IoT Edge Container-systemen.
-  
+
   Mer information om tillgängliga säkerhetsdatainsamlare finns i [Azure Security Center för IoT-agentkonfiguration.](how-to-agent-configuration.md)
 
 - Analys av IoT Edge-distributionsmanifest.
@@ -52,7 +52,7 @@ Privilegierat läge krävs för att modulen ska kunna övervaka operativsystemet
 
 ## <a name="module-supported-platforms"></a>Plattformar som stöds av modul
 
-Azure Security Center för IoT-säkerhetsmodul för IoT Edge är för närvarande endast tillgängligt för Linux. 
+Azure Security Center för IoT-säkerhetsmodul för IoT Edge är för närvarande endast tillgängligt för Linux.
 
 ## <a name="next-steps"></a>Nästa steg
 

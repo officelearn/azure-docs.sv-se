@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: a2eade6c5a9c826d28d435a09861ba58463ae8c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f6c4fb5caf746650f95872d50afe31e5693422be
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280539"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382920"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Active Directory-integrering för Azure Red Hat OpenShift
 
@@ -25,13 +25,13 @@ I [Azure-portalen](https://portal.azure.com)kontrollerar du att din klient visas
 
 ![Skärmbild av portal med klienten överst till höger](./media/howto-create-tenant/tenant-callout.png) Om fel klient visas klickar du på ditt användarnamn längst upp till höger, klickar sedan på Växla **katalog**och väljer rätt klient i listan Alla **kataloger.**
 
-Skapa en ny global Azure Active Directory-administratörsanvändare för att logga in på azure red hat OpenShift-klustret.
+Skapa en ny Azure Active Directory -ägare-användare för att logga in på ditt Azure Red Hat OpenShift-kluster.
 
 1. Gå till bladet [Användare-Alla](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) användare.
 2. Klicka på **+Ny användare** för att öppna **användarfönstret.**
 3. Ange ett **namn** för den här användaren.
 4. Skapa ett **användarnamn** baserat på namnet på klienten som du skapade, med `.onmicrosoft.com` tillägg i slutet. Till exempel `yourUserName@yourTenantName.onmicrosoft.com`. Skriv ned det här användarnamnet. Du behöver den för att logga in på klustret.
-5. Klicka på **Katalogrollen** för att öppna katalogrollsfönstret och välj **Global administratör** och klicka sedan på **Ok** längst ned i fönstret.
+5. Klicka på **Katalogrollen** för att öppna katalogrollsfönstret och välj **Ägare** och klicka sedan på **Ok** längst ned i fönstret.
 6. Klicka på Visa **lösenord** i **användarfönstret** och registrera det tillfälliga lösenordet. När du har loggat in första gången uppmanas du att återställa den.
 7. Klicka på **Skapa** längst ned i fönstret för att skapa användaren.
 

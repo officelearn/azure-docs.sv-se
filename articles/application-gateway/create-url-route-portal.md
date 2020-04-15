@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: bc810ac7901d83f03d3f3ac2199561225326d261
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8d48ea133aaabbe9fd44bda545d672e68c93c08d
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74048142"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312202"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Självstudiekurs: Skapa en programgateway med sökvägsbaserade routningsregler med Azure-portalen
 
@@ -207,4 +207,4 @@ Granska inställningarna på fliken **Granska + skapa** och välj sedan **Skapa*
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Aktivera slutpunkt till SSL på Azure Application Gateway](application-gateway-backend-ssl.md)
+- [Aktivera på TLS på Azure Application Gateway](application-gateway-backend-ssl.md)

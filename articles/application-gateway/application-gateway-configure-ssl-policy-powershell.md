@@ -1,27 +1,27 @@
 ---
-title: Konfigurera SSL-princip med PowerShell
+title: Konfigurera TLS-princip med PowerShell
 titleSuffix: Azure Application Gateway
-description: Den hÃ¤r artikeln innehåller instruktioner fÃ¤r konfigurera SSL-princip fÃ¤r Azure Application Gateway
+description: Den hÃ¤r artikeln innehåller instruktioner fÃ¤r konfigurera TLS-princip fÃ¤r Azure Application Gateway
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 105b0b3e40e6e9433ee456914cd5babc1d17d036
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3804059fdd818f10663d14bde72da2c6773fa53f
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74075232"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312681"
 ---
-# <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Konfigurera SSL-principversioner och chiffersviter på Application Gateway
+# <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>Konfigurera TLS-principversioner och chiffersviter på Application Gateway
 
-Lär dig hur du konfigurerar SSL-principversioner och chiffersviter på Application Gateway. Du kan välja från en lista med fördefinierade principer som innehåller olika konfigurationer för SSL-principversioner och aktiverade chiffersviter. Du har också möjlighet att definiera en [anpassad SSL-princip](#configure-a-custom-ssl-policy) baserat på dina krav.
+Lär dig hur du konfigurerar TLS/SSL-principversioner och chiffersviter på Application Gateway. Du kan välja från en lista över fördefinierade principer som innehåller olika konfigurationer av TLS-principversioner och aktiverade chiffersviter. Du har också möjlighet att definiera en [anpassad TLS-princip](#configure-a-custom-tls-policy) baserat på dina krav.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="get-available-ssl-options"></a>Få tillgängliga SSL-alternativ
+## <a name="get-available-tls-options"></a>Få tillgängliga TLS-alternativ
 
 Cmdleten `Get-AzApplicationGatewayAvailableSslOptions` innehåller en lista över tillgängliga fördefinierade principer, tillgängliga chiffersviter och protokollversioner som kan konfigureras. I följande exempel visas ett exempel på utdata från att köra cmdleten.
 
@@ -71,9 +71,9 @@ AvailableProtocols:
     TLSv1_2
 ```
 
-## <a name="list-pre-defined-ssl-policies"></a>Lista fördefinierade SSL-principer
+## <a name="list-pre-defined-tls-policies"></a>Lista fördefinierade TLS-principer
 
-Programgateway levereras med tre fördefinierade principer som kan användas. Cmdlet `Get-AzApplicationGatewaySslPredefinedPolicy` hämtar dessa principer. Varje princip har olika protokollversioner och chiffersviter aktiverade. Dessa fördefinierade principer kan användas för att snabbt konfigurera en SSL-princip på programgatewayen. Som standard **väljs AppGwSslPolicy20150501** om ingen specifik SSL-princip har definierats.
+Programgateway levereras med tre fördefinierade principer som kan användas. Cmdlet `Get-AzApplicationGatewaySslPredefinedPolicy` hämtar dessa principer. Varje princip har olika protokollversioner och chiffersviter aktiverade. Dessa fördefinierade principer kan användas för att snabbt konfigurera en TLS-princip på programgatewayen. Som standard **väljs AppGwSslPolicy20150501** om ingen specifik TLS-princip har definierats.
 
 Följande utdata är ett `Get-AzApplicationGatewaySslPredefinedPolicy`exempel på att köra .
 
@@ -106,37 +106,37 @@ CipherSuites:
 ...
 ```
 
-## <a name="configure-a-custom-ssl-policy"></a>Konfigurera en anpassad SSL-princip
+## <a name="configure-a-custom-tls-policy"></a>Konfigurera en anpassad TLS-princip
 
-När du konfigurerar en anpassad SSL-princip skickar du följande parametrar: PolicyType, MinProtocolVersion, CipherSuite och ApplicationGateway. Om du försöker skicka andra parametrar får du ett felmeddelande när du skapar eller uppdaterar Programgatewayen. 
+När du konfigurerar en anpassad TLS-princip skickar du följande parametrar: PolicyType, MinProtocolVersion, CipherSuite och ApplicationGateway. Om du försöker skicka andra parametrar får du ett felmeddelande när du skapar eller uppdaterar Programgatewayen. 
 
-I följande exempel anges en anpassad SSL-princip på en programgateway. Den ställer in minimiprotokollversionen till `TLSv1_1` och aktiverar följande chiffersviter:
+I följande exempel anges en anpassad TLS-princip på en programgateway. Den ställer in minimiprotokollversionen till `TLSv1_1` och aktiverar följande chiffersviter:
 
 * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 
 > [!IMPORTANT]
-> TLS_RSA_WITH_AES_256_CBC_SHA256 måste väljas när du konfigurerar en anpassad SSL-princip. Programgateway använder den här chiffersviten för hantering av bakåtsträvande. Du kan använda detta i kombination med andra sviter, men den här måste också väljas. 
+> TLS_RSA_WITH_AES_256_CBC_SHA256 måste väljas när du konfigurerar en anpassad TLS-princip. Programgateway använder den här chiffersviten för hantering av bakåtsträvande. Du kan använda detta i kombination med andra sviter, men den här måste också väljas. 
 
 ```powershell
 # get an application gateway resource
 $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroup AdatumAppGatewayRG
 
-# set the SSL policy on the application gateway
+# set the TLS policy on the application gateway
 Set-AzApplicationGatewaySslPolicy -ApplicationGateway $gw -PolicyType Custom -MinProtocolVersion TLSv1_1 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
 
-# validate the SSL policy locally
+# validate the TLS policy locally
 Get-AzApplicationGatewaySslPolicy -ApplicationGateway $gw
 
-# update the gateway with validated SSL policy
+# update the gateway with validated TLS policy
 Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
-## <a name="create-an-application-gateway-with-a-pre-defined-ssl-policy"></a>Skapa en programgateway med en fördefinierad SSL-princip
+## <a name="create-an-application-gateway-with-a-pre-defined-tls-policy"></a>Skapa en programgateway med en fördefinierad TLS-princip
 
-När du konfigurerar en fördefinierad SSL-princip skickar du följande parametrar: PolicyType, PolicyName och ApplicationGateway. Om du försöker skicka andra parametrar får du ett felmeddelande när du skapar eller uppdaterar Programgatewayen.
+När du konfigurerar en fördefinierad TLS-princip skickar du följande parametrar: PolicyType, PolicyName och ApplicationGateway. Om du försöker skicka andra parametrar får du ett felmeddelande när du skapar eller uppdaterar Programgatewayen.
 
-I följande exempel skapas en ny programgateway med en fördefinierad SSL-princip.
+I följande exempel skapas en ny programgateway med en fördefinierad TLS-princip.
 
 ```powershell
 # Create a resource group
@@ -163,10 +163,10 @@ $pool = New-AzApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddres
 # Define the backend http settings to be used.
 $poolSetting = New-AzApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Enabled
 
-# Create a new port for SSL
+# Create a new port for TLS
 $fp = New-AzApplicationGatewayFrontendPort -Name frontendport01  -Port 443
 
-# Upload an existing pfx certificate for SSL offload
+# Upload an existing pfx certificate for TLS offload
 $password = ConvertTo-SecureString -String "P@ssw0rd" -AsPlainText -Force
 $cert = New-AzApplicationGatewaySslCertificate -Name cert01 -CertificateFile C:\folder\contoso.pfx -Password $password
 
@@ -182,16 +182,16 @@ $rule = New-AzApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic 
 # Define the size of the application gateway
 $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
-# Configure the SSL policy to use a different pre-defined policy
+# Configure the TLS policy to use a different pre-defined policy
 $policy = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20170401S
 
 # Create the application gateway.
 $appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName $rg.ResourceGroupName -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert -SslPolicy $policy
 ```
 
-## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>Uppdatera en befintlig programgateway med en fördefinierad SSL-princip
+## <a name="update-an-existing-application-gateway-with-a-pre-defined-tls-policy"></a>Uppdatera en befintlig programgateway med en fördefinierad TLS-princip
 
-Om du vill ange en anpassad SSL-princip skickar du följande parametrar: **PolicyType**, **MinProtocolVersion**, **CipherSuite**och **ApplicationGateway**. Om du vill ange en fördefinierad SSL-princip skickar du följande parametrar: **PolicyType**, **PolicyName**och **ApplicationGateway**. Om du försöker skicka andra parametrar får du ett felmeddelande när du skapar eller uppdaterar Programgatewayen.
+Om du vill ange en anpassad TLS-princip skickar du följande parametrar: **PolicyType**, **MinProtocolVersion**, **CipherSuite**och **ApplicationGateway**. Om du vill ange en fördefinierad TLS-princip skickar du följande parametrar: **PolicyType**, **PolicyName**och **ApplicationGateway**. Om du försöker skicka andra parametrar får du ett felmeddelande när du skapar eller uppdaterar Programgatewayen.
 
 I följande exempel finns det kodexempel för både anpassad princip och fördefinierad princip. Avkommenta den princip som du vill använda.
 
@@ -204,14 +204,14 @@ $AppGw = get-Azapplicationgateway -Name $AppGWname -ResourceGroupName $RG
 
 # Choose either custom policy or predefined policy and uncomment the one you want to use.
 
-# SSL Custom Policy
+# TLS Custom Policy
 # Set-AzApplicationGatewaySslPolicy -PolicyType Custom -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_RSA_WITH_AES_128_CBC_SHA256" -ApplicationGateway $AppGw
 
-# SSL Predefined Policy
+# TLS Predefined Policy
 # Set-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName "AppGwSslPolicy20170401S" -ApplicationGateway $AppGW
 
 # Update AppGW
-# The SSL policy options are not validated or updated on the Application Gateway until this cmdlet is executed.
+# The TLS policy options are not validated or updated on the Application Gateway until this cmdlet is executed.
 $SetGW = Set-AzApplicationGateway -ApplicationGateway $AppGW
 ```
 

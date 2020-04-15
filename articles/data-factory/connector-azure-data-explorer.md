@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/18/2020
-ms.openlocfilehash: 4c265cb0cdc665ef52f4dc6e69440e83c22db449
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f0eada5184f2c8e36b0deb5a9d27a8a9230776d
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77460985"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382770"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Kopiera data till eller från Azure Data Explorer med hjälp av Azure Data Factory
 
-I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data till eller från [Azure Data Explorer](../data-explorer/data-explorer-overview.md). Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln, som erbjuder en allmän översikt över kopieringsaktivitet.
+I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data till eller från [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln, som erbjuder en allmän översikt över kopieringsaktivitet.
 
 >[!TIP]
->För Azure Data Factory- och Azure Data Explorer-integrering i allmänhet kan du läsa mer från [Integrate Azure Data Explorer med Azure Data Factory](../data-explorer/data-factory-integration.md).
+>För Azure Data Factory- och Azure Data Explorer-integrering i allmänhet kan du läsa mer från [Integrate Azure Data Explorer med Azure Data Factory](/azure/data-explorer/data-factory-integration).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -47,7 +47,7 @@ Med Azure Data Explorer-kopplingen kan du göra följande:
 ## <a name="getting-started"></a>Komma igång
 
 >[!TIP]
->En genomgång av Azure Data Explorer-anslutningsappen finns i [Kopiera data till/från Azure Data Explorer med Azure Data Factory](../data-explorer/data-factory-load-data.md) och [Mass-kopia från en databas till Azure Data Explorer](../data-explorer/data-factory-template.md).
+>En genomgång av Azure Data Explorer-anslutningsappen finns i [Kopiera data till/från Azure Data Explorer med Azure Data Factory](/azure/data-explorer/data-factory-load-data) och [Mass-kopia från en databas till Azure Data Explorer](/azure/data-explorer/data-factory-template).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -63,7 +63,7 @@ Azure Data Explorer-anslutningsappen använder autentisering av tjänstens huvud
     - Programnyckel
     - Klient-ID:t
 
-2. Ge tjänstens huvudnamn rätt behörigheter i Azure Data Explorer. Mer information om roller och behörigheter för hantera behörigheter finns i [Hantera Azure Data Explorer-databasbehörigheter.](../data-explorer/manage-database-permissions.md) I allmänhet måste du:
+2. Ge tjänstens huvudnamn rätt behörigheter i Azure Data Explorer. Mer information om roller och behörigheter för hantera behörigheter finns i [Hantera Azure Data Explorer-databasbehörigheter.](/azure/data-explorer/manage-database-permissions) I allmänhet måste du:
 
     - **Som källa**ger du databasen minst **databasvisningsrollen**
     - **Som mottagare**, ge åtminstone **rollen Databas ingestor** till databasen

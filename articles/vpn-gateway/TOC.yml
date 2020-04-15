@@ -16,9 +16,11 @@
       href: powershell-samples.md
 - name: Begrepp
   items:
-    - name: Support för distansarbete
+    - name: Distansarbete
       items:
-        - name: Distansarbete
+        - name: Stöd för distansarbete
+          href: ../networking/working-remotely-support.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+        - name: Dra nytta av Azure VPN
           href: work-remotely-support.md
         - name: NVA-konfigurationer och distansarbete
           href: nva-work-remotely-support.md

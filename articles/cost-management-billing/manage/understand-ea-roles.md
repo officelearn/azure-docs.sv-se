@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 04/01/2020
 ms.author: banders
-ms.openlocfilehash: f31d8638e8672feafc1ab822acecb78ec0a48b11
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 28fff2a24f703e0cff967bdde29a7b1238e197ee
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202781"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586140"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Förstå administrativa roller för Azure Enterprise-avtal i Azure
 
@@ -46,18 +46,18 @@ I följande avsnitt beskrivs begränsningarna och funktionerna för varje roll.
 
 ## <a name="organization-structure-and-permissions-by-role"></a>Organisationsstruktur och behörigheter per roll
 
-|Aktiviteter| Företagsadministratör|Företagsadministratör (skrivskyddad)|Avdelningsadministratör|Avdelningsadministratör (skrivskyddad)|Kontoägare|
-|---|---|---|---|---|---|
-|Visa företagsadministratörer|✔|✔|✘|✘|✘|
-|Lägga till eller ta bort företagsadministratörer|✔|✘|✘|✘|✘|
-|Visa meddelandekontakter<sup>4</sup> |✔|✔|✘|✘|✘|
-|Lägga till eller ta bort meddelandekontakter<sup>4</sup> |✔|✘|✘|✘|✘|
-|Skapa och hantera avdelningar |✔|✘|✘|✘|✘|
-|Visa avdelningsadministratörer|✔|✔|✔|✔|✘|
-|Lägga till eller ta bort avdelningsadministratörer|✔|✘|✔|✘|✘|
-|Visa konton i registreringen |✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✘|
-|Lägga till konton i registreringen och ändra kontoägare|✔|✘|✔<sup>5</sup>|✘|✘|
-|Skapa och hantera prenumerationer och prenumerationsbehörigheter|✘|✘|✘|✘|✔|
+|Aktiviteter| Företagsadministratör|Företagsadministratör (skrivskyddad)|Avdelningsadministratör|Avdelningsadministratör (skrivskyddad)|Kontoägare| Partner|
+|---|---|---|---|---|---|---|
+|Visa företagsadministratörer|✔|✔|✘|✘|✘|✔|
+|Lägga till eller ta bort företagsadministratörer|✔|✘|✘|✘|✘|✘|
+|Visa meddelandekontakter<sup>4</sup> |✔|✔|✘|✘|✘|✔|
+|Lägga till eller ta bort meddelandekontakter<sup>4</sup> |✔|✘|✘|✘|✘|✘|
+|Skapa och hantera avdelningar |✔|✘|✘|✘|✘|✘|
+|Visa avdelningsadministratörer|✔|✔|✔|✔|✘|✔|
+|Lägga till eller ta bort avdelningsadministratörer|✔|✘|✔|✘|✘|✘|
+|Visa konton i registreringen |✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✘|✔|
+|Lägga till konton i registreringen och ändra kontoägare|✔|✘|✔<sup>5</sup>|✘|✘|✘|
+|Skapa och hantera prenumerationer och prenumerationsbehörigheter|✘|✘|✘|✘|✔|✘|
 
 - <sup>4</sup> Meddelandekontakter får e-postmeddelanden om Azure Enterprise-avtalet.
 - <sup>5</sup> Uppgiften är begränsad till konton på din avdelning.
@@ -65,14 +65,14 @@ I följande avsnitt beskrivs begränsningarna och funktionerna för varje roll.
 
 ## <a name="usage-and-costs-access-by-role"></a>Åtkomst till användning och kostnader per roll
 
-|Aktiviteter| Företagsadministratör|Företagsadministratör (skrivskyddad)|Avdelningsadministratör|Avdelningsadministratör (skrivskyddad) |Kontoägare|
-|---|---|---|---|---|---|
-|Visa kreditsaldo inklusive ekonomiska åtaganden|✔|✔|✘|✘|✘|
-|Visa avdelningens utgiftskvot|✔|✔|✘|✘|✘|
-|Ange avdelningens utgiftskvot|✔|✘|✘|✘|✘|
-|Visa organisationens EA-prisdokument|✔|✔|✘|✘|✘|
-|Visa information om användning och kostnader|✔|✔|✔<sup>6</sup>|✔<sup>6</sup>|✔<sup>7</sup>|
-|Hantera resurser i Azure-portalen|✘|✘|✘|✘|✔|
+|Aktiviteter| Företagsadministratör|Företagsadministratör (skrivskyddad)|Avdelningsadministratör|Avdelningsadministratör (skrivskyddad) |Kontoägare| Partner|
+|---|---|---|---|---|---|---|
+|Visa kreditsaldo inklusive ekonomiska åtaganden|✔|✔|✘|✘|✘|✔|
+|Visa avdelningens utgiftskvot|✔|✔|✘|✘|✘|✔|
+|Ange avdelningens utgiftskvot|✔|✘|✘|✘|✘|✘|
+|Visa organisationens EA-prisdokument|✔|✔|✘|✘|✘|✔|
+|Visa information om användning och kostnader|✔|✔|✔<sup>6</sup>|✔<sup>6</sup>|✔<sup>7</sup>|✔|
+|Hantera resurser i Azure-portalen|✘|✘|✘|✘|✔|✘|
 
 - <sup>6</sup> Kräver att företagsadministratören aktiverar policyn **Visa avgifter för DA** på Enterprise-portalen. Avdelningsadministratören kan sedan se kostnadsinformation för avdelningen.
 - <sup>7</sup> Kräver att företagsadministratören aktiverar policyn **Visa avgifter för AO** på Enterprise-portalen. Kontoägaren kan sedan se kostnadsinformation för kontot.

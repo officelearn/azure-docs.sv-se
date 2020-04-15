@@ -10,6 +10,9 @@
       href: analysis-services-create-server.md
     - name: Skapa en server – PowerShell
       href: analysis-services-create-powershell.md
+    - name: Skapa en server – ARM-mall
+      displayName: Resource Manager
+      href: analysis-services-create-template.md
     - name: Konfigurera serverbrandväggen – portalen
       href: analysis-services-qs-firewall.md
 - name: Självstudier
@@ -20,7 +23,7 @@
       href: tutorials/analysis-services-tutorial-roles.md
     - name: 3 – Ansluta med Power BI Desktop
       href: tutorials/analysis-services-tutorial-pbid.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Autentisering och användarbehörigheter
       href: analysis-services-manage-users.md
@@ -122,7 +125,7 @@
       href: 'https://azure.microsoft.com/status/'
     - name: Feedback
       href: 'https://feedback.azure.com/forums/556165-azure-analysis-services'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/analysis-services/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

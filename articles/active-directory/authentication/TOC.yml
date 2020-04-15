@@ -17,7 +17,7 @@
       href: tutorial-configure-custom-password-protection.md
     - name: Integrera Azure Identity Protection
       href: tutorial-risk-based-sspr-mfa.md
-- name: Koncept
+- name: Begrepp
   expanded: true
   items:
     - name: Autentiseringsmetoder
@@ -42,17 +42,13 @@
       items:
         - name: Så här fungerar MFA
           href: concept-mfa-howitworks.md
-        - name: Licensiera dina användare
-          href: concept-mfa-licensing.md
-        - name: Hantera en autentiseringsleverantör
-          href: concept-mfa-authprovider.md
-        - name: Säkerhetsvägledning
-          href: multi-factor-authentication-security-best-practices.md
         - name: Dataplacering
           href: concept-mfa-data-residency.md
+        - name: Licenser
+          href: concept-mfa-licensing.md
         - name: MFA för Office 365
           href: 'https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide'
-        - name: VANLIGA FRÅGOR OCH SVAR OM MFA
+        - name: VANLIGA FRÅGOR OCH SVAR
           href: multi-factor-authentication-faq.md
     - name: Azure AD-lösenordsskydd
       items:
@@ -62,7 +58,7 @@
           href: concept-password-ban-bad-on-premises.md
     - name: Motståndskraftiga åtkomstkontroller
       href: concept-resilient-controls.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Återställning av lösenord för självbetjäning
       items:
@@ -72,16 +68,18 @@
           href: howto-sspr-authenticationdata.md
         - name: SSPR för Windows-klienter
           href: howto-sspr-windows.md
-    - name: Molnbaserad MFA
+    - name: Azure Multi-Factor Authentication
       items:
         - name: Distributionsguide
           href: howto-mfa-getstarted.md
-        - name: MFA per användare
-          href: howto-mfa-userstates.md
-        - name: Användar- och enhetsinställningar
-          href: howto-mfa-userdevicesettings.md
         - name: Konfigurera inställningar
           href: howto-mfa-mfasettings.md
+        - name: Konfigurera användare
+          href: howto-mfa-userdevicesettings.md
+        - name: Aktivera MFA per användare
+          href: howto-mfa-userstates.md
+        - name: Konfigurera autentiseringsproviders
+          href: concept-mfa-authprovider.md
         - name: Directory Federation
           items:
             - name: Windows Server 2016 AD FS-adapter
@@ -140,6 +138,8 @@
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello för företag
           href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
+    - name: Använda SMS-baserad autentisering (förhandsversion)
+      href: howto-authentication-sms-signin.md
     - name: Certifikatbaserad autentisering
       items:
         - name: Komma igång med certifikatbaserad autentisering
@@ -225,7 +225,7 @@
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: MSDN-forum
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: Tjänstuppdateringar
       href: ../fundamentals/whats-new.md

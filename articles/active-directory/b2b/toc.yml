@@ -25,7 +25,7 @@
       items:
         - name: Kod och Azure PowerShell-exempel
           href: code-samples.md
-    - name: Koncept
+    - name: Begrepp
       expanded: false
       items:
         - name: B2B-metodtips
@@ -52,7 +52,7 @@
           href: self-service-portal.md
         - name: Aktuella begränsningar
           href: current-limitations.md
-    - name: Instruktionsguider
+    - name: Anvisningar
       expanded: true
       items:
         - name: Hantera B2B-delning
@@ -63,6 +63,8 @@
               href: add-users-administrator.md
             - name: Informationsarbetare som lägger till B2B-användare
               href: add-users-information-worker.md
+            - name: Bjud in interna användare till B2B
+              href: invite-internal-users.md
             - name: Google-federation
               href: google-federation.md
             - name: Autentisering med engångskoder
@@ -115,7 +117,7 @@
           href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
         - name: MSDN-forum
           href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
-        - name: Priser
+        - name: Prissättning
           href: 'https://azure.microsoft.com/pricing/details/active-directory/'
         - name: Priskalkylator
           href: 'https://azure.microsoft.com/pricing/calculator/'

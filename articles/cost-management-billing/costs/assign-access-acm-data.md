@@ -3,17 +3,17 @@ title: Tilldela åtkomst till Azure Cost Management-data
 description: I den här artikeln går vi igenom att tilldela behörighet till Azure Cost Management-data för olika omfång.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/19/2020
+ms.date: 04/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: 56090798defd9209c3587aa701c88db6958d1b97
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0b3ede4dcc4df8bf10ce24b3d74dc5af0424de5a
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80065852"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879113"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Tilldela åtkomst till Cost Management-data
 
@@ -21,9 +21,9 @@ För användare med Azure Enterprise-avtal definieras en användares åtkomst ti
 
 Det omfång användaren väljer används i hela Cost Management för att ge datakonsolidering och styra åtkomsten till kostnadsinformation. Användare väljer inte flera omfång samtidigt. I stället väljs ett större omfång som de underordnade omfången ingår, och sedan filtrerar användaren ned till den önskade informationen. Det är viktigt att förstå datakonsolidering eftersom vissa användare inte bör ha åtkomst till överordnade omfång som underordnade omfång ingår i.
 
-I videon [Tilldela åtkomst med Azure Cost Management](https://www.youtube.com/watch?v=J997ckmwTa8) kan du se hur du tilldelar åtkomst för att visa kostnader och kostnader med rollbaserad åtkomstkontroll i Azure.
+Se videon om [åtkomstkontroll i Cost Management](https://www.youtube.com/watch?v=_uQzQ9puPyM) om du vill veta mer om hur du tilldelar åtkomst för att visa kostnader och avgifter med rollbaserad åtkomstkontroll i Azure. Om du vill titta på andra videor går du till [YouTube-kanalen för Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
->[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
+>[!VIDEO https://www.youtube.com/embed/_uQzQ9puPyM]
 
 ## <a name="cost-management-scopes"></a>Cost Management-omfång
 

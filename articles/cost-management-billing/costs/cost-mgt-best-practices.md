@@ -3,17 +3,17 @@ title: Optimera din molninvestering med Azure Cost Management
 description: Den här artikeln hjälper dig att få ut det mesta möjliga av dina molninvesteringar, minska kostnaderna och utvärdera var pengarna spenderas.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 04/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 4941c1be8fd20dfa88e3ac36bfa30af77a2b1be1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8df98514545a2670ea18a2b4b131a097244d7b46
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80157219"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874593"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Så här optimerar du din molninvestering med Azure Cost Management
 
@@ -36,6 +36,10 @@ Tre nyckelgrupper som beskrivs nedan måste vara samstämmiga i organisationen s
 ### <a name="key-principles"></a>Nyckelprinciper
 
 Använd de principer som beskrivs nedan för att ge organisationen en framgångsposition inom molnkostnadshantering.
+
+Vill du veta mer kan du se videon [Cost Management setting up for success](https://www.youtube.com/watch?v=dVuwITdSAZ4) (konfigurera Cost Management för framgång). Om du vill titta på andra videor går du till [YouTube-kanalen för Cost Management](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/dVuwITdSAZ4]
 
 #### <a name="planning"></a>Planering
 
@@ -125,7 +129,7 @@ Håll dig informerad om hur din organisations kostnader utvecklas över tid. Anv
 
 Organisera resurser utifrån kostnad. När du skapar prenumerationer och resursgrupper bör du tänka på de team som ansvarar för tillhörande kostnader. Kontrollera att din rapportering tar hänsyn till organisationen. Prenumerationer och resursgrupper tillhandahåller lämpliga kategorier för att organisera och tillskriva utgifter i organisationen. Taggar är ett bra sätt att tillskriva kostnader. Du kan använda taggar som ett filter. Och du kan använda dem för att gruppera när du analyserar data och undersöker kostnader. Kunder med Enterprise-avtal kan även skapa avdelningar och placera prenumerationer under dem. Kostnadsbaserad organisering i Azure hjälper till att hålla relevanta personer i din organisation ansvariga för att minska respektive teams utgifter.
 
-Titta på videon om [hur du granskar taggningsprinciper med Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) och lär dig mer om de verktyg som du kan använda för att kräva skalbar resurstaggning inom organisationen.
+Titta på videon om [hur du granskar taggningsprinciper med Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) och lär dig mer om de verktyg som du kan använda för att kräva skalbar resurstaggning inom organisationen. Om du vill titta på andra videor går du till [YouTube-kanalen för Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
 

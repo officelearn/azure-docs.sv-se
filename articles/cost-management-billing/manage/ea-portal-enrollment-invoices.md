@@ -3,16 +3,16 @@ title: Fakturor för Azure Enterprise-registrering
 description: Den här artikeln förklarar hur du hanterar och använder din Azure Enterprise-faktura.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/03/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 9fbc2ffcf1158f436c060817f8f25152f839c3e0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d8d189d2ee67e3f98fec5d7d4cd295879e8689c9
+ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79037262"
+ms.lasthandoff: 04/06/2020
+ms.locfileid: "80743889"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Fakturor för Azure Enterprise-registrering
 
@@ -494,6 +494,12 @@ Följande tjänster faktureras separat:
 - Visual Studio Enterprise (årsvis)
 - Visual Studio Professional (månatligen)
 - Visual Studio Professional (årsvis)
+
+## <a name="what-to-expect-after-change-of-channel-partner"></a>Det här kan du förvänta dig när kanalpartnern har ändrats
+
+Om ändringen av kanal partner sker i mitten av månaden får kunden en faktura för användning under den föregående associerade partnern, och en annan faktura för användningen under den nya partnern.
+
+Fakturorna släpps efter den månad då faktureringsperioden slutar. Om faktureringstakten är månatlig kommer septemberfakturan att släppas i oktober för båda partnerna. Om faktureringsperioden är kvartals- eller årsvis kan kunden förvänta sig en faktura för användningen under perioden för den tidigare associerade partnern, medan resten hamnar på den nya partnern baserat på faktureringstakten.
 
 ## <a name="azure-marketplace-for-ea-customers"></a>Azure Marketplace för EA-kunder
 

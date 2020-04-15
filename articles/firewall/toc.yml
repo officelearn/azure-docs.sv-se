@@ -20,6 +20,9 @@
     - name: Distribuera med IP-grupper
       displayName: Resource Manager
       href: quick-create-ipgroup-template.md
+    - name: Distribuera med flera adresser
+      displayName: Resource Manager
+      href: quick-create-multiple-ip-template.md
 - name: Exempel
   items:
     - name: Azure PowerShell

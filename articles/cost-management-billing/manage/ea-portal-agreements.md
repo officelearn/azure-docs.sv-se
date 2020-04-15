@@ -3,16 +3,16 @@ title: Azure EA-avtal och ändringar
 description: I den här artikeln förklaras hur Azure EA-avtal och ändringar påverkar din användning av Azure EA-portalen.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/04/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 5198bd240f0c4e23910504fd039d64a73ddb41c9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0b007e98f37246d17679761fd601ed76fd9fb875
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78301428"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586234"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Azure EA-avtal och ändringar
 
@@ -219,7 +219,7 @@ Företagsadministratörer kan lägga till nya kontoinnehavare, associera en befi
 1. Ange ett namn du vill använda för att identifiera det här kontot i rapportering.
 1. Klicka på **Lägg till**.
 1. Du kan lägga till ytterligare ett konto genom att välja alternativet **+Add an Account** (+Lägg till konto) igen eller gå tillbaka till startsidan genom att klicka på knappen **Administrator** (Administratör).  
-1. Om du klickar för att visa sidan Account (Konto) visas den nyligen tillagda sidan med statusen Pending (Väntar). Statusen ändras till Active (Aktiv) när kontoinnehavaren har loggat in på EA-portalen för första gången.
+1. Om du klickar för att visa sidan Account (Konto) visas den nyligen tillagda sidan med statusen Pending (Väntar). Statusen ändras till ”Active” (Aktiv) när kontoinnehavaren har loggat in på EA-portalen för första gången.
 
 ### <a name="existingnew-account-owners-to-create-new-subscriptions"></a>Befintliga/nya kontoinnehavare för att skapa nya prenumerationer
 

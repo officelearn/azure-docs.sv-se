@@ -3,17 +3,17 @@ title: Snabbstart – Utforska Azure-kostnader med kostnadsanalys
 description: Den här snabbstarten hjälper dig att använda kostnadsanalys för att utforska och analysera dina Azure-organisationskostnader.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 04/07/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 53e1ef2f5e4faecd3ab2dee1350f3e9087df8e9d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e63e3ef999db7053609fb098cd2b7583143a2937
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80155961"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874508"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snabbstart: Utforska och analysera kostnader med kostnadsanalys
 
@@ -45,7 +45,7 @@ Om du vill granska kostnaderna i kostnadsanalys öppnar du omfånget i Azure-por
 
 Det omfång som du väljer används i hela Cost Management för att ge datakonsolidering och styra åtkomsten till kostnadsinformation. När du använder omfång så använder du inte flerval för dem. I stället väljer du ett större omfång som andra ackumuleras till, och sedan filtrerar du ned till de kapslade omfång du behöver. Den här metoden är viktig att förstå eftersom vissa personer kanske inte har åtkomst till ett enda överordnat omfång som täcker flera kapslade omfång.
 
-Lär dig hur du arbetar med kostnadsanalyser i videon om [Cost Management på Azure-portalen](https://www.youtube.com/watch?v=mfxysF-kTFA).
+Lär dig hur du arbetar med kostnadsanalyser i videon om [Cost Management på Azure-portalen](https://www.youtube.com/watch?v=mfxysF-kTFA). Om du vill titta på andra videor går du till [YouTube-kanalen för Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/mfxysF-kTFA]
 
@@ -145,6 +145,10 @@ Du kan visa den fullständiga datauppsättningen för alla vyer. Oavsett vilka v
 
 ## <a name="understanding-grouping-and-filtering-options"></a>Förstå alternativ för gruppering och filtrering
 
+Kostnadsanalys har många grupperings- och filtreringsalternativ. Om du vill se en video om grupperings- och filtreringsalternativen kan du se videon [Cost Management reporting by dimensions and tags](https://www.youtube.com/watch?v=2Vx7V17zbmk) (Cost Management-rapportering efter dimensioner och taggar). Om du vill titta på andra videor går du till [YouTube-kanalen för Cost Management](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/2Vx7V17zbmk]
+
 I följande tabell visas några av de vanligaste alternativen för gruppering och filtrering och när du ska använda dem.
 
 | Egenskap | När du ska använda detta | Anteckningar |
@@ -178,7 +182,7 @@ Mer information om villkor finns i [Understand the terms used in the Azure usage
 
 Spara och dela anpassade vyer med andra genom att fästa kostnadsanalys på Azure-portalens instrumentpanel eller genom att kopiera en länk till kostnadsanalys.
 
-Titta på videon om att [dela och spara vyer i Azure Cost Management](https://www.youtube.com/watch?v=kQkXXj-SmvQ) och se hur du kan använda portalen för att dela kunskap om kostnadshantering med andra i organisationen.
+Titta på videon om att [dela och spara vyer i Azure Cost Management](https://www.youtube.com/watch?v=kQkXXj-SmvQ) och se hur du kan använda portalen för att dela kunskap om kostnadshantering med andra i organisationen. Om du vill titta på andra videor går du till [YouTube-kanalen för Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
 

@@ -8,12 +8,12 @@ ms.date: 01/24/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.custom: ''
-ms.openlocfilehash: 3314d00651fc5e0473d84710803671f2ad45f005
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2f96208ff3f9664d82bfc1d9ddf9bc5b9aec37c3
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79474534"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80879096"
 ---
 # <a name="what-is-azure-cost-management-and-billing"></a>Vad är Azure Cost Management och Azure-fakturering?
 
@@ -67,7 +67,7 @@ Ett omfång är en nod i ett faktureringskonto som du använder för att visa oc
 ## <a name="understand-azure-cost-management"></a>Förstå Azure Cost Management
 Kostnadshantering är den process där du effektivt planerar och styr kostnaderna i företaget. Kostnadshanteringsuppgifter utförs normalt av ekonomi-, hanterings- och appteam. Azure Cost Management + fakturering hjälper organisationer att planera med kostnaderna i åtanke. Det hjälper även till att effektivt analysera kostnader och vidta åtgärder för att optimera molnutgifter. Om du vill veta mer om metoder för kostnadshantering för organisationer kan du läsa artikeln om [metodtips för Azure Cost Management](./costs/cost-mgt-best-practices.md).
 
-Titta på [videon med en översikt av Azure Cost Management](https://www.youtube.com/watch?v=el4yN5cHsJ0) för att få en snabb översikt över hur Azure Cost Management kan hjälpa dig att spara pengar i Azure.
+Titta på [videon med en översikt av Azure Cost Management](https://www.youtube.com/watch?v=el4yN5cHsJ0) för att få en snabb översikt över hur Azure Cost Management kan hjälpa dig att spara pengar i Azure. Om du vill titta på andra videor går du till [YouTube-kanalen för Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
@@ -93,7 +93,7 @@ Om du använder externa system för att komma åt eller granska kostnadshanterin
 
 [Cloudyn](./cloudyn/overview.md) är en Azure-tjänst som är kopplad till Cost Management och som kommer att tas ur bruk i slutet av 2020. Befintliga Cloudyn-funktioner integreras direkt på Azure-portalen då det är möjligt. Inga nya kunder kan registreras, men supporten fortsätter för produkten tills den har dragits tillbaka helt.
  
-Titta på [videon om Azure Cost Management och Cloudyn](https://www.youtube.com/watch?v=15DzKPMBRxM) för att lära dig mer om när du ska använda antingen Azure Cost Management eller Cloudyn, baserat på dina affärsbehov.
+Titta på [videon om Azure Cost Management och Cloudyn](https://www.youtube.com/watch?v=15DzKPMBRxM) för att lära dig mer om när du ska använda antingen Azure Cost Management eller Cloudyn, baserat på dina affärsbehov. Om du vill titta på andra videor går du till [YouTube-kanalen för Cost Management](https://www.youtube.com/c/AzureCostManagement).
  
 >[!VIDEO https://www.youtube.com/embed/15DzKPMBRxM]
 

@@ -1,11 +1,11 @@
-- name: Dokumentation om Azure Marketplace och AppSource
+- name: Dokumentation om den kommersiella marknadsplatsen
   href: index.yml
   items:
-    - name: Översikt över Azure Marketplace och AppSource
+    - name: Översikt över den kommersiella marknadsplatsen
       href: ./marketplace-roadmap.md
-    - name: Policyer och villkor för Azure Marketplace
+    - name: Principer och villkor för den kommersiella marknadsplatsen
       href: ./policies-terms.md
-    - name: Översikt och fördelar med Azure Marketplace och AppSource
+    - name: Översikt över och fördelar med den kommersiella marknadsplatsen
       href: ./marketplace-publishers-guide.md
       items:
         - name: 'En marknadsplats, två butiker'
@@ -15,7 +15,7 @@
           items:
             - name: Leadhantering
               href: ./lead-management-for-cloud-marketplace.md
-            - name: Transaktioner på Azure Marketplace
+            - name: Göra transaktioner på den kommersiella marknadsplatsen
               href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
             - name: Privata erbjudanden
               href: ./private-offers.md
@@ -66,7 +66,7 @@
               href: ./preferred-solutions.md
             - name: Integrerade lösningar
               href: ./integrated-solutions.md
-        - name: Support för Azure Marketplace och AppSource
+        - name: Stöd för den kommersiella marknadsplatsen
           href: ./support-azure-marketplace.md
           items:
             - name: Vanliga frågor om Marketplace
@@ -78,6 +78,8 @@
   items:
     - name: Cloud Partner Portal-migrering till Partnercenter
       href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md
+    - name: Vanliga frågor och svar om migrering
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-faq.md
     - name: Presentation av portalen
       href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
       items:
@@ -427,12 +429,10 @@
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: Få support
       href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
-- name: Commercial Marketplace-portalen i Partnercenter
+- name: Den kommersiella marknadsplatsen i Partner-centrum
   items:
-    - name: Översikt
-      items:
-        - name: Vad är Commercial Marketplace?
-          href: ./partner-center-portal/commercial-marketplace-overview.md
+    - name: Översikt över den kommersiella marknadsplatsen
+      href: ./partner-center-portal/commercial-marketplace-overview.md
     - name: Kontohantering
       items:
         - name: Skapa ett nytt Partnercenter-konto
@@ -453,6 +453,30 @@
               href: ./partner-center-portal/azure-apps-review-feedback.md
             - name: API för registrering
               href: ./partner-center-portal/azure-app-apis.md
+        - name: Azure Container-erbjudanden
+          items:
+            - name: Förbereda tekniska tillgångar
+              href: ./partner-center-portal/create-azure-container-technical-assets.md
+            - name: Skapa ett Azure Container-erbjudande
+              href: ./partner-center-portal/create-azure-container-offer.md
+        - name: Erbjudande för virtuella datorer
+          items:
+            - name: Skapa ett erbjudande för virtuella datorer i Azure
+              href: ./partner-center-portal/azure-vm-create-offer.md
+            - name: Skapa tekniska tillgångar för virtuella Azure-datorer
+              items:
+                - name: Skapa tekniska tillgångar för virtuella Azure-datorer
+                  href: ./partner-center-portal/create-azure-vm-technical-asset.md
+                - name: Vanliga frågor och svar om tekniska tillgångar för virtuella Azure-datorer
+                  href: ./partner-center-portal/common-issues-during-vhd-creation.md
+                - name: Certifiera en avbildning av en virtuell Azure-dator
+                  href: ./partner-center-portal/azure-vm-image-certification.md
+                - name: SAS-URI
+                  items:
+                    - name: Hämta SAS-URI
+                      href: ./partner-center-portal/get-sas-uri.md
+                    - name: Vanliga frågor och svar om SAS-URI
+                      href: ./partner-center-portal/common-sas-uri-issues.md
         - name: Konsulttjänster
           items:
             - name: Krav
@@ -539,7 +563,7 @@
       href: ./partner-center-portal/support.md
     - name: Partnercenteranalys
       items:
-        - name: Analys för Commercial Marketplace
+        - name: Analys för den kommersiella marknadsplatsen
           href: ./partner-center-portal/analytics.md
         - name: Instrumentpanel för sammanfattningar
           href: ./partner-center-portal/summary-dashboard.md

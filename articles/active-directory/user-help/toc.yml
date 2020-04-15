@@ -74,6 +74,8 @@
           href: security-info-setup-text-msg.md
         - name: Konfigurera telefonsamtal
           href: security-info-setup-phone-number.md
+        - name: Konfigurera SMS-inloggning
+          href: sms-sign-in-explainer.md
         - name: Konfigurera en säkerhetsnyckel
           href: security-info-setup-security-key.md
         - name: Konfigurera e-post

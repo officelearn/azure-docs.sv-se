@@ -3,17 +3,17 @@ title: Förstå och arbeta med Azure Cost Management-omfång
 description: Den här artikeln hjälper dig att förstå tillgängliga omfång för fakturering och resurshantering i Azure och hur du använder omfången i Cost Management och API:er.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: bbed4209d26fe32f95b93b2c7411e1ab74f03ede
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ebae9d1c66a721926ca07b21059ec57b05b99a0f
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80131365"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80877940"
 ---
 # <a name="understand-and-work-with-scopes"></a>Förstå och arbeta med omfång
 
@@ -26,6 +26,10 @@ Ett _omfång_ är en nod i Azure-resurshierarkin där Azure AD-användarna får 
 - Molntjänster, till exempel kostnads- och principstyrning
 
 Omfång är den plats där du hanterar faktureringsdata, har specifika roller för betalningar, ser fakturor, samt utför allmän kontohantering. Rollerna för fakturering och konton hanteras separat från de som används för resurshantering, vilka använder [Azure RBAC](../../role-based-access-control/overview.md). För att tydligt särskilja avsikten med de separata omfången, inklusive skillnaderna i åtkomstkontroll, kallas dessa för _faktureringsomfång_ och _RBAC-omfång_.
+
+Vill du veta mer om omfång kan du se videon [Cost Management setting up hierarchies](https://www.youtube.com/watch?v=n3TLRaYJ1NY) (konfigurera hierarkier i Cost Management). Om du vill titta på andra videor går du till [YouTube-kanalen för Cost Management](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/n3TLRaYJ1NY]
 
 ## <a name="how-cost-management-uses-scopes"></a>Hur Cost Management använder omfång
 
@@ -71,7 +75,7 @@ Cost Management-deltagare är den rekommenderade rollen för minsta privilegium.
 
 Enterprise-avtalens faktureringskonton, som även kallas registreringar, har följande omfång:
 
-- [**Faktureringskonto**](../manage/view-all-accounts.md) – Motsvarar en EA-registrering. Fakturor genereras i detta omfång. Köp som inte är användningsbaserade, till exempel Marketplace och reservationer, är bara tillgängliga i det här omfånget. De visas inte för avdelningar eller registreringskonton.
+- [**Faktureringskonto**](../manage/view-all-accounts.md) – Motsvarar en EA-registrering. Fakturor genereras i detta omfång. Köp som inte är användningsbaserade, till exempel Marketplace och reservationer, är bara tillgängliga i det här omfånget. De visas inte för avdelningar eller registreringskonton. Reservationsanvändning och all annan användning tillämpas på enskilda resurser. Användningen slås samman till prenumerationer inom faktureringskontot. Om du vill se reservationskostnader uppdelade på varje resurs växlar du till vyn **Amorterad kostnad** i kostnadsanalys.
 
     Resurstyp: `Microsoft.Billing/billingAccounts (accountType = Enrollment)`
 - **Avdelning** – Valfri gruppering av registreringskonton.

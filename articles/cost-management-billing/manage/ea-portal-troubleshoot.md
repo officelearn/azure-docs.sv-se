@@ -3,16 +3,16 @@ title: Felsöka åtkomst till Azure EA-portalen
 description: Den här artikeln beskriver några vanliga problem som kan uppstå med ett Azure Enterprise-avtal (EA) i Azure EA-portalen.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/03/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 3bf1c10e28ef9e3e4008968c9dbaef576bccdb5f
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: ee8363a76db93f0c2bd4734151e3d250de5402fc
+ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411556"
+ms.lasthandoff: 04/02/2020
+ms.locfileid: "80586191"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Felsöka åtkomst till Azure EA-portalen
 
@@ -112,7 +112,7 @@ Registreringar har väntande status om den första EA-administratören inte har 
 
 ### <a name="why-is-my-account-stuck-in-pending-status"></a>Varför är mitt konto fast i väntande status?
 
-När nya kontoinnehavare läggs till i registreringen första gången visas alltid statusen ”väntande”. När kontoinnehavaren får välkomstmeddelandet kan han/hon logga in och aktivera sitt konto. När du loggar in uppdateras kontostatusen från ”väntande” till ”aktiv”.
+När nya kontoinnehavare läggs till i registreringen för första gången visas de alltid med beteckningen ”väntar” under status. När kontoinnehavaren får välkomstmeddelandet kan han/hon logga in och aktivera sitt konto. När du loggar in uppdateras kontostatusen från ”väntande” till ”aktiv”.
 
 ### <a name="i-received-an-error-when-signing-in-to-azure-ea-portal"></a>Jag har fått ett felmeddelande vid inloggning till Azure EA-portalen
 
@@ -122,10 +122,10 @@ Det finns några möjliga orsaker till ett felmeddelande på Azure EA-portalen n
  1. Ta reda på om din åtkomst till Azure EA-portalen har lagts till som ett arbets- eller skolkonto eller Microsoft Live ID. Om du använder ditt arbetskonto anger du din e-postadress och ditt lösenord för arbete. Om du använder Microsoft Live ID anger du din Live ID-e-post och ditt Microsoft Live ID-lösenord. Om du har glömt ditt Microsoft Live ID-lösenord kan du återställa det på [https://account.live.com/password/reset](https://account.live.com/password/reset).
  1. Vi rekommenderar att du använder en privat webbläsare för att logga in så att inga cookies och ingen cache från tidigare/befintliga sessioner bevaras. Rensa cachen och använd privat surfläge/inkognitofönster för att öppna [https://ea.azure.com](https://ea.azure.com).
  1. Om du får ett felmeddelande om ogiltig användare när du använder ett Microsoft-konto kan det bero på att du har flera Microsoft-konton och att det du försöker logga in med inte är det primära aliaset. Gå till account.live.com om du vill kontrollera primärt alias:
-    - Gå till Din information > Hantera e-postadress eller telefonnummer för inloggning.
+    - Gå till ”Din information” > Hantera e-postadress eller telefonnummer för inloggning.
     - Följ anvisningarna på skärmen för att verifiera en alternativ e-postadress och hämta en kod för att få åtkomst till känslig information.
     - Ange säkerhetskoden.
-    - Om du föredrar att konfigurera tvåstegsverifiering senare väljer du Konfigurera senare.
+    - Om du föredrar att konfigurera tvåstegsautentisering senare väljer du ”Konfigurera senare”.
     - Du hamnar på sidan Hantera dina kontoalias där du ser de kontoalias som du har. Dubbelkontrollera att du använder det primära aliaset när du loggar in på Azure EA-portalen. Om du inte gör det kan du göra den till ditt primära alias eller så använder du det primära aliaset för EA-portalen.
 
 Om felsökningsstegen ovan misslyckades skickar du en begäran på [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport) med information som:

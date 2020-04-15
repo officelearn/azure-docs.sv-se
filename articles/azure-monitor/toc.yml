@@ -1075,6 +1075,8 @@
               href: platform/itsmc-connections.md
             - name: Skapa Service Manager-webbapp
               href: platform/itsmc-service-manager-script.md
+            - name: Åtgärda problem med ServiceNow ITSM-synkronisering
+              href: platform/itsmc-resync-servicenow.md
     - name: Automatisera
       items:
         - name: Automatisk skalning

@@ -3,17 +3,17 @@ title: Självstudie – Skapa och hantera Azure-budgetar
 description: Den här självstudien hjälper dig att planera och ta hänsyn till kostnaderna för de Azure-tjänster som du använder.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 04/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: f7c1ac65026fd366be1003842ff70a78b9082339
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 82094fadf7b11d97b0e9e74d9ba897baed16ee01
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80155944"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80874287"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Självstudier: Skapa och hantera Azure-budgetar
 
@@ -25,7 +25,7 @@ Budgetar återställs automatiskt i slutet av en period (månadsvis, kvartalsvis
 
 Exemplen i den här självstudien vägleder dig genom att skapa och redigera en budget för en prenumeration på ett Azure Enterprise-avtal (EA).
 
-Titta på videon [Apply budgets to subscriptions using the Azure portal](https://www.youtube.com/watch?v=UrkHiUx19Po) (Använda budgetar för prenumerationer med Azure-portalen) för att se hur du kan skapa budgetar i Azure för att övervaka utgifterna.
+Titta på videon [Apply budgets to subscriptions using the Azure portal](https://www.youtube.com/watch?v=UrkHiUx19Po) (Använda budgetar för prenumerationer med Azure-portalen) för att se hur du kan skapa budgetar i Azure för att övervaka utgifterna. Om du vill titta på andra videor går du till [YouTube-kanalen för Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/UrkHiUx19Po]
 
@@ -38,11 +38,32 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Krav
 
-Budgetar kan användas med olika typer av Azure-konton. Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Om du vill visa budgetar behöver du minst läsbehörighet för ditt Azure-konto.
+Budgetar stöds för följande typer av Azure-konton och omfång:
+
+- Omfång för rollbaserad åtkomstkontroll i Azure
+    - Hanteringsgrupper
+    - Prenumeration
+- Omfång för Enterprise-avtal
+    - Faktureringskonto
+    - Avdelning
+    - Registreringskonto
+- Enskilda avtal
+    - Faktureringskonto
+- Omfång för Microsoft-kundavtal
+    - Faktureringskonto
+    - Faktureringsprofil
+    - Fakturaavsnitt
+    - Kund
+- AWS-omfång
+    - Externt konto
+    - Extern prenumeration
+
+
+Om du vill visa budgetar behöver du minst läsbehörighet för ditt Azure-konto.
 
 Om du har en ny prenumeration kan du inte skapa en budget eller använda Cost Management-funktioner direkt. Det kan ta upp till 48 timmar innan du kan använda alla Cost Management-funktioner.
 
-För Azure EA-prenumerationer måste du ha läsbehörighet för att visa budgetar. Du måste ha deltagarbehörighet för att skapa och hantera budgetar. Du kan skapa enskilda budgetar för EA-prenumerationer och resursgrupper. Men du kan inte skapa budgetar för EA-faktureringskonton.
+För Azure EA-prenumerationer måste du ha läsbehörighet för att visa budgetar. Du måste ha deltagarbehörighet för att skapa och hantera budgetar.
 
 Följande Azure-behörigheter, eller -omfång, stöds per prenumeration för budgetar efter användare och grupp. Mer information om omfång finns i [Förstå och arbeta med omfång](understand-work-scopes.md).
 
@@ -58,7 +79,7 @@ Mer information om hur du tilldelar åtkomst till Cost Management-data finns i [
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Skapa en budget i Azure-portalen
 
-Du kan skapa en prenumerationsbudget för Azure per månad, kvartal eller år. Ditt navigeringsinnehåll i Azure-portalen avgör om du skapar en budget för en prenumeration eller för en hanteringsgrupp.
+Du kan skapa en prenumerationsbudget för Azure per månad, kvartal eller år.
 
 Om du vill skapa eller visa en budget öppnar du önskat omfång i Azure-portalen och väljer **Budgetar** på menyn. Du kan till exempel navigera till **Prenumerationer**, välja en prenumeration i listan och sedan välja **Budgetar** på menyn. Använd **Omfång** om du vill byta till ett annat omfång, exempelvis en hanteringsgrupp, i Budgetar. Mer information om omfång finns i [Förstå och arbeta med omfång](understand-work-scopes.md).
 
@@ -110,15 +131,11 @@ Utvärderingar av budgetkostnader baseras på faktiska kostnader. De omfattar in
 
 När du skapar eller redigerar en budget för en prenumeration eller resursgruppsomfång kan du konfigurera den så att den anropar en åtgärdsgrupp. Åtgärdsgruppen kan utföra olika åtgärder när ditt budgettröskelvärde är uppfyllt. Åtgärdsgrupper stöds för närvarande endast för prenumerations- och resursgruppsomfång. Mer information om åtgärdsgrupper finns i [Create and manage action groups in the Azure portal](../../azure-monitor/platform/action-groups.md) (Skapa och hantera åtgärdsgrupper i Azure-portalen). Mer information om hur du använder budgetbaserad automatisering med åtgärdsgrupper finns i [Hantera kostnader med Azure Budgets](../manage/cost-management-budget-scenario.md).
 
-
-
 Om du vill skapa eller uppdatera åtgärdsgrupper väljer du **Hantera åtgärdsgrupper** när du skapar eller redigerar en budget.
 
 ![Exempel på hur du skapar en budget för att visa Hantera åtgärdsgrupper](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
 
-
 Välj sedan **Lägg till åtgärdsgrupp** och skapa åtgärdsgruppen.
-
 
 ![Bild av rutan Lägg till åtgärdsgrupp](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
 

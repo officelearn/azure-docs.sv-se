@@ -3,22 +3,26 @@ title: Konfigurera AWS-integrering med Azure Cost Management
 description: Den här artikeln beskriver hur du konfigurerar integreringen av kostnads- och användningsrapporter från AWS med Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 04/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: matrive
-ms.openlocfilehash: c0f6f18abf7c05cf5ae6dcaa31a57974ecfca806
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d3b1efabbf5f05c05ef939ee8713829fbd49f483
+ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79203091"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80878994"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Konfigurera integreringen av kostnads- och användningsrapporter från AWS
 
 Med integreringen av kostnader och användningsrapporter från AWS (Amazon Web Services) kan du övervaka och styra dina AWS-utgifter i Azure Cost Management. Tack vare integreringen har du en enda plats i Azure-portalen där du övervakar och styr utgifterna för både Azure och AWS. I den här artikeln beskrivs hur du konfigurerar integreringen så att du kan använda Azure Cost Management-funktioner till att analysera kostnader och granska budgetar.
 
 Cost Management bearbetar kostnads- och användningsrapporterna från AWS som lagras i en S3-bucket och använder dina AWS-autentiseringsuppgifter för att kunna hämta rapportdefinitioner och ladda ner rapportens GZIP CSV-filer.
+
+Titta på videon [How to set up Connectors for AWS in Cost Management](https://www.youtube.com/watch?v=Jg5KC1cx5cA) (så konfigurerar du anslutningsprogram för AWS i Cost Management) om du vill veta mer om hur du konfigurerar AWS-rapportintegrering. Om du vill titta på andra videor går du till [YouTube-kanalen för Cost Management](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/Jg5KC1cx5cA]
 
 ## <a name="create-a-cost-and-usage-report-in-aws"></a>Skapa en kostnads- och användningsrapport i AWS
 

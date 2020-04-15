@@ -11,7 +11,7 @@
       href: ingest-historical-telemetry-data-in-azure-farmbeats.md
     - name: Fråga inmatade telemetridata
       href: query-telemetry-data-from-azure-farmbeats.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Integreringsmönster
       href: integration-patterns-in-azure-farmbeats.md
@@ -29,12 +29,16 @@
       href: manage-farms-in-azure-farmbeats.md
     - name: Hämta sensordata
       href: get-sensor-data-from-sensor-partner.md
+    - name: Hämta väderdata
+      href: get-weather-data-from-weather-partner.md
     - name: Generera kartor
       href: generate-maps-in-azure-farmbeats.md
     - name: Konfigurera regler och hantera aviseringar
       href: configure-rules-alerts-in-azure-farmbeats.md
     - name: Hämta drönarbilder
       href: get-drone-imagery-in-azure-farmbeats.md
+    - name: Haveriberedskap
+      href: disaster-recovery-for-farmbeats.md
 - name: Felsöka
   items:
     - name: Felsöka Azure FarmBeats
@@ -43,5 +47,5 @@
   items:
     - name: Referens
       href: references-for-azure-farmbeats.md
-    - name: REST API
+    - name: REST-API
       href: rest-api-in-azure-farmbeats.md

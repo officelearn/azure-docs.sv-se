@@ -3,12 +3,12 @@ title: Exempel på ISO 27001 ASE/SQL-arbetsbelastningsskiss – översikt
 description: Översikt och arkitektur för skissexemplet ISO 27001 App Service-miljön/SQL Database-arbetsbelastning.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: d77029b93b1e77bdba85c5dd5608cbdc5d6543a5
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 9957ab1bef5b65fc90b5a357bd56d6f0013ea690
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "75920777"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381735"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Översikt över skissexemplet ISO 27001 App Service-miljön/SQL Database-arbetsbelastning
 
@@ -24,7 +24,7 @@ Det finns två ISO 27001-skissexempel: det här exemplet och [ISO 27001 Delade t
 
 Skissexemplet ISO 27001 App Service-miljön/SQL Database-arbetsbelastning distribuerar en PaaS-baserad webbmiljö (plattform som en tjänst). Miljön kan användas som värd för webbappar, webb-API:er och SQL Database-instanser som följer ISO 27001-standarderna. Det här skissexemplet är beroende av skissexemplet [ISO 27001 Delade tjänster](../iso27001-shared/index.md).
 
-![Utformning för skissexemplet ISO 27001 ASE/SQL-arbetsbelastning](../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png)
+:::image type="content" source="../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png" alt-text="Utformning för skissexemplet ISO 27001 ASE/SQL-arbetsbelastning" border="false":::
 
 Den här miljön består av flera Azure-tjänster ger en säker, fullständigt övervakad arbetsbelastningsinfrastruktur för företag baserat på ISO 27001-standarder. Den här miljön består av:
 

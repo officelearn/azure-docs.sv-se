@@ -1,14 +1,14 @@
 ---
 title: Exempel på ISO 27001-skiss för delade tjänster – översikt
 description: Översikt och arkitektur för skissexemplet ISO 27001 Delade tjänster. Det här skissexemplet hjälper kunderna att utvärdera specifika ISO 27001-kontroller.
-ms.date: 01/13/2020
+ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 0b6a250ebac2744adca813219225388841f1776f
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 9b0b49582023ee5c68fea0f21b70290a102a038a
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "75922546"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381576"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Översikt över skissexemplet ISO 27001 Delade tjänster
 
@@ -21,7 +21,7 @@ Skissexemplet [ISO 27001 App Service-miljön/SQL Database-arbetsbelastning](../i
 Skissexemplet ISO 27001 Delade tjänster distribuerar en grundinfrastruktur i Azure som organisationer kan använda som värd för flera arbetsbelastningar baserat på VDC-metoden (virtuellt datacenter).
 VDC är en uppsättning beprövade referensarkitekturer, automatiseringsverktyg och en interaktionsmodell som Microsoft använder för sina stora företagskunder. Skissexemplet för Delade tjänster är baserat på en helt intern Azure VDC-miljö (se nedan).
 
-![Utformning för skissexemplet ISO 27001 Delade tjänster](../../media/sample-iso27001-shared/iso27001-shared-services-blueprint-sample-design.png)
+:::image type="content" source="../../media/sample-iso27001-shared/iso27001-shared-services-blueprint-sample-design.png" alt-text="Utformning för skissexemplet ISO 27001 Delade tjänster" border="false":::
 
 Den här miljön består av flera Azure-tjänster ger en säker, fullständigt övervakad infrastruktur för delade tjänster för företag baserat på ISO 27001-standarder. Den här miljön består av:
 

@@ -1,14 +1,14 @@
 ---
 title: Exempel på CAF Foundation-skiss – översikt
 description: Översikt över och arkitektur för Cloud Adoption Framework (CAF) for Azure Foundation-skissexemplet.
-ms.date: 08/20/2019
+ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 79b47127b81caf148054f4223e5fa7ad9fbf86fe
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: a5616667ae909b63f406e399a23bdf568089bf52
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "75562569"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383581"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Översikt över Microsoft Cloud Adoption Framework for Azure Foundation-skissexemplet
 
@@ -18,7 +18,7 @@ Microsoft Cloud Adoption Framework for Azure (CAF) Foundation-skissen distribuer
 
 CAF Foundation-skissexemplet distribuerar rekommenderade infrastrukturresurser i Azure som kan användas av organisationer för att etablera de grundkontroller som de behöver för att hantera sin molnegendom. Det här exemplet distribuerar och framtvingar resurser, principer och mallar som gör det möjligt för en organisation att på ett säkert sätt komma igång med Azure.
 
-![CAF Foundation, bild som beskriver vad som installeras som en del av CAF-vägledningen för skapandet av en grund för att komma igång med Azure](../../media/caf-blueprints/caf-foundation-architecture.png)
+:::image type="content" source="../../media/caf-blueprints/caf-foundation-architecture.png" alt-text="CAF Foundation, bild som beskriver vad som installeras som en del av CAF-vägledningen för skapandet av en grund för att komma igång med Azure" border="false":::
 
 Den här implementeringen omfattar flera Azure-tjänster som används för att tillhandahålla en säker, fullständigt övervakad och företagsfärdig grund. Den här miljön består av:
 

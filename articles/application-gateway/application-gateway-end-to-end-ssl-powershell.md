@@ -1,26 +1,26 @@
 ---
-title: Konfigurera heltäckande SSL med Azure Application Gateway
-description: I den hÃ¤r artikeln beskrivs hur du konfigurerar ssl som är från slutpunkt till slutpunkt med Azure Application Gateway med powershell
+title: Konfigurera end-to-end TLS med Azure Application Gateway
+description: I den hÃ¤r artikeln beskrivs hur du konfigurerar TLS-FLS från sluten till sluten fÃ¤r med Azure Application Gateway med powershell
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 7ba273cddb6cf41872c4db1c34560c104b992787
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 481cbda1d35f7d630dabca00fd01677f542447c2
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72286461"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312504"
 ---
-# <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Konfigurera heltäckande SSL med Application Gateway och PowerShell
+# <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Konfigurera TLS från till med hjälp av Application Gateway med PowerShell
 
 ## <a name="overview"></a>Översikt
 
-Azure Application Gateway stöder end-to-end-kryptering av trafik. Application Gateway avslutar SSL-anslutningen vid programgatewayen. Gatewayen tillämpar sedan routningsreglerna på trafiken, krypterar om paketet och vidarebefordrar paketet till lämplig server för server för server för serverding baserat på de routningsregler som definierats. Eventuella svar från webbservern genomgår samma process på väg tillbaka till användaren.
+Azure Application Gateway stöder end-to-end-kryptering av trafik. Application Gateway avslutar TLS/SSL-anslutningen vid programgatewayen. Gatewayen tillämpar sedan routningsreglerna på trafiken, krypterar om paketet och vidarebefordrar paketet till lämplig server för server för server för serverding baserat på de routningsregler som definierats. Eventuella svar från webbservern genomgår samma process på väg tillbaka till användaren.
 
-Application Gateway stöder definition av anpassade SSL-alternativ. Den stöder också inaktivera följande protokollversioner: **TLSv1.0,** **TLSv1.1**och **TLSv1.2**, samt definiera vilka chiffersviter som ska användas och prioritetsordningen. Mer information om konfigurerbara SSL-alternativ finns i [översikten över SSL-principen](application-gateway-SSL-policy-overview.md).
+Application Gateway stöder definition av anpassade TLS-alternativ. Den stöder också inaktivera följande protokollversioner: **TLSv1.0,** **TLSv1.1**och **TLSv1.2**, samt definiera vilka chiffersviter som ska användas och prioritetsordningen. Mer information om konfigurerbara TLS-alternativ finns i [TLS-principöversikten](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
 > SSL 2.0 och SSL 3.0 är inaktiverade som standard och kan inte aktiveras. De anses osäkra och kan inte användas med Application Gateway.
@@ -29,22 +29,22 @@ Application Gateway stöder definition av anpassade SSL-alternativ. Den stöder 
 
 ## <a name="scenario"></a>Scenario
 
-I det här fallet lär du dig hur du skapar en programgateway med hjälp av end-to-end SSL med PowerShell.
+I det här fallet lär du dig hur du skapar en programgateway med hjälp av end-to-end TLS med PowerShell.
 
 Detta scenario kommer att:
 
 * Skapa en resursgrupp med namnet **appgw-rg**.
 * Skapa ett virtuellt nätverk med namnet **appgwvnet** med ett adressutrymme **på 10.0.0.0/16**.
 * Skapa två undernät som kallas **appgwsubnet** och **appsubnet**.
-* Skapa en liten programgateway som stöder SSL-kryptering från slutpunkt till slutpunkt som begränsar SSL-protokollversioner och chiffersviter.
+* Skapa en liten programgateway som stöder TLS-kryptering från slutpunkt till slutpunkt som begränsar TLS-protokollversioner och chiffersviter.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-För att konfigurera ssl från slutpunkt till slutpunkt krävs ett certifikat för gatewayen och certifikat krävs för backend-servrarna. Gateway-certifikatet används för att härleda en symmetrisk nyckel enligt SSL-protokollspecifikationen. Den symmetriska nyckeln används sedan kryptera och dekryptera trafiken som skickas till gatewayen. Gateway-certifikatet måste vara i PFX-format (Personal Information Exchange). Med det här filformatet kan du exportera den privata nyckeln som krävs av programgatewayen för att utföra kryptering och dekryptering av trafik.
+För att konfigurera end-to-end TLS med en programgateway krävs ett certifikat för gatewayen och certifikat krävs för backend-servrarna. Gateway-certifikatet används för att härleda en symmetrisk nyckel enligt TLS-protokollspecifikationen. Den symmetriska nyckeln används sedan kryptera och dekryptera trafiken som skickas till gatewayen. Gateway-certifikatet måste vara i PFX-format (Personal Information Exchange). Med det här filformatet kan du exportera den privata nyckeln som krävs av programgatewayen för att utföra kryptering och dekryptering av trafik.
 
-För ssl-kryptering från slutpunkt till slutpunkt måste den bakre delen uttryckligen tillåtas av programgatewayen. Ladda upp det offentliga certifikatet för backend-servrarna till programgatewayen. Genom att lägga till certifikatet säkerställs att programgatewayen endast kommunicerar med kända backend-instanser. Detta säkerställer ytterligare kommunikation från slutna till.
+För end-to-end TLS-kryptering måste backend uttryckligen tillåtas av programgatewayen. Ladda upp det offentliga certifikatet för backend-servrarna till programgatewayen. Genom att lägga till certifikatet säkerställs att programgatewayen endast kommunicerar med kända backend-instanser. Detta säkerställer ytterligare kommunikation från slutna till.
 
 Konfigurationsprocessen beskrivs i följande avsnitt.
 
@@ -154,20 +154,20 @@ Alla konfigurationsobjekt anges innan programgatewayen skapas. Följande steg sk
    ```
 
    > [!NOTE]
-   > Det här exemplet konfigurerar certifikatet som används för SSL-anslutningen. Certifikatet måste vara i PFX-format och lösenordet måste vara 4 till 12 tecken.
+   > Det här exemplet konfigurerar certifikatet som används för TLS-anslutningen. Certifikatet måste vara i PFX-format och lösenordet måste vara 4 till 12 tecken.
 
-6. Skapa HTTP-lyssnaren för programgatewayen. Tilldela klient-END IP-konfiguration, port och SSL-certifikat som ska användas.
+6. Skapa HTTP-lyssnaren för programgatewayen. Tilldela ip-konfiguration, port och TLS/SSL-certifikat för frontend som ska användas.
 
    ```powershell
    $listener = New-AzApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
    ```
 
-7. Ladda upp certifikatet som ska användas på de SSL-aktiverade backend-poolresurserna.
+7. Ladda upp certifikatet som ska användas på de TLS-aktiverade backend-poolresurserna.
 
    > [!NOTE]
-   > Standardavsökningen hämtar den *default* offentliga nyckeln från standard-SSL-bindningen på backend-adressen och jämför det offentliga nyckelvärdet som den får med det offentliga nyckelvärde som du anger här. 
+   > Standardavsökningen hämtar den *default* offentliga nyckeln från standard-TLS-bindningen på backend-adressen och jämför det offentliga nyckelvärde som den får med det värde för offentlig nyckel som du anger här. 
    > 
-   > Om du använder värdhuvuden och SNI (Server Name Indication) på serverdelen kanske den hämtade offentliga nyckeln inte är den avsedda platsen som trafiken flödar till. Om du är osäker, https://127.0.0.1/ besök på backend-servrar för att bekräfta vilket certifikat som används för *standard* SSL-bindning. Använd den offentliga nyckeln från den begäran i det här avsnittet. Om du använder värdhuvuden och SNI på HTTPS-bindningar och du inte får https://127.0.0.1/ något svar och certifikat från en manuell webbläsarbegäran till på backend-servrarna måste du ställa in en SSL-standardbindning för dem. Om du inte gör det misslyckas avsökningarna och den bakre delen är inte vitlistad.
+   > Om du använder värdhuvuden och SNI (Server Name Indication) på serverdelen kanske den hämtade offentliga nyckeln inte är den avsedda platsen som trafiken flödar till. Om du är osäker, https://127.0.0.1/ besök på backend-servrar för att bekräfta vilket certifikat som används för *standard* TLS-bindningen. Använd den offentliga nyckeln från den begäran i det här avsnittet. Om du använder värdhuvuden och SNI på HTTPS-bindningar och du inte får https://127.0.0.1/ något svar och certifikat från en manuell webbläsarbegäran till backend-servrarna måste du ställa in en standard-TLS-bindning på dem. Om du inte gör det misslyckas avsökningarna och den bakre delen är inte vitlistad.
 
    ```powershell
    $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer
@@ -176,7 +176,7 @@ Alla konfigurationsobjekt anges innan programgatewayen skapas. Följande steg sk
    > [!NOTE]
    > Certifikatet som anges i föregående steg bör vara den offentliga nyckeln till PFX-certifikatet som finns på serverdelen. Exportera certifikatet (inte rotcertifikatet) som är installerat på serverdelsservern i formatet Anspråk, Bevis och Resonemang (CER) och använd det i det här steget. Det här steget vitlistar baksidan med programgatewayen.
 
-   Om du använder Application Gateway v2 SKU skapar du ett betrott rotcertifikat i stället för ett autentiseringscertifikat. Mer information finns i [Översikt över SSL från till med Application Gateway:](ssl-overview.md#end-to-end-ssl-with-the-v2-sku)
+   Om du använder Application Gateway v2 SKU skapar du ett betrott rotcertifikat i stället för ett autentiseringscertifikat. Mer information finns i [Översikt över TLS från till med Application Gateway:](ssl-overview.md#end-to-end-tls-with-the-v2-sku)
 
    ```powershell
    $trustedRootCert01 = New-AzApplicationGatewayTrustedRootCertificate -Name "test1" -CertificateFile  <path to root cert file>
@@ -209,7 +209,7 @@ Alla konfigurationsobjekt anges innan programgatewayen skapas. Följande steg sk
     > [!NOTE]
     > Ett instansantal på 1 kan väljas för testning. Det är viktigt att veta att alla instansantal under två instanser inte omfattas av serviceavtalet och därför inte rekommenderas. Små gateways ska användas för utvecklingstest och inte för produktionsändamål.
 
-11. Konfigurera SSL-principen som ska användas på programgatewayen. Application Gateway stöder möjligheten att ange en minimiversion för SSL-protokollversioner.
+11. Konfigurera TLS-principen som ska användas på programgatewayen. Application Gateway stöder möjligheten att ange en minimiversion för TLS-protokollversioner.
 
     Följande värden är en lista över protokollversioner som kan definieras:
 
@@ -247,7 +247,7 @@ Använd den här proceduren om du vill använda ett nytt certifikat om backend-c
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
    
-2. Lägg till den nya certifikatresursen från .cer-filen, som innehåller certifikatets offentliga nyckel och kan också vara samma certifikat som läggs till i lyssnaren för SSL-avslutning vid programgatewayen.
+2. Lägg till den nya certifikatresursen från .cer-filen, som innehåller certifikatets offentliga nyckel och kan också vara samma certifikat som läggs till i lyssnaren för TLS-avslutning vid programgatewayen.
 
    ```powershell
    Add-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name 'NewCert' -CertificateFile "appgw_NewCert.cer" 
@@ -300,9 +300,9 @@ Använd den här proceduren om du vill ta bort ett oanvänt utgånget certifikat
    ```
 
    
-## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>Begränsa SSL-protokollversioner på en befintlig programgateway
+## <a name="limit-tls-protocol-versions-on-an-existing-application-gateway"></a>Begränsa TLS-protokollversioner på en befintlig programgateway
 
-De föregående stegen tog dig igenom att skapa ett program med end-to-end SSL och inaktivera vissa SSL-protokollversioner. I följande exempel inaktiveras vissa SSL-principer för en befintlig programgateway.
+De föregående stegen tog dig igenom att skapa ett program med end-to-end TLS och inaktivera vissa TLS-protokollversioner. I följande exempel inaktiveras vissa TLS-principer för en befintlig programgateway.
 
 1. Hämta programgatewayen för att uppdatera.
 
@@ -310,14 +310,14 @@ De föregående stegen tog dig igenom att skapa ett program med end-to-end SSL o
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
 
-2. Definiera en SSL-princip. I följande exempel är **TLSv1.0** och **TLSv1.1** inaktiverade och chiffersviterna **\_TLS ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**och **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** är de enda tillåtna.
+2. Definiera en TLS-princip. I följande exempel är **TLSv1.0** och **TLSv1.1** inaktiverade och chiffersviterna **\_TLS ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**och **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** är de enda tillåtna.
 
    ```powershell
    Set-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
 
    ```
 
-3. Slutligen uppdaterar du gatewayen. Det sista steget är en tidskrävande uppgift. När det är klart konfigureras SSL från slutpunkt till slutpunkt på programgatewayen.
+3. Slutligen uppdaterar du gatewayen. Det sista steget är en tidskrävande uppgift. När det är klart konfigureras TLS från slutna till slutna dagar på programgatewayen.
 
    ```powershell
    $gw | Set-AzApplicationGateway

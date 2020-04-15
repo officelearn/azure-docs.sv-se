@@ -8,17 +8,17 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 1fef24f4065ca6fc749f35a07143487e049ee6ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f720a94d3467ce15ea5d58a8ece6de2a669f6258
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74075263"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312591"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Skapa en anpassad avsökning för Azure Application Gateway med hjälp av PowerShell för Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [Azure-portal](application-gateway-create-probe-portal.md)
+> * [Azure Portal](application-gateway-create-probe-portal.md)
 > * [PowerShell och Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [PowerShell och den klassiska Azure-portalen](application-gateway-create-probe-classic-ps.md)
 
@@ -91,7 +91,7 @@ Du kan ställa in alla konfigurationsobjekt innan du skapar programgatewayen. I 
 |---|---|
 | **IP-konfiguration för gateway** | En IP-konfiguration för en programgateway.|
 | **Backend pool** | En pool med IP-adresser, FQDN: s eller nätverkskort som är till de programservrar som är värd för webbprogrammet|
-| **Hälsosond** | En anpassad avsökning som används för att övervaka hälsan hos serverda poolmedlemmar|
+| **Hälsoavsökning** | En anpassad avsökning som används för att övervaka hälsan hos serverda poolmedlemmar|
 | **HTTP-inställningar** | En samling inställningar, inklusive port, protokoll, cookie-baserad tillhörighet, avsökning och timeout.  De här inställningarna avgör hur trafiken dirigeras till backend-poolmedlemmarna|
 | **Frontend-port** | Porten som programgatewayen lyssnar på efter trafik på|
 | **Lyssnaren** | En kombination av ett protokoll, klientdels-IP-konfiguration och frontend-port. Detta är vad som lyssnar på inkommande förfrågningar.
@@ -197,5 +197,5 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig att konfigurera SSL-avlastning genom att besöka: [Konfigurera SSL-avlastning](application-gateway-ssl-arm.md)
+Lär dig att konfigurera TLS-avlastning genom att besöka: [Konfigurera TLS-avlastning](application-gateway-ssl-arm.md)
 

@@ -8,19 +8,19 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: d860b557c5c2d6b73fad53cdf84ee8b32182d1ee
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 6b60ccc7a635e4b6071b43d7ff75e182aa96cd08
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985464"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313628"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Azure Disk Encryption-scenarier på virtuella Linux-datorer
 
 
 Azure Disk Encryption for Linux virtual machines (VMs) använder DM-Crypt-funktionen i Linux för att tillhandahålla fullständig diskkryptering av OS-disken och datadiskarna. Dessutom ger det kryptering av den tillfälliga resursdisken när du använder funktionen EncryptFormatAll.
 
-Azure Disk Encryption är [integrerad med Azure Key Vault](disk-encryption-key-vault.md) för att hjälpa dig att kontrollera och hantera diskkrypteringsnycklar och hemligheter. En översikt över tjänsten finns i [Azure Disk Encryption för virtuella datorer i Windows](disk-encryption-overview.md).
+Azure Disk Encryption är [integrerad med Azure Key Vault](disk-encryption-key-vault.md) för att hjälpa dig att kontrollera och hantera diskkrypteringsnycklar och hemligheter. En översikt över tjänsten finns i [Azure Disk Encryption for Linux VMs](disk-encryption-overview.md).
 
 Du kan bara använda diskkryptering på virtuella datorer med [vm-storlekar och operativsystem som stöds](disk-encryption-overview.md#supported-vms-and-operating-systems). Du måste också uppfylla följande förutsättningar:
 

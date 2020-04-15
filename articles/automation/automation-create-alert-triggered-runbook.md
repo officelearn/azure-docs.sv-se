@@ -5,16 +5,19 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: df28116c588ed77f02c78a42a85feb91ca339e7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d5eb330cd6e5d02432298a5b58e84ae7d24ee7e
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75366708"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383328"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Använda en avisering för att utlösa en Azure Automation-runbook
 
 Du kan använda [Azure Monitor](../azure-monitor/overview.md?toc=%2fazure%2fautomation%2ftoc.json) för att övervaka mått och loggar på basnivå för de flesta tjänster i Azure. Du kan anropa Azure Automation-runbooks med hjälp av [åtgärdsgrupper](../azure-monitor/platform/action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) eller genom att använda klassiska aviseringar för att automatisera uppgifter baserat på aviseringar. Den här artikeln visar hur du konfigurerar och kör en runbook med hjälp av aviseringar.
+
+>[!NOTE]
+>Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installationsinstruktioner för Az-modul på hybridkörningsarbetaren finns [i Installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med [så här uppdaterar du Azure PowerShell-moduler i Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="alert-types"></a>Aviseringstyper
 
@@ -45,7 +48,7 @@ Som beskrivs i föregående avsnitt har varje typ av avisering ett annat schema.
 
 I det här exemplet används en avisering från en virtuell dator. Den hämtar VM-data från nyttolasten och använder sedan den informationen för att stoppa den virtuella datorn. Anslutningen måste ställas in i automationskontot där runbooken körs. När du använder aviseringar för att utlösa runbooks är det viktigt att kontrollera status för aviseringen i runbooken som utlöses. Runbooken utlöses varje gång aviseringen ändras. Aviseringar har flera tillstånd, de två `Activated` `Resolved`vanligaste tillstånden är och . Kontrollera om det här tillståndet finns i runbook-logiken för att säkerställa att runbooken inte körs mer än en gång. Exemplet i den här artikeln `Activated` visar bara hur du söker efter aviseringar.
 
-Runbook använder **AzureRunAsConnection** [Run As-kontot](automation-create-runas-account.md) för att autentisera med Azure för att utföra hanteringsåtgärder mot den virtuella datorn.
+Runbook använder `AzureRunAsConnection` [kontot Kör som](automation-create-runas-account.md) för att autentisera med Azure för att utföra hanteringsåtgärderna mot den virtuella datorn.
 
 Använd det här exemplet om du vill skapa en runbook som heter **Stop-AzureVmInResponsetoVMAlert**. Du kan ändra PowerShell-skriptet och använda det med många olika resurser.
 
@@ -139,13 +142,13 @@ Använd det här exemplet om du vill skapa en runbook som heter **Stop-AzureVmIn
                     throw "Could not retrieve connection asset: $ConnectionAssetName. Check that this asset exists in the Automation account."
                 }
                 Write-Verbose "Authenticating to Azure with service principal." -Verbose
-                Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
+                Add-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
                 Write-Verbose "Setting subscription to work against: $SubId" -Verbose
-                Set-AzureRmContext -SubscriptionId $SubId -ErrorAction Stop | Write-Verbose
+                Set-AzContext -SubscriptionId $SubId -ErrorAction Stop | Write-Verbose
 
                 # Stop the Resource Manager VM
                 Write-Verbose "Stopping the VM - $ResourceName - in resource group - $ResourceGroupName -" -Verbose
-                Stop-AzureRmVM -Name $ResourceName -ResourceGroupName $ResourceGroupName -Force
+                Stop-AzVM -Name $ResourceName -ResourceGroupName $ResourceGroupName -Force
                 # [OutputType(PSAzureOperationResponse")]
             }
             else {
@@ -195,3 +198,5 @@ Aviseringar använder åtgärdsgrupper, som är samlingar av åtgärder som utl�
 * Mer information om olika sätt att starta en runbook finns i [Starta en runbook](automation-starting-a-runbook.md).
 * Mer information om hur du skapar en aktivitetsloggavisering finns i [Skapa aktivitetsloggaviseringar](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
 * Mer information om hur du skapar en varning i nära realtid finns [i Skapa en varningsregel i Azure-portalen](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
+* En PowerShell-cmdlet-referens finns i [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

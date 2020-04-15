@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1a026cc241eb372e15f2600e52ec53a46efb1024
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 75020b0dd58a80f989bd03eb92031d904ebf4c82
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81256016"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313690"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Azure Synapse Analytics business intelligence-partner
 
@@ -38,6 +38,7 @@ Om du vill skapa en komplett informationslagerlösning med Synapse SQL-pool i Az
 | ![Sisense (av sisense)](./media/sql-data-warehouse-partner-business-intelligence/sisense_logo.png) |**Sisense (av sisense)**<br>SiSense är en full-stack Business Intelligence programvara som levereras med verktyg som ett företag behöver för att analysera och visualisera data: en högpresterande analytisk databas, förmågan att gå med flera källor, enkel datautvinning (ETL), och webbaserad datavisualisering. Börja analysera och visualisera stora datauppsättningar med SiSense BI och Analytics idag. |[Produktsida](https://www.sisense.com/product/)<br> |
 | ![Tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_sparkle_logo.png) |**Tableau**<br>Tableaus självbetjäningsanalys hjälper alla att se och förstå sina data, över många typer av data från platta filer till databaser. Tableau har en inbyggd, optimerad anslutning till Synapse SQL-pool som stöder både live-data och analys i minnet. |[Produktsida](https://www.tableau.com/)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/)<br>|
 | ![Targit (på andra)](./media/sql-data-warehouse-partner-business-intelligence/targit_logo.png) |**Targit (Beslutssvit)**<br>Targit Decision Suite tillhandahåller BI- och Analytics-plattform som levererar instrumentpaneler i realtid, självbetjäningsanalys, användarvänlig rapportering, fantastiska mobila funktioner och enkel dataidentifieringsteknik i en enda sammanhängande lösning. Targit ger företagen modet att agera. |[Produktsida](https://www.targit.com/targit-decision-suite/analytics)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/)<br> |
+| ![ThoughtSpot (1999](./media/sql-data-warehouse-partner-business-intelligence/thoughtspot-logo.png) |**ThoughtSpot (1999**<br>Världens mest innovativa företag använder ThoughtSpot för att ge varje person i organisationen, från C-suite executive till front-line anställd, med möjlighet att snabbt avslöja datadrivna insikter. Med ThoughtSpot kan affärsmän skriva en enkel sökning för att omedelbart analysera miljarder rader med data och utnyttja artificiell intelligens för att få betrodda, relevanta insikter som skjuts till dem som svar på tusentals frågor som de kanske inte har tänkt att ställa. ThoughtSpot är enkel nog för alla företagare att använda, men kraftfull nog att hantera även de största, mest komplexa företagsdata utan att offra hastighet, säkerhet eller styrning. Det är därför kunder som Walmart, 7-11, BT, Daimler, Exxon, Hulu, Royal Bank of Canada, Bank of the West och Nationwide Building Society har vänt sig till ThoughtSpot för att förändra sina beslutskulturer och analytikerföretaget Gartner heter ThoughtSpot en ledare i 2020 Magic Quadrant. Genom att göra insikter till en del av varje konversation och varje beslut, är ThoughtSpot reimagining rollen av data för att skapa en mer faktadriven värld. |[Produktsida](https://www.thoughtspot.com)<br>|
 | ![Gulfenad](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_logo.png) |**Gulfenad**<br>Yellowfin är en topprankad Cloud BI-leverantör för ad hoc-rapportering och instrumentpaneler av BARC. BI-undersökningen. Anslut till Synapse SQL-pool och skapa och dela sedan vackra rapporter och instrumentpaneler med prisbelönta bi- och platsinformationsfunktioner. |[Produktsida](https://www.yellowfinbi.com/)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/yellowfin/yellowfin-for-azure-byol/) |
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->

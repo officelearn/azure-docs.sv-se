@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 8d43851a6a546bd23881c4d0a72185ca03e63092
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: e0e5c143e619b1c381a4a618a811883ad189719b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80983627"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314348"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Azure Web Application-brandväggen på Azure Application Gateway
 
@@ -28,9 +28,9 @@ Alla WAF funktioner som anges nedan finns inuti en WAF Policy. Du kan skapa fler
 
 ![WAF-diagram för programgateway](../media/ag-overview/waf1.png)
 
-Application Gateway fungerar som en application delivery controller (ADC). Det erbjuder SSL-avslutning (Secure Sockets Layer), cookie-baserad sessionstillhörighet, lastdistribution av round-robin, innehållsbaserad routning, möjlighet att vara värd för flera webbplatser och säkerhetsförbättringar.
+Application Gateway fungerar som en application delivery controller (ADC). Det erbjuder Transport Layer Security (TLS), tidigare känd som Secure Sockets Layer (SSL), avslutning, cookie-baserad sessionstillhörighet, round-robin lastdistribution, innehållsbaserad routning, förmåga att vara värd för flera webbplatser och säkerhetsförbättringar.
 
-Säkerhetsförbättringar för Application Gateway inkluderar SSL-principhantering och heltäckande SSL-stöd. Programsäkerheten stärks genom WAF-integrering i Application Gateway. Kombinationen skyddar dina webbprogram mot vanliga sårbarheter. Och det ger en lätt att konfigurera central plats att hantera.
+Säkerhetsförbättringar för Application Gateway inkluderar TLS-principhantering och heltäckande TLS-stöd. Programsäkerheten stärks genom WAF-integrering i Application Gateway. Kombinationen skyddar dina webbprogram mot vanliga sårbarheter. Och det ger en lätt att konfigurera central plats att hantera.
 
 ## <a name="benefits"></a>Fördelar
 

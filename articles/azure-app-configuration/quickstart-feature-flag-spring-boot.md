@@ -4,14 +4,14 @@ description: Lägga till funktionsflaggor i Spring Boot-appar och hantera dem me
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 01/21/2020
+ms.date: 04/13/2020
 ms.author: lcozzens
-ms.openlocfilehash: 489bc0234580e8df8dcc85c1d3cc0add547818b1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 398005b37660cfa68936a0c8b3a3d90da8160e49
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78944340"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81309076"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Snabbstart: Lägga till funktionsflaggor i en spring boot-app
 
@@ -103,7 +103,7 @@ Använd [Spring Initializr](https://start.spring.io/) för att skapa ett nytt Sp
 1. Navigera till `resources` katalogen för `bootstrap.properties`din app och öppna .  Om filen inte finns skapar du den. Lägg till följande rad i filen.
 
     ```properties
-    spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}
+    spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
 1. Välj `Access keys` från sidofältet i appkonfigurationsportalen för konfigurationsarkivet. Välj fliken Skrivskyddade nycklar. Kopiera värdet för den primära anslutningssträngen.
@@ -283,7 +283,7 @@ Använd [Spring Initializr](https://start.spring.io/) för att skapa ett nytt Sp
     mvn spring-boot:run
     ```
 
-1. Öppna ett webbläsarfönster och gå till standardadressen för en `https://localhost:8080`lokalt värdwebbapp: .
+1. Öppna ett webbläsarfönster och gå `http://localhost:8080/welcome`till webbadressen: .
 
     ![Snabbstart av lokal app](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 

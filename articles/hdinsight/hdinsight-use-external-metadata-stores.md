@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/03/2020
-ms.openlocfilehash: 0cadf3930008868fe223e6e1024a2d14d17d8131
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: e53164d1e25f8a8d0a14d21c0544d95cf912fe9f
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657109"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313940"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Använda extern metadatalagring i Azure HDInsight
 
@@ -63,7 +63,7 @@ HDInsight stöder även anpassade metabutiker, som rekommenderas för produktion
 
 Skapa eller har en befintlig Azure SQL-databas innan du konfigurerar en anpassad Hive-metabutik för ett HDInsight-kluster.  Mer information finns i [Snabbstart: Skapa en enda databas i Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
 
-Konfigurera Azure SQL Database-brandväggsregler så att Azure-tjänster och resurser kan komma åt servern. Aktivera det här alternativet i Azure-portalen genom att välja **Ange serverbrandvägg**. Välj sedan **PÅ** under **Tillåt Azure-tjänster och resurser för att komma åt** den här servern för Azure SQL Database-servern eller -databasen. Mer information finns i [Skapa och hantera IP-brandväggsregler](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+När hdinsight-tjänsten skapas måste den ansluta till den externa metabutiken och verifiera dina autentiseringsuppgifter. Konfigurera Azure SQL Database-brandväggsregler så att Azure-tjänster och resurser kan komma åt servern. Aktivera det här alternativet i Azure-portalen genom att välja **Ange serverbrandvägg**. Välj sedan **Nej** under **Neka offentlig nätverksåtkomst**och **Ja** under **Tillåt Azure-tjänster och resurser** för åtkomst till den här servern för Azure SQL Database-servern eller -databasen. Mer information finns i [Skapa och hantera IP-brandväggsregler](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
 
 ![ange knappen serverbrandvägg](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
 

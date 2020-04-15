@@ -1,5 +1,5 @@
 ---
-title: Välj och distribuera Azure Security Center för IoT-agent| Microsoft-dokument
+title: Välja och distribuera säkerhetsagenter
 description: Lär dig mer om hur du väljer och distribuerar Azure Security Center för IoT-säkerhetsagenter på IoT-enheter.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: d70f2f3ec87c8673013bcf7b6f70ebcbb8d06f08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c3b514c79be87cd136375b4853226426965f4185
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75770024"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311203"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Välja och distribuera en säkerhetsagent på din IoT-enhet
 
@@ -29,7 +29,8 @@ Mer information finns i [Referensarkitektur för säkerhetsagenter](security-age
 
 Agenter utvecklas som projekt med öppen källkod och finns i två smaker: <br> [C](https://aka.ms/iot-security-github-c)och [C#](https://aka.ms/iot-security-github-cs).
 
-I den här artikeln kan du se hur du: 
+I den här artikeln kan du se hur du:
+
 > [!div class="checklist"]
 > * Jämför smaker av säkerhetsagenter
 > * Upptäck agentplattformar som stöds
@@ -37,9 +38,9 @@ I den här artikeln kan du se hur du:
 
 ## <a name="understand-security-agent-options"></a>Förstå alternativ för säkerhetsagenter
 
-Varje Azure Security Center för IoT-säkerhetsagentsmak erbjuder samma uppsättning funktioner och stöder liknande konfigurationsalternativ. 
+Varje Azure Security Center för IoT-säkerhetsagentsmak erbjuder samma uppsättning funktioner och stöder liknande konfigurationsalternativ.
 
-Den C-baserade säkerhetsagenten har ett lägre minnesavtryck och är det perfekta valet för enheter med färre tillgängliga resurser. 
+Den C-baserade säkerhetsagenten har ett lägre minnesavtryck och är det perfekta valet för enheter med färre tillgängliga resurser.
 
 |     | C-baserad säkerhetsagent | C#-baserad säkerhetsagent |
 | --- | ----------- | --------- |
@@ -59,20 +60,19 @@ Den C-baserade säkerhetsagenten har ett lägre minnesavtryck och är det perfek
 
 ## <a name="security-agent-installation-guidelines"></a>Riktlinjer för installation av säkerhetsagenter
 
-För **Windows:** Skriptet Install SecurityAgent.ps1 måste köras från ett PowerShell-administratörsfönster. 
+För **Windows:** Skriptet Install SecurityAgent.ps1 måste köras från ett PowerShell-administratörsfönster.
 
 För **Linux:** InstallSecurityAgent.sh måste köras som superanvändare. Vi rekommenderar att du prefixar installationskommandot med "sudo".
 
-
-## <a name="choose-an-agent-flavor"></a>Välj en agent smak 
+## <a name="choose-an-agent-flavor"></a>Välj en agent smak
 
 Svara på följande frågor om dina IoT-enheter för att välja rätt agent:
 
-- Använder du _Windows Server_ eller Windows _IoT Core?_ 
+- Använder du _Windows Server_ eller Windows _IoT Core?_
 
     [Distribuera en C#-baserad säkerhetsagent för Windows](how-to-deploy-windows-cs.md).
 
-- Använder du en Linux-distribution med x86-arkitektur? 
+- Använder du en Linux-distribution med x86-arkitektur?
 
     [Distribuera en C-baserad säkerhetsagent för Linux](how-to-deploy-linux-c.md).
 
@@ -90,10 +90,10 @@ Följande lista innehåller alla plattformar som stöds för närvarande.
 
 |Azure Security Center för IoT-agent |Operativsystem |Arkitektur |
 |--------------|------------|--------------|
-|C|Ubuntu 16.04 |   x64|
-|C|Ubuntu 18.04 |   x64, ARMv7|
-|C|Debian 9 |   x64, x86|
-|C#|Ubuntu 16.04    |x64|
+|C|Ubuntu 16.04 |    x64|
+|C|Ubuntu 18.04 |    x64, ARMv7|
+|C|Debian 9 |    x64, x86|
+|C#|Ubuntu 16.04     |x64|
 |C#|Ubuntu 18.04    |x64, ARMv7|
 |C#|Debian 9    |x64|
 |C#|Windows Server 2016|    X64|
@@ -102,6 +102,6 @@ Följande lista innehåller alla plattformar som stöds för närvarande.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om konfigurationsalternativ fortsätter du till den programväga som gäller för agentkonfiguration. 
+Om du vill veta mer om konfigurationsalternativ fortsätter du till den programväga som gäller för agentkonfiguration.
 > [!div class="nextstepaction"]
 > [Agent konfiguration hur man guidar](./how-to-agent-configuration.md)

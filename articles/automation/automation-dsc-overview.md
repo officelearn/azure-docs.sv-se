@@ -1,5 +1,5 @@
 ---
-title: Översikt över statuskonfiguration
+title: Översikt över konfigurationen av Azure Automation State
 description: En översikt över DSC (Azure Automation State Configuration), dess villkor och kända problem
 keywords: powershell dsc, önskad tillståndskonfiguration, powershell dsc azure
 services: automation
@@ -10,12 +10,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 02e540c9ac2654be97ff247749d1ed18573cfc24
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: afceb11180662416aa4953b8b58ef03ffaa70eec
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010264"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383190"
 ---
 # <a name="state-configuration-overview"></a>Översikt över statuskonfiguration
 
@@ -123,6 +123,7 @@ Azure ExpressRoute-användare bör notera att den här filen används för att u
 - Information om hur du kommer igång med DSC i Azure Automation State Configuration finns [i Komma igång med Azure Automation State Configuration](automation-dsc-getting-started.md).
 - Mer information om hur du kontrollerar nas inbyggda noder finns i [Onboarding-datorer för hantering av Azure Automation State Configuration](automation-dsc-onboarding.md).
 - Mer information om hur du kompilerar DSC-konfigurationer så att du kan tilldela dem till målnoder finns [i Kompilera konfigurationer i Azure Automation State Configuration](automation-dsc-compile.md).
-- Cmdlet-referens för PowerShell finns i [cmdlets för Azure Automation State Configuration](/powershell/module/azurerm.automation/#automation).
+- En PowerShell-cmdlet-referens finns i [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
 - Prisinformation finns i [prissättningen för Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).
 - Information om hur du använder Azure Automation State Configuration i en pipeline för kontinuerlig distribution finns i [Kontinuerlig distribution med Azure Automation State Configuration och Chocolatey](automation-dsc-cd-chocolatey.md).

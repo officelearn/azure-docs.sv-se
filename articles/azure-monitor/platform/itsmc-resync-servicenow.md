@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 9d32b66b7e3ab27012ee671ba8d70735dce73884
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: f09f5010c18f5ea064b02f0fbbae107bf473e1f8
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/14/2020
-ms.locfileid: "81274281"
+ms.locfileid: "81313668"
 ---
 # <a name="how-to-manually-fix-servicenow-sync-problems"></a>Åtgärda ServiceNow-synkroniseringsproblem manuellt
 
-Azure Monitor kan ansluta till ITSM-leverantörer (ITM) från tredje part. ServiceNow är en av dessa leverantörer. 
+Azure Monitor kan ansluta till ITSM-leverantörer (ITM) från tredje part. ServiceNow är en av dessa leverantörer.
 
 Av säkerhetsskäl kan du behöva uppdatera autentiseringstoken som används för anslutningen till ServiceNow.
-Använd följande synkroniseringsprocess för att återaktivera anslutningen och uppdatera token: 
+Använd följande synkroniseringsprocess för att återaktivera anslutningen och uppdatera token:
 
 
 1. Sök efter lösningen i den övre sökbannern och välj sedan relevanta lösningar

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3202c2fbfedfce0b0b52be94b1e0d165a6e72546
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 992075378737552e890bd2d6fed3c519e6c62aa7
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481321"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312936"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Hög tillgänglighet och belastningsutjämning av programproxyanslutningar och program
 
@@ -40,16 +40,12 @@ Kopplingar upprättar sina anslutningar baserat på principer för hög tillgän
 1. En användare på en klientenhet försöker komma åt ett lokalt program som publiceras via Programproxy.
 2. Begäran går via en Azure Load Balancer för att avgöra vilken application proxy-tjänstinstans som ska ta begäran. Per region finns det tiotals instanser tillgängliga för att acceptera begäran. Den här metoden hjälper till att fördela trafiken jämnt över tjänstinstanserna.
 3. Begäran skickas till [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/).
-4. Service Bus kontrollerar om anslutningen tidigare använde en befintlig anslutning i anslutningsgruppen. Om så är fallet återanvänds anslutningen. Om ingen kontakt är parkopplad med anslutningen ännu, väljer den en tillgänglig anslutning slumpmässigt att signalera till. Anslutningen hämtar sedan begäran från Service Bus.
-
+4. Service Bus signaler till en tillgänglig kontakt. Anslutningen hämtar sedan begäran från Service Bus.
    - I steg 2 går begäranden till olika application proxy-tjänstinstanser, så det är mer sannolikt att anslutningar görs med olika anslutningsappar. Som ett resultat används kopplingar nästan jämnt inom gruppen.
-
-   - En anslutning återupprättas endast om anslutningen är bruten eller om en inaktiv period på 10 minuter inträffar. Anslutningen kan till exempel brytas när en dator eller anslutningstjänst startas om eller om det uppstår ett nätverksavbrott.
-
 5. Anslutningen skickar begäran till programmets server för server för server för server för server med server för server med server för server. Sedan skickar programmet tillbaka svaret till kopplingen.
 6. Kopplingen slutför svaret genom att öppna en utgående anslutning till tjänstinstansen från den plats där begäran kom. Då stängs anslutningen omedelbart. Som standard är varje koppling begränsad till 200 samtidiga utgående anslutningar.
 7. Svaret skickas sedan tillbaka till klienten från tjänstinstansen.
-8. Efterföljande begäranden från samma anslutning upprepar stegen ovan tills anslutningen är bruten eller är inaktiv i 10 minuter.
+8. Efterföljande begäranden från samma anslutning upprepar stegen ovan.
 
 Ett program har ofta många resurser och öppnar flera anslutningar när det läses in. Varje anslutning går igenom stegen ovan för att tilldelas en tjänstinstans, välj en ny tillgänglig anslutning om anslutningen ännu inte har parats ihop med en anslutning.
 

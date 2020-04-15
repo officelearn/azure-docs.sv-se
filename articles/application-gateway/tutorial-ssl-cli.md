@@ -1,6 +1,6 @@
 ---
-title: SSL-avslutning med CLI - Azure Application Gateway
-description: Lär dig hur du skapar en programgateway och lägger till ett certifikat för SSL-avslutning med Azure CLI.
+title: TLS-avslutning med CLI - Azure Application Gateway
+description: Lär dig hur du skapar en programgateway och lägger till ett certifikat för TLS-avslutning med Azure CLI.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: c297a7d34e8b85420329abaca0e15029ce207861
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6cd8cca65762de3da6a0e69e93c8d79bbe498dde
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78246617"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311983"
 ---
-# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Skapa en programgateway med SSL-avslutning med hjälp av Azure CLI
+# <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Skapa en programgateway med TLS-avslutning med Azure CLI
 
-Du kan använda Azure CLI för att skapa en [programgateway](overview.md) med ett certifikat för [SSL-avslutning](ssl-overview.md). För serverdelar i serverdelar kan du använda en [skaluppsättning för virtuell dator](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) . I det här exemplet innehåller skalningsuppsättningen två virtuella datorinstanser i serverdelens standardpool i programgatewayen.
+Du kan använda Azure CLI för att skapa en [programgateway](overview.md) med ett certifikat för [TLS-avslutning](ssl-overview.md). För serverdelar i serverdelar kan du använda en [skaluppsättning för virtuell dator](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) . I det här exemplet innehåller skalningsuppsättningen två virtuella datorinstanser i serverdelens standardpool i programgatewayen.
 
 I den här artikeln kan du se hur du:
 

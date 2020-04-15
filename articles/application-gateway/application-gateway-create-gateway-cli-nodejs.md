@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: victorh
-ms.openlocfilehash: 7107f45253c4f13b3378489726bf5034e104fa30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ed7bbbf55956d655115b94c8ac46432b3e36c49b
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "62095990"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312633"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Skapa en programgateway med hjälp av Azure CLI
 
-Azure Application Gateway är en Layer 7-lastbalanserare. Den tillhandahåller redundans och prestandabaserad routning av HTTP-begäranden mellan olika servrar, oavsett om de finns i molnet eller lokalt. Programgateway har följande programleveransfunktioner: HTTP-belastningsutjämning, cookie-baserad sessionstillhörighet och SSL-avlastning (Secure Sockets Layer), anpassade hälsoavsökningar och stöd för flera webbplatser.
+Azure Application Gateway är en Layer 7-lastbalanserare. Den tillhandahåller redundans och prestandabaserad routning av HTTP-begäranden mellan olika servrar, oavsett om de finns i molnet eller lokalt. Programgateway har följande programleveransfunktioner: HTTP-belastningsutjämning, cookie-baserad sessionstillhörighet och TLS (Transport Layer Security), tidigare kallat Secure Sockets Layer (SSL), avlastning, anpassade hälsoavsökningar och stöd för flera plats.
 
 ## <a name="prerequisite-install-the-azure-cli"></a>Förutsättning: Installera Azure CLI
 
@@ -135,7 +135,7 @@ Om du redan har definierat webbprogrammet med backend-poolen i föregående steg
 
 Lär dig hur du skapar anpassade hälsoavsökningar genom att besöka [Skapa en anpassad hälsoavsökning](application-gateway-create-probe-portal.md)
 
-Lär dig hur du konfigurerar SSL-avlastning och tar bort den kostsamma SSL-dekrypteringen från dina webbservrar genom att besöka [Konfigurera SSL-avlastning](application-gateway-ssl-arm.md)
+Lär dig hur du konfigurerar TLS-avlastning och tar bort den kostsamma TLS-dekrypteringen från webbservrarna genom att besöka [Konfigurera TLS-avlastning](application-gateway-ssl-arm.md)
 
 <!--Image references-->
 

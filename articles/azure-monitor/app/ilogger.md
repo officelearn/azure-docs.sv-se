@@ -4,12 +4,12 @@ description: Exempel på hur du använder Azure Application Insights ILogger-pro
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0f40c1c1a8ee7f20c769a62e9746da43face4cc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33effe9cfec6d766d573617ff03b58564e5b34d1
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80276384"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313665"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider för .NET Core ILogger loggar
 
@@ -213,7 +213,7 @@ Du kan fortfarande använda den gamla leverantören. (Det kommer att tas bort en
 - I ASP.NET Core (2.0 och senare) är det rekommenderade sättet att [aktivera loggningsleverantörer](https://github.com/aspnet/Announcements/issues/255) att använda tilläggsmetoder på ILoggingBuilder i **Program.cs** själv.
 
 > [!Note]
-> Den nya providern är tillgänglig för program som är inriktade på NETSTANDARD2.0 eller senare. Om ditt program inriktar sig på äldre .NET Core-versioner, till exempel .NET Core 1.1, eller om det är inriktat på .NET Framework, fortsätter du att använda den gamla providern.
+> Den nya providern är tillgänglig för program som är inriktade på NETSTANDARD2.0 eller senare. Från [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.14.0 och framåt är den nya providern också tillgänglig för program som är inriktade på .NET Framework NET461 eller senare. Om ditt program inriktar sig på äldre .NET Core-versioner, till exempel .NET Core 1.1, eller om det är inriktat på .NET Framework mindre än NET46, fortsätter du att använda den gamla providern.
 
 ## <a name="console-application"></a>Konsolprogram
 

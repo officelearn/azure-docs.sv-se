@@ -1,7 +1,7 @@
 ---
-title: SSL-avslutning med PowerShell
+title: TLS-avslutning med PowerShell
 titleSuffix: Azure Application Gateway
-description: Lär dig hur du skapar en programgateway och lägger till ett certifikat för SSL-avslutning med Azure PowerShell.
+description: Lär dig hur du skapar en programgateway och lägger till ett certifikat för TLS-avslutning med Azure PowerShell.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2ce5b8472fe10b51cff34677c9ce5a89888bdc01
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2bd625982ebd051b92df2f66515fd5b0d0612303
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74075066"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311923"
 ---
-# <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>Skapa en programgateway med SSL-avslutning med hjälp av Azure PowerShell
+# <a name="create-an-application-gateway-with-tls-termination-using-azure-powershell"></a>Skapa en programgateway med TLS-avslutning med Azure PowerShell
 
-Du kan använda Azure PowerShell till att skapa en [programgateway](overview.md) med ett certifikat för [SSL-avslutning](ssl-overview.md) som använder en [VM-skalningsuppsättning](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för hantering av webbtrafik på servrarna i serverdelen. I det här exemplet innehåller skalningsuppsättningen två virtuella datorinstanser i serverdelens standardpool i programgatewayen. 
+Du kan använda Azure PowerShell för att skapa en [programgateway](overview.md) med ett certifikat för [TLS/SSL-avslutning](ssl-overview.md) som använder en [skalbar för virtuell dator](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för serverd-servrar. I det här exemplet innehåller skalningsuppsättningen två virtuella datorinstanser i serverdelens standardpool i programgatewayen. 
 
 I den här artikeln kan du se hur du:
 

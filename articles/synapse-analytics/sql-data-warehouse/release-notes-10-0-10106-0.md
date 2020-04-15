@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 7e05458214732a1835dd73b85dad871683ef5bbe
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: acfca3f41cc8bf69572843c3f035a67e8df9e0fe
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743121"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313611"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Viktig information om Azure Synapse Analytics
 
@@ -40,18 +40,13 @@ Använd den version som identifierats för att bekräfta vilken version som har 
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
 
-## <a name="march-2020"></a>Mars 2020
-
-| Förbättringar av tjänsten                                         | Information                                                      |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **[Visual Studio 16.6 Preview 2](/visualstudio/releases/2019/release-notes-preview) – SQL Server Data Tools (SSDT)** | Den här versionen innehåller följande förbättringar och korrigeringar: </br> </br> - Löst ett problem där om du ändrar en tabell som refereras av en materialiserad vy (MV) genereras Alter View-satser som inte stöds för MVs<br/><br/> - Implementerade en ändring för att säkerställa att schemajämförelseåtgärden inte misslyckas när säkerhetsobjekt på radnivå finns i databasen eller projektet. Säkerhetsobjekt på radnivå stöds för närvarande inte för SSDT.  <br/><br/> - TIMEOUT-tröskelvärdet för SQL Server Object Explorer har höjts för att undvika timeout när ett stort antal objekt listas i databasen<br/><br/> - Optimerade hur SQL Server Object Explorer hämtar listan över databasobjekt för att minska instabiliteten och öka prestanda när objektutforskaren fylls i |
-
-## <a name="february-2020"></a>Februari 2020
+## <a name="april-2020"></a>April 2020
 
 | Förbättringar av tjänsten | Information |
 | --- | --- |
 |**Databaskompatibilitetsnivå (förhandsgranskning)**| Med den här versionen kan användare nu ställa in en databas kompatibilitetsnivå för att få Transact-SQL-språket och frågebearbetningsbeteendena för en viss version av Synapse SQL-motorn. Mer information finns i [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) och [Ändra konfiguration av databasscope.](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)|
 |**Sp_describe_undeclared_parameters**| Tillåt användare att se metadata om odeklarerade parametrar i en Transact-SQL-batch. Mer information finns [i sp_describe_undeclared_parameters](/sql/relational-databases/system-stored-procedures/sp-describe-undeclared-parameters-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
+|**[Visual Studio 16.6 Preview 2](/visualstudio/releases/2019/release-notes-preview) – SQL Server Data Tools (SSDT)** | Den här versionen innehåller följande förbättringar och korrigeringar för SSDT: </br> </br> - Löst ett problem där om du ändrar en tabell som refereras av en materialiserad vy (MV) genereras Alter View-satser som inte stöds för MVs<br/><br/> - Implementerade en ändring för att säkerställa att schemajämförelseåtgärden inte misslyckas när säkerhetsobjekt på radnivå finns i databasen eller projektet. Säkerhetsobjekt på radnivå stöds för närvarande inte för SSDT.  <br/><br/> - TIMEOUT-tröskelvärdet för SQL Server Object Explorer har höjts för att undvika timeout när ett stort antal objekt listas i databasen<br/><br/> - Optimerade hur SQL Server Object Explorer hämtar listan över databasobjekt för att minska instabiliteten och öka prestanda när objektutforskaren fylls i |
 
 ## <a name="january-2020"></a>Januari 2020
 

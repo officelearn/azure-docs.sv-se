@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: f06480767b697dca8fe41e484c02aefc58f040bf
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 3a885f071c89ff6d9bb79d908b19c9451b4ed735
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261338"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383305"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Skapa ett fristående Azure Automation-konto
 
@@ -92,11 +92,11 @@ När Automation-kontot har skapats skapas flera resurser automatiskt. När dessa
 | AzureRunAsCertificate |En certifikattillgång som skapas automatiskt när Automation-kontot skapas eller med hjälp av ett PowerShell-skript för ett befintligt konto. Certifikatet autentiserar med Azure så att du kan hantera Azure Resource Manager-resurser från runbooks. Det här certifikatet har en livslängd på ett år. |
 | AzureRunAsConnection |En anslutningstillgång som skapas automatiskt när Automation-kontot skapas eller med hjälp av ett PowerShell-skript för ett befintligt konto. |
 
-## <a name="create-a-classic-run-as-account"></a>Skapa ett klassiskt run-as-konto
+## <a name="create-a-classic-run-as-account"></a>Skapa ett klassiskt körningskonto
 
-Klassiska run-as-konton skapas inte längre, som standard, när du skapar ett Azure Automation-konto. Om du fortfarande behöver ett klassiskt körkonto utför du följande steg.
+Klassiska kör som-konton skapas inte längre som standard när du skapar ett Azure Automation-konto. Om du fortfarande behöver ett Classic Run As-konto:
 
-1. På sidan **Automation-konto** väljer du **Kör som konton** under **Kontoinställningar**.
+1. Välj Kör som **konton** under **Kontoinställningar**i ditt Automation-konto .
 2. Välj **Azure Classic-körning som konto**.
 3. Klicka på **Skapa** om du vill fortsätta med skapandet av klassiska kör som konto.
 
@@ -105,5 +105,6 @@ Klassiska run-as-konton skapas inte längre, som standard, när du skapar ett Az
 * Mer information om grafisk redigering finns [i Grafisk redigering i Azure Automation](automation-graphical-authoring-intro.md).
 * Information om hur du kommer igång med PowerShell-runbooks finns i [Min första PowerShell-runbook](automation-first-runbook-textual-powershell.md).
 * Information om hur du kommer igång med PowerShell-arbetsflödeskörningsböcker finns i [Min första PowerShell-arbetsflödeskörningsbok](automation-first-runbook-textual.md).
-* Läs [My first Python2 runbook](automation-first-runbook-textual-python2.md) (Min första Python2-runbook) för att komma igång med Python2-runbooks.
-
+* Kom igång med Python 2-runbooks finns i [Min första Python2-runbook](automation-first-runbook-textual-python2.md).
+* En PowerShell-cmdlet-referens finns i [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

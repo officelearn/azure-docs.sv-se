@@ -8,18 +8,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 01/30/2020
 ms.author: victorh
-ms.openlocfilehash: f56929e14aef34f675139782328ed5c559df12c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 809274aba35e9607aeacf7c6483ec3d10f899667
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77198640"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81312373"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Konfigurera en programgateway med en intern ILB-slutpunkt (Load Balancer)
 
 Azure Application Gateway kan konfigureras med en Internet-vänd VIP eller med en intern slutpunkt som inte är exponerad för Internet. En intern slutpunkt använder en privat IP-adress för klientdelen, som också kallas en *ILB-slutpunkt (Internal Load Balancer).*
 
-Konfigurera gatewayen med en klientdel privat IP-adress är användbart för interna affärsprogram som inte är exponerade för Internet. Det är också användbart för tjänster och nivåer inom ett flernivåprogram som finns i en säkerhetsgräns som inte är exponerad för Internet men som fortfarande kräver avlastningsdistribution av round-robin, sessionsstyvhet eller SSL-avslutning (Secure Sockets Layer).
+Konfigurera gatewayen med en klientdel privat IP-adress är användbart för interna affärsprogram som inte är exponerade för Internet. Det är också användbart för tjänster och nivåer inom ett flernivåprogram som finns i en säkerhetsgräns som inte är exponerad för Internet men som fortfarande kräver lastdistribution av round-robin, sessionsstyvhet eller Transport Layer Security (TLS), tidigare kallat Secure Sockets Layer (SSL), avslutning.
 
 Den här artikeln guidar dig genom stegen för att konfigurera en programgateway med en klientdel privat IP-adress med hjälp av Azure-portalen.
 

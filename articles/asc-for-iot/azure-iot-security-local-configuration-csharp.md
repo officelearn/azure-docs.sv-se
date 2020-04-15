@@ -1,5 +1,5 @@
 ---
-title: Förstå Azure Security Center för IoT-säkerhetsagent lokal konfigurationsfil för C# | Microsoft-dokument
+title: Lokal konfiguration av säkerhetsagenten (C#)
 description: Läs mer om Azure Security Center for IoT security service, säkerhetsagent lokal konfigurationsfil för C#.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 0172ada68ffa652fb0c301c89238beca4f4ce2f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adf0d72763e0cb1892d64c68a6dce05abbf6f582
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74664207"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81311667"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Förstå den lokala konfigurationsfilen (C#-agenten)
-
 
 Azure Security Center för IoT-säkerhetsagent använder konfigurationer från en lokal konfigurationsfil.
 
@@ -35,18 +34,21 @@ C#-säkerhetsagenten använder flera konfigurationsfiler:
 - **Authentication.config** - Autentiseringsrelaterad konfiguration (inklusive autentiseringsinformation).
 - **SecurityIotInterface.config** - IoT-relaterade konfigurationer.
 
-Konfigurationsfilerna innehåller standardkonfigurationen. Autentiseringskonfigurationen fylls i under agentinstallationen och ändringar i konfigurationsfilen görs när agenten startas om. 
+Konfigurationsfilerna innehåller standardkonfigurationen. Autentiseringskonfigurationen fylls i under agentinstallationen och ändringar i konfigurationsfilen görs när agenten startas om.
 
 ## <a name="configuration-file-location"></a>Plats för konfigurationsfil
+
 För Linux:
+
 - Konfigurationsfiler för operativsystemet finns i `/var/ASCIoTAgent`.
 
 För Windows:
-- Konfigurationsfiler för operativsystemet finns i säkerhetsagentens katalog. 
+
+- Konfigurationsfiler för operativsystemet finns i säkerhetsagentens katalog.
 
 ### <a name="generalconfig-configurations"></a>General.config-konfigurationer
 
-| Konfigurationsnamn | Möjliga värden | Information | 
+| Konfigurationsnamn | Möjliga värden | Information |
 |:-----------|:---------------|:--------|
 | agentId (agentId) | GUID | Agent unik identifierare |
 | readRemoteConfigurationTimeout | TimeSpan | Tidsperiod för hämtning av fjärrkonfiguration från IoT Hub. Om agenten inte kan hämta konfigurationen inom den angivna tiden kommer åtgärden att time out.|
@@ -61,6 +63,7 @@ För Windows:
 | defaultEventPriority | "Hög", "Låg", "Av" | Standardhändelseprioritet. |
 
 ### <a name="generalconfig-example"></a>Allmänt.config exempel
+
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
 <General>
@@ -80,7 +83,7 @@ För Windows:
 
 ### <a name="authenticationconfig"></a>Authentication.config
 
-| Konfigurationsnamn | Möjliga värden | Information | 
+| Konfigurationsnamn | Möjliga värden | Information |
 |:-----------|:---------------|:--------|
 | moduleName (modulNamn) | sträng | Namn på säkerhetsmodulens identitet. Det här namnet måste motsvara modulens identitetsnamn i enheten. |
 | deviceId | sträng | ID för enheten (som registrerats i Azure IoT Hub). || schedulerInterval | TimeSpan sträng | Internt schemaintervall. |
@@ -94,6 +97,7 @@ För Windows:
 |
 
 ### <a name="authenticationconfig-example"></a>Exempel på authentication.config
+
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
 <Authentication>
@@ -108,14 +112,16 @@ För Windows:
   <add key="registrationId" value="d1"/>
 </Authentication>
 ```
+
 ### <a name="securityiotinterfaceconfig"></a>SecurityIotInterface.config
 
-| Konfigurationsnamn | Möjliga värden | Information | 
+| Konfigurationsnamn | Möjliga värden | Information |
 |:-----------|:---------------|:--------|
 | transportTyp | "Ampq" "Mqtt" | Transporttyp för IoT Hub. |
 |
 
 ### <a name="securityiotinterfaceconfig-example"></a>SecurityIotInterface.config exempel
+
 ```XML
 <ExternalInterface>
   <add key="facadeType"  value="Microsoft.Azure.Security.IoT.Agent.Common.SecurityIoTHubInterface, Security.Common" />
@@ -124,6 +130,7 @@ För Windows:
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 - Läs [översikt](overview.md) över Azure Security Center for IoT-tjänsten
 - Läs mer om Azure Security Center för [IoT-arkitektur](architecture.md)
 - Aktivera Azure Security Center för [IoT-tjänsten](quickstart-onboard-iot-hub.md)

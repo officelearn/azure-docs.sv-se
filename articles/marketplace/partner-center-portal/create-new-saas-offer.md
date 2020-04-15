@@ -1,18 +1,18 @@
 ---
-title: Skapa ett nytt SaaS-erbjudande på den kommersiella marknadsplatsen
-description: Så här skapar du ett nytt SaaS-erbjudande (Software as a Service) för att lista eller sälja i Azure Marketplace, AppSource eller csp-programmet (Cloud Solution Provider) med hjälp av Den kommersiella Marketplace-portalen på Microsoft Partner Center.
+title: Skapa ett nytt SaaS-erbjudande för Microsofts kommersiella marknadsplats
+description: Så här skapar du ett nytt SaaS-erbjudande (Software as a Service) för att lista eller sälja i Microsoft AppSource, Azure Marketplace eller via CSP-programmet (Cloud Solution Provider) med hjälp av Microsofts kommersiella marknadsplatsprogram i Microsoft Partner Center.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/28/2020
-ms.openlocfilehash: 3f2201db4b78ba61ba15608a676a8b9f8f5e612a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/13/2020
+ms.openlocfilehash: 45559978f710549088d75d0f0706b798ebad3821
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286208"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314076"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -82,6 +82,7 @@ För att kunna lista erbjudanden om programvara som en tjänst (SaaS) med Commer
 - Mer omfattande krav finns i [SaaS Offer Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
 #### <a name="saas-pricing-and-billing-options"></a>SaaS prissättning och faktureringsalternativ
+
 Med SaaS-lösningar som körs i utgivarens Azure-prenumeration inkluderar licensavgifter som betalas av kunder kostnaden för den infrastruktur som programvaran distribueras på. Azure-infrastrukturanvändning hanteras och faktureras direkt till dig, partnern. Faktiska infrastrukturanvändningsavgifter ses inte av kunden. Utgivare bör paketera azure-infrastrukturanvändningsavgifter i sina programvarulicenspriser. 
 
 SaaS erbjuder support månadsvis eller årlig fakturering baserat på en fast avgift, per användare eller förbrukningsavgifter med hjälp av den datoriserade faktureringstjänsten. Microsofts kommersiella marknadsplats fungerar på en byråmodell, där utgivare sätter priser, Microsoft fakturerar kunder och Microsoft betalar intäkter till utgivaren samtidigt som de undanhåller en byråavgift.
@@ -109,16 +110,19 @@ Marknadsför ditt företag med Microsoft genom att skapa en marknadsplatsbeskriv
 
 - **Hur vill du att potentiella kunder ska interagera med det här listerbjudandet?**
 
-##### <a name="get-it-now-free"></a>Få det nu (gratis)
+#### <a name="get-it-now-free"></a>Få det nu (gratis)
+
 Lista ditt erbjudande till kunder gratis genom att ange en giltig URL (som börjar med *http* eller *https)* där de kan få en utvärderingsversion genom [autentisering med ett klick med hjälp av Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  Exempel: `https://contoso.com/saas-app`
 
-##### <a name="free-trial-listing"></a>Gratis provperiod (lista)
+#### <a name="free-trial-listing"></a>Gratis provperiod (lista)
+
 Lista ditt erbjudande till kunder med en länk till en kostnadsfri utvärderingsversion genom att tillhandahålla en giltig URL (som börjar med *http* eller *https*), där de kan få en utvärderingsversion genom [autentisering med ett klick med hjälp av Azure Active Directory (Azure AD).](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials)  Till exempel: `https://contoso.com/trial/saas-app`. Kostnadsfria utvärderingsversioner skapas, hanteras och konfigureras av tjänsten och har inte prenumerationer som hanteras av Microsoft.
 
 > [!NOTE]
 > De token som ditt program får via din utvärderingslänk kan endast användas för att få användarinformation via Azure AD för att automatisera kontoskapande i din app. Microsoft-konton (MSA) stöds inte för autentisering med den här token.
 
-##### <a name="contact-me"></a>Kontakta mig
+#### <a name="contact-me"></a>Kontakta mig
+
 Samla in kundkontaktinformation genom att ansluta ditt CRM-system (Customer Relationship Management). Kunden kommer att bli ombedd att dela sin information. Dessa kunduppgifter, tillsammans med erbjudandenamnet, ID och marknadsplatskällan där de hittade ditt erbjudande, skickas till CRM-systemet som du har konfigurerat. Mer information om hur du konfigurerar CRM finns i [Ansluta leadhantering](#connect-lead-management).
 
 ## <a name="example-marketplace-offer-listing"></a>Exempel på Marketplace-erbjudande
@@ -127,16 +131,16 @@ Samla in kundkontaktinformation genom att ansluta ditt CRM-system (Customer Rela
 
 ## <a name="enable-a-test-drive"></a>Aktivera en provkörning
 
-En provkörning är ett bra sätt att visa upp ditt erbjudande till potentiella kunder genom att ge dem möjlighet att "prova innan du köper", vilket resulterar i ökad konvertering och generering av högt kvalificerade leads. [Läs mer om provkörningar.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
+En provkörning är ett bra sätt att visa upp ditt erbjudande till potentiella kunder genom att ge dem möjlighet att "prova innan du köper", vilket resulterar i ökad konvertering och generering av högt kvalificerade leads. Mer information finns i [Tillåt dina kunder att provköra ditt erbjudande](./test-drive.md).
 
 - **Aktivera en provkörning** (kryssruta)
 
 Genom att aktivera provkörning kommer du att bli ombedd att konfigurera en demonstrationsmiljö för kunder att prova ditt erbjudande under en viss tidsperiod. 
 
-#### <a name="test-drive-resources"></a>Provkörningsresurser
-- [Metodtips för testkörning](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Metodtips för provkörningsmarknadsföring](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
-- [Översikt över provkörning en personsökare](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
+### <a name="test-drive-resources"></a>Provkörningsresurser
+
+- [Bästa praxis för](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)- testkörning för[testkörning för](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) testkörning
+- [Översikt över Test Drive (PDF-nedladdning)](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
 
 ## <a name="connect-lead-management"></a>Anslut leadhantering
 
@@ -299,7 +303,7 @@ På fliken **Förhandsgranska** kan du definiera en begränsad **målgrupp** fö
 
 - **Definiera en målgrupp för förhandsgranskning: Lägg till ett e-postmeddelande med ett AAD/MSA-konto per rad, tillsammans med en valfri beskrivning.**
 
-Lägg till upp till tio (10) e-postadresser manuellt eller tjugo (20) om du laddar upp en CSV-fil, för befintliga MSA-konton (Microsoft Account) eller Azure Active Directory för att hjälpa dig att validera ditt erbjudande innan du publicerar live. Genom att lägga till dessa konton definierar du en målgrupp som får förhandsåtkomst till ditt erbjudande innan det publiceras på marknadsplatserna. Om ditt erbjudande redan är live kan du fortfarande definiera en målgrupp för förhandsversionen för att testa eventuella ändringar eller uppdateringar av ditt erbjudande.
+Lägg till upp till 10 e-postadresser manuellt, eller 20 om du laddar upp en CSV-fil, för befintliga Microsoft-konto (MSA) eller Azure Active Directory-konton för att hjälpa till med att validera ditt erbjudande innan du publicerar live. Genom att lägga till dessa konton definierar du en målgrupp som får förhandsåtkomst till ditt erbjudande innan det publiceras på marknadsplatserna. Om ditt erbjudande redan är live kan du fortfarande definiera en målgrupp för förhandsversionen för att testa eventuella ändringar eller uppdateringar av ditt erbjudande.
 
 > [!NOTE]
 > Förhandsgranskningspubliken skiljer sig från en privat målgrupp. En förhandsgranskningsmålgrupp får åtkomst till ditt erbjudande _innan_ den publiceras live på marknadsplatserna. Du kan också välja att skapa en plan och göra den tillgänglig endast för en privat målgrupp. På fliken **Lista för planer** kan du definiera en privat målgrupp med kryssrutan Det här är en privat **plan.** Du kan sedan definiera en privat målgrupp på upp till 20 000 kunder med Azure Tenant ID:er.
@@ -359,12 +363,12 @@ SaaS erbjudanden via den kommersiella marknaden gör att du kan tillhandahålla 
 >[!Note]
 >Om kunden väljer att konvertera till en plan utan kostnadsfria provperioder sker konverteringen, men den kostnadsfria provperioden går förlorad omedelbart.  Dessutom, när en kund börjar betala för en plan, de kan inte längre få gratis provperiod på samma prenumeration igen, även om de konverterar till en SKU som stöder gratis prövningar.
 
-Möjligheten att konfigurera en kostnadsfri utvärderingsversion är tillgänglig för varje plan i ditt erbjudande. Navigera bara till prissättningen och tillgängligheten för varje erbjudande och markera kryssrutan för att tillåta en månads provperiod.
+Möjligheten att konfigurera en kostnadsfri utvärderingsversion är tillgänglig för varje plan i ditt erbjudande. Navigera till priser och tillgänglighet för varje erbjudande och markera kryssrutan om du vill tillåta en månads provperiod.
 
 ![En månads kostnadsfri provperiod](./media/free-trial-enable.png)
 
 >[!Note]
->När ditt transactable erbjudande har publicerats med en gratis provperiod det kan inte inaktiveras för den planen. Kontrollera att den här inställningen är korrekt för den första publiceringen för att undvika att behöva återskapa planen.
+>När ditt transactable erbjudande har publicerats med en gratis provperiod, kan det inte inaktiveras för den planen. Kontrollera att den här inställningen är korrekt för den första publiceringen för att undvika att behöva återskapa planen.
 
 Om du vill få information om kundprenumerationer `isFreeTrial`som för närvarande deltar i en kostnadsfri utvärderingsversion använder du den nya API-egenskapen , som markeras som sann eller falsk. Mer information finns i [SaaS Get Subscription API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription).
 
@@ -377,7 +381,7 @@ Om du vill få information om kundprenumerationer `isFreeTrial`som för närvara
 
 Varje plan måste finnas tillgänglig på minst en marknad. Markera kryssrutan för alla marknadsplatser där du vill göra planen tillgänglig. En sökruta och knapp för att välja "Moms remitterade" länder, där Microsoft skickar försäljning och använda skatt för din räkning, ingår för att hjälpa dig.
 
-Om du redan har angett priser för din plan i USA-dollar (USD) och lägger till en annan marknadsplats, kommer priset för den nya marknaden att beräknas enligt aktuella valutakurser. Du bör alltid granska priset för varje marknad innan du publicerar. Prissättningen kan granskas med hjälp av länken "Exportpriser (xlsx)" när du har sparat ändringarna.
+Om du redan har angett priser för din plan i USA-dollar (USD) och lägger till en annan marknadsplats, kommer priset för den nya marknaden att beräknas enligt aktuella valutakurser. Granska priset för varje marknad innan publicering. Prissättningen kan granskas med hjälp av länken "Exportpriser (xlsx)" när du har sparat ändringarna.
 
 #### <a name="pricing"></a>Prissättning
 
@@ -418,7 +422,7 @@ Markera den här rutan om du bara vill göra din plan privat och synlig för den
 
 Tilldela målgruppen som ska ha åtkomst till den här privata planen. Åtkomst tilldelas med klient-ID:er med möjlighet att inkludera en beskrivning av varje tilldelat klient-ID. Högst 10 klient-ID:n kan läggas till, eller 20 000 kunders klient-ID:n om du importerar en CSV-kalkylbladsfil.
 
-En klient är en representation av en organisation, med ett ID representerat som ett GUID (Globalt unik identifierare, ett 128-bitars heltal som används för att identifiera resurser). Det är en dedikerad instans av Azure AD som en organisation eller apputvecklare får när organisationen eller apputvecklaren skapar en relation med Microsoft – som att registrera sig för Azure, Microsoft Intune eller Microsoft 365. Varje Azure AD-klient är separat och åtskild från andra Azure AD-klienter. Om du vill kontrollera klientorganisationen loggar du in på Azure-portalen med det konto du vill använda för att hantera din app. Om du har en klient kommer du automatiskt att loggas in och kan se klientorganisationens namn direkt under namnet på ditt konto. Hovra över ditt kontonamn längst upp till höger i Azure-portalen så visas namn, e-post, katalog/klient-ID (ett GUID) och domän. Om ditt konto är kopplat till flera klienter måste du välja namnet på ditt konto för att öppna en meny där du kan växla mellan klienter. Varje klient har sitt eget klient-ID. Du kan också slå upp organisationens klient-ID med [https://www.whatismytenantid.com](https://www.whatismytenantid.com)hjälp av en domännamnsadress på: .
+En klient är en representation av en organisation, med ett ID representerat som ett GUID (Globalt unik identifierare, ett 128-bitars heltal som används för att identifiera resurser). Det är en dedikerad instans av Azure AD som en organisation eller apputvecklare får när organisationen eller apputvecklaren skapar en relation med Microsoft, till exempel när du registrerar dig för Azure, Microsoft Intune eller Microsoft 365. Varje Azure AD-klient är separat och åtskild från andra Azure AD-klienter. Om du vill kontrollera klientorganisationen loggar du in på Azure-portalen med det konto du vill använda för att hantera din app. Om du har en klient kommer du automatiskt att loggas in och kan se klientorganisationens namn direkt under namnet på ditt konto. Hovra över ditt kontonamn längst upp till höger i Azure-portalen så visas namn, e-post, katalog/klient-ID (ett GUID) och domän. Om ditt konto är kopplat till flera klienter måste du välja namnet på ditt konto för att öppna en meny där du kan växla mellan klienter. Varje klient har sitt eget klient-ID. Du kan också slå upp organisationens klient-ID med [https://www.whatismytenantid.com](https://www.whatismytenantid.com)hjälp av en domännamnsadress på: .
 
 SaaS-erbjudanden använder klient-ID:er för att definiera en privat målgrupp, men andra erbjudandetyper kan använda Azure Subscription IDs (som också representeras som GUIDs).
 
@@ -429,19 +433,15 @@ SaaS-erbjudanden använder klient-ID:er för att definiera en privat målgrupp, 
 
 ![Exempel på marknadsplatsabonnemang med anteckningar](./media/marketplace-plan.svg)
 
-## <a name="test-drive"></a>Provkörning
-
-[!INCLUDE [Test drive content](./includes/commercial-marketplace-test-drive.md)]
-
 ## <a name="cloud-solution-provider-csp-reseller-audience"></a>CSP-återförsäljare (Cloud Solution Provider)
 
 Genom att välja att göra ditt erbjudande tillgängligt i CSP-programmet kan Cloud Solution Providers sälja din produkt som en del av en medföljande lösning till sina kunder. Mer information finns i [Cloud Solution Providers](https://go.microsoft.com/fwlink/?linkid=2111109).
 
 ## <a name="publish"></a>Publicera
 
-När du har slutfört alla nödvändiga delar av erbjudandet väljer du **publicera** i det övre högra hörnet på portalen. Du kommer att dirigeras om till **sidan Granska och publicera.**
+När du har slutfört alla nödvändiga delar av erbjudandet väljer du **publicera** i det övre högra hörnet på portalen. Du omdirigeras till sidan **Granska och publicera.**
 
-#### <a name="submit-offer-to-preview"></a>Skicka erbjudande till förhandsgranskning
+### <a name="submit-offer-to-preview"></a>Skicka erbjudande till förhandsgranskning
 
 Om det är första gången du publicerar det här erbjudandet kan du:
 

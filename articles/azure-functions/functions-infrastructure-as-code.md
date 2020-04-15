@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 48d98d6fef896f9288be88824a62fa1c8179217f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7155a3fa9481ef5f2da62d85d4a932ad5e8e8ab1
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276899"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81382528"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatisera resursdistribution för din funktionsapp i Azure Functions
 
@@ -33,7 +33,7 @@ En Azure Functions-distribution består vanligtvis av följande resurser:
 | En [application insights-komponent](../azure-monitor/app/app-insights-overview.md) | Valfri    | [Microsoft.Insights/-komponenter](/azure/templates/microsoft.insights/components)         |   |
 | En [värdplan](./functions-scale.md)                                             | Valfritt<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
 
-<sup>1.</sup> En värdplan krävs bara när du väljer att köra din funktionsapp på en [Premium-plan](./functions-premium-plan.md) (i förhandsversion) eller på en [App Service-plan](../app-service/overview-hosting-plans.md).
+<sup>1.</sup> En värdplan krävs bara när du väljer att köra din funktionsapp på en [Premium-plan](./functions-premium-plan.md) eller på en [App Service-plan.](../app-service/overview-hosting-plans.md)
 
 > [!TIP]
 > Även om det inte krävs, rekommenderar vi starkt att du konfigurerar Application Insights för din app.
@@ -111,7 +111,7 @@ Dessutom måste instrumenteringsnyckeln tillhandahållas till funktionsappen med
 
 Definitionen av värdplanen varierar och kan vara något av följande:
 * [Förbrukningsplan](#consumption) (standard)
-* [Premium-plan](#premium) (i förhandsversion)
+* [Premiumplan](#premium)
 * [App Service plan](#app-service-plan)
 
 ### <a name="function-app"></a>Funktionsapp
@@ -647,10 +647,10 @@ En funktionsapp har många underordnade resurser som du kan använda i distribut
 
 Du kan använda något av följande sätt att distribuera mallen:
 
-* [Powershell](../azure-resource-manager/templates/deploy-powershell.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
-* [Azure-portal](../azure-resource-manager/templates/deploy-portal.md)
-* [REST API](../azure-resource-manager/templates/deploy-rest.md)
+* [Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
+* [REST-API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Knappen Distribuera till Azure
 

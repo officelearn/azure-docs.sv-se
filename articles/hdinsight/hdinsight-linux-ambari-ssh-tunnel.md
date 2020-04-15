@@ -5,19 +5,19 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/28/2019
-ms.openlocfilehash: 6f4efd9a316b92f17f89cea66a7c81e84ac3cf06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/14/2020
+ms.openlocfilehash: 9bdf7360ce00637b0eed3de7a3349da8656a3ed0
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72991359"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314160"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>Använd SSH-tunnel för att komma åt Apache Ambari webbgränssnitt, JobHistory, NameNode, Apache Oozie och andra UIs
 
-HDInsight-kluster ger tillgång till Apache Ambari webbgränssnittet via Internet, men vissa funktioner kräver en SSH-tunnel. Webbgränssnittet för Apache Oozie-tjänsten kan till exempel inte nås via internet utan en SSh-tunnel.
+HDInsight-kluster ger tillgång till Apache Ambari webbgränssnittet via Internet. Vissa funktioner kräver en SSH-tunnel. Apache Oozie-webbgränssnittet kan till exempel inte nås via internet utan en SSH-tunnel.
 
 ## <a name="why-use-an-ssh-tunnel"></a>Varför använda en SSH-tunnel
 
@@ -31,7 +31,7 @@ Följande webb-UIs kräver en SSH-tunnel:
 * Oozie webb UI
 * HBase-huvud- och loggargränssnitt
 
-Om du använder skriptåtgärder för att anpassa klustret kräver alla tjänster eller verktyg som du installerar som exponerar en webbtjänst en SSH-tunnel. Om du till exempel installerar Hue med hjälp av en skriptåtgärd måste du använda en SSH-tunnel för att komma åt webbgränssnittet i Hue.
+Tjänster som installeras med skriptåtgärder som exponerar en webbtjänst kräver en SSH-tunnel. Hue installeras med Script Action kräver en SSH-tunnel för att komma åt webbgränssnittet.
 
 > [!IMPORTANT]  
 > Om du har direkt åtkomst till HDInsight via ett virtuellt nätverk behöver du inte använda SSH-tunnlar. Ett exempel på direkt åtkomst till HDInsight via ett virtuellt nätverk finns i [Connect HDInsight till ditt lokala nätverksdokument.](connect-on-premises-network.md)
@@ -64,14 +64,16 @@ ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 
 Det här kommandot skapar en anslutning som dirigerar trafik till lokal port 9876 till klustret via SSH. Alternativen är:
 
-* **D 9876** - Den lokala hamnen som dirigerar trafik genom tunneln.
-* **C** - Komprimera alla data, eftersom webbtrafik oftast är text.
-* **2** - Tvinga SSH att endast prova protokollversion 2.
-* **q** - Tyst läge.
-* **T** - Inaktivera pseudo-tty tilldelning, eftersom du bara vidarebefordra en port.
-* **n** - Förhindra läsning av STDIN, eftersom du bara vidarebefordrar en port.
-* **N** - Kör inte ett fjärrkommando, eftersom du bara vidarebefordrar en port.
-* **f** - Kör i bakgrunden.
+    |Alternativ |Beskrivning |
+    |---|---|
+    |D 9876 (på)|Den lokala hamnen som dirigerar trafik genom tunneln.|
+    |C|Komprimera alla data, eftersom webbtrafik oftast är text.|
+    |2|Tvinga SSH att endast prova protokollversion 2.|
+    |q|Tyst läge.|
+    |T|Inaktivera pseudo-tty tilldelning, eftersom du bara vidarebefordrar en port.|
+    |n|Förhindra läsning av STDIN, eftersom du bara vidarebefordrar en port.|
+    |N|Kör inte ett fjärrkommando eftersom du bara vidarebefordrar en port.|
+    |f|Kör i bakgrunden.|
 
 När kommandot är klart dirigeras trafik som skickas till port 9876 på den lokala datorn till klusterhuvudnoden.
 

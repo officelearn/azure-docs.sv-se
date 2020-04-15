@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 11/27/2019
+ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c5d0efe8e662544dc69356c6b17dd7eca6f3a50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 75b127f8429650d46af9f171ed7ff03692f1499e
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74786460"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81379908"
 ---
 # <a name="azure-ad-pass-through-authentication-agent-version-release-history"></a>Azure AD-direktautentiseringsagent: Versionsversionshistorik 
  
@@ -27,6 +27,14 @@ Här är relaterade ämnen:
 
 - [Användarloggning med Azure AD-direktautentisering](how-to-connect-pta.md) 
 - [Azure AD-installation av autentiseringsagent](how-to-connect-pta-quick-start.md) 
+
+## <a name="1517420"></a>1.5.1742.0
+### <a name="release-status"></a>Utgivningsstatus: 
+2020-04-09: Släppt för nedladdning
+
+### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
+
+- Lade till stöd för inriktning av molnmiljöer vid installationen. Paketet kan fästas på en viss molnmiljö.
 
 
 

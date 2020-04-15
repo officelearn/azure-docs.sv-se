@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/13/2019
-ms.openlocfilehash: 1a4ae0701174278203023c156a86aad8feb1ca4c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/14/2020
+ms.openlocfilehash: d68f7dc6368c2b3de7f26f2946c5fb47237a820d
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80240626"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313935"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Använda signaturer för delad åtkomst i Azure Storage för att begränsa åtkomsten till data med HDInsight
 
@@ -27,8 +27,6 @@ HDInsight har fullständig åtkomst till data i Azure Storage-konton som är ass
 
 ## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration.
-
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * En befintlig [lagringsbehållare](../storage/blobs/storage-quickstart-blobs-portal.md).  
@@ -41,7 +39,7 @@ HDInsight har fullständig åtkomst till data i Azure Storage-konton som är ass
 
 * Om du använder C#måste Visual Studio vara version 2013 eller högre.
 
-* [URI-schemat](./hdinsight-hadoop-linux-information.md#URI-and-scheme) för ditt lagringskonto. Detta skulle `wasb://` vara för `abfs://` Azure Storage, för `adl://` Azure Data Lake Storage Gen2 eller för Azure Data Lake Storage Gen1. Om säker överföring är aktiverad för Azure `wasbs://`Storage, skulle URI vara . Se även [säker överföring](../storage/common/storage-require-secure-transfer.md).
+* [URI-schemat](./hdinsight-hadoop-linux-information.md#URI-and-scheme) för ditt lagringskonto. Det här `wasb://` schemat skulle `abfs://` vara för Azure Storage, `adl://` för Azure Data Lake Storage Gen2 eller för Azure Data Lake Storage Gen1. Om säker överföring är aktiverad för Azure `wasbs://`Storage, skulle URI vara . Se även [säker överföring](../storage/common/storage-require-secure-transfer.md).
 
 * Ett befintligt HDInsight-kluster som du vill lägga till en signatur för delad åtkomst i. Om inte, kan du använda Azure PowerShell för att skapa ett kluster och lägga till en signatur för delad åtkomst när klustret skapas.
 
@@ -56,11 +54,11 @@ HDInsight har fullständig åtkomst till data i Azure Storage-konton som är ass
 
 Det finns två former av signaturer för delad åtkomst:
 
-* Ad hoc: Starttid, förfallotid och behörigheter för SAS anges alla i SAS URI.
+* `Ad hoc`: Starttid, förfallotid och behörigheter för SAS anges alla i SAS URI.
 
-* Lagrad åtkomstprincip: En lagrad åtkomstprincip definieras på en resursbehållare, till exempel en blob-behållare. En princip kan användas för att hantera villkor för en eller flera signaturer för delad åtkomst. När du associerar en SAS med en lagrad åtkomstprincip ärver SAS de begränsningar - starttid, utgångstid och behörigheter - som definierats för den lagrade åtkomstprincipen.
+* `Stored access policy`: En lagrad åtkomstprincip definieras på en resursbehållare, till exempel en blob-behållare. En princip kan användas för att hantera villkor för en eller flera signaturer för delad åtkomst. När du associerar en SAS med en lagrad åtkomstprincip ärver SAS de begränsningar - starttid, utgångstid och behörigheter - som definierats för den lagrade åtkomstprincipen.
 
-Skillnaden mellan de två formulären är viktig för ett nyckelscenario: återkallande. En SAS är en WEBBADRESS, så alla som skaffar SAS kan använda den, oavsett vem som begärde det till att börja med. Om en SAS publiceras offentligt kan den användas av vem som helst i världen. En SAS som distribueras är giltig tills en av fyra saker händer:
+Skillnaden mellan de två formulären är viktig för ett nyckelscenario: återkallande. En SAS är en URL, så alla som skaffar SAS kan använda den. Det spelar ingen roll vem som bad om det till att börja med. Om en SAS publiceras offentligt kan den användas av vem som helst i världen. En SAS som distribueras är giltig tills en av fyra saker händer:
 
 1. Den utgångstid som anges på SAS har uppnåtts.
 
@@ -82,7 +80,7 @@ Mer information om signaturer för delad åtkomst finns [i Förstå SAS-modellen
 
 ## <a name="create-a-stored-policy-and-sas"></a>Skapa en lagrad princip och SAS
 
-Spara SAS-token som produceras i slutet av varje metod. Token kommer att se ut ungefär så här:
+Spara SAS-token som produceras i slutet av varje metod. Token kommer att se ut ungefär som följande utdata:
 
 ```output
 ?sv=2018-03-28&sr=c&si=myPolicyPS&sig=NAxefF%2BrR2ubjZtyUtuAvLQgt%2FJIN5aHJMj6OsDwyy4%3D
@@ -205,7 +203,7 @@ Användningen av variabler i det här avsnittet baseras på en Windows-miljö. S
 
 Du kan behöva `pip install --upgrade azure-storage` köra om felmeddelandet `ImportError: No module named azure.storage`visas .
 
-### <a name="using-c"></a>Använd C#
+### <a name="using-c"></a>Använda C\#
 
 1. Öppna lösningen i Visual Studio.
 
@@ -213,21 +211,20 @@ Du kan behöva `pip install --upgrade azure-storage` köra om felmeddelandet `Im
 
 3. Välj **Inställningar** och lägg till värden för följande poster:
 
-   * StorageConnectionString: Anslutningssträngen för det lagringskonto som du vill skapa en lagrad princip och SAS för. Formatet ska `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey` vara `myaccount` där är namnet på `mykey` ditt lagringskonto och är nyckeln till lagringskontot.
-
-   * ContainerName: Behållaren i det lagringskonto som du vill begränsa åtkomsten till.
-
-   * SASPolicyName: Namnet som ska användas för den lagrade principen att skapa.
-
-   * FileToUpload: Sökvägen till en fil som överförs till behållaren.
+    |Objekt |Beskrivning |
+    |---|---|
+    |LagringAnslutningssträngning|Anslutningssträngen för det lagringskonto som du vill skapa en lagrad princip och SAS för. Formatet ska `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey` vara `myaccount` där är namnet på `mykey` ditt lagringskonto och är nyckeln till lagringskontot.|
+    |ContainerName|Behållaren i lagringskontot som du vill begränsa åtkomsten till.|
+    |SASPolicyName|Namnet som ska användas för den lagrade principen att skapa.|
+    |FileToUpload|Sökvägen till en fil som överförs till behållaren.|
 
 4. Kör projektet. Spara SAS-principtoken, lagringskontonamnet och behållarnamnet. Dessa värden används när lagringskontot associeras med ditt HDInsight-kluster.
 
 ## <a name="use-the-sas-with-hdinsight"></a>Använda SAS med HDInsight
 
-När du skapar ett HDInsight-kluster måste du ange ett primärt lagringskonto och du kan också ange ytterligare lagringskonton. Båda dessa metoder för att lägga till lagring kräver fullständig åtkomst till lagringskonton och behållare som används.
+När du skapar ett HDInsight-kluster måste du ange ett primärt lagringskonto. Du kan också ange ytterligare lagringskonton. Båda dessa metoder för att lägga till lagring kräver fullständig åtkomst till lagringskonton och behållare som används.
 
-Om du vill använda en signatur för delad åtkomst för att begränsa åtkomsten till en behållare lägger du till en anpassad post i **kärnplatskonfigurationen** för klustret. Du kan lägga till posten när klustret skapas med PowerShell eller efter att klustret har skapats med Ambari.
+Använd en signatur för delad åtkomst för att begränsa behållaråtkomsten. Lägg till en anpassad post i **kärnplatskonfigurationen** för klustret. Du kan lägga till posten när klustret skapas med PowerShell eller efter att klustret har skapats med Ambari.
 
 ### <a name="create-a-cluster-that-uses-the-sas"></a>Skapa ett kluster som använder SAS
 

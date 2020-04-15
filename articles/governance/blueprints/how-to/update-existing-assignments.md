@@ -1,14 +1,14 @@
 ---
 title: Uppdatera en befintlig tilldelning från portalen
 description: Lär dig mer om mekanismen för att uppdatera en befintlig skisstilldelning från portalen i Azure Blueprints.
-ms.date: 11/21/2019
+ms.date: 04/15/2020
 ms.topic: how-to
-ms.openlocfilehash: 2c1a24399d8fa1529665bfa60d1b889a84a29a60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a00a8bcc10b37af576777e3816a794225a3832f7
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264666"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381794"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Så här uppdaterar du en befintlig skisstilldelning
 
@@ -26,18 +26,18 @@ När en skiss har tilldelats kan tilldelningen uppdateras. Det finns flera orsak
 
 1. Högerklicka på skisstilldelningen i listan över ritningar. Klicka sedan på knappen **Uppdatera tilldelning** ELLER högerklicka på skisstilldelningen och välj **Uppdatera tilldelning**.
 
-   ![Uppdatera en befintlig skisstilldelning](../media/update-existing-assignments/update-assignment.png)
+   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Uppdatera en befintlig skisstilldelning" border="false":::
 
 1. Sidan **Tilldela skiss** laddas förfyllda med alla värden från den ursprungliga tilldelningen.
    Du kan ändra **ritningsdefinitionsversionen,** tillståndet **Lås tilldelning** och alla dynamiska parametrar som finns i skissdefinitionen. Klicka på **Tilldela** när du är klar med att göra ändringar.
 
 1. På sidan uppdaterad tilldelningsinformation läser du den nya statusen. I det här exemplet har vi lagt till **Låsning** i tilldelningen.
 
-   ![Uppdaterade en befintlig skisstilldelning - låsläget ändrat](../media/update-existing-assignments/updated-assignment.png)
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Uppdaterade en befintlig skisstilldelning - låsläget ändrat" border="false":::
 
 1. Utforska information om andra **tilldelningsåtgärder** med hjälp av listrutan. Tabellen **Hanterade resurser** uppdateras efter vald tilldelningsåtgärd.
 
-   ![Tilldelning av en skisstilldelning](../media/update-existing-assignments/assignment-operations.png)
+   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Tilldelning av en skisstilldelning" border="false":::
 
 ## <a name="rules-for-updating-assignments"></a>Regler för uppdatering av tilldelningar
 

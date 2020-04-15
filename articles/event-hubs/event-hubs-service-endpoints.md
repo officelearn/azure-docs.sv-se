@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 11/26/2019
 ms.author: shvija
-ms.openlocfilehash: 6de51c23bd6358a6f54fe3baf9e9b256047d4ab5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: abd7940551f7a8182364475b0cf50b60afb5e1b7
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064898"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313798"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Använda slutpunkter för tjänsten För virtuella nätverk med Azure Event Hubs
 
@@ -25,6 +25,22 @@ Integreringen av [VNet-tjänstslutpunkter (Event][vnet-sep] Hubs with Virtual Ne
 När den har konfigurerats för att bindas till minst en slutpunkt för virtuella nätverksundernätstjänsten accepterar respektive namnområde för eventhubbar inte längre trafik från var som helst utan auktoriserade undernät i virtuella nätverk. Från det virtuella nätverksperspektivet konfigurerar bindning av ett namnområde för eventhubbar till en tjänstslutpunkt en isolerad nätverkstunnel från det virtuella nätverksundernätet till meddelandetjänsten. 
 
 Resultatet är en privat och isolerad relation mellan arbetsbelastningarna som är bundna till undernätet och respektive händelsehubbarnamnområde, trots att den observerbara nätverksadressen för slutpunkten för meddelandetjänsten är i ett offentligt IP-intervall. Det finns ett undantag från det här beteendet. Om du aktiverar en tjänstslutpunkt som `denyall` standard aktiveras regeln i [IP-brandväggen](event-hubs-ip-filtering.md) som är associerad med det virtuella nätverket. Du kan lägga till specifika IP-adresser i IP-brandväggen för att aktivera åtkomst till den offentliga slutpunkten för händelsehubben. 
+
+>[!WARNING]
+> Genom att implementera integrering av virtuella nätverk kan du förhindra andra Azure-tjänster från att interagera med Event Hubs.
+>
+> Betrodda Microsoft-tjänster stöds inte när virtuella nätverk implementeras.
+>
+> Vanliga Azure-scenarier som inte fungerar med virtuella nätverk (observera att listan **INTE** är uttömmande) -
+> - Azure Stream Analytics
+> - Integrering med Azure Event Grid
+> - Azure IoT Hub Rutter
+> - Utforskaren för Azure IoT-enhet
+>
+> Följande Microsoft-tjänster måste finnas i ett virtuellt nätverk
+> - Azure Web Apps
+> - Azure Functions
+
 
 > [!IMPORTANT]
 > Virtuella nätverk stöds på **standardnivå** och **dedikerade** nivåer för Event Hubs. Det stöds inte i den **grundläggande** nivån.
@@ -35,7 +51,7 @@ Lösningar som kräver tät och uppdelad säkerhet, och där virtuella nätverks
 
 Varje omedelbar IP-väg mellan avdelningarna, inklusive de som transporterar HTTPS över TCP/IP, medför risk för utnyttjande av sårbarheter från nätskiktet uppåt. Meddelandetjänster tillhandahåller isolerade kommunikationsvägar, där meddelanden till och med skrivs till disk när de övergår mellan parterna. Arbetsbelastningar i två olika virtuella nätverk som båda är bundna till samma Event Hubs-instans kan kommunicera effektivt och tillförlitligt via meddelanden, medan respektive nätverksisoleringsgränsintegritet bevaras.
  
-Det innebär att dina säkerhetskänsliga molnlösningar inte bara får tillgång till Azures branschledande tillförlitliga och skalbara asynkrona meddelandefunktioner, utan de kan nu använda meddelanden för att skapa kommunikationsvägar mellan säkra lösningsfack som är i sig säkrare än vad som kan uppnås med alla peer-to-peer-kommunikationsläge, inklusive HTTPS och andra TLS-säkrade socketprotokoll.
+Det innebär att dina säkerhetskänsliga molnlösningar inte bara får tillgång till Azures branschledande tillförlitliga och skalbara asynkrona meddelandefunktioner, utan de kan nu använda meddelanden för att skapa kommunikationsvägar mellan säkra lösningsfack som i sig är säkrare än vad som kan uppnås med alla peer-to-peer-kommunikationsläge, inklusive HTTPS och andra TLS-säkrade socketprotokoll.
 
 ## <a name="bind-event-hubs-to-virtual-networks"></a>Binda händelsehubbar till virtuella nätverk
 

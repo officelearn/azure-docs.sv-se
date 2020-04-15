@@ -3,12 +3,12 @@ title: Närmare uppgifter om den politiska definitionsstrukturen
 description: Beskriver hur principdefinitioner används för att upprätta konventioner för Azure-resurser i organisationen.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: e6b1d5c43f290fc2dd953492440670608a15faca
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.openlocfilehash: 017878c4c47a5645ea8815580d2176c7a2ff5d66
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80638078"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81314020"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -252,11 +252,13 @@ Ett villkor utvärderar om ett **fält** eller värdeahöjet uppfyller vissa vil
 - `"notIn": ["stringValue1","stringValue2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
-- `"less": "value"`
-- `"lessOrEquals": "value"`
-- `"greater": "value"`
-- `"greaterOrEquals": "value"`
+- `"less": "dateValue"` | `"less": "stringValue"` | `"less": intValue`
+- `"lessOrEquals": "dateValue"` | `"lessOrEquals": "stringValue"` | `"lessOrEquals": intValue`
+- `"greater": "dateValue"` | `"greater": "stringValue"` | `"greater": intValue`
+- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` | `"greaterOrEquals": intValue`
 - `"exists": "bool"`
+
+För **mindre**, **lessOrEquals**, **större**och **störreOrEquals**, om egenskapstypen inte matchar villkorstypen, genereras ett fel. Strängjämnningar `InvariantCultureIgnoreCase`görs med .
 
 När du använder **liknande** och **inteLike** villkor, ger du ett jokertecken `*` i värdet.
 Värdet bör inte ha mer än `*`ett jokertecken .

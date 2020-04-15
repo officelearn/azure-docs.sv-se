@@ -1,16 +1,16 @@
 ---
-title: Arbeta med fjärrenheter i Unity
+title: Arbeta med fjärentiteter i Unity
 description: Självstudiekurs som visar hur du arbetar med ARR-entiteter.
 author: florianborn71
 ms.author: flborn
 ms.date: 02/01/2020
 ms.topic: tutorial
-ms.openlocfilehash: 97b2a0e48907ebe5b1cafdf92d14e9a4c6a28360
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: db1f6a53121e05b29f7e3441af027985a141bc2e
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679536"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81310201"
 ---
 # <a name="tutorial-working-with-remote-entities-in-unity"></a>Självstudiekurs: Arbeta med fjärrenheter i Unity
 
@@ -191,6 +191,8 @@ public class RemoteModelEntity : MonoBehaviour
     }
 }
 ```
+> [!CAUTION]
+> Tilldela inte skriptet till något spelobjekt eftersom det kommer att tilldelas programmässigt av koden nedan.
 
 Nästa upp, vi måste utöka vår *RemoteRaycaster* att lägga till *RemoteModelEntity* komponenten till objektet som vi just plockade.
 

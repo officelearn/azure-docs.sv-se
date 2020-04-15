@@ -2,13 +2,13 @@
 title: 'Självstudiekurs: Mönster - LUIS'
 description: Använd mönster för att öka avsikts- och entitetsförutsägelsen samtidigt som du tillhandahåller färre exempelyttranden i den här självstudien. Mönstret tillhandahålls som ett mallutseende exempel, som innehåller syntax för att identifiera entiteter och ignorerande text.
 ms.topic: tutorial
-ms.date: 04/01/2020
-ms.openlocfilehash: 10f0ade45dedb3413887cc4b4dea89e857c1bde7
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/14/2020
+ms.openlocfilehash: 826334fafd04a6357f529b1dc07408ff1c15ce5c
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545993"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81380774"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Självstudiekurs: Lägg till vanliga uttrycksformat för mönstermallar för att förbättra förutsägelser
 
@@ -214,7 +214,7 @@ Exempel på mallyttranden för den här avsikten är:
 |`Who does {Employee} report to[?]`|Utbytbara`{Employee}`<br>Ignorera`[?]`|
 |`Who reports to {Employee}[?]`|Utbytbara`{Employee}`<br>Ignorera`[?]`|
 
-Syntaxen `{Employee}` markerar entitetsplatsen i mallyttrandet och vilken entitet det är. Den valfria `[?]`syntaxen, markerar ord eller skiljetecken som är valfri. LUIS matchar yttrandet, ignorerar den valfria texten inom hakparentes.
+Syntaxen `{Employee}` markerar entitetsplatsen i mallyttrandet och vilken entitet det är. Den valfria `[?]`syntaxen, markerar ord eller [skiljetecken](luis-reference-application-settings.md#punctuation-normalization) som är valfri. LUIS matchar yttrandet, ignorerar den valfria texten inom hakparentes.
 
 Syntaxen ser ut som ett reguljärt uttryck, men det är inte ett reguljärt uttryck. Endast syntax inom klamrar, `{}`, och hakparentes, `[]`, stöds. De kan kapslas upp till två nivåer.
 

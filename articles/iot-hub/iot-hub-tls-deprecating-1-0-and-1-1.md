@@ -1,22 +1,26 @@
 ---
-title: Inaktuella TLS 1.0 och 1.1 i IoT Hub and Device Provisioning Service (DPS) | Microsoft-dokument
-description: Riktlinjer för utfasning av TLS 1.0 och 1.1 och chiffer som stöds i IoT Hub och DPS.
-author: rezasherafat
-ms.author: rezas
+title: Deprecating TLS 1.0 och 1.1 i IoT Hub | Microsoft-dokument
+description: Riktlinjer för utfasning av TLS 1.0 och 1.1 och chiffer som stöds i IoT Hub.
+author: jlian
+ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 12/16/2019
-ms.openlocfilehash: d61ca8fe7c6f5e7cc400714d7c31a0a7e50b8a88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: a887dd4df44ba58b0e6646ffb1c10eb21edf3e69
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78402786"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81381302"
 ---
-# <a name="deprecation-of-tls-10-and-11-in-iot-hub-and-device-provisioning-service"></a>Utfasning av TLS 1.0 och 1.1 i IoT Hub och enhetsetableringstjänst
+# <a name="deprecation-of-tls-10-and-11-in-iot-hub"></a>Utfasning av TLS 1.0 och 1.1 i IoT Hub
 
-För att tillhandahålla förstklassig kryptering flyttas DPS (IoT Hub and Device Provisioning Service) till Transport Layer Security (TLS) 1.2 som krypteringsmekanism för IoT-enheter och -tjänster. 
+För att tillhandahålla förstklassig kryptering flyttar IoT Hub till Transport Layer Security (TLS) 1.2 som krypteringsmekanism för IoT-enheter och -tjänster. 
+
+## <a name="timeline"></a>Tidslinje
+
+IoT Hub kommer att fortsätta att stödja TLS 1.0/1.1 tills vidare. Vi rekommenderar dock att alla kunder migrerar till TLS 1.2 så snart som möjligt.
 
 ## <a name="supported-ciphers"></a>Chiffer som stöds
 
@@ -26,7 +30,6 @@ Tidslinjen för tillgänglighet av olika chiffer som används i TLS handslag är
 * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 (kommer att stödjas under andra halvåret 2020)
 * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (kommer att stödjas under andra halvåret 2020)
 * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (kommer att stödjas under andra halvåret 2020)
-
 
 ## <a name="customer-feedback"></a>Feedback från kunder
 

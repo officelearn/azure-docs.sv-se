@@ -3,12 +3,12 @@ title: Så här skapar du principer för gästkonfiguration för Windows
 description: Lär dig hur du skapar en azure-princip gästkonfigurationsprincip för Windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 24069ff6518c4244026378e48216d4568fffeb8a
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: deb51cf502d26dc994bf74ef3cb0c728f624afde
+ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365468"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81313985"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Så här skapar du principer för gästkonfiguration för Windows
 
@@ -73,7 +73,11 @@ En översikt över DSC-begrepp och terminologi finns i [PowerShell DSC Översikt
 
 ### <a name="how-guest-configuration-modules-differ-from-windows-powershell-dsc-modules"></a>Så här skiljer sig gästkonfigurationsmoduler från Windows PowerShell DSC-moduler
 
-När Gästkonfiguration granskar en dator `Test-TargetResource` körs den först för att avgöra om den är i rätt tillstånd. Det booleska värdet som returneras av funktionen avgör om Azure Resource Manager-status för gästtilldelningen ska vara kompatibel/inte-kompatibel. Nästa providern `Get-TargetResource` körs för att returnera det aktuella tillståndet för varje inställning så att information är tillgänglig både om varför en dator inte är kompatibel eller för att bekräfta att det aktuella tillståndet är kompatibelt.
+När gästkonfiguration granskar en dator:
+
+1. Agenten körs `Test-TargetResource` först för att avgöra om konfigurationen är i rätt tillstånd.
+1. Det booleska värdet som returneras av funktionen avgör om Azure Resource Manager-status för gästtilldelningen ska vara kompatibel/inte-kompatibel.
+1. Providern `Get-TargetResource` körs för att returnera det aktuella tillståndet för varje inställning så att information är tillgänglig både om varför en dator inte är kompatibel och för att bekräfta att det aktuella tillståndet är kompatibelt.
 
 ### <a name="get-targetresource-requirements"></a>Krav på get-targetresource
 
@@ -102,6 +106,25 @@ return @{
     reasons = $reasons
 }
 ```
+
+Egenskapen Reasons måste också läggas till i schemat MOF för resursen som en inbäddad klass.
+
+```mof
+[ClassVersion("1.0.0.0")] 
+class Reason
+{
+    [Read] String Phrase;
+    [Read] String Code;
+};
+
+[ClassVersion("1.0.0.0"), FriendlyName("ResourceName")]
+class ResourceName : OMI_BaseResource
+{
+    [Key, Description("Example description")] String Example;
+    [Read, EmbeddedInstance("Reason")] String Reasons[];
+};
+```
+
 ### <a name="configuration-requirements"></a>Konfigurationskrav
 
 Namnet på den anpassade konfigurationen måste vara konsekvent överallt. Namnet på ZIP-filen för innehållspaketet, konfigurationsnamnet i MOF-filen och gästtilldelningsnamnet i Resource Manager-mallen måste vara detsamma.
@@ -134,7 +157,7 @@ Du kan också implementera [tjänstslutpunkt](../../../storage/common/storage-ne
 
 ## <a name="step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows"></a>Steg för steg skapa en anpassad granskningsprincip för gästkonfiguration för Windows
 
-Skapa en DSC-konfiguration. I följande PowerShell-skriptexempel skapas en konfiguration med namnet **AuditBitLocker**, **importerar psDscResources-resursmodulen** och resursen `Service` används för granskning för en tjänst som körs. Konfigurationsskriptet kan köras från en Windows- eller macOS-dator.
+Skapa en DSC-konfiguration för granskningsinställningar. I följande PowerShell-skriptexempel skapas en konfiguration med namnet **AuditBitLocker**, **importerar psDscResources-resursmodulen** och resursen `Service` används för granskning för en tjänst som körs. Konfigurationsskriptet kan köras från en Windows- eller macOS-dator.
 
 ```powershell
 # Define the DSC configuration and import GuestConfiguration
@@ -160,7 +183,7 @@ Kommandot `Node AuditBitlocker` är inte tekniskt krävs, men `AuditBitlocker.mo
 
 När MOF har kompilerats måste stödfilerna paketeras tillsammans. Det slutförda paketet används av Gästkonfiguration för att skapa Azure-principdefinitioner.
 
-Cmdlet `New-GuestConfigurationPackage` skapar paketet. Parametrar för `New-GuestConfigurationPackage` cmdlet när du skapar Windows-innehåll:
+Cmdlet `New-GuestConfigurationPackage` skapar paketet. Moduler som behövs av konfigurationen måste `$Env:PSModulePath`finnas tillgängliga i . Parametrar för `New-GuestConfigurationPackage` cmdlet när du skapar Windows-innehåll:
 
 - **Namn**: Paketnamn för gästkonfiguration.
 - **Konfiguration**: Kompilerad DSC-konfigurationsdokument fullständig sökväg.
@@ -176,7 +199,7 @@ New-GuestConfigurationPackage `
 
 När du har skapat konfigurationspaketet men innan du publicerar det på Azure kan du testa paketet från din arbetsstation eller CI/CD-miljö. Cmdlet `Test-GuestConfigurationPackage` för GuestConfiguration innehåller samma agent i utvecklingsmiljön som används i Azure-datorer. Med den här lösningen kan du göra integrationstestning lokalt innan du släpper till fakturerade molnmiljöer.
 
-Eftersom agenten faktiskt utvärderar den lokala miljön måste du i de flesta fall köra test-cmdlet på samma OS-plattform som du planerar att granska.
+Eftersom agenten faktiskt utvärderar den lokala miljön måste du i de flesta fall köra test-cmdlet på samma OS-plattform som du planerar att granska. Testet kommer endast att använda moduler som ingår i innehållspaketet.
 
 Parametrar för `Test-GuestConfigurationPackage` cmdlet:
 

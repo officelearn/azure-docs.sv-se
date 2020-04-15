@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 03/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c56e6729307a1cad998a060202f51cb8f29bf94a
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 16fa33999a38b21fd2016c986dd2db81f7d84051
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548327"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383753"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager-resursprovideråtgärder
 
@@ -327,7 +327,7 @@ Azure-tjänst: [API-hantering](../api-management/index.yml)
 > | Åtgärd | Microsoft.ApiManagement/åtgärder/läs | Läsa alla API-åtgärder som är tillgängliga för Microsoft.ApiManagement-resurs |
 > |  | **rapporter** |  |
 > | Åtgärd | Microsoft.ApiManagement/rapporter/läsa | Få rapporter aggregerade efter tidsperioder, geografisk region, utvecklare, produkter, API: er, drift, prenumeration och byRequest. |
-> |  | **tjänst** |  |
+> |  | **Tjänst** |  |
 > | Åtgärd | Microsoft.ApiManagement/service/write | Skapa eller uppdatera API Management Service-instans |
 > | Åtgärd | Microsoft.ApiManagement/service/read | Läsa metadata för en API Management Service-instans |
 > | Åtgärd | Microsoft.ApiManagement/service/delete | Ta bort API Management Service-instans |
@@ -1506,7 +1506,7 @@ Azure-tjänst: Virtuell dator med klassisk distributionsmodell
 > | Åtgärd | Microsoft.ClassicCompute/åtgärder/läs | Hämtar listan över åtgärder. |
 > |  | **operationStatuses** |  |
 > | Åtgärd | Microsoft.ClassicCompute/operationStatuses/read | Läser åtgärdens status för resursen. |
-> |  | **quotas** |  |
+> |  | **Kvoter** |  |
 > | Åtgärd | Microsoft.ClassicCompute/kvoter/läs | Hämta kvoten för prenumerationen. |
 > |  | **resourceTypes/skus** |  |
 > | Åtgärd | Microsoft.ClassicCompute/resourceTypes/skus/read Microsoft.ClassicCompute/resourceTypes/skus/read Microsoft.ClassicCompute/resourceTypes/skus/read Microsoft. | Hämtar Sku-listan för resurstyper som stöds. |
@@ -1599,7 +1599,7 @@ Azure-tjänst: Virtuellt nätverk av klassisk distributionsmodell
 > | Åtgärd | Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/operationStatuses/read | Läser driftstatusen för säkerhetsreglerna för nätverkssäkerhetsgruppen. |
 > |  | **Verksamhet** |  |
 > | Åtgärd | Microsoft.ClassicNetwork/operations/read | Få klassiska nätverksåtgärder. |
-> |  | **quotas** |  |
+> |  | **Kvoter** |  |
 > | Åtgärd | Microsoft.ClassicNetwork/kvoter/läs | Hämta kvoten för prenumerationen. |
 > |  | **reservedIps** |  |
 > | Åtgärd | Microsoft.ClassicNetwork/reservedIps/read Microsoft.ClassicNetwork/reservedIps/read Microsoft.ClassicNetwork/reservedIps/read Microsoft. | Hämtar de reserverade Ips |
@@ -1693,7 +1693,7 @@ Azure-tjänst: Klassisk lagring av distributionsmodell
 > | Åtgärd | Microsoft.ClassicStorage/osPlatformImages/läs | Hämtar avbildningen av operativsystemets plattform. |
 > |  | **offentligaBilder** |  |
 > | Åtgärd | Microsoft.ClassicStorage/publicImages/read | Hämtar den offentliga avbildningen för virtuella datorer. |
-> |  | **quotas** |  |
+> |  | **Kvoter** |  |
 > | Åtgärd | Microsoft.ClassicStorage/kvoter/läs | Hämta kvoten för prenumerationen. |
 > |  | **lagringKonton** |  |
 > | Åtgärd | Microsoft.ClassicStorage/storageAccounts/read Microsoft.ClassicStorage/storageAccounts/read Microsoft.ClassicStorage/storageAccounts/read Microsoft. | Returnera lagringskontot med det angivna kontot. |
@@ -5180,7 +5180,7 @@ Azure-tjänst: [Nyckelvalv](../key-vault/index.yml)
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
-Azure-tjänst: [Azure Data Explorer](../data-explorer/index.yml)
+Azure-tjänst: [Azure Data Explorer](/azure/data-explorer/)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |

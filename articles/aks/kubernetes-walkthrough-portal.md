@@ -6,12 +6,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 01/21/2020
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: e91e5e2701b02ab4c705cd80117dfc7689c7d054
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: e4ac5a953b5d88d0074c3cfb7f1bd45331577238
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668442"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392794"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Snabbstart: Distribuera ett AKS-kluster (Azure Kubernetes Service) med Azure-portalen
 
@@ -25,7 +25,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 
@@ -52,6 +52,8 @@ Du skapar ett AKS-kluster genom att slutföra följande steg:
 5. Konfigurera följande alternativ på sidan **Autentisering:**
     - Skapa ett nytt tjänsthuvudnamn genom att lämna fältet **Tjänsthuvudnamn** med **(nytt) standardtjänsthuvudnamn**. Eller så kan du välja *Konfigurera tjänstens huvudnamn* för att använda ett befintligt. Om du använder ett befintligt måste du ange SPN-klient-ID och hemligt.
     - Aktivera alternativet för kontroller för rollbaserad åtkomstkontroll (RBAC) för Kubernetes. Detta ger mer detaljerad kontroll över åtkomsten till Kubernetes-resurserna som distribueras i AKS-klustret.
+
+    Du kan också använda en hanterad identitet i stället för ett tjänsthuvudnamn. Se [använda hanterade identiteter](use-managed-identity.md) för mer information.
 
 Som standard används *Grundläggande* nätverk och Azure Monitor för container är aktiverat. Klicka på **Granska + skapa** och sedan **skapa** när valideringen är klar.
 
@@ -250,7 +252,7 @@ az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 ```
 
 > [!NOTE]
-> När du tar bort klustret tas Azure Active Directory-tjänstens huvudnamn, som används av AKS-klustret, inte bort. Stegvisa instruktioner om hur du tar bort tjänstens huvudnamn finns i dokumentationen om [viktiga överväganden och borttagning av AKS-tjänsten][sp-delete].
+> När du tar bort klustret tas Azure Active Directory-tjänstens huvudnamn, som används av AKS-klustret, inte bort. Stegvisa instruktioner om hur du tar bort tjänstens huvudnamn finns i dokumentationen om [viktiga överväganden och borttagning av AKS-tjänsten][sp-delete]. Om du har använt en hanterad identitet hanteras identiteten av plattformen och kräver inte borttagning.
 
 ## <a name="get-the-code"></a>Hämta koden
 

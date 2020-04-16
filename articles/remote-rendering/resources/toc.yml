@@ -1,6 +1,10 @@
+- name: Viktig information
+  href: 'https://github.com/Azure/azure-remote-rendering/releases'
 - name: Verktyg
   href: tools/toc.yml
 - name: Felsöka
   href: troubleshoot.md
 - name: Ge produktfeedback
   href: 'https://feedback.azure.com/forums/928696-azure-remote-rendering'
+- name: Stack Overflow
+  href: 'https://stackoverflow.com/questions/tagged/azure-remote-rendering'

@@ -3,21 +3,21 @@ title: Förbereda data för tjänsten Custom Speech - Tal
 titleSuffix: Azure Cognitive Services
 description: När du testar riktigheten i Microsofts taligenkänning eller utbildning av dina anpassade modeller behöver du ljud- och textdata. På den här sidan täcker vi vilka typer av data som används, hur du använder och hanterar dem.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.author: dapine
-ms.openlocfilehash: d6e377ca4f33c0160267b23daaaaef5e07c271bb
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.author: trbye
+ms.openlocfilehash: 78857709447f99895c36f23d8760f44f8468ba7c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398693"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402131"
 ---
-# <a name="prepare-data-for-custom-speech"></a>Förbereda data för anpassat tal
+# <a name="prepare-data-for-custom-speech"></a>Förbereda data för Custom Speech
 
 När du testar riktigheten i Microsofts taligenkänning eller utbildning av dina anpassade modeller behöver du ljud- och textdata. På den här sidan täcker vi vilka typer av data som används, hur du använder och hanterar dem.
 

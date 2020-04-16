@@ -3,19 +3,19 @@ title: Talsyntesmarkeringsspråk (SSML) - Taltjänst
 titleSuffix: Azure Cognitive Services
 description: Använda markeringsspråket talsyntes för att styra uttal och prosody i text-till-tal.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: dapine
-ms.openlocfilehash: 7d5dd79399b15ade90173a55aeb71dacbc61fa78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: dc11d26c73c52b5e6c4d8e05cc27dd6ebce0c5d8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80365817"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399825"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Förbättra syntesen med talsyntesmarkeringsspråk (SSML)
 
@@ -109,7 +109,7 @@ I `speak` elementet kan du ange flera röster för text-till-tal-utdata. Dessa r
 
 Beroende på tal-SDK-språket ställer `"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"` du `false` in egenskapen `SpeechConfig` på en förekomst av objektet.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 Mer information finns <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>i .
 
@@ -145,7 +145,7 @@ speech_config.set_property_by_name(
     "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Mer information finns <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>i .
 
@@ -196,7 +196,6 @@ Som standard syntetiserar text-till-tal-tjänsten text med ett neutralt talforma
 För närvarande talar stil justeringar stöds för dessa neurala röster:
 * `en-US-AriaNeural`
 * `zh-CN-XiaoxiaoNeural`
-* `pt-BR-FranciscaNeural`
 
 Ändringar tillämpas på meningsnivå och formatet varierar beroende på röst. Om ett format inte stöds returnerar tjänsten tal i standardformatet neutralt tal.
 
@@ -214,18 +213,17 @@ För närvarande talar stil justeringar stöds för dessa neurala röster:
 
 Använd den här tabellen för att avgöra vilka talande format som stöds för varje neural röst.
 
-| Röst | Format | Beskrivning |
-|-------|------|-------------|
-| `en-US-AriaNeural` | `style="newscast"` | Uttrycker en formell och professionell ton för att berätta nyheter |
-| | `style="customerservice"` | Uttrycker en vänlig och användbar ton för kundsupport |
-| | `style="chat"` | Uttrycker en avslappnad och avslappnad ton |
-| | `style="cheerful"` | Uttrycker en positiv och glad ton |
-| | `style="empathetic"` | Uttrycker en känsla av omsorg och förståelse |
-| `zh-CN-XiaoxiaoNeural` | `style="newscast"` | Uttrycker en formell och professionell ton för att berätta nyheter |
-| | `style="customerservice"` | Uttrycker en vänlig och användbar ton för kundsupport |
-| | `style="assistant"` | Uttrycker en varm och avslappnad ton för digitala assistenter  |
-| | `style="lyrical"` | Uttrycker känslor på ett melodiskt och sentimentalt sätt |
-| `pt-BR-FranciscaNeural` | `style="cheerful"` | Uttrycker en positiv och glad ton |
+| Röst                   | Format                     | Beskrivning                                                 |
+|-------------------------|---------------------------|-------------------------------------------------------------|
+| `en-US-AriaNeural`      | `style="newscast"`        | Uttrycker en formell och professionell ton för att berätta nyheter |
+|                         | `style="customerservice"` | Uttrycker en vänlig och användbar ton för kundsupport  |
+|                         | `style="chat"`            | Uttrycker en avslappnad och avslappnad ton                         |
+|                         | `style="cheerful"`        | Uttrycker en positiv och glad ton                         |
+|                         | `style="empathetic"`      | Uttrycker en känsla av omsorg och förståelse               |
+| `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Uttrycker en formell och professionell ton för att berätta nyheter |
+|                         | `style="customerservice"` | Uttrycker en vänlig och användbar ton för kundsupport  |
+|                         | `style="assistant"`       | Uttrycker en varm och avslappnad ton för digitala assistenter    |
+|                         | `style="lyrical"`         | Uttrycker känslor på ett melodiskt och sentimentalt sätt         |
 
 **Exempel**
 
@@ -263,15 +261,14 @@ Använd `break` elementet för att infoga pauser (eller brytningar) mellan ord, 
 | `strength` | Anger den relativa varaktigheten för en paus med något av följande värden:<ul><li>ingen</li><li>x-svag</li><li>Svag</li><li>medium (standard)</li><li>Stark</li><li>x-stark</li></ul> | Valfri |
 | `time` | Anger den absoluta varaktigheten för en paus i sekunder eller millisekunder. Exempel på giltiga `2s` värden är och`500` | Valfri |
 
-| Styrka | Beskrivning |
-|----------|-------------|
-| Ingen, eller om inget värde anges | 0 ms |
-| x-svag | 250 ms |
-| Svag | 500 ms |
-| medel | 750 ms |
-| Stark | 1000 ms |
-| x-stark | 1250 ms |
-
+| Styrka                      | Beskrivning |
+|-------------------------------|-------------|
+| Ingen, eller om inget värde anges | 0 ms        |
+| x-svag                        | 250 ms      |
+| Svag                          | 500 ms      |
+| medel                        | 750 ms      |
+| Stark                        | 1000 ms     |
+| x-stark                      | 1250 ms     |
 
 **Exempel**
 
@@ -372,9 +369,9 @@ Ibland kan TTS inte uttala ett ord korrekt, till exempel ett företag eller utl�
 
 **Attribut**
 
-| Attribut | Beskrivning | Obligatoriskt/tillval |
-|-----------|-------------|---------------------|
-| `uri` | Adressen till det externa PLS-dokumentet. | Krävs. |
+| Attribut | Beskrivning                               | Obligatoriskt/tillval |
+|-----------|-------------------------------------------|---------------------|
+| `uri`     | Adressen till det externa PLS-dokumentet. | Krävs.           |
 
 **Användning**
 
@@ -614,9 +611,9 @@ Alla ljud som ingår i SSML-dokumentet måste uppfylla dessa krav:
 
 **Attribut**
 
-| Attribut | Beskrivning | Obligatoriskt/tillval |
-|-----------|-------------|---------------------|
-| `src` | Anger ljudfilens plats/URL. | Krävs om du använder ljudelementet i SSML-dokumentet. |
+| Attribut | Beskrivning                                   | Obligatoriskt/tillval                                        |
+|-----------|-----------------------------------------------|------------------------------------------------------------|
+| `src`     | Anger ljudfilens plats/URL. | Krävs om du använder ljudelementet i SSML-dokumentet. |
 
 **Exempel**
 

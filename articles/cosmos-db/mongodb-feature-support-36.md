@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 01/15/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: fe80b7343f67b06981707081931e35142985688e
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 5df21b2c1926803a65eca911c66b059f36ee18aa
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668788"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393618"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Azure Cosmos DB:s API för MongoDB (version 3.6): Funktioner och syntax som stöds
 
@@ -95,8 +95,8 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 |dataStorlek     |   Inga      |
 |dbHash (på ett sätt)    |    Inga     |
 |dbStats     |   Ja      |
-|Förklara     | Inga        |
-|förklara: executionStats     |     Inga    |
+|Förklara     |   Ja      |
+|förklara: executionStats     |   Ja      |
 |funktioner     |    Inga     |
 |hostInfo     |   Inga      |
 |listDatabases         |   Ja      |
@@ -331,13 +331,13 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 |Kommando  |Stöds |
 |---------|---------|
 |Double    |Ja    |
-|String    |Ja    |
+|Sträng    |Ja    |
 |Objekt    |Ja    |
 |Matris    |Ja    |
 |Binära data    |Ja|    
 |ObjectId    |Ja    |
-|Boolean    |Ja    |
-|Datum    |Ja    |
+|Boolesk    |Ja    |
+|Date    |Ja    |
 |Null    |Ja    |
 |32-bitars heltal (int)    |Ja    |
 |Tidsstämpel    |Ja    |

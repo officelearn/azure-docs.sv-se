@@ -3,19 +3,19 @@ title: Förbättra syntesen med custom voice - taltjänst
 titleSuffix: Azure Cognitive Services
 description: Custom Voice är en uppsättning online-verktyg som gör att du kan skapa en igenkännlig, unik röst för ditt varumärke. Allt som krävs för att komma igång är en handfull ljudfiler och tillhörande transkriptioner. Följ länkarna nedan för att börja skapa en anpassad tal-till-text-upplevelse.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.author: dapine
-ms.openlocfilehash: 786cf687e569af172eabfaa9068ae61ffd6b2988
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 2aacf8881a57f0677177cd341a0ddc63224b26b6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79220483"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402058"
 ---
 # <a name="get-started-with-custom-voice"></a>Komma igång med Custom Voice
 

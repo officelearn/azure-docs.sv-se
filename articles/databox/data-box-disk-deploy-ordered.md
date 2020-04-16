@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: c1626542aba71f971ad96fe9f187ce9f1c1a99f3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7b27f10567816884b14a0a2c69e3bd8e85cb7a76
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70012932"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398708"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Självstudiekurs: Beställ en Azure Data Box-disk
 
@@ -33,16 +33,11 @@ Innan du distribuerar slutför du följande konfigurationskrav för Data Box-tj�
 
 ### <a name="for-service"></a>För tjänsten
 
-Innan du börjar bör du kontrollera att:
-- Du har ditt Microsoft Azure lagringskonto med autentiseringsuppgifter.
-- Kontrollera att prenumerationen du använder för Data Box-tjänsten är någon av följande typer:
-    - Microsoft Enterprise-avtal (EA). Läs mer om [EA-prenumerationer](https://azure.microsoft.com/pricing/enterprise-agreement/).
-    - Leverantör av molnlösningar (CSP). Läs mer om [Azure CSP-program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-- Kontrollera att du har ägar- eller deltagaråtkomst till prenumerationen för att skapa en Data Box-order.
+[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 ### <a name="for-device"></a>För enheten
 
-Innan du börjar bör du kontrollera att:
+Innan du börjar ska du kontrollera att:
 - Du har en tillgänglig klientdator som du kan kopiera data från. Klientdatorn måste:
     - Kör ett [operativsystem som stöds](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
     - Ha en annan[programvara som krävs](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installerad om det är en Windows-klient.  

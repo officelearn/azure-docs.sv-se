@@ -3,20 +3,20 @@ title: Så här använder du automatisk språkidentifiering för tal till text
 titleSuffix: Azure Cognitive Services
 description: Tal-SDK stöder automatisk språkidentifiering för tal till text. När du använder den här funktionen jämförs ljudet mot en lista med språk som tillhandahålls och den mest sannolika matchningen bestäms. Det returnerade värdet kan sedan användas för att välja den språkmodell som används för tal till text.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 5592fc3e50db892c6abb09fc2516b8e1c03f0f03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fefbe793fa4a6b90ba9bf8d468d42dcbd315759c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80239604"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402203"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>Automatisk språkidentifiering för tal till text
 

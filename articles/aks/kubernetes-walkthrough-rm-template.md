@@ -5,12 +5,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: e8117eb1b521dc2e3fa9eaca1316e0b9c14f0e98
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c5ea54a33ee027de0b11c59c53085b9d20ca6a3a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80129462"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392840"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>Snabbstart: Distribuera ett AKS-kluster (Azure Kubernetes Service) med hjälp av en Azure Resource Manager-mall
 
@@ -30,7 +30,7 @@ Om du väljer att installera och använda CLI lokalt kräver den här snabbstart
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill skapa ett AKS-kluster med hjälp av en Resource Manager-mall tillhandahåller du en SSH-allmän nyckel och Azure Active Directory-tjänsthuvudnamn. Om du behöver någon av dessa resurser läser du följande avsnitt. Hoppa annars till avsnittet [Skapa ett AKS-kluster.](#create-an-aks-cluster)
+Om du vill skapa ett AKS-kluster med hjälp av en Resource Manager-mall tillhandahåller du en SSH-allmän nyckel och Azure Active Directory-tjänsthuvudnamn.  Du kan också använda en [hanterad identitet](use-managed-identity.md) i stället för ett tjänsthuvudnamn för behörigheter. Om du behöver någon av dessa resurser läser du följande avsnitt. Hoppa annars till avsnittet [Skapa ett AKS-kluster.](#create-an-aks-cluster)
 
 ### <a name="create-an-ssh-key-pair"></a>Skapa ett SSH-nyckelpar
 
@@ -48,7 +48,7 @@ Mer information om hur du skapar SSH-nycklar finns i [Skapa och hantera SSH-nyck
 
 ### <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
-Om ett AKS-kluster ska kunna interagera med andra Azure-resurser behövs ett huvudnamn för tjänsten i Azure Active Directory. Skapa ett huvudnamn för tjänsten med kommandot [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. Parametern `--skip-assignment` gör att inga ytterligare behörigheterna tilldelas. Som standard är tjänstens huvudnamn giltigt i ett år.
+Om ett AKS-kluster ska kunna interagera med andra Azure-resurser behövs ett huvudnamn för tjänsten i Azure Active Directory. Skapa ett huvudnamn för tjänsten med kommandot [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. Parametern `--skip-assignment` gör att inga ytterligare behörigheterna tilldelas. Som standard är tjänstens huvudnamn giltigt i ett år. Observera att du kan använda en hanterad identitet i stället för ett tjänsthuvudnamn. Mer information finns i [Använda hanterade identiteter](use-managed-identity.md).
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -281,7 +281,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> När du tar bort klustret tas Azure Active Directory-tjänstens huvudnamn, som används av AKS-klustret, inte bort. Stegvisa instruktioner om hur du tar bort tjänstens huvudnamn finns i dokumentationen om [viktiga överväganden och borttagning av AKS-tjänsten][sp-delete].
+> När du tar bort klustret tas Azure Active Directory-tjänstens huvudnamn, som används av AKS-klustret, inte bort. Stegvisa instruktioner om hur du tar bort tjänstens huvudnamn finns i dokumentationen om [viktiga överväganden och borttagning av AKS-tjänsten][sp-delete]. Om du har använt en hanterad identitet hanteras identiteten av plattformen och kräver inte borttagning.
 
 ## <a name="get-the-code"></a>Hämta koden
 

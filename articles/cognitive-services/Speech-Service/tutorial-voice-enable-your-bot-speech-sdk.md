@@ -3,19 +3,19 @@ title: 'Självstudiekurs: Röster aktiverar din bot med hjälp av Speech SDK - T
 titleSuffix: Azure Cognitive Services
 description: I den här självstudien ska du skapa en Echo Bot med Microsoft Bot-Framework, distribuera den till Azure och registrera den med guiden Direktlinje för Bot.Inv. Sedan konfigurerar du en exempelklientapp för Windows som låter dig tala med din robot och höra den svara tillbaka till dig.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.author: dapine
-ms.openlocfilehash: 3c2d74eb7e46d9909d87a7ccadadd6129a3d48d8
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.author: trbye
+ms.openlocfilehash: b2c119f6552773bce7bb93a503c22324278ac0bc
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397887"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399461"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Självstudiekurs: Röstaktivera din bot med tal-SDK
 
@@ -56,7 +56,7 @@ Här är vad du behöver för att slutföra den här guiden:
 
 - En Windows 10-dator med fungerande mikrofon och högtalare (eller hörlurar)
 - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) eller senare
-- [.NET Core SDK](https://dotnet.microsoft.com/download) version 2.1 eller senare
+- [.NET Framework Runtime 4.6.1](https://dotnet.microsoft.com/download) eller senare
 - Ett Azure-konto. [Registrera dig gratis](https://azure.microsoft.com/free/ai/).
 - Ett [GitHub-konto](https://github.com/)
 - [Git för Windows](https://git-scm.com/download/win)
@@ -276,19 +276,23 @@ Nu är det dags att registrera din bot med direct line-talkanalen. Den här kana
 > [!TIP]
 > Om du vill veta mer läser du [Anslut en bot till direktlinjetal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0). Den här sidan innehåller ytterligare information och kända problem.
 
-## <a name="build-the-windows-voice-assistant-client"></a>Skapa Windows Voice Assistant-klienten
+## <a name="run-the-windows-voice-assistant-client"></a>Köra Windows Voice Assistant-klienten
 
-I det här steget ska du skapa Windows Voice Assistant Client. Klienten är en WPF-app (Windows Presentation Foundation) i C# som använder [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk) för att hantera kommunikationen med din robot med hjälp av direct line-talkanalen. Använd den för att interagera med och testa din bot innan du skriver en anpassad klientapp.
+I det här steget ska du köra Windows Voice Assistant Client. Klienten är en WPF-app (Windows Presentation Foundation) i C# som använder [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk) för att hantera kommunikationen med din robot med hjälp av direct line-talkanalen. Använd den för att interagera med och testa din bot innan du skriver en anpassad klientapp. Det är öppen källkod, så du kan antingen ladda ner den körbara och köra den, eller bygga den själv.
 
 Windows Voice Assistant-klienten har ett enkelt användargränssnitt som gör att du kan konfigurera anslutningen till din robot, visa textkonversationen, visa Bot-Framework-aktiviteter i JSON-format och visa adaptiva kort. Det stöder också användningen av anpassade sökord. Du kommer att använda den här klienten för att tala med din bot och få ett röstsvar.
 
 Innan vi går vidare, se till att mikrofonen och högtalarna är aktiverade och fungerar.
 
 1. Navigera till GitHub-databasen för [Windows Voice Assistant Client](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/README.md).
-2. Följ instruktionerna för att klona databasen, bygga projektet, konfigurera klienten och starta klienten.
-3. Klicka på **Anslut igen** och se till att meddelandet tryck **på mikrofonknappen eller skriv för att börja prata med din robot**.
-4. Låt oss testa det. Klicka på mikrofonknappen och tala några ord på engelska. Den tolkade texten visas medan du talar. När du är klar med att tala, bot kommer att svara med sin egen röst, säger "eko" följt av de erkända orden.
-5. Du kan också använda text för att kommunicera med roboten. Skriv bara in texten i det nedre fältet. 
+1. Följ instruktionerna där för att antingen
+   * ladda ner ett ZIP-paket som innehåller den körbara filen som ska köras, eller
+   * bygga den körbara själv, genom att klona förvaret och bygga projektet.
+
+1. Starta klientprogrammet och konfigurera det.
+1. Klicka på **Anslut igen** och se till att meddelandet tryck **på mikrofonknappen eller skriv för att börja prata med din robot**.
+1. Låt oss testa det. Klicka på mikrofonknappen och tala några ord på engelska. Den tolkade texten visas medan du talar. När du är klar med att tala, bot kommer att svara med sin egen röst, säger "eko" följt av de erkända orden.
+1. Du kan också använda text för att kommunicera med roboten. Skriv bara in texten i det nedre fältet. 
 
 ### <a name="troubleshooting-errors-in-windows-voice-assistant-client"></a>Felsöka fel i Windows Voice Assistant-klienten
 
@@ -425,7 +429,7 @@ Nu när du har gjort den nödvändiga ändringen av roboten är nästa steg att 
 2. Din tidigare distributionskonfiguration har redan lästs in som standard. Klicka bara på **Publicera bredvid** **EchoBot20190805125647 - Webb distribuera**.
 3. Meddelandet **Publicera efterföljande** visas i utdatafönstret i Visual Studio och en webbsida startas med meddelandet "Din robot är klar!".
 4. Öppna appen Windows Voice Assistant Client, klicka på inställningsknappen (ikonen för `de-de` höger växelsida) och se till att du fortfarande har det i fältet Språk.
-5. Följ instruktionerna i [Skapa Windows Voice Assistant-klienten](#build-the-windows-voice-assistant-client) för att återknyta kontakten med din nyligen distribuerade bot, tala på det nya språket och höra dig bot svara på det språket med den nya rösten.
+5. Följ instruktionerna i [Kör Windows Voice Assistant-klienten](#run-the-windows-voice-assistant-client) för att återknyta kontakten med din nyligen distribuerade bot, tala på det nya språket och höra dig bot svara på det språket med den nya rösten.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

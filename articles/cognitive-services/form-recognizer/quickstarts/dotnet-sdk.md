@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: b9db9daf06b59e1a26a9b03a93aff63984841862
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 8d05f5ad07f9b3affba9442d6caa6e63162b813c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77118362"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399410"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Snabbstart: Formulär recognizer-klientbibliotek för .NET
 
@@ -42,7 +42,7 @@ Använd klientbiblioteket Formulär recognizer för .NET för att:
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-När du har fått en nyckel från utvärderingsprenumerationen eller resursen [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln och slutpunkten, namngivna `FORM_RECOGNIZER_KEY` respektive `FORM_RECOGNIZER_ENDPOINT`.
+När du har fått en nyckel och slutpunkt [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln och slutpunkten, namngivna `FORM_RECOGNIZER_KEY` respektive `FORM_RECOGNIZER_ENDPOINT`.
 
 ### <a name="create-a-new-c-application"></a>Skapa ett nytt C#-program
 
@@ -99,12 +99,6 @@ Följande klasser hanterar huvudfunktionerna i Formulär recognizer SDK.
 |[ExtraheradSida](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.extractedpage?view=azure-dotnet-preview)| Den här klassen representerar alla data som extraherats från ett enda formulärdokument.|
 
 ## <a name="code-examples"></a>Kodexempel
-
-<!--
-    Include code snippets and short descriptions for each task you list in the the bulleted list. Briefly explain each operation, but include enough clarity to explain complex or otherwise tricky operations.
-
-    Include links to the service's reference content when introducing a class for the first time
--->
 
 Dessa kodavsnitt visar hur du utför följande uppgifter med klientbiblioteket Formulärmedkänningsklämning för .NET:
 
@@ -183,7 +177,7 @@ dotnet run
 
 Om du vill rensa och ta bort en Cognitive Services-prenumeration kan du ta bort resursen eller resursgruppen. Om du tar bort resursgruppen tas även alla andra resurser som är associerade bort.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portalen](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 Om du har tränat en anpassad modell som du vill ta bort från ditt konto kör du dessutom metoden i [Ta bort en anpassad modell](#delete-a-custom-model).
@@ -193,7 +187,7 @@ Om du har tränat en anpassad modell som du vill ta bort från ditt konto kör d
 I den här snabbstarten använde du formulärreformsklientbiblioteket .NET för att träna en anpassad modell och analysera formulär. Lär dig sedan tips för att skapa en bättre träningsdatauppsättning och producera mer exakta modeller.
 
 > [!div class="nextstepaction"]
->[Skapa en träningsdatauppsättning](../build-training-data-set.md)
+> [Skapa en träningsdatauppsättning](../build-training-data-set.md)
 
 * [Vad är formigenkänning?](../overview.md)
 * Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/FormRecognizer).

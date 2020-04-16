@@ -10,19 +10,25 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 6f8f892e7ca81881b0cc00e1708e3f05052c573c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a72e5055a3b0f858a732ec28eeab511b09dd450c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76264211"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400152"
 ---
 # <a name="scenario-availability"></a>Tillgänglighet för scenario
 
 Speech SDK har många scenarier i en mängd olika programmeringsspråk och miljöer. Alla scenarier är inte tillgängliga i alla programmeringsspråk eller alla miljöer ännu. Nedan listas tillgängligheten för varje scenario.
 
 - **Taligenkänning (SR), fraslista, avsikt, översättning och lokala behållare**
-  - Alla programmeringsspråk/miljöer där det finns en pillänk <img src="media/index/link.jpg" height="15" width="15"></img> i snabbstartstabellen [här](https://aka.ms/csspeech).
+  - C++/Windows & Linux & macOS
+  - C# (Framework & .NET Core)/Windows & UWP & Unity & Xamarin & Linux & macOS
+  - Java (Jre och Android)
+  - JavaScript (Brower och NodeJS)
+  - Python
+  - Swift
+  - Objective-C  
 - **Text-till-tal (TTS)**
   - C++/Windows & Linux
   - C#/Windows & UWP & Unity

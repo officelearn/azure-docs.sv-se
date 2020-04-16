@@ -3,19 +3,19 @@ title: Konvertera text till tal, Python - Taltjänst
 titleSuffix: Azure Cognitive Services
 description: I den här artikeln får du lära dig hur du konverterar text till tal med Python och REST-API:et för text-till-tal. Exempeltexten som ingår i den här guiden är strukturerad som SSML (Speech Synthesis Markup Language). På så sätt kan du välja röst och språk för talsvaret.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 04/13/2020
-ms.author: dapine
-ms.openlocfilehash: 6ea3f63bea0701dcd0f4b38f6584816d9a1bfbc7
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.author: trbye
+ms.openlocfilehash: 171fdb033cba422d8ba580da3ab54db88ca20872
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81258446"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400823"
 ---
 # <a name="convert-text-to-speech-using-python"></a>Konvertera text till tal med Python
 

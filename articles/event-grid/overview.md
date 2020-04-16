@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/20/2020
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 65fd9d06c8b25e0aff94429f8eb95bb922da330c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b6f987eb283edea7f2d8e6b207b5b4e5b14f9120
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77505922"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393192"
 ---
 # <a name="what-is-azure-event-grid"></a>Vad är Azure Event Grid?
 
@@ -32,22 +32,21 @@ Den här bilden illustrerar hur Event Grid ansluter källor och hanterare och ä
 
 ## <a name="event-sources"></a>Händelsekällor
 
-Fullständig information om funktionerna för varje källa samt relaterade artiklar finns i avsnittet om [händelsekällor](event-sources.md). För närvarande stöder följande Azure-tjänster att skicka händelser till Event Grid:
+För närvarande stöder följande Azure-tjänster att skicka händelser till Event Grid:
 
-* [Azure-prenumerationer (hanteringsåtgärder)](event-sources.md#azure-subscriptions)
-* [Behållare register](event-sources.md#container-registry)
-* [Anpassade ämnen](event-sources.md#custom-topics)
-* [Händelsehubbar](event-sources.md#event-hubs)
-* [IoT Hub](event-sources.md#iot-hub)
-* [Key Vault (förhandsgranskning)](event-sources.md#key-vault-preview)
-* [Media Services](event-sources.md#media-services)
-* [Resursgrupper (hanteringsåtgärder)](event-sources.md#resource-groups)
-* [Service Bus](event-sources.md#service-bus)
-* [Lagring Blob](event-sources.md#storage)
-* [Azure-kartor](event-sources.md#maps)
-* [App Configuration](event-sources.md#app-configuration)
-* [Signal R](event-sources.md#azure-signalr)
-* [Maskininlärning](event-sources.md#azure-machine-learning)
+- [Azure App Configuration](event-schema-app-configuration.md)
+- [Azure Blob Storage](event-schema-blob-storage.md)
+- [Azure-behållarregister](event-schema-container-registry.md)
+- [Azure Event Hubs](event-schema-event-hubs.md)
+- [Azure IoT Hub](event-schema-iot-hub.md)
+- [Azure Key Vault](event-schema-key-vault.md)
+- [Azure Machine Learning](event-schema-machine-learning.md)
+- [Azure Maps](event-schema-azure-maps.md)
+- [Azure Media Services](event-schema-media-services.md)
+- [Azure-resursgrupper](event-schema-resource-groups.md)
+- [Azure Service Bus](event-schema-service-bus.md)
+- [Azure SignalR](event-schema-azure-signalr.md)
+- [Azure-prenumerationer](event-schema-subscriptions.md)
 
 ## <a name="event-handlers"></a>Händelsehanterare
 
@@ -55,7 +54,7 @@ Fullständig information om funktionerna för varje hanterare samt relaterade ar
 
 * [Azure Automation](event-handlers.md#azure-automation)
 * [Azure Functions](event-handlers.md#azure-functions)
-* [Händelsehubbar](event-handlers.md#event-hubs)
+* [Event Hubs](event-handlers.md#event-hubs)
 * [Hybridanslutningar](event-handlers.md#hybrid-connections)
 * [Logic Apps](event-handlers.md#logic-apps)
 * [Power Automate (tidigare känt som Microsoft Flow)](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)

@@ -1,22 +1,22 @@
 ### YamlMime:Landing
-title: Dokumentation för avsiktsigenkänning
+title: Dokumentation om avsiktsigenkänning
 summary: Avsiktsigenkänning med LUIS-tjänsterna (Speech and Language Understanding) möjliggör transkription i realtid av ljudströmmar till text, samtidigt som avsikt och entiteter identifierars.
 metadata:
   title: Dokumentation för avsiktsigenkänning – självstudier, API-referens - Azure Cognitive Services | Microsoft-dokument
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
-  ms.author: dapine
-  ms.openlocfilehash: 87e698c2a9b09b54c6015293b5be26ea2006a786
-  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+  ms.author: trbye
+  ms.openlocfilehash: 65b3f2322c4683eedef8cdfbc328664d4597df58
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
   ms.translationtype: MT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/28/2020
-  ms.locfileid: "79415180"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81401492"
 landingContent:
 - title: Om avsiktsigenkänning
   linkLists:
@@ -28,7 +28,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: 'Känna igen talavsikter med LUIS och C #'
+    - text: Känna igen talavsikter med LUIS och C#
       url: how-to-recognize-intents-from-speech-csharp.md
 - title: Referens
   linkLists:

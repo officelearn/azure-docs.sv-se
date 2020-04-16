@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6d419135a1da68d23689f66d3134a638d71a3eab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 36777208dc8ac179f1aaf345c374a33001e3f8bd
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73044108"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404266"
 ---
 # <a name="learn-image-moderation-concepts"></a>Lär dig begrepp för bildmoderering
 
@@ -139,9 +139,9 @@ Exempel utdrag:
     ....
     }
 
-## <a name="human-review-tool"></a>Verktyg för mänsklig granskning
+## <a name="review-tool"></a>Granskningsverktyg
 
-För mer nyanserade fall, använd content moderator [granskningsverktyg](Review-Tool-User-Guide/human-in-the-loop.md) och dess API för att visa moderering resultat och innehåll i översynen för dina mänskliga moderatorer. De granskar de maskintilldelade taggarna och bekräftar sina slutliga beslut.
+För mer nyanserade fall, använd content moderator [review-verktyget](Review-Tool-User-Guide/human-in-the-loop.md) och dess API för att visa modereringsresultat och innehåll i granskningen för dina mänskliga moderatorer. De granskar de maskintilldelade taggarna och bekräftar sina slutliga beslut.
 
 ![Bildgranskning för mänskliga moderatorer](images/moderation-reviews-quickstart-dotnet.PNG)
 

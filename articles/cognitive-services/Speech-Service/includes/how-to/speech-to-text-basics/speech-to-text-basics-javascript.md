@@ -1,15 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/14/2020
-ms.author: dapine
-ms.openlocfilehash: 668cf9e831191a5d649f7dd82af03eb637bb0d3a
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.date: 04/15/2020
+ms.author: trbye
+ms.openlocfilehash: b11194640c4d049c90f85974022908dce6b4fd79
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314215"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399726"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -28,7 +28,15 @@ Beroende på målmiljön används dessutom något av följande:
 # <a name="import"></a>[Importera](#tab/import)
 
 ```javascript
-import * as sdk from "microsoft-cognitiveservices-speech-sdk";
+import {
+    AudioConfig,
+    CancellationDetails,
+    CancellationReason,
+    PhraseListGrammar,
+    ResultReason,
+    SpeechConfig,
+    SpeechRecognizer
+} from "microsoft-cognitiveservices-speech-sdk";
 ```
 
 Mer information `import`om finns i <a href="https://javascript.info/import-export" target="_blank">exportera och importera <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
@@ -44,14 +52,14 @@ Mer information `require`om finns i <a href="https://nodejs.org/en/knowledge/get
 
 # <a name="script"></a>[-skriptet](#tab/script)
 
-Hämta och extrahera filen <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">JavaScript <span class="docon docon-navigate-external x-hidden-focus"></span> Speech SDK</a> *microsoft.cognitiveservices.speech.sdk.bundle.js* och placera den i en mapp som är tillgänglig för HTML-filen.
+Hämta och extrahera <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">filen JavaScript <span class="docon docon-navigate-external x-hidden-focus"></span> Speech SDK</a> *microsoft.cognitiveservices.speech.bundle.js* och placera den i en mapp som är tillgänglig för HTML-filen.
 
 ```html
-<script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;
+<script src="microsoft.cognitiveservices.speech.bundle.js"></script>;
 ```
 
 > [!TIP]
-> Om du riktar in dig på `<script>` en webbläsare och använder taggen. prefixet `sdk` behövs inte. Prefixet `sdk` är ett alias som `import` `require` vi använder för att namnge vår eller modul.
+> Om du riktar in dig på `<script>` en webbläsare och använder taggen. prefixet `sdk` behövs inte. Prefixet `sdk` är ett alias `require` som används för att namnge modulen.
 
 ---
 
@@ -72,7 +80,7 @@ Det finns några sätt som du [`SpeechConfig`](https://docs.microsoft.com/javasc
 Låt oss ta en titt [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest) på hur en skapas med hjälp av en nyckel och region. Se [regionens supportsida](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) för att hitta din regionidentifierare.
 
 ```javascript
-const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+const speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
 ## <a name="initialize-a-recognizer"></a>Initiera en identifierare
@@ -82,7 +90,7 @@ När du har [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft
 Så här ser du ut så här [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) om du känner igen tal med enhetens standardmikrofon:
 
 ```javascript
-const recognizer = new sdk.SpeechRecognizer(speechConfig);
+const recognizer = new SpeechRecognizer(speechConfig);
 ```
 
 Om du vill ange ljudinmatningsenheten måste du [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest) skapa en `audioConfig` och ange [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest)parametern när du initierar .
@@ -93,15 +101,15 @@ Om du vill ange ljudinmatningsenheten måste du [`AudioConfig`](https://docs.mic
 Referera `AudioConfig` till objektet enligt följande:
 
 ```javascript
-const audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
-const speechConfig = sdk.SpeechConfig.fromSubscription(speechConfig, audioConfig);
+const audioConfig = AudioConfig.fromDefaultMicrophoneInput();
+const speechConfig = SpeechConfig.fromSubscription(speechConfig, audioConfig);
 ```
 
 Om du vill tillhandahålla en ljudfil i stället för att använda `audioConfig`en mikrofon måste du fortfarande ange en . Detta kan dock bara göras när du riktar in dig [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest)på **Node.js** och när du skapar en , i stället för att anropa `fromDefaultMicrophoneInput`, anropar `fromWavFileOutput` och skickar du parametern. `filename`
 
 ```javascript
-const audioConfig = sdk.AudioConfig.fromWavFileInput("YourAudioFile.wav");
-const speechConfig = sdk.SpeechConfig.fromSubscription(speechConfig, audioConfig);
+const audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
+const speechConfig = SpeechConfig.fromSubscription(speechConfig, audioConfig);
 ```
 
 ## <a name="recognize-speech"></a>Identifiera tal
@@ -132,20 +140,20 @@ Du måste skriva en kod för att hantera resultatet. I detta exempel [`result.re
 
 ```javascript
 switch (result.reason) {
-    case sdk.ResultReason.RecognizedSpeech:
-        console.log(`RECOGNIZED: Text=${result.Text}`);
+    case ResultReason.RecognizedSpeech:
+        console.log(`RECOGNIZED: Text=${result.text}`);
         console.log("    Intent not recognized.");
         break;
-    case sdk.ResultReason.NoMatch:
+    case ResultReason.NoMatch:
         console.log("NOMATCH: Speech could not be recognized.");
         break;
-    case sdk.ResultReason.Canceled:
-        const cancellation = sdk.CancellationDetails.fromResult(result);
-        console.log(`CANCELED: Reason=${cancellation.Reason}`);
+    case ResultReason.Canceled:
+        const cancellation = CancellationDetails.fromResult(result);
+        console.log(`CANCELED: Reason=${cancellation.reason}`);
 
-        if (cancellation.Reason == sdk.CancellationReason.Error) {
+        if (cancellation.reason == CancellationReason.Error) {
             console.log(`CANCELED: ErrorCode=${cancellation.ErrorCode}`);
-            console.log(`CANCELED: ErrorDetails=${cancellation.ErrorDetails}`);
+            console.log(`CANCELED: ErrorDetails=${cancellation.errorDetails}`);
             console.log("CANCELED: Did you update the subscription info?");
         }
         break;
@@ -160,7 +168,7 @@ Kontinuerlig igenkänning är lite mer involverad än single-shot erkännande. D
 Låt oss börja med att definiera indata och initiera en: [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest)
 
 ```javascript
-const recognizer = new sdk.SpeechRecognizer(speechConfig);
+const recognizer = new SpeechRecognizer(speechConfig);
 ```
 
 Vi prenumererar på de händelser [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest)som skickas från .
@@ -171,32 +179,32 @@ Vi prenumererar på de händelser [`SpeechRecognizer`](https://docs.microsoft.co
 * [`canceled`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#canceled): Signal för händelser som innehåller annullerade igenkänningsresultat (som anger ett igenkänningsförsök som avbröts som ett resultat eller en direkt begäran om annullering eller, alternativt, ett transport- eller protokollfel).
 
 ```javascript
-recognizer.Recognizing = (s, e) => {
-    console.log(`RECOGNIZING: Text=${e.Result.Text}`);
+recognizer.recognizing = (s, e) => {
+    console.log(`RECOGNIZING: Text=${e.result.text}`);
 };
 
 recognizer.recognized = (s, e) => {
-    if (e.Result.Reason == sdk.ResultReason.RecognizedSpeech) {
-        console.log(`RECOGNIZED: Text=${e.Result.Text}`);
+    if (e.result.reason == ResultReason.RecognizedSpeech) {
+        console.log(`RECOGNIZED: Text=${e.result.text}`);
     }
-    else if (e.Result.Reason == sdk.ResultReason.NoMatch) {
+    else if (e.result.reason == ResultReason.NoMatch) {
         console.log("NOMATCH: Speech could not be recognized.");
     }
 };
 
-recognizer.Canceled = (s, e) => {
-    console.log(`CANCELED: Reason=${e.Reason}`);
+recognizer.canceled = (s, e) => {
+    console.log(`CANCELED: Reason=${e.reason}`);
 
-    if (e.Reason == sdk.CancellationReason.Error) {
-        console.log(`"CANCELED: ErrorCode=${e.ErrorCode}`);
-        console.log(`"CANCELED: ErrorDetails=${e.ErrorDetails}`);
+    if (e.reason == CancellationReason.Error) {
+        console.log(`"CANCELED: ErrorCode=${e.errorCode}`);
+        console.log(`"CANCELED: ErrorDetails=${e.errorDetails}`);
         console.log("CANCELED: Did you update the subscription info?");
     }
 
     recognizer.stopContinuousRecognitionAsync();
 };
 
-recognizer.SessionStopped = (s, e) => {
+recognizer.sessionStopped = (s, e) => {
     console.log("\n    Session stopped event.");
     recognizer.stopContinuousRecognitionAsync();
 };
@@ -234,7 +242,7 @@ Egenskapen [`speechRecognitionLanguage`](https://docs.microsoft.com/javascript/a
 
 ## <a name="improve-recognition-accuracy"></a>Förbättra igenkänningsnoggrannheten
 
-Det finns några sätt att förbättra igenkänningsnoggrannheten med Tal-SDK. Låt oss ta en titt på fraslistor. Fraslistor används för att identifiera kända fraser i ljuddata, till exempel en persons namn eller en viss plats. Enstaka ord eller fullständiga fraser kan läggas till i en fraslista. Under igenkänningen används en post i en fraslista om en exakt matchning för hela frasen ingår i ljudet. Om det inte går att hitta en exakt matchning till frasen assisteras inte igenkänningen.
+Det finns några sätt att förbättra igenkänningsprecisionen med tal låt oss ta en titt på fraslistor. Fraslistor används för att identifiera kända fraser i ljuddata, till exempel en persons namn eller en viss plats. Enstaka ord eller fullständiga fraser kan läggas till i en fraslista. Under igenkänningen används en post i en fraslista om en exakt matchning för hela frasen ingår i ljudet. Om det inte går att hitta en exakt matchning till frasen assisteras inte igenkänningen.
 
 > [!IMPORTANT]
 > Funktionen Fraslista är endast tillgänglig på engelska.
@@ -244,7 +252,7 @@ Om du vill använda en [`PhraseListGrammar`](https://docs.microsoft.com/javascri
 Alla ändringar [`PhraseListGrammar`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/phraselistgrammar?view=azure-node-latest) som börjar gälla på nästa igenkänning eller efter en återanslutning till taltjänsten.
 
 ```javascript
-const phraseList = sdk.PhraseListGrammar.fromRecognizer(recognizer);
+const phraseList = PhraseListGrammar.fromRecognizer(recognizer);
 phraseList.addPhrase("Supercalifragilisticexpialidocious");
 ```
 

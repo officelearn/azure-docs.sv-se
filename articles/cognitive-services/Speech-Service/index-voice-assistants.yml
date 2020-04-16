@@ -1,22 +1,22 @@
 ### YamlMime:Landing
-title: Dokumentation för röstassistenter
+title: Dokumentation om röstassistenter
 summary: Röstassistenter som använder taltjänsten ger utvecklare möjlighet att skapa naturliga, människoliknande konversationsgränssnitt för sina program och upplevelser.
 metadata:
   title: Dokumentation för röstassistenter – självstudier, API-referens - Azure Cognitive Services | Microsoft-dokument
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
-  ms.author: dapine
-  ms.openlocfilehash: 6ae919317269753cbc3c8bf5b0df11e19a47989f
-  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+  ms.author: trbye
+  ms.openlocfilehash: cbef289ebc79e20b928db684af01a4eaeb1c0ce8
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
   ms.translationtype: MT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/28/2020
-  ms.locfileid: "79415163"
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81401433"
 landingContent:
 - title: Om röstassistenter
   linkLists:
@@ -42,15 +42,15 @@ landingContent:
       url: quickstart-custom-speech-commands-create-new.md
     - text: Skapa ett anpassat kommando med parametrar
       url: quickstart-custom-speech-commands-create-parameters.md
-    - text: Använda anpassade kommandon med anpassad röst
+    - text: Använda anpassade kommandon med Anpassad röst
       url: quickstart-custom-speech-commands-select-custom-voice.md
-    - text: Använda anpassade kommandon med Tal-SDK
+    - text: Använda anpassade kommandon med Speech SDK
       url: quickstart-custom-speech-commands-speech-sdk.md
   - linkListType: how-to-guide
     links:
-    - text: Uppfylla kommandon från en klient
+    - text: Utföra kommandon från en klient
       url: how-to-custom-speech-commands-fulfill-sdk.md
-    - text: Lägga till parameterverifiering
+    - text: Lägga till parametervalidering
       url: how-to-custom-speech-commands-validations.md
     - text: Lägga till en bekräftelse
       url: how-to-custom-speech-commands-confirmations.md

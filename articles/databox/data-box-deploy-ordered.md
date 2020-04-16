@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: b0204673c0706403c8c5a7367be19e590d9cb134
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 46dd89694857138d28255d5b1a86a8c947680520
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "65604087"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398676"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Självstudie: Beställa Azure Data Box
 
@@ -33,30 +33,22 @@ Slutför följande konfigurationskrav för Data Box-tjänsten och enheten innan 
 
 ### <a name="for-service"></a>För tjänsten
 
-Innan du börjar bör du kontrollera att:
-- Du har ditt Microsoft Azure lagringskonto med autentiseringsuppgifter.
-- Kontrollera att prenumerationen du använder för Data Box-tjänsten är någon av följande typer:
-    - Microsoft Enterprise-avtal (EA). Läs mer om [EA-prenumerationer](https://azure.microsoft.com/pricing/enterprise-agreement/).
-    - Leverantör av molnlösningar (CSP). Läs mer om [Azure CSP-program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Microsoft Azure-sponsring. Läs mer om [Azure-sponsringsprogrammet](https://azure.microsoft.com/offers/ms-azr-0036p/).
-
-- Kontrollera att du har ägar- eller deltagaråtkomst till prenumerationen för att skapa en Data Box-order.
+[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 ### <a name="for-device"></a>För enheten
 
-Innan du börjar bör du kontrollera att:
+Innan du börjar ska du kontrollera att:
 - Du bör ha en värddator som är ansluten till datacenternätverket. Data Box kopierar data från den här datorn. Värddatorn måste köra ett operativsystem som stöds enligt beskrivningen i [Systemkrav för Azure Data Box](data-box-system-requirements.md).
-- Datacentret måste ha höghastighetsnätverk. Vi rekommenderar starkt att du har minst en 10 GbE anslutning. Om en anslutning på 10 GbE inte är tillgänglig kan en 1 GbE-datalänk användas, men detta påverkar kopieringshastigheten.
-
+- Datacentret måste ha höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en anslutning på 10 GbE inte är tillgänglig kan en 1 GbE-datalänk användas, men detta påverkar kopieringshastigheten.
 
 ## <a name="order-data-box"></a>Beställa Data Box
 
 Utför följande steg på Azure-portalen för att beställa en enhet.
 
-1. Använd dina Microsoft Azure-autentiseringsuppgifter [https://portal.azure.com](https://portal.azure.com)för att logga in på den här WEBBADRESSEN: .
+1. Använd dina Microsoft Azure-autentiseringsuppgifter för att logga in på denna URL: [https://portal.azure.com](https://portal.azure.com).
 2. Klicka på **+ Skapa en resurs** och sök efter *Azure Data Box*. Klicka på **Azure Data Box**.
     
-   [![Sök Azure Data Box 1](media/data-box-deploy-ordered/search-azure-data-box1.png)](media/data-box-deploy-ordered/search-azure-data-box1.png#lightbox)
+   [![Söka efter Azure Data Box 1](media/data-box-deploy-ordered/search-azure-data-box1.png)](media/data-box-deploy-ordered/search-azure-data-box1.png#lightbox)
 
 3. Klicka på **Skapa**.
 
@@ -79,7 +71,7 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
     |---------|---------|
     |Namn     |  Välj ett smeknamn så att du kan spåra beställningen. <br> Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. <br> Namnet måste börja och sluta med en bokstav eller en siffra.      |
     |Resursgrupp     |   Använd ett befintligt eller skapa ett nytt. <br> En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans.         |
-    |Azure-målregion     | Välj en region för lagringskontot. <br> Mer information finns i [regionens tillgänglighet](data-box-overview.md#region-availability).        |
+    |Azure-målregion     | Välj en region för lagringskontot. <br> Mer information finns i [regional tillgänglighet](data-box-overview.md#region-availability).        |
     |Lagringsmål     | Välj mellanlagringskonto eller hanterade diskar eller båda. <br> Baserat på den angivna Azure-regionen väljer du ett eller flera lagringskonton från den filtrerade listan med befintliga lagringskonton. Data Box kan länkas med upp till 10 lagringskonton. <br> Du kan också skapa ett nytt konto för **Generell användning v1**, **Generell användning v2** eller **bloblagring**. <br>Lagringskonton med virtuella nätverk stöds. För att Data Box-tjänsten ska fungera med skyddade lagringskonton aktiverar du de betrodda tjänsterna i inställningarna för nätverksbrandväggen för lagringskontot. Mer information finns i lägga [till Azure Data Box som en betrodd tjänst](../storage/common/storage-network-security.md#exceptions).|
 
     Om du använder lagringskontot som lagringsmål visas följande skärmbild:

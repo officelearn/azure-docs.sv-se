@@ -3,12 +3,12 @@ title: Konfigurera en QnA Maker-tjänst - QnA Maker
 description: Innan du kan skapa några QnA Maker-kunskapsbaser måste du först konfigurera en QnA Maker-tjänst i Azure. Alla som har behörighet att skapa nya resurser i en prenumeration kan skapa en QnA Maker-tjänst.
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: 8ec57f441ba58227e45398c35c7931dc75fa658f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 563a56fdb288568e7fe667fa54658400064a560f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131711"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402994"
 ---
 # <a name="manage-qna-maker-resources"></a>Hantera QnA Maker-resurser
 
@@ -89,7 +89,7 @@ Slutpunktsnycklar kan hanteras från [QnA Maker-portalen](https://qnamaker.ai).
     >[!NOTE]
     >Uppdatera dina nycklar om du tror att de har utsatts för intrång. Detta kan kräva motsvarande ändringar i klientprogrammet eller botkoden.
 
-### <a name="upgrade-qna-maker-sku"></a>Uppgradera QnA Maker SKU
+## <a name="upgrade-qna-maker-sku"></a>Uppgradera QnA Maker SKU
 
 När du vill ha fler frågor och svar i din kunskapsbas, utöver din nuvarande nivå, uppgraderar du qnA Maker-tjänstprisnivån.
 
@@ -103,7 +103,7 @@ Så här uppgraderar du QnA Maker management SKU:
 
     ![QnA Maker prissättning](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
 
-### <a name="upgrade-app-service"></a>Uppgradera apptjänst
+## <a name="upgrade-app-service"></a>Uppgradera apptjänst
 
  När din kunskapsbas behöver visa fler förfrågningar från klientappen uppgraderar du prisnivån för App Service.
 
@@ -113,7 +113,7 @@ Gå till App Service-resursen i Azure-portalen och välj alternativet **Skala up
 
 ![QnA Maker App Service skala](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
-### <a name="upgrade-the-azure-cognitive-search-service"></a>Uppgradera Azure Cognitive Search-tjänsten
+## <a name="upgrade-the-azure-cognitive-search-service"></a>Uppgradera Azure Cognitive Search-tjänsten
 
 Om du planerar att ha många kunskapsbaser uppgraderar du prisnivån för Azure Cognitive Search-tjänsten.
 

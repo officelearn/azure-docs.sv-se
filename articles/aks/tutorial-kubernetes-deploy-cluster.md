@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 72d7d3b8a4dc2831f397326d54560358c19b9b92
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 609ac66ca27d5cad7dd2fb295c3a2a721a1cda16
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80616814"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392697"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Självstudie: Distribuera ett Azure Kubernetes Service-kluster (AKS)
 
@@ -33,7 +33,7 @@ Den här självstudien kräver att du kör Azure CLI version 2.0.53 eller senare
 
 AKS-kluster kan använda rollbaserad Kubernetes-åtkomstkontroll (RBAC). Med dessa kontroller kan du definiera åtkomst till resurser baserat på roller som är tilldelade till användare. Du kan kombinera behörigheter om en användare har tilldelats flera roller, och behörigheter kan begränsas till en enda namnrymd eller tillämpas på hela klustret. Som standard aktiverar Azure CLI automatiskt RBAC när du skapar ett AKS-kluster.
 
-Skapa ett AKS-kluster med [az aks create][]. I följande exempel skapas ett kluster med namnet *myAKSCluster* i resursgruppen med namnet *myResourceGroup*. Den här resursgruppen skapades i [föregående självstudie][aks-tutorial-prepare-acr]. För att ett AKS-kluster ska kunna interagera med andra Azure-resurser skapas ett huvudnamn för Azure Active Directory-tjänst automatiskt, eftersom du inte angav något. Här beviljas det här tjänsthuvudhuvudet [rätten att hämta avbildningar][container-registry-integration] från ACR-instansen (Azure Container Registry) som du skapade i föregående självstudie.
+Skapa ett AKS-kluster med [az aks create][]. I följande exempel skapas ett kluster med namnet *myAKSCluster* i resursgruppen med namnet *myResourceGroup*. Den här resursgruppen skapades i [föregående självstudie][aks-tutorial-prepare-acr]. För att ett AKS-kluster ska kunna interagera med andra Azure-resurser skapas ett huvudnamn för Azure Active Directory-tjänst automatiskt, eftersom du inte angav något. Här beviljas det här tjänsthuvudhuvudet [rätten att hämta avbildningar][container-registry-integration] från ACR-instansen (Azure Container Registry) som du skapade i föregående självstudie. Observera att du kan använda en [hanterad identitet](use-managed-identity.md) i stället för ett huvudnamn för tjänsten för enklare hantering.
 
 ```azurecli
 az aks create \

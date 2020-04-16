@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6b19dc11438274ecf6218d5c0bd8c9ef3dafbf01
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 6919849d28573ad7388a7f2e317d2b8433f35559
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80052439"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399457"
 ---
 # <a name="what-is-form-recognizer"></a>Vad är formigenkänning?
 
@@ -53,7 +53,7 @@ Formulär recognizer innehåller också en modell för att&mdash;läsa engelska 
 
 Formulärmedkänare kan också extrahera text och tabellstruktur (rad- och kolumnnummer som är associerade med texten) med hjälp av HD-optisk teckenigenkänning (OCR).
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 Följ en snabbstart för att komma igång med att extrahera data från formulären. Vi rekommenderar att du använder den kostnadsfria tjänsten när du lär dig tekniken. Kom ihåg att antalet lediga sidor är begränsat till 500 per månad.
 

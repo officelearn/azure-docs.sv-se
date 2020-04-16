@@ -3,19 +3,19 @@ title: Text-till-tal - Taltjänst
 titleSuffix: Azure Cognitive Services
 description: Med text-till-tal-funktionen i taltjänsten kan dina program, verktyg eller enheter konvertera text till naturligt människoliknande syntetiserat tal. Välj förinställda röster eller skapa din egen anpassade röst.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: dapine
-ms.openlocfilehash: 7c7574ee4e9f75b9b650ff63a10666c5e379fca8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 1a8b458eb004b44d0045f36b18d88e11e019c4d2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131565"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399508"
 ---
 # <a name="what-is-text-to-speech"></a>Vad är text-till-tal?
 
@@ -39,7 +39,7 @@ Text-till-tal från taltjänsten gör det möjligt för dina program, verktyg el
 
 * SSML (Speech Synthesis Markup Language) – Ett XML-baserat markeringsspråk som används för att anpassa tal-till-text-utdata. Med SSML kan du justera tonhöjd, lägga till pauser, förbättra uttalet, öka eller sänka talhastigheten, öka eller minska volymen och tillskriva flera röster till ett enda dokument. Se [SSML](speech-synthesis-markup.md).
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 Text-till-tal-tjänsten är tillgänglig via [Tal-SDK](speech-sdk.md). Det finns flera vanliga scenarier tillgängliga som snabbstarter, på olika språk och plattformar:
 

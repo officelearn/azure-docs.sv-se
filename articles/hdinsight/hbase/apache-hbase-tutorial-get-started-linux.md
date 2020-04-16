@@ -1,26 +1,25 @@
 ---
 title: Självstudiekurs - Använd Apache HBase i Azure HDInsight
 description: Följ denna Apache HBase handledning för att börja använda hadoop på HDInsight. Skapa tabeller från HBase-gränssnittet och ställ frågor för dem med Hive.
-keywords: hbasecommand,hbase example
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: tutorial
-ms.date: 06/25/2019
-ms.author: hrasheed
-ms.openlocfilehash: e43d2d64535085a9b22d2febc761fc7026498ba8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 04/14/2020
+ms.openlocfilehash: a601d54ebda074a25a988ac2a115f6418dd5c7ee
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71077142"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390268"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Självstudiekurs: Använd Apache HBase i Azure HDInsight
 
 Den här självstudien visar hur du skapar ett Apache HBase-kluster i Azure HDInsight, skapar HBase-tabeller och frågetabeller med hjälp av Apache Hive.  Allmän HBase-information finns i [HDInsight HBase-översikt](./apache-hbase-overview.md).
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa Apache HBase-kluster
@@ -37,13 +36,13 @@ I den här självstudiekursen får du lära du dig att:
 
 ## <a name="create-apache-hbase-cluster"></a>Skapa Apache HBase-kluster
 
-Följande procedur använder en Azure Resource Manager-mall för att skapa ett HBase-kluster och det beroende standardkontot för Azure Storage. Mer information om de parametrar som används i proceduren och andra metoder för att skapa kluster finns i [Skapa Linux-baserade Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+Följande procedur använder en Azure Resource Manager-mall för att skapa ett HBase-kluster. Mallen skapar också det beroende standardkontot för Azure Storage. Mer information om de parametrar som används i proceduren och andra metoder för att skapa kluster finns i [Skapa Linux-baserade Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Välj följande avbildning för att öppna mallen i Azure-portalen. Mallen finns i [Snabbstartsmallar](https://azure.microsoft.com/resources/templates/)för Azure .
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-2. Från bladet **Anpassad distribution** anger du följande värden:
+2. Ange följande värden i dialogrutan **Anpassad distribution:**
 
     |Egenskap |Beskrivning |
     |---|---|
@@ -56,7 +55,7 @@ Följande procedur använder en Azure Resource Manager-mall för att skapa ett H
 
     Andra parametrar är valfria.  
 
-    Varje kluster är beroende av ett Azure Storage-konto. När du tar bort ett kluster stannar aktuella data kvar på lagringskontot. Klustrets lagringskonto av standardtyp har det klusternamn som omfattar tillägget ”store”. Det är hårdkodat i avsnittet för mallvariabler.
+    Varje kluster är beroende av ett Azure Storage-konto. När du har tagit bort ett kluster finns data kvar i lagringskontot. Klustrets lagringskonto av standardtyp har det klusternamn som omfattar tillägget ”store”. Det är hårdkodat i avsnittet mallvariabler.
 
 3. Välj **Jag godkänner villkoren som anges ovan** och välj sedan **Köp**. Det tar cirka 20 minuter att skapa ett kluster.
 
@@ -203,7 +202,7 @@ Du kan fråga data i HBase-tabeller med hjälp av [Apache Hive](https://hive.apa
 
 REST API skyddas via [grundläggande autentisering](https://en.wikipedia.org/wiki/Basic_access_authentication). Du bör alltid göra begäranden genom att använda säker HTTP (HTTPS) för att säkerställa att dina autentiseringsuppgifter skickas på ett säkert sätt till servern.
 
-1. Initiera miljövariabel för enkel användning. Redigera kommandona nedan `MYPASSWORD` genom att ersätta med lösenordet för klusterinloggning. Ersätt `MYCLUSTERNAME` med namnet på ditt HBase-kluster. Ange sedan kommandona.
+1. Ställ in miljövariabel för enkel användning. Redigera kommandona nedan `MYPASSWORD` genom att ersätta med lösenordet för klusterinloggning. Ersätt `MYCLUSTERNAME` med namnet på ditt HBase-kluster. Ange sedan kommandona.
 
     ```bash
     export password='MYPASSWORD'
@@ -240,10 +239,10 @@ REST API skyddas via [grundläggande autentisering](https://en.wikipedia.org/wik
     -v
     ```
 
-    Du måste base64-koda de värden som anges i switchen -d. I exemplet:
+    Base64 kodar de värden som anges i växeln -d. I exemplet:
 
    * MTAwMA ==: 1000
-   * UGVyc29uYWw6TmFtZQ==: Personal:Name
+   * UGVyc29uYWw6TmFtZQ==: Personligt: Namn
    * Sm9obiBEb2xl: John Dole
 
      [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) gör att du kan infoga flera (gruppbaserade) värden.
@@ -306,7 +305,7 @@ Om du vill undvika inkonsekvenser rekommenderar vi att du inaktiverar HBase-tabe
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig hur du skapar ett Apache HBase-kluster och hur du skapar tabeller och visar data i tabellerna från HBase-skalet. Du har också fått lära dig hur man använder en Hive-fråga på data i HBase-tabeller och hur man använder HBase C# REST-API:er för att skapa en HBase-tabell och hämta data från tabellen. Du kan läsa mer här:
+I den här självstudien lärde du dig hur du skapar ett Apache HBase-kluster. Och hur du skapar tabeller och visa data i dessa tabeller från HBase-skalet. Du har också lärt dig hur du använder en Hive-fråga om data i HBase-tabeller. Och hur du använder HBase C# REST API:er för att skapa en HBase-tabell och hämta data från tabellen. Du kan läsa mer här:
 
 > [!div class="nextstepaction"]
 > [Översikt över HDInsight HBase](./apache-hbase-overview.md)

@@ -8,13 +8,11 @@
   expanded: true
   items:
     - name: Publicera programdefinition
-      href: publish-managed-app-definition-quickstart.md
+      href: publish-service-catalog-app.md
     - name: Distribuera tjänstkatalogapp
       href: deploy-service-catalog-quickstart.md
 - name: Självstudier
   items:
-    - name: Skapa definitionsfiler
-      href: publish-service-catalog-app.md
     - name: Publicera marknadsplatsprogram
       href: publish-marketplace-app.md
     - name: Skapa hanterat program med anpassad provider
@@ -27,7 +25,7 @@
       href: powershell-samples.md
     - name: Hanterade programlösningar
       href: sample-projects.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Visa definitionsartefakt
       href: concepts-view-definition.md
@@ -35,7 +33,7 @@
       href: concepts-built-in-policy.md
     - name: Rolldefinitionsartefakt
       href: concepts-custom-role-definition.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Utgivare
       items:
@@ -130,7 +128,7 @@
   items:
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/managed-applications/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

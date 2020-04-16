@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: b4aa5dfd288819930da2f7af36b7d70df709e638
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0615830e525ab60bbb2167dd39d9c4bf14cc91b3
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79473038"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391567"
 ---
 # <a name="azure-managed-applications-overview"></a>Översikt över Azure Managed Applications
 
@@ -84,4 +84,4 @@ Du kan använda [Azure Policy](../../governance/policy/overview.md) för det han
 I den här artikeln har du lärt dig om fördelarna med att använda hanterade program. Gå till nästa artikel för att skapa en definition för det hanterade programmet.
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Publicera en definition av Azure-hanterat program](publish-managed-app-definition-quickstart.md)
+> [Snabbstart: Publicera en definition av Azure-hanterat program](publish-service-catalog-app.md)

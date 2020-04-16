@@ -3,12 +3,12 @@ title: Ändra klusterinställningar för Azure Service Fabric
 description: I den här artikeln beskrivs infrastrukturinställningarna och de principer för uppgradering av infrastruktur som du kan anpassa.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 3eb558c7d0745ada43696fd4189a7ac663867849
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: c2e280af814a3e10ad84c5ba07fc376868fcd851
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80753979"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416249"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa Service Fabric-klusterinställningar
 I den här artikeln beskrivs de olika inställningarna för infrastruktur för ditt Service Fabric-kluster som du kan anpassa. För kluster som finns i Azure kan du anpassa inställningarna via [Azure-portalen](https://portal.azure.com) eller med hjälp av en Azure Resource Manager-mall. Mer information finns i [Uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). För fristående kluster kan du anpassa inställningarna genom att uppdatera *filen ClusterConfig.json* och utföra en konfigurationsuppgradering i klustret. Mer information finns i [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).

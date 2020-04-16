@@ -11,14 +11,16 @@ ms.author: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 5/14/2019
-ms.openlocfilehash: 70367a38fbf7b59486e2eaaf6c05634aa7575869
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2359b378b1f54cf6e03218f819b3a7c5740ba596
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260714"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416394"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Aktivera Azure Active Directory-autentisering för Azure-SSIS Integration Runtime
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 I den här artikeln visas hur du aktiverar Azure Active Directory-autentisering (Azure AD) med den hanterade identiteten för din Azure Data Factory (ADF) och använder den i stället för konventionella autentiseringsmetoder (som SQL-autentisering) för att:
 
@@ -26,7 +28,7 @@ I den här artikeln visas hur du aktiverar Azure Active Directory-autentisering 
 
 - Anslut till olika Azure-resurser när du kör SSIS-paket på Azure-SSIS IR.
 
-Mer information om den hanterade identiteten för din ADF finns i [Hanterad identifiering för Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
+Mer information om den hanterade identiteten för din ADF finns i [Hanterad identitet för Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
 >-  I det här fallet azure AD-autentisering med den hanterade identiteten för din ADF används endast i skapandet och efterföljande startåtgärder för din SSIS IR som i sin tur etablerar och ansluter till SSISDB. För SSIS-paketkörningar ansluter din SSIS IR fortfarande till SSISDB med SQL-autentisering med fullständigt hanterade konton som skapas under SSISDB-etablering.
@@ -63,7 +65,7 @@ Du kan använda en befintlig Azure AD-grupp eller skapa en ny med Azure AD Power
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Lägg till den hanterade identiteten för din ADF i gruppen. Du kan följa artikeln [Hanterad identiy för Data Factory för](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) att få huvudnummer för hanterade identitetsobjekt (t.ex. 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, men använd inte Managed Identity Application ID för detta ändamål).
+3.  Lägg till den hanterade identiteten för din ADF i gruppen. Du kan följa artikeln [Hanterad identitet för Data Factory för](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) att få huvudnummer för hanterade identitetsobjekt (t.ex. 765ad4ab-XXXX-XXXX-XXXX-XXXX-51ed985819dc, men använd inte Managed Identity Application ID för detta ändamål).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc

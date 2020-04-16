@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
-ms.openlocfilehash: 446e579a7205f0e785d7e940c1dbdd36cff8f370
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd6d6375b19689c582c0f129378c76936e624e04
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285341"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416289"
 ---
 <a name="web-analytics"></a>Webbanalys
 =============
@@ -40,7 +40,7 @@ Det finns två sätt att skapa din egen kampanj.
 
 1. Lägg till frågeparametern **mktcmpid** i webbadressen som beskriver vad kampanjen är och vilken sida/händelse dessa kunder kommer ifrån.
 
-Du kan till exempel använda:<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
+Du kan till exempel använda:```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign```
 
 1. (Avancerat): Använd ett av våra generiska kampanj-ID:er som stöds i webbadressen. Vi vill vara tillmötesgående med ytterligare ref-taggar som du behöver använda, så vi stöder konventionen för att automatiskt känna igen dessa ytterligare taggar:
     
@@ -49,14 +49,14 @@ Du kan till exempel använda:<https://appsource.microsoft.com/product/dynamics-3
     3. **Referens**
     4. **src**
 
-Du kan till exempel använda:<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=NewCampaign>
+Du kan till exempel använda:```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=NewCampaign```
 
 Du kan välja att ha en kombination av flera av dessa kampanj-ID för att ytterligare identifiera flera källor som driver trafik för kampanjen, till exempel var kunden kom ifrån (e-post, blogg, sociala medier källa, etc.).
 
 Ett exempel:
 
-1. Nyhetsbrev referrer:<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter>
-2. LinkedIn-värvare:<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn>
+1. Nyhetsbrev referrer:```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter```
+2. LinkedIn-värvare:```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn```
 
 ### <a name="ensuring-campaigns-pass-through-all-your-pages"></a>**Se till att kampanjer passerar alla dina sidor**
 
@@ -64,13 +64,13 @@ Det kan finnas ett scenario där dina kampanjer har en mellanliggande sida som d
 
 Här är ett exempel:
 
-1. Marknadsföring anställd köper annonser från Google för\'att <https://contoso.com>driva trafik till företagets målsida . Denna målsida \"har ett\" försök min <https://appsource.com>produkt länk som går till .
+1. Marknadsföring anställd köper annonser från Google för\'att ```https://contoso.com```driva trafik till företagets målsida . Denna målsida \"har ett\" försök min ```https://appsource.com```produkt länk som går till .
 2. En användare klickar på annonsen och\'hamnar på företagets målsida.
     1.  Hänvisningsadress = google.com
-    2.  URL till målsidan =<https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
+    2.  URL till målsidan =```https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName```
 3. Användaren klickar på \"länken\" Prova min produkt och går in i AppSource.
-    1. Url för hänvisning =<https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
-    2. Målsidans URL (**Se till\_att den\_här URL:en har utm-kampanj och utm-källa som lagts till i den här URL:en**) = [ https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm-kampanj=MyCampaignAdName\_&utm\_source=MySourceAdName](https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+    1. Url för hänvisning =```https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName```
+    2. Målsidans URL (**Se till\_att den\_här webbadressen har utm-kampanj och utm-källa som lagts till i den här webbadressen**) =```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**```
 
 <a name="how-to-evaluate-the-success-of-a-campaign"></a>Så här utvärderar du framgången för en kampanj
 -----------------------------------------

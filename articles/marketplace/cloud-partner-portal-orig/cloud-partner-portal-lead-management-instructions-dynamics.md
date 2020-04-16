@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: dsindona
-ms.openlocfilehash: 524ae203a311d538431205bf8c6498de45aeb4d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d64c8460f5653f28b96396025f29ea13af15c8c3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80280311"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416308"
 ---
 # <a name="configure-lead-management-for-dynamics-crm-online"></a>Konfigurera leadhantering för Dynamics CRM online
 
@@ -142,4 +142,4 @@ Det sista steget är att aktivera användaren som du skapade för att skriva lea
 Slutför konfigurationen av Dynamics CRM för leadhantering genom att lägga till den genererade kontoinformationen i Cloud Partner Portal. Ett exempel:
 
 -   **Azure Active Directory** - **Application Id** (exempel: *23456052-aaaaa-bbbb-8662-1234df56788f*), **Katalog-ID** (exempel: *12345678-8af1-4asf-1234-12234d01db47*), och **application key** (exempel: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=*).
--   **Office 365** - **Url** *https://contoso.crm4.dynamics.com*(exempel: ), **Användarnamn** (exempel: *contoso\@contoso.onmicrosoft.com*), och **Lösenord** (exempel: *P\@ssw0rd*).
+-   **Office 365** - **Url** **`https://contoso.crm4.dynamics.com`**(exempel: ), **`contoso\@contoso.onmicrosoft.com`** **Användarnamn** (exempel: ), och **Lösenord** (exempel: *P\@ssw0rd*).

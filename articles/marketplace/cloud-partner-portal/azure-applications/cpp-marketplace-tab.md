@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 94bbfb16a967a97b1ee6f6d51a5f55bc8ba13227
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6113759cc68d07af4c22edf03b3274d92dcbe780
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281773"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416296"
 ---
 # <a name="azure-application-marketplace-tab"></a>Fliken Azure-program Marketplace
 
@@ -32,7 +32,7 @@ I följande tabell beskrivs de inställningar som ska användas för att skapa e
 | **Sammanfattning\***      | Kort sammanfattning av erbjudandet. Den maximala längden är 100 tecken.           |
 | **Lång sammanfattning\*** | Längre sammanfattning av erbjudandet (även om det kan vara samma som sammanfattningen). Den maximala längden är 256 tecken.           |
 | **Beskrivning\***  | Beskrivning av erbjudandet. Den maximala längden är 3000 tecken. Enkel HTML-formatering är &lt;tillåten, inklusive&gt; &lt;&gt;p, &lt;&gt; &gt; &lt;em&gt;, &lt;ul , li, ol och header tags.  |
-| **Marknadsidentifierare\*** | En unik URL som ska associeras med det här erbjudandet, innehåller vanligtvis ditt organisations- och lösningsnamn, maximal längd på 50 tecken. Välj en kort, vänlig marknadsföringsidentifierare för din tjänst. Detta kommer att användas i marknadsplats url:er för det här erbjudandet. Om ditt utgivar-ID till exempel är "contoso" och din marknadsföringsidentifierare är "sampleApp", kommer url:en för ditt erbjudande på Azure Marketplace atthttps://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp  
+| **Marknadsidentifierare\*** | En unik URL som ska associeras med det här erbjudandet, innehåller vanligtvis ditt organisations- och lösningsnamn, maximal längd på 50 tecken. Välj en kort, vänlig marknadsföringsidentifierare för din tjänst. Detta kommer att användas i marknadsplats url:er för det här erbjudandet. Om ditt utgivar-ID till exempel är "contoso" och din marknadsföringsidentifierare är "sampleApp", kommer url:en för ditt erbjudande på Azure Marketplace att`https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  
 | **Förhandsgranska prenumerations-ID:er\*** | Lägg till från en till 100 prenumerationsidentifierare för förhandsgranskningsspelare. Dessa vitlistade prenumerationer har tillgång till ditt erbjudande medan det är tillgängligt i förhandsversion när det har publicerats, innan det publiceras.          |
 | **Användbara länkar**    | Alternativt kan du tillhandahålla länkar till olika resurser för användare av ditt erbjudande, till exempel support, dokumentation, forum, etc.  Vi rekommenderar att du lägger till minst en länk i dokumentationen.            |
 | **Föreslagna kategorier (max 5)\*** | Välj en till fem kategorier. De valda kategorierna används för att mappa ditt erbjudande till de produktkategorier som är tillgängliga i Azure Marketplace och Azure Portal. De visas på bläddra sidor och på din produktinformation sida. |
@@ -50,7 +50,7 @@ I följande tabell beskrivs marknadsföringsartefakterna.
 |      Field         |    Beskrivning    |
 |  ---------------   |  ---------------  |
 | **Liten\***        | Liten logotyp: 40x40 pixlar i PNG-format     |
-| **Medium\***       | Medelhög logotyp: 90x90 pixlar i PNG-format    |
+| **Medel\***       | Medelhög logotyp: 90x90 pixlar i PNG-format    |
 | **Stor\***        | Stor logotyp: 115x115 pixlar i PNG-format   |
 | **Brett\***         | Bred logotyp: 255 x 115 pixlar i PNG-format    |
 | **Hjälte**           | Valfri hjältelogotyp: 815x290 pixlar i PNG-format. **Anm.:** Hjälteikonen kan inte tas bort när den har laddats upp. |
@@ -133,4 +133,4 @@ Ange följande information:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[fliken Stöd](./cpp-support-tab.md)
+[Fliken Stöd](./cpp-support-tab.md)

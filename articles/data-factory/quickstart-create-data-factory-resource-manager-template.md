@@ -10,18 +10,20 @@ ms.date: 02/20/2019
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 7ad0367a89730c3aba37c5f75158cb42ae4ae668
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5ea45346de5ea841867dd13dd4c9a0ed26647448
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240746"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419127"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Självstudie: Skapa en Azure-datafabrik med hjälp av en Azure Resource Manager-mall
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [Aktuell version](quickstart-create-data-factory-resource-manager-template.md)
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 I den här snabbstarten får du se hur du skapar en Azure Data Factory med en Azure Resource Manager-mall. Den pipeline du skapar i den här datafabriken **kopierar** data från en mapp till en annan mapp i Azure Blob Storage. Om du vill se en självstudie som visar hur du **omvandlar** data med Azure Data Factory går du till [Tutorial: Transform data using Spark](transform-data-using-spark.md) (Självstudie: Omvandla data med Spark).
 
@@ -636,7 +638,7 @@ Du definierar en pipeline som kopierar data från en binär datauppsättning til
 
 #### <a name="trigger"></a>Utlösare
 
-Du definierar en utlösare som kör pipelinen en gång per timme. Den distribuerade utlösaren har stoppats. Starta utlösaren med hjälp av **cmdleten Start-AzDataFactoryV2Trigger.** Mer information om utlösare finns i artikel [om pipelinekörning och utlösare.](concepts-pipeline-execution-triggers.md#triggers)
+Du definierar en utlösare som kör pipelinen en gång per timme. Den distribuerade utlösaren har stoppats. Starta utlösaren med hjälp av **cmdleten Start-AzDataFactoryV2Trigger.** Mer information om utlösare finns i artikel [om pipelinekörning och utlösare.](concepts-pipeline-execution-triggers.md#trigger-execution)
 
 ```json
 {  

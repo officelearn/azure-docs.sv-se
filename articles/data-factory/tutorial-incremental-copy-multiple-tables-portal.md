@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/20/2018
-ms.openlocfilehash: 2c89b53d66b93ff38a7cff07b2889faf8eda24ce
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 290ddf9a99d421bbf6303675fd544e81b637d070
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75439299"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419280"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL-databas
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 I den här självstudiekursen kommer du att skapa en Azure-datafabrik med en pipeline som läser in deltadata från flera tabeller på en lokal SQL-server till en Azure SQL-databas.    
 
@@ -177,7 +179,7 @@ Kör följande fråga för att skapa två lagrade procedurer och två datatyper 
 
 För att göra resan enkel att börja med använder vi direkt dessa lagrade procedurer som skickar deltadata in via en tabellvariabel och sammanfogar dem sedan till destinationsarkivet. Var försiktig så att det inte förväntar sig att ett "stort" antal deltarader (mer än 100) ska lagras i tabellvariabeln.  
 
-Om du behöver slå samman ett stort antal deltarader till målarkivet föreslår vi att du använder kopieringsaktivitet för att kopiera alla deltadata till en tillfällig "mellanlagringstabell" i målarkivet först och sedan byggde din egen lagrade procedur utan att använda tabellen variabel för att sammanfoga dem från tabellen "mellanlagring" till "final"-tabellen. 
+Om du behöver slå samman ett stort antal deltarader till målarkivet föreslår vi att du använder kopieringsaktivitet för att kopiera alla deltadata till en tillfällig "mellanlagringstabell" i målarkivet först och sedan skapat en egen lagrad procedur utan att använda tabellvariabeln för att sammanfoga dem från tabellen "mellanlagring" till "slutlig" tabell. 
 
 
 ```sql
@@ -470,7 +472,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
         | Namn | Typ | Värde | 
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-        | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+        | TableName | Sträng | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Lagrad proceduraktivitet – inställningar för lagrad procedur](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. Välj **Publicera alla** om du vill publicera de entiteter som du skapade till tjänsten Data Factory. 
@@ -513,12 +515,12 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
 ## <a name="review-the-results"></a>Granska resultaten
 Kör följande frågor mot SQL-måldatabasen i SQL Server Management Studio för att verifiera att data har kopierats från källtabellerna till måltabellerna: 
 
-**Fråga** 
+**Söka i data** 
 ```sql
 select * from customer_table
 ```
 
-**Produktionen**
+**Resultat**
 ```
 ===========================================
 PersonID    Name    LastModifytime
@@ -530,13 +532,13 @@ PersonID    Name    LastModifytime
 5           Anny    2017-09-05 08:06:00.000
 ```
 
-**Fråga**
+**Söka i data**
 
 ```sql
 select * from project_table
 ```
 
-**Produktionen**
+**Resultat**
 
 ```
 ===================================
@@ -547,13 +549,13 @@ project2    2016-02-02 01:23:00.000
 project3    2017-03-04 05:16:00.000
 ```
 
-**Fråga**
+**Söka i data**
 
 ```sql
 select * from watermarktable
 ```
 
-**Produktionen**
+**Resultat**
 
 ```
 ======================================
@@ -610,12 +612,12 @@ VALUES
 ## <a name="review-the-final-results"></a>Granska de slutliga resultaten
 I SQL Server Management Studio kör du följande frågor mot mål-SQL-databasen för att kontrollera att de uppdaterade/nya data kopierades från källtabeller till måltabeller. 
 
-**Fråga** 
+**Söka i data** 
 ```sql
 select * from customer_table
 ```
 
-**Produktionen**
+**Resultat**
 ```
 ===========================================
 PersonID    Name    LastModifytime
@@ -629,13 +631,13 @@ PersonID    Name    LastModifytime
 
 Lägg märke till de nya värdena för **Name** och **LastModifytime** för **PersonID** för nummer 3. 
 
-**Fråga**
+**Söka i data**
 
 ```sql
 select * from project_table
 ```
 
-**Produktionen**
+**Resultat**
 
 ```
 ===================================
@@ -649,13 +651,13 @@ NewProject  2017-10-01 00:00:00.000
 
 Observera att posten **NewProject** har lagts till i project_table. 
 
-**Fråga**
+**Söka i data**
 
 ```sql
 select * from watermarktable
 ```
 
-**Produktionen**
+**Resultat**
 
 ```
 ======================================

@@ -8,12 +8,12 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 29101d0277ff0fb392917f722bcaec3b7e5983b5
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 824244c0c3247e5a218c1551dd95de6e1d6e1007
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478248"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419229"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-messaging-eventhubs"></a>Använd Java för att skicka händelser till eller ta emot händelser från Azure Event Hubs (azure-messaging-eventhubs)
 Den här snabbstarten visar hur du skickar händelser till och ta emot händelser från en händelsehubb med **java-paketet Azure-messaging-eventhubs.**
@@ -48,7 +48,7 @@ Java-klientbiblioteket för eventhubbar är tillgängligt i [Mavens centrala dat
 
 ### <a name="write-code-to-send-messages-to-the-event-hub"></a>Skriva kod för att skicka meddelanden till händelsehubben
 
-För följande exempel skapar du först ett nytt Maven-projekt för ett konsol-/gränssnittsprogram i din favorit Java Development Environment. Lägg till `SimpleSend`en klass med namnet och lägg till följande kod i klassen:
+För följande exempel skapar du först ett nytt Maven-projekt för ett konsol-/gränssnittsprogram i din favorit Java Development Environment. Lägg till `Sender`en klass med namnet och lägg till följande kod i klassen:
 
 ```java
 import com.azure.messaging.eventhubs.*;

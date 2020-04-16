@@ -11,17 +11,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 534e5c913685eeac92022f6694ea31b24816da5d
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: d37a9bd4cc29ee60f9833ffbcb5a2701a19bbaa7
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011658"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416831"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Kopiera data från och till Oracle med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-onprem-oracle-connector.md)
 > * [Aktuell version](connector-oracle.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från och till en Oracle-databas. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md).
 

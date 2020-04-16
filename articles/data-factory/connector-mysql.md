@@ -11,17 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: jingwang
-ms.openlocfilehash: dcd8e400b978b2139de7a9f53b87cf6ec04e7484
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 8467bbe1512e45342b86ff62d51a3f66b3096f03
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80992002"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418141"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Kopiera data från MySQL med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-onprem-mysql-connector.md)
 > * [Aktuell version](connector-mysql.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från en MySQL-databas. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
 

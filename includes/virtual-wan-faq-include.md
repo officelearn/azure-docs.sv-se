@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: cb2302637efb16fc31bd420bf8c4ead19d7f598d
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: a2d79391832bbb5424c6d4096eb5c1a597623367
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81384966"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81422030"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Behöver användaren ha nav och talat med SD-WAN/VPN-enheter för att kunna använda Azure Virtual WAN?
 
@@ -208,6 +208,13 @@ Ja. En internetuppkoppling och fysisk enhet som stöder IPsec, helst från våra
 ### <a name="how-do-i-enable-default-route-00000-in-a-connection-vpn-expressroute-or-virtual-network"></a>Hur aktiverar jag standardväg (0.0.0.0/0) i en anslutning (VPN, ExpressRoute eller Virtual Network):
 
 En virtuell hubb kan sprida en inlärd standardväg till en virtuell VPN/ExpressRoute-anslutning för nätverk/plats till plats om flaggan är aktiverad på anslutningen. Den här flaggan visas när användaren redigerar en virtuell nätverksanslutning, en VPN-anslutning eller en ExpressRoute-anslutning. Som standard inaktiveras den här flaggan när en plats eller en ExpressRoute-krets är ansluten till ett nav. Den är aktiverad som standard när en virtuell nätverksanslutning läggs till för att ansluta ett virtuellt nätverk till ett virtuellt nav. Standardvägen kommer inte från hubben Virtuellt WAN. Standardvägen sprids om den redan har lärts av den virtuella WAN-hubben som ett resultat av att en brandvägg distribueras i navet eller om en annan ansluten plats har aktiverat tunneldrivning.
+
+### <a name="how-does-the-virtual-hub-in-a-virtual-wan-select-the-best-path-for-a-route-from-multiple-hubs"></a>Hur väljer den virtuella hubben i ett virtuellt WAN den bästa sökvägen för en väg från flera hubbar
+
+Om en virtuell hubb lär sig samma väg från flera fjärrnav, är den ordning i vilken den bestämmer sig enligt följande
+1) Dirigera Origin a) Nätverksvägar – VNET-prefix som direkt har lärts av Virtual Hub-gateways b) BGP c) Hub RouteTable (statiskt konfigurerade vägar) d) InterHub-vägar
+2)  Ruttmått: Virtual WAN föredrar ExpressRoute framför VPN. ExpressRoute peer har en högre viktning jämfört med VPN-peer
+3)  AS-banans längd
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Vilka är skillnaderna mellan de virtuella WAN-typerna (Basic och Standard)?
 

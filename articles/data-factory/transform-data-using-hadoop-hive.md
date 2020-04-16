@@ -11,18 +11,20 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/15/2019
-ms.openlocfilehash: b4af3f897a12c71d73962735d3fe68d95f138cef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c5c917e12b1314c40763f58a7723a4df787ffa0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74912917"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418940"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Omvandla data med Hadoop Hive-aktivitet i Azure Data Factory
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-hive-activity.md)
 > * [Aktuell version](transform-data-using-hadoop-hive.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 HDInsight Hive-aktiviteten i en Data [Factory-pipeline](concepts-pipelines-activities.md) kör Hive-frågor på [ditt eget](compute-linked-services.md#azure-hdinsight-linked-service) eller on-demand HDInsight-kluster. [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Den här artikeln bygger på artikeln [om dataomvandlingsaktiviteter,](transform-data.md) som ger en allmän översikt över dataomvandling och de omvandlingsaktiviteter som stöds.
 

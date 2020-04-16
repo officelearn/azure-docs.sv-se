@@ -7,14 +7,16 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: c717d9ab44493d15589030073cd2ab260ef52e1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82660cdb4ab6523bae7608fe3b071f20cb3603f8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76760223"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419178"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>Parametrisera mappningsdataflöden
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)] 
 
 Mappning av dataflöden i Azure Data Factory stöder användningen av parametrar. Du kan definiera parametrar inuti dataflödesdefinitionen, som du sedan kan använda i hela uttrycken. Parametervärdena kan ställas in av anropande pipeline via aktiviteten Kör dataflöde. Du har tre alternativ för att ange värdena i dataflödesaktivitetsuttrycken:
 

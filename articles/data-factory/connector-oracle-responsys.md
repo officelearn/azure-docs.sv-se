@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.openlocfilehash: b0d1619ff7598c2acd2eb860db6dd32ba529bc63
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: cde0e2d118490801aeee3874e220d298fea24598
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991883"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416845"
 ---
 # <a name="copy-data-from-oracle-responsys-using-azure-data-factory-preview"></a>Kopiera data från Oracle Responsys med Azure Data Factory (förhandsversion)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från Oracle Responsys. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
 

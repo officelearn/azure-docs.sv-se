@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 96d0a5b2fb59e4612107d8ccbf7285fff7576585
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c4c1cfdb927cfd2ee607bfe2a951e06c80f9bfb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128394"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418549"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Team datavetenskapsprocessen i aktion: använda Azure Synapse Analytics
 I den här självstudien går vi igenom att skapa och distribuera en maskininlärningsmodell med Azure Synapse Analytics för en offentligt tillgänglig datauppsättning – NYC Taxi Trips-datauppsättningen. [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) Den konstruerade binära klassificeringsmodellen förutsäger om ett tips betalas för en resa eller inte.  Modeller inkluderar multiklassklassificering (oavsett om det finns ett tips) och regression (fördelningen för de utbetalade tipsbeloppen).
@@ -84,7 +84,7 @@ Följ dokumentationen på [Skapa och fråga ett Azure SQL Data Warehouse i Azure
 
 **Installera Visual Studio- och SQL Server-dataverktyg.** Instruktioner finns i [Komma igång med Visual Studio 2019 för SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
-**Anslut till din Azure Synapse Analytics med Visual Studio.** Instruktioner finns i steg 1 & 2 i [Anslut till Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-connect-overview.md).
+**Anslut till din Azure Synapse Analytics med Visual Studio.** Instruktioner finns i steg 1 & 2 i [Anslut till SQL Analytics i Azure Synapse Analytics](../../synapse-analytics/sql/connect-overview.md).
 
 > [!NOTE]
 > Kör följande SQL-fråga i databasen som du skapade i Din Azure Synapse Analytics (i stället för frågan i steg 3 i anslutningsavsnittet)) för att **skapa en huvudnyckel**.
@@ -126,7 +126,7 @@ Kör följande PowerShell-skript i *administratörsläge i -DestDir:*
 När PowerShell-skriptet körs för första gången blir du ombedd att mata in informationen från din Azure Synapse Analytics och ditt Azure blob storage-konto. När det här PowerShell-skriptet har körts för första gången har autentiseringsuppgifterna du matar in till en konfigurationsfil SQLDW.conf i den aktuella arbetskatalogen. Den framtida körningen av den här PowerShell-skriptfilen har möjlighet att läsa alla nödvändiga parametrar från den här konfigurationsfilen. Om du behöver ändra vissa parametrar kan du välja att mata in parametrarna på skärmen vid prompten genom att ta bort den här konfigurationsfilen och mata in parametervärdena enligt uppmaning eller ändra parametervärdena genom att redigera filen SQLDW.conf i katalogen *-DestDir.*
 
 > [!NOTE]
-> För att undvika schemanamnkonflikter med dem som redan finns i din Azure Azure Synapse Analytics, när du läser parametrar direkt från filen SQLDW.conf, läggs ett tresiffrigt slumptal till i schemanamnet från FILEN SQLDW.conf som standardschema schema namn för varje körning. PowerShell-skriptet kan fråga dig om ett schemanamn: namnet kan anges efter användarens gottfinnande.
+> För att undvika schemanamn står i konflikt med dem som redan finns i din Azure Azure Synapse Analytics, när du läser parametrar direkt från filen SQLDW.conf, läggs ett tresiffrigt slumptal till i schemanamnet från FILEN SQLDW.conf som standardschemanamn för varje körning. PowerShell-skriptet kan fråga dig om ett schemanamn: namnet kan anges efter användarens gottfinnande.
 >
 >
 
@@ -310,7 +310,7 @@ Den här **PowerShell-skriptfilen** slutför följande uppgifter:
 Den geografiska platsen för dina lagringskonton påverkar belastningstiderna.
 
 > [!NOTE]
-> Beroende på den geografiska platsen för ditt privata blob storage-konto kan processen att kopiera data från en offentlig blob till ditt privata lagringskonto ta cirka 15 minuter, eller ännu längre, och processen med att läsa in data från ditt lagringskonto till ditt Azure Azure Synapse Analytics kan ta 20 minuter eller längre.
+> Beroende på den geografiska platsen för ditt privata blob storage-konto kan det ta cirka 15 minuter eller ännu längre att kopiera data från en offentlig blob till ditt privata lagringskonto, och processen med att läsa in data från ditt lagringskonto till ditt Azure Azure Synapse Analytics kan ta 20 minuter eller längre.
 >
 >
 
@@ -330,7 +330,7 @@ Du kan använda dina egna data. Om dina data finns i din lokala dator i ditt ver
 >
 >
 
-Det här PowerShell-skriptet ansluter också azure Synapse Analytics-informationen till exempelfilerna för datautforskning SQLDW_Explorations.sql, SQLDW_Explorations.ipynb och SQLDW_Explorations_Scripts.py så att dessa tre filer är redo att provas direkt efter att PowerShell-skriptet har slutförts.
+Det här PowerShell-skriptet ansluter också azure Synapse Analytics-informationen till exempelfilerna för datautforskning SQLDW_Explorations.sql, SQLDW_Explorations.ipynb och SQLDW_Explorations_Scripts.py så att dessa tre filer är redo att provas direkt när PowerShell-skriptet har slutförts.
 
 Efter en lyckad körning ser du skärmen som nedan:
 
@@ -427,7 +427,7 @@ I det här exemplet beräknas fördelningen av tipsintervall under en viss tidsp
     WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tip_class
 
-**Resultat:**
+**Produktionen:**
 
 | tip_class | tip_freq |
 | --- | --- |
@@ -875,7 +875,7 @@ Ett provbedömningsexperiment finns i figuren nedan. När du är klar att distri
 ![Azure ML Publicera][11]
 
 ## <a name="summary"></a>Sammanfattning
-För att sammanfatta vad vi har gjort i den här genomgången har du skapat en Azure-datavetenskapsmiljö, arbetat med en stor offentlig datauppsättning, tagit den via Team Data Science Process, hela vägen från datainsamling till modellutbildning och sedan till distribution av en Azure Machine Learning-webbtjänst.
+För att sammanfatta vad vi har gjort i den här genomgången självstudiekurs har du skapat en Azure-datavetenskapsmiljö, arbetat med en stor offentlig datauppsättning och tagit den via Team Data Science Process, hela vägen från datainsamling till modellutbildning och sedan till distributionen av en Azure Machine Learning-webbtjänst.
 
 ### <a name="license-information"></a>Licensinformation
 Det här exemplet genomgång och dess medföljande skript och IPython-anteckningsböcker delas av Microsoft under MIT-licensen. Mer information finns i filen LICENSE.txt i katalogen för exempelkoden på GitHub.

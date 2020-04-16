@@ -10,19 +10,18 @@ ms.subservice: ''
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 6e942130d9acf803665e52498ef6a4976cc9ade7
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 6a3235d5edc5249bbbdc2e79dac8575ad26fd5e1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743167"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417030"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Prestandajustering med materialiserade vyer
 
 De materialiserade vyerna i Synapse SQL-poolen ger en metod för lågt underhåll för komplexa analytiska frågor för att få snabba prestanda utan någon frågeändring. I den här artikeln beskrivs den allmänna vägledningen om hur du använder materialiserade vyer.
 
-De materialiserade vyerna i Azure SQL Data Warehouse ger en metod för lågt underhåll för komplexa analytiska frågor för att få snabba prestanda utan någon frågeändring. I den här artikeln beskrivs den allmänna vägledningen om hur du använder materialiserade vyer.
+De materialiserade vyerna i SQL-poolen ger en metod för lågt underhåll för komplexa analytiska frågor för att få snabba prestanda utan någon frågeändring. I den här artikeln beskrivs den allmänna vägledningen om hur du använder materialiserade vyer.
 
 ## <a name="materialized-views-vs-standard-views"></a>Materialiserade vyer jämfört med standardvyer
 
@@ -45,7 +44,7 @@ De flesta kraven i en standardvy gäller fortfarande för en materialiserad vy. 
 
 ## <a name="benefits-of-using-materialized-views"></a>Fördelar med att använda materialiserade vyer
 
-En korrekt utformad materialiserad vy kan ge följande fördelar:
+En korrekt utformad materialiserad vy ger följande fördelar:
 
 - Minska körningstiden för komplexa frågor med JOINs och aggregerade funktioner. Ju mer komplex frågan är, desto högre är risken för körningstidssparande. Den största fördelen uppnås när en frågas beräkningskostnad är hög och den resulterande datauppsättningen är liten.  
 - Optimeraren i SQL-poolen kan automatiskt använda distribuerade materialiserade vyer för att förbättra frågekörningsplaner.  Den här processen är transparent för användare som tillhandahåller snabbare frågeprestanda och kräver inte frågor för att direkt referera till de materialiserade vyerna.
@@ -118,7 +117,7 @@ Alternativ för att minska antalet materialiserade vyer:
 
 - Släpp de materialiserade vyer som har låg användning eller som inte längre behövs.  En inaktiverad materialiserad vy underhålls inte, men den medför fortfarande lagringskostnader.  
 
-- Kombinera materialiserade vyer som skapats i samma eller liknande bastabeller även om deras data inte överlappar varandra.  Kamning materialiserade vyer kan resultera i en större vy i storlek än summan av de separata vyerna, men visningsunderhållskostnaden bör minska.  Ett exempel:
+- Kombinera materialiserade vyer som skapats i samma eller liknande bastabeller även om deras data inte överlappar varandra.  Om du kombinerar materialiserade vyer kan det leda till en större vy i storlek än summan av de separata vyerna, men visningsunderhållskostnaden bör minska.  Ett exempel:
 
 ```sql
 

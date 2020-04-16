@@ -11,23 +11,26 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: 20a5a9c5513c165cd5add2e97f019a741dfd0b03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fac9933c57a54736aed5ccfdd54d126f0ca32973
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79246206"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418362"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pipeline-körning och utlösare i Azure Data Factory
+
 > [!div class="op_single_selector" title1="Välj den version av datafabrikstjänsten som du använder:"]
 > * [Version 1](v1/data-factory-scheduling-and-execution.md)
 > * [Aktuell version](concepts-pipeline-execution-triggers.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En _pipelinekörning_ i Azure Data Factory definierar en instans av en pipeline-åtgärd. Anta till exempel att du har en pipeline som körs kl. 8.00, 9.00 och 10.00. Det skulle i så fall vara tre separata körningar av pipelinen, eller pipelinekörningar. Varje pipelinekörning har ett unikt pipelinekörnings-ID. Ett körnings-ID är ett GUID som unikt definierar den specifika pipelinekörningen.
+En _pipelinekörning_ i Azure Data Factory definierar en instans av en pipeline-åtgärd. Anta till exempel att du har en pipeline som körs kl. 8.00, 9.00 och 10.00. I det här fallet finns det tre separata körningar av pipeline- eller pipelinekörningarna. Varje pipelinekörning har ett unikt pipelinekörnings-ID. Ett körnings-ID är ett GUID som unikt definierar den specifika pipelinekörningen.
 
 Pipelinekörningar instansieras normalt genom att skicka argument till parametrar som du definierar i pipelinen. Du kan köra en pipeline antingen manuellt eller via en _utlösare_. Den här artikeln innehåller information om båda körningssätten.
 
 ## <a name="manual-execution-on-demand"></a>Manuell körning (på begäran)
+
 En manuell körning av en pipeline kallas även för en körning _på begäran_.
 
 Anta till exempel att du har en grundläggande pipeline som heter **copyPipeline**, som du vill köra. Pipelinen har en enda aktivitet som kopierar från en källmapp i Azure Blob Storage till en målmapp i samma lagringsutrymme. Följande JSON-definition visar det här pipelineexemplet:
@@ -79,11 +82,12 @@ Pipelinen har två parametrar i JSON-definitionen: **sourceBlobContainer** och *
 Du kan köra din pipeline manuellt med hjälp av en av följande metoder:
 - .NET SDK
 - Azure PowerShell-modul
-- REST API
+- REST-API
 - Python SDK
 
-### <a name="rest-api"></a>REST API
-Kommandot i följande exempel visar hur du kör din pipeline manuellt med hjälp av REST-API:t:
+### <a name="rest-api"></a>REST-API
+
+Följande exempelkommando visar hur du kör pipelinen med rest-API:et manuellt:
 
 ```
 POST
@@ -122,7 +126,8 @@ Svarsnyttolasten är ett unikt ID för pipeline-körningen:
 Ett mer komplett exempel finns i [Snabbstart: skapa en datafabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="net-sdk"></a>.NET SDK
-Anropet i följande exempel visar hur du kör din pipeline manuellt med hjälp av .NET SDK:
+
+Följande exempelanrop visar hur du kör pipelinen med hjälp av .NET SDK manuellt:
 
 ```csharp
 client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters)
@@ -131,9 +136,10 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 Ett mer komplett exempel finns i [Snabbstart: skapa en datafabrik med hjälp av .NET SDK](quickstart-create-data-factory-dot-net.md).
 
 > [!NOTE]
-> Du kan använda .NET SDK till att anropa Data Factory-pipeliner från Azure Functions, från dina egna webbtjänster och så vidare.
+> Du kan använda .NET SDK för att anropa Data Factory-pipelines från Azure Functions, från dina webbtjänster och så vidare.
 
-<h2 id="triggers">Körning via utlösare</h2>
+## <a name="trigger-execution"></a>Körning via utlösare
+
 Du kan även köra en pipelinekörning med utlösare. Utlösare representerar en bearbetningsenhet som avgör när en pipeline-körning måste startas. Data Factory har för närvarande stöd för tre typer av utlösare:
 
 - Schemautlösare: en utlösare som anropar en pipeline enligt ett tidsschema.
@@ -143,7 +149,6 @@ Du kan även köra en pipelinekörning med utlösare. Utlösare representerar en
 - Händelsebaserad utlösare: en utlösare som svarar på en händelse.
 
 Pipelines och utlösare har en många-till-många-relation (förutom utlösaren för tumlande fönster). Flera utlösare kan starta en enda pipeline, eller en enda utlösare kan starta flera pipelines. I följande utlösardefinition refererar **pipelines**-egenskapen till en lista med pipeliner som utlöses av den aktuella utlösaren. Egenskapsdefinition innehåller värden för pipelineparametrarna.
-
 ### <a name="basic-trigger-definition"></a>Grundläggande utlösardefinition
 
 ```json
@@ -174,7 +179,7 @@ Pipelines och utlösare har en många-till-många-relation (förutom utlösaren 
 ## <a name="schedule-trigger"></a>Schemautlösare
 En schemautlösare kör pipeliner enligt ett tidsschema. Den här utlösaren har stöd för periodiska och avancerade kalenderalternativ. Utlösaren har till exempel stöd för intervall som ”varje vecka” eller ”måndagar kl. 17.00 och torsdagar kl. 21:00”. Schemautlösaren är flexibel eftersom datamängdsmönstret är oberoende och utlösaren inte gör skillnad mellan tidsseriedata och andra typer av data.
 
-Mer information om schemautlösare och exempel hittar du i [Skapa en schemautlösare](how-to-create-schedule-trigger.md).
+Mer information om schemautlösare och exempel finns i [Skapa en schemautlösare](how-to-create-schedule-trigger.md).
 
 ## <a name="schedule-trigger-definition"></a>Definition av schemautlösare
 När du skapar en schemautlösare anger du schemaläggning och upprepning med en JSON-definition.
@@ -235,7 +240,7 @@ I följande tabell ges en översikt över de viktigaste schemaelementen relatera
 | **startTime** | Ett datum/tid-värde. För grundläggande scheman gäller värdet för egenskapen **startTime** den första förekomsten. För komplexa scheman startar utlösaren tidigast vid det angivna värdet för **startTime**. |
 | **endTime** | Slutdatum och tidpunkt för utlösaren. Utlösaren körs inte efter angivet slutdatum och sluttid. Värdet för egenskapen kan inte ha passerat. <!-- This property is optional. --> |
 | **timeZone** | Tidszonen. För närvarande stöds bara tidszonen UTC. |
-| **recurrence** | Ett upprepningsobjekt som anger upprepningsregler för utlösaren. Upprepningsobjektet har stöd för elementen **frequency** (frekvens), **interval** (intervall), **endTime** (sluttid), **count** (antal) och **schedule** (schema). När du definierar ett upprepningsobjekt är elementet **frequency** obligatoriskt. De andra elementen är valfria. |
+| **Återkommande** | Ett upprepningsobjekt som anger upprepningsregler för utlösaren. Upprepningsobjektet har stöd för elementen **frequency** (frekvens), **interval** (intervall), **endTime** (sluttid), **count** (antal) och **schedule** (schema). När du definierar ett upprepningsobjekt är elementet **frequency** obligatoriskt. De andra elementen är valfria. |
 | **Frekvens** | Frekvensen som utlösaren ska upprepas med. Du kan använda värden som ”minute”, ”hour”, ”day”, ”week” och ”month”. |
 | **Intervall** | Ett positivt heltal som anger intervallet för värdet för **frequency**. Värdet **frequency** bestämmer hur ofta utlösaren ska köras. Om **interval** till exempel är 3 och **frequency** är ”week” (vecka) upprepas utlösaren var tredje vecka. |
 | **Schema** | Upprepningsschemat för utlösaren. En utlösare med ett angivet värde för **frequency** ändrar sin upprepning baserat på ett upprepningsschema. Egenskapen **schedule** innehåller ändringar för upprepningen som baseras på minuter, timmar, veckodagar, dagar i månaden och veckonummer.
@@ -244,33 +249,33 @@ I följande tabell ges en översikt över de viktigaste schemaelementen relatera
 
 ```json
 {
-    "properties": {
-        "name": "MyTrigger",
-        "type": "ScheduleTrigger",
-        "typeProperties": {
-            "recurrence": {
-                "frequency": "Hour",
-                "interval": 1,
-                "startTime": "2017-11-01T09:00:00-08:00",
-                "endTime": "2017-11-02T22:00:00-08:00"
-            }
+  "properties": {
+    "name": "MyTrigger",
+    "type": "ScheduleTrigger",
+    "typeProperties": {
+      "recurrence": {
+        "frequency": "Hour",
+        "interval": 1,
+        "startTime": "2017-11-01T09:00:00-08:00",
+        "endTime": "2017-11-02T22:00:00-08:00"
+      }
+    },
+    "pipelines": [{
+        "pipelineReference": {
+          "type": "PipelineReference",
+          "referenceName": "SQLServerToBlobPipeline"
         },
-        "pipelines": [{
-                "pipelineReference": {
-                    "type": "PipelineReference",
-                    "referenceName": "SQLServerToBlobPipeline"
-                },
-                "parameters": {}
-            },
-            {
-                "pipelineReference": {
-                    "type": "PipelineReference",
-                    "referenceName": "SQLServerToAzureSQLPipeline"
-                },
-                "parameters": {}
-            }
-        ]
-    }
+        "parameters": {}
+      },
+      {
+        "pipelineReference": {
+          "type": "PipelineReference",
+          "referenceName": "SQLServerToAzureSQLPipeline"
+        },
+        "parameters": {}
+      }
+    ]
+  }
 }
 ```
 
@@ -278,11 +283,11 @@ I följande tabell ges en översikt över de viktigaste schemaelementen relatera
 
 | JSON-egenskap | Typ | Krävs | Standardvärde | Giltiga värden | Exempel |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | sträng | Ja | Inget | ISO 8601 datum/tid | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | objekt | Ja | Inget | Ett upprepningsobjekt | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | sträng | Ja | Ingen | ISO 8601 datum/tid | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **Återkommande** | objekt | Ja | Ingen | Ett upprepningsobjekt | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **Intervall** | nummer | Inga | 1 | 1 till 1000 | `"interval":10` |
-| **endTime** | sträng | Ja | Inget | Ett datum/tid-värde som representerar en tidpunkt i framtiden | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **Schema** | objekt | Inga | Inget | Ett schemaobjekt | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **endTime** | sträng | Ja | Ingen | Ett datum/tid-värde som representerar en tidpunkt i framtiden | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **Schema** | objekt | Inga | Ingen | Ett schemaobjekt | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Egenskapen startTime
 I följande tabell visas hur egenskapen **startTime** styr körningen av en utlösare:
@@ -298,29 +303,29 @@ Under dessa förhållanden är den första körningen 2017-04-09 kl 14:00. Sched
 
 Den första körningstiden är samma även om **startTime** är 2017-04-05 14:00 eller 2017-04-01 14:00. Efter den första körningen beräknas efterföljande körningar med hjälp av schemat. Därför utförs efterföljande körningar 2017-04-11 kl. 14:00, och sedan 2017-04-13 kl. 14:00, sedan 2017-04-15 kl. 14:00 och så vidare.
 
-När inga timmar eller minuter anges i schemat för en utlösare används som standard samma timmar och minuter som i den första körningen.
+Slutligen, när timmar eller minuter inte anges i schemat för en utlösare, används timmarna eller minuterna för den första körningen som standard.
 
 ### <a name="schedule-property"></a>Egenskapen schedule
 Du kan använda ett **schema** för att *begränsa* antalet utlösarkörningar. Om en utlösare med månatlig frekvens till exempel har ett schema som bara körs dag 31 så körs utlösaren bara de månader som har en 31:a dag.
 
 Du kan även använda ett **schema** för att *utöka* antalet utlösarkörningar. En utlösare med månatlig frekvens som har schemalagts för att köras dag 1 och 2 körs den första och andra dagen i månaden snarare än en gång i månaden.
 
-Om flera **schemaelement** anges är utvärderingsordningen från den största till minsta schemainställningen – veckonummer, dag i månaden, veckodag, timme och minut.
+Om flera **schemaelement** anges är utvärderingsordningen från den största till den minsta schemainställningen: veckonummer, månadsdag, veckodag, timme, minut.
 
 I följande tabell beskrivs **schedule**-elementen i detalj:
 
 | JSON-element | Beskrivning | Giltiga värden |
 |:--- |:--- |:--- |
 | **minutes** | Minuter för den timme då utlösaren körs. |– Heltal<br />– Heltalsmatris|
-| **hours** | Timmar på dagen då utlösaren körs. |– Heltal<br />– Heltalsmatris|
-| **weekDays** | Veckodagar då utlösaren körs. Värdet kan bara anges med en veckofrekvens.|<br />– Måndag<br />– Tisdag<br />– Onsdag<br />– Torsdag<br />– Fredag<br />– Lördag<br />– Söndag<br />– Matris med dagvärden (maximal matrisstorlek är 7)<br /><br />Dagvärdena är inte skiftlägeskänsliga|
+| **Timmar** | Timmar på dagen då utlösaren körs. |– Heltal<br />– Heltalsmatris|
+| **weekDays** | Veckodagar då utlösaren körs. Värdet kan bara anges med en veckofrekvens.|<br />– Måndag<br />– Tisdag<br />– Onsdag<br />– Torsdag<br />– Fredag<br />– Lördag<br />– Söndag<br />– Matris med dagvärden (maximal matrisstorlek är 7)<br /><br />Dagvärden är inte skiftlägeskänsliga|
 | **monthlyOccurrences** | Dagar i månaden som utlösaren körs på. Värdet kan bara anges med en månadsfrekvens. |- Matris av **monthlyOccurrence** objekt:`{ "day": day, "occurrence": occurrence }`<br />– Attributet **day** är veckodagen som utlösaren körs på. Om egenskapen **monthlyOccurrences** till exempel har **day**-värdet `{Sunday}` innebär det varje söndag i månaden. Attributet **day** är obligatoriskt.<br />– Attributet **occurrence** är förekomsten av **day**-värdet i månaden. Om egenskapen **monthlyOccurrences** till exempel har **day**- och **occurrence**-värdena `{Sunday, -1}` innebär det den sista söndagen i månaden. Attributet **occurrence** är valfritt.|
 | **monthDays** | Dagar i månaden som utlösaren körs på. Värdet kan bara anges med en månadsfrekvens. |– Ett värde <= -1 och >= -31<br />– Ett värde > = 1 och < = 31<br />– Matris med värden|
 
 ## <a name="tumbling-window-trigger"></a>Utlösare för rullande fönster
 Utlösare för rullande fönster är en typ av utlösare som går igång med jämna tidsintervall från en angiven starttid och behåller sitt tillstånd. Rullande fönster är en serie sammanhängande tidsintervall med fast storlek som inte överlappar.
 
-Mer information om utlösare för rullande fönster och exempel finns i [Skapa en utlösare för rullande fönster](how-to-create-tumbling-window-trigger.md).
+Mer information om utlösande fönster och exempel finns i [Skapa en utlösare av ett tumlande fönster](how-to-create-tumbling-window-trigger.md).
 
 ## <a name="event-based-trigger"></a>Händelsebaserad utlösare
 
@@ -331,7 +336,7 @@ Läs mer om händelsebaserade utlösare i [Skapa en utlösare som kör en pipeli
 ## <a name="examples-of-trigger-recurrence-schedules"></a>Exempel på scheman för upprepning av utlösare
 Det här avsnittet innehåller exempel på återkommande scheman. Det fokuserar på de objektet **schema** och dess element.
 
-I exemplen antas att värdet för **interval** är 1 och att värdet för **frequency** är giltigt enligt schemadefinitionen. Du kan till exempel inte använda **frequency**-värdet ”day” och samtidigt ha en **monthDays**-modifiering i **schedule**-objektet. Dessa typer av begränsningar beskrivs i tabellen i föregående avsnitt.
+Exemplen förutsätter att **intervallvärdet** är 1 och att **frekvensvärdet** är korrekt enligt schemadefinitionen. Du kan till exempel inte använda **frequency**-värdet ”day” och samtidigt ha en **monthDays**-modifiering i **schedule**-objektet. Dessa typer av begränsningar beskrivs i tabellen i föregående avsnitt.
 
 | Exempel | Beskrivning |
 |:--- |:--- |
@@ -371,7 +376,7 @@ I följande tabell ges en jämförelse av utlösare för rullande fönster och s
 |:--- |:--- |:--- |
 | **Återfyllnadsscenarier** | Stöds. Pipelinekörningar kan schemaläggas för fönster i det förflutna. | Stöds inte. Pipelinekörningar kan bara köras i tidsperioder från nu och framöver. |
 | **Tillförlitlighet** | 100 % tillförlitlighet. Pipelinekörningar kan schemaläggas i alla fönster från ett angivet startdatum utan luckor. | Mindre tillförlitligt. |
-| **Återförsökskapacitet** | Stöds. Misslyckade pipelinekörningar har återförsöksprincipen 0 som standard, eller en policy som anges av användaren i utlösarens definition. Försöker köra pipelinen igen automatiskt när körningen misslyckas på grund av samtidighet/server/begränsningar (det vill säga statuskoderna 400: användarfel, 429: för många begäranden och 500: internt serverfel). | Stöds inte. |
+| **Återförsökskapacitet** | Stöds. Misslyckade pipelinekörningar har återförsöksprincipen 0 som standard, eller en policy som anges av användaren i utlösarens definition. Försöker automatiskt när pipeline-körningar misslyckas på grund av samtidighet/server/begränsningsgränser (d.v.s. statuskoder 400: Användarfel, 429: För många begäranden och 500: Internt serverfel). | Stöds inte. |
 | **Samtidighet** | Stöds. Användare kan uttryckligen ange samtidighetsgränser för utlösaren. Tillåter mellan 1 och 50 utlösta pipelinekörningar samtidigt. | Stöds inte. |
 | **Systemvariabler** | Systemvariablerna **WindowStart** och **WindowEnd** kan användas. Användare kan komma åt `triggerOutputs().windowStartTime` och `triggerOutputs().windowEndTime` som systemvariabler för utlösaren i definitionen av utlösaren. Värdena används som start- respektive sluttid för fönstret. För en utlösare för rullande fönster som körs timme i fönstret 01.00 till 02.00 är till exempel definitionen `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` och `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Stöds inte. |
 | **Relation pipeline-till-utlösare** | Har stöd för en 1:1-relation. Endast en pipeline kan utlösas. | Har stöd för många:många-relationer. Flera utlösare kan starta en pipeline. En enskild utlösare kan starta flera pipeliner. |

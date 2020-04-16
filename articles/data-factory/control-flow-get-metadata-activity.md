@@ -10,16 +10,17 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 04/15/2020
 ms.author: jingwang
-ms.openlocfilehash: a0c07aaf27825254f776a03b9b9ca2cbeddca02d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 344ad8e106c119c1de59570d1ec4e3df5e1cc8af
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250262"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417112"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Hämta metadataaktivitet i Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Du kan använda aktiviteten Hämta metadata för att hämta metadata för data i Azure Data Factory. Du kan använda den här aktiviteten i följande scenarier:
 
@@ -54,6 +55,7 @@ Aktiviteten Hämta metadata tar en datauppsättning som indata och returnerar me
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
+- När du använder Hämta metadataaktivitet mot en mapp kontrollerar du att du har behörigheten LIST/EXECUTE till den angivna mappen.
 - För Amazon S3 och `lastModified` Google Cloud Storage, gäller för bucket och `exists` nyckeln men inte till den virtuella mappen, och gäller för skopan och nyckeln men inte prefixet eller virtuell mapp.
 - För Azure Blob-lagring `lastModified` gäller behållaren och bloben men inte för den virtuella mappen.
 - `lastModified`filter gäller för närvarande för filter underordnade objekt men inte den angivna mappen/själva filen.

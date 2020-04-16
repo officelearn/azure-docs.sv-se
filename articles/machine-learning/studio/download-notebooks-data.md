@@ -7,17 +7,17 @@ ms.subservice: studio
 ms.topic: how-to
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 03/12/2020
-ms.openlocfilehash: 9c4215d2c2e811b4c6369ee3773fb811695da4fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: a342ef86817f4f66a6e74b72b4d167fa548b6345
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79204366"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419195"
 ---
 # <a name="download-notebookspreview-data"></a>Ladda ned data för anteckningsböcker(förhandsgranskning)
 
-Funktionen Anteckningsböcker(förhandsversion) tas bort *den 13 april 2020*. Efter det datumet försvinner fliken Anteckningsböcker(förhandsgranskning) och anteckningsböckernas data kan inte återställas. Ladda ner dina anteckningsböcker data före april 13 2020.
+Funktionen Anteckningsböcker(förhandsversion) togs bort *den 13 april 2020*. Borttagningen av fliken Anteckningsböcker (förhandsversion) och anteckningsboksfiler för användare distribueras för närvarande till Azure-regioner över hela världen.
 
 Den här artikeln innehåller steg-för-steg-instruktioner om hur du hämtar data för anteckningsböcker(förhandsgranskning).
 

@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: bee627ade4f66206cd5254fc32bc7aa9973c7bee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bb3f22223bd64c06cfa4a5f6ffabe7b128dff1d5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131318"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416470"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Säkerhetsöverväganden för dataflyttning i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 >
 > * [Version 1](v1/data-factory-data-movement-security-considerations.md)
 > * [Aktuell version](data-movement-security-considerations.md)
+
+ [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 I den här artikeln beskrivs grundläggande säkerhetsinfrastruktur som dataflyttningstjänster i Azure Data Factory använder för att skydda dina data. Data Factory-hanteringsresurser bygger på Azure-säkerhetsinfrastruktur och använder alla möjliga säkerhetsåtgärder som erbjuds av Azure.
 
@@ -143,7 +145,7 @@ I följande tabell sammanfattas konfigurationsrekommendationerna för nätverks-
 
 Följande avbildningar visar användningen av självvärdbaserad integrationskörning för att flytta data mellan en lokal databas och Azure-tjänster med hjälp av ExpressRoute och IPSec VPN (med Azure Virtual Network):
 
-**ExpressRoute (ort)**
+**ExpressRoute**
 
 ![Använda ExpressRoute med gateway](media/data-movement-security-considerations/express-route-for-gateway.png) 
 

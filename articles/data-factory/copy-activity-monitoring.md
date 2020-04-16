@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: jingwang
-ms.openlocfilehash: 6494352bf957af83b45488493bf12a094c730c09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 47824095e892ca3c919d2d871feb612758ab2308
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79125763"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417852"
 ---
 # <a name="monitor-copy-activity"></a>Övervaka kopieringsaktivitet
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du övervakar kopieringsaktivitetskörningen i Azure Data Factory. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
 
@@ -63,9 +65,9 @@ Information om kopiera aktivitetskörning och prestandaegenskaper returneras ock
 | dataflöde | Överföring av data. | Flyttalsnummer, i KBps |
 | källaUppkopplingar | Toppantal samtidiga anslutningar som upprättats till källdatalagret under kopieringsaktiviteten körs. | Int32-värde (ingen enhet) |
 | sinkPeakAnslutningar| Toppantal samtidiga anslutningar som upprättats till sink-datalagret under kopieringsaktiviteten körs.| Int32-värde (ingen enhet) |
-| sqlDwPolyBase | Om PolyBase används när data kopieras till SQL Data Warehouse. | Boolean |
-| redshiftUnload | Om AVLASTNING används när data kopieras från Redshift. | Boolean |
-| hdfsDistcp (hdfsDistcp) | Om DistCp används när data kopieras från HDFS. | Boolean |
+| sqlDwPolyBase | Om PolyBase används när data kopieras till SQL Data Warehouse. | Boolesk |
+| redshiftUnload | Om AVLASTNING används när data kopieras från Redshift. | Boolesk |
+| hdfsDistcp (hdfsDistcp) | Om DistCp används när data kopieras från HDFS. | Boolesk |
 | effektivtIntegrationRuntime | Integrationskörningen (IR) eller runtimes som används för `<IR name> (<region if it's Azure IR>)`att driva aktivitetskörningen i formatet . | Text (sträng) |
 | usedDataIntegrationUnits | De effektiva dataintegrationsenheterna under kopieringen. | Int32-värde |
 | användsParallelCopies | Den effektiva parallelCopies under kopia. | Int32-värde |
@@ -153,4 +155,4 @@ Se de andra artiklarna för kopieringsaktivitet:
 
 \-[Kopiera aktivitetsöversikt](copy-activity-overview.md)
 
-\-[Kopiera aktivitetsprestanda](copy-activity-performance.md)
+\- [Kopiera aktivitetsprestanda](copy-activity-performance.md)

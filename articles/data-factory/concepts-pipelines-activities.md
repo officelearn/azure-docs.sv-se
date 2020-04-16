@@ -9,18 +9,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 6e466675a9bd86693ce0ee048480712a55829ce6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ad4ffa71480a5af06c31872cbafcaab7719c55e0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79246167"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418345"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines och aktiviteter i Azure Data Factory
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-create-pipelines.md)
 > * [Aktuell version](concepts-pipelines-activities.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskriver vi pipelines och aktiviteter i Azure Data Factory och hur du kan använda dem för att konstruera datadrivna arbetsflöden från slutpunkt till slutpunkt för dina dataförflyttnings- och databearbetningsscenarier.
 
@@ -33,7 +34,7 @@ Data Factory har tre grupper av aktiviteter: [datarörelseaktiviteter,](copy-act
 
 ![Förhållande mellan datauppsättning, aktivitet och pipeline](media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png)
 
-En indatauppsättning representerar indata för en aktivitet i pipeline och en utdatauppsättning representerar utdata för aktiviteten. Datauppsättningar identifierar data inom olika datalager, till exempel tabeller, filer, mappar och dokument. När du har skapat en datauppsättning kan du använda den med aktiviteter i en pipeline. Till exempel kan en datauppsättning vara en in-/utdatauppsättning för en kopieringsaktivitet eller en HDInsightHive-aktivitet. Mer information om datauppsättning finns i artikeln [Datauppsättningar i Azure Data Factory](concepts-datasets-linked-services.md).
+En indatauppsättning representerar indata för en aktivitet i pipelinen och en utdatauppsättning representerar utdata för aktiviteten. Datauppsättningar identifierar data inom olika datalager, till exempel tabeller, filer, mappar och dokument. När du har skapat en datauppsättning kan du använda den med aktiviteter i en pipeline. Till exempel kan en datauppsättning vara en in-/utdatauppsättning för en kopieringsaktivitet eller en HDInsightHive-aktivitet. Mer information om datauppsättning finns i artikeln [Datauppsättningar i Azure Data Factory](concepts-datasets-linked-services.md).
 
 ## <a name="data-movement-activities"></a>Dataförflyttningsaktiviteter
 
@@ -50,17 +51,17 @@ Datatransformeringsaktivitet | Compute-miljö
 ---------------------------- | -------------------
 [Dataflöde](control-flow-execute-data-flow-activity.md) | Azure Databricks hanteras av Azure Data Factory
 [Azure-funktion](control-flow-azure-function-activity.md) | Azure Functions
-[Registreringsdatafilen](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
+[Hive](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
 [Pig](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]
 [MapReduce (Kartreeduce)](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
-[Gnista](transform-data-using-spark.md) | HDInsight [Hadoop]
+[Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
 [Machine Learning-aktiviteter: batchkörning och resursuppdatering](transform-data-using-machine-learning.md) | Azure VM
 [Lagrad procedur](transform-data-using-stored-procedure.md) | Azure SQL, Azure SQL Data Warehouse eller SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 [Anpassad aktivitet](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Databricks-anteckningsbok](transform-data-databricks-notebook.md) | Azure Databricks
-[Databricks Jar Aktivitet](transform-data-databricks-jar.md) | Azure Databricks
+[Databricks Jar-aktivitet](transform-data-databricks-jar.md) | Azure Databricks
 [Databricks Python-aktivitet](transform-data-databricks-python.md) | Azure Databricks
 
 Mer information finns i artikeln om [datatransformeringsaktiviteter](transform-data.md).
@@ -75,12 +76,12 @@ Kontrollaktivitet | Beskrivning
 [Filter](control-flow-filter-activity.md) | Använda ett filteruttryck på en indatamatris
 [För varje](control-flow-for-each-activity.md) | ForEach-aktiviteten definierar ett upprepat kontrollflöde i din pipeline. Den här aktiviteten används till att iterera över en samling och kör angivna aktiviteter i en loop. Implementeringen av loopen för den här aktiviteten liknar Foreach-loopstrukturen i programmeringsspråk.
 [Hämta metadata](control-flow-get-metadata-activity.md) | GetMetadata-aktiviteten kan användas till att hämta metadata för data i Azure Data Factory.
-[If-villkorsaktivitet](control-flow-if-condition-activity.md) | If-villkoret kan användas grenbaserat på villkor som utvärderas som sanna eller falska. If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk. Det utvärderar en uppsättning aktiviteter om villkoret utvärderas till `true` och en annan uppsättning aktiviteter när villkoret utvärderas till `false`.
-[Lookup-aktivitet](control-flow-lookup-activity.md) | Lookup-aktiviteten kan användas till att läsa eller söka efter en post/ett tabellnamn/ett värde från valfri extern källa. Dessa utdata kan vidare refereras av efterföljande aktiviteter.
+[If-villkorsaktivitet](control-flow-if-condition-activity.md) | If-villkoret kan användas grenbaserat på villkor som utvärderas som sanna eller falska. If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk. Den utvärderar en uppsättning aktiviteter när `true` villkoret utvärderas till och en annan uppsättning aktiviteter när villkoret utvärderas till`false.`
+[Sökningsaktivitet](control-flow-lookup-activity.md) | Lookup-aktiviteten kan användas till att läsa eller söka efter en post/ett tabellnamn/ett värde från valfri extern källa. Dessa utdata kan vidare refereras av efterföljande aktiviteter.
 [Ange variabel](control-flow-set-variable-activity.md) | Ange värdet för en befintlig variabel.
-[Until-aktivitet](control-flow-until-activity.md) | Implementerar Do-Until-loop som liknar Do-Until-loopstrukturen i programmeringsspråk. En uppsättning aktiviteter körs i en loop tills det villkor som är associerat med aktiviteten utvärderas till sant. Du kan ange en tidsgräns för Until-aktiviteten i Data Factory.
+[Tills-aktivitet](control-flow-until-activity.md) | Implementerar Do-Until-loop som liknar Do-Until-loopstrukturen i programmeringsspråk. En uppsättning aktiviteter körs i en loop tills det villkor som är associerat med aktiviteten utvärderas till sant. Du kan ange en tidsgräns för Until-aktiviteten i Data Factory.
 [Verifieringsaktivitet](control-flow-validation-activity.md) | Kontrollera att en pipeline endast fortsätter att utföra om det finns en referensdatauppsättning, uppfyller ett angivet villkor eller en timeout har nåtts.
-[Wait-aktivitet](control-flow-wait-activity.md) | När du använder en Wait-aktivitet i en pipeline väntar pipelinen under den angivna tidsperioden innan körningen återupptas med alla efterföljande aktiviteter.
+[Vänteaktivitet](control-flow-wait-activity.md) | När du använder en Wait-aktivitet i en pipeline väntar pipelinen på den angivna tiden innan du fortsätter med körningen av efterföljande aktiviteter.
 [Webbaktivitet](control-flow-web-activity.md) | Webbaktiviteten kan används till att anropa en anpassad REST-slutpunkt från en Data Factory-pipeline. Du kan överföra datauppsättningar och länkade tjänster så att de förbrukas och används av aktiviteten.
 [Webhook-aktivitet](control-flow-webhook-activity.md) | Med hjälp av webhook-aktiviteten anropar du en slutpunkt och skickar en motringnings-URL. Pipeline-körningen väntar på att motringningen ska anropas innan du fortsätter till nästa aktivitet.
 
@@ -107,11 +108,11 @@ Så här definieras en pipeline i JSON-format:
 
 Tagga | Beskrivning | Typ | Krävs
 --- | ----------- | ---- | --------
-namn | Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 140</li><li>Måste börja med en bokstav, ett\_nummer eller ett understreck ( )</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | String | Ja
-description | Ange texten som beskriver vad pipeline används till. | String | Inga
+namn | Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 140</li><li>Måste börja med en bokstav, ett\_nummer eller ett understreck ( )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<",">","*"," %"," &",":","\" </li></ul> | Sträng | Ja
+description | Ange texten som beskriver vad pipeline används till. | Sträng | Inga
 activities | Avsnittet **activities** kan ha en eller flera definierade aktiviteter. I avsnittet [Aktivitets-JSON](#activity-json) finns information om aktivitets-JSON-elementet. | Matris | Ja
 parameters | Avsnittet **parameters** kan ha en eller flera definierade parametrar i pipeline, vilket gör pipeline flexibel för återanvändning. | Visa lista | Inga
-samtidighet | Det maximala antalet samtidiga körningar som pipelinen kan ha. Som standard finns det inget maximum. Om samtidighetsgränsen har uppnåtts kommer ytterligare pipeline-körningar att köas tills tidigare | Tal | Inga 
+samtidighet | Det maximala antalet samtidiga körningar som pipelinen kan ha. Som standard finns det inget maximum. Om samtidighetsgränsen har uppnåtts köas ytterligare pipeline-körningar tills tidigare | Tal | Inga 
 Anteckningar | En lista över taggar som är associerade med pipelinen | Matris | Inga
 
 ## <a name="activity-json"></a>Aktivitets-JSON
@@ -142,12 +143,12 @@ I följande tabell beskrivs egenskaperna i definitionen för aktivitets-JSON:
 
 Tagga | Beskrivning | Krävs
 --- | ----------- | ---------
-namn | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med ett bokstavsnummer\_eller ett understreck ( )</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,”*”,”%”,”&”,”:”,”\” | Ja</li></ul>
+namn | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med ett bokstavsnummer\_eller ett understreck ( )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<",">","*"," %"," &",":","\" | Ja</li></ul>
 description | Text som beskriver vad aktiviteten används till | Ja
 typ | Typ av aktivitet. Se avsnitten [Dataflyttningsaktiviteter,](#data-movement-activities) [dataomvandlingsaktiviteter](#data-transformation-activities)och [kontrollaktiviteter](#control-flow-activities) för olika typer av aktiviteter. | Ja
 linkedServiceName | Namnet på den länkade tjänst som används av aktiviteten.<br/><br/>En aktivitet kan kräva att du anger den länkade tjänst som länkar till den nödvändiga beräkningsmiljön. | Ja för HDInsight-aktivitet, Azure Machine Learning-batchbedömningsaktivitet, lagrad proceduraktivitet. <br/><br/>Nej för alla andra
 typeProperties | Egenskaperna i avsnittet typeProperties beror på varje typ av aktivitet. Om du vill visa typegenskaper för en aktivitet klickar du på länkarna till aktiviteten i föregående avsnitt. | Inga
-policy | Principer som påverkar körningsbeteende för aktiviteten. I den här egenskapen ingår tidsgräns- och omförsökbeteende. Standardvärden används om inga anges. Mer information finns i avsnittet [Aktivitetsprincip](#activity-policy). | Inga
+policy | Principer som påverkar körningsbeteende för aktiviteten. Den här egenskapen innehåller ett timeout- och återförsöksbeteende. Om det inte anges används standardvärden. Mer information finns i avsnittet [Aktivitetsprincip](#activity-policy). | Inga
 dependsOn | Den här egenskapen används till att definiera aktivitetsberoenden och hur efterföljande aktiviteter beror på tidigare aktiviteter. Mer information finns i [Aktivitetsberoende](#activity-dependency) | Inga
 
 ### <a name="activity-policy"></a>Aktivitetsprincip
@@ -186,7 +187,7 @@ JSON-namn | Beskrivning | Tillåtna värden | Krävs
 timeout | Anger tidsgränsen för aktivitetens körning. | Tidsintervall | Nej. Standardtidsgränsen är 7 dagar.
 retry | Max. antal omförsök | Integer | Nej. Standardvärdet är 0
 retryIntervalInSeconds | Fördröjningen mellan omförsök i sekunder | Integer | Nej. Standard är 30 sekunder
-secureOutput | Utdata från aktiviteten betraktas som säkra och loggas inte för övervakning om värdet är inställt på sant. | Boolean | Nej. Standardvärdet är false.
+secureOutput | När värdet är true betraktas utdata från aktiviteten som säker och loggas inte för övervakning. | Boolesk | Nej. Standardvärdet är false.
 
 ### <a name="control-activity"></a>Kontrollaktivitet
 Kontrollaktiviteter har följande toppnivåstruktur:
@@ -207,14 +208,14 @@ Kontrollaktiviteter har följande toppnivåstruktur:
 
 Tagga | Beskrivning | Krävs
 --- | ----------- | --------
-namn | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför.<br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med ett bokstavsnummer\_eller ett understreck ( )</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,”*”,”%”,”&”,”:”,”\” | Ja</li><ul>
+namn | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför.<br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med ett bokstavsnummer\_eller ett understreck ( )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<",">","*"," %"," &",":","\" | Ja</li><ul>
 description | Text som beskriver vad aktiviteten används till | Ja
 typ | Typ av aktivitet. Information om olika typer av aktiviteter finns i avsnitten [Dataförflyttningsaktiviteter](#data-movement-activities), [Datatransformeringsaktiviteter](#data-transformation-activities) och [Kontrollaktiviteter](#control-flow-activities). | Ja
 typeProperties | Egenskaperna i avsnittet typeProperties beror på varje typ av aktivitet. Om du vill visa typegenskaper för en aktivitet klickar du på länkarna till aktiviteten i föregående avsnitt. | Inga
 dependsOn | Den här egenskapen används till att definiera aktivitetsberoende och hur efterföljande aktiviteter beror på tidigare aktiviteter. Mer information finns i [aktivitetsberoende .](#activity-dependency) | Inga
 
 ### <a name="activity-dependency"></a>Aktivitetsberoende
-Aktivitetsberoende definierar hur efterföljande aktiviteter beror på tidigare aktiviteter, vilket fastställer villkoret för om nästa uppgift ska köras. En aktivitet kan vara beroende av en eller flera tidigare aktiviteter med olika beroendevillkor.
+Aktivitetsberoende definierar hur efterföljande aktiviteter är beroende av tidigare aktiviteter, vilket avgör om du vill fortsätta att köra nästa aktivitet. En aktivitet kan vara beroende av en eller flera tidigare aktiviteter med olika beroendevillkor.
 
 De olika beroendevillkoren är Succeeded (Lyckades), Failed (Misslyckades), Skipped (Överhoppad), Completed (Slutförd).
 
@@ -223,7 +224,7 @@ Exempel: Om en pipeline har Aktivitet A -> Aktivitet B är de olika scenarier so
 - Aktivitet B har beroendevillkor på Aktivitet A med **Succeeded** (Lyckades): Aktivitet B körs bara om Aktivitet A har den slutgiltiga statusen Suceeded (Lyckades)
 - Aktivitet B har beroendevillkor på Aktivitet A med **Failed** (Misslyckades): Aktivitet B körs bara om Aktivitet A har den slutgiltiga statusen Failed (Misslyckades)
 - Aktivitet B har beroendevillkor på Aktivitet A med **Completed** (Slutförd): Aktivitet B körs om Aktivitet A har de slutgiltiga statusen Succeeded (Lyckades) eller Failed (Misslyckades)
-- Aktivitet B har beroendevillkor på Aktivitet A med **Skipped** (Överhoppad): Aktivitet B körs bara om Aktivitet A har den slutgiltiga statusen Skipped (Överhoppad). Skipped (Överhoppad) inträffar i scenariot Aktivitet X -> Aktivitet Y -> Aktivitet Z, där varje aktivitet bara körs om den tidigare aktiviteten lyckas. Om Aktivitet X misslyckas har Aktivitet Y statusen Skipped (Överhoppad) eftersom den aldrig körs. Och även Aktivitet Z har statusen Skipped (Överhoppad).
+- Aktivitet B har ett beroendevillkor för aktivitet A med **hoppas över:** Aktivitet B körs om aktivitet A har en slutlig status som hoppas över. Skipped (Överhoppad) inträffar i scenariot Aktivitet X -> Aktivitet Y -> Aktivitet Z, där varje aktivitet bara körs om den tidigare aktiviteten lyckas. Om Aktivitet X misslyckas har Aktivitet Y statusen "Hoppas över" eftersom den aldrig körs. På samma sätt har aktivitet Z en status av "Skipped" också.
 
 #### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>Exempel: Aktivitet 2 är beroende av att Aktivitet 1 lyckas
 
@@ -264,10 +265,10 @@ Exempel: Om en pipeline har Aktivitet A -> Aktivitet B är de olika scenarier so
     }
 }
 
-```
+`"
 
-## <a name="sample-copy-pipeline"></a>Exempel på kopieringspipeline
-I följande exempel på pipeline finns det en aktivitet av typen **Copy** (Kopiera) i avsnittet **activities**. I det här exempel kopierar [kopieringsaktiviteten](copy-activity-overview.md) data från Azure Blob Storage till en Azure SQL-databas.
+## Sample copy pipeline
+In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [copy activity](copy-activity-overview.md) copies data from an Azure Blob storage to an Azure SQL database.
 
 ```json
 {
@@ -357,7 +358,7 @@ I följande exempel på pipeline finns det en aktivitet av typen **HDInsightHive
 Observera följande punkter:
 
 - I activities-avsnittet finns det bara en aktivitet vars **typ** anges till **HDInsightHive**.
-- Hive-skriptfilen **partitionweblogs.hql** lagras i Azure-lagringskontot (anges med scriptLinkedService, kallas AzureStorageLinkedService), och i mappen skript i containern `adfgetstarted`.
+- Hive-skriptfilen, **partitionweblogs.hql**, lagras i Azure Storage-kontot (angiven av skriptetLinkedService, kallad AzureStorageLinkedService) och i skriptmappen i behållaren `adfgetstarted`.
 - Avsnittet `defines` används för att ange körningsinställningar som skickas till Hive-skriptet som Hive-konfigurationsvärden (till exempel $`{hiveconf:inputtable}`, `${hiveconf:partitionedtable}`.
 
 Avsnittet **typeProperties** är olika för varje transformeringsaktivitet. Om du vill ha mer information om vilka typegenskaper som stöds för en transformeringsaktivitet klickar du på transformeringsaktiviteten i [Datatransformeringsaktiviteter](#data-transformation-activities).
@@ -370,11 +371,11 @@ De två föregående exemplen innehåller bara en aktivitet. Du kan fler än en 
 Du kan länka två aktiviteter genom att använda [aktivitetsberoende](#activity-dependency), som definierar hur efterföljande aktiviteter är beroende av tidigare aktiviteter, vilket fastställer villkoret för om nästa uppgift ska köras. En aktivitet kan vara beroende av en eller flera tidigare aktiviteter med olika beroendevillkor.
 
 ## <a name="scheduling-pipelines"></a>Schemaläggningspipelines
-Pipelines schemaläggs av utlösare. Det finns olika typer av utlösare (scheduler-utlösare, som gör så att pipelines utlöses efter ett klocktidsschema (wall-clock) och en manuell utlösare, som utlöser pipelines på begäran). Mer information om utlösare finns i artikeln om [pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md).
+Pipelines schemaläggs av utlösare. Det finns olika typer av utlösare (Scheduler-utlösare, som gör att pipelines kan utlösas på ett väggurschema, samt den manuella utlösaren, som utlöser pipelines on-demand). Mer information om utlösare finns i artikeln om [pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md).
 
-Om du vill att utlösaren startar en pipelinekörning måste du ta med en pipelinereferens i utlösardefinitionen. Pipelines och utlösare har ett n-m-förhållande. Flera utlösare kan starta en enda pipeline och samma utlösare kan starta flera pipelines. När utlösaren har definierats måste du starta utlösaren så att den kan börja utlösa pipeline. Mer information om utlösare finns i artikeln om [pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md).
+Om du vill att utlösaren startar en pipelinekörning måste du ta med en pipelinereferens i utlösardefinitionen. Pipelines och utlösare har ett n-m-förhållande. Flera utlösare kan starta en enda pipeline, och samma utlösare kan starta flera pipelines. När utlösaren har definierats måste du starta utlösaren så att den kan börja utlösa pipeline. Mer information om utlösare finns i artikeln om [pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md).
 
-Anta till exempel att du har en schemaläggare, "Trigger A" som jag vill starta min pipeline, "MyCopyPipeline". Du definierar utlösaren enligt följande exempel:
+Anta till exempel att du har en Scheduler-utlösare, "Trigger A", som jag vill starta min pipeline, "MyCopyPipeline". Du definierar utlösaren, som visas i följande exempel:
 
 ### <a name="trigger-a-definition"></a>Definition av TriggerA
 
@@ -399,8 +400,6 @@ Anta till exempel att du har en schemaläggare, "Trigger A" som jag vill starta 
   }
 }
 ```
-
-
 
 ## <a name="next-steps"></a>Nästa steg
 I följande självstudier får du stegvisa instruktioner för att skapa pipelines med aktiviteter:

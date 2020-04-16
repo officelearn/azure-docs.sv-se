@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 3c7690390936a05dd472796eb6f50f582f652e35
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: b70db03e03ce914ea1d81d94cd2803a36eccfc88
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80990857"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418226"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory"></a>Kopiera data från Impala med hjälp av Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du använder Kopiera aktivitet i Azure Data Factory för att kopiera data från Impala. Den bygger på översiktsartikeln [Kopiera aktivitet](copy-activity-overview.md) som ger en allmän översikt över kopieringsaktiviteten.
 

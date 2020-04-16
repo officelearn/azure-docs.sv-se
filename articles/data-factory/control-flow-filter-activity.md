@@ -11,15 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.openlocfilehash: 5794a2c754e2082fdf45ad689bdb89ea494541c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c8ada22b4492bef0239b6f811d5a7bd58e58510
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73679858"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417212"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Filtrera aktivitet i Azure Data Factory
 Du kan använda en filteraktivitet i en pipeline för att använda ett filteruttryck på en indatamatris. 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ## <a name="syntax"></a>Syntax
 
@@ -38,8 +39,8 @@ Du kan använda en filteraktivitet i en pipeline för att använda ett filterutt
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Aktivitetens `Filter` namn. | String | Ja
-typ | Måste vara inställt på **filtret**. | String | Ja
+namn | Aktivitetens `Filter` namn. | Sträng | Ja
+typ | Måste vara inställt på **filtret**. | Sträng | Ja
 Villkor | Villkor som ska användas för filtrering av indata. | Uttryck | Ja
 Objekt | Indatamatris på vilken filter ska användas. | Uttryck | Ja
 
@@ -115,9 +116,9 @@ I det här exemplet har pipelinen två aktiviteter: **Filter** och **ForEach**. 
 Se andra kontrollflödesaktiviteter som stöds av Data Factory: 
 
 - [If-villkorsaktivitet](control-flow-if-condition-activity.md)
-- [Execute Pipeline-aktivitet](control-flow-execute-pipeline-activity.md)
+- [Köra pipelineaktivitet](control-flow-execute-pipeline-activity.md)
 - [För varje aktivitet](control-flow-for-each-activity.md)
 - [Hämta metadataaktivitet](control-flow-get-metadata-activity.md)
-- [Lookup-aktivitet](control-flow-lookup-activity.md)
+- [Sökningsaktivitet](control-flow-lookup-activity.md)
 - [Webbaktivitet](control-flow-web-activity.md)
-- [Until-aktivitet](control-flow-until-activity.md)
+- [Tills-aktivitet](control-flow-until-activity.md)

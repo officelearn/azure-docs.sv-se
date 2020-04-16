@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2df49e65603573e4a3adcdda0635982252e70b18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4335763269f4a39b4893d9022f4789296b178e92
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130824"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419331"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Data Warehouse med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -227,7 +227,7 @@ Om kraven inte uppfylls kontrollerar Azure Data Factory inställningarna och fal
 När källdata inte uppfyller de kriterier som introducerades i föregående avsnitt kan du aktivera kopiering av data via en tillfällig mellanlagring av Azure Blob Storage (kan inte vara Premium Storage). I det här fallet utför Azure Data Factory automatiskt omvandlingar på data för att uppfylla dataformatkraven för PolyBase, sedan använda PolyBase för att läsa in data i SQL Data Warehouse och slutligen rensa dina temp-data från Blob-lagringen. Se [Stegvis kopia](data-factory-copy-activity-performance.md#staged-copy) för mer information om hur kopiering av data via en mellanlagring Av Azure Blob fungerar i allmänhet.
 
 > [!NOTE]
-> När du kopierar data från ett lokalt datalager till Azure SQL Data Warehouse med PolyBase och mellanlagring krävs om din Data Management Gateway-version är under 2.4, JRE (Java Runtime Environment) på din gateway-dator som används för att omvandla källan data till rätt format. Föreslår att du uppgraderar din gateway till det senaste för att undvika sådant beroende.
+> När du kopierar data från ett lokalt datalager till Azure SQL Data Warehouse med PolyBase och mellanlagring krävs det om din Data Management Gateway-version är under 2.4, JRE (Java Runtime Environment) på din gateway-dator som används för att omvandla källdata till rätt format. Föreslår att du uppgraderar din gateway till det senaste för att undvika sådant beroende.
 >
 
 Om du vill använda den här funktionen skapar du en [Azure Storage-länkad tjänst](data-factory-azure-blob-connector.md#azure-storage-linked-service) som `enableStaging` `stagingSettings` refererar till Azure Storage-kontot som har interimsblobblagringen och anger sedan egenskaperna för kopieringsaktiviteten enligt följande kod:
@@ -295,7 +295,7 @@ All columns of the table must be specified in the INSERT BULK statement.
 NULL-värde är en särskild form av standardvärde. Om kolumnen är nullable kan indata (i blob) för den kolumnen vara tomma (kan inte saknas från indatauppsättningen). PolyBase infogar NULL för dem i Azure SQL Data Warehouse.
 
 ## <a name="auto-table-creation"></a>Skapa automatisk tabell
-Om du använder kopieringsguiden för att kopiera data från SQL Server eller Azure SQL Database till Azure SQL Data Warehouse och tabellen som motsvarar källtabellen inte finns i målarkivet, kan Data Factory automatiskt skapa tabellen i informationslagret genom att med hjälp av källtabellschemat.
+Om du använder kopieringsguiden för att kopiera data från SQL Server eller Azure SQL Database till Azure SQL Data Warehouse och tabellen som motsvarar källtabellen inte finns i målarkivet, kan Data Factory automatiskt skapa tabellen i informationslagret med hjälp av källtabellschemat.
 
 Data Factory skapar tabellen i målarkivet med samma tabellnamn i källdatalagret. Datatyperna för kolumner väljs baserat på följande typmappning. Om det behövs utförs typkonverteringar för att åtgärda eventuella inkompatibiliteter mellan käll- och målbutiker. Den använder också Round Robin tabell distribution.
 
@@ -314,7 +314,7 @@ Data Factory skapar tabellen i målarkivet med samma tabellnamn i källdatalagre
 | SmallMoney (småpengar) | SmallMoney (småpengar) |
 | Binär | Binär |
 | Varbinary | Varbinary (upp till 8000) |
-| Datum | Datum |
+| Date | Date |
 | DateTime | DateTime |
 | DateTime2 | DateTime2 |
 | Tid | Tid |
@@ -346,7 +346,7 @@ Mappningen är samma som [SQL Server Data Type Mapping för ADO.NET](https://msd
 | --- | --- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |Boolean |
+| bit |Boolesk |
 | char |Sträng, Röding[] |
 | date |DateTime |
 | Datumtid |DateTime |

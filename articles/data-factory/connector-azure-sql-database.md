@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: 3a16a8263c80852127ca61db3c666ebf0f7f1e4c
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: db55e685fb50c89eb850e1b9ee9dcf13d20fb614
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011709"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417546"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiera och omvandla data i Azure SQL Database med hjälp av Azure Data Factory
 
 > [!div class="op_single_selector" title1="Välj den version av Azure Data Factory som du använder:"]
 > * [Version 1](v1/data-factory-azure-sql-connector.md)
 > * [Aktuell version](connector-azure-sql-database.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du använder Kopiera aktivitet i Azure Data Factory för att kopiera data från och till Azure SQL Database och använda dataflöde för att omvandla data i Azure SQL Database. Mer information om Azure Data Factory finns i den [inledande artikeln](introduction.md).
 

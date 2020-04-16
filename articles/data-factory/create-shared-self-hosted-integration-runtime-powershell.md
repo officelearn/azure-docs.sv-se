@@ -11,14 +11,16 @@ author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 10/31/2018
-ms.openlocfilehash: a2f24d8203ac5fb9724370cbdf4309bdc43c166a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cabdb45467f71749184c5f9a6a112242a82d618b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75444103"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416608"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Skapa en delad självvärd för integrationskörning i Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Den här guiden visar hur du skapar en delad självvärd integreringskörning i Azure Data Factory. Sedan kan du använda den delade självvärderade integrationskörningen i en annan datafabrik.
 

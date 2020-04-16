@@ -11,14 +11,16 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 18555fbffbc48594793163894c010998094b3b59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1c3f58d42b6f311e4e238dcffe7da42afd8a5306
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336234"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416716"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Skapa en Azure-SSIS-integreringskörning i Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Den här artikeln innehåller steg för att etablera en SSIS-programkörning (Azure-SQL Server Integration Services) i Azure Data Factory. En Azure-SSIS IR stöder:
 

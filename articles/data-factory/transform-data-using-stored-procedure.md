@@ -11,17 +11,19 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
-ms.openlocfilehash: 4a0709b4eaa8742069eecb4c39712e384645304b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57bf653aa3f421ae8897c4be661ceef589fcdc06
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74926666"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418821"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Omvandla data med hjälp av aktiviteten LAGRAD SQL Server-procedur i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-stored-proc-activity.md)
 > * [Aktuell version](transform-data-using-stored-procedure.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Du använder dataomvandlingsaktiviteter i en Data [Factory-pipeline](concepts-pipelines-activities.md) för att omvandla och bearbeta rådata till förutsägelser och insikter. Den lagrade proceduraktiviteten är en av de omvandlingsaktiviteter som Data Factory stöder. Den här artikeln bygger på [transformeringsdataartikeln,](transform-data.md) som ger en allmän översikt över dataomvandling och de omvandlingsaktiviteter som stöds i Data Factory.
 

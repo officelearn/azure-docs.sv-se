@@ -10,17 +10,19 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/31/2018
-ms.openlocfilehash: eb887a7d9081875c28964ddb1e3d1b2e609862fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c39575e8ea60a091124c633f8958ec36e8a61885
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74912970"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418855"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Omvandla data med Spark-aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-spark.md)
 > * [Aktuell version](transform-data-using-spark.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Spark-aktiviteten i en Data [Factory-pipeline](concepts-pipelines-activities.md) kör ett Spark-program på [ditt eget](compute-linked-services.md#azure-hdinsight-linked-service) eller on-demand HDInsight-kluster. [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Den här artikeln bygger på artikeln [om dataomvandlingsaktiviteter,](transform-data.md) som ger en allmän översikt över dataomvandling och de omvandlingsaktiviteter som stöds. När du använder en spark-länkad tjänst på begäran skapar Data Factory automatiskt ett Spark-kluster där du precis är i tid för att bearbeta data och sedan tar bort klustret när bearbetningen är klar. 
 

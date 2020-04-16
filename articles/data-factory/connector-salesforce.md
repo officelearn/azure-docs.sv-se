@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
-ms.openlocfilehash: 7d380f34f849eac835abbd295cd1e2d8c17daaef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 184c5f23ae18a58f26f4b18a884209941343e2e1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153870"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418107"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Kopiera data från och till Salesforce med hjälp av Azure Data Factory
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-salesforce-connector.md)
 > * [Aktuell version](connector-salesforce.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du använder Kopiera aktivitet i Azure Data Factory för att kopiera data från och till Salesforce. Den bygger på översiktsartikeln [Kopiera aktivitet](copy-activity-overview.md) som ger en allmän översikt över kopieringsaktiviteten.
 
@@ -55,7 +57,7 @@ Salesforce har gränser för både totala API-begäranden och samtidiga API-beg�
 
 Felmeddelandet "REQUEST_LIMIT_EXCEEDED" kan också visas i båda scenarierna. Mer information finns i avsnittet "API-begärandegränser" i [Salesforce-utvecklargränser .](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf)
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -322,25 +324,25 @@ När du kopierar data från Salesforce används följande mappningar från Sales
 
 | Datatyp för Salesforce | Data Factory interimdatatyp |
 |:--- |:--- |
-| Auto nummer |String |
-| Checkbox |Boolean |
+| Auto nummer |Sträng |
+| Checkbox |Boolesk |
 | Valuta |Decimal |
-| Datum |DateTime |
+| Date |DateTime |
 | Date/Time |DateTime |
-| E-post |String |
-| Id |String |
-| Uppslagsrelation |String |
-| Flervalsplocklista |String |
+| E-post |Sträng |
+| Id |Sträng |
+| Uppslagsrelation |Sträng |
+| Flervalsplocklista |Sträng |
 | Tal |Decimal |
 | Procent |Decimal |
-| Telefon |String |
-| Picklist (Plocklista) |String |
-| Text |String |
-| Textområde |String |
-| Textområde (långt) |String |
-| Textområde (rich) |String |
-| Text (krypterad) |String |
-| URL |String |
+| Telefon |Sträng |
+| Picklist (Plocklista) |Sträng |
+| Text |Sträng |
+| Textområde |Sträng |
+| Textområde (långt) |Sträng |
+| Textområde (rich) |Sträng |
+| Text (krypterad) |Sträng |
+| URL |Sträng |
 
 ## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
 

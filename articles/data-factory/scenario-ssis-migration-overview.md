@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: 6ad5bb26959916f60973a8c0274e17eee03aa7a1
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: a588a0977a4c6dcefaaefcfdcc542fee8b15466b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991474"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419076"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Migrera lokala SSIS-arbetsbelastningar till SSIS i ADF
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 ## <a name="overview"></a>Översikt
 
@@ -88,5 +90,5 @@ Beroende på [lagringstyperna](#four-storage-types-for-ssis-packages) av käll-S
 
 - [Verifiera SSIS-paket som distribueras till Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-validate-packages)
 - [Kör SSIS-paket som distribueras i Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-run-packages)
-- [Övervaka körning av Azure SSIS-integrering](https://docs.microsoft.com/azure/data-factory/monitor-integration-runtime#azure-ssis-integration-runtime)
+- [Övervaka Azure-SSIS-integreringskörning](https://docs.microsoft.com/azure/data-factory/monitor-integration-runtime#azure-ssis-integration-runtime)
 - [Schemalägga SSIS-paketkörningar i Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages)

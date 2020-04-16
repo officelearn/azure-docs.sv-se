@@ -12,17 +12,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/25/2019
-ms.openlocfilehash: 878ad98b118fa02a6659584ac60e3343a948cd20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 33b2ca8db75acff1ce423aa50087961cce6092b2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79246271"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418413"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Datauppsättningar i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-create-datasets.md)
 > * [Aktuell version](concepts-datasets-linked-services.md)
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 
 I den här artikeln beskrivs vilka datauppsättningar som är, hur de definieras i JSON-format och hur de används i Azure Data Factory-pipelines.
 

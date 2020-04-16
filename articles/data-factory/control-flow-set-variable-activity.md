@@ -11,14 +11,15 @@ author: djpmsft
 ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
-ms.openlocfilehash: e736cc95628bd0e15bdb7ffd425608278788c353
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: e5bd3d10e4e43daf3031aae5083ee917cfe65ede
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879281"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417988"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Ange variabel aktivitet i Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Använd aktiviteten Ange variabel för att ange värdet för en befintlig variabel av typen Sträng, Bool eller Matris som definierats i en Data Factory-pipeline.
 

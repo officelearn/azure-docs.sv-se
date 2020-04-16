@@ -12,14 +12,15 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 11/20/2019
-ms.openlocfilehash: 9bbd2e3376f1da3fdf5b10d654a331ce258be5cf
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: c891cb4eca2c286b3ac636e5995714accd591772
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422093"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417345"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 (Common Data Service) eller Dynamics CRM med hjälp av Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du använder Kopiera aktivitet i Azure Data Factory för att kopiera data från och till Microsoft Dynamics 365 eller Microsoft Dynamics CRM. Den bygger på översiktsartikeln [Kopiera aktivitet](copy-activity-overview.md) som ger en allmän översikt över kopieringsaktivitet.
 
@@ -373,21 +374,21 @@ Konfigurera motsvarande datafabriksdatatyp i en datauppsättningsstruktur basera
 | Datatyp för Dynamics | Data Factory interimdatatyp | Stöds som källa | Stöds som diskbänk |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Lång | ✓ | ✓ |
-| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
+| AttributeTypeCode.Boolean | Boolesk | ✓ | ✓ |
 | AttributeType.Kund | GUID | ✓ | |
 | AttributType.DateTime | Datumtid | ✓ | ✓ |
 | Attributtyp.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
-| AttributType.entitetsnamn | String | ✓ | ✓ |
+| AttributType.entitetsnamn | Sträng | ✓ | ✓ |
 | Integer för AttributeType. | Int32 | ✓ | ✓ |
 | AttributeType.Letaupp | GUID | ✓ | ✓ (med ett enda mål förknippat) |
-| AttributeType.ManagedProperty | Boolean | ✓ | |
-| AttributType.MEMO | String | ✓ | ✓ |
+| AttributeType.ManagedProperty | Boolesk | ✓ | |
+| AttributType.MEMO | Sträng | ✓ | ✓ |
 | AttributType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | GUID | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |
-| AttributType.String | String | ✓ | ✓ |
+| AttributType.String | Sträng | ✓ | ✓ |
 | AttributType.Tillstånd | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 

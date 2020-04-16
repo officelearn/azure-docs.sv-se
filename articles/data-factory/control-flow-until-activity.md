@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: b4786b612dedb065239f57e0286bafb688180dff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63873a4f8301d3cb20488b02b32200f476922276
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440378"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417954"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Tills aktiviteten i Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Aktiviteten Until fungerar på samma sätt som en do-until-loopstruktur i ett programmeringsspråk. En uppsättning aktiviteter körs i en loop tills det villkor som är associerat med aktiviteten utvärderas till sant. Du kan ange en tidsgräns för Until-aktiviteten i Data Factory. 
 
 ## <a name="syntax"></a>Syntax
@@ -53,8 +55,8 @@ Aktiviteten Until fungerar på samma sätt som en do-until-loopstruktur i ett pr
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Aktivitetens `Until` namn. | String | Ja
-typ | Måste ställas in på **Until**. | String | Ja
+namn | Aktivitetens `Until` namn. | Sträng | Ja
+typ | Måste ställas in på **Until**. | Sträng | Ja
 uttryck | Uttryck som måste utvärderas till sant eller falskt | Uttryck.  | Ja
 timeout | Do-till-loopen time out efter den angivna tiden här. | Sträng. `d.hh:mm:ss`(eller) `hh:mm:ss`. Standardvärdet är 7 dagar. Högsta värde är: 90 dagar. | Inga
 Aktiviteter | Uppsättning aktiviteter som körs tills uttrycket utvärderas till `true`. | En rad aktiviteter. |  Ja
@@ -289,8 +291,8 @@ while ($True) {
 Se andra kontrollflödesaktiviteter som stöds av Data Factory: 
 
 - [If-villkorsaktivitet](control-flow-if-condition-activity.md)
-- [Execute Pipeline-aktivitet](control-flow-execute-pipeline-activity.md)
+- [Köra pipelineaktivitet](control-flow-execute-pipeline-activity.md)
 - [För varje aktivitet](control-flow-for-each-activity.md)
 - [Hämta metadataaktivitet](control-flow-get-metadata-activity.md)
-- [Lookup-aktivitet](control-flow-lookup-activity.md)
+- [Sökningsaktivitet](control-flow-lookup-activity.md)
 - [Webbaktivitet](control-flow-web-activity.md)

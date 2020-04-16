@@ -10,14 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 85b1d6b532ba11819947558226291e62af6b5119
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40b1b8d040c4b3ea76372920f88551fba35c5f26
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75690947"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419450"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Övervaka Azure Data Factory visuellt
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 När du har skapat och publicerat en pipeline i Azure Data Factory kan du associera den med en utlösare eller manuellt starta en ad hoc-körning. Du kan övervaka alla dina pipeline-körningar internt i azure data factory-användarupplevelsen. Om du vill öppna övervakningsupplevelsen väljer du panelen **Övervaka & Hantera** i datafabriksbladet i [Azure-portalen](https://portal.azure.com/). Om du redan är i ADF UX klickar du på **monitorikonen** på vänster sidofält.
 

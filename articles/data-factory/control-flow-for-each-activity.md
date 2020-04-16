@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: 71528385563b29ce70edf396434be0174beac105
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: 35d61e896a395c3044a51780fef72d54c211a31f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804851"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417182"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>ForEach-aktivitet i Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 ForEach-aktiviteten definierar ett upprepande kontrollflöde i pipelinen. Den här aktiviteten används till att iterera över en samling och kör angivna aktiviteter i en loop. Implementeringen av loopen för den här aktiviteten liknar Foreach-loopstrukturen i programmeringsspråk.
 
 ## <a name="syntax"></a>Syntax
@@ -490,7 +492,7 @@ Här är några begränsningar för ForEach-aktiviteten och föreslagna lösning
 ## <a name="next-steps"></a>Nästa steg
 Se andra kontrollflödesaktiviteter som stöds av Data Factory: 
 
-- [Execute Pipeline-aktivitet](control-flow-execute-pipeline-activity.md)
+- [Köra pipelineaktivitet](control-flow-execute-pipeline-activity.md)
 - [Hämta metadataaktivitet](control-flow-get-metadata-activity.md)
-- [Lookup-aktivitet](control-flow-lookup-activity.md)
+- [Sökningsaktivitet](control-flow-lookup-activity.md)
 - [Webbaktivitet](control-flow-web-activity.md)

@@ -11,15 +11,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: f9dd53fded06eec169219d00993620a0f2aa2bf0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6158938d01b6e5da74ed046d2a74e0dfd827f47
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73678246"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417920"
 ---
 # <a name="execute-wait-activity-in-azure-data-factory"></a>Kör vänteaktivitet i Azure Data Factory
 När du använder en Wait-aktivitet i en pipeline väntar pipelinen under den angivna tidsperioden innan körningen återupptas med alla efterföljande aktiviteter. 
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 
 ## <a name="syntax"></a>Syntax
 
@@ -38,8 +41,8 @@ När du använder en Wait-aktivitet i en pipeline väntar pipelinen under den an
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Aktivitetens `Wait` namn. | String | Ja
-typ | Måste vara inställt **på Vänta**. | String | Ja
+namn | Aktivitetens `Wait` namn. | Sträng | Ja
+typ | Måste vara inställt **på Vänta**. | Sträng | Ja
 waitTimeInSeconds | Antalet sekunder som pipelinen väntar innan du fortsätter med bearbetningen. | Integer | Ja
 
 ## <a name="example"></a>Exempel
@@ -102,9 +105,9 @@ I det här exemplet har pipelinen två aktiviteter: **Till och** **Vänta**. Vä
 Se andra kontrollflödesaktiviteter som stöds av Data Factory: 
 
 - [If-villkorsaktivitet](control-flow-if-condition-activity.md)
-- [Execute Pipeline-aktivitet](control-flow-execute-pipeline-activity.md)
+- [Köra pipelineaktivitet](control-flow-execute-pipeline-activity.md)
 - [För varje aktivitet](control-flow-for-each-activity.md)
 - [Hämta metadataaktivitet](control-flow-get-metadata-activity.md)
-- [Lookup-aktivitet](control-flow-lookup-activity.md)
+- [Sökningsaktivitet](control-flow-lookup-activity.md)
 - [Webbaktivitet](control-flow-web-activity.md)
-- [Until-aktivitet](control-flow-until-activity.md)
+- [Tills-aktivitet](control-flow-until-activity.md)

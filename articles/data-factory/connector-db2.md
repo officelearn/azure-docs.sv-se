@@ -11,17 +11,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: jingwang
-ms.openlocfilehash: 22ecac12e049e58e533cdde0078f4a25f6bb2aa6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c2071e4b2a3daa528c7d01f64e38247b063e6f1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77423835"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417424"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopiera data från DB2 med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-onprem-db2-connector.md)
 > * [Aktuell version](connector-db2.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från en DB2-databas. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
 
@@ -194,28 +196,28 @@ Vid kopiering av data från DB2 används följande mappningar från DB2-datatype
 | Bigint |Int64 |
 | Binär |Byte[] |
 | Blob |Byte[] |
-| Char |String |
-| Clob |String |
-| Datum |Datumtid |
-| DB2DynArray |String |
-| DbClob (D.) |String |
+| Char |Sträng |
+| Clob |Sträng |
+| Date |Datumtid |
+| DB2DynArray |Sträng |
+| DbClob (D.) |Sträng |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Double |Double |
 | Float (Flyttal) |Double |
-| Grafisk |String |
+| Grafisk |Sträng |
 | Integer |Int32 |
 | LongVarBinary (LångVarBinary) |Byte[] |
-| LongVarChar (Olikart) |String |
-| LongVarGraphic (olikartade) |String |
+| LongVarChar (Olikart) |Sträng |
+| LongVarGraphic (olikartade) |Sträng |
 | Numerisk |Decimal |
 | Verkliga |Enkel |
 | Smallint |Int16 (int16) |
 | Tid |TimeSpan |
 | Tidsstämpel |DateTime |
 | Varbinary |Byte[] |
-| Varchar |String |
-| Vargrafiska |String |
+| Varchar |Sträng |
+| Vargrafiska |Sträng |
 | Xml |Byte[] |
 
 ## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet

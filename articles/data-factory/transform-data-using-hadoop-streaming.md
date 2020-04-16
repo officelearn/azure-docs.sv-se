@@ -10,17 +10,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/16/2018
-ms.openlocfilehash: 1c12a10dfdf8e69cf05ab30d0e6aa48fea5803a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1bba6903fe1cb8cc5bae9a12153553594180b43
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74912899"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418889"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Omvandla data med hjälp av Hadoop Streaming-aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-hadoop-streaming-activity.md)
 > * [Aktuell version](transform-data-using-hadoop-streaming.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 HDInsight Streaming Activity i en Pipeline för [datafabrik](concepts-pipelines-activities.md) kör Hadoop Streaming-program på [ditt eget](compute-linked-services.md#azure-hdinsight-linked-service) eller on-demand HDInsight-kluster. [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Den här artikeln bygger på artikeln [om dataomvandlingsaktiviteter,](transform-data.md) som ger en allmän översikt över dataomvandling och de omvandlingsaktiviteter som stöds.
 

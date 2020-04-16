@@ -10,18 +10,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 4913152125b0fafd74db575f835d53fa992b075e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 74e381a9ad32acdaa8cbb719824d74ca6d339f30
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260584"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418957"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-use-custom-activities.md)
 > * [Aktuell version](transform-data-using-dotnet-custom-activity.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Det finns två typer av aktiviteter som du kan använda i en Azure Data Factory-pipeline.
 
@@ -115,7 +116,7 @@ I följande tabell beskrivs namn och beskrivningar av egenskaper som är specifi
 &#42; Egenskaper `resourceLinkedService` och `folderPath` måste antingen både anges eller båda utelämnas.
 
 > [!NOTE]
-> Om du skickar länkade tjänster som referensObjekt i anpassad aktivitet är det en bra säkerhetspraxis att skicka en Azure Key Vault-aktiverad länkad tjänst (eftersom den inte innehåller några säkra strängar) och hämta autentiseringsuppgifterna med hemligt namn direkt från Key Valv från koden. Du kan hitta ett exempel [här](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) som refererar till AKV-aktiverad länkad tjänst, hämtar autentiseringsuppgifterna från Key Vault och sedan kommer åt lagringen i koden.
+> Om du skickar länkade tjänster som referensObjekt i anpassad aktivitet är det en bra säkerhetspraxis att skicka en Azure Key Vault-aktiverad länkad tjänst (eftersom den inte innehåller några säkra strängar) och hämta autentiseringsuppgifterna med hemligt namn direkt från Key Vault från koden. Du kan hitta ett exempel [här](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) som refererar till AKV-aktiverad länkad tjänst, hämtar autentiseringsuppgifterna från Key Vault och sedan kommer åt lagringen i koden.
 
 ## <a name="custom-activity-permissions"></a>Behörigheter för anpassad aktivitet
 

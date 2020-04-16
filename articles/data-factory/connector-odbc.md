@@ -11,17 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 6513cfc5432e969fc53aa72b075af194a064d178
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: da5c53f8953960c382070be658add2877fff3f8c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79244373"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416886"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Kopiera data från och till ODBC-datalager med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-odbc-connector.md)
 > * [Aktuell version](connector-odbc.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från och till ett ODBC-datalager. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
 

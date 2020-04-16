@@ -11,14 +11,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: c700c9786f3bec4c79cae904a95deb5fd1c670b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5cdb24a80dcbd95e4ccc59dd55f4acb9ae18060
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260870"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417903"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Webbaktivitet i Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+
 Webbaktiviteten kan används till att anropa en anpassad REST-slutpunkt från en Data Factory-pipeline. Du kan överföra datauppsättningar och länkade tjänster så att de förbrukas och används av aktiviteten.
 
 > [!NOTE]
@@ -65,8 +68,8 @@ Webbaktiviteten kan används till att anropa en anpassad REST-slutpunkt från en
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Namn på webbaktiviteten | String | Ja
-typ | Måste vara inställt på **WebActivity**. | String | Ja
+namn | Namn på webbaktiviteten | Sträng | Ja
+typ | Måste vara inställt på **WebActivity**. | Sträng | Ja
 metod | Vila API-metod för målslutpunkten. | Sträng. <br/><br/>Typer som stöds: "GET", "POST", "PUT" | Ja
 url | Målslutpunkt och sökväg | Sträng (eller uttryck med resultType av sträng). Aktiviteten kommer att timeout på 1 minut med ett fel om den inte får ett svar från slutpunkten. | Ja
 Headers | Rubriker som skickas till begäran. Om du till exempel vill ange språk `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`och skriva på en begäran: . | Sträng (eller uttryck med resultType av sträng) | Ja, rubrik av innehållstyp krävs. `"headers":{ "Content-Type":"application/json"}`
@@ -92,7 +95,7 @@ I följande tabell visas kraven för JSON-innehåll:
 
 Nedan finns de autentiseringstyper som stöds i webbaktiviteten.
 
-### <a name="none"></a>Inget
+### <a name="none"></a>Ingen
 
 Om autentisering inte krävs ska du inte inkludera egenskapen "autentisering".
 
@@ -254,7 +257,7 @@ public HttpResponseMessage Execute(JObject payload)
 ## <a name="next-steps"></a>Nästa steg
 Se andra kontrollflödesaktiviteter som stöds av Data Factory:
 
-- [Execute Pipeline-aktivitet](control-flow-execute-pipeline-activity.md)
+- [Köra pipelineaktivitet](control-flow-execute-pipeline-activity.md)
 - [För varje aktivitet](control-flow-for-each-activity.md)
 - [Hämta metadataaktivitet](control-flow-get-metadata-activity.md)
-- [Lookup-aktivitet](control-flow-lookup-activity.md)
+- [Sökningsaktivitet](control-flow-lookup-activity.md)

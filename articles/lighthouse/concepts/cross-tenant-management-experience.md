@@ -3,12 +3,12 @@ title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurshantering möjliggör en hantering av flera innehavare.
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0ac5d62fbf6b6ee418cd4b2f2b00dfc12e05f809
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 66e2b2f7fbbae5940b576ead22a416625af3c058
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754145"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418530"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -25,11 +25,7 @@ Vanligtvis måste tjänsteleverantörer logga in på Azure-portalen för att han
 
 Med Azure-delegerad resurshantering anger introduktionsprocessen användare inom tjänsteleverantörens klientorganisation som ska kunna komma åt och hantera prenumerationer, resursgrupper och resurser i kundens klientorganisation. Dessa användare kan sedan logga in på Azure-portalen med sina egna autentiseringsuppgifter. Inom Azure-portalen kan de hantera resurser som tillhör alla kunder som de har åtkomst till. Detta kan göras genom att besöka sidan [Mina kunder](../how-to/view-manage-customers.md) i Azure-portalen eller genom att arbeta direkt inom ramen för kundens prenumeration, antingen i Azure-portalen eller via API:er.
 
-Azure-delegerad resurshantering ger större flexibilitet att hantera resurser för flera kunder utan att behöva logga in på olika konton i olika klienter. En tjänsteleverantör kan till exempel ha tre kunder med olika ansvarsområden och åtkomstnivåer, som visas här:
-
-![Tre kundklienter som visar tjänsteleverantörens ansvar](../media/azure-delegated-resource-management-customer-tenants.jpg)
-
-Med hjälp av Azure-delegerad resurshantering kan behöriga användare logga in på tjänsteleverantörens klient för att komma åt dessa resurser, som visas här:
+Azure-delegerad resurshantering ger större flexibilitet att hantera resurser för flera kunder utan att behöva logga in på olika konton i olika klienter. En tjänsteleverantör kan till exempel ha två kunder med olika ansvar och åtkomstnivåer. Med hjälp av Azure-delegerad resurshantering kan behöriga användare logga in på tjänsteleverantörens klient för att komma åt dessa resurser.
 
 ![Kundresurser hanteras via en tjänsteleverantörsklient](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 

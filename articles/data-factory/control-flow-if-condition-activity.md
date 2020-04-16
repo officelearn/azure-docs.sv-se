@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: bfa308e2cc67bd14a248f3edc7b182f9a772ed98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9b491c4f0cc99395c44d989bf19fa2a7b03da696
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80238705"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417168"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Om villkorsaktivitet i Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk. Det utvärderar en uppsättning aktiviteter om villkoret utvärderas till `true` och en annan uppsättning aktiviteter när villkoret utvärderas till `false`. 
 
 ## <a name="syntax"></a>Syntax
@@ -65,8 +67,8 @@ If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk.
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Namn på if-villkorsaktiviteten. | String | Ja
-typ | Måste ställas in på **IfCondition** | String | Ja
+namn | Namn på if-villkorsaktiviteten. | Sträng | Ja
+typ | Måste ställas in på **IfCondition** | Sträng | Ja
 uttryck | Uttryck som måste utvärderas till sant eller falskt | Uttryck med resultattyp boolesk | Ja
 ifTrueActivities ifTrueActivities ifTrueActivities ifTru | Uppsättning aktiviteter som körs när uttrycket `true`utvärderas till . | Matris | Ja
 ifFalseActivities ifFalseActivities ifFalseActivities ifFal | Uppsättning aktiviteter som körs när uttrycket `false`utvärderas till . | Matris | Ja
@@ -288,8 +290,8 @@ $result.Error -join "`r`n"
 ## <a name="next-steps"></a>Nästa steg
 Se andra kontrollflödesaktiviteter som stöds av Data Factory: 
 
-- [Execute Pipeline-aktivitet](control-flow-execute-pipeline-activity.md)
+- [Köra pipelineaktivitet](control-flow-execute-pipeline-activity.md)
 - [För varje aktivitet](control-flow-for-each-activity.md)
 - [Hämta metadataaktivitet](control-flow-get-metadata-activity.md)
-- [Lookup-aktivitet](control-flow-lookup-activity.md)
+- [Sökningsaktivitet](control-flow-lookup-activity.md)
 - [Webbaktivitet](control-flow-web-activity.md)

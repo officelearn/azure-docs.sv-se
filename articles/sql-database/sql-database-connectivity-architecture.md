@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 6fdfbce6dce2428a8f2757b0755e6f982f02240f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2028aac9c01aedc4baa568d370c9f7d21c920647
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256424"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419271"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Anslutningsarkitektur för Azure SQL
 > [!NOTE]
@@ -45,7 +45,7 @@ I följande steg beskrivs hur en anslutning upprättas till en Azure SQL-databas
 Azure SQL Database stöder följande tre alternativ för anslutningsprincipen för en SQL Database-server:
 
 - **Omdirigering (rekommenderas):** Klienter upprättar anslutningar direkt till noden som är värd för databasen, vilket leder till minskad latens och förbättrat dataflöde. För att anslutningar ska kunna använda det här läget måste klienter:
-   - Tillåt utgående kommunikation från klienten till alla Azure IP-adresser i regionen på portar i intervallet 11000 11999. Använd tjänsttaggarna för SQL för att göra det enklare att hantera.  
+   - Tillåt utgående kommunikation från klienten till alla Azure SQL IP-adresser i regionen på portar i intervallet 11000 11999. Använd tjänsttaggarna för SQL för att göra det enklare att hantera.  
    - Tillåt utgående kommunikation från klienten till AZURE SQL Database gateway IP-adresser på port 1433.
 
 - **Proxy:** I det här läget proxied alla anslutningar via Azure SQL Database gateways, vilket leder till ökad svarstid och minskat dataflöde. För att anslutningar ska kunna använda det här läget måste klienter tillåta utgående kommunikation från klienten till AZURE SQL Database gateway IP-adresser på port 1433.

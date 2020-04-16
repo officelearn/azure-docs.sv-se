@@ -11,17 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/17/2020
-ms.openlocfilehash: e1a3ff32956e8a8530684ba7f300f06d0c032227
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 74462b68bea38e4d84219adeedb7c3bb0893bbb4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421115"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417227"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Kopiera data från SAP HANA med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-sap-hana-connector.md)
 > * [Aktuell version](connector-sap-hana.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från en SAP HANA-databas. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
 
@@ -270,31 +271,31 @@ Vid kopiering av data från SAP HANA används följande mappningar från SAP HAN
 
 | SAP HANA-datatyp | Data fabrik interim datatyp |
 | ------------------ | ------------------------------ |
-| ALFA-NUMMER           | String                         |
+| ALFA-NUMMER           | Sträng                         |
 | BIGINT             | Int64                          |
 | BINARY             | Byte[]                         |
-| BINTEXT            | String                         |
+| BINTEXT            | Sträng                         |
 | Blob               | Byte[]                         |
 | Bool               | Byte                           |
-| Clob               | String                         |
+| Clob               | Sträng                         |
 | DATE               | DateTime                       |
 | DECIMAL            | Decimal                        |
 | DOUBLE             | Double                         |
 | Flyta              | Double                         |
 | INTEGER            | Int32                          |
-| NCLOB (på andra sätt)              | String                         |
-| Nvarchar           | String                         |
+| NCLOB (på andra sätt)              | Sträng                         |
+| Nvarchar           | Sträng                         |
 | REAL               | Enkel                         |
 | ANDRADATE         | DateTime                       |
-| KORTTEXT          | String                         |
+| KORTTEXT          | Sträng                         |
 | SMALLDECIMAL       | Decimal                        |
 | SMALLINT           | Int16 (int16)                          |
 | STGEOMETRYTYP     | Byte[]                         |
 | STPOINTTYP        | Byte[]                         |
-| TEXT               | String                         |
+| TEXT               | Sträng                         |
 | TIME               | TimeSpan                       |
 | TINYINT            | Byte                           |
-| VARCHAR            | String                         |
+| VARCHAR            | Sträng                         |
 | TIMESTAMP          | DateTime                       |
 | VARBINARY          | Byte[]                         |
 

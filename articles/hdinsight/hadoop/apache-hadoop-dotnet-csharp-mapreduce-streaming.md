@@ -7,19 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 11/22/2019
-ms.openlocfilehash: 025b5c5c1e3b8543111e112202906ef6f1fdb482
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 7a299ce16f6e9c7292cebf198c9c3077f8e05fcb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74561806"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417615"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Använd C# med MapReduce streaming på Apache Hadoop i HDInsight
 
 Lär dig hur du använder C# för att skapa en MapReduce-lösning på HDInsight.
 
-Apache Hadoop streaming är ett verktyg som låter dig köra MapReduce jobb med hjälp av ett skript eller körbar. I det här exemplet används .NET för att implementera mapper och reducer för en ordräkningslösning.
+Apache Hadoop streaming kan du köra MapReduce jobb med hjälp av ett skript eller körbar. Här används .NET för att implementera mapper och reducer för en ordräkningslösning.
 
 ## <a name="net-on-hdinsight"></a>.NET på HDInsight
 
@@ -49,12 +49,9 @@ Mer information om direktuppspelning finns i [Hadoop Streaming](https://hadoop.a
 
 * Om du använder PowerShell behöver du [Az-modulen](https://docs.microsoft.com/powershell/azure/overview).
 
-* En SSH-klient (valfritt). Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
 * En Apache Hadoop kluster på HDInsight. Se [Komma igång med HDInsight på Linux](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* [URI-schemat](../hdinsight-hadoop-linux-information.md#URI-and-scheme) för klustrets primära lagring. Detta skulle `wasb://` vara för `abfs://` Azure Storage, för `adl://` Azure Data Lake Storage Gen2 eller för Azure Data Lake Storage Gen1. Om säker överföring är aktiverad för Azure Storage eller Data `wasbs://` Lake `abfss://`Storage Gen2, skulle URI vara eller , respektive Se även [säker överföring](../../storage/common/storage-require-secure-transfer.md).
-
+* [URI-schemat](../hdinsight-hadoop-linux-information.md#URI-and-scheme) för klustrets primära lagring. Det här `wasb://` schemat skulle `abfs://` vara för Azure Storage, `adl://` för Azure Data Lake Storage Gen2 eller för Azure Data Lake Storage Gen1. Om säker överföring är aktiverad för Azure Storage eller Data `wasbs://` Lake `abfss://`Storage Gen2, skulle URI vara eller , respektive Se även [säker överföring](../../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="create-the-mapper"></a>Skapa mappern
 
@@ -221,14 +218,16 @@ I följande procedur beskrivs hur du kör ett MapReduce-jobb med hjälp av en SS
 
    I följande lista beskrivs vad varje parameter och alternativ representerar:
 
-   * *hadoop-streaming.jar*: Anger jar-filen som innehåller funktionen strömmande MapReduce.
-   * `-files`: Anger filerna *mapper.exe* och *reducer.exe* för det här jobbet. Den `wasbs:///` `adl:///`, `abfs:///` , eller protokolldeklarationen före varje fil är sökvägen till roten för standardlagring för klustret.
-   * `-mapper`: Anger filen som implementerar mappern.
-   * `-reducer`: Anger den fil som implementerar reduceraren.
-   * `-input`: Anger indata.
-   * `-output`: Anger utdatakatalogen.
+   |Parameter | Beskrivning |
+   |---|---|
+   |hadoop-streaming.jar|Anger den jar-fil som innehåller funktionen för direktuppspelning mapreduce.|
+   |-filer|Anger filerna *mapper.exe* och *reducer.exe* för det här jobbet. Den `wasbs:///` `adl:///`, `abfs:///` , eller protokolldeklarationen före varje fil är sökvägen till roten för standardlagring för klustret.|
+   |-mapper|Anger filen som implementerar mappern.|
+   |-reducer|Anger den fil som implementerar reduceraren.|
+   |-ingång|Anger indata.|
+   |-utgång|Anger utdatakatalogen.|
 
-3. När MapReduce-jobbet är klart använder du följande kommando för att visa resultaten:
+1. När MapReduce-jobbet är klart använder du följande kommando för att visa resultaten:
 
    ```bash
    hdfs dfs -text /example/wordcountout/part-00000

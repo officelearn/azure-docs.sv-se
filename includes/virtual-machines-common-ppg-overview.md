@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: 3215f5952daef053c94432bc8fdef15e1775047a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb2eb2d237a1245627bbdb6f4f2eacbb9966a2c6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "73171090"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81422103"
 ---
 Om du placerar virtuella datorer i en enda region minskar det fysiska avståndet mellan instanserna. Placera dem inom en enda tillgänglighet zon kommer också att föra dem fysiskt närmare varandra. Men när Azure-fotavtrycket växer kan en enda tillgänglighetszon sträcka sig över flera fysiska datacenter, vilket kan resultera i en nätverksfördröjning som påverkar ditt program. 
 
@@ -39,6 +39,13 @@ Du kan också flytta en befintlig resurs till en närhetsplaceringsgrupp. När d
 När det gäller tillgänglighetsuppsättningar och skaluppsättningar för virtuella datorer bör du ange närhetsplaceringsgruppen på resursnivå i stället för de enskilda virtuella datorerna. 
 
 En närhetsplaceringsgrupp är ett samlokaliseringsvillkor snarare än en fästmekanism. Den fästs i ett visst datacenter med distributionen av den första resursen som ska användas. När alla resurser som använder proximity placement-gruppen har stoppats (deallocated) eller tagits bort, är det inte längre fäst. När du använder en närhetsplaceringsgrupp med flera VM-serier är det därför viktigt att ange alla nödvändiga typer i förväg i en mall när det är möjligt eller följa en distributionssekvens som förbättrar dina chanser för en lyckad distribution. Om distributionen misslyckas startar du om distributionen med den virtuella datorns storlek som har misslyckats som den första storleken som ska distribueras.
+
+## <a name="what-to-expect-when-using-proximity-placement-groups"></a>Vad du kan förvänta dig när du använder grupper för närhetsplacering 
+Närplaceringsgrupper erbjuder samlokalisering i samma datacenter. Men eftersom närhetsplaceringsgrupper representerar ytterligare ett distributionsvillkor kan allokeringsfel uppstå. Det finns få användningsfall där du kan se allokeringsfel när du använder närhetsplaceringsgrupper:
+
+- När du frågar efter den första virtuella datorn i gruppen för närhetsplacering väljs datacentret automatiskt. I vissa fall kan en andra begäran om en annan virtuell dator SKU misslyckas om den inte finns i det datacentret. I det här fallet returneras ett **overconstrainedAllocationRequest-fel.** Undvik detta genom att prova att ändra i vilken ordning du distribuerar sku:erna eller har båda resurserna distribuerade med en enda ARM-mall.
+-   När det gäller elastiska arbetsbelastningar, där du lägger till och tar bort VM-instanser, kan en närhetsplaceringsgruppbegränsning för distributionen resultera i ett misslyckande att uppfylla begäran vilket resulterar i **AllokeringFelfel.** 
+- Stoppa (deallocate) och starta dina virtuella datorer efter behov är ett annat sätt att uppnå elasticitet. Eftersom kapaciteten inte behålls när du stoppar (deallocate) en virtuell dator, kan starta den igen resultera i ett **AllokeringMissilure** fel.
 
 
 ## <a name="best-practices"></a>Bästa praxis 

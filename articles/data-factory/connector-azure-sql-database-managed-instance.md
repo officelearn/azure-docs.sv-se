@@ -11,14 +11,16 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: 11f4005e802e2a584b21903bfead2c6b9701f065
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe803c918cbf60b8f0af76d8c9a94d022153acbb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80238745"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417505"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database Managed Instance med hjälp av Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data till och från Azure SQL Database Managed Instance. Den bygger på artikeln [Kopiera aktivitetsöversikt](copy-activity-overview.md) som ger en allmän översikt över kopieringsaktiviteten.
 
@@ -47,7 +49,7 @@ Om du vill komma åt [den offentliga slutpunkten](../sql-database/sql-database-m
 
 Om du vill komma åt den privata slutpunkten för Azure SQL Database Managed Instance konfigurerar du en [självvärd integreringskörning](create-self-hosted-integration-runtime.md) som kan komma åt databasen. Om du etablerar den självvärderade integrationskörningen i samma virtuella nätverk som den hanterade instansen kontrollerar du att programkörningsdatorn finns i ett annat undernät än den hanterade instansen. Om du etablerar din självvärderade integrationskörning i ett annat virtuellt nätverk än den hanterade instansen kan du använda antingen en virtuell nätverks peering eller ett virtuellt nätverk till virtuell nätverksanslutning. Mer information finns i [Ansluta ditt program till Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -574,7 +576,7 @@ När data kopieras till och från Azure SQL Database Managed Instance används f
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |Boolean |
+| bit |Boolesk |
 | char |Sträng, Röding[] |
 | date |DateTime |
 | Datumtid |DateTime |

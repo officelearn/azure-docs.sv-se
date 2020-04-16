@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/27/2019
-ms.openlocfilehash: cf79a670db4e2729c6e0a5fb7112cdc6114f465a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6edd32f8f3579238d1f08f55ce9fb1528fa5d211
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77460747"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417482"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Kopiera data till och från Azure Table-lagring med hjälp av Azure Data Factory
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-azure-table-connector.md)
 > * [Aktuell version](connector-azure-table-storage.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du använder Kopiera aktivitet i Azure Data Factory för att kopiera data till och från Azure Table Storage. Den bygger på översiktsartikeln [Kopiera aktivitet](copy-activity-overview.md) som ger en allmän översikt över kopieringsaktivitet.
 
@@ -39,7 +41,7 @@ Du kan kopiera data från alla källdatalager som stöds till Tabelllagring. Du 
 
 Specifikt stöder den här Azure Table-anslutningsappen kopiering av data med hjälp av kontonyckel och tjänstautentiseringar med delad åtkomstsignatur.
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -340,7 +342,7 @@ När du flyttar data till och från Azure Table används följande [mappningar s
 | Edm.Guid (edm.guid) |GUID |En 128-bitars globalt unik identifierare. |
 | Edm.Int32 |Int32 |Ett 32-bitars heltal. |
 | Edm.Int64 |Int64 |Ett 64-bitars heltal. |
-| Edm.String |String |Ett UTF-16-kodat värde. Strängvärden kan vara upp till 64 kB. |
+| Edm.String |Sträng |Ett UTF-16-kodat värde. Strängvärden kan vara upp till 64 kB. |
 
 ## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
 

@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.openlocfilehash: 4acad5e2de55211b6c4492513f331c36286ed852
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4dd82eea0a80ef81a0f972d1964a62e6c17a80c0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75892785"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417369"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Kopiera data från Dynamics AX med hjälp av Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du använder Kopiera aktivitet i Azure Data Factory för att kopiera data från Dynamics AX-källa. Artikeln bygger på [Kopiera aktivitet i Azure Data Factory](copy-activity-overview.md), som presenterar en allmän översikt över kopiera aktivitet.
 
@@ -37,7 +39,7 @@ Den här Dynamics AX-anslutningen stöder kopiering av data från Dynamics AX me
 >[!TIP]
 >Du kan också använda den här kopplingen för att kopiera data från **Dynamics 365 Finance and Operations**. Se Dynamics 365:s [OData-support](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/data-entities/odata) [och autentiseringsmetod](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/data-entities/services-home-page#authentication).
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

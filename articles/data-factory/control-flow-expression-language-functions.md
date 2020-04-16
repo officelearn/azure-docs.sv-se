@@ -10,18 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: 9ef4b569fd8413d2825374c963fb272dd450cf0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c456e486217886510a1fd2ef1aeabae47d35b53c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74533128"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417197"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Uttryck och funktioner i Azure Data Factory
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-functions-variables.md)
 > * [Aktuell version](control-flow-expression-language-functions.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Den här artikeln innehåller information om uttryck och funktioner som stöds av Azure Data Factory. 
 
@@ -142,7 +143,7 @@ I följande exempel tar pipelinen **indataPath** och **outputPath-parametrar.** 
 Den här [självstudien](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) går igenom hur du skickar parametrar mellan en pipeline och aktivitet samt mellan aktiviteterna.
 
   
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>Functions
 
 Du kan anropa funktioner i uttryck. Följande avsnitt innehåller information om de funktioner som kan användas i ett uttryck.  
 
@@ -176,7 +177,7 @@ Om du vill arbeta med samlingar, i allmänhet matriser, strängar och ibland ord
 | [Tom](control-flow-expression-language-functions.md#empty) | Kontrollera om en samling är tom. |
 | [Första](control-flow-expression-language-functions.md#first) | Returnera det första objektet från en samling. |
 | [Korsningen](control-flow-expression-language-functions.md#intersection) | Returnera en samling som *bara* har de vanliga objekten i de angivna samlingarna. |
-| [join](control-flow-expression-language-functions.md#join) | Returnera en sträng som har *alla* objekt från en matris, avgränsade med det angivna tecknet. |
+| [Ansluta sig till](control-flow-expression-language-functions.md#join) | Returnera en sträng som har *alla* objekt från en matris, avgränsade med det angivna tecknet. |
 | [Senaste](control-flow-expression-language-functions.md#last) | Returnera det sista objektet från en samling. |
 | [Längd](control-flow-expression-language-functions.md#length) | Returnera antalet objekt i en sträng eller matris. |
 | [Hoppa över](control-flow-expression-language-functions.md#skip) | Ta bort objekt från framsidan av en samling och returnera *alla andra* objekt. |
@@ -229,7 +230,7 @@ Dessa funktioner är användbara inuti villkor, kan de användas för att utvär
 | [float](control-flow-expression-language-functions.md#float) | Returnera ett flyttalsnummer för ett indatavärde. |
 | [int](control-flow-expression-language-functions.md#int) | Returnera heltalsversionen för en sträng. |
 | [Json](control-flow-expression-language-functions.md#json) | Returnera typvärdet eller objektet för JavaScript-objekt (JSON) för en sträng eller XML. |
-| [sträng](control-flow-expression-language-functions.md#string) | Returnera strängversionen för ett indatavärde. |
+| [Sträng](control-flow-expression-language-functions.md#string) | Returnera strängversionen för ett indatavärde. |
 | [uriKompent](control-flow-expression-language-functions.md#uriComponent) | Returnera den URI-kodade versionen för ett indatavärde genom att ersätta URL-osäkra tecken med escape-tecken. |
 | [uriKompentTillbinären](control-flow-expression-language-functions.md#uriComponentToBinary) | Returnera den binära versionen för en URI-kodad sträng. |
 | [uriKompent TillString](control-flow-expression-language-functions.md#uriComponentToString) | Returnera strängversionen för en URI-kodad sträng. |
@@ -322,14 +323,14 @@ addDays('<timestamp>', <days>, '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | String | Strängen som innehåller tidsstämpeln |
+| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
 | <*Dagar*> | Ja | Integer | Det positiva eller negativa antalet dagar som ska läggas till |
-| <*Format*> | Inga | String | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad tidsstämpel*> | String | Tidsstämpeln plus det angivna antalet dagar  |
+| <*uppdaterad tidsstämpel*> | Sträng | Tidsstämpeln plus det angivna antalet dagar  |
 ||||
 
 *Exempel 1*
@@ -364,14 +365,14 @@ addHours('<timestamp>', <hours>, '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | String | Strängen som innehåller tidsstämpeln |
+| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
 | <*Timmar*> | Ja | Integer | Det positiva eller negativa antalet timmar som ska läggas till |
-| <*Format*> | Inga | String | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad tidsstämpel*> | String | Tidsstämpeln plus det angivna antalet timmar  |
+| <*uppdaterad tidsstämpel*> | Sträng | Tidsstämpeln plus det angivna antalet timmar  |
 ||||
 
 *Exempel 1*
@@ -406,14 +407,14 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | String | Strängen som innehåller tidsstämpeln |
+| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
 | <*Minuter*> | Ja | Integer | Det positiva eller negativa antalet minuter som ska läggas till |
-| <*Format*> | Inga | String | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad tidsstämpel*> | String | Tidsstämpeln plus det angivna antalet minuter |
+| <*uppdaterad tidsstämpel*> | Sträng | Tidsstämpeln plus det angivna antalet minuter |
 ||||
 
 *Exempel 1*
@@ -448,14 +449,14 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | String | Strängen som innehåller tidsstämpeln |
+| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
 | <*Sekunder*> | Ja | Integer | Det positiva eller negativa antalet sekunder som ska läggas till |
-| <*Format*> | Inga | String | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad tidsstämpel*> | String | Tidsstämpeln plus det angivna antalet sekunder  |
+| <*uppdaterad tidsstämpel*> | Sträng | Tidsstämpeln plus det angivna antalet sekunder  |
 ||||
 
 *Exempel 1*
@@ -491,15 +492,15 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | String | Strängen som innehåller tidsstämpeln |
+| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
 | <*Intervall*> | Ja | Integer | Antalet angivna tidsenheter som ska läggas till |
-| <*tidUnit*> | Ja | String | Den tidsenhet som ska användas med *intervall:*"Sekund", "Minut", "Timme", "Dag", "Vecka", "Månad", "År" |
-| <*Format*> | Inga | String | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*tidUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *intervall:*"Sekund", "Minut", "Timme", "Dag", "Vecka", "Månad", "År" |
+| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad tidsstämpel*> | String | Tidsstämpeln plus det angivna antalet tidsenheter  |
+| <*uppdaterad tidsstämpel*> | Sträng | Tidsstämpeln plus det angivna antalet tidsenheter  |
 ||||
 
 *Exempel 1*
@@ -535,12 +536,12 @@ and(<expression1>, <expression2>, ...)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*uttryck1*>, <*uttryck2*>, ... | Ja | Boolean | De uttryck som ska kontrolleras |
+| <*uttryck1*>, <*uttryck2*>, ... | Ja | Boolesk | De uttryck som ska kontrolleras |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | -----| ----------- |
-| sant eller falskt | Boolean | Returnera sant när alla uttryck är sanna. Returnera falskt när minst ett uttryck är falskt. |
+| sant eller falskt | Boolesk | Returnera sant när alla uttryck är sanna. Returnera falskt när minst ett uttryck är falskt. |
 ||||
 
 *Exempel 1*
@@ -588,7 +589,7 @@ array('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | String | Strängen för att skapa en matris |
+| <*Värde*> | Ja | Sträng | Strängen för att skapa en matris |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -618,12 +619,12 @@ base64('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | String | Ingångssträngen |
+| <*Värde*> | Ja | Sträng | Ingångssträngen |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*base64-sträng*> | String | Den base64-kodade versionen för indatasträngen |
+| <*base64-sträng*> | Sträng | Den base64-kodade versionen för indatasträngen |
 ||||
 
 *Exempel*
@@ -648,12 +649,12 @@ base64ToBinary('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | String | Den base64-kodade strängen för att konvertera |
+| <*Värde*> | Ja | Sträng | Den base64-kodade strängen för att konvertera |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*binär-för-bas64-sträng*> | String | Den binära versionen för den base64-kodade strängen |
+| <*binär-för-bas64-sträng*> | Sträng | Den binära versionen för den base64-kodade strängen |
 ||||
 
 *Exempel*
@@ -682,12 +683,12 @@ base64ToString('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | String | Den base64-kodade strängen för att avkoda |
+| <*Värde*> | Ja | Sträng | Den base64-kodade strängen för att avkoda |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*avkodad-base64-sträng*> | String | Strängversionen för en base64-kodad sträng |
+| <*avkodad-base64-sträng*> | Sträng | Strängversionen för en base64-kodad sträng |
 ||||
 
 *Exempel*
@@ -712,12 +713,12 @@ binary('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | String | Strängen som ska konverteras |
+| <*Värde*> | Ja | Sträng | Strängen som ska konverteras |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*binärt-för-in-värde*> | String | Den binära versionen för den angivna strängen |
+| <*binärt-för-in-värde*> | Sträng | Den binära versionen för den angivna strängen |
 ||||
 
 *Exempel*
@@ -749,7 +750,7 @@ bool(<value>)
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt | Boolean | Den booleska versionen för det angivna värdet |
+| sant eller falskt | Boolesk | Den booleska versionen för det angivna värdet |
 ||||
 
 *Exempel*
@@ -815,12 +816,12 @@ concat('<text1>', '<text2>', ...)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*text1*>, <*text2*>, ... | Ja | String | Minst två strängar för att kombinera |
+| <*text1*>, <*text2*>, ... | Ja | Sträng | Minst två strängar för att kombinera |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*text1text2...*> | String | Strängen som skapats från de kombinerade indatasträngarna |
+| <*text1text2...*> | Sträng | Strängen som skapats från de kombinerade indatasträngarna |
 ||||
 
 *Exempel*
@@ -860,7 +861,7 @@ Den här funktionen fungerar specifikt på dessa samlingstyper:
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt | Boolean | Returnera sant när objektet hittas. Returnera falskt när det inte hittas. |
+| sant eller falskt | Boolesk | Returnera sant när objektet hittas. Returnera falskt när det inte hittas. |
 ||||
 
 *Exempel 1*
@@ -891,14 +892,14 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | String | Strängen som innehåller tidsstämpeln |
-| <*destinationTimeZone*> | Ja | String | Namnet på måltidszonen. För tidszonsnamn finns i [Microsofts tidszonsindexvärden](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tidszonsnamnet. |
-| <*Format*> | Inga | String | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
+| <*destinationTimeZone*> | Ja | Sträng | Namnet på måltidszonen. För tidszonsnamn finns i [Microsofts tidszonsindexvärden](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tidszonsnamnet. |
+| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*konverterad tidsstämpel*> | String | Tidsstämpeln konverteras till måltidszonen |
+| <*konverterad tidsstämpel*> | Sträng | Tidsstämpeln konverteras till måltidszonen |
 ||||
 
 *Exempel 1*
@@ -933,15 +934,15 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | String | Strängen som innehåller tidsstämpeln |
-| <*källaTimeZone*> | Ja | String | Namnet på källtidszonen. För tidszonsnamn finns i [Microsofts tidszonsindexvärden](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tidszonsnamnet. |
-| <*destinationTimeZone*> | Ja | String | Namnet på måltidszonen. För tidszonsnamn finns i [Microsofts tidszonsindexvärden](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tidszonsnamnet. |
-| <*Format*> | Inga | String | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
+| <*källaTimeZone*> | Ja | Sträng | Namnet på källtidszonen. För tidszonsnamn finns i [Microsofts tidszonsindexvärden](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tidszonsnamnet. |
+| <*destinationTimeZone*> | Ja | Sträng | Namnet på måltidszonen. För tidszonsnamn finns i [Microsofts tidszonsindexvärden](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tidszonsnamnet. |
+| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*konverterad tidsstämpel*> | String | Tidsstämpeln konverteras till måltidszonen |
+| <*konverterad tidsstämpel*> | Sträng | Tidsstämpeln konverteras till måltidszonen |
 ||||
 
 *Exempel 1*
@@ -976,14 +977,14 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | String | Strängen som innehåller tidsstämpeln |
-| <*källaTimeZone*> | Ja | String | Namnet på källtidszonen. För tidszonsnamn finns i [Microsofts tidszonsindexvärden](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tidszonsnamnet. |
-| <*Format*> | Inga | String | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
+| <*källaTimeZone*> | Ja | Sträng | Namnet på källtidszonen. För tidszonsnamn finns i [Microsofts tidszonsindexvärden](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), men du kanske måste ta bort eventuella skiljetecken från tidszonsnamnet. |
+| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*konverterad tidsstämpel*> | String | Tidsstämpeln konverterad till UTC |
+| <*konverterad tidsstämpel*> | Sträng | Tidsstämpeln konverterad till UTC |
 ||||
 
 *Exempel 1*
@@ -1049,12 +1050,12 @@ dataUri('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | String | Strängen som ska konverteras |
+| <*Värde*> | Ja | Sträng | Strängen som ska konverteras |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*data-uri*> | String | Data-URI för indatasträngen |
+| <*data-uri*> | Sträng | Data-URI för indatasträngen |
 ||||
 
 *Exempel*
@@ -1081,12 +1082,12 @@ dataUriToBinary('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | String | De data URI att konvertera |
+| <*Värde*> | Ja | Sträng | De data URI att konvertera |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*binär-för-data-uri*> | String | Den binära versionen för data URI |
+| <*binär-för-data-uri*> | Sträng | Den binära versionen för data URI |
 ||||
 
 *Exempel*
@@ -1116,12 +1117,12 @@ dataUriToString('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | String | De data URI att konvertera |
+| <*Värde*> | Ja | Sträng | De data URI att konvertera |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*sträng-för-data-uri*> | String | Strängversionen för data-URI |
+| <*sträng-för-data-uri*> | Sträng | Strängversionen för data-URI |
 ||||
 
 *Exempel*
@@ -1146,7 +1147,7 @@ dayOfMonth('<timestamp>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | String | Strängen som innehåller tidsstämpeln |
+| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -1176,7 +1177,7 @@ dayOfWeek('<timestamp>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | String | Strängen som innehåller tidsstämpeln |
+| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -1206,7 +1207,7 @@ dayOfYear('<timestamp>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | String | Strängen som innehåller tidsstämpeln |
+| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -1238,12 +1239,12 @@ decodeBase64('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | String | Den base64-kodade strängen för att avkoda |
+| <*Värde*> | Ja | Sträng | Den base64-kodade strängen för att avkoda |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*avkodad-base64-sträng*> | String | Strängversionen för en base64-kodad sträng |
+| <*avkodad-base64-sträng*> | Sträng | Strängversionen för en base64-kodad sträng |
 ||||
 
 *Exempel*
@@ -1270,12 +1271,12 @@ decodeDataUri('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | String | Den data-URI-sträng som ska avkodas |
+| <*Värde*> | Ja | Sträng | Den data-URI-sträng som ska avkodas |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*binär-för-data-uri*> | String | Den binära versionen för en data-URI-sträng |
+| <*binär-för-data-uri*> | Sträng | Den binära versionen för en data-URI-sträng |
 ||||
 
 *Exempel*
@@ -1305,12 +1306,12 @@ decodeUriComponent('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | String | Strängen med escape-tecknen för att avkoda |
+| <*Värde*> | Ja | Sträng | Strängen med escape-tecknen för att avkoda |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*avkodad-uri*> | String | Den uppdaterade strängen med de avkodade escape-tecknen |
+| <*avkodad-uri*> | Sträng | Den uppdaterade strängen med de avkodade escape-tecknen |
 ||||
 
 *Exempel*
@@ -1370,12 +1371,12 @@ encodeUriComponent('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | String | Strängen som ska konverteras till URI-kodat format |
+| <*Värde*> | Ja | Sträng | Strängen som ska konverteras till URI-kodat format |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*kodad-uri*> | String | Den URI-kodade strängen med escape-tecken |
+| <*kodad-uri*> | Sträng | Den URI-kodade strängen med escape-tecken |
 ||||
 
 *Exempel*
@@ -1407,7 +1408,7 @@ empty([<collection>])
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt | Boolean | Returnera sant när samlingen är tom. Returnera falskt när du inte är tom. |
+| sant eller falskt | Boolesk | Returnera sant när samlingen är tom. Returnera falskt när du inte är tom. |
 ||||
 
 *Exempel*
@@ -1438,13 +1439,13 @@ endsWith('<text>', '<searchText>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Text*> | Ja | String | Strängen för att kontrollera |
-| <*söktext*> | Ja | String | Den avslutande delsträngen för att hitta |
+| <*Text*> | Ja | Sträng | Strängen för att kontrollera |
+| <*söktext*> | Ja | Sträng | Den avslutande delsträngen för att hitta |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt  | Boolean | Returnera sant när den avslutande delsträngen hittas. Returnera falskt när det inte hittas. |
+| sant eller falskt  | Boolesk | Returnera sant när den avslutande delsträngen hittas. Returnera falskt när det inte hittas. |
 ||||
 
 *Exempel 1*
@@ -1485,7 +1486,7 @@ equals('<object1>', '<object2>')
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt | Boolean | Returnera sant när båda är likvärdiga. Returnera falskt när den inte är likvärdig. |
+| sant eller falskt | Boolesk | Returnera sant när båda är likvärdiga. Returnera falskt när den inte är likvärdig. |
 ||||
 
 *Exempel*
@@ -1549,7 +1550,7 @@ float('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | String | Strängen som har ett giltigt flyttalsnummer för att konvertera |
+| <*Värde*> | Ja | Sträng | Strängen som har ett giltigt flyttalsnummer för att konvertera |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -1579,13 +1580,13 @@ formatDateTime('<timestamp>', '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | String | Strängen som innehåller tidsstämpeln |
-| <*Format*> | Inga | String | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
+| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*formaterad tidsstämpel*> | String | Den uppdaterade tidsstämpeln i angivet format |
+| <*formaterad tidsstämpel*> | Sträng | Den uppdaterade tidsstämpeln i angivet format |
 ||||
 
 *Exempel*
@@ -1611,13 +1612,13 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
 | <*Intervall*> | Ja | Integer | Antalet angivna tidsenheter som ska läggas till |
-| <*tidUnit*> | Ja | String | Den tidsenhet som ska användas med *intervall:*"Sekund", "Minut", "Timme", "Dag", "Vecka", "Månad", "År" |
-| <*Format*> | Inga | String | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*tidUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *intervall:*"Sekund", "Minut", "Timme", "Dag", "Vecka", "Månad", "År" |
+| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad tidsstämpel*> | String | Den aktuella tidsstämpeln plus det angivna antalet tidsenheter |
+| <*uppdaterad tidsstämpel*> | Sträng | Den aktuella tidsstämpeln plus det angivna antalet tidsenheter |
 ||||
 
 *Exempel 1*
@@ -1655,13 +1656,13 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
 | <*Intervall*> | Ja | Integer | Antalet angivna tidsenheter som ska subtraheras |
-| <*tidUnit*> | Ja | String | Den tidsenhet som ska användas med *intervall:*"Sekund", "Minut", "Timme", "Dag", "Vecka", "Månad", "År" |
-| <*Format*> | Inga | String | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*tidUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *intervall:*"Sekund", "Minut", "Timme", "Dag", "Vecka", "Månad", "År" |
+| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad tidsstämpel*> | String | Den aktuella tidsstämpeln minus det angivna antalet tidsenheter |
+| <*uppdaterad tidsstämpel*> | Sträng | Den aktuella tidsstämpeln minus det angivna antalet tidsenheter |
 ||||
 
 *Exempel 1*
@@ -1706,7 +1707,7 @@ greater('<value>', '<compareTo>')
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt | Boolean | Returnera sant när det första värdet är större än det andra värdet. Returnera falskt när det första värdet är lika med eller mindre än det andra värdet. |
+| sant eller falskt | Boolesk | Returnera sant när det första värdet är större än det andra värdet. Returnera falskt när det första värdet är lika med eller mindre än det andra värdet. |
 ||||
 
 *Exempel*
@@ -1743,7 +1744,7 @@ greaterOrEquals('<value>', '<compareTo>')
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt | Boolean | Returnera sant när det första värdet är större än eller lika med det andra värdet. Returnera falskt när det första värdet är mindre än det andra värdet. |
+| sant eller falskt | Boolesk | Returnera sant när det första värdet är större än eller lika med det andra värdet. Returnera falskt när det första värdet är mindre än det andra värdet. |
 ||||
 
 *Exempel*
@@ -1778,12 +1779,12 @@ guid('<format>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Format*> | Inga | String | En enda [formatespecificerare](https://msdn.microsoft.com/library/97af8hh4) för det returnerade GUID.A single format specifier for the returned GUID. Som standard är formatet "D", men du kan använda "N", "D", "B", "P" eller "X". |
+| <*Format*> | Inga | Sträng | En enda [formatespecificerare](https://msdn.microsoft.com/library/97af8hh4) för det returnerade GUID.A single format specifier for the returned GUID. Som standard är formatet "D", men du kan använda "N", "D", "B", "P" eller "X". |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*GUID-värde*> | String | Ett slumpmässigt genererat GUID |
+| <*GUID-värde*> | Sträng | Ett slumpmässigt genererat GUID |
 ||||
 
 *Exempel*
@@ -1809,7 +1810,7 @@ if(<expression>, <valueIfTrue>, <valueIfFalse>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Uttryck*> | Ja | Boolean | Uttrycket som ska kontrolleras |
+| <*Uttryck*> | Ja | Boolesk | Uttrycket som ska kontrolleras |
 | <*värdeIfTrue*> | Ja | Alla | Värdet som ska returneras när uttrycket är sant |
 | <*värdeIfFalse*> | Ja | Alla | Värdet som ska returneras när uttrycket är falskt |
 |||||
@@ -1841,8 +1842,8 @@ indexOf('<text>', '<searchText>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Text*> | Ja | String | Strängen som har delsträngen för att hitta |
-| <*söktext*> | Ja | String | Delsträngen för att hitta |
+| <*Text*> | Ja | Sträng | Strängen som har delsträngen för att hitta |
+| <*söktext*> | Ja | Sträng | Delsträngen för att hitta |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -1872,7 +1873,7 @@ int('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | String | Strängen som ska konverteras |
+| <*Värde*> | Ja | Sträng | Strängen som ska konverteras |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -2005,12 +2006,12 @@ join([<collection>], '<delimiter>')
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
 | <*Samling*> | Ja | Matris | Matrisen som har de objekt som ska sammanfogas |
-| <*Avgränsare*> | Ja | String | Avgränsaren som visas mellan varje tecken i den resulterande strängen |
+| <*Avgränsare*> | Ja | Sträng | Avgränsaren som visas mellan varje tecken i den resulterande strängen |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*char1*><*avgränsare*><*char2*><*avgränsare*>... | String | Den resulterande strängen som skapats från alla objekt i den angivna matrisen |
+| <*char1*><*avgränsare*><*char2*><*avgränsare*>... | Sträng | Den resulterande strängen som skapats från alla objekt i den angivna matrisen |
 ||||
 
 *Exempel*
@@ -2071,8 +2072,8 @@ lastIndexOf('<text>', '<searchText>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Text*> | Ja | String | Strängen som har delsträngen för att hitta |
-| <*söktext*> | Ja | String | Delsträngen för att hitta |
+| <*Text*> | Ja | Sträng | Strängen som har delsträngen för att hitta |
+| <*söktext*> | Ja | Sträng | Delsträngen för att hitta |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -2142,7 +2143,7 @@ less('<value>', '<compareTo>')
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt | Boolean | Returnera sant när det första värdet är mindre än det andra värdet. Returnera falskt när det första värdet är lika med eller större än det andra värdet. |
+| sant eller falskt | Boolesk | Returnera sant när det första värdet är mindre än det andra värdet. Returnera falskt när det första värdet är lika med eller större än det andra värdet. |
 ||||
 
 *Exempel*
@@ -2179,7 +2180,7 @@ lessOrEquals('<value>', '<compareTo>')
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt  | Boolean | Returnera sant när det första värdet är mindre än eller lika med det andra värdet. Returnera falskt när det första värdet är större än det andra värdet. |
+| sant eller falskt  | Boolesk | Returnera sant när det första värdet är mindre än eller lika med det andra värdet. Returnera falskt när det första värdet är större än det andra värdet. |
 ||||
 
 *Exempel*
@@ -2342,12 +2343,12 @@ not(<expression>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Uttryck*> | Ja | Boolean | Uttrycket som ska kontrolleras |
+| <*Uttryck*> | Ja | Boolesk | Uttrycket som ska kontrolleras |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt | Boolean | Returnera sant när uttrycket är falskt. Returnera falskt när uttrycket är sant. |
+| sant eller falskt | Boolesk | Returnera sant när uttrycket är falskt. Returnera falskt när uttrycket är sant. |
 ||||
 
 *Exempel 1*
@@ -2391,12 +2392,12 @@ or(<expression1>, <expression2>, ...)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*uttryck1*>, <*uttryck2*>, ... | Ja | Boolean | De uttryck som ska kontrolleras |
+| <*uttryck1*>, <*uttryck2*>, ... | Ja | Boolesk | De uttryck som ska kontrolleras |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt | Boolean | Returnera sant när minst ett uttryck är sant. Returnera falskt när alla uttryck är falska. |
+| sant eller falskt | Boolesk | Returnera sant när minst ett uttryck är sant. Returnera falskt när alla uttryck är falska. |
 ||||
 
 *Exempel 1*
@@ -2501,14 +2502,14 @@ replace('<text>', '<oldText>', '<newText>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Text*> | Ja | String | Strängen som har delsträngen för att ersätta |
-| <*gammalText*> | Ja | String | Delsträngen för att ersätta |
-| <*nytext*> | Ja | String | Ersättningssträngen |
+| <*Text*> | Ja | Sträng | Strängen som har delsträngen för att ersätta |
+| <*gammalText*> | Ja | Sträng | Delsträngen för att ersätta |
+| <*nytext*> | Ja | Sträng | Ersättningssträngen |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad text*> | String | Den uppdaterade strängen efter att ha ersatt delsträngen <p>Om delsträngen inte hittas returnerar du den ursprungliga strängen. |
+| <*uppdaterad text*> | Sträng | Den uppdaterade strängen efter att ha ersatt delsträngen <p>Om delsträngen inte hittas returnerar du den ursprungliga strängen. |
 ||||
 
 *Exempel*
@@ -2564,8 +2565,8 @@ split('<text>', '<delimiter>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Text*> | Ja | String | Strängen som ska separeras i delsträngar baserat på den angivna avgränsaren i den ursprungliga strängen |
-| <*Avgränsare*> | Ja | String | Tecknet i den ursprungliga strängen som ska användas som avgränsare |
+| <*Text*> | Ja | Sträng | Strängen som ska separeras i delsträngar baserat på den angivna avgränsaren i den ursprungliga strängen |
+| <*Avgränsare*> | Ja | Sträng | Tecknet i den ursprungliga strängen som ska användas som avgränsare |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -2595,13 +2596,13 @@ startOfDay('<timestamp>', '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | String | Strängen som innehåller tidsstämpeln |
-| <*Format*> | Inga | String | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
+| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad tidsstämpel*> | String | Den angivna tidsstämpeln men börjar vid nolltimmarsmarkeringen för dagen |
+| <*uppdaterad tidsstämpel*> | Sträng | Den angivna tidsstämpeln men börjar vid nolltimmarsmarkeringen för dagen |
 ||||
 
 *Exempel*
@@ -2626,13 +2627,13 @@ startOfHour('<timestamp>', '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | String | Strängen som innehåller tidsstämpeln |
-| <*Format*> | Inga | String | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
+| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad tidsstämpel*> | String | Den angivna tidsstämpeln men börjar vid nollminutmärket för timmen |
+| <*uppdaterad tidsstämpel*> | Sträng | Den angivna tidsstämpeln men börjar vid nollminutmärket för timmen |
 ||||
 
 *Exempel*
@@ -2657,13 +2658,13 @@ startOfMonth('<timestamp>', '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | String | Strängen som innehåller tidsstämpeln |
-| <*Format*> | Inga | String | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
+| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad tidsstämpel*> | String | Den angivna tidsstämpeln men med början den första dagen i månaden vid nolltimmarsstrecket |
+| <*uppdaterad tidsstämpel*> | Sträng | Den angivna tidsstämpeln men med början den första dagen i månaden vid nolltimmarsstrecket |
 ||||
 
 *Exempel*
@@ -2690,13 +2691,13 @@ startsWith('<text>', '<searchText>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Text*> | Ja | String | Strängen för att kontrollera |
-| <*söktext*> | Ja | String | Startsträngen för att hitta |
+| <*Text*> | Ja | Sträng | Strängen för att kontrollera |
+| <*söktext*> | Ja | Sträng | Startsträngen för att hitta |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| sant eller falskt  | Boolean | Returnera sant när startundersträngningen hittas. Returnera falskt när det inte hittas. |
+| sant eller falskt  | Boolesk | Returnera sant när startundersträngningen hittas. Returnera falskt när det inte hittas. |
 ||||
 
 *Exempel 1*
@@ -2736,7 +2737,7 @@ string(<value>)
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*strängvärde*> | String | Strängversionen för det angivna värdet |
+| <*strängvärde*> | Sträng | Strängversionen för det angivna värdet |
 ||||
 
 *Exempel 1*
@@ -2803,14 +2804,14 @@ substring('<text>', <startIndex>, <length>)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Text*> | Ja | String | Strängen vars tecken du vill använda |
+| <*Text*> | Ja | Sträng | Strängen vars tecken du vill använda |
 | <*startIndex (startIndex)*> | Ja | Integer | Ett positivt tal som är lika med eller större än 0 som du vill använda som startposition eller indexvärde |
 | <*Längd*> | Ja | Integer | Ett positivt antal tecken som du vill ha i delsträngen |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*delsträngsresultat*> | String | En delsträng med angivet antal tecken, med början vid den angivna indexpositionen i källsträngen |
+| <*delsträngsresultat*> | Sträng | En delsträng med angivet antal tecken, med början vid den angivna indexpositionen i källsträngen |
 ||||
 
 *Exempel*
@@ -2836,15 +2837,15 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | String | Strängen som innehåller tidsstämpeln |
+| <*Tidsstämpel*> | Ja | Sträng | Strängen som innehåller tidsstämpeln |
 | <*Intervall*> | Ja | Integer | Antalet angivna tidsenheter som ska subtraheras |
-| <*tidUnit*> | Ja | String | Den tidsenhet som ska användas med *intervall:*"Sekund", "Minut", "Timme", "Dag", "Vecka", "Månad", "År" |
-| <*Format*> | Inga | String | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*tidUnit*> | Ja | Sträng | Den tidsenhet som ska användas med *intervall:*"Sekund", "Minut", "Timme", "Dag", "Vecka", "Månad", "År" |
+| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*uppdaterad tidsstämpel*> | String | Tidsstämpeln minus det angivna antalet tidsenheter |
+| <*uppdaterad tidsstämpel*> | Sträng | Tidsstämpeln minus det angivna antalet tidsenheter |
 ||||
 
 *Exempel 1*
@@ -2916,7 +2917,7 @@ ticks('<timestamp>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Tidsstämpel*> | Ja | String | Strängen för en tidsstämpel |
+| <*Tidsstämpel*> | Ja | Sträng | Strängen för en tidsstämpel |
 |||||
 
 | Returvärde | Typ | Beskrivning |
@@ -2936,12 +2937,12 @@ toLower('<text>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Text*> | Ja | String | Strängen som ska returneras i gemener |
+| <*Text*> | Ja | Sträng | Strängen som ska returneras i gemener |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*gemener-text*> | String | Den ursprungliga strängen i gemener |
+| <*gemener-text*> | Sträng | Den ursprungliga strängen i gemener |
 ||||
 
 *Exempel*
@@ -2966,12 +2967,12 @@ toUpper('<text>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Text*> | Ja | String | Strängen som ska returneras i versaler |
+| <*Text*> | Ja | Sträng | Strängen som ska returneras i versaler |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*versaler-text*> | String | Den ursprungliga strängen i versaler |
+| <*versaler-text*> | Sträng | Den ursprungliga strängen i versaler |
 ||||
 
 *Exempel*
@@ -2996,12 +2997,12 @@ trim('<text>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Text*> | Ja | String | Strängen som har det inledande och avslutande blanksteget för att ta bort |
+| <*Text*> | Ja | Sträng | Strängen som har det inledande och avslutande blanksteget för att ta bort |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*updatedText*> | String | En uppdaterad version för den ursprungliga strängen utan inledande eller avslutande blanktecken |
+| <*updatedText*> | Sträng | En uppdaterad version för den ursprungliga strängen utan inledande eller avslutande blanktecken |
 ||||
 
 *Exempel*
@@ -3060,12 +3061,12 @@ uriComponent('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | String | Strängen som ska konverteras till URI-kodat format |
+| <*Värde*> | Ja | Sträng | Strängen som ska konverteras till URI-kodat format |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*kodad-uri*> | String | Den URI-kodade strängen med escape-tecken |
+| <*kodad-uri*> | Sträng | Den URI-kodade strängen med escape-tecken |
 ||||
 
 *Exempel*
@@ -3090,12 +3091,12 @@ uriComponentToBinary('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | String | Den URI-kodade strängen för att konvertera |
+| <*Värde*> | Ja | Sträng | Den URI-kodade strängen för att konvertera |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*binär-för-kodad-uri*> | String | Den binära versionen för den URI-kodade strängen. Det binära innehållet är base64-kodat `$content`och representerat av . |
+| <*binär-för-kodad-uri*> | Sträng | Den binära versionen för den URI-kodade strängen. Det binära innehållet är base64-kodat `$content`och representerat av . |
 ||||
 
 *Exempel*
@@ -3125,12 +3126,12 @@ uriComponentToString('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | String | Den URI-kodade strängen för att avkoda |
+| <*Värde*> | Ja | Sträng | Den URI-kodade strängen för att avkoda |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*avkodad-uri*> | String | Den avkodade versionen för den URI-kodade strängen |
+| <*avkodad-uri*> | Sträng | Den avkodade versionen för den URI-kodade strängen |
 ||||
 
 *Exempel*
@@ -3157,12 +3158,12 @@ Du kan också ange ett annat format med parametern <*format*>.
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Format*> | Inga | String | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
+| <*Format*> | Inga | Sträng | Antingen en [enda formatespecificerare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat formatmönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformatet för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss:fffffffK), som överensstämmer med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tidszonsinformation. |
 |||||
 
 | Returvärde | Typ | Beskrivning |
 | ------------ | ---- | ----------- |
-| <*aktuell tidsstämpel*> | String | Aktuellt datum och aktuell tid |
+| <*aktuell tidsstämpel*> | Sträng | Aktuellt datum och aktuell tid |
 ||||
 
 *Exempel 1*
@@ -3199,7 +3200,7 @@ xml('<value>')
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*Värde*> | Ja | String | Strängen med JSON-objektet för att konvertera <p>JSON-objektet får bara ha en rotegenskap, vilket inte kan vara en matris. <br>Använd omvänt snedstreck\\( ) som ett escape-tecken för det dubbla citattecknet ("). |
+| <*Värde*> | Ja | Sträng | Strängen med JSON-objektet för att konvertera <p>JSON-objektet får bara ha en rotegenskap, vilket inte kan vara en matris. <br>Använd omvänt snedstreck\\( ) som ett escape-tecken för det dubbla citattecknet ("). |
 |||||
 
 | Returvärde | Typ | Beskrivning |

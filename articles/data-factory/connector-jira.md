@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: ecb982f461fcb2afe3e538dfde8aed368bdacb6c
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: ddf752fc78c8c6bb2d7e7a57178b9cf2d719b810
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80992138"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418209"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory"></a>Kopiera data från Jira med Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från Jira. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
 

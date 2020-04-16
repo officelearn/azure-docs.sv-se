@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 9/03/2019
-ms.openlocfilehash: 80c9929f37b4890387a7625f04db6ce3e37f0cdd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a0263880262da95f4d26ee8388da464e9a59efca
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74922123"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416443"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Använda Azure Data Factory för att migrera data från en lokal Netezza-server till Azure 
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Azure Data Factory tillhandahåller en högpresterande, robust och kostnadseffektiv mekanism för att migrera data i stor skala från en lokal Netezza-server till ditt Azure-lagringskonto eller Azure SQL Data Warehouse-databas. 
 
@@ -139,7 +141,7 @@ Varje tabell kan använda en annan vattenstämpelkolumn för att identifiera de 
 
 ### <a name="configure-a-self-hosted-integration-runtime"></a>Konfigurera en självvärd integreringskörning
 
-Om du migrerar data från Netezza-servern till Azure, oavsett om servern är lokal bakom företagets brandvägg eller i en virtuell nätverksmiljö, måste du installera en självvärd IR på en Windows-dator eller virtuell dator, som är den motor som används för att flytta data. När du installerar den självvärdbaserade IR rekommenderar vi följande metod:
+Om du migrerar data från Netezza-servern till Azure, oavsett om servern är lokal bakom företagets brandvägg eller i en virtuell nätverksmiljö, måste du installera en självvärd IR på en Windows-dator eller virtuell dator, som är motorn som används för att flytta data. När du installerar den självvärdbaserade IR rekommenderar vi följande metod:
 
 - För varje Windows-dator eller virtuell dator börjar du med en konfiguration av 32 vCPU- och 128 GB-minne. Du kan fortsätta att övervaka CPU och minnesanvändning för IR-datorn under datamigreringen för att se om du behöver skala upp datorn ytterligare för bättre prestanda eller skala ned datorn för att spara kostnader.
 
@@ -151,7 +153,7 @@ Gör ett prestandabevis (POC) med en representativ exempeldatauppsättning, så 
 
 Om du vill kopiera en tabell börjar du med en enda kopieringsaktivitet med en enda, självvärd ir-dator. `parallelCopies` Öka inställningen gradvis baserat på antalet datasegmentpartitioner i tabellen. Se om hela tabellen kan läsas in i Azure inom två timmar, enligt dataflödet som är resultatet av kopieringsjobbet. 
 
-Om den inte kan läsas in i Azure inom två timmar och kapaciteten för den självvärderade IR-noden och datalagret inte används fullt ut, ökar gradvis antalet samtidiga kopieringsaktiviteter tills du når gränsen för nätverket eller bandbreddsgränsen för data Butiker. 
+Om den inte kan läsas in i Azure inom två timmar och kapaciteten för den självvärderade IR-noden och datalagret inte används fullt ut, ökar gradvis antalet samtidiga kopieringsaktiviteter tills du når gränsen för nätverket eller bandbreddsgränsen för datalager. 
 
 Fortsätt att övervaka CPU- och minnesanvändningen på den självvärderade IR-datorn och var redo att skala upp datorn eller skala ut till flera datorer när du ser att processorn och minnet används fullt ut. 
 

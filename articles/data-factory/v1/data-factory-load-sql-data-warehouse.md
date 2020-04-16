@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 079d29c241cfbbdcc991f024c07b07b378670c10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0bef6b5e87e7f0964989db371014c305b97f1d12
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130892"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419314"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Ladda 1 TB i Azure SQL Data Warehouse under 15 minuter med Data Factory
 > [!NOTE]
@@ -26,7 +26,7 @@ ms.locfileid: "80130892"
 
 [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) är en molnbaserad, skalningsdatabas som kan bearbeta stora mängder data, både relationella och icke-relationella.  SQL Data Warehouse bygger på kraftigt parallell bearbetningsarkitektur (MPP) och är optimerat för arbetsbelastningar för företagsdatalager.  Det erbjuder molnelasticitet med flexibiliteten att skala lagring och beräkna oberoende av varandra.
 
-Det är nu enklare än någonsin **att**komma igång med Azure SQL Data Warehouse.  Azure Data Factory är en fullständigt hanterad molnbaserad dataintegrationstjänst, som kan användas för att fylla ett SQL Data Warehouse med data från ditt befintliga system, och spara värdefull tid samtidigt som du utvärderar SQL Data Warehouse och bygger din analys Lösningar. Här är de viktigaste fördelarna med att läsa in data i Azure SQL Data Warehouse med Azure Data Factory:
+Det är nu enklare än någonsin **att**komma igång med Azure SQL Data Warehouse.  Azure Data Factory är en fullständigt hanterad molnbaserad dataintegrationstjänst, som kan användas för att fylla ett SQL Data Warehouse med data från ditt befintliga system och spara värdefull tid samtidigt som du utvärderar SQL Data Warehouse och skapar dina analyslösningar. Här är de viktigaste fördelarna med att läsa in data i Azure SQL Data Warehouse med Azure Data Factory:
 
 * **Lätt att ställa in:** 5-stegs intuitiv guide utan skript krävs.
 * **Omfattande stöd för datalager**: inbyggt stöd för en omfattande uppsättning lokala och molnbaserade datalager.

@@ -12,14 +12,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
-ms.openlocfilehash: b905c75e920577e46017caeb456f8237421086b2
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: ff3b4799f42e85ad3df62ef18469a26120ae3021
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421214"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418090"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse via Open Hub med Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från ett SAP Business Warehouse (BW) via Open Hub. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
 
@@ -230,14 +231,14 @@ Vid kopiering av data från SAP BW Open Hub används följande mappningar från 
 
 | SAP ABAP-typ | Data fabrik interim datatyp |
 |:--- |:--- |
-| C (sträng) | String |
+| C (sträng) | Sträng |
 | I (heltal) | Int32 |
 | F (Flottör) | Double |
-| D (Datum) | String |
-| T (Tid) | String |
+| D (Datum) | Sträng |
+| T (Tid) | Sträng |
 | P (BCD-packad, valuta, decimal, ant) | Decimal |
-| N (Numc) | String |
-| X (binär och rå) | String |
+| N (Numc) | Sträng |
+| X (binär och rå) | Sträng |
 
 ## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
 

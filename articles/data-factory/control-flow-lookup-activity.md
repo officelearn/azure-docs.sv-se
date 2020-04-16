@@ -11,14 +11,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 08cc7ce8f306095a66bc0f8cf74dff8c8b551ecf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02abdaf46ca2af6c96d3b5e8d4ce5876831bd415
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440497"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418009"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Uppslagsaktivitet i Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Uppslagsaktivitet kan hämta en datauppsättning från någon av de Azure Data Factory-stödda datakällor. Använd den i följande scenario:
 - Kontrollera dynamiskt vilka objekt som ska användas i en efterföljande aktivitet, i stället för att koda objektnamnet. Några objektexempel är filer och tabeller.
@@ -57,7 +58,7 @@ Namn | Beskrivning | Typ | Krävs?
 ---- | ----------- | ---- | --------
 Datamängd | Innehåller datauppsättningsreferensen för sökningen. Hämta information från avsnittet Egenskaper för **datauppsättning** i varje motsvarande kopplingsartikel. | Nyckel/värdepar | Ja
 källa | Innehåller datauppsättningsspecifika källegenskaper, samma som källan Kopiera aktivitet. Hämta information från avsnittet **Kopiera aktivitetsegenskaper** i varje motsvarande kopplingsartikel. | Nyckel/värdepar | Ja
-förstRowOnly | Anger om bara den första raden eller alla rader ska returneras. | Boolean | Nej. Standardvärdet är `true`.
+förstRowOnly | Anger om bara den första raden eller alla rader ska returneras. | Boolesk | Nej. Standardvärdet är `true`.
 
 > [!NOTE]
 > 

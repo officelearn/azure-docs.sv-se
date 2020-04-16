@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d56964b7415e4ca5903950cd46c02b3c27f62d5e
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 4063751a71cd9cecc424dfe3daddaecfd9ea4071
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547421"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81421909"
 ---
 Med hjälp av Spot virtuella datorer kan du dra nytta av vår outnyttjade kapacitet till en betydande kostnadsbesparingar. När som helst när Azure behöver tillbaka kapaciteten kommer Azure-infrastrukturen att ta bort spot-datorer. Därför är spot-virtuella datorer bra för arbetsbelastningar som kan hantera avbrott som batchbearbetningsjobb, utvecklings-/testmiljöer, stora beräkningsarbetsbelastningar med mera.
 
@@ -88,6 +88,7 @@ Med rörlig prissättning har du möjlighet att ange ett maxpris, i US-dollar (U
 | Enterprise-avtal         | Ja                               |
 | Betala per användning                | Ja                               |
 | Molntjänstleverantör (CSP) | [Kontakta din partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Microsoft-kundavtal | Ja                               |
 | Fördelar                     | Inte tillgängligt                     |
 | Sponsrade                    | Inte tillgängligt                     |
 | Kostnadsfri utvärderingsversion                   | Inte tillgängligt                     |

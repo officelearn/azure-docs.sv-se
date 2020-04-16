@@ -12,17 +12,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.openlocfilehash: 0c37d77ca73ddbe8b79351f90275a1d639757633
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2f8406038be10ba3bdc207bf447fecb86a376fe8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74923744"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418073"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-sap-business-warehouse-connector.md)
 > * [Aktuell version](connector-sap-business-warehouse.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från ett SAP Business Warehouse (BW). Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
 
@@ -180,27 +181,27 @@ Vid kopiering av data från SAP BW används följande mappningar från SAP BW-da
 | SAP BW-datatyp | Data fabrik interim datatyp |
 |:--- |:--- |
 | ACCP (på andra) | Int |
-| CHAR | String |
-| Clnt | String |
+| CHAR | Sträng |
+| Clnt | Sträng |
 | CURR (HÄRD) | Decimal |
-| CUKY (K.) | String |
+| CUKY (K.) | Sträng |
 | December | Decimal |
 | FLTP (PÅ) | Double |
 | INT1 (INT1) | Byte |
 | INT2 (INT2) | Int16 (int16) |
 | INT4 (INT4) | Int |
-| Lang | String |
-| LCHR (på andra) | String |
+| Lang | Sträng |
+| LCHR (på andra) | Sträng |
 | LRAW (LRAW) | Byte[] |
 | PREC (PREC) | Int16 (int16) |
 | Quan | Decimal |
 | Raw | Byte[] |
 | RÅSNSTRÄNG | Byte[] |
-| Sträng | String |
-| Enhet | String |
-| Dats | String |
-| NUMC (NUMC) | String |
-| TIMS (AVS) | String |
+| Sträng | Sträng |
+| Enhet | Sträng |
+| Dats | Sträng |
+| NUMC (NUMC) | Sträng |
+| TIMS (AVS) | Sträng |
 
 
 ## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet

@@ -11,21 +11,22 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
-ms.openlocfilehash: d97b3caccc92f0fdfeb229d94e30ee6499c26181
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea68fa8d9326e6d9ebb4f475d16ac83959cae6e5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74912413"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416874"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Kopiera data från Office 365 till Azure med Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Factory integreras med [Microsoft Graph-dataanslutning,](https://docs.microsoft.com/graph/data-connect-concept-overview)så att du kan föra in de omfattande organisationsdata i din Office 365-klientorganisation i Azure på ett skalbart sätt och skapa analysprogram och extrahera insikter baserat på dessa värdefulla datatillgångar. Integrering med privilegierad åtkomsthantering ger säker åtkomstkontroll för värdefulla kurerade data i Office 365.  Mer information finns i [den här länken](https://docs.microsoft.com/graph/data-connect-concept-overview) om Microsoft Graph-dataanslutning och mer information om den här [länken.](https://docs.microsoft.com/graph/data-connect-policies#licensing)
 
 I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från Office 365. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
-ADF Office 365-anslutningsappen och Microsoft Graph-dataanslutning möjliggör skalning av olika typer av datauppsättningar från Exchange-e-postlådor, inklusive adressbokskontakter, kalenderhändelser, e-postmeddelanden, användarinformation, postlådeinställningar och så vidare.  Se [här](https://docs.microsoft.com/graph/data-connect-datasets) för att se hela listan över tillgängliga datauppsättningar.
+ADF Office 365-anslutningsappen och Microsoft Graph-dataanslutning möjliggör inmatning av olika typer av datauppsättningar från Exchange-e-postlådor, inklusive adressbokskontakter, kalenderhändelser, e-postmeddelanden, användarinformation, postlådeinställningar och så vidare.  Se [här](https://docs.microsoft.com/graph/data-connect-datasets) för att se hela listan över tillgängliga datauppsättningar.
 
 För tillfället kan du inom en enda kopieringsaktivitet bara **kopiera data från Office 365 till Azure [Blob Storage,](connector-azure-blob-storage.md) [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)och [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) i JSON-format** (typ setOfObjects). Om du vill läsa in Office 365 i andra typer av datalager eller i andra format kan du kedja den första kopieringsaktiviteten med en efterföljande kopieringsaktivitet för att ytterligare läsa in data i någon av de [ADF-målarkiv](copy-activity-overview.md#supported-data-stores-and-formats) som stöds (se kolumnen "stöds som en diskbänk" i tabellen "Datalager och format som stöds" som stöds).
 
@@ -63,11 +64,11 @@ Om ADF skapas som en del av en hanterad app och Azure-principtilldelningar görs
 
 Du kan skapa en pipeline med kopieringsaktiviteten med hjälp av något av följande verktyg eller SDK:er. Välj en länk för att gå till en självstudiekurs med steg-för-steg-instruktioner för att skapa en pipeline med en kopieringsaktivitet. 
 
-- [Azure-portal](quickstart-create-data-factory-portal.md)
+- [Azure Portal](quickstart-create-data-factory-portal.md)
 - [.NET SDK](quickstart-create-data-factory-dot-net.md)
 - [Python SDK](quickstart-create-data-factory-python.md)
 - [Azure PowerShell](quickstart-create-data-factory-powershell.md)
-- [REST API](quickstart-create-data-factory-rest-api.md)
+- [REST-API](quickstart-create-data-factory-rest-api.md)
 - [Azure Resource Manager-mall](quickstart-create-data-factory-resource-manager-template.md). 
 
 I följande avsnitt finns information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Office 365-anslutningsappen.

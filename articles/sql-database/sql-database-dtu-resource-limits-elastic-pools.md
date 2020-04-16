@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 03/14/2019
-ms.openlocfilehash: 7b7ef3b6f2d400dafb28cfb7a15cf95cbbe2c457
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 76085dc29d40944cf704dbc5efc578b3314f499a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351011"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419246"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Resursgränser för elastiska pooler med hjälp av DTU-inköpsmodellen
 
@@ -32,6 +32,9 @@ För elastiska SQL-databaspooler visar följande tabeller de resurser som är ti
 > För skalning av vägledning och överväganden finns i [Skala en elastisk pool](sql-database-elastic-pool-scale.md)
 > [!NOTE]
 > Resursgränserna för enskilda databaser i elastiska pooler är i allmänhet desamma som för enskilda databaser utanför pooler baserat på DTI:er och tjänstnivån. Till exempel är max samtidiga arbetare för en S2-databas 120 arbetare. Så, max samtidiga arbetare för en databas i en standardpool är också 120 arbetare om max DTU per databas i poolen är 50 DTU (vilket motsvarar S2).
+
+> [!NOTE]
+> Lagrings-per poolresursgränsen i var och en av följande tabeller innehåller inte tempdb- och logglagring.
 
 ### <a name="basic-elastic-pool-limits"></a>Gränser för grundläggande elastisk pool
 

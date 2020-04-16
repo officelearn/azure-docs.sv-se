@@ -10,18 +10,20 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 01/16/2018
-ms.openlocfilehash: 5d38e3126442bcf34c96cead2b2ea59507b50b8c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3060f7e36f9e2696194da12c3c800555103d271
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74912870"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418923"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Omvandla data med hadoop MapReduce-aktivitet i Azure Data Factory
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-map-reduce.md)
 > * [Aktuell version](transform-data-using-hadoop-map-reduce.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 HDInsight MapReduce-aktiviteten i en Data [Factory-pipeline](concepts-pipelines-activities.md) anropar MapReduce-programmet på [ditt eget](compute-linked-services.md#azure-hdinsight-linked-service) eller on-demand HDInsight-kluster. [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Den här artikeln bygger på artikeln [om dataomvandlingsaktiviteter,](transform-data.md) som ger en allmän översikt över dataomvandling och de omvandlingsaktiviteter som stöds.
 

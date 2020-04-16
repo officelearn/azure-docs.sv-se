@@ -11,17 +11,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: 4d729a0117c7c409d1a3e0c3fd440aed96153203
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ce63da745fb84ebccd57b246fc934f595dd7cda1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243593"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418260"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiera data från Amazon Redshift med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-amazon-redshift-connector.md)
 > * [Aktuell version](connector-amazon-redshift.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
 I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från en Amazon Redshift. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
@@ -164,7 +166,7 @@ Läs mer om hur du använder OLADDA för att kopiera data från Amazon Redshift 
 
 **Exempel: kopiera data från Amazon Redshift till Azure SQL Data Warehouse med hjälp av LOSSNING, stegvis kopia och PolyBase**
 
-För det här exempelet kan du ta bort data från Amazon Redshift till Amazon S3 som konfigurerats i "redshiftUnloadSettings" och sedan kopiera data från Amazon S3 till Azure Blob enligt vad som anges i "stagingSettings", slutligen använda PolyBase för att läsa in data i SQL-data Lager. Alla interimsformat hanteras av kopieringsaktiviteten korrekt.
+För det här exempelet är att kopiera aktivitet tar bort data från Amazon Redshift till Amazon S3 som konfigurerats i "redshiftUnloadSettings" och kopierar sedan data från Amazon S3 till Azure Blob enligt vad som anges i "stagingSettings", slutligen använda PolyBase för att läsa in data i SQL Data Warehouse. Alla interimsformat hanteras av kopieringsaktiviteten korrekt.
 
 ![Redshift till SQL DW-kopieringsarbetsflöde](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
 
@@ -219,17 +221,17 @@ När data kopieras från Amazon Redshift används följande mappningar från Ama
 | Datatyp för Amazon Redshift | Data fabrik interim datatyp |
 |:--- |:--- |
 | BIGINT |Int64 |
-| Boolean |String |
-| CHAR |String |
+| Boolean |Sträng |
+| CHAR |Sträng |
 | DATE |DateTime |
 | DECIMAL |Decimal |
 | DUBBEL PRECISION |Double |
 | INTEGER |Int32 |
 | REAL |Enkel |
 | SMALLINT |Int16 (int16) |
-| TEXT |String |
+| TEXT |Sträng |
 | TIMESTAMP |DateTime |
-| VARCHAR |String |
+| VARCHAR |Sträng |
 
 ## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
 

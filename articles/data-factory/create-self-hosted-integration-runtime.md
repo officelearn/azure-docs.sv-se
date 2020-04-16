@@ -11,14 +11,16 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 03/13/2020
-ms.openlocfilehash: 3fe5a58046776d00ce68189cf724a995380869eb
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 6bc0f002c6927cfd9a314797663e1dabbac392b6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887322"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416642"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera lokalt installerad integrationskörning
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Integrationskörningen (IR) är den beräkningsinfrastruktur som Azure Data Factory använder för att tillhandahålla dataintegrationsfunktioner i olika nätverksmiljöer. Mer information om IR finns i [Översikt över integrationskörning](concepts-integration-runtime.md).
 

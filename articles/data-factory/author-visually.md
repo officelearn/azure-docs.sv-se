@@ -10,14 +10,16 @@ ms.author: daperlov
 ms.reviewer: ''
 manager: anandsub
 ms.date: 12/19/2019
-ms.openlocfilehash: 09d4055ba98da2dd87efc9421402f2827a87ba16
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e7de92878dac72470c0b65d1cf18c1a2d526a0bb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440925"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418498"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visuell redigering i Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Med ux-upplevelsen (Azure Data Factory User Interface Experience) kan du skapa och distribuera resurser för din datafabrik visuellt utan att behöva skriva någon kod. Du kan dra aktiviteter till en pipeline-arbetsyta, utföra testkörningar, felsöka iterativt och distribuera och övervaka dina pipeline-körningar.
 

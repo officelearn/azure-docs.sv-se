@@ -11,18 +11,27 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/25/2020
-ms.openlocfilehash: 822a981b84919670aa476567625cdf914206eaa8
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 7fb1560fb9be809d816dde7dd69f1ec8afe5649f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422186"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417566"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera och omvandla data i Azure Synapse Analytics (tidigare Azure SQL Data Warehouse) med hjälp av Azure Data Factory 
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Aktuell version](connector-azure-sql-data-warehouse.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+I den här artikeln beskrivs hur du använder Kopiera aktivitet i Azure Data Factory för att kopiera data från och till Azure Synapse Analytics och använda Dataflöde för att omvandla data i Azure Data Lake Storage Gen2. Mer information om Azure Data Factory finns i den [inledande artikeln](introduction.md).
+
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+I den här artikeln beskrivs hur du använder Kopiera aktivitet i Azure Data Factory för att kopiera data från och till Azure SQL Data Warehouse och använda Dataflöde för att omvandla data i Azure Data Lake Storage Gen2. Mer information om Azure Data Factory finns i den [inledande artikeln](introduction.md).
 
 I den här artikeln beskrivs hur du använder Kopiera aktivitet i Azure Data Factory för att kopiera data från och till Azure Synapse Analytics och använda Dataflöde för att omvandla data i Azure Data Lake Storage Gen2. Mer information om Azure Data Factory finns i den [inledande artikeln](introduction.md).
 
@@ -531,7 +540,7 @@ Om du vill använda den här funktionen skapar du en [Azure Blob Storage-länkad
 
 ### <a name="best-practices-for-using-polybase"></a>Metodtips för att använda PolyBase
 
-Följande avsnitt innehåller metodtips utöver de som nämns i [Metodtips för Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md).
+Följande avsnitt innehåller metodtips utöver de som nämns i [Metodtips för Azure Synapse Analytics](../synapse-analytics/sql/best-practices-sql-pool.md).
 
 #### <a name="required-database-permission"></a>Obligatorisk databasbehörighet
 
@@ -740,13 +749,13 @@ Inställningar som är specifika för Azure Synapse Analytics är tillgängliga 
 När du kopierar data från eller till Azure Synapse Analytics används följande mappningar från Azure Synapse Analytics-datatyper till Azure Data Factory interimsdatatyper. Se [schema- och datatypsmappningar](copy-activity-schema-and-type-mapping.md) om du vill veta hur Kopiera aktivitet mappar källschemat och datatypen till diskhon.
 
 >[!TIP]
->Se [Tabelldatatyper i Azure Synapse Analytics-artikeln](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) om SQL DW-stödda datatyper och lösningarna för data som inte stöds.
+>Se [Tabelldatatyper i Azure Synapse Analytics-artikeln](../synapse-analytics/sql/develop-tables-data-types.md) om SQL DW-stödda datatyper och lösningarna för data som inte stöds.
 
 | Azure Synapse Analytics-datatyp    | Data Factory interimdatatyp |
 | :------------------------------------ | :----------------------------- |
 | bigint                                | Int64                          |
 | binary                                | Byte[]                         |
-| bit                                   | Boolean                        |
+| bit                                   | Boolesk                        |
 | char                                  | Sträng, Röding[]                 |
 | date                                  | DateTime                       |
 | Datumtid                              | DateTime                       |

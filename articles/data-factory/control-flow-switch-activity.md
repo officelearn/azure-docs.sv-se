@@ -9,14 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: fd0e6d526f0c47304e7bf53f91d08f42b924ff23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4f839de6e276727fa910f91eccc34601cf34f85c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440388"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418022"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Växla aktivitet i Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Switch-aktiviteten ger samma funktioner som en switch-sats tillhandahåller i programmeringsspråk. Den utvärderar en uppsättning aktiviteter som motsvarar ett ärende som matchar villkorsutvärderingen.
 
@@ -67,8 +69,8 @@ Switch-aktiviteten ger samma funktioner som en switch-sats tillhandahåller i pr
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Namnet på växelaktiviteten. | String | Ja
-typ | Måste ställas in på *Switch** | String | Ja
+namn | Namnet på växelaktiviteten. | Sträng | Ja
+typ | Måste ställas in på *Switch** | Sträng | Ja
 uttryck | Uttryck som måste utvärderas till strängvärde | Uttryck med sträng av resultattyp | Ja
 Fall | Uppsättning ärenden som innehåller ett värde och en uppsättning aktiviteter som ska utföras när värdet matchar uttrycksutvärderingen. Måste tillhandahålla minst ett fall. Det finns en maxgräns på 25 fall. | Matris med ärendeobjekt | Ja
 defaultActivities (standardAktiviteter) | Uppsättning aktiviteter som körs när uttrycksutvärderingen inte är nöjd. | Matris med aktiviteter | Ja
@@ -332,8 +334,8 @@ $result.Error -join "`r`n"
 Se andra kontrollflödesaktiviteter som stöds av Data Factory: 
 
 - [If-villkorsaktivitet](control-flow-if-condition-activity.md)
-- [Execute Pipeline-aktivitet](control-flow-execute-pipeline-activity.md)
+- [Köra pipelineaktivitet](control-flow-execute-pipeline-activity.md)
 - [För varje aktivitet](control-flow-for-each-activity.md)
 - [Hämta metadataaktivitet](control-flow-get-metadata-activity.md)
-- [Lookup-aktivitet](control-flow-lookup-activity.md)
+- [Sökningsaktivitet](control-flow-lookup-activity.md)
 - [Webbaktivitet](control-flow-web-activity.md)

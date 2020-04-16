@@ -11,17 +11,21 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 67ba2fadd5376997b528af4fcd2c5a666bb134a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8ce26360aca8d8408135cbe89aabff4f923013b4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443989"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416374"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Kryptera autentiseringsuppgifter för lokala datalager i Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Du kan kryptera och lagra autentiseringsuppgifter för dina lokala datalager (länkade tjänster med känslig information) på en dator med självvärdbaserad integrationskörning. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Du skickar en JSON-definitionsfil med referenser till <br/>[**New-AzDataFactoryV2LinkedServiceEncryptedCredential**](/powershell/module/az.datafactory/New-AzDataFactoryV2LinkedServiceEncryptedCredential) cmdlet att producera en utgång JSON definition fil med krypterade autentiseringsuppgifter. Använd sedan den uppdaterade JSON-definitionen för att skapa de länkade tjänsterna.
 

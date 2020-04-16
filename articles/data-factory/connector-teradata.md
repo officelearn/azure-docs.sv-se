@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 1e1d7cc4bb7762d3ebd29e349467f3e33c0887f9
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 4eed79210e3e39f82b892ac0681e161ebb59597e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421228"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418039"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Kopiera data från Teradata Vantage med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 >
 > * [Version 1](v1/data-factory-onprem-teradata-connector.md)
 > * [Aktuell version](connector-teradata.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från Teradata Vantage. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md).
 
@@ -256,7 +258,7 @@ Du föreslås aktivera parallellkopiering med datapartitionering, särskilt när
 
 | Scenario                                                     | Inställningar för förslag                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Full belastning från stort bord.                                   | **Partition alternativ**: Hash. <br><br/>Under körningen identifierar Data Factory automatiskt PK-kolumnen, tillämpar en hash mot den och kopierar data efter partitioner. |
+| Full belastning från stort bord.                                   | **Partition alternativ**: Hash. <br><br/>Under körningen identifierar Data Factory automatiskt den primära indexkolumnen, tillämpar en hash mot den och kopierar data efter partitioner. |
 | Läs in stora mängder data med hjälp av en anpassad fråga.                 | **Partition alternativ**: Hash.<br>**Fråga** `SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>`: .<br>**Partitionskolumnen**: Ange den kolumn som används för att tillämpa hash-partition. Om inget anges identifierar Data Factory automatiskt PK-kolumnen i tabellen som du angav i datauppsättningen för Teradata.<br><br>Under körningen ersätter `?AdfHashPartitionCondition` Data Factory med hash-partitionslogiken och skickar till Teradata. |
 | Läs in stora mängder data med hjälp av en anpassad fråga med en heltalskolumn med jämnt fördelat värde för intervallpartitionering. | **Partitionsalternativ**: Partitionering med dynamiskt omfång.<br>**Fråga** `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`: .<br>**Partitionskolumnen**: Ange den kolumn som används för att partitionera data. Du kan partitionera mot kolumnen med heltalsdatatyp.<br>**Partitionens övre gräns** och **partitionens nedre gräns:** Ange om du vill filtrera mot partitionskolumnen för att hämta data endast mellan det nedre och det övre intervallet.<br><br>Under körningen ersätter `?AdfRangePartitionColumnName` `?AdfRangePartitionUpbound`Data `?AdfRangePartitionLowbound` Factory , och med de faktiska kolumnnamn- och värdeintervallen för varje partition och skickas till Teradata. <br>Om partitionskolumnen "ID" har angetts med den nedre gränsen som 1 och den övre gränsen som 80, med parallellkopiering inställd som 4, hämtar Data Factory data med 4 partitioner. Deras ID är mellan [1,20], [21, 40], [41, 60] respektive [61, 80]. |
 
@@ -298,9 +300,9 @@ När du kopierar data från Teradata gäller följande mappningar. Mer informati
 | Blob |Byte[] |
 | Byte |Byte[] |
 | ByteInt (på ett år) |Int16 (int16) |
-| Char |String |
-| Clob |String |
-| Datum |DateTime |
+| Char |Sträng |
+| Clob |Sträng |
+| Date |DateTime |
 | Decimal |Decimal |
 | Double |Double |
 | Grafisk |Stöds inte. Använd explicit cast i källfrågan. |
@@ -330,7 +332,7 @@ När du kopierar data från Teradata gäller följande mappningar. Mer informati
 | Tidsstämpel |DateTime |
 | Tidsstämpel med tidszon |DateTime |
 | VarByte (olika) |Byte[] |
-| Varchar |String |
+| Varchar |Sträng |
 | Vargrafiska |Stöds inte. Använd explicit cast i källfrågan. |
 | Xml |Stöds inte. Använd explicit cast i källfrågan. |
 

@@ -5,16 +5,16 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 6e23c716a965cdf178c9f847900e66c141d5d7eb
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: b6e501cdc1d5091a27d86406c6919587bedb261a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80680341"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417699"
 ---
-# <a name="limits"></a>Begränsningar
+# <a name="limitations"></a>Begränsningar
 
-Ett antal funktioner har storleks- eller räknebegränsningar på grund av interna detaljer om det pågående systemet.
+Ett antal funktioner har storlek, antal eller andra begränsningar.
 
 ## <a name="azure-frontend"></a>Azure Frontend
 
@@ -40,4 +40,13 @@ Det tillåtna antalet polygoner för alla inlästa modeller beror på storleken 
 |Premium| ingen gräns |
 
 
+## <a name="platform-limitations"></a>Plattformsbegränsningar
 
+**Windows 10-skrivbordet**
+
+* Distributionen "Pc Standalone" från Unity stöds inte. Använd UWP istället.
+* UWP/x86 är den enda UWP-plattformen som stöds. UWP/x64 stöds inte.
+
+**Hololens 2**
+
+* Återgivningen [från PV-kamerafunktionen](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) stöds inte.

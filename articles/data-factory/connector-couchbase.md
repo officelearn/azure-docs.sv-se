@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: ac2426bbfa074e58aa5c4a213f3ecbee20052358
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d78d533bc4a863a0a70b1dbb47bdfa85d539884f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75444371"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417440"
 ---
 # <a name="copy-data-from-couchbase-using-azure-data-factory-preview"></a>Kopiera data från Couchbase med Azure Data Factory (förhandsversion)
-
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från Couchbase. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
 
 > [!IMPORTANT]

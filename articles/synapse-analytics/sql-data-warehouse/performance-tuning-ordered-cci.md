@@ -11,12 +11,12 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 2113e5ac3563a22c5f2c6b755230b05fb9a2cb35
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 088a0d10b96a30ef830b4e8a8dc12c19127141db
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583862"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81417046"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Prestandajustering med grupperade kolumnlagringsindex  
 
@@ -28,7 +28,7 @@ Som standard skapar en intern komponent (indexbyggare) ett icke-beställt klustr
 
 När du skapar en ordnad CCI sorterar Synapse SQL-motorn befintliga data i minnet efter ordernyckeln/nyckelerna innan indexverktyget komprimerar dem till indexsegment.  Med sorterade data minskas segmentöverlappningen så att frågor kan ha en effektivare segmenteliminering och därmed snabbare prestanda eftersom antalet segment som ska läsas från disken är mindre.  Om alla data kan sorteras i minnet samtidigt kan segmentöverlappning undvikas.  På grund av stora tabeller i informationslager händer det här scenariot inte ofta.  
 
-Om du vill kontrollera segmentintervallen för en kolumn kör du det här kommandot med tabellnamnet och kolumnnamnet:
+Om du vill kontrollera segmentintervallen för en kolumn kör du följande kommando med tabellnamnet och kolumnnamnet:
 
 ```sql
 SELECT o.name, pnp.index_id, 

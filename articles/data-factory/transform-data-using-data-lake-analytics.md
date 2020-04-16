@@ -12,17 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
-ms.openlocfilehash: 257c71f7994b889540ec8cc5d0f384f3f8894f4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 427b7fff7b8f76412d7bd9d63aeb64583637779c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74913279"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418974"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformera data genom att köra U-SQL-skript på Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-usql-activity.md)
 > * [Aktuell version](transform-data-using-data-lake-analytics.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En pipeline i en Azure-datafabrik bearbetar data i länkade lagringstjänster med hjälp av länkade beräkningstjänster. Den innehåller en sekvens av aktiviteter där varje aktivitet utför en viss bearbetning. I den här artikeln beskrivs **datasjöanalys U-SQL-aktivitet** som kör ett **U-SQL-skript** på en Azure Data Lake Analytics-beräkningslänkad tjänst. **Azure Data Lake Analytics** 
 

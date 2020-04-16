@@ -10,14 +10,16 @@ ms.author: daperlov
 author: djpmsft
 manager: anandsub
 ms.date: 10/10/2019
-ms.openlocfilehash: b54504cf8ca7b32bf14bd4b7e0c561ffd56d4098
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f033651eb7e52ba60cce9b74941a4ef0eb376d2b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76155171"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81419008"
 ---
 # <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Köra Azure Machine Learning-pipelines i Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Kör dina Azure Machine Learning-pipelines som ett steg i dina Azure Data Factory-pipelines. Machine Learning Execute Pipeline-aktiviteten möjliggör batchförutsägelsescenarier som att identifiera möjliga standardvärden för lån, bestämma sentiment och analysera kundbeteendemönster.
 
@@ -50,8 +52,8 @@ Nedanstående video har en sex minuters introduktion och demonstration av denna 
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Namnet på den verksamhet som är på gång | String | Ja
-typ | Typ av aktivitet är "AzureMLExecutePipeline" | String | Ja
+namn | Namnet på den verksamhet som är på gång | Sträng | Ja
+typ | Typ av aktivitet är "AzureMLExecutePipeline" | Sträng | Ja
 linkedServiceName | Länkad tjänst till Azure Machine Learning | Länkad tjänstreferens | Ja
 mlPipelineId | ID för den publicerade Azure Machine Learning-pipelinen | Sträng (eller uttryck med resultType av sträng) | Ja
 experimentNamn | Kör historikexperimentnamnet för pipelinekörningen Machine Learning | Sträng (eller uttryck med resultType av sträng) | Inga

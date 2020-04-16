@@ -12,18 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: e7f91d60a0e181690859da64e491c4c0fa1e1a3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 063ac32c98d4eb64b676247c0a16f98fa7d1702d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80238722"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416688"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Kopiera data till och från SQL Server med hjälp av Azure Data Factory
 
 > [!div class="op_single_selector" title1="Välj den version av Azure Data Factory som du använder:"]
 > * [Version 1](v1/data-factory-sqlserver-connector.md)
 > * [Aktuell version](connector-sql-server.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från och till en SQL Server-databas. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktiviteten.
 
@@ -53,7 +54,7 @@ Den här SQL Server-anslutningen stöder:
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -495,7 +496,7 @@ När du kopierar data från och till SQL Server används följande mappningar fr
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |Boolean |
+| bit |Boolesk |
 | char |Sträng, Röding[] |
 | date |DateTime |
 | Datumtid |DateTime |

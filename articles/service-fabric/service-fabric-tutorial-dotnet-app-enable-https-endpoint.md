@@ -4,12 +4,12 @@ description: I den här självstudien lär du dig hur du lägger till en HTTPS-s
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 0e8b79a88fc173674caa0ca65e394e21d58d5f2f
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: aafe2e7c89f6d4a90806378e9cf25c81f51feb60
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756093"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411188"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Självstudie: Lägga till en HTTPS-slutpunkt i en klienttjänst i webb-API:t för ASP.NET Core med hjälp av Kestrel
 
@@ -156,27 +156,42 @@ Ersätt ”&lt;your_CN_value&gt;” med ”mytestcert” om du har skapat ett sj
 Tänk på att när det `localhost` gäller lokal distribution är det bättre att använda "CN=localhost" för att undvika autentiseringsund undantag.
 
 ```csharp
-private X509Certificate2 GetHttpsCertificateFromStore()
+private X509Certificate2 FindMatchingCertificateBySubject(string subjectCommonName)
 {
     using (var store = new X509Store(StoreName.My, StoreLocation.LocalMachine))
     {
-        store.Open(OpenFlags.ReadOnly);
+        store.Open(OpenFlags.OpenExistingOnly | OpenFlags.ReadOnly);
         var certCollection = store.Certificates;
-        var currentCerts = certCollection.Find(X509FindType.FindBySubjectDistinguishedName, "CN=<your_CN_value>", false);
+        var matchingCerts = new X509Certificate2Collection();
+    
+    foreach (var enumeratedCert in certCollection)
+    {
+      if (StringComparer.OrdinalIgnoreCase.Equals(subjectCommonName, enumeratedCert.GetNameInfo(X509NameType.SimpleName, forIssuer: false))
+        && DateTime.Now < enumeratedCert.NotAfter
+        && DateTime.Now >= enumeratedCert.NotBefore)
+        {
+          matchingCerts.Add(enumeratedCert);
+        }
+    }
+
+        if (matchingCerts.Count == 0)
+    {
+        throw new Exception($"Could not find a match for a certificate with subject 'CN={subjectCommonName}'.");
+    }
         
-        if (currentCerts.Count == 0)
-                {
-                    throw new Exception("Https certificate is not found.");
-                }
-        
-        return currentCerts[0];
+        return matchingCerts[0];
     }
 }
+
+
 ```
 
-## <a name="give-network-service-access-to-the-certificates-private-key"></a>Ge NETWORK SERVICE åtkomst till certifikatets privata nyckel
+## <a name="grant-network-service-access-to-the-certificates-private-key"></a>Bevilja nätverkstjänst åtkomst till certifikatets privata nyckel
 
 I föregående steg importerade du certifikatet till `Cert:\LocalMachine\My`-lagret på utvecklingsdatorn.  Nu uttryckligen ge kontot som kör tjänsten (NETWORK SERVICE, som standard) tillgång till certifikatets privata nyckel. Du kan göra det här steget manuellt (med verktyget certlm.msc), men det är bättre att automatiskt köra ett PowerShell-skript genom [att konfigurera ett startskript](service-fabric-run-script-at-service-startup.md) i **InstallationsentryPoint** för tjänstmanifestet.
+
+>[!NOTE]
+> Service Fabric stöder att deklarera slutpunktscertifikat med tumavtryck eller ämnesnamn. I så fall ställer körningen in bindningen och ACL-certifikatets privata nyckel till den identitet som tjänsten körs som. Körningen kommer också att övervaka certifikatet för ändringar/förnyelser och åter-ACL motsvarande privata nyckel i enlighet med detta.
 
 ### <a name="configure-the-service-setup-entry-point"></a>Konfigurera tjänstens konfigurationsstartpunkt
 

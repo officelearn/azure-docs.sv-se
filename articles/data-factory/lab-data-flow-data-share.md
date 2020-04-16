@@ -7,16 +7,20 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: 6c501205812ac72da8cd970b61b71e493888cef1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7d453b2724c308e48366d653a51d9e6aa8e82c96
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76156734"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415928"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Dataintegrering med Azure Data Factory och Azure Data Share
 
-När kunderna ger sig ut på sina moderna datalager- och analysprojekt kräver de inte bara mer data utan också mer insyn i sina data över hela dataområdet. Den här workshopen dyker upp i hur förbättringar av Azure Data Factory och Azure Data Share förenklar dataintegration och datahantering i Azure. Från att aktivera kodfri ETL/ELT till att skapa en omfattande vy över dina data, kommer förbättringar i Azure Data Factory att ge dina datatekniker möjlighet att tryggt ta in mer data och därmed mer värde till ditt företag. Med Azure Data Share kan du göra affärer med affärsdelning på ett styrt sätt.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+När kunderna ger sig ut på sina moderna datalager- och analysprojekt kräver de inte bara mer data utan också mer insyn i sina data över hela dataområdet. Den här workshopen dyker upp i hur förbättringar av Azure Data Factory och Azure Data Share förenklar dataintegration och datahantering i Azure. 
+
+Från att aktivera kodfri ETL/ELT till att skapa en omfattande vy över dina data, kommer förbättringar i Azure Data Factory att ge dina datatekniker möjlighet att tryggt ta in mer data och därmed mer värde till ditt företag. Med Azure Data Share kan du göra affärer med affärsdelning på ett styrt sätt.
 
 I den här workshopen använder du Azure Data Factory (ADF) för att få in data från en Azure SQL-databas (SQL DB) i Azure Data Lake Storage gen2 (ADLS gen2). När du har landat data i sjön omvandlar du dem via mappningsdataflöden, datafabrikens inbyggda omvandlingstjänst och sänker den till Azure Synapse Analytics (tidigare SQL DW). Sedan delar du tabellen med transformerade data tillsammans med ytterligare data med Azure Data Share. 
 
@@ -368,7 +372,7 @@ När du har skapat en dataresurs byter du hattar och blir *datakonsument.* Som d
 
     ![Lägg till datauppsättning](media/lab-data-flow-data-share/add-dataset-adls.png)
 
-1. Välj **Nästa**
+1. Välj **nästa**
 
 1. Expandera *wwtaxidata*. Expandera *Boston Taxi Data*. Observera att du kan dela ned till filnivån. 
 

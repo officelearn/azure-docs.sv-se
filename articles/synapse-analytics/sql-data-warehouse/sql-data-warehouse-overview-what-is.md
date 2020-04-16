@@ -10,16 +10,16 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 397eb6fbfea88b0eab0648275fc59764505f7d42
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: a9506d45350a567e3643b6edd6afc7668662f6e5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633107"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416032"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Vad är Azure Synapse Analytics (tidigare SQL DW)?
 
-Azure Synapse är en obegränsad analystjänst som sammanför informationslager i företagsklass och stordataanalys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen serverlösa resurser på begäran eller etablerade resurser – i stor skala. Azure Synapse sammanför dessa två världar med en enhetlig upplevelse för att inta, förbereda, hantera och hantera data för omedelbara bi- och maskininlärningsbehov
+Azure Synapse är en analystjänst som sammanför företagsdatalagring och Big Data-analys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen serverlösa resurser på begäran eller etablerade resurser – i stor skala. Azure Synapse sammanför dessa två världar med en enhetlig upplevelse för att inta, förbereda, hantera och hantera data för omedelbara bi- och maskininlärningsbehov.
 
 Azure Synapse har fyra komponenter:
 
@@ -27,11 +27,13 @@ Azure Synapse har fyra komponenter:
   - SQL-pool (betala per DWU-etablerad)
   - SQL on-demand (betala per TB bearbetad) – (preview)
 - Spark: Djupt integrerad Apache Spark (Preview)
-- Dataintegration: Integrering av hybriddata (förhandsversion)
+- Synaps pipelines: Hybrid dataintegrering (Preview)
 - Studio: Enhetlig användarupplevelse.  (Förhandsversion)
 
 > [!NOTE]
 > Om du vill komma åt förhandsversionen av Azure Synapse ber du om åtkomst [här](https://aka.ms/synapsepreview). Microsoft kommer att triage alla förfrågningar och svara så snart som möjligt.
+>
+> Visa [förhandsversionen av Azure Synapse](../overview-what-is.md).
 
 ## <a name="synapse-sql-pool-in-azure-synapse"></a>Synapse SQL-pool i Azure Synapse
 

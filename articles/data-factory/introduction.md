@@ -9,14 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: e23268d21b01435aa71d4f471afc6d37ee9e9c1d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 327aadbc2996e91ef0f7639da86a647ddd42247c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73672710"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410946"
 ---
 # <a name="what-is-azure-data-factory"></a>Vad är Azure Data Factory?
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 När det gäller stordata, lagras råa, oordnade data ofta i relationella, icke-relationella och andra lagringssystem. Men i sig självt så har rådata inte rätt kontext eller mening för att ge analytiker, dataforskare och beslutsfattare meningsfulla insikter. 
 
@@ -113,9 +115,9 @@ Här är viktiga dokument i nästa steg att utforska:
 - [Mappa dataflöden](concepts-data-flow-overview.md)
 - [Data Factory-gränssnittet i Azure Portal](quickstart-create-data-factory-portal.md)
 - [Verktyget för att kopiera data i Azure Portal](quickstart-create-data-factory-copy-data-tool.md)
-- [Powershell](quickstart-create-data-factory-powershell.md)
+- [PowerShell](quickstart-create-data-factory-powershell.md)
 - [.NET](quickstart-create-data-factory-dot-net.md)
 - [Python](quickstart-create-data-factory-python.md)
-- [Resten](quickstart-create-data-factory-rest-api.md)
+- [REST](quickstart-create-data-factory-rest-api.md)
 - [Azure Resource Manager-mall](quickstart-create-data-factory-resource-manager-template.md)
  

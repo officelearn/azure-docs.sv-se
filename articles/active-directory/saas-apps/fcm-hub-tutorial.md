@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/25/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee1ea7d2623d6315007257218ddfc4e6ce445e65
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 5abc1e093dc7d4e8da823227dc3e3caa556e37e4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668911"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406848"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fcm-hub"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med FCM HUB
 
@@ -92,7 +92,16 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
     > [!NOTE]
     > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta kontohanteraren som är tilldelad till dig eller kontakta [FCM HUB Client supportteam](mailto:fcmssoadmin@us.fcm.travel) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. Klicka på **Spara**.
+1. Välj **Spara**.
+
+1. Lägg till dessa anpassade attribut i avsnittet **Användarattribut & anspråk** på sidan **Hantera anspråk:**
+   - **Namn**: PortalID
+   - **Källa**: Attribut
+   - **Källa Attribut:** PortalID, värde som tillhandahålls av FCM
+
+1. I avsnittet **SAML-signeringscertifikat** använder du redigeringsalternativet för att markera eller ange följande inställningar och väljer sedan **Spara:**
+   - **Signeringsalternativ:** Signera SAML-svar
+   - **Signeringsalgoritm**: SHA-256
 
 1. På sidan **Konfigurera enkel inloggning med SAML** i avsnittet **SAML-signeringscertifikat** hittar du **Certifikat (Base64)** och väljer **Hämta** för att hämta certifikatet och spara det på datorn.
 

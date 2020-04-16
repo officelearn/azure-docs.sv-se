@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9a9b49f75ad377a9377a2311ed16c17ca3d749e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2bb5dd845b03bd94f0a94db50c01b804cf6f55c2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67092577"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407106"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Självstudiekurs: Azure Active Directory-integrering med RStudio Connect
 
@@ -158,9 +158,9 @@ IdPAttributeProfile = azure
 SSOInitiated = IdPAndSP
 ```
 
-Lagra **serveradressen** `Server.Address` i värdet och **url:en för appfederationens metadata** i `SAML.IdPMetaData` värdet.
+Lagra **serveradressen** `Server.Address` i värdet och **url:en för appfederationens metadata** i `SAML.IdPMetaData` värdet. Observera att den här exempelkonfigurationen använder en okrypterad HTTP-anslutning, medan Azure AD kräver användning av en krypterad HTTPS-anslutning. Du kan antingen använda en [omvänd proxy](https://docs.rstudio.com/connect/admin/proxy/) framför RStudio Connect eller konfigurera RStudio Connect så att den använder [HTTPS direkt](https://docs.rstudio.com/connect/admin/appendix/configuration/#HTTPS). 
 
-Om du har problem med konfigurationen kan du läsa [RStudio Connect-administratörsguiden](https://docs.rstudio.com/connect/admin/authentication.html#authentication-saml) eller skicka e-post till [RStudio-supportteamet](mailto:support@rstudio.com) för hjälp.
+Om du har problem med konfigurationen kan du läsa [RStudio Connect-administratörsguiden](https://docs.rstudio.com/connect/admin/authentication/saml/) eller skicka e-post till [RStudio-supportteamet](mailto:support@rstudio.com) för hjälp.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 

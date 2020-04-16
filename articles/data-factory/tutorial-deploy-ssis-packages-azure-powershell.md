@@ -14,14 +14,16 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 0eb3a3d6c988746c1174398005463d25911c11e1
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ada3762b6daae86033903f72ad9865ca66904ead
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80336136"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81418651"
 ---
 # <a name="set-up-an-azure-ssis-ir-in-azure-data-factory-by-using-powershell"></a>Konfigurera en Azure-SSIS IR i Azure Data Factory med hjälp av PowerShell
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Den här självstudien visar hur du öppnar en Azure-SQL Server Integration Services Integration Runtime (Azure-SSIS IR) i Azure Data Factory. En Azure-SSIS IR stöder att köra paket som distribueras till:
 * En SSIS-katalog (SSISDB) som är värd för en Azure SQL Database-serverinstans eller en hanterad instans (projektdistributionsmodellen).
@@ -49,7 +51,7 @@ I den här kursen ska du:
 - (Valfritt) Azure SQL Database-server. Om du inte redan har en databasserver kan du skapa en i Azure-portalen innan du börjar. Azure Data Factory skapar i sin tur SSISDB på den här databasservern. Vi rekommenderar att du skapar databasservern i samma Azure-region som Integration Runtime. Den här konfigurationen gör att Integration Runtimes skrivkörning loggas till SSISDB utan att korsa Azure-regioner. 
     - Baserat på den valda databasservern kan SSISDB skapas för din räkning som en enda databas, en del av en elastisk pool eller i en hanterad instans och tillgänglig i ett offentligt nätverk eller genom att ansluta till ett virtuellt nätverk. Information om hur du väljer vilken typ av databasserver som ska vara värd för SSISDB finns i [Jämför en enda Azure SQL-databas, elastisk pool och hanterad instans](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance). 
     
-      Om du använder en Azure SQL Database-server med en IP-brandvägg eller slutpunkter för virtuella nätverkstjänster, eller en hanterad instans med en privat slutpunkt som värd för SSISDB, eller om du behöver åtkomst till lokala data utan att konfigurera en självvärd IR, ansluter du din Azure-SSIS IR till en virtuellt nätverk. Mer information finns i [Skapa en Azure-SSIS IR i ett virtuellt nätverk](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
+      Om du använder en Azure SQL Database-server med en IP-brandvägg eller slutpunkter för virtuella nätverkstjänster, eller en hanterad instans med en privat slutpunkt som värd för SSISDB, eller om du behöver åtkomst till lokala data utan att konfigurera en självvärd IR, ansluter du till din Azure-SSIS IR till ett virtuellt nätverk. Mer information finns i [Skapa en Azure-SSIS IR i ett virtuellt nätverk](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
     - Bekräfta att inställningen **Tillåt åtkomst till Azure-tjänster** är aktiverad för databasservern. Den här inställningen är inte tillämplig när du använder en Azure SQL Database-server med IP-brandväggsregler eller slutpunkter för virtuella nätverkstjänster, eller en hanterad instans med en privat slutpunkt som värd för SSISDB. Mer information finns i [säkra din Azure SQL-databas](../sql-database/sql-database-security-tutorial.md#create-firewall-rules). Om du vill aktivera den här inställningen med PowerShell finns i [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule).
     - Lägg till IP-adressen för klientdatorn, eller ett intervall av IP-adresser, inklusive KLIENTDATOR:s IP-adress, i klient-IP-adresslistan i brandväggsinställningarna för databasservern. För mer information, se [Azure SQL Database-brandväggsregler på servernivå och databasnivå](../sql-database/sql-database-firewall-configure.md).
     - Du kan ansluta till databasservern med hjälp av SQL-autentisering med serveradministratörsuppgifterna eller Azure Active Directory-autentisering (Azure AD) med den hanterade identiteten för din datafabrik. För Azure AD-autentisering, om du vill lägga till den hanterade identiteten för din datafabrik i en Azure AD-grupp med åtkomstbehörigheter till databasservern, finns [i Skapa en Azure-SSIS IR med Azure AD-autentisering](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).

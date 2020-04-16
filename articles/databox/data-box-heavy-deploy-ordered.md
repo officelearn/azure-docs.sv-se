@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: dce3549bde4c62245e1d2b1f8ac0c88c0b70260c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4e9077d06341ce5ecf6b2238374ce1ac8e13dca3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "70241396"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415153"
 ---
 # <a name="tutorial-order-azure-data-box-heavy"></a>Självstudier: Beställa Azure Data Box Heavy
 
@@ -41,17 +41,9 @@ Innan du börjar ska du kontrollera att:
 - Om den ska installeras på en annan våning än nedervåningen behöver du en hiss eller ramp. Enheten väger cirka 500 kg.
 - Se till att du har tillgång till en plan yta i datacentret med närhet till en nätverksanslutning som kan hantera en enhet med det här fotavtrycket.
 
-
 ### <a name="for-service"></a>För tjänsten
 
-Innan du börjar ska du kontrollera att:
-- Du har ditt Microsoft Azure lagringskonto med autentiseringsuppgifter.
-- Kontrollera att den prenumeration du använder för Data Box-tjänsten är någon av följande typer:
-    - Microsoft Enterprise-avtal (EA). Läs mer om [EA-prenumerationer](https://azure.microsoft.com/pricing/enterprise-agreement/).
-    - Leverantör av molnlösningar (CSP). Läs mer om [Azure CSP-program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Microsoft Azure-sponsring. Läs mer om [Azure-sponsringsprogrammet](https://azure.microsoft.com/offers/ms-azr-0036p/).
-
-- Kontrollera att du har ägar- eller deltagaråtkomst till prenumerationen för att skapa en Data Box Heavy-beställning.
+[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 ### <a name="for-device"></a>För enheten
 

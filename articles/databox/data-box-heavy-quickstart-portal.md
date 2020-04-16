@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 70d5481c37777150927914042133286a77f53b89
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 15140ef392d8108b59bf50c396e529dc15951232
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76514416"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410916"
 ---
 ::: zone target = "docs"
 
@@ -39,11 +39,7 @@ Innan du börjar ska du kontrollera att:
 
 ### <a name="for-service"></a>För tjänsten
 
-Innan du börjar ska du kontrollera att:
-
-- Du har ditt Microsoft Azure lagringskonto med autentiseringsuppgifter.
-- Prenumerationen som du använder för Data Box-tjänsten är [Microsoft Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview) eller [Microsoft Azure-sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/).
-- Du har ägar- eller deltagaråtkomst till prenumerationen för att skapa en Data Box Heavy-beställning.
+[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 ### <a name="for-device"></a>För enheten
 
@@ -57,7 +53,6 @@ Innan du börjar ska du kontrollera att:
     - För 40 Gbit/s-kabeln måste enhetens kabelände vara QSFP+.
     - För 10 Gbit/s-kabeln behöver du en SFP+-kabel som ansluts till en 10-G-växel i ena änden, med en QSFP+ till SFP+-adapter (eller QSA-adaptern) för änden som ansluts till enheten.
 - Strömkablarna finns i ett fack på baksidan av enheten.
-
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 

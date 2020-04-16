@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: ab107a0afe8be1d95de8dafb21f239e6da733271
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a418841d91ab6b8fe5457f3fd64d91306fe08dfe
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199338"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383118"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Förstå hur reservationsrabatten tillämpas för Azure Data Explorer
 
@@ -65,7 +65,7 @@ Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https:
 
 Du kan läsa mer om Azure-reservationer i följande artiklar:
 
-* [Förskottsbetala Azure Data Explorer-beräkningsresurser med reserverad Azure Data Explorer-kapacitet](../../data-explorer/pricing-reserved-capacity.md)  
+* [Förskottsbetala Azure Data Explorer-beräkningsresurser med reserverad Azure Data Explorer-kapacitet](/azure/data-explorer/pricing-reserved-capacity)  
 * [Vad är reservationer för Azure](save-compute-costs-reservations.md)  
 * [Hantera Azure-reservationer](manage-reserved-vm-instance.md)  
 * [Förstå reservationsanvändning för din Betala per användning-prenumeration](understand-reserved-instance-usage.md)

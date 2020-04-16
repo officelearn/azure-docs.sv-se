@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a042897ecbe35935c1832a53f523eb0597ebafc
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 6fd8a0c3688e5056c7941d334da8caee9f21ba82
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654248"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407270"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Azure Active Directory-certifikatbaserad autentisering på iOS
 
@@ -27,7 +27,7 @@ iOS-enheter kan använda certifikatbaserad autentisering (CBA) för att autentis
 
 Om du konfigurerar den här funktionen elimineras behovet av att ange en kombination av användarnamn och lösenord i vissa e-post- och Microsoft Office-program på din mobila enhet.
 
-Det här avsnittet innehåller krav och scenarier som stöds för att konfigurera CBA på en iOS(Android)-enhet för användare av klienter i Office 365 Enterprise, Business, Education, US Government, Kina och Tyskland.
+Det här avsnittet innehåller krav och scenarier som stöds för att konfigurera CBA på en iOS-enhet för användare av klienter i Office 365 Enterprise, Business, Education, US Government, Kina och Tyskland.
 
 Den här funktionen är tillgänglig i förhandsversionen i Office 365 US Government Defense och Federal plans.
 

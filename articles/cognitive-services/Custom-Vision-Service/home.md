@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: a48c553f1c96b8777e0a591f428dca3f15d7d30e
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: bdb2b31ee3abb30e6e7339f641b778ff5dc522b0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80053642"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403796"
 ---
 # <a name="what-is-custom-vision"></a>Vad är Custom Vision?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Custom Vision är en kognitiv tjänst som du kan använda för att skapa, distribuera och förbättra dina egna bildklassificerare. En bildklassificerare är en AI-tjänst som applicerar etiketter (som representerar _klasser_) på bilder utefter deras visuella egenskaper. Till skillnad från tjänsten [Visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) gör Custom Vision att du kan bestämma vilka etiketter som ska appliceras.
+Azure Custom Vision är en kognitiv tjänst som du kan använda för att skapa, distribuera och förbättra dina egna bildklassificerare. En bildklassificerare är en AI-tjänst som applicerar etiketter (som representerar _klasser_) på bilder utefter deras visuella egenskaper. Till skillnad från tjänsten [Visuellt](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) innehåll kan du med Anpassad syn ange vilka etiketter som ska användas.
 
 ## <a name="what-it-does"></a>Vad läget gör
 

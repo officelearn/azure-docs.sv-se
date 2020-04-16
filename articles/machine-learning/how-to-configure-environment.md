@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: a5f46f5af723e1245afbc6bca90d25ae9036d646
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10ea0002b2e99c4675f56e48a638f3c1cb87e6c0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472434"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399015"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -201,7 +201,7 @@ När du använder en lokal dator (som också kan vara en virtuell fjärrdator) s
     pip install <new package>
     ```
 
-### <a name="jupyter-notebooks"></a><a id="jupyter"></a>Jupyter bärbara datorer
+### <a name="jupyter-notebooks"></a><a id="jupyter"></a>Jupyter Notebook
 
 Jupyter bärbara datorer är en del av [Jupyter Project](https://jupyter.org/). De ger en interaktiv kodningsupplevelse där du skapar dokument som blandar livekod med berättande text och grafik. Jupyter bärbara datorer är också ett bra sätt att dela dina resultat med andra, eftersom du kan spara utdata från dina kodavsnitt i dokumentet. Du kan installera Jupyter bärbara datorer på en mängd olika plattformar.
 
@@ -243,7 +243,7 @@ Så här aktiverar du dessa komponenter i jupyterns anteckningsboksmiljö:
 
 1. Om du vill konfigurera Jupyter-anteckningsboken så att den använder arbetsytan Azure Machine Learning går du till avsnittet [Skapa en arbetsytekonfigurationsfil.](#workspace)
 
-### <a name="visual-studio-code"></a><a id="vscode"></a>Visual Studio-kod
+### <a name="visual-studio-code"></a><a id="vscode"></a>Visual Studio-koden
 
 Visual Studio Code är en mycket populär plattformsoberoende kodredigerare som stöder en omfattande uppsättning programmeringsspråk och verktyg genom tillägg som finns på [Visual Studio-marknadsplatsen.](https://marketplace.visualstudio.com/vscode) [Azure Machine Learning-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) installerar [Python-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-python.python) för kodning i alla typer av Python-miljöer (virtuella, Anaconda osv.). Dessutom ger det bekvämlighetsfunktioner för att arbeta med Azure Machine Learning-resurser och köra Azure Machine Learning-experiment utan att lämna Visual Studio Code.
 
@@ -288,7 +288,7 @@ Använd de här inställningarna:
 | Inställning |Gäller| Värde |
 |----|---|---|
 | Klusternamn |alltid| dittklusternamn |
-| Databricks Runtime |alltid|Icke-ML Runtime 6.0 (scala 2.11, spark 2.4.3) |
+| Databricks Runtime |alltid|Icke-ML Runtime 6,5 (scala 2.11, spark 2.4.3) |
 | Python-version |alltid| 3 |
 | Arbetstagare |alltid| 2 eller högre |
 | VM-typer för arbetarenod <br>(bestämmer max # av samtidiga iterationer) |Automatisk ML<br>Bara| Minnesoptimerad virtuell dator föredras |

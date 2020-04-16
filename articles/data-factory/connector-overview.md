@@ -9,14 +9,15 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: 7b01e9936189a40fcf1400d3e6ee948032786d3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 623ee15c5071fdc7a36677481e98872b8c2bd562
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75444192"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410417"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Översikt över Azure Data Factory-anslutningsappen
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Factory stöder följande datalager och format via copy, dataflöde, uppslag, hämta metadata och ta bort aktiviteter. Klicka på varje datalager om du vill lära dig vilka funktioner som stöds och motsvarande konfigurationer i information.
 
@@ -32,6 +33,6 @@ Azure Data Factory stöder följande datalager och format via copy, dataflöde, 
 
 - [Kopiera aktivitet](copy-activity-overview.md)
 - [Mappa dataflöde](concepts-data-flow-overview.md)
-- [Lookup-aktivitet](control-flow-lookup-activity.md)
+- [Sökningsaktivitet](control-flow-lookup-activity.md)
 - [Hämta metadataaktivitet](control-flow-get-metadata-activity.md)
 - [Ta bort aktivitet](delete-activity.md)

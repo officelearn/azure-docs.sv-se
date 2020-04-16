@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 11/26/2019
 ms.author: shvija
-ms.openlocfilehash: abd7940551f7a8182364475b0cf50b60afb5e1b7
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 91b08d6130da640adc28a3b7d85bd33f0e876caf
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313798"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390288"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Använda slutpunkter för tjänsten För virtuella nätverk med Azure Event Hubs
 
@@ -32,6 +32,7 @@ Resultatet är en privat och isolerad relation mellan arbetsbelastningarna som �
 > Betrodda Microsoft-tjänster stöds inte när virtuella nätverk implementeras.
 >
 > Vanliga Azure-scenarier som inte fungerar med virtuella nätverk (observera att listan **INTE** är uttömmande) -
+> - Azure Monitor (diagnostikinställning)
 > - Azure Stream Analytics
 > - Integrering med Azure Event Grid
 > - Azure IoT Hub Rutter

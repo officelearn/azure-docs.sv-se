@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/09/2020
-ms.openlocfilehash: d37b4648c0a37f16fe5c9d8794bd78417c5780ea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd7844340553809e1429097a9dda70f6bdb3e075
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80257894"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414194"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Kopiera prestandaoptimeringsfunktioner för aktivitet
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs de prestandaoptimeringsfunktioner för kopieringsaktivitet som du kan utnyttja i Azure Data Factory.
 
@@ -134,7 +136,7 @@ När du aktiverar mellanlagringsfunktionen kopieras först data från källdatal
 
 ![Stegvis kopia](media/copy-activity-performance/staged-copy.png)
 
-När du aktiverar dataförflyttning med hjälp av ett mellanlagringslager kan du ange om du vill att data ska komprimeras innan du flyttar data från källdatalagret till ett mellanlagringsdatalager och sedan expanderade innan du flyttar data från en mellanliggande eller mellanlagring datalag till diskbänksdatalagret.
+När du aktiverar dataförflyttning med hjälp av ett mellanlagringslager kan du ange om du vill att data ska komprimeras innan du flyttar data från källdatalagret till ett mellanlagringsdatalager och sedan expanderade innan du flyttar data från ett mellanliggande datalager eller mellanlagringsdatalager till datalagret sink.
 
 För närvarande kan du inte kopiera data mellan två datalager som är anslutna via olika självvärdbaserade IR,varken med eller utan stegvis kopia. För ett sådant scenario kan du konfigurera två explicit kedjade kopieringsaktiviteter för att kopiera från källa till mellanlagring sedan från mellanlagring till diskbänk.
 
@@ -187,7 +189,7 @@ Här är en exempeldefinition av en kopieringsaktivitet med de egenskaper som be
 Du debiteras baserat på två steg: kopieringslängd och kopieringstyp.
 
 * När du använder mellanlagring under en molnkopia, som kopierar data från ett molndatalager till ett annat molndatalager, debiteras båda faserna med Azure-integreringskörning, [summan av kopieringstiden för steg 1 och steg 2] x [molnkopieringsenhetspriset].
-* När du använder mellanlagring under en hybridkopia, som kopierar data från ett lokalt datalager till ett molndatalager, debiteras ett steg som styrs av en självvärderad integrationskörning, du debiteras för [hybridkopieringsvaraktighet] x [hybridkopieringsenhetspris] + [molnkopieringsvaraktighet] x [molnkopieringspriset för enhet].
+* När du använder mellanlagring under en hybridkopia, som kopierar data från ett lokalt datalager till ett molndatalager, debiteras ett steg som har befogenhet av en självvärderad integrationskörning, du debiteras för [hybridkopieringsvaraktighet] x [hybridkopieringsenhetspris] + [molnkopieringsvaraktighet] x [molnkopieringsenhetspris].
 
 ## <a name="next-steps"></a>Nästa steg
 Se de andra artiklarna för kopieringsaktivitet:

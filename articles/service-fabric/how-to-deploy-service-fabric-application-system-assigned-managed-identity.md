@@ -3,14 +3,14 @@ title: Distribuera en Service Fabric-app med systemtilldelad MI
 description: Den här artikeln visar hur du tilldelar en systemtilldelad hanterad identitet till ett Azure Service Fabric-program
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: d5a14722363d642957904f9c7c699d3cf1d66c0f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5c7a17c51eee18d9b7276f2c57289a5de5c8181
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75614833"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415659"
 ---
-# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>Distribuera Service Fabric-program med systemtilldelad hanterad identitet (förhandsversion)
+# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity"></a>Distribuera Service Fabric-program med systemtilldelad hanterad identitet
 
 För att komma åt funktionen hanterad identitet för Azure Service Fabric-program måste du först aktivera den hanterade identitetstokentjänsten i klustret. Den här tjänsten ansvarar för autentisering av Service Fabric-program med hjälp av deras hanterade identiteter och för att erhålla åtkomsttoken för deras räkning. När tjänsten är aktiverad kan du se den i Service Fabric Explorer under avsnittet **System** i den vänstra rutan och köras under namnet **fabric:/System/ManagedIdentityTokenService** bredvid andra systemtjänster.
 

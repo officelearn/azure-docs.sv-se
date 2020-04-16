@@ -11,14 +11,17 @@ author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
-ms.openlocfilehash: 006d4fa9ed09170a423e796e893b817e079e861b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: dce7fb87ee49aefdedf5653243fa5729eee34519
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261947"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414328"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Kör SQL Server Integration Services-paket med azure-aktiverade dtexec-verktyget
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 I den här artikeln beskrivs kommando promptverktyget för Azure-aktiverade dtexec (AzureDTExec). Den används för att köra SSIS-paket (SQL Server Integration Services) på Azure-SSIS Integration Runtime (IR) i Azure Data Factory.
 
 Det traditionella dtexec-verktyget levereras med SQL Server. Mer information finns i [dtexec utility](https://docs.microsoft.com/sql/integration-services/packages/dtexec-utility?view=sql-server-2017). Det anropas ofta av tredjepartsorkestratorer eller schemaläggare, till exempel ActiveBatch och Control-M, för att köra SSIS-paket lokalt. 

@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 40a7406ea91c95daad2f180b9d0f4620cdbbf454
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 87a962709638391887eaa275f059bf4ceae9218b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80875936"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406978"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD-autentiserings- och auktoriseringsfelkoder
 
@@ -27,6 +27,49 @@ Letar du efter information om AADSTS-felkoder som returneras från Azure Active 
 > Den här informationen är preliminär och kan komma att ändras. Har du en fråga eller inte hittar det du letar efter? Skapa ett GitHub-problem eller se [Support- och hjälpalternativ för utvecklare om](active-directory-develop-help-support.md) du vill lära dig mer om andra sätt du kan få hjälp och support.
 >
 > Den här dokumentationen tillhandahålls för utvecklar- och administratörsvägledning, men bör aldrig användas av klienten själv. Felkoder kan ändras när som helst för att ge mer detaljerade felmeddelanden som är avsedda att hjälpa utvecklaren när de skapar sitt program. Appar som är beroende av text- eller felkodsnummer bryts med tiden.
+
+## <a name="handling-error-codes-in-your-application"></a>Hantera felkoder i ditt program
+
+[OAuth2.0-specifikationen](https://tools.ietf.org/html/rfc6749#section-5.2) ger vägledning om hur du `error` hanterar fel under autentiseringen med hjälp av den del av felmeddelandet. 
+
+Här är ett exempel felsvar:
+
+```json
+{
+  "error": "invalid_scope",
+  "error_description": "AADSTS70011: The provided value for the input parameter 'scope' is not valid. The scope https://example.contoso.com/activity.read is not valid.\r\nTrace ID: 255d1aef-8c98-452f-ac51-23d051240864\r\nCorrelation ID: fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7\r\nTimestamp: 2016-01-09 02:02:12Z",
+  "error_codes": [
+    70011
+  ],
+  "timestamp": "2016-01-09 02:02:12Z",
+  "trace_id": "255d1aef-8c98-452f-ac51-23d051240864",
+  "correlation_id": "fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7", 
+  "error_uri":"https://login.microsoftonline.com/error?code=70011"
+}
+```
+
+| Parameter         | Beskrivning    |
+|-------------------|----------------|
+| `error`       | En felkodsträng som kan användas för att klassificera typer av fel som uppstår och bör användas för att reagera på fel. |
+| `error_description` | Ett specifikt felmeddelande som kan hjälpa en utvecklare att identifiera orsaken till ett autentiseringsfel. Använd aldrig det här fältet för att reagera på ett fel i koden. |
+| `error_codes` | En lista över STS-specifika felkoder som kan hjälpa till med diagnostik.  |
+| `timestamp`   | Den tidpunkt då felet uppstod. |
+| `trace_id`    | En unik identifierare för begäran som kan hjälpa till med diagnostik. |
+| `correlation_id` | En unik identifierare för begäran som kan hjälpa till med diagnostik mellan komponenter. |
+| `error_uri` |  En länk till felsökningssidan med ytterligare information om felet.  Detta är endast för utvecklare användning, inte presentera den för användare.  Endast närvarande när felsökningssystemet har ytterligare information om felet - inte alla fel har ytterligare information.|
+
+Fältet `error` har flera möjliga värden - granska protokolldokumentationslänkarna och OAuth 2.0-specifikationer `authorization_pending` för att lära dig mer om specifika fel (till exempel i [enhetskodflödet)](v2-oauth2-device-code.md)och hur du reagerar på dem.  Några vanliga listas här:
+
+| Felkod         | Beskrivning        | Klientåtgärd    |
+|--------------------|--------------------|------------------|
+| `invalid_request`  | Protokollfel, till exempel en parameter som saknas som krävs. | Åtgärda och skicka begäran igen.|
+| `invalid_grant`    | En del av autentiseringsmaterialet (auth-kod, uppdateringstoken, åtkomsttoken, PKCE-utmaning) var ogiltigt, kan inte gå att gå till, saknas eller på annat sätt inte kananvändas | Prova en ny `/authorize` begäran till slutpunkten för att få en ny auktoriseringskod.  Överväg att granska och validera appens användning av protokollen. |
+| `unauthorized_client` | Den autentiserade klienten har inte behörighet att använda den här behörighetsbeviljandetypen. | Detta inträffar vanligtvis när klientprogrammet inte är registrerat i Azure AD eller inte läggs till användarens Azure AD-klientorganisation. Programmet kan fråga användaren med instruktioner för att installera programmet och lägga till det i Azure AD. |
+| `invalid_client` | Klientautentisering misslyckades.  | Klientautentiseringsuppgifterna är ogiltiga. För att åtgärda uppdaterar programadministratören autentiseringsuppgifterna.   |
+| `unsupported_grant_type` | Auktoriseringsservern stöder inte behörighetsbidragstypen. | Ändra bidragstypen i begäran. Den här typen av fel bör endast uppstå under utvecklingen och upptäckas under inledande testning. |
+| `invalid_resource` | Målresursen är ogiltig eftersom den inte finns, Azure AD kan inte hitta den eller den är inte korrekt konfigurerad. | Detta indikerar att resursen, om den finns, inte har konfigurerats i klienten. Programmet kan fråga användaren med instruktioner för att installera programmet och lägga till det i Azure AD.  Under utvecklingen anger detta vanligtvis en felaktigt inställningstestklient eller ett stavfel i namnet på det scope som begärs. |
+| `interaction_required` | Begäran kräver användarinteraktion. Ett ytterligare autentiseringssteg krävs till exempel. | Försök igen med samma resurs, interagerar på ett säkert sätt så att användaren kan slutföra alla utmaningar som krävs.  |
+| `temporarily_unavailable` | Servern är tillfälligt för upptagen för att hantera begäran. | Försök igen. Klientprogrammet kan förklara för användaren att svaret är försenat på grund av ett tillfälligt villkor. |
 
 ## <a name="lookup-current-error-code-information"></a>Uppslagsström felkodsinformation
 Felkoder och meddelanden kan komma att ändras.  För den senaste informationen, ta `https://login.microsoftonline.com/error` en titt på sidan för att hitta AADSTS felbeskrivningar, korrigeringar och några föreslagna lösningar.  

@@ -8,26 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: fafc5234da3e6dfecdae2c8b2e2ba80cbed20b5c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 29944311c2215ebcc46ff3752004092bdeb9a9c8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80244809"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404398"
 ---
-# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-python"></a>Snabbstart: Extrahera tryckt och handskriven text med hjälp av datorseende 2.0 och 2.1 REST API och Python
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-python"></a>Snabbstart: Extrahera tryckt och handskriven text med HJÄLP AV REST API FÖR visuellt innehåll och Python
 
 I den här snabbstarten extraherar du tryckt och/eller handskriven text från en bild med hjälp av REST-APIN för visuellt innehåll. Med metoderna [Batchläsning](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) och [läsåtgärd](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) kan du identifiera text i en bild och extrahera tolkade tecken till en maskinläsbar teckenström. API:et avgör vilken igenkänningsmodell som ska användas för varje textrad, så den stöder bilder med både utskriven och handskriven text.
 
-Jämfört med Computer Vision 2.0 och 2.1 innehåller Den offentliga förhandsversionen av Computer Vision 3.0:
+Den här funktionen är tillgänglig i både ett v2.1 API och ett v3.0 Public Preview API. Jämfört med v2.1 har 3.0 API:
 
-* ännu bättre noggrannhet
-* ett ändrat utdataformat
-* förtroende poäng för ord
-* stöd för både spanska och engelska språk med den ytterligare språkparametern
+* Förbättrad noggrannhet
+* Konfidenspoäng för ord
+* Stöd för både spanska och `language` engelska med ytterligare parameter
+* Ett annat utdataformat
+
+Välj fliken nedan för den version du använder.
 
 #### <a name="version-2"></a>[Version 2](#tab/version-2)
 
@@ -833,7 +835,9 @@ Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbsidan t
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska ett Python-program som använder Visuellt innehåll för att utföra optisk teckenläsning (OCR), skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriv visuella funktioner, inklusive ansikten, i en bild. Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Därefter utforska ett Python-program som använder datorseende för att utföra optisk teckenigenkänning (OCR); skapa smartbeskurna miniatyrer. identifiera, kategorisera, tagga och beskriva visuella funktioner i bilder.
 
 > [!div class="nextstepaction"]
 > [Självstudie: API för visuellt innehåll med Python](../Tutorials/PythonTutorial.md)
+
+* Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).

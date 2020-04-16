@@ -11,14 +11,15 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: e4301afafb48fb9a1b0c9e36dde9800e2b8390f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d697fb8afe3e92dfe54eb5d89a2ef59425cb0cde
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443929"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414913"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Skapa en utlösare som kör en pipeline som svar på en händelse
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs de händelsebaserade utlösare som du kan skapa i datafabrikens pipelines.
 
@@ -80,11 +81,11 @@ I följande tabell finns en översikt över de schemaelement som är relaterade 
 
 | **JSON-element** | **Beskrivning** | **Typ** | **Tillåtna värden** | **Obligatoriskt** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **Omfattning** | Azure Resource Manager-resurs-ID för lagringskontot. | String | Azure Resource Manager ID | Ja |
+| **Omfattning** | Azure Resource Manager-resurs-ID för lagringskontot. | Sträng | Azure Resource Manager ID | Ja |
 | **Händelser** | Den typ av händelser som orsakar denna utlösare att skjuta. | Matris    | Microsoft.Storage.BlobSkaperad, Microsoft.Storage.BlobDeleted | Ja, en kombination av dessa värden. |
-| **blobPathBeginsWith** | Blob-banan måste börja med det mönster som tillhandahålls för att utlösaren ska avfyras. Till exempel `/records/blobs/december/` avfyrar endast utlösaren för `december` blobbar i mappen under behållaren. `records` | String   | | Du måste ange ett värde för minst `blobPathBeginsWith` en `blobPathEndsWith`av dessa egenskaper: eller . |
-| **blobPathEndsWith** | Blob-banan måste sluta med det mönster som anges för att utlösaren ska avfyras. Till exempel `december/boxes.csv` avfyrar endast utlösaren `boxes` för `december` blobbar som namnges i en mapp. | String   | | Du måste ange ett värde för minst `blobPathBeginsWith` en `blobPathEndsWith`av dessa egenskaper: eller . |
-| **ignoreraEmptyBlobs** | Om blobbar med noll byte utlöses eller inte. Som standard är detta inställt på true. | Boolean | sant eller falskt | Inga |
+| **blobPathBeginsWith** | Blob-banan måste börja med det mönster som tillhandahålls för att utlösaren ska avfyras. Till exempel `/records/blobs/december/` avfyrar endast utlösaren för `december` blobbar i mappen under behållaren. `records` | Sträng   | | Du måste ange ett värde för minst `blobPathBeginsWith` en `blobPathEndsWith`av dessa egenskaper: eller . |
+| **blobPathEndsWith** | Blob-banan måste sluta med det mönster som anges för att utlösaren ska avfyras. Till exempel `december/boxes.csv` avfyrar endast utlösaren `boxes` för `december` blobbar som namnges i en mapp. | Sträng   | | Du måste ange ett värde för minst `blobPathBeginsWith` en `blobPathEndsWith`av dessa egenskaper: eller . |
+| **ignoreraEmptyBlobs** | Om blobbar med noll byte utlöses eller inte. Som standard är detta inställt på true. | Boolesk | sant eller falskt | Inga |
 
 ## <a name="examples-of-event-based-triggers"></a>Exempel på händelsebaserade utlösare
 
@@ -104,4 +105,4 @@ Det här avsnittet innehåller exempel på händelsebaserade utlösarinställnin
 | **Blob-banan slutar med** | `foldername/file.txt` | Tar emot händelser för `file.txt` `foldername` en blob som namnges i mappen under valfri behållare. |
 
 ## <a name="next-steps"></a>Nästa steg
-Detaljerad information om utlösare finns i [Pipeline-körning och utlösare](concepts-pipeline-execution-triggers.md#triggers).
+Detaljerad information om utlösare finns i [Pipeline-körning och utlösare](concepts-pipeline-execution-triggers.md#trigger-execution).

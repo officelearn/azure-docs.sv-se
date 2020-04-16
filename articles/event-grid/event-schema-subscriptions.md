@@ -1,20 +1,20 @@
 ---
-title: Azure Event Grid-prenumerationshändelseschema
+title: Azure-prenumeration som källa för Event Grid
 description: Beskriver de egenskaper som tillhandahålls för prenumerationshändelser med Azure Event Grid
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/12/2019
+ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 4994063dfc3bce88489f70969c06bf36b591f907
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa88fe4e05ac968588a65d67a2f075bcae48ba7a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60561684"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393227"
 ---
-# <a name="azure-event-grid-event-schema-for-subscriptions"></a>Azure Event Grid-händelseschema för prenumerationer
+# <a name="azure-subscription-as-an-event-grid-source"></a>Azure-prenumeration som en event grid-källa
 
 Den här artikeln innehåller egenskaper och schema för Azure-prenumerationshändelser.En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](event-schema.md).
 
@@ -28,9 +28,10 @@ Om du vill hantera händelser programmässigt kan `operationName` du sortera hä
 
 Händelseämnet är resurs-ID för den resurs som är målet för operationen. Om du vill filtrera händelser för en resurs anger du det resurs-ID:et när du skapar händelseprenumerationen. Om du vill filtrera efter en resurstyp använder du ett värde i följande format:`/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
-En lista över exempelskript och självstudier finns i [Azure-prenumerationshändelsekälla](event-sources.md#azure-subscriptions).
 
-## <a name="available-event-types"></a>Tillgängliga händelsetyper
+## <a name="event-grid-event-schema"></a>Händelseschema för händelserutnät
+
+### <a name="available-event-types"></a>Tillgängliga händelsetyper
 
 Azure-prenumerationer avger hanteringshändelser från Azure Resource Manager, till exempel när en virtuell dator skapas eller ett lagringskonto tas bort.
 
@@ -46,7 +47,7 @@ Azure-prenumerationer avger hanteringshändelser från Azure Resource Manager, t
 | Microsoft.Resources.ResourceWriteFailure | Utlöses när åtgärden skapa eller uppdatera misslyckas. |
 | Microsoft.Resources.ResourceWriteSuccess | Utlöses när åtgärden skapa eller uppdatera lyckas. |
 
-## <a name="example-event"></a>Exempel händelse
+### <a name="example-event"></a>Exempel händelse
 
 I följande exempel visas schemat för en **ResourceWriteSuccess-händelse.** Samma schema används för **ResourceWriteFailure-** och **ResourceWriteCancel-händelser** med olika värden för `eventType`.
 
@@ -230,7 +231,7 @@ I följande exempel visas schemat för en **ResourceActionSuccess-händelse.** S
 }]
 ```
 
-## <a name="event-properties"></a>Händelseegenskaper
+### <a name="event-properties"></a>Händelseegenskaper
 
 En händelse har följande data på den högsta nivån:
 
@@ -259,6 +260,14 @@ Dataobjektet har följande egenskaper:
 | status | sträng | Status för åtgärden. |
 | subscriptionId | sträng | Resursens prenumerations-ID. |
 | tenantId (hyresgäst) | sträng | Resursens klient-ID. |
+
+## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
+|Titel |Beskrivning  |
+|---------|---------|
+| [Självstudiekurs: Azure Automation med Event Grid och Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Skapa en virtuell dator som skickar en händelse. Händelsen utlöser en Automation-runbook som taggar den virtuella datorn och utlöser ett meddelande som skickas till en Microsoft Teams-kanal. |
+| [Så här prenumererar du på evenemang via portal](subscribe-through-portal.md) | Använd portalen för att prenumerera på händelser för en Azure-prenumeration. |
+| [Azure CLI: prenumerera på händelser för en Azure-prenumeration](./scripts/event-grid-cli-azure-subscription.md) |Exempelskript som skapar en Event Grid-prenumeration på en Azure-prenumeration och skickar händelser till en WebHook. |
+| [PowerShell: prenumerera på händelser för en Azure-prenumeration](./scripts/event-grid-powershell-azure-subscription.md)| Exempelskript som skapar en Event Grid-prenumeration på en Azure-prenumeration och skickar händelser till en WebHook. |
 
 ## <a name="next-steps"></a>Nästa steg
 

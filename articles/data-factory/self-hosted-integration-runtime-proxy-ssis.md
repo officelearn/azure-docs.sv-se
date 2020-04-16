@@ -11,15 +11,17 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 03/27/2020
-ms.openlocfilehash: 9a1923057bc318869f491791520aacb4d0d17591
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.date: 04/15/2020
+ms.openlocfilehash: ecfdf2a11f31c18064be9a607f2bb3938d26e661
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346626"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414903"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Konfigurera en självvärd iR som en proxy för en Azure-SSIS IR i Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 I den hÃ¤r artikeln beskrivs hur du kör SSIS-paket (SQL Server Integration Services) fÃ¤r en Azure-SSIS Integration Runtime (Azure-SSIS IR) i Azure Data Factory med en själv värd integrationskörning (iR fÃ¤rsvÃ¤ndet som en proxy. 
 
@@ -52,7 +54,7 @@ Slutligen hämtar och installerar du den senaste versionen av den självvärdbas
 
 Om du inte redan har gjort det skapar du en Azure Blob-lagringslänkad tjänst i samma datafabrik där din Azure-SSIS IR har konfigurerats. Det gör du finns i [Skapa en Azure-datafabrikslänkad tjänst](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal#create-a-linked-service). Var noga med att göra följande:
 - För **datalagring**väljer du **Azure Blob Storage**.  
-- För **Connect via integrationskörning**väljer du **AutoResolveIntegrationRuntime** (inte din Azure-SSIS IR eller din självvärda IR), eftersom vi använder standard azure IR för att hämta åtkomstbehörighet för din Azure Blob Storage  
+- För **Connect via integrationskörning**väljer du **AutoResolveIntegrationRuntime** (inte din Azure-SSIS IR eller din självvärderade IR), eftersom vi använder standard Azure IR för att hämta åtkomstbehörighet för din Azure Blob Storage.
 - För **autentiseringsmetod**väljer du **Kontonyckel,** **SAS URI**eller **Tjänsthuvudnamn**.  
 
     >[!TIP]
@@ -171,7 +173,7 @@ Om du behöver använda starkt kryptografi/säkrare nätverksprotokoll (TLS 1.2)
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
-- Endast dataflödesuppgifter med ODBC-källor (Open Database Connectivity)/OLEDB/Flat File stöds för närvarande. 
+- Endast dataflödesuppgifter med ODBC-/OLEDB/Flat File-källor eller OLEDB-mål stöds för närvarande. 
 - Endast Azure Blob-lagringslänkade tjänster som är konfigurerade med *kontonyckel*, *SAS-signatur (Shared Access Signature) eller* *Autentisering av tjänsthuvudnamn* stöds för närvarande.
 - *ParameterMapping* i OLEDB-källa stöds inte ännu. Som en lösning använder du *SQL Command From Variable* som *AccessMode* och använder *Uttryck* för att infoga variabler/parametrar i ett SQL-kommando. Som en illustration, se *ParameterMappingSample.dtsx-paketet* som finns i mappen *SelfHostedIRProxy/Limitations* i vår offentliga förhandsversionsbehållare. Med Hjälp av Azure Storage Explorer kan du ansluta till vår offentliga förhandsversionsbehållare genom att ange ovanstående SAS URI.
 

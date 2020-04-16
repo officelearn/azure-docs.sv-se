@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dc87628d8b47435012c3d20ec2e72ac186983555
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 856bd6c2a3546a438293e89a0b576e1392d9c6a5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78189335"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407280"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Komma igång med anpassade principer i Azure Active Directory B2C
 
@@ -116,7 +116,7 @@ Visa sedan API:et genom att lägga till ett scope:
 1. I **Appregistreringar (Äldre)** väljer du **Ny programregistrering**.
 1. För **Namn** `ProxyIdentityExperienceFramework`anger du .
 1. För **programtyp**väljer du **Native**.
-1. För **Omdirigera URI**anger du `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, där `your-tenant-name` är din Azure AD B2C-klient.
+1. För **Omdirigera URI**anger du `myapp://auth`.
 1. Välj **Skapa**. När det har skapats kopierar du program-ID:et och sparar det för att använda det senare.
 1. Välj **Inställningar**och välj sedan **Obligatoriska behörigheter**och välj sedan **Lägg till**.
 1. Välj **Välj ett API,** sök efter och välj **IdentityExperienceFramework**och klicka sedan på **Välj**.
@@ -129,7 +129,7 @@ Visa sedan API:et genom att lägga till ett scope:
 1. För **Namn** `ProxyIdentityExperienceFramework`anger du .
 1. Under **Kontotyper som stöds**väljer du Konton i den här **organisationskatalogen**.
 1. Under **Omdirigera URI**använder du listrutan för att välja **Offentlig klient/inbyggt (mobilt & skrivbord).**
-1. För **Omdirigera URI**anger du `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, där `your-tenant-name` är din Azure AD B2C-klient.
+1. För **Omdirigera URI**anger du `myapp://auth`.
 1. Markera kryssrutan Bevilja *administratörsgodkännande för att öppna och offline_access behörigheter* under **Behörigheter.**
 1. Välj **Registrera**.
 1. Registrera **program-ID:t (klient)** för användning i ett senare steg.

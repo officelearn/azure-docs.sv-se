@@ -4,12 +4,12 @@ description: Lär dig hur du använder Azure-portalen för att skapa ett AKS-klu
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 7b9127c016fff78a8867dcecbe3260becdf02c65
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 62d8fec4c5c3ff35fb46826cb7118946f66948b2
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81259127"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392586"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Skapa och konfigurera ett AKS-kluster (Azure Kubernetes Services) för att använda virtuella noder i Azure-portalen
 
@@ -89,7 +89,7 @@ På sidan **Skala** väljer du *Aktiverad* under **Virtuella noder**.
 
 ![Skapa AKS-kluster och aktivera de virtuella noderna](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
-Som standard skapas ett huvudnamn för Tjänsten Azure Active Directory. Den här tjänstens huvudnamn används för klusterkommunikation och integrering med andra Azure-tjänster.
+Som standard skapas ett huvudnamn för Tjänsten Azure Active Directory. Den här tjänstens huvudnamn används för klusterkommunikation och integrering med andra Azure-tjänster. Du kan också använda en hanterad identitet för behörigheter i stället för ett tjänsthuvudnamn. Mer information finns i [Använda hanterade identiteter](use-managed-identity.md).
 
 Klustret är också konfigurerat för avancerade nätverk. De virtuella noderna är konfigurerade för att använda sitt eget Azure-virtuella nätverksundernät. Det här undernätet har delegerade behörigheter för att ansluta Azure-resurser mellan AKS-klustret. Om du inte redan har delegerat undernät skapar och konfigurerar Azure-portalen det virtuella Nätverket och undernätet för användning med de virtuella noderna.
 

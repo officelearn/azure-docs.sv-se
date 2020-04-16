@@ -5,16 +5,16 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: kevindaw
-ms.date: 03/06/2020
+ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b4d247f151240da8c3f0d38bbd22e43e230a1b95
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: d5e968e578428a16a0005149a409986015a1fc5c
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668617"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393757"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Skapa och etablera en IoT Edge-enhet med X.509-certifikat
 
@@ -44,6 +44,12 @@ Enhetsidentitetscertifikatet är ett lövcertifikat som ansluter via en certifik
 Enhetsidentitetscertifikat används endast för att etablera IoT Edge-enheten och autentisera enheten med Azure IoT Hub. De signerar inte certifikat, till skillnad från de CA-certifikat som IoT Edge-enheten presenterar för moduler eller lövenheter för verifiering. Mer information finns i [Azure IoT Edge-certifikatanvändningsdetaljinformation](iot-edge-certs.md).
 
 När du har skapat enhetsidentitetscertifikatet bör du ha två filer: en .cer- eller .pem-fil som innehåller den offentliga delen av certifikatet och en .cer- eller .pem-fil med certifikatets privata nyckel. Om du planerar att använda gruppregistrering i DPS behöver du också den offentliga delen av ett mellanliggande certifikat eller rotcertifikatutfärdarcertifikat i samma certifikatkedja.
+
+Du behöver följande filer för att konfigurera automatisk etablering med X.509:
+
+* Enhetsidentitetscertifikatet och dess privata nyckelcertifikat. Enhetsidentitetscertifikatet överförs till DPS om du skapar en enskild registrering. Den privata nyckeln skickas till IoT Edge-körningen.
+* Ett fullständigt kedjecertifikat, som bör ha åtminstone enhetens identitet och mellanliggande certifikat i den. Helkedjecertifikatet skickas till IoT Edge-körningen.
+* Ett mellanliggande certifikat eller ett rotcertifikatutfärdarcertifikat från certifikatkedjan. Det här certifikatet överförs till DPS om du skapar en gruppregistrering.
 
 ### <a name="use-test-certificates"></a>Använda testcertifikat
 
@@ -86,7 +92,7 @@ Mer information om registreringar i tjänsten För enhetsetablering finns i [Så
 
    * **Primär certifikat .pem eller .cer-fil:** Ladda upp den offentliga filen från enhetsidentitetscertifikatet. Om du använde skripten för att generera ett testcertifikat väljer du följande fil:
 
-      `<WRKDIR>/certs/iot-edge-device-identity-<name>-full-chain.cert.pem`
+      `<WRKDIR>/certs/iot-edge-device-identity-<name>.cert.pem`
 
    * **IoT Hub Device ID:** Ange ett ID för din enhet om du vill. Du kan använda enhets-ID:er för att rikta in dig på en enskild enhet för moduldistribution. Om du inte anger något enhets-ID används det vanliga namnet (CN) i X.509-certifikatet.
 
@@ -205,7 +211,7 @@ X.509-etablering med DPS stöds endast i IoT Edge version 1.0.9 eller nyare.
 Du behöver följande information när du etablerar enheten:
 
 * **DPS-ID-scopevärdet.** Du kan hämta det här värdet från översiktssidan för din DPS-instans i Azure-portalen.
-* Enhetsidentitetscertifikatfilen på enheten.
+* Enhetsidentitetscertifikatkedjan på enheten.
 * Enhetsidentitetsnyckelfilen på enheten.
 * Ett valfritt registrerings-ID (hämtat från det gemensamma namnet i enhetens identitetscertifikat om det inte anges).
 
@@ -217,7 +223,7 @@ Använd följande länk för att installera Azure IoT Edge-körningen på din en
 
 När du lägger till X.509-certifikatet och nyckelinformationen i filen config.yaml ska sökvägarna anges som fil-URI:er. Ett exempel:
 
-* `file:///<path>/identity_certificate.pem`
+* `file:///<path>/identity_certificate_chain.pem`
 * `file:///<path>/identity_key.pem`
 
 Avsnittet i konfigurationsfilen för automatisk etablering av X.509 ser ut så här:
@@ -235,7 +241,7 @@ provisioning:
     identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
 ```
 
-Ersätt platshållarvärdena `identity_cert` `identity_pk` för `scope_id`, , med scope-ID:et från DPS-instansen och URI:erna till cert- och nyckelfilplatserna på enheten. Ange `registration_id` en för enheten om du vill, eller lämna den här raden kommenterade ut för att registrera enheten med CN-namnet på identitetscertifikatet.
+Ersätt platshållarvärdena `identity_cert` `identity_pk` för `scope_id`, , med scope-ID:et från DPS-instansen och URI:erna till cert-kedjan och nyckelfilplatserna på enheten. Ange `registration_id` en för enheten om du vill, eller lämna den här raden kommenterade ut för att registrera enheten med CN-namnet på identitetscertifikatet.
 
 Starta alltid om säkerhetsdemonen när filen config.yaml har uppdaterats.
 
@@ -245,7 +251,7 @@ sudo systemctl restart iotedge
 
 ### <a name="windows-device"></a>Windows-enhet
 
-Installera IoT Edge-körningen på den enhet som du genererade identitetscertifikatet och identitetsnyckeln för. Du konfigurerar IoT Edge-körningen för automatisk, inte manuell etablering.
+Installera IoT Edge-körningen på den enhet som du genererade identitetscertifikatkedjan och identitetsnyckeln för. Du konfigurerar IoT Edge-körningen för automatisk, inte manuell etablering.
 
 Mer detaljerad information om hur du installerar IoT Edge i Windows, inklusive förutsättningar och instruktioner för uppgifter som att hantera behållare och uppdatera IoT Edge, finns i [Installera Azure IoT Edge-körningen i Windows](how-to-install-iot-edge-windows.md).
 
@@ -262,11 +268,11 @@ Mer detaljerad information om hur du installerar IoT Edge i Windows, inklusive f
 
 1. Kommandot **Initialize-IoTEdge** konfigurerar IoT Edge-körningen på datorn. Kommandot är som standard manuell etablering om `-Dps` du inte använder flaggan för att använda automatisk etablering.
 
-   Ersätt platshållarvärdena `{identity cert path}`för `{identity key path}` `{scope_id}`, och med lämpliga värden från DPS-instansen och filsökvägarna på enheten. Om du vill ange registrerings-ID, inkludera `-RegistrationId {registration_id}` också, ersätta platshållaren efter behov.
+   Ersätt platshållarvärdena `{identity cert chain path}`för `{identity key path}` `{scope_id}`, och med lämpliga värden från DPS-instansen och filsökvägarna på enheten. Om du vill ange registrerings-ID, inkludera `-RegistrationId {registration_id}` också, ersätta platshållaren efter behov.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -X509IdentityCertificate {identity cert path} -X509IdentityPrivateKey {identity key path}
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -X509IdentityCertificate {identity cert chain path} -X509IdentityPrivateKey {identity key path}
    ```
 
    >[!TIP]

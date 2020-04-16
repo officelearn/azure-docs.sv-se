@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: f14cbef2ab568962601b3a407fa979e8f982598d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 508eac08284f91821223a78cafdfee7b4c9c540b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75483016"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410867"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Använd ID Broker (förhandsversion) för hantering av autentiseringsuppgifter
 
@@ -55,6 +55,14 @@ HdInsight [IntelliJ-plugin-programmet](https://docs.microsoft.com/azure/hdinsigh
 När ID Broker har aktiverats behöver du fortfarande en lösenordshh som lagras i Azure AD DS för SSH-scenarier med domänkonton. Om du vill ha SSH till en `kinit` domänansluten virtuell dator eller köra kommandot måste du ange ett lösenord. 
 
 SSH-autentisering kräver att hash-värdet är tillgängligt i Azure AD DS. Om du bara vill använda SSH för administrativa scenarier kan du skapa ett molnkonto och använda det till SSH till klustret. Andra användare kan fortfarande använda Ambari- eller HDInsight-verktyg (till exempel IntelliJ-plugin-programmet) utan att lösenordshhen är tillgänglig i Azure AD DS.
+
+## <a name="clinets-using-oauth-to-connect-to-hdinsight-gateway-with-id-broker-setup"></a>Clinets använder OAuth för att ansluta till HDInsight gateway med ID Broker setup
+
+I ID-mäklaren kan anpassade appar och klienter som ansluter till gatewayen uppdateras för att hämta den OAuth-token som krävs först. Du kan följa stegen i det här [dokumentet](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) för att hämta token med följande information:
+
+*   OAuth resurs uri:https://hib.azurehdinsight.net 
+* AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
+*   Behörighet: (namn: Cluster.ReadWrite, id:8f89faa0-ffef-4007-974d-4989b39ad77d)
 
 ## <a name="next-steps"></a>Nästa steg
 

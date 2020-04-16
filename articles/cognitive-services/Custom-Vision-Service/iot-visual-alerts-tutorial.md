@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 9f3802ada79ee87d1a04634f7caac3b1b4286dce
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: f66347727ad3c1b8eaf1f0e023abe1f2eeefcacb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74978040"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403727"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Självstudiekurs: Använd anpassad syn med en IoT-enhet för att rapportera visuella tillstånd
 
-Den här exempelappen illustrerar hur du använder Anpassad syn för att träna en enhet med en kamera för att identifiera visuella tillstånd. Du kan köra det här identifieringsscenariot på en IoT-enhet med hjälp av en ONNX-modell som exporteras från tjänsten Custom Vision.
+Den här exempelappen illustrerar hur du använder Anpassad syn för att träna en enhet med en kamera för att identifiera visuella tillstånd. Du kan köra det här identifieringsscenariot på en IoT-enhet med hjälp av en exporterad ONNX-modell.
 
-Ett visuellt tillstånd beskriver innehållet i en bild: ett tomt rum eller ett rum med människor, en tom uppfart eller en uppfart med en lastbil och så vidare. I bilden nedan kan du se app upptäcka när en banan eller ett äpple placeras framför kameran.
+Ett visuellt tillstånd beskriver innehållet i en bild: ett tomt rum eller ett rum med människor, en tom uppfart med en lastbil och så vidare. I bilden nedan kan du se app upptäcka när en banan eller ett äpple placeras framför kameran.
 
 ![Animering av ett användargränssnitt som etiketterar frukt framför kameran](./media/iot-visual-alerts-tutorial/scoring.gif)
 
@@ -92,7 +92,7 @@ Om du vill konfigurera en modell måste du placera appen i tillståndet **Fånga
 * Om du kör appen på datorn använder du knappen längst upp till höger i användargränssnittet.
 * Om du kör appen på en IoT-enhet ringer du `EnterLearningMode` metoden på enheten via IoT Hub. Du kan anropa den via enhetsposten på IoT Hub-menyn på Azure-portalen eller med ett verktyg som [Utforskaren för IoT Hub Device](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
  
-När appen går in i läget **Fånga träningsbilder,** kommer den att fånga ungefär två bilder varje sekund tills den har nått målantalet bilder. Som standard är det 30 bilder, men du kan ange den här `EnterLearningMode` parametern genom att skicka önskat nummer som ett argument till IoT Hub-metoden. 
+När appen går in i läget **Fånga träningsbilder,** kommer den att fånga ungefär två bilder varje sekund tills den har nått målantalet bilder. Som standard är målet 30 bilder, men du kan ange den här `EnterLearningMode` parametern genom att skicka önskat nummer som ett argument till IoT Hub-metoden. 
 
 Medan appen tar bilder måste du exponera kameran för de typer av visuella tillstånd som du vill upptäcka (till exempel ett tomt rum, ett rum med människor, ett tomt skrivbord, ett skrivbord med en leksaksbil och så vidare).
 

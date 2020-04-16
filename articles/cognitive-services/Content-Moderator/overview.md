@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 570d55c8523e1c1deca3242a8841b0cc34322786
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: f28f2bcf5d04c9a6354b8135bd39546b9d8b9bf3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80053878"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404302"
 ---
 # <a name="what-is-azure-content-moderator"></a>Vad är Azure Content Moderator?
 
@@ -38,7 +38,7 @@ Följande är några scenarier där en programutvecklare eller ett team kan anv�
 
 ## <a name="what-it-includes"></a>Vad verktyget innehåller
 
-Content Moderator-tjänsten består av flera webbtjänst-API:er som är tillgängliga via både REST-anrop och en .NET-SDK. Den innehåller även verktyg för mänsklig granskning, vilket gör att mänskliga granskare kan bistå tjänsten och förbättra eller finjustera dess modereringsfunktion.
+Content Moderator-tjänsten består av flera webbtjänst-API:er som är tillgängliga via både REST-anrop och en .NET-SDK. Den innehåller också granskningsverktyget, som gör det möjligt för mänskliga granskare att hjälpa tjänsten och förbättra eller finjustera dess modereringsfunktion.
 
 ## <a name="moderation-apis"></a>API:er för moderering
 
@@ -58,18 +58,18 @@ I följande tabell beskrivs de olika typerna av api:er för moderering.
 
 ## <a name="review-apis"></a>Omdömes-API:er
 
-Med gransknings-API:erna kan du integrera din modereringspipeline med mänskliga granskare. Använd åtgärderna [Jobb,](review-api.md#jobs) [Granskning](review-api.md#reviews)och [Arbetsflöde](review-api.md#workflows) för att skapa och automatisera arbetsflöden i loop med [granskningsverktyget](#the-review-tool) (nedan).
+Med gransknings-API:erna kan du integrera din modereringspipeline med mänskliga granskare. Använd åtgärderna [Jobb,](review-api.md#jobs) [Granskning](review-api.md#reviews)och [Arbetsflöde](review-api.md#workflows) för att skapa och automatisera arbetsflöden i loop med [granskningsverktyget](#review-tool) (nedan).
 
 > [!NOTE]
 > Arbetsflödes-API:et är ännu inte tillgängligt i .NET SDK men kan användas med REST-slutpunkten.
 
 ![blockera diagram för API:er för granskning av innehållsmoderator](images/content-moderator-rev-api.png)
 
-## <a name="the-review-tool"></a>Verktyget Granska
+## <a name="review-tool"></a>Granskningsverktyg
 
 Tjänsten Content Moderator innehåller även det webbaserade [granskningsverktyget](Review-Tool-User-Guide/human-in-the-loop.md), som är värd för innehållsgranskningar för mänskliga moderatorer att bearbeta. Den mänskliga insatsen tränar inte tjänsten, men det kombinerade arbetet i tjänsten och mänskliga granskningsteam gör det möjligt för utvecklare att hitta rätt balans mellan effektivitet och noggrannhet. Granskningsverktyget ger också en användarvänlig klientdel för flera content moderator-resurser.
 
-![Hemsida för Content Moderator-verktyget för mänsklig granskning](images/homepage.PNG)
+![Startsida för granskningsverktyg för innehållsmodererator](images/homepage.PNG)
 
 ## <a name="data-privacy-and-security"></a>Datasekretess och säkerhet
 

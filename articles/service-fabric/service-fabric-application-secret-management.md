@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: 4a489993f982993d5703a9b46d42fffaa6134038
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4d2138935122b9e08b21963519fce3f72466ab1f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259063"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414516"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Hantera krypterade hemligheter i Service Fabric-program
 Den här guiden går igenom stegen för att hantera hemligheter i ett Service Fabric-program. Hemligheter kan vara känslig information, till exempel lagringsanslutningssträngar, lösenord eller andra värden som inte ska hanteras i oformaterad text.
@@ -57,6 +57,11 @@ Hemligheterna bör också inkluderas i ditt Service Fabric-program genom att ang
   </Certificates>
 </ApplicationManifest>
 ```
+> [!NOTE]
+> När du aktiverar ett program som anger ett SecretsCertificate hittar Service Fabric det matchande certifikatet och beviljar den identitet som programmet körs under fullständiga behörigheter till certifikatets privata nyckel. Service Fabric övervakar också certifikatet för ändringar och tillämpar behörigheterna på nytt i enlighet med detta. Om du vill identifiera ändringar för certifikat som deklarerats med gemensamt namn kör Service Fabric en periodisk uppgift som hittar alla matchande certifikat och jämför dem med en cachelagrad lista med tumavtryck. När ett nytt tumavtryck identifieras betyder det att ett certifikat av ämnet har förnyats. Aktiviteten körs en gång per minut på varje nod i klustret.
+>
+> Medan SecretsCertificate tillåter ämnesbaserade deklarationer, observera att de krypterade inställningarna är kopplade till nyckelparet som användes för att kryptera inställningen på klienten. Du måste se till att det ursprungliga krypteringscertifikatet (eller motsvarande) matchar den ämnesbaserade deklarationen och att det installeras, inklusive motsvarande privat nyckel, på varje nod i klustret som kan vara värd för programmet. Alla tids giltiga certifikat som matchar den ämnesbaserade deklarationen och som byggts från samma nyckelpar som det ursprungliga krypteringscertifikatet betraktas som motsvarigheter.
+>
 
 ### <a name="inject-application-secrets-into-application-instances"></a>Injicera programhemligheter i programinstanser
 Helst bör distributionen till olika miljöer vara så automatiserad som möjligt. Detta kan åstadkommas genom att utföra hemlig kryptering i en byggmiljö och tillhandahålla krypterade hemligheter som parametrar när du skapar programinstanser.

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: f2f6be1022a7100a23f49534f2c18fc951d56284
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c803d489b70cda6910865f6096d21c2021c4ae3a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255514"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393707"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: nivåer för frekvent åtkomst, lågfrekvent åtkomst och arkivlagring
 
@@ -140,7 +140,7 @@ I det här avsnittet demonstreras följande scenarier med Hjälp av Azure-portal
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Ändra standardåtkomstnivå för ett GPv2- eller Blob Storage-konto
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Sök efter och välj **Alla resurser**i Azure-portalen .
@@ -168,7 +168,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 ---
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Ändra nivån för en blob i ett GPv2- eller Blob-lagringskonto
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Sök efter och välj **Alla resurser**i Azure-portalen .
@@ -199,7 +199,7 @@ $storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountN
 $ctx = $storageAccount.Context
 
 #Select the blob from a container
-$blobs = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $context
+$blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
 
 #Change the blob’s access tier to archive
 $blob.ICloudBlob.SetStandardBlobTier("Archive")
@@ -234,7 +234,7 @@ Ja. **Attributet Access Tier** som angetts på kontonivå är standardkontonivå
 
 **Kan jag ändra standardåtkomstnivån för mitt Blob- eller GPv2-lagringskonto?**
 
-Ja, du kan ändra standardkontonivån genom att ange attributet **Access-nivå** på lagringskontot. Att ändra kontonivån gäller för alla objekt som lagras i kontot och som inte har en explicit nivåuppsättning (till exempel **Hot (inferred)** eller **Cool (inferred).** Växla kontonivån från frekvent till sval incurs skrivåtgärder (per 10 000) för alla blobbar utan en uppsättning nivå i GPv2-konton och växla från sval till frekvent ådring både läsåtgärder (per 10 000) och datahämtning (per GB) avgifter för alla blobbar i Blob-lagring och GPv2-konton.
+Ja, du kan ändra standardkontonivån genom att ange attributet **Access-nivå** på lagringskontot. Att ändra kontonivån gäller för alla objekt som lagras i kontot och som inte har en explicit nivåuppsättning (till exempel **Hot (inferred)** eller **Cool (inferred).** Växla kontonivån från frekvent till sval ådrar skrivåtgärder (per 10 000) för alla blobbar utan en viss nivå i GPv2-konton och växla från sval till frekvent ådrar sig både läsåtgärder (per 10 000) och avgifter för datahämtning (per GB) för alla blobbar i Blob-lagring och GPv2-konton.
 
 **Kan jag ange arkivlagring som standardnivå för mitt konto?**
 

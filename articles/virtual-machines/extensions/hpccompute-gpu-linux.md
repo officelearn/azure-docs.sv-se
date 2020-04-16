@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
-ms.openlocfilehash: 6ea61acfc2db3c8f1f5c9c0ac8da8f19897d441e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e7f6653043d46925d6a4c35eedaf81224ea6c36d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79250574"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415792"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>NVIDIA GPU Drivrutinstillägg för Linux
 
@@ -141,15 +141,15 @@ Set-AzVMExtension
 I följande exempel speglas ovanstående Azure Resource Manager och PowerShell-exempel och lägger också till anpassade inställningar som ett exempel för installation av drivrutiner som inte är standard. Specifikt uppdaterar den OS-kärnan och installerar en specifik CUDA-verktygslådasversionsdrivrutin.
 
 ```azurecli
-az vm extension set `
-  --resource-group myResourceGroup `
-  --vm-name myVM `
-  --name NvidiaGpuDriverLinux `
-  --publisher Microsoft.HpcCompute `
-  --version 1.2 `
-  --settings '{ `
-    "updateOS": true, `
-    "driverVersion": "9.1.85", `
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name NvidiaGpuDriverLinux \
+  --publisher Microsoft.HpcCompute \
+  --version 1.2 \
+  --settings '{ \
+    "updateOS": true, \
+    "driverVersion": "9.1.85", \
   }'
 ```
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 6e0c98cffef06fb6d6345fc2b23bbc22715909b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3432f981df3f666d6276eee4564ef33000faa6b1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79370193"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410897"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurera utgående nätverkstrafik för Azure HDInsight-kluster med brandvägg
 
@@ -221,7 +221,7 @@ De tidigare instruktionerna hjälper dig att konfigurera Azure-brandväggen för
 #### <a name="fqdn-httphttps-dependencies"></a>FQDN HTTP/HTTPS-beroenden
 
 > [!Important]
-> Listan nedan ger bara några av de viktigaste FQDNs. Du kan få en fullständig lista över FQDN för att konfigurera din NVA [i den här filen](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
+> Listan nedan ger bara några av de viktigaste FQDNs. Du kan få ytterligare FQDN (mestadels Azure Storage och Azure Service Bus) för att konfigurera din NVA [i den här filen](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
 
 | **Slutpunkt**                                                          |
 |---|

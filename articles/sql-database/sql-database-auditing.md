@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 682735e1189333c2455863b8fde8e57d815111ba
-ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
+ms.openlocfilehash: 4e20129502e7538bd2f3354b75b33095970e1595
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80387707"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411867"
 ---
 # <a name="azure-sql-auditing"></a>Azure SQL-granskning
 
@@ -81,7 +81,7 @@ I följande avsnitt beskrivs konfigurationen av granskning med Hjälp av Azure-p
 2. Navigera till **Granskning** under rubriken Säkerhet i sql-databasen/serverfönstret.
 3. Om du föredrar att konfigurera en servergranskningsprincip kan du välja länken **Visa serverinställningar** på sidan databasgranskning. Du kan sedan visa eller ändra servergranskningsinställningarna. Servergranskningsprinciper gäller för alla befintliga och nyskapade databaser på den här servern.
 
-    ![Navigeringsfönster][2]
+    ![Navigeringsfönster](./media/sql-database-auditing-get-started/2_auditing_get_started_server_inherit.png)
 
 4. Om du föredrar att aktivera granskning på databasnivå växlar du **Granskning** till **ON**. Om servergranskning är aktiverat kommer den databaskonfigurerade granskningen att finnas sida vid sida med servergranskningen.
 
@@ -94,7 +94,7 @@ I följande avsnitt beskrivs konfigurationen av granskning med Hjälp av Azure-p
 Om du vill konfigurera skriva granskningsloggar till ett lagringskonto väljer du **Lagring** och öppnar **Lagringsinformation**. Välj det Azure-lagringskonto där loggar ska sparas och välj sedan kvarhållningsperioden. Klicka sedan på **OK**. Loggar som är äldre än kvarhållningsperioden tas bort.
 
 - Standardvärdet för kvarhållningsperioden är 0 (obegränsad kvarhållning). Du kan ändra det här värdet genom att flytta skjutreglaget **Kvarhållning (Dagar)** i **Lagringsinställningar när** du konfigurerar lagringskontot för granskning.
-  - Om du ändrar kvarhållningsperioden från 0 (obegränsad kvarhållning) till något annat värde, observera att kvarhållning endast gäller för loggar skrivna efter att kvarhållningsvärdet har ändrats (loggar skrivna under den period då kvarhållningen var inställd på obegränsad bevaras, även efter kvarhållning är aktiverat).
+  - Om du ändrar kvarhållningsperioden från 0 (obegränsad kvarhållning) till något annat värde, observera att kvarhållning endast gäller för loggar som skrivits efter att kvarhållningsvärdet har ändrats (loggar skrivna under perioden då kvarhållningen har ställts in på obegränsad bevaras, även efter att kvarhållning har aktiverats).
 
   ![storage account](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
@@ -164,7 +164,7 @@ Om du väljer att skriva granskningsloggar till ett Azure-lagringskonto finns de
 
 - Använd [Azure-portalen](https://portal.azure.com).  Öppna relevant databas. Klicka på **Visa granskningsloggar**högst upp på databasens **granskningssida** .
 
-    ![Navigeringsfönster][7]
+    ![Navigeringsfönster](./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png)
 
     **Granskningsposter** öppnas, där du kan visa loggarna.
 
@@ -172,14 +172,14 @@ Om du väljer att skriva granskningsloggar till ett Azure-lagringskonto finns de
   - Du kan växla mellan granskningsposter som har skapats av *servergranskningsprincipen* och *databasgranskningsprincipen* genom att växla **granskningskälla**.
   - Du kan bara visa SQL-injektionsrelaterade granskningsposter genom att markera **kryssrutan Visa endast granskningsposter för SQL-injektioner.**
 
-       ![Navigeringsfönster][8]
+       ![Navigeringsfönster]( ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png)
 
 - Använd systemfunktionen **sys.fn_get_audit_file** (T-SQL) för att returnera granskningsloggdata i tabellformat. Mer information om hur du använder den här funktionen finns [i sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Använda **kopplingsgranskningsfiler** i SQL Server Management Studio (från och med SSMS 17):
     1. Välj Öppna**granskningsfiler**för > **filuppfogning** > på SSMS-menyn . **File**
 
-        ![Navigeringsfönster][9]
+        ![Navigeringsfönster](./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png)
     2. Dialogrutan **Lägg till granskningsfiler** öppnas. Välj ett av alternativen **Lägg till** för att välja om granskningsfiler ska kopplas från en lokal disk eller importera dem från Azure Storage. Du måste ange dina Azure Storage-information och kontonyckel.
 
     3. När alla filer som ska sammanfogas har lagts till klickar du på **OK** för att slutföra kopplingen.
@@ -220,10 +220,10 @@ I produktion är det troligt att du uppdaterar lagringsnycklarna med jämna mell
 
 1. Öppna **lagringsinformation**. Välj **Sekundär**i rutan **Lagringsåtkomstnyckel** och klicka på **OK**. Klicka sedan på **Spara** högst upp på granskningskonfigurationssidan.
 
-    ![Navigeringsfönster][5]
+    ![Navigeringsfönster](./media/sql-database-auditing-get-started/5_auditing_get_started_storage_key_regeneration.png)
 2. Gå till lagringskonfigurationssidan och återskapa den primära åtkomstnyckeln.
 
-    ![Navigeringsfönster][6]
+    ![Navigeringsfönster](./media/sql-database-auditing-get-started/6_auditing_get_started_regenerate_key.png)
 3. Gå tillbaka till granskningskonfigurationssidan, växla åtkomstnyckeln för lagring från sekundär till primär och klicka sedan på **OK**. Klicka sedan på **Spara** högst upp på granskningskonfigurationssidan.
 4. Gå tillbaka till lagringskonfigurationssidan och återskapa den sekundära åtkomstnyckeln (som förberedelse för nästa nyckels uppdateringscykel).
 
@@ -268,15 +268,3 @@ Du kan hantera Granskning av Azure SQL-databaser med Azure Resource Manager-mall
 
 > [!NOTE]
 > De länkade exemplen finns i ett externt offentligt arkiv och tillhandahålls "i befintligt fall", utan garanti och stöds inte under något Microsoft-supportprogram/-tjänst.
-
-<!--Image references-->
-[1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png
-[2]: ./media/sql-database-auditing-get-started/2_auditing_get_started_server_inherit.png
-[3]: ./media/sql-database-auditing-get-started/3_auditing_get_started_turn_on.png
-[4]: ./media/sql-database-auditing-get-started/4_auditing_get_started_storage_details.png
-[5]: ./media/sql-database-auditing-get-started/5_auditing_get_started_storage_key_regeneration.png
-[6]: ./media/sql-database-auditing-get-started/6_auditing_get_started_regenerate_key.png
-[7]: ./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png
-[8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png
-[9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
-[10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png 

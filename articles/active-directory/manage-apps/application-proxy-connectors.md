@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b097ce3781a77a8c5e8a94b9c2bf0977f3efcfd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f1b8b9af8f90629d087246edf0cb3426bd9b66c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481338"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406837"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Förstå Azure AD-programproxy-kopplingar
 
@@ -153,12 +153,17 @@ För att tillhandahålla en säker tjänst måste kopplingar autentisera mot tj�
 
 De certifikat som används är specifika för tjänsten Programproxy. De skapas under den första registreringen och förnyas automatiskt av kontakterna varannan månad.
 
+Efter den första lyckade certifikatförnyelsen har Azure AD Application Proxy Connector-tjänsten (Network Service) ingen behörighet att ta bort det gamla certifikatet från det lokala datorarkivet. Om certifikatet har upphört att gälla eller om det inte längre används av tjänsten kan du ta bort det på ett säkert sätt.
+
+Undvik problem med certifikatförnyelsen genom att se till att nätverkskommunikationen från anslutningen till de [dokumenterade destinationerna](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment) är aktiverad.
+
 Om en anslutning inte är ansluten till tjänsten på flera månader kan dess certifikat vara inaktuella. I det här fallet avinstallerar och installerar du om kopplingen för att utlösa registrering. Du kan köra följande PowerShell-kommandon:
 
 ```
 Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
+Mer information om hur du verifierar certifikatet och felsöker problem finns i [Stöd för verifierad dator och serverdelar för certifikatet För programproxy](application-proxy-connector-installation-problem.md#verify-machine-and-backend-components-support-for-application-proxy-trust-certificate).
 
 ## <a name="under-the-hood"></a>Under huven
 

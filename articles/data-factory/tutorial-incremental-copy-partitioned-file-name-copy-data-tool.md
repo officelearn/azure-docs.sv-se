@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 3/17/2020
-ms.openlocfilehash: 50e82362f39da2d3f3ecfad2de1ed07b68f8a6a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6cc089a1efc3f5960a8bca8a36063bb1019bbcc6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79501642"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409400"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Kopiera nya filer stegvis baserat på tidspartiat filnamn med hjälp av verktyget Kopiera data
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 I den här självstudien skapar du en datafabrik i Azure Portal. Sedan använder du verktyget Kopiera data för att skapa en pipeline som stegvis kopierar nya filer baserat på tidsbe partitionerat filnamn från Azure Blob-lagring till Azure Blob-lagring.
 

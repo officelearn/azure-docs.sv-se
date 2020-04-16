@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 36cc63721fe003934aabfb3ae2a03a4113937ca4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3a2317554f02dc1f1198d8019bbfdb50e3cc71c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256944"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409773"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Konfigurera haveriberedskap i stor skala för virtuella datorer/fysiska VMware-servrar
 
@@ -210,7 +210,7 @@ Du kan förbereda dig i förväg för redundans enligt följande:
 Om du vill köra en storskalig redundans rekommenderar vi följande:
 
 1. Skapa återställningsplaner för arbetsbelastningsöverslag.
-    - Varje återställningsplan kan utlösa redundans på upp till 50 datorer.
+    - Varje återställningsplan kan utlösa redundans på upp till 100 datorer.
     - [Läs mer](recovery-plan-overview.md) om återställningsplaner.
 2. Lägg till Azure Automation-runbook-skript i återställningsplaner för att automatisera eventuella manuella uppgifter på Azure. Typiska uppgifter är att konfigurera belastningsutjämnare, uppdatera DNS etc. [Läs mer](site-recovery-runbook-automation.md)
 2. Förbered Windows-datorer före redundans så att de följer Azure-miljön. [Redundansgränser](#plan-azure-subscriptions-and-quotas) är högre för maskiner som uppfyller kraven. [Läs mer](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) om runbooks.

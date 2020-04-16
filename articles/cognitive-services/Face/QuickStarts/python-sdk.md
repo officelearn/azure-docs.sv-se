@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 7ac1b85ee44627990931cfc7b3a65f6f7a661b3f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 5ac36e47efd2e121126cd740dba0818feb39f5fb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76165822"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402885"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Snabbstart: Face-klientbibliotek för Python
 
@@ -40,12 +40,9 @@ Använd Face-klientbiblioteket för Python för att:
 
 ### <a name="create-a-face-azure-resource"></a>Skapa en Face Azure-resurs
 
-Azure Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Face med [Azure-portalen](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på din lokala dator. Du kan också:
+Azure Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Face med [Azure-portalen](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på din lokala dator. Du kan också få en [testnyckel](https://azure.microsoft.com/try/cognitive-services/#decision) giltig i sju dagar gratis. När du har registrerat dig är den tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 
-* Få en [testnyckel](https://azure.microsoft.com/try/cognitive-services/#decision) giltig i sju dagar gratis. När du har registrerat dig är den tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-* Visa din resurs på [Azure-portalen](https://portal.azure.com/)
-
-När du har fått en nyckel från utvärderingsprenumerationen `FACE_SUBSCRIPTION_KEY`eller resursen skapar du en [miljövariabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln med namnet .
+När du har fått en nyckel från utvärderingsprenumerationen eller resursen [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln och slutpunkten, namngivna `FACE_SUBSCRIPTION_KEY` respektive `FACE_ENDPOINT`.
  
 ### <a name="create-a-new-python-application"></a>Skapa ett nytt Python-program
 
@@ -53,7 +50,7 @@ Skapa ett nytt&mdash;Python-skript*quickstart-file.py*, till exempel. Öppna den
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_imports)]
 
-Skapa sedan variabler för resursens Azure-slutpunkt och nyckel. Du kan behöva ändra den första delen`westus`av slutpunkten ( ) för att matcha din prenumeration.
+Skapa sedan variabler för resursens Azure-slutpunkt och nyckel.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_subvars)]
 
@@ -272,7 +269,7 @@ python quickstart-file.py
 
 Om du vill rensa och ta bort en Cognitive Services-prenumeration kan du ta bort resursen eller resursgruppen. Om du tar bort resursgruppen tas även alla andra resurser som är associerade bort.
 
-* [Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
+* [Portalen](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
 * [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
 
 Om du har skapat en **PersonGroup** i den här snabbstarten och vill ta bort den kör du följande kod i skriptet:

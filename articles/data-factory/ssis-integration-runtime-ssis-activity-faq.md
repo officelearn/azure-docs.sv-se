@@ -11,14 +11,16 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 1c2db107302e4851641ef430db61ec9b29ee151f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c85a652cde840336c51e1a5b5459f9dc591e0be
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77187485"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414677"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Felsök paketkörning i SSIS-integreringskörningen
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Den här artikeln innehåller de vanligaste felen som kan hitta när du kör SSIS-paket (SQL Server Integration Services) i SSIS-integreringskörningen. Den beskriver de potentiella orsakerna och åtgärder för att lösa felen.
 
@@ -144,7 +146,7 @@ Kontrollera att din självvärderade integrationskörning är installerad och st
 
 Kontrollera att motsvarande provider som används av OLE DB-kontakterna i paketet är korrekt installerade på självvärdförd integrationsdator. Mer information finns på [Konfigurera självvärdförd IR som proxy för Azure-SSIS IR i ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
 
-### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-systemiofileloadexception-could-not-load-file-or-assembly-microsoftwindowsazurestorage-version-cultureneutral-publickeytoken31bf3856ad364e35-or-one-of-its-dependencies-the-located-assemblys-manifest-definition-does-not-match-the-assembly-reference"></a>Felmeddelande: "Mellanlagringsuppgiftsfel: ErrorCode: 2906, ErrorMessage: Package execution failed., Output: {"OperationErrorMessages": "Error: System.IO.FileLoadException: Det gick inte att läsa in filen eller sammansättningen 'Microsoft.WindowsAzure.Storage, Version=..., Kultur=neutralt, PublicKeyToken=31bf3856ad364e35' eller något av dess beroenden. Den lokaliserade sammansättningens manifestdefinition matchar inte sammansättningsreferensen." ..."
+### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-systemiofileloadexception-could-not-load-file-or-assembly-microsoftwindowsazurestorage-version-cultureneutral-publickeytoken31bf3856ad364e35-or-one-of-its-dependencies-the-located-assemblys-manifest-definition-does-not-match-the-assembly-reference"></a>Felmeddelande: "Mellanlagringsuppgiftsfel: ErrorCode: 2906, ErrorMessage: Package execution failed., Output: {"OperationErrorMessages": "Error: System.IO.FileLoadException: Could not load file or assembly 'Microsoft.WindowsAzure.Storage, Version=..., Culture=neutral, PublicKeyToken=31bf3856ad364e35' eller en av dess beroenden. Den lokaliserade sammansättningens manifestdefinition matchar inte sammansättningsreferensen." ..."
 
 En potentiell orsak är att din självvärderade integrationskörning inte är installerad eller uppgraderad på rätt sätt. Föreslå att du hämtar och installerar om den senaste självvärderade integrationskörningen. Mer information finns på [Skapa och konfigurera en självvärd integrationskörning](create-self-hosted-integration-runtime.md#installation-best-practices)
 

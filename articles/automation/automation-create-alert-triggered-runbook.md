@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2d5eb330cd6e5d02432298a5b58e84ae7d24ee7e
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: e8ddcaf6a5c9ab51147e540e2426ef8c4a1fdd3a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383328"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392375"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Använda en avisering för att utlösa en Azure Automation-runbook
 
@@ -35,8 +35,8 @@ När en avisering anropar en runbook är det faktiska anropet en HTTP POST-begä
 |Varning  |Beskrivning|Schema för nyttolast  |
 |---------|---------|---------|
 |[Vanlig varning](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|Det gemensamma varningsschemat som standardiserar förbrukningsupplevelsen för varningsmeddelanden i Azure idag.|Gemensamt schema för varningsnyttolast|
-|[Avisering om aktivitetslogg](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Skickar ett meddelande när en ny händelse i Azure-aktivitetsloggen matchar specifika villkor. Till exempel när `Delete VM` en åtgärd inträffar i **myProductionResourceGroup** eller när en ny Azure Service Health-händelse med en **aktiv** status visas.| [Nyttolastschema för aktivitetsloggvarning](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
-|[Måttavisering i nära realtid](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Skickar ett meddelande snabbare än måttaviseringar när ett eller flera mätvärden på plattformsnivå uppfyller angivna villkor. Till exempel när värdet för **CPU %** på en virtuell dator är större än **90**och värdet för **Network In** är större än **500 MB** under de senaste 5 minuterna.| [Schema för nyttolast i realtid i realtid](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
+|[Avisering om aktivitetslogg](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Skickar ett meddelande när en ny händelse i Azure-aktivitetsloggen matchar specifika villkor. Till exempel när `Delete VM` en åtgärd inträffar i **myProductionResourceGroup** eller när en ny Azure Service Health-händelse med en aktiv status visas.| [Nyttolastschema för aktivitetsloggvarning](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
+|[Måttavisering i nära realtid](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |Skickar ett meddelande snabbare än måttaviseringar när ett eller flera mätvärden på plattformsnivå uppfyller angivna villkor. Till exempel när värdet för **CPU %** på en virtuell dator är större än 90 och värdet för **Network In** är större än 500 MB under de senaste 5 minuterna.| [Schema för nyttolast i realtid i realtid](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
 
 Eftersom de data som tillhandahålls av varje typ av avisering är olika hanteras varje aviseringstyp på olika sätt. I nästa avsnitt får du lära dig hur du skapar en runbook för att hantera olika typer av aviseringar.
 
@@ -44,11 +44,11 @@ Eftersom de data som tillhandahålls av varje typ av avisering är olika hantera
 
 Om du vill använda Automation med aviseringar behöver du en runbook som har logik som hanterar den aviserings-JSON-nyttolast som skickas till runbooken. Följande exempelkörningsbok måste anropas från en Azure-avisering.
 
-Som beskrivs i föregående avsnitt har varje typ av avisering ett annat schema. Skriptet tar in webhook-data i `WebhookData` runbook-inmatningsparametern från en avisering. Skriptet utvärderar sedan JSON-nyttolasten för att avgöra vilken aviseringstyp som användes.
+Som beskrivs i föregående avsnitt har varje typ av avisering ett annat schema. Skriptet tar webhook-data från `WebhookData` en avisering i indataparametern runbook. Skriptet utvärderar sedan JSON-nyttolasten för att avgöra vilken aviseringstyp som används.
 
-I det här exemplet används en avisering från en virtuell dator. Den hämtar VM-data från nyttolasten och använder sedan den informationen för att stoppa den virtuella datorn. Anslutningen måste ställas in i automationskontot där runbooken körs. När du använder aviseringar för att utlösa runbooks är det viktigt att kontrollera status för aviseringen i runbooken som utlöses. Runbooken utlöses varje gång aviseringen ändras. Aviseringar har flera tillstånd, de två `Activated` `Resolved`vanligaste tillstånden är och . Kontrollera om det här tillståndet finns i runbook-logiken för att säkerställa att runbooken inte körs mer än en gång. Exemplet i den här artikeln `Activated` visar bara hur du söker efter aviseringar.
+I det här exemplet används en avisering från en virtuell dator. Den hämtar VM-data från nyttolasten och använder sedan den informationen för att stoppa den virtuella datorn. Anslutningen måste ställas in i automationskontot där runbooken körs. När du använder aviseringar för att utlösa runbooks är det viktigt att kontrollera aviseringsstatusen i runbooken som utlöses. Runbook utlöser varje gång aviseringen ändrar tillstånd. Aviseringar har flera tillstånd, där de två vanligaste aktiveras och matchas. Kontrollera om det finns tillstånd i runbook-logiken för att säkerställa att runbooken inte körs mer än en gång. Exemplet i den här artikeln visar hur du söker efter aviseringar med tillstånd aktiverat.
 
-Runbook använder `AzureRunAsConnection` [kontot Kör som](automation-create-runas-account.md) för att autentisera med Azure för att utföra hanteringsåtgärderna mot den virtuella datorn.
+Runbook använder kontot `AzureRunAsConnection` [för anslutningstillgång kör som](automation-create-runas-account.md) för att autentisera med Azure för att utföra hanteringsåtgärder mot den virtuella datorn.
 
 Använd det här exemplet om du vill skapa en runbook som heter **Stop-AzureVmInResponsetoVMAlert**. Du kan ändra PowerShell-skriptet och använda det med många olika resurser.
 

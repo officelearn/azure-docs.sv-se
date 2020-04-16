@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ad2032497b4b01476389428f5a2ef4a3961a1c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e17cc4bf6f70901e3bb5d250f0a55f073ad8d99e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481253"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406719"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Jokerteckenprogram i Azure Active Directory-programproxyn
 
@@ -116,7 +116,7 @@ Jokerteckenprogrammet representeras med bara en bricka på [panelen MyApps](http
 
 ### <a name="kerberos-constrained-delegation"></a>Kerberos begränsad delegering
 
-För program som använder [Kerberos-begränsad delegering (KCD) som SSO-metod](application-proxy-configure-single-sign-on-with-kcd.md)kan SPN som anges för SSO-metoden också behöva ett jokertecken. Spn kan till exempel `HTTP/*.adventure-works.com`vara: . Du måste fortfarande ha de enskilda SPN-nätverken konfigurerade `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`på serveringsservrarna (till exempel).
+För program som använder [Kerberos-begränsad delegering (KCD) som SSO-metod](application-proxy-configure-single-sign-on-with-kcd.md)kan SPN som anges för SSO-metoden också behöva ett jokertecken. Spn kan till exempel `HTTP/*.adventure-works.com`vara: . Du måste fortfarande ha de enskilda SPN-nätverken konfigurerade `HTTP/expenses.adventure-works.com and HTTP/travel.adventure-works.com`på serveringsservrarna (till exempel).
 
 ## <a name="scenario-1-general-wildcard-application"></a>Scenario 1: Allmänt jokerteckenprogram
 

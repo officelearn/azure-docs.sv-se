@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 6ceace1ee93fab8c0a46ed4a67850fc87a5cdad2
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 2e862410e2bf12e09e1a6388bbb6f7105b5b2edf
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991236"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405271"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetrikorrelation i Application Insights
 
@@ -314,7 +314,7 @@ Med tiden har .NET definierat flera sätt att korrelera telemetri och diagnostik
 
 Men dessa metoder gjorde det inte möjligt för automatisk support för distribuerad spårning. `DiagnosticSource`stöder automatisk korrelation mellan datorer. .NET-bibliotek `DiagnosticSource` stöder och tillåter automatisk spridning mellan datorer av korrelationskontexten via transporten, till exempel HTTP.
 
-Användarhandboken för `DiagnosticSource` [aktivitet](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) i förklarar grunderna i spårningsaktiviteter.
+Användarhandboken för `DiagnosticSource` [aktivitet](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) i förklarar grunderna i spårningsaktiviteter.
 
 ASP.NET Core 2.0 stöder extrahering av HTTP-huvuden och start av nya aktiviteter.
 

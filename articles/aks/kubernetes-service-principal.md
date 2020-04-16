@@ -3,17 +3,17 @@ title: Tjänstens huvudnamn för Azure Kubernetes Service (AKS)
 description: Skapa och hantera ett tjänstobjekt för Azure Active Directory för ett kluster i Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.openlocfilehash: 523f08ddbf22e175af5b0604b04d4a2460ffd634
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/02/2020
+ms.openlocfilehash: 2c792eb4dc060e3f5d7fa2d8f2176bdd51538c43
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259427"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392723"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Tjänstens huvudnamn med Azure Kubernetes Service (AKS)
 
-Om ett AKS-kluster ska kunna interagera med Azure-API:er måste det ha ett [Azure Active Directory-huvudnamn för tjänsten][aad-service-principal]. Tjänstens huvudnamn krävs för att dynamiskt skapa och hantera andra Azure-resurser som en Azure-lastbalanserare eller containerregister (ACR).
+För att interagera med Azure API:er kräver ett AKS-kluster antingen [ett huvudnamn för Azure Active Directory (AD)][aad-service-principal] eller en [hanterad identitet](use-managed-identity.md). Ett tjänsthuvudnamn eller hanterad identitet behövs för att dynamiskt skapa och hantera andra Azure-resurser, till exempel en Azure load balancer eller containerregistry (ACR).
 
 Den här artikeln visar hur du skapar och använder ett tjänstens huvudnamn för AKS-kluster.
 
@@ -108,7 +108,7 @@ Du kan använda avancerade nätverk där det virtuella nätverket och undernäte
   - *Microsoft.Network/publicIPAddresses/write*
 - Eller tilldela [Nätverksdeltagare][rbac-network-contributor] en inbyggd roll i undernätet i det virtuella nätverket
 
-### <a name="storage"></a>Lagring
+### <a name="storage"></a>Storage
 
 Du kan behöva åtkomst till befintliga diskresurser i en annan resursgrupp. Tilldela behörigheter till någon av följande uppsättningar:
 

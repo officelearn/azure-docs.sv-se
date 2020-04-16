@@ -2,18 +2,18 @@
 title: PySpark interaktiv miljö med Azure HDInsight Tools
 description: Lär dig hur du använder Azure HDInsight Tools for Visual Studio Code för att skapa och skicka frågor och skript.
 keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
-author: jejiang
-ms.author: jejiang
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/13/2019
-ms.openlocfilehash: db2336fb79207ada24b71e0e64f0aaaab543e4da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 2a725f3c5c9e1428079807b5b76dbe72d416a9c7
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73241556"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393660"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Konfigurera den interaktiva miljön i PySpark för Visual Studio Code
 
@@ -34,7 +34,7 @@ Vi använder **python/pip-kommandot** för att skapa virtuell miljö i din hems�
 
 2. Installera **virtualenv** genom att köra kommandot nedan.
 
-   ```
+   ```bash
    pip install virtualenv
    ```
 
@@ -44,11 +44,11 @@ Om du stöter på ett felmeddelande installerar du de nödvändiga paketen genom
 
    ![Installera libkrb5-paket för python](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
 
-```
+```bash
 sudo apt-get install libkrb5-dev
 ```
 
-```
+```bash
 sudo apt-get install python-dev
 ```
 
@@ -57,9 +57,11 @@ Starta om VS-koden och gå sedan tillbaka till skriptredigeraren som kör **HDIn
 ## <a name="next-steps"></a>Nästa steg
 
 ### <a name="demo"></a>Demo
+
 * HDInsight för VS-kod: [Video](https://go.microsoft.com/fwlink/?linkid=858706)
 
 ### <a name="tools-and-extensions"></a>Verktyg och tillägg
+
 * [Använda Azure HDInsight Tool för Visual Studio-kod](hdinsight-for-vscode.md)
 * [Använd Azure Toolkit för IntelliJ för att skapa och skicka Apache Spark Scala-program](spark/apache-spark-intellij-tool-plugin.md)
 * [Använd Azure Toolkit för IntelliJ för att fjärrsöka Apache Spark-program via SSH](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)

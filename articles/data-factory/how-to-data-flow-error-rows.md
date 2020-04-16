@@ -8,14 +8,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: makromer
-ms.openlocfilehash: 3fe3403ad06d82ba5ccd33d2718bf0e5eff64490
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4f65421a6457d4bf4d438ce9d035d46476829da2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73166543"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414362"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Hantera SQL-trunkeringsfelrader i dataflöden för datamappning av dataflöden för data
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Ett vanligt scenario i Data Factory när du använder mappning av dataflöden är att skriva dina transformerade data till en Azure SQL-databas. I det här fallet är ett vanligt feltillstånd som du måste förhindra mot möjlig kolumn trunkering. Följ dessa steg för att tillhandahålla loggning av kolumner som inte får plats i en målsträngskolumn, så att dataflödet kan fortsätta i dessa scenarier.
 

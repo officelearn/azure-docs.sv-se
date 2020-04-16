@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
-ms.openlocfilehash: acba378badb41324b2124b84833407da920a0e00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 99e04c95156e40eed8c2b9aa88a2bee6f39e90c9
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78190066"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392883"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Övervaka Azure AD B2C med Azure Monitor
 
@@ -84,8 +84,8 @@ Om du vill använda din Azure AD-klientorganisation **(kunden)** skapar du en [A
 
 Hämta Mall- och parameterfilerna i Azure Resource Manager:
 
-- [rgDelegatedResourceManagement.json](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
-- [rgDelegatedResourceManagement.parameters.json](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
+- [rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
+- [rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
 
 Uppdatera sedan parameterfilen med de värden som du spelade in tidigare. Följande JSON-kodavsnitt visar ett exempel på en Azure Resource Manager-mallparametrarfil. Använd `authorizations.value.roleDefinitionId`det [inbyggda rollvärdet](../role-based-access-control/built-in-roles.md) för *rollen* `b24988ac-6180-42a0-ab88-20f7382dd24c`Deltagare för .
 

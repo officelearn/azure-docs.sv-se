@@ -7,14 +7,16 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/07/2019
 ms.author: abnarain
-ms.openlocfilehash: b8492e8934c782451fb77d5a0ff56b96c34c9a00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f298b331d53eb8bab67a6f99194065dc5f889236
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75439878"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414882"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Felsöka självvärd integreringskörning
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs vanliga felsökningsmetoder för självvärdbaserad integrationskörning i Azure Data Factory.
 
@@ -80,9 +82,9 @@ Följande är det förväntade svaret:
 
 > [!NOTE] 
 > Proxy överväganden:
-> * Kontrollera om proxyservern behöver placeras i listan Betrodda mottagare. Om så är fallet kontrollerar du att [dessa domäner](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) finns med i listan Betrodda mottagare.
-> * Kontrollera om TLS/SSL-certifikatet "wu2.frontend.clouddatahub.net/" är betrott på proxyservern.
-> * Om du använder Active Directory-autentisering på proxyn ändrar du tjänstkontot till användarkontot som kan komma åt proxyn som "Integration Runtime Service".
+> *    Kontrollera om proxyservern behöver placeras i listan Betrodda mottagare. Om så är fallet kontrollerar du att [dessa domäner](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) finns med i listan Betrodda mottagare.
+> *    Kontrollera om TLS/SSL-certifikatet "wu2.frontend.clouddatahub.net/" är betrott på proxyservern.
+> *    Om du använder Active Directory-autentisering på proxyn ändrar du tjänstkontot till användarkontot som kan komma åt proxyn som "Integration Runtime Service".
 
 ### <a name="error-message-self-hosted-integration-runtime-node-logical-shir-is-in-inactive-running-limited-state"></a>Felmeddelande: Självvärdförd integrationskörningsnod/ logisk SHIR är inaktiv/ "Körs (begränsad)"
 
@@ -117,7 +119,7 @@ Det här problemet uppstår när noder inte kan kommunicera med varandra.
         
    ![Command-line error](media/self-hosted-integration-runtime-troubleshoot-guide/command-line-error.png)
         
-1.  Check whether the error log contains the following:
+1.    Check whether the error log contains the following:
 
     ```Error log: Cannot connect to worker manager: net.tcp://xxxxxx:8060/ExternalService.svc/ No DNS entries exist for host azranlcir01r1. No such host is known Exception detail: System.ServiceModel.EndpointNotFoundException: No DNS entries exist for host xxxxx. ---> System.Net.Sockets.SocketException: No such host is known at System.Net.Dns.GetAddrInfo(String name) at System.Net.Dns.InternalGetHostByName(String hostName, Boolean includeIPv6) at System.Net.Dns.GetHostEntry(String hostNameOrAddress) at System.ServiceModel.Channels.DnsCache.Resolve(Uri uri) --- End of inner exception stack trace --- Server stack trace: at System.ServiceModel.Channels.DnsCache.Resolve(Uri uri)```
     

@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 03/25/2020
+ms.date: 04/14/2020
 ms.author: cherylmc
-ms.openlocfilehash: 913bc16f7408acebb0e65359e8845ce0f6a3a2f4
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: b99bd20b9b9e18bbc09edd5bb49f34147ccfaabd
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314256"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390252"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -81,7 +81,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Ais](https://business.ais.co.th/solution/en/azure-expressroute.html)** | Stöds | Stöds | Bangkok |
 | **[Aryaka Networks](https://www.aryaka.com/)** |Stöds |Stöds |Amsterdam, Chicago, Dallas, Hong Kong SAR, Sao Paulo, Seattle, Silicon Valley, Singapore, Tokyo, Washington DC |
 | **[Ascenty Data Centers](https://www.ascenty.com/en/cloud/microsoft-express-route)** |Stöds |Stöds |Sao Paulo |
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Stöds |Stöds |Amsterdam, Chicago, Dallas, London, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Stöds |Stöds |Amsterdam, Chicago, Dallas, Frankfurt, London, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **[PÅ TOKYO](https://www.attokyo.com/service/cloudsconnection/forazure.html)** | Stöds | Stöds | Tokyo2 (på andra) |
 | **[BBIX (PÅ ANDRA) SÄTT](https://www.bbix.net/en/service/ix/)** | Stöds | Stöds | Tokyo |
 | **[BCX (storbritannien)](https://www.bcx.co.za/solutions)** |Stöds |Stöds |Kapstaden|
@@ -138,7 +138,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |Stöds |Stöds |Amsterdam, Amsterdam2, Dubai2, Frankfurt, Hong Kong SAR, Johannesburg, London, Paris, Sao Paulo, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[Orixcom (orixcom)](https://www.orixcom.com/cloud-solutions/)** | Stöds | Stöds | Dubai2 (på andra plats) |
 | **[PacketFabric (paket)](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |Stöds |Stöds |Chicago, Silicon Valley, Washington DC |
-| **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Stöds |Stöds |Chicago, Hongkong SAR, London |
+| **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Stöds |Stöds |Chicago, Hongkong SAR, London, Singapore2 |
 | **[Sejong Telekom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Stöds |Stöds |Seoul |
 | **[SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | Stöds |Stöds | Washington DC |
 | **[SIFY (SIFY)](http://telecom.sify.com/azure-expressroute.html)** |Stöds |Stöds |Chennai, Mumbai2 |

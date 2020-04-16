@@ -1,26 +1,26 @@
 ---
-title: Evenemangsschema för Azure Event Grid Machine Learning
+title: Azure Machine Learning som källa för händelserutnät
 description: Beskriver de egenskaper som tillhandahålls för Machine Learning Workspace-händelser med Azure Event Grid
 services: event-grid
-author: jenns
+author: spelluru
 ms.service: event-grid
-ms.topic: reference
-ms.date: 10/18/2019
-ms.author: jenns
-ms.openlocfilehash: 4051598a9abd787f6707e67a8c4dab12fc6d626a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: spelluru
+ms.openlocfilehash: 7d9af420c7e2b47d2aeb4a8bf42ee138a605b305
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79202152"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393282"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-machine-learning"></a>Azure Event Grid-händelseschema för Azure Machine Learning
+# <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning som en händelserutnätskälla
 
 Den här artikeln innehåller egenskaper och schema för maskininlärningsarbetsytahändelser. En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](event-schema.md).
 
-En lista över exempelskript och självstudier finns i [AzureML-händelsekälla](event-sources.md#azure-machine-learning).
+## <a name="event-grid-event-schema"></a>Händelseschema för händelserutnät
 
-## <a name="available-event-types"></a>Tillgängliga händelsetyper
+### <a name="available-event-types"></a>Tillgängliga händelsetyper
 
 Azure Machine Learning avger följande händelsetyper:
 
@@ -32,7 +32,7 @@ Azure Machine Learning avger följande händelsetyper:
 | Microsoft.MachineLearningServices.DatasetDriftDetected | Utlöses när en Dataset drift monitor upptäcker drift. |
 | Microsoft.MachineLearningServices.RunStatusChanged Microsoft.MachineLearningServices.RunStatusChanged Microsoft.MachineLearningServices.RunStatusChanged Microsoft. | Utlöses när en körningsstatus ändras till "misslyckades". |
 
-## <a name="the-contents-of-an-event-response"></a>Innehållet i ett händelsesvar
+### <a name="the-contents-of-an-event-response"></a>Innehållet i ett händelsesvar
 
 När en händelse utlöses skickar tjänsten Event Grid data om händelsen för att prenumerera på slutpunkten.
 
@@ -186,10 +186,7 @@ Det här avsnittet innehåller ett exempel på hur dessa data skulle se ut för 
 }]
 ```
 
-
-
-
-## <a name="event-properties"></a>Händelseegenskaper
+### <a name="event-properties"></a>Händelseegenskaper
 
 En händelse har följande data på den högsta nivån:
 
@@ -260,6 +257,11 @@ Dataobjektet har följande egenskaper för varje händelsetyp:
 | RunTags (kör) | objekt | Taggarna för den slutförda körningen. |
 | RunProperties (Lö tillbakaEgenskaper) | objekt | Egenskaperna för den slutförda körningen. |
 | Körstatus | sträng | Status för körningen. |
+
+## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
+| Titel | Beskrivning |
+| ----- | ----- |
+| [Använda Azure Machine Learning-händelser](../machine-learning/concept-event-grid-integration.md) | Översikt över hur du integrerar Azure Machine Learning med Event Grid. |
 
 ## <a name="next-steps"></a>Nästa steg
 

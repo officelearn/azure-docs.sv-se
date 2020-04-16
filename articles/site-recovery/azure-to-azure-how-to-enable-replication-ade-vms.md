@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 3a59f137240eff2a3a68fa5547be8c6c25d3e5fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2bbb02df782439d934e96e7c16f28b9c11cc01fe
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75772235"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408624"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replikera Virtuella virtuella datorer med Azure Disk-kryptering till en annan Azure-region
 
 I den här artikeln beskrivs hur du replikerar virtuella Azure-datorer med Azure Disk Encryption (ADE) aktiverat, från en Azure-region till en annan.
 
 >[!NOTE]
-> Site Recovery stöder för närvarande ADE, med och utan Azure Active Directory (AAD) för virtuella datorer som kör Windows- och Linux-operativsystem.  För datorer som kör ADE 1.1 (utan AAD) måste de virtuella datorerna använda hanterade diskar. Virtuella datorer med ohanterade diskar stöds inte. Om du växlar från ADE 0.1 (med AAD) till 1.1 måste du inaktivera replikering och aktivera replikering för en virtuell dator efter att 1.1 har aktiverats.
+> Site Recovery stöder för närvarande ADE, med och utan Azure Active Directory (AAD) för virtuella datorer som kör Windows-operativsystem. För Linux-operativsystem stöder vi endast ADE utan AAD. Dessutom måste de virtuella datorerna använda hanterade diskar för datorer som kör ADE 1.1 (utan AAD). Virtuella datorer med ohanterade diskar stöds inte. Om du växlar från ADE 0.1 (med AAD) till 1.1 måste du inaktivera replikering och aktivera replikering för en virtuell dator efter att 1.1 har aktiverats.
 
 
 ## <a name="required-user-permissions"></a><a id="required-user-permissions"></a>Nödvändiga användarbehörigheter

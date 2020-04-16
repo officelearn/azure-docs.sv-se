@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 0be98ac60e11b3e21a864aa4ca18fcac2c7f014c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 69d3f1a7f0c455275a212401110459abb1b8d8d0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80053395"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403415"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av ansikts-REST API och C#
 
-I den här snabbstarten ska du använda Azure ansikts-REST API med C# för att identifiera mänskliga ansikten i en bild.
+I den här snabbstarten använder du Azure Face REST API med C# för att identifiera mänskliga ansikten i en avbildning.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 

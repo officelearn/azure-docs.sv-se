@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/11/2019
-ms.openlocfilehash: 7096b429145a54b5a09fe38eb8099c4ff24ac452
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f0aa70333454b327a0ca76beef2985062ce56715
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243619"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415386"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Kopiera och omvandla data i Azure Cosmos DB (SQL API) med hjälp av Azure Data Factory
 
@@ -24,7 +24,11 @@ ms.locfileid: "79243619"
 > * [Version 1](v1/data-factory-azure-documentdb-connector.md)
 > * [Aktuell version](connector-azure-cosmos-db.md)
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 I den här artikeln beskrivs hur du använder kopieringsaktivitet i Azure Data Factory till att kopiera data från och till Azure Cosmos DB (SQL API) samt hur du använder dataflöden till att transformera data i Azure Cosmos DB (SQL API). Mer information om Azure Data Factory finns i den [inledande artikeln](introduction.md).
+
+
 
 >[!NOTE]
 >Den här anslutningen stöder endast Cosmos DB SQL API. För MongoDB API, se [anslutning för Azure Cosmos DB:s API för MongoDB](connector-azure-cosmos-db-mongodb-api.md). Andra API-typer stöds inte nu.
@@ -48,7 +52,7 @@ Data Factory integreras med [Azure Cosmos DB bulk executor-biblioteket](https://
 > [!TIP]
 > [Datamigreringsvideon](https://youtu.be/5-SRNiC_qOU) hjälper dig att kopiera data från Azure Blob-lagring till Azure Cosmos DB. Videon beskriver också prestandajustering överväganden för intag av data till Azure Cosmos DB i allmänhet.
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

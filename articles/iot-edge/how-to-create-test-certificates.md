@@ -4,16 +4,16 @@ description: Skapa testcertifikat och lär dig hur du installerar dem på en Azu
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/26/2020
+ms.date: 04/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5afb9b7a6ba1ffb99df064c9f92780dc820b2e8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 364846f6cef196f6cefa7872af48f262b387db4f
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79535994"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393824"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Skapa democertifikat för att testa IoT Edge-enhetsfunktioner
 
@@ -247,8 +247,9 @@ New-CACertsEdgeDeviceIdentity "<name>"
 
 Namnet som du skickar in till det här kommandot är enhets-ID för IoT Edge-enheten i IoT Hub.
 
-Det nya enhetsidentitetskommandot skapar flera certifikat- och nyckelfiler, inklusive två som du ska använda när du skapar en enskild registrering i DPS och installerar IoT Edge-körningen:
+Det nya enhetsidentitetskommandot skapar flera certifikat- och nyckelfiler, inklusive tre som du ska använda när du skapar en enskild registrering i DPS och installerar IoT Edge-körningen:
 
+* `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>\certs\iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>\private\iot-edge-device-identity-<name>.key.pem`
 
@@ -262,8 +263,9 @@ Skapa IoT Edge-enhetsidentitetscertifikatet och den privata nyckeln med följand
 
 Namnet som du skickar in till det här kommandot är enhets-ID för IoT Edge-enheten i IoT Hub.
 
-Skriptet skapar flera certifikat- och nyckelfiler, inklusive två som du ska använda när du skapar en enskild registrering i DPS och installerar IoT Edge-körningen:
+Skriptet skapar flera certifikat- och nyckelfiler, inklusive tre som du ska använda när du skapar en enskild registrering i DPS och installerar IoT Edge-körningen:
 
+* `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>/certs/iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>/private/iot-edge-device-identity-<name>.key.pem`
 

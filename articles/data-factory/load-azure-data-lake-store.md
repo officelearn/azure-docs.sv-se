@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/17/2018
-ms.openlocfilehash: 1325910877d1e030b3bf4114e16d0f81ecea8cf7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1b1b19814709451bdbbea97462c459149484e71f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443980"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415850"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Läsa in data i Azure Data Lake Storage Gen1 med hjälp av Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) (tidigare känt som Azure Data Lake Store) är en företagsomfattande hyperskala-lagringsplats för stordata analytiska arbetsbelastningar. Med DataSjölagring Gen1 kan du samla in data av valfri storlek, typ och inmatningshastighet. Data samlas in på en enda plats för operativa och undersökande analyser.
 

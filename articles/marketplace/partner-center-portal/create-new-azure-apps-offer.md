@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 260193b3c71e29a32e0589f50864ffcca2e9a67c
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 6b7ca1f10744bf38137c57d94d796655946c31b3
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262272"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390352"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 
@@ -58,7 +58,7 @@ Granska följande Azure-programdokumentation, som innehåller snabbstarter, sjä
 
     * [Snabbstartsmallar för Azure](https://azure.microsoft.com/documentation/templates/)
     * [Snabbstartsmallar för GitHub Azure](https://github.com/azure/azure-quickstart-templates)
-    * [Publicera programdefinition](https://docs.microsoft.com/azure/managed-applications/publish-managed-app-definition-quickstart)
+    * [Publicera programdefinition](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
     * [Distribuera tjänstkatalogapp](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
 * Självstudier:

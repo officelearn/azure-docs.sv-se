@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 822fab5c00501d415c3c184587141e869523e417
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b4ee679b21d904f997f727f5f26275c86acc9c5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78945382"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414416"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Azure SQL Database- och Data Warehouse-nätverksåtkomstkontroller
 
@@ -29,7 +29,7 @@ ms.locfileid: "78945382"
 
 När du skapar en ny Azure SQL Server från [Azure-portalen](sql-database-single-database-get-started.md)är resultatet en offentlig slutpunkt i *formatet, yourservername.database.windows.net*.
 
-Du kan använda följande nätverksåtkomstkontroller för att selektivt tillåta åtkomst till SQl-databasen via den offentliga slutpunkten:
+Du kan använda följande nätverksåtkomstkontroller för att selektivt tillåta åtkomst till SQL-databasen via den offentliga slutpunkten:
 - Tillåt Azure-tjänster: När de är inställda på ON kan andra resurser inom Azure-gränsen, till exempel en virtuell Azure-dator, komma åt SQL Database
 
 - IP-brandväggsregler: Använd den här funktionen för att uttryckligen tillåta anslutningar från en viss IP-adress, till exempel från lokala datorer
@@ -59,10 +59,10 @@ När den är inställd **på ON** Azure SQL Server tillåts kommunikation från 
 I många fall är **ON-inställningen** mer tillåtande än vad de flesta kunder vill ha. De kanske vill ställa in den här inställningen till **AV** och ersätta den med mer restriktiva IP-brandväggsregler eller brandväggsregler för virtuellt nätverk. Detta påverkar följande funktioner som körs på virtuella datorer i Azure som inte ingår i ditt virtuella nätverk och därmed ansluter till Sql Database via en Azure IP-adress.
 
 ### <a name="import-export-service"></a>Importera exporttjänst
-Importexporttjänsten fungerar inte **Tillåt Azure-tjänster att komma åt serveruppsättningen** till OFF. Du kan dock komma runt problemet [genom att manuellt köra sqlpackage.exe från en Virtuell Azure eller utföra exporten](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) direkt i koden med hjälp av DACFx API.
+Importexporttjänsten fungerar inte när **Tillåt åtkomst till Azure-tjänster** är inställt **på OFF**. Du kan dock komma runt problemet [genom att manuellt köra sqlpackage.exe från en Virtuell Azure eller utföra exporten](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) direkt i koden med hjälp av DACFx API.
 
 ### <a name="data-sync"></a>Datasynkronisering
-Om du vill använda datasynkroniseringsfunktionen med **Tillåt Azure-tjänster för att komma åt serveruppsättningen** till AV måste du skapa enskilda brandväggsregelposter för att lägga till [IP-adresser](sql-database-server-level-firewall-rule.md) från **Sql-tjänsttaggen** för regionen som är värd för **Hub-databasen.**
+Om du vill använda funktionen Datasynkronisering med **Tillåt åtkomst till Azure-tjänster** **inställda**på OFF måste du skapa enskilda brandväggsregelposter för att lägga till [IP-adresser](sql-database-server-level-firewall-rule.md) från **Sql-tjänsttaggen** för regionen som är värd för **Hub-databasen.**
 Lägg till dessa brandväggsregler på servernivå till de logiska servrarna som är värdar för både **Hub-** och **Member-databaser** (som kan finnas i olika regioner)
 
 Använd följande PowerShell-skript för att generera IP-adresser som motsvarar Sql-tjänsttaggen för region Västra USA

@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 343e94fe681d398b695e0e24c22544bca470d75a
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: b24d7db679bb9cb9dacd5e1db8e6410b883548cc
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80652191"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415696"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB-tjänstkvoter
 
@@ -27,9 +27,9 @@ När du har skapat ett Azure Cosmos-konto under din prenumeration kan du hantera
 | Maximal ru:er per databas[(etablerat läge för delat dataflöde)](databases-containers-items.md#azure-cosmos-containers) | 1 000 000 som standard. Du kan öka den genom [att skicka in en Azure-supportbiljett](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
 | Maximal RUs per (logisk) partitionsnyckel | 10 000 |
 | Maximal lagring för alla objekt per (logisk) partitionsnyckel| 20 GB |
-| Maximalt antal distinkta (logiska) partitionsnycklar | Unlimited |
-| Maximal lagring per behållare | Unlimited |
-| Maximal lagring per databas | Unlimited |
+| Maximalt antal distinkta (logiska) partitionsnycklar | Obegränsat |
+| Maximal lagring per behållare | Obegränsat |
+| Maximal lagring per databas | Obegränsat |
 | Maximal anknytningsstorlek per konto (funktionen bifogad fil skrivs av) | 2 GB |
 | Minsta ru: er som krävs per 1 GB | 10 RU/s |
 
@@ -70,13 +70,13 @@ Du kan [etablera och hantera ditt Azure Cosmos-konto](how-to-manage-database-acc
 > [!NOTE]
 > Regionala redundanser gäller endast för konton för en regionskrivningar. Skrivkonton i flera regioner kräver inte eller har några begränsningar för att ändra skrivregionen.
 
-Cosmos DB tar automatiskt säkerhetskopior av dina data med jämna mellanrum. Mer information om lagringsintervall för säkerhetskopiering och fönster finns [i Online-säkerhetskopiering och dataåterställning på begäran i Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
+Cosmos DB tar automatiskt säkerhetskopior av dina data med jämna mellanrum. Mer information om lagringsintervall för säkerhetskopiering och fönster finns [i Online-säkerhetskopiering och dataåterställning på begäran i Azure Cosmos DB](online-backup-and-restore.md).
 
 ## <a name="per-account-limits"></a>Gränser per konto
 
 | Resurs | Standardgräns |
 | --- | --- |
-| Maximalt antal databaser | Unlimited |
+| Maximalt antal databaser | Obegränsat |
 | Maximalt antal behållare per databas med delat dataflöde |25 |
 | Maximalt antal behållare per databas eller konto med dedikerat dataflöde  |obegränsat |
 | Maximalt antal regioner | Ingen gräns (alla Azure-regioner) |

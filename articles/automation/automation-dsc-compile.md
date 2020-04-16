@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3145c7db064432e443aae5dcd503905b865ffe46
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: f7558745442ac26fc33a063ff66fe170d08487ac
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383258"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392076"
 ---
 # <a name="compile-dsc-configurations-in-azure-automation-state-configuration"></a>Kompilera DSC-konfigurationer i Azure Automation State Configuration
 
@@ -36,7 +36,7 @@ Du kan också använda Azure Resource Manager-mallar med DSC-tillägg (Azure Des
 
 ### <a name="portal"></a>Portalen
 
-1. Klicka på **Tillståndskonfiguration (DSC) från**ditt Automation-konto .
+1. Klicka på **Tillståndskonfiguration (DSC)** i ditt Automation-konto .
 1. Klicka på fliken **Konfigurationer** och klicka sedan på konfigurationsnamnet för att kompilera.
 1. Klicka på **Kompilera**.
 1. Om konfigurationen inte har några parametrar uppmanas du att bekräfta om du vill kompilera den. Om konfigurationen har parametrar öppnas **bladet Kompilera konfiguration** så att du kan ange parametervärden.
@@ -130,12 +130,12 @@ Med funktionen **Sammansatta resurser** kan du använda DSC-konfigurationer som 
 
 ### <a name="manage-configurationdata-when-compiling-configurations-in-azure-automation"></a>Hantera ConfigurationData vid kompilering av konfigurationer i Azure Automation
 
-**Med ConfigurationData** kan du separera strukturell konfiguration från valfri miljöspecifik konfiguration när du använder PowerShell DSC. Mer information finns i [Separera "Vad" från "Var" i PowerShell DSC](https://devblogs.microsoft.com/powershell/separating-what-from-where-in-powershell-dsc/).
+`ConfigurationData`är en inbyggd DSC-parameter som gör att du kan separera strukturell konfiguration från alla miljöspecifika konfigurationer när du använder PowerShell DSC. Mer information finns i [Separera "Vad" från "Var" i PowerShell DSC](https://devblogs.microsoft.com/powershell/separating-what-from-where-in-powershell-dsc/).
 
 > [!NOTE]
-> När du kompilerar i Azure Automation State Configuration kan du använda **ConfigurationData** i Azure PowerShell men inte i Azure-portalen.
+> När du kompilerar i Azure `ConfigurationData` Automation State Configuration kan du använda i Azure PowerShell men inte i Azure-portalen.
 
-I följande exempel använder DSC-konfiguration `$AllNodes` **ConfigurationData** via nyckelorden `$ConfigurationData` och. Du behöver också [xWebAdministration-modulen](https://www.powershellgallery.com/packages/xWebAdministration/) för det här exemplet.
+Följande exempel DSC-konfiguration använder `ConfigurationData` via nyckelorden `$ConfigurationData` och. `$AllNodes` Du behöver också [xWebAdministration-modulen](https://www.powershellgallery.com/packages/xWebAdministration/) för det här exemplet.
 
 ```powershell
 Configuration ConfigurationDataSample
@@ -198,7 +198,7 @@ DSC-konfigurationer i Azure Automation kan referera till `Get-AutomationPSCreden
 
 För att autentiseringsuppgifterna ska vara säkra i nodkonfigurationer (MOF-konfigurationsdokument) måste autentiseringsuppgifterna krypteras i nodkonfigurationen MOF-fil. För närvarande måste du ge PowerShell DSC behörighet till utdataautentiseringsuppgifter i oformaterad text under nodkonfiguration MOF generation. PowerShell DSC är inte medveten om att Azure Automation krypterar hela MOF-filen efter genereringen via ett kompileringsjobb.
 
-Du kan tala om för PowerShell DSC att det är okej att autentiseringsuppgifter matas ut i oformaterad text i de genererade nodkonfigurations-MOFsna med hjälp av konfigurationsdata. Du bör `PSDscAllowPlainTextPassword = $true` passera via **ConfigurationData** för varje nodblocknamn som visas i DSC-konfigurationen och använder autentiseringsuppgifter.
+Du kan tala om för PowerShell DSC att det är okej att autentiseringsuppgifter matas ut i oformaterad text i de genererade nodkonfigurations-MOFsna med hjälp av konfigurationsdata. Du bör `PSDscAllowPlainTextPassword = $true` `ConfigurationData` skicka via för varje nodblocknamn som visas i DSC-konfigurationen och använder autentiseringsuppgifter.
 
 I följande exempel visas en DSC-konfiguration som använder en automationsautentiseringstillgång.
 
@@ -264,7 +264,7 @@ Du kan köra den här processen från en utvecklararbetsstation eller inom en by
 
 1. Klicka på **Tillståndskonfiguration (DSC)** i ditt Automation-konto under **Konfigurationshantering**.
 1. På sidan **Tillståndskonfiguration** (DSC) klickar du på fliken Konfigurationer och sedan **på Lägg till**.
-1. Klicka på mappikonen bredvid textrutan **Nod Configuration File** på sidan Importera för att bläddra efter en nodkonfigurationsfil (MOF) på den lokala datorn.
+1. Klicka på mappikonen bredvid fältet **Nod Configuration File** på sidan Importera för att söka efter en MOF-fil för nodkonfiguration på den lokala datorn.
 
    ![Bläddra efter lokal fil](./media/automation-dsc-compile/import-browse.png)
 

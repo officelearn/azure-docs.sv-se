@@ -9,14 +9,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 03/16/2020
-ms.openlocfilehash: 115cb3e499117457629e130b6432a1cbc2224edb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32088dd712cd0c70fc01de48add17a0b6a828dc8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79463058"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415332"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Dataflödesaktivitet i Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Använd aktiviteten Dataflöde för att omvandla och flytta data via mappningsdataflöden. Om du inte har tidigare information om dataflöden läser du [Översikt över Mappning av dataflöde](concepts-data-flow-overview.md)
 
@@ -59,7 +61,7 @@ integrationRuntime | Beräkningsmiljön som dataflödet körs på. Om inget ange
 compute.coreCount | Antalet kärnor som används i sparkklustret. Kan bara anges om den automatiska lösningen av Azure Integration-körningen används | 8, 16, 32, 48, 80, 144, 272 | Inga
 compute.computeType | Den typ av beräkning som används i sparkklustret. Kan bara anges om den automatiska lösningen av Azure Integration-körningen används | "Allmänt", "ComputeOptimized", "MemoryOptimized" | Inga
 staging.linkedService | Om du använder en SQL DW-källa eller diskho visas det lagringskonto som används för PolyBase-mellanlagring | LinkedServiceReference | Endast om dataflödet läser eller skriver till en SQL DW
-staging.folderPath | Om du använder en SQL DW-källa eller diskho visas mappsökvägen i blob-lagringskontot som används för PolyBase-mellanlagring | String | Endast om dataflödet läser eller skriver till en SQL DW
+staging.folderPath | Om du använder en SQL DW-källa eller diskho visas mappsökvägen i blob-lagringskontot som används för PolyBase-mellanlagring | Sträng | Endast om dataflödet läser eller skriver till en SQL DW
 
 ![Kör dataflöde](media/data-flow/activity-data-flow.png "Kör dataflöde")
 
@@ -160,9 +162,9 @@ Om du vill att antalet rader ska läsas från en källa med `@activity('dataflow
 Se kontrollflödesaktiviteter som stöds av Data Factory: 
 
 - [If-villkorsaktivitet](control-flow-if-condition-activity.md)
-- [Execute Pipeline-aktivitet](control-flow-execute-pipeline-activity.md)
+- [Köra pipelineaktivitet](control-flow-execute-pipeline-activity.md)
 - [För varje aktivitet](control-flow-for-each-activity.md)
 - [Hämta metadataaktivitet](control-flow-get-metadata-activity.md)
-- [Lookup-aktivitet](control-flow-lookup-activity.md)
+- [Sökningsaktivitet](control-flow-lookup-activity.md)
 - [Webbaktivitet](control-flow-web-activity.md)
-- [Until-aktivitet](control-flow-until-activity.md)
+- [Tills-aktivitet](control-flow-until-activity.md)

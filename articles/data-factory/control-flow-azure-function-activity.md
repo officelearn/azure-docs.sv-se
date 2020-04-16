@@ -11,15 +11,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: ffb610634399594788afcb9b600ba00c6803dfdd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee2e59e794cf34a8fd5043a56867a81c2537f1ae
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77207033"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415316"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure-funktionsaktivitet i Azure Data Factory
-
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 Med Azure-funktionsaktiviteten kan du köra [Azure-funktioner](../azure-functions/functions-overview.md) i en Data Factory-pipeline. Om du vill köra en Azure-funktion måste du skapa en länkad tjänstanslutning och en aktivitet som anger den Azure-funktion som du planerar att köra.
 
 För en åtta minuters introduktion och demonstration av den här funktionen, titta på följande video:
@@ -41,10 +41,10 @@ Returtypen för Azure-funktionen måste `JObject`vara en giltig . (Tänk på att
 
 | **Egenskap**  | **Beskrivning** | **Tillåtna värden** | **Obligatoriskt** |
 | --- | --- | --- | --- |
-| namn  | Namnet på den verksamhet som är på gång  | String | ja |
-| typ  | Typ av aktivitet är "AzureFunctionActivity" | String | ja |
+| namn  | Namnet på den verksamhet som är på gång  | Sträng | ja |
+| typ  | Typ av aktivitet är "AzureFunctionActivity" | Sträng | ja |
 | länkad tjänst | Azure-funktionslänkade tjänsten för motsvarande Azure Function App  | Länkad tjänstreferens | ja |
-| funktionsnamn  | Namnet på funktionen i Azure Function App som den här aktiviteten anropar | String | ja |
+| funktionsnamn  | Namnet på funktionen i Azure Function App som den här aktiviteten anropar | Sträng | ja |
 | metod  | REST API-metod för funktionsanropet | Typer som stöds av sträng: "GET", "POST", "PUT"   | ja |
 | sidhuvud  | Rubriker som skickas till begäran. Om du till exempel vill ange språk och skriva på en begäran: "rubriker": { "Acceptera-språk": "en-us", "Content-Type": "application/json" } | Sträng (eller uttryck med resultType av sträng) | Inga |
 | body  | som skickas tillsammans med begäran till funktion api-metoden  | Sträng (eller uttryck med resultType av sträng) eller objekt.   | Krävs för PUT/POST-metoder |

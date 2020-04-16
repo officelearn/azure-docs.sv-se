@@ -2,13 +2,13 @@
 title: Avancerade programuppgraderingsavsnitt
 description: Den här artikeln innehåller några avancerade ämnen som rör uppgradering av ett Service Fabric-program.
 ms.topic: conceptual
-ms.date: 1/28/2020
-ms.openlocfilehash: 182ab6dc1663e160561b8941ebf3a36b5af3d950
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.date: 03/11/2020
+ms.openlocfilehash: a12d2ec55bda95c1c61d4a73c76f4a777f4237f2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80422816"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414488"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Uppgradering av programuppgraderingen av Service Fabric: Avancerade ämnen
 
@@ -18,7 +18,7 @@ Om en ny tjänsttyp läggs till i ett publicerat program som en del av en uppgra
 
 På samma sätt kan tjänsttyper tas bort från ett program som en del av en uppgradering. Alla tjänstinstanser av tjänsttypen som ska tas bort måste dock tas bort innan du fortsätter med uppgraderingen (se [Remove-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
 
-## <a name="avoid-connection-drops-during-stateless-service-planned-downtime-preview"></a>Undvik anslutningsfall under tillståndslös tjänst planerad driftstopp (förhandsgranskning)
+## <a name="avoid-connection-drops-during-stateless-service-planned-downtime"></a>Undvik anslutningsfall under tillståndslös drift planerad driftstopp
 
 För planerade tillståndslösa instansstopptider, till exempel uppgradering av program/kluster eller nodavaktivering, kan anslutningar tas bort på grund av den exponerade slutpunkten tas bort när instansen går ned, vilket resulterar i tvångsanslutningsstängningar.
 

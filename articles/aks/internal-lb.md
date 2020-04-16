@@ -5,12 +5,12 @@ description: Lär dig hur du skapar och använder en intern belastningsutjämnar
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 4decd66a558b031f1aaaf9c64556dae545ed05d3
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 9c2966215d07c4ddf052d30a5757a2deee2e0b5c
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668416"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392781"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Använda en intern belastningsutjämnare med Azure Kubernetes Service (AKS)
 
@@ -25,7 +25,7 @@ Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du beh
 
 Du behöver också Azure CLI version 2.0.59 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
 
-Aks-klustertjänstens huvudnamn behöver behörighet för att hantera nätverksresurser om du använder ett befintligt undernät eller en befintlig resursgrupp. I allmänhet tilldelar du rollen *Nätverksdeltagare* till tjänsthuvudhuvudet på de delegerade resurserna. Mer information om behörigheter finns i [Delegera AKS-åtkomst till andra Azure-resurser][aks-sp].
+Aks-klustertjänstens huvudnamn behöver behörighet för att hantera nätverksresurser om du använder ett befintligt undernät eller en befintlig resursgrupp. I allmänhet tilldelar du rollen *Nätverksdeltagare* till tjänsthuvudhuvudet på de delegerade resurserna. I stället för ett tjänsthuvudnamn kan du använda den systemtilldelade hanterade identiteten för behörigheter. Mer information finns i [Använda hanterade identiteter](use-managed-identity.md). Mer information om behörigheter finns i [Delegera AKS-åtkomst till andra Azure-resurser][aks-sp].
 
 ## <a name="create-an-internal-load-balancer"></a>Skapa en intern lastbalanserare
 

@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: jingwang
-ms.openlocfilehash: edb80c604951a140d21e3775eec3f1dc6d55af73
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 2557ce7be44f0505b96df06cd2b44a2fa3ce3fdb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421418"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414226"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Kopiera aktivitet i Azure Data Factory
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory som du använder:"]
 > * [Version 1](v1/data-factory-data-movement-activities.md)
 > * [Aktuell version](copy-activity-overview.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I Azure Data Factory kan du använda aktiviteten Kopiera för att kopiera data mellan datalager som finns lokalt och i molnet. När du har kopierat data kan du använda andra aktiviteter för att ytterligare transformera och analysera dem. Du kan också använda aktiviteten Kopiera för att publicera omvandlings- och analysresultat för Business Intelligence (BI) och programförbrukning.
 

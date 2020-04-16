@@ -11,20 +11,20 @@ ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e986515a911cf1bbd88dfc73c56efcc6e81826d6
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 174ee07e389e598fed6ed8487e60303fbce81f77
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80351411"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416037"
 ---
 # <a name="connect-to-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>Ansluta till Azure Synapse Analytics med Visual Studio och SSDT
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [Sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
-> * [SSMS (SSMS)](sql-data-warehouse-query-ssms.md)
+> * [Sqlcmd](../sql/get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
@@ -35,7 +35,7 @@ Du behöver följande för att använda de här självstudierna:
 
 * En befintlig SQL-pool. En skapa en finns i [Skapa en SQL-pool](create-data-warehouse-portal.md).
 * SSDT för Visual Studio. Om du har Visual Studio har du förmodligen redan SSDT för Visual Studio. Installationsinstruktioner och alternativ finns i [Installera Visual Studio och SSDT](sql-data-warehouse-install-visual-studio.md).
-* Det fullständigt kvalificerade servernamnet. Information om hur du hittar den här informationen finns i [Anslut till SQL-poolen](sql-data-warehouse-connect-overview.md).
+* Det fullständigt kvalificerade servernamnet. Information om hur du hittar den här informationen finns i [Anslut till SQL-poolen](../sql/connect-overview.md).
 
 ## <a name="1-connect-to-your-sql-pool"></a>1. Anslut till din SQL-pool
 1. Öppna Visual Studio 2019.

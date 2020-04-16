@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dsindona
-ms.openlocfilehash: 041b2133ed63a906d3fea3ab67890a0057151b9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 59f9fecb3d949d9cdf48719e6329b066d9eb3fc5
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80285273"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393523"
 ---
 # <a name="prepare-your-azure-application-technical-assets"></a>Förbereda dina tekniska resurser för Azure-program
 
@@ -32,7 +32,7 @@ Granska följande Azure-programdokumentation, som innehåller snabbstarter, sjä
 
   - [Snabbstartsmallar för Azure](https://azure.microsoft.com/documentation/templates/)
   - [Snabbstartsmallar för GitHub Azure](https://github.com/azure/azure-quickstart-templates)
-  - [Publicera programdefinition](https://docs.microsoft.com/azure/managed-applications/publish-managed-app-definition-quickstart)
+  - [Publicera programdefinition](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
   - [Distribuera tjänstkatalogapp](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
   
@@ -41,7 +41,7 @@ Granska följande Azure-programdokumentation, som innehåller snabbstarter, sjä
   - [Skapa definitionsfiler](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
   - [Publicera marknadsplatsprogram](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)
 
-  - Exempel:
+  - Prover:
 
     - [Azure CLI](https://docs.microsoft.com/azure/managed-applications/cli-samples)
     - [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
@@ -68,7 +68,7 @@ Välj en eller båda av följande skriptmiljöer för att hantera ditt Azure-pro
 
 Vi rekommenderar att du lägger till följande verktyg i utvecklingsmiljön:
 
-- [Utforskaren för Azure Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+- [Azure Lagringsutforskaren](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 - [Visual Studio-kod](https://code.visualstudio.com/) med följande tillägg:
 
   - Tillägg: [Verktyg för Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)

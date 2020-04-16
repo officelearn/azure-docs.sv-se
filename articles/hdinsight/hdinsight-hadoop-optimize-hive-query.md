@@ -5,27 +5,27 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.openlocfilehash: 144d51d08a61526ec0f183a63e1fdf5658136293
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/14/2020
+ms.openlocfilehash: 4955df718dcc8f169232052979ccf4a636c3be80
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272336"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390301"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimera Apache Hive-frågor i Azure HDInsight
 
-I Azure HDInsight finns det flera klustertyper och tekniker som kan köra Apache Hive-frågor. När du skapar ditt HDInsight-kluster väljer du lämplig klustertyp för att optimera prestanda för dina arbetsbelastningsbehov.
+I Azure HDInsight finns det flera klustertyper och tekniker som kan köra Apache Hive-frågor. Välj lämplig klustertyp för att optimera prestanda för dina arbetsbelastningsbehov.
 
-Välj till exempel **klustertyp för interaktiva frågor** för att optimera för ad hoc-interaktiva frågor. Välj Apache **Hadoop-klustertyp** för att optimera för Hive-frågor som används som en batchprocess. **Spark-** och **HBase-klustertyper** kan också köra Hive-frågor. Mer information om hur du kör Hive-frågor på olika HDInsight-klustertyper finns i [Vad är Apache Hive och HiveQL på Azure HDInsight?](hadoop/hdinsight-use-hive.md).
+Välj till exempel **klustertyp för** `ad hoc`interaktiva frågor för att optimera för interaktiva frågor. Välj Apache **Hadoop-klustertyp** för att optimera för Hive-frågor som används som en batchprocess. **Spark-** och **HBase-klustertyper** kan också köra Hive-frågor. Mer information om hur du kör Hive-frågor på olika HDInsight-klustertyper finns i [Vad är Apache Hive och HiveQL på Azure HDInsight?](hadoop/hdinsight-use-hive.md).
 
 HDInsight-kluster av Hadoop-klustertyp är inte optimerade för prestanda som standard. I den här artikeln beskrivs några av de vanligaste Hive-prestandaoptimeringsmetoderna som du kan använda på dina frågor.
 
 ## <a name="scale-out-worker-nodes"></a>Skala ut arbetsnoder
 
-Genom att öka antalet arbetsnoder i ett HDInsight-kluster kan arbetet utnyttja fler mappers och reducerare som ska köras parallellt. Det finns två sätt att öka skala ut i HDInsight:
+Om du ökar antalet arbetsnoder i ett HDInsight-kluster kan arbetet använda fler mappers och reducerare som ska köras parallellt. Det finns två sätt att öka skala ut i HDInsight:
 
 * När du skapar ett kluster kan du ange antalet arbetsnoder med Azure-portalen, Azure PowerShell eller kommandoradsgränssnittet.  Mer information finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md). Följande skärmbild visar konfigurationen av arbetsnoden på Azure-portalen:
   
@@ -45,10 +45,10 @@ Mer information om hur du skalar HDInsight finns i [Skala HDInsight-kluster](hdi
 
 Tez är snabbare eftersom:
 
-* **Kör riktad acyklisk graf (DAG) som ett enda jobb i MapReduce-motorn**. DAG kräver att varje uppsättning mappers följs av en uppsättning reducerare. Detta medför att flera MapReduce-jobb ska knoppas av för varje Hive-fråga. Tez har inte en sådan begränsning och kan bearbeta komplexa DAG som ett jobb vilket minimerar jobb start overhead.
+* **Kör riktad acyklisk graf (DAG) som ett enda jobb i MapReduce-motorn**. DAG kräver att varje uppsättning mappers följs av en uppsättning reducerare. Det här kravet gör att flera MapReduce-jobb avknoppades för varje Hive-fråga. Tez har inte en sådan begränsning och kan bearbeta komplexa DAG som ett jobb minimera jobb start overhead.
 * **Undviker onödiga skrivningar**. Flera jobb används för att bearbeta samma Hive-fråga i MapReduce-motorn. Utdata för varje MapReduce-jobb skrivs till HDFS för mellanliggande data. Eftersom Tez minimerar antalet jobb för varje Hive-fråga kan den undvika onödiga skrivningar.
 * **Minimerar uppstartsfördröjningar**. Tez är bättre på att minimera startfördröjning genom att minska antalet mappers det behöver för att starta och även förbättra optimering hela.
-* **Återanvänder behållare**. När det är möjligt Tez kan återanvända behållare för att säkerställa att latens på grund av att starta behållare minskas.
+* **Återanvänder behållare**. När det är möjligt kommer Tez att återanvända behållare för att säkerställa att latensen från att starta behållare minskas.
 * **Kontinuerlig optimeringstekniker**. Traditionellt gjordes optimering under kompileringsfasen. Men mer information om indata finns tillgänglig som möjliggör bättre optimering under körning. Tez använder kontinuerlig optimeringstekniker som gör det möjligt att optimera planen längre in i körningsfasen.
 
 Mer information om dessa begrepp finns i [Apache TEZ](https://tez.apache.org/).
@@ -69,8 +69,8 @@ Hive-partitionering implementeras genom att omorganisera rådata till nya katalo
 
 Några partitionering överväganden:
 
-* **Inte under partition** - Partitionering på kolumner med endast ett fåtal värden kan orsaka få partitioner. Partitionering på kön skapar till exempel bara två partitioner som ska skapas (man och kvinna), vilket bara minskar svarstiden med högst hälften.
-* **Inte över partition** - På den andra ytterligheten, skapa en partition på en kolumn med ett unikt värde (till exempel userid) orsakar flera partitioner. Över partition orsakar mycket stress på klusternamnnoden eftersom den måste hantera det stora antalet kataloger.
+* **Inte under partition** - Partitionering på kolumner med endast ett fåtal värden kan orsaka få partitioner. Partitionering på kön skapar till exempel bara två partitioner som ska skapas (man och kvinna), så minska svarstiden med högst hälften.
+* **Don't over partition** - På den andra ytterligheten orsakar skapandet av en partition i en kolumn med ett unikt värde (till exempel userid) flera partitioner. Över partition orsakar mycket stress på klusternamnnoden eftersom den måste hantera det stora antalet kataloger.
 * **Undvik data skeva** - Välj din partitioneringsnyckel klokt så att alla partitioner är jämna storlek. Partitionering i *kolumnen Tillstånd* kan till exempel skeva distributionen av data. Eftersom delstaten Kalifornien har en befolkning nästan 30x som Vermont, är partitionen storlek potentiellt skev och prestanda kan variera enormt.
 
 Om du vill skapa en partitionstabell använder du *partitionerad* efter-satsen:
@@ -198,5 +198,5 @@ Det finns fler optimeringsmetoder som du kan tänka på, till exempel:
 I den här artikeln har du lärt dig flera vanliga Hive frågeoptimeringsmetoder. Mer information finns i följande artiklar:
 
 * [Använd Apache Hive i HDInsight](hadoop/hdinsight-use-hive.md)
-* [Analysera flygfördröjningsdata med hjälp av interaktiv fråga i HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
+* [Analysera flygfördröjningsdata med hjälp av interaktiv fråga i HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 * [Analysera Twitter-data med Apache Hive i HDInsight](hdinsight-analyze-twitter-data-linux.md)

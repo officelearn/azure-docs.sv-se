@@ -6,18 +6,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: e0c48137f5eecc96b6e7b1cbce5f0c683b2a976a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0df2680a9f17fc0af950b0ce744a655348b4cbf7
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367320"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406068"
 ---
 # <a name="my-first-powershell-runbook"></a>Min första PowerShell-runbook
 
 > [!div class="op_single_selector"]
 > * [Grafisk](automation-first-runbook-graphical.md)
-> * [Powershell](automation-first-runbook-textual-powershell.md)
+> * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [PowerShell-arbetsflöde](automation-first-runbook-textual.md)
 > * [Python](automation-first-runbook-textual-python2.md)
 
@@ -77,7 +77,7 @@ Innan du publicerar runbooken för att göra den tillgänglig i produktionen bö
 2. Starta testet genom att klicka på **Starta**. Detta bör vara det enda aktiverade alternativet.
 3. Observera att ett [runbook-jobb](automation-runbook-execution.md) skapas och att dess status visas i fönstret.
 
-   Jobbstatusen börjar `Queued`som , vilket anger att jobbet väntar på att en runbook-arbetare i molnet ska bli tillgänglig. Statusen ändras till `Starting` när en anställd gör anspråk på jobbet. Slutligen blir `Running` statusen när runbooken faktiskt börjar köras.
+   Jobbstatusen börjar som kö, vilket anger att jobbet väntar på att en runbook-arbetare i molnet ska bli tillgänglig. Statusen ändras till Start när en anställd gör anspråk på jobbet. Slutligen blir statusen Körs när runbooken faktiskt börjar köras.
 
 4. När runbook-jobbet är klart visar testfönstret utdata. I det här `Hello World`fallet ser du .
 
@@ -91,7 +91,7 @@ Runbook som du har skapat är fortfarande i utkastläge. Den behöver publiceras
 
 1. Klicka på **Publicera** för att publicera runbooken och sedan på **Ja** när du uppmanas att göra det.
 1. Bläddra åt vänster för att visa runbooken på sidan Runbooks och observera att värdet **för redigeringsstatus** är inställt på **Publicerad**.
-1. Bläddra tillbaka åt höger för att visa fönstret för **MyFirstRunbook-PowerShell**.
+1. Bläddra tillbaka till höger för att visa sidan för **MyFirstRunbook-PowerShell**.
    
    Alternativen överst gör att du kan starta runbooken nu, schemalägga en framtida starttid eller skapa en [webhook](automation-webhooks.md) så att runbooken kan startas via ett HTTP-anrop.
 1. Välj **Start** och sedan **Ja** när du uppmanas att starta runbooken. 
@@ -99,7 +99,7 @@ Runbook som du har skapat är fortfarande i utkastläge. Den behöver publiceras
 
    ![Jobbsammanfattning](media/automation-first-runbook-textual-powershell/job-pane-status-blade-jobsummary.png)
 
-1. När runbook-statusen visar `Completed`klickar du på **Utdata** `Hello World` för att öppna utdatasidan, där du kan se den visas.
+1. När runbook-statusen har slutförts klickar du på **Utdata** för att öppna utdatasidan, där du kan se `Hello World` den visas.
 
    ![Jobbutdata](media/automation-first-runbook-textual-powershell/job-pane-status-blade-outputtile.png)
 
@@ -110,7 +110,7 @@ Runbook som du har skapat är fortfarande i utkastläge. Den behöver publiceras
 
    ![Alla loggar](media/automation-first-runbook-textual-powershell/job-pane-status-blade-alllogstile.png)
 
-1. Stäng fönstret Strömmar och jobbfönstret för att återgå till sidan **MyFirstRunbook-PowerShell.**
+1. Stäng fönstret Strömmar och jobbfönstret för att återgå till sidan MyFirstRunbook-PowerShell.
 1. Klicka på **Jobb** under **Information**om du vill öppna sidan Jobb för den här runbooken. På den här sidan visas alla jobb som skapas av runbooken. Du bör bara se ett jobb som anges, eftersom du bara har kört jobbet en gång.
 
    ![Jobblista](media/automation-first-runbook-textual-powershell/runbook-control-job-tile.png)
@@ -151,7 +151,7 @@ Som visas i exemplet nedan görs run as-anslutningen med cmdleten [Connect-AzAcc
 
    Get-AzVM -ResourceGroupName myResourceGroup -AzContext $AzureContext
    ```
-1. Öppna textredigeraren genom att klicka på **Redigera** på sidan **MyFirstRunbook-PowerShell.**
+1. Öppna textredigeraren genom att klicka på **Redigera** på sidan MyFirstRunbook-PowerShell.
 1. Du behöver inte `Write-Output` linjen längre. Bara gå vidare och ta bort den.
 1. Skriv in eller kopiera och klistra in följande kod, som hanterar autentiseringen med ditt Automation Run As-konto.
 
@@ -182,7 +182,7 @@ Som visas i exemplet nedan görs run as-anslutningen med cmdleten [Connect-AzAcc
 
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>Steg 6 – Lägga till kod för att starta en virtuell dator
 
-Nu när din runbook autentiserar till din Azure-prenumeration kan du hantera resurser. Nu ska vi lägga till ett kommando för att starta en virtuell dator. Du kan välja vilken virtuell dator som helst i din Azure-prenumeration och bara hårdkoda det namnet i runbook för tillfället.
+Nu när din runbook autentiserar till din Azure-prenumeration kan du hantera resurser. Nu ska vi lägga till ett kommando för att starta en virtuell dator. Du kan välja vilken virtuell dator som helst i din Azure-prenumeration och bara hårdkoda det namnet i runbooken för tillfället.
 
 1. I runbook-skriptet lägger du till [Start-AzVM-cmdlet](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) för att starta den virtuella datorn. Som visas nedan startar cmdleten en `VMName` virtuell dator med `ResourceGroupName`namnet och med en resursgrupp med namnet .
 
@@ -212,7 +212,7 @@ Nu när din runbook autentiserar till din Azure-prenumeration kan du hantera res
 
 ## <a name="step-7---add-an-input-parameter"></a>Steg 7 - Lägga till en indataparameter
 
-Runbooken startar för närvarande den virtuella datorn som du hårdkodade i runbooken. Runbooken blir mer användbar om du anger den virtuella datorn när runbooken startas. Nu ska vi lägga till indataparametrar i runbooken för att tillhandahålla den funktionen.
+Runbooken startar för närvarande den virtuella datorn som du har hårdkodat i runbooken. Runbooken är mer användbar om du anger den virtuella datorn när runbooken startas. Nu ska vi lägga till indataparametrar i runbooken för att tillhandahålla den funktionen.
 
 1. I textredigeraren `Start-AzVM` ändrar du cmdleten `VMName` så `ResourceGroupName`att variablerna för parametrarna och . 
 
@@ -252,6 +252,8 @@ Runbooken startar för närvarande den virtuella datorn som du hårdkodade i run
 ## <a name="next-steps"></a>Nästa steg
 
 * Mer information om PowerShell, inklusive språkreferens- och utbildningsmoduler, finns i [PowerShell Docs](/powershell/scripting/overview).
+* En PowerShell-cmdlet-referens finns i [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
 * Kom igång med grafiska runbooks finns i [Min första grafiska runbook](automation-first-runbook-graphical.md).
 * Information om hur du kommer igång med PowerShell Workflow runbooks finns i [Min första PowerShell-arbetsflödeskörningsbok](automation-first-runbook-textual.md).
 * Mer information om runbook-typer och deras fördelar och begränsningar finns i [Azure Automation-runbooktyper](automation-runbook-types.md).

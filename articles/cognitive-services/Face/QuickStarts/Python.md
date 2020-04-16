@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: c4d136eaf0f6c4ac64093f417f144e422e2da52f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: c88a60fdc6d064fba91f4b6d79e1637f45bf2716
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74977921"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403220"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av ansikts-REST API och Python
 
-I den här snabbstarten ska du använda Azure ansikts-REST API med Python för att identifiera ansikten i en bild. Skriptet ritar ramar kring ansikten och lägger på information om kön och ålder på bilderna.
+I den här snabbstarten använder du Azure Face REST API med Python för att identifiera mänskliga ansikten i en avbildning. Skriptet ritar ramar kring ansikten och lägger på information om kön och ålder på bilderna.
 
 ![En man och en kvinna, med rektanglar ritade runt ansiktena och med information om ålder och kön på bilden](../images/labelled-faces-python.png)
 

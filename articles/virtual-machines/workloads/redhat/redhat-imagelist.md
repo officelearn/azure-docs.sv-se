@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: e6109a87750e588b12bfc9836c5db3db55420ec2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 40a715ea27be161f09dea59e57799b08406e8ca7
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77133806"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393762"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Red Hat Enterprise Linux (RHEL) avbildningar tillgängliga i Azure
 Azure erbjuder en mängd olika RHEL-avbildningar för olika användningsfall.
@@ -76,6 +76,9 @@ rhel-byos     |rhel-lvm74| Lvm    | Linux-agent | RHEL 7.4 BYOS-bilder, som inte
 |             |rhel-lvm76| Lvm    | Linux-agent | RHEL 7.6 BYOS-bilder, som inte är kopplade till någon uppdateringskälla, debiterar inte en RHEL-premie.
 |             |rhel-lvm77| Lvm    | Linux-agent | RHEL 7.7 BYOS-bilder, som inte är kopplade till någon uppdateringskälla, debiterar inte en RHEL-premie.
 |             |rhel-lvm8 | Lvm    | Linux-agent | RHEL 8 BYOS-bilder (RHEL-delversionen visas i bildversionsvärdet), som inte är kopplad till någon uppdateringskälla, debiterar inte en RHEL-premie.
+
+> [!NOTE]
+> RHEL-SAP-HANA-produktutbudet anses vara uttjänta av Red Hat. Befintliga distributioner fortsätter att fungera normalt, men Red Hat rekommenderar att kunder migrerar från RHEL-SAP-HANA-avbildningarna till RHEL-SAP-HA-avbildningarna som innehåller SAP HANA-arkiven samt HA-tillägget. Mer information om Red Hat's SAP moln erbjudanden finns [här](https://access.redhat.com/articles/3751271).
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om [Red Hat-avbildningarna i Azure](./redhat-images.md).

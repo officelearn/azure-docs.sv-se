@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: a14f4d548053fb7aaf6f450176fdc49bc7b119bf
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 6df1903e828c0c4cafa6589d4a85f4016bed893e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421041"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414131"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Felsöka prestanda för kopieringsaktivitet
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du felsöker prestandaproblem för kopieringsaktivitet i Azure Data Factory. 
 
@@ -54,7 +56,7 @@ Körningsinformationen och varaktigheterna längst ned i övervakningsvyn för k
 | --------------- | ------------------------------------------------------------ |
 | Kö           | Den förflutna tiden tills kopieringsaktiviteten faktiskt startar på integrationskörningen. |
 | Förkopiera skript | Den förflutna tiden mellan kopieringsaktivitet som börjar på IR och kopieringsaktivitet som slutförs kör skriptet för förkopiering i sink-datalagret. Använd när du konfigurerar förkopieringsskriptet för databasmottagare, till exempel när du skriver data i Azure SQL Database rensar innan du kopierar nya data. |
-| Överföra        | Den förflutna tiden mellan slutet av föregående steg och IR överför alla data från källa till diskho. Understeg under "Transfer" körs parallellt.<br><br>- **Tid till första byte:** Den tid som förflutit mellan slutet av föregående steg och den tidpunkt då IR tar emot den första bytet från källdatalagret. Gäller för icke-filbaserade källor.<br>- **Lista källa:** Den tid som läggs på att räkna upp källfiler eller datapartitioner. Det senare gäller när du konfigurerar partitionsalternativ för databaskällor, t.ex.<br/>-**Läsning från källa:** Den tid som läggs på att hämta data från källdatalagret.<br/>- **Skriva för att sjunka:** Den tid som läggs på att skriva data för att sänka datalagringen. |
+| Överföring        | Den förflutna tiden mellan slutet av föregående steg och IR överför alla data från källa till diskho. Understeg under "Transfer" körs parallellt.<br><br>- **Tid till första byte:** Den tid som förflutit mellan slutet av föregående steg och den tidpunkt då IR tar emot den första bytet från källdatalagret. Gäller för icke-filbaserade källor.<br>- **Lista källa:** Den tid som läggs på att räkna upp källfiler eller datapartitioner. Det senare gäller när du konfigurerar partitionsalternativ för databaskällor, t.ex.<br/>-**Läsning från källa:** Den tid som läggs på att hämta data från källdatalagret.<br/>- **Skriva för att sjunka:** Den tid som läggs på att skriva data för att sänka datalagringen. |
 
 ## <a name="troubleshoot-copy-activity-on-azure-ir"></a>Felsöka kopieringsaktivitet på Azure IR
 

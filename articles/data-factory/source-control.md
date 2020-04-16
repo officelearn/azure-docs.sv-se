@@ -11,14 +11,15 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
-ms.openlocfilehash: 6645c2672e15c562216b4347f779ef3634a2f124
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2108f2f9098fe6da8ee4666b30605bed14164484
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130877"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414723"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Källkontroll i Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Factory-användargränssnittsupplevelsen (UX) har två upplevelser tillgängliga för visuell redigering:
 
@@ -231,7 +232,7 @@ En sidoruta öppnas där du bekräftar att publiceringsgrenen och väntande änd
 Vanligtvis vill du inte att alla gruppmedlemmar ska ha behörighet att uppdatera fabriken. Följande behörighetsinställningar rekommenderas:
 
 *   Alla gruppmedlemmar bör ha läsbehörighet till datafabriken.
-*   Endast en utvald uppsättning personer bör tillåtas att publicera till fabriken. För att kunna göra det måste de ha rollen **datafabriksdeltagare** på fabriken. Mer information om behörigheter finns i [Roller och behörigheter för Azure Data Factory](concepts-roles-permissions.md).
+*   Endast en utvald uppsättning personer bör tillåtas att publicera till fabriken. För att kunna göra det måste de ha rollen **Data Factory-deltagare** i resursgruppen som fabriken befinner sig i. Mer information om behörigheter finns i [Roller och behörigheter för Azure Data Factory](concepts-roles-permissions.md).
    
 Vi rekommenderar att du inte tillåter direkt incheckning till samarbetsgrenen. Den här begränsningen kan förhindra buggar eftersom varje incheckning kommer att gå igenom en pull request review process som beskrivs i [Skapa funktionsgrenar](source-control.md#creating-feature-branches).
 

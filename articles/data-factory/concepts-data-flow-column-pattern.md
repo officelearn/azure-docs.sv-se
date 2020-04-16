@@ -7,14 +7,16 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/21/2019
-ms.openlocfilehash: bfb4eeef482c4944e75b7805642bc93c23195208
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e1c0eb1c4f1fc74e56db8f83f1bab6406ec5306
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065527"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415556"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Använda kolumnmönster vid mappning av dataflöde
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Med flera mappningsdataflödesomvandlingar kan du referera till mallkolumner baserat på mönster i stället för hårdkodade kolumnnamn. Den här matchningen kallas *kolumnmönster*. Du kan definiera mönster som matchar kolumner baserat på namn, datatyp, ström eller position i stället för att kräva exakta fältnamn. Det finns två scenarier där kolumnmönster är användbara:
 

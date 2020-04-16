@@ -5,16 +5,16 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/28/2020
 ms.topic: how-to
-ms.openlocfilehash: 872f0e60943a674e5febf269dcb5b09fd08d77c9
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: a34276c73211c1d9bea291f449cbc7041a3e78a2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80681160"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409857"
 ---
-# <a name="interact-with-unity-game-objects-and-components"></a>Interagera med Unity spelobjekt och komponenter
+# <a name="interact-with-unity-game-objects-and-components"></a>Interagera med spelobjekt och komponenter i Unity
 
-Azure Remote Rendering (ARR) är optimerad för ett stort antal objekt (se [Gränser](../../reference/limits.md)). Även om det är möjligt att hantera stora och komplexa hierarkier på värden, är det omöjligt att replikera dem alla i Unity på lågdrivna enheter.
+Azure Remote Rendering (ARR) är optimerad för ett stort antal objekt (se [Begränsningar](../../reference/limits.md)). Även om det är möjligt att hantera stora och komplexa hierarkier på värden, är det omöjligt att replikera dem alla i Unity på lågdrivna enheter.
 
 När en modell läses in på värden speglar Azure Remote Rendering därför informationen om modellstrukturen på klientenheten (som kommer att ådra sig nätverkstrafik), men replikerar inte objekt och komponenter i Unity. Istället förväntar den sig att du begär de nödvändiga Unity-spelobjekten och komponenterna manuellt, så att du kan begränsa omkostnaderna till vad som faktiskt behövs. På så sätt har du mer kontroll över klientsidans prestanda.
 
@@ -121,5 +121,5 @@ if (cutplane != null)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera fjärrrendering för enhet](unity-setup.md)
+* [Konfigurera Remote Rendering för Unity](unity-setup.md)
 * [Självstudiekurs: Arbeta med fjärrenheter i Unity](../../tutorials/unity/working-with-remote-entities.md)

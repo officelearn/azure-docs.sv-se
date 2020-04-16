@@ -1,16 +1,16 @@
 ---
 title: Använda hanterad identitet med ett program
-description: Så här använder du hanterade identiteter i Azure Service Fabric-programkod för att komma åt Azure Services. Den här funktionen är en allmänt tillgänglig förhandsversion.
+description: Så här använder du hanterade identiteter i Azure Service Fabric-programkod för att komma åt Azure Services.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: 59680ec7911f55c3dc49d8834b410a039aa435dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cbdb1190ec3238a6accd34db3025e08c194d60b8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75610326"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415619"
 ---
-# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>Så här utnyttjar du ett Service Fabric-programs hanterade identitet för att komma åt Azure-tjänster (förhandsversion)
+# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Så här utnyttjar du ett Service Fabric-programs hanterade identitet för att komma åt Azure-tjänster
 
 Tjänst fabric-program kan utnyttja hanterade identiteter för att komma åt andra Azure-resurser som stöder Azure Active Directory-baserad autentisering. Ett program kan hämta en [åtkomsttoken](../active-directory/develop/developer-glossary.md#access-token) som representerar dess identitet, som kan vara systemtilldelad eller användartilldelad, och använda den som en "bärare"-token för att autentisera sig till en annan tjänst - även känd som en [skyddad resursserver](../active-directory/develop/developer-glossary.md#resource-server). Token representerar den identitet som tilldelats Programmet Service Fabric och utfärdas endast till Azure-resurser (inklusive SF-program) som delar den identiteten. Se dokumentationen för översikt [över hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) för en detaljerad beskrivning av hanterade identiteter samt skillnaden mellan systemtilldelade och användartilldelade identiteter. Vi kommer att referera till ett managed-identity-aktiverat Service Fabric-program som [klientprogrammet](../active-directory/develop/developer-glossary.md#client-application) i hela den här artikeln.
 
@@ -24,19 +24,18 @@ Tjänst fabric-program kan utnyttja hanterade identiteter för att komma åt and
 I kluster som är aktiverade för hanterad identitet exponerar Service Fabric-körningen en localhost-slutpunkt som program kan använda för att hämta åtkomsttoken. Slutpunkten är tillgänglig på varje nod i klustret och är tillgänglig för alla entiteter på den noden. Behöriga anropare kan få åtkomsttoken genom att anropa den här slutpunkten och presentera en autentiseringskod. Koden genereras av Service Fabric-körningen för varje distinkt tjänstkodpaketaktivering och är bunden till livstiden för processen som är värd för det tjänstkodpaketet.
 
 I synnerhet dirigeras miljön för en tjänst med hanterad identitetsaktiverad Service Fabric med följande variabler:
-- 'MSI_ENDPOINT': den localhost-slutpunkten, komplett med sökväg, API-version och parametrar som motsvarar tjänstens hanterade identitet
-- MSI_SECRET: en autentiseringskod, som är en ogenomskinlig sträng och unikt representerar tjänsten på den aktuella noden
-
-> [!NOTE]
-> Namnen "MSI_ENDPOINT" och "MSI_SECRET" refererar till den tidigare beteckningen över hanterade identiteter ("Managed Service Identity" och som nu är inaktuell. Namnen överensstämmer också med motsvarande miljövariabler som används av andra Azure-tjänster som stöder hanterade identiteter.
+- "IDENTITY_ENDPOINT": den localhost-slutpunkten som motsvarar tjänstens hanterade identitet
+- "IDENTITY_HEADER": en unik autentiseringskod som representerar tjänsten på den aktuella noden
+- "IDENTITY_SERVER_THUMBPRINT" : Tumavtryck av tjänstinfrastrukturens hanterade identitetsserver
 
 > [!IMPORTANT]
-> Programkoden bör betrakta värdet av miljövariabeln "MSI_SECRET" som känsliga data - den bör inte loggas eller på annat sätt spridas. Autentiseringskoden har inget värde utanför den lokala noden, eller efter att processen som värd för tjänsten har avslutats, men den representerar identiteten på Tjänsten Service Fabric och bör därför behandlas med samma försiktighetsåtgärder som åtkomsttoken själv.
+> Programkoden bör betrakta värdet av miljövariabeln "IDENTITY_HEADER" som känsliga uppgifter - den bör inte loggas eller på annat sätt spridas. Autentiseringskoden har inget värde utanför den lokala noden, eller efter att processen som värd för tjänsten har avslutats, men den representerar identiteten på Tjänsten Service Fabric och bör därför behandlas med samma försiktighetsåtgärder som åtkomsttoken själv.
 
 För att få en token utför klienten följande steg:
-- bildar en URI genom att sammanfoga slutpunkten för hanterad identitet (MSI_ENDPOINT värde) med API-versionen och resursen (målgruppen) som krävs för token
-- skapar en GET http-begäran för den angivna URI
-- lägger till autentiseringskoden (MSI_SECRET värde) som ett huvud i begäran
+- bildar en URI genom att sammanfoga slutpunkten för hanterad identitet (IDENTITY_ENDPOINT värde) med API-versionen och den resurs (målgrupp) som krävs för token
+- skapar en GET http-begäran för den angivna URI-begäran
+- lägger till lämplig verifieringslogik för servercertifikat
+- lägger till autentiseringskoden (IDENTITY_HEADER värde) som ett huvud i begäran
 - skickar in begäran
 
 Ett lyckat svar innehåller en JSON-nyttolast som representerar den resulterande åtkomsttoken, samt metadata som beskriver den. Ett misslyckat svar kommer också att innehålla en förklaring av felet. Se nedan för ytterligare information om felhantering.
@@ -44,19 +43,22 @@ Ett lyckat svar innehåller en JSON-nyttolast som representerar den resulterande
 Åtkomsttoken cachelagras av Service Fabric på olika nivåer (nod, kluster, resursprovidertjänst), så ett lyckat svar innebär inte nödvändigtvis att token utfärdades direkt som svar på användarprogrammets begäran. Tokens cachelagras för mindre än deras livstid och därför garanteras ett program att ta emot en giltig token. Vi rekommenderar att programkoden cachelagrar sig själv alla åtkomsttoken som hämtas. cachelagringsnyckeln bör innehålla (en härledning av) publiken. 
 
 
+> [!NOTE]
+> Den enda accepterade API-versionen är för närvarande `2019-07-01-preview`och kan komma att ändras.
+
 Exempel på begäran:
 ```http
-GET 'http://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01-preview&resource=https://keyvault.azure.com/' HTTP/1.1 Secret: 912e4af7-77ba-4fa5-a737-56c8e3ace132
+GET 'https://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01-preview&resource=https://vault.azure.net/' HTTP/1.1 Secret: 912e4af7-77ba-4fa5-a737-56c8e3ace132
 ```
 där:
 
 | Element | Beskrivning |
 | ------- | ----------- |
 | `GET` | HTTP-verbet, som anger att du vill hämta data från slutpunkten. I det här fallet en OAuth-åtkomsttoken. | 
-| `http://localhost:2377/metadata/identity/oauth2/token` | Slutpunkten för hanterad identitet för Service Fabric-program som tillhandahålls via miljövariabeln MSI_ENDPOINT. |
+| `https://localhost:2377/metadata/identity/oauth2/token` | Slutpunkten för hanterad identitet för Service Fabric-program som tillhandahålls via miljövariabeln IDENTITY_ENDPOINT. |
 | `api-version` | En frågesträngparameter som anger API-versionen av tjänsten Hanterad identitetstoken. för närvarande är `2019-07-01-preview`det enda accepterade värdet och kan komma att ändras. |
-| `resource` | En frågesträngparameter som anger målresursens app-ID-IURI. Detta kommer att `aud` återspeglas som (publiken) anspråk på den utfärdade token. I det här exemplet begärs en token för att komma\/åt Azure Key Vault, vars app-ID URI är https: /keyvault.azure.com/. |
-| `Secret` | Ett HTTP-huvudfält för begäran, som krävs av tjänsten Service Fabric Managed Identity Token Service for Service Fabric-tjänster för att autentisera anroparen. Det här värdet tillhandahålls av SF-körningen via MSI_SECRET miljövariabeln. |
+| `resource` | En frågesträngparameter som anger målresursens app-ID-IURI. Detta kommer att `aud` återspeglas som (publiken) anspråk på den utfärdade token. I det här exemplet begärs en token för att komma\/åt Azure Key Vault, vars app-ID URI är https: /vault.azure.net/. |
+| `Secret` | Ett HTTP-huvudfält för begäran, som krävs av tjänsten Service Fabric Managed Identity Token Service for Service Fabric-tjänster för att autentisera anroparen. Det här värdet tillhandahålls av SF-körningen via IDENTITY_HEADER miljövariabeln. |
 
 
 Exempelsvar:
@@ -67,7 +69,7 @@ Content-Type: application/json
     "token_type":  "Bearer",
     "access_token":  "eyJ0eXAiO...",
     "expires_on":  1565244611,
-    "resource":  "https://keyvault.azure.com/"
+    "resource":  "https://vault.azure.net/"
 }
 ```
 där:
@@ -124,20 +126,33 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
         /// <returns>Access token</returns>
         public static async Task<string> AcquireAccessTokenAsync()
         {
-            var managedIdentityEndpoint = Environment.GetEnvironmentVariable("MSI_ENDPOINT");
-            var managedIdentityAuthenticationCode = Environment.GetEnvironmentVariable("MSI_SECRET");
+            var managedIdentityEndpoint = Environment.GetEnvironmentVariable("IDENTITY_ENDPOINT");
+            var managedIdentityAuthenticationCode = Environment.GetEnvironmentVariable("IDENTITY_HEADER");
+            var managedIdentityServerThumbprint = Environment.GetEnvironmentVariable("IDENTITY_SERVER_THUMBPRINT");
+            // Latest api version, 2019-07-01-preview is still supported.
+            var managedIdentityApiVersion = Environment.GetEnvironmentVariable("IDENTITY_API_VERSION");
             var managedIdentityAuthenticationHeader = "secret";
-            var managedIdentityApiVersion = "2019-07-01-preview";
             var resource = "https://management.azure.com/";
 
             var requestUri = $"{managedIdentityEndpoint}?api-version={managedIdentityApiVersion}&resource={HttpUtility.UrlEncode(resource)}";
 
             var requestMessage = new HttpRequestMessage(HttpMethod.Get, requestUri);
             requestMessage.Headers.Add(managedIdentityAuthenticationHeader, managedIdentityAuthenticationCode);
+            
+            var handler = new HttpClientHandler();
+            handler.ServerCertificateCustomValidationCallback = (httpRequestMessage, cert, certChain, policyErrors) =>
+            {
+                // Do any additional validation here
+                if (policyErrors == SslPolicyErrors.None)
+                {
+                    return true;
+                }
+                return 0 == string.Compare(cert.GetCertHashString(), managedIdentityServerThumbprint, StringComparison.OrdinalIgnoreCase);
+            };
 
             try
             {
-                var response = await new HttpClient().SendAsync(requestMessage)
+                var response = await new HttpClient(handler).SendAsync(requestMessage)
                     .ConfigureAwait(false);
 
                 response.EnsureSuccessStatusCode();

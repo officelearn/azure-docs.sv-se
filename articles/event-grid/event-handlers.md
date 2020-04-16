@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 7ea00d663264e902c1818f7a4684e90eccd97b28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73118823aec9b8d4bd872986b13f19496240c0b9
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79265056"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393447"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Händelsehanterare i Azure Event Grid
 
@@ -42,7 +42,7 @@ När du använder Azure Functions som hanterare kan du använda Event Grid-utlö
 | [Självstudiekurs: strömma stordata till ett informationslager](event-grid-event-hubs-integration.md) | När Event Hubs skapar en capture-fil skickar Event Grid en händelse till en funktionsapp. Appen hämtar capture-filen och migrerar data till ett informationslager. |
 | [Självstudiekurs: Exempel på integrering av Azure Service Bus till Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid skickar meddelanden från Service Bus-avsnittet för att fungera app och logikapp. |
 
-## <a name="event-hubs"></a>Händelsehubbar
+## <a name="event-hubs"></a>Event Hubs
 
 Använd eventhubbar när din lösning får händelser snabbare än den kan bearbeta händelserna. Ditt program bearbetar händelserna från Event Hubs enligt det egna schemat. Du kan skala händelsebearbetningen så att den hanterar inkommande händelser.
 
@@ -52,8 +52,6 @@ Event Hubs kan fungera som antingen en händelsekälla eller händelsehanterare.
 |---------|---------|
 | [Snabbstart: dirigera anpassade händelser till Azure Event Hubs med Azure CLI och Event Grid](custom-event-to-eventhub.md) | Skickar en anpassad händelse till en händelsehubb för bearbetning av ett program. |
 | [Resurshanterarens mall: anpassade avsnitt och slutpunkt för händelsehubbar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| En Resource Manager-mall som skapar en prenumeration för ett anpassat ämne. Den skickar händelser till en Azure Event Hubs. |
-
-Exempel på händelsehubbar som källa finns i [källan Event Hubs](event-sources.md#event-hubs).
 
 ## <a name="hybrid-connections"></a>Hybridanslutningar
 

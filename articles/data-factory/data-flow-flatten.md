@@ -7,14 +7,16 @@ ms.review: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: b19aae8ab6730936a826f5bb069bfdb7d696cdfa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a0e75957a0ab49394dab56f2b7fb847dee4b43cb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80246644"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413678"
 ---
 # <a name="flatten-transformation-in-mapping-data-flow"></a>Förenkla omformningen i mappning av dataflöde
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Använd förenklingsomvandlingen för att ta matrisvärden inuti hierarkiska strukturer som JSON och rulla ut dem till enskilda rader. Denna process kallas denormalisering.
 
@@ -66,7 +68,7 @@ Se följande JSON-objekt för nedanstående exempel på förenklingsomformningen
 
 | Avregistrera dig | Avrollrot | Projektion |
 | --------- | ----------- | ---------- |
-| varor.kunder | Inget | namn <br> kund = goods.customer |
+| varor.kunder | Ingen | namn <br> kund = goods.customer |
 
 #### <a name="output"></a>Resultat
 
@@ -84,7 +86,7 @@ Se följande JSON-objekt för nedanstående exempel på förenklingsomformningen
 
 | Avregistrera dig | Avrollrot | Projektion |
 | --------- | ----------- | ---------- |
-| varor.orders.shipped.orderDepartement | Inget | namn <br> orderId = goods.orders.orderId <br> itemName = goods.orders.shipped.orderItems.itemName <br> itemQty = goods.orders.shipped.orderItems.itemQty <br> plats = plats |
+| varor.orders.shipped.orderDepartement | Ingen | namn <br> orderId = goods.orders.orderId <br> itemName = goods.orders.shipped.orderItems.itemName <br> itemQty = goods.orders.shipped.orderItems.itemQty <br> plats = plats |
 
 #### <a name="output"></a>Resultat
 

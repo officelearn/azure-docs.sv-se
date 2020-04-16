@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 5a9917010b7301bf70c3bebf68c35d82f4839e0f
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 074a28af8c80c109dbe97306900e8f00618e435a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409049"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411684"
 ---
 # <a name="hyperscale-service-tier"></a>Hyperskalatjänstnivå
 
@@ -41,7 +41,7 @@ Tjänstnivån Hyperskala i Azure SQL Database innehåller följande ytterligare 
 - Snabb återställning av databasen (baserat på ögonblicksbilder av filer) på några minuter i stället för timmar eller dagar (inte en storlek på dataåtgärd)
 - Högre övergripande prestanda på grund av högre logggenomströmning och snabbare transaktionsgenomförandetider oavsett datavolymer
 - Snabb skala ut - du kan etablera en eller flera skrivskyddade noder för avlastning av din läsarbetsbelastning och för användning som hot-standbys
-- Snabb skala upp - du kan, i konstant tid, skala upp dina beräkningsresurser för att rymma tunga arbetsbelastningar om och när det behövs, och sedan skala beräkningsresurserna tillbaka när det inte behövs.
+- Snabb skala upp - du kan, i konstant tid, skala upp dina beräkningsresurser för att hantera tunga arbetsbelastningar när det behövs och sedan skala ned beräkningsresurserna igen när det inte behövs.
 
 Tjänstnivån Hyperskala tar bort många av de praktiska gränser som traditionellt setts i molndatabaser. Om de flesta andra databaser begränsas av de resurser som är tillgängliga i en enda nod, har databaser på tjänstnivån Hyperskala inga sådana gränser. Med sin flexibla lagringsarkitektur växer lagringen efter behov. Faktum är att hyperskala databaser inte skapas med en definierad maxstorlek. En hyperskala databas växer efter behov - och du debiteras endast för den kapacitet du använder. För läsintensiva arbetsbelastningar ger tjänstnivån hyperskala snabb utskalning genom att etablera ytterligare läsrepliker efter behov för avlastning av läsarbetsbelastningar.
 
@@ -72,7 +72,7 @@ Hyperskala tjänstnivå är endast tillgänglig i [vCore-modellen](sql-database-
 
 - **Lagring:**
 
-  Du behöver inte ange den maximala datastorleken när du konfigurerar en hyperskaladatabas. På hyperskalenivån debiteras du för lagring för databasen baserat på faktisk allokering. Lagring allokeras automatiskt mellan 40 GB och 100 TB, i steg om 10 GB 10 GB. Flera datafiler kan växa samtidigt om det behövs. En hyperskala databas skapas med en startstorlek på 10 GB och den börjar växa med 10 GB var 10:e minut, tills den når storleken 40 GB.
+  Du behöver inte ange den maximala datastorleken när du konfigurerar en hyperskaladatabas. På hyperskalenivån debiteras du för lagring för databasen baserat på faktisk allokering. Lagring allokeras automatiskt mellan 40 GB och 100 TB, i steg om 10 GB. Flera datafiler kan växa samtidigt om det behövs. En hyperskala databas skapas med en startstorlek på 10 GB och den börjar växa med 10 GB var 10:e minut, tills den når storleken 40 GB.
 
 Mer information om hyperskala priser finns i [Azure SQL Database Pricing](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
@@ -98,7 +98,7 @@ Sidservrar är system som representerar en utskalad lagringsmotor.  Varje sidser
 
 Loggtjänsten accepterar loggposter från den primära beräkningsrepliken, beständiga dem i en varaktig cache och vidarebefordrar loggposterna till resten av beräkningsrepliker (så att de kan uppdatera sina cacheminnen) samt relevanta sidserver(er), så att data kan uppdateras där. På så sätt sprids alla dataändringar från den primära beräkningsrepliken via loggtjänsten till alla sekundära beräkningsrepliker och sidservrar. Slutligen trycks loggposterna ut till långsiktig lagring i Azure Storage, som är en praktiskt taget oändlig lagringsdatabas. Den här mekanismen tar bort behovet av frekvent logg trunkering. Loggtjänsten har också lokal cache för att påskynda åtkomsten till loggposter.
 
-### <a name="azure-storage"></a>Azure Storage
+### <a name="azure-storage"></a>Azure-lagring
 
 Azure Storage innehåller alla datafiler i en databas. Sidservrar håller datafiler i Azure Storage uppdaterade. Den här lagringen används för säkerhetskopieringsändamål, samt för replikering mellan Azure-regioner. Säkerhetskopior implementeras med hjälp av ögonblicksbilder av datafiler. Återställningsåtgärder med ögonblicksbilder är snabba oavsett datastorlek. Data kan återställas till vilken tidpunkt som helst inom databasens lagringsperiod för säkerhetskopiering.
 
@@ -156,7 +156,7 @@ Mer information om SLA för hyperskala finns i [SLA för Azure SQL Database](htt
 
 ### <a name="restoring-a-hyperscale-database-to-a-different-geography"></a>Återställa en hyperskaladatabas till en annan geografi
 Om du behöver återställa en Azure SQL Database Hyperscale DB till en annan region än den som den för närvarande finns i, som en del av en haveriberedskapsåtgärd eller åtgärd, flyttning eller någon annan orsak, är den primära metoden att göra en geo-återställning av databasen.  Detta innebär exakt samma steg som vad du skulle använda för att återställa andra AZURE SQL DB till en annan region:
-1. Skapa en SQL Database-server i målområdet om du inte redan har en lämplig server där.  Den här servern ska ägas av samma prenumeration som den ursprungliga (källservern).
+1. Skapa en Azure SQL Database-server i målområdet om du inte redan har en lämplig server där.  Den här servern ska ägas av samma prenumeration som den ursprungliga (källservern).
 2. Följ instruktionerna i [geo-återställningsavsnittet](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) på sidan om hur du återställer Azure SQL-databaser från automatiska säkerhetskopieringar.
 
 > [!NOTE]
@@ -204,14 +204,13 @@ Dessa är de aktuella begränsningarna för tjänstnivån Hyperskala från och m
 
 | Problem | Beskrivning |
 | :---- | :--------- |
-| Fönstret Hantera säkerhetskopior för en logisk server visar inte att hyperskalningsdatabaser filtreras från SQL-servern  | Hyperskala har en separat metod för att hantera säkerhetskopior, och som sådan den långsiktiga kvarhållning och punkt i tid backup Lagringsinställningar inte gäller / är ogiltiga. Hyperskaladatabaser visas därför inte i fönstret Hantera säkerhetskopiering. |
+| Fönstret Hantera säkerhetskopior för en logisk server visar inte hyperskaledatabaser, dessa filtreras från vyn  | Hyperskala har en separat metod för att hantera säkerhetskopior, och som sådan den långsiktiga kvarhållning och punkt i tid backup Lagringsinställningar inte gäller / är ogiltiga. Hyperskaladatabaser visas därför inte i fönstret Hantera säkerhetskopiering. |
 | Återställning från tidpunkt | Du kan återställa en hyperskaladatabas till en databas som inte är hyperskallig inom lagringsperioden som inte är hyperskala. Du kan inte återställa en databas som inte är hyperskala till en hyperskaladatabas.|
 | Om en databas har en eller flera datafiler som är större än 1 TB misslyckas migreringen | I vissa fall kan det vara möjligt att undvika problemet genom att krympa de stora filerna till mindre än 1 TB. Om du migrerar en databas som används under migreringsprocessen kontrollerar du att ingen fil blir större än 1 TB. Använd följande fråga för att bestämma storleken på databasfiler. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Managed Instance | Azure SQL Database Managed Instance stöds för närvarande inte med hyperskaladatabaser. |
 | Elastiska pooler |  Elastiska pooler stöds för närvarande inte med SQL Database Hyperscale.|
 | Migrering till hyperskala är för närvarande en enkelriktad åtgärd | När en databas har migrerats till Hyperskala kan den inte migreras direkt till en tjänstnivå som inte är hyperskallig. För närvarande är det enda sättet att migrera en databas från Hyperskala till icke-hyperskala att exportera/importera med hjälp av en BACPAC-fil eller andra dataförflyttningstekniker (Masskopiering, Azure Data Factory, Azure Databricks, SSIS, etc.)|
 | Migrering av databaser med beständiga minnesobjekt | Hyperskala stöder endast icke-beständiga in-memory-objekt (tabelltyper, inbyggda SPs och funktioner).  Beständiga minnestabeller och andra objekt måste tas bort och återskapas som icke-minne-objekt innan en databas migreras till tjänstnivån Hyperskala.|
-| Spårning av ändringar | Ändringsspårning är för närvarande i offentlig förhandsversion och kan aktiveras på nya eller befintliga hyperskaladatabaser. |
 | Geo Replikering  | Du kan ännu inte konfigurera geo-replikering för Azure SQL Database Hyperscale. |
 | Databaskopia | Du kan ännu inte använda Databaskopia för att skapa en ny databas i Azure SQL Hyperscale. |
 | TDE/AKV-integrering | Transparent databaskryptering med Azure Key Vault (kallas vanligen Bring-Your-Own-Key eller BYOK) stöds ännu inte för Azure SQL Database Hyperscale, men TDE med tjänsthanterade nycklar stöds fullt ut. |

@@ -4,12 +4,12 @@ description: Tillgänglighet för beräknings- och minnesresurser för Azure Con
 ms.topic: article
 ms.date: 02/19/2020
 ms.author: danlep
-ms.openlocfilehash: f429a165fe26cc9fc7aa973231f5a77163feef4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c84ab7833f7c90d5d4b3c340c268fd9f75e20da9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247142"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399406"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Resurstillgänglighet för Azure Container Instances i Azure-regioner
 
@@ -18,7 +18,7 @@ I den här artikeln beskrivs tillgängligheten för Azure Container Instances-be
 Värden som presenteras är de maximala resurser som är tillgängliga per distribution av en [behållargrupp](container-instances-container-groups.md). Värden är aktuella vid tidpunkten för publiceringen. 
 
 > [!NOTE]
-> Behållargrupper som skapas inom dessa resursgränser är beroende av tillgänglighet inom distributionsregionen. Om en region har hög belastning kan du uppleva fel vid distribution av instanser. Om du vill minska ett sådant distributionsfel kan du prova att distribuera instanser med lägre resursinställningar eller prova distributionen vid ett senare tillfälle.
+> Behållargrupper som skapas inom dessa resursgränser är beroende av tillgänglighet inom distributionsregionen. Om en region har hög belastning kan du uppleva fel vid distribution av instanser. Om du vill minska ett sådant distributionsfel kan du prova att distribuera instanser med lägre resursinställningar eller prova distributionen vid ett senare tillfälle eller i en annan region med tillgängliga resurser.
 
 Information om kvoter och andra begränsningar i distributionerna finns i [Kvoter och begränsningar för Azure Container Instances](container-instances-quotas.md).
 

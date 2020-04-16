@@ -7,16 +7,16 @@ ms.service: vnf-manager
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: ganesr
-ms.openlocfilehash: 2f2311adc231eac4260e26f0d5d1f2115f43d2eb
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: aaa849633591bfd34a9fca026c820ec2f9137844
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618704"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410838"
 ---
 # <a name="about-azure-edge-zones---preview"></a>Om Azure Edge-zoner – förhandsversion
 
-Azure Edge Zones är en familj av erbjudanden från Microsoft Azure som möjliggör databearbetning nära användaren. Du kan distribuera virtuella datorer, behållare och andra utvalda Azure-tjänster till Edge Zoner för att hantera kraven på låg latens och högt dataflöde för program.
+Azure Edge Zones är en familj av erbjudanden från Microsoft Azure som möjliggör databearbetning nära användaren. Du kan distribuera virtuella datorer, behållare och andra valda Azure-tjänster till Edge Zoner för att hantera kraven på låg latens och högt dataflöde för program.
 
 Typiska användningsfallsscenarier för Edge-zoner är:
 
@@ -38,7 +38,7 @@ Azure Edge Zoner finns i tre diskreta erbjudanden:
 
 ![Kantzoner](./media/edge-zones-overview/edge-zones.png "Kantzoner")
 
-Azure Edge Zones är små fotavtryckstillägg för Azure som placeras i befolkningscentra som ligger långt från Azure-regioner. Azure Edge Zones stöder virtuella datorer, behållare och en utvald uppsättning Azure-tjänster som låter dig köra latenskänsliga och dataflödesintensiva program nära slutanvändare. Azure Edge Zones är en del av Microsofts globala nätverk och erbjuder säker, tillförlitlig och hög bandbreddsanslutning mellan program som körs i Edge-zonen nära användaren och den fullständiga uppsättningen Azure-tjänster som körs inom Azure-regioner. Azure Edge Zones ägs och drivs av Microsoft och låter dig använda samma uppsättning Azure-verktyg och portal för att hantera och distribuera tjänster till Edge Zoner.
+Azure Edge Zones är små fotavtryckstillägg för Azure som placeras i befolkningscentra som ligger långt från Azure-regioner. Azure Edge Zones stöder virtuella datorer, behållare och en vald uppsättning Azure-tjänster som låter dig köra latenskänsliga och dataflödesintensiva program nära slutanvändare. Azure Edge Zones är en del av Microsofts globala nätverk och erbjuder säker, tillförlitlig och hög bandbreddsanslutning mellan program som körs i Edge-zonen nära användaren och den fullständiga uppsättningen Azure-tjänster som körs inom Azure-regioner. Azure Edge Zones ägs och drivs av Microsoft och låter dig använda samma uppsättning Azure-verktyg och portal för att hantera och distribuera tjänster till Edge Zoner.
 
 Typiska användningsfall är:
 

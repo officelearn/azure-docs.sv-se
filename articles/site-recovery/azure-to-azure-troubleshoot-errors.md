@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 243fea8fae071368a91bf482190442f15c372fc1
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9f95677211a89c1bb2a18076741dec08e76c5d70
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271309"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81390391"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Felsöka azure-till-Azure VM-replikeringsfel
 
@@ -404,21 +404,20 @@ Om du vill aktivera replikering på den virtuella datorn måste dess **etablerin
 
 ### <a name="issue-1-vm-is-attached-to-a-network-thats-already-mapped-to-a-target-network"></a>Problem 1: Den virtuella datorn är kopplad till ett nätverk som redan är mappat till ett målnätverk
 
-Om källdatorn är en del av ett virtuellt nätverk och en annan virtuell dator från samma virtuella nätverk redan är mappad med ett nätverk i målgruppen för nätverksval, är listrutan för nätverksval inte tillgänglig (visas nedtonad) som standard.
+Om källdatorn är en del av ett virtuellt nätverk och en annan virtuell dator från samma virtuella nätverk redan är mappad med ett nätverk i målgruppen för målresursen är listrutan nätverksval inte tillgänglig (visas nedtonad) som standard.
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="Listan för nätverksval är inte tillgänglig.":::
 
 ### <a name="issue-2-you-previously-protected-the-vm-and-then-you-disabled-the-replication"></a>Problem 2: Du har tidigare skyddat den virtuella datorn och sedan inaktiverat replikeringen
 
-Om du inaktiverar replikering av en virtuell dator tas inte nätverksmappningen bort. Mappningen måste tas bort från valvet för återställningstjänster där den virtuella datorn skyddades. Gå till **Återställningstjänster valv** > **Site Recovery Infrastructure** > **Network Mapping**.
+Om du inaktiverar replikering av en virtuell dator tas inte nätverksmappningen bort. Mappningen måste tas bort från valvet för återställningstjänster där den virtuella datorn skyddades. Välj **valvet för Återställningstjänster** och gå till Hantera > infrastruktur för**webbplatsåterställning** **Manage** > för virtuella**Azure-datorer** > **Nätverksmappning**.
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="Ta bort nätverksmappning.":::
 
-Målnätverket som konfigurerades under inställningarna för haveriberedskap kan ändras efter den första installationen och efter att den virtuella datorn har skyddats:
+Målnätverket som konfigurerades under haveriberedskapsinställningarna kan ändras efter den första installationen och när den virtuella datorn har skyddats. Så här ändrar du **nätverksmappning** markerar du nätverksnamnet:
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="Ändra nätverksmappning.":::
 
-Om du ändrar nätverksmappning påverkas alla skyddade virtuella datorer som använder samma nätverksmappning.
 
 ## <a name="com-or-vss-error-code-151025"></a>COM+ eller VSS (felkod 151025)
 

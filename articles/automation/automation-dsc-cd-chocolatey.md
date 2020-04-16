@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: 706ab128af4379a56223ff65fb12f29d37b524f7
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 0c61a431b985e494148500ed0a7aeb106534ed2c
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383265"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392122"
 ---
 # <a name="provide-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Tillhandahålla kontinuerlig distribution till virtuella datorer med hjälp av Automation State Configuration och Chocolatey
 
@@ -95,7 +95,7 @@ Navigera till den resurs du vill ha och klicka på knappen "Distribuera till Azu
 
 En annan teknik som nyligen lagts till i Azure-portalen kan du hämta nya moduler eller uppdatera befintliga moduler. Klicka dig igenom automationskontoresursen, panelen Tillgångar och slutligen panelen Moduler. I ikonen Bläddra i galleri kan du se listan över moduler i galleriet, öka detaljnivån i information och slutligen importera till ditt Automation-konto. Detta är ett bra sätt att hålla dina moduler uppdaterade från tid till annan. Och importfunktionen kontrollerar beroenden med andra moduler för att säkerställa att inget blir osynkroniserat.
 
-Eller så är det den manuella metoden. Den här metoden används bara en gång per resurs, om du inte vill uppgradera den senare. Mer information om hur du redigerar PowerShell-integrationsmoduler finns i [Skapa integrationsmoduler för Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/).
+Det finns också en manuell metod som bara används en gång per resurs, om du inte vill uppgradera den senare. Mer information om hur du redigerar PowerShell-integrationsmoduler finns i [Skapa integrationsmoduler för Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/).
 
 >[!NOTE]
 >Mappstrukturen för en PowerShell-integrationsmodul för en Windows-dator skiljer sig lite från den mappstruktur som förväntas av Azure Automation. 
@@ -121,7 +121,7 @@ Eller så är det den manuella metoden. Den här metoden används bara en gång 
     ```azurepowershell-interactive
     New-AzAutomationModule `
       -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
-      -Name MODULE-NAME –ContentLink 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
+      -Name MODULE-NAME –ContentLinkUri 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
     ```
 
 I exemplet medföljande implementeringar dessa steg för cChoco och xNetworking. 
@@ -196,18 +196,18 @@ Dessa steg resulterar i att en ny nodkonfiguration med namnet **ISVBoxConfig.isv
 
 ## <a name="step-5-create-and-maintain-package-metadata"></a>Steg 5: Skapa och underhålla paketmetadata
 
-För varje paket som du lägger in i paketarkivet behöver du en nuspec som beskriver det.
-Det nuspec måste kompileras och lagras i din NuGet-server. Denna process beskrivs [här](https://docs.nuget.org/create/creating-and-publishing-a-package). Du kan använda MyGet.org som NuGet-server. De säljer denna tjänst, men har en förrätt SKU som är gratis. På NuGet.org hittar du instruktioner om hur du installerar din egen NuGet-server för dina privata paket.
+För varje paket som du lägger in i paketarkivet behöver du en Nuspec som beskriver den. Den måste kompileras och lagras på NuGet-servern. Denna process beskrivs [här](https://docs.nuget.org/create/creating-and-publishing-a-package). 
+
+Du kan använda **MyGet.org** som NuGet-server. Du kan köpa denna tjänst, men du är en gratis förrätt SKU. På [NuGet](https://www.nuget.org/)hittar du instruktioner om hur du installerar din egen NuGet-server för dina privata paket.
 
 ## <a name="step-6-tie-it-all-together"></a>Steg 6: Knyt ihop allt
 
-Varje gång en version passerar QA och godkänns för distribution skapas paketet och nuspec och nupkg uppdateras och distribueras till NuGet-servern. Konfigurationen (steg 4 ovan) måste också uppdateras för att komma överens med det nya versionsnumret. Det måste sedan skickas till pull-servern och kompileras.
+Varje gång en version passerar QA och godkänns för distribution skapas paketet och nuspec och nupkg uppdateras och distribueras till NuGet-servern. Konfigurationen (steg 4) måste också uppdateras för att komma överens med det nya versionsnumret. Det måste sedan skickas till pull-servern och kompileras.
 
 Från och med då är det upp till de virtuella datorerna som är beroende av den konfigurationen att hämta uppdateringen och installera den. Var och en av dessa uppdateringar är enkel - bara en rad eller två av PowerShell. För Azure DevOps är några av dem inkapslade i bygguppgifter som kan kedjas ihop i en version. Den här [artikeln](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery) innehåller mer information. Den här [GitHub-repoen](https://github.com/Microsoft/vso-agent-tasks) information om tillgängliga bygguppgifter.
 
 ## <a name="related-articles"></a>Relaterade artiklar
 * [Översikt över Azure Automation DSC](automation-dsc-overview.md)
-* [Azure Automation DSC-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.automation#automation)
 * [Introduktionsdatorer för hantering av Azure Automation DSC](automation-dsc-onboarding.md)
 
 ## <a name="next-steps"></a>Nästa steg

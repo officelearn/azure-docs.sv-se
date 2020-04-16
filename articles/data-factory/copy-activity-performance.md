@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 231b0d77dc441e70dc0ec8de313291bb6b4f9292
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aedb3df69821d1436b03b2eb1f12873b624d426e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79261403"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414181"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Kopiera aktivitetsprestanda och skalbarhetsguide
 
@@ -25,7 +25,9 @@ ms.locfileid: "79261403"
 > * [Version 1](v1/data-factory-copy-activity-performance.md)
 > * [Aktuell version](copy-activity-performance.md)
 
-Oavsett om du vill utföra en storskalig datamigrering från datasjö eller företagsdatalager (EDW) till Azure, eller om du vill använda data i stor skala från olika källor till Azure för stordataanalys, är det viktigt att uppnå optimal prestanda och Skalbarhet.  Azure Data Factory tillhandahåller en högpresterande, flexibel och kostnadseffektiv mekanism för att få tillgång till data i stor skala, vilket gör det till en utmärkt passform för datatekniker som vill skapa högpresterande och skalbara datainmatningspipelpipels.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+Oavsett om du vill utföra en storskalig datamigrering från datasjö eller företagsdatalager (EDW) till Azure, eller om du vill använda data i stor skala från olika källor till Azure för stordataanalys, är det viktigt att uppnå optimal prestanda och skalbarhet.  Azure Data Factory tillhandahåller en högpresterande, flexibel och kostnadseffektiv mekanism för att få tillgång till data i stor skala, vilket gör det till en utmärkt passform för datatekniker som vill skapa högpresterande och skalbara datainmatningspipelpipels.
 
 Efter att ha läst den här artikeln kommer du att kunna svara på följande frågor:
 

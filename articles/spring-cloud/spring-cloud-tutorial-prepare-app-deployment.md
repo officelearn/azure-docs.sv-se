@@ -1,21 +1,21 @@
 ---
-title: Självstudiekurs - Förbered ett Java Spring-program för distribution i Azure Spring Cloud
-description: I den här självstudien förbereder du ett Java Spring-program för distribution till Azure Spring Cloud.
+title: How-to - Förbered ett Java Spring-program för distribution i Azure Spring Cloud
+description: I det här avsnittet förbereder du ett Java Spring-program för distribution till Azure Spring Cloud.
 author: bmitchell287
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 49ebfec131c8b9fa7b8535163c03eb7cb692790d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 025dbc56fb46ef5b6225d35564b8e4ac3c82e6e3
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78200030"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414465"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Förbereda ett Java Spring-program för distribution i Azure Spring Cloud
 
-Den här snabbstarten visar hur du förbereder ett befintligt Java Spring-program för distribution till Azure Spring Cloud. Om Azure Spring Cloud är korrekt konfigurerat tillhandahåller de robusta tjänster för att övervaka, skala och uppdatera ditt Java Spring Cloud-program.
+Det här avsnittet visar hur du förbereder ett befintligt Java Spring-program för distribution till Azure Spring Cloud. Om Azure Spring Cloud är korrekt konfigurerat tillhandahåller de robusta tjänster för att övervaka, skala och uppdatera ditt Java Spring Cloud-program.
 
 Andra exempel förklarar hur du distribuerar ett program till Azure Spring Cloud när POM-filen är konfigurerad. 
 * [Starta app med Azure-portalen](spring-cloud-quickstart-launch-app-portal.md)
@@ -225,7 +225,7 @@ Inkludera följande `spring-cloud-starter-sleuth` `spring-cloud-starter-zipkin` 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du konfigurerar javafjäderprogrammet för distribution till Azure Spring Cloud. Om du vill veta hur du konfigurerar en Config Server-instans fortsätter du till nästa självstudiekurs.
+I det här avsnittet har du lärt dig hur du konfigurerar javafjäderprogrammet för distribution till Azure Spring Cloud. Mer information om hur du konfigurerar en Config Server-instans finns i följande artikel.
 
 > [!div class="nextstepaction"]
 > [Lär dig hur du konfigurerar en Config Server-instans](spring-cloud-tutorial-config-server.md)

@@ -3,12 +3,12 @@ title: Lagra Helm-diagram
 description: Lär dig hur du lagrar Helm-diagram för dina Kubernetes-program med databaser i Azure Container Registry
 ms.topic: article
 ms.date: 03/20/2020
-ms.openlocfilehash: 6304486ac493e235ed74f26ab4be4f843ef52513
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3f1a68258b758380a66b63e3c3137f1d460d288c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131485"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399378"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Skicka och hämta Helm-diagram till ett Azure-behållarregister
 
@@ -77,18 +77,21 @@ helm create hello-world
 Som ett grundläggande exempel, `templates` ändra katalogen till mappen och först ta bort innehållet där:
 
 ```console
+cd hello-world/templates
 rm -rf *
 ```
 
 Skapa `templates` en fil som `configmap.yaml` anropas med följande innehåll i mappen:
 
-```yml
+```console
+cat <<EOF > configmap.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: hello-world-configmap
 data:
   myvalue: "Hello World"
+EOF
 ```
 
 Mer information om hur du skapar och kör det här exemplet finns i [Komma igång](https://helm.sh/docs/chart_template_guide/getting_started/) i Helm Docs.

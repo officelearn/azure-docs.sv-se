@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 8e170c27923d2bb091c4121e350809b85e4c48a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b6df25b525975f2d4fe6a02064e81f359a804c58
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79081700"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416258"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Balansera ditt serviceinfrastrukturkluster
 Service Fabric Cluster Resource Manager stöder dynamiska belastningsändringar som reagerar på tillägg eller borttagningar av noder eller tjänster. Det korrigerar också automatiskt begränsningsöverträdelser och balanserar proaktivt om klustret. Men hur ofta vidtas dessa åtgärder, och vad utlöser dem?
@@ -205,6 +205,7 @@ Klusterresurshanteraren räknar automatiskt ut vilka tjänster som är relaterad
 * Mått är hur Service Fabric Cluster Resource Manger hanterar förbrukning och kapacitet i klustret. Om du vill veta mer om mått och hur du konfigurerar dem kan du läsa [den här artikeln](service-fabric-cluster-resource-manager-metrics.md)
 * Rörelsekostnad är ett sätt att signalera till Cluster Resource Manager att vissa tjänster är dyrare att flytta än andra. Mer information om rörelsekostnader finns i [den här artikeln](service-fabric-cluster-resource-manager-movement-cost.md)
 * Klusterresurshanteraren har flera begränsningar som du kan konfigurera för att sakta ned omsättningen i klustret. De är normalt inte nödvändigt, men om du behöver dem kan du lära dig om dem [här](service-fabric-cluster-resource-manager-advanced-throttling.md)
+* Klusterresurshanteraren kan känna igen och hantera underklussning (en situation som ibland uppstår när du använder placeringsbegränsningar och balansering). Om du vill veta hur delklusing kan påverka balansering och hur du kan hantera det, se [här](cluster-resource-manager-subclustering.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
 [Image2]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png

@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om migrering av Azure Migrera server
 description: Få svar på vanliga frågor om hur du använder Azure Migrate Server Migration för att migrera datorer.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 507cc8088bf54b1a4f4483673ec5332efcdd36c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cc78d2087dcaad2922ca6b6d9c090a8decdb6e84
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80127806"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393796"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Azure Migrera servermigrering: Vanliga frågor
 
@@ -92,6 +92,10 @@ Migrera maskiner genom att behandla dem som fysiska servrar är användbart i et
 - Om du vill migrera virtuella virtuella datorer med Hyper-V eller VMware kan du inte använda standardmigreringsprocessen för [Hyper-V](tutorial-migrate-hyper-v.md)eller [VMware-migrering.](server-migrate-overview.md) Till exempel om du inte kör VMware vCenter och bara använder ESXi-värdar.
 - Så här migrerar du virtuella datorer som körs i privata moln till Azure
 - Om du vill migrera virtuella datorer som körs i offentliga moln som Amazon Web Services (AWS) eller Google Cloud Platform (GCP) till Azure.
+
+## <a name="i-deployed-two-or-more-appliances-to-discover-vms-in-my-vcenter-server-however-when-i-try-to-migrate-the-vms-i-only-see-vms-corresponding-to-one-of-the-appliance"></a>Jag har distribuerat två (eller flera) enheter för att identifiera virtuella datorer i min vCenter Server. Men när jag försöker migrera de virtuella datorerna ser jag bara virtuella datorer som motsvarar en av apparaten.
+
+Även om detta kan vara ett bra användningsfall stöder vi för närvarande inte det. Om du distribuerar två (eller flera) enheter för att identifiera samma uppsättning virtuella datorer uppstår ett serviceproblem där vm-ägarskapet fortsätter att växla mellan de två apparaterna. Det är därför du ser virtuella datorer som visas och försvinner. I sådana fall måste du ta bort en apparat och göra en hård uppdatering för att lösa problemet.
 
 ## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>Behöver jag VMware vCenter för att migrera virtuella datorer med VMware?
 Om du vill [migrera virtuella virtuella datorer](server-migrate-overview.md) med VMware-agentbaserad eller agentlös migrering måste ESXi-värdar där virtuella datorer finns hanteras av vCenter Server. Om du inte har vCenter Server kan du migrera virtuella virtuella datorer med VMware genom att migrera dem som fysiska servrar. [Läs mer](migrate-support-matrix-physical-migration.md).

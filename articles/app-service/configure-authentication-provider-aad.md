@@ -3,14 +3,14 @@ title: Konfigurera Azure AD-autentisering
 description: Lär dig hur du konfigurerar Azure Active Directory-autentisering som identitetsprovider för appen AppTjänst eller Azure Functions.
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
-ms.date: 09/03/2019
+ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: dbbe58df4f1cfe93555b494e525fad18f5b02664
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 6f4dbedad56f6867558a8b70575ad906c8796612
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632578"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392564"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Konfigurera appen App Service eller Azure Functions så att den använder Azure AD-inloggning
 
@@ -19,8 +19,7 @@ ms.locfileid: "80632578"
 Den här artikeln visar hur du konfigurerar Azure App Service eller Azure Functions för att använda Azure Active Directory (Azure AD) som autentiseringsprovider.
 
 > [!NOTE]
-> För närvarande stöds inte [Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) (inklusive [MSAL)](../active-directory/develop/msal-overview.md)för Azure App Service och Azure Functions. Kom tillbaka för uppdateringar.
->
+> Flödet för expressinställningar ställer in en AAD V1-programregistrering. Om du vill använda [Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) (inklusive [MSAL)](../active-directory/develop/msal-overview.md)följer du de [avancerade konfigurationsinstruktionerna](#advanced).
 
 Följ de här metodtipsen när du konfigurerar din app och autentisering:
 
@@ -101,7 +100,7 @@ Utför följande steg:
     |Field|Beskrivning|
     |-|-|
     |Klientorganisations-ID| Använd **program-ID:t (klient)för** appregistreringen. |
-    |Url till utfärdare| Använd `https://login.microsoftonline.com/<tenant-id>`och ersätt * \<klient-ID>* med **katalog-ID (klient)** för appregistreringen. Det här värdet används för att omdirigera användare till rätt Azure AD-klientorganisation, samt för att hämta lämpliga metadata för att fastställa lämpliga tokensigneringsnycklar och tokenutfärdare anspråksvärde till exempel. |
+    |Url till utfärdare| Använd `https://login.microsoftonline.com/<tenant-id>/v2.0`och ersätt * \<klient-ID>* med **katalog-ID (klient)** för appregistreringen. Det här värdet används för att omdirigera användare till rätt Azure AD-klientorganisation, samt för att hämta lämpliga metadata för att fastställa lämpliga tokensigneringsnycklar och tokenutfärdare anspråksvärde till exempel. Avsnittet `/v2.0` kan utelämnas för program som använder AAD v1. |
     |Klienthemlighet (valfritt)| Använd klienthemligheten som du skapade i appregistreringen.|
     |Tillåtna tokenmålningar| Om detta är en moln- eller serverapp och du vill tillåta autentiseringstoken från en webbapp lägger du till **webbappens program-ID-URI** här. Det konfigurerade **klient-ID:et** anses *alltid* implicit vara en tillåten målgrupp. |
 

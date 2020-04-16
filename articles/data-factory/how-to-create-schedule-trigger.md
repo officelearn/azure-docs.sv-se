@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.openlocfilehash: 127db8a484b9624586dea70c44af3bc84b3fc84e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 100f95c20743f70bb4a9f2ac7e74853eab80f3e9
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73673776"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414475"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Skapa en utlösare som kör en pipeline enligt ett schema
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Den här artikeln innehåller information om schemautlösaren och stegen för att skapa, starta och övervaka en schemautlösare. För andra typer av utlösare finns i [Pipeline-körning och utlösare](concepts-pipeline-execution-triggers.md).
 
 När du skapar en schemautlösare anger du ett schema (startdatum, återkommande, slutdatum osv.) och associerar med en pipeline. Pipeliner och utlösare har en många-till-många-relation. Flera utlösare kan starta en pipeline. En enskild utlösare kan starta flera pipeliner.
@@ -314,7 +316,7 @@ I följande tabell ges en översikt över de viktigaste schemaelementen relatera
 | **startTime** | Ett datum/tid-värde. För enkla scheman gäller värdet för egenskapen **startTime** den första förekomsten. För komplexa scheman startar utlösaren tidigast vid det angivna värdet för **startTime**. |
 | **endTime** | Slutdatum och tidpunkt för utlösaren. Utlösaren körs inte efter angivet slutdatum och sluttid. Värdet för egenskapen kan inte ha passerat. Den här egenskapen är valfri. |
 | **timeZone** | Tidszonen. För närvarande stöds bara tidszonen UTC. |
-| **recurrence** | Ett upprepningsobjekt som anger upprepningsregler för utlösaren. Upprepningsobjektet har stöd för elementen **frequency** (frekvens), **interval** (intervall), **endTime** (sluttid), **count** (antal) och **schedule** (schema). När du definierar ett upprepningsobjekt är elementet **frequency** obligatoriskt. De andra elementen är valfria. |
+| **Återkommande** | Ett upprepningsobjekt som anger upprepningsregler för utlösaren. Upprepningsobjektet har stöd för elementen **frequency** (frekvens), **interval** (intervall), **endTime** (sluttid), **count** (antal) och **schedule** (schema). När du definierar ett upprepningsobjekt är elementet **frequency** obligatoriskt. De andra elementen är valfria. |
 | **Frekvens** | Frekvensen som utlösaren ska upprepas med. Du kan använda värden som ”minute”, ”hour”, ”day”, ”week” och ”month”. |
 | **Intervall** | Ett positivt heltal som anger intervallet för värdet för **frequency** och som avgör hur ofta utlösaren körs. Om **interval** till exempel är 3 och **frequency** är ”week” (vecka) upprepas utlösaren var tredje vecka. |
 | **Schema** | Upprepningsschemat för utlösaren. En utlösare med ett angivet värde för **frequency** ändrar sin upprepning baserat på ett upprepningsschema. Egenskapen **schedule** innehåller ändringar för upprepningen som baseras på minuter, timmar, veckodagar, dagar i månaden och veckonummer.
@@ -324,11 +326,11 @@ I följande tabell ges en översikt över de viktigaste schemaelementen relatera
 
 | JSON-egenskap | Typ | Krävs | Standardvärde | Giltiga värden | Exempel |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | String | Ja | Inget | ISO 8601-datum/tid | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | Objekt | Ja | Inget | Upprepningsobjekt | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | Sträng | Ja | Ingen | ISO 8601-datum/tid | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **Återkommande** | Objekt | Ja | Ingen | Upprepningsobjekt | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **Intervall** | Tal | Inga | 1 | 1 till 1 000 | `"interval":10` |
-| **endTime** | String | Ja | Inget | Ett datum/tid-värde som representerar en tidpunkt i framtiden. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **Schema** | Objekt | Inga | Inget | Schemaobjekt | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **endTime** | Sträng | Ja | Ingen | Ett datum/tid-värde som representerar en tidpunkt i framtiden. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **Schema** | Objekt | Inga | Ingen | Schemaobjekt | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Egenskapen startTime
 I följande tabell visas hur egenskapen **startTime** styr körningen av en utlösare:
@@ -359,7 +361,7 @@ I följande tabell beskrivs **schedule**-elementen i detalj:
 | JSON-element | Beskrivning | Giltiga värden |
 |:--- |:--- |:--- |
 | **minutes** | Minuter för den timme då utlösaren körs. | <ul><li>Integer</li><li>Heltalsmatris</li></ul>
-| **hours** | Timmar på dagen då utlösaren körs. | <ul><li>Integer</li><li>Heltalsmatris</li></ul> |
+| **Timmar** | Timmar på dagen då utlösaren körs. | <ul><li>Integer</li><li>Heltalsmatris</li></ul> |
 | **weekDays** | Veckodagar som utlösaren körs på. Värdet kan bara anges med en veckofrekvens. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday och Sunday</li><li>Matris med dagvärden (maximal matrisstorlek är 7)</li><li>Dagvärdena är inte skiftlägeskänsliga</li></ul> |
 | **monthlyOccurrences** | Dagar i månaden som utlösaren körs på. Värdet kan bara anges med en månadsfrekvens. | <ul><li>Matris med **månatligaOccurrence-objekt:** `{ "day": day,  "occurrence": occurrence }`.</li><li>Attributet **day** är veckodagen som utlösaren körs på. Om egenskapen **monthlyOccurrences** till exempel har **day**-värdet `{Sunday}` innebär det varje söndag i månaden. Attributet **day** är obligatoriskt.</li><li>Attributet **occurrence** är förekomsten av **day**-värdet i månaden. Om egenskapen **monthlyOccurrences** till exempel har **day**- och **occurrence**-värdena `{Sunday, -1}` innebär det den sista söndagen i månaden. Attributet **occurrence** är valfritt.</li></ul> |
 | **monthDays** | Dagar i månaden som utlösaren körs på. Värdet kan bara anges med en månadsfrekvens. | <ul><li>Ett värde < = -1 och > =-31</li><li>Ett värde > = 1 och < = 31</li><li>Matris med värden</li></ul> |
@@ -401,4 +403,4 @@ I exemplen antas att värdet för **interval** är 1 och att värdet för **freq
 
 
 ## <a name="next-steps"></a>Nästa steg
-Detaljerad information om utlösare finns i [Pipeline-körning och utlösare](concepts-pipeline-execution-triggers.md#triggers).
+Detaljerad information om utlösare finns i [Pipeline-körning och utlösare](concepts-pipeline-execution-triggers.md#trigger-execution).

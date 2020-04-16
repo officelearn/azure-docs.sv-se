@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: b976002ee185a87daedf37a93f3d02a166eb6f8a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 4a9d2453d1f2dbb1f7efe942eb7a4b813a28783c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74974605"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404795"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-java"></a>Snabbstart: Extrahera tryckt text (OCR) med hjälp av REST-APIN för datorseende och Java
 
 > [!NOTE]
 > Om du extraherar engelskspråkig text kan du överväga att använda den nya [läsåtgärden](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). En [Java-snabbstart](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/java-hand-text) är tillgänglig. 
 
-I den här snabbstarten extraherar du utskriven text med optisk teckenigenkänning (OCR) från en bild med REST-APIN för visuellt innehåll. Med metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras i en teckenström som kan användas på en dator.
+I den här snabbstarten extraherar du utskriven text med ocr (Optical Character Recognition) från en bild med REST-APIN för visuellt innehåll. Med metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras i en teckenström som kan användas på en dator.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) konto innan du börjar.
 
@@ -215,7 +215,9 @@ REST Response:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska ett Java Swing-program som använder Visuellt innehåll för att utföra optisk teckenläsning (OCR), skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriv visuella funktioner, inklusive ansikten, i en bild. Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Utforska ett Java Swing-program som använder datorseende för att utföra optisk teckenigenkänning (OCR); skapa smartbeskurna miniatyrer. identifiera, kategorisera, tagga och beskriva visuella funktioner i bilder.
 
 > [!div class="nextstepaction"]
 > [Självstudie: API för visuellt innehåll med Java](../Tutorials/java-tutorial.md)
+
+* Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).

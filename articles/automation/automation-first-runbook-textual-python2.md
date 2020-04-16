@@ -5,18 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/19/2019
 ms.topic: conceptual
-ms.openlocfilehash: b17a0403a3b2a3ff8c3586ed26a4b833db54922d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b788e5bda65702305ed6f6b001b57c28939aa875
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75365945"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405916"
 ---
 # <a name="my-first-python-runbook"></a>Min första Python-runbook
 
 > [!div class="op_single_selector"]
 > - [Grafisk](automation-first-runbook-graphical.md)
-> - [Powershell](automation-first-runbook-textual-powershell.md)
+> - [PowerShell](automation-first-runbook-textual-powershell.md)
 > - [PowerShell-arbetsflöde](automation-first-runbook-textual.md)
 > - [Python](automation-first-runbook-textual-python2.md)
 
@@ -41,15 +41,15 @@ Du börjar med att skapa en enkel runbook som matar ut texten *Hello World*.
 
     Automation-kontosidan innehåller en snabb översikt över resurserna i det här kontot. Du bör redan ha vissa tillgångar. De flesta av dessa tillgångar är de moduler som ingår automatiskt i ett nytt Automation-konto. Du behöver även autentiseringstillgången som nämns i [kravavsnittet](#prerequisites).<br>
 
-1. Välj **Runbooks** under **PROCESSHANTERING** för att öppna listan med runbook-jobb.
-1. Välj **+ Lägg till en runbook** om du vill skapa en ny runbook.
-1. Ge runbooken namnet *MyFirstRunbook-Python*.
-1. I det här fallet ska du skapa en [Python-runbook](automation-runbook-types.md#python-runbooks) så välj **Python 2** för **Runbook typ**.
+1. Välj **Runbooks** under **Process Automation** om du vill öppna listan över runbooks.
+1. Välj **Lägg till en runbook** om du vill skapa en ny runbook.
+1. Ge runbooken namnet **MyFirstRunbook-Python**.
+1. Välj **Python 2** för **Runbook-typ**.
 1. Klicka på **Skapa** för att skapa runbooken och öppna textredigeraren.
 
 ## <a name="add-code-to-the-runbook"></a>Lägga till kod i runbooken
 
-Nu kan du lägga till ett enkelt kommando för att skriva ut texten "Hello World":
+Nu kan du lägga till `Hello World`ett enkelt kommando för att skriva ut texten .
 
 ```python
 print("Hello World!")
@@ -59,43 +59,43 @@ Klicka på **Spara** om du vill spara runbooken.
 
 ## <a name="test-the-runbook"></a>Testa runbooken
 
-Innan du publicerar runbook-jobbet så att den blir tillgänglig i produktionsmiljön testar du den och kontrollerar att den fungerar som den ska. När du testar en runbook kör du dess **utkastversion** och visar dess utdata interaktivt.
+Innan du publicerar runbook-jobbet så att den blir tillgänglig i produktionsmiljön testar du den och kontrollerar att den fungerar som den ska. När du testar en runbook kör du dess utkastversion och visar dess utdata interaktivt.
 
 1. Öppna testfönstret genom att klicka på **Testfönster**.
 1. Starta testet genom att klicka på **Starta**. Detta bör vara det enda aktiverade alternativet.
 1. Ett [runbook-jobb](automation-runbook-execution.md) skapas och dess status visas.
-   Jobbets första status är *I kö*, vilket betyder att det väntar på att en runbook-arbetsroll i molnet ska bli tillgänglig. Den flyttas till *Start* när en arbetare gör anspråk på jobbet och sedan *körs* när runbooken faktiskt börjar köras.
-1. När runbook-jobbet är klart visas dess utdata. I det här fallet bör du se *Hello World*.
+   Jobbstatusen börjar som kö, vilket anger att den väntar på att en runbook-arbetare i molnet ska bli tillgänglig. Den flyttas till Start när en arbetare gör anspråk på jobbet och sedan körs när runbooken faktiskt börjar köras.
+1. När runbook-jobbet är klart visas dess utdata. I det här fallet `Hello World`bör du se .
 1. Gå tillbaka till arbetsytan genom att stänga testfönstret.
 
 ## <a name="publish-and-start-the-runbook"></a>Publicera och starta runbooken
 
-Runbook som du skapade är fortfarande i utkastläge. Du måste publicera den innan du kan köra den i produktion.
+Det runbook-jobb som du har skapat är fortfarande i utkastläge. Du måste publicera den innan du kan köra den i produktion.
 När du publicerar en runbook skriver du över den befintliga publicerade versionen med utkastversionen.
 I det här fallet har du inte en publicerad version ännu eftersom du just har skapat runbooken.
 
 1. Klicka på **Publicera** för att publicera runbooken och sedan på **Ja** när du uppmanas att göra det.
-1. Om du bläddrar åt vänster för att visa runbooken i rutan **Runbooks** nu visas en **redigeringsstatus för** **publicerad**.
+1. Om du bläddrar åt vänster för att visa runbooken på sidan **Runbooks** bör du se en **redigeringsstatus för** **publicerad**.
 1. Bläddra tillbaka till höger för att visa rutan för **MyFirstRunbook-Python**.
-   Alternativen överst gör det möjligt för oss att starta runbooken, visa runbooken eller schemalägga den så att den startar någon gång i framtiden.
-2. Du vill starta runbooken, så klicka på **Start** och klicka sedan på **Ok** när bladet Start Runbook öppnas.
-3. Ett jobbfönster öppnas för det runbook-jobb som du skapade. Du kan stänga den här rutan, men i det här fallet lämnar du den öppen så att du kan titta på jobbets förlopp.
+   Alternativen överst gör att du kan starta runbooken, visa runbooken eller schemalägga den så att den startar någon gång i framtiden.
+2. Klicka på **Start** och sedan på **OK** när bladet Start Runbook öppnas.
+3. Ett jobbfönster öppnas för det runbook-jobb som du skapade. Du kan stänga den här rutan, men låt oss lämna den öppen så att du kan titta på jobbets förlopp.
 1. Jobbstatusen visas i **Jobbsammanfattning** och matchar de statusar som du såg när du testade runbooken.
-2. När runbookens status visas som *Slutförd* klickar du på **Utdata**. Utdatafönstret öppnas och du kan se din *Hello World*.
+2. När runbook-statusen har slutförts klickar du på **Utdata**. Fönstret Utdata öppnas, där `Hello World`du kan se .
 3. Stäng utdatafönstret.
-4. Klicka på **Alla loggar** för att öppna fönstret Strömmar för runbook-jobbet. Du bör endast se *Hello World* i utdataströmmen, men även andra dataströmmar kan visas för ett runbook-jobb, till exempel Utförlig och Fel, om runbook-jobbet skriver till dem.
+4. Klicka på **Alla loggar** för att öppna fönstret Strömmar för runbook-jobbet. Du bör `Hello World` bara se i utdataströmmen. Den här rutan kan dock visa andra strömmar för ett runbook-jobb, till exempel Utförlig och Fel, om runbooken skriver till dem.
 5. Stäng fönstret Strömmar och jobbfönstret för att återgå till fönstret MyFirstRunbook-Python.
-6. Öppna fönstret Jobb för runbooken genom att klicka på **Jobb**. Här visas alla jobb som skapats av den här runbooken. Nu bör du endast se ett jobb eftersom du bara körde jobbet en gång.
-7. Du kan klicka på det här jobbet för att öppna samma jobbfönster som du visade när du startade runbook-jobbet. På så sätt kan du gå tillbaka i tiden och visa information om alla jobb som har skapats för en specifik runbook.
+6. Klicka på **Jobb** om du vill öppna sidan Jobb för den här runbooken. På den här sidan visas alla jobb som skapats av den här runbooken. Nu bör du endast se ett jobb eftersom du bara körde jobbet en gång.
+7. Du kan klicka på det här jobbet för att öppna samma jobbfönster som du visade när du startade runbook-jobbet. I den här rutan kan du gå tillbaka i tiden och visa information om alla jobb som har skapats för en viss runbook.
 
 ## <a name="add-authentication-to-manage-azure-resources"></a>Lägga till autentisering för att hantera Azure-resurser
 
 Du har testat och publicerat din runbook, men hittills gör den egentligen inget användbart. Du vill att den ska hantera Azure-resurser.
-För att hantera Azure-resurser måste skriptet autentisera med hjälp av autentiseringsuppgifterna från ditt Automation-konto. För att hjälpa dig kan du använda [Azure Automation-verktygspaketet](https://github.com/azureautomation/azure_automation_utility) för att göra det enklare att autentisera och interagera med Azure-resurser.
+För att göra detta måste skriptet autentisera med hjälp av autentiseringsuppgifterna från ditt Automation-konto. För att hjälpa dig kan du använda [Azure Automation-verktygspaketet](https://github.com/azureautomation/azure_automation_utility) för att göra det enklare att autentisera och interagera med Azure-resurser.
 
 > [!NOTE]
 > Automation-kontot måste ha skapats med tjänstens huvudfunktion för att det ska finnas ett Run As-certifikat.
-> Om ditt automatiseringskonto inte skapades med tjänstens huvudnamn kan du autentisera med den metod som beskrivs på [Authenticate med Azure Management Libraries for Python](/azure/python/python-sdk-azure-authenticate).
+> Om ditt Automation-konto inte skapades med tjänstens huvudnamn kan du autentisera enligt beskrivningen i [Autentisera med Azure Management Libraries for Python](/azure/python/python-sdk-azure-authenticate).
 
 1. Öppna textredigeraren genom att klicka på **Redigera** i fönstret MyFirstRunbook-Python.
 
@@ -160,7 +160,7 @@ async_vm_start = compute_client.virtual_machines.start(
 async_vm_start.wait()
 ```
 
-Där _MyResourceGroup_ är namnet på resursgruppen som innehåller den virtuella datorn och _TestVM_ är namnet på den virtuella dator som du vill starta.
+Var `MyResourceGroup` är namnet på resursgruppen som innehåller `TestVM` den virtuella datorn och namnet på den virtuella datorn som du vill starta.
 
 Testa och kör runbook igen för att se att den startar den virtuella datorn.
 
@@ -190,11 +190,11 @@ async_vm_start = compute_client.virtual_machines.start(
 async_vm_start.wait()
 ```
 
-När du startar en Python-runbook (antingen på **sidan Test** eller som en publicerad runbook) kan du ange värdena för parametrar på sidan **Startkörning** under **Parametrar**.
+När du startar en Python-runbook (antingen i testfönstret eller som en publicerad runbook) kan du ange värdena för parametrar på sidan Startkörning under **Parametrar**.
 
 När du har börjat ange ett värde i den första rutan visas en sekund och så vidare, så att du kan ange så många parametervärden som behövs.
 
-Värdena är tillgängliga för `sys.argv` skriptet som matrisen som i koden du just lagt till.
+Värdena är tillgängliga för `sys.argv` skriptet i matrisen som i koden du just lagt till.
 
 Ange namnet på resursgruppen som värde för den första parametern och namnet på den virtuella datorn som ska börja som värdet för den andra parametern.
 
@@ -204,7 +204,7 @@ Klicka på **OK** för att starta runbooken. Runbooken körs och startar den vir
 
 ## <a name="error-handling-in-python"></a>Felhantering i Python
 
-Du kan också använda följande konventioner för att hämta olika strömmar från python-runbooks, inklusive **VARNING,** **FEL**och **DEBUG-strömmar.**
+Du kan också använda följande konventioner för att hämta olika strömmar från python-runbooks, inklusive VARNING, FEL och DEBUG-strömmar.
 
 ```python
 print("Hello World output") 
@@ -224,13 +224,13 @@ except Exception as detail:
 ```
 
 > [!NOTE]
-> **sys.stderr** stöds inte i Azure Automation.
+> Azure Automation stöder `sys.stderr`inte .
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer om du vill komma igång med PowerShell-runbooks, se [Min första PowerShell-runbook](automation-first-runbook-textual-powershell.md)
-- Information om hur du kommer igång med grafiska runbooks finns i [Min första grafisk runbook](automation-first-runbook-graphical.md)
-- Information om hur du kommer igång med PowerShell-arbetsflödeskörningsböcker läser du [Min första PowerShell-arbetsflödeskörningsbok](automation-first-runbook-textual.md)
-- Mer information om typer av runbooks, och om deras fördelar och begränsningar, finns i [Typer av Azure Automation-runbooks](automation-runbook-types.md)
-- Mer information om hur du utvecklar för Azure med Python finns i [Azure för Python-utvecklare](/azure/python/)
-- Information om hur du visar exempel på Python 2-runbooks finns i [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python)
+- Information om hur du kommer igång med PowerShell-runbooks finns i [Min första PowerShell-runbook](automation-first-runbook-textual-powershell.md).
+- Kom igång med grafiska runbooks finns i [Min första grafiska runbook](automation-first-runbook-graphical.md).
+- Information om hur du kommer igång med PowerShell-arbetsflödeskörningsböcker finns i [Min första PowerShell-arbetsflödeskörningsbok](automation-first-runbook-textual.md).
+- Mer information om runbook-typer, deras fördelar och begränsningar finns i [Azure Automation-runbooktyper](automation-runbook-types.md).
+- Mer information om hur du utvecklar för Azure med Python finns i [Azure för Python-utvecklare](/azure/python/).
+- Information om hur du visar exempel på Python 2-runbooks finns i [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python).

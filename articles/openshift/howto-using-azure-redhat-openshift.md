@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
 keywords: aro, openshift, az aro, röd hatt, cli
-ms.openlocfilehash: 9488ef593cf4ec8600dcb42ea4a2cefa4fcb1446
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: f909c5870be6e394e457ad8f44ea5a253054ffe6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998798"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398896"
 ---
 # <a name="create-access-and-manage-an-azure-red-hat-openshift-43-cluster"></a>Skapa, komma åt och hantera ett Azure Red Hat OpenShift 4.3-kluster
 
@@ -68,7 +68,19 @@ Tillägget `az aro` kan du skapa, komma åt och ta bort Azure Red Hat OpenShift-
    aro                                0.3.0
    ...
    ```
-  
+
+### <a name="get-a-red-hat-pull-secret-optional"></a>Få en Red Hat pull hemlighet (tillval)
+
+En Red Hat pull secret gör det möjligt för ditt kluster att komma åt Red Hat-behållarregister och ytterligare innehåll. Att använda en pull-hemlighet är valfritt men rekommenderas.
+
+För att få din pull hemlighet:
+
+1. Gå till https://cloud.redhat.com/openshift/install/azure/aro-provisioned.
+1. Logga in på ditt Red Hat-konto eller skapa ett nytt Red Hat-konto med hjälp av företagets e-postadress; godkänna villkoren.
+1. Välj **Ladda ner dra hemlighet**.
+
+Spara *pull-secret.txt-filen* någonstans säkert; du kommer att använda filen varje gång du skapar ett kluster.
+
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Skapa ett virtuellt nätverk som innehåller två tomma undernät
 
 Följ dessa steg för att skapa ett virtuellt nätverk som innehåller två tomma undernät.
@@ -79,15 +91,7 @@ Följ dessa steg för att skapa ett virtuellt nätverk som innehåller två tomm
    LOCATION=eastus        #the location of your cluster
    RESOURCEGROUP="v4-$LOCATION"    #the name of the resource group where you want to create your cluster
    CLUSTER=cluster        #the name of your cluster
-   PULL_SECRET="<optional-pull-secret>"
    ```
-   >[!NOTE]
-   > Den valfria pull-hemligheten gör det möjligt för klustret att komma åt Red Hat-behållarregister tillsammans med ytterligare innehåll.
-   >
-   > Få tillgång till din https://cloud.redhat.com/openshift/install/azure/installer-provisioned pull hemlighet genom att navigera till och klicka *kopiera Pull Secret*.
-   >
-   > Du måste logga in på ditt Red Hat-konto, eller skapa ett nytt Red Hat-konto med ditt företags e-postadress och acceptera villkoren.
- 
 
 2. Skapa en resursgrupp för klustret.
 
@@ -143,7 +147,7 @@ az aro create \
   --worker-subnet "$CLUSTER-worker" \
   --cluster-resource-group "aro-$CLUSTER" \
   --domain "$CLUSTER" \
-  --pull-secret "$PULL_SECRET"
+  --pull-secret @pull-secret.txt
 ```
 
 >[!NOTE]

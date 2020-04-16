@@ -2,13 +2,13 @@
 title: Arbeta med Reliable Collections
 description: Lär dig de bästa metoderna för att arbeta med tillförlitliga samlingar i ett Azure Service Fabric-program.
 ms.topic: conceptual
-ms.date: 02/22/2019
-ms.openlocfilehash: 4a1f48d9523e5d753c222f0526e210a30e1927e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/10/2020
+ms.openlocfilehash: 94836a37a62e3eeffb94d891980cc02694bd973e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75645981"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81409811"
 ---
 # <a name="working-with-reliable-collections"></a>Arbeta med Reliable Collections
 Service Fabric erbjuder en tillståndskänslig programmeringsmodell som är tillgänglig för .NET-utvecklare via Reliable Collections. Service Fabric tillhandahåller tillförlitlig ordlista och tillförlitliga köklasser. När du använder dessa klasser är ditt tillstånd partitionerat (för skalbarhet), replikerat (för tillgänglighet) och verkställts inom en partition (för ACID-semantik). Låt oss titta på en typisk användning av en tillförlitlig ordlista objekt och se vad det faktiskt gör.
@@ -50,6 +50,19 @@ I koden ovan genomför anropet till CommitAsync alla transaktionens åtgärder. 
 
 Om CommitAsync inte anropas (vanligtvis på grund av att ett undantag genereras) tas objektet ITransaction bort. När du inaktiverar ett oengagerad ITransaction-objekt avbryter Service Fabric information till den lokala nodens loggfil och ingenting behöver skickas till någon av de sekundära replikerna. Och sedan, alla lås i samband med nycklar som manipulerades via transaktionen släpps.
 
+## <a name="volatile-reliable-collections"></a>Flyktiga tillförlitliga samlingar 
+I vissa arbetsbelastningar, till exempel en replikerad cache, kan tillfällig dataförlust tolereras. Om du undviker att data blir beständiga på disken kan det ge bättre fördröjningar och dataflöde när du skriver till Tillförlitliga ordlistor. Avvägningen för en brist på uthållighet är att om kvorumförlust inträffar, kommer fullständig dataförlust att inträffa. Eftersom kvorumförlust är en sällsynt händelse kan den ökade prestandan vara värd den sällsynta risken för dataförlust för dessa arbetsbelastningar.
+
+För närvarande är flyktigt stöd endast tillgängligt för tillförlitliga ordlistor och tillförlitliga köer och inte ReliableConcurrentQueues. Se listan över [varningar för](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections) att informera ditt beslut om huruvida du ska använda flyktiga samlingar.
+
+Om du vill aktivera flyktigt ```HasPersistedState``` stöd i tjänsten ```false```ställer du in flaggan i tjänsttypsdeklarationen på , så här:
+```xml
+<StatefulServiceType ServiceTypeName="MyServiceType" HasPersistedState="false" />
+```
+
+>[!NOTE]
+>Befintliga kvarstående tjänster kan inte göras volatila, och vice versa. Om du vill göra det måste du ta bort den befintliga tjänsten och sedan distribuera tjänsten med den uppdaterade flaggan. Detta innebär att du måste vara villig att ådra ```HasPersistedState``` dig fullständig dataförlust om du vill ändra flaggan. 
+
 ## <a name="common-pitfalls-and-how-to-avoid-them"></a>Vanliga fallgropar och hur man undviker dem
 Nu när du förstår hur de tillförlitliga samlingarna fungerar internt, låt oss ta en titt på några vanliga missbruk av dem. Se koden nedan:
 
@@ -60,7 +73,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
    // & sends the bytes to the secondary replicas.
    await m_dic.AddAsync(tx, name, user);
 
-   // The line below updates the property’s value in memory only; the
+   // The line below updates the property's value in memory only; the
    // new value is NOT serialized, logged, & sent to secondary replicas.
    user.LastLogin = DateTime.UtcNow;  // Corruption!
 
@@ -87,13 +100,13 @@ Här är ett annat exempel som visar ett vanligt misstag:
 ```csharp
 using (ITransaction tx = StateManager.CreateTransaction())
 {
-   // Use the user’s name to look up their data
+   // Use the user's name to look up their data
    ConditionalValue<User> user = await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
    if (user.HasValue)
    {
-      // The line below updates the property’s value in memory only; the
+      // The line below updates the property's value in memory only; the
       // new value is NOT serialized, logged, & sent to secondary replicas.
       user.Value.LastLogin = DateTime.UtcNow; // Corruption!
       await tx.CommitAsync();
@@ -110,7 +123,7 @@ Koden nedan visar det korrekta sättet att uppdatera ett värde i en tillförlit
 ```csharp
 using (ITransaction tx = StateManager.CreateTransaction())
 {
-   // Use the user’s name to look up their data
+   // Use the user's name to look up their data
    ConditionalValue<User> currentUser = await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
@@ -124,7 +137,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
       // In the new object, modify any properties you desire
       updatedUser.LastLogin = DateTime.UtcNow;
 
-      // Update the key’s value to the updateUser info
+      // Update the key's value to the updateUser info
       await m_dic.SetValue(tx, name, updatedUser);
       await tx.CommitAsync();
    }
@@ -138,7 +151,7 @@ Användarinfo-typen nedan visar hur du definierar en oföränderlig typ som utny
 
 ```csharp
 [DataContract]
-// If you don’t seal, you must ensure that any derived classes are also immutable
+// If you don't seal, you must ensure that any derived classes are also immutable
 public sealed class UserInfo
 {
    private static readonly IEnumerable<ItemId> NoBids = ImmutableList<ItemId>.Empty;
@@ -200,7 +213,7 @@ Dessutom uppgraderas servicekoden en uppgraderingsdomän i taget. Så under en u
 
 Du kan också utföra vad som vanligtvis kallas en två uppgradering. Med en tvåfasuppgradering uppgraderar du tjänsten från V1 till V2: V2 innehåller koden som vet hur du hanterar den nya schemaändringen men den här koden körs inte. När V2-koden läser V1-data fungerar den på den och skriver V1-data. Sedan, när uppgraderingen är klar över alla uppgraderingsdomäner, kan du på något sätt signalera till de V2-instanser som körs att uppgraderingen är klar. (Ett sätt att signalera detta är att distribuera en konfigurationsuppgradering, det är det som gör detta till en tvåfasuppgradering.) Nu kan V2-instanserna läsa V1-data, konvertera dem till V2-data, arbeta på den och skriva ut dem som V2-data. När andra instanser läser V2-data behöver de inte konvertera dem, de fungerar bara på den och skriver ut V2-data.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Mer information om hur du skapar framåtkompatibla datakontrakt finns i [Vidarebefordrankompatibla datakontrakt](https://msdn.microsoft.com/library/ms731083.aspx)
 
 Information om hur du gör det bästa sättet att ta reda på de bästa metoderna för versionshantering av datakontrakt finns i [Versionshantering av data](https://msdn.microsoft.com/library/ms731138.aspx)

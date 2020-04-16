@@ -3,12 +3,12 @@ title: host.json-referens för Azure Functions 2.x
 description: Referensdokumentation för Azure Functions host.json-filen med v2-körningen.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 1a861d500f0b8cc31b8312d6c955916ab741b649
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 7b3c9d15fc8cf3a1651c44a5656f731a7820e344
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878262"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405488"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>host.json-referens för Azure Functions 2.x och senare 
 
@@ -141,7 +141,7 @@ Styr alternativ för Application Insights, inklusive [samplingsalternativ](./fun
 För den fullständiga JSON-strukturen finns i den tidigare [exempelvärden.json-filen](#sample-hostjson-file).
 
 > [!NOTE]
-> Loggs sampling kan orsaka att vissa körningar inte visas i övervakarbladet Application Insights. Lägg till `samplingExcludedTypes: "Request"` `applicationInsights` värdet för att undvika loggprovtagning.
+> Loggs sampling kan orsaka att vissa körningar inte visas i övervakarbladet Application Insights. Lägg till `excludedTypes: "Request"` `samplingSettings` värdet för att undvika loggprovtagning.
 
 | Egenskap | Default | Beskrivning |
 | --------- | --------- | --------- | 
@@ -166,8 +166,8 @@ För den fullständiga JSON-strukturen finns i den tidigare [exempelvärden.json
 | minSamplingPercentage | 0,1 | När samplingsprocenten varierar bestämmer den här egenskapen den minsta tillåtna samplingsprocenten. |
 | maxSamplingPercentage | 0,1 | När samplingsprocenten varierar bestämmer den här egenskapen den högsta tillåtna samplingsprocenten. |
 | flyttaAverageRatio | 1.0 | Vid beräkningen av det glidande medelvärdet har den vikt som tilldelats det senaste värdet. Använd ett värde som är lika med eller mindre än 1. Mindre värden gör algoritmen mindre reaktiv vid plötsliga ändringar. |
-| excludedTypes | null | En semikolonavgränsad lista över typer som du inte vill sampla. Erkända typer är: Beroende, Händelse, Undantag, PageView, Request, Trace. Alla instanser av de angivna typerna överförs. de typer som inte har angetts samplas. |
-| includedTypes | null | En semikolonavgränsad lista över typer som du vill sampla. en tom lista innebär alla typer. Typ som `excludedTypes` anges i åsidosättningstyper som visas här. Erkända typer är: Beroende, Händelse, Undantag, PageView, Request, Trace. Alla instanser av de angivna typerna överförs. de typer som inte har angetts samplas. |
+| excludedTypes | null | En semikolonavgränsad lista över typer som du inte vill sampla. Erkända typer `Dependency`är: `Exception` `PageView`, `Request` `Event`, `Trace`, , och . Alla instanser av de angivna typerna överförs. de typer som inte har angetts samplas. |
+| includedTypes | null | En semikolonavgränsad lista över typer som du vill sampla. en tom lista innebär alla typer. Typ som `excludedTypes` anges i åsidosättningstyper som visas här. Erkända typer `Dependency`är: `Exception` `PageView`, `Request` `Event`, `Trace`, , och . Instanser av de angivna typerna provtas. de typer som inte anges eller antyds överförs utan sampling. |
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights.httpAutoCollectionOptions
 

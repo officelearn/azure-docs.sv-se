@@ -12,18 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/02/2020
-ms.openlocfilehash: 06428d4a9c4a4178212d16d42b8b3adffb5c9718
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e6d29f73716b04699e0cd250396df7f7d744d4c4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78250287"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415247"
 ---
 # <a name="copy-data-from-and-to-sftp-server-using-azure-data-factory"></a>Kopiera data från och till SFTP-server med Azure Data Factory
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-sftp-connector.md)
 > * [Aktuell version](connector-sftp.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du kopierar data från och till SFTP-server. Mer information om Azure Data Factory finns i den [inledande artikeln](introduction.md).
 
@@ -45,7 +46,7 @@ Den här SFTP-kontakten stöder:
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -287,7 +288,7 @@ Följande egenskaper stöds för SFTP under `storeSettings` inställningar i for
 | typ                     | Typegenskapen under `storeSettings` måste vara inställd på **SftpWriteSettings**. | Ja      |
 | kopieraBehavior             | Definierar kopieringsbeteendet när källan är filer från ett filbaserat datalager.<br/><br/>Tillåtna värden är:<br/><b>- PreserveHierarchy (standard):</b>Bevarar filhierarkin i målmappen. Källfilens relativa sökväg till källmappen är identisk med målfilens relativa sökväg till målmappen.<br/><b>- FlattenHierarchy:</b>Alla filer från källmappen är i den första nivån i målmappen. Målfilerna har automatiskt urartade namn. <br/><b>- MergeFiles:</b>Sammanfogar alla filer från källmappen till en fil. Om filnamnet anges är det kopplade filnamnet det angivna namnet. Annars är det ett autogenererat filnamn. | Inga       |
 | maxConcurrentAnslutningar | Antalet anslutningar som ska anslutas till datalagret samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till datalagret. | Inga       |
-| användaTempFileRename | Ange om du vill överföra till tillfälliga filer och byta namn på eller skriva direkt till målmappen/filplatsen. Som standard, ADF först skriva till temporära filer (s) sedan göra filbyte efter uppladdning slutförande, för att 1) undvika konflikt skriva vilket resulterar i skadad fil om du har andra process skriver till samma fil, och 2) se till att den ursprungliga versionen av filen finns under hela överföringen. Om SFTP-servern inte stöder namnbyte inaktiverar du det här alternativet och ser till att du inte har samtidig skrivning till målfilen. Se felsökningstips under den här tabellen. | Nej. Standardvärdet är sant. |
+| användaTempFileRename | Ange om du vill överföra till tillfälliga filer och byta namn på eller skriva direkt till målmappen/filplatsen. Som standard, ADF först skriva till temporära filer (s) sedan göra filbyte vid uppladdning slutförande, för att 1) undvika konflikt skriva vilket resulterar i skadad fil om du har andra process skriver till samma fil, och 2) se till att den ursprungliga versionen av filen finns under hela överföringen. Om SFTP-servern inte stöder namnbyte inaktiverar du det här alternativet och ser till att du inte har samtidig skrivning till målfilen. Se felsökningstips under den här tabellen. | Nej. Standardvärdet är sant. |
 | operationTimeout | Väntetiden innan varje skrivbegäran till SFTP-servern time out. Standardvärdet är 60 min (01:00:00).|Inga |
 
 >[!TIP]

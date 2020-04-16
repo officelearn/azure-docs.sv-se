@@ -3,14 +3,14 @@ title: Distribuera app med en användartilldelad hanterad identitet
 description: Den här artikeln visar hur du distribuerar Service Fabric-program med en användartilldelad hanterad identitet
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: a5eeaf0d6420fa36c0a78f7553ddfd82197d8ec4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9aef81db7a455b72c83cf96898a0c228f1c382fd
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75610343"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415634"
 ---
-# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity-preview"></a>Distribuera Service Fabric-program med en användartilldelad hanterad identitet (förhandsgranskning)
+# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Distribuera Service Fabric-program med en användartilldelad hanterad identitet
 
 Om du vill distribuera ett Service Fabric-program med hanterad identitet måste programmet distribueras via Azure Resource Manager, vanligtvis med en Azure Resource Manager-mall. Mer information om hur du distribuerar Service Fabric-program via Azure Resource Manager finns i [Hantera program och tjänster som Azure Resource Manager-resurser](service-fabric-application-arm-resource.md).
 

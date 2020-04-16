@@ -3,20 +3,20 @@ title: 'Snabbstart: Känna igen tal från en ljudfil - Taltjänst'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten ska du använda Tal-SDK för att känna igen tal från en ljudfil.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: da6094cd654652625a2ebab303c72fb16fb49b6b
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 0480177bd504052804c9aa833f18d827f688f661
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77119470"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81400463"
 ---
 # <a name="quickstart-recognize-speech-from-an-audio-file"></a>Snabbstart: Känna igen tal från en ljudfil
 

@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 62cf1f369cbde372e82e7c3ffe26473f09668bc7
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: db282bae92ec14c1cb4f6a61b61d435814b0f13c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742552"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408051"
 ---
 # <a name="data-warehouse-units-dwus"></a>Data warehouseenheter (DWUs)
 
@@ -32,7 +32,7 @@ En ändring av din servicenivå ändrar antalet DWUs som är tillgängliga för 
 
 För högre prestanda kan du öka antalet informationslagerenheter. Minska datalagerenheter för mindre prestanda. Lagrings- och beräkningskostnader faktureras separat, så ändringar av informationslagerenheter påverkar inte lagringskostnaderna.
 
-Prestanda för informationslagerenheter baseras på dessa arbetsbelastningsmått:
+Prestanda för informationslagerenheter baseras på dessa arbetsbelastningsmått för informationslager:
 
 - Hur snabbt en vanlig SQL-poolfråga kan skanna ett stort antal rader och sedan utföra en komplex aggregering. Den här åtgärden är I/O- och CPU-intensiv.
 - Hur snabbt SQL-poolen kan få in data från Azure Storage Blobbar eller Azure Data Lake. Den här åtgärden är nätverks- och CPU-intensiv.
@@ -46,21 +46,37 @@ Prestanda för informationslagerenheter baseras på dessa arbetsbelastningsmått
 
 ## <a name="service-level-objective"></a>Servicenivåmål
 
+Servicenivåmålet (SLO) är skalbarhetsinställningen som bestämmer kostnads- och prestandanivån för ditt informationslager. Servicenivåerna för Gen2 mäts i beräkningsdatalagerenheter (cDWU), till exempel DW2000c. Gen1-servicenivåer mäts i DWUs, till exempel DW2000.
+
 Servicenivåmålet (SLO) är skalbarhetsinställningen som bestämmer kostnads- och prestandanivån för DIN SQL-pool. Tjänstnivåerna för Gen2 SQL-pool mäts i datalagerenheter (DWU), till exempel DW2000c.
 
-I T-SQL bestämmer inställningen SERVICE_OBJECTIVE tjänstnivån för DIN SQL-pool.
+> [!NOTE]
+> Azure SQL Data Warehouse Gen2 har nyligen lagt till ytterligare skalningsfunktioner för att stödja beräkningsnivåer så låga som 100 cDWU. Befintliga informationslager som för närvarande finns på Gen1 och som kräver de lägre beräkningsnivåerna kan nu uppgradera till Gen2 i de regioner som för närvarande är tillgängliga utan extra kostnad.  Om din region ännu inte stöds kan du fortfarande uppgradera till en region som stöds. Mer information finns i [Uppgradera till Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+
+I T-SQL bestämmer inställningen SERVICE_OBJECTIVE tjänstnivån och prestandanivån för din SQL-pool.
 
 ```sql
 CREATE DATABASE mySQLDW
-( EDITION = 'Datawarehouse'
+(Edition = 'Datawarehouse'
  ,SERVICE_OBJECTIVE = 'DW1000c'
 )
 ;
 ```
 
-## <a name="capacity-limits"></a>Kapacitetsbegränsningar
+## <a name="performance-tiers-and-data-warehouse-units"></a>Prestandanivåer och informationslagerenheter
+
+Varje prestandanivå använder en något annorlunda måttenhet för sina informationslagerenheter. Den här skillnaden återspeglas på fakturan när skalenheten direkt översätts till fakturering.
+
+- Gen1-datalager mäts i datalagerenheter (DWUs).
+- Gen2-datalager mäts i beräkningsdatalagerenheter (cDWUs).
+
+Både DWUs och cDWUs stöder skalning av beräkning upp eller ned och pausar beräkning när du inte behöver använda informationslagret. Dessa operationer är alla on-demand. Gen2 använder en lokal diskbaserad cache på beräkningsnoderna för att förbättra prestanda. När du skalar eller pausar systemet är cacheminnet ogiltigt och därför krävs en period av cacheuppvärmning innan optimal prestanda uppnås.  
 
 Varje SQL-server (till exempel myserver.database.windows.net) har en [DTU-kvot (Database Transaction Unit)](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) som tillåter ett visst antal informationslagerenheter. Mer information finns i [kapacitetsgränserna för arbetsbelastningshantering](sql-data-warehouse-service-capacity-limits.md#workload-management).
+
+## <a name="capacity-limits"></a>Kapacitetsbegränsningar
+
+Varje SQL-server (till exempel myserver.database.windows.net) har en [DTU-kvot (Database Transaction Unit)](../../sql-database/sql-database-what-is-a-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) som tillåter ett visst antal informationslagerenheter. Mer information finns i [kapacitetsgränserna för arbetsbelastningshantering](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
 
 ## <a name="how-many-data-warehouse-units-do-i-need"></a>Hur många informationslagerenheter behöver jag
 
@@ -115,21 +131,21 @@ Så här ändrar du DWUs:
 
 3. Klicka på **Spara**. Ett bekräftelsemeddelande visas. Klicka på **Ja** för att bekräfta eller **Nej** för att avbryta.
 
-### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Om du vill ändra DWUs använder du cmdleten [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell. I följande exempel anges servicenivåmålet för DW1000c för databasen MySQLDW som finns på servern MyServer.
+Om du vill ändra DWUs använder du cmdleten [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell. I följande exempel anges servicenivåmålet för DW1000 för databasen MySQLDW som finns på servern MyServer.
 
 ```Powershell
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
-Mer information finns i [PowerShell-cmdlets för SQL Data Warehouse](sql-data-warehouse-reference-powershell-cmdlets.md)
+Mer information finns i [PowerShell-cmdlets för SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
 ### <a name="t-sql"></a>T-SQL
 
-Med T-SQL kan du visa de aktuella DWU-inställningarna, ändra inställningarna och kontrollera förloppet.
+Med T-SQL kan du visa aktuella DWUsettings, ändra inställningarna och kontrollera förloppet.
 
 Så här ändrar du DWUs:
 
@@ -152,12 +168,12 @@ Content-Type: application/json; charset=UTF-8
 
 {
     "properties": {
-        "requestedServiceObjectiveName": DW1000c
+        "requestedServiceObjectiveName": DW1000
     }
 }
 ```
 
-Fler REST API-exempel finns i [REST API:er för SQL Data Warehouse](sql-data-warehouse-manage-compute-rest-api.md).
+Fler REST API-exempel finns i [REST API:er för SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## <a name="check-status-of-dwu-changes"></a>Kontrollera status för DWU-ändringar
 
@@ -170,14 +186,13 @@ Du kan inte kontrollera databastillståndet för utskalningsåtgärder med Azure
 Så här kontrollerar du statusen för DWU-ändringar:
 
 1. Anslut till huvuddatabasen som är associerad med den logiska SQL Database-servern.
+2. Skicka följande fråga för att kontrollera databastillståndet.
 
-1. Skicka följande fråga för att kontrollera databastillståndet.
-
-    ```sql
-    SELECT    *
-    FROM      sys.databases
-    ;
-    ```
+```sql
+SELECT    *
+FROM      sys.databases
+;
+```
 
 1. Skicka följande fråga för att kontrollera status för åtgärden
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: c239f7062dc39492a0cf63ac3aadbaf94acbf032
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 8573a88d5371bbde07a541c789f52e6c44f1e279
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80680445"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411136"
 ---
 # <a name="system-requirements"></a>Systemkrav
 
@@ -45,7 +45,7 @@ I tabellen nedan visas vilka GPU:er som stöder avkodning av H265-maskinvaruvide
 
 ## <a name="devices"></a>Enheter
 
-Azure Remote Rendering stöder för närvarande endast **HoloLens 2** och Windows desktop UWP som en målenhet.
+Azure Remote Rendering stöder för närvarande endast **HoloLens 2** och Windows-skrivbordet som en målenhet. Se avsnittet [plattformsbegränsningar.](../reference/limits.md#platform-limitations)
 
 Det är viktigt att använda den senaste HEVC-codec, eftersom nyare versioner har betydande förbättringar i svarstid. Så här kontrollerar du vilken version som är installerad på enheten:
 

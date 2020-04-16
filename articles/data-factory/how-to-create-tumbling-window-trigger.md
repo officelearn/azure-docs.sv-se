@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 2a634c81273c26722d53610a13e362e5e453f7e9
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 97c8f8a5bb2111264e9459a7d2128c1ab7c2503d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81380117"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414432"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Skapa en utlösare som kör en pipeline på ett rullande fönster
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Den här artikeln innehåller steg för att skapa, starta och övervaka en utlösare av ett tumlande fönster. Allmän information om utlösare och typer som stöds finns i [Pipeline-körning och utlösare](concepts-pipeline-execution-triggers.md).
 
 Utlösare för rullande fönster är en typ av utlösare som går igång med jämna tidsintervall från en angiven starttid och behåller sitt tillstånd. Rullande fönster är en serie sammanhängande tidsintervall med fast storlek som inte överlappar. En utlösare för tumlande fönster har en 1:1-relation med en pipeline och kan bara referera till en enstaka pipeline.
@@ -229,5 +231,5 @@ Information om hur du övervakar utlösarkörningar och pipeline-körningar i Az
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Detaljerad information om utlösare finns i [Pipeline-körning och utlösare](concepts-pipeline-execution-triggers.md#triggers).
+* Detaljerad information om utlösare finns i [Pipeline-körning och utlösare](concepts-pipeline-execution-triggers.md#trigger-execution).
 * [Skapa ett beroende för utlösare för rullande fönster](tumbling-window-trigger-dependency.md)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: areddish
-ms.openlocfilehash: 68d63fbc71ea2dcd07522c6ba42808f88966cd7b
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: e527f81ad01cc9c06773fbfd4f76c1630ffa21aa
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76166607"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403592"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Snabbstart: Skapa ett objektidentifieringsprojekt med Custom Vision Python SDK
 
@@ -230,7 +230,7 @@ Programmets utdata bör visas i konsolen. Du kan sedan kontrollera att testbilde
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du sett hur varje steg i processen för objektidentifiering kan utföras med kod. Det här exemplet kör en enstaka träningsiteration, men ofta måste du träna och testa modellen flera gånger för att kunna göra den mer exakt. Följande guide behandlar bildklassificering, men principerna liknar dem som gäller för objektidentifiering.
+Nu har du sett hur varje steg i objektidentifieringsprocessen kan göras i kod. Det här exemplet kör en enda träningsiteration, men ofta måste du träna och testa din modell flera gånger för att göra den mer exakt. Följande utbildningsguide behandlar bildklassificering, men dess principer liknar objektidentifiering.
 
 > [!div class="nextstepaction"]
 > [Testa och träna om en modell](test-your-model.md)

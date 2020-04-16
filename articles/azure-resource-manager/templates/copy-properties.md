@@ -2,13 +2,13 @@
 title: Definiera flera instanser av en egenskap
 description: Använd kopieringsåtgärd i en Azure Resource Manager-mall för att iterera flera gånger när du skapar en egenskap på en resurs.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: e86d38b0e5d2e39d54b3c419b6eebdcda74022db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 831ae1af202a1cdf52bdd2bdf0d9a042a97ba52f
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80258115"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391344"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Egenskapsiter iteration i ARM-mallar
 
@@ -30,7 +30,9 @@ Kopieringselementet har följande allmänna format:
 ]
 ```
 
-För **namn**anger du namnet på den resursegenskap som du vill skapa. Egenskapen **Count** anger hur många iterationer du vill använda för egenskapen.
+För **namn**anger du namnet på den resursegenskap som du vill skapa.
+
+Egenskapen **Count** anger hur många iterationer du vill använda för egenskapen.
 
 **Indataegenskapen** anger de egenskaper som du vill upprepa. Du kan skapa en matris med element som skapats från värdet i **indataegenskapen.**
 
@@ -78,11 +80,7 @@ I följande exempel visas `copy` hur du använder egenskapen dataDisks på en vi
 }
 ```
 
-Observera att `copyIndex` när du använder inuti en egenskap iteration, måste du ange namnet på iterationen.
-
-> [!NOTE]
-> Egenskapsiteration stöder också ett förskjutningsargument. Förskjutningen måste komma efter namnet på iterationen, till exempel copyIndex('dataDisks', 1).
->
+Observera att `copyIndex` när du använder inuti en egenskap iteration, måste du ange namnet på iterationen. Egenskapsiteration stöder också ett förskjutningsargument. Förskjutningen måste komma efter namnet på iterationen, till exempel copyIndex('dataDisks', 1).
 
 Resource Manager utökar matrisen `copy` under distributionen. Namnet på matrisen blir namnet på egenskapen. Indatavärdena blir objektegenskaperna. Den distribuerade mallen blir:
 
@@ -111,6 +109,66 @@ Resource Manager utökar matrisen `copy` under distributionen. Namnet på matris
         }
       ],
       ...
+```
+
+Kopieringen är användbar när du arbetar med matriser eftersom du kan iterera genom varje element i matrisen. Använd `length` funktionen på matrisen för att ange `copyIndex` antalet för iterationer och för att hämta det aktuella indexet i matrisen.
+
+I följande exempelmall skapas en redundansgrupp för databaser som skickas in som en matris.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "primaryServerName": {
+            "type": "string"
+        },
+        "secondaryServerName": {
+            "type": "string"
+        },
+        "databaseNames": {
+            "type": "array",
+            "defaultValue": [
+                "mydb1",
+                "mydb2",
+                "mydb3"
+            ]
+        }
+    },
+    "variables": {
+        "failoverName": "[concat(parameters('primaryServerName'),'/', parameters('primaryServerName'),'failovergroups')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Sql/servers/failoverGroups",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[variables('failoverName')]",
+            "properties": {
+                "readWriteEndpoint": {
+                    "failoverPolicy": "Automatic",
+                    "failoverWithDataLossGracePeriodMinutes": 60
+                },
+                "readOnlyEndpoint": {
+                    "failoverPolicy": "Disabled"
+                },
+                "partnerServers": [
+                    {
+                        "id": "[resourceId('Microsoft.Sql/servers', parameters('secondaryServerName'))]"
+                    }
+                ],
+                "copy": [
+                    {
+                        "name": "databases",
+                        "count": "[length(parameters('databaseNames'))]",
+                        "input": "[resourceId('Microsoft.Sql/servers/databases', parameters('primaryServerName'), parameters('databaseNames')[copyIndex('databases')])]"
+                    }
+                ]
+            }
+        }
+    ],
+    "outputs": {
+    }
+}
 ```
 
 Kopieringselementet är en matris så att du kan ange mer än en egenskap för resursen.

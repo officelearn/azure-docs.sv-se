@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 8d5bef141f83eedaa996bb63c1fb814aeb6af197
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: dd986a7557f468b939aefe1da825c9834618047f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76165970"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402925"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Självstudie: Skapa en Android-app för att upptäcka och rama in ansikten i en bild
 
@@ -39,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 - En Face-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Du kan också följa instruktionerna i [Skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Ansiktstjänsten och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel- och `FACE_SUBSCRIPTION_KEY` tjänstslutpunktssträngen, med namnet respektive `FACE_ENDPOINT`.
 - Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/).
-- [Android Studio](https://developer.android.com/studio/) med API-nivå 22 eller senare (krävs av klientbiblioteket för ansiktsigenkänning).
+- [Android Studio](https://developer.android.com/studio/) med API-nivå 22 eller senare.
 
 ## <a name="create-the-android-studio-project"></a>Skapa Android Studio-projektet
 
@@ -123,7 +123,7 @@ Kör programmet och bläddra efter en bild med ett ansikte. Vänta några sekund
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig den grundläggande processen för att använda Face Java SDK och skapade ett program för att upptäcka och rama in ansikten i en bild. Härnäst får du mer information om ansiktsigenkänning.
+I den här självstudien lärde du dig hur du använder Face Java SDK för att skapa ett program för att upptäcka och rama in ansikten i en bild. Härnäst får du mer information om ansiktsigenkänning.
 
 > [!div class="nextstepaction"]
 > [Så identifierar du ansikten i en bild](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

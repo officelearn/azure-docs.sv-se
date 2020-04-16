@@ -1,25 +1,27 @@
 ---
-title: Händelseschema för Azure Event Grid Container-register
+title: Azure Container Registry som källa för händelserutnät
 description: Beskriver de egenskaper som tillhandahålls för containerregisterhändelser med Azure Event Grid
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
-ms.topic: reference
-ms.date: 03/12/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e33feb04edf42f1e2a32b9b8c8e2fd214692f31
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60345472"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393368"
 ---
-# <a name="azure-event-grid-event-schema-for-container-registry"></a>Azure Event Grid-händelseschema för behållarregister
+# <a name="azure-container-registry-as-an-event-grid-source"></a>Azure Container Registry som en händelserutnätskälla
 
 Den här artikeln innehåller egenskaper och schema för containerregisterhändelser.En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](event-schema.md).
 
-## <a name="available-event-types"></a>Tillgängliga händelsetyper
+## <a name="event-grid-event-schema"></a>Händelseschema för händelserutnät
+
+### <a name="available-event-types"></a>Tillgängliga händelsetyper
 
 Azure Container Registry avger följande händelsetyper:
 
@@ -30,7 +32,7 @@ Azure Container Registry avger följande händelsetyper:
 | Microsoft.ContainerRegistry.ChartPushed | Utlöses när ett Helm-diagram trycks in. |
 | Microsoft.ContainerRegistry.ChartDeleted | Utlöses när ett Helm-diagram tas bort. |
 
-## <a name="example-event"></a>Exempel händelse
+### <a name="example-event"></a>Exempel händelse
 
 I följande exempel visas schemat för en skjuten bildhändelse: 
 
@@ -151,7 +153,7 @@ Schemat för en borttagen diagramhändelse liknar schemat för en borttagen hän
 }]
 ```
 
-## <a name="event-properties"></a>Händelseegenskaper
+### <a name="event-properties"></a>Händelseegenskaper
 
 En händelse har följande data på den högsta nivån:
 
@@ -198,6 +200,12 @@ Objektet för begäran har följande egenskaper:
 | värd | sträng | Registerinstansens externt tillgängliga värdnamn, enligt vad som anges av http-värdhuvudet på inkommande begäranden. |
 | metod | sträng | Begäran metod som genererade händelsen. |
 | Useragent | sträng | Användaragenthuvudet för begäran. |
+
+## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
+|Titel |Beskrivning  |
+|---------|---------|
+| [Snabbstart: skicka händelser för behållarregister](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Visar hur du använder Azure CLI för att skicka containerregisterhändelser. |
+
 
 ## <a name="next-steps"></a>Nästa steg
 

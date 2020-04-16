@@ -11,14 +11,14 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c93dab2f6086b10e1e8d75c4fc3334a95c3fcafa
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 118653efc8829ac5ef6287bb36fb5595cff1147b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633277"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416134"
 ---
-# <a name="load-contoso-retail-data-to-a-synapse-sql-data-warehouse"></a>Läsa in Contoso-återförsäljardata i ett Synaps SQL-datalager
+# <a name="load-contoso-retail-data-to-synapse-sql"></a>Läsa in Contoso-återförsäljardata till Synapse SQL 
 
 I den här självstudien lär du dig att använda PolyBase- och T-SQL-kommandon för att läsa in två tabeller från Contoso-återförsäljardata i ett Synapse SQL-datalager.
 
@@ -221,7 +221,7 @@ GO
 
 ### <a name="load-the-data-into-new-tables"></a>Läsa in data i nya tabeller
 
-Om du vill läsa in data från Azure blob storage i informationslagrets tabell använder du uttrycket [SKAPA TABELL AS SELECT (Transact-SQL).](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) Inläsning med [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md) utnyttjar de starkt skrivna externa tabeller som du har skapat. Om du vill läsa in data i nya tabeller använder du en CTAS-sats per tabell.
+Om du vill läsa in data från Azure blob storage i informationslagrets tabell använder du uttrycket [SKAPA TABELL AS SELECT (Transact-SQL).](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) Inläsning med [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) utnyttjar de starkt skrivna externa tabeller som du har skapat. Om du vill läsa in data i nya tabeller använder du en CTAS-sats per tabell.
 
 CTAS skapar en ny tabell och fyller den med resultatet av en select-sats. CTAS definierar den nya tabellen så att samma kolumner och datatyper har samma kolumner och datatyper som resultatet av select-satsen. Om du markerar alla kolumner från en extern tabell blir den nya tabellen en replik av kolumnerna och datatyperna i den externa tabellen.
 

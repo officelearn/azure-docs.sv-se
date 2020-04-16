@@ -11,25 +11,16 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8aaca40961b1294336b236305ecdffcc92c5a4d9
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: d69c8dd28b946df3fff500c31c7cdefa4767c0c4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80742588"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408120"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>Felsökning av anslutningsproblem
 
 I den här artikeln visas vanliga felsökningstekniker för anslutning till SQL Analytics-databasen.
-
-- [Kontrollera tjänstens tillgänglighet](sql-data-warehouse-troubleshoot-connectivity.md#check-service-availability)
-- [Kontrollera om tjänsten är pausad eller håller på att skalas om](sql-data-warehouse-troubleshoot-connectivity.md#check-for-paused-or-scaling-operation)
-- [Kontrollera brandväggsinställningarna](sql-data-warehouse-troubleshoot-connectivity.md#check-your-firewall-settings)
-- [Kontrollera inställningarna för det virtuella nätverket/tjänstslutpunkten](sql-data-warehouse-troubleshoot-connectivity.md#check-your-vnetservice-endpoint-settings)
-- [Kontrollera om det finns nya drivrutiner](sql-data-warehouse-troubleshoot-connectivity.md#check-for-the-latest-drivers)
-- [Kontrollera anslutningssträngen](sql-data-warehouse-troubleshoot-connectivity.md#check-your-connection-string)
-- [Tillfälliga anslutningsproblem](sql-data-warehouse-troubleshoot-connectivity.md#intermittent-connection-issues)
-- [Vanliga felmeddelanden](sql-data-warehouse-troubleshoot-connectivity.md#common-error-messages)
 
 ## <a name="check-service-availability"></a>Kontrollera tjänstens tillgänglighet
 

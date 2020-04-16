@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: 6de6f23fe9564b28a5d436ac00999dbb3e9183e1
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/15/2020
+ms.openlocfilehash: fe7d076fab6a70736843fc644cd56bef44a55df2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548969"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415129"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Säkerhet och datasekretess i Azure Cognitive Search
 
@@ -31,7 +31,6 @@ Azure Cognitive Search är certifierat för följande standarder, enligt vad som
 + [GxP (21 CFR Del 11)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11)
 + [HITRUST (PÅ)](https://en.wikipedia.org/wiki/HITRUST)
 + [PCI DSS nivå 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
-+ [Australien IRAP Oklassificerad DLM](https://asd.gov.au/infosec/irap/certified_clouds.htm)
 
 Standardefterlevnad gäller för allmänt tillgängliga funktioner. Förhandsversionsfunktioner är certifierade när de övergår till allmän tillgänglighet och får inte användas i lösningar som har strikta standardkrav. Efterlevnadscertifiering dokumenteras i [Översikt över Microsoft Azure-efterlevnad](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) och [Trust Center](https://www.microsoft.com/en-us/trustcenter). 
 

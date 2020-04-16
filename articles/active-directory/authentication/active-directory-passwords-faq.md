@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/11/2018
+ms.date: 04/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae3ace24d6f33702c15a364b913f841d90fd8872
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: d1246b5b980f60c2f3e65aa5b32a7d79dd6efc7d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654200"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407166"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Vanliga frågor och svar om lösenordshantering
 
@@ -235,7 +235,7 @@ Vanliga frågor och svar är uppdelade i följande avsnitt:
   >
 * **F: Finns det ett API för att komma åt data för återställning av lösenord eller registrering?**
 
-  > **S:** Ja. Mer information om hur du kan komma åt dataströmmen för rapportering av lösenordsåterställning finns i [Lär dig hur du kommer åt händelser för återställning av lösenordsåterställning programmässigt](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+  > **S:** Ja. Mer information om hur du kan komma åt rapporteringsdata för återställning av lösenord finns i [Azure Log Analytics REST API Reference](/rest/api/loganalytics/).
   >
   >
 

@@ -1,38 +1,66 @@
 ---
-title: Mappa omformning av dataflödessortering
+title: Sortera omformning i mappning av dataflöde
 description: Azure Data Factory Mapping Data Sortera omvandling
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/08/2018
-ms.openlocfilehash: c09439c5f54ae4b0884e9e25ae9a5a488f935bac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/14/2020
+ms.openlocfilehash: 381c6573dff1b3f1638af9090a535d9a1e59b2b5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74930215"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81413174"
 ---
-# <a name="azure-data-factory-data-flow-sort-transformations"></a>Azure Data Factory Data Flow Sort Transformations
+# <a name="sort-transformation-in-mapping-data-flow"></a>Sortera omformning i mappning av dataflöde
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+Med sorteringsomformningen kan du sortera inkommande rader i den aktuella dataströmmen. Du kan välja enskilda kolumner och sortera dem i stigande eller fallande ordning.
+
+> [!NOTE]
+> Mappning av dataflöden körs på spark-kluster som distribuerar data över flera noder och partitioner. Om du väljer att partitionera om dina data i en efterföljande omvandling kan du förlora din sortering på grund av omfördelning av data.
+
+## <a name="configuration"></a>Konfiguration
 
 ![Sorteringsinställningar](media/data-flow/sort.png "Sortera")
 
-Med sorteringsomformningen kan du sortera inkommande rader i den aktuella dataströmmen. De utgående raderna från sorteringsomvandlingen följer därefter de ordningsregler som du anger. Du kan välja enskilda kolumner och sortera dem ASC eller DEC med hjälp av pilindikatorn bredvid varje fält. Om du behöver ändra kolumnen innan du använder sorteringen klickar du på "Beräknade kolumner" för att starta uttrycksredigeraren. Detta ger en möjlighet att skapa ett uttryck för sorteringsåtgärden i stället för att bara använda en kolumn för sorteringen.
+**Okänsligt fall:** Om du vill ignorera ärende vid sortering av sträng- eller textfält
 
-## <a name="case-insensitive"></a>Skiftlägesokänsligt
-Du kan aktivera "Ärendesokänsligt" om du vill ignorera skiftläge när du sorterar sträng- eller textfält.
+**Sortera endast inom partitioner:** När dataflöden körs på spark delas varje dataström in i partitioner. Den här inställningen sorterar endast data i inkommande partitioner i stället för att sortera hela dataströmmen. 
 
-"Sortera endast inom partitioner" utnyttjar Spark-datapartitionering. Genom att bara sortera inkommande data i varje partition kan dataflöden sortera partitionerade data i stället för att sortera hela dataströmmen.
+**Sorteringsvillkor:** Välj vilka kolumner du sorterar efter och i vilken ordning sorteringen sker. Ordningen bestämmer sorteringsprioriteten. Välj om nulls ska visas i början eller slutet av dataströmmen eller inte.
 
-Var och en av sorteringsvillkoren i sorteringsomvandlingen kan ordnas om. Så om du behöver flytta en kolumn högre i sorteringsprioriteten tar du tag i den raden med musen och flyttar den högre eller lägre i sorteringslistan.
+### <a name="computed-columns"></a>Beräknade kolumner
 
-Partitioneringseffekter på Sortera
+Om du vill ändra eller extrahera ett kolumnvärde innan du använder sorteringen hovrar du över kolumnen och väljer "beräknad kolumn". Då öppnas uttrycksverktyget för att skapa ett uttryck för sorteringsåtgärden i stället för att använda ett kolumnvärde.
 
-ADF Data Flow körs på stordata Spark-kluster med data distribuerade över flera noder och partitioner. Det är viktigt att ha detta i åtanke när du utformar dataflödet om du är beroende av sortera transformering för att hålla data i samma ordning. Om du väljer att partitionera om dina data i en efterföljande omvandling kan du förlora din sortering på grund av att omfördelning av data.
+## <a name="data-flow-script"></a>Dataflödesskript
+
+### <a name="syntax"></a>Syntax
+
+```
+<incomingStream>
+    sort(
+        desc(<sortColumn1>, { true | false }),
+        asc(<sortColumn2>, { true | false }),
+        ...
+    ) ~> <sortTransformationName<>
+```
+
+### <a name="example"></a>Exempel
+
+![Sorteringsinställningar](media/data-flow/sort.png "Sortera")
+
+Dataflödesskriptet för ovanstående sorteringskonfiguration finns i kodavsnittet nedan.
+
+```
+BasketballStats sort(desc(PTS, true),
+    asc(Age, true)) ~> Sort1
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

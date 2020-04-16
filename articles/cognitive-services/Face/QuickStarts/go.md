@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 246b9c81e3cb726236143b9749486ba362128756
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: b3e6f5746df6197938d3a91de5ff11b1a311d762
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76165845"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81402956"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av REST API och Go
 
-I den här snabbstarten ska du använda Azures Ansikts-REST API med Go för att identifiera mänskliga ansikten i en bild.
+I den här snabbstarten använder du Azure Face REST API med Go för att identifiera mänskliga ansikten i en avbildning.
 
 ## <a name="prerequisites"></a>Krav
 

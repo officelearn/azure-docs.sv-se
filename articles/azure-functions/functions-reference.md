@@ -4,14 +4,14 @@ description: Lär dig de Azure Functions-begrepp och tekniker som du behöver f�
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: 7dd7ef3c4833fb9ffa3781f06faba4f40cd40cfb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b6af3d7ab1fdd35391c9a189162c57dfb259f2d4
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276626"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405343"
 ---
-# <a name="azure-functions-developers-guide"></a>Guide för Azure Functions-utvecklare
+# <a name="azure-functions-developer-guide"></a>Utvecklarguide för Azure Functions
 I Azure Functions delar specifika funktioner några grundläggande tekniska koncept och komponenter, oavsett vilket språk eller vilket bindning du använder. Innan du börjar lära dig information som är specifik för ett visst språk eller en viss bindning måste du läsa igenom den här översikten som gäller för dem alla.
 
 Den här artikeln förutsätter att du redan har läst [översikten över Azure Functions](functions-overview.md).

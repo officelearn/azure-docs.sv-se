@@ -5,14 +5,14 @@ author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 04/14/2020
 ms.author: mimckitt
-ms.openlocfilehash: b1e5ad60041e9d3b902a06a4875206fa061c73e6
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: ee6a25ac5a4cc7de8b8340afb186d170cc147a38
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81269915"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393780"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Azure virtual machine scale set automatiska OS-avbildningsuppgraderingar
 
@@ -109,7 +109,7 @@ GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/M
 När funktionen har registrerats för din prenumeration slutför du opt-in-processen genom att sprida ändringen till beräkningsresursprovidern.
 
 ```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2019-10-01`
+POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2019-12-01`
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
@@ -168,7 +168,7 @@ Om du vill konfigurera automatisk uppgradering av OS-avbildningen kontrollerar d
 I följande exempel beskrivs hur du ställer in automatiska OS-uppgraderingar på en skalningsuppsättningsmodell:
 
 ```
-PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version=2018-10-01`
+PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version=2019-12-01`
 ```
 
 ```json
@@ -247,7 +247,7 @@ Du kan kontrollera historiken för den senaste OS-uppgraderingen som utförts p�
 I följande exempel används [REST API](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) för att kontrollera status för skalningsuppsättningen *myScaleSet* i resursgruppen *myResourceGroup:*
 
 ```
-GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2018-10-01`
+GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2019-12-01`
 ```
 
 GET-anropet returnerar egenskaper som liknar följande exempelutdata:
@@ -307,7 +307,7 @@ Du kan hämta tillgängliga avbildningsversioner för automatiska SKU:er som st�
 
 ### <a name="rest-api"></a>REST-API
 ```
-GET on `/subscriptions/subscription_id/providers/Microsoft.Compute/locations/{location}/publishers/{publisherName}/artifacttypes/vmimage/offers/{offer}/skus/{skus}/versions?api-version=2018-10-01`
+GET on `/subscriptions/subscription_id/providers/Microsoft.Compute/locations/{location}/publishers/{publisherName}/artifacttypes/vmimage/offers/{offer}/skus/{skus}/versions?api-version=2019-12-01`
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
@@ -332,7 +332,7 @@ För specifika fall där du inte vill vänta på att orchestrator ska tillämpa 
 Använd API-anropet för uppgradering av [Start OS](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) för att starta en rullande uppgradering för att flytta alla uppsättning instanser för virtuell datorskala till den senast tillgängliga versionen av avbildningsoperativsystemet. Instanser som redan kör den senaste tillgängliga OS-versionen påverkas inte. I följande exempel beskrivs hur du kan starta en rullande OS-uppgradering på en skalningsuppsättning med namnet *myScaleSet* i resursgruppen *myResourceGroup:*
 
 ```
-POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2018-10-01`
+POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2019-12-01`
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell

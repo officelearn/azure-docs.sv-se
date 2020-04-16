@@ -1,29 +1,27 @@
 ---
-title: Azure Event Grid-schema för IoT Hub | Microsoft-dokument
+title: Azure IoT Hub som källa för händelserutnät
 description: Den här artikeln innehåller egenskaper och schema för Azure IoT Hub-händelser. Den visar tillgängliga händelsetyper, en exempelhändelse och händelseegenskaper.
 services: iot-hub
 documentationcenter: ''
-author: kgremban
-manager: timlt
+author: spelluru
 editor: ''
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/21/2020
-ms.author: kgremban
-ms.openlocfilehash: cfbd46ad961bd1dc914bae98e761cd83d445ff88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: spelluru
+ms.openlocfilehash: f9bf807884ab5592fa320532f3ca10a223081263
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76513039"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393332"
 ---
-# <a name="azure-event-grid-event-schema-for-iot-hub"></a>Azure Event Grid-händelseschema för IoT Hub
-
+# <a name="azure-iot-hub-as-an-event-grid-source"></a>Azure IoT Hub som en händelserutnätskälla
 Den här artikeln innehåller egenskaper och schema för Azure IoT Hub-händelser. En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](event-schema.md). 
 
-En lista över exempelskript och självstudier finns i [IoT Hub-händelsekälla](event-sources.md#iot-hub).
+## <a name="event-grid-event-schema"></a>Händelseschema för händelserutnät
 
-## <a name="available-event-types"></a>Tillgängliga händelsetyper
+### <a name="available-event-types"></a>Tillgängliga händelsetyper
 
 Azure IoT Hub avger följande händelsetyper:
 
@@ -37,7 +35,7 @@ Azure IoT Hub avger följande händelsetyper:
 
 Alla enhetshändelser utom enhetstelemetrihändelser är allmänt tillgängliga i alla regioner som stöds av Event Grid. Enhetstelemetrihändelsen är i offentlig förhandsversion och är tillgänglig i alla regioner utom östra USA, västra USA, Västeuropa, [Azure Government,](../azure-government/documentation-government-welcome.md) [Azure China 21Vianet](/azure/china/china-welcome)och [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
-## <a name="example-event"></a>Exempel händelse
+### <a name="example-event"></a>Exempel händelse
 
 Schemat för DeviceConnected och DeviceDisconnected-händelser har samma struktur. Den här exempelhändelsen visar schemat för en händelse som utlöses när en enhet är ansluten till en IoT-hubb:
 
@@ -205,6 +203,13 @@ För **enhetsskapade** och **enhetsuttagna** IoT Hub-händelser innehåller data
 | Önskad | objekt | En del av egenskaperna som bara kan skrivas av programmets backend och läsas av enheten. | 
 | Rapporterade | objekt | En del av egenskaperna som bara kan skrivas av enheten och läsas av programmets backend. |
 | lastUpdated | sträng | Tidsstämpeln ISO8601 för den senaste enhets twin-egenskapsuppdateringen. | 
+
+## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
+|Titel  |Beskrivning  |
+|---------|---------|
+| [Skicka e-postmeddelanden om Azure IoT Hub-händelser med hjälp av Logic Apps](publish-iot-hub-events-to-logic-apps.md) | En logikapp skickar ett e-postmeddelande varje gång en enhet läggs till i din IoT Hub. |
+| [Reagera på IoT Hub-händelser med hjälp av Händelserutnät för att utlösa åtgärder](../iot-hub/iot-hub-event-grid.md) | Översikt över integrering av IoT Hub med Event Grid. |
+| [Beställa enhetsansluten och frånkopplad enhet](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Visar hur du beställer enhetsanslutningstillståndshändelser. |
 
 ## <a name="next-steps"></a>Nästa steg
 

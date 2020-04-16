@@ -7,22 +7,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: c433d99fd96e99d418fd5500c1075e68dfb1742c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 6714a0c4b967d80ad683ef023b5811423bdcb022
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80053580"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403457"
 ---
 # <a name="what-is-the-azure-face-service"></a>Vad är Azure Face-tjänsten?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure Cognitive Services Face-tjänsten tillhandahåller algoritmer som används för att identifiera, känna igen och analysera mänskliga ansikten i avbildningar. Möjligheten att bearbeta mänsklig ansiktsinformation är viktig i många olika programvaruscenarier. Exempel på scenarier är säkerhet, naturligt användargränssnitt, bildinnehållsanalys och hantering, mobilappar och robotteknik.
+Azure Cognitive Services Face-tjänsten tillhandahåller algoritmer som identifierar, känner igen och analyserar mänskliga ansikten i avbildningar. Möjligheten att bearbeta mänsklig ansiktsinformation är viktig i många olika programvaruscenarier. Exempel på scenarier är säkerhet, naturligt användargränssnitt, bildinnehållsanalys och hantering, mobilappar och robotteknik.
 
-Face-tjänsten erbjuder flera olika funktioner. Varje funktion beskrivs i följande avsnitt. Läs vidare för att lära dig mer om dem.
+Face-tjänsten innehåller flera olika funktioner som var och en beskrivs i följande avsnitt.
 
 ## <a name="face-detection"></a>Ansiktsspårning
 
@@ -69,7 +69,7 @@ När du har skapat och tränat en databas kan du identifiera dig mot gruppen med
 
 Mer information om personidentifiering finns i guiden [För ansiktsigenkänningskoncept](concepts/face-recognition.md) eller referensdokumentationen [identifiera API.](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)
 
-## <a name="use-containers"></a>Använda containrar
+## <a name="containers"></a>Containrar
 
 [Använd Ansiktsbehållaren](face-how-to-install-containers.md) för att identifiera, känna igen och identifiera ansikten genom att installera en standardiserad Docker-behållare närmare dina data.
 

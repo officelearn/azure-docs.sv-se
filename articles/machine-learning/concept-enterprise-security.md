@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 4fbb3e83692ec058c03b22654e82d4093fe3541d
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 9f3a1c3455aadfbd243cdc6ab2920849c8558841
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756568"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414632"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företagssäkerhet för Azure Machine Learning
 
@@ -243,9 +243,9 @@ Azure Databricks kan användas i Azure Machine Learning-pipelines. Som standard 
 
 ### <a name="encryption-in-transit"></a>Kryptering under överföring
 
-Du kan använda TLS för att skydda intern kommunikation mellan Azure Machine Learning-mikrotjänster och för att skydda externa anrop till bedömningsslutpunkten. All Azure Storage-åtkomst sker också via en säker kanal.
+Azure Machine Learning använder TLS för att skydda intern kommunikation mellan olika Azure Machine Learning-mikrotjänster. All Azure Storage-åtkomst sker också via en säker kanal.
 
-Mer information finns i [Använda TLS för att skydda en webbtjänst via Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
+För att skydda externa anrop till bedömningsslutpunkten Azure Machine Learning använder TLS. Mer information finns i [Använda TLS för att skydda en webbtjänst via Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
 
 ### <a name="using-azure-key-vault"></a>Använda Azure Key Vault
 

@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9ecd0ffd76650efff3a4c9f877522cba6f28d080
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 0225484de06ae4e595f1dcbcdd520f4e0e4d53f5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81271122"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405377"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -28,7 +28,7 @@ Prissättningen för [Azure Application Insights][start] är en **Pay-As-You-Go-
 
 [Webbtester](../../azure-monitor/app/availability-multistep.md) i flera steg medför en extra kostnad. Webbtester i flera steg är webbtester som utför en sekvens av åtgärder. Det finns ingen separat avgift för *ping tester* av en enda sida. Telemetri från ping-tester och flerstegstester debiteras på samma sätt som annan telemetri från din app.
 
-Alternativet Application Insights för att [aktivera aviseringar om anpassade måttdimensioner](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) kan också generera ytterligare kostnader eftersom detta kan resultera i att ytterligare mått före aggregering skapas. [Läs mer] om loggbaserade och föraggregerade mått i Application Insights och om [priser](https://azure.microsoft.com/pricing/details/monitor/) för anpassade Azure Monitor-mått.
+Alternativet Application Insights för att [aktivera aviseringar om anpassade måttdimensioner](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) kan också generera ytterligare kostnader eftersom detta kan resultera i att ytterligare mått före aggregering skapas. [Läs mer](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics) om loggbaserade och föraggregerade mått i Application Insights och om [priser](https://azure.microsoft.com/pricing/details/monitor/) för anpassade Azure Monitor-mått.
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>Uppskatta kostnaderna för att hantera ditt program
 
@@ -218,7 +218,9 @@ Om du vill ändra kvarhållningen går du till sidan **Användning och uppskatta
 
 ![Justera det dagliga volymlocket för telemetri](./media/pricing/pricing-005.png)
 
-Kvarhållningen kan också [ställas in programatiskt med hjälp av PowerShell](powershell.md#set-the-data-retention) med hjälp av parametern. `retentionInDays` När kvarhållningen sänks finns det en respitperiod på flera dagar innan de äldsta data tas bort. Om du anger datalagringen till 30 dagar kan du utlösa `immediatePurgeDataOn30Days` en omedelbar rensning av äldre data med parametern, vilket kan vara användbart för efterlevnadsrelaterade scenarier. Den här rensningsfunktionen exponeras endast via Azure Resource Manager och bör användas med stor försiktighet. Den dagliga återställningstiden för datavolymtaket kan konfigureras med `dailyQuotaResetTime` Azure Resource Manager för att ange parametern.
+När kvarhållningen sänks finns det en respitperiod på flera dagar innan de äldsta data tas bort.
+
+Kvarhållningen kan också [ställas in programatiskt med hjälp av PowerShell](powershell.md#set-the-data-retention) med hjälp av parametern. `retentionInDays` Om du anger datalagringen till 30 dagar kan du utlösa `immediatePurgeDataOn30Days` en omedelbar rensning av äldre data med parametern, vilket kan vara användbart för efterlevnadsrelaterade scenarier. Den här rensningsfunktionen exponeras endast via Azure Resource Manager och bör användas med stor försiktighet. Den dagliga återställningstiden för datavolymtaket kan konfigureras med `dailyQuotaResetTime` Azure Resource Manager för att ange parametern.
 
 ## <a name="data-transfer-charges-using-application-insights"></a>Dataöverföringsavgifter med application insights
 

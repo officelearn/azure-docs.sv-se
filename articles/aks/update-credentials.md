@@ -5,18 +5,20 @@ description: Lär dig hur du uppdaterar eller återställer tjänstens huvudnamn
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 0203321af32bcc2ae70b726737b85870d08be86f
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 8420771e32aa792aa79a07fdf4362ad0d9b45d48
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886763"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392635"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Uppdatera eller rotera autentiseringsuppgifterna för Azure Kubernetes Service (AKS)
 
 Som standard skapas AKS-kluster med ett tjänsthuvudnamn som har ett års förfallotid. När du närmar dig utgångsdatumet kan du återställa autentiseringsuppgifterna för att utöka tjänstens huvudnamn ytterligare under ytterligare en tidsperiod. Du kanske också vill uppdatera eller rotera autentiseringsuppgifterna som en del av en definierad säkerhetsprincip. I den här artikeln beskrivs hur du uppdaterar dessa autentiseringsuppgifter för ett AKS-kluster.
 
-Du kan också ha [integrerat AKS-klustret med Azure Active Directory][aad-integration]och använda det som autentiseringsprovider för klustret. I så fall har du ytterligare två identiteter som skapats för klustret, AAD-serverappen och AAD-klientappen, kan du också återställa dessa autentiseringsuppgifter. 
+Du kan också ha [integrerat AKS-klustret med Azure Active Directory][aad-integration]och använda det som autentiseringsprovider för klustret. I så fall har du ytterligare två identiteter som skapats för klustret, AAD-serverappen och AAD-klientappen, kan du också återställa dessa autentiseringsuppgifter.
+
+Du kan också använda en hanterad identitet för behörigheter i stället för ett tjänsthuvudnamn. Hanterade identiteter är enklare att hantera än tjänstens huvudnamn och kräver inte uppdateringar eller rotationer. Mer information finns i [Använda hanterade identiteter](use-managed-identity.md).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

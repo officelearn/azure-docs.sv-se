@@ -10,14 +10,16 @@ ms.date: 03/13/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: cf3bb7e6733ef55a85d0b4ae26a4ce05059a8fb9
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: e32530ece3626807b199850a2b4af5461ff51cde
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80887183"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414066"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Så här skapar och konfigurerar du Azure Integration Runtime
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Integration Runtime (IR) är den beräkningsinfrastruktur som används av Azure Data Factory för att tillhandahålla dataintegrationsfunktioner i olika nätverksmiljöer. Mer information om IR finns i [Integrationskörning](concepts-integration-runtime.md).
 
 Azure IR tillhandahåller en fullständigt hanterad beräkning för att utföra dataförflyttning och skicka dataomvandlingsaktiviteter till beräkningstjänster som HDInsight. Den finns i Azure-miljö och stöder anslutning till resurser i offentlig nätverksmiljö med offentliga slutpunkter.

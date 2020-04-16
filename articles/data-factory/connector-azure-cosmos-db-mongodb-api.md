@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/20/2019
-ms.openlocfilehash: 9b13920252b3a5626fd192c6e899154efd31a3de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9b23f46a418f2663531cc121f00b83d00d84e48d
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75893247"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415448"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Kopiera data till eller från Azure Cosmos DB API för MongoDB med Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory till att kopiera data från och till Azure Cosmos DB:s API för MongoDB. Artikeln bygger på [Kopiera aktivitet i Azure Data Factory](copy-activity-overview.md), som presenterar en allmän översikt över kopiera aktivitet.
 
@@ -35,7 +37,7 @@ Du kan använda Azure Cosmos DB:s API för MongoDB-anslutning till:
 - Skriv till Azure Cosmos DB som **infogad** eller **upsert**.
 - Importera och exportera JSON-dokument i sig eller kopiera data från eller till en tabelldatauppsättning. Exempel är en SQL-databas och en CSV-fil. Information om hur du kopierar dokument som de är till eller från JSON-filer eller till eller från en annan Azure Cosmos DB-samling finns i Importera eller exportera JSON-dokument.
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

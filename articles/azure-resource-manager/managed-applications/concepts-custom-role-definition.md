@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 09/16/2019
-ms.openlocfilehash: 88e42fd9626276f6c77b46b33c138407f91d06ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7b7fff913c177703f959bfa103c8e310d01059e2
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75650765"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391826"
 ---
 # <a name="custom-role-definition-artifact-in-azure-managed-applications"></a>Anpassad rolldefinitionsartefakt i Azure-hanterade program
 
@@ -20,7 +20,7 @@ Den här artikeln innehåller en översikt över den anpassade rolldefinitionsar
 
 ## <a name="custom-role-definition-artifact"></a>Artefakt för anpassad rolldefinition
 
-Du måste namnge den anpassade rolldefinitionsartefakten customRoleDefinition.json. Placera den på samma nivå som createUiDefinition.json och mainTemplate.json i ZIP-paketet som skapar en hanterad programdefinition. Mer information om hur du skapar ZIP-paketet och publicerar en hanterad programdefinition finns i [Publicera en hanterad programdefinition.](publish-managed-app-definition-quickstart.md)
+Du måste namnge den anpassade rolldefinitionsartefakten customRoleDefinition.json. Placera den på samma nivå som createUiDefinition.json och mainTemplate.json i ZIP-paketet som skapar en hanterad programdefinition. Mer information om hur du skapar ZIP-paketet och publicerar en hanterad programdefinition finns i [Publicera en hanterad programdefinition.](publish-service-catalog-app.md)
 
 ## <a name="custom-role-definition-schema"></a>Schema för anpassad rolldefinition
 

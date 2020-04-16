@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ac97ae1d3eb260a9e0c70d3f831efb8b56a5c29d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: d2226e161d96a52834dc3d0c16a1a053d39f02e5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74973823"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404481"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-nodejs"></a>Snabbstart: Generera en miniatyrbild med REST API:et för visuellt innehåll och nod.js
 
@@ -95,7 +95,7 @@ Ett lyckat svar returneras i form av binärdata som representerar bilddata för 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska det API för visuellt innehåll som används för att analysera en bild, identifiera kändisar och landmärken, skapa en miniatyrbild och extrahera tryckt och handskriven text. Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Därefter utforska Computer Vision API som används för att analysera en bild, upptäcka kändisar och landmärken, skapa en miniatyr bild och extrahera tryckt och handskriven text.
 
 > [!div class="nextstepaction"]
 > [Utforska API för visuellt innehåll](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

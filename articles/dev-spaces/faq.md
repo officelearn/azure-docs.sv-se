@@ -5,16 +5,20 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Hitta svar på några av de vanligaste frågorna om Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, servicenät, routning av tjänstnät, kubectl, k8s '
-ms.openlocfilehash: 1fd176084cd0737a290e037ed19af510fcab3e78
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: b5a380f20640b9bc328aa30289ff7f915cc0b73c
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382002"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414313"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Vanliga frågor och svar om Azure Dev Spaces
 
 Detta tar upp vanliga frågor om Azure Dev Spaces.
+
+## <a name="what-versions-of-kubernetes-are-supported-for-azure-dev-spaces"></a>Vilka versioner av Kubernetes stöds för Azure Dev Spaces?
+
+Azure Dev Spaces stöder alla [ga-versioner (General Availability) (För närvarande stöds av Kubernetes i AKS][aks-supported-k8s].
 
 ## <a name="which-azure-regions-currently-provide-azure-dev-spaces"></a>Vilka Azure-regioner tillhandahåller för närvarande Azure Dev Spaces?
 
@@ -89,6 +93,10 @@ I Visual Studio-kod är det möjligt att [öppna separata projekt på en enda ar
 
 I Visual Studio är det möjligt att konfigurera .NET Core-lösningar för felsökning via Azure Dev Spaces.
 
+## <a name="can-i-use-azure-dev-spaces-with-a-service-mesh"></a>Kan jag använda Azure Dev Spaces med ett tjänstnät?
+
+För närvarande kan du inte använda Azure Dev Spaces med tjänstnät som [Istio][istio] eller [Linkerd][linkerd]. Du kan köra Azure Dev Spaces och ett tjänstnät i samma AKS-kluster, men du kan inte ha både Azure Dev Spaces och ett tjänstnät aktiverat i samma namnområde.
+
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled
 [aks-auth-range-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
@@ -97,6 +105,7 @@ I Visual Studio är det möjligt att konfigurera .NET Core-lösningar för fels�
 [aks-pod-managed-id]: ../aks/developer-best-practices-pod-security.md#use-pod-managed-identities
 [aks-pod-managed-id-uninstall]: https://github.com/Azure/aad-pod-identity#uninstall-notes
 [aks-restrict-egress-traffic]: ../aks/limit-egress-traffic.md
+[aks-supported-k8s]: ../aks/supported-kubernetes-versions.md#list-currently-supported-versions
 [bike-sharing]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
 [dev-spaces-pod-managed-id-steps]: troubleshooting.md#error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state
 [dev-spaces-prep]: how-dev-spaces-works-prep.md
@@ -105,6 +114,8 @@ I Visual Studio är det möjligt att konfigurera .NET Core-lösningar för fels�
 [ingress-traefik]: how-to/ingress-https-traefik.md#configure-a-custom-traefik-ingress-controller
 [ingress-https-nginx]: how-to/ingress-https-nginx.md#configure-the-nginx-ingress-controller-to-use-https
 [ingress-https-traefik]: how-to/ingress-https-traefik.md#configure-the-traefik-ingress-controller-to-use-https
+[istio]: https://istio.io/
+[linkerd]: https://linkerd.io/
 [quickstart-cli]: quickstart-cli.md
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [vs-code-multi-root-workspaces]: https://code.visualstudio.com/docs/editor/multi-root-workspaces

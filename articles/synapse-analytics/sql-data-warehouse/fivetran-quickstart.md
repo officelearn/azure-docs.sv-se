@@ -11,12 +11,12 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: b4742f48ee9ad0db60e21dd53c5c0f447c1ded67
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 8f164232a3b1782511758f93a9e9b8d17d3714d5
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348922"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414275"
 ---
 # <a name="quickstart-fivetran-with-data-warehouse"></a>Snabbstart: Fivetran med informationslager 
 
@@ -26,7 +26,7 @@ Den här snabbstarten beskriver hur du konfigurerar en ny Fivetran-användare f�
 
 1. Leta reda på det fullständiga servernamn och det databasnamn som du använder för att ansluta till ditt informationslager.
     
-    Om du behöver hjälp med att hitta den här informationen läser du [Anslut till ditt informationslager](sql-data-warehouse-connect-overview.md).
+    Om du behöver hjälp med att hitta den här informationen läser du [Anslut till ditt informationslager](../sql/connect-overview.md).
 
 2. I installationsguiden väljer du om du vill ansluta databasen direkt eller med hjälp av en SSH-tunnel.
 
@@ -75,9 +75,9 @@ Den här snabbstarten beskriver hur du konfigurerar en ny Fivetran-användare f�
     Mer information finns i om [minnes- och samtidighetsgränser](memory-concurrency-limits.md) och [resursklasser](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
 
 
-## <a name="sign-in-to-fivetran"></a>Logga in på Fivetran
+## <a name="connect-from-fivetran"></a>Anslut från Fivetran
 
-Om du vill logga in på Fivetran anger du de autentiseringsuppgifter som du använder för att komma åt ditt informationslager: 
+Om du vill ansluta till ditt informationslager från ditt Fivetran-konto anger du de autentiseringsuppgifter som du använder för att komma åt ditt informationslager: 
 
 * Värd (ditt servernamn).
 * Port.

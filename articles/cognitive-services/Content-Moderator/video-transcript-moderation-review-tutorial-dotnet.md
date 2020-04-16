@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 09569be88daa6295834e58da6b51656d0438bed4
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 2171bbaea065ce1ab3a8d90f32e6ea6dc1f1e821
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270935"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404230"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Självstudie: Moderering av video och avskrift
 
@@ -227,7 +227,7 @@ En avskrift av ljudet från videon genereras också när `GenerateVTT`-flaggan h
 
 ## <a name="create-a-human-review"></a>Skapa en mänsklig recension
 
-Modereringsprocessen returnerar en lista med nyckelbildrutor från videon, tillsammans med avskrifter av dess ljudspår. Nästa steg är att en granskning skapas i granskningsverktyget Content Moderator för manuella ändringar. När du går tillbaka till `ProcessVideo()`-metoden i `Program.cs`, ser du anropet till `CreateVideoReviewInContentModerator()`-metoden. Den här metoden finns i `videoReviewApi`-klassen, som är i `VideoReviewAPI.cs`, och visas här.
+Modereringsprocessen returnerar en lista med nyckelbildrutor från videon, tillsammans med avskrifter av dess ljudspår. Nästa steg är att skapa en recension i content moderator granskning verktyg för mänskliga moderatorer. När du går tillbaka till `ProcessVideo()`-metoden i `Program.cs`, ser du anropet till `CreateVideoReviewInContentModerator()`-metoden. Den här metoden finns i `videoReviewApi`-klassen, som är i `VideoReviewAPI.cs`, och visas här.
 
 [!code-csharp[CreateVideoReviewInContentModerator](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=42-69)]
 
@@ -299,7 +299,7 @@ Initiera först alla variabler och samlingar.
 
 ### <a name="parse-the-transcript-for-captions"></a>Parsa avskriften för bildtexter
 
-Därefter parsas den VTT-formaterade avskriften för bildtexter och tidsstämplar. Granskningsverktyget visar dessa bildtexter på fliken Avskrift på videogranskningsskärmen. Tidsstämplarna används till att synkronisera bildtexterna med motsvarande bildrutor.
+Därefter parsas den VTT-formaterade avskriften för bildtexter och tidsstämplar. Med granskningsverktyget visas dessa bildtexter på fliken Transkription på skärmen för videogranskning. Tidsstämplarna används till att synkronisera bildtexterna med motsvarande bildrutor.
 
 [!code-csharp[TextScreen2](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=528-567)]
 

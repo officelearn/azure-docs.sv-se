@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a75b71d43b072d366ef2fcb15bf4c901680d48fb
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: badd8ba676ef25c33a5034bb04d616faeb4ef1b0
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383221"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392101"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Vidarebefordra rapporteringsdata för Azure Automation State Configuration till Azure Monitor-loggar
 
@@ -87,6 +87,7 @@ Fönstret Loggsökning öppnas med ett frågeområde som är begränsat till din
 | where OperationName contains 'DSCNodeStatusData'
 | where ResultType != 'Compliant'
 ```
+
 Filtrera detaljer:
 
 * Filtrera `DscNodeStatusData` på för att returnera åtgärder för varje tillståndskonfigurationsnod.
@@ -104,7 +105,7 @@ Om du vill skapa en varningsregel börjar du med att skapa en loggsökning för 
 1. Klicka på **Loggar**på sidan Översikt över Logganalysarbetsyta.
 1. Skapa en loggsökfråga för aviseringen genom att skriva följande sökning i frågefältet:`Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
 
-   Om du har konfigurerat loggar från mer än ett Automation-konto eller en prenumeration på din arbetsyta kan du gruppera dina aviseringar efter prenumeration och Automation-konto. Härleda automationskontonamnet från `Resource` fältet i sökningen av **DscNodeStatusData-posterna.**
+   Om du har konfigurerat loggar från mer än ett Automation-konto eller en prenumeration på din arbetsyta kan du gruppera dina aviseringar efter prenumeration och Automation-konto. Härleda automationskontonamnet från fältet `Resource` `DscNodeStatusData` i sökningen av posterna.
 1. Om du vill öppna skärmen **Skapa regel** klickar du på **Ny varningsregel** högst upp på sidan. 
 
 Mer information om alternativen för att konfigurera aviseringen finns i [Skapa en varningsregel](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
@@ -128,46 +129,46 @@ Den här frågan visar ett diagram över nodstatus över tid.
 
 Azure Automation-diagnostik skapar två kategorier av poster i Azure Monitor-loggar:
 
-* Nodstatusdata (**DscNodeStatusData**)
-* Resursstatusdata (**DscResourceStatusData**)
+* Nodstatusdata`DscNodeStatusData`( )
+* Resursstatusdata`DscResourceStatusData`( )
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
 | Egenskap | Beskrivning |
 | --- | --- |
 | TimeGenerated |Datum och tid då efterlevnadskontrollen kördes. |
-| OperationName |DscNodeStatusData. |
-| Resultattyp |Om noden är kompatibel. |
+| OperationName |`DscNodeStatusData`. |
+| Resultattyp |Värde som anger om noden är kompatibel. |
 | NodeName_s |Namnet på den hanterade noden. |
-| NodeComplianceStatus_s |Om noden är kompatibel. |
-| DscReportStatus |Om efterlevnadskontrollen kördes. |
-| ConfigurationMode | Hur konfigurationen tillämpas på noden. Möjliga värden: <ul><li>`ApplyOnly`: DSC tillämpar konfigurationen och gör ingenting längre om inte en ny konfiguration skjuts till målnoden eller när en ny konfiguration hämtas från en server. Efter det första tillämpningen av en ny konfiguration söker DSC inte efter drift från ett tidigare konfigurerat tillstånd. DSC försöker tillämpa konfigurationen tills den `ApplyOnly` lyckas innan värdet börjar gälla. </li><li>`ApplyAndMonitor`: Detta är standardvärdet. LCM tillämpar alla nya konfigurationer. Efter den första tillämpningen av en ny konfiguration, om målnoden driver från önskat tillstånd, rapporterar DSC avvikelsen i loggar. DSC försöker tillämpa konfigurationen tills den `ApplyAndMonitor` lyckas innan värdet börjar gälla.</li><li>`ApplyAndAutoCorrect`: DSC tillämpar alla nya konfigurationer. Efter det första tillämpningen av en ny konfiguration, om målnoden driver från önskat tillstånd, rapporterar DSC avvikelsen i loggar och sedan den aktuella konfigurationen.</li></ul> |
+| NodeComplianceStatus_s |Statusvärde som anger om noden är kompatibel. |
+| DscReportStatus |Statusvärde som anger om efterlevnadskontrollen kördes. |
+| ConfigurationMode | Det läge som används för att tillämpa konfigurationen på noden. Möjliga värden: <ul><li>`ApplyOnly`: DSC tillämpar konfigurationen och gör ingenting längre om inte en ny konfiguration skjuts till målnoden eller när en ny konfiguration hämtas från en server. Efter det första tillämpningen av en ny konfiguration söker DSC inte efter drift från ett tidigare konfigurerat tillstånd. DSC försöker tillämpa konfigurationen tills den `ApplyOnly` lyckas innan värdet börjar gälla. </li><li>`ApplyAndMonitor`: Detta är standardvärdet. LCM tillämpar alla nya konfigurationer. Efter den första tillämpningen av en ny konfiguration, om målnoden driver från önskat tillstånd, rapporterar DSC avvikelsen i loggar. DSC försöker tillämpa konfigurationen tills den `ApplyAndMonitor` lyckas innan värdet börjar gälla.</li><li>`ApplyAndAutoCorrect`: DSC tillämpar alla nya konfigurationer. Efter det första tillämpningen av en ny konfiguration, om målnoden driver från önskat tillstånd, rapporterar DSC avvikelsen i loggar och sedan den aktuella konfigurationen.</li></ul> |
 | HostName_s | Namnet på den hanterade noden. |
 | IP-adress | IPv4-adressen för den hanterade noden. |
-| Kategori | DscNodeStatus. |
+| Kategori | `DscNodeStatus`. |
 | Resurs | Namnet på Azure Automation-kontot. |
 | Tenant_g | GUID som identifierar klienten för anroparen. |
-| NodeId_g |GUID som identifierar den hanterade noden. |
-| DscReportId_g |GUID som identifierar rapporten. |
-| LastSeenTime_t |Datum och tid då rapporten senast visades. |
-| ReportStartTime_t |Datum och tid då rapporten startades. |
-| ReportEndTime_t |Datum och tid då rapporten slutfördes. |
-| NumberOfResources_d |Antalet DSC-resurser som anropas i konfigurationen som tillämpas på noden. |
-| SourceSystem | Hur Azure Monitor loggar samlade in data. Alltid "Azure" för Azure-diagnostik. |
-| ResourceId |Identifierare för Azure Automation-kontot. |
-| ResultatBeskrivning | Beskrivningen för den här åtgärden. |
+| NodeId_g | GUID som identifierar den hanterade noden. |
+| DscReportId_g | GUID som identifierar rapporten. |
+| LastSeenTime_t | Datum och tid då rapporten senast visades. |
+| ReportStartTime_t | Datum och tid då rapporten startades. |
+| ReportEndTime_t | Datum och tid då rapporten slutfördes. |
+| NumberOfResources_d | Antalet DSC-resurser som anropas i konfigurationen som tillämpas på noden. |
+| SourceSystem | Källsystemet som identifierar hur Azure Monitor-loggar har samlat in data. Alltid `Azure` för Azure-diagnostik. |
+| ResourceId |Resursidentifieraren för Azure Automation-kontot. |
+| ResultatBeskrivning | Resursbeskrivningen för den här åtgärden. |
 | SubscriptionId | Azure-prenumerations-ID (GUID) för Automation-kontot. |
-| ResourceGroup | Namn på resursgruppen för Automation-kontot. |
+| ResourceGroup | Namnet på resursgruppen för Automation-kontot. |
 | ResourceProvider | Microsoft. Automation. |
 | ResourceType | AUTOMATIONSKONTO. |
-| CorrelationId |GUID som är korrelationsidentifieraren för efterlevnadsrapporten. |
+| CorrelationId | Ett GUID som är korrelationsidentifieraren för efterlevnadsrapporten. |
 
 ### <a name="dscresourcestatusdata"></a>DscResourceStatusData
 
 | Egenskap | Beskrivning |
 | --- | --- |
 | TimeGenerated |Datum och tid då efterlevnadskontrollen kördes. |
-| OperationName |DscResourceStatusData.|
+| OperationName |`DscResourceStatusData`.|
 | Resultattyp |Om resursen är kompatibel. |
 | NodeName_s |Namnet på den hanterade noden. |
 | Kategori | DscNodeStatus. |
@@ -185,10 +186,10 @@ Azure Automation-diagnostik skapar två kategorier av poster i Azure Monitor-log
 | ErrorMessage_s |Felmeddelandet om resursen misslyckades. |
 | DscResourceDuration_d |Den tid, i sekunder, som DSC-resursen kördes. |
 | SourceSystem | Hur Azure Monitor loggar samlade in data. Alltid `Azure` för Azure-diagnostik. |
-| ResourceId |Anger Azure Automation-kontot. |
+| ResourceId |Identifieraren för Azure Automation-kontot. |
 | ResultatBeskrivning | Beskrivningen för den här åtgärden. |
 | SubscriptionId | Azure-prenumerations-ID (GUID) för Automation-kontot. |
-| ResourceGroup | Namn på resursgruppen för Automation-kontot. |
+| ResourceGroup | Namnet på resursgruppen för Automation-kontot. |
 | ResourceProvider | Microsoft. Automation. |
 | ResourceType | AUTOMATIONSKONTO. |
 | CorrelationId |GUID som är korrelations-ID för efterlevnadsrapporten. |

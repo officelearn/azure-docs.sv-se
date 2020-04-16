@@ -1,30 +1,30 @@
 ---
-title: Händelseschema för Azure Event Grid-händelsehubbar
+title: Azure Event Hubs som event grid-källa
 description: Beskriver de egenskaper som tillhandahålls för händelsehubbar händelser med Azure Event Grid
 services: event-grid
 author: spelluru
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/17/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 9c0113687d27bf43375f298057129a5594ec0a06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd65c20f07a091fa1fc8a6cbf003986e1096ebe3
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60561836"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393343"
 ---
-# <a name="azure-event-grid-event-schema-for-event-hubs"></a>Azure Event Grid-händelseschema för händelsehubbar
+# <a name="azure-event-hubs-as-an-event-grid-source"></a>Azure Event Hubs som en event grid-källa
 
 Den här artikeln innehåller egenskaper och schema för händelsehubbar händelser.En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](event-schema.md).
 
-En lista över exempelskript och självstudier finns i [händelsekällan Event Hubs](event-sources.md#event-hubs).
+## <a name="event-grid-event-schema"></a>Händelseschema för händelserutnät
 
 ### <a name="available-event-types"></a>Tillgängliga händelsetyper
 
 Event Hubs avger händelsetypen **Microsoft.EventHub.CaptureFileCreated** när en hämtningsfil skapas.
 
-## <a name="example-event"></a>Exempel händelse
+### <a name="example-event"></a>Exempel händelse
 
 Den här exempelhändelsen visar schemat för en händelsehubbar som utlöses när hämtningsfunktionen lagrar en fil: 
 
@@ -53,7 +53,7 @@ Den här exempelhändelsen visar schemat för en händelsehubbar som utlöses n�
 ]
 ```
 
-## <a name="event-properties"></a>Händelseegenskaper
+### <a name="event-properties"></a>Händelseegenskaper
 
 En händelse har följande data på den högsta nivån:
 
@@ -81,6 +81,12 @@ Dataobjektet har följande egenskaper:
 | lastSequenceNumber | heltal | Det sista sekvensnumret från kön. |
 | firstEnqueueTime | sträng | Första gången från kön. |
 | lastEnqueueTime | sträng | Sista gången från kön. |
+
+## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
+
+|Titel  |Beskrivning  |
+|---------|---------|
+| [Självstudiekurs: strömma stordata till ett informationslager](event-grid-event-hubs-integration.md) | När Event Hubs skapar en capture-fil skickar Event Grid en händelse till en funktionsapp. Appen hämtar capture-filen och migrerar data till ett informationslager. |
 
 ## <a name="next-steps"></a>Nästa steg
 

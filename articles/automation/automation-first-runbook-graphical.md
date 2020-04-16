@@ -6,18 +6,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6bd360b2075c337e3ed3d69d84368d16571a9335
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcef0574e16e0b4d28755716c32670b00c65af14
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536062"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406093"
 ---
 # <a name="my-first-graphical-runbook"></a>Min första grafiska runbook
 
 > [!div class="op_single_selector"]
 > * [Grafisk](automation-first-runbook-graphical.md)
-> * [Powershell](automation-first-runbook-textual-powershell.md)
+> * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [PowerShell-arbetsflöde](automation-first-runbook-textual.md)
 > * [Python](automation-first-runbook-textual-python2.md)
 > 
@@ -100,7 +100,7 @@ Runbook som du har skapat är fortfarande i utkastläge. Den behöver publiceras
 1. Klicka på **Alla loggar** för att öppna fönstret Strömmar för runbook-jobbet. Du bör `Hello World` bara se i utdataströmmen. 
 
     Observera att fönstret Strömmar kan visa andra strömmar för ett runbook-jobb, till exempel Utförliga och Felströmmar, om runbooken skriver till dem.
-1. Stäng fönstret Strömmar och jobbfönstret för att återgå till sidan **MyFirstRunbook-Graphical.**
+1. Stäng fönstret Strömmar och jobbfönstret för att återgå till sidan MyFirstRunbook-Graphical.
 1. Om du vill visa alla jobb för runbooken väljer du **Jobb** under **Resurser**. På sidan Jobb visas alla jobb som skapas av runbooken. Du bör bara se ett jobb som anges, eftersom du bara har kört jobbet en gång.
 1. Klicka på jobbnamnet om du vill öppna samma jobbfönster som du visade när du startade runbooken. Använd det här fönstret om du vill visa information om alla jobb som skapats för runbooken.
 
@@ -126,7 +126,7 @@ Nu när du har en variabel för att behålla prenumerations-ID:t kan du konfigur
 >[!NOTE]
 >För `Add-AzAccount` PowerShell-runbooks `Add-AzureRMAccount` och är `Connect-AzAccount`alias för . Observera att dessa alias inte är tillgängliga för dina grafiska runbooks. En grafisk runbook kan `Connect-AzAccount`bara använda sig själv.
 
-1. Navigera till din runbook och välj **Redigera** på sidan **MyFirstRunbook-Graphical.**
+1. Navigera till din runbook och välj **Redigera** på sidan MyFirstRunbook-Graphical.
 1. Du behöver inte `Write Hello World to output` posten längre. Klicka bara på ellipsen och välj **Ta bort**.
 1. Expandera **RESURSER**i bibliotekskontrollen och sedan **Anslutningar**. Lägg `AzureRunAsConnection` till på arbetsytan genom att välja **Lägg till på arbetsyta .**
 1. Byt `AzureRunAsConnection` `Get Run As Connection`namn till .
@@ -185,7 +185,7 @@ Nu måste du `Start-AzVM` lägga till en aktivitet för att starta en virtuell d
 
 Runbooken startar för närvarande den virtuella datorn i `Start-AzVM` resursgruppen som du angav för cmdleten. Runbooken blir mer användbar om du anger både namn och resursgrupp när runbooken startas. Nu ska vi lägga till indataparametrar i runbooken för att tillhandahålla den funktionen.
 
-1. Öppna den grafiska redigeraren genom att klicka på **Redigera** i fönstret **MyFirstRunbook-Graphical.**
+1. Öppna den grafiska redigeraren genom att klicka på **Redigera** på sidan MyFirstRunbook-Graphical.
 1. Välj **Indata och utdata** och lägg sedan **till indata** för att öppna fönstret Runbook Input Parameter.
 1. Gör följande inställningar i de angivna fälten och klicka sedan på **OK**.
    * **Namn** -- `VMName`ange .
@@ -243,7 +243,7 @@ Du kan nu ändra runbook så att den bara försöker starta den virtuella datorn
 1. För den `Write-Output` första kontrollen klickar du på **Parametrar** och ändrar **etikettvärdet** till **Meddela vm-start**.
 1. För **InputObject**ändrar du **Datakälla till** **PowerShell-uttryck**och skriver in uttrycket `$VMName successfully started.`.
 1. Klicka på `Write-Output` **Parametrar** och ändra **etikettvärdet** till Meddela vm-start misslyckades i den andra kontrollen och ändrar etikettvärdet till **Meddela att vm-start misslyckades**.
-1. För **InputObject**ändrar du **Datakälla till** **PowerShell-uttryck**och skriver in uttrycket `$VMName could not start.`.
+1. För **InputObject**ändrar du **Datakälla till** **PowerShell-uttryck**och skriver in uttrycket `$VMName could not start`.
 1. Skapa länkar `Start-AzVM` `Notify VM Started` från `Notify VM Start Failed`till och .
 1. Markera länken `Notify VM Started` till och ändra **Använd villkor** till true.
 1. För **villkorsuttrycket**skriver du `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -eq $true`. Den `Write-Output` här kontrollen körs nu bara om den virtuella datorn startar.
@@ -259,3 +259,5 @@ Du kan nu ändra runbook så att den bara försöker starta den virtuella datorn
 * Mer information om grafisk redigering finns [i Grafisk redigering i Azure Automation](automation-graphical-authoring-intro.md).
 * Information om hur du kommer igång med PowerShell-runbooks finns i [Min första PowerShell-runbook](automation-first-runbook-textual-powershell.md).
 * Information om hur du kommer igång med PowerShell Workflow runbooks finns i [Min första PowerShell-arbetsflödeskörningsbok](automation-first-runbook-textual.md).
+* En PowerShell-cmdlet-referens finns i [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

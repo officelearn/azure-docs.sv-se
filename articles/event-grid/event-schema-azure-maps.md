@@ -1,24 +1,26 @@
 ---
-title: Azure Event Grid Azure Maps-händelseschema
+title: Azure Maps som eventrutnätskälla
 description: Beskriver egenskaperna och schemat för Azure Maps-händelser med Azure Event Grid
 services: event-grid
-author: femila
+author: banisadr
 ms.service: event-grid
-ms.topic: reference
-ms.date: 02/08/2019
-ms.author: femila
-ms.openlocfilehash: 9acef524521e8fac6ce6f8f61e5ff3fbbb81d18d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: babanisa
+ms.openlocfilehash: e879ec3442f2e7912acb450a97079d80d7d95a01
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77486367"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393409"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-maps"></a>Azure Event Grid-händelseschema för Azure Maps
+# <a name="azure-maps-as-an-event-grid-source"></a>Azure Maps som en händelserutnätskälla
 
-Den här artikeln innehåller egenskaper och schema för Azure Maps-händelser. En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](https://docs.microsoft.com/azure/event-grid/event-schema).
+Den här artikeln innehåller egenskaper och schema för Azure Maps-händelser. En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](https://docs.microsoft.com/azure/event-grid/event-schema). Det ger dig också en lista över snabbstarter och självstudier för att använda Azure Maps som en händelsekälla.
 
-## <a name="available-event-types"></a>Tillgängliga händelsetyper
+## <a name="event-grid-event-schema"></a>Händelseschema för händelserutnät
+
+### <a name="available-event-types"></a>Tillgängliga händelsetyper
 
 Ett Azure Maps-konto avger följande händelsetyper:
 
@@ -28,7 +30,7 @@ Ett Azure Maps-konto avger följande händelsetyper:
 | Microsoft.Maps.GeofenceExiterad | Upphöjda när koordinater som mottagits har flyttats inifrån en given geofence till utsidan |
 | Microsoft.Maps.GeofenceResult | Utlöses varje gång en geofencing-fråga returnerar ett resultat, oavsett tillstånd |
 
-## <a name="event-examples"></a>Exempel på evenemang
+### <a name="event-examples"></a>Exempel på evenemang
 
 I följande exempel visas schemat för en **GeofenceEntered-händelse**
 
@@ -98,7 +100,7 @@ I följande exempel visas schema för **GeofenceResult**
 }
 ```
 
-## <a name="event-properties"></a>Händelseegenskaper
+### <a name="event-properties"></a>Händelseegenskaper
 
 En händelse har följande data på den högsta nivån:
 
@@ -162,6 +164,12 @@ Dataobjektet har följande egenskaper:
 | Geometrier | geometrier[] |Visar en lista över de stängselgeometrier som innehåller koordinatpositionen eller överlappar searchBuffer runt positionen. |
 | invalidPeriodGeofenceGeometryId | sträng[]  | Visar en lista över geometri-ID:t för geofence som är ogiltigt i förhållande till användartiden i begäran. |
 | isEventPublished | boolean | Sant om minst en händelse publiceras på Azure Maps-händelseprenumeranten, falskt om ingen händelse publiceras till Azure Maps-händelseprenumeranten. |
+
+## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
+|Titel  |Beskrivning  |
+|---------|---------|
+| [Reagera på Azure Maps-händelser med hjälp av Event Grid](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Översikt över hur du integrerar Azure Maps med Event Grid. |
+| [Självstudiekurs: Skapa en geofence](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Den här självstudien vägleder dig igenom de grundläggande stegen för att konfigurera geofence med hjälp av Azure Maps. Du använder Azure Event Grid för att strömma geofence-resultaten och ställa in ett meddelande baserat på geofence-resultaten. |
 
 ## <a name="next-steps"></a>Nästa steg
 

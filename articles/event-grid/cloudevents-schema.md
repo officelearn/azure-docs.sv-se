@@ -7,15 +7,14 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: 0efccd2851885dad209d5548a76737c25777b891
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 404052984cb99e37f7404a47f3ac374088d32d6c
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80372455"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393478"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Använda CloudEvents v1.0-schema med Event Grid
-
 Förutom [standardhändelseschemat](event-schema.md)stöder Azure Event Grid inbyggt händelser i [JSON-implementeringen av CloudEvents v1.0-](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) och [HTTP-protokollbindning](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) är en [öppen specifikation](https://github.com/cloudevents/spec/blob/v1.0/spec.md) för att beskriva händelsedata.
 
 CloudEvents förenklar interoperabilitet genom att tillhandahålla ett gemensamt händelseschema för publicering och förbruka molnbaserade händelser. Det här schemat möjliggör enhetliga verktyg, standardsätt för routning & hantering av händelser och universella sätt att deserialisera det yttre händelseschemat. Med ett gemensamt schema kan du lättare integrera arbete på olika plattformar.

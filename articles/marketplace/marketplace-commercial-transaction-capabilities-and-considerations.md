@@ -1,40 +1,41 @@
 ---
-title: Marknadsplats kommersiella transaktionsfunktioner och överväganden | Azure
-description: I den här artikeln beskrivs övervägandena om transact-prissättning, fakturering, fakturering och utbetalning för en erbjudandetyp.
-services: Azure, Marketplace, Compute, Storage, Networking, Transact Offer Type
+title: Microsofts kommersiella marknadsplats transact kapacitet
+description: I den här artikeln beskrivs pris-, fakturerings-, fakturerings- och utbetalningsöverväganden för Microsofts kommersiella marknadsplatstransactalternativ.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: de93a3c48e0b0aceb447e54e11190f487d1aa2d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 768fa9ca2080fc9a58fb321e62d8d61a608f9564
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80279835"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415264"
 ---
-# <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Överväganden och funktioner för kommersiella marknadsplatser
+# <a name="commercial-marketplace-transact-capabilities"></a>Kommersiella marknadsplats transact kapacitet
 
-Den här artikeln beskriver följande handelsrelaterade ämnen för den kommersiella marknaden
+Den här artikeln innehåller följande handelsrelaterade ämnen för Microsofts kommersiella marknadsplats:
 
-* Alternativ för marketplace-publicering
+* Transaktionsansvar för olika publiceringsalternativ
 * Transact allmän översikt
 * Handla faktureringsmodeller
 * Transact krav
 
-## <a name="marketplace-publishing-options"></a>Alternativ för marketplace-publicering
+## <a name="transactions-by-publishing-option"></a>Alternativet Transaktioner efter publicering
 
-Följande publiceringsalternativ är tillgängliga för kommersiella marketplace-utgivare.
+Antingen utgivaren eller Microsoft ansvarar för att hantera programvarulicenstransaktioner för erbjudanden på den kommersiella marknaden. Det publiceringsalternativ du väljer för ditt erbjudande avgör vem som hanterar transaktionen. Se [Bestämma vilket publiceringsalternativ](./determine-your-listing-type.md#choose-a-publishing-option) du vill ha för tillgänglighet och förklaringar av varje publiceringsalternativ.
 
-### <a name="list--trial-publishing-options"></a>Lista & alternativ för utvärderingsversion
+### <a name="list-trial-and-byol-publishing-options"></a>Publiceringsalternativ för lista, utvärderingsversion och BYOL
 
-Utgivare kan utnyttja publiceringsalternativen lista, utvärderingsversion och BYOL för marknadsförings- och användarförvärv. Med dessa alternativ deltar Microsoft inte direkt i utgivarens programvarulicenstransaktioner och det finns ingen associerad transaktionsavgift. Utgivare ansvarar för att stödja alla aspekter av programvarulicenstransaktionen, inklusive men inte begränsat till: order, uppfyllelse, mätning, fakturering, fakturering, betalning och insamling. Med alternativen för lista och provpublicering behåller utgivarena 100 % av licensavgifterna för utgivare av programvara som samlas in från kunden. 
+Utgivare med befintliga handelsfunktioner kan välja publiceringsalternativ för lista, utvärderingsversion och medlaga licenser (BYOL) för marknadsförings- och användarförvärv. Med dessa alternativ deltar Microsoft inte direkt i utgivarens programvarulicenstransaktioner och det finns ingen associerad transaktionsavgift. Utgivare ansvarar för att stödja alla aspekter av programvarulicenstransaktionen, inklusive men inte begränsat till: order, uppfyllelse, mätning, fakturering, fakturering, betalning och insamling. Med alternativen för lista och provpublicering behåller utgivarena 100 % av licensavgifterna för utgivare av programvara som samlas in från kunden.
 
 ### <a name="transact-publishing-option"></a>Alternativ för transact-publicering
 
-Förutom alternativen för lista och utvärderingspublicering är alternativet för visning av transaktering tillgängligt för utgivare. Detta utnyttjar Microsofts globalt tillgängliga handelsfunktioner och gör det möjligt för Microsoft att vara värd för molnmarknadsplatstransaktioner på uppdrag av utgivaren.
+Alternativet för transact-publicering drar nytta av Microsofts handelsfunktioner och ger en heltäckande upplevelse från identifiering och utvärdering till inköp och implementering. Transact-erbjudanden faktureras mot en befintlig Microsoft-prenumeration eller ett kreditkort, vilket gör att Microsoft kan vara värd för molnmarknadsplatstransaktioner för utgivarens räkning.
+
+Du väljer alternativet verkställ när du skapar ett nytt erbjudande i Partnercenter. På **inställningssidan för Erbjudande** under **Inställningsinformation**väljer du "Ja, jag vill sälja via Microsoft och ha Microsoft-värdtransaktioner för min räkning". Det här alternativet visas bara om transact är tillgängligt för din erbjudandetyp.
 
 ## <a name="transact-general-overview"></a>Transact allmän översikt
 
@@ -42,26 +43,23 @@ När du använder alternativet för transactpublicering möjliggör Microsoft f�
 
 Alternativet Transact-publicering stöds för närvarande för följande erbjudandetyper: virtuella datorer, Azure-program och SaaS-appar.
 
-
-![[Handla om företagserbjudanden på Azure Marketplace]](./media/marketplace-publishers-guide/Transact-enterprise-deals.png)
-
 ### <a name="billing-infrastructure-costs"></a>Kostnader för faktureringsinfrastruktur
 
 **För virtuella datorer och Azure-program**
 
-För virtuella datorer och Azure-program debiteras azure-infrastrukturanvändningsavgifterna till kundens Azure-prenumeration.  Infrastrukturanvändningsavgifter prissätts och presenteras separat från programvaruleverantörens licensavgifter på kundens faktura.
+För virtuella datorer och Azure-program debiteras azure-infrastrukturanvändningsavgifterna till kundens Azure-prenumeration. Infrastrukturanvändningsavgifter prissätts och presenteras separat från programvaruleverantörens licensavgifter på kundens faktura.
 
 **För SaaS-appar**
 
-För SaaS-appar måste utgivaren ta hänsyn till azure-infrastrukturanvändningsavgifter och programvarulicensavgifter som en enda kostnadspost.  Det representeras som en fast avgift för kunden. Azure-infrastrukturanvändningen hanteras och faktureras direkt till partnern.  Faktiska infrastrukturanvändningsavgifter ses inte av kunden.  Utgivare väljer vanligtvis att paketera Azure-infrastrukturanvändningsavgifter i sina priser för programvarulicenser.  Licensavgifter för programvara mäts inte eller baseras på förbrukning.
+För SaaS-appar måste utgivaren ta hänsyn till azure-infrastrukturanvändningsavgifter och programvarulicensavgifter som en enda kostnadspost.  Det representeras som en fast avgift för kunden. Azure-infrastrukturanvändningen hanteras och faktureras direkt till partnern. Faktiska infrastrukturanvändningsavgifter ses inte av kunden. Utgivare väljer vanligtvis att paketera Azure-infrastrukturanvändningsavgifter i sina priser för programvarulicenser. Licensavgifter för programvara mäts inte eller baseras på förbrukning.
 
 ## <a name="transact-billing-models"></a>Handla faktureringsmodeller
 
 Beroende på vilket transaktionsalternativ som används kan utgivarens licensavgifter för programvara visas på följande sätt:  
 
-* Gratis: Ingen avgift för programvarulicenser. 
+* Gratis: Ingen avgift för programvarulicenser.
 
-* Ta med egen licens (BYOL): Eventuella tillämpliga avgifter för programvarulicenser hanteras direkt mellan utgivaren och kunden. Microsoft skickar endast igenom användningsavgifter för Azure-infrastruktur. (Endast virtuella datorer och Azure-program.)
+* Ta med egen licens (BYOL): Eventuella tillämpliga avgifter för programvarulicenser hanteras direkt mellan utgivaren och kunden. Microsoft skickar endast igenom användningsavgifter för Azure-infrastruktur. Detta gäller endast virtuella datorer och Azure-program.
 
 * Betala per användning: Programvarulicensavgifter presenteras som en pris för per timme, per kärna (vCPU) baserat på den Azure-infrastruktur som används. Detta gäller endast virtuella datorer och Azure-program.
 
@@ -71,14 +69,13 @@ Beroende på vilket transaktionsalternativ som används kan utgivarens licensavg
 
 ### <a name="free-and-bring-your-own-license-byol-pricing"></a>Gratis och bring-your-own-license (BYOL) prissättning
 
-När Microsoft publicerar ett kostnadsfritt eller erbjudande om att ta med dig en egen licens spelar microsoft ingen roll när det gäller att underlätta försäljningstransaktionen för dina licensavgifter för programvara. Precis som list- och utvärderingspubliceringsalternativen behåller utgivaren 100 % av programvarulicensavgifterna. 
+När Microsoft publicerar ett kostnadsfritt eller erbjudande om att ta med dig en egen licens spelar microsoft ingen roll när det gäller att underlätta försäljningstransaktionen för dina licensavgifter för programvara. Precis som list- och utvärderingspubliceringsalternativen behåller utgivaren 100 % av programvarulicensavgifterna.
 
 ### <a name="pay-as-you-go-and-subscription-site-based-pricing"></a>Priser för användningsbaserad betalning och prenumeration (webbplatsbaserad)
 
 När Microsoft publicerar ett erbjudande om betalnings- eller prenumerationstransaktioner tillhandahåller microsoft teknik och tjänster för att behandla inköp, returer och återbetalningar av programvarulicenser. I det här fallet tillåter utgivaren Microsoft att fungera som en agent för dessa ändamål. Utgivaren tillåter Microsoft att underlätta licenstransaktionen för programvara, samtidigt som de behåller sin beteckning som säljare, leverantör, distributör och licensgivare.
 
-Microsoft gör det möjligt för kunder att beställa, licensiera och använda utgivarprogramvara, med förbehåll för villkoren för både Microsofts kommersiella Marketplace och utgivarens licensavtal för slutanvändare. Utgivare måste tillhandahålla sitt licensavtal för slutanvändare eller välja [standardkontraktet](https://docs.microsoft.com/azure/marketplace/standard-contract) när de skapar erbjudandet.
-
+Microsoft gör det möjligt för kunder att beställa, licensiera och använda utgivarprogramvara, med förbehåll för villkoren för både Microsofts kommersiella Marketplace och utgivarens licensavtal för slutanvändare. Utgivare måste tillhandahålla sitt licensavtal för slutanvändare eller välja [standardkontraktet](./standard-contract.md) när de skapar erbjudandet.
 
 ### <a name="free-software-trials"></a>Testversioner av fri programvara
 
@@ -162,7 +159,7 @@ Kunder kan också betala med kreditkort och månadsfaktura. I det här fallet de
 
 Om kunden till exempel köper med kreditkort:
 
-|Beskrivning    |    Datum  |
+|Beskrivning    |    Date  |
 |----------|----------|
 |Orderperiod   | 15 augusti 2018 - 30 augusti 2018 |
 |Terminsslut (månad)   | 30 augusti 2018 |
@@ -176,7 +173,7 @@ Om kunden till exempel köper med kreditkort:
 
 Om kunden köper med ett enterprise-avtal:
 
-| Beskrivning |    Datum  |
+| Beskrivning |    Date  |
 |----------|----------|
 |Orderperiod | 15 augusti 2018 - 30 augusti 2018 |
 |Löptidsslut (kvartal) | den 30 september 2018 |
@@ -204,7 +201,7 @@ När prissättningsmodeller för prenumerationer eller användningsbaserad betal
 
 * Kunder köper vanligtvis med enterprise-avtalet eller ett kreditkort aktiverat pay-as-you-go-avtal. Avtalstypen bestämmer fakturering, fakturering, insamling och utbetalningstid.
 
->[!NOTE] 
+>[!NOTE]
 >All rapportering och insikter för alternativet för transactpublicering är tillgängliga via avsnittet Insikter i avsnittet Cloud Partner Portal eller Analytics i Partner center.
 
 #### <a name="billing-questions-and-support"></a>Faktureringsfrågor och support
@@ -219,15 +216,14 @@ De transactkrav för olika erbjudandetyper behandlas i detta avsnitt.
 
 ### <a name="requirements-for-all-offer-types"></a>Krav för alla erbjudandetyper
 
-- Ett Microsoft-konto och ekonomisk information krävs för alternativet för transact-publicering, oavsett erbjudandets prismodell.
-- Obligatorisk finansiell information inkluderar utbetalningskonto och skatteprofil.
+* Ett Microsoft-konto och ekonomisk information krävs för alternativet för transact-publicering, oavsett erbjudandets prismodell.
+* Obligatorisk finansiell information inkluderar utbetalningskonto och skatteprofil.
 
-Mer information om hur du konfigurerar dessa konton finns i [Hantera ditt partnercenterkonto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account)).
-
+Mer information om hur du konfigurerar dessa konton finns [i Hantera ditt kommersiella marketplace-konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account)).
 
 ### <a name="requirements-for-specific-offer-types"></a>Krav för specifika erbjudandetyper
 
-Alternativet för transact-publicering är endast tillgängligt för användning med följande typer av marketplace-erbjudanden: 
+Alternativet för transact-publicering är endast tillgängligt för användning med följande typer av marketplace-erbjudanden:
 
 **Virtuell dator** 
 

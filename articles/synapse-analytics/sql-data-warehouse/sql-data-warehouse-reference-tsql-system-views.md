@@ -11,12 +11,12 @@ ms.date: 01/06/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 104b377d9a1318a7320ea382580aaeedf9ac25f9
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: d673c5afcaece9b1cfe50d800ea9eeca96532ae8
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745155"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411623"
 ---
 # <a name="system-views-supported-in-synapse-sql-pool"></a>Systemvyer som stöds i Synapse SQL-pool
 
@@ -150,16 +150,16 @@ Följande DMVs är tillämpliga på Synapse SQL-pool, men måste **master** kör
 * [sys.typer](/sql/relational-databases/system-catalog-views/sys-types-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.views](/sql/relational-databases/system-catalog-views/sys-views-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-## <a name="sql-server-dmvs-available-in-synapse-sql-pool"></a>SQL Server DMVs finns i Synapse SQL-pool
+## <a name="sql-server-dmvs-available-in-sql-pool"></a>SQL Server DMVs finns i SQL-pool
 
-Synapse SQL-pool exponerar många av SQL Server dynamiska hanteringsvyer (DMVs). Dessa vyer, när de efterfrågas i Synapse SQL-pool, rapporterar tillståndet för SQL-databaser som körs på distributionerna.
+SQL-poolen visar många av SQL Server dynamiska hanteringsvyer (DMVs). Dessa vyer, när de efterfrågas i SQL-pool, rapporterar tillståndet för SQL-databaser som körs på distributionerna.
 
 Synapse SQL-pool och PDW (Parallel Data Warehouse) använder samma systemvyer. Varje DMV har en kolumn som kallas pdw_node_id, som är identifieraren för beräkningsnoden.
 
 > [!NOTE]
 > Om du vill använda dessa vyer infogar du "pdw_nodes_" i namnet, som visas i följande tabell:
 
-| DMV-namn i Synapse SQL-pool | SQL Server Transact-SQL-artikel|
+| DMV-namn i SQL-pool | SQL Server Transact-SQL-artikel|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)|
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)|
@@ -221,9 +221,9 @@ Synapse SQL-pool och PDW (Parallel Data Warehouse) använder samma systemvyer. V
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-session-transactions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-top-version-generators-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |
 
-## <a name="sql-server-2016-polybase-dmvs-available-in-synapse-sql-pool"></a>SQL Server 2016 PolyBase DMVs finns i Synapse SQL-pool
+## <a name="sql-server-2016-polybase-dmvs-available-in-sql-pool"></a>SQL Server 2016 PolyBase DMVs finns i SQL-pool
 
-Följande DMVs är tillämpliga på Synapse SQL-pool, men måste **master** köras genom att ansluta till huvuddatabasen.
+Följande DMVs är tillämpliga på SQL-pool, men måste **master** köras genom att ansluta till huvuddatabasen.
 
 * [sys.dm_exec_compute_node_errors](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-compute-node-errors-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_exec_compute_node_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-compute-node-status-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

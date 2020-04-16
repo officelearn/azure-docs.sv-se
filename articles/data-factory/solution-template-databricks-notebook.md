@@ -1,5 +1,5 @@
 ---
-title: Omvandling med Azure Databricks
+title: Transformering med Azure Databricks
 description: Lär dig hur du använder en lösningsmall för att omvandla data med hjälp av en Databricks-anteckningsbok i Azure Data Factory.
 services: data-factory
 ms.author: abnarain
@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/03/2020
-ms.openlocfilehash: 9a05b09f958d741fa56c586fbc7f5c5908dbbce6
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 65b89a13637f5a4e1712995a6ac58d88b4421806
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384389"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414853"
 ---
-# <a name="transformation-with-azure-databricks"></a>Omvandling med Azure Databricks
+# <a name="transformation-with-azure-databricks"></a>Transformering med Azure Databricks
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här självstudien skapar du en end-to-end-pipeline som innehåller **aktiviteterna Verifiering,** **Kopiera data**och **Anteckningsbok** i Azure Data Factory.
 

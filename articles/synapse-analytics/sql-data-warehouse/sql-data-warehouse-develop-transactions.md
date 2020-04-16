@@ -10,13 +10,12 @@ ms.subservice: ''
 ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: d9578653ff8074fee8336df447caf119f79febe0
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 558b16fc348728c507af1fa0260a67ccacefed0f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80745267"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416151"
 ---
 # <a name="use-transactions-in-synapse-sql-pool"></a>Använda transaktioner i Synapse SQL-pool
 
@@ -45,7 +44,7 @@ I följande tabell har två antaganden gjorts:
 
 ## <a name="gen2"></a>Gen2 (På andra)
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | Tak per fördelning (GB) | Antal fördelningar | MAX transaktionsstorlek (GB) | # Rader per fördelning | Max rader per transaktion |
+| [DWU](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Tak per fördelning (GB) | Antal fördelningar | MAX transaktionsstorlek (GB) | # Rader per fördelning | Max rader per transaktion |
 | --- | --- | --- | --- | --- | --- |
 | DW100c (på andra) |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200c (på andra) |1.5 |60 |90 |6,000,000 |360,000,000 |
@@ -66,7 +65,7 @@ I följande tabell har två antaganden gjorts:
 
 ## <a name="gen1"></a>Gen1 (På andra)
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | Tak per fördelning (GB) | Antal fördelningar | MAX transaktionsstorlek (GB) | # Rader per fördelning | Max rader per transaktion |
+| [DWU](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Tak per fördelning (GB) | Antal fördelningar | MAX transaktionsstorlek (GB) | # Rader per fördelning | Max rader per transaktion |
 | --- | --- | --- | --- | --- | --- |
 | DW100 (PÅ) |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200 (PÅ) |1.5 |60 |90 |6,000,000 |360,000,000 |

@@ -9,14 +9,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 423706c391e8d8c2c609798d9f50e5a22f5c39bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1f11a1ff25117c07e61475e7e83fc0c170cd552
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79260688"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414652"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Filformat och komprimeringskoder som stöds i Azure Data Factory (äldre)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 *Den här artikeln gäller följande kopplingar: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), File [System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md)och [SFTP](connector-sftp.md).*
 
@@ -34,7 +36,7 @@ Om du vill läsa från en textfil eller skriva `type` till `format` en textfil a
 | --- | --- | --- | --- |
 | columnDelimiter |Det tecken som används för att avgränsa kolumner i en fil. Du kan överväga att använda ett sällsynt oskrivbart tecken som kanske inte finns i dina data. Ange till exempel "\u0001", som representerar Början av rubrik (SOH). |Endast ett tecken är tillåtet. **Standardvärdet** är **kommatecken (,)**. <br/><br/>Om du vill använda ett Unicode-tecken läser du [Unicode-tecken](https://en.wikipedia.org/wiki/List_of_Unicode_characters) för att hämta motsvarande kod för det. |Inga |
 | rowDelimiter |Det tecken som används för att avgränsa rader i en fil. |Endast ett tecken är tillåtet. **Standardvärdet** är något av följande värden vid läsning: **["\r\n", "\r", "\n"]** och **"\r\n"** vid skrivning. |Inga |
-| escapeChar |Det specialtecken som används för att undanta en kolumnavgränsare i innehållet i indatafilen. <br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Exempel: Om du använder kommatecken (,) som kolumnavgränsare, men vill använda ett kommatecken i texten (till exempel: "Hello, world") kan du definiera "$" som escape-tecken och använda strängen "$Hello, world" i källan. |Inga |
+| escapeChar |Det specialtecken som används för att undanta en kolumnavgränsare i innehållet i indatafilen. <br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Exempel: om du har kommatecken (',') som kolumn avgränsare men du vill ha kommatecknet i texten (exempel: "Hej, världen"), kan du definiera '$' som escape-tecken och använda strängen "Hej$, världen" i källan. |Inga |
 | quoteChar |Det tecken som används för att referera till ett strängvärde. Kolumn- och radavgränsarna innanför citattecknen behandlas som en del av strängvärdet. Den här egenskapen gäller både in- och utdatauppsättningar.<br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Om du till exempel använder kommatecken (,) som kolumnavgränsare, men vill använda ett kommatecken i texten (till exempel <Hello, world>), kan du definiera " (dubbla citattecken) som citattecknet och använda strängen "Hello, world" i källan. |Inga |
 | nullValue |Ett eller flera tecken som används för att representera ett null-värde. |Ett eller flera tecken. **Standardvärdena** är **"\N" och "NULL"** vid läsning och **"\N"** vid skrivning. |Inga |
 | encodingName |Ange kodningsnamnet. |Ett giltigt kodningsnamn. Se [Egenskapen Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exempel: windows-1250 or shift_jis. **Standardvärdet** är **UTF-8**. |Inga |
@@ -443,7 +445,7 @@ Exempel: ange `_JAVA_OPTIONS` variabel `-Xms256m -Xmx16g`med värde . Flaggan `X
 
 | Data fabrik interim datatyp | Parkett primitiv typ | Parkett originaltyp (Deserialize) | Parkett originaltyp (serialisera) |
 |:--- |:--- |:--- |:--- |
-| Boolean | Boolean | Ej tillämpligt | Ej tillämpligt |
+| Boolesk | Boolesk | Ej tillämpligt | Ej tillämpligt |
 | SByte (SByte) | Int32 | Int8 (int8) | Int8 (int8) |
 | Byte | Int32 | UInt8 (på andra) | Int16 (int16) |
 | Int16 (int16) | Int32 | Int16 (int16) | Int16 (int16) |
@@ -455,7 +457,7 @@ Exempel: ange `_JAVA_OPTIONS` variabel `-Xms256m -Xmx16g`med värde . Flaggan `X
 | Enkel | Float (Flyttal) | Ej tillämpligt | Ej tillämpligt |
 | Double | Double | Ej tillämpligt | Ej tillämpligt |
 | Decimal | Binär | Decimal | Decimal |
-| String | Binär | Utf8 (olika) | Utf8 (olika) |
+| Sträng | Binär | Utf8 (olika) | Utf8 (olika) |
 | DateTime | Int96 (int96) | Ej tillämpligt | Ej tillämpligt |
 | TimeSpan | Int96 (int96) | Ej tillämpligt | Ej tillämpligt |
 | DateTimeOffset | Int96 (int96) | Ej tillämpligt | Ej tillämpligt |
@@ -496,7 +498,7 @@ För kopiering som körs på Självvärd iR med ORC-fil serialisering /deseriali
 
 | Data fabrik interim datatyp | ORC-typer |
 |:--- |:--- |
-| Boolean | Boolean |
+| Boolesk | Boolesk |
 | SByte (SByte) | Byte |
 | Byte | Kort |
 | Int16 (int16) | Kort |
@@ -504,16 +506,16 @@ För kopiering som körs på Självvärd iR med ORC-fil serialisering /deseriali
 | Int32 | Int |
 | UInt32 (Storbritannien) | Lång |
 | Int64 | Lång |
-| UInt64 (storbritannien) | String |
+| UInt64 (storbritannien) | Sträng |
 | Enkel | Float (Flyttal) |
 | Double | Double |
 | Decimal | Decimal |
-| String | String |
+| Sträng | Sträng |
 | DateTime | Tidsstämpel |
 | DateTimeOffset | Tidsstämpel |
 | TimeSpan | Tidsstämpel |
 | Bytearray | Binär |
-| GUID | String |
+| GUID | Sträng |
 | Char | Tecken(1) |
 
 ## <a name="avro-format-legacy"></a><a name="avro-format"></a>AVRO-format (äldre)
@@ -530,7 +532,7 @@ Om du vill parsa Avro-filerna eller skriva data i Avro-format anger du egenskape
 }
 ```
 
-Om du vill använda Avro-formatet i en Hive-tabell går du [självstudiekursen om Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+Om du vill använda Avro-format i en Hive-tabell kan du referera till [Apache Hives handledning](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
 Observera följande punkter:
 

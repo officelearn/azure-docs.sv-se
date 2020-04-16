@@ -1,25 +1,26 @@
 ---
-title: Azure Event Grid Azure SignalR-händelseschema
+title: Azure SingnalR som källa för händelserutnät
 description: Beskriver de egenskaper som tillhandahålls för Azure SignalR-händelser med Azure Event Grid
 services: event-grid
-author: chenyl
+author: banisadr
 ms.service: event-grid
-ms.topic: reference
-ms.date: 06/11/2019
-ms.author: chenyl
-ms.openlocfilehash: 3b072ff2b680ad6d144c7441190ab2df9870f5d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: babanisa
+ms.openlocfilehash: 730d1a7a053ab636c45313dd0c35a537434eb782
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67789077"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393400"
 ---
 # <a name="azure-event-grid-event-schema-for-signalr-service"></a>Azure Event Grid-händelseschema för SignalR-tjänsten
 
-Den här artikeln innehåller egenskaper och schema för SignalR-tjänsthändelser.En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](event-schema.md).
+Den här artikeln innehåller egenskaper och schema för SignalR-tjänsthändelser.En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](event-schema.md). Det ger dig också en lista över snabbstarter och självstudier för att använda Azure SignalR som en händelsekälla.
 
+## <a name="event-grid-event-schema"></a>Händelseschema för händelserutnät
 
-## <a name="available-event-types"></a>Tillgängliga händelsetyper
+### <a name="available-event-types"></a>Tillgängliga händelsetyper
 
 SignalR-tjänsten avger följande händelsetyper:
 
@@ -28,7 +29,7 @@ SignalR-tjänsten avger följande händelsetyper:
 | Microsoft.SignalRService.clientConnectionConnected | Utlöses när en klientanslutning är ansluten. |
 | Microsoft.SignalRService.clientConnectionDisconnected | Utlöses när en klientanslutning kopplades från. |
 
-## <a name="example-event"></a>Exempel händelse
+### <a name="example-event"></a>Exempel händelse
 
 I följande exempel visas schemat för en klientanslutningsansluten händelse: 
 
@@ -71,7 +72,7 @@ Schemat för en klientanslutning frånkopplad händelse är liknande:
 }]
 ```
 
-## <a name="event-properties"></a>Händelseegenskaper
+### <a name="event-properties"></a>Händelseegenskaper
 
 En händelse har följande data på den högsta nivån:
 
@@ -95,6 +96,12 @@ Dataobjektet har följande egenskaper:
 | connectionId | sträng | Den unika identifieraren för klientanslutningen. |
 | userId | sträng | Användaridentifieraren som definierats i anspråk. |
 | Errormessage | sträng | Felet som gör att anslutningen kopplas från. |
+
+## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
+|Titel | Beskrivning |
+|---------|---------|
+| [Reagera på Azure SignalR-tjänsthändelser med hjälp av Event Grid](../azure-signalr/signalr-concept-event-grid-integration.md) | Översikt över integrering av Azure SignalR-tjänsten med Event Grid. |
+| [Så här skickar du Azure SignalR-tjänsthändelser till Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Visar hur du skickar Azure SignalR-tjänsthändelser till ett program via Event Grid. |
 
 ## <a name="next-steps"></a>Nästa steg
 

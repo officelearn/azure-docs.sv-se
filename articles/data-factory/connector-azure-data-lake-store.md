@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: a8ba8b212a504a8f8e4e29fbd50126189998e81a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61bb8fe950de8cd9be91bc76bd24aa0151f3fb79
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80065471"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415416"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Kopiera data till eller från Azure Data Lake Storage Gen1 med Azure Data Factory
 
 > [!div class="op_single_selector" title1="Välj den version av Azure Data Factory som du använder:"]
 > * [Version 1](v1/data-factory-azure-datalake-connector.md)
 > * [Aktuell version](connector-azure-data-lake-store.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs hur du kopierar data till och från Azure Data Lake Storage Gen1. Mer information om Azure Data Factory finns i den [inledande artikeln](introduction.md).
 
@@ -45,7 +47,7 @@ Med den här kontakten kan du:
 > [!IMPORTANT]
 > Om du kopierar data med hjälp av den självvärderade integrationskörningen `<ADLS account name>.azuredatalakestore.net` `login.microsoftonline.com/<tenant>/oauth2/token` konfigurerar du företagsbrandväggen så att utgående trafik tillåts till och på port 443. Den senare är Azure Security Token Service som integrationen körtid måste kommunicera med för att få åtkomsttoken.
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
 > [!TIP]
 > En genomgång av hur du använder Azure Data Lake Store-kopplingen finns [i Läsa in data i Azure Data Lake Store](load-azure-data-lake-store.md).

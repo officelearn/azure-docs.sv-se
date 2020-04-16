@@ -2,13 +2,13 @@
 title: Introduktion till tillförlitliga samlingar
 description: Service Fabric tillståndskänsliga tjänster ger tillförlitliga samlingar som gör att du kan skriva mycket tillgängliga, skalbara och låg latens molnprogram.
 ms.topic: conceptual
-ms.date: 1/3/2019
-ms.openlocfilehash: 48fa682f4c017f66911729e1f581f3aa91cdc28d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 3/10/2020
+ms.openlocfilehash: 78ecc57a4da43bf416839226253e6d0e2f4c1651
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75609731"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398435"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introduktion till tillförlitliga samlingar i Azure Service Fabric tillståndskänsliga tjänster
 
@@ -24,10 +24,9 @@ Den viktigaste skillnaden mellan tillförlitliga samlingar och andra tekniker me
 Tillförlitliga samlingar kan ses som den naturliga utvecklingen av **System.Collections** klasser: en ny uppsättning samlingar som är utformade för molnet och flera datorprogram utan att öka komplexiteten för utvecklaren. Som sådan, Tillförlitliga samlingar är:
 
 * Replikerad: Tillståndsändringar replikeras för hög tillgänglighet.
-* Beständig: Data sparas på disken för hållbarhet mot storskaliga avbrott (till exempel ett strömavbrott i datacenter).
-* Eftersom skrivningar sparas och replikeras kan du inte skapa en flyktig ReliableDictionary, ReliableQueue eller annan tillförlitlig samling som bara finns kvar i minnet.
 * Asynkrona: API:er är asynkrona för att säkerställa att trådar inte blockeras när de ådrar sig IO.
 * Transaktionell: API:er använder abstraktion av transaktioner så att du enkelt kan hantera flera tillförlitliga samlingar inom en tjänst.
+* Beständig eller flyktig: Data kan sparas på disken för hållbarhet mot storskaliga avbrott (till exempel ett datacenteravbrott). Vissa tillförlitliga samlingar stöder också ett flyktigt läge (med [varningar)](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections)där alla data lagras i minnet, till exempel en replikerad cacheminnet i minnet.
 
 Tillförlitliga samlingar ger starka konsekvensgarantier direkt för att göra resonemanget om programtillstånd enklare.
 Stark konsekvens uppnås genom att säkerställa att transaktionsförseringar slutförs först efter att hela transaktionen har loggats på en majoritet kvorum av repliker, inklusive den primära.
@@ -51,11 +50,11 @@ Idag innehåller **Microsoft.ServiceFabric.Data.Collections** tre samlingar:
 * [Arbeta med Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Transaktioner och lås](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Hantera data
-  * [Säkerhetskopiera och återställ](service-fabric-reliable-services-backup-restore.md)
+  * [Säkerhetskopiera och återställa](service-fabric-reliable-services-backup-restore.md)
   * [Meddelanden](service-fabric-reliable-services-notifications.md)
   * [Reliable Collection-serialisering](service-fabric-reliable-services-reliable-collections-serialization.md)
   * [Serialisering och uppgradering](service-fabric-application-upgrade-data-serialization.md)
   * [Tillförlitlig tillståndshanterare konfiguration](service-fabric-reliable-services-configuration.md)
 * Andra
-  * [Snabbstart för Tillförlitliga tjänster](service-fabric-reliable-services-quick-start.md)
+  * [Snabbstart för tillförlitliga tjänster](service-fabric-reliable-services-quick-start.md)
   * [Utvecklarreferens för tillförlitliga samlingar](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

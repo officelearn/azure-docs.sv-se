@@ -3,19 +3,19 @@ title: Vad är Speech Service?
 titleSuffix: Azure Cognitive Services
 description: Taltjänsten är enandet av tal-till-text- och text-till-tal- och talöversättning till en enda Azure-prenumeration. Lägg till tal i dina program, verktyg och enheter med Tal-SDK-, Talenheter SDK- eller REST-API:erna.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
 ms.date: 03/12/2020
-ms.author: dapine
-ms.openlocfilehash: 353e66c2d4ebb288244866b12a32e9acb7c765e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.author: trbye
+ms.openlocfilehash: 464e21caf3105b12f0fbf44dc2aa3674a252d3c6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371557"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81401025"
 ---
 # <a name="what-is-the-speech-service"></a>Vad är Speech Service?
 

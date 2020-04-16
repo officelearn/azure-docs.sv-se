@@ -4,15 +4,15 @@ description: Beskriver hur du använder REST-API:ET för Azure Analysis Services
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6457f062a40e60a491220fcf977585e8b07445b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c5f6cec8b7fd1169a4f04649fcaf7bb7ada33833
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273723"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406293"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynkron uppdatering med REST API
 
@@ -208,8 +208,8 @@ Här är ett C#-kodexempel för att komma igång, [RestApiSample på GitHub](htt
 
 ### <a name="to-use-the-code-sample"></a>Så här använder du kodexemplet
 
-1.  Klona eller ladda ner repo. Öppna RestApiSample-lösningen.
-2.  Hitta **linjeklienten. BaseAddress = ...** och ange din [bas-URL](#base-url).
+1.    Klona eller ladda ner repo. Öppna RestApiSample-lösningen.
+2.    Hitta **linjeklienten. BaseAddress = ...** och ange din [bas-URL](#base-url).
 
 Kodexemplet använder [autentisering av tjänstens huvudnamn.](#service-principal)
 
@@ -217,14 +217,14 @@ Kodexemplet använder [autentisering av tjänstens huvudnamn.](#service-principa
 
 Se [Skapa tjänsthuvudnamn - Azure-portalen](../active-directory/develop/howto-create-service-principal-portal.md) och [Lägg till ett tjänsthuvudnamn till serveradministratörsrollen](analysis-services-addservprinc-admins.md) för mer information om hur du konfigurerar ett tjänsthuvudnamn och tilldelar nödvändiga behörigheter i Azure AS. När du har slutfört stegen gör du följande ytterligare steg:
 
-1.  I kodexemplet letar du reda på **strängutfärdaren = ...**, **ersätter vanligt** med organisationens klient-ID.
-2.  Kommentar/avkommentar så klassen ClientCredential används för att instansiera cred-objektet. Kontrollera \<att app-ID-> och \<App Key> värden används på ett säkert sätt eller använd certifikatbaserad autentisering för tjänsthuvudnamn.
-3.  Kör exemplet.
+1.    I kodexemplet letar du reda på **strängutfärdaren = ...**, **ersätter vanligt** med organisationens klient-ID.
+2.    Kommentar/avkommentar så klassen ClientCredential används för att instansiera cred-objektet. Kontrollera \<att app-ID-> och \<App Key> värden används på ett säkert sätt eller använd certifikatbaserad autentisering för tjänsthuvudnamn.
+3.    Kör exemplet.
 
 
 ## <a name="see-also"></a>Se även
 
 [Prover](analysis-services-samples.md)   
-[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
+[REST-API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
 
 

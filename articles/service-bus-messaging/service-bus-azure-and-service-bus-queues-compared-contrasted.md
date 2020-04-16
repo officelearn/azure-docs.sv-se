@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 09/04/2019
 ms.author: aschhab
-ms.openlocfilehash: 8379b7f48e7e494370f3fdba81676d34821d7b6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ffa98e511053edc75fd0e6f25f7b0e21ee9ddda0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75563385"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414537"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Storage-köer och Service Bus-köer – jämförelser och skillnader
 I den här artikeln analyseras skillnaderna och likheterna mellan de två typerna av köer som erbjuds av Microsoft Azure idag: Lagringsköer och servicebussköer. Genom att använda denna information kan du jämföra och kontrastera respektive teknik och kunna fatta ett mer välgrundat beslut om vilken lösning som bäst uppfyller dina behov.
@@ -57,7 +57,7 @@ Som lösningsarkitekt/utvecklare **bör du överväga att använda Service Bus-k
     - [Autentisera från ett program](authenticate-application.md)
 * Storleken på din kö inte kommer att bli större än 80 GB.
 * Du vill använda standardbaserade meddelandeprotokoll för AMQP 1.0. Mer information om AMQP finns i [Översikt över servicebuss AMQP](service-bus-amqp-overview.md).
-* Du kan föreställa dig en eventuell migrering från köbaserad punkt-till-punkt-kommunikation till ett meddelandeutbytesmönster som möjliggör sömlös integrering av ytterligare mottagare (prenumeranter), som var och en tar emot oberoende kopior av antingen vissa eller alla meddelanden som skickas till kön. Det senare avser den publicerings-/prenumerationsfunktion som tillhandahålls av Service Bus.
+* Du kan föreställa dig en eventuell migrering från köbaserad punkt-till-punkt-kommunikation till ett meddelandeutbytesmönster som möjliggör sömlös integrering av ytterligare mottagare (prenumeranter), som var och en tar emot oberoende kopior av vissa eller alla meddelanden som skickas till kön. Det senare avser den publicerings-/prenumerationsfunktion som tillhandahålls av Service Bus.
 * Din meddelandelösning måste kunna stödja leveransgarantin "Högst en gång" utan att du behöver bygga ytterligare infrastrukturkomponenter.
 * Du vill kunna publicera och använda batchar av meddelanden.
 
@@ -73,7 +73,7 @@ I det här avsnittet jämförs några av de grundläggande köfunktionerna som t
 | Leveransgaranti |**Minst en gång** |**Minst en (med** PeekLock-mottagningsläge - detta är standard) <br/><br/>**Högst en gång** (med mottagningsläge för Mottagning ochdele) <br/> <br/> Läs mer om olika [mottagningslägen](service-bus-queues-topics-subscriptions.md#receive-modes)  |
 | Stöd för atomdrift |**Nej** |**Ja**<br/><br/> |
 | Ta emot beteende |**Icke-blockerande**<br/><br/>(slutförs omedelbart om inget nytt meddelande hittas) |**Blockering med/utan timeout**<br/><br/>(erbjuder långa opinionsundersökningar, eller ["Kometteknik")](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Icke-blockerande**<br/><br/>(endast med hjälp av .NET-hanterat API) |
-| API i push-stil |**Nej** |**Ja**<br/><br/>[OnMessage-](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) och **OnMessage-sessioner** .NET API. |
+| API i push-stil |**Nej** |**Ja**<br/><br/>[QueueClient.OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) och [MessageSessionHandler.OnMessage](/dotnet/api/microsoft.servicebus.messaging.messagesessionhandler.onmessage#Microsoft_ServiceBus_Messaging_MessageSessionHandler_OnMessage_Microsoft_ServiceBus_Messaging_MessageSession_Microsoft_ServiceBus_Messaging_BrokeredMessage__) sessioner .NET API. |
 | Ta emot läge |**Peek & Lease** |**Kika & lås**<br/><br/>**Ta emot & Ta bort** |
 | Exklusivt åtkomstläge |**Leasing-baserade** |**Lås-baserade** |
 | Lånet/låslängden |**30 sekunder (standard)**<br/><br/>**7 dagar (max)** (Du kan förnya eller släppa ett meddelandelån med hjälp av [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API.) |**60 sekunder (standard)**<br/><br/>Du kan förnya ett [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) meddelandelås med RenewLock-API:et. |
@@ -85,7 +85,7 @@ I det här avsnittet jämförs några av de grundläggande köfunktionerna som t
 * Meddelanden i lagringsköer är vanligtvis först-i-första ut, men ibland kan de vara ur funktion. till exempel när meddelandets tidsgräns för synlighet upphör att gälla (till exempel som ett resultat av att ett klientprogram kraschar under bearbetningen). När tidsgränsen för synligheten går ut visas meddelandet igen i kön så att en annan arbetare kan avköna den. Då kan det nyligen synliga meddelandet placeras i kön (som ska uteslutas igen) efter ett meddelande som ursprungligen var enqueued efter det.
 * Det garanterade FIFO-mönstret i Service Bus-köer kräver användning av meddelandesessioner. I händelse av att programmet kraschar när ett meddelande som tas emot i **peek-&-låsläge,** nästa gång en kömottagare accepterar en meddelandesession, börjar det med det misslyckade meddelandet när den har gått in i TTL-perioden (Time-to-Live) nästa gång en kömottagare accepterar en meddelandesession.
 * Lagringsköer är utformade för att stödja standardköscenarier, till exempel frikoppling av programkomponenter för att öka skalbarheten och toleransen för fel, belastningsutjämning och arbetsflöden för byggprocesser.
-* Inkonsekvenser när det gäller meddelandehantering i samband med Service Bus-sessioner kan undvikas genom att använda sessionstillstånd för att lagra programmets tillstånd i förhållande till förloppet för hantering av sessionens meddelandesekvens och genom att använda transaktioner runt lösa mottagna meddelanden och uppdatera sessionstillståndet. Denna typ av konsekvens funktion är ibland märkt *Exakt-Once Processing* i andra leverantörens produkter, men transaktionsfel kommer naturligtvis att orsaka meddelanden som ska levereras och därför termen är inte exakt tillräcklig.
+* Inkonsekvenser när det gäller meddelandehantering i samband med Service Bus-sessioner kan undvikas genom att använda sessionstillstånd för att lagra programmets tillstånd i förhållande till förloppet för hantering av sessionens meddelandesekvens och genom att använda transaktioner runt kvittning av mottagna meddelanden och uppdatera sessionstillståndet. Denna typ av konsekvens funktion är ibland märkt *Exakt-Once Processing* i andra leverantörens produkter, men transaktionsfel kommer naturligtvis att orsaka meddelanden som ska levereras och därför termen är inte exakt tillräcklig.
 * Lagringsköer ger en enhetlig och konsekvent programmeringsmodell över köer, tabeller och BLOBs – både för utvecklare och för driftteam.
 * Service Bus-köer ger stöd för lokala transaktioner i samband med en enda kö.
 * Läget **Ta emot och ta bort** som stöds av Service Bus ger möjlighet att minska antalet meddelanden (och tillhörande kostnader) i utbyte mot sänkt leveranssäkerhet.
@@ -135,8 +135,8 @@ I det här avsnittet jämförs lagringsköer och servicebussköer utifrån [kapa
 | Maximal köstorlek |**500 TB**<br/><br/>(begränsad till en [enda lagringskontokapacitet)](../storage/common/storage-introduction.md#queue-storage) |**1 GB till 80 GB**<br/><br/>(definieras när en kö skapas och [aktivering av partitionering](service-bus-partitioning.md) – se avsnittet "Ytterligare information") |
 | Maximal meddelandestorlek |**64 kB**<br/><br/>(48 KB vid användning av **Base64-kodning)**<br/><br/>Azure stöder stora meddelanden genom att kombinera köer och blobbar – då kan du köa upp till 200 GB för ett enskilt objekt. |**256 KB** eller **1 MB**<br/><br/>(inklusive både huvud och brödtext, maximal huvudstorlek: 64 KB).<br/><br/>Beror på [tjänstnivån](service-bus-premium-messaging.md). |
 | Maximalt meddelande TTL |**Oändlig** (från och med api-version 2017-07-27) |**Tidspan.Max** |
-| Maximalt antal köer |**Unlimited** |**10 000**<br/><br/>(per tjänstnamnområde) |
-| Maximalt antal samtidiga klienter |**Unlimited** |**Unlimited**<br/><br/>(100 samtidig anslutningsgräns gäller endast TCP-protokollbaserad kommunikation) |
+| Maximalt antal köer |**Obegränsat** |**10 000**<br/><br/>(per tjänstnamnområde) |
+| Maximalt antal samtidiga klienter |**Obegränsat** |**Obegränsat**<br/><br/>(100 samtidig anslutningsgräns gäller endast TCP-protokollbaserad kommunikation) |
 
 ### <a name="additional-information"></a>Ytterligare information
 * Service Bus tillämpar köstorleksgränser. Den maximala köstorleken anges när kön skapas och kan ha ett värde mellan 1 och 80 GB. Om köstorleksvärdet som angetts när kön skapas kommer ytterligare inkommande meddelanden att avvisas och ett undantag tas emot av den anropande koden. Mer information om kvoter i Service Bus finns i [Service Bus-kvoter](service-bus-quotas.md).

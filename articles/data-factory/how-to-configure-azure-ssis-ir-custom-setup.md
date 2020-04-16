@@ -11,15 +11,17 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 03/27/2020
-ms.openlocfilehash: d6252b7a0ecce553bc3a1519055375fd4cd034f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 3aabf68b6763e5815a03021cb02683d509c26190
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336193"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415056"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Anpassa inställningarna för en Azure-SSIS Integration Runtime
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Den anpassade installationen för en Azure-SQL Server Integration Services Integration Runtime (Azure-SSIS IR) ger ett gränssnitt för att lägga till egna steg under installationen eller omkonfigureringen av din Azure-SSIS IR. 
 
@@ -32,7 +34,7 @@ Du kan göra anpassade inställningar på din Azure-SSIS IR på något av två s
 Du kan installera både kostnadsfria, olicensierade komponenter och betalda, licensierade komponenter med express- och standardanpassade inställningar. Om du är en oberoende programvaruleverantör (ISV) läser du [Utveckla betalda eller licensierade komponenter för en Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md).
 
 > [!IMPORTANT]
-> Eftersom v2-seriens noder i en Azure-SSIS IR inte är lämpliga för anpassad installation använder du v3-seriens noder i stället. Om du redan använder v2-seriens noder växlar du till v3-seriens noder så snart som möjligt.
+> För att dra nytta av framtida förbättringar rekommenderar vi att du använder v3 eller senare serie noder för din Azure-SSIS IR med anpassad konfiguration.
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 

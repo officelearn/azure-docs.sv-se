@@ -13,14 +13,17 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 5263af2708ee30566e90cdf59ef69f52f76a9d32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 39f758b779e7c4935feab2424be16b829db8e46b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440325"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399520"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Så startar och stoppar du Azure-SSIS Integration Runtime enligt ett schema
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 I den här artikeln beskrivs hur du schemalägger start och stopp av Azure-SSIS Integration Runtime (IR) med hjälp av Azure Data Factory (ADF). Azure-SSIS IR är ADF-beräkningsresurs som är dedikerad för att köra SSIS-paket (SQL Server Integration Services). Köra Azure-SSIS IR har en kostnad som är associerad med det. Därför vill du vanligtvis bara köra din IR när du behöver köra SSIS-paket i Azure och stoppa din IR när du inte behöver det längre. Du kan använda ADF User Interface (UI)/app eller Azure PowerShell för att [manuellt starta eller stoppa din IR](manage-azure-ssis-integration-runtime.md)).
 
 Alternativt kan du skapa webbaktiviteter i ADF-pipelines för att starta/stoppa din IR i tid, till exempel starta den på morgonen innan du kör dina dagliga ETL-arbetsbelastningar och stoppa den på eftermiddagen efter att de är klara.  Du kan också kedja en kör SSIS-paketaktivitet mellan två webbaktiviteter som startar och stoppar din IR, så att din IR startar/stoppas på begäran, precis i tid före/efter att paketkörningen. Mer information om Kör SSIS-paketaktivitet finns i [Kör ett SSIS-paket med Kör SSIS-paketaktivitet i ADF-pipelineartikeln.](how-to-invoke-ssis-package-ssis-activity.md)
@@ -41,7 +44,7 @@ När du har skapat och testat dessa pipelines kan du skapa en schemautlösare oc
 
 Du kan till exempel skapa två utlösare, den första är schemalagd att köras dagligen klockan 6 AM och associeras med den första pipelinen, medan den andra är schemalagd att köras dagligen vid 6 PM och associeras med den andra pipelinen.  På så sätt har du en period mellan 06:00 till 18:00 varje dag när din IR körs, redo att köra dina dagliga ETL-arbetsbelastningar.  
 
-Om du skapar en tredje utlösare som är schemalagd att köras dagligen vid midnatt och associeras med den tredje pipelinen, körs den pipelinen vid midnatt varje dag, startar din IR strax före paketkörningen, kör sedan paketet och omedelbart stoppa din IR strax efter paketkörning, så din IR kommer inte att köras idly.
+Om du skapar en tredje utlösare som är schemalagd att köras dagligen vid midnatt och associeras med den tredje pipelinen, kommer den pipelinen att köras vid midnatt varje dag, starta din IR precis innan paketkörningen, därefter köra ditt paket och omedelbart stoppa din IR strax efter paketkörning, så att din IR inte kommer att köras idly.
 
 ### <a name="create-your-adf"></a>Skapa din ADF
 

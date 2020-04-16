@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: dcb63031e6c033ce2372dc05e588b0f54cb1609f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c61ba0840b75bff10af1d802a9b90c922ef1f12f
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294803"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415875"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduktion till tilläggshanteraren för Azure Desired State Configuration
 
@@ -73,7 +73,7 @@ När du använder DSC-tillägget för att registrera en nod med tjänsten Tillst
 - RegistrationKey - en delad hemlighet som används för att registrera noder med tjänsten
 - NodeConfigurationName - namnet på nodkonfigurationen (MOF) som ska hämtas från tjänsten för att konfigurera serverrollen
 
-Den här informationen kan ses i [Azure-portalen](../../automation/automation-dsc-onboarding.md#onboard-a-vm-using-azure-portal) eller så kan du använda PowerShell.
+Den här informationen kan ses i [Azure-portalen](../../automation/automation-dsc-onboarding.md#onboard-vms-by-using-the-azure-portal) eller så kan du använda PowerShell.
 
 ```powershell
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint

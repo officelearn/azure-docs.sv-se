@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: bf503231248e6573743434335304018f7e1b995d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: cc764170f9dcdd74288e57dbef403c6092dcca2e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74973806"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404468"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-python"></a>Snabbstart: Analysera en fjärravbildning med REST API FÖR datorseende och Python
 
-I den här snabbstarten analyserar du en fjärrbearbetiserad bild för att extrahera visuella funktioner med hjälp av REST-APIN för visuellt innehåll. Med metoden [Analysera bild](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) kan du extrahera visuella funktioner baserat på bildinnehåll.
+I den här snabbstarten analyserar du en fjärrbearbevarad bild för att extrahera visuella funktioner med hjälp av REST-APIN för visuellt innehåll. Med metoden [Analysera bild](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) kan du extrahera visuella funktioner baserat på bildinnehåll.
 
 Du kan köra den här snabbstarten steg för steg med hjälp av en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org). Starta Binder med den här knappen:
 
@@ -171,7 +171,9 @@ Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbsidan t
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska ett Python-program som använder Visuellt innehåll för att utföra optisk teckenläsning (OCR), skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriv visuella funktioner, inklusive ansikten, i en bild. Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Därefter utforska ett Python-program som använder datorseende för att utföra optisk teckenigenkänning (OCR); skapa smartbeskurna miniatyrer. plus identifiera, kategorisera, tagga och beskriva visuella funktioner i bilder.
 
 > [!div class="nextstepaction"]
 > [Självstudie: API för visuellt innehåll med Python](../Tutorials/PythonTutorial.md)
+
+* Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).

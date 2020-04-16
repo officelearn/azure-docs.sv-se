@@ -11,19 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: b3165daa06ed975df9ccb677699d3ceb449327ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b36eb2615e98ee8ea7751c836fd43e81a5a0f4e2
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74941962"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414749"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Flytta filer med Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 I den här artikeln beskrivs en lösningsmall som du kan använda för att flytta filer från en mapp till en annan mellan filbaserade butiker. Ett av de vanligaste scenarierna med att använda den här mallen: Filer släpps kontinuerligt till en landningsmapp i källarkivet. Genom att skapa en schemautlösare kan ADF-pipelinen regelbundet flytta dessa filer från källan till målarkivet.  Det sätt som ADF pipeline uppnår "rörliga filer" är att få filerna från landningsmappen, kopiera var och en av dem till en annan mapp på målarkivet och sedan ta bort samma filer från landningsmappen på källarkivet.
 
 > [!NOTE]
-> Tänk på att den här mallen är utformad för att flytta filer i stället för att flytta mappar.  Om du vill flytta mappen genom att ändra datauppsättningen så att den bara innehåller en mappsökväg och sedan använder kopieringsaktiviteten och ta bort aktiviteten för att referera till samma datauppsättning som representerar en mapp, måste du vara mycket försiktig. Det beror på att du måste se till att det inte kommer nya filer som kommer in i mappen mellan kopiering och borttagning. Om det kommer nya filer till mappen vid den tidpunkt då kopieringsaktiviteten just har slutfört kopieringsjobbet men aktiviteten Ta bort inte har stirrats, är det möjligt att ta bort aktiviteten Tar bort den nya ankommande filen som INTE har kopierats till mål ännu genom att ta bort hela mappen.
+> Tänk på att den här mallen är utformad för att flytta filer i stället för att flytta mappar.  Om du vill flytta mappen genom att ändra datauppsättningen så att den bara innehåller en mappsökväg och sedan använder kopieringsaktiviteten och ta bort aktiviteten för att referera till samma datauppsättning som representerar en mapp, måste du vara mycket försiktig. Det beror på att du måste se till att det inte kommer nya filer som kommer in i mappen mellan kopiering och borttagning. Om det finns nya filer som anländer till mappen vid den tidpunkt då kopieringsaktiviteten just slutfört kopieringsjobbet men aktiviteten Ta bort inte har stirrats, är det möjligt att ta bort aktiviteten Ta bort den nya ankommande filen som INTE har kopierats till målet ännu genom att ta bort hela mappen.
 
 ## <a name="about-this-solution-template"></a>Om den här lösningsmallen
 

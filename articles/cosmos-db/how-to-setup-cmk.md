@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: 6e2a90b8f81b9b945905ee98beb1686c54a62e8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 733a85e492185e7e83922a3cc91d53c848b939a1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063767"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411151"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Konfigurera kundhanterade nycklar för ditt Azure Cosmos-konto med Azure Key Vault
 
@@ -231,7 +231,7 @@ Inte för närvarande, men nycklar på behållarnivå övervägs.
 
 ### <a name="how-do-customer-managed-keys-affect-a-backup"></a>Hur påverkar kundhanterade nycklar en säkerhetskopia?
 
-Azure Cosmos DB tar [regelbundna och automatiska säkerhetskopior](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) av data som lagras i ditt konto. Den här åtgärden säkerhetskopierar krypterade data. Om du vill använda den återställda säkerhetskopian krävs krypteringsnyckeln som du använde vid tidpunkten för säkerhetskopieringen. Detta innebär att ingen återkallelse gjordes och den version av nyckeln som användes vid tidpunkten för säkerhetskopieringen kommer fortfarande att aktiveras.
+Azure Cosmos DB tar [regelbundna och automatiska säkerhetskopior](./online-backup-and-restore.md) av data som lagras i ditt konto. Den här åtgärden säkerhetskopierar krypterade data. Om du vill använda den återställda säkerhetskopian krävs krypteringsnyckeln som du använde vid tidpunkten för säkerhetskopieringen. Detta innebär att ingen återkallelse gjordes och den version av nyckeln som användes vid tidpunkten för säkerhetskopieringen kommer fortfarande att aktiveras.
 
 ### <a name="how-do-i-revoke-an-encryption-key"></a>Hur återkallar jag en krypteringsnyckel?
 

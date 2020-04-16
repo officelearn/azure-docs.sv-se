@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: e51937dfe2afa0e92ce98b4c305555b53896e5f1
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 5e0073bd14744338ff28c9c45193f126a1bba717
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78401782"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81403037"
 ---
 # <a name="quickstart-face-client-library-for-net"></a>Snabbstart: Face-klientbibliotek för .NET
 
@@ -39,12 +39,9 @@ Använd Face-klientbiblioteket för .NET för att:
 
 ### <a name="create-a-face-azure-resource"></a>Skapa en Face Azure-resurs
 
-Azure Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Face med [Azure-portalen](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på din lokala dator. Du kan också:
+Azure Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Face med [Azure-portalen](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på din lokala dator. Du kan också få en [testnyckel](https://azure.microsoft.com/try/cognitive-services/#decision) giltig i sju dagar gratis. När du har registrerat dig är den tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 
-* Få en [testnyckel](https://azure.microsoft.com/try/cognitive-services/#decision) giltig i sju dagar gratis. När du har registrerat dig är den tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-* Visa din resurs på [Azure-portalen](https://portal.azure.com/).
-
-När du har fått en nyckel från utvärderingsprenumerationen eller resursen `FACE_ENDPOINT`skapar du en [miljövariabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel- och slutpunkts-URL:en, med namn `FACE_SUBSCRIPTION_KEY` respektive , respektive.
+När du har fått en nyckel från utvärderingsprenumerationen eller resursen `FACE_ENDPOINT`skapar du [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel- och slutpunkts-URL:en, med namn `FACE_SUBSCRIPTION_KEY` respektive , respektive.
 
 ### <a name="create-a-new-c-application"></a>Skapa ett nytt C#-program
 
@@ -294,7 +291,7 @@ dotnet run
 
 Om du vill rensa och ta bort en Cognitive Services-prenumeration kan du ta bort resursen eller resursgruppen. Om du tar bort resursgruppen tas även alla andra resurser som är associerade bort.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portalen](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 Om du har skapat en **PersonGroup** i den här snabbstarten och vill ta bort den kör du följande kod i programmet:

@@ -5,12 +5,12 @@ description: Lär dig metodtips för klusteroperatören för virtuella nätverks
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: c8aee9967e09d2ae8bec3ee170756d8d22de0fe4
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 1eed6f1f82a8a91b2335760e99ea6b895d15547e
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668210"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392716"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Metodtips för nätverksanslutning och säkerhet i Azure Kubernetes Service (AKS)
 
@@ -43,7 +43,7 @@ När du använder Azure CNI-nätverk finns den virtuella nätverksresursen i en 
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
-Mer information om aks-tjänstens huvuddelegering finns i [Delegera åtkomst till andra Azure-resurser][sp-delegation].
+Mer information om aks-tjänstens huvuddelegering finns i [Delegera åtkomst till andra Azure-resurser][sp-delegation]. I stället för ett tjänsthuvudnamn kan du också använda den systemtilldelade hanterade identiteten för behörigheter. Mer information finns i [Använda hanterade identiteter](use-managed-identity.md).
 
 När varje nod och pod får sin egen IP-adress, planera adressintervallen för AKS-undernäten. Undernätet måste vara tillräckligt stort för att tillhandahålla IP-adresser för varje nod, poddar och nätverksresurser som du distribuerar. Varje AKS-kluster måste placeras i sitt eget undernät. Om du vill tillåta anslutning till lokala eller peer-nätverk i Azure ska du inte använda IP-adressintervall som överlappar befintliga nätverksresurser. Det finns standardgränser för antalet poddar som varje nod körs med både kubenet- och Azure CNI-nätverk. För att hantera utskalning av händelser eller klusteruppgraderingar behöver du också ytterligare IP-adresser som är tillgängliga för användning i det tilldelade undernätet. Det här ytterligare adressutrymmet är särskilt viktigt om du använder Windows Server-behållare (för närvarande i förhandsversion i AKS), eftersom nodpoolerna kräver en uppgradering för att tillämpa de senaste säkerhetskorrigeringarna. Mer information om Windows Server-noder finns [i Uppgradera en nodpool i AKS][nodepool-upgrade].
 

@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: b47c0a87f2b7e4f3fea2d5ed088372cabce2a994
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: b5bb1e80ac7a2a7fca053365b1062df61b2acc03
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77566105"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405138"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-c"></a>Snabbstart: Extrahera tryckt och handskriven text med hjälp av datorseende 2.0 och 2.1 REST API och C #
 
-I den här snabbstarten extraherar du tryckt och/eller handskriven text från en bild med hjälp av REST-APIN för visuellt innehåll. Med metoderna [Batchläsning](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) och [läsåtgärd](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) kan du identifiera text i en bild och extrahera tolkade tecken till en maskinläsbar teckenström. API:et avgör vilken igenkänningsmodell som ska användas för varje textrad, så den stöder bilder med både utskriven och handskriven text.
+I den här snabbstarten extraherar du utskriven och/eller handskriven text från en bild med HJÄLP AV REST-APIN för visuellt innehåll. Med metoderna [Batchläsning](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) och [läsåtgärd](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) kan du identifiera text i en bild och extrahera tolkade tecken till en maskinläsbar teckenström. API:et avgör vilken igenkänningsmodell som ska användas för varje textrad, så den stöder bilder med både utskriven och handskriven text.
 
 Jämfört med Computer Vision 2.0 och 2.1 innehåller Den offentliga förhandsversionen av Computer Vision 3.0:
 

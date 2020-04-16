@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
-ms.openlocfilehash: a6de5c28115d3a451256cc43d26552c269ba245a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: df078673aed60086a88961ff64f9bfa596d96346
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927499"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414085"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Verktyget Kopiera data i Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Azure Data Factory Copy Data-verktyget underlättar och optimerar processen för att inta data i en datasjö, vilket vanligtvis är ett första steg i ett scenario med integrering av data från slutpunkt till slutpunkt.  Det sparar tid, särskilt när du använder Azure Data Factory för att få tillgång till data från en datakälla för första gången. Några av fördelarna med att använda det här verktyget är:
 
 - När du använder azure data fabrikskopieringsdataverktyget behöver du inte förstå Data Factory-definitioner för länkade tjänster, datauppsättningar, pipelines, aktiviteter och utlösare. 

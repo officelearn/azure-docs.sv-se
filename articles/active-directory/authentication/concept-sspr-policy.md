@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fba4dae66b5adcea6cc33e61d8cf88946e29546e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f5987bee82dc22d3742cb5d87040930e5d2c52d
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80051178"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393034"
 ---
 # <a name="self-service-password-reset-policies-and-restrictions-in-azure-active-directory"></a>Principer och begränsningar för återställning av lösenord med självbetjäning i Azure Active Directory
 
@@ -160,16 +160,6 @@ Hämta och [installera Azure AD PowerShell-modulen](https://docs.microsoft.com/p
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följande artiklar innehåller ytterligare information om återställning av lösenord via Azure AD:
+Information om hur du kommer igång med SSPR finns i [Självstudiekurs: Gör det möjligt för användare att låsa upp sitt konto eller återställa lösenord med hjälp av Azure Active Directory självbetjäningslösenordsåterställning](tutorial-enable-sspr.md).
 
-* [Hur gör jag för att slutföra en lyckad distribution av SSPR?](howto-sspr-deployment.md)
-* [Återställ eller ändra ditt lösenord](../user-help/active-directory-passwords-update-your-own-password.md).
-* [Registrera dig för återställning av lösenord för självbetjäning](../user-help/active-directory-passwords-reset-register.md).
-* [Har du en fråga om licensiering?](concept-sspr-licensing.md)
-* [Vilka data används av SSPR och vilka data bör du fylla i för dina användare?](howto-sspr-authenticationdata.md)
-* [Vilka autentiseringsmetoder är tillgängliga för användarna?](concept-sspr-howitworks.md#authentication-methods)
-* [Vad är tillbakaskrivning av lösenord och vad är intresserat med det?](howto-sspr-writeback.md)
-* [Hur gör jag för att rapportera på aktivitet i SSPR?](howto-sspr-reporting.md)
-* [Vad är alla alternativ i SSPR och vad betyder de?](concept-sspr-howitworks.md)
-* [Jag tror att något är trasigt. Hur felsöker jag SSPR?](active-directory-passwords-troubleshoot.md)
-* [Jag har en fråga som inte besvarades någon annanstans](active-directory-passwords-faq.md)
+Om du eller användarna har problem med SSPR läser [du Felsöka återställning av lösenord för självbetjäning](active-directory-passwords-troubleshoot.md)

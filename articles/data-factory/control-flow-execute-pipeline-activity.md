@@ -11,15 +11,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 26dd7c4f33360030b13ddbfc1516396436724c40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4bd667a2302136b5e12d2e4e548c9e8863715621
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75440441"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415285"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Köra pipeline-aktivitet i Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Med aktiviteten Kör pipeline kan en Data Factory-pipeline anropa en annan pipeline.
+
+
 
 ## <a name="syntax"></a>Syntax
 
@@ -61,11 +66,11 @@ Med aktiviteten Kör pipeline kan en Data Factory-pipeline anropa en annan pipel
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Namn på pipeline-aktiviteten. | String | Ja
-typ | Måste ställas in på: **ExecutePipeline**. | String | Ja
+namn | Namn på pipeline-aktiviteten. | Sträng | Ja
+typ | Måste ställas in på: **ExecutePipeline**. | Sträng | Ja
 Rörledning | Pipeline-referens till den beroende pipeline som den här pipelinen anropar. Ett referensobjekt för pipeline har två egenskaper: **referenceName** och **type**. Egenskapen referenceName anger namnet på referenspipelinen. Typegenskapen måste anges till PipelineReference. | PipelineReference | Ja
 parameters | Parametrar som ska skickas till den anropade pipelinen | Ett JSON-objekt som mappar parameternamn till argumentvärden | Inga
-waitOnCompletion | Definierar om aktivitetskörningen väntar på att den beroende pipelinekörningen ska slutföras. Standardvärdet är false. | Boolean | Inga
+waitOnCompletion | Definierar om aktivitetskörningen väntar på att den beroende pipelinekörningen ska slutföras. Standardvärdet är false. | Boolesk | Inga
 
 ## <a name="sample"></a>Exempel
 Det här scenariot har två pipelines:
@@ -256,5 +261,5 @@ Se andra kontrollflödesaktiviteter som stöds av Data Factory:
 
 - [För varje aktivitet](control-flow-for-each-activity.md)
 - [Hämta metadataaktivitet](control-flow-get-metadata-activity.md)
-- [Lookup-aktivitet](control-flow-lookup-activity.md)
+- [Sökningsaktivitet](control-flow-lookup-activity.md)
 - [Webbaktivitet](control-flow-web-activity.md)

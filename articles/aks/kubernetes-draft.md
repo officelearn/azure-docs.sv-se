@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 06/20/2019
 ms.author: zarhoads
-ms.openlocfilehash: 820af2d8ddf03997eea559fbc5270e84f30a805a
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 2d69676121fcb26f7d2f796e6de42435447084cd
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632883"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392751"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>Snabbstart: Utveckla på Azure Kubernetes Service (AKS) med utkast
 
@@ -306,7 +306,7 @@ az group delete --name MyResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> När du tar bort klustret tas Azure Active Directory-tjänstens huvudnamn, som används av AKS-klustret, inte bort. Stegvisa instruktioner om hur du tar bort tjänstens huvudnamn finns i dokumentationen om [viktiga överväganden och borttagning av AKS-tjänsten][sp-delete].
+> När du tar bort klustret tas Azure Active Directory-tjänstens huvudnamn, som används av AKS-klustret, inte bort. Stegvisa instruktioner om hur du tar bort tjänstens huvudnamn finns i dokumentationen om [viktiga överväganden och borttagning av AKS-tjänsten][sp-delete]. Om du har använt en hanterad identitet hanteras identiteten av plattformen och kräver inte borttagning.
 
 ## <a name="next-steps"></a>Nästa steg
 

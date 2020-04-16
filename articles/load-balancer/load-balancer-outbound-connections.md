@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: f8f21405a79a6fcf70adef9815ba06a229d6954d
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: acf49c4247c8084a3afd3c2046003ee1b20d2f67
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886984"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393110"
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
@@ -168,7 +168,7 @@ I följande tabell visas förallokering av SNAT-port för nivåer med backend-po
 | 801-1,000 | 32 |
 
 >[!NOTE]
-> När du använder Standard belastningsutjämnare med [flera frontend-IP-adress](load-balancer-multivip-overview.md)multiplicerar varje ip-adress i frontend antalet tillgängliga SNAT-portar i föregående tabell. En serverdelspool med 50 virtuella datorer med 2 belastningsutjämningsregler, var och en med en separat IP-adress för klientdel, använder till exempel 2048 (2x 1024) SNAT-portar per IP-konfiguration. Se information om [flera frontends](#multife).
+> När du använder Standard belastningsutjämnare med [flera frontend-IP-adress](load-balancer-multivip-overview.md)multiplicerar varje ip-adress i frontend antalet tillgängliga SNAT-portar i föregående tabell. En serverdelspool med 50 virtuella datorer med 2 belastningsutjämningsregler, var och en med en separat IP-adress för klientdel, använder till exempel 2048 (2x 1024) SNAT-portar per regel. Se information om [flera frontends](#multife).
 
 Kom ihåg att antalet SNAT-portar som är tillgängliga inte översätter direkt till antalet flöden. En enda SNAT-port kan återanvändas för flera unika destinationer. Portar förbrukas endast om det är nödvändigt att göra flöden unika. Information om design- och begränsningsvägledning finns i avsnittet om hur du hanterar den [här uttömliga resursen](#snatexhaust) och avsnittet som beskriver [PAT](#pat).
 

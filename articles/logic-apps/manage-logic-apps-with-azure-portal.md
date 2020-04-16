@@ -8,13 +8,13 @@ ms.author: ladolan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/06/2020
-ms.openlocfilehash: a35f34ed27299077dca78630511ea3c291caff60
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.date: 04/13/2020
+ms.openlocfilehash: f726ca90c215c4aff3734bd8022bbc1ad4dc5f87
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804980"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415984"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Hantera logikappar i Azure-portalen
 
@@ -177,6 +177,46 @@ Om du tar bort logikappen påverkas dina arbetsflödesinstanser på följande s�
    ![Bekräfta att du tar bort logikapparna](./media/manage-logic-apps-with-azure-portal/delete-confirmation-multiple-logic-apps.png)
 
    Azure-portalen visar ett meddelande i huvudverktygsfältet i Azure som bekräftar om åtgärden lyckades eller misslyckades.
+
+<a name="manage-logic-app-versions"></a>
+
+## <a name="manage-logic-app-versions"></a>Hantera logikappversioner
+
+Du kan använda Azure-portalen för versionskontroll av dina logikappar. Du kan hitta logikappens versionshistorik och marknadsföra tidigare versioner.
+
+<a name="find-version-history"></a>
+
+### <a name="find-and-view-previous-versions"></a>Söka efter och visa tidigare versioner
+
+1. I Azure-portalen [hittar du logikappen som du vill hantera](#find-logic-app).
+
+1. Välj **Versioner**under **Utvecklingsverktyg**på logikappens meny .
+
+   ![På logikappens meny väljer du "Versioner" under "Utvecklingsverktyg"](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
+
+1. Välj **den version** av logikappen som du vill hantera i listan. Du kan **Version** ange versionsidentifieraren i sökfältet för att filtrera listan.
+
+1. På sidan **Historikversion** visas informationen i den tidigare versionen i skrivskyddat läge. Du kan välja mellan lägena **Logikappdesigner** och **kodvy.**
+
+   ![Historikversionssida för logikapp med kodvy och logikappdesignervyn](./media/manage-logic-apps-with-azure-portal/history-version.png)
+
+<a name="promote-previous-versions"></a>
+
+### <a name="promote-previous-versions"></a>Befordra tidigare versioner
+
+1. Leta reda på och välj den version som du vill marknadsföra i [logikappens](#find-version-history)versionshistorik .
+
+1. På sidan **Historikversion** väljer du **Befordra**.
+
+   ![Knappen Marknadsför i logikappens versionshistorik](./media/manage-logic-apps-with-azure-portal/promote-button.png)
+
+1. På sidan **Logic Apps Designer** som öppnas redigerar du den version som du marknadsför efter behov. Du kan växla mellan **lägena Designer** och **kodvy.** Du kan också uppdatera **parametrar,** **mallar**och **kopplingar**.
+
+   ![Sidan Logic Apps Designer för att marknadsföra en tidigare version](./media/manage-logic-apps-with-azure-portal/promote-page.png)
+
+1. Om du vill spara uppdateringar och slutföra främjandet av den tidigare versionen väljer du **Spara**. (Om du vill avbryta ändringarna väljer du **Ignorera**.) 
+
+   När du [visar logikappens versionshistorik](#find-version-history) igen visas den marknadsförda versionen högst upp i listan och har en ny identifierare.
 
 ## <a name="next-steps"></a>Nästa steg
 

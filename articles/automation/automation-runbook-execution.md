@@ -1,18 +1,18 @@
 ---
-title: Körning av Runbook i Azure Automation
+title: Runbook-körning i Azure Automation
 description: Beskriver information om hur en runbook i Azure Automation bearbetas.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/04/2019
+ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: de01a7a76a5d225770c273c67f864c83226ecd07
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: a7dd9de1f2ae41b20d94cf31de48e92fbb71ca6a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261320"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405647"
 ---
-# <a name="runbook-execution-in-azure-automation"></a>Körning av Runbook i Azure Automation
+# <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
 Med processautomatisering i Azure Automation kan du skapa och hantera PowerShell, PowerShell-arbetsflöde och grafiska runbooks. Mer information finns i [Azure Automation runbooks](automation-runbook-types.md). 
 
@@ -22,7 +22,7 @@ Starta en runbook i Azure Automation skapar ett jobb, vilket är en enda körnin
 
 Azure Automation tilldelar en arbetare att köra varje jobb under körning av runbook. Medan arbetare delas av många Azure-konton, är jobb från olika Automation-konton isolerade från varandra. Du kan inte styra vilka arbetartjänster dina jobbförfrågningar.
 
-När du visar listan över runbooks i Azure-portalen visas status för varje jobb som har startats för varje runbook. Azure Automation lagrar jobbloggar i högst 30 dagar. 
+När du visar listan över runbooks i Azure-portalen visas status för varje jobb som har startats för varje runbook. Azure Automation lagrar jobbloggar i högst 30 dagar.
 
 I följande diagram visas livscykeln för ett runbook-jobb för [PowerShell-runbooks,](automation-runbook-types.md#powershell-runbooks) [PowerShell-arbetsflödeskörningsböcker](automation-runbook-types.md#powershell-workflow-runbooks)och [grafiska runbooks](automation-runbook-types.md#graphical-runbooks).
 
@@ -35,7 +35,7 @@ I följande diagram visas livscykeln för ett runbook-jobb för [PowerShell-runb
 
 ## <a name="where-to-run-your-runbooks"></a>Var du kan köra dina runbooks
 
-Runbooks i Azure Automation kan köras på antingen en Azure-sandlåda eller en [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). Du kan enkelt köra de flesta runbooks i en Azure sandlåda, vilket är en delad miljö som flera jobb kan använda. Jobb som använder samma sandlåda är bundna av sandlådans resursbegränsningar.
+Runbooks i Azure Automation kan köras på antingen en Azure-sandlåda eller en [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). När runbooks är utformade för att autentisera och köra mot resurser i Azure körs de i en Azure-sandlåda, som är en delad miljö som flera jobb kan använda. Jobb som använder samma sandlåda är bundna av sandlådans resursbegränsningar.
 
 >[!NOTE]
 >Azure-sandlådemiljön stöder inte interaktiva åtgärder. Det kräver också användning av lokala MOF filer för runbooks som gör Win32 samtal.
@@ -44,21 +44,21 @@ Du kan använda en Hybrid Runbook Worker för att köra runbooks direkt på den 
 
 I följande tabell visas några körningsuppgifter för runbook med den rekommenderade körningsmiljön som anges för varje.
 
-|Aktivitet|Bästa val|Anteckningar|
+|Aktivitet|Rekommendation|Anteckningar|
 |---|---|---|
 |Integrera med Azure-resurser|Begränsat till Azure|Autentiseringen är enklare i Azure. Om du använder en Hybrid Runbook Worker på en Virtuell Azure-dator kan du använda [hanterade identiteter för Azure-resurser](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources).|
 |Få optimal prestanda för att hantera Azure-resurser|Begränsat till Azure|Skript körs i samma miljö, som har mindre svarstid.|
 |Minimera driftskostnaderna|Begränsat till Azure|Det finns ingen beräkningsomkostnader och inget behov av en virtuell dator.|
-|Köra tidskrävande skript|Hybrid Runbook Worker|Azure sandlådor har [begränsningar för resurser](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
-|Interagera med lokala tjänster|Hybrid Runbook Worker|Kan ha direkt åtkomst till värddator.|
+|Köra tidskrävande skript|Hybrid Runbook Worker|Azure sandlådor har [resursgränser](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
+|Interagera med lokala tjänster|Hybrid Runbook Worker|Kan komma åt värddatorn direkt eller resurser i andra molnmiljöer eller i din lokala miljö. |
 |Kräv programvara från tredje part och körbara filer|Hybrid Runbook Worker|Du hanterar operativsystemet och kan installera programvara.|
 |Övervaka en fil eller mapp med en runbook|Hybrid Runbook Worker|Använd en [Watcher-uppgift](automation-watchers-tutorial.md) på en Hybrid Runbook Worker.|
-|Köra ett resursintensivt skript|Hybrid Runbook Worker| Azure sandlådor har [begränsningar för resurser](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
-|Använda moduler med specifika krav| Hybrid Runbook Worker|Några exempel är:</br> WinSCP - beroende av winscp.exe </br> IISAdministration - beroende av aktivering av IIS.|
+|Köra ett resursintensivt skript|Hybrid Runbook Worker| Azure sandlådor har [resursgränser](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
+|Använda moduler med specifika krav| Hybrid Runbook Worker|Några exempel är:</br> WinSCP - beroende av winscp.exe </br> IIS-administration - beroende av att aktivera eller hantera IIS.|
 |Installera en modul med ett installationsprogram|Hybrid Runbook Worker|Moduler för sandlåda måste stödja kopiering.|
-|Använd runbooks eller moduler som kräver .NET Framework-version som skiljer sig från 4.7.2|Hybrid Runbook Worker|Automation sandlådor har .NET Framework 4.7.2, och det finns inget sätt att uppgradera versionen.|
+|Använd runbooks eller moduler som kräver .NET Framework-version som skiljer sig från 4.7.2|Hybrid Runbook Worker|Sandlådor för automatisering stöder .NET Framework 4.7.2 och uppgradering till en annan version stöds inte.|
 |Kör skript som kräver höjd|Hybrid Runbook Worker|Sandlådor tillåter inte höjd. Med en Hybrid Runbook Worker kan du stänga av UAC och använda [Anropa kommando](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) när du kör kommandot som kräver höjd.|
-|Kör skript som kräver åtkomst till WMI (Windows Management Instrumentation)|Hybrid Runbook Worker|Jobb som körs i sandlådor i molnet kan inte komma åt WMI. |
+|Kör skript som kräver åtkomst till WMI (Windows Management Instrumentation)|Hybrid Runbook Worker|Jobb som körs i sandlådor i molnet kan inte komma åt WMI-providern. |
 
 ## <a name="runbook-behavior"></a>Runbook-beteende
 
@@ -75,7 +75,7 @@ $vmExists = Get-AzResource -Name $vmName -ResourceGroupName $resourceGroupName
 if(!$vmExists)
     {
     Write-Output "VM $vmName does not exist, creating"
-    New-AzureRMVM -Name $vmName -ResourceGroupName $resourceGroupName -Credential $myCred
+    New-AzVM -Name $vmName -ResourceGroupName $resourceGroupName -Credential $myCred
     }
 else
     {
@@ -278,7 +278,7 @@ Du kan använda följande steg för att se jobb för en runbook.
 
 ### <a name="retrieving-job-status-using-powershell"></a>Hämta jobbstatus med PowerShell
 
-Använd `Get-AzAutomationJob` cmdlet för att hämta de jobb som skapats för en runbook och information om ett visst jobb. Om du startar en runbook `Start-AzAutomationRunbook`med PowerShell med, returnerar den det resulterande jobbet. Använd [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) för att hämta jobbutdata.
+Använd [cmdleten Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) för att hämta de jobb som skapats för en runbook och information om ett visst jobb. Om du startar en runbook `Start-AzAutomationRunbook`med PowerShell med, returnerar den det resulterande jobbet. Använd [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) för att hämta jobbutdata.
 
 I följande exempel får det sista jobbet för en exempelkörningsbok och dess status, de värden som anges för runbook-parametrarna och projektutdata.
 
@@ -356,3 +356,5 @@ Om du använder underordnade runbooks minskar den totala tiden för den överord
 * Information om hur du arbetar med en runbook finns [i Hantera runbooks i Azure Automation](manage-runbooks.md).
 * Mer information om de metoder som kan användas för att starta en runbook i Azure Automation finns [i Starta en runbook i Azure Automation](automation-starting-a-runbook.md).
 * Mer information om PowerShell, inklusive språkreferens- och utbildningsmoduler, finns i [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+* En PowerShell-cmdlet-referens finns i [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

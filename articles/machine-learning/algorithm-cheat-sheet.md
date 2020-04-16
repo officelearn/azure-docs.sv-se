@@ -1,5 +1,5 @@
 ---
-title: Maskininlärning algoritm lathund
+title: Machine Learning Algoritm Lathund - designer
 titleSuffix: Azure Machine Learning
 description: En utskrivbar machine learning-algoritm fuskark hjälper dig att välja rätt algoritm för din prediktiva modell i Azure Machine Learning designer.
 services: machine-learning
@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: 85fbb1c1d26f71903adab2eb96b0c1dd3bf74c33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: accc4766f25f5d58ba2f31c153fe1c5d23413170
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78328631"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81399069"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Maskininlärningsalgoritmens fuskblad för Azure Machine Learning designer
 
-**Azure Machine Learning Algorithm Cheat Sheet** hjälper dig att välja rätt algoritm för en förutsägande analysmodell.
+**Azure Machine Learning Algorithm Cheat Sheet** hjälper dig att välja rätt algoritm från designern för en förutsägande analysmodell.
 
 Azure Machine Learning har ett stort bibliotek med algoritmer från ***klassificeringen,*** ***rekommenderare system,*** ***klustring,*** ***avvikelseidentifiering,*** ***regression***och ***textanalysfamiljer.*** Var och en är utformad för att lösa en annan typ av maskininlärningsproblem.
 
@@ -38,7 +38,7 @@ De förslag som erbjuds i denna algoritm fuska blad är ungefärliga regler-of-t
 
 Varje maskininlärningsalgoritm har sin egen stil eller induktiva bias. För ett specifikt problem kan flera algoritmer vara lämpliga och en algoritm kan passa bättre än andra. Men det är inte alltid möjligt att veta i förväg vilket som passar bäst. I fall som dessa, flera algoritmer listas tillsammans i lathunden. En lämplig strategi skulle vara att prova en algoritm, och om resultaten ännu inte är tillfredsställande, prova de andra. 
 
-Mer information om algoritmerna i Azure Machine Learning finns i [Algoritm- och modulreferensen](algorithm-module-reference/module-reference.md).
+Mer information om algoritmerna i Azure Machine Learning designer finns i [Algoritm- och modulreferensen](algorithm-module-reference/module-reference.md).
 
 ## <a name="kinds-of-machine-learning"></a>Typer av maskininlärning
 

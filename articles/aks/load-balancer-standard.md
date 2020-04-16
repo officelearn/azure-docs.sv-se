@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 17e474de9c221126d67cc2982ba11c6ff75e7aa3
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: c1d2c0e48394fbde1b595ae4b405d84f437dc5e4
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668500"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392819"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Använda en standardbelastningsutjämnarvägning i Azure Kubernetes Service (AKS)
 
@@ -32,7 +32,7 @@ Om du väljer att installera och använda CLI lokalt kräver den här artikeln a
 
 Den här artikeln förutsätter att du har ett AKS-kluster med *Standard* SKU Azure Load Balancer. Om du behöver ett AKS-kluster läser du SNABBSTARTen för AKS [med Azure CLI][aks-quickstart-cli] eller använder [Azure-portalen][aks-quickstart-portal].
 
-Huvudmannen för AKS-klustertjänsten behöver också behörighet att hantera nätverksresurser om du använder ett befintligt undernät eller en befintlig resursgrupp. I allmänhet tilldelar du rollen *Nätverksdeltagare* till tjänsthuvudhuvudet på de delegerade resurserna. Mer information om behörigheter finns i [Delegera AKS-åtkomst till andra Azure-resurser][aks-sp].
+Huvudmannen för AKS-klustertjänsten behöver också behörighet att hantera nätverksresurser om du använder ett befintligt undernät eller en befintlig resursgrupp. I allmänhet tilldelar du rollen *Nätverksdeltagare* till tjänsthuvudhuvudet på de delegerade resurserna. I stället för ett tjänsthuvudnamn kan du också använda den systemtilldelade hanterade identiteten för behörigheter. Mer information finns i [Använda hanterade identiteter](use-managed-identity.md). Mer information om behörigheter finns i [Delegera AKS-åtkomst till andra Azure-resurser][aks-sp].
 
 ### <a name="moving-from-a-basic-sku-load-balancer-to-standard-sku"></a>Flytta från en grundläggande SKU-belastningsutjämning till standard-SKU
 

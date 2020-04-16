@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 933a175213afd81c81eb237a2b2dd4c3e24e3315
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 12f91633834ee98582eaad886b48eb8619378265
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633157"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81411649"
 ---
 # <a name="design-decisions-and-coding-techniques-for-a-synapse-sql-pool-in-azure-synapse-analytics"></a>Utforma beslut och kodningstekniker för en Synapse SQL-pool i Azure Synapse Analytics 
  I den här artikeln hittar du ytterligare resurser som hjälper dig att bättre förstå viktiga designbeslut, rekommendationer och kodningstekniker för en SQL-pool i Azure Synapse.
@@ -23,8 +23,8 @@ ms.locfileid: "80633157"
 ## <a name="key-design-decisions"></a>Viktiga designbeslut
 Följande artiklar belyser begrepp och designbeslut för att utveckla ett distribuerat informationslager med hjälp av SQL-poolfunktionen i Azure Synapse:
 
-* [Anslutningar](sql-data-warehouse-connect-overview.md)
-* [samtidighet](resource-classes-for-workload-management.md)
+* [Anslutningar](../sql/connect-overview.md)
+* [Samtidighet](resource-classes-for-workload-management.md)
 * [Transaktioner](sql-data-warehouse-develop-transactions.md)
 * [användardefinierade scheman](sql-data-warehouse-develop-user-defined-schemas.md)
 * [tabellfördelning](sql-data-warehouse-tables-distribute.md)

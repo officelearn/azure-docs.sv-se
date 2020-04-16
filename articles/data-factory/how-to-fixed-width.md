@@ -8,14 +8,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 8/18/2019
 ms.author: makromer
-ms.openlocfilehash: d6885e9b30cc71bda822a29574c4d574f2b020a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d629a9031f032a77efc953311a45b55996568191
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72387054"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414380"
 ---
 # <a name="process-fixed-length-text-files-by-using-data-factory-mapping-data-flows"></a>Bearbeta textfiler med fast längd med hjälp av datafabriksmappningsdataflöden
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Genom att använda mappningsdataflöden i Microsoft Azure Data Factory kan du omvandla data från textfiler med fast bredd. I följande uppgift definierar vi en datauppsättning för en textfil utan avgränsare och ställer sedan in delsträngsdelningar baserat på ordningsposition.
 

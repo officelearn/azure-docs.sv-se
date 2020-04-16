@@ -11,14 +11,15 @@ ms.author: abnarain
 author: nabhishek
 manager: shwang
 ms.date: 03/15/2018
-ms.openlocfilehash: 20858069b745beeaf64951c4ef23c2eb85251985
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6b010000a674e351051c664dd5eeacd40e802439
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74929121"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414617"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Omvandla data genom att köra en Jar-aktivitet i Azure Databricks
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Databricks Jar-aktivitet i en [Data Factory-pipeline](concepts-pipelines-activities.md) kör en Spark Jar i ditt Azure Databricks-kluster. Den här artikeln bygger på artikeln [om dataomvandlingsaktiviteter,](transform-data.md) som ger en allmän översikt över dataomvandling och de omvandlingsaktiviteter som stöds.Azure Databricks är en hanterad plattform för att köra Apache Spark.
 

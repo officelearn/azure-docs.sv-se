@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 09afca7eaf385795baf9c4a3c94232622527e357
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cf8ced05066923c94e80628651d8983560601d69
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79501052"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81406041"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafisk redigering i Azure Automation
 
@@ -441,3 +441,5 @@ Du kan återgå till den publicerade versionen av en runbook. Den här åtgärde
 * Kom igång med grafiska runbooks finns i [Min första grafiska runbook](automation-first-runbook-graphical.md).
 * Mer information om runbook-typer och deras fördelar och begränsningar finns i [Azure Automation-runbooktyper](automation-runbook-types.md).
 * Information om hur du autentiserar med kontot För körning som automatisering finns i [Konfigurera Azure Run As Account](automation-sec-configure-azure-runas-account.md).
+* En PowerShell-cmdlet-referens finns i [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

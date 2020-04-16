@@ -1,20 +1,20 @@
 ---
-title: Händelseschema för azure event grid-resursgrupp
+title: Azure-resursgrupp som en källa för händelserutnät
 description: Beskriver de egenskaper som tillhandahålls för resursgruppshändelser med Azure Event Grid
 services: event-grid
 author: spelluru
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/12/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 6cbfc06f380d7c4818ca82e858c23bb18849fb7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb52b54eb32a119a463b59e4d4f2ab30096886fa
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60561701"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393256"
 ---
-# <a name="azure-event-grid-event-schema-for-resource-groups"></a>Azure Event Grid-händelseschema för resursgrupper
+# <a name="azure-resource-group-as-an-event-grid-source"></a>Azure-resursgrupp som en källa för händelserutnät
 
 Den här artikeln innehåller egenskaper och schema för resursgrupphändelser.En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](event-schema.md).
 
@@ -28,9 +28,10 @@ Om du vill hantera händelser programmässigt kan `operationName` du sortera hä
 
 Händelseämnet är resurs-ID för den resurs som är målet för operationen. Om du vill filtrera händelser för en resurs anger du det resurs-ID:et när du skapar händelseprenumerationen.  Om du vill filtrera efter en resurstyp använder du ett värde i följande format:`/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
-En lista över exempelskript och självstudier finns i [Händelsekälla för resursgrupp](event-sources.md#resource-groups).
 
-## <a name="available-event-types"></a>Tillgängliga händelsetyper
+## <a name="event-grid-event-schema"></a>Händelseschema för händelserutnät
+
+### <a name="available-event-types"></a>Tillgängliga händelsetyper
 
 Resursgrupper avger hanteringshändelser från Azure Resource Manager, till exempel när en virtuell dator skapas eller ett lagringskonto tas bort.
 
@@ -46,7 +47,7 @@ Resursgrupper avger hanteringshändelser från Azure Resource Manager, till exem
 | Microsoft.Resources.ResourceWriteFailure | Utlöses när åtgärden skapa eller uppdatera misslyckas. |
 | Microsoft.Resources.ResourceWriteSuccess | Utlöses när åtgärden skapa eller uppdatera lyckas. |
 
-## <a name="example-event"></a>Exempel händelse
+### <a name="example-event"></a>Exempel händelse
 
 I följande exempel visas schemat för en **ResourceWriteSuccess-händelse.** Samma schema används för **ResourceWriteFailure-** och **ResourceWriteCancel-händelser** med olika värden för `eventType`.
 
@@ -230,7 +231,7 @@ I följande exempel visas schemat för en **ResourceActionSuccess-händelse.** S
 }]
 ```
 
-## <a name="event-properties"></a>Händelseegenskaper
+### <a name="event-properties"></a>Händelseegenskaper
 
 En händelse har följande data på den högsta nivån:
 
@@ -259,6 +260,16 @@ Dataobjektet har följande egenskaper:
 | status | sträng | Status för åtgärden. |
 | subscriptionId | sträng | Resursens prenumerations-ID. |
 | tenantId (hyresgäst) | sträng | Resursens klient-ID. |
+
+## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
+|Titel  |Beskrivning  |
+|---------|---------|
+| [Självstudiekurs: övervaka ändringar av virtuella datorer med Azure Event Grid och Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | En logikapp övervakar ändringar på en virtuell dator och skickar e-postmeddelanden om dessa ändringar. |
+| [Azure CLI: prenumerera på händelser för en resursgrupp](./scripts/event-grid-cli-resource-group.md)| Exempel på skript som prenumererar på händelser för en resursgrupp. Den skickar händelser till en WebHook. |
+| [Azure CLI: prenumerera på händelser för en resursgrupp och filtrera efter en resurs](./scripts/event-grid-cli-resource-group-filter.md) | Exempelskript som prenumererar på händelser för en resursgrupp och filtrerar händelser för en resurs. |
+| [PowerShell: prenumerera på händelser för en resursgrupp](./scripts/event-grid-powershell-resource-group.md) | Exempel på skript som prenumererar på händelser för en resursgrupp. Den skickar händelser till en WebHook. |
+| [PowerShell: prenumerera på händelser för en resursgrupp och filtrera efter en resurs](./scripts/event-grid-powershell-resource-group-filter.md) | Exempelskript som prenumererar på händelser för en resursgrupp och filtrerar händelser för en resurs. |
+| [Resource Manager-mall: resursprenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) | Prenumererar på händelser för en Azure-prenumeration eller resursgrupp. Den skickar händelser till en WebHook. |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 348d82f704b89b97e11a09b8f88e92831901b3bf
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79265069"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393470"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Begrepp i Azure Event Grid
 
@@ -35,7 +35,7 @@ En utgivare är den användare eller organisation som bestämmer sig för att sk
 
 En händelsekälla är där händelsen inträffar. Varje händelsekälla är relaterat till en eller flera händelsetyper. Till exempel är Azure Storage händelsekällan för händelser som skapas i blobbar. IoT Hub är händelsekällan för händelser som har skapats på enheter. Ditt program är händelsekällan för anpassade händelser som du definierar. Händelsekällor ansvarar för att skicka händelser till Event Grid.
 
-Information om hur du implementerar någon av de händelserutnätskällor som stöds finns [i Händelsekällor i Azure Event Grid](event-sources.md).
+Information om hur du implementerar någon av de händelserutnätskällor som stöds finns [i Händelsekällor i Azure Event Grid](overview.md#event-sources).
 
 ## <a name="topics"></a>Ämnen
 

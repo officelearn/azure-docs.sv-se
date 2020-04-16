@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: cd2b530375beb3e8fa1f79e004f4f1ac7fd4d0bb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3422176ed89b7f575c11cc40e5be8420da0018b0
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75443915"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415804"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Läsa in data från Office 365 med hjälp av Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Den här artikeln visar hur du använder data _factory-inläsningsdata från Office 365 i Azure Blob storage_. Du kan följa liknande steg för att kopiera data till Azure Data Lake Gen1 eller Gen2. I [artikeln office 365-anslutning](connector-office-365.md) om hur du kopierar data från Office 365 i allmänhet.
 
@@ -97,7 +99,7 @@ Den här artikeln visar hur du använder data _factory-inläsningsdata från Off
 
 5. Gå till **fliken Anslutning** i fönstret Egenskaper. Vid textrutan Länkad tjänst väljer du **+ Nytt**.
 
-6. I fönstret Ny länkad tjänst anger du "AzureStorageLinkedService" som namn, väljer "Tjänsthuvudnamn" i listrutan med autentiseringsmetoder, fyller i tjänstslutpunkten, klienten, tjänstens huvud-ID och Huvudnyckeln För Tjänsten och Välj sedan Spara till distribuera den länkade tjänsten.  Se [här](connector-azure-blob-storage.md#service-principal-authentication) för hur du konfigurerar tjänsthuvudnamnsautentisering för Azure Blob Storage.
+6. I fönstret Ny länkad tjänst anger du "AzureStorageLinkedService" som namn, väljer "Tjänsthuvudnamn" i listrutan med autentiseringsmetoder, fyller i tjänstslutpunkten, klienten, tjänstens huvud-ID och Tjänsthuvudnyckel och välj sedan Spara för att distribuera den länkade tjänsten.  Se [här](connector-azure-blob-storage.md#service-principal-authentication) för hur du konfigurerar tjänsthuvudnamnsautentisering för Azure Blob Storage.
 
     ![Ny Blob-länkad tjänst](./media/load-office-365-data/configure-blob-linked-service.png)
 

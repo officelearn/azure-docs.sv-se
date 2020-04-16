@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9fa9d414b89c7229b0577faad778f6cc8b87fa99
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 8aa49b044abcbd65a67a854a9da85cbc1471cda6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80244826"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81404436"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Snabbstart: Använd en domänmodell med hjälp av REST API:et och Python i Visuellt innehåll
 
-I den här snabbstarten använder du en domänmodell för att identifiera landmärken eller, eventuellt, kändisar i en fjärrlagd bild med rest-APIn för visuellt innehåll. Med metoden [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) (Identifiera domänspecifikt innehåll) kan du tillämpa en domänspecifik modell för att känna igen innehåll i en bild.
+I den här snabbstarten använder du en domänmodell för att identifiera landmärken eller, eventuellt, kändisar i en fjärrlagd bild med REST-APIN för datorseende. Med metoden [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) (Identifiera domänspecifikt innehåll) kan du tillämpa en domänspecifik modell för att känna igen innehåll i en bild.
 
 Du kan köra den här snabbstarten steg för steg med hjälp av en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org). Starta Binder med den här knappen:
 
@@ -203,7 +203,9 @@ Ta bort filerna för båda exemplen när de inte längre behövs.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska ett Python-program som använder Visuellt innehåll för att utföra optisk teckenläsning (OCR), skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriv visuella funktioner, inklusive ansikten, i en bild. Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Därefter utforska ett Python-program som använder datorseende för att utföra optisk teckenigenkänning (OCR); skapa smartbeskurna miniatyrer. identifiera, kategorisera, tagga och beskriva visuella funktioner i bilder.
 
 > [!div class="nextstepaction"]
 > [Självstudie: API för visuellt innehåll med Python](../Tutorials/PythonTutorial.md)
+
+* Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).

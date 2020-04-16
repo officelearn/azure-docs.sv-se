@@ -6,18 +6,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/24/2018
 ms.topic: conceptual
-ms.openlocfilehash: a5a1cad3179063f75a5d9a19567624180b5793a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b103437ab30c05ddab88b7a8a723cd2b4b1d5f6
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367269"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405894"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Min första PowerShell Workflow-runbook
 
 > [!div class="op_single_selector"]
 > * [Grafisk](automation-first-runbook-graphical.md)
-> * [Powershell](automation-first-runbook-textual-powershell.md)
+> * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [PowerShell-arbetsflöde](automation-first-runbook-textual.md)
 > * [Python](automation-first-runbook-textual-python2.md)
 
@@ -79,7 +79,7 @@ Innan du publicerar runbooken för att göra den tillgänglig i produktionen bö
 1. Klicka på **Start** för att starta testet, med testning det enda aktiverade alternativet.
 1. Observera att ett [runbook-jobb](automation-runbook-execution.md) skapas och att dess status visas i fönstret.
 
-   Jobbstatusen börjar `Queued`som , vilket anger att jobbet väntar på att en runbook-arbetare i molnet ska bli tillgänglig. Statusen ändras till `Starting` när en anställd gör anspråk på jobbet. Slutligen blir `Running` statusen när runbooken faktiskt börjar köras.
+   Jobbstatusen börjar som kö, vilket anger att jobbet väntar på att en runbook-arbetare i molnet ska bli tillgänglig. Statusen ändras till Start när en anställd gör anspråk på jobbet. Slutligen blir statusen Körs när runbooken faktiskt börjar köras.
 
 1. När runbook-jobbet är klart visar testfönstret utdata. I det här `Hello World`fallet ser du .
 
@@ -107,7 +107,7 @@ Runbook som du har skapat är fortfarande i utkastläge. Du måste publicera den
 
    ![Jobbsammanfattning](media/automation-first-runbook-textual/job-pane-status-blade-jobsummary.png)
 
-1. När runbook-statusen visar `Completed`klickar du på **Utdata**. Utdatasidan öppnas, där du `Hello World` kan se ditt meddelande.
+1. När runbook-statusen har slutförts klickar du på **Utdata**. Utdatasidan öppnas, där du `Hello World` kan se ditt meddelande.
 
    ![Jobbsammanfattning](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)
 
@@ -117,7 +117,7 @@ Runbook som du har skapat är fortfarande i utkastläge. Du måste publicera den
 
    ![Jobbsammanfattning](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
 
-1. Stäng fönstret Strömmar och jobbfönstret för att återgå till sidan **MyFirstRunbook.**
+1. Stäng fönstret Strömmar och jobbfönstret för att återgå till sidan MyFirstRunbook.
 1. Klicka på **Jobb** under **Resurser** om du vill öppna sidan Jobb för den här runbooken. På den här sidan visas alla jobb som skapas av runbooken. Du bör bara se ett jobb som anges, eftersom du bara har kört jobbet en gång.
 
    ![Jobb](media/automation-first-runbook-textual/runbook-control-job-tile.png)
@@ -126,12 +126,12 @@ Runbook som du har skapat är fortfarande i utkastläge. Du måste publicera den
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Steg 5 – Lägga till autentisering för att hantera Azure-resurser
 
-Du har testat och publicerat din runbook, men hittills gör den egentligen inget användbart. Du vill att den ska hantera Azure-resurser. Det kan inte göra det om det inte autentiserar med hjälp av autentiseringsuppgifterna för prenumerationen. Autentisering `Connect-AzAccount` använder cmdlet.
+Du har testat och publicerat din runbook, men hittills gör den egentligen inget användbart. Du vill att den ska hantera Azure-resurser. Det kan inte göra det om det inte autentiserar med hjälp av autentiseringsuppgifterna för prenumerationen. Autentisering använder cmdleten [Connect-AzAccount.](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0)
 
 >[!NOTE]
 >För `Add-AzAccount` PowerShell-runbooks `Add-AzureRMAccount` och är `Connect-AzAccount`alias för . Du kan använda dessa cmdlets eller så kan du [uppdatera dina moduler](automation-update-azure-modules.md) i ditt Automation-konto till de senaste versionerna. Du kan behöva uppdatera dina moduler även om du just har skapat ett nytt Automation-konto.
 
-1. Navigera till sidan **MyFirstRunbook-Workflow** och öppna textredigeraren genom att klicka på **Redigera**.
+1. Navigera till sidan MyFirstRunbook-Workflow och öppna textredigeraren genom att klicka på **Redigera**.
 2. Ta `Write-Output` bort raden.
 3. Placera markören på en tom rad mellan klammerparenteserna.
 4. Skriv in eller kopiera och klistra in följande kod, som hanterar autentiseringen med ditt Automation Run As-konto.
@@ -213,6 +213,8 @@ Runbook startar för närvarande den virtuella datorn som du har hårdkodat i ru
 ## <a name="next-steps"></a>Nästa steg
 
 * Mer information om PowerShell, inklusive språkreferens- och utbildningsmoduler, finns i [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+* En PowerShell-cmdlet-referens finns i [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
 * Kom igång med grafiska runbooks finns i [Min första grafiska runbook](automation-first-runbook-graphical.md).
 * Information om hur du kommer igång med PowerShell-runbooks finns i [Min första PowerShell-runbook](automation-first-runbook-textual-powershell.md).
 * Mer information om runbook-typer och deras fördelar och begränsningar finns i [Azure Automation-runbooktyper](automation-runbook-types.md).

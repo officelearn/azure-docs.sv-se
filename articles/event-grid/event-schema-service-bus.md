@@ -1,27 +1,26 @@
 ---
-title: Händelseschema för Azure Event Grid Service Bus
+title: Azure Service Bus som event grid-källa
 description: Beskriver de egenskaper som tillhandahålls för Service Bus-händelser med Azure Event Grid
 services: event-grid
 author: banisadr
-manager: darosa
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/17/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: babanisa
-ms.openlocfilehash: f44d2c1c5be6ac895b6f5ea9feca29c0f8ed09f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 141a0e96071014dc3705d30f72b1a9257737298a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60561769"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393243"
 ---
-# <a name="azure-event-grid-event-schema-for-service-bus"></a>Azure Event Grid-händelseschema för Service Bus
+# <a name="azure-service-bus-as-an-event-grid-source"></a>Azure Service Bus som en händelserutnätskälla
 
 Den här artikeln innehåller egenskaper och schema för Service Bus-händelser.En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](event-schema.md).
 
-En lista över exempelskript och självstudier finns i [händelsekälla för Service Bus](event-sources.md#service-bus).
+## <a name="event-grid-event-schema"></a>Händelseschema för händelserutnät
 
-## <a name="available-event-types"></a>Tillgängliga händelsetyper
+### <a name="available-event-types"></a>Tillgängliga händelsetyper
 
 Service Bus avger följande händelsetyper:
 
@@ -30,7 +29,7 @@ Service Bus avger följande händelsetyper:
 | Microsoft.ServiceBus.ActiveMessagesTillgängligMedNoListeners | Utlöses när det finns aktiva meddelanden i en kö eller prenumeration och inga mottagare lyssnar. |
 | Microsoft.ServiceBus.DeadletterMessagesTillgängligMedNoListener | Utlöses när det finns aktiva meddelanden i en kö för obeställbara meddelanden och inga aktiva lyssnare. |
 
-## <a name="example-event"></a>Exempel händelse
+### <a name="example-event"></a>Exempel händelse
 
 I följande exempel visas schemat för aktiva meddelanden utan lyssnare händelse:
 
@@ -76,7 +75,7 @@ Schemat för en köhändelse för obeställbara meddelanden är liknande:
 }]
 ```
 
-## <a name="event-properties"></a>Händelseegenskaper
+### <a name="event-properties"></a>Händelseegenskaper
 
 En händelse har följande data på den högsta nivån:
 
@@ -101,6 +100,12 @@ Dataobjektet har följande egenskaper:
 | queueName (queueName) | sträng | Kön med aktiva meddelanden om du prenumererar på en kö. Värde null om du använder ämnen / prenumerationer. |
 | topicName (ämnesnamn) | sträng | Ämnet servicebussprenumerationen med aktiva meddelanden tillhör. Värde null om du använder en kö. |
 | subscriptionName | sträng | Service Bus-prenumerationen med aktiva meddelanden. Värde null om du använder en kö. |
+
+## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
+|Titel  |Beskrivning  |
+|---------|---------|
+| [Självstudiekurs: Exempel på integrering av Azure Service Bus till Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid skickar meddelanden från Service Bus-avsnittet för att fungera app och logikapp. |
+| [Azure Service Bus to Event Grid-integrering](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Översikt över att integrera Service Bus med Event Grid. |
 
 ## <a name="next-steps"></a>Nästa steg
 

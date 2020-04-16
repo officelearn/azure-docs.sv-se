@@ -1,26 +1,25 @@
 ---
-title: Azure Event Grid Azure App Konfiguration händelseschema
-description: Beskriver de egenskaper som tillhandahålls för Azure App-konfigurationshändelser med Azure Event Grid
+title: Azure App-konfiguration som källa för händelserutnät
+description: I den här artikeln beskrivs hur du använder Azure App-konfiguration som en händelserutnätshändelsekälla. Det ger schemat och länkar till handledning och instruktionsartiklar.
 services: event-grid
-author: jimmyca
+author: banisadr
 ms.service: event-grid
-ms.topic: reference
-ms.date: 05/30/2019
-ms.author: jimmyca
-ms.openlocfilehash: fe0274f723692eea3cfd25cc0e9e146b35dce2ae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: babanisa
+ms.openlocfilehash: adb548ef8531698a2cb075fbc742bb20a02a434b
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "66735788"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393434"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-app-configuration"></a>Azure Event Grid-händelseschema för Azure App-konfiguration
+# <a name="azure-app-configuration-as-an-event-grid-source"></a>Azure App-konfiguration som en händelserutnätskälla
+Den här artikeln innehåller egenskaper och schema för Azure App Configuration-händelser. En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](event-schema.md). Det ger dig också en lista över snabbstarter och självstudier för att använda Azure App Configuration som en händelsekälla.
 
-Den här artikeln innehåller egenskaper och schema för Azure App Configuration-händelser. En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](event-schema.md).
+## <a name="event-grid-event-schema"></a>Händelseschema för händelserutnät
 
-En lista över exempelskript och självstudier finns i [händelsekällan för Azure App Configuration](event-sources.md#app-configuration).
-
-## <a name="available-event-types"></a>Tillgängliga händelsetyper
+### <a name="available-event-types"></a>Tillgängliga händelsetyper
 
 Azure App-konfigurationen avger följande händelsetyper:
 
@@ -29,7 +28,7 @@ Azure App-konfigurationen avger följande händelsetyper:
 | Microsoft.AppConfiguration.KeyValueModified | Utlöses när ett nyckelvärde skapas eller ersätts. |
 | Microsoft.AppConfiguration.KeyValueDeleted | Utlöses när ett nyckelvärde tas bort. |
 
-## <a name="example-event"></a>Exempel händelse
+### <a name="example-event"></a>Exempel händelse
 
 I följande exempel visas schemat för en nyckelvärdesmodifierad händelse: 
 
@@ -69,7 +68,7 @@ Schemat för en borttagen nyckelvärde-händelse är liknande:
 }]
 ```
  
-## <a name="event-properties"></a>Händelseegenskaper
+### <a name="event-properties"></a>Händelseegenskaper
 
 En händelse har följande data på den högsta nivån:
 
@@ -79,7 +78,7 @@ En händelse har följande data på den högsta nivån:
 | Ämne | sträng | Utgivardefinierad sökväg till händelseobjektet. |
 | Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
 | Händelsetid | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| id | sträng | Unik identifierare för händelsen. |
+| ID | sträng | Unik identifierare för händelsen. |
 | data | objekt | Händelsedata för appkonfiguration. |
 | Dataversion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
 | Metadataversion | sträng | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
@@ -91,7 +90,14 @@ Dataobjektet har följande egenskaper:
 | key | sträng | Nyckeln till nyckelvärdet som har ändrats eller tagits bort. |
 | etikett | sträng | Etiketten, om sådan finns, av nyckelvärdet som har ändrats eller tagits bort. |
 | Etag | sträng | För `KeyValueModified` etag av det nya nyckelvärdet. För `KeyValueDeleted` etag av nyckelvärdet som togs bort. |
- 
+
+## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
+
+|Titel | Beskrivning |
+|---------|---------|
+| [Reagera på Azure App-konfigurationshändelser med hjälp av Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Översikt över integreringen av Azure App Configuration med Event Grid. |
+| [Snabbstart: dirigera Azure App-konfigurationshändelser till en anpassad webbslutpunkt med Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Visar hur du använder Azure CLI för att skicka Azure App Configuration-händelser till en WebHook. |
+
 ## <a name="next-steps"></a>Nästa steg
 
 * En introduktion till Azure Event Grid finns i [Vad är Event Grid?](overview.md)

@@ -10,17 +10,20 @@ ms.date: 07/25/2018
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 2399849b87e44c5cb70d2db987ae18d8d2d9c552
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6d2ea5c0b7354867086fc0cce43732f2d73c53ab
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79261143"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81398951"
 ---
-# <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Övervaka en integreringskörning i Azure Data Factory  
+# <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Övervaka en integreringskörning i Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+  
 **Integrationskörning** är den beräkningsinfrastruktur som används av Azure Data Factory för att tillhandahålla olika dataintegrationsfunktioner i olika nätverksmiljöer. Det finns tre typer av integrationskörningar som erbjuds av Data Factory:
 
-- Azure integration runtime
+- Azure Integration Runtime
 - Integration Runtime med egen värd
 - Azure SSIS Integration Runtime
 
@@ -34,7 +37,7 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGr
 
 Cmdlet returnerar olika information för olika typer av integrationskörning. I den här artikeln beskrivs egenskaperna och statusarna för varje typ av integrationskörning.  
 
-## <a name="azure-integration-runtime"></a>Azure integration runtime
+## <a name="azure-integration-runtime"></a>Azure Integration Runtime
 Beräkningsresursen för en Azure-integreringskörning hanteras helt elastiskt i Azure. I följande tabell finns beskrivningar av egenskaper som returneras av kommandot **Get-AzDataFactoryV2IntegrationRuntime:**
 
 ### <a name="properties"></a>Egenskaper

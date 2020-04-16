@@ -15,12 +15,12 @@ ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e56d4d94e38e5095ef2223d0cc2875cbf1dcd46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6e10d00ed90248319801974c7c1e7fadf835024b
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "64919123"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81407021"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Felsöka objektsynkronisering med Azure AD Connect-synkronisering
 Den här artikeln innehåller anvisningar för felsökning av problem med objektsynkronisering med hjälp av felsökningsuppgiften. Om du vill se hur felsökning fungerar i Azure Active Directory (Azure AD) Connect kan du titta på [den här korta videon](https://aka.ms/AADCTSVideo).
@@ -61,11 +61,6 @@ I resten av det här avsnittet beskrivs specifika resultat som returneras av akt
 När USERPrincipalName (UPN)/Alternate Login ID-suffix inte verifieras med Azure AD-klienten ersätter Azure Active Directory UPN-suffixen med standarddomännamnet "onmicrosoft.com".
 
 ![Azure AD ersätter UPN](media/tshoot-connect-objectsync/objsynch2.png)
-
-### <a name="changing-upn-suffix-from-one-federated-domain-to-another-federated-domain"></a>Ändra UPN Suffix från en federerad domän till en annan federerad domän
-Azure Active Directory tillåter inte synkronisering av BYTE AV USERPrincipalName (UPN)/Alternate Login ID-suffix från en federerad domän till en annan federerad domän. Detta gäller för domäner som verifieras med Azure AD-klienten och har autentiseringstypen som Federerad.
-
-![Ingen UPN-synkronisering från en federerad domän till en annan](media/tshoot-connect-objectsync/objsynch3.png) 
 
 ### <a name="azure-ad-tenant-dirsync-feature-synchronizeupnformanagedusers-is-disabled"></a>Azure AD Tenant DirSync-funktionen "SynchronizeUpnForManagedUsers" är inaktiverad
 När Azure AD Tenant DirSync-funktionen "SynchronizeUpnForManagedUsers" är inaktiverad tillåter Azure Active Directory inte synkroniseringsuppdateringar till UserPrincipalName/Alternate Login ID för licensierade användarkonton med hanterad autentisering.

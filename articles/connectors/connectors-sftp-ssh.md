@@ -4,16 +4,16 @@ description: Automatisera uppgifter som övervakar, skapar, hanterar, skickar oc
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: estfan, klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 03/7/2020
+ms.date: 04/13/2020
 tags: connectors
-ms.openlocfilehash: d4ab7425c967d3a176c0a576d0be38ece1701b8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7fafdd5830ec2825771d4d611a5f4bd5d87260a
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79128406"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393641"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av SSH- och Azure Logic Apps
 
@@ -147,6 +147,16 @@ Om din privata nyckel är i PuTTY-format, som använder filnamnstillägget .ppk 
 
 1. Spara den privata nyckelfilen med filnamnstillägget. `.pem`
 
+## <a name="considerations"></a>Överväganden
+
+I det här avsnittet beskrivs överväganden som ska granskas för den här kopplingens utlösare och åtgärder.
+
+<a name="create-file"></a>
+
+### <a name="create-file"></a>Skapa fil
+
+Om du vill skapa en fil på SFTP-servern kan du använda filåtgärden SFTP-SSH **Create.** När den här åtgärden skapar filen anropar Logic Apps-tjänsten också automatiskt SFTP-servern för att hämta filens metadata. Men om du flyttar den nyskapade filen innan Logic Apps-tjänsten kan `404` ringa för `'A reference was made to a file or folder which does not exist'`att hämta metadata får du ett felmeddelande. Om du vill hoppa över att läsa filens metadata när filen har skapats följer du stegen för att lägga till [och ange egenskapen **Hämta alla filmetadata** till **Nej**](#file-does-not-exist).
+
 <a name="connect"></a>
 
 ## <a name="connect-to-sftp-with-ssh"></a>Anslut till SFTP med SSH
@@ -211,9 +221,27 @@ Den här utlösaren startar ett logikapparbetsflöde när en fil läggs till ell
 
 <a name="get-content"></a>
 
-### <a name="sftp---ssh-action-get-content-using-path"></a>SFTP - SSH-åtgärd: Hämta innehåll med sökvägen
+### <a name="sftp---ssh-action-get-file-content-using-path"></a>SFTP - SSH-åtgärd: Hämta filinnehåll med sökvägen
 
-Den här åtgärden hämtar innehållet från en fil på en SFTP-server. Du kan till exempel lägga till utlösaren från föregående exempel och ett villkor som filens innehåll måste uppfylla. Om villkoret är sant kan åtgärden som hämtar innehållet köras.
+Den här åtgärden hämtar innehållet från en fil på en SFTP-server genom att ange filsökvägen. Du kan till exempel lägga till utlösaren från föregående exempel och ett villkor som filens innehåll måste uppfylla. Om villkoret är sant kan åtgärden som hämtar innehållet köras.
+
+<a name="troubleshooting-errors"></a>
+
+## <a name="troubleshoot-errors"></a>Felsöka fel
+
+I det här avsnittet beskrivs möjliga lösningar på vanliga fel eller problem.
+
+<a name="file-does-not-exist"></a>
+
+### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>404 fel: "En hänvisning gjordes till en fil eller mapp som inte finns"
+
+Det här felet kan inträffa när logikappen skapar en ny fil på SFTP-servern via filåtgärden SFTP-SSH **Create,** men den nyskapade filen flyttas sedan omedelbart innan Logic Apps-tjänsten kan hämta filens metadata. När logikappen kör åtgärden **Skapa fil** anropar logic apps-tjänsten också automatiskt din SFTP-server för att hämta filens metadata. Men om filen flyttas kan logic apps-tjänsten inte längre hitta `404` filen så att du får felmeddelandet.
+
+Om du inte kan undvika eller fördröja flytten av filen kan du hoppa över att läsa filens metadata när filen har skapats i stället genom att följa dessa steg:
+
+1. Öppna listan Lägg till **ny parameter** i åtgärden **Skapa** fil, välj egenskapen Hämta **alla filmetadata** och ange värdet till **Nej**.
+
+1. Om du behöver den här filens metadata senare kan du använda åtgärden **Hämta metadata.**
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 

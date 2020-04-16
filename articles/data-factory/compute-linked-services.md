@@ -6,18 +6,21 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/10/2019
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 4545a75cc2082c21dcb87986eba819ebe39adf7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 10/10/2019
+ms.openlocfilehash: 63843230b3d4a521df858b00c8e5c887e8f53a7a
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79246349"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81415576"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Beräkningsmiljöer som stöds av Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 I den här artikeln beskrivs olika beräkningsmiljöer som du kan använda för att bearbeta eller omvandla data. Den innehåller också information om olika konfigurationer (på begäran kontra ta med egna) som stöds av Data Factory när du konfigurerar länkade tjänster som länkar dessa beräkningsmiljöer till en Azure-datafabrik.
 
 Följande tabell innehåller en lista över beräkningsmiljöer som stöds av Data Factory och de aktiviteter som kan köras på dem. 
@@ -36,13 +39,15 @@ Följande tabell innehåller en lista över beräkningsmiljöer som stöds av Da
 >  
 
 ## <a name="on-demand-hdinsight-compute-environment"></a>Beräkningsmiljö för HDInsight på begäran
+
 I den här typen av konfiguration hanteras datormiljön helt av Azure Data Factory-tjänsten. Den skapas automatiskt av datafabrikstjänsten innan ett jobb skickas för att bearbeta data och tas bort när jobbet är slutfört. Du kan skapa en länkad tjänst för beräkningsmiljön på begäran, konfigurera den och styra detaljerade inställningar för jobbkörning, klusterhantering och bootstrapping-åtgärder.
 
 > [!NOTE]
 > Konfigurationen på begäran stöds för närvarande endast för Azure HDInsight-kluster. Azure Databricks stöder också jobb på begäran med jobbkluster, se [Azure databricks länkad tjänst](#azure-databricks-linked-service) för mer information.
 
 ## <a name="azure-hdinsight-on-demand-linked-service"></a>Länkad tjänst för Azure HDInsight på begäran
-Azure Data Factory-tjänsten kan automatiskt skapa ett HDInsight-kluster på begäran för att bearbeta data. Klustret skapas i samma region som lagringskontot (egenskapen linkedServiceName i JSON) som är associerat med klustret. Lagringskontot måste vara ett allmänt standardbaserat Azure-lagringskonto. 
+
+Azure Data Factory-tjänsten kan automatiskt skapa ett HDInsight-kluster på begäran för att bearbeta data. Klustret skapas i samma region som lagringskontot (egenskapen linkedServiceName i JSON) som är associerat med klustret. Lagringskontot måste vara ett allmänt azure storage-konto. 
 
 Observera följande **viktiga** punkter om hdinsight-länkad tjänst på begäran:
 
@@ -55,6 +60,7 @@ Observera följande **viktiga** punkter om hdinsight-länkad tjänst på begära
 > Det tar vanligtvis **20 minuter** eller mer att etablera ett Azure HDInsight-kluster på begäran.
 
 ### <a name="example"></a>Exempel
+
 Följande JSON definierar en Linux-baserad HDInsight-länkad tjänst på begäran. Data Factory-tjänsten skapar automatiskt ett **Linux-baserat HDInsight-kluster** för att bearbeta den aktivitet som krävs. 
 
 ```json
@@ -93,25 +99,24 @@ Följande JSON definierar en Linux-baserad HDInsight-länkad tjänst på begära
 > HDInsight-klustret skapar en **standardbehållare** i blob-lagring som du angav i JSON **(linkedServiceName**). HDInsight tar inte bort den här containern när klustret tas bort. Det här beteendet är avsiktligt. Med en HDInsight-länkad tjänst på begäran skapas ett HDInsight-kluster varje gång en sektor behöver bearbetas, såvida det inte finns ett befintligt livekluster (**timeToLive**). Det raderas när bearbetningen är klar. 
 >
 > När fler aktiviteter körs visas många behållare i azure-bloblagringen. Om du inte behöver dem för att felsöka jobb, kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här containrarna följer ett mönster: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Använd verktyg som [Microsoft Lagringsutforskaren](https://storageexplorer.com/) till att ta bort containrar i din Azure bloblagring.
->
-> 
 
 ### <a name="properties"></a>Egenskaper
+
 | Egenskap                     | Beskrivning                              | Krävs |
 | ---------------------------- | ---------------------------------------- | -------- |
 | typ                         | Egenskapen Type ska anges till **HDInsightOnDemand**. | Ja      |
 | clusterSize                  | Antal arbets-/datanoder i klustret. HDInsight-klustret skapas med två huvudnoder tillsammans med antalet arbetsnoder som du anger för den här egenskapen. Noderna är av storlek Standard_D3 som har 4 kärnor, så ett 4-arbetsnodkluster tar 24 kärnor (4\*\*4 = 16 kärnor för arbetsnoder plus 2 4 = 8 kärnor för huvudnoder). Mer information [finns i Konfigurera kluster i HDInsight med Hadoop, Spark, Kafka med mera.](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) | Ja      |
-| linkedServiceName            | Azure Storage-länkad tjänst som ska användas av klustret på begäran för lagring och bearbetning av data. HDInsight-klustret skapas i samma region som det här Azure Storage-kontot. Azure HDInsight har en begränsning för hur många kärnor du kan använda i varje Azure-region som stöds. Se till att du har tillräckligt med kärnkvoter i den Azure-regionen för att uppfylla de nödvändiga clusterSize. Mer information finns [i Konfigurera kluster i HDInsight med Hadoop, Spark, Kafka med mera](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)<p>För närvarande kan du inte skapa ett HDInsight-kluster på begäran som använder ett Azure Data Lake Store som lagring. Om du vill lagra resultatdata från HDInsight-bearbetning i ett Azure Data Lake Store använder du en kopieringsaktivitet för att kopiera data från Azure Blob Storage till Azure Data Lake Store. </p> | Ja      |
+| linkedServiceName            | Azure Storage-länkad tjänst som ska användas av klustret på begäran för lagring och bearbetning av data. HDInsight-klustret skapas i samma region som det här Azure Storage-kontot. Azure HDInsight har en begränsning för hur många kärnor du kan använda i varje Azure-region som stöds. Se till att du har tillräckligt med kärnkvoter i den Azure-regionen för att uppfylla de nödvändiga clusterSize. Mer information finns [i Konfigurera kluster i HDInsight med Hadoop, Spark, Kafka med mera](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)<p>För närvarande kan du inte skapa ett HDInsight-kluster på begäran som använder ett Azure Data Lake Storage (Gen 2) som lagring. Om du vill lagra resultatdata från HDInsight-bearbetning i en Azure Data Lake Storage (Gen 2) använder du en kopieringsaktivitet för att kopiera data från Azure Blob Storage till Azure Data Lake Storage (Gen 2). </p> | Ja      |
 | clusterResourceGroup         | HDInsight-klustret skapas i den här resursgruppen. | Ja      |
 | tidtolering                   | Den tillåtna inaktiva tiden för HDInsight-klustret på begäran. Anger hur länge HDInsight-klustret på begäran förblir vid liv efter slutförandet av en aktivitetskörning om det inte finns några andra aktiva jobb i klustret. Det minsta tillåtna värdet är 5 minuter (00:05:00).<br/><br/>Om en aktivitetskörning till exempel tar 6 minuter och tidstolk är inställd på 5 minuter, förblir klustret vid liv i 5 minuter efter 6 minuters bearbetning av aktivitetskörningen. Om en annan aktivitetskörning körs med 6-minutersfönstret bearbetas den av samma kluster.<br/><br/>Att skapa ett HDInsight-kluster på begäran är en dyr åtgärd (kan ta ett tag), så använd den här inställningen efter behov för att förbättra prestanda för en datafabrik genom att återanvända ett HDInsight-kluster på begäran.<br/><br/>Om du anger tidstolkivvärde till 0 tas klustret bort så fort aktivitetskörningen är klar. Om du anger ett högt värde kan klustret vara inaktivt för att du ska kunna logga in för vissa felsökningsändamål, men det kan leda till höga kostnader. Därför är det viktigt att du anger lämpligt värde baserat på dina behov.<br/><br/>Om egenskapsvärdet för timetolive är korrekt inställt kan flera pipelines dela instansen av HDInsight-klustret på begäran. | Ja      |
 | clusterType (klustertyp)                  | Den typ av HDInsight-kluster som ska skapas. Tillåtna värden är "hadoop" och "spark". Om inget anges är standardvärdet hadoop. Enterprise Security Package-aktiverat kluster kan inte skapas på begäran, i stället använda ett [befintligt kluster/ ta med din egen beräkning](#azure-hdinsight-linked-service). | Inga       |
 | version                      | Version av HDInsight-klustret. Om det inte anges används den aktuella HDInsight-definierade standardversionen. | Inga       |
 | hostSubscriptionId           | Azure-prenumerations-ID som används för att skapa HDInsight-kluster. Om det inte anges används prenumerations-ID:t för din Azure-inloggningskontext. | Inga       |
-| clusterNamePrefix           | Prefixet för HDI-klusternamn, en tidsstämpel läggs automatiskt till i slutet av klusternamnet| Inga       |
+| clusterNamePrefix           | Prefixet för HDI-klusternamn, en tidsstämpel lägger automatiskt till i slutet av klusternamnet| Inga       |
 | sparkVersion (gnistVersion)                 | Versionen av gnistan om klustertypen är "Spark" | Inga       |
 | ytterligareLänkade tjänstnamn | Anger ytterligare lagringskonton för den HDInsight-länkade tjänsten så att datafabrikstjänsten kan registrera dem för din räkning. Dessa lagringskonton måste finnas i samma region som HDInsight-klustret, som skapas i samma region som lagringskontot som anges av linkedServiceName. | Inga       |
 | osType (olika)                       | Typ av operativsystem. Tillåtna värden är: Linux och Windows (endast för HDInsight 3.3). Standard är Linux. | Inga       |
-| hcatalogLinkedServiceName    | Namnet på Azure SQL-länkade tjänst som pekar på HCatalog-databasen. HDInsight-klustret på begäran skapas med hjälp av Azure SQL-databasen som metabutik. | Inga       |
+| hcatalogLinkedServiceName    | Namnet på Azure SQL-länkade tjänst som pekar på HCatalog-databasen. HDInsight-klustret på begäran skapas med hjälp av Azure SQL Database som metabutik. | Inga       |
 | connectVia (på)                   | Den integrationskörning som ska användas för att skicka aktiviteterna till den här HDInsight-länkade tjänsten. För hdinsight-länkad tjänst på begäran stöder den bara Azure Integration Runtime. Om det inte anges används standardkörningen för Azure Integration. | Inga       |
 | clusterUserName                   | Användarnamnet för att komma åt klustret. | Inga       |
 | klusterPassord                   | Lösenordet i typ av säker sträng för att komma åt klustret. | Inga       |
@@ -125,8 +130,6 @@ Följande JSON definierar en Linux-baserad HDInsight-länkad tjänst på begära
 >
 > [!IMPORTANT]
 > För närvarande stöder HDInsight-länkade tjänster inte HBase, Interactive Query (Hive LLAP), Storm. 
->
-> 
 
 #### <a name="additionallinkedservicenames-json-example"></a>additionalLinkedServiceNames JSON-exempel
 
@@ -291,7 +294,7 @@ Du kan skapa en Azure HDInsight-länkad tjänst för att registrera ditt eget HD
 | clusterUri (klusterUri)        | Uri i HDInsight-klustret.                            | Ja      |
 | användarnamn          | Ange namnet på den användare som ska användas för att ansluta till ett befintligt HDInsight-kluster. | Ja      |
 | password          | Ange lösenord för användarkontot.                       | Ja      |
-| linkedServiceName | Namnet på den Azure Storage-länkade tjänst som refererar till Azure-bloblagringslagringen som används av HDInsight-klustret. <p>För närvarande kan du inte ange en Azure Data Lake Store-länkad tjänst för den här egenskapen. Om HDInsight-klustret har åtkomst till DataSjöarkivet kan du komma åt data i Azure Data Lake Store från Hive/Pig-skript. </p> | Ja      |
+| linkedServiceName | Namnet på den Azure Storage-länkade tjänst som refererar till Azure-bloblagringslagringen som används av HDInsight-klustret. <p>För närvarande kan du inte ange en Azure Data Lake Storage (Gen 2) länkad tjänst för den här egenskapen. Om HDInsight-klustret har åtkomst till DataSjöarkivet kan du komma åt data i Azure Data Lake Storage (Gen 2) från Hive/Pig-skript. </p> | Ja      |
 | isEspEnabled      | Ange '*sant*' om HDInsight-klustret är [Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-architecture) aktiverat. Standard är '*false*'. | Inga       |
 | connectVia (på)        | Den integrationskörning som ska användas för att skicka aktiviteterna till den länkade tjänsten. Du kan använda Azure Integration Runtime eller Self-hosted Integration Runtime. Om det inte anges används standardkörningen för Azure Integration. <br />För ESP-kluster (Enterprise Security Package) använder du en självvärd integreringskörning, som har en siktlinje till klustret eller att det bör distribueras i samma virtuella nätverk som ESP HDInsight-klustret. | Inga       |
 
@@ -483,7 +486,7 @@ Du skapar en **Azure Data Lake Analytics-länkad** tjänst för att länka en Az
 
 
 ## <a name="azure-databricks-linked-service"></a>Azure Databricks länkad tjänst
-Du kan skapa **Azure Databricks-länkad tjänst** för att registrera Databricks arbetsyta som du ska använda för att köra Databricks-arbetsbelastningarna(anteckningsbok, burk, python). 
+Du kan skapa **Azure Databricks-länkad tjänst** för att registrera Databricks-arbetsyta som du använder för att köra Databricks-arbetsbelastningarna(anteckningsbok, burk, python). 
 > [!IMPORTANT]
 > Databricks länkade tjänster stöder [instanspooler](https://aka.ms/instance-pools). 
 
@@ -538,7 +541,7 @@ Du kan skapa **Azure Databricks-länkad tjänst** för att registrera Databricks
 | tillgångToken          | Åtkomsttoken krävs för att Data Factory ska autentisera till Azure Databricks. Åtkomsttoken måste genereras från databricks-arbetsytan. Mer detaljerade steg för att hitta åtkomsttoken hittar du [här](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | Ja                                       |
 | befintligaClusterId    | Kluster-ID för ett befintligt kluster för att köra alla jobb på detta. Detta bör vara ett redan skapat interaktivt kluster. Du kan behöva starta om klustret manuellt om det slutar svara. Databricks föreslår att du kör jobb i nya kluster för ökad tillförlitlighet. Du hittar kluster-ID för ett interaktivt kluster på Databricks arbetsyta -> kluster -> interaktivt klusternamn -> konfiguration -> taggar. [Mer information](https://docs.databricks.com/user-guide/clusters/tags.html) | Inga 
 | instansPoolId    | Instanspool-ID för en befintlig pool i databricks arbetsyta.  | Inga  |
-| nyaClusterVersion    | Spark-versionen av klustret. Det kommer att skapa ett jobbkluster i databricks. | Inga  |
+| nyaClusterVersion    | Spark-versionen av klustret. Det skapar ett jobbkluster i databricks. | Inga  |
 | nyaClusterNumOfWorker| Antal arbetsnoder som det här klustret ska ha. Ett kluster har en Spark Driver och num_workers Executors för totalt num_workers + 1 Spark-noder. En sträng formaterad Int32, som "1" betyder numOfWorker är 1 eller "1:10" betyder automatisk skalning från 1 som min och 10 som max.  | Inga                |
 | nyaKsterNodeTyp   | Det här fältet kodar, genom ett enda värde, de resurser som är tillgängliga för var och en av Spark-noderna i det här klustret. Spark-noder kan till exempel etableras och optimeras för minnes- eller beräkningsintensiva arbetsbelastningar. Det här fältet krävs för nytt kluster                | Inga               |
 | nyaClusterSparkConf  | en uppsättning valfria, användarspecificerade Spark-konfigurationsnyckel-värdepar. Användare kan också passera i en rad extra JVM alternativ till föraren och executors via spark.driver.extraJavaOptions och spark.executor.extraJavaOptions respektive. | Inga  |
@@ -546,15 +549,19 @@ Du kan skapa **Azure Databricks-länkad tjänst** för att registrera Databricks
 
 
 ## <a name="azure-sql-database-linked-service"></a>Länkad Azure SQL Database-tjänst
+
 Du skapar en Azure SQL-länkad tjänst och använder den med [den lagrade proceduraktiviteten](transform-data-using-stored-procedure.md) för att anropa en lagrad procedur från en Data Factory-pipeline. Mer information om den här länkade tjänsten finns i azure [SQL Connector-artikeln.](connector-azure-sql-database.md#linked-service-properties)
 
 ## <a name="azure-sql-data-warehouse-linked-service"></a>Azure SQL Data Warehouse länkad tjänst
+
 Du skapar en Azure SQL Data Warehouse-länkad tjänst och använder den med [den lagrade proceduraktiviteten](transform-data-using-stored-procedure.md) för att anropa en lagrad procedur från en Data Factory-pipeline. Mer information om den här länkade tjänsten finns i artikeln [Azure SQL Data Warehouse Connector.](connector-azure-sql-data-warehouse.md#linked-service-properties)
 
 ## <a name="sql-server-linked-service"></a>SQL Server-länkad tjänst
+
 Du skapar en SQL Server-länkad tjänst och använder den med [den lagrade proceduraktiviteten](transform-data-using-stored-procedure.md) för att anropa en lagrad procedur från en Data Factory-pipeline. Mer information om den här länkade tjänsten finns i artikeln [SQL Server-anslutning.](connector-sql-server.md#linked-service-properties)
 
 ## <a name="azure-function-linked-service"></a>Azure-funktionslänkade tjänst
+
 Du skapar en Azure Function-länkad tjänst och använder den med [Azure-funktionsaktiviteten](control-flow-azure-function-activity.md) för att köra Azure-funktioner i en Data Factory-pipeline. Returtypen för Azure-funktionen måste `JObject`vara en giltig . (Tänk på att [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) `JObject` *inte* är en .) Alla returtyper `JObject` som inte fungerar som den misslyckas och höjer användarfelet *Svarsinnehåll är inte ett giltigt JObject*.
 
 | **Egenskap** | **Beskrivning** | **Obligatoriskt** |
@@ -565,4 +572,5 @@ Du skapar en Azure Function-länkad tjänst och använder den med [Azure-funktio
 |   |   |   |
 
 ## <a name="next-steps"></a>Nästa steg
+
 En lista över de omvandlingsaktiviteter som stöds av Azure Data Factory finns i [Omforma data](transform-data.md).

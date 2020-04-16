@@ -1,24 +1,26 @@
 ---
-title: Azure Event Grid-händelseschema för Azure Key Vault
+title: Azure Key Vault som källa för händelserutnät
 description: Beskriver de egenskaper och schema som tillhandahålls för Azure Key Vault-händelser med Azure Event Grid
 services: event-grid
-author: msmbaldwin
+author: spelluru
 ms.service: event-grid
-ms.topic: reference
-ms.date: 10/25/2019
-ms.author: mbaldwin
-ms.openlocfilehash: fe186e2ba8f3cafeb4d186066ba65ae036302f70
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: spelluru
+ms.openlocfilehash: 36b7b81a18c8725929ab5676b844e1ee319e287f
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010519"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393301"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-key-vault-preview"></a>Azure Event Grid-händelseschema för Azure Key Vault (förhandsversion)
+# <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault som källa för händelserutnät
 
 Den här artikeln innehåller egenskaper och schema för händelser i [Azure Key Vault](../key-vault/index.yml), för närvarande i förhandsversion. En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](event-schema.md).
 
-## <a name="available-event-types"></a>Tillgängliga händelsetyper
+## <a name="event-grid-event-schema"></a>Händelseschema för händelserutnät
+
+### <a name="available-event-types"></a>Tillgängliga händelsetyper
 
 Ett Azure Key Vault-konto genererar följande händelsetyper:
 
@@ -34,7 +36,7 @@ Ett Azure Key Vault-konto genererar följande händelsetyper:
 | Microsoft.KeyVault.SecretNearExpiry | Hemlighet nära utgångsdatum | Utlöses när den aktuella versionen av en hemlighet håller på att upphöra att gälla. (Händelsen utlöses 30 dagar före utgångsdatumet.) |
 | Microsoft.KeyVault.SecretExpirerad | Hemligheten har upphört att gälla | Utlöses när en hemlighet har upphört att gälla. |
 
-## <a name="event-examples"></a>Exempel på evenemang
+### <a name="event-examples"></a>Exempel på evenemang
 
 I följande exempel visas schema för **Microsoft.KeyVault.SecretNewVersionSkaperad:**
 
@@ -61,7 +63,7 @@ I följande exempel visas schema för **Microsoft.KeyVault.SecretNewVersionSkape
 ]
 ```
 
-## <a name="event-properties"></a>Händelseegenskaper
+### <a name="event-properties"></a>Händelseegenskaper
 
 En händelse har följande data på den högsta nivån:
 
@@ -74,6 +76,12 @@ En händelse har följande data på den högsta nivån:
 | version | sträng | Den version av objektet som utlöste den här händelsen |
 | Nbf | nummer | Ej-före-datumet i sekunder sedan 1970-01-01T00:00:00Z för objektet som utlöste den här händelsen |
 | exp | nummer | Utgångsdatumet i sekunder sedan 1970-01-01T00:00:00Z för objektet som utlöste den här händelsen |
+
+## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
+|Titel  |Beskrivning  |
+|---------|---------|
+| [Övervaka nyckelvalvshändelser med Azure Event Grid](../key-vault/event-grid-overview.md) | Översikt över att integrera Key Vault med Event Grid. |
+| [Självstudiekurs: Skapa och övervaka key vault-händelser med händelserutnät](../key-vault/event-grid-tutorial.md) | Läs om hur du konfigurerar aviseringar om händelserutnät för Key Vault. |
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -11,14 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
-ms.openlocfilehash: e918fe01426202746f0225d25304b9c1b26cb74b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 23d799f84cb3ac3ca911a5669041b0a25394a7ff
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74927331"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414765"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migrera data från Amazon S3 till Azure Data Lake Storage Gen2
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Använd mallarna för att migrera petabyte data som består av hundratals miljoner filer från Amazon S3 till Azure Data Lake Storage Gen2. 
 
@@ -71,7 +73,7 @@ Mallen innehåller två parametrar:
 
     > [!NOTE]
     > Tabellnamnet är s3_partition_control_table.
-    > Schemat för kontrolltabellen är PartitionPrefix och SuccessOrFailure, där PartitionPrefix är prefixinställningen i S3 för att filtrera mappar och filer i Amazon S3 med namn, och SuccessOrFailure är status för att kopiera varje partition: 0 betyder att den här partitionen har inte kopierats till Azure och 1 innebär att den här partitionen har kopierats till Azure.
+    > Schemat för kontrolltabellen är PartitionPrefix och SuccessOrFailure, där PartitionPrefix är prefixinställningen i S3 för att filtrera mappar och filer i Amazon S3 med namn, och SuccessOrFailure är statusen för att kopiera varje partition: 0 innebär att den här partitionen inte har kopierats till Azure och 1 innebär att den här partitionen har kopierats till Azure.
     > Det finns 5 partitioner definierade i kontrolltabellen och standardstatusen för att kopiera varje partition är 0.
 
     ```sql
@@ -132,7 +134,7 @@ Mallen innehåller två parametrar:
 
     > [!NOTE]
     > Tabellnamnet är s3_partition_delta_control_table.
-    > Schemat för kontrolltabellen är PartitionPrefix, JobRunTime och SuccessOrFailure, där PartitionPrefix är prefixinställningen i S3 för att filtrera mappar och filer i Amazon S3 efter namn, JobRunTime är datetime-värdet när kopieringsjobb körs och SuccessOrFailure är status för att kopiera varje partition: 0 innebär att den här partitionen inte har kopierats till Azure och 1 innebär att den här partitionen har kopierats till Azure.
+    > Schemat för kontrolltabellen är PartitionPrefix, JobRunTime och SuccessOrFailure, där PartitionPrefix är prefixinställningen i S3 för att filtrera mappar och filer i Amazon S3 med namn, JobRunTime är datetime-värdet när kopieringsjobb körs och SuccessOrFailure är statusen för att kopiera varje partition: 0 innebär att den här partitionen inte har kopierats till Azure och 1 innebär att den här partitionen har kopierats till Azure.
     > Det finns 5 partitioner definierade i kontrolltabellen. Standardvärdet för JobRunTime kan vara den tid då enstaka historisk datamigrering startar. ADF-kopieringsaktivitet kopierar filerna på AWS S3 som senast har ändrats efter den tiden. Standardstatusen för kopiering av varje partition är 1.
 
     ```sql

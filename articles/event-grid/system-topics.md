@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 35025bf1592f1293b9326d643f76322b4af590c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46bceeb31fa38068c6c4f9f3a86ed556ad39effb
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79501190"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81393156"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Systemavsnitt i Azure Event Grid
 Azure Event Grid-tjänsten skapar systemavsnitt när du skapar en första händelseprenumeration för en Azure-händelsekälla. För närvarande skapar Event Grid inte systemavsnitt för ämneskällor som skapades före den 15 mars 2020. För alla ämneskällor som du skapade på eller efter det här datumet skapar Event Grid automatiskt systemavsnitt. I den här artikeln beskrivs **systemavsnitt** i Azure Event Grid.
@@ -38,5 +38,5 @@ NÃ¤r du fÃ¶rsÃ¶k fÃ¶rsÃ¶k fÃ¶rsÃ¶k att ta bort resursgruppen med l
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar: 
 
-- [Anpassade ämnen](event-sources.md#custom-topics)
+- [Anpassade ämnen](custom-topics.md)
 - [Domäner](event-domains.md)

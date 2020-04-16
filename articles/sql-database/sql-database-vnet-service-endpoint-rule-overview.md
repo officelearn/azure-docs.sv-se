@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 4faead13c10171c31e76fe2dd59be32a93a12f86
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7032f9e8f57ea9400bf6a92f89b13fa1866f8fc1
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124752"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414396"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Använda slutpunkter och regler för virtuella nätverkstjänster för databasservrar
 
@@ -64,6 +64,7 @@ Du har möjlighet att använda [rollbaserad åtkomstkontroll (RBAC)][rbac-what-i
 
 > [!NOTE]
 > I vissa fall finns Azure SQL Database och VNet-undernätet i olika prenumerationer. I dessa fall måste du se till att följande konfigurationer:
+>
 > - Båda prenumerationerna måste finnas i samma Azure Active Directory-klientorganisation.
 > - Användaren har de behörigheter som krävs för att initiera åtgärder, till exempel aktivera tjänstslutpunkter och lägga till ett VNet-undernät till den angivna servern.
 > - Båda prenumerationerna måste ha Microsoft.Sql-providern registrerad.
@@ -134,7 +135,7 @@ PolyBase används ofta för att läsa in data i Azure SQL Data Warehouse från A
    > [!NOTE]
    > - Om du har ett allmänt v1- eller blob-lagringskonto måste du **först uppgradera till v2** med den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Information om kända problem med Azure Data Lake Storage Gen2 finns i den här [guiden](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
-    
+
 1. Under ditt lagringskonto navigerar du till **Åtkomstkontroll (IAM)** och klickar på **Lägg till rolltilldelning**. Tilldela RBAC-rollen **för storage blob data contributor** till din Azure SQL Server som är värd för ditt Azure SQL Data Warehouse som du har registrerat med Azure Active Directory (AAD) som i steg#1.
 
    > [!NOTE]
@@ -264,6 +265,7 @@ Du måste redan ha ett undernät som är taggat med det specifika *slutpunktstyp
 
 > [!NOTE]
 > Följande status eller tillstånd gäller för reglerna:
+>
 > - **Redo:** Anger att åtgärden som du initierade har slutförts.
 > - **Det gick inte att:** Anger att åtgärden som du initierade har misslyckats.
 > - **Utgår:** Gäller endast för åtgärden Ta bort och anger att regeln har tagits bort och inte längre gäller.

@@ -10,13 +10,12 @@ ms.subservice: ''
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 64490bbd44066389186a59e851045b6becbe7acc
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 56d8ab81fcf9200fec2cfb4a741724b8f79db820
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632472"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81408029"
 ---
 # <a name="temporary-tables-in-synapse-sql-pool"></a>Temporära tabeller i Synapse SQL-pool
 Den här artikeln innehåller viktiga riktlinjer för hur du använder temporära tabeller och belyser principerna för temporära tabeller på sessionsnivå. 
@@ -30,7 +29,14 @@ Temporära tabeller visas bara för den session där de skapades och tas bort au
 
 Temporära tabeller erbjuder en prestandafördel eftersom deras resultat skrivs till lokal lagring i stället för fjärrlagring.
 
-## <a name="create-a-temporary-table"></a>Skapa en tillfällig tabell
+Temporära tabeller är användbara vid bearbetning av data, särskilt under omvandling där de mellanliggande resultaten är övergående. Med SQL Analytics finns tillfälliga tabeller på sessionsnivå.  De är bara synliga för den session där de skapades. De släpps därför automatiskt när sessionen loggas ut. 
+
+## <a name="temporary-tables-in-sql-pool"></a>Temporära tabeller i SQL-poolen
+
+I SQL-poolresursen erbjuder temporära tabeller en prestandafördel eftersom deras resultat skrivs till lokal i stället för fjärrlagring.
+
+### <a name="create-a-temporary-table"></a>Skapa en tillfällig tabell
+
 Temporära tabeller skapas genom att `#`du förebeskar tabellnamnet med en .  Ett exempel:
 
 ```sql
@@ -89,7 +95,7 @@ GROUP BY
 ,        st.[has_filter]
 )
 ;
-``` 
+```
 
 > [!NOTE]
 > `CTAS`är ett kraftfullt kommando och har den extra fördelen av att vara effektiv i sin användning av transaktionsloggutrymme. 
@@ -226,5 +232,6 @@ SQL-pool medför ett par begränsningar när tillfälliga tabeller implementeras
 Det går inte heller att skapa vyer i temporära tabeller.  Temporära tabeller kan bara skapas med hash- eller round robin-distribution.  Replikerad tillfällig tabelldistribution stöds inte. 
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du utvecklar tabeller finns i [tabellöversikten](sql-data-warehouse-tables-overview.md).
+
+Mer information om hur du utvecklar tabeller finns i [designtabellerna med hjälp av sql analytics-resurser.](sql-data-warehouse-tables-overview.md)
 

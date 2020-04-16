@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 114c632d43dbb254222def2437fbffc22ec84688
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 4c76bcbf945c63588f8471c10deca0b5982d3562
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80672465"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414238"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Vanliga frågor och svar om olika API: er i Azure Cosmos DB
 
@@ -404,7 +404,7 @@ Du kan lägga till så många regioner du vill för kontot och kontrollen där d
 
 ### <a name="is-the-table-api-enabled-for-backups"></a>Är tabell-API:et aktiverat för säkerhetskopiering?
 
-Ja, tabell-API:et utnyttjar plattformen för Azure Cosmos DB för säkerhetskopiering. Säkerhetskopior görs automatiskt. Mer information finns i [Online säkerhetskopiering och återställning med Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
+Ja, tabell-API:et utnyttjar plattformen för Azure Cosmos DB för säkerhetskopiering. Säkerhetskopior görs automatiskt. Mer information finns i [Online säkerhetskopiering och återställning med Azure Cosmos DB](online-backup-and-restore.md).
 
 ### <a name="does-the-table-api-index-all-attributes-of-an-entity-by-default"></a>Indexerar tabell-API alla attribut för en entitet som standard?
 
@@ -761,7 +761,7 @@ För närvarande azure Cosmos DB har en optimerad upplevelse för molnmiljö uta
 ### <a name="does-cassandra-api-provide-full-backups"></a>Tillhandahåller Cassandra API fullständiga säkerhetskopior?
 
 Azure Cosmos DB tillhandahåller två kostnadsfria fullständiga säkerhetskopieringar som tas med fyra timmars intervall idag i alla API:er. Detta säkerställer att du inte behöver ställa in ett säkerhetskopieringsschema och andra saker.
-Om du vill ändra kvarhållning och [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) frekvens skickar du ett e-postmeddelande till eller höjer ett supportärende. Information om säkerhetskopieringsfunktioner finns i [den automatiska säkerhetskopieringen och återställningen online med](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) azure Cosmos DB-artikeln.
+Om du vill ändra kvarhållning och [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) frekvens skickar du ett e-postmeddelande till eller höjer ett supportärende. Information om säkerhetskopieringsfunktioner finns i [den automatiska säkerhetskopieringen och återställningen online med](online-backup-and-restore.md) azure Cosmos DB-artikeln.
 
 ### <a name="how-does-the-cassandra-api-account-handle-failover-if-a-region-goes-down"></a>Hur hanterar Cassandra API-kontot redundans om en region går ner?
 

@@ -11,12 +11,12 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: ce2fe66888893d82debcc412bb16752914d8a190
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: d38c0df45da3a751a456846813543a4ce5de98eb
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011114"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81416216"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Övervaka resursanvändning och frågeaktivitet i Azure Synapse Analytics
 
@@ -56,14 +56,14 @@ Saker att tänka på när du visar mått och ställer in aviseringar:
 
 För en programmatisk upplevelse när du övervakar SQL Analytics via T-SQL tillhandahåller tjänsten en uppsättning d-spel (Dynamic Management Views). Dessa vyer är användbara när du aktivt felsöker och identifierar flaskhalsar med din arbetsbelastning.
 
-Information om hur du visar listan över DMV:er som SQL Analytics tillhandahåller finns i den här [dokumentationen](sql-data-warehouse-reference-tsql-system-views.md#sql-data-warehouse-dynamic-management-views-dmvs).
+Om du vill visa listan över DMVs som gäller för Synapse SQL läser du den här [dokumentationen](../sql/reference-tsql-system-views.md#sql-pool-dynamic-management-views-dmvs). 
 
-## <a name="metrics-and-diagnostics-logging"></a>Mått- och diagnostikloggning
+## <a name="metrics-and-diagnostics-logging"></a>Mått- och diagnostikloggning 
 
 Både mått och loggar kan exporteras till Azure Monitor, särskilt [Azure Monitor-loggkomponenten](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och kan nås programmässigt via [loggfrågor](../../azure-monitor/log-query/get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Loggsvarstiden för SQL Analytics är ca 10-15 minuter. Mer information om vilka faktorer som påverkar svarstiden finns i följande dokumentation.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följande how-to-guider beskriver vanliga scenarier och användningsfall när du övervakar och hanterar ditt informationslager:
+I följande instruktioner beskrivs vanliga scenarier och användningsfall när du övervakar och hanterar ditt informationslager:
 
 - [Övervaka din datalagerarbetsbelastning med DMV:er](sql-data-warehouse-manage-monitor.md)

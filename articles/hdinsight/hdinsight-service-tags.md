@@ -6,17 +6,17 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 03/10/2020
-ms.openlocfilehash: 34ec05a8362f5947cb61924b19c6b1a52e5d91a4
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.date: 04/15/2020
+ms.openlocfilehash: 5608d0cd83e506bc6b30337db5148f344f59f80e
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437676"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81410857"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>NSG-tjänsttaggar för Azure HDInsight
 
-Azure HDInsight-tjänsttaggar för nätverkssäkerhetsgrupper (NSG) är grupper av IP-adresser för hälso- och hanteringstjänster. Dessa grupper hjälper till att minimera komplexiteten för att skapa säkerhetsregeln. [Tjänsttaggar](../virtual-network/security-overview.md#service-tags) är en alternativ metod för att tillåta inkommande trafik från specifika IP-adresser utan att ange var och en av [hanterings-IP-adresserna](hdinsight-management-ip-addresses.md) i nsg-grupperna.
+Azure HDInsight-tjänsttaggar för nätverkssäkerhetsgrupper (NSG) är grupper av IP-adresser för hälso- och hanteringstjänster. Dessa grupper hjälper till att minimera komplexiteten för att skapa säkerhetsregeln. [Tjänsttaggar](../virtual-network/security-overview.md#service-tags) tillåter inkommande trafik från specifika IP-adresser utan att ange var och en av [hanterings-IP-adresserna](hdinsight-management-ip-addresses.md) i nsg:erna.
 
 HDInsight-tjänsten hanterar dessa tjänsttaggar. Du kan inte skapa ett eget servicetag eller ändra en befintlig tagg. Microsoft hanterar adressprefixen som matchar servicetag och uppdaterar automatiskt servicetag när adresserna ändras.
 
@@ -46,13 +46,13 @@ Den här taggen innehåller IP-adresserna för hälso- och hanteringstjänster f
 
 ## <a name="use-regional-hdinsight-service-tags"></a>Använda regionala HDInsight-tjänsttaggar
 
-Om alternativet för global tagg inte fungerar på grund av att du behöver mer restriktiva behörigheter kan du bara tillåta de tjänsttaggar som gäller för din region. Det kan finnas en, två eller tre tillämpliga tjänsttaggar, beroende på vilken region klustret skapas.
+Om alternativet för global tagg inte fungerar på grund av att du behöver mer restriktiva behörigheter kan du bara tillåta de tjänsttaggar som gäller för din region. Det kan finnas flera tjänsttaggar, beroende på vilken region klustret skapas.
 
 Om du vill ta reda på vilka tjänsttaggar du ska lägga till för din region läser du följande avsnitt i artikeln.
 
 ### <a name="use-a-single-regional-service-tag"></a>Använda ett enda regionalt servicetag
 
-Om du föredrar att använda regionala tjänsttaggar och klustret finns i något av de regioner som anges i den här tabellen behöver du bara lägga till en enda regional tjänsttagg i nätverkssäkerhetsgruppen.
+Om klustret finns i en region som visas i den här tabellen behöver du bara lägga till en enda regional tjänsttagg i NSG.
 
 | Land/region | Region | Tjänsttagg |
 | ---- | ---- | ---- |
@@ -80,13 +80,13 @@ Om du föredrar att använda regionala tjänsttaggar och klustret finns i något
 
 ### <a name="use-multiple-regional-service-tags"></a>Använda flera regionala tjänsttaggar
 
-Om du föredrar att använda regionala tjänsttaggar men regionen där klustret skapas inte fanns med i tabellen föregående måste du tillåta flera regionala tjänsttaggar. Behovet av att använda mer än en beror på skillnader i arrangemanget av resursleverantörer för de olika regionerna.
+Om regionen där klustret skapades inte visas i tabellen föregående måste du tillåta flera regionala tjänsttaggar. Behovet av att använda mer än en beror på skillnader i arrangemanget av resursleverantörer för de olika regionerna.
 
 De återstående regionerna är indelade i grupper baserat på vilka regionala tjänsttaggar de använder.
 
 #### <a name="group-1"></a>Grupp 1
 
-Om klustret skapas i något av områdena i `HDInsight.WestUS` följande `HDInsight.EastUS` tabell tillåter du tjänsttaggarna och förutom den regionala servicetaggen i listan. Regioner i det här avsnittet kräver tre tjänsttaggar.
+Om klustret skapas i något av områdena i `HDInsight.WestUS` följande `HDInsight.EastUS`tabell tillåter du tjänsttaggarna och . Dessutom visas den regionala servicetaggen. Regioner i det här avsnittet kräver tre tjänsttaggar.
 
 Om klustret till exempel `East US 2` skapas i regionen måste du lägga till följande tjänsttaggar i nätverkssäkerhetsgruppen:
 

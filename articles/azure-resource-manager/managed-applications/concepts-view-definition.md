@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: d0c60f5738bf634f9d43d6d4f0d78c1239b7ff3c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a3d2234a140d1fb2eede50e3fe2eef5575da648
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75650700"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81391698"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Visa definitionsartefakt i Azure-hanterade program
 
@@ -20,7 +20,7 @@ Den här artikeln innehåller en översikt över artefakten för vydefinition oc
 
 ## <a name="view-definition-artifact"></a>Visa definitionsartefakt
 
-Artefakten för vydefinition måste namnges **viewDefinition.json** och placeras på samma nivå som **createUiDefinition.json** och **mainTemplate.json** i ZIP-paketet som skapar en hanterad programdefinition. Mer information om hur du skapar ZIP-paketet och publicerar en definierad hanterad programdefinition finns i [Publicera en definition av Azure Managed Application](publish-managed-app-definition-quickstart.md)
+Artefakten för vydefinition måste namnges **viewDefinition.json** och placeras på samma nivå som **createUiDefinition.json** och **mainTemplate.json** i ZIP-paketet som skapar en hanterad programdefinition. Mer information om hur du skapar ZIP-paketet och publicerar en definierad hanterad programdefinition finns i [Publicera en definition av Azure Managed Application](publish-service-catalog-app.md)
 
 ## <a name="view-definition-schema"></a>Visa definitionsschema
 

@@ -5,12 +5,12 @@ description: Lär dig hur du skyddar trafik som flödar in och ut ur poddar med 
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 01ba9e7353b6783d1b4fd1649291a64405fd9382
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: a2794f53407be3ce3d7e69caa8039c13217a0356
+ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886712"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81392615"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Säker trafik mellan poddar med hjälp av nätverksprinciper i Azure Kubernetes Service (AKS)
 
@@ -55,7 +55,7 @@ Båda implementeringarna använder Linux *IPTables* för att tillämpa de angivn
 | Plattformar som stöds                      | Linux                      | Linux                       |
 | Nätverksalternativ som stöds             | Azure CNI                  | Azure CNI och kubenet       |
 | Överensstämmelse med Kubernetes specifikation | Alla principtyper som stöds |  Alla principtyper som stöds |
-| Ytterligare funktioner                      | Inget                       | Utökad principmodell som består av global nätverksprincip, global nätverksuppsättning och värdslutpunkt. Mer information om `calicoctl` hur du använder CLI för att hantera dessa utökade funktioner finns i [calicoctl-användarreferens][calicoctl]. |
+| Ytterligare funktioner                      | Ingen                       | Utökad principmodell som består av global nätverksprincip, global nätverksuppsättning och värdslutpunkt. Mer information om `calicoctl` hur du använder CLI för att hantera dessa utökade funktioner finns i [calicoctl-användarreferens][calicoctl]. |
 | Support                                  | Stöds av Azure support och Engineering team | Calico community support. Mer information om ytterligare betald support finns i [Supportalternativ för Project Calico][calico-support]. |
 | Loggning                                  | Regler som läggs till/tas bort i IPTables loggas in på alla värden under */var/log/azure-npm.log* | Mer information finns i [Calico-komponentloggar][calico-logs] |
 
@@ -82,6 +82,8 @@ Följande exempelskript:
 * Tilldelar *deltagarbehörigheter* för AKS-klustertjänstens huvudnamn i det virtuella nätverket.
 * Skapar ett AKS-kluster i det definierade virtuella nätverket och aktiverar nätverksprincipen.
     * Alternativet *azure* network policy används. Om du vill använda Calico som `--network-policy calico` nätverksprincipalternativ i stället använder du parametern. Obs: Calico kan användas `--network-plugin azure` `--network-plugin kubenet`med antingen eller .
+
+Observera att i stället för att använda ett tjänsthuvudnamn kan du använda en hanterad identitet för behörigheter. Mer information finns i [Använda hanterade identiteter](use-managed-identity.md).
 
 Ge din egen säker *SP_PASSWORD.* Du kan ersätta *variablerna RESOURCE_GROUP_NAME* och *CLUSTER_NAME:*
 

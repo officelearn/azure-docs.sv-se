@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f35a5da15ca1a672046844282626a6cb7b8ecbdf
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: fbdf0fda51ae35fac4f3f8ae45bfcd788fc406ae
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80583535"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81414008"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Kapacitetsbegränsningar för Azure Synapse Analytics (tidigare SQL DW)
 
@@ -42,7 +42,7 @@ Högsta tillåtna värden för olika komponenter i Azure Synapse.
 | Tabell |Max storlek |Obegränsad storlek för columnstore-tabeller. <br>60 TB för rowstore-tabeller komprimerade på disk. |
 | Tabell |Tabeller per databas | 100 000 |
 | Tabell |Kolumner per tabell |1024 kolumner |
-| Tabell |Byte per kolumn |Beroende på [kolumndatatyp](sql-data-warehouse-tables-data-types.md). För teckendatatyper kan MAX Limit lagra upp till 2 GB på off page -lagring (radspill).  Icke-Unicode-tecken som teckentecken eller varchar-gräns är 8000 på en datasida, Unicode-tecken som nchar- eller nvarchar-gräns är 4000 på en datasida.  Använd lagringsstorlekar för datasidan för att öka prestandan. |
+| Tabell |Byte per kolumn |Beroende på [kolumndatatyp](sql-data-warehouse-tables-data-types.md). Gräns är 8000 för teckendatatyper, 4000 för nvarchar eller 2 GB för MAX-datatyper. |
 | Tabell |Byte per rad, definierad storlek |8060 byte<br/><br/>Antalet byte per rad beräknas på samma sätt som för SQL Server med sidkomprimering. Precis som SQL Server stöds fjärrspilllagring, vilket gör att kolumner med **variabel längd** kan skjutas bort från raden. När rader med variabel längd skjuts bort från raden lagras endast 24-byterot i huvudposten. Mer information finns i [Rad-spilldata som överstiger 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
 | Tabell |Partitioner per tabell |15 000<br/><br/>För hög prestanda rekommenderar vi att du minimerar antalet partitioner du behöver samtidigt som du stöder dina affärskrav. I takt med att antalet partitioner ökar ökar belastningen för DDL-åtgärder (Data Definition Language) och DML-åtgärder (Data Manipulation Language) och ger långsammare prestanda. |
 | Tabell |Tecken per partitionsgränsvärde. |4000 |

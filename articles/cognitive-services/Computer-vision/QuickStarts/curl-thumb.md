@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6cb9dadc107c6907f1ccb28a876270e577f10395
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: d60f1101fc858e9dcaa22162be97417544e13693
+ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74977309"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81405047"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-curl"></a>Snabbstart: Generera en miniatyrbild med REST API FÖR visuellt innehåll och cURL
 
@@ -28,23 +28,6 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 - Du måste ha [cURL](https://curl.haxx.se/windows).
 - Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnadsfri testversionsnyckel från [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Du kan också följa instruktionerna i [Skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Datorseende och få din nyckel.
-
-## <a name="get-thumbnail-request"></a>Begäran om att hämta miniatyrbild
-
-Med [metoden Hämta miniatyr](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb)kan du skapa en miniatyrbild av en bild.
-
-För att köra exemplet följer du dessa steg:
-
-1. Kopiera följande kod till ett redigeringsprogram.
-1. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
-1. Ersätt `<File>` med sökvägen och filnamnet för att spara miniatyrbilden.
-1. Ändra URL:en för begäran (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.1`) till den plats där du hämtade dina prenumerationsnycklar, om det behövs.
-1. Du kan också ändra bilden (`{\"url\":\"...`) som ska analyseras om du vill.
-1. Öppna ett kommandofönster på en dator där cURL är installerat.
-1. Klistra in koden i fönstret och kör kommandot.
-
->[!NOTE]
->Du måste använda samma plats i REST-anropet som du använde för att hämta prenumerationsnycklarna. Om du till exempel hämtade prenumerationsnycklarna från regionen westus (USA, västra), ersätter du ”westcentralus” i URL:en nedan med ”westus”.
 
 ## <a name="create-and-run-the-sample-command"></a>Skapa och köra exempelkommandot
 

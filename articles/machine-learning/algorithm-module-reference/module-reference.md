@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: peterclu
-ms.author: peterlu
-ms.date: 02/22/2020
-ms.openlocfilehash: 7fcfc7c15f94d7b569629e53534d731126172260
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+author: likebupt
+ms.author: keli19
+ms.date: 04/13/2020
+ms.openlocfilehash: c46c21b5662b924552f850f226a12c7350b4625a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399067"
+ms.locfileid: "81458211"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Algoritm & modulreferens för Azure Machine Learning designer (förhandsversion)
 
@@ -59,6 +59,10 @@ Om du vill ha hjälp med att välja algoritmer finns i
 | Rekommendation | Bygg rekommendationsmodeller. | [Utvärdera rekommenderare](evaluate-recommender.md) <br/> [Poäng för SVD-rekommenderare](score-svd-recommender.md) <br/> [Träna SVD-rekommenderare](train-SVD-recommender.md) |
 | Avvikelseidentifiering | Skapa avvikelseidentifieringsmodeller. | [Identifiering av PCA-baserad avvikelse](pca-based-anomaly-detection.md) <br/> [Identifieringsmodell för tågavvikelse](train-anomaly-detection-model.md) |
 
+
+## <a name="web-service"></a>Webbtjänst
+
+Lär dig mer om [webbtjänstmodulerna](web-service-input-output.md) som är nödvändiga för inferens i realtid i Azure Machine Learning-designern.
 
 ## <a name="error-messages"></a>Felmeddelanden
 

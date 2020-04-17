@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bfe39d9528927f995d14772e07e02b2a0528e5e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 000f63ef5f73e77eb22fb539fc6736b929ac6bcc
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188536"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81451575"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Lägga till ADFS som SAML-identitetsprovider med hjälp av anpassade principer i Azure Active Directory B2C
 
@@ -169,7 +169,7 @@ Nu när du har en knapp på plats måste du länka den till en åtgärd. Åtgär
 Om du vill använda ADFS som identitetsprovider i Azure AD B2C måste du skapa ett ADFS Relying Party Trust med Azure AD B2C SAML-metadata. I följande exempel visas en URL-adress till SAML-metadata för en teknisk profil i Azure AD B2C:
 
 ```
-https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
+https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 Ersätt följande värden:
@@ -218,7 +218,7 @@ Uppdatera den förlitande partens (RP) fil som initierar användarens färd som 
 
 1. Gör en kopia av *SignUpOrSignIn.xml* i arbetskatalogen och byt namn på den. Byt till exempel namn på den till *SignUpSignInADFS.xml*.
 2. Öppna den nya filen och uppdatera värdet för **Attributet PolicyId** för **TrustFrameworkPolicy** med ett unikt värde. Till exempel `SignUpSignInADFS`.
-3. Uppdatera värdet för **PublicPolicyUri** med URI för principen. Exempel:`http://contoso.com/B2C_1A_signup_signin_adfs`
+3. Uppdatera värdet för **PublicPolicyUri** med URI för principen. Till exempel kan`http://contoso.com/B2C_1A_signup_signin_adfs`
 4. Uppdatera värdet för **Attributet ReferenceId** i **DefaultUserJourney** så att det matchar ID:t för den nya användarresan som du skapade (SignUpSignInADFS).
 5. Spara ändringarna, ladda upp filen och välj sedan den nya principen i listan.
 6. Kontrollera att Azure AD B2C-program som du har skapat har valts i fältet **Välj program** och testa det sedan genom att klicka på **Kör nu**.

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: tamram
-ms.openlocfilehash: b4e91aa59168deb18375bf86ae77f655ca3dab47
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 50c0980800bbc9b2951bf9107114c1a4d9265558
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521276"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454670"
 ---
 # <a name="manage-storage-account-access-keys"></a>Hantera åtkomstnycklar för lagringskonto
 
@@ -31,8 +31,8 @@ Microsoft rekommenderar att du använder Azure Key Vault för att hantera dina �
 
 Microsoft rekommenderar att du använder Azure Key Vault för att hantera och rotera dina åtkomstnycklar. Ditt program kan komma åt dina nycklar på ett säkert sätt i Key Vault, så att du kan undvika att lagra dem med din programkod. Mer information om hur du använder Key Vault för nyckelhantering finns i följande artiklar:
 
-- [Hantera lagringskontonycklar med Azure Key Vault och PowerShell](../../key-vault/key-vault-overview-storage-keys-powershell.md)
-- [Hantera lagringskontonycklar med Azure Key Vault och Azure CLI](../../key-vault/key-vault-ovw-storage-keys.md)
+- [Hantera lagringskontonycklar med Azure Key Vault och PowerShell](../../key-vault/secrets/overview-storage-keys-powershell.md)
+- [Hantera lagringskontonycklar med Azure Key Vault och Azure CLI](../../key-vault/secrets/overview-storage-keys.md)
 
 ## <a name="manually-rotate-access-keys"></a>Rotera åtkomsttangenter manuellt
 

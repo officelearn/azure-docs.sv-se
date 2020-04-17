@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: fa3a6fefce808e51c2ad1d9d18bf4766cdf689c3
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0bedc88b78f2ac758d3201965425b42b69580719
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81406227"
+ms.locfileid: "81454262"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Självstudie: Konfigurera serveradministratörs- och användarroller
 
@@ -67,7 +67,7 @@ För de återstående uppgifterna använder du SSMS för att ansluta till och ha
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>Lägga till ett användarkonto i serveradministratörsrollen
 
-I den här uppgiften lägger du till ett användarkonto eller gruppkonto från Azure AD till serveradministratörsrollen. Om du vill lägga till en säkerhetsgrupp måste den ha egenskapen `MailEnabled` inställd på `True`. När du anger en grupp `obj:groupid@tenantid`via e-postadress används .
+I den här uppgiften lägger du till ett användarkonto eller gruppkonto från Azure AD till serveradministratörsrollen. Om du anger en `obj:groupid@tenantid`säkerhetsgrupp använder du .
 
 1. Högerklicka på servernamnet i **Object Explorer** och klicka sedan på **Properties** (Egenskaper). 
 2. I fönstret **Analysis Server Properties** (Egenskaper för Analysis Server) klickar du på **Security (Säkerhet)** > **Add (Lägg till)**.

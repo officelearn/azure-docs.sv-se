@@ -3,12 +3,12 @@ title: Skapa ett Service Fabric-kluster i Azure-portalen
 description: Lär dig hur du konfigurerar ett säkert Service Fabric-kluster i Azure med Azure-portalen och Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: e2de920ce9517e156934a636559a6fd6f5a71eb5
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: e0cd3d5e5a37720134a5bce596bba211b375f19d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754102"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458325"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Skapa ett Service Fabric-kluster i Azure med Azure-portalen
 > [!div class="op_single_selector"]
@@ -204,7 +204,7 @@ Nu har du ett säkert kluster med certifikat för hanteringsautentisering. Anslu
 <!-- Links -->
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [azure-portal]: https://portal.azure.com/
-[key-vault-get-started]: ../key-vault/key-vault-overview.md
+[key-vault-get-started]: ../key-vault/general/overview.md
 [create-cluster-arm]: service-fabric-cluster-creation-via-arm.md
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-cluster-security-roles]: service-fabric-cluster-security-roles.md

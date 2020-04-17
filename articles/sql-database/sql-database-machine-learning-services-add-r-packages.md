@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
-ms.openlocfilehash: ce85f45d823df42e70af53824e175968439621d3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ROBOTS: NOINDEX
+ms.openlocfilehash: ab066609bff773ceacb06be604e386eed5cdf7ec
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73819868"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453344"
 ---
 # <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>Lägga till ett R-paket i Azure SQL Database Machine Learning Services (förhandsversion)
 
@@ -58,7 +59,7 @@ WITH RESULT SETS((
 
 Utdata ska se ut ungefär så här.
 
-**Results**
+**Resultat**
 
 ![Installerade paket i R](./media/sql-database-machine-learning-services-add-r-packages/r-installed-packages.png)
 
@@ -119,7 +120,7 @@ r<-sql_installed.packages(connectionString = connection, fields=c("Package", "Ve
 View(r)
 ```
 
-**Results**
+**Resultat**
 
 ![Innehållet i tabellen RTestData](./media/sql-database-machine-learning-services-add-r-packages/r-verify-package-install.png)
 
@@ -149,7 +150,7 @@ När paketet har installerats kan du använda det i ett R-skript via **sp_execut
 
     Följande resultat visas på fliken **Meddelanden.**
 
-    **Results**
+    **Resultat**
 
     ```text
     My name is Fred, my age next year is 51, my anniversary is Sunday, June 14, 2020.

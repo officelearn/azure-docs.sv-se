@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 4fc4960eb3af8a3d3c9902c9b24505bb5610b709
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: e591a7035db82425952a16f5c4c220e25d8517fe
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657164"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457186"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Säker åtkomst och data i Azure Logic Apps
 
@@ -182,7 +182,7 @@ Om du vill förhindra att andra ändrar eller tar bort logikappen kan du använd
 
 Under en logikappkörning [krypteras](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) alla data under överföringen med hjälp av TLS (Transport Layer Security) och [i vila](../security/fundamentals/encryption-atrest.md). När logikappen körs kan du visa historiken för den körningen, inklusive stegen som kördes tillsammans med status, varaktighet, indata och utdata för varje åtgärd. Den här omfattande detaljen ger insikt i hur logikappen kördes och var du kan börja felsöka eventuella problem som uppstår.
 
-När du visar logikappens körhistorik autentiserar Logic Apps din åtkomst och tillhandahåller sedan länkar till indata och utdata för begäranden och svar för varje körning. Men för åtgärder som hanterar lösenord, hemligheter, nycklar eller annan känslig information vill du hindra andra från att visa och komma åt dessa data. Om logikappen till exempel får en hemlighet från [Azure Key Vault](../key-vault/key-vault-overview.md) som ska användas när du autentiserar en HTTP-åtgärd, vill du dölja hemligheten från vyn.
+När du visar logikappens körhistorik autentiserar Logic Apps din åtkomst och tillhandahåller sedan länkar till indata och utdata för begäranden och svar för varje körning. Men för åtgärder som hanterar lösenord, hemligheter, nycklar eller annan känslig information vill du hindra andra från att visa och komma åt dessa data. Om logikappen till exempel får en hemlighet från [Azure Key Vault](../key-vault/general/overview.md) som ska användas när du autentiserar en HTTP-åtgärd, vill du dölja hemligheten från vyn.
 
 Om du vill styra åtkomsten till in- och utgångarna i logikappens körningshistorik har du följande alternativ:
 
@@ -370,7 +370,7 @@ Mer information finns i följande avsnitt i följande avsnitt:
 
 Om du [automatiserar distributionen för logikappar med hjälp av Resource Manager-mallar](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)kan du `securestring` `secureobject` definiera skyddade [mallparametrar](../azure-resource-manager/templates/template-parameters.md), som utvärderas vid distributionen, med hjälp av och typerna. Om du vill definiera mallparametrar `parameters` använder du mallens översta nivåavsnitt, som är separat och skiljer sig från avsnittet arbetsflödesdefinition. `parameters` Om du vill ange värden för mallparametrar använder du en separat [parameterfil](../azure-resource-manager/templates/parameter-files.md).
 
-Om du till exempel använder hemligheter kan du definiera och använda skyddade mallparametrar som hämtar hemligheterna från [Azure Key Vault](../key-vault/key-vault-overview.md) vid distributionen. Du kan sedan referera till nyckelvalvet och hemligheten i parameterfilen. Mer information finns i de här ämnena:
+Om du till exempel använder hemligheter kan du definiera och använda skyddade mallparametrar som hämtar hemligheterna från [Azure Key Vault](../key-vault/general/overview.md) vid distributionen. Du kan sedan referera till nyckelvalvet och hemligheten i parameterfilen. Mer information finns i de här ämnena:
 
 * [Skicka känsliga värden vid distributionen med hjälp av Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 * [Säkra parametrar i Azure Resource Manager-mallar](#secure-parameters-deployment-template) senare i det här avsnittet
@@ -425,7 +425,7 @@ Om du vill skydda känslig information i logikappens arbetsflödesdefinition anv
 
 ### <a name="secure-parameters-in-azure-resource-manager-templates"></a>Säkra parametrar i Azure Resource Manager-mallar
 
-En [Resource Manager-mall](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) för `parameters` en logikapp har flera avsnitt. Om du vill skydda lösenord, nycklar, hemligheter och annan känslig information definierar du `securestring` `secureobject` skyddade parametrar på mallnivå och arbetsflödesdefinitionsnivå med hjälp av typen eller. Du kan sedan lagra dessa värden i [Azure Key Vault](../key-vault/key-vault-overview.md) och använda [parameterfilen](../azure-resource-manager/templates/parameter-files.md) för att referera till nyckelvalvet och hemligheten. Mallen hämtar sedan informationen vid distributionen. Mer information finns i [Skicka känsliga värden vid distributionen med hjälp av Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md).
+En [Resource Manager-mall](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) för `parameters` en logikapp har flera avsnitt. Om du vill skydda lösenord, nycklar, hemligheter och annan känslig information definierar du `securestring` `secureobject` skyddade parametrar på mallnivå och arbetsflödesdefinitionsnivå med hjälp av typen eller. Du kan sedan lagra dessa värden i [Azure Key Vault](../key-vault/general/overview.md) och använda [parameterfilen](../azure-resource-manager/templates/parameter-files.md) för att referera till nyckelvalvet och hemligheten. Mallen hämtar sedan informationen vid distributionen. Mer information finns i [Skicka känsliga värden vid distributionen med hjälp av Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md).
 
 Här är mer `parameters` information om dessa avsnitt:
 

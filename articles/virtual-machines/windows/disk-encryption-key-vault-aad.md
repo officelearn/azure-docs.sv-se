@@ -7,18 +7,18 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5a42b1e0dc82b3340bbebe176c71cb1754d00664
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b80d2e5e7c9157da2a3b05a7b422f0c0a950f90c
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243385"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452051"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Skapa och konfigurera ett nyckelvalv för Azure Disk-kryptering med Azure AD (tidigare version)
 
 **Den nya versionen av Azure Disk Encryption eliminerar kravet på att tillhandahålla en Azure AD-programparameter för att aktivera VM-diskkryptering. Med den nya versionen behöver du inte längre ange Azure AD-autentiseringsuppgifter under aktivera krypteringssteget. Alla nya virtuella datorer måste krypteras utan Azure AD-programparametrar med den nya versionen. Information om hur du visar instruktioner för att aktivera VM-diskkryptering med den nya versionen finns i [Azure Disk Encryption](disk-encryption-overview.md). Virtuella datorer som redan har krypterats med Azure AD-programparametrar stöds fortfarande och bör fortsätta att underhållas med AAD-syntaxen.**
 
-Azure Disk Encryption använder Azure Key Vault för att styra och hantera diskkrypteringsnycklar och hemligheter.  Mer information om nyckelvalv finns i [Komma igång med Azure Key Vault](../../key-vault/key-vault-get-started.md) och Säkra ditt [nyckelvalv](../../key-vault/key-vault-secure-your-key-vault.md). 
+Azure Disk Encryption använder Azure Key Vault för att styra och hantera diskkrypteringsnycklar och hemligheter.  Mer information om nyckelvalv finns i [Komma igång med Azure Key Vault](../../key-vault/key-vault-get-started.md) och Säkra ditt [nyckelvalv](../../key-vault/general/secure-your-key-vault.md). 
 
 Att skapa och konfigurera ett nyckelvalv för användning med Azure Disk Encryption med Azure AD (tidigare version) innebär tre steg:
 
@@ -36,7 +36,7 @@ Se [huvudartikeln Skapa och konfigurera ett nyckelvalv för Azure DiskKryptering
 
 
 ## <a name="create-a-key-vault"></a>Skapa ett nyckelvalv 
-Azure Disk Encryption är integrerat med [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) för att hjälpa dig att styra och hantera diskkrypteringsnycklar och hemligheter i din nyckelvalvsprenumeration. Du kan skapa ett nyckelvalv eller använda ett befintligt för Azure Disk Encryption. Mer information om nyckelvalv finns i [Komma igång med Azure Key Vault](../../key-vault/key-vault-get-started.md) och Säkra ditt [nyckelvalv](../../key-vault/key-vault-secure-your-key-vault.md). Du kan använda en Resource Manager-mall, Azure PowerShell eller Azure CLI för att skapa ett nyckelvalv. 
+Azure Disk Encryption är integrerat med [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) för att hjälpa dig att styra och hantera diskkrypteringsnycklar och hemligheter i din nyckelvalvsprenumeration. Du kan skapa ett nyckelvalv eller använda ett befintligt för Azure Disk Encryption. Mer information om nyckelvalv finns i [Komma igång med Azure Key Vault](../../key-vault/key-vault-get-started.md) och Säkra ditt [nyckelvalv](../../key-vault/general/secure-your-key-vault.md). Du kan använda en Resource Manager-mall, Azure PowerShell eller Azure CLI för att skapa ett nyckelvalv. 
 
 
 >[!WARNING]
@@ -149,7 +149,7 @@ Ditt Azure AD-program behöver rättigheter för att komma åt nycklar eller hem
      ```
 
 ### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-azure-cli"></a>Ange princip för nyckelvalvsåtkomst för Azure AD-appen med Azure CLI
-Använd [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) för att ange åtkomstprincipen. Mer information finns i [Hantera nyckelvalv med CLI 2.0](../../key-vault/key-vault-manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret).
+Använd [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) för att ange åtkomstprincipen. Mer information finns i [Hantera nyckelvalv med CLI 2.0](../../key-vault/general/manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret).
 
 Ge tjänstens huvudnamn som du skapade via Azure CLI-åtkomst för att hämta hemligheter och radbryt nycklar med följande kommando:
  
@@ -225,7 +225,7 @@ Använd [az keyvault-uppdatering](/cli/azure/keyvault#az-keyvault-update) för a
 
 
 ## <a name="set-up-a-key-encryption-key-optional"></a>Konfigurera en nyckelkrypteringsnyckel (valfritt)
-Om du vill använda en nyckelkrypteringsnyckel (KEK) för ett extra säkerhetslager för krypteringsnycklar lägger du till en KEK i nyckelvalvet. Använd cmdleten [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) för att skapa en nyckelkrypteringsnyckel i nyckelvalvet. Du kan också importera en KEK från din lokala nyckelhantering HSM. Mer information finns i Dokumentation för [Nyckelvalv](../../key-vault/key-vault-hsm-protected-keys.md). När en nyckelkrypteringsnyckel anges använder Azure Disk Encryption den nyckeln för att radbrytas krypteringshemligheterna innan du skriver till Key Vault. 
+Om du vill använda en nyckelkrypteringsnyckel (KEK) för ett extra säkerhetslager för krypteringsnycklar lägger du till en KEK i nyckelvalvet. Använd cmdleten [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) för att skapa en nyckelkrypteringsnyckel i nyckelvalvet. Du kan också importera en KEK från din lokala nyckelhantering HSM. Mer information finns i Dokumentation för [Nyckelvalv](../../key-vault/keys/hsm-protected-keys.md). När en nyckelkrypteringsnyckel anges använder Azure Disk Encryption den nyckeln för att radbrytas krypteringshemligheterna innan du skriver till Key Vault. 
 
 * När du skapar nycklar använder du en RSA-nyckeltyp. Azure Disk Encryption stöder ännu inte elliptic curve-nycklar.
 

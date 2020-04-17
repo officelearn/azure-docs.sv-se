@@ -3,16 +3,16 @@ title: Key Vault hemlighet med mall
 description: Visar hur du skickar en hemlighet från ett nyckelvalv som en parameter under distributionen.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 08b4042c6bad83f13ebaea0f46046ea7707fd868
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d21a7d727091b427fee59e22db6a77a495a4eab7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460202"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458274"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Använd Azure Key Vault för att skicka säkert parametervärde under distributionen
 
-I stället för att placera ett säkert värde (som ett lösenord) direkt i mall- eller parameterfilen kan du hämta värdet från ett [Azure Key Vault](../../key-vault/key-vault-overview.md) under en distribution. Du hämtar värdet genom att referera till nyckelvalvet och hemligheten i parameterfilen. Värdet exponeras aldrig eftersom du bara refererar till dess nyckelvalvs-ID. Nyckelvalvet kan finnas i en annan prenumeration än den resursgrupp som du distribuerar till.
+I stället för att placera ett säkert värde (som ett lösenord) direkt i mall- eller parameterfilen kan du hämta värdet från ett [Azure Key Vault](../../key-vault/general/overview.md) under en distribution. Du hämtar värdet genom att referera till nyckelvalvet och hemligheten i parameterfilen. Värdet exponeras aldrig eftersom du bara refererar till dess nyckelvalvs-ID. Nyckelvalvet kan finnas i en annan prenumeration än den resursgrupp som du distribuerar till.
 
 Den här artikeln fokuserar på scenariot att skicka ett känsligt värde som en mallparameter. Det täcker inte scenariot med att ange en egenskap för virtuella datorer till URL:en för ett certifikat i ett Nyckelvalv. En snabbstartsmall för det scenariot finns i [Installera ett certifikat från Azure Key Vault på en virtuell dator](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows).
 
@@ -28,7 +28,7 @@ Om du redan har ett Key Vault kontrollerar du att malldistributionerna tillåter
 az keyvault update  --name ExampleVault --enabled-for-template-deployment true
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Set-AzKeyVaultAccessPolicy -VaultName ExampleVault -EnabledForTemplateDeployment
@@ -50,7 +50,7 @@ az keyvault create \
 az keyvault secret set --vault-name ExampleVault --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name ExampleGroup -Location centralus
@@ -76,7 +76,7 @@ az keyvault set-policy \
   --secret-permissions set delete get list
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $userPrincipalName = "<Email Address of the deployment operator>"
@@ -91,11 +91,11 @@ Set-AzKeyVaultAccessPolicy `
 
 Mer information om hur du skapar nyckelvalv och lägger till hemligheter finns i:
 
-- [Ange och hämta en hemlighet med CLI](../../key-vault/quick-create-cli.md)
-- [Ange och hämta en hemlighet med Powershell](../../key-vault/quick-create-powershell.md)
-- [Ange och hämta en hemlighet med hjälp av portalen](../../key-vault/quick-create-portal.md)
-- [Ange och hämta en hemlighet med hjälp av .NET](../../key-vault/quick-create-net.md)
-- [Ange och hämta en hemlighet med nod.js](../../key-vault/quick-create-node.md)
+- [Ange och hämta en hemlighet med CLI](../../key-vault/secrets/quick-create-cli.md)
+- [Ange och hämta en hemlighet med Powershell](../../key-vault/secrets/quick-create-powershell.md)
+- [Ange och hämta en hemlighet med hjälp av portalen](../../key-vault/secrets/quick-create-portal.md)
+- [Ange och hämta en hemlighet med hjälp av .NET](../../key-vault/secrets/quick-create-net.md)
+- [Ange och hämta en hemlighet med nod.js](../../key-vault/secrets/quick-create-node.md)
 
 ## <a name="grant-access-to-the-secrets"></a>Ge tillgång till hemligheterna
 
@@ -135,7 +135,7 @@ Följande procedur visar hur du skapar en roll med minsta behörighet och hur du
       --resource-group ExampleGroup
     ```
 
-    # <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
     ```azurepowershell-interactive
     New-AzRoleDefinition -InputFile "<path-to-role-file>"
@@ -241,7 +241,7 @@ az deployment group create \
   --parameters <parameter-file>
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name $resourceGroupName -Location $location
@@ -375,5 +375,5 @@ Följande mall skapar dynamiskt nyckelvalvs-ID:et och skickar det som en paramet
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Allmän information om nyckelvalv finns i [Vad är Azure Key Vault?](../../key-vault/key-vault-overview.md).
+- Allmän information om nyckelvalv finns i [Vad är Azure Key Vault?](../../key-vault/general/overview.md).
 - Fullständiga exempel på refererande av nyckelhemligheter finns i [Exempel på Nyckelvalv](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).

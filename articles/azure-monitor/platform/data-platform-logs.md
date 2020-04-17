@@ -4,18 +4,17 @@ description: Beskriver loggar i Azure Monitor som används för avancerad analys
 documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: tysonn
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: dd499a82ba1011d96772d6722e25a434d43a6bf0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0b288bf6d987b9db682c8d1439879cf6b499f213
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480206"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457339"
 ---
 # <a name="logs-in-azure-monitor"></a>Loggar i Azure Monitor
 
@@ -118,7 +117,7 @@ Azure Monitor kan samla in loggdata från en mängd olika källor både inom Azu
 
 | Data | Beskrivning |
 |:---|:---|
-| REST API | Skriv data till en Log Analytics-arbetsyta från valfri REST-klient. Mer information finns [i Skicka loggdata till Azure Monitor med HTTP Data Collector API.](data-collector-api.md)
+| REST-API | Skriv data till en Log Analytics-arbetsyta från valfri REST-klient. Mer information finns [i Skicka loggdata till Azure Monitor med HTTP Data Collector API.](data-collector-api.md)
 | Logikapp | Skriv data till en Log Analytics-arbetsyta från ett Logic App-arbetsflöde med åtgärden **Azure Log Analytics Data Collector.** |
 
 ### <a name="security"></a>Säkerhet

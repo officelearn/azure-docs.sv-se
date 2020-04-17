@@ -1,28 +1,28 @@
 ---
-title: Konfigurera din säkerhetsinformation (förhandsversion) från en inloggningsfråga – Azure AD
-description: Så här konfigurerar du säkerhetsinformation (förhandsversion) för ditt arbets- eller skolkonto när du har fått information från organisationens inloggningssida.
+title: Konfigurera din säkerhetsinformation från en inloggningsfråga - Azure AD
+description: Så här konfigurerar du säkerhetsinformationen för ditt arbets- eller skolkonto när du har fått information från organisationens inloggningssida.
 services: active-directory
 author: curtand
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 08/05/2019
+ms.date: 04/07/2020
 ms.author: curtand
-ms.openlocfilehash: c216dbfef99422fc49fde774dc57d5cbcc9f879a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: eb6b124ea0ec036cd9846652fbd9eac5f81eb560
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77063993"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454493"
 ---
-# <a name="set-up-your-security-info-preview-from-a-sign-in-prompt"></a>Konfigurera säkerhetsinformation (förhandsgranskning) från en inloggningsfråga
+# <a name="set-up-your-security-info-from-a-sign-in-prompt"></a>Konfigurera säkerhetsinformationen från en inloggningsfråga
 
 Du kan följa de här stegen om du uppmanas att konfigurera säkerhetsinformation omedelbart efter att du har loggat in på ditt arbets- eller skolkonto.
 
-Det här meddelandet visas endast om du inte har konfigurerat den säkerhetsinformation som krävs av din organisation. Om du tidigare har konfigurerat din säkerhetsinformation men vill göra ändringar kan du följa stegen i de olika metodbaserade instruktionsartiklarna. Mer information finns i [översikten om att lägga till eller uppdatera säkerhetsinformation](security-info-add-update-methods-overview.md).
+Den här frågan visas bara om du inte har konfigurerat den säkerhetsinformation som krävs av din organisation. Om du tidigare har konfigurerat din säkerhetsinformation men vill göra ändringar kan du följa stegen i de olika metodbaserade instruktionsartiklarna. Mer information finns i [översikten om att lägga till eller uppdatera säkerhetsinformation](security-info-add-update-methods-overview.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
@@ -122,7 +122,7 @@ Följ de här stegen för att konfigurera säkerhetsinformation för ditt arbets
 Vissa appar, till exempel Outlook 2010, stöder inte tvåstegsverifiering. Den här bristen på stöd innebär att om du använder tvåstegsverifiering i din organisation fungerar inte appen. För att komma runt det här problemet kan du skapa ett automatiskt uppringda lösenord som ska användas med varje app som inte är en webbläsare, separat från ditt vanliga lösenord.
 
 >[!Note]
->Om du inte ser det här alternativet i guiden betyder det att administratören inte har konfigurerat det. Om detta inte är konfigurerat, men du vet att du behöver använda applösenord, kan du följa stegen i [sidan Konfigurera applösenord från sidan Säkerhetsinformation (förhandsversion).](security-info-app-passwords.md)
+>Om du inte ser det här alternativet i guiden betyder det att administratören inte har konfigurerat det. Om detta inte är konfigurerat, men du vet att du behöver använda applösenord, kan du följa stegen i [lösenorden Konfigurera appen från sidan Säkerhetsinformation](security-info-app-passwords.md).
 
 När du använder applösenord är det viktigt att komma ihåg:
 

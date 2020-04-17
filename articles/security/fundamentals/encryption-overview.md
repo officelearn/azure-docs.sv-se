@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 7ac657e6627aff4eb588506118e5eeeaef70efba
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: ce78ade4df3c5bcea9e4e44750c430065cbfc5b0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548612"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454653"
 ---
 # <a name="azure-encryption-overview"></a>Översikt över Azure-kryptering
 
@@ -61,7 +61,7 @@ De tre krypteringsmodellerna på serversidan erbjuder olika viktiga hanteringseg
 
 Du kan skydda virtuella Windows- och Linux-datorer med hjälp av [Azure-diskkryptering](/azure/security/fundamentals/azure-disk-encryption-vms-vmss), som använder [Windows BitLocker-teknik](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) och Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) för att skydda både operativsystemdiskar och datadiskar med fullständig volymkryptering.
 
-Krypteringsnycklar och hemligheter skyddas i din [Azure Key Vault-prenumeration](../../key-vault/key-vault-overview.md). Med hjälp av Azure Backup-tjänsten kan du säkerhetskopiera och återställa krypterade virtuella datorer (VMs) som använder KEK-konfiguration (Key Encryption Key Key).
+Krypteringsnycklar och hemligheter skyddas i din [Azure Key Vault-prenumeration](../../key-vault/general/overview.md). Med hjälp av Azure Backup-tjänsten kan du säkerhetskopiera och återställa krypterade virtuella datorer (VMs) som använder KEK-konfiguration (Key Encryption Key Key).
 
 ### <a name="azure-storage-service-encryption"></a>Kryptering av Azure Storage-tjänsten
 

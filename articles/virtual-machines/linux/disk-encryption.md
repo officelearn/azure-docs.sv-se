@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: f7eb63d0bbdce86f4a7195430dc15d6873e9f6e6
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 68341de82ae15df91477947664c500caaa96a09a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754309"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452731"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Kryptering på serversidan av Hanterade Azure-diskar
 
@@ -34,7 +34,7 @@ Som standard använder hanterade diskar plattformshanterade krypteringsnycklar. 
 
 ## <a name="customer-managed-keys"></a>Kundhanterade nycklar
 
-Du kan välja att hantera kryptering på nivån för varje hanterad disk, med dina egna nycklar. Serverbaserad kryptering för hanterade diskar med kundhanterade nycklar ger en integrerad upplevelse med Azure Key Vault. Du kan antingen importera [dina RSA-nycklar](../../key-vault/key-vault-hsm-protected-keys.md) till key vault eller generera nya RSA-nycklar i Azure Key Vault. 
+Du kan välja att hantera kryptering på nivån för varje hanterad disk, med dina egna nycklar. Serverbaserad kryptering för hanterade diskar med kundhanterade nycklar ger en integrerad upplevelse med Azure Key Vault. Du kan antingen importera [dina RSA-nycklar](../../key-vault/keys/hsm-protected-keys.md) till key vault eller generera nya RSA-nycklar i Azure Key Vault. 
 
 Azure-hanterade diskar hanterar kryptering och dekryptering på ett helt transparent sätt med hjälp av [kuvertkryptering](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique). Den krypterar data med hjälp av en [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256-baserad datakrypteringsnyckel (DEK), som i sin tur är skyddad med hjälp av dina nycklar. Lagringstjänsten genererar datakrypteringsnycklar och krypterar dem med kundhanterade nycklar med RSA-kryptering. Med kuvertkrypteringen kan du rotera (ändra) dina nycklar med jämna mellanrum enligt dina efterlevnadsprinciper utan att påverka dina virtuella datorer. När du roterar nycklarna krypterar lagringstjänsten om datakrypteringsnycklarna med de nya kundhanterade nycklarna. 
 
@@ -238,7 +238,7 @@ az disk show -g yourResourceGroupName -n yourDiskName --query [encryption.type] 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Utforska Azure Resource Manager-mallarna för att skapa krypterade diskar med kundhanterade nycklar](https://github.com/ramankumarlive/manageddiskscmkpreview)
-- [Vad är Azure Key Vault?](../../key-vault/key-vault-overview.md)
+- [Vad är Azure Key Vault?](../../key-vault/general/overview.md)
 - [Replikera datorer med kundhanterade nycklar aktiverade diskar](../../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md)
 - [Konfigurera haveriberedskap av virtuella virtuella datorer med VMware till Azure med PowerShell](../../site-recovery/vmware-azure-disaster-recovery-powershell.md#replicate-vmware-vms)
 - [Konfigurera haveriberedskap till Azure för virtuella hyper-v-datorer med PowerShell och Azure Resource Manager](../../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection)

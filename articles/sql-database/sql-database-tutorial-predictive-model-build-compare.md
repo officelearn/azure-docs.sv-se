@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
-ms.openlocfilehash: 52f4347fa545df88f11878709b4061662d5faffe
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0985b37280e3cd363ba1728a5ec33b0012611ab2
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345740"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452935"
 ---
 # <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Självstudiekurs: Skapa en förutsägande modell i R med Azure SQL Database Machine Learning Services (förhandsversion)
 
@@ -36,8 +37,6 @@ I den här artikeln får du lära dig hur du:
 I [del ett](sql-database-tutorial-predictive-model-prepare-data.md)lärde du dig hur du importerar en exempeldatabas och förbereder sedan de data som ska användas för att träna en prediktiv modell i R.
 
 I [del tre](sql-database-tutorial-predictive-model-deploy.md)får du lära dig att lagra modellen i en databas och sedan skapa lagrade procedurer från R-skript som du har utvecklat i del ett och två. De lagrade procedurerna körs i en SQL-databas för att göra förutsägelser baserat på nya data.
-
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Krav
 

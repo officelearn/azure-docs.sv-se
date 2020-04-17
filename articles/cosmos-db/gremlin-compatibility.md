@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/10/2019
 ms.author: sngun
-ms.openlocfilehash: 581bc813ca27067b1f27ab9866a45df3084dbbcc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 989a033a843b861c34dc9dbdbced50399f8e5cd7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75644740"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81449892"
 ---
 # <a name="azure-cosmos-db-gremlin-compatibility"></a>Azure Cosmos DB Gremlin-kompatibilitet
 Azure Cosmos DB Graph-motorn följer noga Apache TinkerPop-korsstegsspecifikationen men det finns skillnader. [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)
@@ -35,7 +35,7 @@ Azure Cosmos DB Graph-motorn följer noga Apache TinkerPop-korsstegsspecifikatio
 
 * ***Icke-primitiva JSON-typer*** stöds inte. Använd `string` `number`, `true` / `false` eller typer. `null`värden stöds inte. 
 
-* ***GraphSONv3*** serialiserare stöds för närvarande inte. Använd `GraphSONv2` serialiserare, läsare och författare i anslutningskonfigurationen.
+* ***GraphSONv3*** serialiserare stöds för närvarande inte. Använd `GraphSONv2` serialiserare, läsare och författare i anslutningskonfigurationen. Resultaten som returneras av Azure Cosmos DB Gremlin API har inte samma format som GraphSON-formatet. 
 
 * **Lambda-uttryck och funktioner** stöds för närvarande inte. Detta inkluderar `.map{<expression>}` `.by{<expression>}` `.filter{<expression>}` funktionerna , och . Mer information och hur du skriver om dem med Gremlin-stegen finns i [En anteckning om Lambdas](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas).
 

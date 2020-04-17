@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c11521ec074b63843b873c39102b68bf185d2821
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 8bec28b98a8d2640b5a8034569d49077ce6b4177
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80676727"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450997"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planera en azure Active Directory-distribution för återställning av lösenordsåterbeställning av Azure Active Directory
 
@@ -115,7 +115,7 @@ Innan du distribuerar SSPR kan du välja att bestämma antalet och den genomsnit
 
 Microsoft rekommenderar att organisationer aktiverar den kombinerade registreringsupplevelsen för SSPR- och multifaktorautentisering. När du aktiverar den här kombinerade registreringsupplevelsen behöver användarna bara välja sin registreringsinformation en gång för att aktivera båda funktionerna.
 
-Den kombinerade registreringsupplevelsen kräver inte organisationer för att aktivera både SSPR och Azure Multi-Factor Authentication. Kombinerad registrering ger organisationer en bättre användarupplevelse. Mer information finns i [Kombinerad registrering av säkerhetsinformation (förhandsversion)](concept-registration-mfa-sspr-combined.md)
+Den kombinerade registreringsupplevelsen kräver inte organisationer för att aktivera både SSPR och Azure Multi-Factor Authentication. Kombinerad registrering ger organisationer en bättre användarupplevelse. Mer information finns i [Kombinerad registrering av säkerhetsinformation](concept-registration-mfa-sspr-combined.md)
 
 ## <a name="plan-the-deployment-project"></a>Planera distributionsprojektet
 

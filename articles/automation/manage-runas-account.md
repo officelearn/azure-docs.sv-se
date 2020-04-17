@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8d7d0baacd5f702e8f435ab440eaf0338a60f4cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4a043bcc2f81214b68b166d443baead6cd230184
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79500766"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457509"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Hantera Azure Automation Run As-konton
 
@@ -464,7 +464,7 @@ Du kan tillåta att Azure Automation verifierar om Key Vault och huvudmannen fö
 * Bevilja behörigheter till Key Vault.
 * Ange åtkomstprincipen.
 
-Du kan använda skriptet [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) i PowerShell-galleriet för att ge dina behörigheter för Run As-kontot till Key Vault. Mer information om hur du anger behörigheter för Key Vault finns [i Bevilja programåtkomst till ett nyckelvalv.](../key-vault/key-vault-group-permissions-for-apps.md)
+Du kan använda skriptet [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) i PowerShell-galleriet för att ge dina behörigheter för Run As-kontot till Key Vault. Mer information om hur du anger behörigheter för Key Vault finns [i Bevilja programåtkomst till ett nyckelvalv.](../key-vault/general/group-permissions-for-apps.md)
 
 ## <a name="resolving-misconfiguration-issues-for-run-as-accounts"></a>Lösa problem med felkonfiguration för Kör som konton
 

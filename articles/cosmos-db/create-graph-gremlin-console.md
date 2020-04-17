@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: 597766774be15abdc7cb7836f2a23ef490b11926
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: c3e6524f8e43036c4b4c28c679c281c143731471
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547191"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450215"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Snabbstart: Skapa, fråga och gå igenom en Azure Cosmos DB-grafdatabas med Gremlin-konsolen
 
@@ -50,6 +50,7 @@ Du måste också installera [Gremlin-konsolen](https://tinkerpop.apache.org/down
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a name="connect-to-your-app-servicegraph"></a><a id="ConnectAppService"></a>Ansluta till din apptjänst/Diagram
+
 1. Innan du startar Gremlin-konsolen ska du skapa eller ändra konfigurationsfilen remote-secure.yaml i katalogen `apache-tinkerpop-gremlin-console-3.2.5/conf`.
 2. Fyll i konfigurationen för *värd*, *port*, *användarnamn*, *lösenord*, *anslutningspool* och *serialiserare* enligt definitionerna i följande tabell:
 

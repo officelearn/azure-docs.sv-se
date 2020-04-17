@@ -8,16 +8,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/27/2020
 ms.author: victorh
-ms.openlocfilehash: 1979f759f5a1b037adfd7b67a7be50cbba0f596f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: ffda4b41497a9fd84db5fcee36202eb1c1dca2c0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312221"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457849"
 ---
 # <a name="configure-tls-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Konfigurera TLS-avslutning med Key Vault-certifikat med hjälp av Azure PowerShell
 
-[Azure Key Vault](../key-vault/key-vault-overview.md) är ett plattformshanterad hemligt arkiv som du kan använda för att skydda hemligheter, nycklar och TLS/SSL-certifikat. Azure Application Gateway stöder integrering med Key Vault för servercertifikat som är kopplade till HTTPS-aktiverade lyssnare. Det här stödet är begränsat till Application Gateway v2 SKU.
+[Azure Key Vault](../key-vault/general/overview.md) är ett plattformshanterad hemligt arkiv som du kan använda för att skydda hemligheter, nycklar och TLS/SSL-certifikat. Azure Application Gateway stöder integrering med Key Vault för servercertifikat som är kopplade till HTTPS-aktiverade lyssnare. Det här stödet är begränsat till Application Gateway v2 SKU.
 
 Mer information finns i [TLS-avslutning med Key Vault-certifikat](key-vault-certs.md).
 
@@ -71,7 +71,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 > [!NOTE]
-> Flaggan -EnableSoftDelete måste användas för att TLS-avslutning ska fungera korrekt. Om du konfigurerar [om Key Vault mjuk-ta bort via portalen](../key-vault/key-vault-ovw-soft-delete.md#soft-delete-behavior)måste kvarhållningsperioden behållas på 90 dagar, standardvärdet. Application Gateway stöder inte en annan kvarhållningsperiod ännu. 
+> Flaggan -EnableSoftDelete måste användas för att TLS-avslutning ska fungera korrekt. Om du konfigurerar [om Key Vault mjuk-ta bort via portalen](../key-vault/general/overview-soft-delete.md#soft-delete-behavior)måste kvarhållningsperioden behållas på 90 dagar, standardvärdet. Application Gateway stöder inte en annan kvarhållningsperiod ännu. 
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 

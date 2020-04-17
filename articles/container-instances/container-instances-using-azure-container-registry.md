@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 50c209483a12adc3545b63fb66685e386d9ad10a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 212624b857d65297830995018603c2627f83369b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78252144"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453531"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Distribuera till Azure Container Instances från Azure Container Registry
 
@@ -36,7 +36,7 @@ I följande avsnitt skapar du ett Azure-nyckelvalv och ett huvudnamn för tjäns
 
 ### <a name="create-key-vault"></a>Skapa nyckelvalv
 
-Om du inte redan har ett valv i [Azure Key Vault](../key-vault/key-vault-overview.md), skapar du ett med Azure CLI och följande kommandon.
+Om du inte redan har ett valv i [Azure Key Vault](../key-vault/general/overview.md), skapar du ett med Azure CLI och följande kommandon.
 
 Uppdatera `RES_GROUP` variabeln med namnet på en befintlig resursgrupp där `ACR_NAME` nyckelvalvet ska skapas och med namnet på behållarregistret. För enkelhetens skull förutsätter kommandon i den här artikeln att register-, nyckelvalv och behållarinstanser alla skapas i samma resursgrupp.
 

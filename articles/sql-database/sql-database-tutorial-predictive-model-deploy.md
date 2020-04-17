@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
-ms.openlocfilehash: 7779db053344f99238d38d5d49762730efbc5fc4
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: efcb73866c83dcc03b5db8b7b97f438fb3010511
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346327"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452816"
 ---
 # <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Självstudiekurs: Distribuera en förutsägande modell i R med Azure SQL Database Machine Learning Services (förhandsversion)
 
@@ -39,8 +40,6 @@ I den här artikeln får du lära dig hur du:
 I [del ett](sql-database-tutorial-predictive-model-prepare-data.md)lärde du dig hur du importerar en exempeldatabas och förbereder sedan de data som ska användas för att träna en prediktiv modell i R.
 
 I [del två](sql-database-tutorial-predictive-model-build-compare.md)lärde du dig hur du skapar och tränar flera maskininlärningsmodeller i R och väljer sedan den mest exakta.
-
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Krav
 

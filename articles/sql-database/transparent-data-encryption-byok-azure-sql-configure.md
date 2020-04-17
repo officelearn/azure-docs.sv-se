@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 81927575b99604e71f7b0920bc3a448f7796f565
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5b1c985eeec9af25ec576f4e2375c417dc376f95
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067194"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452765"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell och CLI: Aktivera transparent datakryptering med kundhanterad nyckel från Azure Key Vault
 
@@ -28,19 +28,19 @@ Den här artikeln går igenom hur du använder en nyckel från Azure Key Vault f
 - [Rekommenderas men valfritt] Har en maskinvarusäkerhetsmodul (HSM) eller ett lokalt nyckellager för att skapa en lokal kopia av TDE Protector-nyckelmaterialet.
 - Du måste ha Azure PowerShell installerat och körs.
 - Skapa ett Azure Key Vault och -nyckel som ska användas för TDE.
-  - [Instruktioner för hur du använder en maskinvarusäkerhetsmodul (HSM) och Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
+  - [Instruktioner för hur du använder en maskinvarusäkerhetsmodul (HSM) och Key Vault](../key-vault/keys/hsm-protected-keys.md)
     - Nyckelvalvet måste ha följande egenskap som ska användas för TDE:
-  - [mjuk-ta bort](../key-vault/key-vault-ovw-soft-delete.md) och rensa skydd
+  - [mjuk-ta bort](../key-vault/general/overview-soft-delete.md) och rensa skydd
 - Nyckeln måste ha följande attribut som ska användas för TDE:
    - Inget utgångsdatum
    - Inte inaktiverad
    - Kunna utföra *få,* *radbryta nyckel,* *packa upp nyckelåtgärder*
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Instruktioner för installation av Az-modulen finns i [Installera Azure PowerShell](/powershell/azure/install-az-ps). För specifika cmdlets finns i [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
 
-Mer information om Key Vault finns i [PowerShell-instruktioner från Key Vault](../key-vault/quick-create-powershell.md) och [så här använder du Soft delete för Key Vault med PowerShell](../key-vault/key-vault-soft-delete-powershell.md).
+Mer information om Key Vault finns i [PowerShell-instruktioner från Key Vault](../key-vault/secrets/quick-create-powershell.md) och [så här använder du Soft delete för Key Vault med PowerShell](../key-vault/general/soft-delete-powershell.md).
 
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager (RM) stöds fortfarande av Azure SQL Database, men all framtida utveckling är för Az.Sql-modulen. AzureRM-modulen fortsätter att ta emot buggfixar fram till åtminstone december 2020.  Argumenten för kommandona i Az-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](/powershell/azure/new-azureps-module-az).
@@ -123,7 +123,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 Information om hur du installerar den obligatoriska Kommandoradsgränssnittsversionen 2.0 eller senare och ansluter till din Azure-prenumeration finns i [Installera och konfigurera Azure Cross-Platform Command-Line Interface 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-Mer information om Key Vault finns i [Hantera nyckelvalv med CLI 2.0](../key-vault/key-vault-manage-with-cli2.md) och [Så här använder du Soft Delete för Key Vault med CLI](../key-vault/key-vault-soft-delete-cli.md).
+Mer information om Key Vault finns i [Hantera nyckelvalv med CLI 2.0](../key-vault/general/manage-with-cli2.md) och [Så här använder du Soft Delete för Key Vault med CLI](../key-vault/general/soft-delete-cli.md).
 
 ## <a name="assign-an-azure-ad-identity-to-your-server"></a>Tilldela en Azure AD-identitet till servern
 
@@ -182,7 +182,7 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
 
 ## <a name="useful-powershell-cmdlets"></a>Användbara PowerShell-cmdlets
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 - Använd [cmdleten Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) för att stänga av TDE.
 
@@ -221,7 +221,7 @@ Kontrollera följande om ett problem uppstår:
 
 - Om nyckelvalvet inte kan hittas kontrollerar du att du har rätt prenumeration.
 
-   # <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+   # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
    ```powershell
    Get-AzSubscription -SubscriptionId <SubscriptionId>

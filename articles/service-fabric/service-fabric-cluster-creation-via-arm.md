@@ -3,17 +3,17 @@ title: Skapa ett Azure Service Fabric-kluster
 description: Lär dig hur du konfigurerar ett säkert Service Fabric-kluster i Azure med Hjälp av Azure Resource Manager.  Du kan skapa ett kluster med hjälp av en standardmall eller med hjälp av din egen klustermall.
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.openlocfilehash: 8cf14230f3abd37d91f1ec369f597ee594876100
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 24bc80a7ab3ce61b79466cdd943c60efd367ce01
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77624118"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458308"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Skapa ett Service Fabric-kluster med Azure Resource Manager 
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Azure-portal](service-fabric-cluster-creation-via-portal.md)
+> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 >
 >
 
@@ -251,7 +251,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ### <a name="use-a-pointer-to-a-secret-uploaded-into-a-key-vault"></a>Använda en pekare till en hemlighet som laddats upp i ett nyckelvalv
 
-Om du vill använda ett befintligt nyckelvalv måste nyckelvalvet vara [aktiverat för distribution så](../key-vault/key-vault-manage-with-cli2.md#bkmk_KVperCLI) att beräkningsresursprovidern kan hämta certifikat från det och installera det på klusternoder.
+Om du vill använda ett befintligt nyckelvalv måste nyckelvalvet vara [aktiverat för distribution så](../key-vault/general/manage-with-cli2.md#bkmk_KVperCLI) att beräkningsresursprovidern kan hämta certifikat från det och installera det på klusternoder.
 
 Distribuera klustret med PowerShell:
 

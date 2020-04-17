@@ -7,16 +7,16 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: eec5b42da709ab5e79da42f11600f6ffc81d247e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 30fa6b910c0241621c2b2cdae9bb9a164f27cedb
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76279001"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454551"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Skapa och konfigurera ett nyckelvalv för Azure Disk Encryption
 
-Azure Disk Encryption använder Azure Key Vault för att styra och hantera diskkrypteringsnycklar och hemligheter.  Mer information om nyckelvalv finns i [Komma igång med Azure Key Vault](../key-vault/key-vault-get-started.md) och Säkra ditt [nyckelvalv](../key-vault/key-vault-secure-your-key-vault.md).
+Azure Disk Encryption använder Azure Key Vault för att styra och hantera diskkrypteringsnycklar och hemligheter.  Mer information om nyckelvalv finns i [Komma igång med Azure Key Vault](../key-vault/key-vault-get-started.md) och Säkra ditt [nyckelvalv](../key-vault/general/secure-your-key-vault.md).
 
 Att skapa och konfigurera ett nyckelvalv för användning med Azure Disk Encryption innebär tre steg:
 

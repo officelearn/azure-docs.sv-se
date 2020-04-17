@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 3f4f1f5e163dfed9f356aed538d934d0e4258790
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: c1d26fda57d665cc8d83f594f4efeebebc7bf139
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618885"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456897"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Självstudiekurs - Kryptera och dekryptera blobbar med Azure Key Vault
 
@@ -23,7 +23,7 @@ Den här självstudien beskriver hur du använder lagringskryptering på klients
 
 **Uppskattad tidsåtgång:** 20 minuter
 
-Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../../key-vault/key-vault-overview.md).
+Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../../key-vault/general/overview.md).
 
 Mer information om kryptering på klientsidan för Azure Storage finns i [Kryptering på klientsidan och Azure Key Vault för Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -48,7 +48,7 @@ Här är en kort beskrivning av hur kryptering på klientsidan fungerar:
 
 ## <a name="set-up-your-azure-key-vault"></a>Konfigurera ditt Azure Key Vault
 
-För att kunna fortsätta med den här självstudien måste du göra följande steg, som beskrivs i självstudien [Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med hjälp av en .NET-webbapp:](../../key-vault/quick-create-net.md)
+För att kunna fortsätta med den här självstudien måste du göra följande steg, som beskrivs i självstudien [Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med hjälp av en .NET-webbapp:](../../key-vault/secrets/quick-create-net.md)
 
 * Skapa ett nyckelvalv.
 * Lägg till en nyckel eller hemlighet i nyckelvalvet.

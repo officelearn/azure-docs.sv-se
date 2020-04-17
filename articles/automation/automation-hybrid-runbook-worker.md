@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1e4470ce5ac69390cf8d361577b9ebf0013e4e51
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 861c7ffa647c8d2f37b32c359253ca991eeb314f
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405794"
+ms.locfileid: "81457713"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatisera resurser i ditt datacenter eller i molnet med hjälp av Hybrid Runbook Worker
 
@@ -68,7 +68,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 ```
 
 > [!NOTE]
-> Den här koden tar inte bort Microsoft Monitoring Agent från datorn. Den tar bara bort funktionaliteten och konfigurationen för hybridkörningsarbetsrollen.
+> Den här koden tar inte bort Log Analytics-agenten för Linux från datorn. Den tar bara bort funktionaliteten och konfigurationen för hybridkörningsarbetsrollen.
 
 ## <a name="remove-a-hybrid-worker-group"></a>Ta bort en Hybrid Worker-grupp
 
@@ -89,7 +89,7 @@ Om du vill ta bort en hybridkörningsarbetsgrupp måste du först ta bort Hybrid
 
 ### <a name="hybrid-worker-role"></a>Rollen Hybridarbetare
 
-För att Hybrid Runbook Worker ska kunna ansluta till och registrera sig med Azure Automation måste den ha åtkomst till portnumret och url:erna som beskrivs i det här avsnittet. Den här åtkomsten är överst till de [portar och webbadresser som krävs för att Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) ska kunna ansluta till Azure Monitor-loggar.
+För att Hybrid Runbook Worker ska kunna ansluta till och registrera sig med Azure Automation måste den ha åtkomst till portnumret och url:erna som beskrivs i det här avsnittet. Den här åtkomsten är överst till de [portar och webbadresser som krävs för log analytics-agent](../azure-monitor/platform/agent-windows.md) för att ansluta till Azure Monitor-loggar.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

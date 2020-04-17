@@ -8,18 +8,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: egeaney
-ms.openlocfilehash: 22bd3afcf30b8b8ebce18b22d5419d49ec8c3b4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 04a8a8d2520376931f2bb7727c1e751b83f6315f
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80053612"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455265"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Konfigurera kundhanterade nycklar med Azure Key Vault med hjälp av Azure-portalen
 
 Du måste använda Azure Key Vault för att lagra dina kundhanterade nycklar. Du kan antingen skapa egna nycklar och lagra dem i ett nyckelvalv, eller så kan du använda Azure Key Vault API:er för att generera nycklar. Cognitive Services-resursen och nyckelvalvet måste finnas i samma region och i samma Azure Active Directory-klientorganisation (Azure AD), men de kan finnas i olika prenumerationer. Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
-Den här artikeln visar hur du konfigurerar ett Azure Key Vault med kundhanterade nycklar med Hjälp av [Azure-portalen](https://portal.azure.com/). Mer information om hur du skapar ett nyckelvalv med Azure-portalen finns i [Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med Azure-portalen](../../key-vault/quick-create-portal.md).
+Den här artikeln visar hur du konfigurerar ett Azure Key Vault med kundhanterade nycklar med Hjälp av [Azure-portalen](https://portal.azure.com/). Mer information om hur du skapar ett nyckelvalv med Azure-portalen finns i [Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med Azure-portalen](../../key-vault/secrets/quick-create-portal.md).
 
 ## <a name="configure-azure-key-vault"></a>Konfigurera Azure Key Vault
 

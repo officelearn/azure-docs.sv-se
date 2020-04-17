@@ -1,5 +1,5 @@
 ---
-title: Kryptera säkra tillgångar i Azure Automation
+title: Kryptera säkra resurser i Azure Automation
 description: Azure Automation skyddar säkra tillgångar med hjälp av flera krypteringsnivåer. Som standard görs krypteringen med Microsoft-hanterade nycklar. Kunder kan konfigurera sina automatiseringskonton så att de använder kundhanterade nycklar för kryptering. I den här artikeln beskrivs information om båda krypteringslägena och hur du kan växla mellan de två.
 services: automation
 ms.service: automation
@@ -9,14 +9,14 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: 0b1d194209122fa71272243c80a2d4c57f6834a1
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: a82d2b6d9521ba7dd5e7b194c26ff8fe5a100871
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547760"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457492"
 ---
-# <a name="encrypt-secure-assets-in-azure-automation"></a>Kryptera säkra tillgångar i Azure Automation
+# <a name="encrypt-secure-assets-in-azure-automation"></a>Kryptera säkra resurser i Azure Automation
 
 Säkra resurser i Azure Automation innehåller autentiseringsuppgifter, certifikat, anslutningar och krypterade variabler. Dessa tillgångar skyddas i Azure Automation med hjälp av flera krypteringsnivåer. Baserat på nyckeln på den översta nivån som används för krypteringen finns det två modeller för kryptering:
 -    Använda Microsoft-hanterade nycklar
@@ -32,7 +32,7 @@ Varje säker tillgång krypteras och lagras i Azure Automation med en unik nycke
 
 Du kan hantera kryptering av säkra tillgångar för ditt Automation-konto med dina egna nycklar. När du anger en kundhanterad nyckel på automationskontots nivå används den nyckeln för att skydda och kontrollera åtkomsten till kontokrypteringsnyckeln för Automation-kontot. Detta används i sin tur för att kryptera och dekryptera alla säkra tillgångar. Kundhanterade nycklar ger större flexibilitet att skapa, rotera, inaktivera och återkalla åtkomstkontroller. Du kan också granska krypteringsnycklarna som används för att skydda dina säkra tillgångar.
 
-Använd Azure Key Vault för att lagra kundhanterade nycklar. Du kan antingen skapa egna nycklar och lagra dem i ett nyckelvalv, eller så kan du använda Azure Key Vault API:er för att generera nycklar.  Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../key-vault/key-vault-overview.md)
+Använd Azure Key Vault för att lagra kundhanterade nycklar. Du kan antingen skapa egna nycklar och lagra dem i ett nyckelvalv, eller så kan du använda Azure Key Vault API:er för att generera nycklar.  Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../key-vault/general/overview.md)
 
 ## <a name="enable-customer-managed-keys-for-an-automation-account"></a>Aktivera kundhanterade nycklar för ett Automation-konto
 
@@ -192,7 +192,7 @@ Om du vill återkalla åtkomsten till kundhanterade nycklar använder du PowerSh
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Vad är Azure Key Vault?](../key-vault/key-vault-overview.md)
+- [Vad är Azure Key Vault?](../key-vault/general/overview.md)
 
 - [Certifikattillgångar i Azure Automation](shared-resources/certificates.md)
 

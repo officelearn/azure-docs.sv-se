@@ -1,31 +1,26 @@
 ---
 title: Felsöka kombinerad registrering - Azure Active Directory
-description: Felsöka Azure AD Multi-Factor Autentisering och självbetjäning lösenordsåterställning kombinerad registrering (förhandsversion)
+description: Felsöka kombinerad registrering av Azure AD Multi Factor-autentisering och självbetjäningslösenordsåterställning
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 11/21/2019
+ms.date: 04/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab7c38d23cb1f05e07488810640aeb791ded3d4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c840df2c53554519f62a3d1d7a7d8b305187ffb
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74847396"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450946"
 ---
-# <a name="troubleshooting-combined-security-information-registration-preview"></a>Felsöka kombinerad registrering av säkerhetsinformation (förhandsversion)
+# <a name="troubleshooting-combined-security-information-registration"></a>Felsöka kombinerad registrering av säkerhetsinformation
 
 Informationen i den här artikeln är avsedd att vägleda administratörer som felsöker problem som rapporterats av användare av den kombinerade registreringsupplevelsen.
-
-|     |
-| --- |
-| Kombinerad registrering av säkerhetsinformation för Azure Multi-Factor Authentication och Azure Active Directory (Azure AD) självbetjäningslösenordsåterställning är en offentlig förhandsversion av Azure AD. Mer information om förhandsgranskningar finns i [Tilläggsvillkor för microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
 
 ## <a name="audit-logs"></a>Granskningsloggar
 
@@ -150,16 +145,16 @@ I ett PowerShell-fönster kör du följande kommando och tillhandahåller skript
 
 `<script location> -path <user file location>`
 
-### <a name="disable-the-preview-experience"></a>Inaktivera förhandsgranskningsupplevelsen
+### <a name="disable-the-updated-experience"></a>Inaktivera den uppdaterade upplevelsen
 
-Så här inaktiverar du förhandsgranskningsupplevelsen för användarna:
+Så här inaktiverar du den uppdaterade upplevelsen för användarna:
 
 1. Logga in på Azure-portalen som användaradministratör.
 2. Gå till Azure Active > **Directory-användarinställningar** > **Hantera inställningar för förhandsgranskningsfunktioner på åtkomstpanelen**. **Azure Active Directory**
 3. Under **Användare kan använda förhandsgranskningsfunktioner för att registrera och hantera säkerhetsinformation**ställer du in väljaren på **Ingen**och väljer sedan **Spara**.
 
-Användarna uppmanas inte längre att registrera sig med hjälp av förhandsgranskningsupplevelsen.
+Användarna uppmanas inte längre att registrera sig med hjälp av den uppdaterade upplevelsen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs mer om den offentliga förhandsversionen av kombinerad registrering för återställning av lösenord för självbetjäning och Azure Multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)
+* [Läs mer om kombinerad registrering för återställning av lösenord för självbetjäning och Azure Multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)

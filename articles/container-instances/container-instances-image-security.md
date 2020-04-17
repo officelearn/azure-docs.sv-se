@@ -4,12 +4,12 @@ description: Rekommendationer för att skydda avbildningar och hemligheter för 
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: b5f2c4d9ca80318574e288110fd4ce7f490af00d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 87fa28cf9bdb546a5f108284023a9f787645a1fd
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76260505"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458002"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Säkerhetsaspekter för Azure Container-instanser
 
@@ -37,7 +37,7 @@ Säkerhetsövervakning och avbildningslösningar som [Twistlock](https://azurema
 
 ### <a name="protect-credentials"></a>Skydda autentiseringsuppgifter
 
-Behållare kan spridas över flera kluster och Azure-regioner. Därför måste du skydda autentiseringsuppgifter som krävs för inloggningar eller API-åtkomst, till exempel lösenord eller token. Se till att endast privilegierade användare kan komma åt dessa behållare under transport och i vila. Inventera alla autentiseringsuppgifter och kräver sedan att utvecklare använder nya hemligheter-hanteringsverktyg som är utformade för behållarplattformar.  Se till att din lösning innehåller krypterade databaser, TLS-kryptering för hemligheter data under överföring, och minst behörighet [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md). [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md) är en molntjänst som skyddar krypteringsnycklar och hemligheter (till exempel certifikat, anslutningssträngar och lösenord) för behållarprogram. Eftersom dessa data är känsliga och affärskritiska, säker åtkomst till dina nyckelvalv så att endast auktoriserade program och användare kan komma åt dem.
+Behållare kan spridas över flera kluster och Azure-regioner. Därför måste du skydda autentiseringsuppgifter som krävs för inloggningar eller API-åtkomst, till exempel lösenord eller token. Se till att endast privilegierade användare kan komma åt dessa behållare under transport och i vila. Inventera alla autentiseringsuppgifter och kräver sedan att utvecklare använder nya hemligheter-hanteringsverktyg som är utformade för behållarplattformar.  Se till att din lösning innehåller krypterade databaser, TLS-kryptering för hemligheter data under överföring, och minst behörighet [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md). [Azure Key Vault](../key-vault/general/secure-your-key-vault.md) är en molntjänst som skyddar krypteringsnycklar och hemligheter (till exempel certifikat, anslutningssträngar och lösenord) för behållarprogram. Eftersom dessa data är känsliga och affärskritiska, säker åtkomst till dina nyckelvalv så att endast auktoriserade program och användare kan komma åt dem.
 
 ## <a name="considerations-for-the-container-ecosystem"></a>Överväganden för behållarens ekosystem
 

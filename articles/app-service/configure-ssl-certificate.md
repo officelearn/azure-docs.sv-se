@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 4edf710e575bbb26fb0e247e59ff5c796f16226e
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 9f9fcc0b3d8dfe19961668e77da91bc9f14ff2d1
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80810584"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453914"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Lägga till ett TLS/SSL-certifikat i Azure App Service
 
@@ -94,7 +94,7 @@ Om du köper ett App Service-certifikat från Azure hanterar Azure följande upp
 
 - Tar hand om köpprocessen från GoDaddy.
 - Utför domänverifiering av certifikatet.
-- Underhåller certifikatet i [Azure Key Vault](../key-vault/key-vault-overview.md).
+- Underhåller certifikatet i [Azure Key Vault](../key-vault/general/overview.md).
 - Hanterar förnyelse av certifikat (se [Förnya certifikat](#renew-certificate)).
 - Synkronisera certifikatet automatiskt med de importerade kopiorna i App Service-appar.
 
@@ -140,8 +140,8 @@ På sidan Status för **Nyckelvalv** klickar du på **Databasen För nyckelvalv*
 | Resursgrupp | Som en rekommendation väljer du samma resursgrupp som ditt App Service-certifikat. |
 | Location | Välj samma plats som apptjänstappen. |
 | Prisnivå | Information finns i [prisinformation för Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
-| Åtkomstprinciper| Definierar programmen och den tillåtna åtkomsten till arkivresurserna. Du kan konfigurera den senare, i följande steg på [Bevilja flera program åtkomst till ett nyckelvalv](../key-vault/key-vault-group-permissions-for-apps.md). |
-| Virtuell nätverksåtkomst | Begränsa åtkomsten till valvet till vissa virtuella Azure-nätverk. Du kan konfigurera den senare, i anslutning till stegen vid [Konfigurera Azure Key Vault-brandväggar och virtuella nätverk](../key-vault/key-vault-network-security.md) |
+| Åtkomstprinciper| Definierar programmen och den tillåtna åtkomsten till arkivresurserna. Du kan konfigurera den senare, i följande steg på [Bevilja flera program åtkomst till ett nyckelvalv](../key-vault/general/group-permissions-for-apps.md). |
+| Virtuell nätverksåtkomst | Begränsa åtkomsten till valvet till vissa virtuella Azure-nätverk. Du kan konfigurera den senare, i anslutning till stegen vid [Konfigurera Azure Key Vault-brandväggar och virtuella nätverk](../key-vault/general/network-security.md) |
 
 När du har valt valvet stänger du sidan **Databas för Nyckelvalv.** **Alternativet Steg 1: Store** bör visa en grön bock för att lyckas. Håll sidan öppen för nästa steg.
 

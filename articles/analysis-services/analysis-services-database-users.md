@@ -4,15 +4,15 @@ description: Lär dig hur du hanterar databasroller och användare på en Analys
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 51c01869e6152d8e9357644457df11f4fcf5ec5f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7e3cc2b9d35eafcb875efa167821a8e9ad80146
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78273705"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454211"
 ---
 # <a name="manage-database-roles-and-users"></a>Hantera databasroller och användare
 
@@ -25,10 +25,9 @@ Rollbehörigheter inkluderar:
 *  **Process** - Användare kan ansluta till och utföra processåtgärder i databasen och analysera modelldatabasdata.
 *  **Läs** - Användare kan använda ett klientprogram för att ansluta till och analysera modelldatabasdata.
 
-När du skapar ett tabellmodellprojekt skapar du roller och lägger till användare eller grupper i dessa roller med hjälp av Rollhanteraren i Visual Studio med Analysis Services-projekt. När du distribueras till en server använder du SQL Server Management Studio (SSMS), [Analysis Services PowerShell-cmdlets](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)eller [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) för att lägga till eller ta bort roller och användarmedlemmar.
+När du skapar ett tabellmodellprojekt skapar du roller och lägger till användare eller grupper i dessa roller med hjälp av Rollhanteraren i Visual Studio med Analysis Services-projekt. När du distribueras till en server använder du SQL Server Management Studio (SSMS), [Analysis Services PowerShell-cmdlets](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)eller [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) för att lägga till eller ta bort roller och användare.
 
-**Säkerhetsgrupper** måste vara [e-postaktiverade](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) med egenskapen `MailEnabled` inställd `True`på . När du anger en grupp `obj:groupid@tenantid`via e-postadress används .
-
+När du lägger `obj:groupid@tenantid`till en **säkerhetsgrupp**använder du .
 
 ## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Så här lägger du till eller hanterar roller och användare i Visual Studio  
   

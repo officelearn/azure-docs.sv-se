@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: fa39c8f65b00283044ef31dc7577a4668b3e634b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7314559849f0b2019820ec3cb4fb10c684d330d6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79127646"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458445"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Konfigurera kundhanterade nycklar för att kryptera data i vila för integrationstjänstmiljöer (ISE) i Azure Logic Apps
 
 Azure Logic Apps förlitar sig på Azure Storage för att lagra och automatiskt [kryptera data i vila](../storage/common/storage-service-encryption.md). Den här krypteringen skyddar dina data och hjälper dig att uppfylla dina organisatoriska säkerhets- och efterlevnadsåtaganden. Som standard använder Azure Storage Microsoft-hanterade nycklar för att kryptera dina data. Mer information om hur Azure Storage-kryptering fungerar finns i [Azure Storage-kryptering för data i vila](../storage/common/storage-service-encryption.md) och Azure Data [Encryption-at-Rest](../security/fundamentals/encryption-atrest.md).
 
-När du skapar en [integrationstjänstmiljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) för att vara värd för dina logikappar och vill ha mer kontroll över krypteringsnycklarna som används av Azure Storage, kan du konfigurera, använda och hantera din egen nyckel med hjälp av [Azure Key Vault](../key-vault/key-vault-overview.md). Den här funktionen kallas även "Bring Your Own Key" (BYOK), och nyckeln kallas en "kundhanterad nyckel".
+När du skapar en [integrationstjänstmiljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) för att vara värd för dina logikappar och vill ha mer kontroll över krypteringsnycklarna som används av Azure Storage, kan du konfigurera, använda och hantera din egen nyckel med hjälp av [Azure Key Vault](../key-vault/general/overview.md). Den här funktionen kallas även "Bring Your Own Key" (BYOK), och nyckeln kallas en "kundhanterad nyckel".
 
 Det här avsnittet visar hur du konfigurerar och anger din egen krypteringsnyckel som ska användas när du skapar ISE med hjälp av REST-API:et för Logikappar. De allmänna stegen för att skapa ett ISE via REST API för Logic Apps finns i [Skapa en integrationstjänstmiljö (ISE) med hjälp av REST API FÖR Logic Apps](../logic-apps/create-integration-service-environment-rest-api.md).
 
@@ -39,7 +39,7 @@ Det här avsnittet visar hur du konfigurerar och anger din egen krypteringsnycke
 
 * Ett Azure-nyckelvalv som har egenskaperna **Mjuk borttagning** **och Rensa inte** aktiverat
 
-  Mer information om hur du aktiverar dessa egenskaper finns i [Azure Key Vault soft-delete översikt](../key-vault/key-vault-ovw-soft-delete.md) och Konfigurera [kundhanterade nycklar med Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). Om du inte har använt Azure Key Vault tidigare kan du läsa om hur du [skapar ett nyckelvalv](../key-vault/quick-create-portal.md#create-a-vault) med hjälp av Azure-portalen eller med kommandot Azure PowerShell, [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault).
+  Mer information om hur du aktiverar dessa egenskaper finns i [Azure Key Vault soft-delete översikt](../key-vault/general/overview-soft-delete.md) och Konfigurera [kundhanterade nycklar med Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). Om du inte har använt Azure Key Vault tidigare kan du läsa om hur du [skapar ett nyckelvalv](../key-vault/secrets/quick-create-portal.md#create-a-vault) med hjälp av Azure-portalen eller med kommandot Azure PowerShell, [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault).
 
 * I nyckelvalvet har en nyckel som har skapats med dessa egenskapsvärden:
 
@@ -225,8 +225,8 @@ För den här uppgiften kan du använda kommandot Azure PowerShell [Set-AzKeyVau
 
    1. När du är klar med **fönstret Åtkomstprinciper** väljer du **Spara**.
 
-Mer information finns i [Tillhandahålla nyckelvalvsautentisering med en hanterad identitet](../key-vault/managed-identity.md#grant-your-app-access-to-key-vault).
+Mer information finns i [Tillhandahålla nyckelvalvsautentisering med en hanterad identitet](../key-vault/general/managed-identity.md#grant-your-app-access-to-key-vault).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [Azure Key Vault](../key-vault/key-vault-overview.md)
+* Läs mer om [Azure Key Vault](../key-vault/general/overview.md)

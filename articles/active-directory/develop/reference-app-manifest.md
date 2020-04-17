@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/23/2020
+ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 487559aaf632a30b7efcda490f92a90d4f59b8f5
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 9f2ed6ea8cc75e2ee72f15c14f3de7bb8bf8cef6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80883482"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450895"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory-appmanifest
 
-Programmanifestet innehåller en definition av alla attribut för ett programobjekt i Microsofts identitetsplattform. Det fungerar också som en mekanism för att uppdatera programobjektet. Mer information om programmettiteten och dess schema finns i [dokumentationen](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)för Graph API Application Entity .
+Programmanifestet innehåller en definition av alla attribut för ett programobjekt i Microsofts identitetsplattform. Det fungerar också som en mekanism för att uppdatera programobjektet. Mer information om programmettiteten och dess schema finns i [dokumentationen](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)för Graph API Application Entity .
 
 Du kan konfigurera en apps attribut via Azure-portalen eller programmässigt med [REST API](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) eller [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications). Det finns dock vissa scenarier där du måste redigera appmanifestet för att konfigurera en apps attribut. Några vanliga scenarier:
 
@@ -40,6 +40,20 @@ Så här konfigurerar du programmanifestet:
 ## <a name="manifest-reference"></a>Manifestreferens
 
 I det här avsnittet beskrivs de attribut som finns i programmanifestet.
+
+### <a name="id-attribute"></a>attribut för id
+
+| Nyckel | Värdetyp |
+| :--- | :--- |
+| id | Sträng |
+
+Den unika identifieraren för appen i katalogen. Det här ID:t är inte den identifierare som används för att identifiera appen i en protokolltransaktion. Den används för att referera till objektet i katalogfrågor.
+
+Exempel:
+
+```json
+    "id": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
+```
 
 ### <a name="accesstokenacceptedversion-attribute"></a>accessTokenAcceptedVersion-attribut
 
@@ -230,19 +244,7 @@ Exempel:
     "optionalClaims": null,
 ```
 
-### <a name="id-attribute"></a>attribut för id
 
-| Nyckel | Värdetyp |
-| :--- | :--- |
-| id | Sträng |
-
-Den unika identifieraren för appen i katalogen. Det här ID:t är inte den identifierare som används för att identifiera appen i en protokolltransaktion. Den används för att referera till objektet i katalogfrågor.
-
-Exempel:
-
-```json
-    "id": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
-```
 
 ### <a name="identifieruris-attribute"></a>attributet identifierUris
 

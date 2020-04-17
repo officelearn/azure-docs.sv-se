@@ -3,12 +3,12 @@ title: Exempel på CAF Foundation-skiss – översikt
 description: Översikt över och arkitektur för Cloud Adoption Framework (CAF) for Azure Foundation-skissexemplet.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: a5616667ae909b63f406e399a23bdf568089bf52
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 1f14b4d4811b9bdcb64f3860b2cf25b82825d5c4
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383581"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458479"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Översikt över Microsoft Cloud Adoption Framework for Azure Foundation-skissexemplet
 
@@ -22,7 +22,7 @@ CAF Foundation-skissexemplet distribuerar rekommenderade infrastrukturresurser i
 
 Den här implementeringen omfattar flera Azure-tjänster som används för att tillhandahålla en säker, fullständigt övervakad och företagsfärdig grund. Den här miljön består av:
 
-- En [Azure Key Vault](../../../../key-vault/key-vault-overview.md)-instans som används som värd för hemligheter används för de virtuella datorerna som är distribuerade i miljön för delade tjänster
+- En [Azure Key Vault](../../../../key-vault/general/overview.md)-instans som används som värd för hemligheter används för de virtuella datorerna som är distribuerade i miljön för delade tjänster
 - [Log Analytics](../../../../azure-monitor/overview.md) distribueras för att se till att alla åtgärder och tjänster loggas till en central plats direkt när du påbörjar din säkra distribution till [lagringskonton](../../../../storage/common/storage-introduction.md) för diagnostisk loggning
 - Distribution av [Azure Security Center](../../../../security-center/security-center-intro.md) (standardversionen) ger skydd mot hot för dina migrerade arbetsbelastningar
 - Skissen definierar och distribuerar även [Azure-principer](../../../policy/overview.md) för 

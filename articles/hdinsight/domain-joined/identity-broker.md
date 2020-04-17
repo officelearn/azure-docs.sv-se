@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 508eac08284f91821223a78cafdfee7b4c9c540b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: fb82cec6874f8ef4f41897cc22939fe69ed02ec2
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81410867"
+ms.locfileid: "81457424"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Använd ID Broker (förhandsversion) för hantering av autentiseringsuppgifter
 
@@ -56,7 +56,7 @@ När ID Broker har aktiverats behöver du fortfarande en lösenordshh som lagras
 
 SSH-autentisering kräver att hash-värdet är tillgängligt i Azure AD DS. Om du bara vill använda SSH för administrativa scenarier kan du skapa ett molnkonto och använda det till SSH till klustret. Andra användare kan fortfarande använda Ambari- eller HDInsight-verktyg (till exempel IntelliJ-plugin-programmet) utan att lösenordshhen är tillgänglig i Azure AD DS.
 
-## <a name="clinets-using-oauth-to-connect-to-hdinsight-gateway-with-id-broker-setup"></a>Clinets använder OAuth för att ansluta till HDInsight gateway med ID Broker setup
+## <a name="clients-using-oauth-to-connect-to-hdinsight-gateway-with-id-broker-setup"></a>Klienter som använder OAuth för att ansluta till HDInsight-gateway med ID Broker-konfiguration
 
 I ID-mäklaren kan anpassade appar och klienter som ansluter till gatewayen uppdateras för att hämta den OAuth-token som krävs först. Du kan följa stegen i det här [dokumentet](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) för att hämta token med följande information:
 

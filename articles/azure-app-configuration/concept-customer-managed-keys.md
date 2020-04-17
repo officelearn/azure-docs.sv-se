@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/18/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 5749b2fc58c4e1c5c75142f85a5132946714e25b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ace34cf4a72b871ba6646b279007b8ce21c03e9b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77472640"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457441"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Använda kundhanterade nycklar för att kryptera appkonfigurationsdata
 Azure App-konfiguration [krypterar känslig information i vila](../security/fundamentals/encryption-atrest.md). Användningen av kundhanterade nycklar ger förbättrat dataskydd genom att du kan hantera dina krypteringsnycklar.  När kryptering av hanterade nycklar används krypteras all känslig information i appkonfiguration med en Azure Key Vault-nyckel som tillhandahålls av användaren.  Detta ger möjlighet att rotera krypteringsnyckeln på begäran.  Det ger också möjlighet att återkalla Azure App-konfigurationens åtkomst till känslig information genom att återkalla appkonfigurationsinstansens åtkomst till nyckeln.
@@ -20,7 +20,7 @@ Azure App-konfiguration [krypterar känslig information i vila](../security/fund
 Azure App Configuration krypterar känslig information i vila med hjälp av en 256-bitars AES-krypteringsnyckel som tillhandahålls av Microsoft. Varje AppKonfigurationsinstans har sin egen krypteringsnyckel som hanteras av tjänsten och används för att kryptera känslig information. Känslig information innehåller värden som finns i nyckelvärdespar.  När kundhanterad nyckelfunktion är aktiverad använder Appkonfiguration en hanterad identitet som tilldelats appkonfigurationsinstansen för att autentisera med Azure Active Directory. Den hanterade identiteten anropar sedan Azure Key Vault och radbryts i appkonfigurationsinstansens krypteringsnyckel. Den raderade krypteringsnyckeln lagras sedan och den oförpackade krypteringsnyckeln cachelagras i Appkonfiguration i en timme. Appkonfiguration uppdaterar den oförpackade versionen av appkonfigurationsinstansens krypteringsnyckel varje timme. Detta säkerställer tillgänglighet under normala driftsförhållanden. 
 
 >[!IMPORTANT]
-> Om identiteten som tilldelats appkonfigurationsinstansen inte längre har behörighet att packa upp instansens krypteringsnyckel, eller om den hanterade nyckeln tas bort permanent, går det inte längre att dekryptera känslig information som lagras i appen Konfigurationsinstans. Om du använder Azure Key Vaults [mjuka borttagningsfunktion](../key-vault/key-vault-ovw-soft-delete.md) minskar risken för att krypteringsnyckeln tas bort av misstag.
+> Om den identitet som tilldelats appkonfigurationsinstansen inte längre har behörighet att packa upp instansens krypteringsnyckel, eller om den hanterade nyckeln tas bort permanent, går det inte längre att dekryptera känslig information som lagras i appkonfigurationsinstansen. Om du använder Azure Key Vaults [mjuka borttagningsfunktion](../key-vault/general/overview-soft-delete.md) minskar risken för att krypteringsnyckeln tas bort av misstag.
 
 När användare aktiverar kundens hanterade nyckelfunktioner i sin Azure App Configuration-instans styr de tjänstens förmåga att komma åt känslig information. Den hanterade nyckeln fungerar som en rotkrypteringsnyckel. En användare kan återkalla åtkomsten till sin appkonfigurationsinstans till sin hanterade nyckel genom att ändra sin princip för nyckelvalvsåtkomst. När den här åtkomsten återkallas förlorar appkonfigurationen möjligheten att dekryptera användardata inom en timme. Nu förbjuder appkonfigurationsinstansen alla åtkomstförsök. Denna situation kan återställas genom att tjänsten beviljas åtkomst till den hanterade nyckeln igen.  Inom en timme kommer App Configuration att kunna dekryptera användardata och fungera under normala förhållanden.
 

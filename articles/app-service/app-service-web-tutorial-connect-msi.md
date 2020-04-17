@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.custom: mvc, cli-validate
-ms.openlocfilehash: af44f4a96567cc86c9f884cdfe5e28ff6b7bd8f3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 787809e4132defa101bb82659e8af1a2d9f1b9b6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78897669"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453887"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Självstudie: Säkra Azure SQL Database-anslutningar från App Service med en hanterad identitet
 
@@ -128,7 +128,7 @@ Arbeta från början av filen och göra följande ändringar i *Web.config*och g
 - Leta reda på `MyDbConnection` anslutningssträngen som anropas och ersätt dess `connectionString` värde med `"server=tcp:<server-name>.database.windows.net;database=<db-name>;UID=AnyString;Authentication=Active Directory Interactive"`. Ersätt _ \<servernamn>_ och _ \<db-namn>_ med servernamnet och databasnamnet.
 
 > [!NOTE]
-> SqlAuthenticationProvider som du just registrerade baseras på toppen av appautentiseringsbiblioteket som du installerade tidigare. Som standard används en systemtilldelad identitet. Om du vill använda en användartilldelad identitet måste du ange ytterligare en konfiguration. Se stöd för [anslutningssträng](../key-vault/service-to-service-authentication.md#connection-string-support) för AppAuthentication-biblioteket.
+> SqlAuthenticationProvider som du just registrerade baseras på toppen av appautentiseringsbiblioteket som du installerade tidigare. Som standard används en systemtilldelad identitet. Om du vill använda en användartilldelad identitet måste du ange ytterligare en konfiguration. Se stöd för [anslutningssträng](../key-vault/general/service-to-service-authentication.md#connection-string-support) för AppAuthentication-biblioteket.
 
 Det är allt du behöver för att ansluta till SQL Database. När du felsöker i Visual Studio använder koden den Azure AD-användare som du har konfigurerat i [Konfigurera Visual Studio](#set-up-visual-studio). Du konfigurerar SQL Database-servern senare för att tillåta anslutning från den hanterade identiteten för apptjänstappen.
 

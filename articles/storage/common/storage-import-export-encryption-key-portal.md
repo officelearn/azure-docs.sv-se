@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: a7077b5e94800d93833f259fefd0cd4c168ec867
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: ddcb47bfe8ba2b77efd8ff0aed52f1412107f0c5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811438"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456506"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Använda kundhanterade nycklar i Azure Key Vault for Import/Export-tjänsten
 
 Azure Import/Export skyddar BitLocker-nycklarna som används för att låsa enheterna via en krypteringsnyckel. Som standard krypteras BitLocker-nycklar med Microsoft-hanterade nycklar. Om du vill ha ytterligare kontroll över krypteringsnycklar kan du också tillhandahålla kundhanterade nycklar.
 
-Kundhanterade nycklar måste skapas och lagras i ett Azure Key Vault. Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../../key-vault/key-vault-overview.md)
+Kundhanterade nycklar måste skapas och lagras i ett Azure Key Vault. Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../../key-vault/general/overview.md)
 
 Den här artikeln visar hur du använder kundhanterade nycklar med tjänsten Import/Export i [Azure-portalen](https://portal.azure.com/).
 
@@ -33,12 +33,12 @@ Innan du börjar ska du kontrollera att:
     - [Skapa ett importjobb för filer](storage-import-export-data-to-files.md).
     - [Skapa ett exportjobb för blobbar](storage-import-export-data-from-blobs.md)
 
-2. Du har ett befintligt Azure Key Vault med en nyckel i det som du kan använda för att skydda din BitLocker-nyckel. Mer information om hur du skapar ett nyckelvalv med Azure-portalen finns i [Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med Azure-portalen](../../key-vault/quick-create-portal.md).
+2. Du har ett befintligt Azure Key Vault med en nyckel i det som du kan använda för att skydda din BitLocker-nyckel. Mer information om hur du skapar ett nyckelvalv med Azure-portalen finns i [Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med Azure-portalen](../../key-vault/secrets/quick-create-portal.md).
 
     - **Mjuk borttagning** **och Rensa inte** är inställda på ditt befintliga Key Vault. Dessa egenskaper är inte aktiverade som standard. Om du vill aktivera dessa egenskaper finns i avsnitten **Aktivera mjuk borttagning** och **Aktivera rensningsskydd** i någon av följande artiklar:
 
-        - [Så här använder du mjuk borttagning med PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
-        - [Så här använder du mjuk borttagning med CLI](../../key-vault/key-vault-soft-delete-cli.md).
+        - [Så här använder du mjuk borttagning med PowerShell](../../key-vault/general/soft-delete-powershell.md).
+        - [Så här använder du mjuk borttagning med CLI](../../key-vault/general/soft-delete-cli.md).
     - Det befintliga nyckelvalvet bör ha en RSA-nyckel på 2048 storlek eller mer. Mer information om nycklar finns i **Key Vault-nycklar** i [Om Azure Key Vault-nycklar, hemligheter och certifikat](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
     - Nyckelvalvet måste finnas i samma region som lagringskontot för dina data.  
     - Om du inte har ett befintligt Azure Key Vault kan du också skapa det infogat enligt beskrivningen i följande avsnitt.

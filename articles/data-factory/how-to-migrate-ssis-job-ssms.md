@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: ee51be1d994c3b81765266e95c48d321a2f43b14
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 6e357e98d6c5190c6dfef675dc1ab9cf30a717c1
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80989450"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455095"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migrera SQL Server Agent-jobb till ADF med SSMS
 
@@ -35,7 +35,7 @@ För valda SQL-agentjobb med tillämpliga jobbstegstyper kan **guiden SSIS-jobbm
 |SSIS jobbsteg|Kör SSIS-paketaktivitet|<li> Namnet på aktiviteten \<är stegnamn>. <li> Proxykonto som används i jobbsteget migreras som Windows-autentisering av den här aktiviteten. <li> *Körningsalternativ* utom *Använd 32-bitars körning* som definierats i jobbsteget ignoreras i migreringen. <li> *Verifiering* som definierats i jobbsteget ignoreras i migreringen.|
 |schedule      |schema-utlösare        |Namnet på schemautlösaren *genereras för \<schemanamn>*. <br> <br> Nedan ignoreras alternativen i SQL Agent-jobbschemat i migreringen: <li> Andra nivån intervall. <li> *Starta automatiskt när SQL Server Agent startar* <li> *Starta när processorerna blir inaktiva* <li> *veckodag* och *helgdag*<time zone> <br> Nedan visas skillnaderna efter att SQL Agent-jobbschemat har migrerats till ADF-schemautlösaren: <li> ADF Schedule Trigger efterföljande körning är oberoende av körningstillståndet för den föregående utlösta körningen. <li> ADF Schedule Trigger återkommande konfiguration skiljer sig från daglig frekvens i SQL-agent jobb.|
 
-- generera AZURE Resource Manager-mallar (ARM) i den lokala utdatamappen och distribuera till datafabriken direkt eller senare manuellt. Mer information om ADF Resource Manager-mallar finns i [Microsoft.DataFactory-resurstyper](https://docs.microsoft.com/azure/templates/microso.ft.datafactory/allversions).
+- generera AZURE Resource Manager-mallar (ARM) i den lokala utdatamappen och distribuera till datafabriken direkt eller senare manuellt. Mer information om ADF Resource Manager-mallar finns i [Microsoft.DataFactory-resurstyper](https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="prerequisites"></a>Krav
 

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aeffa0bb736f03403bf483b22775ef468bbcb2bd
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: f0034d06c852d4d71284093879a456d296d98715
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405469"
+ms.locfileid: "81457475"
 ---
 # <a name="troubleshoot-issues-with-azure-automation-desired-state-configuration-dsc"></a>Felsöka problem med DSC (Azure Automation Desired State Configuration)
 
@@ -113,7 +113,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 ### <a name="cause"></a>Orsak
 
-Det här problemet orsakas av ett felaktigt eller utgånget certifikat.  Mer information finns i [Certifikatets förfallodatum och omregistrering](../automation-dsc-onboarding.md#re-register-a-node).
+Det här problemet orsakas av ett felaktigt eller utgånget certifikat.  Mer information finns i [Certifikatets förfallodatum och omregistrering](../automation-dsc-onboarding.md#re-registering-a-node).
 
 Det här problemet kan också orsakas av en proxykonfiguration som inte tillåter åtkomst till ***.azure-automation.net**. Mer information finns i [Konfiguration av privata nätverk](../automation-dsc-overview.md#network-planning). 
 
@@ -135,7 +135,7 @@ För det andra avinstallerar du DSC-tillägget från noden.
 
 För det tredje tar du bort alla felaktiga eller utgångna certifikat från noden.
 
-På den felaktiga noden från en upphöjd Powershell-prompt kör du följande:
+På den felaktiga noden från en upphöjd PowerShell-prompt kör du följande:
 
 ```powershell
 $certs = @()
@@ -279,8 +279,8 @@ Behandla noden för korsabonnemang som om den finns i ett separat moln eller lok
 
 Följ stegen nedan för att registrera noden.
 
-* Windows - [Fysiska/virtuella Windows-datorer lokalt eller i ett annat moln än Azure/AWS](../automation-dsc-onboarding.md#onboard-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure).
-* Linux - [Fysiska/virtuella Linux-datorer lokalt eller i ett annat moln än Azure](../automation-dsc-onboarding.md#onboard-physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure).
+* Windows - [Fysiska/virtuella Windows-datorer lokalt eller i ett annat moln än Azure/AWS](../automation-dsc-onboarding.md#onboarding-physicalvirtual-windows-machines).
+* Linux - [Fysiska/virtuella Linux-datorer lokalt eller i ett annat moln än Azure](../automation-dsc-onboarding.md#onboarding-physicalvirtual-linux-machines).
 
 ### <a name="scenario-error-message---provisioning-failed"></a><a name="agent-has-a-problem"></a>Scenario: Felmeddelande - "Etablering misslyckades"
 

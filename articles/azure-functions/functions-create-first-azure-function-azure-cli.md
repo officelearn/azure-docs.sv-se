@@ -4,12 +4,12 @@ description: Lär dig hur du skapar en funktion från kommandoraden och publicer
 ms.date: 03/30/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 1e3ce26894e9e89d196c068bd32245c8c891b2e2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: eb893491310850b141a0d68cb7a74041411843a9
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255557"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457458"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Snabbstart: Skapa en funktion i Azure som svarar på HTTP-begäranden
 
@@ -222,9 +222,9 @@ Använd följande Azure CLI-kommandon för att skapa dessa objekt. Varje kommand
 
 Om du inte redan har gjort det loggar du in på Azure med kommandot [az login:](/cli/azure/reference-index#az-login)
 
-    ```azurecli
-    az login
-    ```
+```azurecli
+az login
+```
     
 Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-create). I följande exempel skapas `AzureFunctionsQuickstart-rg` en `westeurope` resursgrupp med namnet i regionen. (Du skapar vanligtvis resursgruppen och resurserna i en region nära `az account list-locations` dig med hjälp av en tillgänglig region från kommandot.)
 

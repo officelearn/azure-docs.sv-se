@@ -6,32 +6,32 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 7fdb7c980a278e2dcd4b64a4b70de50721d0b72a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd0a03ea76d517486bb9bda6d9628fb529166dd8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280344"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453735"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Använda Key Vault-referenser för App Service och Azure-funktioner
 
-Det här avsnittet visar hur du arbetar med hemligheter från Azure Key Vault i ditt App Service- eller Azure Functions-program utan att kräva några kodändringar. [Azure Key Vault](../key-vault/key-vault-overview.md) är en tjänst som tillhandahåller centraliserad hemligheter hantering, med full kontroll över åtkomstprinciper och granskningshistorik.
+Det här avsnittet visar hur du arbetar med hemligheter från Azure Key Vault i ditt App Service- eller Azure Functions-program utan att kräva några kodändringar. [Azure Key Vault](../key-vault/general/overview.md) är en tjänst som tillhandahåller centraliserad hemligheter hantering, med full kontroll över åtkomstprinciper och granskningshistorik.
 
 ## <a name="granting-your-app-access-to-key-vault"></a>Ge din app åtkomst till Key Vault
 
 För att kunna läsa hemligheter från Key Vault måste du ha ett valv skapat och ge din app behörighet att komma åt det.
 
-1. Skapa ett nyckelvalv genom att följa [snabbstarten för Key Vault](../key-vault/quick-create-cli.md).
+1. Skapa ett nyckelvalv genom att följa [snabbstarten för Key Vault](../key-vault/secrets/quick-create-cli.md).
 
 1. Skapa en [systemtilldelad hanterad identitet](overview-managed-identity.md) för ditt program.
 
    > [!NOTE] 
    > Key Vault-referenser stöder för närvarande endast systemtilldelade hanterade identiteter. Användartilldelade identiteter kan inte användas.
 
-1. Skapa en [åtkomstprincip i Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) för programidentiteten som du skapade tidigare. Aktivera den hemliga behörigheten "Hämta" för den här principen. Konfigurera inte det "auktoriserade `applicationId` programmet" eller inställningarna, eftersom detta inte är kompatibelt med en hanterad identitet.
+1. Skapa en [åtkomstprincip i Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) för programidentiteten som du skapade tidigare. Aktivera den hemliga behörigheten "Hämta" för den här principen. Konfigurera inte det "auktoriserade `applicationId` programmet" eller inställningarna, eftersom detta inte är kompatibelt med en hanterad identitet.
 
     > [!NOTE]
-    > Key Vault-referenser kan för närvarande inte lösa hemligheter som lagras i ett nyckelvalv med [nätverksbegränsningar](../key-vault/key-vault-overview-vnet-service-endpoints.md).
+    > Key Vault-referenser kan för närvarande inte lösa hemligheter som lagras i ett nyckelvalv med [nätverksbegränsningar](../key-vault/general/overview-vnet-service-endpoints.md).
 
 ## <a name="reference-syntax"></a>Referenssyntax
 

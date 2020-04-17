@@ -9,12 +9,12 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f105eac0f6f21ea3358340a4e2aaec7d1f1a95ad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 569c989e8876bb7213d1469c7a70da99aa0b1e9c
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77190548"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455350"
 ---
 # <a name="security-controls-for-windows-virtual-machines"></a>Säkerhetskontroller för virtuella Windows-datorer
 
@@ -50,7 +50,7 @@ I den här artikeln dokumenteras de säkerhetskontroller som är inbyggda i virt
 
 | Säkerhetskontroll | Ja/nej | Anteckningar |
 |---|---|--|
-| Kryptering på serversidan i vila: Microsoft-hanterade nycklar | Ja | Se [Kryptera virtuella diskar på en Virtuell Windows.](/azure/virtual-machines/windows/encrypt-disks) |
+| Kryptering på serversidan i vila: Microsoft-hanterade nycklar | Ja | Se [Kryptera virtuella diskar på en Virtuell Windows.](/azure/virtual-machines/windows/disk-encryption-overview) |
 | Kryptering under överföring (till exempel ExpressRoute-kryptering, vnet-kryptering och VNet-VNet-kryptering)| Ja | Virtuella Azure-datorer stöder [ExpressRoute-](/azure/expressroute) och VNet-kryptering. Se [Transitkryptering i virtuella datorer](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
 | Kryptering på serversidan i vila: kundhanterade nycklar (BYOK) | Ja | Kundhanterade nycklar är ett Azure-krypteringsscenario som stöds. se [Översikt över Azure-kryptering](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms).|
 | Kryptering på kolumnnivå (Azure Data Services)| Ej tillämpligt | |

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: mimckitt
-ms.openlocfilehash: 3dcf82a8d4bc698c1900903649a2dd5a383f64b4
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 098d4df3938f591cb72b3bfd59b7a5549469785c
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878416"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81451745"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Konfigurera Key Vault för virtuella datorer i Azure Resource Manager
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
 
-I Azure Resource Manager-stacken modelleras hemligheter/certifikat som resurser som tillhandahålls av resursleverantören för Key Vault. Mer information om Key Vault finns i [Vad är Azure Key Vault?](../../key-vault/key-vault-overview.md)
+I Azure Resource Manager-stacken modelleras hemligheter/certifikat som resurser som tillhandahålls av resursleverantören för Key Vault. Mer information om Key Vault finns i [Vad är Azure Key Vault?](../../key-vault/general/overview.md)
 
 > [!NOTE]
 > 1. För att Key Vault ska kunna användas med virtuella Azure Resource Manager-datorer måste egenskapen **EnabledForDeployment** i Key Vault anges till true. Du kan göra detta i olika kunder.
@@ -34,7 +34,7 @@ I Azure Resource Manager-stacken modelleras hemligheter/certifikat som resurser 
 >
 
 ## <a name="use-powershell-to-set-up-key-vault"></a>Använda PowerShell för att konfigurera Key Vault
-Information om hur du skapar ett nyckelvalv med PowerShell finns i [Ange och hämta en hemlighet från Azure Key Vault med PowerShell](../../key-vault/quick-create-powershell.md).
+Information om hur du skapar ett nyckelvalv med PowerShell finns i [Ange och hämta en hemlighet från Azure Key Vault med PowerShell](../../key-vault/secrets/quick-create-powershell.md).
 
 För nya nyckelvalv kan du använda den här PowerShell-cmdlet:
 
@@ -45,7 +45,7 @@ För befintliga nyckelvalv kan du använda den här PowerShell-cmdlet:
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
 ## <a name="use-cli-to-set-up-key-vault"></a>Använd CLI för att konfigurera Key Vault
-Om du vill skapa ett nyckelvalv med hjälp av kommandoradsgränssnittet (CLI) finns i [Hantera nyckelvalv med CLI](../../key-vault/key-vault-manage-with-cli2.md#create-a-key-vault).
+Om du vill skapa ett nyckelvalv med hjälp av kommandoradsgränssnittet (CLI) finns i [Hantera nyckelvalv med CLI](../../key-vault/general/manage-with-cli2.md#create-a-key-vault).
 
 För CLI måste du skapa nyckelvalvet innan du tilldelar distributionsprincipen. Det kan du göra med hjälp av följande kommando:
 

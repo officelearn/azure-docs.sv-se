@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: c1b48ae8191e2e5313d9037c791eca73c8a55691
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 19a1883685193e80da5f1365ec2a30db0b8754f6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77191387"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450164"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Förbättra säkerheten för B2B-meddelanden med hjälp av certifikat
 
@@ -66,7 +66,7 @@ När du har definierat egenskaperna i de [avtal](logic-apps-enterprise-integrati
 > [!NOTE]
 > För privata certifikat kontrollerar du att du lägger till ett motsvarande offentligt certifikat som visas i [AS2-avtalets](logic-apps-enterprise-integration-as2.md) inställningar för **skicka och ta emot** för signering och kryptering av meddelanden.
 
-1. [Lägg till din privata nyckel i Azure Key Vault](../key-vault/certificate-scenarios.md#import-a-certificate) och ange ett **nyckelnamn**.
+1. [Lägg till din privata nyckel i Azure Key Vault](../key-vault/certificates/certificate-scenarios.md#import-a-certificate) och ange ett **nyckelnamn**.
    
 2. Auktorisera Azure Logic Apps för att utföra åtgärder på Azure Key Vault. Om du vill bevilja åtkomst till logic apps-tjänstens huvudnamn använder du kommandot PowerShell, [Set-AzKeyVaultAccessPolicy,](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy)till exempel:
 

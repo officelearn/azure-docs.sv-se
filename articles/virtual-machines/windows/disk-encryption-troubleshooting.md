@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0d4e76f4d02b0287770243bfddf995a19f90d232
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fafe4a9ef78a92595eaae942fa5d7cbeb2c07189
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73749444"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458223"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Felsökningsguide för Azure Disk Encryption
 
@@ -35,7 +35,7 @@ Alla nätverkssäkerhetsgruppinställningar som tillämpas måste fortfarande g�
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>Azure Key Vault bakom en brandvägg
 
-När kryptering aktiveras med [Azure AD-autentiseringsuppgifter](disk-encryption-windows-aad.md#)måste måldatorn tillåta anslutning till både Azure Active Directory-slutpunkter och Key Vault-slutpunkter. Aktuella slutpunkter för Azure Active Directory-autentisering finns i avsnitten 56 och 59 i dokumentationen för [Office 365-URL:er och IP-adressintervall.](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) Key Vault-instruktioner finns i dokumentationen om hur du [kommer åt Azure Key Vault bakom en brandvägg](../../key-vault/key-vault-access-behind-firewall.md).
+När kryptering aktiveras med [Azure AD-autentiseringsuppgifter](disk-encryption-windows-aad.md#)måste måldatorn tillåta anslutning till både Azure Active Directory-slutpunkter och Key Vault-slutpunkter. Aktuella slutpunkter för Azure Active Directory-autentisering finns i avsnitten 56 och 59 i dokumentationen för [Office 365-URL:er och IP-adressintervall.](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) Key Vault-instruktioner finns i dokumentationen om hur du [kommer åt Azure Key Vault bakom en brandvägg](../../key-vault/general/access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Azure-instansmetadatatjänst 
 Den virtuella datorn måste kunna komma åt [Azure Instance Metadata-tjänstslutpunkten](../windows/instance-metadata-service.md) som använder`169.254.169.254`en välkänd icke-dirigerbar IP-adress ( ) som endast kan nås från den virtuella datorn.  Proxykonfigurationer som ändrar lokal HTTP-trafik till den här adressen (till exempel att lägga till ett X-Forwarded-For-huvud) stöds inte.

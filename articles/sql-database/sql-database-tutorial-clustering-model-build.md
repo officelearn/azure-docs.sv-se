@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
-ms.openlocfilehash: 0a73a2bc3fa76c945cf699133a41b38a9983a234
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: ebea6117420ee6de67025dfd4cfba71e905cb9ec
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345816"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453105"
 ---
 # <a name="tutorial-build-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Självstudiekurs: Skapa en klustermodell i R med Azure SQL Database Machine Learning Services (förhandsversion)
 
@@ -36,8 +37,6 @@ I den här artikeln får du lära dig hur du:
 I [del ett](sql-database-tutorial-clustering-model-prepare-data.md)lärde du dig hur du förbereder data från en Azure SQL-databas för att utföra klustring.
 
 I [del tre](sql-database-tutorial-clustering-model-deploy.md)får du lära dig hur du skapar en lagrad procedur i en Azure SQL-databas som kan utföra klustring i R baserat på nya data.
-
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Krav
 

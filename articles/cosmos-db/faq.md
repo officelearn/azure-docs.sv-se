@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 4c76bcbf945c63588f8471c10deca0b5982d3562
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e904f650c9fc11aab2dcb002ac68a9f19287940e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414238"
+ms.locfileid: "81449960"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Vanliga frågor och svar om olika API: er i Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Azure Cosmos DB har en schemaagnostisk indexeringsmotor som automatiskt kan inde
 
 ### <a name="can-i-use-multiple-apis-to-access-my-data"></a>Kan jag använda flera API:er för att komma åt mina data?
 
-Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Där flera modeller innebär att Azure Cosmos DB stöder flera API:er och flera datamodeller använder olika API:er olika dataformat för lagring och trådprotokoll. Sql använder till exempel JSON, MongoDB använder BSON, Table använder EDM, Cassandra använder CQL, Gremlin använder GraphSON. Därför rekommenderar vi att du använder samma API för all åtkomst till data i ett visst konto.
+Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Där flera modeller innebär att Azure Cosmos DB stöder flera API:er och flera datamodeller använder olika API:er olika dataformat för lagring och trådprotokoll. SQL använder till exempel JSON, MongoDB använder BSON, Table använder EDM, Cassandra använder CQL, Gremlin använder JSON-format. Därför rekommenderar vi att du använder samma API för all åtkomst till data i ett visst konto.
 
 Varje API fungerar oberoende av varandra, förutom Gremlin och SQL API, som är driftskompatibla.
 

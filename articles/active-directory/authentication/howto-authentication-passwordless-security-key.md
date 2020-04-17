@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8574fcdff12e61f7039174ed6297d0558a66dc4
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 066ab7892bed6e7505e7ee114ff37a7850ef5c9b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80653943"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450929"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Aktivera inloggning med lösenordslös säkerhetsnyckel (förhandsgranskning)
 
@@ -31,7 +31,7 @@ Det här dokumentet fokuserar på att aktivera säkerhetsnyckelbaserad lösenord
 
 ## <a name="requirements"></a>Krav
 
-- [Azure multifaktorautentisering](howto-mfa-getstarted.md)
+- [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
 - [Förhandsgranskning av kombinerad registrering av säkerhetsinformation](concept-registration-mfa-sspr-combined.md)
 - Kompatibla [FIDO2-säkerhetsnycklar](concept-authentication-passwordless.md#fido2-security-keys)
 - WebAuthN kräver Windows 10 version 1809 eller senare**
@@ -48,7 +48,7 @@ Hybrid Azure AD-anslutna enheter måste köra Windows 10 Insider Build 18945 ell
 
 ### <a name="enable-the-combined-registration-experience"></a>Aktivera den kombinerade registreringsupplevelsen
 
-Registreringsfunktioner för lösenordslösa autentiseringsmetoder är beroende av den kombinerade registreringsförhandsgranskningen. Följ stegen i artikeln [Aktivera kombinerad registrering av säkerhetsinformation (förhandsversion)](howto-registration-mfa-sspr-combined.md)för att aktivera den kombinerade registreringsförhandsgranskningen.
+Registreringsfunktioner för lösenordslösa autentiseringsmetoder är beroende av den kombinerade registreringsfunktionen. Följ stegen i artikeln [Aktivera kombinerad registrering av säkerhetsinformation (förhandsversion)](howto-registration-mfa-sspr-combined.md)för att aktivera kombinerad registrering.
 
 ### <a name="enable-fido2-security-key-method"></a>Aktivera fido2-säkerhetsnyckelmetod
 

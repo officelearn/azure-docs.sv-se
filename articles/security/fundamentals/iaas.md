@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: fadf07f312c86f8ca15f5a97ebbe99e84bcffc89
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 49a40d78b4ba3bc1e90bb341cca90bece0b998a8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548231"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450045"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Säkerhetsmetodtips för IaaS-arbetsbelastningar i Azure
 I den här artikeln beskrivs metodtips för säkerhet för virtuella datorer och operativsystem.
@@ -155,7 +155,7 @@ Här följer metodtips för att använda Azure Disk Encryption:
 **Detalj:** Azure Disk Encryption genererar och skriver krypteringsnycklarna till ditt nyckelvalv. För att hantera krypteringsnycklar i nyckelvalvet krävs Azure AD-autentisering. Skapa ett Azure AD-program för detta ändamål. I autentiseringssyfte kan du använda antingen klienthemlig autentisering eller [klientcertifikatbaserad Azure AD-autentisering](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
 
 **Bästa praxis:** Använd en nyckelkrypteringsnyckel (KEK) för ett extra säkerhetslager för krypteringsnycklar. Lägg till en KEK i ditt nyckelvalv.   
-**Detalj:** Använd cmdleten [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) för att skapa en nyckelkrypteringsnyckel i nyckelvalvet. Du kan också importera en KEK från din lokala maskinvarusäkerhetsmodul (HSM) för nyckelhantering. Mer information finns i [dokumentationen för Key Vault](../../key-vault/key-vault-hsm-protected-keys.md). När en nyckelkrypteringsnyckel anges använder Azure Disk Encryption den nyckeln för att radbrytas krypteringshemligheterna innan du skriver till Key Vault. Om du behåller en depositionskopia av den här nyckeln i en lokal nyckelhantering hsm ger ytterligare skydd mot oavsiktlig borttagning av nycklar.
+**Detalj:** Använd cmdleten [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) för att skapa en nyckelkrypteringsnyckel i nyckelvalvet. Du kan också importera en KEK från din lokala maskinvarusäkerhetsmodul (HSM) för nyckelhantering. Mer information finns i [dokumentationen för Key Vault](../../key-vault/keys/hsm-protected-keys.md). När en nyckelkrypteringsnyckel anges använder Azure Disk Encryption den nyckeln för att radbrytas krypteringshemligheterna innan du skriver till Key Vault. Om du behåller en depositionskopia av den här nyckeln i en lokal nyckelhantering hsm ger ytterligare skydd mot oavsiktlig borttagning av nycklar.
 
 **Bästa praxis:** Ta en [ögonblicksbild](../../virtual-machines/windows/snapshot-copy-managed-disk.md) och/eller säkerhetskopia innan diskarna krypteras. Säkerhetskopior ger ett återställningsalternativ om ett oväntat fel inträffar under krypteringen.   
 **Detalj:** Virtuella datorer med hanterade diskar kräver en säkerhetskopia innan kryptering sker. När en säkerhetskopia har gjorts kan du använda cmdleten **Set-AzVMDiskEncryptionExtension** för att kryptera hanterade diskar genom att ange parametern *-skipVmBackup.* Mer information om hur du säkerhetskopierar och återställer krypterade virtuella datorer finns i artikeln [Kring Azure Backup.](../../backup/backup-azure-vms-encryption.md)

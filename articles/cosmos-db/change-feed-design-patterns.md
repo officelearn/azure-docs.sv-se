@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 7e6981fb57421846b491693bb6195ecef31a3773
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 012d27b44ecfbdd460adf241742df397880f78c6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986309"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450359"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Ändra mönster för feeddesign i Azure Cosmos DB
 
@@ -99,7 +99,7 @@ Tänk dig till exempel ett butiksprogram med hjälp av designmönstret för hän
 
 1. Kunden lägger till artikel A i kundvagnen
 2. Kunden lägger till punkt B i kundvagnen
-3. Kunden lägger till tar bort artikel A från kundvagnen
+3. Kunden tar bort artikel A från kundvagnen
 4. Kundcheckar och kundvagnens innehåll levereras
 
 En materialiserad vy över aktuell kundvagn innehåll upprätthålls för varje kund. Denna ansökan måste säkerställa att dessa händelser bearbetas i den ordning de inträffar. Om till exempel vagnsutcheckningen skulle bearbetas innan artikel A skulle tas bort, är det troligt att kunden skulle ha fått artikel A levererad, i motsats till önskad artikel B. För att garantera att dessa fyra händelser bearbetas i ordning efter att de förekomsteras bör de omfattas av samma partitionsnyckelvärde. Om du väljer **användarnamn** (varje kund har ett unikt användarnamn) som partitionsnyckel kan du garantera att dessa händelser visas i ändringsflödet i samma ordning som de skrivs till Azure Cosmos DB.

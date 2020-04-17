@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: 733a85e492185e7e83922a3cc91d53c848b939a1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8f58887a056c8ca0cd175a44127556562338de38
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411151"
+ms.locfileid: "81450040"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Konfigurera kundhanterade nycklar för ditt Azure Cosmos-konto med Azure Key Vault
 
@@ -23,7 +23,7 @@ Data som lagras i ditt Azure Cosmos-konto krypteras automatiskt och sömlöst me
 
 ![Lager av kryptering runt kunddata](./media/how-to-setup-cmk/cmk-intro.png)
 
-Du måste lagra kundhanterade nycklar i [Azure Key Vault](../key-vault/key-vault-overview.md) och ange en nyckel för varje Azure Cosmos-konto som är aktiverat med kundhanterade nycklar. Den här nyckeln används för att kryptera alla data som lagras i det kontot.
+Du måste lagra kundhanterade nycklar i [Azure Key Vault](../key-vault/general/overview.md) och ange en nyckel för varje Azure Cosmos-konto som är aktiverat med kundhanterade nycklar. Den här nyckeln används för att kryptera alla data som lagras i det kontot.
 
 > [!NOTE]
 > För närvarande är kundhanterade nycklar endast tillgängliga för nya Azure Cosmos-konton. Du bör konfigurera dem när du skapar kontot.
@@ -44,8 +44,8 @@ Om du använder kundhanterade nycklar med Azure Cosmos DB måste du ange två eg
 
 Mer information om hur du aktiverar dessa egenskaper i en befintlig Azure Key Vault-instans finns i avsnitten "Aktivera mjuk borttagning" och "Aktivera rensningsskydd" i någon av följande artiklar:
 
-- [Så här använder du mjuk borttagning med PowerShell](../key-vault/key-vault-soft-delete-powershell.md)
-- [Så här använder du mjuk borttagning med Azure CLI](../key-vault/key-vault-soft-delete-cli.md)
+- [Så här använder du mjuk borttagning med PowerShell](../key-vault/general/soft-delete-powershell.md)
+- [Så här använder du mjuk borttagning med Azure CLI](../key-vault/general/soft-delete-cli.md)
 
 ## <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a>Lägga till en åtkomstprincip i azure key vault-instansen
 

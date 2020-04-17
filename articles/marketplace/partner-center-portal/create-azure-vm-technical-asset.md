@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: eb885d0e965579b1ab2d66395f9f96eab0845bae
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 46c59e8b4e60fbe17887ea0fc375b6da758ebf50
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266505"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457407"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Skapa dina tekniska resurser för din virtuella azure-dator
 
@@ -281,8 +281,8 @@ Följande process generaliserar en Virtuell Linux-dator och distribuerar om den 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har haft problem med att skapa din nya Azure-baserade virtuella hårddisk läser du [Vanliga problem när den virtuella hårddisken skapas](https://aka.ms/AzureVM_VHDCreationFAQ).
+Om du har haft problem med att skapa din nya Azure-baserade virtuella hårddisk läser du [Vanliga problem när den virtuella hårddisken skapas](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues).
 
 I annat fall:
 
-* [Certifiera din VM-avbildning](https://aks.ms/CertifyVMimage) förklarar hur du testar och skickar in en VM-avbildning för Azure Marketplace-certifiering, inklusive var du kan hämta *verktyget Certifieringstestverktyg för Azure Certified* och hur du använder det för att certifiera din VM-avbildning.
+* [Certifiera din VM-avbildning](https://docs.microsoft.com/azure/marketplace/partner-center-portal/get-sas-uri) förklarar hur du testar och skickar in en VM-avbildning för Azure Marketplace-certifiering, inklusive var du kan hämta *verktyget Certifieringstestverktyg för Azure Certified* och hur du använder det för att certifiera din VM-avbildning.

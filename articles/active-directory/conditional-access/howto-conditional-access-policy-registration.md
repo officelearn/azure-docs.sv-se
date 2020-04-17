@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f69a94e17155ff93510d09f666bce12f628274f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c8081bb8145a6654c168fb2d664e1666b32dc18
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295164"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457917"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Villkorlig åtkomst: Skydda registrering av säkerhetsinformation
 
@@ -32,9 +32,9 @@ Följande princip gäller för alla valda användare som försöker registrera s
 1. Under **Tilldelningar**väljer du **Användare och grupper**och väljer de användare och grupper som du vill att den här principen ska gälla för.
 
    > [!WARNING]
-   > Användare måste vara aktiverade för den [kombinerade registreringsförhandsgranskningen](../authentication/howto-registration-mfa-sspr-combined.md).
+   > Användare måste vara aktiverade för den [kombinerade registreringen](../authentication/howto-registration-mfa-sspr-combined.md).
 
-1. Under **Molnappar eller -åtgärder**väljer du **Användaråtgärder**, markerar **Registrera säkerhetsinformation (förhandsgranskning)**.
+1. Under **Molnappar eller -åtgärder**väljer du **Användaråtgärder**och kontrollerar **Registrera säkerhetsinformation**.
 1. Under **förhållanden** > **platser**.
    1. Konfigurera **Ja**.
    1. Inkludera **valfri plats**.

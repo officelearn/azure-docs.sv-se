@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6e4c8057322b6208ea3b447b264e2bde1344540c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1b275239c19584bc11472711a32972aa3ebea1ab
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278693"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457543"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Utbildningsnyckel-windows powershell-arbetsflödesbegrepp för automationskörningar
 
@@ -20,9 +20,12 @@ Ett arbetsflöde är en sekvens med programmerade, nätverksanslutna steg som ut
 
 Fullständig information om ämnena i den här artikeln finns i [Komma igång med Windows PowerShell Workflow](https://technet.microsoft.com/library/jj134242.aspx).
 
+>[!NOTE]
+>Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installationsinstruktioner för Az-modul på hybridkörningsarbetaren finns [i Installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med [så här uppdaterar du Azure PowerShell-moduler i Azure Automation](automation-update-azure-modules.md).
+
 ## <a name="basic-structure-of-a-workflow"></a>Grundläggande struktur för ett arbetsflöde
 
-Det första steget för att konvertera ett PowerShell-skript till ett PowerShell-arbetsflöde omsluter det med nyckelordet **Arbetsflöde.**  Ett arbetsflöde börjar med nyckelordet **Arbetsflöde** följt av brödtexten i skriptet som omges av klammerparenteser. Namnet på arbetsflödet följer nyckelordet **Arbetsflöde** som visas i följande syntax:
+Det första steget för att konvertera ett PowerShell-skript till ett `Workflow` PowerShell-arbetsflöde omsluter det med nyckelordet.  Ett arbetsflöde börjar `Workflow` med nyckelordet följt av brödtexten i skriptet som omges av klammerparenteser. Namnet på arbetsflödet följer `Workflow` nyckelordet som visas i följande syntax:
 
 ```powershell
 Workflow Test-Workflow
@@ -33,7 +36,7 @@ Workflow Test-Workflow
 
 Namnet på arbetsflödet måste matcha namnet på Automation-runbooken. Om runbooken importeras måste filnamnet matcha arbetsflödesnamnet och sluta i *PS1*.
 
-Om du vill lägga till parametrar i arbetsflödet använder du nyckelordet **Param** på samma sätt som i ett skript.
+Om du vill lägga till `Param` parametrar i arbetsflödet använder du nyckelordet på samma sätt som i ett skript.
 
 ## <a name="code-changes"></a>Kodändringar
 
@@ -99,7 +102,7 @@ Workflow Stop-MyService
 
 ## <a name="inlinescript"></a>InlineScript
 
-**InlineScript-aktiviteten** är användbar när du behöver köra ett eller flera kommandon som traditionellt PowerShell-skript i stället för PowerShell-arbetsflöde.  Medan kommandon i ett arbetsflöde skickas till Windows Workflow Foundation för bearbetning, bearbetas kommandona i ett InlineScript-block av Windows PowerShell.
+Aktiviteten`InlineScript` är användbar när du behöver köra ett eller flera kommandon som traditionellt PowerShell-skript i stället för PowerShell-arbetsflöde.  Medan kommandon i ett arbetsflöde skickas till Windows Workflow Foundation för bearbetning, bearbetas kommandona i ett InlineScript-block av Windows PowerShell.
 
 InlineScript använder följande syntax som visas nedan.
 
@@ -154,7 +157,7 @@ Mer information om hur du använder InlineScript finns [i Köra Windows PowerShe
 
 En av fördelarna med Windows PowerShell-arbetsflöden är möjligheten att utföra en uppsättning kommandon parallellt i stället för sekventiellt som i ett vanligt skript.
 
-Du kan använda nyckelordet **Parallel** för att skapa ett skriptblock med flera kommandon som körs samtidigt. Detta använder följande syntax som visas nedan. I det här fallet startar Activity1 och Activity2 samtidigt. Activity3 startar först efter att både Activity1 och Activity2 har slutförts.
+Du kan `Parallel` använda nyckelordet för att skapa ett skriptblock med flera kommandon som körs samtidigt. Detta använder följande syntax som visas nedan. I det här fallet startar Activity1 och Activity2 samtidigt. Activity3 startar först efter att både Activity1 och Activity2 har slutförts.
 
 ```powershell
 Parallel
@@ -189,7 +192,7 @@ Workflow Copy-Files
 }
 ```
 
-Du kan använda **forEach -Parallell** konstruera för att bearbeta kommandon för varje objekt i en samling samtidigt. Objekten i samlingen bearbetas parallellt medan kommandona i skriptblocket körs sekventiellt. Detta använder följande syntax som visas nedan. I det här fallet startar Activity1 samtidigt för alla objekt i samlingen. För varje objekt startar Activity2 när Aktivitet1 har slutförts. Activity3 startar först efter att både Activity1 och Activity2 har slutförts för alla artiklar. Vi använder `ThrottleLimit` parametern för att begränsa parallellismen. För hög `ThrottleLimit` av en kan orsaka problem. Det idealiska `ThrottleLimit` värdet för parametern beror på många faktorer i din miljö. Du bör försöka börja med ett lågt värde och prova olika ökande värden tills du hittar en som fungerar för din specifika omständighet.
+Du kan `ForEach -Parallel` använda konstruera för att bearbeta kommandon för varje objekt i en samling samtidigt. Objekten i samlingen bearbetas parallellt medan kommandona i skriptblocket körs sekventiellt. Detta använder följande syntax som visas nedan. I det här fallet startar Activity1 samtidigt för alla objekt i samlingen. För varje objekt startar Activity2 när Aktivitet1 har slutförts. Activity3 startar först efter att både Activity1 och Activity2 har slutförts för alla artiklar. Vi använder `ThrottleLimit` parametern för att begränsa parallellismen. För hög `ThrottleLimit` av en kan orsaka problem. Det idealiska `ThrottleLimit` värdet för parametern beror på många faktorer i din miljö. Du bör försöka börja med ett lågt värde och prova olika ökande värden tills du hittar en som fungerar för din specifika omständighet.
 
 ```powershell
 ForEach -Parallel -ThrottleLimit 10 ($<item> in $<collection>)
@@ -222,7 +225,7 @@ Workflow Copy-Files
 
 ## <a name="checkpoints"></a>Kontrollpunkter
 
-En *kontrollpunkt* är en ögonblicksbild av det aktuella tillståndet för arbetsflödet som innehåller det aktuella värdet för variabler och alla utdata som genereras till den punkten. Om ett arbetsflöde slutar av misstag eller pausas startar det nästa gång det körs från den senaste kontrollpunkten i stället för början av arbetsflödet.  Du kan ange en kontrollpunkt i ett arbetsflöde med aktiviteten **Kontrollpunkt-arbetsflöde.** Azure Automation har en funktion som kallas [rättvis resurs](automation-runbook-execution.md#fair-share), där alla runbook som körs i 3 timmar tas bort för att tillåta andra runbooks att köras. Så småningom kommer den olastade runbooken att laddas om, och när den är det, kommer den att återuppta körningen från den sista kontrollpunkten som tas i runbooken. För att garantera att runbooken så småningom slutförs måste du lägga till kontrollpunkter med intervall som körs i mindre än 3 timmar. Om en ny kontrollpunkt läggs till under varje körning, och om runbooken vräkas efter 3 timmar på grund av ett fel, kommer runbooken att återupptas på obestämd tid.
+En *kontrollpunkt* är en ögonblicksbild av det aktuella tillståndet för arbetsflödet som innehåller det aktuella värdet för variabler och alla utdata som genereras till den punkten. Om ett arbetsflöde slutar av misstag eller pausas startar det nästa gång det körs från den senaste kontrollpunkten i stället för början av arbetsflödet.  Du kan ange en kontrollpunkt `Checkpoint-Workflow` i ett arbetsflöde med aktiviteten. Azure Automation har en funktion som kallas [rättvis resurs](automation-runbook-execution.md#fair-share), där alla runbook som körs i 3 timmar tas bort för att tillåta andra runbooks att köras. Så småningom kommer den olastade runbooken att laddas om, och när den är det, kommer den att återuppta körningen från den sista kontrollpunkten som tas i runbooken. För att garantera att runbooken så småningom slutförs måste du lägga till kontrollpunkter med intervall som körs i mindre än 3 timmar. Om en ny kontrollpunkt läggs till under varje körning, och om runbooken vräkas efter 3 timmar på grund av ett fel, kommer runbooken att återupptas på obestämd tid.
 
 I följande exempelkod inträffar ett undantag efter att Activity2 som gör att arbetsflödet upphör. När arbetsflödet körs igen börjar det med att köra Activity2 eftersom det var strax efter den senaste kontrollpunktsuppsättningen.
 
@@ -254,36 +257,37 @@ Workflow Copy-Files
 }
 ```
 
-Eftersom användarnamnsautentiseringsuppgifterna inte sparas efter att du har anropat aktiviteten [Paus-Arbetsflöde](https://technet.microsoft.com/library/jj733586.aspx) eller efter den senaste kontrollpunkten måste du ange att autentiseringsuppgifterna ska null och sedan hämta dem igen från tillgångsarkivet efter **att Paus-Arbetsflöde** eller kontrollpunkt anropas.  Annars kan följande felmeddelande visas: *Arbetsflödesjobbet kan inte återupptas, antingen på grund av att beständighetsdata inte kunde sparas helt eller så har sparade persistensdata skadats. Du måste starta om arbetsflödet.*
+Eftersom användarnamnsautentiseringsuppgifterna inte sparas efter att du har anropat aktiviteten [Paus-Arbetsflöde](https://technet.microsoft.com/library/jj733586.aspx) eller efter den senaste `Suspend-Workflow` kontrollpunkten måste du ange autentiseringsuppgifterna till null och sedan hämta dem igen från tillgångsarkivet efter eller kontrollpunkt anropas.  Annars kan följande felmeddelande visas:`The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
 
 Följande samma kod visar hur du hanterar detta i powershellarbetsflödeskörningsböckerna.
 
 ```powershell
 workflow CreateTestVms
 {
-    $Cred = Get-AzureAutomationCredential -Name "MyCredential"
-    $null = Connect-AzureRmAccount -Credential $Cred
+    $Cred = Get-AzAutomationCredential -Name "MyCredential"
+    $null = Connect-AzAccount -Credential $Cred
 
-    $VmsToCreate = Get-AzureAutomationVariable -Name "VmsToCreate"
+    $VmsToCreate = Get-AzAutomationVariable -Name "VmsToCreate"
 
     foreach ($VmName in $VmsToCreate)
         {
         # Do work first to create the VM (code not shown)
 
         # Now add the VM
-        New-AzureRmVm -VM $Vm -Location "WestUs" -ResourceGroupName "ResourceGroup01"
+        New-AzVM -VM $Vm -Location "WestUs" -ResourceGroupName "ResourceGroup01"
 
         # Checkpoint so that VM creation is not repeated if workflow suspends
         $Cred = $null
         Checkpoint-Workflow
-        $Cred = Get-AzureAutomationCredential -Name "MyCredential"
-        $null = Connect-AzureRmAccount -Credential $Cred
+        $Cred = Get-AzAutomationCredential -Name "MyCredential"
+        $null = Connect-AzAccount -Credential $Cred
         }
 }
 ```
 
-> [!IMPORTANT]
-> **Add-AzureRmAccount** är nu ett alias för **Connect-AzureRMAccount**. När du söker i dina biblioteksobjekt, om du inte ser **Connect-AzureRMAccount,** kan du använda **Add-AzureRmAccount**eller uppdatera dina moduler i ditt Automation-konto.
+> [!NOTE]
+> För icke-grafiska `Add-AzAccount` PowerShell-runbooks `Add-AzureRMAccount` och är alias för [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Du kan använda dessa cmdlets eller så kan du [uppdatera dina moduler](automation-update-azure-modules.md) i ditt Automation-konto till de senaste versionerna. Du kan behöva uppdatera dina moduler även om du just har skapat ett nytt Automation-konto.
+
 
 Detta krävs inte om du autentiserar med ett Run As-konto som konfigurerats med ett tjänsthuvudnamn.
 

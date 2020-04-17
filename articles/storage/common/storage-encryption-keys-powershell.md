@@ -10,18 +10,18 @@ ms.date: 04/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f24c89a53af5e618d64b78d6001040190c1f339c
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: bfc2e256396904456a7ee0fd8b6173c00a5f53d7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618337"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456404"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Konfigurera kundhanterade nycklar med Azure Key Vault med PowerShell
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-Den här artikeln visar hur du konfigurerar ett Azure Key Vault med kundhanterade nycklar med PowerShell. Mer information om hur du skapar ett nyckelvalv med Azure CLI finns i [Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med PowerShell](../../key-vault/quick-create-powershell.md).
+Den här artikeln visar hur du konfigurerar ett Azure Key Vault med kundhanterade nycklar med PowerShell. Mer information om hur du skapar ett nyckelvalv med Azure CLI finns i [Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med PowerShell](../../key-vault/secrets/quick-create-powershell.md).
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>Tilldela en identitet till lagringskontot
 
@@ -51,7 +51,7 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
     -EnablePurgeProtection
 ```
 
-Mer information om hur du aktiverar **Mjuk borttagning** och **rensar inte** på ett befintligt nyckelvalv med PowerShell finns i avsnitten **Aktivera mjuk borttagning** och **Aktivera rensningsskydd** i [Så här använder du mjuk borttagning med PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
+Mer information om hur du aktiverar **Mjuk borttagning** och **rensar inte** på ett befintligt nyckelvalv med PowerShell finns i avsnitten **Aktivera mjuk borttagning** och **Aktivera rensningsskydd** i [Så här använder du mjuk borttagning med PowerShell](../../key-vault/general/soft-delete-powershell.md).
 
 ## <a name="configure-the-key-vault-access-policy"></a>Konfigurera principen för nyckelvalvsåtkomst
 

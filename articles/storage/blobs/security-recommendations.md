@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 8dcefdfba3aba632e0592f0dea30c7e523ba81dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ceef2561d84a1fa491ab9577e1eac789b62bef7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061470"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454636"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Säkerhetsrekommendationer för Blob-lagring
 
@@ -29,7 +29,7 @@ Azure Security Center analyserar regelbundet säkerhetstillståndet för dina Az
 
 | Rekommendation | Kommentarer | Security Center |
 |-|----|--|
-| Använda distributionsmodellen för Azure Resource Manager | Skapa nya lagringskonton med hjälp av distributionsmodellen för Azure Resource Manager för viktiga säkerhetsförbättringar, inklusive bättre åtkomstkontroll (RBAC) och granskning, Resurshanteraren-baserad distribution och styrning, åtkomst till hanterade identiteter, åtkomst till hanterade identiteter, åtkomst till Azure Key Vault för hemligheter och Azure AD-baserad autentisering och auktorisering för åtkomst till Azure Storage-data och resurser. Om möjligt migrera befintliga lagringskonton som använder den klassiska distributionsmodellen för att använda Azure Resource Manager. Mer information om Azure Resource Manager finns i [Översikt över Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview). | - |
+| Använda distributionsmodellen för Azure Resource Manager | Skapa nya lagringskonton med hjälp av distributionsmodellen för Azure Resource Manager för viktiga säkerhetsförbättringar, inklusive rbac -kontroll (Superior Access Control) och granskning, Resurshanterarens distribution och styrning, åtkomst till hanterade identiteter, åtkomst till Azure Key Vault för hemligheter och Azure AD-baserad autentisering och auktorisering för åtkomst till Azure Storage-data och resurser. Om möjligt migrera befintliga lagringskonton som använder den klassiska distributionsmodellen för att använda Azure Resource Manager. Mer information om Azure Resource Manager finns i [Översikt över Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview). | - |
 | Aktivera alternativet **Säker överföring som krävs** på alla dina lagringskonton | När du aktiverar alternativet **Säker överföring måste** alla begäranden som görs mot lagringskontot ske via säkra anslutningar. Alla begäranden som görs via HTTP misslyckas. Mer information finns [i Kräv säker överföring i Azure Storage](../common/storage-require-secure-transfer.md). | [Ja](../../security-center/security-center-sql-service-recommendations.md) |
 | Aktivera avancerat hotskydd för alla dina lagringskonton | Avancerat hotskydd för Azure Storage ger ett extra lager av säkerhetsinformation som identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagringskonton. Säkerhetsaviseringar utlöses i Azure Security Center när avvikelser i aktivitet inträffar och skickas även via e-post till prenumerationsadministratörer, med information om misstänkt aktivitet och rekommendationer om hur du undersöker och åtgärdar hot. Mer information finns i [Avancerat hotskydd för Azure Storage](../common/storage-advanced-threat-protection.md). | [Ja](../../security-center/security-center-sql-service-recommendations.md) |
 | Aktivera mjuk borttagning för blob-data | Med mjuk borttagning kan du återställa blob-data när de har tagits bort. Mer information om mjuk borttagning finns i [Mjuk borttagning för Azure Storage-blobbar](storage-blob-soft-delete.md). | - |
@@ -43,7 +43,7 @@ Azure Security Center analyserar regelbundet säkerhetstillståndet för dina Az
 | Använda Azure Active Directory (Azure AD) för att auktorisera åtkomst till blob-data | Azure AD ger överlägsen säkerhet och användarvänlighet över delad nyckel för att godkänna begäranden till Blob-lagring. Mer information finns i [Auktorisera åtkomst till Azure-blobbar och köer med Azure Active Directory](../common/storage-auth-aad.md). | - |
 | Tänk på huvudmannen för minst behörighet när du tilldelar behörigheter till ett Azure AD-säkerhetsobjekt via RBAC | När du tilldelar en roll till en användare, grupp eller ett program, bevilja säkerhetsobjektet endast de behörigheter som krävs för att de ska kunna utföra sina uppgifter. Genom att begränsa åtkomsten till resurser förhindras både oavsiktligt och skadligt missbruk av dina data. | - |
 | Använda en SAS för användardelegering för att bevilja begränsad åtkomst till blob-data till klienter | En sas för användardelegering är skyddad med Azure Active Directory (Azure AD) autentiseringsuppgifter och även av de behörigheter som angetts för SAS. En sas för användardelegation är jämförbar med en service-SAS när det gäller dess omfattning och funktion, men erbjuder säkerhetsfördelar jämfört med tjänsten SAS. Mer information finns i [Bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av SAS (Shared Access Signatures).](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | - |
-| Skydda dina kontoåtkomstnycklar med Azure Key Vault | Microsoft rekommenderar att du använder Azure AD för att auktorisera begäranden till Azure Storage. Men om du måste använda auktorisering för delad nyckel, sedan säkra dina kontonycklar med Azure Key Vault. Du kan hämta nycklarna från nyckelvalvet vid körning i stället för att spara dem med ditt program. Mer information om Azure Key Vault finns i [översikt över Azure Key Vault](../../key-vault/key-vault-overview.md). | - |
+| Skydda dina kontoåtkomstnycklar med Azure Key Vault | Microsoft rekommenderar att du använder Azure AD för att auktorisera begäranden till Azure Storage. Men om du måste använda auktorisering för delad nyckel, sedan säkra dina kontonycklar med Azure Key Vault. Du kan hämta nycklarna från nyckelvalvet vid körning i stället för att spara dem med ditt program. Mer information om Azure Key Vault finns i [översikt över Azure Key Vault](../../key-vault/general/overview.md). | - |
 | Återskapa dina kontonycklar med jämna mellanrum | Om du roterar kontonycklarna med jämna mellanrum minskar risken för att dina data exponeras för skadliga aktörer. | - |
 | Tänk på huvudmannen för minst behörighet när du tilldelar behörigheter till en SAS | När du skapar en SAS anger du bara de behörigheter som krävs av klienten för att utföra dess funktion. Genom att begränsa åtkomsten till resurser förhindras både oavsiktligt och skadligt missbruk av dina data. | - |
 | Ha en återkallningsplan på plats för alla SAS som du utfärdar till kunder | Om en SAS äventyras, kommer du att vilja återkalla att SAS så snart som möjligt. Om du vill återkalla en SAS för användardelegering återkallar du användardelegeringsnyckeln för att snabbt ogiltigförklara alla signaturer som är associerade med nyckeln. Om du vill återkalla en SERVICE-SAS som är associerad med en lagrad åtkomstprincip kan du ta bort den lagrade åtkomstprincipen, byta namn på principen eller ändra dess utgångstid till en tid som tidigare. Mer information finns i [Bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av SAS (Shared Access Signatures).](../common/storage-sas-overview.md)  | - |
@@ -67,5 +67,5 @@ Azure Security Center analyserar regelbundet säkerhetstillståndet för dina Az
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure-säkerhetsdokumentation](https://docs.microsoft.com//azure/security/)
+- [Dokumentation om Azure-säkerhet](https://docs.microsoft.com//azure/security/)
 - [Säker utvecklingsdokumentation](https://docs.microsoft.com/azure/security/develop/).

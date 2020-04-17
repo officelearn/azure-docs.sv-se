@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 006c780aeb3db813c8fdfb5da0b5c13fc4dcfebc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f1d08581c5d29fc41fb33541d766af7cece88cdc
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80067421"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81451677"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Alltid krypterad: Skydda känsliga data och lagra krypteringsnycklar i Azure Key Vault
 
@@ -55,9 +55,9 @@ Följ stegen för att *key* [skapa ett Azure Active Directory-program och tjäns
 
 Nu när klientappen är konfigurerad och du har ditt program-ID är det dags att skapa ett nyckelvalv och konfigurera dess åtkomstprincip så att du och ditt program kan komma åt valvets hemligheter (alltid krypterade nycklar). Behörigheterna *skapa*, *hämta*, *lista*, *verifiering*, *wrapKey*och *verify* *unwrapKey* krävs för att skapa en ny kolumnhuvudnyckel och för att konfigurera kryptering med SQL Server Management Studio.
 
-Du kan snabbt skapa ett nyckelvalv genom att köra följande skript. En detaljerad förklaring av dessa kommandon och mer information om hur du skapar och konfigurerar ett nyckelvalv finns i [Vad är Azure Key Vault?](../key-vault/key-vault-overview.md).
+Du kan snabbt skapa ett nyckelvalv genom att köra följande skript. En detaljerad förklaring av dessa kommandon och mer information om hur du skapar och konfigurerar ett nyckelvalv finns i [Vad är Azure Key Vault?](../key-vault/general/overview.md).
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager (RM) stöds fortfarande av Azure SQL Database, men all framtida utveckling är för Az.Sql-modulen. AzureRM-modulen fortsätter att ta emot buggfixar fram till åtminstone december 2020.  Argumenten för kommandona i Az-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](/powershell/azure/new-azureps-module-az).

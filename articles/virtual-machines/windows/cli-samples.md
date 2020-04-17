@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -15,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8d57220f79f1349937a279e57a17d51a76bcccb3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e5f296808272488ffa83b9f6a6d81976e58515a6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74033627"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457356"
 ---
 # <a name="azure-cli-samples-for-windows-virtual-machines"></a>Azure CLI-exempel för virtuella Windows-datorer
 
@@ -45,6 +44,6 @@ Följande tabell innehåller länkar till bash-skript som skapats med azure CLI 
 | [Säkra nätverkstrafik mellan virtuella datorer](./../scripts/virtual-machines-windows-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Skapar två virtuella datorer, alla relaterade resurser och en intern och extern nätverkssäkerhetsgrupper (NSG). |
 |**Säkra virtuella datorer**||
 | [Kryptera en virtuell dator och datadiskar](./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Skapar ett Azure Key Vault, krypteringsnyckel och tjänsthuvudnamn och krypterar sedan en virtuell dator. |
-|**Övervaka virtuella datorer**||
+|**Övervakning av virtuella datorer**||
 | [Övervaka en virtuell dator med Azure Monitor](./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Skapar en virtuell dator, installerar Log Analytics-agenten och registrerar den virtuella datorn på en Log Analytics-arbetsyta.  |
 | | |

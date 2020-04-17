@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: ''
 author: mmccrory
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 56d17f45-e4a7-4d84-8022-b40334ae49d2
 ms.service: virtual-machines-windows
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: b646b1a14d6cedcafa662192229daa570a0d2441
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f95c11f93ca2075eb2472ad5bb7360df7d69234
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77616433"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456455"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Så här taggar du en virtuell Windows-dator i Azure
 I den här artikeln beskrivs olika sätt att tagga en virtuell Windows-dator i Azure via distributionsmodellen för Resource Manager. Taggar är användardefinierade nyckel-/värdepar som kan placeras direkt på en resurs eller en resursgrupp. Azure stöder för närvarande upp till 50 taggar per resurs och resursgrupp. Taggar kan placeras på en resurs när de skapas eller läggs till i en befintlig resurs. Observera att taggar stöds endast för resurser som skapats via resurshanterarens distributionsmodell. Om du vill tagga en virtuell Linux-dator läser du Så här taggar du [en virtuell Linux-dator i Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

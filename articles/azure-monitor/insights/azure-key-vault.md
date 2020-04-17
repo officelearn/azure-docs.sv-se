@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 7a2becf8cb43568383c324bb9f4f5b2e7b844268
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7da2fa2ddfbd9c71563dd8bd2e17b14c6dee62b3
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77667151"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455486"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Key Vault Analytics-lösning i Azure Monitor
 
@@ -94,7 +94,7 @@ När du har klickat på panelen **Key Vault Analytics** kan du visa sammanfattni
     På någon av loggsöksidorna kan du visa resultat efter tid, detaljerade resultat och loggsökhistorik. Du kan också filtrera efter fasor för att begränsa resultaten.
 
 ## <a name="azure-monitor-log-records"></a>Loggposter för Azure Monitor
-Azure Key Vault-lösningen analyserar poster som har en typ av **KeyVaults** som samlas in från [AuditEvent-loggar](../../key-vault/key-vault-logging.md) i Azure Diagnostics.  Egenskaper för dessa poster finns i följande tabell:  
+Azure Key Vault-lösningen analyserar poster som har en typ av **KeyVaults** som samlas in från [AuditEvent-loggar](../../key-vault/general/logging.md) i Azure Diagnostics.  Egenskaper för dessa poster finns i följande tabell:  
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
@@ -107,7 +107,7 @@ Azure Key Vault-lösningen analyserar poster som har en typ av **KeyVaults** som
 | `httpStatusCode_d` |HTTP-statuskod som returneras av begäran (till exempel *200*) |
 | `id_s` |Unikt ID för begäran |
 | `identity_claim_appid_g` | GUID för program-ID |
-| `OperationName` |Namnet på åtgärden, som dokumenterats i [Azure Key Vault Logging](../../key-vault/key-vault-logging.md) |
+| `OperationName` |Namnet på åtgärden, som dokumenterats i [Azure Key Vault Logging](../../key-vault/general/logging.md) |
 | `OperationVersion` |REST API-version begärd av klienten (till exempel *2015-06-01)* |
 | `requestUri_s` |Uri av begäran |
 | `Resource` |Namnet på nyckelvalvet |

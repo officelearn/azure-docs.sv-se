@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: cf82dddf281e8e6f1348884702e32330dee4781b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57378005bd668fa9c0f2aea70c411bbf911130db
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278680"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457662"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Inbyggd uppdateringshantering, ändringsspårning och lagerlösningar
 
@@ -18,7 +18,7 @@ Azure Automation tillhandahåller lösningar för att hantera säkerhetsuppdater
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in i Azure på https://portal.azure.com
+Logga in på https://portal.azure.comAzure på .
 
 ## <a name="enable-solutions"></a>Aktivera lösningar
 
@@ -82,7 +82,7 @@ Klicka på **+ Lägg till virtuella Azure-datorer**, välj en eller flera virtue
 
 Datorer som inte finns i Azure måste läggas till manuellt. Välj **Lager-** eller **ändringsspårning** under **Konfigurationshantering**i ditt Automation-konto eller **Uppdatera hantering** under **Uppdateringshantering**.
 
-Klicka på **Lägg till en icke-Azure-dator**. Den här åtgärden öppnar ett nytt webbläsarfönster med [instruktioner om hur du installerar och konfigurerar Microsoft Monitoring Agent på datorn](../azure-monitor/platform/log-analytics-agent.md) så att datorn kan börja rapportera till lösningen. Om du lägger till en dator som för närvarande hanteras av System Center Operations Manager krävs inte en ny agent, anges arbetsytans information i den befintliga agenten.
+Klicka på **Lägg till en icke-Azure-dator**. Den här åtgärden öppnar ett nytt webbläsarfönster med [instruktioner för att installera och konfigurera Log Analytics-agenten för Windows](../azure-monitor/platform/log-analytics-agent.md) så att datorn kan börja rapportera till lösningen. Om du lägger till en dator som för närvarande hanteras av System Center Operations Manager krävs inte en ny agent och arbetsytans information anges i den befintliga agenten.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Ombord maskiner i arbetsytan
 
@@ -150,7 +150,7 @@ Du kan också ta bort länken till arbetsytan från ditt Automation-konto från 
 Så här tar du bort en virtuell dator från uppdateringshantering:
 
 * I logganalysarbetsytan tar du bort den virtuella datorn `MicrosoftDefaultScopeConfig-Updates`från den sparade sökningen efter scopekonfigurationen . Sparade sökningar hittar du under **Allmänt** på arbetsytan.
-* Ta bort [Microsoft Monitoring-agenten](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) eller [Log Analytics-agenten för Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+* Ta bort [Log Analytics-agenten för Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) eller Log [Analytics-agenten för Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Nästa steg
 

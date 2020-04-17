@@ -10,18 +10,18 @@ ms.date: 04/02/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ea944d4cfa3006c33f1dee3dd8e6ee6088681aa7
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 796e3b3f46bc83b776826baf6e078c696eda543b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80618649"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456780"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Konfigurera kundhanterade nycklar med Azure Key Vault med hjälp av Azure CLI
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-Den här artikeln visar hur du konfigurerar ett Azure Key Vault med kundhanterade nycklar med Azure CLI. Mer information om hur du skapar ett nyckelvalv med Azure CLI finns i [Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med Azure CLI](../../key-vault/quick-create-cli.md).
+Den här artikeln visar hur du konfigurerar ett Azure Key Vault med kundhanterade nycklar med Azure CLI. Mer information om hur du skapar ett nyckelvalv med Azure CLI finns i [Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med Azure CLI](../../key-vault/secrets/quick-create-cli.md).
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>Tilldela en identitet till lagringskontot
 
@@ -55,7 +55,7 @@ az keyvault create \
     --enable-purge-protection
 ```
 
-Mer information om hur du aktiverar **Mjuk borttagning** och **rensar inte** på ett befintligt nyckelvalv med Azure CLI finns i avsnitten **Aktivera mjuk borttagning** och **Aktivera rensningsskydd** i [Så här använder du mjuk borttagning med CLI](../../key-vault/key-vault-soft-delete-cli.md).
+Mer information om hur du aktiverar **Mjuk borttagning** och **rensar inte** på ett befintligt nyckelvalv med Azure CLI finns i avsnitten **Aktivera mjuk borttagning** och **Aktivera rensningsskydd** i [Så här använder du mjuk borttagning med CLI](../../key-vault/general/soft-delete-cli.md).
 
 ## <a name="configure-the-key-vault-access-policy"></a>Konfigurera principen för nyckelvalvsåtkomst
 

@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 970701606811cbd61a9bfebe39ff82cdc91d5693
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4f6de807628704051cdddf74bcefbed678f8fcd
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80245845"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457900"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Konfigurera en Linux Java-app för Azure App Service
 
@@ -230,7 +230,7 @@ Följ instruktionerna i [Secure ett anpassat DNS-namn med en SSL-bindning i Azur
 
 ### <a name="use-keyvault-references"></a>Använda KeyVault-referenser
 
-[Azure KeyVault](../../key-vault/key-vault-overview.md) tillhandahåller centraliserad hemlig hantering med åtkomstprinciper och granskningshistorik. Du kan lagra hemligheter (till exempel lösenord eller anslutningssträngar) i KeyVault och komma åt dessa hemligheter i ditt program via miljövariabler.
+[Azure KeyVault](../../key-vault/general/overview.md) tillhandahåller centraliserad hemlig hantering med åtkomstprinciper och granskningshistorik. Du kan lagra hemligheter (till exempel lösenord eller anslutningssträngar) i KeyVault och komma åt dessa hemligheter i ditt program via miljövariabler.
 
 Följ först instruktionerna för [att ge din app åtkomst till Key Vault](../app-service-key-vault-references.md#granting-your-app-access-to-key-vault) och göra en [KeyVault-referens till din hemlighet i en programinställning](../app-service-key-vault-references.md#reference-syntax). Du kan verifiera att referensen matchas till hemligheten genom att skriva ut miljövariabeln när du fjärransluter till App Service-terminalen.
 

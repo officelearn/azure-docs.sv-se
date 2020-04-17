@@ -3,12 +3,12 @@ title: Använda parametrar för att skapa dynamiska ritningar
 description: Lär dig mer om statiska och dynamiska parametrar och hur du använder dem för att skapa säkra och dynamiska ritningar.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: ed596db2050ac788c2d98c63cb7314de473b5f4e
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: e5953617d5fa27098380f3f0e95843c69800f823
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383620"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458496"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Skapa dynamiska ritningar genom parametrar
 
@@ -41,7 +41,7 @@ Om skisstilldelningen använder en **användartilldelad hanterad identitet** _ka
 > [!IMPORTANT]
 > I båda fallen måste Key Vault ha **aktivera åtkomst till Azure Resource Manager för malldistribution** konfigurerad på sidan **Åtkomstprinciper.** Anvisningar om hur du aktiverar den här funktionen finns i [Key Vault - Aktivera malldistribution](../../../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
 
-Mer information om Azure Key Vault finns i [Översikt över Nyckelvalv](../../../key-vault/key-vault-overview.md).
+Mer information om Azure Key Vault finns i [Översikt över Nyckelvalv](../../../key-vault/general/overview.md).
 
 ## <a name="parameter-types"></a>Parametertyper
 
@@ -234,8 +234,8 @@ Ställa in **dynamiska parametrar** under tilldelningen görs genom att ange vä
 ## <a name="next-steps"></a>Nästa steg
 
 - Se listan över [skissfunktioner](../reference/blueprint-functions.md).
-- Läs mer om [skisslivscykeln](lifecycle.md).
-- Lär dig att anpassa [ordningsföljden för skisssekvensering](sequencing-order.md).
-- Ta reda på hur du använder [skiss resurs låsning](resource-locking.md).
+- Mer information om [livscykeln för en skiss](lifecycle.md).
+- Lär dig hur du anpassar [sekvensordningen för en skiss](sequencing-order.md).
+- Lär dig hur du använder [resurslåsning för en skiss](resource-locking.md).
 - Lär dig hur du [uppdaterar befintliga tilldelningar](../how-to/update-existing-assignments.md).
-- Lös problem under tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md).
+- Lös problem som kan uppstå vid tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md).

@@ -10,18 +10,18 @@ ms.date: 03/19/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e7878cae7bc6aabf1db58bfd63338955b9e830d3
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 192e58b101b824ca0cc0c732e02647838be6dc35
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478232"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456489"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Konfigurera kundhanterade nycklar med Azure Key Vault med hjälp av Azure-portalen
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-Den här artikeln visar hur du konfigurerar ett Azure Key Vault med kundhanterade nycklar med Hjälp av [Azure-portalen](https://portal.azure.com/). Mer information om hur du skapar ett nyckelvalv med Azure-portalen finns i [Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med Azure-portalen](../../key-vault/quick-create-portal.md).
+Den här artikeln visar hur du konfigurerar ett Azure Key Vault med kundhanterade nycklar med Hjälp av [Azure-portalen](https://portal.azure.com/). Mer information om hur du skapar ett nyckelvalv med Azure-portalen finns i [Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med Azure-portalen](../../key-vault/secrets/quick-create-portal.md).
 
 ## <a name="configure-azure-key-vault"></a>Konfigurera Azure Key Vault
 
@@ -29,8 +29,8 @@ Om du använder kundhanterade nycklar med Azure Storage-kryptering krävs att tv
 
 Mer information om hur du aktiverar dessa egenskaper i ett befintligt nyckelvalv finns i avsnitten **Aktivera mjuk borttagning** och **Aktivera rensningsskydd** i någon av följande artiklar:
 
-- [Så här använder du mjuk borttagning med PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
-- [Så här använder du mjuk borttagning med CLI](../../key-vault/key-vault-soft-delete-cli.md).
+- [Så här använder du mjuk borttagning med PowerShell](../../key-vault/general/soft-delete-powershell.md).
+- [Så här använder du mjuk borttagning med CLI](../../key-vault/general/soft-delete-cli.md).
 
 Endast 2048-bitars RSA- och RSA-HSM-nycklar stöds med Azure Storage-kryptering. Mer information om nycklar finns i **Key Vault-nycklar** i [Om Azure Key Vault-nycklar, hemligheter och certifikat](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 

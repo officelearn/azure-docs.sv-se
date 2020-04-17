@@ -4,21 +4,21 @@ description: I den här artikeln beskrivs hur du hanterar serveradministratörer
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f7c57a5751f2ff34abb26b7653070ce4ee5010fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 944a84405bd7e03b72b2610278f9f0e4d3cfaf38
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73572613"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81454245"
 ---
 # <a name="manage-server-administrators"></a>Hantera serveradministratörer
 
 Serveradministratörer måste vara en giltig användar- eller säkerhetsgrupp i Azure Active Directory (Azure AD) för den klient där servern finns. Du kan använda **Analysis Services-administratörer** för servern i Azure portal, Serveregenskaper i SSMS, PowerShell eller REST API för att hantera serveradministratörer. 
 
-**Säkerhetsgrupper** måste vara [e-postaktiverade](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) med egenskapen `MailEnabled` inställd `True`på . När du anger en grupp `obj:groupid@tenantid`via e-postadress används .
+När du lägger `obj:groupid@tenantid`till en **säkerhetsgrupp**använder du .
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Så här lägger du till serveradministratörer med Hjälp av Azure Portal
 
@@ -43,7 +43,7 @@ Serveradministratörer måste vara en giltig användar- eller säkerhetsgrupp i 
 Använd [Cmdlet New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver) för att ange parametern Administratör när du skapar en ny server. <br>
 Använd [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) cmdlet för att ändra administratörsparametern för en befintlig server.
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 
 Använd [Skapa](https://docs.microsoft.com/rest/api/analysisservices/servers/create) för att ange egenskapen asAdministrator när du skapar en ny server. <br>
 Använd [Uppdatera](https://docs.microsoft.com/rest/api/analysisservices/servers/update) för att ange egenskapen asAdministrator när du ändrar en befintlig server. <br>

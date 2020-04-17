@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8f44e9a1e43da2b9ce6c817898c1722fba715c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 104bf51fb03d88ab0e5efd25ebebb0e3060bc264
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262183"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457934"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associera eller lägga till en Azure-prenumeration till Azure Active Directory-klienten
 
@@ -85,7 +85,7 @@ Att ändra prenumerationskatalogen är en åtgärd på tjänstnivå, så det på
 
 När du har associerat en prenumeration till en annan katalog kan du behöva göra följande för att återuppta åtgärderna:
 
-- Om du har några nyckelvalv måste du ändra klient-ID:et för nyckelvalvet. Mer information finns i [Ändra ett klient-ID för nyckelvalv efter ett prenumerationssteg](../../key-vault/key-vault-subscription-move-fix.md).
+- Om du har några nyckelvalv måste du ändra klient-ID:et för nyckelvalvet. Mer information finns i [Ändra ett klient-ID för nyckelvalv efter ett prenumerationssteg](../../key-vault/general/subscription-move-fix.md).
 
 - Om du använde systemtilldelade hanterade identiteter för resurser måste du återaktivera dessa identiteter. Om du använde användartilldelade hanterade identiteter måste du återskapa dessa identiteter. När du har återskapat eller återskapat de hanterade identiteterna måste du återupprätta de behörigheter som tilldelats dessa identiteter. Mer information finns i [Vad är hanterade identiteter för Azure-resurser?](../managed-identities-azure-resources/overview.md).
 

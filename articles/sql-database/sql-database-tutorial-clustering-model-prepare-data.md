@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
-ms.openlocfilehash: 2241b69e36e3b17475dba115b8d2ae94fe2189a7
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: abe7d5ed1d4ba1308abde04aee32a3ea222456b8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345852"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452884"
 ---
 # <a name="tutorial-prepare-data-to-perform-clustering-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Självstudiekurs: Förbereda data för att utföra kluster i R med Azure SQL Database Machine Learning Services (förhandsversion)
 
@@ -43,13 +44,11 @@ I [del två](sql-database-tutorial-clustering-model-build.md)får du lära dig h
 
 I [del tre](sql-database-tutorial-clustering-model-deploy.md)får du lära dig hur du skapar en lagrad procedur i en Azure SQL-databas som kan utföra klustring i R baserat på nya data.
 
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
-
 ## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – Om du inte har en Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/) innan du börjar.
 
-* Azure SQL Database Server med Machine Learning Services aktiverat – Under den offentliga förhandsversionen kommer Microsoft att gå ombord på dig och aktivera maskininlärning för dina befintliga eller nya databaser. Följ stegen i [Registrera dig för förhandsversionen](sql-database-machine-learning-services-overview.md#signup).
+* [Azure SQL Database med Machine Learning Services (med R)](sql-database-machine-learning-services-overview.md) aktiverat.
 
 * Paketet RevoScaleR - Se [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler?view=sql-server-2017#versions-and-platforms) för alternativ för att installera paketet lokalt.
 

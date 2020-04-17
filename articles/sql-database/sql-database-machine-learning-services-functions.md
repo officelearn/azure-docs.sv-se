@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 939798d5d9eb2843d7bbbbe74680342e4ce6ce95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ROBOTS: NOINDEX
+ms.openlocfilehash: ba78267b1c6dc8f0e1bd25bb8ecdb1d8d344d03e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60702460"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453122"
 ---
 # <a name="write-advanced-r-functions-in-azure-sql-database-using-machine-learning-services-preview"></a>Skriva avancerade R-funktioner i Azure SQL Database med Machine Learning Services (förhandsversion)
 
@@ -30,7 +31,7 @@ I den här artikeln beskrivs hur du bäddar in R-matematiska funktioner och nytt
 
 - Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/) innan du börjar.
 
-- Om du vill köra exempelkoden i dessa övningar måste du först ha en Azure SQL-databas med Machine Learning Services (med R) aktiverat. Under den offentliga förhandsversionen introducerar Microsoft dig och aktiverar maskininlärning för din befintliga eller nya databas. Följ stegen i [Registrera dig för förhandsversionen](sql-database-machine-learning-services-overview.md#signup).
+- Om du vill köra exempelkoden i dessa övningar måste du först ha [Azure SQL Database med Machine Learning Services (med R)](sql-database-machine-learning-services-overview.md) aktiverat.
 
 - Kontrollera att du har installerat den senaste [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). Du kan köra R-skript med andra databashanterings- eller frågeverktyg, men i den här snabbstarten använder du SSMS.
 

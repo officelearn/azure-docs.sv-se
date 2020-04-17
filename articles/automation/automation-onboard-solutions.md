@@ -1,18 +1,18 @@
 ---
-title: Publicera uppdateringar och spårning av ändringar i Azure Automation
+title: Inbyggd uppdatering, ändringsspårning och lagerlösningar till Azure Automation
 description: Lär dig att publicera uppdateringar och spårning av ändringar i Azure Automation.
 services: automation
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: d0024b8c43e76e3dd26b4b73c4ae0e09890b3b46
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 721157c333e381799ef08930c667c51a51a4fd6a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75421850"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457628"
 ---
-# <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Publicera uppdateringar och spårning av ändringar i Azure Automation
+# <a name="onboard-update-change-tracking-and-inventory-solutions-to-azure-automation"></a>Inbyggd uppdatering, ändringsspårning och lagerlösningar till Azure Automation
 
 I den här självstudien får du lära dig att automatiskt registrera lösningar för uppdatering, ändringsspårning och inventering för virtuella datorer till Azure Automation:
 
@@ -22,6 +22,9 @@ I den här självstudien får du lära dig att automatiskt registrera lösningar
 > * Installera och uppdatera moduler
 > * Importera runbooken som ska publiceras
 > * Starta runbook
+
+>[!NOTE]
+>Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installationsinstruktioner för Az-modul på hybridkörningsarbetaren finns [i Installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med [så här uppdaterar du Azure PowerShell-moduler i Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -37,79 +40,84 @@ Det finns flera sätt att registrera datorer. Du kan registrera lösningen [frå
 
 ### <a name="enable-change-tracking-and-inventory"></a>Aktivera Ändringsspårning och inventering
 
-Lösningen Ändringsspårning och inventering ger dig möjlighet att [spåra ändringar](automation-vm-change-tracking.md) och [inventering](automation-vm-inventory.md) på dina virtuella datorer. I det här steget aktiverar du lösningen för en virtuell dator.
+Med lösningarna Ändra spårning och lager kan du [spåra ändringar](automation-vm-change-tracking.md) och [lager](automation-vm-inventory.md) på dina virtuella datorer. I det här steget aktiverar du lösningarna på en virtuell dator.
 
-1. På menyn till vänster väljer du **Automation-konton** och sedan ditt Automation-konto på listan.
-1. Välj **Inventering** under **Konfigurationshantering**.
-1. Välj en befintlig Log Analytics-arbetsyta eller skapa en ny. Klicka på knappen **Aktivera**.
+1. I Azure-portalen väljer du **Automation-konton**och väljer sedan ditt automatiseringskonto i listan.
+1. Välj **Lager** under **Konfigurationshantering**.
+1. Välj en befintlig Log Analytics-arbetsyta eller skapa en ny. 
+1. Klicka på **Aktivera**.
 
-![Publicera lösning för uppdateringshantering](media/automation-onboard-solutions/inventory-onboard.png)
-
-När meddelandet för lösning för publicering av ändringsspårning och inventering har slutförts klickar du på **Uppdateringshantering** under **Konfigurationshantering**.
+    ![Publicera lösning för uppdateringshantering](media/automation-onboard-solutions/inventory-onboard.png)
 
 ### <a name="enable-update-management"></a>Aktivera uppdateringshantering
 
 Med uppdateringshanteringslösningen kan du hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer i Windows. Du kan utvärdera statusen för tillgängliga uppdateringar, schemalägga installation av nödvändiga uppdateringar och granska distributionsresultat för att verifiera att uppdateringarna har tillämpats på den virtuella datorn. I det här steget aktiverar du lösningen för din virtuella datorn.
 
-1. Från ditt Automation-konto väljer du **Hantering av uppdateringar** under **Hantering av uppdateringar**.
-1. Log Analytics-arbetsytan som är vald är samma arbetsyta som används i föregående steg. Klicka på **Aktivera** för att publicera lösningen för uppdateringshantering.
+1. I ditt Automation-konto väljer du **Uppdateringshantering** i avsnittet **Uppdateringshantering.**
+1. Arbetsytan Logganalys som valts är den arbetsyta som används i föregående steg. Klicka på **Aktivera** för att publicera lösningen för uppdateringshantering. Medan lösningen för uppdateringshantering installeras visas en blå banderoll. 
 
-![Publicera lösning för uppdateringshantering](media/automation-onboard-solutions/update-onboard.png)
-
-Medan lösningen för uppdateringshantering installeras visas en blå banderoll. När lösningen är aktiverad väljer du **Ändringsspårning** under **Konfigurationshantering** för att gå till nästa steg.
+    ![Publicera lösning för uppdateringshantering](media/automation-onboard-solutions/update-onboard.png)
 
 ### <a name="select-azure-vm-to-be-managed"></a>Välja virtuella Azure-datorer som ska hanteras
 
 Nu när lösningarna är aktiverade kan du lägga till en virtuell Azure-dator till lösningarna.
 
-1. Från ditt Automation-konto går du till sidan **Ändringsspårning**, väljer **+ Lägg till virtuell Azure-dator** för att lägga till din virtuella dator.
+1. Välj **Ändra spårning** under **Konfigurationshantering**i ditt Automation-konto. 
+2. Klicka på **Lägg till virtuella Azure-datorer** på sidan Ändra spårning för att lägga till den virtuella datorn.
 
-1. Välj din virtuella dator från listan och välj **Aktivera**. Den här åtgärden aktiverar lösningen Ändringsspårning och inventering för den virtuella datorn.
+3. Välj din virtuella dator i listan och klicka på **Aktivera**. Med den här åtgärden kan lösningarna ändra spårning och lager för den virtuella datorn.
 
    ![Aktivera uppdateringslösning för virtuell dator](media/automation-onboard-solutions/enable-change-tracking.png)
 
-1. När meddelandet om VM-publiceringen är klart väljer du **Hantering av uppdateringar** under **Hantering av uppdateringar** från ditt Automation-konto.
+4. När det virtuella introduktionsmeddelandet är klart väljer du **Uppdatera hantering** under **Uppdateringshantering**.
 
-1. Välj **+ Lägg till virtuell Azure-dator** för att lägga till dina virtuella datorer.
+5. Välj **Lägg till virtuella Azure-datorer** för att lägga till din virtuella dator.
 
-1. Välj din virtuella dator från listan och välj **Aktivera**. Den här åtgärden aktiverar uppdateringshanteringslösningen för den virtuella datorn.
+6. Välj din virtuella dator från listan och välj **Aktivera**. Den här åtgärden aktiverar lösningen för uppdateringshantering för den virtuella datorn.
 
    ![Aktivera uppdateringslösning för virtuell dator](media/automation-onboard-solutions/enable-update.png)
 
 > [!NOTE]
-> Om du inte väntar på att den andra lösningen ska slutföras får du ett meddelande om att installera en annan lösning på den här eller en annan virtuell dator när du aktiverar nästa *lösning. När installationen är klar aktiveras knappen Aktivera och du kan begära installation av lösningen på den här virtuella datorn.*
+> Om du inte väntar på att den andra lösningen ska slutföras får du meddelandet när du aktiverar nästa lösning:`Installation of another solution is in progress on this or a different virtual machine. When that installation completes the Enable button is enabled, and you can request installation of the solution on this virtual machine.`
 
 ## <a name="install-and-update-modules"></a>Installera och uppdatera moduler
 
-Det krävs att du uppdaterar till de senaste Azure-modulerna och importerar `AzureRM.OperationalInsights` för att automatisera publiceringen av lösningen.
+Det krävs för att uppdatera till de senaste Azure-modulerna och importera modulen [Az.OperationalInsights](https://docs.microsoft.com/powershell/module/az.operationalinsights/?view=azps-3.7.0) för att framgångsrikt automatisera lösningsinboarding.
 
 ## <a name="update-azure-modules"></a>Uppdatera Azure-moduler
 
-Från ditt Automation-konto väljer du **Moduler** under **Delade resurser**. Välj **Uppdatera Azure-moduler** för att uppdatera Azure-moduler till den senaste versionen. Välj **Ja** i uppmaningen för att uppdatera alla befintliga Azure-moduler till den senaste versionen.
+1. I ditt Automation-konto väljer du **Moduler** under **Delade resurser**. 
+2. Välj **Uppdatera Azure-moduler** för att uppdatera Azure-moduler till den senaste versionen. 
+3. Klicka på **Ja** om du vill uppdatera alla befintliga Azure-moduler till den senaste versionen.
 
-![Uppdatera moduler](media/automation-onboard-solutions/update-modules.png)
+![Uppdatera moduler](media/automation-onboard-solutions/update-modules.png) A
 
-### <a name="install-azurermoperationalinsights-module"></a>Installera modulen AzureRM.OperationalInsights
+### <a name="install-azoperationalinsights-module"></a>Installera modulen Az.OperationalInsights
 
-På sidan **Moduler** väljer du **Sök i galleri** för att öppna modulgalleriet. Sök efter AzureRM.OperationalInsights och importera modulen till Automation-kontot.
+1. I automationskontot väljer du **Moduler** under **Delade resurser**. 
+2. Välj **Bläddra i galleriet** för att öppna modulgalleriet. 
+3. Sök efter Az.OperationalInsights och importera den här modulen till Automation-kontot.
 
 ![Importera modulen OperationalInsights](media/automation-onboard-solutions/import-operational-insights-module.png)
 
 ## <a name="import-the-onboarding-runbook"></a>Importera runbooken som ska publiceras
 
-1. Från ditt Automation-konto väljer du **Runbooks** under **Processautomatisering**.
+1. I ditt Automation-konto väljer du **Runbooks** under **Process Automation**.
 1. Välj **Sök i galleri**.
-1. Sök efter **uppdateringar och ändringsspårning**, klicka på runbooken och välj **Importera** på sidan **Visa källa**. Välj **OK** för att importera runbooken till Automation-kontot.
+1. Sök efter `update and change tracking`.
+3. Markera runbooken och klicka på **Importera** på sidan Visa källa. 
+4. Klicka på **OK** om du vill importera runbooken till Automation-kontot.
 
    ![Importera runbook som ska publiceras](media/automation-onboard-solutions/import-from-gallery.png)
 
-1. På sidan **Runbook** väljer du **Redigera** och sedan **Publicera**. I dialogrutan **Publicera runbook** väljer du **Ja** för att publicera runbooken.
+6. Klicka på **Redigera**på sidan Runbook och välj sedan **Publicera**. 
+7. I fönstret Publicera runbook klickar du på **Ja** för att publicera runbooken.
 
 ## <a name="start-the-runbook"></a>Starta runbook
 
-Du måste ha publicerat antingen ändringsspårning eller uppdateringslösningar till en virtuell Azure-dator för att starta denna runbook. Detta kräver en befintlig virtuell dator och en resursgrupp med en lösning som har publicerats för parametrar.
+Du måste ha installerat antingen ändringsspårning eller uppdatera lösningar till en Azure VM för att starta den här runbooken. Detta kräver en befintlig virtuell dator och en resursgrupp med en lösning som har publicerats för parametrar.
 
-1. Öppna runbooken Enable-MultipleSolution.
+1. Öppna runbooken **Enable-MultipleSolution.**
 
    ![Runbooks med flera lösningar](media/automation-onboard-solutions/runbook-overview.png)
 
@@ -119,8 +127,8 @@ Du måste ha publicerat antingen ändringsspårning eller uppdateringslösningar
    * **VMRESOURCEGROUP** – Namnet på resursgruppen som de virtuella datorerna ska registreras för.
    * **SUBSCRIPTIONID** – Lämna tomt. Prenumerations-ID för den nya virtuella datorn som ska publiceras. Om inget anges används prenumerationen i arbetsytan. När ett annat prenumerations-ID anges ska RunAs-kontot för det här Automation-kontot läggas till som deltagare för den här prenumerationen också.
    * **ALREADYONBOARDEDVM** – Namnet på den virtuella dator som manuellt publicerades till antingen lösningen för uppdateringar eller ändringsspårning.
-   * **ALREADYONBOARDEDVMRESOURCEGROUP** – Namnet på resursgruppen som den virtuella datorn är medlem av.
-   * **SOLUTIONTYPE** – Ange **Uppdateringar** eller **ChangeTracking**
+   * **ALREADYONBOARDEDVMRESOURCEGROUP** - Namnet på den resursgrupp som den virtuella datorn tillhör.
+   * **SOLUTIONTYPE** - Ange **uppdateringar** eller **ChangeTracking**.
 
    ![Runbookparametrarna Enable-MultipleSolution](media/automation-onboard-solutions/runbook-parameters.png)
 
@@ -131,8 +139,8 @@ Du måste ha publicerat antingen ändringsspårning eller uppdateringslösningar
 
 Så här tar du bort en virtuell dator från uppdateringshantering:
 
-* I logganalysarbetsytan tar du bort den virtuella datorn `MicrosoftDefaultScopeConfig-Updates`från den sparade sökningen efter scopekonfigurationen . Sparade sökningar hittar du under **Allmänt** på arbetsytan.
-* Ta bort [Microsoft Monitoring-agenten](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) eller [Log Analytics-agenten för Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+1. I logganalysarbetsytan tar du bort den virtuella datorn `MicrosoftDefaultScopeConfig-Updates`från den sparade sökningen efter scopekonfigurationen . Sparade sökningar hittar du under **Allmänt** på arbetsytan.
+2. Ta bort [Log Analytics-agenten för Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) eller Log [Analytics-agenten för Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Nästa steg
 

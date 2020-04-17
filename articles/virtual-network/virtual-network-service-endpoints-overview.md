@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 72c2c90f7a71bd9bf251adb492168fa5d2baa60a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b75e0c1e53f1e00579de73897197cdd2f14d79af
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79244789"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455418"
 ---
 # <a name="virtual-network-service-endpoints"></a>Tjänstslutpunkter för virtuellt nätverk
 
@@ -35,7 +35,7 @@ Den här funktionen är tillgänglig för följande Azure-tjänster och regioner
 - **[Azure Database for MySQL server](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.Sql*): Allmänt tillgänglig i Azure-regioner där databastjänsten är tillgänglig.
 - **[Azure Database för MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** (*Microsoft.Sql*): Allmänt tillgängligt i Azure-regioner där databastjänsten är tillgänglig.
 - **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureCosmosDB*): Allmänt tillgängligt i alla Azure-regioner.
-- **[Azure Key Vault](../key-vault/key-vault-overview-vnet-service-endpoints.md)** (*Microsoft.KeyVault*): Allmänt tillgängligt i alla Azure-regioner.
+- **[Azure Key Vault](../key-vault/general/overview-vnet-service-endpoints.md)** (*Microsoft.KeyVault*): Allmänt tillgängligt i alla Azure-regioner.
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.ServiceBus*): Allmänt tillgängligt i alla Azure-regioner.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.EventHub*): Allmänt tillgängligt i alla Azure-regioner.
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureActiveDirectory*): Allmänt tillgängligt i alla Azure-regioner där ADLS Gen1 är tillgängligt.
@@ -145,7 +145,7 @@ Vanliga frågor och andra frågor finns i [vanliga frågor om slutpunkt för vir
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Konfigurera slutpunkter för virtuella nätverkstjänster](tutorial-restrict-network-access-to-resources.md)
+- [Konfigurera tjänstslutpunkter för virtuellt nätverk](tutorial-restrict-network-access-to-resources.md)
 - [Skydda ett Azure Storage-konto till ett virtuellt nätverk](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Skydda en Azure SQL-databas till ett virtuellt nätverk](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Skydda ett Azure SQL Data Warehouse till ett virtuellt nätverk](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 36b7b81a18c8725929ab5676b844e1ee319e287f
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 40bff9585e64163039a8847ff868c982ffb20414
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393301"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458257"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault som källa för händelserutnät
 
@@ -80,18 +80,18 @@ En händelse har följande data på den högsta nivån:
 ## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
 |Titel  |Beskrivning  |
 |---------|---------|
-| [Övervaka nyckelvalvshändelser med Azure Event Grid](../key-vault/event-grid-overview.md) | Översikt över att integrera Key Vault med Event Grid. |
-| [Självstudiekurs: Skapa och övervaka key vault-händelser med händelserutnät](../key-vault/event-grid-tutorial.md) | Läs om hur du konfigurerar aviseringar om händelserutnät för Key Vault. |
+| [Övervaka nyckelvalvshändelser med Azure Event Grid](../key-vault/general/event-grid-overview.md) | Översikt över att integrera Key Vault med Event Grid. |
+| [Självstudiekurs: Skapa och övervaka key vault-händelser med händelserutnät](../key-vault/general/event-grid-tutorial.md) | Läs om hur du konfigurerar aviseringar om händelserutnät för Key Vault. |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 * En introduktion till Azure Event Grid finns i [Vad är händelserutnät?](overview.md).
 * Mer information om hur du skapar en Azure Event Grid-prenumeration finns i [Prenumerationsschema för Event Grid](subscription-creation-schema.md).
-* Mer information om Integrering av Key Vault med Event Grid finns i [Övervaka Nyckelvalv med Azure Event Grid (förhandsversion).](../key-vault/event-grid-overview.md)
-* En självstudiekurs om Integrering av Key Vault med Event Grid finns i [Ta emot och svara på viktiga valvmeddelanden med Azure Event Grid (förhandsversion).](../key-vault/event-grid-tutorial.md)
+* Mer information om Integrering av Key Vault med Event Grid finns i [Övervaka Nyckelvalv med Azure Event Grid (förhandsversion).](../key-vault/general/event-grid-overview.md)
+* En självstudiekurs om Integrering av Key Vault med Event Grid finns i [Ta emot och svara på viktiga valvmeddelanden med Azure Event Grid (förhandsversion).](../key-vault/general/event-grid-tutorial.md)
 * Mer information om hur du får ytterligare vägledning för Key Vault och Azure Automation finns i:
-    - [Vad är Azure Key Vault?](../key-vault/key-vault-overview.md)
-    - [Övervaka nyckelvalv med Azure Event Grid (förhandsversion)](../key-vault/event-grid-overview.md)
-    - [Ta emot och svara på viktiga meddelande om nyckelvalv med Azure Event Grid (förhandsversion)](../key-vault/event-grid-tutorial.md)
+    - [Vad är Azure Key Vault?](../key-vault/general/overview.md)
+    - [Övervaka nyckelvalv med Azure Event Grid (förhandsversion)](../key-vault/general/event-grid-overview.md)
+    - [Ta emot och svara på viktiga meddelande om nyckelvalv med Azure Event Grid (förhandsversion)](../key-vault/general/event-grid-tutorial.md)
     - [Översikt över Azure Automation](../automation/index.yml)

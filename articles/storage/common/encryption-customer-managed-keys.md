@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 6b5712094b9821dfa041cd5ba8617e86f7231bde
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: b2755d5aa5dbaa669fa2fdd8b84596e040b5dd6b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478016"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81456829"
 ---
 # <a name="use-customer-managed-keys-with-azure-key-vault-to-manage-azure-storage-encryption"></a>Använda kundhanterade nycklar med Azure Key Vault för att hantera Azure Storage-kryptering
 
 Du kan använda din egen krypteringsnyckel för att skydda data i ditt lagringskonto. När du anger en kundhanterad nyckel används nyckeln för att skydda och styra åtkomsten till nyckeln som krypterar dina data. Kundhanterade nycklar ger större flexibilitet för att hantera åtkomstkontroller.
 
-Du måste använda Azure Key Vault för att lagra dina kundhanterade nycklar. Du kan antingen skapa egna nycklar och lagra dem i ett nyckelvalv, eller så kan du använda Azure Key Vault API:er för att generera nycklar. Lagringskontot och nyckelvalvet måste finnas i samma region och i samma Azure Active Directory-klientorganisation (Azure AD), men de kan finnas i olika prenumerationer. Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../../key-vault/key-vault-overview.md).
+Du måste använda Azure Key Vault för att lagra dina kundhanterade nycklar. Du kan antingen skapa egna nycklar och lagra dem i ett nyckelvalv, eller så kan du använda Azure Key Vault API:er för att generera nycklar. Lagringskontot och nyckelvalvet måste finnas i samma region och i samma Azure Active Directory-klientorganisation (Azure AD), men de kan finnas i olika prenumerationer. Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../../key-vault/general/overview.md).
 
 ## <a name="about-customer-managed-keys"></a>Om kundhanterade nycklar
 

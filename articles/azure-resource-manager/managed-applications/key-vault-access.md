@@ -5,16 +5,16 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: f434ad6e19c89f248fec948c0a049fabb0f7c476
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5dc219747b9cc74b6c6aac8ab190ebfbe5ae9b32
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248442"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458291"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Åtkomst till nyckelvalv hemlighet vid distribution av Azure Managed Applications
 
-När du behöver skicka ett säkert värde (som ett lösenord) som en parameter under distributionen kan du hämta värdet från ett [Azure Key Vault](../../key-vault/key-vault-overview.md). Om du vill komma åt Nyckelvalvet när du distribuerar hanterade program måste du bevilja åtkomst till tjänsten **Resursproviderns** huvudnamn för Resursprovidern. Tjänsten Hanterade program använder den här identiteten för att köra åtgärder. Om du vill hämta ett värde från ett Nyckelvalv under distributionen måste tjänstens huvudnamn kunna komma åt Nyckelvalvet.
+När du behöver skicka ett säkert värde (som ett lösenord) som en parameter under distributionen kan du hämta värdet från ett [Azure Key Vault](../../key-vault/general/overview.md). Om du vill komma åt Nyckelvalvet när du distribuerar hanterade program måste du bevilja åtkomst till tjänsten **Resursproviderns** huvudnamn för Resursprovidern. Tjänsten Hanterade program använder den här identiteten för att köra åtgärder. Om du vill hämta ett värde från ett Nyckelvalv under distributionen måste tjänstens huvudnamn kunna komma åt Nyckelvalvet.
 
 I den här artikeln beskrivs hur du konfigurerar Nyckelvalvet så att det fungerar med hanterade program.
 

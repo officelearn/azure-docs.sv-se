@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 0bb3abc7b7102da55c9ededcadd7a301f74065ab
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: e81cca3e20d5b6c050489e80b91d013d5e934cce
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80349323"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81453207"
 ---
 # <a name="work-with-r-and-sql-data-in-azure-sql-database-machine-learning-services-preview"></a>Arbeta med R- och SQL-data i Azure SQL Database Machine Learning Services (förhandsversion)
 
@@ -37,7 +38,7 @@ Vanliga problem som du kan stöta på är:
 
 - Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/) innan du börjar.
 
-- Om du vill köra exempelkoden i dessa övningar måste du först ha en Azure SQL-databas med Machine Learning Services (med R) aktiverat. Under den offentliga förhandsversionen introducerar Microsoft dig och aktiverar maskininlärning för din befintliga eller nya databas. Följ stegen i [Registrera dig för förhandsversionen](sql-database-machine-learning-services-overview.md#signup).
+- Om du vill köra exempelkoden i dessa övningar måste du först ha [Azure SQL Database med Machine Learning Services (med R)](sql-database-machine-learning-services-overview.md) aktiverat.
 
 - Kontrollera att du har installerat den senaste [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). Du kan köra R-skript med andra databashanterings- eller frågeverktyg, men i den här snabbstarten använder du SSMS.
 
@@ -165,7 +166,7 @@ WITH RESULT SETS((
 
 Under skalorna konverteras kolumnen med tre värden till en matris med en kolumn. Eftersom en matris bara är ett specialfall för `y` en matris i R tvingas matrisen implicit till en matris med en kolumn för att få de två argumenten att överensstämma.
 
-**Results**
+**Resultat**
 
 |Col1|Col2|Col3 (på andra)|Col4 (på andra)|
 |---|---|---|---|
@@ -188,7 +189,7 @@ WITH RESULT SETS(([Col1] INT));
 
 Nu returnerar R ett enda värde som resultat.
 
-**Results**
+**Resultat**
     
 |Col1|
 |---|
@@ -218,7 +219,7 @@ WITH RESULT SETS((
 
 Om du vill fylla i dataramen upprepar R de element som hämtats från RTestData `df1`så många gånger som behövs för att matcha antalet element i matrisen .
 
-**Results**
+**Resultat**
     
 |*Col2*|*Col3 (på andra)*|
 |----|----|
@@ -279,7 +280,7 @@ Om du får ett felmeddelande måste du förmodligen göra vissa ändringar i fr�
 
 När du har fått frågan att `str` fungera, granska resultatet av funktionen för att se hur R behandlar indata.
 
-**Results**
+**Resultat**
 
 ```text
 STDOUT message(s) from external script: 'data.frame':    37 obs. of  3 variables:

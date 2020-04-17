@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: mimckitt
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 0a1f212e-053e-4a39-9910-8d622959f594
 ms.service: virtual-machines-windows
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: 3d9c178201ab0c22ed4eab9cf65f7d48e59e1359
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f29a20ddeb93ec3d4aa98bbcb36f50456b543667
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78246130"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81452578"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Översikt över Azure Virtual Machine Agent
 Microsoft Azure Virtual Machine Agent (VM Agent) är en säker, lätt process som hanterar komspelet med virtuella datorer (VM) med Azure Fabric Controller. VM-agenten har en primär roll när det gäller att aktivera och köra Azure-tillägg för virtuella datorer. VM-tillägg möjliggör konfiguration efter distribution av virtuell dator, till exempel installera och konfigurera programvara. VM-tillägg möjliggör också återställningsfunktioner som att återställa det administrativa lösenordet för en virtuell dator. Utan Azure VM-agenten kan vm-tillägg inte köras.

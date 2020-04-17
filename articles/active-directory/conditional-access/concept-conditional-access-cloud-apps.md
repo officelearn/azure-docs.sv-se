@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69bdd2d6825427597e9030a03aae7d219361ba25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b15b022726c09ccbaf9674775d114c8dd1916e1d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78671937"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81457305"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Villkorlig åtkomst: Molnappar eller -åtgärder
 
@@ -120,7 +120,7 @@ Förutom Microsoft-apparna kan administratörer lägga till alla Azure AD-regist
 
 ## <a name="user-actions"></a>Användaråtgärder
 
-Användaråtgärder är uppgifter som kan utföras av en användare. Den enda åtgärd som för närvarande stöds är **Registrera säkerhetsinformation (förhandsversion),** vilket gör att principen villkorlig åtkomst kan tillämpas när användare som är aktiverade för kombinerad registrering försöker registrera sin säkerhetsinformation. Mer information finns i artikeln, Kombinerad registrering av [säkerhetsinformation (förhandsversion)](../authentication/concept-registration-mfa-sspr-combined.md).
+Användaråtgärder är uppgifter som kan utföras av en användare. Den enda åtgärd som för närvarande stöds är **Registrera säkerhetsinformation**, vilket gör att principen villkorlig åtkomst kan tillämpas när användare som är aktiverade för kombinerad registrering försöker registrera sin säkerhetsinformation. Mer information finns i artikeln, [Kombinerad registrering](../authentication/concept-registration-mfa-sspr-combined.md)av säkerhetsinformation .
 
 ## <a name="next-steps"></a>Nästa steg
 

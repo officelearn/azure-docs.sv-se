@@ -5,7 +5,6 @@ services: virtual-network
 documentationcenter: na
 author: KumudD
 manager: carmonm
-editor: tysonn
 ms.assetid: 1f509bec-bdd1-470d-8aa4-3cf2bb7f6134
 ms.service: virtual-network
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
-ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 80a9397838e90a2af504125b2dc4c4ef39251d4e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "64575567"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81455370"
 ---
 # <a name="virtual-appliance-scenario"></a>Scenario för virtuell installation
 Ett vanligt scenario bland större Azure-kunder är behovet av att tillhandahålla ett tvådelat program som exponeras för Internet, samtidigt som åtkomst till backnivån från ett lokalt datacenter tillåts. Det här dokumentet hjälper dig att gå igenom ett scenario med hjälp av ANVÄNDARDEFINIERAde vägar (UDR), en VPN-gateway och virtuella nätverksinstallationer för att distribuera en miljö på två nivåer som uppfyller följande krav:

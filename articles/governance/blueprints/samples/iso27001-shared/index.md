@@ -3,12 +3,12 @@ title: Exempel på ISO 27001-skiss för delade tjänster – översikt
 description: Översikt och arkitektur för skissexemplet ISO 27001 Delade tjänster. Det här skissexemplet hjälper kunderna att utvärdera specifika ISO 27001-kontroller.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 9b0b49582023ee5c68fea0f21b70290a102a038a
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 5a18af942e1d1088b681712f7035f57d354ecb19
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381576"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458462"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Översikt över skissexemplet ISO 27001 Delade tjänster
 
@@ -34,7 +34,7 @@ Den här miljön består av flera Azure-tjänster ger en säker, fullständigt �
   - En jumpbox eller bastionvärd som används för hantering, som endast kan nås via en [Azure Firewall](../../../../firewall/overview.md) som är distribuerad i undernätet för den inkommande stacken
   - Två virtuella datorer som kör Active Directory Domain Services (ADDS) och DNS som endast kan nås via jumpboxen, och som kan konfigureras för att endast replikera AD över en VPN- eller [ExpressRoute](../../../../expressroute/expressroute-introduction.md)-anslutning (distribueras inte av skissen)
   - Användning av [Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md) och DDoS-skydd (standard)
-- En [Azure Key Vault](../../../../key-vault/key-vault-overview.md)-instans som används som värd för hemligheter används för de virtuella datorerna som är distribuerade i miljön för delade tjänster
+- En [Azure Key Vault](../../../../key-vault/general/overview.md)-instans som används som värd för hemligheter används för de virtuella datorerna som är distribuerade i miljön för delade tjänster
 
 Alla dessa element följer beprövade metoder som finns publicerade i [Referensarkitekturer i Azure Architecture Center](/azure/architecture/reference-architectures/).
 

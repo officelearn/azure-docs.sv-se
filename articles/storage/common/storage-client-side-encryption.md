@@ -9,12 +9,12 @@ ms.date: 10/20/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 6cf19292c3675382789ca25af7f9b7f69e9066fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c07167a9f3a9194b7c45932ac749324429943ea9
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255423"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81450130"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Kryptering på klientsidan och Azure Key Vault för Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -106,7 +106,7 @@ I batchåtgärder används samma KEK över alla rader i batch-åtgärden efterso
 > Om du vill utföra frågeåtgärder måste du ange en nyckelmatchning som kan matcha alla nycklar i resultatuppsättningen. Om en entitet som ingår i frågeresultatet inte kan matchas till en provider, genererar klientbiblioteket ett fel. För alla frågor som utför projektioner på serversidan lägger klientbiblioteket till de särskilda egenskaperna för krypteringsmetadata (_ClientEncryptionMetadata1 och _ClientEncryptionMetadata2) som standard i de valda kolumnerna.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
-Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Genom att använda Azure Key Vault kan användare kryptera nycklar och hemligheter (t.ex. autentiseringsnycklar, lagringskontonycklar, datakrypteringsnycklar, . PFX-filer och lösenord) med hjälp av nycklar som skyddas av maskinvarusäkerhetsmoduler (HSM). Mer information finns i [Vad är en Azure Key Vault?](../../key-vault/key-vault-overview.md).
+Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Genom att använda Azure Key Vault kan användare kryptera nycklar och hemligheter (t.ex. autentiseringsnycklar, lagringskontonycklar, datakrypteringsnycklar, . PFX-filer och lösenord) med hjälp av nycklar som skyddas av maskinvarusäkerhetsmoduler (HSM). Mer information finns i [Vad är en Azure Key Vault?](../../key-vault/general/overview.md).
 
 Lagringsklientbiblioteket använder corebiblioteket för Key Vault för att tillhandahålla ett gemensamt ramverk i Azure för hantering av nycklar. Användarna får också ytterligare fördelen av att använda biblioteket för Key Vault-tillägg. Tilläggsbiblioteket ger användbara funktioner kring enkla och sömlösa symmetriska/RSA-lokala och molnnyckelleverantörer samt med aggregering och cachelagring.
 
@@ -245,4 +245,4 @@ Observera att om du krypterar lagringsdata får du ytterligare prestandakostnade
 * [Självstudiekurs: Kryptera och dekryptera blobbar i Microsoft Azure Storage med Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 * Ladda ned [Azure Storage Client Library för .NET NuGet-paketet](https://www.nuget.org/packages/WindowsAzure.Storage)
 * Ladda ned azure key vault nuget [core-,](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/) [klient-](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)och [tilläggspaket](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/)  
-* Besök [dokumentationen](../../key-vault/key-vault-overview.md) för Azure Key Vault
+* Besök [dokumentationen](../../key-vault/general/overview.md) för Azure Key Vault

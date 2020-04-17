@@ -2,27 +2,25 @@
 title: Förutsägelseslutpunktsändringar i V3-API:et
 description: Slutpunkt V3-API:erna för frågeförutsägelser har ändrats. Använd den här guiden för att förstå hur du migrerar till version 3-slutpunkts-API:er.
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: 9a8e8cb331dd11eebaddbcbf8f603c1148415aef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b6d28b24ffc6c0a848d1c7a34e863da0606d936
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79117383"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81530393"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Förutsägelseslutpunktsändringar för V3
 
 Slutpunkt V3-API:erna för frågeförutsägelser har ändrats. Använd den här guiden för att förstå hur du migrerar till version 3-slutpunkts-API:er.
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
-
 **Allmänt tillgänglig status** - detta V3 API innehåller betydande JSON-begäran och svarsändringar från V2 API.
 
 V3 API innehåller följande nya funktioner:
 
-* [Externa enheter](#external-entities-passed-in-at-prediction-time)
-* [Dynamiska listor](#dynamic-lists-passed-in-at-prediction-time)
+* [Externa enheter](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time)
+* [Dynamiska listor](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time)
 * [Fördefinierade entitet JSON-ändringar](#prebuilt-entity-changes)
 
 Begäran och [svaret](#response-changes) [för](#request-changes) förutsägelseslutpunkt har betydande ändringar för att stödja de nya funktionerna ovan, inklusive följande:
@@ -123,13 +121,11 @@ V3-API:et har olika frågesträngparametrar.
 
 |Egenskap|Typ|Version|Default|Syfte|
 |--|--|--|--|--|
-|`dynamicLists`|matris|Endast V3|Krävs inte.|[Med dynamiska listor](#dynamic-lists-passed-in-at-prediction-time) kan du utöka en befintlig tränad och publicerad listentitet, som redan finns i LUIS-appen.|
-|`externalEntities`|matris|Endast V3|Krävs inte.|[Externa entiteter](#external-entities-passed-in-at-prediction-time) ger LUIS-appen möjlighet att identifiera och märka entiteter under körning, vilket kan användas som funktioner för befintliga entiteter. |
+|`dynamicLists`|matris|Endast V3|Krävs inte.|[Med dynamiska listor](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) kan du utöka en befintlig tränad och publicerad listentitet, som redan finns i LUIS-appen.|
+|`externalEntities`|matris|Endast V3|Krävs inte.|[Externa entiteter](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) ger LUIS-appen möjlighet att identifiera och märka entiteter under körning, vilket kan användas som funktioner för befintliga entiteter. |
 |`options.datetimeReference`|sträng|Endast V3|Ingen standard|Används för att bestämma [datetimeV2-förskjutning](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). Formatet för datetimeReference är [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
-|`options.preferExternalEntities`|boolean|Endast V3|false|Anger om användarens [externa entitet (med samma namn som befintlig enhet)](#override-existing-model-predictions) används eller om den befintliga entiteten i modellen används för förutsägelse. |
+|`options.preferExternalEntities`|boolean|Endast V3|false|Anger om användarens [externa entitet (med samma namn som befintlig enhet)](schema-change-prediction-runtime.md#override-existing-model-predictions) används eller om den befintliga entiteten i modellen används för förutsägelse. |
 |`query`|sträng|Endast V3|Krävs.|**I V2**finns uttrycket som ska `q` förutsägas i parametern. <br><br>**I V3**skickas funktionen i `query` parametern.|
-
-
 
 ## <a name="response-changes"></a>Svarsändringar
 
@@ -281,185 +277,12 @@ I V3, samma resultat `verbose` med flaggan för att returnera entitet metadata:
 }
 ```
 
-## <a name="external-entities-passed-in-at-prediction-time"></a>Externa entiteter passerade in vid prediktionstillfälle
+<a name="external-entities-passed-in-at-prediction-time"></a>
+<a name="override-existing-model-predictions"></a>
 
-Externa entiteter ger LUIS-appen möjlighet att identifiera och märka entiteter under körning, vilket kan användas som funktioner för befintliga entiteter. På så sätt kan du använda dina egna separata och anpassade entitetsutdragorer innan du skickar frågor till din förutsägelseslutpunkt. Eftersom detta görs vid slutpunkten för frågeprediktion behöver du inte träna om och publicera modellen.
+## <a name="extend-the-app-at-prediction-time"></a>Utöka appen vid förutsägelsetillfället
 
-Klientprogrammet tillhandahåller sin egen entitetsutsugare genom att hantera entitetsmatchning och bestämma platsen inom uttryck för den matchade entiteten och sedan skicka den informationen med begäran.
-
-Externa entiteter är mekanismen för att utöka alla entitetstyper samtidigt som de används som signaler till andra modeller som roller, sammansatta och andra.
-
-Detta är användbart för en entitet som har data som endast är tillgängliga vid körning av frågeprognoser. Exempel på den här typen av data är att ständigt ändra data eller specifika per användare. Du kan utöka en LUIS-kontaktentitet med extern information från en användares kontaktlista.
-
-### <a name="entity-already-exists-in-app"></a>Entiteten finns redan i appen
-
-Värdet `entityName` för den externa entiteten, som skickades i post-brödtexten POST för slutpunktsbegäran, måste redan finnas i den tränade och publicerade appen när begäran görs. Typen av entitet spelar ingen roll, alla typer stöds.
-
-### <a name="first-turn-in-conversation"></a>Första sväng i konversation
-
-Överväg ett första uttryck i en chattrobotkonversation där en användare anger följande ofullständiga information:
-
-`Send Hazem a new message`
-
-Begäran från chattroboten till LUIS kan skicka `Hazem` in information i POST-brödtexten om så att den matchas direkt som en av användarens kontakter.
-
-```json
-    "externalEntities": [
-        {
-            "entityName":"contacts",
-            "startIndex": 5,
-            "entityLength": 5,
-            "resolution": {
-                "employeeID": "05013",
-                "preferredContactType": "TeamsChat"
-            }
-        }
-    ]
-```
-
-Förutsägelsesvaret inkluderar den externa entiteten, med alla andra förväntade entiteter, eftersom det definieras i begäran.
-
-### <a name="second-turn-in-conversation"></a>Andra sväng i konversation
-
-Nästa användare yttrande i chatten bot använder en mer term:
-
-`Send him a calendar reminder for the party.`
-
-I föregående uttryck används `him` uttrycket som en `Hazem`referens till . Den konversationschatt bot, i POST `him` kroppen, kan mappa till entitetsvärdet extraheras från den första yttrande, `Hazem`.
-
-```json
-    "externalEntities": [
-        {
-            "entityName":"contacts",
-            "startIndex": 5,
-            "entityLength": 3,
-            "resolution": {
-                "employeeID": "05013",
-                "preferredContactType": "TeamsChat"
-            }
-        }
-    ]
-```
-
-Förutsägelsesvaret inkluderar den externa entiteten, med alla andra förväntade entiteter, eftersom det definieras i begäran.
-
-### <a name="override-existing-model-predictions"></a>Åsidosätt befintliga modellprognoser
-
-Egenskapen `preferExternalEntities` options anger att om användaren skickar en extern entitet som överlappar en förväntad entitet med samma namn, väljer LUIS den entitet som skickas in eller den entitet som finns i modellen.
-
-Tänk till exempel `today I'm free`på frågan . LUIS identifierar `today` som en datetimeV2 med följande svar:
-
-```JSON
-"datetimeV2": [
-    {
-        "type": "date",
-        "values": [
-            {
-                "timex": "2019-06-21",
-                "value": "2019-06-21"
-            }
-        ]
-    }
-]
-```
-
-Om användaren skickar den externa entiteten:
-
-```JSON
-{
-    "entityName": "datetimeV2",
-    "startIndex": 0,
-    "entityLength": 5,
-    "resolution": {
-        "date": "2019-06-21"
-    }
-}
-```
-
-Om `preferExternalEntities` är inställd `false`på returnerar LUIS ett svar som om den externa entiteten inte skickades.
-
-```JSON
-"datetimeV2": [
-    {
-        "type": "date",
-        "values": [
-            {
-                "timex": "2019-06-21",
-                "value": "2019-06-21"
-            }
-        ]
-    }
-]
-```
-
-Om `preferExternalEntities` är inställd `true`på returnerar LUIS ett svar inklusive:
-
-```JSON
-"datetimeV2": [
-    {
-        "date": "2019-06-21"
-    }
-]
-```
-
-
-
-#### <a name="resolution"></a>Lösning
-
-Den _valfria_ `resolution` egenskapen returnerar i förutsägelsesvaret, så att du kan skicka in metadata som är associerade med den externa entiteten och sedan ta emot den tillbaka i svaret.
-
-Det primära syftet är att utöka fördefinierade entiteter, men det är inte begränsat till den entitetstypen.
-
-Egenskapen `resolution` kan vara ett tal, en sträng, ett objekt eller en matris:
-
-* "Dallas"
-* {"text": "värde"}
-* 12345
-* ["a", "b", "c"]
-
-
-
-## <a name="dynamic-lists-passed-in-at-prediction-time"></a>Dynamiska listor som skickas in vid förutsägelsetillfället
-
-Med dynamiska listor kan du utöka en befintlig tränad och publicerad listentitet, som redan finns i LUIS-appen.
-
-Använd den här funktionen när listentitetens värden måste ändras med jämna mellanrum. Med den här funktionen kan du utöka en redan tränad och publicerad listentitet:
-
-* Vid tidpunkten för slutpunktsbegäran för frågeförutsägels.
-* För en enda begäran.
-
-Listentiteten kan vara tom i LUIS-appen, men den måste finnas. Listentiteten i LUIS-appen ändras inte, men förutsägelsemöjligheten vid slutpunkten utökas till att omfatta upp till 2 listor med cirka 1 000 objekt.
-
-### <a name="dynamic-list-json-request-body"></a>Dynamisk lista JSON-begäran
-
-Skicka följande JSON-bröd för att lägga till en ny underlista med synonymer `LUIS`i listan `POST` och förutsäga listentiteten för texten, med begäran om frågeförutsägelse:
-
-```JSON
-{
-    "query": "Send Hazem a message to add an item to the meeting agenda about LUIS.",
-    "options":{
-        "timezoneOffset": "-8:00"
-    },
-    "dynamicLists": [
-        {
-            "listEntity*":"ProductList",
-            "requestLists":[
-                {
-                    "name": "Azure Cognitive Services",
-                    "canonicalForm": "Azure-Cognitive-Services",
-                    "synonyms":[
-                        "language understanding",
-                        "luis",
-                        "qna maker"
-                    ]
-                }
-            ]
-        }
-    ]
-}
-```
-
-Förutsägelsesvaret innehåller den listentiteten, med alla andra förväntade entiteter, eftersom den definieras i begäran.
+Läs [om begrepp](schema-change-prediction-runtime.md) om hur du utökar appen vid förutsägelsekörning.
 
 ## <a name="deprecation"></a>Utfasning
 

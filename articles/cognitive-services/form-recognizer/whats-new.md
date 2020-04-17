@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 7f20244906581dd2869bbc7fcd997d5245540eda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5f8c66db491b93278fedf1378d3df86e7ce5fdbf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80155179"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531090"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Vad är nytt i Formigenkänning?
 
@@ -25,48 +25,46 @@ Tjänsten Formulärrekänningstjänsten uppdateras löpande. Använd den här ar
 
 ## <a name="march-2020"></a>Mars 2020 
 
+### <a name="new-features"></a>Nya funktioner
+
+* **Värdetyper för märkning** Nu kan du ange vilka typer av värden som du etiketterar med exempeletikettverktyget för formulärmedkännare. Följande värdetyper och variationer stöds för närvarande:
+  * `string`
+    * standard, `no-whitespaces`,`alphanumeric`
+  * `number`
+    * Standard`currency`
+  * `date` 
+    * standard, `dmy` `mdy`, ,`ymd`
+  * `time`
+  * `integer`
+
+  Mer information om hur du använder den här funktionen finns i verktygsguiden för [exempelmärkning.](./quickstarts/label-tool.md#specify-tag-value-types)
+
+
+* **Tabellvisualisering** Exempeletikettverktyget visar nu tabeller som har identifierats i dokumentet. På så sätt kan du visa de tabeller som har identifierats och extraherats från dokumentet, innan du etiketterar och analyserar. Den här funktionen kan växlas på/av med hjälp av lageralternativet.
+
+  Det här är ett exempel på hur tabeller känns igen och extraheras:
+
+  > [!div class="mx-imgBorder"]
+  > ![Tabellvisualisering med hjälp av exempeletikettverktyget](./media/whats-new/formre-table-viz.png)
+
+    De extraherade tabellerna finns i `"pageResults"`JSON-utdata under .
+
+  > [!IMPORTANT]
+  > Det går inte att märka tabeller. Om tabeller inte känns igen och extrated automatiskt, kan du bara märka dem som nyckel / värde par. När du etiketterar tabeller som nyckel-/värdepar märker du varje cell som ett unikt värde.
+
 ### <a name="extraction-enhancements"></a>Extraktionsförbättringar
 
 Den här versionen innehåller extraktionsförbättringar och noggrannhetsförbättringar, särskilt möjligheten att märka och extrahera flera nyckel-/värdepar i samma textrad. 
  
-### <a name="form-recognizer-sample-labeling-tool-is-now-open-source"></a>Exempeletikettverktyget för formuläridentater är nu öppen källkod
+### <a name="sample-labeling-tool-is-now-open-source"></a>Exempeletikettverktyget är nu öppen källkod
 
 Exempeletikettverktyget för formulärreformat är nu tillgängligt som ett projekt med öppen källkod. Du kan integrera den i dina lösningar och göra kundspecifika ändringar för att möta dina behov.
 
-Mer information om exempeletikningsverktyget för formulärreformat finns i dokumentationen som finns på [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
-
-### <a name="labeling-value-types"></a>Märkning av värdetyper
-
-Värdetyper är nu tillgängliga för användning med exempeletikettverktyget för formulärmedkännare. Dessa värdetyper stöds för närvarande: 
-
-* String
-* Tal 
-* Integer
-* Datum 
-* Tid
-
-Den här bilden visar hur värdetypsmarkering ser ut i exempeletikettverktyget för formulärdeform:
-
-> [!div class="mx-imgBorder"]
-> ![Val av värdetyp med verktyg för exempeletiketter](./media/whats-new/formre-value-type.png)
-
-Den extraherade tabellen finns i JSON-utdata i `pageResults`.
-
-### <a name="table-visualization"></a>Tabellvisualisering 
-
-Etikettverktyget för formulärreformat visar nu tabeller som har identifierats i dokumentet. På så sätt kan du visa de tabeller som har identifierats och extraherats från dokumentet innan du etiketterar och analyserar med exempeletikettverktyget för formulärmedkännare. Den här funktionen kan växlas på/av med hjälp av lageralternativet. 
-
-Det här är ett exempel på hur tabeller känns igen och extraheras:
-
-> [!div class="mx-imgBorder"]
-> ![Tabellvisualisering med hjälp av exempeletikettverktyget](./media/whats-new/formre-table-viz.png)
-
-> [!IMPORTANT]
-> Det går inte att märka tabeller. Om tabeller inte känns igen och extrated automatiskt, kan du bara märka dem som nyckel / värde par. När du etiketterar tabeller som nyckel-/värdepar ska du märka varje cell som ett värde.
+Mer information om exempeletikettverktyget för formulärreformat finns i dokumentationen som finns på [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
 
 ### <a name="tls-12-enforcement"></a>Tvingande TLS 1.2
 
-* TLS 1.2 tillämpas nu för alla HTTP-begäranden till den här tjänsten. Mer information finns i [Azure Cognitive Services-säkerhet](../cognitive-services-security.md).
+TLS 1.2 tillämpas nu för alla HTTP-begäranden till den här tjänsten. Mer information finns i [Azure Cognitive Services-säkerhet](../cognitive-services-security.md).
 
 ## <a name="january-2020"></a>Januari 2020
 

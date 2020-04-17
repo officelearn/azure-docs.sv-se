@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
-ms.openlocfilehash: d3e267eab056589ed38c436620dd0db185291da1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1441ede9f448b3e6ffb0726c2ee92f192369e9a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77425909"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481843"
 ---
 # <a name="multitenant-applications-in-azure"></a>Program med flera klienter i Azure
 Ett program med flera innehavare är en delad resurs som gör att "användare i separata klienter" kan visa programmet som om det vore deras eget. Ett typiskt scenario som lämpar sig för ett program med flera innehavare är ett scenario där alla användare av programmet från olika klienter kanske vill anpassa användarupplevelsen men i övrigt har samma grundläggande affärskrav. Exempel på stora program med flera trogna är Office 365, Outlook.com och visualstudio.com.
@@ -48,20 +48,20 @@ Azure innehåller många funktioner som gör att du kan åtgärda de viktigaste 
 
 **Isolering**
 
-* Segment webbplats klienter efter värdrubriker med eller utan SSL-kommunikation
+* Segment webbplats klienter efter värdrubriker med eller utan TLS-kommunikation
 * Segment webbplats klienter efter frågeparametrar
 * Webbtjänster i arbetarroller
   * Arbetarroller som vanligtvis bearbetar data på backend för ett program.
   * Webbroller som vanligtvis fungerar som klientdel för program.
 
-**Lagring**
+**Storage**
 
 Datahantering som Azure SQL Database eller Azure Storage-tjänster som tabelltjänsten, som tillhandahåller tjänster för lagring av stora mängder ostrukturerade data och Blob-tjänsten, som tillhandahåller tjänster för att lagra stora mängder ostrukturerad text eller binära data som video, ljud och bilder.
 
 * Skydda multitenantdata i SQL Database-SQL Server-inloggningar per klient.
 * Med hjälp av Azure-tabeller för programresurser genom att ange en åtkomstprincip för behållarnivå kan du ha möjlighet att justera behörigheter utan att behöva utfärda nya URL:er för de resurser som skyddas med signaturer för delad åtkomst.
 * Azure-köer för Azure-köer för Azure-köer används ofta för att köra bearbetning på uppdrag av klienter, men kan också användas för att distribuera arbete som krävs för etablering eller hantering.
-* Service bus-köer för programresurser som skickar arbete till en delad tjänst, kan du använda en enda kö där varje klientavsändare bara har behörigheter (som härleds från anspråk som utfärdats från ACS) för att skicka till den kön, medan endast mottagarna från tjänsten har behörighet att hämta data från kön som kommer från flera klienter.
+* Service Bus-köer för programresurser som skickar arbete till en delad tjänst kan du använda en enda kö där varje klientavsändare bara har behörigheter (som härleds från anspråk som utfärdats från ACS) för att skicka till den kön, medan endast mottagarna från tjänsten har behörighet att hämta data från kön som kommer från flera klienter från kön.
 
 **Anslutnings- och säkerhetstjänster**
 
@@ -74,13 +74,13 @@ Azure tillhandahåller flera nätverkstjänster som stöder autentisering och f�
 * Med Azure Virtual Network kan du etablera och hantera virtuella privata nätverk (VPN) i Azure samt på ett säkert sätt länka dessa till lokal IT-infrastruktur.
 * Med Virtual Network Traffic Manager kan du läsa in aldot på inkommande trafik över flera värdbaserade Azure-tjänster oavsett om de körs i samma datacenter eller i olika datacenter runt om i världen.
 * Azure Active Directory (Azure AD) är en modern, REST-baserad tjänst som tillhandahåller funktioner för identitetshantering och åtkomstkontroll för dina molnprogram. Att använda Azure AD för programresurser är ett enkelt sätt att autentisera och auktorisera användare att få åtkomst till dina webbprogram och tjänster samtidigt som funktionerna för autentisering och auktorisering kan vägas ut ur din kod.
-* Azure Service Bus tillhandahåller en säker meddelande- och dataflödesfunktion för distribuerade och hybridprogram, till exempel kommunikation mellan Azure-värdbaserade program och lokala program och tjänster, utan att kräva komplex brandvägg och säkerhet Infrastrukturer. Använda Service Bus Relay för programresurser för att komma åt de tjänster som exponeras som slutpunkter kan tillhöra klienten (till exempel värd utanför systemet, till exempel lokalt), eller så kan de vara tjänster som är specifika för klienten (eftersom känsliga, klientspecifika data färdas över dem).
+* Azure Service Bus tillhandahåller en säker meddelande- och dataflödesfunktion för distribuerade och hybridprogram, till exempel kommunikation mellan Azure-värdbaserade program och lokala program och tjänster, utan att kräva komplexa brandväggs- och säkerhetsinfrastrukturer. Använda Service Bus Relay för programresurser för att komma åt de tjänster som exponeras som slutpunkter kan tillhöra klienten (till exempel värd utanför systemet, till exempel lokalt), eller så kan de vara tjänster som är specifika för klienten (eftersom känsliga, klientspecifika data färdas över dem).
 
 **Etableringsresurser**
 
 Azure innehåller ett antal sätt att etablera nya klienter för programmet. För program med flera innehavare med ett stort antal klienter är det vanligtvis nödvändigt att automatisera den här processen genom att aktivera självbetjäningsetablering.
 
-* Med arbetarroller kan du etablera och avetableringa per klientresurser (till exempel när en ny klient registrerar sig eller avbryter), samla in mått för mätning av användning och hantera skala enligt ett visst schema eller som svar på passage av tröskelvärden för nyckelprestanda Indikatorer. Samma roll kan också användas för att skicka ut uppdateringar och uppgraderingar till lösningen.
+* Med arbetarroller kan du etablera och avetableringa per klientresurser (till exempel när en ny klient registrerar sig eller avbryter), samla in mått för mätning av användning och hantera skala enligt ett visst schema eller som svar på passage av tröskelvärden för nyckeltal. Samma roll kan också användas för att skicka ut uppdateringar och uppgraderingar till lösningen.
 * Azure Blobbar kan användas för att etablera beräknings- eller förinitierade lagringsresurser för nya klienter samtidigt som principer för åtkomst på behållarnivå tillhandahåller principer för beräkningstjänstpaket, VHD-avbildningar och andra resurser.
 * Alternativ för etablering av SQL Database-resurser för en klient är:
   

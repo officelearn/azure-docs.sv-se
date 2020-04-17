@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 8ce949ac997ba7ee38cb057752d89f4b4d22388f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8578c518ac45bea147790028c2904c7ce36fffb
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73838705"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459040"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Flytta ett Azure Storage-konto till en annan region
 
@@ -47,7 +47,7 @@ Exportera och sedan ändra en Resource Manager-mall för att komma igång.
 
 Den här mallen innehåller inställningar som beskriver ditt lagringskonto. 
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
 Så här exporterar du en mall med Hjälp av Azure Portal:
 
@@ -63,7 +63,7 @@ Så här exporterar du en mall med Hjälp av Azure Portal:
 
    Den här zip-filen innehåller DE Json-filer som består av mallen och skripten för att distribuera mallen.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Så här exporterar du en mall med PowerShell:
 
@@ -97,7 +97,7 @@ Så här exporterar du en mall med PowerShell:
 
 Ändra mallen genom att ändra namn och region för lagringskonto.
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
 Så här distribuerar du mallen med hjälp av Azure Portal:
 
@@ -139,7 +139,7 @@ Så här distribuerar du mallen med hjälp av Azure Portal:
     ```
     Information om hur du hämtar regionplatskoder finns i [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  Koden för en region är regionnamnet utan blanksteg, **Central US** = **centralus**.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Så här distribuerar du mallen med PowerShell:
 
@@ -180,7 +180,7 @@ Så här distribuerar du mallen med PowerShell:
 
 Distribuera mallen för att skapa ett nytt lagringskonto i målregionen. 
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
 1. Spara **filen template.json.**
 
@@ -194,7 +194,7 @@ Distribuera mallen för att skapa ett nytt lagringskonto i målregionen.
 
 3. Klicka på **kryssrutan Jag godkänner de villkor som anges ovan** och klicka sedan på knappen Välj **köp.**
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Skaffa prenumerations-ID där du vill distribuera målbaserade offentliga IP [med Get-AzSubscription:](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0)
 
@@ -264,7 +264,7 @@ Om du vill börja om efter distributionen kan du ta bort mållagringskontot och 
 
 Om du vill genomföra ändringarna och slutföra flytten av ett lagringskonto tar du bort källlagringskontot.
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
 Så här tar du bort ett lagringskonto med hjälp av Azure-portalen:
 
@@ -274,9 +274,9 @@ Så här tar du bort ett lagringskonto med hjälp av Azure-portalen:
 
 3. Välj **Ta bort**och bekräfta.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Om du vill ta bort resursgruppen och dess associerade resurser, inklusive det nya lagringskontot, använder du kommandot [Ta bort AzStorageAccount:](/powershell/module/az.resources/remove-azstorageaccount)
+Om du vill ta bort resursgruppen och dess associerade resurser, inklusive det nya lagringskontot, använder du kommandot [Ta bort AzStorageAccount:](/powershell/module/az.storage/remove-azstorageaccount)
 
 ```powershell
 Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storageAccount
@@ -289,4 +289,4 @@ I den här självstudien flyttade du ett Azure-lagringskonto från en region til
 
 
 - [Flytta resurser till en ny resursgrupp eller prenumeration](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Flytta virtuella Azure-datorer till en annan region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Migrera virtuella Azure-datorer till en annan region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)

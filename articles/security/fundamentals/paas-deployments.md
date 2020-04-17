@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 0643ae792c890b65f239d9a0c16a05639dd4f8b9
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 9adbe7b03283a00f78222ffdc77dca7aaadcbda0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811472"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461709"
 ---
 # <a name="securing-paas-deployments"></a>Skydda PaaS-distributioner
 
@@ -74,7 +74,7 @@ Principer och mönster för nätverksperimetern har funnits i årtionden. Därem
 Följande är metodtips för hantering av identitetsper perimeter.
 
 **Bästa praxis:** Skydda dina nycklar och autentiseringsuppgifter för att skydda din PaaS-distribution.   
-**Detalj:** Att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. Du kan använda en centraliserad lösning där nycklar och hemligheter kan lagras i maskinvarusäkerhetsmoduler (HSM). [Azure Key Vault](../../key-vault/key-vault-overview.md) skyddar dina nycklar och hemligheter genom att kryptera autentiseringsnycklar, lagringskontonycklar, datakrypteringsnycklar, PFX-filer och lösenord med hjälp av nycklar som skyddas av HSM-moduler.
+**Detalj:** Att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. Du kan använda en centraliserad lösning där nycklar och hemligheter kan lagras i maskinvarusäkerhetsmoduler (HSM). [Azure Key Vault](../../key-vault/general/overview.md) skyddar dina nycklar och hemligheter genom att kryptera autentiseringsnycklar, lagringskontonycklar, datakrypteringsnycklar, PFX-filer och lösenord med hjälp av nycklar som skyddas av HSM-moduler.
 
 **Bästa praxis**: Lägg inte autentiseringsuppgifter och andra hemligheter i källkoden eller GitHub.   
 **Detalj:** Det enda som är värre än att förlora dina nycklar och referenser är att ha en obehörig part få tillgång till dem. Angripare kan dra nytta av bot-teknik för att hitta nycklar och hemligheter som lagras i koddatabaser som GitHub. Placera inte nyckel- och hemligheter i dessa offentliga kodarkiv.

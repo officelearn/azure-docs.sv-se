@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: 9d8fce0772f13c6e009b2441ecd85779a7622c5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93f01b3c23e08e7f432841d8a77cbe3602bff1c5
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243203"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482143"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Lagringskonfiguration för SQL Server VM
 
@@ -56,7 +56,7 @@ Dessutom har du möjlighet att ställa in cachelagring för diskarna. Virtuella 
 
 Diskcachelagring för Premium SSD kan vara *ReadOnly,* *ReadWrite* eller *None*. 
 
-- *ReadOnly-cachelagring* är mycket fördelaktigt för SQL Server-datafiler som lagras på Premium Storage. *ReadOnly* caching ger låg läsfördröjning, hög läsning IOPS och dataflöde som, läser utförs från cache, som os inom VM-minne och lokala SSD. Dessa läsningar är mycket snabbare än läsningar från datadisken, som kommer från Azure-blob-lagringen. Premiumlagring räknar inte de läsningar som visas från cachen mot diskenSops och dataflöde. Därför kan din tillämpliga uppnå högre totalt IOPS ant dataflöde. 
+- *ReadOnly-cachelagring* är mycket fördelaktigt för SQL Server-datafiler som lagras på Premium Storage. *ReadOnly* caching ger låg läsfördröjning, hög läsning IOPS och dataflöde som, läser utförs från cache, som finns inom VM-minne och lokala SSD. Dessa läsningar är mycket snabbare än läsningar från datadisken, som kommer från Azure-blob-lagringen. Premiumlagring räknar inte de läsningar som visas från cachen mot diskenSops och dataflöde. Därför kan din tillämpliga uppnå högre total IOPS och dataflöde. 
 - *Ingen* cachekonfiguration bör användas för diskarna som är värd för SQL Server Log-filen eftersom loggfilen skrivs sekventiellt och inte drar nytta av *ReadOnly-cachelagring.* 
 - *ReadWrite-cachelagring* bör inte användas för att vara värd för SQL Server-filer eftersom SQL Server inte stöder datakonsekvens med *ReadWrite-cachen.* Skriver avfallskapacitet för ReadOnly-blob-cachen och svarstider ökar något om skrivningar går igenom *ReadOnly* *ReadOnly-blob-cachelager.* 
 
@@ -142,7 +142,7 @@ I följande tabell beskrivs de tre tillgängliga alternativen för arbetsbelastn
 
 | Typ av arbetsbelastning | Beskrivning | Optimeringar |
 | --- | --- | --- |
-| **Allmänt** |Standardinställning som stöder de flesta arbetsbelastningar |Inget |
+| **Allmänt** |Standardinställning som stöder de flesta arbetsbelastningar |Ingen |
 | **Transaktionsbearbetning** |Optimerar lagringen för traditionella OLTP-arbetsbelastningar för databasen |Spåra flagga 1117<br/>Spåra flagga 1118 |
 | **Datalagring** |Optimerar lagringen för analytiska arbetsbelastningar och rapporteringsarbetsbelastningar |Spåra flagga 610<br/>Spåra flagga 1117 |
 

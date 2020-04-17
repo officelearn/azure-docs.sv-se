@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 29a4d20390575778ccdecde390c257ccf6a48eb1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ca36a7081aaf70ee2045ee7586184c89591df16
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76720936"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461522"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Lagra hemligheter i ett nyckelvalv i Azure DevTest Labs
 Du kan behöva ange en komplex hemlighet när du använder Azure DevTest Labs: lösenord för din Windows VM, offentlig SSH-nyckel för din Virtuella Linux-dator eller personlig åtkomsttoken för att klona din Git-repa via en artefakt. Hemligheter är oftast långa och har slumpmässiga tecken. Därför kan det vara svårt och obekvämt att ange dem, särskilt om du använder samma hemliga flera gånger.
 
-För att lösa detta problem och även hålla dina hemligheter på ett säkert ställe, devtest labs stöder lagring av hemligheter i en [Azure nyckel valv](../key-vault/key-vault-overview.md). När en användare sparar en hemlighet för första gången skapar devtest labs-tjänsten automatiskt ett nyckelvalv i samma resursgrupp som innehåller labbet och lagrar hemligheten i nyckelvalvet. DevTest Labs skapar ett separat nyckelvalv för varje användare. 
+För att lösa detta problem och även hålla dina hemligheter på ett säkert ställe, devtest labs stöder lagring av hemligheter i en [Azure nyckel valv](../key-vault/general/overview.md). När en användare sparar en hemlighet för första gången skapar devtest labs-tjänsten automatiskt ett nyckelvalv i samma resursgrupp som innehåller labbet och lagrar hemligheten i nyckelvalvet. DevTest Labs skapar ett separat nyckelvalv för varje användare. 
 
 Observera att labbanvändaren först måste skapa en virtuell labbdator innan de kan skapa en hemlighet i nyckelvalvet. Detta beror på att DevTest Lab-tjänsten måste associera labbanvändaren med ett giltigt användardokument innan de tillåts skapa och lagra hemligheter i nyckelvalvet. 
 

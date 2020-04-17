@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: yelevin
-ms.openlocfilehash: bc2fa02925e7f5c671085eb87ca0431d3fca7691
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5eed208ed79aeab4e46ed90dd4d340a8b445be96
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77587965"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461641"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Konfigurera Azure Sentinel kundhanterad nyckel
 
@@ -60,11 +60,11 @@ Så här etablerar du CMK: 
     > [!NOTE]
     >  Azure Key Vault måste konfigureras som återställningsbara för att skydda din nyckel och åtkomsten.
 
-1.  [Aktivera återställningsalternativ:](../key-vault/key-vault-best-practices.md#turn-on-recovery-options)
+1.  [Aktivera återställningsalternativ:](../key-vault/general/best-practices.md#turn-on-recovery-options)
 
-    -   Kontrollera att [Mjuk borttagning](../key-vault/key-vault-ovw-soft-delete.md) är aktiverat.
+    -   Kontrollera att [Mjuk borttagning](../key-vault/general/overview-soft-delete.md) är aktiverat.
 
-    -   Aktivera [Rensa skydd](../key-vault/key-vault-ovw-soft-delete.md#purge-protection) för att skydda mot påtvingad borttagning av hemligheten/valvet även efter mjuk borttagning.
+    -   Aktivera [Rensa skydd](../key-vault/general/overview-soft-delete.md#purge-protection) för att skydda mot påtvingad borttagning av hemligheten/valvet även efter mjuk borttagning.
 
 ### <a name="step-2-enable-cmk-on-your-log-analytics-workspace"></a>STEG 2: Aktivera CMK på din Log Analytics-arbetsyta
 

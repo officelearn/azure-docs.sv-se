@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 5b2f8231952d25f5858f8e06a957f1056ecc3651
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ROBOTS: NOINDEX
+ms.openlocfilehash: bb6cb6d86933166d2427788d697d9cd38cf04bf0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76768498"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460179"
 ---
 # <a name="quickstart-create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>Snabbstart: Skapa och kör enkla R-skript i Azure SQL Database Machine Learning Services (förhandsversion)
 
@@ -30,11 +31,8 @@ I den här snabbstarten skapar och kör du en uppsättning R-skript med Machine 
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - En [Azure SQL-databas](sql-database-single-database-get-started.md) med [en brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)
-- [Machine Learning Services](sql-database-machine-learning-services-overview.md) med R aktiverat. [Registrera dig för förhandsversionen](sql-database-machine-learning-services-overview.md#signup).
+- [Machine Learning Services](sql-database-machine-learning-services-overview.md) med R aktiverat.
 - [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
-
-> [!NOTE]
-> Under den offentliga förhandsversionen introducerar Microsoft dig och aktiverar maskininlärning för din befintliga eller nya databas.
 
 I det här exemplet används den lagrade proceduren [sp_execute_external_script](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) för att radbrytas med ett välformat R-skript.
 
@@ -81,7 +79,7 @@ print(c(c, d))
 
    Det borde se ut ungefär så här.
 
-    **Results**
+    **Resultat**
 
     ```text
     STDOUT message(s) from external script:
@@ -144,7 +142,7 @@ För tillfället ska vi använda standardindata- och utdatavariablerna [för sp_
     FROM RTestData
     ```
 
-    **Results**
+    **Resultat**
 
     ![Innehållet i tabellen RTestData](./media/sql-database-quickstart-r-create-script/select-rtestdata.png)
 
@@ -157,7 +155,7 @@ För tillfället ska vi använda standardindata- och utdatavariablerna [för sp_
     WITH RESULT SETS(([NewColName] INT NOT NULL));
     ```
 
-    **Results**
+    **Resultat**
 
     ![Utdata från R-skript som returnerar data från en tabell](./media/sql-database-quickstart-r-create-script/r-output-rtestdata.png)
 
@@ -191,7 +189,7 @@ För tillfället ska vi använda standardindata- och utdatavariablerna [för sp_
     WITH RESULT SETS(([Col1] CHAR(20) NOT NULL));
     ```
 
-    **Results**
+    **Resultat**
 
     ![Köra frågor mot resultat med hjälp av @script som indata](./media/sql-database-quickstart-r-create-script/r-data-generated-output.png)
 
@@ -207,7 +205,7 @@ GO
 
 R-funktionen `print` returnerar versionen till fönstret **Meddelanden**. I exempelutdatan nedan kan du se att SQL Database i det här fallet har R version 3.4.4 installerat.
 
-**Results**
+**Resultat**
 
 ```text
 STDOUT message(s) from external script:
@@ -249,7 +247,7 @@ WITH result sets((
 
 Utdata kommer `installed.packages()` från i R och returneras som en resultatuppsättning.
 
-**Results**
+**Resultat**
 
 ![Installerade paket i R](./media/sql-database-quickstart-r-create-script/r-installed-packages.png)
 

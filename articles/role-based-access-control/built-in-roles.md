@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 03/22/2020
+ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 2fe3b94463da07304f2c853910ac5d2a6771d070
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 14ff86bc47ab6de55d840c4b986c99caf2d4e99c
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545644"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482034"
 ---
 # <a name="azure-built-in-roles"></a>Azure inbyggda roller
 
@@ -55,7 +55,7 @@ Följande tabell innehåller en kort beskrivning och det unika ID:t för varje i
 > | [DELTAGARE I DNS-zonen](#dns-zone-contributor) | Gör att du kan hantera DNS-zoner och postuppsättningar i Azure DNS, men låter dig inte styra vem som har åtkomst till dem. | befefa01-2a29-4197-83a8-272ff33ce314 |
 > | [Nätverksdeltagare](#network-contributor) | Gör att du kan hantera nätverk, men inte åtkomst till dem. | 4d97b98b-1d4f-4787-a291-c67834d212e7 |
 > | [Traffic Manager-deltagare](#traffic-manager-contributor) | Gör att du kan hantera Traffic Manager-profiler, men du kan inte styra vem som har åtkomst till dem. | a4b10055-b0c7-44c2-b00f-c7b5b3550cf7 |
-> | **Lagring** |  |  |
+> | **Storage** |  |  |
 > | [Avere Bidragsgivare](#avere-contributor) | Kan skapa och hantera ett Avere vFXT-kluster. | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
 > | [Avere-operatör](#avere-operator) | Används av Avere vFXT-klustret för att hantera klustret | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
 > | [Deltagare för säkerhetskopiering](#backup-contributor) | Gör att du kan hantera säkerhetskopieringstjänsten, men kan inte skapa valv och ge åtkomst till andra | 5e467623-bb1f-42f4-a55d-6e525e11384b |
@@ -85,7 +85,7 @@ Följande tabell innehåller en kort beskrivning och det unika ID:t för varje i
 > | [Deltagare i söktjänsten](#search-service-contributor) | Gör att du kan hantera söktjänster, men inte komma åt dem. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 > | [Deltagare i webbplanen](#web-plan-contributor) | Gör att du kan hantera webbplanerna för webbplatser, men inte åtkomst till dem. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [Webbplatsdeltagare](#website-contributor) | Gör att du kan hantera webbplatser (inte webbplaner), men inte tillgång till dem. | de139f84-1756-47ae-9be6-808fbbe84772 |
-> | **Behållare** |  |  |
+> | **Containrar** |  |  |
 > | [AcrDelete (](#acrdelete) | acr ta bort | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
 > | [AcrImageSigner](#acrimagesigner) | acr bild undertecknare | 6cef56e8-d556-48e5-a04f-b8e64114680f |
 > | [AcrPull (acrpull)](#acrpull) | acr dra | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
@@ -2071,6 +2071,7 @@ Läsa, skriva och ta bort Azure Storage-behållare och blobbar. Information om v
 > | **DataÅtgärder** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobbar/delete | Ta bort en blob. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobbar/read | Returnera en blob eller en lista med blobbar. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobbar/move/action | Flyttar blobben från en bana till en annan |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobbar/write | Skriv till en blob. |
 > | **NotDataActions** |  |
 > | *inget* |  |
@@ -2095,6 +2096,7 @@ Läsa, skriva och ta bort Azure Storage-behållare och blobbar. Information om v
       "dataActions": [
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
       ],
       "notDataActions": []
@@ -4099,6 +4101,7 @@ Log Analytics Contributor kan läsa alla övervakningsdata och redigera övervak
 > | Microsoft.ClassicCompute/virtualMachines/extensions/* |  |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Visar en lista över åtkomstnycklarna för lagringskontona. |
 > | Microsoft.Compute/virtualMachines/extensions/* |  |
+> | Microsoft.HybridCompute/maskiner/tillägg/skrivning | Installerar eller uppdaterar ett Azure Arc-tillägg |
 > | Microsoft.Insights/alertRules/* | Skapa och hantera insights-varningsregler |
 > | Microsoft.Insights/diagnosticSettings/* | Skapar, uppdaterar eller läser diagnostikinställningen för Analysis Server |
 > | Microsoft.OperationalInsights/* |  |
@@ -4130,6 +4133,7 @@ Log Analytics Contributor kan läsa alla övervakningsdata och redigera övervak
         "Microsoft.ClassicCompute/virtualMachines/extensions/*",
         "Microsoft.ClassicStorage/storageAccounts/listKeys/action",
         "Microsoft.Compute/virtualMachines/extensions/*",
+        "Microsoft.HybridCompute/machines/extensions/write",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Insights/diagnosticSettings/*",
         "Microsoft.OperationalInsights/*",
@@ -5515,6 +5519,7 @@ Azure Sentinel-läsare
 > | --- | --- |
 > | **Åtgärder** |  |
 > | Microsoft.SecurityInights/*/read |  |
+> | Microsoft.SecurityInights/dataConnectorsCheckRequirements/åtgärd | Kontrollera användarauktorisering och licens |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Sök med ny motor. |
 > | Microsoft.OperationalInsights/workspaces/*/read | Visa logganalysdata |
 > | Microsoft.OperationalInsights/workspaces/LinkedServices/read Microsoft.OperationalInsights/workspaces/LinkedServices/read Microsoft.OperationalInsights/workspaces/LinkedServices/read Microsoft. | Få länkade tjänster under angiven arbetsyta. |
@@ -5548,6 +5553,7 @@ Azure Sentinel-läsare
     {
       "actions": [
         "Microsoft.SecurityInsights/*/read",
+        "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
         "Microsoft.OperationalInsights/workspaces/*/read",
         "Microsoft.OperationalInsights/workspaces/LinkedServices/read",
@@ -5583,6 +5589,7 @@ Azure Sentinel Responder
 > | --- | --- |
 > | **Åtgärder** |  |
 > | Microsoft.SecurityInights/*/read |  |
+> | Microsoft.SecurityInights/dataConnectorsCheckRequirements/åtgärd | Kontrollera användarauktorisering och licens |
 > | Microsoft.SecurityInights/case/* |  |
 > | Microsoft.SecurityInights/incidenter/* |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Sök med ny motor. |
@@ -5618,6 +5625,7 @@ Azure Sentinel Responder
     {
       "actions": [
         "Microsoft.SecurityInsights/*/read",
+        "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
         "Microsoft.SecurityInsights/cases/*",
         "Microsoft.SecurityInsights/incidents/*",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",

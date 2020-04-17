@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 2cdafa9a36a5f906151ca6946e18ef82bc7f1e01
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: eac195babebf300aa9770d35b7b98eba29c234cf
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529426"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460995"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Konfigurera ditt labb i Azure DevTest Labs för att använda en fjärrskrivbordsgateway
 I Azure DevTest Labs kan du konfigurera en fjärrskrivbordsgateway för ditt labb för att säkerställa säker åtkomst till labbets virtuella datorer (VMs) utan att behöva exponera RDP-porten. Labbet är en central plats där labbanvändarna kan visa och ansluta till alla virtuella datorer som de har åtkomst till. Knappen **Anslut** på sidan **Virtuell dator** skapar en maskinspecifik RDP-fil som du kan öppna för att ansluta till datorn. Du kan anpassa och skydda RDP-anslutningen ytterligare genom att ansluta labbet till en fjärrskrivbordsgateway. 
@@ -64,7 +64,7 @@ Azure-funktionen hanterar begäran `https://{function-app-uri}/app/host/{lab-mac
 ## <a name="configure-the-lab-to-use-token-authentication"></a>Konfigurera labbet så att det använder tokenautentisering 
 Det här avsnittet visar hur du konfigurerar ett labb för att använda en fjärrskrivbordsgatewaydator som stöder tokenautentisering. Det här avsnittet täcker inte hur du konfigurerar en fjärrskrivbordsgatewaygrupp själv. Den informationen finns i exemplet för att skapa ett avsnitt om [fjärrskrivbordsgateway](#sample-to-create-a-remote-desktop-gateway) i slutet av den här artikeln. 
 
-Innan du uppdaterar labbinställningarna lagrar du nyckeln som behövs för att köra funktionen för att returnera en autentiseringstoken i labbets nyckelvalv. Du kan hämta funktionsnyckelvärdet på sidan **Hantera** för funktionen i Azure-portalen. Mer information om hur du sparar en hemlighet i ett nyckelvalv finns i [Lägga till en hemlighet i Key Vault](../key-vault/quick-create-portal.md#add-a-secret-to-key-vault). Spara namnet på hemligheten för senare användning.
+Innan du uppdaterar labbinställningarna lagrar du nyckeln som behövs för att köra funktionen för att returnera en autentiseringstoken i labbets nyckelvalv. Du kan hämta funktionsnyckelvärdet på sidan **Hantera** för funktionen i Azure-portalen. Mer information om hur du sparar en hemlighet i ett nyckelvalv finns i [Lägga till en hemlighet i Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault). Spara namnet på hemligheten för senare användning.
 
 Om du vill hitta ID:et för labbets nyckelvalv kör du följande Azure CLI-kommando: 
 

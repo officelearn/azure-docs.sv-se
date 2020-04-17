@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 5469c2512e133d17e4d18cebb64ab9e2a21b1f83
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 36ded3bd85cd7acdffbfe46b9e931a811994fa30
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77482303"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531108"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Träna en formulärmedkänningsmodell med etiketter med REST API och Python
 
@@ -40,7 +40,7 @@ Kontrollera att alla träningsdokument är av samma format. Om du har formulär 
 
 För att kunna träna en modell med hjälp av märkta data behöver du följande filer som indata i undermappen. Du får lära dig hur du skapar filen nedan.
 
-* **Källformulär** – formulären att extrahera data från. Typer som stöds är JPEG, PNG, BMP, PDF eller TIFF.
+* **Källformulär** – formulären att extrahera data från. Typer som stöds är JPEG, PNG, PDF eller TIFF.
 * **OCR-layoutfiler** - JSON-filer som beskriver storleken och positionerna för all läsbar text i varje källformulär. Du ska använda API:et för layout för formulärreform för att generera dessa data. 
 * **Etikettfiler** - JSON-filer som beskriver dataetiketter som en användare har angett manuellt.
 
@@ -219,7 +219,7 @@ headers = {
     'Ocp-Apim-Subscription-Key': '<subsription key>',
 }
 
-body =  {
+body =     {
     "source": source,
     "sourceFilter": {
         "prefix": prefix,
@@ -455,7 +455,7 @@ När processen är klar får du `202 (Success)` ett svar med JSON-innehåll i f�
                     "#/readResults/0/lines/8/words/1"
                   ]
                 },
-                ...     
+                ...        
               ]
             }
           ]

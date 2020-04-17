@@ -5,7 +5,6 @@ services: virtual-machines-linux
 documentationcenter: ''
 author: gbowerman
 manager: gwallace
-editor: tysonn
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 2777a526-c260-4cb9-a31a-bdfe1a55fffc
 ms.service: virtual-machines-linux
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: guybo
-ms.openlocfilehash: cc2fedcd4816b55aaed3573ce2593919770a4152
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aebb31c825725e8b748fe52bfdf74a79074d6a52
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062649"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460502"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Godkände Linux-distributioner på Azure
 Partner tillhandahåller Linux-avbildningar på Azure Marketplace. Vi arbetar med olika Linux-samhällen för att lägga till ännu fler smaker till listan Övertecknade distributionsplatser. Under tiden, för distributioner som inte är tillgängliga från Marketplace, kan du alltid ta med din egen Linux genom att följa riktlinjerna på [Skapa och ladda upp en virtuell hårddisk som innehåller Operativsystemet Linux](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).

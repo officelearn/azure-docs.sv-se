@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/01/2020
-ms.openlocfilehash: 51e58de92f111c8854add613a299f2b8ccec0503
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 251c9c9717bae1728bffa48827a45d4535d66c15
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79285245"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482079"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Förstå och använda enhetstvillingar i IoT Hub
 
@@ -58,7 +58,7 @@ En enhetstvilling är ett JSON-dokument som innehåller:
 
 * **Rapporterade egenskaper**. Används tillsammans med önskade egenskaper för att synkronisera enhetens konfiguration eller villkor. Enhetsappen kan ange rapporterade egenskaper och lösningens baksida kan läsa och fråga dem.
 
-* **Egenskaper för enhetsidentitet**. Roten till enhetstvillingenS JSON-dokument innehåller skrivskyddade egenskaper från motsvarande enhetsidentitet som lagras i [identitetsregistret](iot-hub-devguide-identity-registry.md).
+* **Egenskaper för enhetsidentitet**. Roten till enhetstvillingenS JSON-dokument innehåller skrivskyddade egenskaper från motsvarande enhetsidentitet som lagras i [identitetsregistret](iot-hub-devguide-identity-registry.md). Egenskaper `connectionStateUpdatedTime` `generationId` och kommer inte att inkluderas.
 
 ![Skärmbild av enhetstvillingegenskaper](./media/iot-hub-devguide-device-twins/twin.png)
 

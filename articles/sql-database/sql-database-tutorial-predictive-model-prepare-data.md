@@ -13,12 +13,13 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
-ms.openlocfilehash: 505f58f13a7186948a228fefe872d74fb98eba33
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: bf69d2963c74723cb3fea542e28288e4f136d5c3
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345778"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458768"
 ---
 # <a name="tutorial-prepare-data-to-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Självstudiekurs: Förbereda data för att träna en förutsägande modell i R med Azure SQL Database Machine Learning Services (förhandsversion)
 
@@ -41,13 +42,11 @@ I [del två](sql-database-tutorial-predictive-model-build-compare.md)får du lä
 
 I [del tre](sql-database-tutorial-predictive-model-deploy.md)får du lära dig att lagra modellen i en databas och sedan skapa lagrade procedurer från R-skript som du har utvecklat i del ett och två. De lagrade procedurerna körs i en SQL-databas för att göra förutsägelser baserat på nya data.
 
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
-
 ## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – Om du inte har en Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/) innan du börjar.
 
-* Azure SQL Database Server med Machine Learning Services aktiverat – Under den offentliga förhandsversionen kommer Microsoft att gå ombord på dig och aktivera maskininlärning för dina befintliga eller nya databaser. Följ stegen i [Registrera dig för förhandsversionen](sql-database-machine-learning-services-overview.md#signup).
+* [Azure SQL Database med Machine Learning Services (med R)](sql-database-machine-learning-services-overview.md) aktiverat.
 
 * Paketet RevoScaleR - Se [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler?view=sql-server-2017#versions-and-platforms) för alternativ för att installera paketet lokalt.
 

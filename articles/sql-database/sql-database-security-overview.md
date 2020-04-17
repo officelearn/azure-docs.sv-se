@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 2a4c6dd3dd6f1bb2f15e31226086c73fb8e63521
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d08770d81ade2d976142b2ce1fd94dae044cf32
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124835"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461403"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>En översikt över azure SQL Database-säkerhetsfunktioner
 
@@ -112,11 +112,11 @@ Till exempel när du använder ADO.NET drivrutinen detta sker via **Encrypt = Tr
 
 [Transparent datakryptering (TDE) för Azure SQL Database](transparent-data-encryption-azure-sql.md) lägger till ett säkerhetslager för att skydda data i vila från obehörig eller offlineåtkomst till råa filer eller säkerhetskopior. Vanliga scenarier är datacenterstöld eller oskyddad kassering av maskinvara eller media, till exempel hårddiskar och säkerhetskopieringsband.TDE krypterar hela databasen med hjälp av en AES-krypteringsalgoritm, som inte kräver att programutvecklare gör några ändringar i befintliga program.
 
-I Azure krypteras alla nyskapade SQL-databaser som standard och databaskrypteringsnyckeln skyddas av ett inbyggt servercertifikat.  Underhåll och rotation av certifikat hanteras av tjänsten och kräver ingen indata från användaren. Kunder som föredrar att ta kontroll över krypteringsnycklarna kan hantera nycklarna i [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md).
+I Azure krypteras alla nyskapade SQL-databaser som standard och databaskrypteringsnyckeln skyddas av ett inbyggt servercertifikat.  Underhåll och rotation av certifikat hanteras av tjänsten och kräver ingen indata från användaren. Kunder som föredrar att ta kontroll över krypteringsnycklarna kan hantera nycklarna i [Azure Key Vault](../key-vault/general/secure-your-key-vault.md).
 
 ### <a name="key-management-with-azure-key-vault"></a>Nyckelhantering med Azure Key Vault
 
-[Med stöd](transparent-data-encryption-byok-azure-sql.md) för din egen nyckel (BYOK) för [Transparent datakryptering](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) kan kunder bli ägare till nyckelhantering och rotation med hjälp av [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md), Azures molnbaserade externa nyckelhanteringssystem. Om databasens åtkomst till nyckelvalvet återkallas kan en databas inte dekrypteras och läsas in i minnet. Azure Key Vault tillhandahåller en central viktig hanteringsplattform, utnyttjar noggrant övervakade maskinvarusäkerhetsmoduler (HSM) och möjliggör åtskillnad mellan uppgifter mellan hantering av nycklar och data för att uppfylla kraven på säkerhetsefterlevnad.
+[Med stöd](transparent-data-encryption-byok-azure-sql.md) för din egen nyckel (BYOK) för [Transparent datakryptering](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) kan kunder bli ägare till nyckelhantering och rotation med hjälp av [Azure Key Vault](../key-vault/general/secure-your-key-vault.md), Azures molnbaserade externa nyckelhanteringssystem. Om databasens åtkomst till nyckelvalvet återkallas kan en databas inte dekrypteras och läsas in i minnet. Azure Key Vault tillhandahåller en central viktig hanteringsplattform, utnyttjar noggrant övervakade maskinvarusäkerhetsmoduler (HSM) och möjliggör åtskillnad mellan uppgifter mellan hantering av nycklar och data för att uppfylla kraven på säkerhetsefterlevnad.
 
 ### <a name="always-encrypted-encryption-in-use"></a>Alltid krypterad (kryptering som används)
 

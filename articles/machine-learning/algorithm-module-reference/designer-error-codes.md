@@ -8,23 +8,25 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 12/03/2019
-ms.openlocfilehash: cda499b81a61a5b78ca86a96372640e368f90357
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.date: 04/16/2020
+ms.openlocfilehash: cc04d11475568af92ba6a617a1eb6b2b51accb45
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80364204"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481673"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Undantag och felkoder för designern (förhandsgranskning)
 
 I den här artikeln beskrivs felmeddelanden och undantagskoder i Azure Machine Learning Designer (förhandsversion) som hjälper dig att felsöka pipelines för maskininlärning.
 
-Det finns två sätt att få den fullständiga texten till ett felmeddelande i designern:  
+Du hittar felmeddelandet i designern följande steg:  
 
-- Klicka på länken, **Visa utdatalogg**, i den högra rutan och rulla längst ned. Det detaljerade felmeddelandet visas i de två sista raderna i fönstret.  
-  
-- Markera den modul som har felet och klicka på det röda X:et. Endast den relevanta feltexten visas.
+- Välj den misslyckade modulen, gå till fliken **Utdata+loggar,** du hittar den detaljerade loggen i **filen 70_driver_log.txt** under kategorin **azureml-logs.**
+
+- För detaljerad modulfel kan du kontrollera det i error_info.json under **module_statistics** kategori.
+
+Följande är felkoder för moduler i designern.
 
 ## <a name="error-0001"></a>Fel 0001  
  Undantag inträffar om det inte gick att hitta en eller flera angivna kolumner med datauppsättningen.  
@@ -326,7 +328,7 @@ För kolumner som du tänker använda för gruppering eller kategorisering vidta
 ## <a name="error-0017"></a>Fel 0017  
  Undantag inträffar om en markerad kolumn använder en datatyp som inte stöds av den aktuella modulen.  
 
- Det här felet kan till exempel visas i Azure Machine Learning om kolumnvalet innehåller en kolumn med en datatyp som inte kan bearbetas av modulen, till exempel en strängkolumn för en matematisk åtgärd eller en poängkolumn där en kategoriskön Krävs.  
+ Det här felet kan till exempel visas i Azure Machine Learning om kolumnvalet innehåller en kolumn med en datatyp som inte kan bearbetas av modulen, till exempel en strängkolumn för en matematisk åtgärd eller en poängkolumn där en kategoriskönskumn krävs.  
 
 **Upplösning:**
  1. Identifiera den kolumn som är problemet.
@@ -656,7 +658,7 @@ Det kan också hända att en etikettkolumn finns i datauppsättningen, men inte 
 
 Den Matchbox recommender har vissa krav som måste uppfyllas när du använder antingen objektfunktioner eller användarfunktioner.  Det här felet indikerar att en funktionsvektor saknas för en användare eller ett objekt som du angav som indata. Kontrollera att en vektor med funktioner är tillgänglig i data för varje användare eller objekt.  
 
- Om du till exempel har tränat en rekommendationsmodell med funktioner som användarens ålder, plats eller inkomst, men nu vill skapa poäng för nya användare som inte sågs under utbildningen, måste du ange motsvarande uppsättning funktioner (nämligen ålder, plats och inkomstvärden) för de nya användarna för att göra lämpliga förutsägelser för dem. 
+ Om du till exempel har tränat en rekommendationsmodell med funktioner som användarens ålder, plats eller inkomst, men nu vill skapa poäng för nya användare som inte sågs under utbildningen, måste du ange motsvarande uppsättning funktioner (nämligen ålder, plats och inkomstvärden) för de nya användarna för att kunna göra lämpliga förutsägelser för dem. 
 
  Om du inte har några funktioner för dessa användare bör du överväga funktionsteknik för att generera lämpliga funktioner.  Om du till exempel inte har enskilda användarålders- eller inkomstvärden kan du generera ungefärliga värden som ska användas för en grupp användare. 
 

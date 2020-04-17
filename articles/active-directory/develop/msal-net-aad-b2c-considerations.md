@@ -13,12 +13,12 @@ ms.date: 10/29/2019
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 697b4bc8e3a25085ac6f7d600ea2227dd30a6624
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d31cf3a4e024dc59b865d096cbd0829d50f61a1a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262820"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533963"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Använda MSAL.NET för att logga in användare med sociala identiteter
 
@@ -34,7 +34,7 @@ Den här sidan är avsedd för MSAL 3.x. Om du är intresserad av MSAL 2.x läse
 Den myndighet som `https://{azureADB2CHostname}/tfp/{tenant}/{policyName}` skall användas är när
 
 - `azureADB2CHostname`är namnet på Azure AD B2C-klienten `{your-tenant-name}.b2clogin.com`plus värden (till exempel),
-- `tenant`är det fullständiga namnet på Azure AD B2C-klienten (till `{your-tenant-name}.onmicrosoft.com`exempel) eller GUID för klienten, 
+- `tenant`är det fullständiga namnet på Azure AD B2C-klienten (till `{your-tenant-name}.onmicrosoft.com`exempel) eller GUID för klienten,
 - `policyName`namnet på den princip eller det användarflöde som ska tillämpas (till exempel "b2c_1_susi" för registrering/inloggning).
 
 Mer information om Azure AD B2C-myndigheterna finns i den här [dokumentationen](/azure/active-directory-b2c/b2clogin).
@@ -121,7 +121,7 @@ private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
 ## <a name="resource-owner-password-credentials-ropc-with-azure-ad-b2c"></a>Autentiseringsuppgifter för resursägare (ROPC) med Azure AD B2C
 Mer information om ROPC-flödet finns i den här [dokumentationen](v2-oauth-ropc.md).
 
-Det här flödet **rekommenderas inte** eftersom ditt program som ber en användare om deras lösenord inte är säkert. Mer information om det här problemet finns i [den här artikeln](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). 
+Det här flödet **rekommenderas inte** eftersom ditt program som ber en användare om deras lösenord inte är säkert. Mer information om det här problemet finns i [den här artikeln](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/).
 
 Genom att använda användarnamn /lösenord, ger du upp ett antal saker:
 - Centrala grundsatser för modern identitet: lösenord blir fiskas, spelas upp igen. Eftersom vi har detta begrepp om en aktie hemlighet som kan avlyssnas. Detta är inkompatibelt med lösenordslös.
@@ -155,15 +155,15 @@ Om du är en Azure AD B2C-utvecklare som använder Google som identitetsleverant
 
 Vi kommer att tillhandahålla en uppdatering av det här [problemet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/688) om saker och ting ändras.
 
-## <a name="caching-with-azure-ad-b2c-in-msalnet"></a>Cachelagring med Azure AD B2C i MSAL.Net 
+## <a name="caching-with-azure-ad-b2c-in-msalnet"></a>Cachelagring med Azure AD B2C i MSAL.Net
 
 ### <a name="known-issue-with-azure-ad-b2c"></a>Känt problem med Azure AD B2C
 
-MSAL.Net stöder en [tokencache](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet). Tokencacheing-nyckeln baseras på de anspråk som returneras av identitetsprovidern. För närvarande behöver MSAL.Net två anspråk för att skapa en tokencachenyckel:  
-- `tid`som är Azure AD-klient-ID och 
-- `preferred_username` 
+MSAL.Net stöder en [tokencache](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet). Tokencacheing-nyckeln baseras på de anspråk som returneras av identitetsprovidern. För närvarande behöver MSAL.Net två anspråk för att skapa en tokencachenyckel:
+- `tid`som är Azure AD-klient-ID och
+- `preferred_username`
 
-Båda dessa anspråk saknas i många av Azure AD B2C-scenarierna. 
+Båda dessa anspråk saknas i många av Azure AD B2C-scenarierna.
 
 Kundpåverkan är att när du försöker visa användarnamnsfältet, får du "Saknas från tokensvaret" som värde? Om så är fallet beror detta på att Azure AD B2C inte returnerar ett värde i IdToken för preferred_username på grund av begränsningar med sociala konton och externa identitetsleverantörer (IdPs). Azure AD returnerar ett värde för preferred_username eftersom den vet vem användaren är, men för Azure AD B2C, eftersom användaren kan logga in med ett lokalt konto, Facebook, Google, GitHub, etc. det finns inte ett konsekvent värde för Azure AD B2C att använda för preferred_username. För att avblockera MSAL från att distribuera cachekompatibilitet med ADAL bestämde vi oss för att använda "Saknas från tokensvaret" i vår ände när du hanterar Azure AD B2C-kontona när IdToken inte returnerar något för preferred_username. MSAL måste returnera ett värde för preferred_username för att upprätthålla cachekompatibilitet mellan bibliotek.
 
@@ -178,7 +178,7 @@ Alternativt kan du använda `tid` anspråket om du använder [de anpassade princ
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Begränsning för "Saknas från tokensvaret"
 Ett alternativ är att använda "namn"-anspråket som önskat användarnamn. Processen nämns i detta [B2C doc->](../../active-directory-b2c/user-flow-overview.md) "I kolumnen Returanspråk väljer du de anspråk som du vill returnera i auktoriseringstoken som skickas tillbaka till ditt program efter en lyckad profilredigeringsupplevelse. Välj till exempel Visningsnamn, Postnummer."
 
-## <a name="next-steps"></a>Nästa steg 
+## <a name="next-steps"></a>Nästa steg
 
 Mer information om hur du hämtar token interaktivt med MSAL.NET för Azure AD B2C-program finns i följande exempel.
 

@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 09/11/2019
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ff4234d9fd28e655e868108e37b09c5afe2767c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 15960caa55274f06159263c1af4a6c8280e83f4e
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72517120"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533500"
 ---
-# <a name="bulk-import-group-members-preview-in-azure-active-directory"></a>Gruppmedlemmar för massimport (förhandsversion) i Azure Active Directory
+# <a name="bulk-import-group-members-in-azure-active-directory"></a>Gruppmedlemmar för massimport i Azure Active Directory
 
 Med Azure Active Directory(Azure AD) portal kan du lägga till ett stort antal medlemmar i en grupp med hjälp av en kommaavgränsad värden (CSV) fil till massimportgruppmedlemmar.
 
@@ -30,7 +30,7 @@ Med Azure Active Directory(Azure AD) portal kan du lägga till ett stort antal m
 1. I Azure AD väljer du **Grupper alla** > **grupper**.
 1. Öppna gruppen som du lägger till medlemmar i och välj sedan **Medlemmar**.
 1. På sidan **Medlemmar** väljer du **Importera medlemmar**.
-1. På sidan **Massimportgruppmedlemmar (Förhandsgranska)** väljer du **Hämta** för att hämta CSV-filmallen med obligatoriska gruppmedlemsegenskaper.
+1. På sidan **Massimportgruppmedlemmar** väljer du **Hämta** för att hämta CSV-filmallen med obligatoriska gruppmedlemsegenskaper.
 
     ![Kommandot Importera medlemmar finns på profilsidan för gruppen](./media/groups-bulk-import-members/import-panel.png)
 
@@ -38,16 +38,16 @@ Med Azure Active Directory(Azure AD) portal kan du lägga till ett stort antal m
 
    ![CSV-filen innehåller namn och ID:n för medlemmarna att importera](./media/groups-bulk-import-members/csv-file.png)
 
-1. På sidan **Massimportgruppmedlemmar (Förhandsgranska)** under **Ladda upp csv-filen**bläddrar du till filen. När du väljer filen startar valideringen av CSV-filen.
+1. Bläddra till filen under **Ladda upp csv-filen**på sidan **Massimportgruppmedlemmar.** När du väljer filen startar valideringen av CSV-filen.
 1. När filinnehållet valideras visas Fil **som har överförts**. Om det finns fel måste du åtgärda dem innan du kan skicka jobbet.
 1. När filen godkänns väljer du **Skicka** för att starta azure-massåtgärden som importerar gruppmedlemmarna till gruppen.
 1. När importen är klar visas ett meddelande om att massåtgärden lyckades.
 
 ## <a name="check-import-status"></a>Kontrollera importstatus
 
-Du kan se status för alla väntande massbegäranden på sidan **Massåtgärdsresultat (förhandsversion).**
+Du kan se status för alla väntande massbegäranden på sidan **Massåtgärdsresultat.**
 
-   ![På sidan Resultat för massåtgärder visas status för massbegäran](./media/groups-bulk-import-members/bulk-center.png)
+[![](media/groups-bulk-import-members/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-import-members/bulk-center.png#lightbox)
 
 Om du vill ha information om varje radartikel i massåtgärden väljer du värdena under kolumnerna **# Lyckades,** **# Fel**eller Totalt **antal begäranden.** Om fel har inträffat visas orsakerna till felet.
 

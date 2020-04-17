@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: mimckitt
-ms.openlocfilehash: 9f048c7d89da0ab75c321cd8e3932ea97c7ed09c
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: efe3a39008361fdf76d80a0c8e7e2e30b061117d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310020"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461367"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Nätverk för skalningsuppsättningar för virtuella Azure-datorer
 
@@ -41,42 +41,27 @@ Azure accelererat nätverk förbättrar nätverkets prestanda genom att aktivera
 }
 ```
 
-## <a name="create-a-scale-set-that-references-an-existing-azure-load-balancer"></a>Skapa en skalningsuppsättning som refererar till en befintlig Azure Load Balancer
-När en skalningsuppsättning skapas med hjälp av Azure Portal skapas en ny lastbalanserare för de flesta konfigurationsalternativen. Om du skapar en skalningsuppsättning som måste referera till en befintlig lastbalanserare kan du göra detta med hjälp av CLI. Följande exempelskript skapar en lastbalanserare och sedan en skalningsuppsättning som refererar till den:
+## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Skala azure-datorskalauppsättningar med Azure Load Balancer
 
-```azurecli
-az network lb create \
-    -g lbtest \
-    -n mylb \
-    --vnet-name myvnet \
-    --subnet mysubnet \
-    --public-ip-address-allocation Static \
-    --backend-pool-name mybackendpool
+När du arbetar med skaluppsättningar för virtuella datorer och belastningsutjämnare bör följande beaktas:
 
-az vmss create \
-    -g lbtest \
-    -n myvmss \
-    --image Canonical:UbuntuServer:16.04-LTS:latest \
-    --admin-username negat \
-    --ssh-key-value /home/myuser/.ssh/id_rsa.pub \
-    --upgrade-policy-mode Automatic \
-    --instance-count 3 \
-    --vnet-name myvnet \
-    --subnet mysubnet \
-    --lb mylb \
-    --backend-pool-name mybackendpool
-```
+* **Flera skaluppsättningar för virtuella datorer kan inte använda samma belastningsutjämnare**.
+* **Port forwarding och inkommande NAT regler:**
+  * Varje skalauppsättning för virtuell dator måste ha en inkommande NAT-regel.
+  * När skalningsuppsättningen har skapats kan serverdaporten inte ändras för en belastningsutjämningsregel som används av en hälsoavsökning av belastningsutjämnaren. Om du vill ändra porten kan du ta bort hälsoavsökningen genom att uppdatera Azure-skalauppsättningen för virtuella datorer, uppdatera porten och sedan konfigurera hälsoavsökningen igen.
+  * När du använder den virtuella datorn skala som i serverda poolen av lastbalanseraren standard inkommande NAT regler skapas automatiskt.
+* **Regler för belastningsutjämning:**
+  * När du använder den virtuella datorn skala som i serverda poolen av lastbalanseraren standard belastningsutjämning regeln skapas automatiskt.
+* **Regler för utgående:**
+  *  Om du vill skapa utgående regel för en backend-pool som redan refereras av en belastningsutjämningsregel måste du först markera **"Skapa implicita utgående regler"** som **Nej** i portalen när regeln för utjämning av inkommande belastning skapas.
 
->[!NOTE]
-> När skalningsuppsättningen har skapats kan serverdaporten inte ändras för en belastningsutjämningsregel som används av en hälsoavsökning av belastningsutjämnaren. Om du vill ändra porten kan du ta bort hälsoavsökningen genom att uppdatera Azure-skalauppsättningen för virtuella datorer, uppdatera porten och sedan konfigurera hälsoavsökningen igen. 
-
-Mer information om belastningsutjämnare och skalningsuppsättningar för virtuella datorer finns [i Virtuella nätverk och virtuella datorer i Azure](../../articles/virtual-machines/windows/network-overview.md).
+  :::image type="content" source="./media/vmsslb.png" alt-text="Skapa genereringsregel för belastningsutjämning" border="true":::
 
 Följande metoder kan användas för att distribuera en skalningsuppsättning för virtuella datorer med en befintlig Azure-belastningsutjämnare.
 
-* [Konfigurera en skalningsuppsättning för virtuella datorer med en befintlig Azure Load Balancer med Azure-portalen](../../articles/load-balancer/configure-vm-scale-set-portal.md).
-* [Konfigurera en skalningsuppsättning för virtuella datorer med en befintlig Azure Load Balancer med Azure PowerShell](../../articles/load-balancer/configure-vm-scale-set-powershell.md).
-* [Konfigurera en skalningsuppsättning för virtuella datorer med en befintlig Azure Load Balancer med Azure CLI](../../articles/load-balancer/configure-vm-scale-set-cli.md).
+* [Konfigurera en skalningsuppsättning för virtuella datorer med en befintlig Azure Load Balancer med Azure-portalen](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-portal).
+* [Konfigurera en skalningsuppsättning för virtuella datorer med en befintlig Azure Load Balancer med Azure PowerShell](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-powershell).
+* [Konfigurera en skalningsuppsättning för virtuella datorer med en befintlig Azure Load Balancer med Azure CLI](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-cli).
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Skapa en skalningsuppsättning som refererar till en programgateway
 Om du vill skapa en skalningsuppsättning som använder en programgateway refererar du till programgatewayens backend-adresspool i avsnittet ipConfigurations i skaluppsättningen, som i den här ARM-mallkonfigurationen:

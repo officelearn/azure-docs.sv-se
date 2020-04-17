@@ -4,12 +4,12 @@ description: Läs mer om hur du använder hanterade identiteter för Azure med S
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: f6f3736bed4d3d59bce08d4df3ee0aa164a0a764
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a26f188ed2f5e18bdf775cd1fb21001495ffdc89
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415101"
+ms.locfileid: "81461454"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric"></a>Använda hanterade identiteter för Azure med Service Fabric
 
@@ -57,7 +57,7 @@ Följande scenarier stöds inte eller rekommenderas inte. Observera att dessa å
 
 - Ta bort eller ändra identiteterna som tilldelats ett program. Om du måste göra ändringar skickar du separata distributioner för att först lägga till en ny identitetstilldelning och tar sedan bort en tidigare tilldelad. Borttagning av en identitet från ett befintligt program kan ha oönskade effekter, inklusive att lämna ditt program i ett tillstånd som inte kan uppgraderas. Det är säkert att stryka ansökan helt och hållet om det är nödvändigt att ta bort en identitet. Observera att detta tar bort den systemtilldelade identitet (om så definieras) som är associerad med programmet och tar bort alla associationer med de användartilldelade identiteter som tilldelats programmet.
 
-- Service Fabric-stöd för hanterade identiteter är för närvarande inte integrerat i [AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md).
+- Service Fabric-stöd för hanterade identiteter är för närvarande inte integrerat i [AzureServiceTokenProvider](../key-vault/general/service-to-service-authentication.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

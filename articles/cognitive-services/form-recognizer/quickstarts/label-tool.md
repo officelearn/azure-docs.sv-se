@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/19/2020
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 0cfe58ab0d161019d5f53d9135c65db7beff2bb4
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 790e2a148385f9da54df82f597c2ca52124dc2be
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397999"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81529882"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Träna en formulärmedkänningsmodell med etiketter med hjälp av exempeletikettverktyget
 
@@ -49,7 +49,7 @@ Du ska använda Docker-motorn för att köra exempeletikettverktyget. Följ dess
 
    Installera Docker på datorn genom att följa lämpliga instruktioner för operativsystemet: 
    * [Windows](https://docs.docker.com/docker-for-windows/)
-   * [Macos](https://docs.docker.com/docker-for-mac/)
+   * [macOS](https://docs.docker.com/docker-for-mac/)
    * [Linux](https://docs.docker.com/install/)
 
 1. Hämta exempelmärkningsverktygsbehållaren `docker pull` med kommandot.
@@ -104,7 +104,7 @@ Fyll i fälten med följande värden:
 I exempeletikettverktyget lagrar projekt dina konfigurationer och inställningar. Skapa ett nytt projekt och fyll i fälten med följande värden:
 
 * **Visningsnamn** - projektets visningsnamn
-* **Säkerhetstoken** - Vissa projektinställningar kan innehålla känsliga värden, till exempel API-nycklar eller andra delade hemligheter. Varje projekt genererar en säkerhetstoken som kan användas för att kryptera/dekryptera känsliga projektinställningar. Du kan hitta säkerhetstoken i programinställningarna genom att klicka på kugghjulsikonen i det nedre hörnet av det vänstra navigeringsfältet.
+* **Säkerhetstoken** - Vissa projektinställningar kan innehålla känsliga värden, till exempel API-nycklar eller andra delade hemligheter. Varje projekt genererar en säkerhetstoken som kan användas för att kryptera/dekryptera känsliga projektinställningar. Du kan hitta säkerhetstoken i programinställningarna genom att klicka på kugghjulsikonen längst ned i det vänstra navigeringsfältet.
 * **Källa anslutning** - Azure Blob Storage-anslutning som du skapade i föregående steg som du vill använda för det här projektet.
 * **Mappsökväg** - Valfritt - Om källformulären finns i en mapp på blob-behållaren anger du mappnamnet här
 * **Formulär recognizer Service Uri** - Din formulär recognizer slutpunkt URL.
@@ -130,9 +130,9 @@ Klicka **på Kör OCR på alla filer** i den vänstra rutan för att hämta text
 Därefter ska du skapa taggar (etiketter) och använda dem på de textelement som du vill att modellen ska känna igen.
 
 1. Använd först hjälp av redigeringsfönstret för taggar för att skapa de taggar som du vill identifiera.
-  1. Klicka **+** här om du vill skapa en ny tagg.
-  1. Ange taggnamnet.
-  1. Spara taggen genom att trycka på Retur.
+   1. Klicka **+** här om du vill skapa en ny tagg.
+   1. Ange taggnamnet.
+   1. Spara taggen genom att trycka på Retur.
 1. Markera ett eller flera ord från de markerade textelementen i huvudredigeraren.
 1. Klicka på taggen du vill använda eller tryck på motsvarande tangentbordstangent. Siffernycklarna tilldelas som snabbtangenter för de första 10 taggarna. Du kan ändra ordning på taggarna med hjälp av upp- och nedpilsikonerna i taggredigeringsfönstret.
     > [!Tip]
@@ -144,15 +144,30 @@ Därefter ska du skapa taggar (etiketter) och använda dem på de textelement so
     > * Ta inte med nycklar i&mdash;dina taggade fält bara värdena.
     > * Tabelldata bör identifieras automatiskt och kommer att vara tillgängliga i den slutliga utdata JSON-filen. Men om modellen inte kan identifiera alla tabelldata kan du även tagga dessa fält manuellt. Tagga varje cell i tabellen med en annan etikett. Om dina formulär har tabeller med varierande antal rader kontrollerar du att du taggar minst ett formulär med största möjliga tabell.
 
-
-Följ stegen ovan för att märka fem av formulären och gå sedan vidare till nästa steg.
-
 ![Huvudredigerarfönstret i exempeletikettverktyget](../media/label-tool/main-editor.png)
 
+Följ stegen ovan för att märka minst fem av dina formulär.
+
+### <a name="specify-tag-value-types"></a>Ange taggvärdetyper
+
+Du kan också ange den förväntade datatypen för varje tagg. Öppna snabbmenyn till höger om en tagg och välj en typ på menyn. Med den här funktionen kan identifieringsalgoritmen göra vissa antaganden som förbättrar textidentifieringsnoggrannheten. Det säkerställer också att de identifierade värdena returneras i ett standardiserat format i den slutliga JSON-utdata. 
+
+> [!div class="mx-imgBorder"]
+> ![Val av värdetyp med verktyg för exempeletiketter](../media/whats-new/formre-value-type.png)
+
+Följande värdetyper och variationer stöds för närvarande:
+* `string`
+    * standard, `no-whitespaces`,`alphanumeric`
+* `number`
+    * Standard`currency`
+* `date` 
+    * standard, `dmy` `mdy`, ,`ymd`
+* `time`
+* `integer`
 
 ## <a name="train-a-custom-model"></a>Träna en anpassad modell
 
-Klicka på tågikonen (tågbilen) i den vänstra rutan för att öppna sidan Utbildning. Klicka sedan på **knappen Träna** för att börja träna modellen. När utbildningsprocessen är klar visas följande information:
+Klicka på ikonen Träna i den vänstra rutan för att öppna sidan Utbildning. Klicka sedan på **knappen Träna** för att börja träna modellen. När utbildningsprocessen är klar visas följande information:
 
 * **Modell-ID** - ID för den modell som skapades och tränades. Varje träningsanrop skapar en ny modell med eget ID. Kopiera strängen till en säker plats. Du behöver det om du vill göra förutsägelse samtal via REST API.
 * **Genomsnittlig noggrannhet** - Modellens genomsnittliga noggrannhet. Du kan förbättra modellens noggrannhet genom att märka ytterligare formulär och utbildning igen för att skapa en ny modell. Vi rekommenderar att du börjar med att märka fem formulär och lägga till fler formulär efter behov.
@@ -167,7 +182,7 @@ När utbildningen är klar undersöker du värdet **Genomsnittlig noggrannhet.**
 
 ## <a name="analyze-a-form"></a>Analysera ett formulär
 
-Klicka på ikonen Förutsäga (rektanglar) till vänster för att testa din modell. Ladda upp ett formulärdokument som du inte har använt i utbildningsprocessen. Klicka sedan på knappen **Förutsäga** till höger för att få nyckel-/värdeprognoser för formuläret. Verktyget kommer att använda taggar i markeringsrutor och kommer att rapportera förtroendet för varje tagg.
+Klicka på ikonen Predict (glödlampa) till vänster för att testa din modell. Ladda upp ett formulärdokument som du inte har använt i utbildningsprocessen. Klicka sedan på knappen **Förutsäga** till höger för att få nyckel-/värdeprognoser för formuläret. Verktyget kommer att använda taggar i markeringsrutor och kommer att rapportera förtroendet för varje tagg.
 
 > [!TIP]
 > Du kan också köra Analys API med ett REST-anrop. Mer information om hur du gör detta finns i [Träna med etiketter med Python](./python-labeled-data.md).

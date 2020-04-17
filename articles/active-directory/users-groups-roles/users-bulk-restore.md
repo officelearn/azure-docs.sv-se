@@ -1,11 +1,11 @@
 ---
-title: Massåterställning borttagna användare (förhandsversion) i Azure Active Directory-portalen | Microsoft-dokument
+title: Massåterställning borttagna användare i Azure Active Directory-portalen | Microsoft-dokument
 description: Återställa borttagna användare i grupp i Azure AD-administrationscentret i Azure Active Directory
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 08/15/2019
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d392ae97a8325dd4a56acd807ebfb2b951216eae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f75fe224491c2853f819a45db678e87849dc72d1
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72174256"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532735"
 ---
-# <a name="bulk-restore-deleted-users-preview-in-azure-active-directory"></a>Massåterställning borttagna användare (förhandsversion) i Azure Active Directory
+# <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Massåterställning borttagna användare i Azure Active Directory
 
 Azure Active Directory (Azure AD) stöder massanvändare skapa och ta bort åtgärder, massinbjudan för gäster och stöder nedladdning av listor över användare, grupper och gruppmedlemmar.
 
@@ -36,7 +36,7 @@ Azure Active Directory (Azure AD) stöder massanvändare skapa och ta bort åtg�
 
    ![Välj en lokal CSV-fil där du listar de användare du vill lägga till](./media/users-bulk-restore/upload-button.png)
 
-1. Bläddra till filen under Ladda **upp csv-filen**på sidan **Massåterställning (förhandsgranskning)** . När du markerar filen och klickar på **Skicka**startar valideringen av CSV-filen.
+1. Bläddra till filen under **Ladda upp csv-filen**på sidan **Massåterställning.** När du markerar filen och klickar på **Skicka**startar valideringen av CSV-filen.
 1. När filinnehållet har **validerats visas Filen uppladdad**. Om det finns fel måste du åtgärda dem innan du kan skicka jobbet.
 1. När filen godkänns väljer du **Skicka** för att starta azure-massåtgärden som återställer användarna.
 1. När återställningen är klar visas ett meddelande om att massåtgärden lyckades.
@@ -45,9 +45,9 @@ Om det finns fel kan du hämta och visa resultatfilen på sidan **Massåtgärdsr
 
 ## <a name="check-status"></a>Kontrollera status
 
-Du kan se status för alla väntande massbegäranden på sidan **Massåtgärdsresultat (förhandsversion).**
+Du kan se status för alla väntande massbegäranden på sidan **Massåtgärdsresultat.**
 
-   ![Kontrollera uppladdningsstatus på sidan Resultat för massåtgärder](./media/users-bulk-restore/bulk-center.png)
+[![](media/users-bulk-restore/bulk-center.png "Check status in the Bulk Operations Results page")](media/users-bulk-restore/bulk-center.png#lightbox)
 
 Därefter kan du kontrollera att de användare som du har återställt finns i Azure AD-organisationen antingen i Azure-portalen eller med PowerShell.
 

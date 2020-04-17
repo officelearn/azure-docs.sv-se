@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: d058ff5f9863642f73725db3472c942161447f25
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: fa7e085f723d4f4c411f52e045c9437d5cb293b3
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548441"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459788"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Virtuella Azure-diskkryptering för virtuella Linux-datorer 
 
@@ -105,7 +105,7 @@ För att aktivera Azure Disk Encryption-funktionen måste Linux virtuella datore
   - Om du vill hämta en token för att ansluta till nyckelvalvet måste Linux-virtuella datorn kunna ansluta till en Azure Active Directory-slutpunkt login.microsoftonline.com \[\].
   - Om du vill skriva krypteringsnycklarna till ditt nyckelvalv måste Linux-virtuella datorn kunna ansluta till nyckelvalvets slutpunkt.
   - Linux-datorn måste kunna ansluta till en Azure-lagringsslutpunkt som är värd för Azure-tilläggsdatabasen och ett Azure-lagringskonto som är värd för VHD-filerna.
-  -  Om din säkerhetsprincip begränsar åtkomsten från virtuella Azure-datorer till Internet kan du lösa föregående URI och konfigurera en specifik regel för att tillåta utgående anslutning till IPs. Mer information finns i [Azure Key Vault bakom en brandvägg](../../key-vault/key-vault-access-behind-firewall.md).  
+  -  Om din säkerhetsprincip begränsar åtkomsten från virtuella Azure-datorer till Internet kan du lösa föregående URI och konfigurera en specifik regel för att tillåta utgående anslutning till IPs. Mer information finns i [Azure Key Vault bakom en brandvägg](../../key-vault/general/access-behind-firewall.md).  
 
 ## <a name="encryption-key-storage-requirements"></a>Lagringskrav för krypteringsnyckel  
 

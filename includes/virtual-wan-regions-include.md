@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 757367e2b9773908b81ad35615a23b1b5c67aa3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c822e8af076f74e1bccc46b7a71717d9631de0a1
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80116912"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461848"
 ---
 ### <a name="azure-regions-within-a-geopolitical-region"></a>Azure-regioner inom en geopolitisk region
 
@@ -42,5 +42,5 @@ Plats-till-plats-baserad VPN-anslutning och Virtual WAN-arkitektur är tillgäng
 |Geopolitisk region | Azure-regioner|
 |---|---|
 | U.S. Government-moln | US Gov, Arizona; USA Gov, Iowa; USA Gov, Texas; USA Gov, Virginia; USA DoD, centrala; USA DoD, östra |
-| Kina, östra | Kina, östra, Kina, östra 2|
-| Kina, norra | Kina, norra, Kina, norra 2 |
+| Kina, östra | Kina East2|
+| Kina, norra | Kina North2 |

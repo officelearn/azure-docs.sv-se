@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/22/2020
+ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 16fa33999a38b21fd2016c986dd2db81f7d84051
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 274e85a914ebec31a03f1149bc4467ea142e7255
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383753"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482114"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager-resursprovideråtgärder
 
@@ -2198,6 +2198,10 @@ Azure-tjänst: [Virtuella datorer,](../virtual-machines/index.yml) [skalningsupp
 > | Åtgärd | Microsoft.Compute/locations/logAnalytics/getThrottledRequests/action | Skapa loggar för att visa aggregat av begränsade begäranden grupperade efter ResourceName, OperationName eller tillämpad begränsningsprincip. |
 > |  | **platser/operationer** |  |
 > | Åtgärd | Microsoft.Beräkna/platser/åtgärder/läsa | Hämtar status för en asynkron åtgärd |
+> |  | **platser/privateEndpointConnectionProxyAzureAsyncOperation** |  |
+> | Åtgärd | Microsoft.Compute/locations/privateEndpointConnectionProxyAzureAsyncOperation/read | Hämta status för asynkron privat proxyåtgärd för slutpunktsanslutning |
+> |  | **platser/privateEndpointConnectionProxyOperationResults** |  |
+> | Åtgärd | Microsoft.Compute/locations/privateEndpointConnectionProxyOperationResults/read Microsoft.Compute/locations/privateEndpointConnectionProxyOperationResults/read Microsoft.Compute/locations/privateEndpointConnectionProxyOperationResults/read Microsoft. | Hämta resultatet av den privata proxyåtgärden för slutpunktsanslutning |
 > |  | **platser/utgivare** |  |
 > | Åtgärd | Microsoft.Beräkna/platser/utgivare/läsa | Hämta egenskaperna för en Publisher |
 > |  | **platser/utgivare/artefakttyper/erbjudanden** |  |
@@ -2233,6 +2237,14 @@ Azure-tjänst: [Virtuella datorer,](../virtual-machines/index.yml) [skalningsupp
 > | Åtgärd | Microsoft.Compute/restorePointCollections/restorePoints/write | Skapar en ny återställningspunkt |
 > | Åtgärd | Microsoft.Compute/restorePointCollections/restorePoints/delete | Tar bort återställningspunkten |
 > | Åtgärd | Microsoft.Compute/restorePointCollections/restorePoints/retrieveSasUris/åtgärd | Hämta egenskaperna för en återställningspunkt tillsammans med sas-ar-ar för blob |
+> |  | **sharedVMExtensions** |  |
+> | Åtgärd | Microsoft.Compute/sharedVMExtensions/read Microsoft.Compute/sharedVMExtensions/read Microsoft.Compute/sharedVMExtensions/read Microsoft. | Hämtar egenskaperna för tillägget delad virtuell dator |
+> | Åtgärd | Microsoft.Compute/sharedVMExtensions/write Microsoft.Compute/sharedVMExtensions/write Microsoft.Compute/sharedVMExtensions/write Microsoft. | Skapar ett nytt delat vm-tillägg eller uppdaterar ett befintligt tillägg |
+> | Åtgärd | Microsoft.Compute/sharedVMExtensions/delete | Tar bort tillägget delad virtuell dator |
+> |  | **sharedVMExtensions/versions sharedVMExtensions/versions sharedVMExtensions/versions sharedV** |  |
+> | Åtgärd | Microsoft.Compute/sharedVMExtensions/versions/read Microsoft.Compute/sharedVMExtensions/versions/read Microsoft.Compute/sharedVMExtensions/versions/read Microsoft. | Hämtar egenskaperna för version av tillägget delad virtuell dator |
+> | Åtgärd | Microsoft.Compute/sharedVMExtensions/versions/write | Skapar en ny version av tillägget för delad dator eller uppdaterar en befintlig |
+> | Åtgärd | Microsoft.Compute/sharedVMExtensions/versions/delete | Tar bort den delade vm-tilläggsversionen |
 > |  | **sharedVMImages** |  |
 > | Åtgärd | Microsoft.Compute/sharedVMImages/read Microsoft.Compute/sharedVMImages/read Microsoft.Compute/sharedVMImages/read Microsoft. | Hämta egenskaperna för en SharedVMImage |
 > | Åtgärd | Microsoft.Compute/sharedVMImages/write Microsoft.Compute/sharedVMImages/write Microsoft.Compute/sharedVMImages/write Microsoft. | Skapar en ny SharedVMImage eller uppdaterar en befintlig |
@@ -2250,6 +2262,10 @@ Azure-tjänst: [Virtuella datorer,](../virtual-machines/index.yml) [skalningsupp
 > | Åtgärd | Microsoft.Beräkna/ögonblicksbilder/ta bort | Ta bort en ögonblicksbild |
 > | Åtgärd | Microsoft.Beräkna/ögonblicksbilder/beginGetAccess/åtgärd | Hämta SAS-URI:n för ögonblicksbilden för blob-åtkomst |
 > | Åtgärd | Microsoft.Beräkna/ögonblicksbilder/endGetAccess/åtgärd | Återkalla SAS-URI:n för ögonblicksbilden |
+> |  | **sshPublicKeys (sshPublicKeys)** |  |
+> | Åtgärd | Microsoft.Compute/sshPublicKeys/read Microsoft.Compute/sshPublicKeys/read Microsoft.Compute/sshPublicKeys/read Microsoft. | Hämta egenskaperna för en SSH-offentlig nyckel |
+> | Åtgärd | Microsoft.Compute/sshPublicKeys/write Microsoft.Compute/sshPublicKeys/write Microsoft.Compute/sshPublicKeys/write Microsoft. | Skapar en ny SSH-offentlig nyckel eller uppdaterar en befintlig SSH-offentlig nyckel |
+> | Åtgärd | Microsoft.Compute/sshPublicKeys/delete | Tar bort den offentliga SSH-nyckeln |
 > |  | **virtuellaMaskiner** |  |
 > | Åtgärd | Microsoft.Compute/virtualMachines/read | Hämta egenskaperna för en virtuell dator |
 > | Åtgärd | Microsoft.Compute/virtualMachines/write Microsoft.Compute/virtualMachines/write Microsoft.Compute/virtualMachines/write Microsoft. | Skapar en ny virtuell dator eller uppdaterar en befintlig virtuell dator |
@@ -3934,6 +3950,83 @@ Azure-tjänst: [Azure Cosmos DB](../cosmos-db/index.yml)
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/getBackupPolicy/åtgärd | Hämta principen för säkerhetskopiering av databaskontot |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/restore/action | Skicka en återställningsbegäran |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/backup/action | Skicka en begäran om att konfigurera säkerhetskopiering |
+> |  | **databasKonton/apis/databaser** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/write Microsoft.DocumentDB/databaseAccounts/apis/databases/write Microsoft.DocumentDB/databaseAccounts/apis/databases/write Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Skapa en databas. Endast tillämplig på API-typer: "sql", "mongodb", "gremlin". |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/read Microsoft.DocumentDB/databaseAccounts/apis/databases/read Microsoft.DocumentDB/databaseAccounts/apis/databases/read Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs en databas eller lista alla databaser. Endast tillämplig på API-typer: "sql", "mongodb", "gremlin". |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/delete Microsoft.DocumentDB/databaseAccounts/apis/databases/delete Microsoft.DocumentDB/databaseAccounts/apis/databases/delete Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Ta bort en databas. Endast tillämplig på API-typer: "sql", "mongodb", "gremlin". |
+> |  | **databasKonton/apis/databaser/samlingar** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/write Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/write Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/write Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Skapa eller uppdatera en samling. Gäller endast API-typer: "mongodb". |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/read Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/read Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/read Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs en samling eller lista alla samlingar. Gäller endast API-typer: "mongodb". |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/delete Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/delete Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/delete Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Ta bort en samling. Gäller endast API-typer: "mongodb". |
+> |  | **databasKonton/apis/databaser/samlingar/operationResultat** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/operationResults/read Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/operationResults/read Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/operationResults/read Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs status för den asynkrona åtgärden. Gäller endast API-typer: "mongodb". |
+> |  | **databasKonton/apis/databaser/samlingar/inställningar** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/write Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/write Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/write Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Uppdatera ett samlingsdataflöde. Gäller endast API-typer: "mongodb". Gäller endast för inställningstyper: "dataflöde". |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/read Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/read Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/read Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs ett samlingsdataflöde. Gäller endast API-typer: "mongodb". Gäller endast för inställningstyper: "dataflöde". |
+> |  | **databasKonton/apis/databaser/samlingar/inställningar/operationResultat** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/operationResults/read Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/operationResults/read Microsoft.DocumentDB/databaseAccounts/apis/databases/collections/settings/operationResults/read Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs status för den asynkrona åtgärden. Gäller endast API-typer: "mongodb". Gäller endast för inställningstyper: "dataflöde". |
+> |  | **databasKonton/apis/databaser/behållare** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/write | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Skapa eller uppdatera en behållare. Gäller endast API-typer: 'sql'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/read Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/read Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/read Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs en behållare eller lista alla behållare. Gäller endast API-typer: 'sql'. |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/delete | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Ta bort en behållare. Gäller endast API-typer: 'sql'. |
+> |  | **databasKonton/apis/databaser/behållare/operationResultat** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/operationResults/read Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/operationResults/read Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/operationResults/read Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs status för den asynkrona åtgärden. Gäller endast API-typer: 'sql'. |
+> |  | **databasKonto/apis/databaser/behållare/inställningar** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/write Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/write Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/write Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Uppdatera ett behållardataflöde. Gäller endast API-typer: 'sql'. Gäller endast för inställningstyper: "dataflöde". |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/read Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/read Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/read Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs ett behållardataflöde. Gäller endast API-typer: 'sql'. Gäller endast för inställningstyper: "dataflöde". |
+> |  | **databasKonto/apis/databaser/behållare/inställningar/operationResultat** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/operationResults/read Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/operationResults/read Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings/operationResults/read Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs status för den asynkrona åtgärden. Gäller endast API-typer: 'sql'. Gäller endast för inställningstyper: "dataflöde". |
+> |  | **databasKonton/apis/databaser/grafer** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/write Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/write Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/write Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Skapa eller uppdatera ett diagram. Gäller endast API-typer: "gremlin". |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/read Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/read Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/read Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs ett diagram eller lista alla diagram. Gäller endast API-typer: "gremlin". |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/delete Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/delete Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/delete Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Ta bort ett diagram. Gäller endast API-typer: "gremlin". |
+> |  | **databasKonton/apis/databaser/grafer/operationResultat** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/operationResultat/read | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs status för den asynkrona åtgärden. Gäller endast API-typer: "gremlin". |
+> |  | **databasKonton/apis/databaser/grafer/inställningar** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/write Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/write Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/write Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Uppdatera ett diagramdataflöde. Gäller endast API-typer: "gremlin". Gäller endast för inställningstyper: "dataflöde". |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/read Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/read Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/read Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs ett diagramdataflöde. Gäller endast API-typer: "gremlin". Gäller endast för inställningstyper: "dataflöde". |
+> |  | **databasKonton/apis/databaser/grafer/inställningar/operationResultat** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/operationResults/read Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/operationResults/read Microsoft.DocumentDB/databaseAccounts/apis/databases/graphs/settings/operationResults/read Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs status för den asynkrona åtgärden. Gäller endast API-typer: "gremlin". Gäller endast för inställningstyper: "dataflöde". |
+> |  | **databasKonton/apis/databaser/operationResultat** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/operationResults/read Microsoft.DocumentDB/databaseAccounts/apis/databases/operationResults/read Microsoft.DocumentDB/databaseAccounts/apis/databases/operationResults/read Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs status för den asynkrona åtgärden. Endast tillämplig på API-typer: "sql", "mongodb", "gremlin". |
+> |  | **databasKonton/apis/databaser/inställningar** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/write Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/write Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/write Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Uppdatera ett databasdataflöde. Endast tillämplig på API-typer: "sql", "mongodb", "gremlin". Gäller endast för inställningstyper: "dataflöde". |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/read Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/read Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/read Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs ett databasdataflöde. Endast tillämplig på API-typer: "sql", "mongodb", "gremlin". Gäller endast för inställningstyper: "dataflöde". |
+> |  | **databasKonton/apis/databaser/inställningar/operationResultat** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/operationResults/read Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/operationResults/read Microsoft.DocumentDB/databaseAccounts/apis/databases/settings/operationResults/read Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs status för den asynkrona åtgärden. Endast tillämplig på API-typer: "sql", "mongodb", "gremlin". Gäller endast för inställningstyper: "dataflöde". |
+> |  | **databasKonton/apis/keyspaces** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/write Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/write Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/write Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Skapa ett nyckelområde. Gäller endast API-typer: "cassandra". |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/read Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/read Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/read Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs ett nyckelområde eller lista alla nyckelområden. Gäller endast API-typer: "cassandra". |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/delete Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/delete Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/delete Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Ta bort ett nyckelområde. Gäller endast API-typer: "cassandra". |
+> |  | **databasKonto/apis/keyspaces/operationResultat** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/operationResultat/läs | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs status för den asynkrona åtgärden. Gäller endast API-typer: "cassandra". |
+> |  | **databasKonto/apis/keyspaces/inställningar** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/write Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/write Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/write Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Uppdatera ett nyckelområdesdataflöde. Gäller endast API-typer: "cassandra". Gäller endast för inställningstyper: "dataflöde". |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/read Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/read Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/read Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs ett nyckelområdesdataflöde. Gäller endast API-typer: "cassandra". Gäller endast för inställningstyper: "dataflöde". |
+> |  | **databasKonto/apis/keyspaces/inställningar/operationResultat** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/operationResults/read Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/operationResults/read Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings/operationResults/read Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs status för den asynkrona åtgärden. Gäller endast API-typer: "cassandra". Gäller endast för inställningstyper: "dataflöde". |
+> |  | **databasKonton/apis/keyspaces/tabeller** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/write | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Skapa eller uppdatera en tabell. Gäller endast API-typer: "cassandra". |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/read | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs en tabell eller lista alla tabeller. Gäller endast API-typer: "cassandra". |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/delete | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Ta bort en tabell. Gäller endast API-typer: "cassandra". |
+> |  | **databasKonto/apis/keyspaces/tabeller/operationResultat** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/operationResultat/läs | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs status för den asynkrona åtgärden. Gäller endast API-typer: "cassandra". |
+> |  | **databasKonto/apis/keyspaces/tabeller/inställningar** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/write Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/write Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/write Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Uppdatera ett tabelldataflöde. Gäller endast API-typer: "cassandra". Gäller endast för inställningstyper: "dataflöde". |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/read Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/read Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/read Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs ett tabelldataflöde. Gäller endast API-typer: "cassandra". Gäller endast för inställningstyper: "dataflöde". |
+> |  | **databasKonto/apis/keyspaces/tabeller/inställningar/operationResultat** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/operationResults/read Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/operationResults/read Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings/operationResults/read Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs status för den asynkrona åtgärden. Gäller endast API-typer: "cassandra". Gäller endast för inställningstyper: "dataflöde". |
+> |  | **databasKonton/apis/tabeller** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/tables/write | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Skapa eller uppdatera en tabell. Gäller endast API-typer: "tabell". |
+> | Åtgärd | Microsoft.DocumentDB/databaseKonto/apis/tabeller/läsa | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs en tabell eller lista alla tabeller. Gäller endast API-typer: "tabell". |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/tables/delete Microsoft.DocumentDB/databaseAccounts/apis/tables/delete Microsoft.DocumentDB/databaseAccounts/apis/tables/delete Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Ta bort en tabell. Gäller endast API-typer: "tabell". |
+> |  | **databasKonton/apis/tabeller/operationResultat** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/tables/operationResults/read | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs status för den asynkrona åtgärden. Gäller endast API-typer: "tabell". |
+> |  | **databasKonton/apis/tabeller/inställningar** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/write Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/write Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/write Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Uppdatera ett tabelldataflöde. Gäller endast API-typer: "tabell". Gäller endast för inställningstyper: "dataflöde". |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/read Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/read Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/read Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs ett tabelldataflöde. Gäller endast API-typer: "tabell". Gäller endast för inställningstyper: "dataflöde". |
+> |  | **databasKonto/apis/tabeller/inställningar/operationResultat** |  |
+> | Åtgärd | Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/operationResults/read Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/operationResults/read Microsoft.DocumentDB/databaseAccounts/apis/tables/settings/operationResults/read Microsoft. | (Föråldrad. Använd resurssökvägar utan segmentet /apis/) Läs status för den asynkrona åtgärden. Gäller endast API-typer: "tabell". Gäller endast för inställningstyper: "dataflöde". |
 > |  | **databasKonton/cassandraNyckelområden** |  |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/write | Skapa ett Cassandra-keyspace. |
 > | Åtgärd | Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/read | Läs en Cassandra keyspace eller lista alla Cassandra keyspaces. |
@@ -5532,7 +5625,7 @@ Azure-tjänst: [Machine Learning Service](../machine-learning/index.yml)
 > | Åtgärd | Microsoft.MachineLearningServices/arbetsytor/skrivning | Skapar eller uppdaterar en arbetsyta för Machine Learning Services |
 > | Åtgärd | Microsoft.MachineLearningServices/arbetsytor/borttagning | Tar bort arbetsytan för machine learning services |
 > | Åtgärd | Microsoft.MachineLearningServices/workspaces/listKeys/action | Lista hemligheter för en arbetsyta för machine learning services |
-> | Åtgärd | Microsoft.MachineLearningServices/arbetsytor/PrivateEndpointConnectionsApproval/åtgärd | Godkänna eller avvisa en anslutning till en privat slutpunktsresurs för Microsoft.Network-providern |
+> | Åtgärd | Microsoft.MachineLearningServices/arbetsytor/privateEndpointConnectionsApproval/åtgärd | Godkänna eller avvisa en anslutning till en privat slutpunktsresurs för Microsoft.Network-providern |
 > |  | **arbetsytor/beräkningar** |  |
 > | Åtgärd | Microsoft.MachineLearningServices/workspaces/computes/read Microsoft.MachineLearningServices/workspaces/computes/read Microsoft.MachineLearningServices/workspaces/computes/read Microsoft. | Hämtar beräkningsresurserna i Machine Learning Services Workspace(s) |
 > | Åtgärd | Microsoft.MachineLearningServices/workspaces/computes/write Microsoft.MachineLearningServices/workspaces/computes/write Microsoft.MachineLearningServices/workspaces/computes/write Microsoft. | Skapar eller uppdaterar beräkningsresurserna i Machine Learning Services Workspace(s) |
@@ -5542,10 +5635,90 @@ Azure-tjänst: [Machine Learning Service](../machine-learning/index.yml)
 > | Åtgärd | Microsoft.MachineLearningServices/workspaces/computes/start/action | Starta beräkningsresurs i machine learning services-arbetsytan |
 > | Åtgärd | Microsoft.MachineLearningServices/workspaces/computes/stop/action | Stoppa beräkningsresurs i arbetsytan Machine Learning Services |
 > | Åtgärd | Microsoft.MachineLearningServices/workspaces/computes/restart/action | Starta om beräkningsresurs i arbetsytan Machine Learning Services |
+> |  | **arbetsytor/datadriftdetectors** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/datadriftdetectors/read Microsoft.MachineLearningServices/workspaces/datadriftdetectors/read Microsoft.MachineLearningServices/workspaces/datadriftdetectors/read Microsoft. | Hämtar dataavdriftdetektorer i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/datadriftdetectors/write Microsoft.MachineLearningServices/workspaces/datadriftdetectors/write Microsoft.MachineLearningServices/workspaces/datadriftdetectors/write Microsoft. | Skapar eller uppdaterar dataavdriftdetektorer i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/datadriftdetectors/delete Microsoft.MachineLearningServices/workspaces/datadriftdetectors/delete Microsoft.MachineLearningServices/workspaces/datadriftdetectors/delete Microsoft. | Tar bort dataavdriftdetektorer i Machine Learning Services Workspace(s) |
+> |  | **arbetsytor/datauppsättningar/registrerade** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/dataset/registered/read Microsoft.MachineLearningServices/workspaces/dataset/registered/read Microsoft.MachineLearningServices/workspaces/dataset/registered/read Microsoft. | Hämtar registrerade datauppsättningar i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/dataset/registered/write Microsoft.MachineLearningServices/workspaces/dataset/registered/write Microsoft.MachineLearningServices/workspaces/dataset/registered/write Microsoft. | Skapar eller uppdaterar registrerade datauppsättningar i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/dataset/registered/delete Microsoft.MachineLearningServices/workspaces/dataset/registered/delete Microsoft.MachineLearningServices/workspaces/dataset/registered/delete Microsoft. | Tar bort registrerade datauppsättningar i arbetsytor för Maskininlärningstjänster |
+> |  | **arbetsytor/datauppsättningar/registrerad/förhandsgranskning** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/dataset/registered/preview/read Microsoft.MachineLearningServices/workspaces/dataset/registered/preview/read Microsoft.MachineLearningServices/workspaces/dataset/registered/preview/read Microsoft. | Hämtar förhandsversionen av datauppsättningar för registrerade datauppsättningar i Arbetsytor för Maskininlärningstjänster |
+> |  | **arbetsytor/datauppsättningar/registrerad/profil** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/dataset/registered/profile/read Microsoft.MachineLearningServices/workspaces/dataset/registered/profile/read Microsoft.MachineLearningServices/workspaces/dataset/registered/profile/read Microsoft. | Hämtar datauppsättningsprofiler för registrerade datauppsättningar i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/dataset/registered/profile/write Microsoft.MachineLearningServices/workspaces/dataset/registered/profile/write Microsoft.MachineLearningServices/workspaces/dataset/registered/profile/write Microsoft. | Skapar eller uppdaterar datauppsättningsprofiler för registrerade datauppsättningar i Machine Learning Services Workspace(s) |
+> |  | **arbetsytor/datauppsättningar/registrerat/schema** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/dataset/registered/schema/read Microsoft.MachineLearningServices/workspaces/dataset/registered/schema/read Microsoft.MachineLearningServices/workspaces/dataset/registered/schema/read Microsoft. | Hämtar datauppsättningsschema för registrerade datauppsättningar i Machine Learning Services Workspace(s) |
+> |  | **arbetsytor/datauppsättningar/oregistrerade** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/dataset/unregistered/read Microsoft.MachineLearningServices/workspaces/dataset/unregistered/read Microsoft.MachineLearningServices/workspaces/dataset/unregistered/read Microsoft. | Hämtar oregistrerade datauppsättningar i arbetsytor för maskininlärningstjänster |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/dataset/unregistered/write Microsoft.MachineLearningServices/workspaces/dataset/unregistered/write Microsoft.MachineLearningServices/workspaces/dataset/unregistered/write Microsoft. | Skapar eller uppdaterar oregistrerade datauppsättningar i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/dataset/unregistered/delete Microsoft.MachineLearningServices/workspaces/dataset/unregistered/delete Microsoft.MachineLearningServices/workspaces/dataset/unregistered/delete Microsoft. | Tar bort oregistrerade datauppsättningar i arbetsytor för Maskininlärningstjänster |
+> |  | **arbetsytor/datauppsättningar/oregistrerade/förhandsgranska** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/dataset/unregistered/preview/read Microsoft.MachineLearningServices/workspaces/dataset/unregistered/preview/read Microsoft.MachineLearningServices/workspaces/dataset/unregistered/preview/read Microsoft. | Hämtar förhandsversionen av datauppsättningen för oregistrerade datauppsättningar i Machine Learning Services Workspace(s) |
+> |  | **arbetsytor/datauppsättningar/oregistrerade/profil** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/dataset/unregistered/profile/read Microsoft.MachineLearningServices/workspaces/dataset/unregistered/profile/read Microsoft.MachineLearningServices/workspaces/dataset/unregistered/profile/read Microsoft. | Hämtar datauppsättningsprofiler för oregistrerade datauppsättningar i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/dataset/unregistered/profile/write Microsoft.MachineLearningServices/workspaces/dataset/unregistered/profile/write Microsoft.MachineLearningServices/workspaces/dataset/unregistered/profile/write Microsoft. | Skapar eller uppdaterar datauppsättningsprofiler för oregistrerade datauppsättningar i Machine Learning Services Workspace(s) |
+> |  | **arbetsytor/datauppsättningar/oregistrerade/schema** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/dataset/unregistered/schema/read Microsoft.MachineLearningServices/workspaces/dataset/unregistered/schema/read Microsoft.MachineLearningServices/workspaces/dataset/unregistered/schema/read Microsoft. | Hämtar datauppsättningsschema för oregistrerade datauppsättningar i Machine Learning Services Workspace(s) |
+> |  | **arbetsytor/datalager** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/arbetsytor/datalager/läsa | Hämtar datalager i arbetsytor för maskininlärningstjänster |
+> | Åtgärd | Microsoft.MachineLearningServices/arbetsytor/datalager/skrivning | Skapar eller uppdaterar datalager i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/arbetsytor/datalager/borttagning | Tar bort datalager i arbetsytor för maskininlärningstjänster |
+> |  | **arbetsytor/slutpunkter/pipelines** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/slutpunkter/pipelines/read | Hämtar publicerade pipelines och pipeline-slutpunkter i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/slutpunkter/pipelines/write | Skapar eller uppdaterar publicerade pipelines och pipeline-slutpunkter i Machine Learning Services Workspace(s) |
+> |  | **arbetsytor/miljöer** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/arbetsytor/miljöer/läsa | Hämtar miljöer i Arbetsytor för maskininlärningstjänster |
+> | Åtgärd | Microsoft.MachineLearningServices/arbetsytor/miljöer/readSecrets/åtgärd | Hämtar miljöer med hemligheter i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/arbetsytor/miljöer/skrivning | Skapar eller uppdaterar miljöer i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/environments/build/action | Skapar miljöer i Machine Learning Services Workspace(s) |
 > |  | **arbetsytor/eventGridFilters** |  |
 > | Åtgärd | Microsoft.MachineLearningServices/workspaces/eventGridFilters/read | Hämta ett händelserutnätsfilter för en viss arbetsyta |
-> |  | **arbetsytor/funktioner** |  |
-> | Åtgärd | Microsoft.MachineLearningServices/workspaces/features/read Microsoft.MachineLearningServices/workspaces/features/read Microsoft.MachineLearningServices/workspaces/features/read Microsoft. | Hämtar alla aktiverade funktioner för en arbetsyta för Machine Learning Services |
+> |  | **arbetsytor/experiment** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/arbetsytor/experiment/läsning | Hämtar experiment i arbetsytor för maskininlärningstjänster |
+> | Åtgärd | Microsoft.MachineLearningServices/arbetsytor/experiment/skrivning | Skapar eller uppdaterar experiment i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/arbetsytor/experiment/borttagning | Tar bort experiment i arbetsytor för Maskininlärningstjänster |
+> |  | **arbetsytor/experiment/körningar** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action | Skript körs i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/experiment/runs/read Microsoft.MachineLearningServices/workspaces/experiments/runs/read Microsoft.MachineLearningServices/workspaces/experiments/runs/read Microsoft.Machine | Hämtar körs i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/experiment/runs/write | Skapar eller uppdateringar körs i Machine Learning Services Workspace(s) |
+> |  | **arbetsytor/etikettering** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/arbetsytor/märkning/export/åtgärd | Exportera etiketter för märkning av projekt i Machine Learning Services Workspace(s) |
+> |  | **arbetsytor/etiketter/etiketter** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/arbetsytor/etiketter/etiketter/läsning | Hämtar etiketter för att märka projekt i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/arbetsytor/etiketter/etiketter/skrivning | Skapar etiketter för att märka projekt i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action | Avvisa etiketter för att märka projekt i Machine Learning Services Workspace(s) |
+> |  | **arbetsytor/märkning/projekt** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/labeling/projects/read Microsoft.MachineLearningServices/workspaces/labeling/projects/read Microsoft.MachineLearningServices/workspaces/labeling/projects/read Microsoft. | Hämtar märkningsprojekt i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/labeling/projects/write Microsoft.MachineLearningServices/workspaces/labeling/projects/write Microsoft.MachineLearningServices/workspaces/labeling/projects/write Microsoft. | Skapar eller uppdaterar etikettprojekt i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/labeling/projects/delete Microsoft.MachineLearningServices/workspaces/labeling/projects/delete Microsoft.MachineLearningServices/workspaces/labeling/projects/delete Microsoft. | Tar bort märkningsprojekt i arbetsytor för Machine Learning Services |
+> |  | **arbetsytor/märkning/projekt/sammanfattning** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read Microsoft. | Hämtar en etikettprojektsammanfattning i arbetsytor för Maskininlärningstjänster |
+> |  | **arbetsytor/metadata/artefakter** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/metadata/artefakter/läsa | Hämtar artefakter i machine learning services-arbetsytan |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/metadata/artefakter/skrivning | Skapar eller uppdaterar artefakter i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/metadata/artefakter/borttagning | Tar bort artefakter i machine learning services-arbetsytan |
+> |  | **arbetsytor/metadata/hemligheter** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/metadata/secrets/read | Hämtar hemligheter i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/metadata/secrets/write | Skapar eller uppdaterar hemligheter i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/metadata/secrets/delete | Tar bort hemligheter i arbetsytor för maskininlärningstjänster |
+> |  | **arbetsytor/metadata/ögonblicksbilder** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/metadata/snapshots/read | Hämtar ögonblicksbilder i arbetsytor för Machine Learning Services |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write | Skapar eller uppdaterar ögonblicksbilder i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/metadata/snapshots/delete | Tar bort ögonblicksbilder i arbetsytor för Machine Learning Services |
+> |  | **arbetsytor/modeller** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/models/read Microsoft.MachineLearningServices/workspaces/models/read Microsoft.MachineLearningServices/workspaces/models/read Microsoft. | Hämtar modeller i arbetsytor för maskininlärningstjänster |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/models/write Microsoft.MachineLearningServices/workspaces/models/write Microsoft.MachineLearningServices/workspaces/models/write Microsoft. | Skapar eller uppdaterar modeller i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/models/delete Microsoft.MachineLearningServices/workspaces/models/delete Microsoft.MachineLearningServices/workspaces/models/delete Microsoft. | Tar bort modeller i arbetsytor för Machine Learning Services |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/models/package/action | Paketmodeller i arbetsytor för Machine Learning Services |
+> |  | **arbetsytor/moduler** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/arbetsytor/moduler/läsa | Hämtar moduler i arbetsytor för maskininlärningstjänster |
+> | Åtgärd | Microsoft.MachineLearningServices/arbetsytor/moduler/skrivning | Skapar eller uppdaterar modulen i Machine Learning Services Workspace(s) |
+> |  | **arbetsytor/pipelinedrafts** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/pipelinedrafts/read Microsoft.MachineLearningServices/workspaces/pipelinedrafts/read Microsoft.MachineLearningServices/workspaces/pipelinedrafts/read Microsoft. | Hämtar pipeline-utkast i arbetsytor för Machine Learning Services |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/pipelinedrafts/write Microsoft.MachineLearningServices/workspaces/pipelinedrafts/write Microsoft.MachineLearningServices/workspaces/pipelinedrafts/write Microsoft. | Skapar eller uppdaterar pipeline-utkast i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/pipelinedrafts/delete Microsoft.MachineLearningServices/workspaces/pipelinedrafts/delete Microsoft.MachineLearningServices/workspaces/pipelinedrafts/delete Microsoft. | Tar bort pipeline-utkast i arbetsytor för Machine Learning Services |
 > |  | **arbetsytor/privateEndpointConnectionProxies** |  |
 > | Åtgärd | Microsoft.MachineLearningServices/workspaces/privateEndpointConnectionProxies/read Microsoft.MachineLearningServices/workspaces/privateEndpointConnectionProxies/read Microsoft.MachineLearningServices/workspaces/privateEndpointConnectionProxies/read Microsoft. | Visa tillståndet för en anslutningsproxy till en privat slutpunktsresurs för Microsoft.Network-providern |
 > | Åtgärd | Microsoft.MachineLearningServices/workspaces/privateEndpointConnectionProxies/write Microsoft.MachineLearningServices/workspaces/privateEndpointConnectionProxies/write Microsoft.MachineLearningServices/workspaces/privateEndpointConnectionProxies/write Microsoft. | Ändra tillståndet för en anslutningsproxy till en privat slutpunktsresurs för Microsoft.Network-providern |
@@ -5557,104 +5730,17 @@ Azure-tjänst: [Machine Learning Service](../machine-learning/index.yml)
 > | Åtgärd | Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/delete Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/delete Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/delete Microsoft. | Ta bort en anslutning till en privat slutpunktsresurs för Microsoft.Network-providern |
 > |  | **arbetsytor/privateLinkResources** |  |
 > | Åtgärd | Microsoft.MachineLearningServices/workspaces/privateLinkResources/read Microsoft.MachineLearningServices/workspaces/privateLinkResources/read Microsoft.MachineLearningServices/workspaces/privateLinkResources/read Microsoft. | Hämtar tillgängliga privata länkresurser för den angivna instansen av arbetsytan för Machine Learning Services(s) |
-> |  | **arbetsytor/datadriftdetectors** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/datadriftdetectors/read Microsoft.MachineLearningServices/workspaces/datadriftdetectors/read Microsoft.MachineLearningServices/workspaces/datadriftdetectors/read Microsoft. | Hämtar dataavdriftdetektorer i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/datadriftdetectors/write Microsoft.MachineLearningServices/workspaces/datadriftdetectors/write Microsoft.MachineLearningServices/workspaces/datadriftdetectors/write Microsoft. | Skapar eller uppdaterar dataavdriftdetektorer i Machine Learning Services Workspace(s) |
-> |  | **arbetsytor/datauppsättningar/registrerade** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/dataset/registered/read Microsoft.MachineLearningServices/workspaces/dataset/registered/read Microsoft.MachineLearningServices/workspaces/dataset/registered/read Microsoft. | Hämtar registrerade datauppsättningar i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/dataset/registered/write Microsoft.MachineLearningServices/workspaces/dataset/registered/write Microsoft.MachineLearningServices/workspaces/dataset/registered/write Microsoft. | Skapar eller uppdaterar registrerade datauppsättningar i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/dataset/registered/delete Microsoft.MachineLearningServices/workspaces/dataset/registered/delete Microsoft.MachineLearningServices/workspaces/dataset/registered/delete Microsoft. | Tar bort registrerade datauppsättningar i arbetsytor för Maskininlärningstjänster |
-> |  | **arbetsytor/datauppsättningar/registrerad/förhandsgranskning** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/dataset/registered/preview/read Microsoft.MachineLearningServices/workspaces/dataset/registered/preview/read Microsoft.MachineLearningServices/workspaces/dataset/registered/preview/read Microsoft. | Hämtar förhandsversionen av datauppsättningar för registrerade datauppsättningar i Arbetsytor för Maskininlärningstjänster |
-> |  | **arbetsytor/datauppsättningar/registrerad/profil** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/dataset/registered/profile/read Microsoft.MachineLearningServices/workspaces/dataset/registered/profile/read Microsoft.MachineLearningServices/workspaces/dataset/registered/profile/read Microsoft. | Hämtar datauppsättningsprofiler för registrerade datauppsättningar i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/dataset/registered/profile/write Microsoft.MachineLearningServices/workspaces/dataset/registered/profile/write Microsoft.MachineLearningServices/workspaces/dataset/registered/profile/write Microsoft. | Skapar eller uppdaterar datauppsättningsprofiler för registrerade datauppsättningar i Machine Learning Services Workspace(s) |
-> |  | **arbetsytor/datauppsättningar/registrerat/schema** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/dataset/registered/schema/read Microsoft.MachineLearningServices/workspaces/dataset/registered/schema/read Microsoft.MachineLearningServices/workspaces/dataset/registered/schema/read Microsoft. | Hämtar datauppsättningsschema för registrerade datauppsättningar i Machine Learning Services Workspace(s) |
-> |  | **arbetsytor/datauppsättningar/oregistrerade** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/dataset/unregistered/read Microsoft.MachineLearningServices/workspaces/dataset/unregistered/read Microsoft.MachineLearningServices/workspaces/dataset/unregistered/read Microsoft. | Hämtar oregistrerade datauppsättningar i arbetsytor för maskininlärningstjänster |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/dataset/unregistered/write Microsoft.MachineLearningServices/workspaces/dataset/unregistered/write Microsoft.MachineLearningServices/workspaces/dataset/unregistered/write Microsoft. | Skapar eller uppdaterar oregistrerade datauppsättningar i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/dataset/unregistered/delete Microsoft.MachineLearningServices/workspaces/dataset/unregistered/delete Microsoft.MachineLearningServices/workspaces/dataset/unregistered/delete Microsoft. | Tar bort oregistrerade datauppsättningar i arbetsytor för Maskininlärningstjänster |
-> |  | **arbetsytor/datauppsättningar/oregistrerade/förhandsgranska** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/dataset/unregistered/preview/read Microsoft.MachineLearningServices/workspaces/dataset/unregistered/preview/read Microsoft.MachineLearningServices/workspaces/dataset/unregistered/preview/read Microsoft. | Hämtar förhandsversionen av datauppsättningen för oregistrerade datauppsättningar i Machine Learning Services Workspace(s) |
-> |  | **arbetsytor/datauppsättningar/oregistrerade/profil** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/dataset/unregistered/profile/read Microsoft.MachineLearningServices/workspaces/dataset/unregistered/profile/read Microsoft.MachineLearningServices/workspaces/dataset/unregistered/profile/read Microsoft. | Hämtar datauppsättningsprofiler för oregistrerade datauppsättningar i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/dataset/unregistered/profile/write Microsoft.MachineLearningServices/workspaces/dataset/unregistered/profile/write Microsoft.MachineLearningServices/workspaces/dataset/unregistered/profile/write Microsoft. | Skapar eller uppdaterar datauppsättningsprofiler för oregistrerade datauppsättningar i Machine Learning Services Workspace(s) |
-> |  | **arbetsytor/datauppsättningar/oregistrerade/schema** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/dataset/unregistered/schema/read Microsoft.MachineLearningServices/workspaces/dataset/unregistered/schema/read Microsoft.MachineLearningServices/workspaces/dataset/unregistered/schema/read Microsoft. | Hämtar datauppsättningsschema för oregistrerade datauppsättningar i Machine Learning Services Workspace(s) |
-> |  | **arbetsytor/datalager** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/arbetsytor/datalager/läsa | Hämtar datalager i arbetsytor för maskininlärningstjänster |
-> | DataÅtgärd | Microsoft.MachineLearningServices/arbetsytor/datalager/skrivning | Skapar eller uppdaterar datalager i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/arbetsytor/datalager/borttagning | Tar bort datalager i arbetsytor för maskininlärningstjänster |
-> |  | **arbetsytor/slutpunkter/pipelines** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/slutpunkter/pipelines/read | Hämtar publicerade pipelines och pipeline-slutpunkter i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/slutpunkter/pipelines/write | Skapar eller uppdaterar publicerade pipelines och pipeline-slutpunkter i Machine Learning Services Workspace(s) |
-> |  | **arbetsytor/miljöer** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/arbetsytor/miljöer/läsa | Hämtar miljöer i Arbetsytor för maskininlärningstjänster |
-> | DataÅtgärd | Microsoft.MachineLearningServices/arbetsytor/miljöer/readSecrets/åtgärd | Hämtar miljöer med hemligheter i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/arbetsytor/miljöer/skrivning | Skapar eller uppdaterar miljöer i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/environments/build/action | Skapar miljöer i Machine Learning Services Workspace(s) |
-> |  | **arbetsytor/experiment** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/arbetsytor/experiment/läsning | Hämtar experiment i arbetsytor för maskininlärningstjänster |
-> | DataÅtgärd | Microsoft.MachineLearningServices/arbetsytor/experiment/skrivning | Skapar eller uppdaterar experiment i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/arbetsytor/experiment/borttagning | Tar bort experiment i arbetsytor för Maskininlärningstjänster |
-> |  | **arbetsytor/experiment/körningar** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/experiment/runs/read Microsoft.MachineLearningServices/workspaces/experiments/runs/read Microsoft.MachineLearningServices/workspaces/experiments/runs/read Microsoft.Machine | Hämtar körs i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/experiment/runs/write | Skapar eller uppdateringar körs i Machine Learning Services Workspace(s) |
-> |  | **arbetsytor/experiment/runs/scriptRun** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/experiments/runs/scriptRun/submit/action | Skript körs i Machine Learning Services Workspace(s) |
-> |  | **arbetsytor/etikettering** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/arbetsytor/märkning/export/åtgärd | Exportera etiketter för märkning av projekt i Machine Learning Services Workspace(s) |
-> |  | **arbetsytor/etiketter/etiketter** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/arbetsytor/etiketter/etiketter/läsning | Hämtar etiketter för att märka projekt i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/arbetsytor/etiketter/etiketter/skrivning | Skapar etiketter för att märka projekt i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action | Avvisa etiketter för att märka projekt i Machine Learning Services Workspace(s) |
-> |  | **arbetsytor/märkning/projekt** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/labeling/projects/read Microsoft.MachineLearningServices/workspaces/labeling/projects/read Microsoft.MachineLearningServices/workspaces/labeling/projects/read Microsoft. | Hämtar märkningsprojekt i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/labeling/projects/write Microsoft.MachineLearningServices/workspaces/labeling/projects/write Microsoft.MachineLearningServices/workspaces/labeling/projects/write Microsoft. | Skapar eller uppdaterar etikettprojekt i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/labeling/projects/delete Microsoft.MachineLearningServices/workspaces/labeling/projects/delete Microsoft.MachineLearningServices/workspaces/labeling/projects/delete Microsoft. | Tar bort märkningsprojekt i arbetsytor för Machine Learning Services |
-> |  | **arbetsytor/märkning/projekt/sammanfattning** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read Microsoft. | Hämtar en etikettprojektsammanfattning i arbetsytor för Maskininlärningstjänster |
-> |  | **arbetsytor/metadata/artefakter** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/metadata/artefakter/läsa | Hämtar artefakter i machine learning services-arbetsytan |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/metadata/artefakter/skrivning | Skapar eller uppdaterar artefakter i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/metadata/artefakter/borttagning | Tar bort artefakter i machine learning services-arbetsytan |
-> |  | **arbetsytor/metadata/hemligheter** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/metadata/secrets/read | Hämtar hemligheter i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/metadata/secrets/write | Skapar eller uppdaterar hemligheter i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/metadata/secrets/delete | Tar bort hemligheter i arbetsytor för maskininlärningstjänster |
-> |  | **arbetsytor/metadata/ögonblicksbilder** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/metadata/snapshots/read | Hämtar ögonblicksbilder i arbetsytor för Machine Learning Services |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write | Skapar eller uppdaterar ögonblicksbilder i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/metadata/snapshots/delete | Tar bort ögonblicksbilder i arbetsytor för Machine Learning Services |
-> |  | **arbetsytor/modeller** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/models/read Microsoft.MachineLearningServices/workspaces/models/read Microsoft.MachineLearningServices/workspaces/models/read Microsoft. | Hämtar modeller i arbetsytor för maskininlärningstjänster |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/models/write Microsoft.MachineLearningServices/workspaces/models/write Microsoft.MachineLearningServices/workspaces/models/write Microsoft. | Skapar eller uppdaterar modeller i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/models/delete Microsoft.MachineLearningServices/workspaces/models/delete Microsoft.MachineLearningServices/workspaces/models/delete Microsoft. | Tar bort modeller i arbetsytor för Machine Learning Services |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/models/package/action | Paketmodeller i arbetsytor för Machine Learning Services |
-> |  | **arbetsytor/moduler** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/arbetsytor/moduler/läsa | Hämtar moduler i arbetsytor för maskininlärningstjänster |
-> | DataÅtgärd | Microsoft.MachineLearningServices/arbetsytor/moduler/skrivning | Skapar eller uppdaterar modulen i Machine Learning Services Workspace(s) |
-> |  | **arbetsytor/pipelinedrafts** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/pipelinedrafts/read Microsoft.MachineLearningServices/workspaces/pipelinedrafts/read Microsoft.MachineLearningServices/workspaces/pipelinedrafts/read Microsoft. | Hämtar pipeline-utkast i arbetsytor för Machine Learning Services |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/pipelinedrafts/write Microsoft.MachineLearningServices/workspaces/pipelinedrafts/write Microsoft.MachineLearningServices/workspaces/pipelinedrafts/write Microsoft. | Skapar eller uppdaterar pipeline-utkast i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/pipelinedrafts/delete Microsoft.MachineLearningServices/workspaces/pipelinedrafts/delete Microsoft.MachineLearningServices/workspaces/pipelinedrafts/delete Microsoft. | Tar bort pipeline-utkast i arbetsytor för Machine Learning Services |
 > |  | **arbetsytor/tjänster** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/services/read Microsoft.MachineLearningServices/workspaces/services/read Microsoft.MachineLearningServices/workspaces/services/read Microsoft. | Hämtar tjänster i arbetsytor för maskininlärningstjänster |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/services/read Microsoft.MachineLearningServices/workspaces/services/read Microsoft.MachineLearningServices/workspaces/services/read Microsoft. | Hämtar tjänster i arbetsytor för maskininlärningstjänster |
 > |  | **arbetsytor/tjänster/aci** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/services/aci/write Microsoft.MachineLearningServices/workspaces/services/aci/write Microsoft.MachineLearningServices/workspaces/services/aci/write Microsoft. | Skapar eller uppdaterar ACI-tjänster i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/services/aci/listkeys/action | Visar nycklar för ACI-tjänster i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/services/aci/delete Microsoft.MachineLearningServices/workspaces/services/aci/delete Microsoft.MachineLearningServices/workspaces/services/aci/delete Microsoft. | Tar bort ACI-tjänster i arbetsytor för maskininlärningstjänster |
-> |  | **arbetsytor/tjänster/aks/devtest** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/services/aks/devtest/write | Skapar eller uppdaterar devtest AKS-tjänster i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/services/aks/devtest/listkeys/action | Visar nycklar för devtest AKS-tjänster i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/services/aks/devtest/delete | Tar bort devtest AKS-tjänster i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/services/aks/devtest/score/action | Betyg devtest AKS-tjänster i Machine Learning Services Workspace(s) |
-> |  | **arbetsytor/tjänster/aks/prod** |  |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/services/aks/prod/write Microsoft.MachineLearningServices/workspaces/services/aks/prod/write Microsoft.MachineLearningServices/workspaces/services/aks/prod/write Microsoft. | Skapar eller uppdaterar PROD AKS-tjänster i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/services/aks/prod/listkeys/action | Visar nycklar för PROD AKS-tjänster i Machine Learning Services Workspace(s) |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/services/aks/prod/delete Microsoft.MachineLearningServices/workspaces/services/aks/prod/delete Microsoft.MachineLearningServices/workspaces/services/aks/prod/delete Microsoft. | Tar bort prod AKS-tjänster i machine learning services-arbetsytan |
-> | DataÅtgärd | Microsoft.MachineLearningServices/workspaces/services/aks/prod/score/action | Betyg prod AKS-tjänster i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/services/aci/write Microsoft.MachineLearningServices/workspaces/services/aci/write Microsoft.MachineLearningServices/workspaces/services/aci/write Microsoft. | Skapar eller uppdaterar ACI-tjänster i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/services/aci/listkeys/action | Visar nycklar för ACI-tjänster i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/services/aci/delete Microsoft.MachineLearningServices/workspaces/services/aci/delete Microsoft.MachineLearningServices/workspaces/services/aci/delete Microsoft. | Tar bort ACI-tjänster i arbetsytor för maskininlärningstjänster |
+> |  | **arbetsytor/tjänster/aks** |  |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/services/aks/write Microsoft.MachineLearningServices/workspaces/services/aks/write Microsoft.MachineLearningServices/workspaces/services/aks/write Microsoft. | Skapar eller uppdaterar AKS-tjänster i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/services/aks/listkeys/action | Visar nycklar för AKS-tjänster i Machine Learning Services Workspace(s) |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/services/aks/delete Microsoft.MachineLearningServices/workspaces/services/aks/delete Microsoft.MachineLearningServices/workspaces/services/aks/delete Microsoft. | Tar bort AKS-tjänster i arbetsytor för maskininlärningstjänster |
+> | Åtgärd | Microsoft.MachineLearningServices/workspaces/services/aks/score/action | Poäng AKS-tjänster i arbetsytor för maskininlärningstjänster |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity Microsoft.ManagedIdentity Microsoft.ManagedIdentity Microsoft.
 
@@ -5740,6 +5826,10 @@ Azure-tjänst: [Azure Maps](../azure-maps/index.yml)
 > | Åtgärd | Microsoft.Maps/accounts/eventGridFilters/delete | Ta bort ett händelserutnätsfilter |
 > | Åtgärd | Microsoft.Maps/accounts/eventGridFilters/read | Hämta ett händelserutnätsfilter |
 > | Åtgärd | Microsoft.Maps/accounts/eventGridFilters/write | Skapa eller uppdatera ett filter för händelserutnät |
+> |  | **konton/privataAtlases** |  |
+> | Åtgärd | Microsoft.Maps/accounts/privateAtlases/delete | Ta bort en privat atlas |
+> | Åtgärd | Microsoft.Maps/accounts/privateAtlases/read | Skaffa en privat atlas |
+> | Åtgärd | Microsoft.Maps/accounts/privateAtlases/write | Skapa eller uppdatera en privat atlas |
 > |  | **Verksamhet** |  |
 > | Åtgärd | Microsoft.Kartor/åtgärder/läs | Läs providerverksamheten |
 > |  | **konton/data** |  |
@@ -5998,6 +6088,10 @@ Azure-tjänst: [Azure Spatial Anchors](../spatial-anchors/index.yml)
 > | Åtgärd | Microsoft.MixedReality/spatialAnchorsAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar diagnostikinställningen för Microsoft.MixedReality/spatialAnchorsAccounts |
 > |  | **spatialAnchorsAccounts/providers/Microsoft.Insights/metricDefinitions** |  |
 > | Åtgärd | Microsoft.MixedReality/spatialAnchorsAccounts/providers/Microsoft.Insights/metricDefinitions/read | Hämtar tillgängliga mått för Microsoft.MixedReality/spatialAnchorsAccounts |
+> |  | **ObjektUnderstandingAccounts** |  |
+> | DataÅtgärd | Microsoft.MixedReality/ObjectUnderstandingAccounts/ingest/action | Skapa jobb med inmatning av modell |
+> |  | **ObjektUnderstandingAccounts/ingest** |  |
+> | DataÅtgärd | Microsoft.MixedReality/ObjectUnderstandingAccounts/ingest/read Microsoft.MixedReality/ObjectUnderstandingAccounts/ingest/read Microsoft.MixedReality/ObjectUnderstandingAccounts/ingest/read Microsoft. | Hämta jobbstatus för inmatning av modell |
 > |  | **RemoteRenderingKonton** |  |
 > | DataÅtgärd | Microsoft.MixedReality/RemoteRenderingAccounts/convert/action | Starta konvertering av tillgångar |
 > | DataÅtgärd | Microsoft.MixedReality/RemoteRenderingAccounts/managesessions/action | Starta sessioner |
@@ -6069,6 +6163,10 @@ Azure-tjänst: [Azure NetApp-filer](../azure-netapp-files/index.yml)
 > | Åtgärd | Microsoft.NetApp/netAppAccounts/capacityPools/volymer/säkerhetskopior/läsning | Läser en reservresurs. |
 > | Åtgärd | Microsoft.NetApp/netAppAccounts/capacityPools/volymer/säkerhetskopior/skrivning | Skriver en reservresurs. |
 > | Åtgärd | Microsoft.NetApp/netAppAccounts/capacityPools/volymer/säkerhetskopior/borttagning | Tar bort en reservresurs. |
+> |  | **netAppAccounts/capacityPools/volymer/MountTargets** |  |
+> | Åtgärd | Microsoft.NetApp/netAppAccounts/capacityPools/volymer/MountTargets/read | Läser en monteringsmålresurs. |
+> |  | **netAppAccounts/capacityPools/volymer/Replikeringsstatus** |  |
+> | Åtgärd | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/ReplicationStatus/read | Läser status för volymreplikeringen. |
 > |  | **netAppAccounts/capacityPools/volymer/ögonblicksbilder** |  |
 > | Åtgärd | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/read | Läser en ögonblicksbildresurs. |
 > | Åtgärd | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/write | Skriver en ögonblicksbildresurs. |
@@ -6341,6 +6439,8 @@ Azure-tjänst: [Virtuellt nätverk,](../virtual-network/index.yml) [belastningsu
 > | Åtgärd | Microsoft.Network/loadBalancers/delete | Tar bort en belastningsutjämnare |
 > |  | **loadBalancers/backendAddressPools** |  |
 > | Åtgärd | Microsoft.Network/loadBalancers/backendAddressPools/read | Hämtar en adresspool för bakåtsträvningsadress för belastningsutjämnarhanteraren |
+> | Åtgärd | Microsoft.Network/loadBalancers/backendAddressPools/write | Skapar en anslutningshanterare för belastningsutjämnare eller uppdaterar en befintlig lastutjämnadsadresspool |
+> | Åtgärd | Microsoft.Network/loadBalancers/backendAddressPools/delete | Tar bort en bakåtsträvningsadresspool för belastningsutjämnarstöd |
 > | Åtgärd | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Ansluter till en bakåtsträvningsadresspool för belastningsutjämnare. Inte alert. |
 > |  | **loadBalancers/frontendIPKonfigurationer** |  |
 > | Åtgärd | Microsoft.Network/loadBalancers/frontendIPConfigurations/read Microsoft.Network/loadBalancers/frontendIPConfigurations/read Microsoft.Network/loadBalancers/frontendIPConfigurations/read Microsoft. | Hämtar en ip-konfigurationsdefinition för belastningsutjämnarhanteraren |
@@ -6565,6 +6665,7 @@ Azure-tjänst: [Virtuellt nätverk,](../virtual-network/index.yml) [belastningsu
 > | Åtgärd | Microsoft.Network/privateEndpointRedirectMaps/read | Hämtar en privat endpoint redirectmap |
 > | Åtgärd | Microsoft.Network/privateEndpointRedirectMaps/write | Skapar en privat endpoint-omdirigeringskarta eller uppdaterar en befintlig omdirigeringskarta för en befintlig privat slutpunkt |
 > |  | **privateEndpoints** |  |
+> | Åtgärd | Microsoft.Network/privateEndpoints/pushPropertiesToResource/action | Åtgärd för att skicka privata slutpunktsegenskapsuppdateringar från NRP-klient |
 > | Åtgärd | Microsoft.Network/privateEndpoints/read | Hämtar en privat slutpunktsresurs. |
 > | Åtgärd | Microsoft.Network/privateEndpoints/write | Skapar en ny privat slutpunkt eller uppdaterar en befintlig privat slutpunkt. |
 > | Åtgärd | Microsoft.Network/privateEndpoints/delete | Tar bort en privat slutpunktsresurs. |
@@ -6606,6 +6707,13 @@ Azure-tjänst: [Virtuellt nätverk,](../virtual-network/index.yml) [belastningsu
 > | Åtgärd | Microsoft.Network/routeTables/routes/read | Hämtar en ruttdefinition |
 > | Åtgärd | Microsoft.Network/routeTables/routes/write | Skapar en väg eller Uppdaterar en befintlig väg |
 > | Åtgärd | Microsoft.Network/routeTables/routes/delete | Tar bort en flödesdefinition |
+> |  | **säkerhetPartnerProviders** |  |
+> | Åtgärd | Microsoft.Network/securityPartnerProviders/read | Får en SecurityPartnerProvider |
+> | Åtgärd | Microsoft.Network/securityPartnerProviders/write | Skapar en SecurityPartnerProvider eller uppdaterar en befintlig SecurityPartnerProvider |
+> | Åtgärd | Microsoft.Network/securityPartnerProviders/validate/action | Validerar en SecurityPartnerProvider |
+> | Åtgärd | Microsoft.Network/securityPartnerProviders/updateReferences/action | Uppdatera referenser i en SecurityPartnerProvider |
+> | Åtgärd | Microsoft.Network/securityPartnerProviders/join/action | Ansluter till en SecurityPartnerProvider. Inte alertable. |
+> | Åtgärd | Microsoft.Network/securityPartnerProviders/delete | Tar bort en SecurityPartnerProvider |
 > |  | **serviceEndpointPolicies** |  |
 > | Åtgärd | Microsoft.Network/serviceEndpointPolicies/read | Hämtar en principbeskrivning för tjänstslutpunkt |
 > | Åtgärd | Microsoft.Network/serviceEndpointPolicies/write | Skapar en tjänstslutpunktsprincip eller uppdaterar en befintlig tjänstslutpunktsprincip |
@@ -6678,6 +6786,7 @@ Azure-tjänst: [Virtuellt nätverk,](../virtual-network/index.yml) [belastningsu
 > | Åtgärd | Microsoft.Network/virtualNetworks/read | Hämta definitionen för virtuellt nätverk |
 > | Åtgärd | Microsoft.Network/virtualNetworks/write | Skapar ett virtuellt nätverk eller uppdaterar ett befintligt virtuellt nätverk |
 > | Åtgärd | Microsoft.Network/virtualNetworks/delete | Tar bort ett virtuellt nätverk |
+> | Åtgärd | Microsoft.Network/virtualNetworks/joinLoadBalancer/åtgärd | Ansluter en belastningsutjämnare till virtuella nätverk |
 > | Åtgärd | Microsoft.Network/virtualNetworks/peer/action | Peer ett virtuellt nätverk med ett annat virtuellt nätverk |
 > | Åtgärd | Microsoft.Network/virtualNetworks/join/action | Ansluter till ett virtuellt nätverk. Inte alert. |
 > | Åtgärd | Microsoft.Network/virtualNetworks/BastionHosts/åtgärd | Hämtar bastionvärdreferenser i ett virtuellt nätverk. |
@@ -7225,6 +7334,8 @@ Azure-tjänst: [Azure-övervakare](../azure-monitor/index.yml)
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/AppDependencies/read Microsoft.OperationalInsights/workspaces/query/AppDependencies/read Microsoft.OperationalInsights/workspaces/query/AppDependencies/read Microsoft. | Läsa data från tabellen AppDependencies |
 > |  | **arbetsytor/fråga/AppEvents** |  |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/AppEvents/read Microsoft.OperationalInsights/workspaces/query/AppEvents/read Microsoft.OperationalInsights/workspaces/query/AppEvents/read Microsoft. | Läsa data från tabellen AppEvents |
+> |  | **arbetsytor/fråga/appUttagning** |  |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/AppExceptions/read Microsoft.OperationalInsights/workspaces/query/AppExceptions/read Microsoft.OperationalInsights/workspaces/query/AppExceptions/read Microsoft. | Läsa data från tabellen AppExceptions |
 > |  | **arbetsytor/fråga/ApplicationInights** |  |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/ApplicationInsights/read Microsoft.OperationalInsights/workspaces/query/ApplicationInsights/read Microsoft.OperationalInsights/workspaces/query/ApplicationInsights/read Microsoft. | Läsa data från tabellen ApplicationInsights |
 > |  | **arbetsytor/fråga/AppMetrics** |  |
@@ -7693,6 +7804,18 @@ Azure-tjänst: [Azure-övervakare](../azure-monitor/index.yml)
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/WUDOAggregatedStatus/read Microsoft.OperationalInsights/workspaces/query/WUDOAggregatedStatus/read Microsoft.OperationalInsights/workspaces/query/WUDOAggregatedStatus/read Microsoft. | Läsa data från tabellen WUDOAggregatedStatus |
 > |  | **arbetsytor/fråga/WUDOStatus** |  |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/WUDOStatus/read Microsoft.OperationalInsights/workspaces/query/WUDOStatus/read Microsoft.OperationalInsights/workspaces/query/WUDOStatus/read Microsoft. | Läsa data från tabellen WUDOStatus |
+> |  | **arbetsytor/fråga/WVDCheckpoints** |  |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/WVDCheckpoints/read Microsoft.OperationalInsights/workspaces/query/WVDCheckpoints/read Microsoft.OperationalInsights/workspaces/query/WVDCheckpoints/read Microsoft. | Läsa data från tabellen WVDCheckpoints |
+> |  | **arbetsytor/fråga/WVDAnslutningar** |  |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/WVDConnections/read Microsoft.OperationalInsights/workspaces/query/WVDConnections/read Microsoft.OperationalInsights/workspaces/query/WVDConnections/read Microsoft. | Läsa data från tabellen WVDConnections |
+> |  | **arbetsytor/fråga/WVDErrors** |  |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/WVDErrors/read Microsoft.OperationalInsights/workspaces/query/WVDErrors/read Microsoft.OperationalInsights/workspaces/query/WVDErrors/read Microsoft. | Läsa data från tabellen WVDErrors |
+> |  | **arbetsytor/fråga/WVDFeeds** |  |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/WVDFeeds/read Microsoft.OperationalInsights/workspaces/query/WVDFeeds/read Microsoft.OperationalInsights/workspaces/query/WVDFeeds/read Microsoft. | Läsa data från tabellen WVDFeeds |
+> |  | **arbetsytor/fråga/WVDHostRegistrations** |  |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/WVDHostRegistrations/read Microsoft.OperationalInsights/workspaces/query/WVDHostRegistrations/read Microsoft.OperationalInsights/workspaces/query/WVDHostRegistrations/read Microsoft. | Läsa data från tabellen WVDHostRegistrations |
+> |  | **arbetsytor/fråga/WVDManagement** |  |
+> | Åtgärd | Microsoft.OperationalInsights/workspaces/query/WVDManagement/read Microsoft.OperationalInsights/workspaces/query/WVDManagement/read Microsoft.OperationalInsights/workspaces/query/WVDManagement/read Microsoft. | Läsa data från tabellen WVDManagement |
 > |  | **arbetsytor/regler** |  |
 > | Åtgärd | microsoft.operationalinsights/workspaces/rules/read | Få alla varningsregler. |
 > |  | **arbetsytor/sparaDeSökningar** |  |
@@ -8492,6 +8615,7 @@ Azure-tjänst: [Azure Sentinel](../sentinel/index.yml)
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.SecurityInights/register/åtgärd | Registrerar prenumerationen på Azure Sentinel |
 > | Åtgärd | Microsoft.SecurityInights/avregistrera/åtgärd | Avregistrerar prenumerationen från Azure Sentinel |
+> | Åtgärd | Microsoft.SecurityInights/dataConnectorsCheckRequirements/åtgärd | Kontrollera användarauktorisering och licens |
 > |  | **Sammansättningar** |  |
 > | Åtgärd | Microsoft.SecurityInights/Aggregeringar/läsa | Hämtar aggregerad information |
 > |  | **alertRules** |  |
@@ -8785,7 +8909,7 @@ Azure-tjänst: [Azure-hanterade program](../azure-resource-manager/managed-appli
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
-Azure-tjänst: [Azure SQL Database](../sql-database/index.yml), SQL Data [Warehouse](../synapse-analytics/sql-data-warehouse/index.yml)
+Azure-tjänst: [Azure SQL Database](../sql-database/index.yml), SQL Data [Warehouse](../sql-data-warehouse/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
@@ -9980,21 +10104,21 @@ Azure-tjänst: kärna
 > | Åtgärd | Microsoft.Support/register/action | Registrerar supportresursleverantör |
 > | Åtgärd | Microsoft.Support/checkNameAvailability/åtgärd | Kontrollerar att namnet är giltigt och inte används för resurstyp |
 > |  | **driftresultat** |  |
-> | Åtgärd | Microsoft.Support/operationsresults/read | Hämta operationsresultat |
+> | Åtgärd | Microsoft.Support/operationsresults/read | Får resultatet av den asynkrona åtgärden |
 > |  | **Verksamhet** |  |
-> | Åtgärd | Microsoft.Support/åtgärder/läsa | Visar åtgärder som är tillgängliga på Microsoft.Support-resursprovidern |
+> | Åtgärd | Microsoft.Support/åtgärder/läsa | Visar alla åtgärder som är tillgängliga på Microsoft.Support-resursprovidern |
 > |  | **verksamhetstatus** |  |
-> | Åtgärd | Microsoft.Support/operationsstatus/read | Hämta åtgärdsstatus |
+> | Åtgärd | Microsoft.Support/operationsstatus/read | Hämtar status för den asynkrona åtgärden |
 > |  | **Tjänster** |  |
-> | Åtgärd | Microsoft.Support/tjänster/läsa | Hämtar en lista över Azure-tjänster tillgängliga för support |
+> | Åtgärd | Microsoft.Support/tjänster/läsa | Visar en eller alla Azure-tjänster som är tillgängliga för support |
 > |  | **tjänster/problemKlassificeringar** |  |
-> | Åtgärd | Microsoft.Support/tjänster/problemKlassificeringar/läsa | Hämtar lista över problemklassificering tillgänglig för en Azure-tjänst |
+> | Åtgärd | Microsoft.Support/tjänster/problemKlassificeringar/läsa | Visar en eller alla problemklassificeringar för en Azure-tjänst |
 > |  | **supportBiljetter** |  |
-> | Åtgärd | Microsoft.Support/supportTickets/read | Hämtar lista över supportärenden. |
-> | Åtgärd | Microsoft.Support/supportTickets/write | Skapar supportbiljett asynkront eller uppdaterar den. Du kan skapa en supportbegäran om tekniska problem, fakturering, kvoter eller prenumerationshantering. Du kan uppdatera allvarlighetsgrad och kontaktuppgifter för befintliga supportbiljetter. |
+> | Åtgärd | Microsoft.Support/supportTickets/read | Visar en eller alla supportbiljetter |
+> | Åtgärd | Microsoft.Support/supportTickets/write | Gör det möjligt att skapa och uppdatera en supportbiljett |
 > |  | **supportBiljetter/kommunikation** |  |
-> | Åtgärd | Microsoft.Support/supportTickets/communications/read | Hämtar lista över supportbiljettkommunikation |
-> | Åtgärd | Microsoft.Support/supportTickets/kommunikation/write | Skapar supportbiljettkommunikation |
+> | Åtgärd | Microsoft.Support/supportTickets/communications/read | Visar en eller alla supportbiljettkommunikationer |
+> | Åtgärd | Microsoft.Support/supportTickets/kommunikation/write | Lägger till en ny kommunikation i en supportbiljett |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 

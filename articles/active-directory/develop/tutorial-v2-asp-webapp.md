@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 94d3993c6a0c62a68ea77a888d3351c8fea1d935
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 29f5a48feaaafee64a20745b3cdf09726a6372ac
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80990998"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533845"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Lägga till inloggning i Microsoft i en ASP.NET webbapp
 
@@ -117,7 +117,7 @@ Följande steg används för att skapa en OWIN-middleware-startklass för att ko
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
-        /// Configure OWIN to use OpenIdConnect 
+        /// Configure OWIN to use OpenIdConnect
         /// </summary>
         /// <param name="app"></param>
         public void Configuration(IAppBuilder app)
@@ -208,7 +208,7 @@ Så här skapar du en ny styrenhet för att exponera inloggnings- och ut logga u
                 OpenIdConnectAuthenticationDefaults.AuthenticationType);
         }
     }
-    
+
     /// <summary>
     /// Send an OpenID Connect sign-out request.
     /// </summary>
@@ -291,19 +291,19 @@ Den här kontrollanten demonstrerar hur `[Authorize]`-attributet kan skydda en k
         public ActionResult Index()
         {
             var userClaims = User.Identity as System.Security.Claims.ClaimsIdentity;
-    
+
             //You get the user’s first and last name below:
             ViewBag.Name = userClaims?.FindFirst("name")?.Value;
-    
+
             // The 'preferred_username' claim can be used for showing the username
             ViewBag.Username = userClaims?.FindFirst("preferred_username")?.Value;
-    
+
             // The subject/ NameIdentifier claim can be used to uniquely identify the user across the web
             ViewBag.Subject = userClaims?.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
-    
+
             // TenantId is the unique Tenant Id - which represents an organization in Azure AD
             ViewBag.TenantId = userClaims?.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid")?.Value;
-    
+
             return View();
         }
     }
@@ -311,7 +311,7 @@ Den här kontrollanten demonstrerar hur `[Authorize]`-attributet kan skydda en k
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Mer information
-> På grund av `[Authorize]` attributets användning kan alla metoder för den här styrenheten endast köras om användaren autentiseras. Om användaren inte autentiseras och försöker komma åt styrenheten initierar OWIN en autentiseringsutmaning och tvingar användaren att autentisera. Den föregående koden tittar på listan över anspråk för specifika användarattribut som ingår i användarens ID-token. Dessa attribut är användarens fullständiga namn och användarnamn, samt objektidentifieraren för den globala användaren. Den innehåller också *klientorganisations-ID:t*, som representerar ID:t för användarens organisation. 
+> På grund av `[Authorize]` attributets användning kan alla metoder för den här styrenheten endast köras om användaren autentiseras. Om användaren inte autentiseras och försöker komma åt styrenheten initierar OWIN en autentiseringsutmaning och tvingar användaren att autentisera. Den föregående koden tittar på listan över anspråk för specifika användarattribut som ingår i användarens ID-token. Dessa attribut är användarens fullständiga namn och användarnamn, samt objektidentifieraren för den globala användaren. Den innehåller också *klientorganisations-ID:t*, som representerar ID:t för användarens organisation.
 <!--end-collapse-->
 
 ## <a name="create-a-view-to-display-the-users-claims"></a>Skapa en vy för att visa användarens anspråk

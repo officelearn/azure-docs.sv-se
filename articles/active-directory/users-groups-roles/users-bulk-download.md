@@ -1,11 +1,11 @@
 ---
-title: Hämta en lista över användare (förhandsversion) i Azure Active Directory-portalen | Microsoft-dokument
+title: Hämta en lista över användare i Azure Active Directory-portalen | Microsoft-dokument
 description: Hämta användarposter i grupp i Azure-administrationscentret i Azure Active Directory.
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 02/06/2020
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,20 +13,20 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4716ff9547f64dc6551b4d4adb0a8578da9fa83e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4b35163387ed4ce71f7a2019835a1d9fdbff3051
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77063840"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532667"
 ---
-# <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Hämta en lista över användare (förhandsversion) i Azure Active Directory-portalen
+# <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Hämta en lista över användare i Azure Active Directory-portalen
 
 Azure Active Directory (Azure AD) stöder massimportåtgärder för användare.Azure Active Directory (Azure AD) supports bulk user import (create) operations.
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 
-Om du vill hämta listan över användare från Azure AD-administrationscentret måste du vara inloggad med en användare som tilldelats en eller flera administratörsroller på organisationsnivå i Azure AD. Gäst inbjudna och programutvecklare betraktas inte som administratörsroller.
+Om du vill hämta listan över användare från Azure AD-administrationscentret måste du vara inloggad med en användare som tilldelats en eller flera administratörsroller på organisationsnivå i Azure AD (Användaradministratör är den minsta roll som krävs). Gäst inbjudna och programutvecklare betraktas inte som administratörsroller.
 
 ## <a name="to-download-a-list-of-users"></a>Så här hämtar du en lista över användare
 
@@ -70,9 +70,9 @@ Om du vill hämta listan över användare från Azure AD-administrationscentret 
 
 ## <a name="check-status"></a>Kontrollera status
 
-Du kan se statusen för dina väntande massbegäranden på sidan **Massåtgärdsresultat (förhandsversion).**
+Du kan se statusen för dina väntande massbegäranden på sidan **Massåtgärdsresultat.**
 
-   ![Kontrollera uppladdningsstatus på sidan Resultat för massåtgärder](./media/users-bulk-download/bulk-center.png)
+[![](media/users-bulk-download/bulk-center.png "Check status in the Bulk Operations Results page")](media/users-bulk-download/bulk-center.png#lightbox)
 
 ## <a name="bulk-download-service-limits"></a>Begränsningar för masshämtningstjänsten
 

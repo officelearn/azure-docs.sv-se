@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: b5d46caa80f3f0aaeeb18bd919dafccf628c5faf
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 4559a49a64688545e519f6172798997c2d695672
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81384884"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461843"
 ---
 När du skapar en virtuell Azure-dator (VM) måste du skapa ett [virtuellt nätverk](../articles/virtual-network/virtual-networks-overview.md) (VNet) eller använda ett befintligt VNet. Du måste också bestämma hur dina virtuella datorer är avsedda att användas på VNet. Det är viktigt att [planera innan du skapar resurser](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) och att säkerställa att du förstår [begränsningarna för nätverksresurser](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
@@ -148,24 +148,7 @@ Den här tabellen anger de metoder som du kan använda för att skapa en intern 
 
 ### <a name="virtual-machine-scale-sets"></a>Skalningsuppsättningar för virtuella datorer
 
-När du arbetar med skaluppsättningar för virtuella datorer och belastningsutjämnare bör följande beaktas:
-
-* **Flera skaluppsättningar för virtuella datorer kan inte använda samma belastningsutjämnare**.
-* **Port forwarding och inkommande NAT regler:**
-  * Varje skalauppsättning för virtuell dator måste ha en inkommande NAT-regel.
-  * När du använder den virtuella datorn skala som i serverda poolen av lastbalanseraren standard inkommande NAT regler få skapas automatiskt, detta är avsiktligt.
-* **Regler för belastningsutjämning:**
-  * När du använder den virtuella datorn skala som i serverda poolen av lastbalanseraren standard belastningsutjämning regeln skapas automatiskt, detta är avsiktligt.
-* **Regler för utgående:**
-  *  Om du vill skapa utgående regel för en backend-pool som redan refereras av en belastningsutjämningsregel måste du först markera **"Skapa implicita utgående regler"** som **Nej** i portalen när regeln för utjämning av inkommande belastning skapas.
-
-  :::image type="content" source="./media/virtual-machines-common-network-overview/vmsslb.png" alt-text="Skapa genereringsregel för belastningsutjämning" border="true":::
-
-Följande metoder kan användas för att distribuera en skalningsuppsättning för virtuella datorer med en befintlig Azure-belastningsutjämnare.
-
-* [Konfigurera en skalningsuppsättning för virtuella datorer med en befintlig Azure Load Balancer med Azure-portalen](../articles/load-balancer/configure-vm-scale-set-portal.md).
-* [Konfigurera en skalningsuppsättning för virtuella datorer med en befintlig Azure Load Balancer med Azure PowerShell](../articles/load-balancer/configure-vm-scale-set-powershell.md).
-* [Konfigurera en skalningsuppsättning för virtuella datorer med en befintlig Azure Load Balancer med Azure CLI](../articles/load-balancer/configure-vm-scale-set-cli.md).
+Mer information om belastningsutjämnare och skalningsuppsättningar för virtuella datorer finns i [Nätverk för Azure-skalningsuppsättningar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking).
 
 ## <a name="vms"></a>Virtuella datorer
 

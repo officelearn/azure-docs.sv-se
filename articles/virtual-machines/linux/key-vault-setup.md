@@ -8,16 +8,16 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: mimckitt
-ms.openlocfilehash: 59b11d22f054a98fe176e4393843606bd01cc872
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 9ae486ee522982b116af58cfb7cbfbca66a7ef4a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879487"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458751"
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli"></a>Konfigurera Key Vault för virtuella datorer med Azure CLI
 
-I Azure Resource Manager-stacken modelleras hemligheter/certifikat som resurser som tillhandahålls av Key Vault. Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../../key-vault/key-vault-overview.md) För att Key Vault ska kunna användas med virtuella Azure Resource Manager-datorer måste egenskapen *EnabledForDeployment* i Key Vault anges till true. Den här artikeln visar hur du konfigurerar Key Vault för användning med virtuella Azure-datorer (VMs) med Hjälp av Azure CLI. 
+I Azure Resource Manager-stacken modelleras hemligheter/certifikat som resurser som tillhandahålls av Key Vault. Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../../key-vault/general/overview.md) För att Key Vault ska kunna användas med virtuella Azure Resource Manager-datorer måste egenskapen *EnabledForDeployment* i Key Vault anges till true. Den här artikeln visar hur du konfigurerar Key Vault för användning med virtuella Azure-datorer (VMs) med Hjälp av Azure CLI. 
 
 För att kunna utföra dessa steg behöver du den senaste [Azure CLI](/cli/azure/install-az-cli2) installerad och inloggad på ett Azure-konto med [az-inloggning](/cli/azure/reference-index).
 

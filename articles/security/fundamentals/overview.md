@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: a3b738d95b5b777f1cf0329fb3c1bc3e2860421e
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: a7957c7cbcfa511ea441d8c7bd4371f56ab87560
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80545972"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461692"
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
 ## <a name="overview"></a>Översikt
@@ -295,7 +295,7 @@ Avsnittet innehåller ytterligare information om viktiga funktioner på det här
 Med Azure IaaS kan du använda programvara mot skadlig kod från säkerhetsleverantörer som Microsoft, Symantec, Trend Micro, McAfee och Kaspersky för att skydda dina virtuella datorer från skadliga filer, annonsprogram och andra hot. [Microsoft Antimalware](antimalware.md) för Azure Cloud Services och Virtuella datorer är en skyddskapacitet som hjälper till att identifiera och ta bort virus, spionprogram och annan skadlig programvara. Microsoft Antimalware ger konfigurerbara aviseringar när kända skadliga eller oönskade program försöker installera sig själv eller köras på dina Azure-system. Microsoft Antimalware kan också distribueras med Azure Security Center
 
 ### <a name="hardware-security-module"></a>Säkerhetsmodul för maskinvara
-Kryptering och autentisering förbättrar inte säkerheten om inte själva nycklarna är skyddade. Du kan förenkla hanteringen och säkerheten för dina kritiska hemligheter och nycklar genom att lagra dem i [Azure Key Vault](../../key-vault/key-vault-overview.md). Key Vault ger möjlighet att lagra dina nycklar i maskinvarusäkerhetsmoduler (HSM) certifierade enligt FIPS 140-2 Nivå 2-standarder. Dina SQL Server-krypteringsnycklar för säkerhetskopiering eller [transparent datakryptering](https://msdn.microsoft.com/library/bb934049.aspx) kan alla lagras i Key Vault med nycklar eller hemligheter från dina program. Behörigheter och åtkomst till dessa skyddade objekt hanteras via [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+Kryptering och autentisering förbättrar inte säkerheten om inte själva nycklarna är skyddade. Du kan förenkla hanteringen och säkerheten för dina kritiska hemligheter och nycklar genom att lagra dem i [Azure Key Vault](../../key-vault/general/overview.md). Key Vault ger möjlighet att lagra dina nycklar i maskinvarusäkerhetsmoduler (HSM) certifierade enligt FIPS 140-2 Nivå 2-standarder. Dina SQL Server-krypteringsnycklar för säkerhetskopiering eller [transparent datakryptering](https://msdn.microsoft.com/library/bb934049.aspx) kan alla lagras i Key Vault med nycklar eller hemligheter från dina program. Behörigheter och åtkomst till dessa skyddade objekt hanteras via [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 ### <a name="virtual-machine-backup"></a>Säkerhetskopiering av virtuella datorer
 [Azure Backup](../../backup/backup-overview.md) är en lösning som skyddar dina programdata med noll kapitalinvesteringar och minimala driftskostnader. Programfel kan skada dina data och mänskliga fel kan införa buggar i dina program som kan leda till säkerhetsproblem. Med Azure Backup är dina virtuella datorer som kör Windows och Linux skyddade.

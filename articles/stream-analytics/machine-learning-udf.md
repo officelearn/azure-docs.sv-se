@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: 354b0eae1620c49006b350371aae38f8867c18b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 07fa72f086b676723279ee4b8efd927beb2692f0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80124662"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81481975"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integrera Azure Stream Analytics med Azure Machine Learning (förhandsversion)
 
@@ -31,7 +31,7 @@ Gör följande innan du lägger till en maskininlärningsmodell som en funktion 
 
 3. Kontrollera att webbtjänsten accepterar och returnerar JSON-serialiserade data.
 
-4. Distribuera din modell på [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) för storskaliga produktionsdistributioner. Om webbtjänsten inte kan hantera antalet begäranden som kommer från jobbet försämras resultatet för ditt Stream Analytics-jobb, vilket påverkar svarstiden.
+4. Distribuera din modell på [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) för storskaliga produktionsdistributioner. Om webbtjänsten inte kan hantera antalet begäranden som kommer från jobbet försämras resultatet för ditt Stream Analytics-jobb, vilket påverkar svarstiden. Modeller som distribueras på Azure Container Instances stöds inte idag men blir tillgängliga under de kommande månaderna.
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>Lägga till en maskininlärningsmodell i ditt jobb
 

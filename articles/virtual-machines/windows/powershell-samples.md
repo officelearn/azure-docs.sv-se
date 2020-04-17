@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -15,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f068b79f1b1eaa9a11df70052619c8e3993101cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 434cf3f9342ad10bab39030e65cdd4bc4d0edc27
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74033003"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458870"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure Virtual Machine PowerShell-exempel
 
@@ -47,7 +46,7 @@ I följande tabell finns länkar till PowerShell-skriptexempel som skapar och ha
 | [Kopiera en ögonblicksbild till samma eller en annan prenumeration](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Kopierar ögonblicksbild till samma eller en annan prenumeration som finns i samma region som den överordnade ögonblicksbilden. |
 |**Säkra virtuella datorer**||
 | [Kryptera en virtuell dator och dess datadiskar](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | Skapar ett Azure-nyckelvalv, en krypteringsnyckel och ett tjänsthuvudnamn och krypterar sedan en virtuell dator. |
-|**Övervaka virtuella datorer**||
+|**Övervakning av virtuella datorer**||
 | [Övervaka en virtuell dator med Azure Monitor](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Skapar en virtuell dator, installerar Azure Log Analytics-agenten och registrerar den virtuella datorn på en Log Analytics-arbetsyta.  |
 | [Samla in information om alla virtuella datorer i en prenumeration med PowerShell](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Skapar en csv som innehåller VM-namn, resursgruppnamn, region, virtuellt nätverk, undernät, privat IP-adress, OS-typ och offentlig IP-adress för de virtuella datorerna i den angivna prenumerationen.
 | | |

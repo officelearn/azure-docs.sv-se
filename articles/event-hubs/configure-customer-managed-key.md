@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 43e626355feaf1e51fc840f82506c559a1859b84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f515d3ad832db7f78f98111ab67628a2874033ff
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77621993"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459142"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Konfigurera kundhanterade nycklar för kryptering av Azure Event Hubs-data i vila med hjälp av Azure-portalen
 Azure Event Hubs tillhandahåller kryptering av data i vila med Azure Storage Service Encryption (Azure SSE). Event Hubs förlitar sig på Azure Storage för att lagra data och som standard krypteras alla data som lagras med Azure Storage med Microsoft-hanterade nycklar. 
@@ -26,9 +26,9 @@ Att aktivera BYOK-funktionen är en engångsinställningsprocess på ditt namnom
 > [!NOTE]
 > BYOK-funktionen stöds av [Event Hubs dedikerade](event-hubs-dedicated-overview.md) kluster med en klientorganisation. Det går inte att aktivera för vanliga namnområden för Event Hubs.
 
-Du kan använda Azure Key Vault för att hantera dina nycklar och granska din nyckelanvändning. Du kan antingen skapa egna nycklar och lagra dem i ett nyckelvalv, eller så kan du använda Azure Key Vault API:er för att generera nycklar. Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../key-vault/key-vault-overview.md)
+Du kan använda Azure Key Vault för att hantera dina nycklar och granska din nyckelanvändning. Du kan antingen skapa egna nycklar och lagra dem i ett nyckelvalv, eller så kan du använda Azure Key Vault API:er för att generera nycklar. Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../key-vault/general/overview.md)
 
-Den här artikeln visar hur du konfigurerar ett nyckelvalv med kundhanterade nycklar med hjälp av Azure-portalen. Mer information om hur du skapar ett nyckelvalv med Azure-portalen finns i [Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med Azure-portalen](../key-vault/quick-create-portal.md).
+Den här artikeln visar hur du konfigurerar ett nyckelvalv med kundhanterade nycklar med hjälp av Azure-portalen. Mer information om hur du skapar ett nyckelvalv med Azure-portalen finns i [Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med Azure-portalen](../key-vault/secrets/quick-create-portal.md).
 
 > [!IMPORTANT]
 > Om du använder kundhanterade nycklar med Azure Event Hubs krävs att nyckelvalvet har två obligatoriska egenskaper konfigurerade. De är: **Mjuk Ta bort** och inte **rensa**. Dessa egenskaper är aktiverade som standard när du skapar ett nytt nyckelvalv i Azure-portalen. Om du behöver aktivera dessa egenskaper i ett befintligt nyckelvalv måste du dock använda antingen PowerShell eller Azure CLI.
@@ -44,9 +44,9 @@ Så här aktiverar du kundhanterade nycklar i Azure-portalen:
     ![Aktivera kundhanterad nyckel](./media/configure-customer-managed-key/enable-customer-managed-key.png)
 
 ## <a name="set-up-a-key-vault-with-keys"></a>Konfigurera ett nyckelvalv med nycklar
-När du har aktiverat kundhanterade nycklar måste du associera den hanterade nyckeln för kunden med namnområdet Azure Event Hubs. Event Hubs stöder endast Azure Key Vault. Om du aktiverar alternativet **Kryptering med kundhanterad nyckel** i föregående avsnitt måste du ha nyckeln importerad till Azure Key Vault. Dessutom måste nycklarna ha **Mjuk borttagning** och **Rensa inte** konfigurerad för nyckeln. Dessa inställningar kan konfigureras med [PowerShell](../key-vault/key-vault-soft-delete-powershell.md) eller [CLI](../key-vault/key-vault-soft-delete-cli.md#enabling-purge-protection).
+När du har aktiverat kundhanterade nycklar måste du associera den hanterade nyckeln för kunden med namnområdet Azure Event Hubs. Event Hubs stöder endast Azure Key Vault. Om du aktiverar alternativet **Kryptering med kundhanterad nyckel** i föregående avsnitt måste du ha nyckeln importerad till Azure Key Vault. Dessutom måste nycklarna ha **Mjuk borttagning** och **Rensa inte** konfigurerad för nyckeln. Dessa inställningar kan konfigureras med [PowerShell](../key-vault/general/soft-delete-powershell.md) eller [CLI](../key-vault/general/soft-delete-cli.md#enabling-purge-protection).
 
-1. Om du vill skapa ett nytt nyckelvalv följer du [snabbstarten](../key-vault/key-vault-overview.md)för Azure Key Vault . Mer information om hur du importerar befintliga nycklar finns i [Om nycklar, hemligheter och certifikat](../key-vault/about-keys-secrets-and-certificates.md).
+1. Om du vill skapa ett nytt nyckelvalv följer du [snabbstarten](../key-vault/general/overview.md)för Azure Key Vault . Mer information om hur du importerar befintliga nycklar finns i [Om nycklar, hemligheter och certifikat](../key-vault/about-keys-secrets-and-certificates.md).
 1. Om du vill aktivera både mjukt borttagnings- och rensningsskydd när du skapar ett valv använder du kommandot [az keyvault create.](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)
 
     ```azurecli-interactive
@@ -71,10 +71,10 @@ När du har aktiverat kundhanterade nycklar måste du associera den hanterade ny
 
 
 ## <a name="rotate-your-encryption-keys"></a>Rotera krypteringsnycklarna
-Du kan rotera nyckeln i nyckelvalvet med hjälp av rotationsmekanismen För Azure Key Vaults. Mer information finns i [Konfigurera nyckelrotation och granskning](../key-vault/key-vault-key-rotation-log-monitoring.md). Aktiverings- och utgångsdatum kan också ställas in för att automatisera tangentrotationen. Tjänsten Event Hubs identifierar nya nyckelversioner och börjar använda dem automatiskt.
+Du kan rotera nyckeln i nyckelvalvet med hjälp av rotationsmekanismen För Azure Key Vaults. Mer information finns i [Konfigurera nyckelrotation och granskning](../key-vault/secrets/key-rotation-log-monitoring.md). Aktiverings- och utgångsdatum kan också ställas in för att automatisera tangentrotationen. Tjänsten Event Hubs identifierar nya nyckelversioner och börjar använda dem automatiskt.
 
 ## <a name="revoke-access-to-keys"></a>Återkalla åtkomst till nycklar
-Om du återkallar åtkomst till krypteringsnycklarna rensas inte data från händelsehubbar. Det går dock inte att komma åt data från namnområdet Event Hubs. Du kan återkalla krypteringsnyckeln via åtkomstprincipen eller genom att ta bort nyckeln. Läs mer om åtkomstprinciper och skydda nyckelvalvet från [säker åtkomst till ett nyckelvalv](../key-vault/key-vault-secure-your-key-vault.md).
+Om du återkallar åtkomst till krypteringsnycklarna rensas inte data från händelsehubbar. Det går dock inte att komma åt data från namnområdet Event Hubs. Du kan återkalla krypteringsnyckeln via åtkomstprincipen eller genom att ta bort nyckeln. Läs mer om åtkomstprinciper och skydda nyckelvalvet från [säker åtkomst till ett nyckelvalv](../key-vault/general/secure-your-key-vault.md).
 
 När krypteringsnyckeln har återkallats blir tjänsten Event Hubs på det krypterade namnområdet obrukbar. Om åtkomsten till nyckeln är aktiverad eller borttagningsnyckeln återställs, väljer eventhubbar-tjänsten nyckeln så att du kan komma åt data från det krypterade händelsehubbarnamnområdet.
 
@@ -423,7 +423,7 @@ Följande är de vanligaste felkoderna att leta efter när BYOK-kryptering är a
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:
 - [Översikt över Event Hubs](event-hubs-about.md)
-- [Översikt över Nyckelvalv](../key-vault/key-vault-overview.md)
+- [Översikt över Nyckelvalv](../key-vault/general/overview.md)
 
 
 

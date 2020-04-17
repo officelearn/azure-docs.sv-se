@@ -2,13 +2,13 @@
 title: Frågor om identifierings-, utvärderings- och beroendeanalys i Azure Migrate
 description: Få svar på vanliga frågor om identifiering, utvärdering och beroendeanalys i Azure Migrate.
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 7a63271811053ee2da79f134ac117559e31b0fed
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 700e5318b66cdf4993a17b1dae85fb43f75ab035
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460814"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81529781"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Upptäckt, bedömning och beroendeanalys - Vanliga frågor
 
@@ -19,9 +19,16 @@ Den här artikeln besvarar vanliga frågor om identifiering, utvärdering och be
 - Frågor om [servermigrering](common-questions-server-migration.md)
 - Få svar på frågor i [Azure Migrate-forumet](https://aka.ms/AzureMigrateForum)
 
+
+## <a name="what-geographies-are-supported-for-discovery-and-assessment-with-azure-migrate"></a>Vilka geografiska områden stöds för identifiering och utvärdering med Azure Migrate?
+
+Granska de geografiska områden som stöds för [offentliga](migrate-support-matrix.md#supported-geographies-public-cloud) och [statliga moln](migrate-support-matrix.md#supported-geographies-azure-government).
+
+
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Hur många virtuella datorer kan jag upptäcka med en apparat?
 
 Du kan upptäcka upp till 10 000 virtuella virtuella datorer med VMware, upp till 5 000 virtuella virtuella datorer med hyper-V och upp till 250 fysiska servrar med hjälp av en enda apparat. Om du har fler datorer läser du om [skalning av en Hyper-V-bedömning,](scale-hyper-v-assessment.md) [skalning av en VMware-bedömning](scale-vmware-assessment.md)eller [skalning av en fysisk serverutvärdering](scale-physical-assessment.md).
+
 
 ## <a name="the-size-of-my-vm-changed-can-i-run-an-assessment-again"></a>Storleken på min virtuella dator har ändrats. Kan jag göra en bedömning igen?
 

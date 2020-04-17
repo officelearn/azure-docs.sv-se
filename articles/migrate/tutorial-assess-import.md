@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 2a30222902fd8797908202562a04018209842af2
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 9e6b451901da00243c458c06d51ba19fb64c0fdc
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115062"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81530461"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Bedöma servrar med hjälp av importerade data
 
@@ -32,7 +32,7 @@ Var medveten om dessa punkter:
 - Du kan ladda upp serverinformation till Serverutvärdering flera gånger med hjälp av CSV.
 - Det är användbart att samla in programinformation när du utvärderar den lokala miljön för migrering. Serverutvärdering utför dock för närvarande inte utvärdering på programnivå eller tar hänsyn till program när du skapar en utvärdering.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Konfigurera ett Azure Migrate-projekt.
 > * Fyll i en CSV-fil med serverinformation.
@@ -68,7 +68,7 @@ Så här konfigurerar du ett nytt Azure Migrate-projekt:
 5. I **Migrera projekt** väljer du din Azure-prenumeration och skapar en resursgrupp om du inte har någon.
 6. I **PROJEKTINFORMATION**anger du projektnamnet och geografin där du vill skapa projektet. Mer information:
 
-    - Granska [geografiska områden som stöds](migrate-support-matrix.md#supported-geographies). Projektgeografin används bara för att lagra de metadata som samlas in från lokala virtuella datorer.
+    - Granska de geografiska områden som stöds för [offentliga](migrate-support-matrix.md#supported-geographies-public-cloud) och [statliga moln](migrate-support-matrix.md#supported-geographies-azure-government).
     - Du kan välja vilken målregion du vill när du kör en migrering.
 
     ![Skapa ett Azure Migrate-projekt](./media/tutorial-assess-import/migrate-project.png)

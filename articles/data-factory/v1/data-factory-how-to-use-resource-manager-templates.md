@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 930a3f0cf629c99fc03a84c701bcf7b2807c77c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73498b3537f4cf9313fc9e2464785f63c2af0d5a
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75972865"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460740"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Använda mallar för att skapa Azure Data Factory-entiteter
 > [!NOTE]
@@ -34,7 +34,7 @@ Eftersom organisationen vill distribuera dessa 10 datafabriker flera gånger i o
 ## <a name="templating-with-azure-resource-manager"></a>Vikaler med Azure Resource Manager
 [Azure Resource Manager-mallar](../../azure-resource-manager/templates/overview.md) är ett bra sätt att uppnå templating i Azure Data Factory. Resource Manager-mallar definierar infrastrukturen och konfigurationen av din Azure-lösning via en JSON-fil. Eftersom Azure Resource Manager-mallar fungerar med alla/de flesta Azure-tjänster kan de användas i stor utsträckning för att enkelt hantera alla resurser i dina Azure-resurser. Se [Skapa Azure Resource Manager-mallar](../../azure-resource-manager/templates/template-syntax.md) om du vill veta mer om Resource Manager-mallarna i allmänhet.
 
-## <a name="tutorials"></a>självstudiekurserna
+## <a name="tutorials"></a>Självstudier
 Se följande självstudier för steg-för-steg-instruktioner för att skapa datafabrikentiteter med hjälp av Resource Manager-mallar:
 
 * [Självstudiekurs: Skapa en pipeline för att kopiera data med hjälp av Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -233,7 +233,7 @@ Metodtips för parameterisering finns i [Metodtips för att skapa Azure Resource
 * Inställningarna varierar beroende på miljö (t.ex. utveckling, test och produktion)
 * Hemligheter (t.ex. lösenord)
 
-Om du behöver hämta hemligheter från [Azure Key Vault](../../key-vault/key-vault-overview.md) när du distribuerar Azure Data Factory-entiteter med hjälp av mallar anger du **nyckelvalvet** och **det hemliga namnet** som visas i följande exempel:
+Om du behöver hämta hemligheter från [Azure Key Vault](../../key-vault/general/overview.md) när du distribuerar Azure Data Factory-entiteter med hjälp av mallar anger du **nyckelvalvet** och **det hemliga namnet** som visas i följande exempel:
 
 ```JSON
 "parameters": {

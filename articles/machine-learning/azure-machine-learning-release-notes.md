@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: ce9919a0b0f614e427c12ee3e3fbda0be46470ea
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 9ed17ed0825e0011d1402efc45155755a1ecbadf
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273315"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459176"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
@@ -308,7 +308,7 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig me
     + Den "y_query" togs bort från Dominick's Orange Juice notebook service request avsnitt.
     + Fixade felförebyggande prognoser på de distribuerade modellerna och fungerade på datauppsättningar med datumtidskolumner.
     + Lade till Matthews Korrelationskoefficient som klassificeringsmått, för både binär och multiklassklassificering.
-  + **azureml-contrib-tolka**
+  + **azureml-contrib-interpret**
     + Borttagna text explainers från azureml-contrib-tolka som text förklaring har flyttats till tolka-text repo som kommer att släppas snart.
   + **azureml-core**
     + Datauppsättning: användningar för fildatauppsättning beror inte längre på numpy och pandor som ska installeras i python env.
@@ -721,10 +721,10 @@ Azure Machine Learning är nu en resursleverantör för Event Grid, du kan konfi
       + Genom att ange specifika start_time och/eller end_time returneras endast resultat av schemalagda körningar.
       + Parametern "daily_latest_only" är inaktuell.
     + Stöd för att hämta datauppsättningsbaserade datadriftutdata.
-  + **[azureml-explain-modell](https://docs.microsoft.com/python/api/azureml-explain-model)**
+  + **azureml-explain-modell**
     + Byter namn på AzureML-explain-model-paket till AzureML-tolkning, vilket behåller det gamla paketet för bakåtkompatibilitet för tillfället.
     + fast AutoML bugg med råa förklaringar inställd på klassificering uppgift i stället för regression som standard vid nedladdning från ExplanationClient.
-    + Lägg till stöd för [ScoringExplainer](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer?view=azure-ml-py) som ska skapas direkt med [MimicWrapper](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic_wrapper.mimicwrapper)
+    + Lägg till stöd för [ScoringExplainer](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer?view=azure-ml-py) som ska skapas direkt med MimicWrapper
   + **[azureml-pipeline-core](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
     + Förbättrad prestanda för stora Pipeline-skapande.
   + **[azureml-train-core](https://docs.microsoft.com/python/api/azureml-train-core)**
@@ -798,7 +798,7 @@ Fliken Experiment i den [nya arbetsytan](https://ml.azure.com) har uppdaterats s
     + Lade till ytterligare fält för vm-storlek (OS-disk, antal GPU:er) i funktionen [supported_vmsizes()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#supported-vmsizes-workspace--location-none-)
     + Lade till ytterligare fält i funktionen [list_nodes()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#list-nodes--) för att visa körningen, den privata och den offentliga IP-adressen, porten etc.
     + Möjlighet att ange ett nytt fält under [klusteretablering](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remote-login-port-public-access--notspecified--) `--remotelogin_port_public_access` som kan ställas in på aktiverad eller inaktiverad beroende på om du vill lämna SSH-porten öppen eller stängd när klustret skapas. Om du inte anger det öppnas eller stänger tjänsten porten på ett smart sätt beroende på om du distribuerar klustret i ett virtuella nätverk.
-  + **[azureml-explain-modell](https://docs.microsoft.com/python/api/azureml-explain-model)**
+  + **azureml-explain-modell**
     + Förbättrad dokumentation för förklaringsutdata i klassificeringsscenariot.
     + Lade till möjligheten att ladda upp de förväntade y-värdena på förklaringen till utvärderingsexexemplen. Låser upp mer användbara visualiseringar.
     + Lade till förklaringsegenskapen i MimicWrapper för att kunna hämta underliggande MimicExplainer.

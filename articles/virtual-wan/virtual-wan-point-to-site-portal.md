@@ -5,20 +5,20 @@ services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 03/18/2020
+ms.date: 04/16/2020
 ms.author: alzam
-ms.openlocfilehash: fd415e1da00f52a9a3b55c946a07a30cf841cf4a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 11007bc39cb1112799c89afaf0ca670aa6760de6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80060297"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482135"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Självstudiekurs: Skapa en VPN-anslutning för användare med Azure Virtual WAN
 
 I den här självstudien förklarar vi hur du använder Virtual WAN för att ansluta till dina resurser i Azure via en IPsec/IKE-anslutning (IKEv2) eller en OpenVPN VPN-anslutning. Den här typen av anslutning kräver att en klient konfigureras på klientdatorn. Mer information om Virtuellt WAN finns i virtual [WAN-översikten](virtual-wan-about.md)
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa WAN (Wide Area Network)
@@ -110,6 +110,32 @@ En P2S-konfiguration definierar parametrarna för att ansluta fjärrklienter.
 4. Markera kryssrutan **Inkludera punkt-till-plats-gateway** och välj den **gateway-skalningsenhet** som du vill använda.
 
    ![ny webbplats](media/virtual-wan-point-to-site-portal/p2s2.jpg)
+
+Tabellen nedan visar information om tillgängliga **skalenheter**
+
+| **Skalenhet** | **Dataflöde** | **P2S-anslutningar** |
+| --- | --- | --- |
+| 1| 500 Mbps | 500 |
+| 2| 1 Gbit/s | 500 |
+| 3| 1,5 Gbit/s | 500 |
+| 4| 2 Gbit/s | 1000 |
+| 5| 2,5 Gbit/s | 1000 |
+| 6| 3 Gbit/s | 1000 |
+| 7| 3,5 Gbit/s | 5000 |
+| 8| 4 Gbit/s | 5000 |
+| 9| 4,5 Gbit/s | 5000 |
+| 10| 5 Gbit/s | 5000 |
+| 11| 5,5 Gbit/s | 5000 |
+| 12| 6 Gbit/s | 5000 |
+| 13| 6,5 Gbit/s | 10000 |
+| 14| 7 Gbit/s | 10000 |
+| 15| 7,5 Gbit/s | 10000 |
+| 16| 8 Gbit/s | 10000 |
+| 17| 8,5 Gbit/s | 10000 |
+| 18| 9 Gbit/s | 10000 |
+| 19| 9,5 Gbit/s | 10000 |
+| 20| 10 Gbit/s | 10000 |
+
 5. Ange **den adresspool** som VPN-klienterna ska tilldelas IP-adresser från.
 6. Klicka på **Bekräfta**
 7. Åtgärden kan ta upp till 30 minuter att slutföra.

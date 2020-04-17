@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6919849d28573ad7388a7f2e317d2b8433f35559
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5b7a060aa2313902e4644fdd15068e06816e3f58
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399457"
+ms.locfileid: "81529900"
 ---
 # <a name="what-is-form-recognizer"></a>Vad är formigenkänning?
 
@@ -92,7 +92,7 @@ Utforska [rest API-referensdokumentationen](https://westus2.dev.cognitive.micros
 
 Inmatningskraven för inleveransmodellen är något annorlunda.
 
-* Formatet måste vara JPEG, PNG, BMP, PDF (text eller skannad) eller TIFF.
+* Formatet måste vara JPEG, PNG, PDF (text eller skannad) eller TIFF.
 * Filstorleken måste vara mindre än 20 MB.
 * Bilddimensionerna måste vara mellan 50 x 50 pixlar och 1 0000 x 1 0000 pixlar.
 * PDF-måtten måste vara högst 17 x 17 tum, vilket motsvarar pappersstorlekar för juridiska eller A3 och mindre.

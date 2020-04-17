@@ -4,18 +4,18 @@ description: Lär dig mer om kryptering i resten av ditt Azure-behållarregister
 ms.topic: article
 ms.date: 03/10/2020
 ms.custom: ''
-ms.openlocfilehash: fe0736f83db2ba5b872d50bcf1262ca423de9f09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2d5561998cf0b19698c8059a861a4014a171a7e7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79498948"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461760"
 ---
 # <a name="encryption-using-customer-managed-keys"></a>Kryptering med kundhanterade nycklar
 
 När du lagrar avbildningar och andra artefakter i ett Azure-behållarregister krypterar Azure automatiskt registerinnehållet i vila med [tjänsthanterade nycklar](../security/fundamentals/encryption-atrest.md#data-encryption-models). Du kan komplettera standardkryptering med ett extra krypteringslager med en nyckel som du skapar och hanterar i Azure Key Vault. I den här artikeln får du hjälp med stegen med Azure CLI och Azure-portalen.
 
-Kryptering på serversidan med kundhanterade nycklar stöds genom integrering med [Azure Key Vault](../key-vault/key-vault-overview.md). Du kan skapa dina egna krypteringsnycklar och lagra dem i ett nyckelvalv, eller så kan du använda Azure Key Vault API:er för att generera krypteringsnycklar. Med Azure Key Vault kan du också granska nyckelanvändning.
+Kryptering på serversidan med kundhanterade nycklar stöds genom integrering med [Azure Key Vault](../key-vault/general/overview.md). Du kan skapa dina egna krypteringsnycklar och lagra dem i ett nyckelvalv, eller så kan du använda Azure Key Vault API:er för att generera krypteringsnycklar. Med Azure Key Vault kan du också granska nyckelanvändning.
 
 Den här funktionen **Premium** är tillgänglig på premium-behållarregistertjänstnivån. Information om registertjänstnivåer och -begränsningar finns i [Azure Container Registry SKU: er](container-registry-skus.md).
 
@@ -176,7 +176,7 @@ Anteckna **resursnamnet** för den hanterade identiteten. Du behöver det här n
 
 ### <a name="create-a-key-vault"></a>Skapa ett nyckelvalv
 
-Steg för att skapa ett nyckelvalv finns i [Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med Azure-portalen](../key-vault/quick-create-portal.md).
+Steg för att skapa ett nyckelvalv finns i [Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med Azure-portalen](../key-vault/secrets/quick-create-portal.md).
 
 När du skapar ett nyckelvalv för en kundhanterad nyckel måste du på fliken **Grunderna** aktivera följande skyddsinställningar: **Mjukt borttagnings-** och **rensningsskydd**. De här inställningarna förhindrar dataförlust som orsakas av oavsiktliga borttagningar av nyckel eller nyckelvalv.
 
@@ -392,7 +392,7 @@ Om du återkallar nyckeln blockeras åtkomsten till alla registerdata effektivt,
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om [kryptering i vila i Azure](../security/fundamentals/encryption-atrest.md).
-* Läs mer om åtkomstprinciper och hur du [skyddar åtkomsten till ett nyckelvalv](../key-vault/key-vault-secure-your-key-vault.md).
+* Läs mer om åtkomstprinciper och hur du [skyddar åtkomsten till ett nyckelvalv](../key-vault/general/secure-your-key-vault.md).
 * Om du vill ge feedback om kundhanterade nycklar för Azure Container Registry besöker du [ACR GitHub-webbplatsen](https://aka.ms/acr/issues).
 
 

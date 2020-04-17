@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 0ce813e91750db3cdfa1e651a68fbb82d593eb32
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0e7c34e42d0ab68a5dab9718075f02a85322ce6c
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77650578"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458836"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Exchange AS2-meddelanden för B2B-företagsintegrering i Azure Logic Apps med Enterprise Integration Pack
 
@@ -61,7 +61,7 @@ Den här artikeln visar hur du lägger till AS2-kodnings- och avkodningsåtgärd
 
 * Innan du kan använda AS2-kopplingen måste du skapa ett [AS2-avtal](../logic-apps/logic-apps-enterprise-integration-agreements.md) mellan dina handelspartner och lagra avtalet i ditt integrationskonto.
 
-* Om du använder [Azure Key Vault](../key-vault/key-vault-overview.md) för certifikathantering kontrollerar du att dina valvnycklar tillåter åtgärderna **Kryptera** och **dekryptera.** Annars misslyckas kodnings- och avkodningsåtgärderna.
+* Om du använder [Azure Key Vault](../key-vault/general/overview.md) för certifikathantering kontrollerar du att dina valvnycklar tillåter åtgärderna **Kryptera** och **dekryptera.** Annars misslyckas kodnings- och avkodningsåtgärderna.
 
   I Azure-portalen går du till nyckeln i nyckelvalvet, granskar nyckelns **tillåtna åtgärder**och bekräftar att **åtgärderna Kryptera** och **dekryptera** har valts, till exempel:
 

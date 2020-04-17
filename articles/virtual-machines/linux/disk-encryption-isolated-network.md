@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: aa0dc204a017e2d40eb3952a9ede0755127f8de2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2b84427b9aad2d18368d808fc618f3bfbe774ec
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970664"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460128"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>Azure Disk-kryptering i ett isolerat nätverk
 
@@ -43,7 +43,7 @@ Alla nätverkssäkerhetsgruppinställningar som tillämpas måste fortfarande g�
 
 Om du använder [Azure Disk Encryption med Azure AD (tidigare version)](disk-encryption-overview-aad.md)måste Azure Active [Directory-biblioteket](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) installeras manuellt för alla distributioner (utöver de paket som är lämpliga för distributionerna, enligt [beskrivningen ovan](#package-management)).
 
-När kryptering aktiveras med [Azure AD-autentiseringsuppgifter](disk-encryption-linux-aad.md)måste måldatorn tillåta anslutning till både Azure Active Directory-slutpunkter och Key Vault-slutpunkter. Aktuella slutpunkter för Azure Active Directory-autentisering finns i avsnitten 56 och 59 i dokumentationen för [Office 365-URL:er och IP-adressintervall.](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) Key Vault-instruktioner finns i dokumentationen om hur du [kommer åt Azure Key Vault bakom en brandvägg](../../key-vault/key-vault-access-behind-firewall.md).
+När kryptering aktiveras med [Azure AD-autentiseringsuppgifter](disk-encryption-linux-aad.md)måste måldatorn tillåta anslutning till både Azure Active Directory-slutpunkter och Key Vault-slutpunkter. Aktuella slutpunkter för Azure Active Directory-autentisering finns i avsnitten 56 och 59 i dokumentationen för [Office 365-URL:er och IP-adressintervall.](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) Key Vault-instruktioner finns i dokumentationen om hur du [kommer åt Azure Key Vault bakom en brandvägg](../../key-vault/general/access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Azure-instansmetadatatjänst 
 

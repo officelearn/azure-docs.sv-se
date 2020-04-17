@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7d8d1505a268976161636abd0ed2d24398978284
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4186a4ed369eb289360b74c0758e5ce3f7eca929
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75374324"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482163"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Vad är SQL Server på Azure Virtual Machines? (Windows)
 
@@ -38,6 +38,9 @@ Virtuella Azure-datorer med SQL Server kan använda [automatisk korrigering](vir
 ## <a name="automated-backups"></a>Automatiserade säkerhetskopieringar
 
 Virtuella Azure-datorer med SQL Server kan dra nytta av [automatisk säkerhetskopiering](virtual-machines-windows-sql-automated-backup-v2.md), som regelbundet skapar säkerhetskopior av databasen till Blob Storage. Du kan också använda den här tekniken manuellt. Mer information finns i [Använda Azure Storage för säkerhetskopiering och återställning av SQL Server](virtual-machines-windows-use-storage-sql-server-backup-restore.md).
+
+Azure erbjuder också en säkerhetskopieringslösning i företagsklass för SQL Server som körs i virtuella Azure-datorer. En fullständigt hanterad säkerhetskopieringslösning, den stöder alltid på tillgänglighetsgrupper, långsiktig kvarhållning, point-in-time-återställning och central hantering och övervakning. Mer information finns i [Azure Backup för SQL Server i Azure VM](https://docs.microsoft.com/azure/backup/backup-azure-sql-database).
+  
 
 ## <a name="high-availability"></a>Hög tillgänglighet
 
@@ -135,7 +138,7 @@ CEIP (Customer Experience Improvement Program) är aktiverat som standard. Det s
 ### <a name="windows-virtual-machines"></a>Virtuella Windows-datorer
 * [Översikt över virtuella datorer](../overview.md)
 
-### <a name="storage"></a>Lagring
+### <a name="storage"></a>Storage
 * [Introduktion till Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
 ### <a name="networking"></a>Nätverk

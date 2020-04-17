@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.openlocfilehash: 2ae389be25cd8633a53a49cf000796c1510733a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1d941fbf86d453a56a5157ed988a32173c614fc
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76965169"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461539"
 ---
 # <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>Scenario: Azure HDInsight-kluster med diskkryptering förlorar Key Vault-åtkomst
 
@@ -32,7 +32,7 @@ Navigera till Apache Ambari UI för att hitta mer information om aviseringen fr�
 
 ### <a name="kvaad-outage"></a>Strömavbrott för KV/AAD
 
-Titta på [tillgänglighet och redundanssida](../../key-vault/key-vault-disaster-recovery-guidance.md) för Azure Key Vault och azure-status för mer informationhttps://status.azure.com/
+Titta på [tillgänglighet och redundanssida](../../key-vault/general/disaster-recovery-guidance.md) för Azure Key Vault och azure-status för mer informationhttps://status.azure.com/
 
 ### <a name="kv-accidental-deletion"></a>KV oavsiktlig radering
 

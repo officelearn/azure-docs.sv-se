@@ -6,12 +6,12 @@ ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.topic: sample
 ms.date: 03/08/2017
 ms.custom: mvc
-ms.openlocfilehash: f32db2a4dda0ceb69644b64a5c76155b448c5a28
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f289bd453f2387282402394c807fe9700151f221
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74687031"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532433"
 ---
 # <a name="powershell-samples-for-azure-app-service"></a>PowerShell-exempel för Azure App Service
 
@@ -27,8 +27,8 @@ Följande tabell innehåller länkar till PowerShell-skript som skapats med Azur
 | [Skapa en app och distribuera kod till en mellanlagringsmiljö](./scripts/powershell-deploy-staging-environment.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapar en App Service-app med ett distributionsfack för att mellanlagra kodändringar. |
 |**Konfigurera app**||
 | [Mappa en anpassad domän till en app](./scripts/powershell-configure-custom-domain.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar en App Service-app och mappar ett anpassat domännamn till den. |
-| [Binda ett anpassat SSL-certifikat till en app](./scripts/powershell-configure-ssl-certificate.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar en App Service-app och binder SSL-certifikatet för ett anpassat domännamn till den. |
-|**Skala app**||
+| [Binda ett anpassat TLS/SSL-certifikat till en app](./scripts/powershell-configure-ssl-certificate.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar en App Service-app och binder TLS/SSL-certifikatet för ett anpassat domännamn till den. |
+|**Skalningsapp**||
 | [Skala en app manuellt](./scripts/powershell-scale-manual.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapar en App Service-app och skalar den över 2 instanser. |
 | [Skala en app globalt med en arkitektur för hög tillgänglighet](./scripts/powershell-scale-high-availability.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapar två App Service-appar i två olika geografiska regioner och gör dem tillgängliga via en enskild slutpunkt med Azure Traffic Manager. |
 |**Anslut app till resurser**||

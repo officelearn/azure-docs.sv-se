@@ -8,14 +8,14 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 000659793707c860de881f150e6ce07e4506c602
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3d533080af373ca209a9b393d02d1606d7cb22d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064961"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461743"
 ---
-# <a name="open-a-support-ticket-for-azure-data-box"></a>Öppna en supportbiljett för Azure Data Box 
+# <a name="open-a-support-ticket-for-azure-data-box"></a>Öppna en supportbiljett för Azure Data Box
 
 Den här artikeln gäller Azure Data Box, Azure Data Box Heavy och Azure Data Box Disk, som alla hanteras av Azure Data Box-tjänsten. Om du stöter på problem med din Azure Data Box-tjänst kan du skapa en tjänstbegäran för teknisk support. I den här artikeln går du igenom:
 
@@ -27,11 +27,11 @@ Den här artikeln gäller Azure Data Box, Azure Data Box Heavy och Azure Data Bo
 Gör följande för att skapa en supportbegäran:
 
 1. Gå till din databox eller databoxdiskordning. Navigera till **avsnittet SUPPORT + FELSÖKNING** och klicka sedan på Ny **supportbegäran**.
-     
+
     ![Ny supportbegäran](./media/data-box-disk-contact-microsoft-support/data-box-disk-support-request.png)
-   
+
 2. I **Ny supportbegäran**väljer du **Grunderna**. Gör följande i **Basics:**
-    
+
     1. Välj **Issue type** **Teknisk**.
     2. Välj din **prenumeration**.
     3. Under **Service**kontrollerar du **Alla tjänster**. Välj **Dataruta**i listrutan . 
@@ -41,7 +41,7 @@ Gör följande för att skapa en supportbegäran:
         ![Grundläggande inställningar](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
 
 3. I **Ny supportbegäran**väljer du **Steg 2-problem**. Gör följande i **Problem:**
-    
+
     1. Välj **allvarlighetsgrad** som **C - Minimal påverkan**. Supporten uppdateras om det behövs.
     2. Välj **typen Problem** i listrutan.
     3. Välj en motsvarande **kategori**baserat på den problemtyp du valt .
@@ -58,7 +58,7 @@ Gör följande för att skapa en supportbegäran:
    1. I **kontaktalternativen**anger du önskad kontaktmetod (telefon eller e-post) och språket. Svarstiden väljs automatiskt baserat på din prenumerationsplan.
    2. Ange ditt namn, e-post, valfri kontakt, land/region i **kontaktinformationen.** Välj **Spara kontaktändringar för framtida supportbegäranden**.
    3. Klicka på **Skapa**.
-   
+
        ![Kontaktinformation](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
 
       Microsoft Support använder den här informationen för att nå ut till dig för ytterligare information, diagnos och lösning.
@@ -72,15 +72,14 @@ När du har skapat ett supportärende kan du hantera ärendets livscykel på por
 
 1. Om du vill komma till hjälp- och supportsidan navigerar du till **Bläddra > hjälp + support**.
 
-    ![Hantera supportförfrågningar](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket1.png)   
+    ![Hantera supportförfrågningar](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket1.png)
 
 2. En tabelllista över **Senaste supportbegäranden** visas i **hjälp + support**.
 
-    ![Hantera supportförfrågningar](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket2.png) 
+    ![Hantera supportförfrågningar](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket2.png)
 
 3. Markera och klicka på en supportbegäran. Du kan visa status och information för den här begäran. Klicka på **+ Nytt meddelande** om du vill följa upp den här begäran.
 
-   
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig hur du [felsöker problem relaterade till Data Box Disk](data-box-disk-troubleshoot.md).

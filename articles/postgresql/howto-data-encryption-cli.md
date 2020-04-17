@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: c778130a95be1aa0afe81241130b7daf165360c4
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: fcdd7c13c9e0a5f9e858309bea50bb0264b7b301
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80522139"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460689"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Datakryptering för Azure Database för PostgreSQL Single server med hjälp av Azure CLI
 
@@ -33,13 +33,13 @@ Lär dig hur du använder Azure CLI för att konfigurera och hantera datakrypter
     ```
 
 * För att kunna använda ett befintligt nyckelvalv måste det ha följande egenskaper som ska användas som kundhanterad nyckel:
-  * [Mjuk borttagning](../key-vault/key-vault-ovw-soft-delete.md)
+  * [Mjuk borttagning](../key-vault/general/overview-soft-delete.md)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
-  * [Rensa skyddad](../key-vault/key-vault-ovw-soft-delete.md#purge-protection)
+  * [Rensa skyddad](../key-vault/general/overview-soft-delete.md#purge-protection)
 
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: a4d7030f7a58a6252c6e596fc2c248163694a1e8
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 0fb80b8a3fe9dd642b1574b35ff48b30272ce848
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80880881"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533725"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Självstudiekurs: Skapa en multitenant daemon som använder slutpunkten för Microsoft-identitetsplattform
 
@@ -30,7 +30,7 @@ I den här självstudien får du lära dig hur du använder Microsofts identitet
 
 Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Appen är byggd som ett ASP.NET MVC-program. Den använder OWIN OpenID Connect middleware för att logga in användare.  
+Appen är byggd som ett ASP.NET MVC-program. Den använder OWIN OpenID Connect middleware för att logga in användare.
 
 Komponenten "daemon" i det här `SyncController.cs`exemplet är en API-styrenhet. När styrenheten anropas hämtas en lista över användare i kundens Azure Active Directory-klientorganisation (Azure AD) från Microsoft Graph. `SyncController.cs`utlöses av ett AJAX-samtal i webbprogrammet. Den använder [MICROSOFT Authentication Library (MSAL) för .NET för](msal-overview.md) att hämta en åtkomsttoken för Microsoft Graph.
 
@@ -109,7 +109,7 @@ Om du inte vill använda automatiseringen följer du stegen i följande avsnitt.
    - I avsnittet **Omdirigera URI (valfritt)** väljer du **Webben** i kombinationsrutan och anger följande omdirigerings-URI:er:
        - **https://localhost:44316/**
        - **https://localhost:44316/Account/GrantPermissions**
-          
+
      Om det finns fler än två omdirigerings-URI:er måste du lägga till dem från fliken **Autentisering** senare, när appen har skapats.
 1. Välj **Registrera** för att skapa programmet.
 1. På appens **översiktssida** letar du reda på värdet **program (klient) och** registrerar det för senare. Du behöver den för att konfigurera Visual Studio-konfigurationsfilen för det här projektet.
@@ -121,7 +121,7 @@ Om du inte vill använda automatiseringen följer du stegen i följande avsnitt.
 
    1. Ange en nyckelbeskrivning (till exempel **apphemlighet**)
    1. Välj en nyckellängd på antingen **I 1 år**, **I 2 år**eller Aldrig upphör **.**
-   1. Välj knappen **Lägg till**. 
+   1. Välj knappen **Lägg till**.
    1. När nyckelvärdet visas kopierar och sparar du det på en säker plats. Du behöver den här nyckeln senare för att konfigurera projektet i Visual Studio. Det kommer inte att visas igen eller hämtas på något annat sätt.
 1. Välj **API-behörigheter**i listan över sidor för appen . Sedan:
    1. Välj knappen **Lägg till en behörighet**.
@@ -174,21 +174,21 @@ Den relevanta koden för det här exemplet finns i följande filer:
 
 ## <a name="re-create-the-sample-app"></a>Återskapa exempelappen
 
-1. Skapa ett nytt **visual C#** **ASP.NET Web Application -projekt (.NET Framework)** i Visual Studio. 
+1. Skapa ett nytt **visual C#** **ASP.NET Web Application -projekt (.NET Framework)** i Visual Studio.
 1. Välj **MVC-projektmallen** på nästa skärm. Lägg också till mapp- och kärnreferenser för **webb-API,** eftersom du lägger till en webb-API-styrenhet senare. Lämna projektets valda autentiseringsläge som standard: **Ingen autentisering**.
-1. Markera projektet i fönstret **Solution Explorer** och välj **F4-tangenten.** 
+1. Markera projektet i fönstret **Solution Explorer** och välj **F4-tangenten.**
 1. Ange **SSL-aktiverad** **i**projektegenskaperna . Observera informationen i **SSL URL**. Du behöver det när du konfigurerar det här programmets registrering i Azure-portalen.
-1. Lägg till följande ASP.NET OWIN middleware NuGet-paket: 
+1. Lägg till följande ASP.NET OWIN middleware NuGet-paket:
    - Microsoft.Owin.Security.ActiveDirectory
    - Microsoft.Owin.Security.Cookies
    - Microsoft.Owin.Host.SystemWeb
    - Microsoft.IdentityModel.Protocol.Extensions
    - Microsoft.Owin.Security.OpenIdConnect
-   - Microsoft.Identity.Client 
+   - Microsoft.Identity.Client
 1. I **mappen App_Start:**
-   1. Skapa en klass som heter **Startup.Auth.cs**. 
-   1. Ta bort **. App_Start** från namnområdets namn. 
-   1. Ersätt koden för **klassen Start** med koden från samma fil i exempelappen.       
+   1. Skapa en klass som heter **Startup.Auth.cs**.
+   1. Ta bort **. App_Start** från namnområdets namn.
+   1. Ersätt koden för **klassen Start** med koden från samma fil i exempelappen.
    Var noga med att ta hela klassdefinitionen. Definitionen ändras från **offentlig klass Start** till offentlig partiell klass **Start.**
 1. I **Startup.Auth.cs**löser du saknade referenser genom att lägga till **med hjälp av** satser som föreslagits av Visual Studio IntelliSense.
 1. Högerklicka på projektet, välj **Lägg till**och välj sedan **Klass**.
@@ -220,12 +220,12 @@ Det här projektet har webbapp- och webb-API-projekt. Så här distribuerar du d
 1. När webbplatsen har skapats hittar du den i **instrumentpanelen** och väljer den för att öppna apptjänstens **översiktsskärm.**
 1. Ladda ned publiceringsprofilen på fliken **Översikt** för apptjänsten genom att välja länken **Hämta publiceringsprofil** och spara den. Du kan använda andra distributionsmekanismer, till exempel distribuera från källkontroll.
 1. Växla till Visual Studio och sedan:
-   1. Gå till **projektet dotnet-web-daemon-v2.** 
+   1. Gå till **projektet dotnet-web-daemon-v2.**
    1. Högerklicka på projektet i Lösningsutforskaren och välj sedan **Publicera**.
    1. Välj **Importera profil** i det nedre fältet och importera publiceringsprofilen som du hämtade tidigare.
 1. Välj **Konfigurera**.
 1. På fliken **Anslutning** uppdaterar du mål-URL:en så att den använder "https". Använd till [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net)exempel . Välj **Nästa**.
-1. Kontrollera att **Aktivera organisationsautentisering** är avmarkerat på fliken **Inställningar.**  
+1. Kontrollera att **Aktivera organisationsautentisering** är avmarkerat på fliken **Inställningar.**
 1. Välj **Spara**. Välj **Publicera** på huvudskärmen.
 
 Visual Studio publicerar projektet och öppnar automatiskt en webbläsare för projektets URL. Om du ser projektets standardwebbsida lyckades publikationen.

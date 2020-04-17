@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 03/20/2020
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 795d21e05ade652b52c06d597ca4c5fef85e7245
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ddb4b2cd465b5e9542d777d33b9bd8cb952becd
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80152875"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531345"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Distribuera exempeletikettverktyget
 
@@ -34,7 +34,7 @@ Det snabbaste sättet att börja märka data är att köra exempeletikettverktyg
 
 Innan vi börjar är det viktigt att notera att det finns två sätt att distribuera exempeletikettverktyget till en Azure Container Instance (ACI). Båda alternativen används för att köra exempeletikettverktyget med ACI: 
 
-* [Använda Azure-portalen](#azure-portal)
+* [Använda Azure Portal](#azure-portal)
 * [Använda Azure CLI](#azure-cli)
 
 ### <a name="azure-portal"></a>Azure Portal
@@ -76,6 +76,7 @@ Så här skapar du en ny resurs med Azure-portalen:
    * Användarnamn (valfritt) - Skapa ett användarnamn. 
    * Lösenord (valfritt) – Skapa ett säkert lösenord som du kommer ihåg.
    * Bild och tagg - Ställ in det här på`mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+   * Kontinuerlig distribution - Ange detta på **På** om du vill få automatiska uppdateringar när utvecklingsteamet gör ändringar i exempeletikettverktyget.
    * Startkommando - Ställ in det här på`./run.sh eula=accept`
 
    > [!div class="mx-imgBorder"]

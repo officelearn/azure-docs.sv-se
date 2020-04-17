@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 89de6bf80d14ec77fe6b1f98b6e1d15c6e573fbe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46a1db94d576174b837a40c646fcf9e082e339c8
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76756291"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461624"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autentisera en hanterad identitet med Azure Active Directory för att komma åt Azure Service Bus-resurser
 [Hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) är en cross-Azure-funktion som gör att du kan skapa en säker identitet som är associerad med distributionen under vilken programkoden körs. Du kan sedan associera den identiteten med åtkomstkontrollroller som ger anpassade behörigheter för åtkomst till specifika Azure-resurser som ditt program behöver.
@@ -75,7 +75,7 @@ Mer information om hur inbyggda roller definieras finns i [Förstå rolldefiniti
 ## <a name="enable-managed-identities-on-a-vm"></a>Aktivera hanterade identiteter på en virtuell dator
 Innan du kan använda hanterade identiteter för Azure-resurser för att auktorisera Service Bus-resurser från den virtuella datorn måste du först aktivera hanterade identiteter för Azure-resurser på den virtuella datorn. Mer information om hur du aktiverar hanterade identiteter för Azure-resurser finns i någon av följande artiklar:
 
-- [Azure-portal](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
+- [Azure Portal](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager-mall](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
@@ -140,7 +140,7 @@ Om du vill skicka eller ta emot meddelanden anger du namnet på namnområdet och
 
 
 > [!NOTE]
-> - Den hanterade identiteten fungerar bara i Azure-miljön, på App-tjänster, virtuella Azure-datorer och skalningsuppsättningar. För .NET-program tillhandahåller Microsoft.Azure.Services.AppAuthentication-biblioteket, som används av Service Bus NuGet-paketet, en abstraktion över det här protokollet och stöder en lokal utvecklingsupplevelse. Med det här biblioteket kan du också testa koden lokalt på utvecklingsmaskinen med hjälp av ditt användarkonto från Visual Studio, Azure CLI 2.0 eller Active Directory Integrated Authentication. Mer information om lokala utvecklingsalternativ med det här biblioteket finns i Autentisering från [Tjänst till tjänst till Azure Key Vault med .NET](../key-vault/service-to-service-authentication.md).  
+> - Den hanterade identiteten fungerar bara i Azure-miljön, på App-tjänster, virtuella Azure-datorer och skalningsuppsättningar. För .NET-program tillhandahåller Microsoft.Azure.Services.AppAuthentication-biblioteket, som används av Service Bus NuGet-paketet, en abstraktion över det här protokollet och stöder en lokal utvecklingsupplevelse. Med det här biblioteket kan du också testa koden lokalt på utvecklingsmaskinen med hjälp av ditt användarkonto från Visual Studio, Azure CLI 2.0 eller Active Directory Integrated Authentication. Mer information om lokala utvecklingsalternativ med det här biblioteket finns i Autentisering från [Tjänst till tjänst till Azure Key Vault med .NET](../key-vault/general/service-to-service-authentication.md).  
 > 
 > - För närvarande fungerar hanterade identiteter inte med distributionsplatser för App Service.
 

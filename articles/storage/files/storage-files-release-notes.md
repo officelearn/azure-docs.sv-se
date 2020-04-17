@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/16/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: c6455930f88d02e11cb0c45d29594ae40eaad9e3
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 82d8c8ca94f3d0f4289902ae40928ff507e2d1ec
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113298"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460672"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Viktig information om Azure File Sync-agenten
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Dina Windows Server-installationer omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS). Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -63,9 +63,6 @@ Följande versionsfakturor gäller version 10.0.0.0 av Azure File Sync-agenten (
 - Stöd för att flytta storage sync-tjänsten och/eller lagringskontot till en annan Azure Active Directory-klientorganisation (AAD)
     - Azure File Sync stöder nu att flytta Storage Sync Service och/eller lagringskontot till en annan resursgrupp, prenumeration eller Azure AD-klientorganisation.
     
-- Utvärderingsverktyget identifierar nu filer eller kataloger som slutar med en period
-    - [Utvärderingsverktyget](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) har uppdaterats för att identifiera filer eller kataloger som slutar med en period. Filer eller kataloger som slutar med en period stöds för närvarande inte av Azure File Sync. Om du vill använda den uppdaterade versionen av [utvärderingsverktyget](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet)installerar du den senaste versionen av [Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
- 
 - Diverse prestanda- och tillförlitlighetsförbättringar
     - Ändringsidentifiering på Azure-filresursen kan misslyckas om virtuella nätverk (VNET) och brandväggsregler har konfigurerats på lagringskontot.
     - Minskad minnesförbrukning som är associerad med återkallelse. 

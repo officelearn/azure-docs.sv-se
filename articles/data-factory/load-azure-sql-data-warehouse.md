@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/22/2018
-ms.openlocfilehash: 1943c16c678d0783b99a0f16c25fa72137defc8a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/16/2020
+ms.openlocfilehash: 1a764f392402acf9aa405468470d0fb6f680d755
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415896"
+ms.locfileid: "81461116"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Läsa in data till Azure SQL Data Warehouse med Azure Data Factory
 
@@ -49,13 +49,9 @@ Den här artikeln visar hur du använder datafabrikskopieringsdataverktyget för
 
 1. På den vänstra menyn väljer du **Skapa en resursData** > **+ Analytics** > **Data Factory:**
 
-   ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+2. Ange värden för följande objekt på sidan **Ny datafabrik:**
 
-2. På sidan **Ny datafabrik** anger du värden för de fält som visas i följande bild:
-
-   ![Sidan Ny datafabrik](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
-
-    * **Namn**: Ange ett globalt unikt namn för din Azure-datafabrik. Om felet "Data fabriksnamn \"LoadSQLDWDemo\" inte är tillgängligt" anger du ett annat namn för datafabriken. Du kan till exempel använda namnet _**yourname**_**ADFTutorialDataFactory**. Försök att skapa datafabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
+    * **Namn**: Ange *LoadSQLDWDemo* för namn. Namnet på din datafabrik måste vara * globalt unikt. Om felet "Data fabriksnamnet 'LoadSQLDWDemo' inte är tillgängligt", anger du ett annat namn för datafabriken. Du kan till exempel använda namnet _**yourname**_**ADFTutorialDataFactory**. Försök att skapa datafabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
     * **Prenumeration**: Välj din Azure-prenumeration där du vill skapa datafabriken. 
     * **Resursgrupp:** Välj en befintlig resursgrupp i listrutan eller välj alternativet **Skapa nytt** och ange namnet på en resursgrupp. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/management/overview.md).  
     * **Version**: Välj **V2**.
@@ -64,58 +60,57 @@ Den här artikeln visar hur du använder datafabrikskopieringsdataverktyget för
 3. Välj **Skapa**.
 4. När skapandet är klart går du till din datafabrik. Startsidan för **Data Factory** visas i följande bild:
 
-   ![Datafabrikens startsida](./media/load-azure-sql-data-warehouse/data-factory-home-page.png)
+   ![Datafabrikens startsida](./media/doc-common-process/data-factory-home-page.png)
 
    Välj panelen **Författare och övervakare** för att starta dataintegreringsprogrammet på en separat flik.
 
 ## <a name="load-data-into-azure-sql-data-warehouse"></a>Läs in data till Azure SQL Data Warehouse
 
-1. På sidan **Kom igång** väljer du panelen **Kopiera data** för att starta verktyget Kopiera data:
+1. På sidan **Kom igång** väljer du panelen **Kopiera data** för att starta verktyget Kopiera data.
 
-   ![Panel för verktyget Kopiera data](./media/load-azure-sql-data-warehouse/copy-data-tool-tile.png)
-1. På sidan **Egenskaper** anger du **CopyFromSQLToSQLDW** för fältet **Aktivitetsnamn** och väljer **Nästa:**
+1. På sidan **Egenskaper** anger du **CopyFromSQLToSQLDW** för fältet **Aktivitetsnamn** och väljer **Nästa**.
 
     ![Sidan Egenskaper](./media/load-azure-sql-data-warehouse/copy-data-tool-properties-page.png)
 
 1. Gör så här på sidan **Källdatalager:**
+    >[!TIP]
+    >I den här självstudien använder du *SQL-autentisering* som autentiseringstyp för källdatalagret, men du kan välja andra autentiseringsmetoder som stöds:*Tjänsthuvudnamn* och *Hanterad identitet* om det behövs. Mer information finns i motsvarande avsnitt i [den här artikeln.](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#linked-service-properties)
+    >Om du vill lagra hemligheter för datalager på ett säkert sätt rekommenderas du också att använda ett Azure Key Vault. Se [den här artikeln](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) för detaljerade illustrationer.
 
-    a. Klicka på **+ Skapa ny anslutning:**
-
-    ![Sidan Källdatalager](./media/load-azure-sql-data-warehouse/new-source-linked-service.png)
+    a. Klicka på **+ Skapa ny anslutning**.
 
     b. Välj **Azure SQL Database** i galleriet och välj **Fortsätt**. Du kan skriva "SQL" i sökrutan för att filtrera kopplingarna.
 
     ![Välj Azure SQL DB](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
 
-    c. På sidan **Ny länkad tjänst** väljer du servernamnet och DB-namnet i listrutan och anger användarnamn och lösenord. Klicka på **Testa anslutning** för att verifiera inställningarna och välj sedan **Slutför**.
+    c. På sidan **Ny länkad tjänst** väljer du servernamnet och DB-namnet i listrutan och anger användarnamn och lösenord. Klicka på **Testa anslutning** om du vill validera inställningarna och välj sedan **Skapa**.
 
     ![Konfigurera Azure SQL DB](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
     d. Välj den nyligen skapade länkade tjänsten som källa och klicka sedan på **Nästa**.
 
-    ![Välj källa för den länkade tjänsten](./media/load-azure-sql-data-warehouse/select-source-linked-service.png)
-
-1. I de **välj tabeller som data ska kopieras från eller använda en anpassad frågesida** anger du **SalesLT** för att filtrera tabellerna. Välj rutan **(Markera alla)** om du vill använda alla tabeller för kopian och välj sedan **Nästa:**
+1. I de **välj tabeller som data ska kopieras från eller använda en anpassad frågesida** anger du **SalesLT** för att filtrera tabellerna. Välj rutan **(Markera alla)** om du vill använda alla tabeller för kopian och välj sedan **Nästa**.
 
     ![Välj källtabeller](./media/load-azure-sql-data-warehouse/select-source-tables.png)
 
+1. På sidan **Använd filter** anger du dina inställningar eller väljer **Nästa**.
+
 1. Gör så här på sidan **Måldatalager:**
+    >[!TIP]
+    >I den här självstudien använder du *SQL-autentisering* som autentiseringstyp för ditt måldatalager, men du kan välja andra autentiseringsmetoder som stöds:*Tjänsthuvudnamn* och *Hanterad identitet* om det behövs. Mer information finns i motsvarande avsnitt i [den här artikeln.](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#linked-service-properties)
+    >Om du vill lagra hemligheter för datalager på ett säkert sätt rekommenderas du också att använda ett Azure Key Vault. Se [den här artikeln](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) för detaljerade illustrationer.
 
     a. Klicka på **+ Skapa ny anslutning** för att lägga till en anslutning
 
-    ![Sidan Sink-datalager](./media/load-azure-sql-data-warehouse/new-sink-linked-service.png)
-
-    b. Välj **Azure SQL Data Warehouse** i galleriet och välj **Nästa**.
+    b. Välj **Azure Synapse Analytics (tidigare SQL DW)** i galleriet och välj **Fortsätt**. Du kan skriva "SQL" i sökrutan för att filtrera kopplingarna.
 
     ![Välj Azure SQL DW](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
-    c. På sidan **Ny länkad tjänst** väljer du servernamnet och DB-namnet i listrutan och anger användarnamn och lösenord. Klicka på **Testa anslutning** för att verifiera inställningarna och välj sedan **Slutför**.
+    c. På sidan **Ny länkad tjänst** väljer du servernamnet och DB-namnet i listrutan och anger användarnamn och lösenord. Klicka på **Testa anslutning** om du vill validera inställningarna och välj sedan **Skapa**.
 
     ![Konfigurera Azure SQL DW](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 
     d. Välj den nyligen skapade länkade tjänsten som mottagare och klicka sedan på **Nästa**.
-
-    ![Välj mottagare för länkade tjänster](./media/load-azure-sql-data-warehouse/select-sink-linked-service.png)
 
 1. På sidan **Tabellmappning** granskar du innehållet och väljer **Nästa**. En intelligent tabellmappning visas. Källtabellerna mappas till måltabellerna baserat på tabellnamnen. Om det inte finns en källtabell i målet skapar Azure Data Factory en måltabell med samma namn som standard. Du kan också mappa en källtabell till en befintlig måltabell.
 
@@ -124,40 +119,36 @@ Den här artikeln visar hur du använder datafabrikskopieringsdataverktyget för
 
    ![Sidan för tabellmappning](./media/load-azure-sql-data-warehouse/table-mapping.png)
 
-1. På sidan **Schemamappning** granskar du innehållet och väljer **Nästa**. Den intelligenta tabellmappningen baseras på kolumnnamnet. Om du låter Data Factory skapa tabellerna automatiskt kan konvertering av datatyp ske när det finns inkompatibiliteter mellan käll- och målbutikerna. Om det finns en datatypskonvertering som inte stöds mellan käll- och målkolumnen visas ett felmeddelande bredvid motsvarande tabell.
+1. På sidan **Kolumnmappning** granskar du innehållet och väljer **Nästa**. Den intelligenta tabellmappningen baseras på kolumnnamnet. Om du låter Data Factory skapa tabellerna automatiskt kan konvertering av datatyp ske när det finns inkompatibiliteter mellan käll- och målbutikerna. Om det finns en datatypskonvertering som inte stöds mellan käll- och målkolumnen visas ett felmeddelande bredvid motsvarande tabell.
 
-    ![Sidan för schemamappning](./media/load-azure-sql-data-warehouse/schema-mapping.png)
+    ![Sida för kolumnmappning](./media/load-azure-sql-data-warehouse/schema-mapping.png)
 
 1. Gör så här på sidan **Inställningar:**
 
-    a. I avsnittet **Mellanlagringsinställningar** klickar du på **+ Nytt** för att nya en mellanlagringslagring ska nysas. Lagringen används för mellanlagring av data innan den läses in i SQL Data Warehouse med hjälp av PolyBase. När kopian är klar rensas interimsdata i Azure Storage automatiskt.
+    a. I avsnittet **Mellanlagringsinställningar** klickar du på **+ Nytt** för att nya en mellanlagringslagring ska nysas. Lagringen används för mellanlagring av data innan den läses in i SQL Data Warehouse med hjälp av PolyBase. När kopian är klar rensas interimsdata i Azure Blob Storage automatiskt.
 
-    ![Konfigurera mellanlagring](./media/load-azure-sql-data-warehouse/configure-staging.png)
-
-    b. På sidan **Ny länkad tjänst** väljer du ditt lagringskonto och väljer **Slutför**.
-
-    ![Konfigurera Azure Storage](./media/load-azure-sql-data-warehouse/configure-blob-storage.png)
+    b. På sidan **Ny länkad tjänst** väljer du ditt lagringskonto och väljer **Skapa** för att distribuera den länkade tjänsten.
 
     c. Avmarkera **standardalternativet Använd typ** i avsnittet Avancerade **inställningar** och välj sedan **Nästa**.
 
     ![Konfigurera PolyBase](./media/load-azure-sql-data-warehouse/configure-polybase.png)
 
-1. På sidan **Sammanfattning** granskar du inställningarna och väljer **Nästa:**
+1. På sidan **Sammanfattning** granskar du inställningarna och väljer **Nästa**.
 
     ![Sammanfattningssida](./media/load-azure-sql-data-warehouse/summary-page.png)
-1. På **sidan Distribution**väljer du **Övervaka** för att övervaka pipelinen (uppgift):
+1. På **sidan Distribution**väljer du **Övervaka** för att övervaka pipelinen (uppgiften).
 
-    ![Distributionssida](./media/load-azure-sql-data-warehouse/deployment-page.png)
-1. Observera att fliken **Övervaka** till vänster väljs automatiskt. Kolumnen **Åtgärder** innehåller länkar för att visa information om aktivitetskörning och för att köra pipelinen igen:
+1. Observera att fliken **Övervaka** till vänster väljs automatiskt. När pipelinekörningen har slutförts väljer du länken **CopyFromSQLToSQLDW** under kolumnen **PIPELINE NAME** för att visa information om aktivitetskörning och köra pipelinen igen.
 
-    ![Övervaka pipelinekörningar](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)
-1. Om du vill visa aktivitetskörningar som är associerade med pipelinekörningen väljer du länken **Visa aktivitetskörningar** i kolumnen **Åtgärder.** Om du vill växla tillbaka till vyn pipelinekörningar väljer du länken **Pipelines** högst upp. Om du vill uppdatera listan väljer du **Refresh** (Uppdatera).
+    [![Övervaka pipelinekörningar](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png#lightbox)
+1. Om du vill växla tillbaka till vyn pipelinekörningar väljer du länken **Alla pipelinekörningar** högst upp. Om du vill uppdatera listan väljer du **Refresh** (Uppdatera).
 
     ![Övervaka aktivitetskörningar](./media/load-azure-sql-data-warehouse/activity-monitoring.png)
 
-1. Om du vill övervaka körningsinformationen för varje kopieringsaktivitet väljer du länken **Information** under **Åtgärder** i aktivitetsövervakningsvyn. Du kan övervaka information som mängden data som kopieras från källan till diskhon, datadataflöde, körningssteg med motsvarande varaktighet och använda konfigurationer:
+1. Om du vill övervaka körningsinformationen för varje kopieringsaktivitet väljer du länken **Information** (ikonen Glasögon) under **AKTIVITETSNAMN** i vyn Aktivitetskörning. Du kan övervaka information som mängden data som kopieras från källan till diskhon, datadataflöde, körningssteg med motsvarande varaktighet och använda konfigurationer.
+    ![Information om övervakning av aktivitetskörning](./media/load-azure-sql-data-warehouse/monitor-activity-run-details-1.png)
 
-    ![Information om övervakning av aktivitetskörning](./media/load-azure-sql-data-warehouse/monitor-activity-run-details.png)
+    ![Information om övervakning av aktivitetskörning](./media/load-azure-sql-data-warehouse/monitor-activity-run-details-2.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

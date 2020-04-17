@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 4219bb471b92e7ddae72c50403f635498c90080d
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: f390aececdbf9a20f191279892c1856332f2aa8e
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81251698"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81482100"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Konfigurera avancerat hotskydd för Azure Storage
 
@@ -27,9 +27,7 @@ Tjänsten intar diagnostikloggar för läs-, skriv- och borttagningsbegäranden 
 
 ## <a name="availability"></a>Tillgänglighet
 
-Avancerat hotskydd för Azure Storage är för närvarande endast tillgängligt för [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). 
-
-Den här tjänsten är tillgänglig i alla offentliga moln och amerikanska myndighetsmoln, men inga andra suveräna eller Azure-myndigheters molnregioner.
+Avancerat hotskydd för Azure Storage är för närvarande endast tillgängligt för [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). Kontotyper som stöder avancerat hotskydd omfattar generella v2-konton, blockblob och Blob-lagringskonton. Avancerat hotskydd är tillgängligt i alla offentliga moln och amerikanska myndighetsmoln, men inte i andra suveräna eller Azure-myndigheters molnregioner.
 
 Information om priser, inklusive en kostnadsfri utvärderingsversion på 30 dagar, finns på [prissidan för Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 

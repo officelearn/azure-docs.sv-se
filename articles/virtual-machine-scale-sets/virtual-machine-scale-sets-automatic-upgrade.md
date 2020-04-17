@@ -7,12 +7,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mimckitt
-ms.openlocfilehash: ee6a25ac5a4cc7de8b8340afb186d170cc147a38
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 70810b21def1672758683abd49f92b86776c9d7b
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393780"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458989"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Azure virtual machine scale set automatiska OS-avbildningsuppgraderingar
 
@@ -158,7 +158,7 @@ az provider register --namespace Microsoft.Compute
 - Den nya bildversionen bör inte uteslutas från den senaste versionen för den galleribilden. Bildversioner som inte ingår i galleribildens senaste version distribueras inte till skalan som anges genom automatisk os-avbildningsuppgradering.
 
 > [!NOTE]
->Det kan ta upp till 2 timmar för en skalningsuppsättning att få den första avbildningsutrullningen när skalningsuppsättningen har konfigurerats för automatiska OS-uppgraderingar. Detta är en engångsfördröjning per uppsättning skalor. Efterföljande bildrullningar tillämpas på skalningsuppsättningen utan den här fördröjningen.
+>Det kan ta upp till 3 timmar för en skalningsuppsättning att utlösa den första avbildningsuppgraderingsutrullningen när skalningsuppsättningen har konfigurerats för automatiska OS-uppgraderingar. Detta är en engångsfördröjning per uppsättning skalor. Efterföljande bildrullningar utlöses på skalningsuppsättningen inom 30 minuter.
 
 
 ## <a name="configure-automatic-os-image-upgrade"></a>Konfigurera automatisk uppgradering av OS-avbildning

@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 889897cfd4dc8714ae3aea556f0924c9dbcd7825
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c9e3cfa689f2e528f4d20e796017ae9d91c29fe2
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78299422"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461726"
 ---
 # <a name="design-secure-applications-on-azure"></a>Utforma säkra program på Azure
 I den här artikeln presenterar vi säkerhetsaktiviteter och kontroller att tänka på när du utformar program för molnet. Utbildningsresurser tillsammans med säkerhetsfrågor och koncept som ska beaktas under kraven och designfaserna i [Microsoft Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utforma ett säkrare program.
@@ -242,7 +242,7 @@ Det bästa sättet att försvara sig mot denna typ av attack är att be använda
 
 Att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. Det enda som är värre än att förlora dina nycklar och referenser är att ha en obehörig part få tillgång till dem. Angripare kan dra nytta av automatiserade och manuella tekniker för att hitta nycklar och hemligheter som lagras i kodarkiv som GitHub. Placera inte nycklar och hemligheter i dessa offentliga koddatabaser eller på någon annan server.
 
-Placera alltid nycklar, certifikat, hemligheter och anslutningssträngar i en viktig hanteringslösning. Du kan använda en centraliserad lösning där nycklar och hemligheter lagras i maskinvarusäkerhetsmoduler (HSM). Azure ger dig en HSM i molnet med [Azure Key Vault](../../key-vault/key-vault-overview.md).
+Placera alltid nycklar, certifikat, hemligheter och anslutningssträngar i en viktig hanteringslösning. Du kan använda en centraliserad lösning där nycklar och hemligheter lagras i maskinvarusäkerhetsmoduler (HSM). Azure ger dig en HSM i molnet med [Azure Key Vault](../../key-vault/general/overview.md).
 
 Key Vault är en *hemlig butik:* det är en centraliserad molntjänst för lagring av programhemligheter. Key Vault skyddar dina konfidentiella data genom att hålla programhemligheter på en enda central plats och ge säker åtkomst, behörighetskontroll och åtkomstloggning.
 
@@ -273,11 +273,11 @@ Om dina data lagras i en databas eller om de flyttas fram och tillbaka mellan pl
 
 Vissa saker bör aldrig vara hårdkodade i din programvara. Några exempel är värdnamn eller IP-adresser, webbadresser, e-postadresser, användarnamn, lösenord, lagringskontonycklar och andra kryptografiska nycklar. Överväg att implementera krav kring vad som kan eller inte kan hårdkodas i koden, inklusive i kommentarsavsnitten i koden.
 
-När du lägger in kommentarer i koden ska du se till att du inte sparar känslig information. Detta inkluderar din e-postadress, lösenord, anslutningssträngar, information om ditt program som bara skulle vara känd av någon i din organisation, och allt annat som kan ge en angripare en fördel i att attackera ditt program eller din organisation .
+När du lägger in kommentarer i koden ska du se till att du inte sparar känslig information. Detta inkluderar din e-postadress, lösenord, anslutningssträngar, information om ditt program som bara skulle vara känd av någon i din organisation och allt annat som kan ge en angripare en fördel i att attackera ditt program eller din organisation.
 
 I grund och botten, anta att allt i ditt utvecklingsprojekt kommer att vara allmänt känt när det distribueras. Undvik att inkludera känsliga data av något slag i projektet.
 
-Tidigare diskuterade vi [Azure Key Vault](../../key-vault/key-vault-overview.md). Du kan använda Key Vault för att lagra hemligheter som nycklar och lösenord i stället för hårdkodning av dem. När du använder Key Vault i kombination med hanterade identiteter för Azure-resurser kan din Azure-webbapp komma åt hemliga konfigurationsvärden enkelt och säkert utan att lagra några hemligheter i källkontrollen eller konfigurationen. Mer information finns [i Hantera hemligheter i serverapparna med Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
+Tidigare diskuterade vi [Azure Key Vault](../../key-vault/general/overview.md). Du kan använda Key Vault för att lagra hemligheter som nycklar och lösenord i stället för hårdkodning av dem. När du använder Key Vault i kombination med hanterade identiteter för Azure-resurser kan din Azure-webbapp komma åt hemliga konfigurationsvärden enkelt och säkert utan att lagra några hemligheter i källkontrollen eller konfigurationen. Mer information finns [i Hantera hemligheter i serverapparna med Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
 
 ### <a name="implement-fail-safe-measures"></a>Genomföra felsäkra åtgärder
 

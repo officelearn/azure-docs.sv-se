@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e00fee8841a2d5a817a00b942bfe0733a80b2cfc
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: b2fe7e4fbe4830567533053580880315ceface5d
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80546327"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458887"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Virtuella Azure-diskkryptering för virtuella Windows-datorer 
 
@@ -54,7 +54,7 @@ Om du vill aktivera Azure Disk Encryption måste de virtuella datorerna uppfylla
   - Om du vill hämta en token för att ansluta till nyckelvalvet måste Windows \[VM kunna\]ansluta till en Azure Active Directory-slutpunkt login.microsoftonline.com .
   - Om du vill skriva krypteringsnycklarna till nyckelvalvet måste Windows VM kunna ansluta till nyckelvalvets slutpunkt.
   - Windows VM måste kunna ansluta till en Azure-lagringsslutpunkt som är värd för Azure-tilläggsdatabasen och ett Azure-lagringskonto som är värd för VHD-filerna.
-  -  Om din säkerhetsprincip begränsar åtkomsten från virtuella Azure-datorer till Internet kan du lösa föregående URI och konfigurera en specifik regel för att tillåta utgående anslutning till IPs. Mer information finns i [Azure Key Vault bakom en brandvägg](../../key-vault/key-vault-access-behind-firewall.md).    
+  -  Om din säkerhetsprincip begränsar åtkomsten från virtuella Azure-datorer till Internet kan du lösa föregående URI och konfigurera en specifik regel för att tillåta utgående anslutning till IPs. Mer information finns i [Azure Key Vault bakom en brandvägg](../../key-vault/general/access-behind-firewall.md).    
 
 
 ## <a name="group-policy-requirements"></a>Krav på grupprincip

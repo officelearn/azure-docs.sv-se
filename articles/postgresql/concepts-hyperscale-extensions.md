@@ -1,18 +1,18 @@
 ---
 title: Tillägg – Hyperskala (Citus) – Azure-databas för PostgreSQL
 description: Beskriver möjligheten att utöka databasens funktioner med hjälp av tillägg i Azure Database for PostgreSQL - Hyperscale (Citus)
-author: rachel-msft
-ms.author: raagyema
+author: jonels-msft
+ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 02/18/2020
-ms.openlocfilehash: 84b28096904db49f98c16601c5927928ad38743b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: 5d0798c77135b15e26c9787d9844cd9525cf12c5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77485411"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532025"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>PostgreSQL-tillägg i Azure Database för PostgreSQL – Hyperskala (Citus)
 

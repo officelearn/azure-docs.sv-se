@@ -3,12 +3,12 @@ title: Klusterversioner som stöds i Azure Service Fabric
 description: Lär dig mer om klusterversioner i Azure Service Fabric, inklusive en länk till de senaste versionerna från Service Fabric-teambloggen.
 ms.topic: troubleshooting
 ms.date: 03/02/2020
-ms.openlocfilehash: 1158266857f0864ed2f442edb100032c70063719
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: b76e498926492ce7acaa696dfe9a0299fb5573e0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385052"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460536"
 ---
 # <a name="supported-service-fabric-versions"></a>Service Fabric-versioner som stöds
 
@@ -37,10 +37,10 @@ I följande tabell visas versionerna av Service Fabric och deras supportslutdatu
 | 6.3.* | 6.1.480.* |Mindre än eller lika med version 3.2 |den 31 mars 2019  |
 | 6.4.* | 6.2.301.* |Mindre än eller lika med version 3.3 |den 15 september 2019 |
 | 6.5.* | 6.4.617.* |Mindre än eller lika med version 3.4 |den 1 augusti 2020 |
-| 7.0.466.* | 6.4.664.* |Mindre än eller lika med version 4.0|Aktuell version, så inget slutdatum |
-| 7.0.466.* | 6.5.* |Mindre än eller lika med version 4.0|Aktuell version, så inget slutdatum |
-| 7.0.470.* | 7.0.466.* |Mindre än eller lika med version 4.0 |Aktuell version, så inget slutdatum |
-
+| 7.0.466.* | 6.4.664.* |Mindre än eller lika med version 4.0|den 1 augusti 2020  |
+| 7.0.466.* | 6.5.* |Mindre än eller lika med version 4.0|den 1 augusti 2020 |
+| 7.0.470.* | 7.0.466.* |Mindre än eller lika med version 4.0 |den 1 augusti 2020  |
+| 7.1.409.* | 7.0.466.* |Mindre än eller lika med version 4.0 |Aktuell version, så inget slutdatum |
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
 I följande tabell visas de operativsystem som stöds för de Service Fabric-versioner som stöds.

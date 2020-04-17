@@ -4,12 +4,12 @@ description: Ger en översikt över migreringsstrategin och scenarier som använ
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: raynew
-ms.openlocfilehash: d37bee589eb7ee2e6e30c8dcea2531dd1f063481
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1805d2c7568d3104ce499c67c516c0bf94b2db7
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78939193"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460264"
 ---
 # <a name="contoso-migration-series"></a>Contoso-migreringsserie
 
@@ -38,9 +38,8 @@ Artiklarna i serien sammanfattas i tabellen nedan.
 [Artikel 9: Återfactor en app i en Azure-webbapp och Azure SQL Database](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql) | Contoso migrerar sin SmartHotel360-app till en Azure-webbapp och migrerar appdatabasen till en Azure SQL Server-instans med databasemigreringsassistenten.     
 [Artikel 10: Refactor a Linux-app i en Azure-webbapp och Azure Database for MySQL](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-linux-app-service-mysql) | Contoso migrerar sin Linux-osTicket-app till en Azure-webbapp i flera Azure-regioner med Azure Traffic Manager, integrerat med GitHub för kontinuerlig leverans. Contoso migrerar appdatabasen till en Azure-databas för MySQL-instans. 
 [Artikel 11: Refactor Team Foundation Server på Azure DevOps Services](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-tfs-vsts) | Contoso migrerar sin lokala Team Foundation Server-distribution till Azure DevOps Services i Azure.
-[Artikel 12: Skapa en app i Azure-behållare och Azure SQL Database](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rearchitect-container-sql) | Contoso migrerar sin SmartHotel-app till Azure. Sedan återupptäcker den appwebbnivån som en Windows-behållare som körs i Azure Service Fabric och databasen med Azure SQL Database.
-[Artikel 13: Återskapa en app i Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rebuild) | Contoso återskapar sin SmartHotel-app med hjälp av en rad Azure-funktioner och tjänster, inklusive Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services och Azure Cosmos DB.
-[Artikel 14: Skala en migrering till Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-scale) | Efter att ha provat migreringskombinationer förbereder Contoso att skala till en fullständig migrering till Azure.
+[Artikel 12: Återskapa en app i Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rebuild) | Contoso återskapar sin SmartHotel-app med hjälp av en rad Azure-funktioner och tjänster, inklusive Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services och Azure Cosmos DB.
+[Artikel 13: Skala en migrering till Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-scale) | Efter att ha provat migreringskombinationer förbereder Contoso att skala till en fullständig migrering till Azure.
 
 ## <a name="next-steps"></a>Nästa steg
 

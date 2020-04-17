@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: aa09d06af4706af3ae120f62a897c0bc632fb657
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: ba4afa31a1ed7b6e2ddf43787ca32a06e97455ce
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80990947"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533776"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Anropa Microsoft Graph API från en Windows Desktop-app
 
 Den här guiden visar hur ett inbyggt XAML-program (Windows Desktop .NET) använder en åtkomsttoken för att anropa Microsoft Graph API. Appen kan också komma åt andra API:er som kräver åtkomsttoken från en Microsoft-identitetsplattform för utvecklare v2.0-slutpunkten. Den här plattformen hette tidigare Azure AD.
 
-När du har slutfört guiden kan programmet anropa ett skyddat API som använder personliga konton (inklusive outlook.com, live.com och andra). Programmet kommer också att använda arbets- och skolkonton från alla företag eller organisationer som använder Azure Active Directory.  
+När du har slutfört guiden kan programmet anropa ett skyddat API som använder personliga konton (inklusive outlook.com, live.com och andra). Programmet kommer också att använda arbets- och skolkonton från alla företag eller organisationer som använder Azure Active Directory.
 
 > [!NOTE]
 > Guiden kräver Visual Studio 2015 Update 3, Visual Studio 2017 eller Visual Studio 2019. Har du inte någon av dessa versioner? [Ladda ner Visual Studio 2019 gratis.](https://www.visualstudio.com/downloads/)
@@ -77,7 +77,7 @@ Så här skapar du programmet:
     Install-Package Microsoft.Identity.Client -Pre
     ```
 
-    > [!NOTE] 
+    > [!NOTE]
     > Med det här kommandot installeras Microsoft Authentication Library. MSAL hanterar anskaffning, cachelagring och uppdatering av användartoken som används för att komma åt API:er som skyddas av Azure Active Directory v2.0
     >
 
@@ -136,7 +136,7 @@ I det här steget skapar du en klass för att hantera interaktion med MSAL, till
                 .Build();
         }
 
-        // Below are the clientId (Application Id) of your app registration and the tenant information. 
+        // Below are the clientId (Application Id) of your app registration and the tenant information.
         // You have to replace:
         // - the content of ClientID with the Application Id for your app registration
         // - the content of Tenant by the information about the accounts allowed to sign-in in your application:
@@ -156,7 +156,7 @@ I det här steget skapar du en klass för att hantera interaktion med MSAL, till
 
 ## <a name="create-the-application-ui"></a>Skapa programgränssnittet
 
-Det här avsnittet visar hur ett program kan fråga en skyddad server för server för server för server för server, till exempel Microsoft Graph. 
+Det här avsnittet visar hur ett program kan fråga en skyddad server för server för server för server för server, till exempel Microsoft Graph.
 
 En *MainWindow.xaml-fil* ska skapas automatiskt som en del av projektmallen. Öppna den här filen och ersätt sedan programmets * \<Grid->* nod med följande kod:
 
@@ -266,9 +266,9 @@ Metoden `AcquireTokenSilent` hanterar tokenförvärv och förnyelser utan någon
 
 Så småningom `AcquireTokenSilent` kommer metoden att misslyckas. Orsaker till fel kan vara att användaren antingen har loggat ut eller ändrat sitt lösenord på en annan enhet. När MSAL upptäcker att problemet kan lösas genom att `MsalUiRequiredException` kräva en interaktiv åtgärd utlöses ett undantag. Ditt program kan hantera det här undantaget på två sätt:
 
-* Det kan ringa `AcquireTokenInteractive` ett samtal mot omedelbart. Det här anropet leder till att användaren uppmanas att logga in. Det här mönstret används vanligtvis i onlineprogram där det inte finns något tillgängligt offlineinnehåll för användaren. Exemplet som genereras av den här guidade inställningen följer det här mönstret, som du kan se i aktion första gången du kör exemplet. 
+* Det kan ringa `AcquireTokenInteractive` ett samtal mot omedelbart. Det här anropet leder till att användaren uppmanas att logga in. Det här mönstret används vanligtvis i onlineprogram där det inte finns något tillgängligt offlineinnehåll för användaren. Exemplet som genereras av den här guidade inställningen följer det här mönstret, som du kan se i aktion första gången du kör exemplet.
 
-* Eftersom ingen användare har `PublicClientApp.Users.FirstOrDefault()` använt programmet innehåller du `MsalUiRequiredException` ett null-värde och ett undantag genereras. 
+* Eftersom ingen användare har `PublicClientApp.Users.FirstOrDefault()` använt programmet innehåller du `MsalUiRequiredException` ett null-värde och ett undantag genereras.
 
 * Koden i exemplet hanterar sedan undantaget `AcquireTokenInteractive`genom att anropa , vilket resulterar i att användaren uppmanas att logga in.
 
@@ -322,7 +322,7 @@ Om du vill logga ut en `MainWindow.xaml.cs` användare lägger du till följande
 /// </summary>
 private async void SignOutButton_Click(object sender, RoutedEventArgs e)
 {
-    var accounts = await App.PublicClientApp.GetAccountsAsync(); 
+    var accounts = await App.PublicClientApp.GetAccountsAsync();
 
     if (accounts.Any())
     {

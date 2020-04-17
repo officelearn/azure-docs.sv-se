@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ba7863d15ac0dfbebe6f14ef0d6f0daa93160b58
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 84d7be64e7157c35639fec19cb28fe787fe29b19
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81380047"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533895"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Självstudiekurs: Logga in användare och anropa Microsoft Graph API från ett kantigt ensidigt program
 
@@ -39,7 +39,7 @@ Den här självstudien visar hur ett vinkellikt ensidigt program (SPA) kan:
 <!--start-collapse-->
 ### <a name="more-information"></a>Mer information
 
-Exempelprogrammet som skapas i den här självstudien gör det möjligt för ett vinkelspalett att fråga Microsoft Graph API eller ett webb-API som accepterar token från slutpunkten för Microsoft-identitetsplattformen. MSAL för vinkelbiblioteket är ett omslag till msal.js-biblioteket. Det gör det möjligt för Angular -program (6+) att autentisera företagsanvändare med hjälp av Microsoft Azure Active Directory, Microsoft-kontoanvändare och användare av social identitet (till exempel Facebook, Google och LinkedIn). Biblioteket gör det också möjligt för programmen att få tillgång till Microsofts molntjänster eller Microsoft Graph.
+Exempelprogrammet som skapas i den här självstudien gör det möjligt för ett vinkelspalett att fråga Microsoft Graph API eller ett webb-API som accepterar token från slutpunkten för Microsoft identity-plattformen. MSAL för vinkelbiblioteket är ett omslag till msal.js-biblioteket. Det gör det möjligt för Angular -program (6+) att autentisera företagsanvändare med hjälp av Microsoft Azure Active Directory, Microsoft-kontoanvändare och användare av social identitet (till exempel Facebook, Google och LinkedIn). Biblioteket gör det också möjligt för programmen att få tillgång till Microsofts molntjänster eller Microsoft Graph.
 
 I det här fallet när en användare loggar in, begärs en åtkomsttoken och läggs till HTTP-begäranden via auktoriseringshuvudet. Tokenförvärv och förnyelse hanteras av MSAL.
 

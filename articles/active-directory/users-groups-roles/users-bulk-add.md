@@ -1,11 +1,11 @@
 ---
-title: Massskapa användare (förhandsversion) i Azure Active Directory-portalen | Microsoft-dokument
+title: Massskapa användare i Azure Active Directory-portalen | Microsoft-dokument
 description: Lägga till användare i grupp i Azure AD-administrationscentret i Azure Active Directory
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 08/30/2019
+ms.date: 04/16/2020
 ms.topic: article
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a10dfffa69652ee2b75053c04b97f6492c46811e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c3a8b9cb9701288d24534ab08940f6dbd4a698ad
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72174317"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532957"
 ---
-# <a name="bulk-create-users-preview-in-azure-active-directory"></a>Massskapa användare (förhandsversion) i Azure Active Directory
+# <a name="bulk-create-users-in-azure-active-directory"></a>Massskapa användare i Azure Active Directory
 
 Azure Active Directory (Azure AD) stöder massanvändare skapa och ta bort åtgärder, massinbjudan för gäster och stöder nedladdning av listor över användare, grupper och gruppmedlemmar.
 
@@ -40,7 +40,7 @@ För att kunna skapa användare i administrationsportalen måste du vara inlogga
 
    ![CSV-filen innehåller namn och ID:n för de användare som ska skapas](./media/users-bulk-add/add-csv-file.png)
 
-1. Bläddra till filen under Ladda upp CSV-filen på sidan **Mass skapa användare (Förhandsgranska)** . När du markerar filen och klickar på **Skicka**startar valideringen av CSV-filen.
+1. På **sidan Mass skapa användare,** under Ladda upp csv-filen, bläddra till filen. När du markerar filen och klickar på **Skicka**startar valideringen av CSV-filen.
 1. När filinnehållet har **validerats visas Filen uppladdad**. Om det finns fel måste du åtgärda dem innan du kan skicka jobbet.
 1. När filen godkänns väljer du **Skicka** för att starta azure-massåtgärden som importerar de nya användarna.
 1. När importåtgärden är klar visas ett meddelande om statusen för massoperationsjobbet.
@@ -49,9 +49,9 @@ Om det finns fel kan du hämta och visa resultatfilen på sidan **Massåtgärdsr
 
 ## <a name="check-status"></a>Kontrollera status
 
-Du kan se status för alla väntande massbegäranden på sidan **Massåtgärdsresultat (förhandsversion).**
+Du kan se status för alla väntande massbegäranden på sidan **Massåtgärdsresultat.**
 
-   ![Kontrollera uppladdningsstatus på sidan Resultat för massåtgärder](./media/users-bulk-add/bulk-center.png)
+   [![](media/users-bulk-add/bulk-center.png "Check create status in the Bulk Operations Results page")](media/users-bulk-add/bulk-center.png#lightbox)
 
 Därefter kan du kontrollera att de användare som du har skapat finns i Azure AD-organisationen antingen i Azure-portalen eller med PowerShell.
 

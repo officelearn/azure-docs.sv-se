@@ -5,25 +5,25 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.openlocfilehash: 6fd23e3d41dda15b1ec439c1e8b02073722b8871
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: hdinsightactive
+ms.date: 04/16/2020
+ms.openlocfilehash: 0c7791d43ffbbc13ab151362c5c3026ebbdb0d34
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272544"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81531024"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Skapa virtuella nätverk för Azure HDInsight-kluster
 
-Den här artikeln innehåller exempel och kodexempel för att skapa och konfigurera [Virtuella Azure-nätverk](../virtual-network/virtual-networks-overview.md) för användning med Azure HDInsight-kluster. Detaljerade exempel på att skapa nätverkssäkerhetsgrupper (NSG) och konfigurera DNS presenteras. 
+Den här artikeln innehåller exempel och kodexempel för att skapa och konfigurera [Virtuella Azure-nätverk](../virtual-network/virtual-networks-overview.md). Så här använder du med Azure HDInsight-kluster. Detaljerade exempel på att skapa nätverkssäkerhetsgrupper (NSG) och konfigurera DNS presenteras.
 
 Bakgrundsinformation om hur du använder virtuella nätverk med Azure HDInsight finns i [Planera ett virtuellt nätverk för Azure HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 ## <a name="prerequisites-for-code-samples-and-examples"></a>Förutsättningar för kodexempel och exempel
 
-Innan du kör något av kodexemplen i den här artikeln bör du ha en förståelse för TCP/IP-nätverk. Om du inte är bekant med TCP/IP-nätverk kontaktar du någon som gör ändringar i produktionsnätverk.
+Innan du kör något av kodexemplen i den här artikeln, ha en förståelse för TCP / IP-nätverk. Om du inte är bekant med TCP/IP-nätverk kontaktar du någon innan du gör ändringar i produktionsnätverk.
 
 Andra förutsättningar för exemplen i den här artikeln är följande:
 
@@ -35,7 +35,7 @@ Andra förutsättningar för exemplen i den här artikeln är följande:
 
 ## <a name="example-network-security-groups-with-hdinsight"></a><a id="hdinsight-nsg"></a>Exempel: nätverkssäkerhetsgrupper med HDInsight
 
-Exemplen i det här avsnittet visar hur du skapar regler för nätverkssäkerhetsgrupper som gör att HDInsight kan kommunicera med Azure-hanteringstjänster. Innan du använder exemplen justerar du IP-adresserna så att de matchar de för Azure-regionen som du använder. Du hittar den här informationen i [IP-adresser för HDInsight-hantering](hdinsight-management-ip-addresses.md).
+Exemplen i det här avsnittet visar hur du skapar regler för nätverkssäkerhetsgrupper. Reglerna tillåter HDInsight att kommunicera med Azure-hanteringstjänster. Innan du använder exemplen justerar du IP-adresserna så att de matchar de för Azure-regionen som du använder. Du hittar den här informationen i [IP-adresser för HDInsight-hantering](hdinsight-management-ip-addresses.md).
 
 ### <a name="azure-resource-management-template"></a>Mall för Azure Resource Management
 
@@ -202,7 +202,6 @@ Följ följande steg för att skapa ett virtuellt nätverk som begränsar inkomm
 
     När det här kommandot är klart kan du installera HDInsight i det virtuella nätverket.
 
-
 Dessa steg öppnar endast åtkomst till hälso- och hanteringstjänsten HDInsight i Azure-molnet. All annan åtkomst till HDInsight-klustret utanför det virtuella nätverket blockeras. Om du vill aktivera åtkomst utanför det virtuella nätverket måste du lägga till ytterligare regler för nätverkssäkerhetsgrupp.
 
 Följande kod visar hur du aktiverar SSH-åtkomst från Internet:
@@ -238,7 +237,7 @@ På den anpassade DNS-servern i det virtuella nätverket:
     az network nic list --resource-group RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
     ```
 
-2. På den anpassade DNS-servern för det virtuella nätverket använder `/etc/bind/named.conf.local` du följande text som innehållet i filen:
+1. På den anpassade DNS-servern för det virtuella nätverket använder `/etc/bind/named.conf.local` du följande text som innehållet i filen:
 
     ```
     // Forward requests for the virtual network suffix to Azure recursive resolver
@@ -252,7 +251,7 @@ På den anpassade DNS-servern i det virtuella nätverket:
 
     Den här konfigurationen dirigerar alla DNS-begäranden för DNS-suffixet i det virtuella nätverket till Azure rekursiv resolver.
 
-2. På den anpassade DNS-servern för det virtuella nätverket använder `/etc/bind/named.conf.options` du följande text som innehållet i filen:
+1. På den anpassade DNS-servern för det virtuella nätverket använder `/etc/bind/named.conf.options` du följande text som innehållet i filen:
 
     ```
     // Clients to accept requests from
@@ -288,9 +287,9 @@ På den anpassade DNS-servern i det virtuella nätverket:
     
     * Ersätt värdet `192.168.0.1` med IP-adressen för den lokala DNS-servern. Den här posten dirigerar alla andra DNS-begäranden till den lokala DNS-servern.
 
-3. Om du vill använda konfigurationen startar du om Bind. Till exempel `sudo service bind9 restart`.
+1. Om du vill använda konfigurationen startar du om Bind. Till exempel `sudo service bind9 restart`.
 
-4. Lägg till en villkorlig vidarebefordrare på den lokala DNS-servern. Konfigurera den villkorliga vidarebefordraren för att skicka begäranden för DNS-suffixet från steg 1 till den anpassade DNS-servern.
+1. Lägg till en villkorlig vidarebefordrare på den lokala DNS-servern. Konfigurera den villkorliga vidarebefordraren för att skicka begäranden för DNS-suffixet från steg 1 till den anpassade DNS-servern.
 
     > [!NOTE]  
     > Mer information om hur du lägger till en villkorlig vidarebefordrare finns i dokumentationen för DNS-programvaran.
@@ -351,7 +350,7 @@ I det här exemplet görs följande antaganden:
             allow-query { goodclients; };
 
             forwarders {
-            168.63.129.16;   # Azure recursive resolver         
+            168.63.129.16;   # Azure recursive resolver
             };
 
             dnssec-validation auto;
@@ -360,7 +359,7 @@ I det här exemplet görs följande antaganden:
             listen-on { any; };
     };
     ```
-    
+
    Ersätt `10.0.0.0/16` värdena och `10.1.0.0/16` med IP-adressintervallen för dina virtuella nätverk. Med den här posten kan resurser i varje nätverk göra begäranden av DNS-servrarna.
 
     Alla begäranden som inte är för DNS-suffixen i de virtuella nätverken (till exempel microsoft.com) hanteras av Azure rekursiv resolver.
@@ -371,7 +370,7 @@ När du har slutfört de här stegen kan du ansluta till resurser i det virtuell
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Ett exempel från på sluten tid för att konfigurera HDInsight för att ansluta till ett lokalt nätverk finns i [Anslut HDInsight till ett lokalt nätverk](./connect-on-premises-network.md).
+* Ett komplett exempel på att konfigurera HDInsight för att ansluta till ett lokalt nätverk finns i [Anslut HDInsight till ett lokalt nätverk](./connect-on-premises-network.md).
 * Information om hur du konfigurerar Apache HBase-kluster i virtuella Azure-nätverk finns i [Skapa Apache HBase-kluster på HDInsight i Azure Virtual Network](hbase/apache-hbase-provision-vnet.md).
 * Information om konfiguration av Apache HBase-georeplikering finns i [Konfigurera Apache HBase-klusterreplikering i virtuella Azure-nätverk](hbase/apache-hbase-replication.md).
 * Mer information om virtuella Azure-nätverk finns i [översikten över Virtuella Azure-nätverk](../virtual-network/virtual-networks-overview.md).

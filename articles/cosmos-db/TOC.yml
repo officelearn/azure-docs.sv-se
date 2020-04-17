@@ -759,14 +759,6 @@
           items:
             - name: 1– Frågedata
               href: tutorial-query-graph.md
-        - name: Referens
-          items:
-            - name: Svarsrubriker
-              href: gremlin-headers.md
-            - name: Begränsningar
-              href: gremlin-limits.md
-            - name: Kompatibilitet
-              href: gremlin-compatibility.md
         - name: Anvisningar
           items:
             - name: Diagramdatamodellering
@@ -794,6 +786,14 @@
               href: powershell-samples-gremlin.md
             - name: Hantera med hjälp av Azure CLI
               href: cli-samples-gremlin.md
+        - name: Referens
+          items:
+            - name: Svarsrubriker
+              href: gremlin-headers.md
+            - name: Begränsningar
+              href: gremlin-limits.md
+            - name: Kompatibilitet
+              href: gremlin-compatibility.md
     - name: Tabell-API
       items:
         - name: Översikt

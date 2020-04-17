@@ -3,12 +3,12 @@ title: Använda hanterad identitet med ett program
 description: Så här använder du hanterade identiteter i Azure Service Fabric-programkod för att komma åt Azure Services.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: cbdb1190ec3238a6accd34db3025e08c194d60b8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8f1f355d6add16f3b3ec25bc569f9b198a8d6778
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415619"
+ms.locfileid: "81461573"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Så här utnyttjar du ett Service Fabric-programs hanterade identitet för att komma åt Azure-tjänster
 
@@ -41,10 +41,6 @@ För att få en token utför klienten följande steg:
 Ett lyckat svar innehåller en JSON-nyttolast som representerar den resulterande åtkomsttoken, samt metadata som beskriver den. Ett misslyckat svar kommer också att innehålla en förklaring av felet. Se nedan för ytterligare information om felhantering.
 
 Åtkomsttoken cachelagras av Service Fabric på olika nivåer (nod, kluster, resursprovidertjänst), så ett lyckat svar innebär inte nödvändigtvis att token utfärdades direkt som svar på användarprogrammets begäran. Tokens cachelagras för mindre än deras livstid och därför garanteras ett program att ta emot en giltig token. Vi rekommenderar att programkoden cachelagrar sig själv alla åtkomsttoken som hämtas. cachelagringsnyckeln bör innehålla (en härledning av) publiken. 
-
-
-> [!NOTE]
-> Den enda accepterade API-versionen är för närvarande `2019-07-01-preview`och kan komma att ändras.
 
 Exempel på begäran:
 ```http

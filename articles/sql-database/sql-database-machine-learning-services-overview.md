@@ -12,23 +12,19 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 11/20/2019
-ms.openlocfilehash: 2a2cd4bfc3d393543b41eea776f02723d94054b1
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ROBOTS: NOINDEX
+ms.openlocfilehash: 46ca4661d06b52c861431a680a69297575ac99b0
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345832"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461420"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Azure SQL Database Machine Learning Services med R (förhandsgranskning)
 
 Machine Learning Services är en funktion i Azure SQL Database, som används för att köra R-skript i databasen. Funktionen innehåller Microsoft R-paket för högpresterande prediktiv analys och maskininlärning. Relationsdata kan användas i R-skript genom lagrade procedurer, T-SQL-skript som innehåller R-satser eller R-kod som innehåller T-SQL.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
-
-> [!NOTE]
-> Förhandsgranskningen är tillgänglig för enskilda databaser och elastiska pooler med hjälp av den vCore-baserade inköpsmodellen på de **allmänna och** **affärskritiska** tjänstnivåerna. I den här inledande förhandsversionen stöds inte **tjänstnivån hyperskala** och distributionsalternativet **för hanterade instanser.** R är för närvarande det enda språk som stöds. Det finns inget stöd för Python just nu.
->
-> Förhandsversionen är för närvarande tillgänglig i följande regioner: Västeuropa, Norra Europa, västra USA 2, östra USA, södra centrala USA, norra centrala USA, Centrala Kanada, Sydostasien, Södra Indien och Sydöstra Australien.
 
 ## <a name="what-you-can-do-with-r"></a>Vad du kan göra med R
 

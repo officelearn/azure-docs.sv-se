@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: ae3743530440c9df9094a0b9784922d2d6a3dfdf
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 753d606e1fc2dc966c970a210cf6fc5066d5ed83
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985413"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460145"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Vanliga frågor och svar om Azure Disk Encryption för virtuella Linux-datorer
 
@@ -148,7 +148,9 @@ Azure Disk Encryption använder dekrypteringsstandarden för aes-xts-plain64 med
 Nej, data raderas inte från dataenheter som redan är krypterade med Azure Disk Encryption. På samma sätt som EncryptFormatAll inte krypterade om OS-enheten, krypterar den inte om den redan krypterade dataenheten. Mer information finns i [villkoren EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).        
 
 ## <a name="is-xfs-filesystem-supported"></a>Stöds XFS-filsystem?
-XFS-volymer stöds endast för kryptering av datadiskar med EncryptFormatAll. Detta kommer att formatera om volymen, radera alla data tidigare där. Mer information finns i [villkoren EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
+Kryptering av XFS OS-diskar stöds.
+
+Kryptering av XFS-datadiskar stöds endast när parametern EncryptFormatAll används. Detta kommer att formatera om volymen, radera alla data tidigare där. Mer information finns i [villkoren EncryptFormatAll](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Kan jag säkerhetskopiera och återställa en krypterad virtuell dator? 
 

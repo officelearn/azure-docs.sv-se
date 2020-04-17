@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/12/2019
-ms.openlocfilehash: a6b3b1d11242434088c138460d968f39d5273e4f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/15/2020
+ms.openlocfilehash: 4c510cae7ba5a952e6dc7f7cb7ae7591fe801560
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418431"
+ms.locfileid: "81461301"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Schemadrift i mappning av dataflöde
 
@@ -30,6 +30,10 @@ För att skydda mot schemadrift är det viktigt att ha anläggningarna i ett dat
 Azure Data Factory stöder inbyggt flexibelt scheman som ändras från körning till körning så att du kan skapa allmän dataomvandlingslogik utan att du behöver kompilera om dina dataflöden.
 
 Du måste fatta ett arkitektoniskt beslut i ditt dataflöde för att acceptera schemadrift i hela flödet. När du gör detta kan du skydda mot schemaändringar från källorna. Du förlorar dock tidig bindning av kolumner och typer i hela dataflödet. Azure Data Factory behandlar schemadriftflöden som sena bindningsflöden, så när du skapar dina omvandlingar är de drifted kolumnnamnen inte tillgängliga för dig i schemavyerna i hela flödet.
+
+Den här videon ger en introduktion till några av de komplexa lösningar som du enkelt kan skapa i ADF med dataflödets schemadriftfunktion. I det här exemplet skapar vi återanvändbara mönster baserat på flexibla databasscheman:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tyx7]
 
 ## <a name="schema-drift-in-source"></a>Schema drift i källa
 

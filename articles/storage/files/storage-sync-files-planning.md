@@ -7,21 +7,31 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0684f626553946619a0db2cd895df39576bd17b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8666f51b88d2a70a2cb27e3606f24010771c8017
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255124"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460721"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
-[Azure-filer](storage-files-introduction.md) kan distribueras på två huvudsätt: genom att direkt montera de serverlösa Azure-filresurserna eller genom att cachelagring av Azure-filresurser lokalt med Azure File Sync. Vilket distributionsalternativ du väljer ändrar de saker du behöver tänka på när du planerar för distributionen. 
+
+:::row:::
+    :::column:::
+        [![Intervju och demo införa Azure File Sync - klicka för att spela!](./media/storage-sync-files-planning/azure-file-sync-interview-video-snapshot.png)](https://www.youtube.com/watch?v=nfWLO7F52-s)
+    :::column-end:::
+    :::column:::
+        Azure File Sync är en tjänst som gör att du kan cachelagra ett antal Azure-filresurser på en lokal Windows Server eller moln-VM. 
+        
+        Den här artikeln introducerar dig till Azure File Sync begrepp och funktioner. När du är bekant med Azure File Sync kan du överväga att följa [distributionsguiden](storage-sync-files-deployment-guide.md) för Azure File Sync för att prova den här tjänsten.        
+    :::column-end:::
+:::row-end:::
+
+Filerna lagras i molnet i [Azure-filresurser](storage-files-introduction.md). Azure-filresurser kan användas på två sätt: genom att direkt montera dessa serverlösa Azure-filresurser (SMB) eller genom cachelagring av Azure-filresurser lokalt med Azure File Sync. Vilket distributionsalternativ du väljer ändrar de aspekter du behöver tänka på när du planerar för distributionen. 
 
 - **Direktmontering av en Azure-filresurs:** Eftersom Azure Files ger SMB-åtkomst kan du montera Azure-filresurser lokalt eller i molnet med hjälp av standardklienten för SMB som är tillgänglig i Windows, macOS och Linux. Eftersom Azure-filresurser är serverlösa krävs inte distribution för produktionsscenarier att hantera en filserver eller NAS-enhet. Det innebär att du inte behöver använda programkorrigeringar eller byta ut fysiska diskar. 
 
 - **Cache Azure-filresurs lokalt med Azure File Sync**: Azure File Sync gör att du kan centralisera organisationens filresurser i Azure Files, samtidigt som flexibiliteten, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar en lokal (eller moln) Windows Server till en snabb cache av din Azure-filresurs. 
-
-Den här artikeln behandlar främst distributionsöverväganden för distribution av Azure File Sync. Information om hur du planerar att en distribution av Azure-filresurser ska monteras direkt av en lokal klient eller molnklient finns i [Planera för en Azure Files-distribution](storage-files-planning.md).
 
 ## <a name="management-concepts"></a>Ledningskoncept
 En Azure File Sync-distribution har tre grundläggande hanteringsobjekt:
@@ -354,7 +364,7 @@ Microsofts interna antiviruslösningar, Windows Defender och System Center Endpo
 > [!Note]  
 > Antivirusleverantörer kan kontrollera kompatibiliteten mellan sin produkt och Azure File Sync med Hjälp av [Azure File Sync Antivirus Compatibility Test Suite](https://www.microsoft.com/download/details.aspx?id=58322), som är tillgänglig för nedladdning på Microsoft Download Center.
 
-## <a name="backup"></a>Säkerhetskopiering 
+## <a name="backup"></a>Backup 
 Precis som antiviruslösningar kan säkerhetskopieringslösningar leda till att nivåindelade filer återkallas. Vi rekommenderar att du använder en lösning för säkerhetskopiering av molnet för att säkerhetskopiera Azure-filresursen i stället för en lokal säkerhetskopieringsprodukt.
 
 Om du använder en lokal säkerhetskopieringslösning bör säkerhetskopior utföras på en server i synkroniseringsgruppen som har inaktiverat molnnivådelning. När du utför en återställning använder du alternativen för återställning på volymnivå eller filnivå. Filer som återställs med alternativet återställning på filnivå synkroniseras till alla slutpunkter i synkroniseringsgruppen och befintliga filer ersätts med den version som återställs från säkerhetskopian.  Återställningar på volymnivå ersätter inte nyare filversioner i Azure-filresursen eller andra serverslutpunkter.
@@ -370,7 +380,7 @@ Om du använder en lokal säkerhetskopieringslösning bör säkerhetskopior utf�
 
 ## <a name="next-steps"></a>Nästa steg
 * [Överväg brandväggs- och proxyinställningar](storage-sync-files-firewall-and-proxy.md)
-* [Planera för en Azure Files-distribution](storage-files-planning.md)
+* [Planera för distribution av Azure Files](storage-files-planning.md)
 * [Distribuera Azure Files](storage-files-deployment-guide.md)
 * [Distribuera Azure File Sync](storage-sync-files-deployment-guide.md)
 * [Övervaka Azure File Sync](storage-sync-files-monitoring.md)

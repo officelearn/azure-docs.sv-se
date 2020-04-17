@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: de76467cc741a65a851e5f3a7ec424d0326aebb2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb04a8e5a6d8c982a35cb5c448e4b6d93825bf73
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74851527"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460230"
 ---
 # <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 Har du frågor? Läs följande vanliga frågor och svar för mer information.
@@ -159,7 +159,7 @@ Följande resurser hjälper dig att hantera hemligheter på ett säkert sätt oc
  - [Azure AD-hanterad tjänstidentitet (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
  - [Hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Hanterade identiteter i Azure App Service och Azure Functions](../../app-service/overview-managed-identity.md)
- - [AppAuthentication bibliotek](../../key-vault/service-to-service-authentication.md)
+ - [AppAuthentication bibliotek](../../key-vault/general/service-to-service-authentication.md)
 
 
 Mer information finns i blogginlägget [Hantera hemligheter säkert i molnet](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).
@@ -202,7 +202,7 @@ Ett steg mellan huvudbygget och Roslyn Analyzers-stegen kan ha försatt källtr�
 
 Det fullständiga felmeddelandet:
 
-"'csc.exe' exited with error code 1 -- An instance of analyzer *AAAA* cannot be created from C:\\*BBBB*.dll : Could not load file or assembly 'Microsoft.CodeAnalysis, Version=*X.X.X.X*, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. Det går inte att hitta den angivna filen."
+"'csc.exe' avslutad med felkod 1 -- En instans av analysatorn\\ *AAAA* kan inte skapas från C:*BBBB*.dll : Det gick inte att läsa in filen eller sammansättningen 'Microsoft.CodeAnalysis, Version=*X.X.X.X.X*, Culture=neutral, PublicKeyToken=31bf3856ad364e35' eller något av dess beroenden. Det går inte att hitta den angivna filen."
 
 Se till att kompilatorn stöder Roslyn Analyzers. Om du kör kommandot **csc.exe /version** ska ett versionsvärde på 2.6 eller senare rapporteras.
 

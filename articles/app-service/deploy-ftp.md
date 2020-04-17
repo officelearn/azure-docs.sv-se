@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 7bc637b5719da3c5f5e5607436aa7da0721f5a9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fcc7c5b8fa182cace6e3dae0b1cae4cd41c5dcb9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266018"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81532603"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Distribuera din app till Azure App Service med FTP/S
 
@@ -67,7 +67,7 @@ Vi rekommenderar att du använder **appautentiseringsuppgifter** för att distri
 
 ## <a name="enforce-ftps"></a>Framtvinga FTPS
 
-För ökad säkerhet bör du endast tillåta FTP via SSL. Du kan också inaktivera både FTP och FTPS om du inte använder FTP-distribution.
+För ökad säkerhet bör du tillåta FTP endast över TLS/SSL. Du kan också inaktivera både FTP och FTPS om du inte använder FTP-distribution.
 
 På appens resurssida i [Azure Portal](https://portal.azure.com)väljer du**Konfigurationsinställningar** **Configuration** > från vänster navigering.
 

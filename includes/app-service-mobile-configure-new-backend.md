@@ -5,15 +5,15 @@ services: app-service\mobile
 author: conceptdev
 ms.service: app-service-mobile
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 04/15/2020
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: a7e543dcad9ad1b016d1244451cd87cda5ad7492
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b5b6389491fd91b716a05e7c57c98addb6352bd9
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67440196"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461840"
 ---
 1. Ladda ner klientens SDK-snabbstarter för följande plattformar:
     
@@ -69,23 +69,13 @@ ms.locfileid: "67440196"
    - **Nod.js backend**
     
      Om du ska använda appen Node.js quickstart följer du instruktionerna nedan.
-
-     1. I Azure-portalen går du till **Enkla tabeller**, du kommer att se den här skärmen.
-      
-        ![Nod enkla tabeller](./media/app-service-mobile-configure-new-backend/node-easy-tables.png)
-
-     2. Kontrollera att SQL-anslutningssträngen redan har lagts till på fliken **Konfiguration.** Markera sedan rutan **för jag bekräftar att detta kommer att skriva över allt webbplatsinnehåll** och klicka på **knappen Skapa TodoItem tabell.**
      
-        ![Konfiguration av enkla nodtabeller](./media/app-service-mobile-configure-new-backend/node-easy-tables-configuration.png)
-
-     3. Klicka på knappen **+ Lägg till** i **Enkla tabeller.**
-    
-        ![Knappen Lägg till nodbara tabeller](./media/app-service-mobile-configure-new-backend/node-easy-tables-add.png)
-
-     4. Skapa `TodoItem` en tabell med anonym åtkomst.
-      
-        ![Nod Enkla tabeller Lägg till tabell](./media/app-service-mobile-configure-new-backend/node-easy-tables-table-add.png)
-
+        1. Skapa ett nytt API - Du kan antingen göra ändringar direkt i Azure-portalen eller ändra koden lokalt i utvecklingsmiljön och sedan publicera till Azure. Klicka på `App Service Editor (Preview)` `Development Tools` undermenyn som ger en redigeringsupplevelse i webbläsaren för din appkod.
+        
+        2. Klicka `Go` på och när App Service Editor öppnas har du full kontroll över källkoden. Förutsatt att du redan har installerat express- och azure-mobile-apps-paket med npm-installationskommandot klickar du på api-mappen under WWWROOT för att skapa eller redigera anpassat API. Gör ändringarna i kodfilen så sparas ändringarna automatiskt.
+        
+        3. Du har full kontroll över Azure SQL Database som används för att lagra programdata. Du kan enkelt skapa nya tabeller i databasen.
+ 
    - **.NET-serverdelen**
     
         Om du ska använda .NET quickstart-appen följer du instruktionerna nedan.

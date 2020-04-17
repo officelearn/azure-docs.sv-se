@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: befe8945468d220a04ec7f0b515f22159cb72b0f
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 4548bf77c01194802c2e6203bcbf9fbd240370a2
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549234"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461658"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Metodtips för Azure Service Fabric-säkerhet
 Det går snabbt, enkelt och kostnadseffektivt att distribuera ett program på Azure. Innan du distribuerar ditt molnprogram i produktion kan du läsa vår lista över viktiga och rekommenderade metodtips för att implementera säkra kluster i ditt program.
@@ -155,7 +155,7 @@ Service Fabric använder certifikat för att tillhandahålla autentisering och k
 
 Service Fabric använder X.509-certifikat för att skydda ett kluster och för att tillhandahålla programsäkerhetsfunktioner. Du använder Azure Key Vault för att [hantera certifikat](../../service-fabric/service-fabric-cluster-security-update-certs-azure.md) för Service Fabric-kluster i Azure. Azure-resursprovidern som skapar kluster hämtar certifikaten från ett nyckelvalv. Providern installerar sedan certifikaten på de virtuella datorerna när klustret distribueras på Azure.
 
-Det finns en certifikatrelation mellan [Azure Key Vault,](../../key-vault/key-vault-secure-your-key-vault.md)Service Fabric-klustret och resursprovidern som använder certifikaten. När klustret skapas lagras information om certifikatrelationen i ett nyckelvalv.
+Det finns en certifikatrelation mellan [Azure Key Vault,](../../key-vault/general/secure-your-key-vault.md)Service Fabric-klustret och resursprovidern som använder certifikaten. När klustret skapas lagras information om certifikatrelationen i ett nyckelvalv.
 
 Det finns två grundläggande steg för att ställa in ett nyckelvalv:
 1. Skapa en resursgrupp specifikt för nyckelvalvet.
@@ -166,7 +166,7 @@ Det finns två grundläggande steg för att ställa in ett nyckelvalv:
 
     Nyckelvalvet måste vara aktiverat för distribution. Beräkningsresursprovidern kan sedan hämta certifikaten från valvet och installera dem på VM-instanserna.
 
-Mer information om hur du konfigurerar ett nyckelvalv finns i [Vad är Azure Key Vault?](../../key-vault/key-vault-overview.md).
+Mer information om hur du konfigurerar ett nyckelvalv finns i [Vad är Azure Key Vault?](../../key-vault/general/overview.md).
 
 ## <a name="assign-users-to-roles"></a>Tilldela användare till roller
 När du har skapat programmen för att representera klustret tilldelar du användarna till de roller som stöds av Service Fabric: skrivskyddad och administratör. Du kan tilldela dessa roller med hjälp av Azure-portalen.

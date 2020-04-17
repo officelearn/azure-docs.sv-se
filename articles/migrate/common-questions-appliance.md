@@ -2,13 +2,13 @@
 title: Vanliga frågor och svar om Azure Migrate-apparat
 description: Få svar på vanliga frågor om Azure Migrate-installationen.
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.openlocfilehash: a08423637f255b973f52616f53172ef6e48d0804
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.date: 04/15/2020
+ms.openlocfilehash: 529ead1baa769ee3e71f6fcf77ef7e020ed196a6
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437602"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81529696"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrera-apparat: Vanliga frågor
 
@@ -31,6 +31,15 @@ Här är mer information om Azure Migrate-installationen:
 
 [Läs mer](migrate-appliance.md) om apparaten.
 
+## <a name="how-can-i-deploy-the-appliance"></a>Hur kan jag distribuera apparaten?
+
+Apparaten kan användas på följande sätt:
+
+- Använda en mall för virtuella datorer med VMware och virtuella hyper-V-datorer (OVA-mall för VMware eller VHD för Hyper-V).
+- Om du inte vill använda en mall, eller om du är i Azure Government, kan du distribuera installationen för VMware eller Hyper-V med ett PowerShell-skript.
+- För fysiska servrar distribuerar du alltid apparaten med ett skript.
+
+
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Hur ansluter installationen till Azure?
 
 Apparaten kan ansluta via internet eller med hjälp av Azure ExpressRoute med offentlig/Microsoft-peering.
@@ -45,11 +54,8 @@ När du använder den nedladdade mallen för att skapa den virtuella datorn för
 
 ## <a name="what-network-connectivity-is-required"></a>Vilken nätverksanslutning krävs?
 
-Mer information om nätverksanslutningskrav för Azure Migrate-installationen finns i följande artiklar:
 
-- **VMware-bedömning:** [URL-åtkomst](migrate-appliance.md#url-access) och [portåtkomst](migrate-support-matrix-vmware.md#port-access)
-- **VMware agentless migrering:** [URL-åtkomst](migrate-appliance.md#url-access) och [portåtkomst](migrate-support-matrix-vmware-migration.md#agentless-ports)
-- **Hyper-V-bedömning:** [URL-åtkomst](migrate-appliance.md#url-access) och [portåtkomst](migrate-support-matrix-hyper-v.md#port-access)
+Installationen behöver åtkomst till Azure-url:er. [Granska](migrate-appliance.md#url-access) URL-listan.
 
 ## <a name="what-data-does-the-appliance-collect"></a>Vilka data samlar apparaten in?
 

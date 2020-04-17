@@ -3,12 +3,12 @@ title: Självstudiekurs - Lagra terraformtillstånd i Azure Storage
 description: En introduktion till lagring av Terraform-tillstånd i Azure Storage.
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 1cc475e5070b21a7ea96585f2183c07d258acdc5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c94c66969c517bd0e51117ab7c6ed6a889149518
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75708432"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459023"
 ---
 # <a name="tutorial-store-terraform-state-in-azure-storage"></a>Självstudiekurs: Lagra terraformtillstånd i Azure Storage
 
@@ -67,7 +67,7 @@ Skapa en miljövariabel med namnet `ARM_ACCESS_KEY` med värdet för Azure Stora
 export ARM_ACCESS_KEY=<storage access key>
 ```
 
-Om du vill skydda åtkomstnyckeln för Azure Storage-kontot ytterligare lagrar du den i Azure Key Vault. Miljövariabeln kan sedan ställas in med hjälp av ett kommando som liknar följande. Mer information om Azure Key Vault finns i [dokumentationen till Azure Key Vault](../key-vault/quick-create-cli.md).
+Om du vill skydda åtkomstnyckeln för Azure Storage-kontot ytterligare lagrar du den i Azure Key Vault. Miljövariabeln kan sedan ställas in med hjälp av ett kommando som liknar följande. Mer information om Azure Key Vault finns i [dokumentationen till Azure Key Vault](../key-vault/secrets/quick-create-cli.md).
 
 ```bash
 export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --vault-name myKeyVault --query value -o tsv)

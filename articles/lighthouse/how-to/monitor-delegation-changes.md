@@ -3,12 +3,12 @@ title: Övervaka delegeringsändringar i hanteringsklienten
 description: Lär dig hur du övervakar delegeringsaktivitet från kundklienter till din hantering av klienten.
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 322580cc3d0246f7a34e28cdae94da57fda070b5
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: a4593b34311eca34e4fb68926a3820899ab3f324
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985158"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81458819"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Övervaka delegeringsändringar i hanteringsklienten
 
@@ -44,7 +44,7 @@ Eftersom detta är en bred åtkomstnivå rekommenderar vi att du tilldelar den h
 
 - [Skapa ett nytt huvudkonto](../../active-directory/develop/howto-create-service-principal-portal.md) för tjänsten som endast ska användas för den här funktionen i stället för att tilldela den här rollen till ett befintligt tjänsthuvudnamn som används för annan automatisering.
 - Kontrollera att tjänstens huvudnamn inte har åtkomst till några delegerade kundresurser.
-- [Använd ett certifikat för att autentisera](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) och [lagra det säkert i Azure Key Vault](../../key-vault/key-vault-best-practices.md).
+- [Använd ett certifikat för att autentisera](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) och [lagra det säkert i Azure Key Vault](../../key-vault/general/best-practices.md).
 - Begränsa de användare som har åtkomst att agera på uppdrag av tjänstens huvudnamn.
 
 Använd någon av följande metoder för att göra rotomfattningstilldelningarna.

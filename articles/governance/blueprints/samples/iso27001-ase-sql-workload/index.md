@@ -3,12 +3,12 @@ title: Exempel på ISO 27001 ASE/SQL-arbetsbelastningsskiss – översikt
 description: Översikt och arkitektur för skissexemplet ISO 27001 App Service-miljön/SQL Database-arbetsbelastning.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 9957ab1bef5b65fc90b5a357bd56d6f0013ea690
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 834096ec529673bae1728877310ba7153ae94cb3
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381735"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460587"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Översikt över skissexemplet ISO 27001 App Service-miljön/SQL Database-arbetsbelastning
 
@@ -32,7 +32,7 @@ Den här miljön består av flera Azure-tjänster ger en säker, fullständigt �
 - [Azure-principer](../../../policy/overview.md) för att låsa vilka tjänster som ska kunna distribueras till miljön och avvisa skapande av offentliga IP-adressresurser (PIP)
 - Ett virtuellt nätverk som innehåller ett enskilt undernät som är peerkopplat tillbaka till en redan befintlig miljö för [delade tjänster](../iso27001-shared/index.md) och som tvingar all trafik att gå via brandväggen för [delade tjänster](../iso27001-shared/index.md). Det virtuella nätverket är värd för följande resurser:
   - En [Azure App Service-miljön](../../../../app-service/environment/intro.md) som kan användas som värd för en eller flera webbappar, webb-API:er eller funktioner
-  - En [Azure Key Vault](../../../../key-vault/key-vault-overview.md)-instans med en tjänstslutpunkt för virtuellt nätverk för att lagra hemligheter som används av appar som körs i arbetsbelastningsmiljön
+  - En [Azure Key Vault](../../../../key-vault/general/overview.md)-instans med en tjänstslutpunkt för virtuellt nätverk för att lagra hemligheter som används av appar som körs i arbetsbelastningsmiljön
   - En [Azure SQL Database](../../../../sql-database/sql-database-technical-overview.md)-serverinstans med en tjänstslutpunkt för virtuellt nätverk för att lagra databaser som används för appar i arbetsbelastningsmiljön
 
 ## <a name="next-steps"></a>Nästa steg

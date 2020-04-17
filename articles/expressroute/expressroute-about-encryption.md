@@ -7,19 +7,19 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7dd9106539b6756d74629ac663241a5b5562cefb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d48f83df4e83fd1d1fe38eea76432e1b1c711b76
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75437049"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461471"
 ---
 # <a name="expressroute-encryption"></a>ExpressRoute-kryptering
  
 ExpressRoute stöder ett par krypteringstekniker för att säkerställa sekretess och integritet för de data som passerar mellan nätverket och Microsofts nätverk.
 
 ## <a name="point-to-point-encryption-by-macsec-faq"></a>Vanliga frågor om punkt-till-punkt-kryptering från MACsec
-MACsec är en [IEEE-standard](https://1.ieee802.org/security/802-1ae/). Den krypterar data på MAC-nivå (Media Access control) eller Nätverkslagret 2. Du kan använda MACsec för att kryptera de fysiska länkarna mellan nätverksenheterna och Microsofts nätverksenheter när du ansluter till Microsoft via [ExpressRoute Direct](expressroute-erdirect-about.md). MACsec är inaktiverat på ExpressRoute Direct-portar som standard. Du tar med din egen MACsec-nyckel för kryptering och lagrar den i [Azure Key Vault](../key-vault/key-vault-overview.md). Du bestämmer när du ska rotera nyckeln. Se andra vanliga frågor nedan.
+MACsec är en [IEEE-standard](https://1.ieee802.org/security/802-1ae/). Den krypterar data på MAC-nivå (Media Access control) eller Nätverkslagret 2. Du kan använda MACsec för att kryptera de fysiska länkarna mellan nätverksenheterna och Microsofts nätverksenheter när du ansluter till Microsoft via [ExpressRoute Direct](expressroute-erdirect-about.md). MACsec är inaktiverat på ExpressRoute Direct-portar som standard. Du tar med din egen MACsec-nyckel för kryptering och lagrar den i [Azure Key Vault](../key-vault/general/overview.md). Du bestämmer när du ska rotera nyckeln. Se andra vanliga frågor nedan.
 ### <a name="can-i-enable-macsec-on-my-expressroute-circuit-provisioned-by-an-expressroute-provider"></a>Kan jag aktivera MACsec på min ExpressRoute-krets som etablerats av en ExpressRoute-leverantör?
 Nej. MACsec krypterar all trafik på en fysisk länk med en nyckel som ägs av en entitet (dvs. kund). Därför är det endast tillgängligt på ExpressRoute Direct.
 ### <a name="can-i-encrypt-some-of-the-expressroute-circuits-on-my-expressroute-direct-ports-and-leave-other-circuits-on-the-same-ports-unencrypted"></a>Kan jag kryptera några av ExpressRoute-kretsarna på mina ExpressRoute Direct-portar och lämna andra kretsar på samma portar okrypterade? 

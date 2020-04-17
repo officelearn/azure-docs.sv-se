@@ -3,12 +3,12 @@ title: Lär dig mer om programsäkerhet i Azure Service Fabric
 description: En översikt över hur du korrekt kör mikrotjänstprogram på Service Fabric. Lär dig hur du kör tjänster och startskript under olika säkerhetskonton, autentiserar och auktoriserar användare, hanterar programhemligheter, säker tjänstkommunikation, använder en API-gateway och skyddar programdata i vila.
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: e9b4a1209838bdd5eee401b0defb01839b5cf684
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: c97c5345a1a18cce8c44508542f12d3642d2b8f9
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756233"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81461437"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric-program- och tjänstsäkerhet
 En arkitektur för mikrotjänster kan ge [många fördelar.](service-fabric-overview-microservices.md) Att hantera säkerheten för mikrotjänster är dock en utmaning och annorlunda än att hantera traditionella monolitiska programsäkerhet. 
@@ -99,7 +99,7 @@ TO DO: Encrypt disks on Linux clusters?-->
 * [Lär dig mer om klustersäkerhet](service-fabric-cluster-security.md)
 
 <!-- Links -->
-[key-vault-get-started]:../key-vault/key-vault-overview.md
+[key-vault-get-started]:../key-vault/general/overview.md
 [config-package]: service-fabric-application-and-service-manifests.md
 [service-fabric-cluster-creation-via-arm]: service-fabric-cluster-creation-via-arm.md
 

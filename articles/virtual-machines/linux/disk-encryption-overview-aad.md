@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: f38fd7c8e14f58052912f68a277f194fd3866f2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 029743dbb44ab0ebb6ab8f695c0c966137c45107
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970584"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81459805"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Azure DiskKryptering med Azure AD (tidigare version)
 
@@ -35,7 +35,7 @@ Om du vill aktivera Azure Disk Encryption-funktionen med hjälp av den äldre AA
   - För att få en token för att ansluta till ditt nyckelvalv måste IaaS \[VM kunna\]ansluta till en Azure AD-slutpunkt, login.microsoftonline.com .
   - Om du vill skriva krypteringsnycklarna till nyckelvalvet måste IaaS VM kunna ansluta till nyckelvalvets slutpunkt.
   - IaaS-datorn måste kunna ansluta till en Azure-lagringsslutpunkt som är värd för Azure-tilläggsdatabasen och ett Azure-lagringskonto som är värd för VHD-filerna.
-  -  Om din säkerhetsprincip begränsar åtkomsten från virtuella Azure-datorer till internet kan du lösa föregående URI och konfigurera en specifik regel för att tillåta utgående anslutning till IPs. Mer information finns i [Azure Key Vault bakom en brandvägg](../../key-vault/key-vault-access-behind-firewall.md).
+  -  Om din säkerhetsprincip begränsar åtkomsten från virtuella Azure-datorer till internet kan du lösa föregående URI och konfigurera en specifik regel för att tillåta utgående anslutning till IPs. Mer information finns i [Azure Key Vault bakom en brandvägg](../../key-vault/general/access-behind-firewall.md).
   - Om TLS 1.0 är inaktiverat och .NET-versionen inte uppdateras till 4.6 eller senare i Windows, gör följande registerändring det möjligt för Azure Disk Encryption att välja den nyare TLS-versionen:
     
             [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]

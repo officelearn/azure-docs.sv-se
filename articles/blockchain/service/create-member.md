@@ -4,12 +4,12 @@ description: Skapa en Azure Blockchain Service-medlem för ett blockchain-konsor
 ms.date: 03/30/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
-ms.openlocfilehash: 4c3dabc6abdffd2fb08ece617545d8471955d130
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 7d29382cdedf7e35d186c73c9d32547e10fb10d6
+ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529647"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81460281"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Snabbstart: Skapa en Blockchain-tjänstmedlem för Azure Blockchain-tjänst med Azure-portalen
 
@@ -36,7 +36,7 @@ En Azure Blockchain Service-medlem är en blockchain-nod i ett privat konsortium
     Konsortium | Ange ett unikt namn för ett nytt konsortium. Om du går med i ett konsortium via en inbjudan väljer du det konsortium du ansluter dig till. Mer information om konsortier finns i [Azure Blockchain Service consortium](consortium.md).
     Namn | Välj ett unikt namn för Azure Blockchain Service-medlemmen. Blockchain-medlemsnamnet kan bara innehålla gemener och siffror. Det första tecknet måste vara en bokstav. Värdet måste vara mellan 2 och 20 tecken långt.
     Lösenord för medlemskonto | Medlemskontots lösenord används för att kryptera den privata nyckeln för Ethereum-kontot som skapas för din medlem. Du använder medlemskontot och medlemskontots lösenord för konsortiehantering.
-    Prissättning | Nodkonfigurationen och kostnaden för den nya tjänsten. Välj länken **Ändra** för att välja mellan **standard-** och **basic-nivåer.** Använd *basic-nivån* är för utveckling, testning och bevis på begrepp. Använd *standardnivån* för distributioner av produktionsresultat. Du bör också använda *standardnivån* om du använder Blockchain Data Manager eller skickar en stor mängd privata transaktioner. Det går inte att ändra prisnivån mellan grundläggande och standard när medlemmen har skapats.
+    Prissättning | Nodkonfigurationen och kostnaden för den nya tjänsten. Välj länken **Ändra** för att välja mellan **standard-** och **basic-nivåer.** Använd *basic-nivån* för utveckling, testning och bevis på begrepp. Använd *standardnivån* för distributioner av produktionsresultat. Du bör också använda *standardnivån* om du använder Blockchain Data Manager eller skickar en stor mängd privata transaktioner. Det går inte att ändra prisnivån mellan grundläggande och standard när medlemmen har skapats.
     Nodlösenord | Lösenordet för medlemmens standardtransaktionsnod. Använd lösenordet för grundläggande autentisering när du ansluter till blockchain-medlemmens offentliga slutpunkt för standardtransaktionsnod.
 
 1. Välj **Granska + skapa** för att validera dina inställningar. Välj **Skapa** för att etablera tjänsten. Etablering tar cirka 10 minuter.

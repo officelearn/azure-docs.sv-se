@@ -252,7 +252,7 @@
           href: virtual-machine-scale-sets-networking.md
         - name: Automatiska uppgraderingar av operativsystem
           href: virtual-machine-scale-sets-automatic-upgrade.md
-        - name: Automatiska instansreparationer (förhandsversion)
+        - name: Automatiska instansreparationer
           href: virtual-machine-scale-sets-automatic-instance-repairs.md
         - name: Instansskydd
           href: virtual-machine-scale-sets-instance-protection.md

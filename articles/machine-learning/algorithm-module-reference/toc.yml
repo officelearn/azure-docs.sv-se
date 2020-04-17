@@ -152,5 +152,9 @@
       href: pca-based-anomaly-detection.md
     - name: Träna avvikelseidentifieringsmodell
       href: train-anomaly-detection-model.md
+- name: Webbtjänst
+  items:
+    - name: Indata/utdata för webbtjänst
+      href: web-service-input-output.md
 - name: Modulfel och felsökning
   href: designer-error-codes.md

@@ -4,13 +4,13 @@
   items:
     - name: Vad är Azure HPC Cache?
       href: hpc-cache-overview.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Planera det aggregerade namnområdet
       href: hpc-cache-namespace.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
-    - name: Förutsättningar
+    - name: Krav
       href: hpc-cache-prereqs.md
     - name: Skapa cachen
       href: hpc-cache-create.md
@@ -36,6 +36,8 @@
       href: hpc-cache-mount.md
     - name: Hantera cachen
       href: hpc-cache-manage.md
+    - name: Konfigurera valfria inställningar
+      href: configuration.md
 - name: Resurser
   items:
     - name: Öppna en supportbegäran
@@ -46,5 +48,7 @@
       href: troubleshoot-nas.md
     - name: Återställa från ett regionalt avbrott
       href: hpc-region-recovery.md
+    - name: Använda kundhanterade krypteringsnycklar
+      href: customer-keys.md
     - name: Använda Azure NetApp Files med Azure HPC Cache
       href: hpc-cache-netapp.md

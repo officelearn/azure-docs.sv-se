@@ -199,6 +199,8 @@
           href: stream-analytics-tools-for-visual-studio-cicd.md
     - name: Visual Studio-koden
       items:
+        - name: Slutföra kod med IntelliSense
+          href: vs-code-intellisense.md
         - name: Testa lokalt med exempeldata
           href: visual-studio-code-local-run.md
         - name: Testa lokalt med realtidsdata

@@ -1,5 +1,7 @@
 - name: Klippa ut planer
   href: cut-planes.md
+- name: Rendering av felsökning
+  href: debug-rendering.md
 - name: Åsidosätta hierarkiskt tillstånd
   href: override-hierarchical-state.md
 - name: Omprojektion av sena steg

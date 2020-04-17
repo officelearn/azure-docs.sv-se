@@ -32,7 +32,7 @@
                   href: data-box-deploy-copy-data-from-vhds.md
             - name: '4 – Returnera, ladda upp, bekräfta'
               href: data-box-deploy-picked-up.md
-        - name: Koncept
+        - name: Begrepp
           items:
             - name: Läsa riktlinjer för säkerhet
               href: data-box-safety.md
@@ -70,6 +70,8 @@
                   href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
                 - name: Från HDFS-lagring
                   href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+                - name: Till Azure-säkerhetskopiering
+                  href: ../backup/offline-backup-azure-data-box.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
             - name: Felsöka
               items:
                 - name: Data Box-problem
@@ -99,7 +101,7 @@
               href: data-box-disk-deploy-picked-up.md
             - name: 5 – Verifiera uppladdning
               href: data-box-disk-deploy-upload-verify.md
-        - name: Koncept
+        - name: Begrepp
           items:
             - name: Granska krav
               href: data-box-disk-system-requirements.md
@@ -155,7 +157,7 @@
                   href: data-box-heavy-deploy-copy-data-from-vhds.md
             - name: '4 – Returnera, ladda upp, bekräfta'
               href: data-box-heavy-deploy-picked-up.md
-        - name: Koncept
+        - name: Begrepp
           items:
             - name: Läsa riktlinjer för säkerhet
               href: data-box-heavy-safety.md

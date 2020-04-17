@@ -5,14 +5,14 @@ author: mumami
 tags: billing
 ms.service: cost-management-billing
 ms.topic: reference
-ms.date: 02/14/2020
+ms.date: 04/14/2020
 ms.author: banders
-ms.openlocfilehash: 10275bac8cd9363939f9b6f298c49d7ef08ab7bf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aeca9aede4c1b2d8c27de749c7e07c0153000825
+ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202921"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81383170"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Översikt över rapporterings-API:er för Enterprise-kunder
 Med rapporterings-API:erna kan Enterprise-kunder hämta förbruknings- och faktureringsdata till önskade dataanalysverktyg. Enterprise-kunder har signerat [ett Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) med Azure om särskilda betalningsåtaganden som berättigar till anpassade priser för Azure-resurser.
@@ -51,7 +51,9 @@ ETags returneras i svaret för alla ovanstående API:er. En ändring i Etag indi
 |Statuskod för svar|Meddelande|Beskrivning|
 |-|-|-|
 |200| OK|Inget fel|
+|400| Felaktig begäran| Ogiltiga parametrar – datumintervall, EA-nummer osv.|
 |401| Behörighet saknas| Det gick inte att hitta API-nyckeln – ogiltig, har gått ut eller liknande|
 |404| Inte tillgänglig| Det gick inte att hitta rapportslutpunkten|
-|400| Felaktig begäran| Ogiltiga parametrar – datumintervall, EA-nummer osv.|
-|500| Serverfel| Ett oväntat fel inträffade när begäran bearbetades|
+|429 | TooManyRequests | Begäran begränsades. Vänta så lång tid som anges i rubriken <code>x-ms-ratelimit-microsoft.consumption-retry-after</code> och försök igen.|
+|500| Serverfel| Ett oväntat fel inträffade när förfrågan bearbetades|
+| 503 | ServiceUnavailable | Tjänsten är inte tillgänglig för tillfället. Vänta så lång tid som anges i rubriken <code>Retry-After</code> och försök igen.|

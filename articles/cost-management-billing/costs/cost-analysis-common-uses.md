@@ -3,16 +3,16 @@ title: Vanlig användning av kostnadsanalyser i Azure Cost Management
 description: I den här artikeln beskrivs hur du hämtar resultat från vanliga kostnadsanalyser i Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/31/2020
+ms.date: 04/10/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: a333cad51e6fc089e7e6994c7b89210b12686cd5
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 2e0e222e636f694328835e20fda97deca1d9986a
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80520881"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81261520"
 ---
 # <a name="common-cost-analysis-uses"></a>Vanlig användning av kostnadsanalyser
 
@@ -27,6 +27,17 @@ Om du visar kostnaderna för en Azure-tjänst, blir det enklare att förstå vil
 1. Ändra vyn till **Tabell**.
 
 [![Kostnadsuppdelning efter Azure-tjänst](./media/cost-analysis-common-uses/breakdown-by-service.png)](./media/cost-analysis-common-uses/breakdown-by-service.png#lightbox)
+
+## <a name="review-invoiced-charges-in-cost-analysis"></a>Granska fakturerade avgifter i Kostnadsanalys
+
+Gå till kostnadsanalysen för omfattningen som är associerad med fakturan som du analyserar för att se information om den i Microsoft Azure-portalen. Välj vyn **Fakturainformation**. Fakturainformation visar avgifterna som visas på fakturan.
+
+[![Exempel som visar fakturainformation](./media/cost-analysis-common-uses/invoice-details.png)](./media/cost-analysis-common-uses/invoice-details.png#lightbox)
+
+När du granskar fakturainformationen kan du identifiera eventuella tjänster som har oväntade kostnader och avgöra vilka resurser som är direkt kopplade till resursen i kostnadsanalysen. Om du till exempel vill analysera avgifterna för tjänsten Virtual Machines går du till vyn **Ackumulerade kostnader**. Sedan ställer du in kornigheten på **Daglig** och filtrerar avgifterna efter **Tjänstnamn: Virtual Machines** samt grupperar avgifterna efter **Resurs**.
+
+[![Exempel som visar ackumulerade kostnader för virtuella datorer](./media/cost-analysis-common-uses/virtual-machines.png)](./media/cost-analysis-common-uses/virtual-machines.png#lightbox)
+
 
 ## <a name="view-cost-breakdown-by-azure-resource"></a>Visa kostnadsuppdelning efter Azure-resurs
 

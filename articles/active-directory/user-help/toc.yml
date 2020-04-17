@@ -24,6 +24,10 @@
       href: active-directory-passwords-reset-register.md
     - name: Återställa lösenordet
       href: active-directory-passwords-update-your-own-password.md
+- name: Hjälp för Min personal-portalen
+  items:
+    - name: Användarhantering för Min personal
+      href: my-staff-team-manager.md
 - name: Hjälp om Microsoft Authenticator-appen
   items:
     - name: Vad är Microsoft Authenticator-appen?

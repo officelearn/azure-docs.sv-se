@@ -1,0 +1,64 @@
+### YamlMime:Landing
+title: Dokumentation av nycklar
+summary: Azure Key Vault gör det möjligt för Microsoft Azure-program och -användare att lagra och använda nycklar. Det har stöd för flera nyckeltyper och algoritmer och möjliggör användning av HSM (Hardware Security Modules) för nycklar med högt värde.
+metadata:
+  title: Nycklar
+  description: Azure Key Vault gör det möjligt för Microsoft Azure-program och -användare att lagra och använda nycklar. Det har stöd för flera nyckeltyper och algoritmer och möjliggör användning av HSM (Hardware Security Modules) för nycklar med högt värde.
+  services: key-vault
+  ms.service: key-vault
+  ms.subservice: keys
+  ms.topic: landing-page
+  author: msmbaldwin
+  ms.author: mbaldwin
+  ms.date: 04/07/2020
+  ms.openlocfilehash: d5394200164d4f254ceca7a18035df95cc401747
+  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81423368"
+landingContent:
+- title: Nycklar
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Key Vault-nycklar?
+      url: about-keys.md
+- title: Kom igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure CLI
+      url: quick-create-cli.md
+    - text: Azure PowerShell
+      url: quick-create-powershell.md
+    - text: Portalen
+      url: quick-create-portal.md
+    - text: Python
+      url: quick-create-python.md
+- title: Självstudier
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Importera HSM-skyddade nycklar till Key Vault
+      url: hsm-protected-keys.md
+    - text: Importera oberoende HSM-skyddade nycklar
+      url: hsm-protected-keys-vendor-agnostic-byok.md
+- title: Mer om Key Vault
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Översikt över Key Vault
+      url: ../general/overview.md
+    - text: Grundläggande begrepp
+      url: ../general/basic-concepts.md
+    - text: Översikt över mjuk borttagning
+      url: ../general/overview-soft-delete.md
+    - text: Säkerhetsöversikt
+      url: ../general/overview-security.md
+- title: Microsoft Learn
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Hantera hemligheter i dina serverappar med Azure Key Vault
+      url: /learn/modules/manage-secrets-with-azure-key-vault/

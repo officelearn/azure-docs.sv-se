@@ -22,22 +22,16 @@
   items:
     - name: Autentiseringsmetoder
       href: concept-authentication-methods.md
-    - name: Lösenordsfri autentisering
-      href: concept-authentication-passwordless.md
-    - name: Registrering av säkerhetsinformation
-      href: concept-registration-mfa-sspr-combined.md
-    - name: Lösenordsåterställning
+    - name: Återställning av lösenord för självbetjäning
       items:
         - name: Så här fungerar lösenordsåterställning
           href: concept-sspr-howitworks.md
-        - name: Alternativ för lösenordsåterställning
-          href: concept-sspr-customization.md
-        - name: Principer för lösenordsåterställning
-          href: concept-sspr-policy.md
-        - name: Vilken licens behöver jag?
-          href: concept-sspr-licensing.md
         - name: Lokal integration
           href: concept-sspr-writeback.md
+        - name: Principer
+          href: concept-sspr-policy.md
+        - name: Licenser
+          href: concept-sspr-licensing.md
     - name: Multi-Factor Authentication
       items:
         - name: Så här fungerar MFA
@@ -50,12 +44,16 @@
           href: 'https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide'
         - name: VANLIGA FRÅGOR OCH SVAR
           href: multi-factor-authentication-faq.md
-    - name: Azure AD-lösenordsskydd
+    - name: Lösenordsfri autentisering
+      href: concept-authentication-passwordless.md
+    - name: Lösenordsskydd
       items:
         - name: Eliminera svaga lösenord i molnet
           href: concept-password-ban-bad.md
         - name: Eliminera svaga lösenord lokalt
           href: concept-password-ban-bad-on-premises.md
+    - name: Registrering av säkerhetsinformation
+      href: concept-registration-mfa-sspr-combined.md
     - name: Motståndskraftiga åtkomstkontroller
       href: concept-resilient-controls.md
 - name: Anvisningar
@@ -64,6 +62,8 @@
       items:
         - name: Distributionsguide
           href: howto-sspr-deployment.md
+        - name: Alternativ för användaranpassning
+          href: howto-sspr-customization.md
         - name: Förhandsregistrera autentiseringsdata
           href: howto-sspr-authenticationdata.md
         - name: SSPR för Windows-klienter
@@ -100,28 +100,6 @@
               href: howto-mfa-nps-extension-rdg.md
             - name: VPN
               href: howto-mfa-nps-extension-vpn.md
-    - name: Registrering av säkerhetsinformation
-      items:
-        - name: Aktivera kombinerad registrering
-          href: howto-registration-mfa-sspr-combined.md
-        - name: Felsöka kombinerad registrering
-          href: howto-registration-mfa-sspr-combined-troubleshoot.md
-    - name: Azure AD-lösenordsskydd
-      items:
-        - name: Planera och distribuera lokalt
-          href: howto-password-ban-bad-on-premises-deploy.md
-        - name: Aktivera och konfigurera lokal
-          href: howto-password-ban-bad-on-premises-operations.md
-        - name: Övervaka lokala distributioner
-          href: howto-password-ban-bad-on-premises-monitor.md
-        - name: Felsöka lokala distributioner
-          href: howto-password-ban-bad-on-premises-troubleshoot.md
-        - name: Lokala vanliga frågor och svar
-          href: howto-password-ban-bad-on-premises-faq.md
-        - name: Versionshistorik för lokal agent
-          href: howto-password-ban-bad-on-premises-agent-versions.md
-    - name: Smart utlåsning i Azure AD
-      href: howto-password-smart-lockout.md
     - name: Lösenordsfri
       items:
         - name: Distribuera lösenordsfritt
@@ -138,16 +116,38 @@
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello för företag
           href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
+    - name: Registrering av säkerhetsinformation
+      items:
+        - name: Aktivera kombinerad registrering
+          href: howto-registration-mfa-sspr-combined.md
+        - name: Felsöka kombinerad registrering
+          href: howto-registration-mfa-sspr-combined-troubleshoot.md
+    - name: Lokalt lösenordsskydd
+      items:
+        - name: Planera och distribuera
+          href: howto-password-ban-bad-on-premises-deploy.md
+        - name: Aktivera och konfigurera
+          href: howto-password-ban-bad-on-premises-operations.md
+        - name: Övervaka
+          href: howto-password-ban-bad-on-premises-monitor.md
+        - name: Felsöka
+          href: howto-password-ban-bad-on-premises-troubleshoot.md
+        - name: Vanliga frågor och svar
+          href: howto-password-ban-bad-on-premises-faq.md
+        - name: Agentversionshistorik
+          href: howto-password-ban-bad-on-premises-agent-versions.md
     - name: Använda SMS-baserad autentisering (förhandsversion)
       href: howto-authentication-sms-signin.md
+    - name: Smart utlåsning i Azure AD
+      href: howto-password-smart-lockout.md
     - name: Certifikatbaserad autentisering
       items:
         - name: Komma igång med certifikatbaserad autentisering
           href: active-directory-certificate-based-authentication-get-started.md
           items:
-            - name: CBA på Android-enheter
+            - name: Använd på Android-enheter
               href: active-directory-certificate-based-authentication-android.md
-            - name: CBA på iOS-enheter
+            - name: Använd på iOS-enheter
               href: active-directory-certificate-based-authentication-ios.md
     - name: Rapportering
       items:

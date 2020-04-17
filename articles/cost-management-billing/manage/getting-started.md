@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 3/30/2020
+ms.date: 04/10/2020
 ms.author: banders
-ms.openlocfilehash: 79af6f78e8e9bf93c49deafe79f6a421cbb77d1a
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: b1986a4cb59e0f276ba59eb99acfb459b48615d8
+ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475256"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81262115"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Förhindra oväntade avgifter med Azure-fakturering och kostnadshantering
 
@@ -193,6 +193,17 @@ På din Azure-faktura samlas avgifter för månaden per _mätare_. Mätare anvä
 Filtrera CSV-filen över användning på _Mätarnamn_ som det visas på den faktura du vill analysera för att se alla poster som gäller den mätaren. _Instans-ID_ för radposten motsvarar den faktiska Azure-resursen som gett upphov till kostnaden.
 
 När du har identifierat den aktuella resursen kan du använda Kostnadsanalys i Azure Cost Management för att vidare analysera kostnaderna för resursen. Läs mer om att använda kostnadsanalys i [Börja analysera kostnader](../costs/quick-acm-cost-analysis.md).
+
+### <a name="review-invoiced-charges-in-cost-analysis"></a>Granska fakturerade avgifter i Kostnadsanalys
+
+Gå till kostnadsanalysen för omfattningen som är associerad med fakturan som du analyserar för att se information om den i Microsoft Azure-portalen. Välj vyn **Fakturainformation**. Fakturainformation visar avgifterna som visas på fakturan.
+
+[![Exempel som visar fakturainformation](./media/getting-started/invoice-details.png)](./media/getting-started/invoice-details.png#lightbox)
+
+När du granskar fakturainformationen kan du identifiera eventuella tjänster som har oväntade kostnader och avgöra vilka resurser som är direkt kopplade till resursen i kostnadsanalysen. Om du till exempel vill analysera avgifterna för tjänsten Virtual Machines går du till vyn **Ackumulerade kostnader**. Sedan ställer du in kornigheten på **Daglig** och filtrerar avgifterna efter **Tjänstnamn: Virtual Machines** samt grupperar avgifterna efter **Resurs**.
+
+[![Exempel som visar ackumulerade kostnader för virtuella datorer](./media/getting-started/virtual-machines.png)](./media/getting-started/virtual-machines.png#lightbox)
+
 
 ### <a name="identify-spikes-in-cost-over-time"></a>Identifiera toppar i kostnaderna över tid
 

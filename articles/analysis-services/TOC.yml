@@ -39,6 +39,8 @@
       href: analysis-services-connect.md
     - name: Hög tillgänglighet
       href: analysis-services-bcdr.md
+    - name: Långvariga åtgärder
+      href: analysis-services-long-operations.md
     - name: Datakällor som stöds
       href: analysis-services-datasource.md
 - name: Så här gör du

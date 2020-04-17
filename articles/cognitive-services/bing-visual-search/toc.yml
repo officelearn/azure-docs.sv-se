@@ -80,7 +80,7 @@
       maintainContext: true
 - name: Resurser
   items:
-    - name: Stöd för språk och region
+    - name: Stöd för språk
       href: language-support.md
     - name: Få en kostnadsfri åtkomstnyckel
       href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api'

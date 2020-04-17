@@ -1,0 +1,64 @@
+- name: Nycklar
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Om Key Vault-nycklar
+      href: about-keys.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: CLI
+      href: quick-create-cli.md
+    - name: PowerShell
+      href: quick-create-powershell.md
+    - name: Portalen
+      href: quick-create-portal.md
+    - name: Python
+      href: quick-create-python.md
+- name: Självstudier
+  items:
+    - name: Importera HSM-skyddade nycklar
+      href: hsm-protected-keys.md
+    - name: Importera HSM-skyddade nycklar (förhandsversion)
+      href: hsm-protected-keys-vendor-agnostic-byok.md
+    - name: Importera HSM-skyddade nycklar (äldre version)
+      href: hsm-protected-keys-legacy.md
+- name: Referens
+  items:
+    - name: Azure PowerShell
+      href: '/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault'
+    - name: Azure CLI
+      href: /cli/azure/keyvault
+    - name: .NET
+      href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+    - name: Java
+      href: /java/api/overview/azure/keyvault?view=azure-java-stable
+    - name: Node.js
+      href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
+    - name: Python
+      href: /python/api/overview/azure/key-vault?view=azure-python
+    - name: REST
+      href: /rest/api/keyvault
+    - name: Resource Manager-mall
+      href: /azure/templates/microsoft.keyvault/allversions
+      displayName: ARM
+- name: Resurser
+  items:
+    - name: Utveckla dina färdigheter med Microsoft Learn
+      href: /learn/browse/?products=azure-key-vault
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/key-vault/'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=key-vault'
+    - name: Serviceavtal (SLA)
+      href: 'https://azure.microsoft.com/support/legal/sla/key-vault/'
+    - name: Tjänstbegränsningar
+      href: ../general/service-limits.md
+    - name: Tjänststatus
+      href: 'https://azure.microsoft.com/status/'
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates/?product=key-vault'
+    - name: Blogg
+      href: 'https://blogs.technet.com/b/kv/'
+    - name: Produktfeedback
+      href: 'https://feedback.azure.com/forums/906355-azure-key-vault'

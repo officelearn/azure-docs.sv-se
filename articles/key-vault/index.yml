@@ -1,96 +1,102 @@
-### YamlMime:Landing
-title: Dokumentation om Azure Key Vault
+### YamlMime:Hub
+title: Azure Key Vault
 summary: Lär dig hur du använder Key Vault för att skapa och underhålla nycklar som ger åtkomst till och krypterar dina molnresurser, appar och lösningar. Självstudier, API-referenser och mycket annat.
+brand: azure
 metadata:
   title: Dokumentation om Azure Key Vault
   description: Lär dig hur du använder Key Vault för att skapa och underhålla nycklar som ger åtkomst till och krypterar dina molnresurser, appar och lösningar. Självstudier, API-referenser och mycket annat.
   services: key-vault
   ms.service: key-vault
-  ms.topic: landing-page
+  ms.subservice: na
+  ms.topic: hub-page
+  ms.collection: na
   author: msmbaldwin
   ms.author: mbaldwin
-  manager: rkarlin
-  ms.date: 09/19/2019
-  ms.openlocfilehash: cbd1ca9ead64bfda8401876ec54487f767363d3c
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.date: 04/07/2020
+  ms.openlocfilehash: e969d71be3c8f77607e69205c24d6c980c9943a2
+  ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "71299778"
-landingContent:
-- title: Om Azure Key Vault
-  linkLists:
-  - linkListType: overview
+  ms.lasthandoff: 04/16/2020
+  ms.locfileid: "81536275"
+highlightedContent:
+  items:
+  - title: Introduktion till Azure Key Vault
+    itemType: overview
+    url: ./general/overview.md
+  - title: Grundläggande begrepp
+    itemType: overview
+    url: ./general/basic-concepts.md
+  - title: Mjuk borttagning
+    itemType: overview
+    url: ./general/overview-soft-delete.md
+  - title: Loggning
+    itemType: overview
+    url: ./general/logging.md
+  - title: Begränsning
+    itemType: overview
+    url: ./general/overview-throttling.md
+  - title: Säkerhetsrekommendationer
+    itemType: overview
+    url: ./general/security-recommendations.md
+conceptualContent:
+  items:
+  - title: Certifikat
     links:
-    - text: Vad är Azure Key Vault?
-      url: key-vault-overview.md
-  - linkListType: concept
+    - url: ./certificates/about-certificates.md
+      itemType: overview
+      text: Om certifikat
+    - url: ./certificates/quick-create-portal.md
+      itemType: quickstart
+      text: Ange och hämta ett certifikat från Azure Key Vault med hjälp av Azure-portalen
+    - url: ./certificates/certificate-scenarios.md
+      itemType: overview
+      text: Kom igång med Key Vault-certifikat
+    - url: ./certificates/create-certificate-scenarios.md
+      itemType: overview
+      text: Övervaka och hantera processen för att skapa certifikat
+    footerLink:
+      url: ./certificates/index.yml
+      text: Mer information
+  - title: Nycklar
     links:
-    - text: Grundläggande begrepp
-      url: basic-concepts.md
-    - text: Mjuk borttagning
-      url: key-vault-ovw-soft-delete.md
-    - text: Begränsning
-      url: key-vault-ovw-throttling.md
-- title: Kom igång
-  linkLists:
-  - linkListType: quickstart
+    - url: ./keys/about-keys.md
+      itemType: overview
+      text: Om nycklar
+    - url: ./keys/quick-create-portal.md
+      itemType: quickstart
+      text: Ange och hämta en nyckel från Azure Key Vault med hjälp av Azure-portalen
+    - url: ./keys/hsm-protected-keys.md
+      itemType: tutorial
+      text: Importera HSM-skyddade nycklar till Key Vault
+    - url: ./keys/hsm-protected-keys-vendor-agnostic-byok.md
+      itemType: overview
+      text: Importera oberoende HSM-skyddade nycklar
+    footerLink:
+      url: ./keys/index.yml
+      text: Mer information
+  - title: Hemligheter
     links:
-    - text: Azure CLI
-      url: quick-create-cli.md
-    - text: Azure PowerShell
-      url: quick-create-powershell.md
-    - text: Portal
-      url: quick-create-portal.md
-    - text: .NET
-      url: quick-create-net.md
-    - text: Node.js
-      url: quick-create-node.md
-- title: Självstudier
-  linkLists:
-  - linkListType: tutorial
+    - url: ./secrets/about-secrets.md
+      itemType: overview
+      text: Om hemligheter
+    - url: ./secrets/quick-create-portal.md
+      itemType: quickstart
+      text: Ange och hämta en hemlighet från Azure Key Vault med hjälp av Azure-portalen
+    - url: ./secrets/tutorial-rotation.md
+      itemType: tutorial
+      text: Rotera hemligheter för resurser med en användare
+    footerLink:
+      url: ./secrets/index.yml
+      text: Mer information
+  - title: Hantera lagringsnycklar
     links:
-    - text: Använda Key Vault från en webbapp
-      url: tutorial-net-create-vault-azure-web-app.md
-    - text: Använda Key Vault med en virtuell Azure Linux-dator
-      url: tutorial-net-linux-virtual-machine.md
-    - text: Använda Key Vault med en virtuell Azure Windows-dator
-      url: tutorial-net-windows-virtual-machine.md
-    - text: Key Vault med Python – Linux
-      url: tutorial-python-linux-virtual-machine.md
-    - text: Key Vault med Python – Windows
-      url: tutorial-python-windows-virtual-machine.md
-- title: Key Vault och lagringsnycklar
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Hantera lagringsnycklar med Azure CLI
-      url: key-vault-ovw-storage-keys.md
-    - text: Hantera lagringsnycklar med Azure PowerShell
-      url: key-vault-overview-storage-keys-powershell.md
-    - text: Hämta SAS-token i kod
-      url: storage-keys-sas-tokens-code.md
-- title: Key Vault-appintegrering
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Utvecklarguide
-      url: key-vault-developers-guide.md
-    - text: Använda en hanterad identitet för att få åtkomst till Key Vault
-      url: managed-identity.md
-  - linkListType: tutorial
-    links:
-    - text: Använda Key Vault med en .NET Azure-webbapp
-      url: tutorial-net-create-vault-azure-web-app.md
-  - linkListType: reference
-    links:
-    - text: Autentisering, begäranden och svar
-      url: authentication-requests-and-responses.md
-    - text: Key Vault REST API-referens
-      url: /rest/api/keyvault/
-- title: Microsoft Learn
-  linkLists:
-  - linkListType: learn
-    links:
-    - text: Hantera hemligheter i dina serverappar med Azure Key Vault
-      url: /learn/modules/manage-secrets-with-azure-key-vault/
+    - url: ./secrets/overview-storage-keys.md
+      itemType: overview
+      text: Lagringsnycklar – CLI
+    - url: ./secrets/overview-storage-keys-powershell.md
+      itemType: overview
+      text: Lagringsnycklar – PowerShell
+    - url: ./secrets/storage-keys-sas-tokens-code.md
+      itemType: overview
+      text: Hämta SAS-token i kod

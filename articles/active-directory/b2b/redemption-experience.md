@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 043e0f3a0ff2c1c642c63a387c571b575f77cf7d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0645807aa40557c163643f1393c310668518f9be
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80050841"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535151"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Inlösen av Azure Active Directory B2B-samarbetsinbjudan
 
@@ -52,6 +52,36 @@ Det finns vissa fall där inbjudan e-post rekommenderas via en direkt länk. Om 
  - Ibland kanske det inbjudna användarobjektet inte har någon e-postadress på grund av en konflikt med ett kontaktobjekt (till exempel ett Outlook-kontaktobjekt). I det här fallet måste användaren klicka på inlösen-URL:en i e-postmeddelandet för inbjudan.
  - Användaren kan logga in med ett alias för den e-postadress som har bjudits in. (Ett alias är ytterligare en e-postadress som är kopplad till ett e-postkonto.) I det här fallet måste användaren klicka på inlösen-URL:en i e-postmeddelandet för inbjudan.
 
+## <a name="invitation-redemption-flow"></a>Inlösenflöde för inbjudan
+
+När en användare klickar på länken **Acceptera inbjudan** i ett [e-postmeddelande](invitation-email-elements.md)med en inbjudan löser Azure AD automatiskt in inbjudan baserat på inlösenflödet enligt nedan:
+
+![Skärmbild som visar diagrammet för inlösenflöde](media/redemption-experience/invitation-redemption-flow.png)
+
+1. Inlösenprocessen kontrollerar om användaren har ett befintligt personligt [Microsoft-konto (MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create).
+
+2. Om en administratör har aktiverat [direkt federation](direct-federation.md)kontrollerar Azure AD om användarens domänsuffix matchar domänen för en konfigurerad SAML/WS-Fed-identitetsprovider och omdirigerar användaren till den förkonfigurerade identitetsprovidern.
+
+3. Om en administratör har aktiverat [Google federation](google-federation.md)kontrollerar Azure AD om användarens domänsuffix är gmail.com eller googlemail.com och omdirigerar användaren till Google.
+
+4. Azure AD utför användarbaserad identifiering för att avgöra om användaren finns i en [befintlig Azure AD-klientorganisation](what-is-b2b.md#easily-add-guest-users-in-the-azure-ad-portal).
+
+5. När användarens **arbetskatalog** har identifierats skickas användaren till motsvarande identitetsprovider för att logga in.  
+
+6. Om steg 1 till 4 inte hittar en arbetskatalog för den inbjudna användaren avgör Azure AD om den inbjudande klienten har aktiverat funktionen [För engångslösenord (OTP)](one-time-passcode.md) för gäster.
+
+7. Om skickar ett engångsnummer för gäster skickas en lösenkod till användaren via det inbjudna [e-postmeddelandet.](one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode) Användaren hämtar och anger den här lösenkoden på inloggningssidan för Azure AD.
+
+8. Om lösenord för en engångskod för gäster är inaktiverat kontrollerar Azure AD domänsuffixet mot en konsumentdomänlista som underhålls av Microsoft. Om domänen matchar en domän i konsumentdomänlistan uppmanas användaren att skapa ett personligt Microsoft-konto. Om inte, uppmanas användaren att skapa ett [Azure AD-självbetjäningskonto (viralt](../users-groups-roles/directory-self-service-signup.md) konto).
+
+9. Azure AD försöker skapa ett Azure AD-självbetjäningskonto (viralt konto) genom att verifiera åtkomst till e-postmeddelandet. Verifiera kontot görs genom att skicka en kod till e-postmeddelandet och låta användaren hämta och skicka det till Azure AD. Men om den inbjudna användarens klient är federerad eller om fältet AllowEmailVerifiedUsers är inställt på false i den inbjudna användarens klientorganisation, kan användaren inte slutföra inlösen och flödet resulterar i ett fel. Mer information finns i [Felsökning av Azure Active Directory B2B-samarbete](troubleshoot.md#the-user-that-i-invited-is-receiving-an-error-during-redemption).
+
+10. Användaren uppmanas att skapa ett personligt Microsoft-konto (MSA).
+
+11. När du har autentiserat till rätt identitetsprovider omdirigeras användaren till Azure AD för att slutföra [medgivandeupplevelsen](redemption-experience.md#consent-experience-for-the-guest).  
+
+För jit-inlösen (just-in-time), där inlösen sker via en klientad programlänk, är steg 8 till 10 inte tillgängliga. Om en användare når steg 6 och funktionen E-post engångslösenord inte är aktiverad, får användaren ett felmeddelande och kan inte lösa in inbjudan. För att förhindra detta bör administratörer antingen [aktivera E-post engångslösenord](one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode) eller se till att användaren klickar på en inbjudningslänk.
+
 ## <a name="consent-experience-for-the-guest"></a>Samtyckesupplevelse för gästen
 
 När en gäst loggar in för att komma åt resurser i en partnerorganisation för första gången guidas de via följande sidor. 
@@ -67,8 +97,7 @@ När en gäst loggar in för att komma åt resurser i en partnerorganisation fö
 
    ![Skärmbild som visar nya användningsvillkor](media/redemption-experience/terms-of-use-accept.png) 
 
-   > [!NOTE]
-   > Du kan konfigurera se [användningsvillkor](../governance/active-directory-tou.md) i **Hantera** > **organisationsrelationer** > **Användarvillkor**.
+   Du kan konfigurera se [användningsvillkor](../governance/active-directory-tou.md) i **Hantera** > **organisationsrelationer** > **Användarvillkor**.
 
 3. Om inget annat anges omdirigeras gästen till åtkomstpanelen Appar, som listar de program som gästen kan komma åt.
 

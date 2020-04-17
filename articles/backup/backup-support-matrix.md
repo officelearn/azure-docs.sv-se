@@ -3,12 +3,12 @@ title: Stödmatris för Azure Backup
 description: Innehåller en sammanfattning av stödinställningar och begränsningar för Azure Backup-tjänsten.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 120882b15dcf9f27c280984ff6d0df31e38ebb73
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: b87430c9ff7d806fd1fc74d5d2a8270f9db43b53
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878960"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537329"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Supportmatris för Azure Backup
 
@@ -90,7 +90,7 @@ Azure Backup stöder inte automatisk klockjustering för sommartid för Azure VM
 
 Stöd för diskdeduplicering är följande:
 
-- Diskduplicering stöds lokalt när du använder DPM eller MABs för att säkerhetskopiera virtuella hyper-virtuella datorer som kör Windows. Windows Server utför dataduplicering (på värdnivå) på virtuella hårddiskar (VHD) som är kopplade till den virtuella datorn som lagring av säkerhetskopior.
+- Diskduplicering stöds lokalt när du använder DPM eller MABS för att säkerhetskopiera virtuella hyper-virtuella datorer som kör Windows. Windows Server utför dataduplicering (på värdnivå) på virtuella hårddiskar (VHD) som är kopplade till den virtuella datorn som lagring av säkerhetskopior.
 - Deduplicering stöds inte i Azure för säkerhetskopieringskomponenter. När DPM och MABS distribueras i Azure kan lagringsdiskarna som är anslutna till den virtuella datorn inte dedupliceras.
 
 ## <a name="security-and-encryption-support"></a>Stöd för säkerhet och kryptering

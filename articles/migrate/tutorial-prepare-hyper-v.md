@@ -2,21 +2,21 @@
 title: Förbereda virtuella virtuella hyper-v-datorer för utvärdering/migrering med Azure Migrate
 description: Lär dig hur du förbereder för utvärdering/migrering av virtuella hyper-virtuella datorer med Azure Migrate.
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: d14ae4282afb610d025d08419a69c6d10c2f1d08
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: e86e634812e9f2782a003a11b48cfecf91d95359
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80436237"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535306"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Förbereda för bedömning och migrering av virtuella hyper-virtuella datorer till Azure
 
 I den hÃ¤r artikeln beskrivs hur du förbereder sig fÃ¤r utvärdering av lokala virtuella virtuella fÃ¤r hyper-V-fÃ¤r med Azure Migrate:Server Assessment(migrate-services-overview.md#azure-migrate-server-assessment-tool) och migrering av virtuella hyper-V-datorer med [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
-Den här självstudien är den första i en serie som visar hur du bedömer och migrerar virtuella hyper-virtuella datorer till Azure. I den här självstudiekursen får du lära du dig att:
+Den här självstudien är den första i en serie som visar hur du bedömer och migrerar virtuella hyper-virtuella datorer till Azure. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Förbered Azure. Ställ in behörigheter för ditt Azure-konto och resurser för att arbeta med Azure Migrate.
@@ -214,9 +214,11 @@ När du ställer in apparaten är du klar med installationen av CredSSP genom [a
 Innan du konfigurerar Azure Migrate-enheten och börjar utvärderingen i nästa självstudiekurs förbereder du för distribution av enheter.
 
 1. [Kontrollera](migrate-appliance.md#appliance---hyper-v) apparatens krav.
-2. [Granska](migrate-appliance.md#url-access) de Azure-url:er som enheten behöver komma åt.
+2. Granska Azure-url:erna som enheten behöver komma åt i molnen [för offentliga](migrate-appliance.md#public-cloud-urls) och [myndigheter.](migrate-appliance.md#government-cloud-urls) Om du använder en URL-baserad brandvägg eller proxy kontrollerar du att den ger åtkomst till de webbadresser som krävs.
 3. Granska de data som apparaten samlar in under identifiering och bedömning.
-4. [Observera](migrate-appliance.md#collected-data---hyper-v) tillträdeskrav för porten för apparaten.
+4. [Granska](migrate-appliance.md#collected-data---hyper-v) portåtkomstkraven för apparaten.
+
+
 
 
 ## <a name="prepare-for-hyper-v-migration"></a>Förbered hyper-V-migrering

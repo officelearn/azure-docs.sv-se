@@ -12,12 +12,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0a884850d57418e9daafba980d0a08dc86fc0974
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: b946ab6157ba63213a4c140221d36f231aa62f0d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309399"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535850"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsofts identitetsplattform och implicita bidragsflöde
 

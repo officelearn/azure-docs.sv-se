@@ -3,15 +3,15 @@ title: Gränser och konfigurering
 description: Tjänstgränser, till exempel varaktighet, dataflöde och kapacitet, plus konfigurationsvärden, till exempel IP-adresser att tillåta, för Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 03/12/2020
-ms.openlocfilehash: 4359c5581d14f4a918a49cf2b91ac58561ea93d3
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 04/17/2020
+ms.openlocfilehash: 40950be2e5caeb17d20086720a7b65c15147c2f5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257461"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535119"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Information om begränsningar och konfiguration för Azure Logic Apps
 
@@ -112,7 +112,7 @@ Här är gränserna för en enda logikappdefinition:
 
 ### <a name="integration-service-environment-ise"></a>Integrationstjänstmiljö (ISE)
 
-Här är dataflödesgränserna för Premium SKU:
+Här är genomströmningsgränserna för [Premium ISE SKU:](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)
 
 | Namn | Gräns | Anteckningar |
 |------|-------|-------|
@@ -124,8 +124,7 @@ Här är dataflödesgränserna för Premium SKU:
 Om du vill gå över dessa gränser vid normal bearbetning eller köra belastningstester som kan gå över dessa gränser [kontaktar du Logic Apps-teamet](mailto://logicappsemail@microsoft.com) för att få hjälp med dina krav.
 
 > [!NOTE]
-> [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) har inga publicerade gränser eftersom den här SKU:n inte har något servicenivåavtal (SLA) eller funktioner för uppskalning.
-> Använd den här SKU:n endast för att experimentera, utveckla och testa, inte produktion eller prestandatestning.
+> [Developer ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) har inga publicerade gränser, inga funktioner för uppskalning och inget servicenivåavtal (SLA). Använd den här SKU:n endast för att experimentera, utveckla och testa, inte produktion eller prestandatestning.
 
 <a name="gateway-limits"></a>
 
@@ -281,12 +280,9 @@ Här är de begränsningar för meddelandestorlek som gäller för B2B-protokoll
 
 ## <a name="disabling-or-deleting-logic-apps"></a>Inaktivera eller ta bort logikappar
 
-När du inaktiverar en logikapp instansieras inga nya körningar.
-Alla pågående och väntande körningar fortsätter tills de är klara, vilket kan ta tid att slutföra.
+När du inaktiverar en logikapp instansieras inga nya körningar. Alla pågående och väntande körningar fortsätter tills de är klara, vilket kan ta tid att slutföra.
 
-När du tar bort en logikapp instantieras inga nya körningar.
-Alla pågående och väntande körningar avbryts.
-Om du har flera tusen körningar kan det ta relativt lång tid att avbryta dem.
+När du tar bort en logikapp instantieras inga nya körningar. Alla pågående och väntande körningar avbryts. Om du har flera tusen körningar kan det ta relativt lång tid att avbryta dem.
 
 <a name="configuration"></a>
 
@@ -300,17 +296,17 @@ De IP-adresser som Azure Logic Apps använder för inkommande och utgående samt
 > * **LogicAppsManagement**: Representerar inkommande IP-adressprefix för Logic Apps-tjänsten.
 > * **LogicApps**: Representerar de utgående IP-adressprefixen för logic apps-tjänsten.
 
+* För [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)är fasta eller reserverade IP-adresser inte tillgängliga för [anpassade kopplingar](../logic-apps/custom-connector-overview.md) och [hanterade anslutningsappar,](../connectors/apis-list.md#managed-api-connectors)till exempel Azure Storage, SQL Server, Office 365 Outlook och så vidare.
+
 * Om du vill stödja de anrop som logikapparna direkt gör med [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)och andra HTTP-begäranden konfigurerar du brandväggen med alla [inkommande](#inbound) *och* [utgående](#outbound) IP-adresser som används av logic apps-tjänsten, baserat på de regioner där logikapparna finns. Dessa adresser visas under rubrikerna **Inkommande** och **Utgående** i det här avsnittet och sorteras efter region.
 
-* Konfigurera brandväggen med *alla* [utgående](#outbound) IP-adresser som används av dessa anslutningsappar för att stödja de anropar som [Microsoft-hanterade anslutningsappar](../connectors/apis-list.md) gör. Dessa adresser visas under rubriken **Utgående** i det här avsnittet och sorteras efter region.
+* Konfigurera brandväggen med *alla* [utgående](#outbound) IP-adresser som används av dessa anslutningsappar för att stödja de anrop som [hanterade anslutningsappar](../connectors/apis-list.md#managed-api-connectors) gör. Dessa adresser visas under rubriken **Utgående** i det här avsnittet och sorteras efter region.
 
 * Om du vill aktivera kommunikation för logikappar som körs i en integrationstjänstmiljö (ISE) kontrollerar du att du [öppnar dessa portar](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
 
 * Om dina logikappar har problem med att komma åt Azure-lagringskonton som använder [brandväggar och brandväggsregler](../storage/common/storage-network-security.md)har du [olika alternativ för att aktivera åtkomst](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
   Logikappar kan till exempel inte komma åt lagringskonton som använder brandväggsregler och finns i samma region. Men om du tillåter [utgående IP-adresser för hanterade kopplingar i din region](../logic-apps/logic-apps-limits-and-config.md#outbound)kan dina logikappar komma åt lagringskonton som finns i en annan region utom när du använder Azure Table Storage- eller Azure Queue Storage-kopplingar. Om du vill komma åt tabelllagringen eller kölagringen kan du använda HTTP-utlösaren och -åtgärderna i stället. Fler alternativ finns i [Access-lagringskonton bakom brandväggar](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
-
-* För anpassade kopplingar är [Azure Government](../azure-government/documentation-government-overview.md)och Azure [China 21Vianet](https://docs.microsoft.com/azure/china/), fasta eller reserverade IP-adresser inte tillgängliga.
 
 <a name="inbound"></a>
 

@@ -98,6 +98,7 @@
           href: live-events-outputs-concept.md
           displayName: 'vanity, ingest'
         - name: Testade lokala livekodare
+          displayName: recommended
           href: recommended-on-premises-live-encoders.md
         - name: Tidsväxling och live-till-VOD
           displayName: 'archive, dvr'

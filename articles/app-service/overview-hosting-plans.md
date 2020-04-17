@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 11/09/2017
 ms.custom: seodec18
-ms.openlocfilehash: f1012f8c00de4b19bbf6206408ec1a806e09e54f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1c44fb9f44eb75e6d2a766213c5db094ebe79b1
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77482351"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537652"
 ---
 # <a name="azure-app-service-plan-overview"></a>Översikt över Azure App Service-plan
 
@@ -32,7 +32,7 @@ _Prisnivån för_ en App Service-plan avgör vilka App Service-funktioner du få
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Varje nivå innehåller också en specifik delmängd av App Service-funktioner. Dessa funktioner omfattar anpassade domäner och SSL-certifikat, automatisk skalning, distributionsplatser, säkerhetskopior, Traffic Manager-integrering med mera. Ju högre nivå, desto fler funktioner är tillgängliga. Information om vilka funktioner som stöds på varje prisnivå finns i [Information om App Service-planen](https://azure.microsoft.com/pricing/details/app-service/plans/).
+Varje nivå innehåller också en specifik delmängd av App Service-funktioner. Dessa funktioner omfattar anpassade domäner och TLS/SSL-certifikat, automatisk skalning, distributionsplatser, säkerhetskopior, Traffic Manager-integrering med mera. Ju högre nivå, desto fler funktioner är tillgängliga. Information om vilka funktioner som stöds på varje prisnivå finns i [Information om App Service-planen](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
 <a name="new-pricing-tier-premiumv2"></a>
 
@@ -71,11 +71,11 @@ Med undantag för **den kostnadsfria** nivån medför en apptjänstplan en timav
 - I de dedikerade beräkningsnivåerna (**Basic**, **Standard**, **Premium**, **PremiumV2**) definierar App Service-planen antalet VM-instanser som apparna skalas till, så _varje VM-instans_ i App Service-planen har en timavgift. Dessa VM-instanser debiteras på samma sätt oavsett hur många appar som körs på dem. Mer om du vill undvika oväntade debiteringar finns i [Rensa en apptjänstplan](app-service-plan-manage.md#delete).
 - På den **isolerade** nivån definierar App Service-miljön antalet isolerade arbetare som kör dina appar och _varje anställd_ debiteras varje timme. Dessutom finns det en timbasavgift för själva apptjänstmiljön.
 
-Du debiteras inte för att du använder apptjänstfunktionerna som är tillgängliga för dig (konfigurera anpassade domäner, SSL-certifikat, distributionsplatser, säkerhetskopior osv.). Undantagen är:
+Du debiteras inte för att du använder apptjänstens funktioner som är tillgängliga för dig (konfigurera anpassade domäner, TLS/SSL-certifikat, distributionsplatser, säkerhetskopior osv.). Undantagen är:
 
 - App Service Domäner - du betalar när du köper en i Azure och när du förnyar den varje år.
 - App Service-certifikat - du betalar när du köper ett i Azure och när du förnyar det varje år.
-- IP-baserade SSL-anslutningar - Det finns en timavgift för varje IP-baserad SSL-anslutning, men vissa **standardnivåer** eller högre ger dig en IP-baserad SSL-anslutning gratis. SNI-baserade SSL-anslutningar är gratis.
+- IP-baserade TLS-anslutningar - Det finns en timavgift för varje IP-baserad TLS-anslutning, men vissa **standardnivåer** eller högre ger dig en IP-baserad TLS-anslutning gratis. SNI-baserade TLS-anslutningar är gratis.
 
 > [!NOTE]
 > Om du integrerar App Service med en annan Azure-tjänst kan du behöva överväga avgifter från dessa andra tjänster. Om du till exempel använder Azure Traffic Manager för att skala din app geografiskt debiterar Azure Traffic Manager dig också baserat på din användning. Information om hur du beräknar kostnaden för dina tjänster mellan tjänster i Azure finns i [Priskalkylator](https://azure.microsoft.com/pricing/calculator/). 
@@ -86,7 +86,7 @@ Du debiteras inte för att du använder apptjänstfunktionerna som är tillgäng
 
 App Service-planen kan skalas upp eller ned när som helst. Det är så enkelt som att ändra prisnivån i planen. Du kan välja en lägre prisnivå först och skala upp senare när du behöver fler App Service-funktioner.
 
-Du kan till exempel börja testa din webbapp i en **kostnadsfri** apptjänstplan och inte betala någonting. När du vill lägga till ditt [anpassade DNS-namn](app-service-web-tutorial-custom-domain.md) i webbappen skalar du bara upp planen till **delad** nivå. Senare, när du vill [skapa en SSL-bindning,](configure-ssl-bindings.md)skala din plan upp till **Grundläggande** nivå. När du vill ha [mellanlagringsmiljöer skalas](deploy-staging-slots.md)du upp till **standardnivå.** När du behöver fler kärnor, minne eller lagring skalar du upp till en större vm-storlek på samma nivå.
+Du kan till exempel börja testa din webbapp i en **kostnadsfri** apptjänstplan och inte betala någonting. När du vill lägga till ditt [anpassade DNS-namn](app-service-web-tutorial-custom-domain.md) i webbappen skalar du bara upp planen till **delad** nivå. Senare, när du vill [skapa en TLS-bindning,](configure-ssl-bindings.md)skala din plan upp till **Grundläggande** nivå. När du vill ha [mellanlagringsmiljöer skalas](deploy-staging-slots.md)du upp till **standardnivå.** När du behöver fler kärnor, minne eller lagring skalar du upp till en större vm-storlek på samma nivå.
 
 Detsamma fungerar i det omvända. När du känner att du inte längre behöver funktionerna eller funktionerna på en högre nivå kan du skala ned till en lägre nivå, vilket sparar pengar.
 

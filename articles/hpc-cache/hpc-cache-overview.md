@@ -4,14 +4,14 @@ description: Beskriver Azure HPC Cache, en filåtkomstacceleratorlösning för h
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 10/30/2019
-ms.author: rohogue
-ms.openlocfilehash: 2a008d22de5df8d091e868153205697b4bb343ee
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/15/2020
+ms.author: v-erkel
+ms.openlocfilehash: 084c33874b474fc1789df93e088d3cec4263eac9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79241194"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536649"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Vad är Azure HPC Cache?
 
@@ -49,22 +49,20 @@ En Azure HPC-cachedistribution kan hjälpa till att påskynda kvantitativa analy
 
 Azure HPC-cache är tillgänglig i dessa Azure-regioner:
 
+| Nordamerika      | Europa         | Asien            | Australien      |
+|--------------------|----------------|-----------------|----------------|
+| USA, östra            | Europa, norra   | Sydkorea, centrala   | Australien, östra |
+| USA, östra 2          | Europa, västra    | Sydostasien  |               |
+| USA, södra centrala | | | |
+| USA, västra 2        | | | |
+
+[Funktionen kundhanterade nycklar](customer-keys.md) stöds endast i dessa regioner:
+
 * USA, östra
-* USA, östra 2
-* Europa, norra
-* Europa, västra
-* Sydostasien
-* Sydney
+* USA, södra centrala
 * USA, västra 2
-* Sydkorea, centrala
 
 Kontrollera [produktsidan för Azure HPC-cache](https://azure.microsoft.com/services/hpc-cache) för den senaste tillgänglighetsinformationen.
-
-## <a name="service-availability"></a>Tjänstens tillgänglighet
-
-Du måste begära åtkomst för varje prenumeration som du ska använda med Azure HPC-cache. Den här begränsningen säkerställer tjänsternas kvalitet under de första månaderna av allmän tillgänglighet.
-
-Begär åtkomst genom att fylla [i det här formuläret](https://aka.ms/onboard-hpc-cache). När prenumerationen har lagts till i åtkomstlistan kan du skapa cacheminnen.
 
 ## <a name="next-steps"></a>Nästa steg
 

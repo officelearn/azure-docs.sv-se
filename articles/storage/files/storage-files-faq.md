@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 82c516eeac6d3e88ca7b6ac1c97ebb638ba27979
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 01b5f87c2557e2195573b90766ee45e001798cca
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383918"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537703"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via [SMB-protokollet (Industry-Standard Server Message Block).](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära där data används.
@@ -164,7 +164,7 @@ Den här artikeln besvarar vanliga frågor om Azure Files-funktioner, inklusive 
 * <a id="ad-support"></a>
 **Stöds identitetsbaserad autentisering och åtkomstkontroll av Azure Files?**  
     
-    Ja, Azure Files stöder identitetsbaserad autentisering och åtkomstkontroll. Du kan välja ett av två sätt att använda identitetsbaserad åtkomstkontroll: Active Directory (AD) (förhandsversion) eller Azure Active Directory Domain Services (Azure AD DS) (GA). AD stöder autentisering med AD-domänsassteraddatorer, antingen lokalt eller i Azure, för att komma åt Azure-filresurser via SMB. Azure AD DS-autentisering över SMB för Azure-filer gör det möjligt för Azure AD DS-domänen anslöt till virtuella datorer i Windows att komma åt resurser, kataloger och filer med Azure AD-autentiseringsuppgifter. Mer information finns i [Översikt över Azure Files identitetsbaserade autentiseringsstöd för SMB-åtkomst](storage-files-active-directory-overview.md). 
+    Ja, Azure Files stöder identitetsbaserad autentisering och åtkomstkontroll. Du kan välja ett av två sätt att använda identitetsbaserad åtkomstkontroll: lokala Active Directory Domain Services (förhandsversion) eller Azure Active Directory Domain Services (Azure AD DS). Lokala Active Directory Domain Services (AD DS) stöder autentisering med HJÄLP AV AD DS-domänanslutna datorer, antingen lokalt eller i Azure, för att komma åt Azure-filresurser via SMB. Azure AD DS-autentisering över SMB för Azure-filer gör det möjligt för Azure AD DS-domänen anslöt till virtuella datorer i Windows att komma åt resurser, kataloger och filer med Azure AD-autentiseringsuppgifter. Mer information finns i [Översikt över Azure Files identitetsbaserade autentiseringsstöd för SMB-åtkomst](storage-files-active-directory-overview.md). 
 
     Azure Files erbjuder ytterligare två sätt att hantera åtkomstkontroll:
 
@@ -185,30 +185,30 @@ Den här artikeln besvarar vanliga frågor om Azure Files-funktioner, inklusive 
     Ja, vi stöder REST-API:er som hämtar, anger eller kopierar NTFS-ACL:er för kataloger eller filer när du använder [REST-API:et för 2019-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (eller senare).
 
 * <a id="ad-vm-subscription"></a>
-**Kan jag komma åt Azure-filer med Azure AD-autentiseringsuppgifter från en virtuell dator under en annan prenumeration?**
+**Kan jag komma åt Azure-filresurser med Azure AD-autentiseringsuppgifter från en virtuell dator under en annan prenumeration?**
 
-    Om prenumerationen som filresursen distribueras under är associerad med samma Azure AD-klient som Azure AD Domain Services-distributionen som den virtuella datorn är domänansluten till, kan du sedan komma åt Azure-filer med samma Azure AD-autentiseringsuppgifter. Begränsningen åläggs inte för prenumerationen utan på den associerade Azure AD-klienten.
+    Om prenumerationen som filresursen distribueras under är associerad med samma Azure AD-klient som Azure AD DS-distributionen som den virtuella datorn är domänansluten till, kan du sedan komma åt Azure-filresurser med samma Azure AD-autentiseringsuppgifter. Begränsningen åläggs inte för prenumerationen utan på den associerade Azure AD-klienten.
     
 * <a id="ad-support-subscription"></a>
-**Kan jag aktivera antingen Azure Files Azure AD DS eller AD-autentisering med en Azure AD-klient som skiljer sig från den primära klienten som filresursen är associerad med?**
+**Kan jag aktivera antingen Azure AD DS eller lokal AD DS-autentisering för Azure-filresurser med hjälp av en Azure AD-klient som skiljer sig från Azure-filresursens primära klient?**
 
-    Nej, Azure-filer stöder endast Azure AD DS- eller AD-integrering med en Azure AD-klient som finns i samma prenumeration som filresursen. Endast en prenumeration kan associeras med en Azure AD-klientorganisation. Den här begränsningen gäller både Azure AD DS- och AD-autentiseringsmetoder. När AD-autentiseringen ska användas för autentisering måste AD-autentiseringsuppgifterna synkroniseras med Azure AD som lagringskontot är associerat med.
+    Nej, Azure-filer stöder endast Azure AD DS- eller lokal AD DS-integrering med en Azure AD-klient som finns i samma prenumeration som filresursen. Endast en prenumeration kan associeras med en Azure AD-klientorganisation. Den här begränsningen gäller både Azure AD DS och lokala AD DS-autentiseringsmetoder. När du använder lokala AD DS för autentisering [måste AD DS-autentiseringsuppgifterna synkroniseras med Azure AD](../../active-directory/hybrid/how-to-connect-install-roadmap.md) som lagringskontot är associerat med.
 
 * <a id="ad-linux-vms"></a>
-**Stöder Azure Files Azure AD DS- eller AD-autentisering virtuella linux-datorer?**
+**Stöder Azure AD DS- eller lokal AD DS-autentisering för Azure-filresurser Linux virtuella datorer?**
 
     Nej, autentisering från virtuella Linux-datorer stöds inte.
 
 * <a id="ad-aad-smb-afs"></a>
-**Kan jag utnyttja Azure Files Azure AD DS-autentisering eller förhandsversion av Active Directory (AD) på filresurser som hanteras av Azure File Sync?**
+**Har filresurser som hanteras av Azure File Sync stöd för antingen Azure AD DS eller lokal AD DS-autentisering (förhandsversion) ?**
 
-    Ja, du kan aktivera Azure AD DS- eller AD-autentisering på en filresurs som hanteras av Azure-filsynkronisering. Ändringar i katalogen/filenS-ACL:er för lokala filservrar kommer att nivåindelad till Azure-filer och vice versa.
+    Ja, du kan aktivera Azure AD DS eller lokal AD DS-autentisering på en filresurs som hanteras av Azure File Sync. Ändringar i katalogen/filenS-ACL:er för lokala filservrar kommer att nivåindelad till Azure-filer och vice versa.
 
 * <a id="ad-aad-smb-files"></a>
-**Hur kan jag kontrollera om jag har aktiverat AD-autentisering på mitt lagringskonto och AD-domäninformation?**
+**Hur kan jag kontrollera om jag har aktiverat AD DS-autentisering på mitt lagringskonto och hämta domäninformationen?**
 
-    Du kan läsa instruktionerna [här](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account) för att verifiera om AZURE Files AD-autentisering är aktiverad på ditt lagringskonto och hämta AD-domäninformationen.
-
+    Instruktioner finns [här](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account).
+    
 * <a id="encryption-at-rest"></a>
 **Hur kan jag se till att min Azure-filresurs krypteras i vila?**  
 
@@ -241,15 +241,15 @@ Den här artikeln besvarar vanliga frågor om Azure Files-funktioner, inklusive 
     Nej, autentisering från virtuella Linux-datorer stöds inte.
 
 * <a id="ad-multiple-forest"></a>
-**Stöder Azure Files AD-autentisering integrering med en AD-miljö med flera skogar?**    
+**Stöder lokal AD DS-autentisering för Azure-fil integrering med en AD DS-miljö med flera skogar?**    
 
-    Azure Files AD-autentisering integreras endast med skogen för AD-domäntjänsten som lagringskontot är registrerat till. För att stödja autentisering från en annan AD-skog måste din miljö ha skogsförtroende konfigurerat korrekt. Hur Azure Files registrerar sig till en AD-domäntjänst är oftast detsamma som en vanlig filserver, där den skapar ett identitets-(dator- eller tjänstinloggningskonto) i AD för autentisering. Den enda skillnaden är att det registrerade SPN för lagringskontot slutar med "file.core.windows.net" som inte matchar med domänsuffixet. Kontakta domänadministratören för att se om någon uppdatering av DNS-routningsprincipen krävs för att aktivera flera skogsautentiseringar på grund av de olika domänsuffixet.
+    Azure-filer lokal AD DS-autentisering integreras endast med skogen för domäntjänsten som lagringskontot är registrerat på. För att stödja autentisering från en annan skog måste din miljö ha ett skogsförtroende korrekt konfigurerat. Hur Azure Files registreras i AD DS nästan samma som en vanlig filserver, där det skapar en identitet (dator eller tjänst inloggningskonto) i AD DS för autentisering. Den enda skillnaden är att det registrerade SPN för lagringskontot slutar med "file.core.windows.net" som inte matchar med domänsuffixet. Kontakta domänadministratören för att se om någon uppdatering av DNS-routningsprincipen krävs för att aktivera flera skogsautentiseringar på grund av de olika domänsuffixet.
 
 * <a id=""></a>
-**Vilka regioner är tillgängliga för Azure Files AD-autentisering (förhandsversion)?**
+**Vilka regioner är tillgängliga för Azure Files AD DS-autentisering (förhandsversion)?**
 
-    Mer information finns i [AD:s regionala tillgänglighet.](storage-files-identity-auth-active-directory-enable.md#regional-availability)
-
+    Mer information finns i [AD DS regional tillgänglighet.](storage-files-identity-auth-active-directory-enable.md#regional-availability)
+    
 * <a id="ad-aad-smb-afs"></a>
 **Kan jag utnyttja Azure Files Active Directory (AD) autentisering (förhandsversion) på filresurser som hanteras av Azure File Sync?**
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b0f60e13ca4bc5115f9a49885c3c659ad1147fcc
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 7f05d33b43df85c49a0c92b60157e2a6448325ac
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80881901"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537142"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>En webbapp som anropar webb-API:er: Kodkonfiguration
 
@@ -253,7 +253,7 @@ public class TokenAcquisition : ITokenAcquisition
 
 ### <a name="the-tokenacquisitionbuildconfidentialclientapplication-method"></a>TokenAcquisition.BuildConfidentialClientApplication-metoden
 
-I ASP.NET Core använder du information som finns i `HttpContext`. Associerad `HttpContext` med begäran nås med `CurrentHttpContext` hjälp av egenskapen. `HttpContext`har information om webbadressen till webbappen och om `ClaimsPrincipal`den inloggade användaren (i en ). 
+I ASP.NET Core använder du information som finns i `HttpContext`. Associerad `HttpContext` med begäran nås med `CurrentHttpContext` hjälp av egenskapen. `HttpContext`har information om webbadressen till webbappen och om `ClaimsPrincipal`den inloggade användaren (i en ).
 
 Metoden `BuildConfidentialClientApplication` använder också konfigurationen ASP.NET Core. Konfigurationen har avsnittet "AzureAD" och är även bunden till båda följande element:
 

@@ -13,12 +13,12 @@ ms.date: 09/16/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: dc8a330bc09f37f7941534ed7c17d1ffd14d08c5
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 8e076dfd6670265d458eb35d8e1b3e4500009a12
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80875970"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534490"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-active-directory-b2c"></a>Använda Microsoft Authentication Library for JavaScript för att arbeta med Azure Active Directory B2C
 
@@ -37,7 +37,7 @@ Denna demonstration innehåller två delar:
 - skydda ett webb-API.
 - så här registrerar du ett ensidigt *that* program för att autentisera och anropa webb-API:et.
 
-## <a name="nodejs-web-api"></a>Nod.js webb-API
+## <a name="nodejs-web-api"></a>Node.js-webb-API
 
 > [!NOTE]
 > Just nu är MSAL.js för Node fortfarande under utveckling (se [färdplanen).](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap) Under tiden föreslår vi att du använder [pass-azure-ad](https://github.com/AzureAD/passport-azure-ad), ett autentiseringsbibliotek för Node.js som utvecklats och stöds av Microsoft.
@@ -63,7 +63,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 2. Konfigurera exemplet med de programautentiseringsuppgifter som du fick tidigare när du registrerade programmet. Ändra följande kodrader genom att ersätta värdena med namnen på klient-ID, värd, tenantId och principnamn.
 
 ```JavaScript
-const clientID = "<Application ID for your Node.js Web API - found on Properties page in Azure portal e.g. 93733604-cc77-4a3c-a604-87084dd55348>";
+const clientID = "<Application ID for your Node.js web API - found on Properties page in Azure portal e.g. 93733604-cc77-4a3c-a604-87084dd55348>";
 const b2cDomainHost = "<Domain of your B2C host eg. fabrikamb2c.b2clogin.com>";
 const tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can use your Directory (tenant) ID (GUID)
 const policyName = "<Name of your sign in / sign up policy, e.g. B2C_1_signupsignin1>";
@@ -104,7 +104,7 @@ Det finns två intressanta platser med att konfigurera ditt program:
     // The current application coordinates were pre-registered in a B2C tenant.
     const apiConfig = {
         b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"], //API scopes you exposed during api registration
-        webApi: "https://fabrikamb2chello.azurewebsites.net/hello" 
+        webApi: "https://fabrikamb2chello.azurewebsites.net/hello"
     };
    ```
 

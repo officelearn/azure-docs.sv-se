@@ -6,12 +6,12 @@ ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
 ms.date: 10/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 79bd0a19a9bd8ebd100ed80ca0206656d73ef76c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5c1760c746aca439e19ab5727e5be02f6dbad3cb
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74672362"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535697"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrera ett aktivt DNS-namn till Azure App Service
 
@@ -129,7 +129,7 @@ Du hittar distributionsenheten för din app genom att titta på `<deployment-uni
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs om hur du binder ett anpassat SSL-certifikat till App Service.
+Lär dig hur du binder ett anpassat TLS/SSL-certifikat till App Service.
 
 > [!div class="nextstepaction"]
-> [Binda ett SSL-certifikat till Azure App Service](configure-ssl-bindings.md)
+> [Skydda ett anpassat DNS-namn med en TLS-bindning i Azure App Service](configure-ssl-bindings.md)

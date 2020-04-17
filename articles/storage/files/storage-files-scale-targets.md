@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1a74ec3610367193b5eee53ea0e0818901433e96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46c46faf8f7ee52978ae5542ab7ebd72a41b8357
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255137"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536460"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Skalbarhet för Azure Files och prestandamål
 
@@ -51,8 +51,7 @@ Se avsnittet [Azure storage account scale targets](#azure-storage-account-scale-
 ### <a name="file-share-and-file-scale-targets"></a>Mål för fildelning och filskala
 
 > [!NOTE]
-> Standardfilaktier större än 5 TiB har vissa begränsningar och regionala begränsningar.
-> En lista över begränsningar, regional information och instruktioner för att aktivera dessa större filresursstorlekar finns i avsnittet [Introduktion till större filresurser](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) i planeringsguiden.
+> Standardfilaktier större än 5 TiB har vissa begränsningar. En lista över begränsningar och instruktioner för att aktivera större fildelningsstorlekar finns i avsnittet [Aktivera större filresurser på standardfilresurser](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) i planeringsguiden.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -66,7 +65,7 @@ Azure File Sync har utformats med målet obegränsad användning, men obegränsa
 
 ### <a name="azure-file-sync-performance-metrics"></a>Azure File Sync – prestandamått
 
-Eftersom Azure File Sync-agenten körs på en Windows Server-dator som ansluter till Azure-filresurserna beror den effektiva synkroniseringsprestandan på ett antal faktorer i infrastrukturen: Windows Server och den underliggande diskkonfigurationen, nätverksbandbredden mellan servern och Azure-lagring, filstorlek, total datamängdsstorlek och aktiviteten på datauppsättningen. Eftersom Azure File Sync fungerar på filnivå mäts prestandaegenskaperna för en Azure File Sync-baserad lösning bättre i antalet objekt (filer och kataloger) som bearbetas per sekund.
+Eftersom Azure File Sync-agenten körs på en Windows Server-dator som ansluter till Azure-filresurserna beror den effektiva synkroniseringsprestandan på ett antal faktorer i infrastrukturen: Windows Server och den underliggande diskkonfigurationen, nätverksbandbredden mellan servern och Azure-lagringen, filstorleken, den totala datauppsättningsstorleken och aktiviteten på datauppsättningen. Eftersom Azure File Sync fungerar på filnivå mäts prestandaegenskaperna för en Azure File Sync-baserad lösning bättre i antalet objekt (filer och kataloger) som bearbetas per sekund.
 
 För Azure File Sync är prestanda avgörande i två steg:
 
@@ -113,5 +112,5 @@ Som en allmän guide för distributionen bör du tänka på några saker:
 
 ## <a name="see-also"></a>Se även
 
-- [Planera för en Azure Files-distribution](storage-files-planning.md)
+- [Planera för distribution av Azure Files](storage-files-planning.md)
 - [Planera för distribution av Azure File Sync](storage-sync-files-planning.md)

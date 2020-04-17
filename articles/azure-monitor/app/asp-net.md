@@ -3,12 +3,12 @@ title: Konfigurera webbappsanalyser för ASP.NET med Application Insights | Micr
 description: Konfigurera prestanda- och tillgänglighets- och användarbeteendeanalysverktyg för din ASP.NET webbplats, som finns lokalt eller i Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: 0843d6c04bf6fc9bab07207072990fb3fb8f1844
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bdd5b1131a0d2d3e2f53840d21cedce1577fde03
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77665926"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536904"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Konfigurera Application Insights för din ASP.NET-webbplats
 
@@ -93,7 +93,7 @@ Portalen öppnas i en vy över telemetrin från appen.
 Klicka på valfri ikon eller valfritt diagram i portalen för att visa mer information.
 
 ## <a name="step-4-publish-your-app"></a>Steg 4: Publicera appen
-Publicera din app på din IIS-server eller i Azure. Bevaka [Live Metrics Stream](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) och se om allt fungerar som det ska.
+Publicera din app på din IIS-server eller i Azure. Bevaka [Live Metrics Stream](../../azure-monitor/app/live-stream.md) och se om allt fungerar som det ska.
 
 Din telemetri byggs upp i application insights-portalen, där du kan övervaka mätvärden, genom att söka i din telemetri. Du kan också använda det kraftfulla [Kusto-frågespråket](/azure/kusto/query/) för att analysera användning och prestanda, eller för att hitta specifika händelser.
 

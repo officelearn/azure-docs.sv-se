@@ -13,16 +13,16 @@ ms.date: 11/07/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: c1f1cbf85b96aade745cc4248aed4bc89e41b450
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 647dff9e6401322371ef795a25ca5ced2b517e9c
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77085161"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534592"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Hämta och cacheminnen med hjälp av Microsofts autentiseringsbibliotek (MSAL)
 
-[Åtkomsttoken](access-tokens.md) gör det möjligt för klienter att anropa webb-API:er som skyddas av Azure på ett säkert sätt. Det finns många sätt att hämta en token med Hjälp av Microsoft Authentication Library (MSAL). Vissa sätt kräver användarinteraktioner via en webbläsare. Vissa kräver inga användarinteraktioner. I allmänhet beror sättet att skaffa en token på om programmet är ett offentligt klientprogram (skrivbords- eller mobilapp) eller ett konfidentiellt klientprogram (Web App, Webb-API eller demonprogram som en Windows-tjänst).
+[Åtkomsttoken](access-tokens.md) gör det möjligt för klienter att anropa webb-API:er som skyddas av Azure på ett säkert sätt. Det finns många sätt att hämta en token med Hjälp av Microsoft Authentication Library (MSAL). Vissa sätt kräver användarinteraktioner via en webbläsare. Vissa kräver inga användarinteraktioner. I allmänhet beror sättet att skaffa en token på om programmet är ett offentligt klientprogram (skrivbords- eller mobilapp) eller ett konfidentiellt klientprogram (webbapp, webb-API eller demonprogram som en Windows-tjänst).
 
 MSAL cachelagrar en token efter att den har förvärvats.  Programkod bör försöka få en token tyst (från cacheminnet), först, innan du hämtar en token på annat sätt.
 
@@ -63,18 +63,18 @@ MSAL underhåller en tokencache (eller två cacheminnen för konfidentiella klie
 
 ### <a name="recommended-call-pattern-for-public-client-applications"></a>Rekommenderat samtalsmönster för offentliga klientprogram
 
-Programkod bör försöka få en token tyst (från cacheminnet), först.  Om metodanropet returnerar ett "UI required" fel eller undantag kan du prova att hämta en token på annat sätt. 
+Programkod bör försöka få en token tyst (från cacheminnet), först.  Om metodanropet returnerar ett "UI required" fel eller undantag kan du prova att hämta en token på annat sätt.
 
 Det finns dock två flöden innan du **inte bör** försöka att tyst hämta en token:
 
 - [klientautentiseringsflödet](msal-authentication-flows.md#client-credentials), som inte använder användartokencache, men en programtokencache. Den här metoden tar hand om att verifiera den här programtokencachen innan du skickar en begäran till STS.
-- [auktoriseringskodflödet](msal-authentication-flows.md#authorization-code) i Web Apps, eftersom det löser in en kod som programmet fick genom att logga in användaren och ge dem samtycke till fler scope. Eftersom en kod skickas som en parameter och inte ett konto, kan metoden inte leta i cacheminnet innan koden löses in, vilket i alla fall kräver ett anrop till tjänsten.
+- [auktoriseringskodflödet](msal-authentication-flows.md#authorization-code) i webbappar, eftersom det löser in en kod som programmet fick genom att logga in användaren och ge dem samtycke till fler scope. Eftersom en kod skickas som en parameter och inte ett konto, kan metoden inte leta i cacheminnet innan koden löses in, vilket i alla fall kräver ett anrop till tjänsten.
 
-### <a name="recommended-call-pattern-in-web-apps-using-the-authorization-code-flow"></a>Rekommenderat samtalsmönster i Webbappar med hjälp av flödet Auktoriseringskod
+### <a name="recommended-call-pattern-in-web-apps-using-the-authorization-code-flow"></a>Rekommenderat samtalsmönster i webbappar med hjälp av flödet Auktoriseringskod
 
 För webbprogram som använder [openid connect-auktoriseringskodflödet](v2-protocols-oidc.md)är det rekommenderade mönstret i styrenheterna att:
 
-- Instansiera ett konfidentiellt klientprogram med en tokencache med anpassad serialisering. 
+- Instansiera ett konfidentiellt klientprogram med en tokencache med anpassad serialisering.
 - Hämta token med hjälp av auktoriseringskodflödet
 
 ## <a name="acquiring-tokens"></a>Skaffa token
@@ -91,8 +91,8 @@ För offentliga klientprogram (dator- eller mobilapp) kan du:
 
 ### <a name="confidential-client-applications"></a>Konfidentiella klientprogram
 
-För konfidentiella klientprogram (Web App, Web API eller daemon-program som en Windows-tjänst) kan du:
-- Hämta token **för själva programmet** och inte för en användare, med hjälp av [klientautentiseringsflödet](msal-authentication-flows.md#client-credentials). Detta kan användas för synkroniseringsverktyg eller verktyg som bearbetar användare i allmänhet och inte en specifik användare. 
+För konfidentiella klientprogram (webbapp, webb-API eller daemonprogram som en Windows-tjänst) kan du:
+- Hämta token **för själva programmet** och inte för en användare, med hjälp av [klientautentiseringsflödet](msal-authentication-flows.md#client-credentials). Detta kan användas för synkroniseringsverktyg eller verktyg som bearbetar användare i allmänhet och inte en specifik användare.
 - Använd [flödet för on-behalf](msal-authentication-flows.md#on-behalf-of) för ett webb-API för att anropa ett API för användarens räkning. Programmet identifieras med klientautentiseringsuppgifter för att hämta en token baserat på ett användarpåstående (SAML till exempel eller en JWT-token). Det här flödet används av program som behöver komma åt resurser för en viss användare i service-to-service-anrop.
 - Hämta token med hjälp av [auktoriseringskodflödet](msal-authentication-flows.md#authorization-code) i webbappar när användaren loggar in via URL:en för auktoriseringsbegäran. OpenID Connect-programmet använder vanligtvis den här mekanismen, som gör att användaren kan logga in med Öppna ID-anslutning och sedan komma åt webb-API:er för användarens räkning.
 

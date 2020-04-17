@@ -30,6 +30,11 @@
     - name: Index
       displayName: 'list, examples'
       href: ./samples/index.md
+    - name: Benchmark för Azure-säkerhet
+      items:
+        - name: Kontrollmappning
+          displayName: 'standards, azure, benchmark'
+          href: ./samples/azure-security-benchmark/control-mapping.md
     - name: Canada Federal PBMM
       items:
         - name: Översikt

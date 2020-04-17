@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1c66779dc726c3c6366bc03282d5d3c2bdc8134a
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: a464bb8a942c449e0b17751fbea7a810711cb48d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991049"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536003"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Snabbstart: Hämta en token och anropa Microsoft Graph API från en Windows-skrivbordsapp
 
@@ -62,7 +62,7 @@ I den här snabbstarten får du lära dig att skriva ett Windows-skrivbordsprogr
 #### <a name="step-2-download-your-visual-studio-project"></a>Steg 2: Ladda ned ditt Visual Studio-projekt
 
 > [!div renderon="docs"]
-> [Ladda ned Visual Studio-projektet](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)  
+> [Ladda ned Visual Studio-projektet](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Kör projektet med Visual Studio 2019.
@@ -71,7 +71,7 @@ I den här snabbstarten får du lära dig att skriva ett Windows-skrivbordsprogr
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Steg 3: Appen är konfigurerad och redo att köras
-> Vi har konfigurerat ditt projekt med värden för appens egenskaper och det är redo att köras. 
+> Vi har konfigurerat ditt projekt med värden för appens egenskaper och det är redo att köras.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
@@ -87,7 +87,7 @@ I den här snabbstarten får du lära dig att skriva ett Windows-skrivbordsprogr
 >    private static string ClientId = "Enter_the_Application_Id_here";
 >    private static string Tenant = "Enter_the_Tenant_Info_Here";
 >    ```
-> 
+>
 > Där:
 > - `Enter_the_Application_Id_here` – är **program-ID (klient)** för programmet som du har registrerat.
 > - `Enter_the_Tenant_Info_Here` – är inställt på något av följande alternativ:
@@ -152,7 +152,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
 
 > |Där:||
 > |---------|---------|
-> | `_scopes` | Innehåller de omfång som begärs, till exempel `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API:er. |
+> | `_scopes` | Innehåller de scope som begärs, till `{ "user.read" }` `{ "api://<Application ID>/access_as_user" }` exempel för Microsoft Graph eller för anpassade webb-API:er. |
 
 #### <a name="get-a-user-token-silently"></a>Hämta en token obevakat
 
@@ -167,7 +167,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
 
 > |Där: ||
 > |---------|---------|
-> | `scopes` | Innehåller de omfång som begärs, till exempel `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API:er. |
+> | `scopes` | Innehåller de scope som begärs, till `{ "user.read" }` `{ "api://<Application ID>/access_as_user" }` exempel för Microsoft Graph eller för anpassade webb-API:er. |
 > | `firstAccount` | Anger den första användaren i cachen (MSAL stöder flera användare i en enda app). |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

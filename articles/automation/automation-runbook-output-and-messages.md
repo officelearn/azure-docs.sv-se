@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 457b2d2211ea1ba5fa36cec4b7e9a214f5bcad77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 92b6378b00e12f618d07798b5ce789cbd9971544
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367099"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535544"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbook-utdata och meddelanden i Azure Automation
 
@@ -240,7 +240,7 @@ Men om du inte kräver den här informationen för att spåra förloppet för en
 **Så här aktiverar du spårning på aktivitetsnivå:**
 
 1. Öppna ditt Automation-konto på Azure Portal.
-2. Välj **Runbooks** i avsnittet **Processautomation** om du vill öppna listan över runbooks.
+2. Välj **Runbooks** under **Process Automation** om du vill öppna listan över runbooks.
 3. På sidan Runbooks väljer du en grafisk runbook i listan över runbooks.
 4. Klicka på **Loggning och spårning**under **Inställningar.**
 5. Klicka på **På** under **Logga utförliga poster**på sidan Loggning och spårning för att aktivera utförlig loggning.
@@ -253,7 +253,7 @@ Men om du inte kräver den här informationen för att spåra förloppet för en
 Azure Automation kan skicka runbook-jobbstatus och jobbströmmar till din Log Analytics-arbetsyta. Azure Monitor stöder loggar som gör att du kan:
 
 * Få insikt om dina Automation-jobb.
-* Utlösa ett e-postmeddelande eller en avisering baserat på din runbook-jobbstatus, till exempel, misslyckades eller avbröts.
+* Utlösa ett e-postmeddelande eller en avisering baserat på din runbook-jobbstatus, till exempel Misslyckades eller Pausad.
 * Skriv avancerade frågor över jobbströmmar.
 * Korrelera jobb över Automation-konton.
 * Visualisera jobbhistoriken.

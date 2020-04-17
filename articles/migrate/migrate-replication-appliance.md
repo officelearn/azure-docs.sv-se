@@ -3,12 +3,12 @@ title: Azure Migrate-replikeringsinstallation
 description: Lär dig mer om Azure Migrate-replikeringsverktyget för agentbaserad VMWare-migrering.
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 4521fce6310b319d155a2f0c418cd934be7e2cb8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 85641f514fc4367f02901eb1dd394cfa204c3ec4
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245868"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535221"
 ---
 # <a name="replication-appliance"></a>Replikeringsverktyget
 
@@ -28,8 +28,11 @@ Replikeringsverktyget distribueras när du ställer in agentbaserad migrering av
 
 **Används för** | **Detaljer**
 --- |  ---
-VMware VM-agentbaserad migrering | Du hämtar OVA-mallen från Azure Migrate-hubben och importerar till vCenter Server för att skapa den virtuella installationen.
-Fysisk maskinagentbaserad migrering | Om du inte har en VMware-infrastruktur, eller om du inte kan skapa en virtuell VMware-dator med en OVA-mall, hämtar du en programinstallationsprogram från Azure Migrate-hubben och kör den för att konfigurera installationsdatorn.
+**VMware VM-agentbaserad migrering** | Du hämtar OVA-mallen från Azure Migrate-hubben och importerar till vCenter Server för att skapa den virtuella installationen.
+**Fysisk maskinagentbaserad migrering** | Om du inte har en VMware-infrastruktur, eller om du inte kan skapa en virtuell VMware-dator med en OVA-mall, hämtar du en programinstallationsprogram från Azure Migrate-hubben och kör den för att konfigurera installationsdatorn.
+
+> [!NOTE]
+> Om du distribuerar i Azure Government använder du installationsfilen för att distribuera replikeringsverktyget.
 
 ## <a name="appliance-requirements"></a>Krav på apparater
 
@@ -74,7 +77,7 @@ Hämta och installera i Azure Migrate | När du installerar apparaten och uppman
 
 ## <a name="url-access"></a>URL-åtkomst
 
-Replikeringsverktyget behöver åtkomst till dessa webbadresser.
+Replikeringsinstallationen behöver åtkomst till dessa url:er i det offentliga Azure-molnet.
 
 **URL** | **Detaljer**
 --- | ---
@@ -84,10 +87,26 @@ Replikeringsverktyget behöver åtkomst till dessa webbadresser.
 \*.hypervrecoverymanager.windowsazure.com | Används för replikeringshantering och samordning
 https:\//management.azure.com | Används för replikeringshantering och samordning
 *.services.visualstudio.com | Används för telemetri ändamål (Det är valfritt)
-time.nist.gov | Används för att kontrollera tidssynkronisering mellan system och global tid.
 time.windows.com | Används för att kontrollera tidssynkronisering mellan system och global tid.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | OVF-installationen behöver åtkomst till dessa webbadresser. De används för åtkomstkontroll och identitetshantering av Azure Active Directory
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Så här slutför du MySQL-hämtning
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | Installationen av apparaterna måste komma åt dessa webbadresser. De används för åtkomstkontroll och identitetshantering av Azure Active Directory
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | För att slutföra MySQL nedladdning. I några få regioner kan hämtningen omdirigeras till CDN-URL:en. Kontrollera att CDN-URL:en också är tillåten om det behövs.
+
+
+## <a name="azure-government-url-access"></a>Url-åtkomst för Azure Government
+
+Replikeringsinstallationen behöver åtkomst till dessa URL:er i Azure Government.
+
+**URL** | **Detaljer**
+--- | ---
+\*.backup.windowsazure.us | Används för replikerad dataöverföring och samordning
+\*.store.core.windows.net | Används för replikerad dataöverföring och samordning
+\*.blob.core.windows.net | Används för att komma åt lagringskonto som lagrar replikerade data
+\*.hypervrecoverymanager.windowsazure.us | Används för replikeringshantering och samordning
+https:\//management.usgovcloudapi.net | Används för replikeringshantering och samordning
+*.services.visualstudio.com | Används för telemetri ändamål (Det är valfritt)
+time.nist.gov | Används för att kontrollera tidssynkronisering mellan system och global tid.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | Installation av apparat med OVA behöver åtkomst till dessa webbadresser. De används för åtkomstkontroll och identitetshantering av Azure Active Directory.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | För att slutföra MySQL nedladdning. I några få regioner kan hämtningen omdirigeras till CDN-URL:en. Kontrollera att CDN-URL:en också är tillåten om det behövs.
 
 ## <a name="port-access"></a>Tillträde till port
 
@@ -107,7 +126,7 @@ Bearbeta server | Processservern tar emot replikeringsdata, optimerar och krypte
     - Virtuella datorer kommunicerar med replikeringsverktyget på inkommande port HTTPS 443 för replikeringshantering.
     - Replikeringsverktyget dirigerar replikering med Azure via port HTTPS 443 utgående.
     - Virtuella datorer skickar replikeringsdata till processservern (som körs på replikeringsverktyget) på inkommande port HTTPS 9443. Den här porten kan ändras.
-    - Processservern tar emot replikeringsdata, optimerar och krypterar dem och skickar den till Azure-lagring via port 443 utgående.
+    - Processservern tar emot replikeringsdata, optimerar och krypterar dem och skickar den till Azure-lagring via utgående port 443.
 5. Replikeringsdataloggarna landar först i ett cachelagringskonto i Azure. Dessa loggar bearbetas och data lagras i en Azure-hanterad disk.
 
 ![Arkitektur](./media/migrate-replication-appliance/architecture.png)

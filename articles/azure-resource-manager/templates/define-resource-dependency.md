@@ -3,12 +3,12 @@ title: Ange distributionsorder för resurser
 description: Beskriver hur du anger en resurs som beroende av en annan resurs under distributionen för att säkerställa att resurser distribueras i rätt ordning.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: f11f79df875492a568a76f494dfffb4a163f64cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 764b718416e1185f56c7eb6b8335792a5822f212
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153292"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535476"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definiera ordern för att distribuera resurser i ARM-mallar
 
@@ -18,7 +18,7 @@ Resource Manager utvärderar beroenden mellan resurser och distribuerar dem i be
 
 ## <a name="dependson"></a>dependsOn
 
-I mallen kan du definiera en resurs som en resurs som beroende av en eller flera resurser i mallen. Dess värde är en kommaavgränsad lista med resursnamn. Listan kan innehålla resurser som [distribueras villkorligt](conditional-resource-deployment.md). När en villkorlig resurs inte distribueras tar Azure Resource Manager automatiskt bort den från de nödvändiga beroenden.
+I mallen kan du definiera en resurs som en resurs som beroende av en eller flera resurser i mallen. Dess värde är en JSON-matris med strängar, som var och en är ett resursnamn. Matrisen kan innehålla resurser som är [villkorligt distribuerade](conditional-resource-deployment.md). När en villkorlig resurs inte distribueras tar Azure Resource Manager automatiskt bort den från de nödvändiga beroenden.
 
 I följande exempel visas en skalningsuppsättning för virtuella datorer som är beroende av en belastningsutjämnare, ett virtuellt nätverk och en loop som skapar flera lagringskonton. Dessa andra resurser visas inte i följande exempel, men de måste finnas någon annanstans i mallen.
 

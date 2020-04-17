@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4e8a5d2d168b8f60b7a32a8af358c6097003de60
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 1ac6347bd8e723f356da4803da54a6ea45a4a71a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261303"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535527"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation-runbooktyper
 
@@ -28,6 +28,9 @@ Ta hänsyn till följande överväganden vid fastställandet av vilken typ som s
 
 * Du kan inte konvertera runbooks från grafisk till texttyp eller tvärtom.
 * Det finns begränsningar när du använder runbooks av olika typer som underordnade runbooks. Mer information finns i [Underordnade runbooks i Azure Automation](automation-child-runbooks.md).
+
+>[!NOTE]
+>Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installationsinstruktioner för Az-modul på hybridkörningsarbetaren finns [i Installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med [så här uppdaterar du Azure PowerShell-moduler i Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="graphical-runbooks"></a>Grafiska runbooks
 

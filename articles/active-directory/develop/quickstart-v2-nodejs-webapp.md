@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 4aa0cce83f9adc8c648656899ec6dc12d498e26b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1ff92b8a9477800477ebb2d79145ddaa78831f30
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77160456"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536071"
 ---
-# <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Snabbstart: Lägga till inloggning med OpenID Connect i en nod.js Web App
+# <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Snabbstart: Lägga till inloggning med OpenID Connect i en nod.js-webbapp
 
 I den här snabbstarten får du lära dig hur du konfigurerar OpenID Connect-autentisering i ett webbprogram som skapats med Node.js med Express. Provet är utformat för att köras på alla plattformar.
 
@@ -30,7 +30,7 @@ För att kunna köra det här exemplet behöver du:
 
 * Antingen ett [Microsoft-konto](https://www.outlook.com) eller [ett Office 365-utvecklarprogram](/office/developer-program/office-365-developer-program)
 
-## <a name="register-your-application"></a>Registrera ditt program 
+## <a name="register-your-application"></a>Registrera ditt program
 1. Logga in på [Azure-portalen](https://portal.azure.com/) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 1. Om ditt konto finns i mer än en Azure AD-klient:
     - Välj din profil på menyn längst upp till höger på sidan och växla sedan **katalog**.
@@ -78,7 +78,7 @@ eller
 
 Kör kommandot från projektrotkatalogen:
 
-`$ npm install`  
+`$ npm install`
 
 ## <a name="configure-the-application"></a>Konfigurera programmet
 

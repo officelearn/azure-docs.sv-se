@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: e78f822a88b093992f065a509c2250e6a5c0dec2
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 5252fdbbaf425662fc9725e618f8fc450b435722
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885573"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534660"
 ---
 # <a name="authentication-basics"></a>Grundläggande om autentisering
 
@@ -80,16 +80,16 @@ Tokens är endast giltiga under en begränsad tid. Vanligtvis ger STS ett par to
 
 Beroende på hur klienten är byggd kan den använda en (eller flera) av autentiseringsflödena som stöds av Azure AD. Dessa flöden kan producera en mängd olika token (id_tokens, uppdatera token, åtkomsttoken) samt auktoriseringskoder och kräva olika token för att få dem att fungera. Det här diagrammet innehåller en översikt:
 
-|Flöde | Kräver | id_token | åtkomsttoken | uppdatera token | auktoriseringskod | 
+|Flöde | Kräver | id_token | åtkomsttoken | uppdatera token | auktoriseringskod |
 |-----|----------|----------|--------------|---------------|--------------------|
-|[Flöde av auktoriseringskod](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[Flöde av auktoriseringskod](v2-oauth2-auth-code-flow.md) | | x | x | x | x|
 |[Implicit flöde](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
 |[Hybrid OIDC-flöde](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
 |[Uppdatera tokeninlösen](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | uppdatera token | x | x | x| |
 |[On-Behalf-Of-flöde](v2-oauth2-on-behalf-of-flow.md) | åtkomsttoken| x| x| x| |
 |[Klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md) | | | x (endast app)| | |
 
-Tokens som utfärdas via implicit läge har en längdbegränsning på grund av `response_mode` `query` att `fragment`de skickas tillbaka till webbläsaren via webbadressen (var är eller ).  Vissa webbläsare har en gräns för storleken på webbadressen som kan placeras i webbläsarfältet och misslyckas när den är för lång.  Dessa tokens har `groups` eller `wids` gör anspråk. 
+Tokens som utfärdas via implicit läge har en längdbegränsning på grund av `response_mode` `query` att `fragment`de skickas tillbaka till webbläsaren via webbadressen (var är eller ).  Vissa webbläsare har en gräns för storleken på webbadressen som kan placeras i webbläsarfältet och misslyckas när den är för lång.  Dessa tokens har `groups` eller `wids` gör anspråk.
 
 Nu när du har en översikt över grunderna, läs vidare för att förstå identitetsappmodellen och API:et, lära dig hur etablering fungerar i Azure AD och få länkar till detaljerad information om vanliga scenarier som Azure AD stöder.
 
@@ -126,7 +126,7 @@ Medgivande är processen för en resursägare som beviljar auktorisering för et
 
 I Microsofts identitetsplattform beskriver ett [programobjekt](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#application-object) ett program. Vid distributionen använder Microsoft identity-plattformen programobjektet som en skiss för att skapa ett [huvudnamn](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#service-principal-object)för tjänsten , vilket representerar en konkret instans av ett program i en katalog eller klient. Tjänstens huvudnamn definierar vad appen faktiskt kan göra i en specifik målkatalog, vem som kan använda den, vilka resurser den har åtkomst till och så vidare. Microsofts identitetsplattform skapar ett tjänsthuvudnamn från ett programobjekt via **medgivande**.
 
-Följande diagram visar ett förenklat Microsoft identity platform-etableringsflöde som drivs av medgivande. Den visar två klienter: A och B. Klient A äger programmet. Klient B instansierar programmet via ett tjänsthuvudnamn.  
+Följande diagram visar ett förenklat Microsoft identity platform-etableringsflöde som drivs av medgivande. Den visar två klienter: A och B. Klient A äger programmet. Klient B instansierar programmet via ett tjänsthuvudnamn.
 
 ![Förenklat etableringsflöde som drivs av medgivande](./media/authentication-scenarios/simplified-provisioning-flow-consent-driven.svg)
 
@@ -160,7 +160,7 @@ Följande sekvensdiagram sammanfattar den här interaktionen:
 
 ### <a name="how-a-web-app-determines-if-the-user-is-authenticated"></a>Hur en webbapp avgör om användaren är autentiserad
 
-Webbapputvecklare kan ange om alla eller bara vissa sidor kräver autentisering. I ASP.NET/ASP.NET Core görs till exempel detta genom `[Authorize]` att lägga till attributet i styrenhetens åtgärder. 
+Webbapputvecklare kan ange om alla eller bara vissa sidor kräver autentisering. I ASP.NET/ASP.NET Core görs till exempel detta genom `[Authorize]` att lägga till attributet i styrenhetens åtgärder.
 
 Det här attributet gör att ASP.NET kontrollerar om det finns en sessionscookie som innehåller användarens identitet. Om en cookie inte finns omdirigerar ASP.NET autentisering till den angivna identitetsleverantören. Om identitetsprovidern är Azure AD omdirigerar webbappen autentisering till `https://login.microsoftonline.com`, som visar en inloggningsdialogruta.
 

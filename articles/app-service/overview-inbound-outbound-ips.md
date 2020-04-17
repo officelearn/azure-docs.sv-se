@@ -4,12 +4,12 @@ description: Lär dig hur inkommande och utgående IP-adresser används i Azure 
 ms.topic: article
 ms.date: 06/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: aebce04fe2f1b055a4d498021dcd25144cd122a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8bcd80fde95e467513590f3ed09b1dadd2646aee
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279213"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537635"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Inkommande och utgående IP-adresser i Azure App Service
 
@@ -23,7 +23,7 @@ Oavsett antalet utskalade instanser har varje app en enda inkommande IP-adress. 
 
 - Ta bort en app och återskapa den i en annan resursgrupp.
 - Ta bort den sista appen i en resursgrupp _och_ regionkombination och återskapa den.
-- Ta bort en befintlig SSL-bindning, till exempel under certifikatförnyelse (se [Förnya certifikat](configure-ssl-certificate.md#renew-certificate)).
+- Ta bort en befintlig TLS-bindning, till exempel under certifikatförnyelse (se [Förnya certifikat](configure-ssl-certificate.md#renew-certificate)).
 
 ## <a name="find-the-inbound-ip"></a>Hitta den inkommande IP-adressen
 
@@ -35,7 +35,7 @@ nslookup <app-name>.azurewebsites.net
 
 ## <a name="get-a-static-inbound-ip"></a>Hämta en statisk inkommande IP
 
-Ibland kanske du vill ha en dedikerad, statisk IP-adress för din app. Om du vill få en statisk inkommande IP-adress måste du konfigurera en [IP-baserad SSL-bindning](configure-ssl-bindings.md#secure-a-custom-domain). Om du egentligen inte behöver SSL-funktioner för att skydda din app kan du till och med ladda upp ett självsignerat certifikat för den här bindningen. I en IP-baserad SSL-bindning är certifikatet bundet till själva IP-adressen, så App Service etablerar en statisk IP-adress för att det ska hända. 
+Ibland kanske du vill ha en dedikerad, statisk IP-adress för din app. Om du vill få en statisk inkommande IP-adress måste du [skydda en anpassad domän](configure-ssl-bindings.md#secure-a-custom-domain). Om du faktiskt inte behöver TLS-funktioner för att skydda din app kan du till och med ladda upp ett självsignerat certifikat för den här bindningen. I en IP-baserad TLS-bindning är certifikatet bundet till själva IP-adressen, så App Service etablerar en statisk IP-adress för att det ska hända. 
 
 ## <a name="when-outbound-ips-change"></a>När utgående IPs ändras
 

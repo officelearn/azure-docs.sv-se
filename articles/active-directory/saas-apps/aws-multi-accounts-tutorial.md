@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/03/2020
+ms.date: 04/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a6ab13dea1a1db96cbb2f2ac70b9779eca60591
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 5310c999cc44f0cf35f129751da7472031e6c57a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885387"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537091"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Självstudiekurs: Azure Active Directory-integrering med Amazon Web Services (AWS) (Äldre självstudiekurs)
 
@@ -37,7 +37,7 @@ Om du vill veta mer om Integrering av SaaS-appar med Azure AD läser du [vad som
 ![Amazon Web Services (AWS) i resultatlistan](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
 > [!NOTE]
-> Observera att det inte är vår rekommenderade metod att ansluta en AWS-app till alla dina AWS-konton. I stället rekommenderar vi att du använder [den här](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) metoden för att konfigurera flera instanser av AWS-konto till flera instanser av AWS-appar i Azure AD. Du bör bara använda [den här](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) metoden om du har mycket mindre antal AWS-konton och roller i den. [Den här](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) modellen är inte skalbar när AWS-kontona och rollerna i dessa konton växer. Den [här](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) metoden använder inte heller aws-rollimportfunktionen med hjälp av Azure AD-användares etablering och därför måste du manuellt lägga till/uppdatera/ta bort rollerna. För andra begränsningar av [detta](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) tillvägagångssätt, se detaljerna nedan.
+> Observera att det inte är vår rekommenderade metod att ansluta en AWS-app till alla dina AWS-konton. I stället rekommenderar vi att du använder [den här](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) metoden för att konfigurera flera instanser av AWS-konto till flera instanser av AWS-appar i Azure AD. Du bör bara använda den här metoden om du har mycket mindre antal AWS-konton och roller i den, den här modellen är inte skalbar eftersom AWS-konton och roller i dessa konton växer. Den här metoden använder inte heller aws-rollimportfunktionen med hjälp av Azure AD-användares etablering och därför måste du manuellt lägga till/uppdatera/ta bort rollerna. För andra begränsningar av detta tillvägagångssätt, se detaljerna nedan.
 
 **Observera att vi inte rekommenderar att du använder denna metod av följande skäl:**
 

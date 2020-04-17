@@ -6,12 +6,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/01/2020
-ms.openlocfilehash: 3b8c2f6ec33965317d2aaa23a36b6becff11a54a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1fc4bce988b13a9ff76fd961d524ce945876054
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75725733"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535408"
 ---
 # <a name="troubleshoot-azure-migrate-projects"></a>Felsöka Azure Migrate-projekt
 
@@ -32,7 +32,7 @@ Att hitta ett befintligt Azure Migrate-projekt beror på om du använder den akt
 
 ## <a name="cant-find-a-geography"></a>Kan inte hitta en geografi
 
-Du kan skapa ett Azure Migrate-projekt i [geografiska områden som stöds](migrate-support-matrix.md#supported-geographies). Observera att projektets geografi används för att lagra identifierade datormetadata. Du kan bedöma eller migrera datorer på andra platser också.
+Du kan skapa ett Azure Migrate-projekt i geografiska områden som stöds för [offentliga](migrate-support-matrix.md#supported-geographies-public-cloud) moln och [myndighetsmoln](migrate-support-matrix.md#supported-geographies-azure-government).
 
 ## <a name="what-are-vm-limits"></a>Vad är VM-gränser?
 

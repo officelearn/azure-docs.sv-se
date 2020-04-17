@@ -1,16 +1,16 @@
 ---
 title: Säkerhet
 description: Läs mer om hur App Service hjälper till att skydda din app och hur du kan låsa appen ytterligare från hot.
-keywords: azure app service, webbapp, mobilapp, api app, funktion app, säkerhet, säker, säker, kompatibel, certifikat, certifikat, https, ftps, tls, förtroende, kryptering, krypterad, ip begränsning, autentisering, auktorisering, authn, autho, msi, hanterad tjänst identitet, hanterad identitet, hemligheter, hemlig, patchning, patch, patchar, version, isolering, nätverksisolering, ddos, mitm
+keywords: azure app service, webbapp, mobilapp, api app, funktion app, säkerhet, säker, säker, kompatibel, certifikat, certifikat, https, ftps, tls, förtroende, kryptering, krypterad, ip begränsning, autentisering, auktorisering, authn, autho, msi, hanterad tjänst identitet, hanterad identitet, hemligheter, hemlighet, patch, patchar, version, isolering, nätverksisolering, ddos, mitm
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: e28935f73511e5ad973929517658cc626b5a6ea2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a098b1924bf7c2866f6afd7452b8dd3b93f3109
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475382"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535663"
 ---
 # <a name="security-in-azure-app-service"></a>Säkerhet i Azure App Service
 
@@ -31,14 +31,14 @@ I följande avsnitt visas hur du skyddar appappen ytterligare från hot.
 
 ## <a name="https-and-certificates"></a>HTTPS och certifikat
 
-Med App Service kan du skydda dina appar med [HTTPS](https://wikipedia.org/wiki/HTTPS). När appen skapas är dess\<standarddomännamn ( app_name>.azurewebsites.net) redan tillgängligt med HTTPS. Om du [konfigurerar en anpassad domän för din app](app-service-web-tutorial-custom-domain.md)bör du också skydda den med ett [SSL-certifikat](configure-ssl-bindings.md) så att klientwebbläsare kan göra säkra HTTPS-anslutningar till din anpassade domän. Det finns flera typer av certifikat som stöds av App Service:
+Med App Service kan du skydda dina appar med [HTTPS](https://wikipedia.org/wiki/HTTPS). När appen skapas är dess\<standarddomännamn ( app_name>.azurewebsites.net) redan tillgängligt med HTTPS. Om du [konfigurerar en anpassad domän för din app](app-service-web-tutorial-custom-domain.md)bör du också skydda den med ett [TLS/SSL-certifikat](configure-ssl-bindings.md) så att klientwebbläsare kan göra säkra HTTPS-anslutningar till din anpassade domän. Det finns flera typer av certifikat som stöds av App Service:
 
 - Hanterat kostnadsfritt hanterat certifikat för apptjänst
 - Certifikat för apptjänst
 - Tredjepartscertifikat
 - Certifikat som importeras från Azure Key Vault
 
-Mer information finns [i Lägga till ett SSL-certifikat i Azure App Service](configure-ssl-certificate.md).
+Mer information finns [i Lägga till ett TLS/SSL-certifikat i Azure App Service](configure-ssl-certificate.md).
 
 ## <a name="insecure-protocols-http-tls-10-ftp"></a>Osäkra protokoll (HTTP, TLS 1.0, FTP)
 
@@ -103,7 +103,7 @@ Lagra inte programhemligheter, till exempel databasautentiseringsuppgifter, API-
 
 Alternativt kan du integrera din App Service-app med [Azure Key Vault](/azure/key-vault/) för avancerad hemligheter hantering. Genom [att komma åt Key Vault med en hanterad identitet](../key-vault/tutorial-web-application-keyvault.md)kan appen App Service komma åt de hemligheter du behöver på ett säkert sätt.
 
-## <a name="network-isolation"></a>Isolering av nätverk
+## <a name="network-isolation"></a>Nätverksisolering
 
 Med undantag för den **isolerade** prisnivån kör alla nivåer dina appar på den delade nätverksinfrastrukturen i App Service. Till exempel delas offentliga IP-adresser och frontend-belastningsutjämnare med andra klienter. Den **isolerade** nivån ger dig fullständig nätverksisolering genom att köra dina appar i en dedikerad [App Service-miljö](environment/intro.md). En App Service-miljö körs i din egen instans av [Azure Virtual Network](/azure/virtual-network/). Det låter dig: 
 

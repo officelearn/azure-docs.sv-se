@@ -2,14 +2,14 @@
 title: Om Azure Migrate
 description: Läs mer om Azure Migrate-tjänsten.
 ms.topic: overview
-ms.date: 03/22/2020
+ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: a9723f15d496393d27bdd227ec1121a7878b37e0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: aa999b874b6e8b0075ab905a72ff04f03cb39ac7
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80127733"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537907"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -40,6 +40,9 @@ Azure Migrate-hubben innehåller dessa verktyg.
 **Movere** | Utvärdera servrar. | [Läs mer](#movere) om Movere.
 **Migreringsassistent för webbapp** | Utvärdera och migrera lokala webbappar till Azure. |  Använd Migreringsassistenten för Azure App Service för att bedöma lokala webbplatser för migrering till Azure App Service.<br/><br/> Använd assistenten för att migrera .NET- och PHP-webbappar till Azure. [Läs mer](https://appmigration.microsoft.com/) om Migreringsassistenten för Azure App Service.
 **Azure Data Box** | Offline-datamigrering. | Använd Azure Data Box-produkter för att flytta stora mängder data offline till Azure. [Läs mer](https://docs.microsoft.com/azure/databox/).
+
+> [!NOTE]
+> Om du är i Azure Government kan externa integrerade verktyg och ISV-erbjudanden inte skicka data till Azure Migrate-projekt. Du kan använda verktyg oberoende av dem.
 
 ## <a name="isv-integration"></a>ISV-integration
 
@@ -94,7 +97,7 @@ I hubben Azure Migrate väljer du det verktyg som du vill använda för utvärde
 
 Movere är en SaaS-plattform som ökar business intelligence genom att korrekt presentera hela IT-miljöer inom en enda dag. När organisationer växer, förändras och optimeras digitalt ger lösningen företagen det förtroende de behöver för att ha synlighet och kontroll över sina miljöer oavsett plattform, program eller geografi. Movere [förvärvades](https://azure.microsoft.com/blog/microsoft-acquires-movere-to-help-customers-unlock-cloud-innovation-with-seamless-migration-tools/) av Microsoft och säljs inte längre som ett fristående erbjudande.  Movere är tillgängligt via Microsoft Solution Assessment och Cloud Economics Programs. [Läs mer](https://www.movere.io) om Movere. 
 
-Vi rekommenderar att du även tittar på Azure Migrate, vår inbyggda migreringstjänst. Azure Migrate är ett centralt nav för att förenkla migreringen till molnet. Navet har omfattande stöd för olika arbetsbelastningar, inklusive fysiska och virtuella servrar, databaser och program. Fullständig synlighet gör det enkelt att spåra förloppet under hela identifiering, utvärdering och migrering. Med inbyggda Azure- och partner-ISV-verktyg har Azure Migrate också ett omfattande utbud av funktioner, inklusive identifiering av virtuella och fysiska servrar, prestandabaserad rättsstorlek, kostnadsplanering, importbaserade utvärderingar och agentlösa program beroendeanalys. Om du letar efter experthjälp för att komma igång har Microsoft en skicklig [Azure Expert Managed Service Provider](https://azure.microsoft.com/partners) som guidar dig längs resan. Kolla in [webbplatsen Azure Migrate](https://azure.microsoft.com/services/azure-migrate/). 
+Vi rekommenderar att du även tittar på Azure Migrate, vår inbyggda migreringstjänst. Azure Migrate är ett centralt nav för att förenkla migreringen till molnet. Navet har omfattande stöd för olika arbetsbelastningar, inklusive fysiska och virtuella servrar, databaser och program. Fullständig synlighet gör det enkelt att spåra förloppet under hela identifiering, utvärdering och migrering. Med både Azure och partner ISV-verktyg inbyggda har Azure Migrate också ett omfattande utbud av funktioner, inklusive virtuell och fysisk serveridentifiering, prestandabaserad rättighetsstorlek, kostnadsplanering, importbaserade utvärderingar och agentlös programberoendeanalys. Om du letar efter experthjälp för att komma igång har Microsoft en skicklig [Azure Expert Managed Service Provider](https://azure.microsoft.com/partners) som guidar dig längs resan. Kolla in [webbplatsen Azure Migrate](https://azure.microsoft.com/services/azure-migrate/). 
  
 
 ## <a name="azure-migrate-versions"></a>Azure Migrera versioner

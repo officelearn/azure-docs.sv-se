@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: afb40d0f3681bc02351e43166fccfaafe7741128
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 47daf4ecd034c390a1460610e78d4fffd9277ac7
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259284"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535714"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Köpa ett anpassat domännamn för Azure App Service
 
@@ -137,7 +137,7 @@ Du ser också de valda värdnamnen på sidan **Anpassade domäner** i avsnittet 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
-> En **inte säker** etikett för din anpassade domän innebär att den ännu inte är bunden till ett SSL-certifikat, och en HTTPS-begäran från en webbläsare till din anpassade domän får ett felmeddelande eller en varning, beroende på webbläsaren. Information om hur du konfigurerar SSL-bindning finns i [Skydda ett anpassat DNS-namn med en SSL-bindning i Azure App Service](configure-ssl-bindings.md).
+> En **inte säker** etikett för din anpassade domän innebär att den ännu inte är bunden till ett TLS/SSL-certifikat, och alla HTTPS-begäranden från en webbläsare till din anpassade domän får ett felmeddelande eller en varning, beroende på webbläsaren. Information om hur du konfigurerar TLS-bindning finns i [Skydda ett anpassat DNS-namn med en TLS/SSL-bindning i Azure App Service](configure-ssl-bindings.md).
 >
 
 Om du vill testa värdnamnen navigerar du till de listade värdnamnen i webbläsaren. I exemplet i föregående skärmbild kan du prova att navigera till _kontoso.net_ och _www\.kontoso.net_.

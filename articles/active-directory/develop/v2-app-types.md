@@ -12,12 +12,12 @@ ms.date: 04/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 143a2ec0bfbcc6997eb6d8b2599b848a509ee773
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: bdbda8bed38819ca2b4d2fb1ef3d9bf591269890
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309500"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535918"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Programtyper för Microsoft identity-plattform
 
@@ -84,7 +84,7 @@ Förutom enkel inloggning kan en webbserverapp behöva åtkomst till en annan we
 
 ## <a name="web-apis"></a>Webb-API:er
 
-Du kan använda slutpunkten för Microsofts identitetsplattform för att skydda webbtjänster, till exempel appens RESTful Web API. Webb-API:er kan implementeras på många plattformar och språk. De kan också implementeras med HTTP-utlösare i Azure Functions. I stället för ID-token och sessionscookies använder ett webb-API en OAuth 2.0-åtkomsttoken för att skydda sina data och autentisera inkommande begäranden. Anroparen av ett webb-API lägger till en åtkomsttoken i auktoriseringshuvudet för en HTTP-begäran, så här:
+Du kan använda slutpunkten för Microsofts identitetsplattform för att skydda webbtjänster, till exempel appens RESTful-webb-API. Webb-API:er kan implementeras på många plattformar och språk. De kan också implementeras med HTTP-utlösare i Azure Functions. I stället för ID-token och sessionscookies använder ett webb-API en OAuth 2.0-åtkomsttoken för att skydda sina data och autentisera inkommande begäranden. Anroparen av ett webb-API lägger till en åtkomsttoken i auktoriseringshuvudet för en HTTP-begäran, så här:
 
 ```HTTP
 GET /api/items HTTP/1.1
@@ -102,7 +102,7 @@ Ett webb-API kan ta emot åtkomsttoken från alla typer av appar, inklusive webb
 
 ![Visar webb-API-autentiseringsflödet](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
-Om du vill veta hur du skyddar ett webb-API med hjälp av OAuth2-åtkomsttoken finns i exemplen på webb-API-kod i avsnittet [Komma igång med Microsoft identity-plattformen.](v2-overview.md#getting-started)
+Om du vill veta hur du skyddar ett webb-API med hjälp av OAuth2-åtkomsttoken finns i webb-API-kodexemplen i avsnittet [Komma igång med Microsoft identity platform.](v2-overview.md#getting-started)
 
 I många fall måste webb-API:er också göra utgående begäranden till andra underordnade webb-API:er som skyddas av Microsofts identitetsplattform. För att göra det kan webb-API:er dra nytta av flödet **On-Behalf-Of,** som gör att webb-API:et kan utbyta en inkommande åtkomsttoken för en annan åtkomsttoken som ska användas i utgående begäranden. Mer information finns i [Microsoft identity platform och OAuth 2.0 on-Behalf-Of flow](v2-oauth2-on-behalf-of-flow.md).
 

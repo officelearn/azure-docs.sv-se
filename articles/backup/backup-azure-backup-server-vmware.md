@@ -3,12 +3,12 @@ title: Säkerhetskopiera virtuella virtuella datorer med Virtuella datorer med A
 description: I den här artikeln kan du läsa om hur du använder Azure Backup Server för att säkerhetskopiera virtuella datorer med VMware som körs på en VMware vCenter/ESXi-server.
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 951016d393b095b0329ff18861421402e0e18a1a
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.openlocfilehash: 92846f9bb9259e55a2c957716676ff42c032b2b5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529509"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537414"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Säkerhetskopiera virtuella virtuella datorer med Virtuella datorer med Azure Backup Server
 
@@ -96,11 +96,11 @@ Om du har säkra gränser inom organisationen och inte vill använda HTTPS-proto
 
 1. Kopiera och klistra in följande text i en TXT-fil.
 
-```text
-Windows Registry Editor Version 5.00
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
-"IgnoreCertificateValidation"=dword:00000001
-```
+    ```text
+    Windows Registry Editor Version 5.00
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
+    "IgnoreCertificateValidation"=dword:00000001
+    ```
 
 2. Spara filen på Azure Backup Server-datorn med namnet **DisableSecureAuthentication.reg**.
 
@@ -130,27 +130,49 @@ Azure Backup Server behöver ett användarkonto med behörighet att komma åt v-
 
 ### <a name="role-permissions"></a>Behörigheter för roll
 
-| **Privilegier för vCenter 6.7-användarkonto**              | **Privilegier för vCenter 6.5-användarkonto**             |
-| --------------------------------------------------------- | -------------------------------------------------------- |
-| Datastore.Allocate utrymme                                  | Datastore.Allocate utrymme                                 |
-| Global.Log-händelse                                          | Global.Log-händelse                                         |
-| Global.Hantera anpassade attribut                           | Global.Hantera anpassade attribut                          |
-| Nätverk.Tilldela                                            | Nätverk.Tilldela                                           |
-| Resurs. Tilldela virtuell dator till resurspoolen        | Resurs. Tilldela virtuell dator till resurspoolen       |
-| VirtualMachine.Configuration.AddNewDisk                   | VirtualMachine.Configuration.AddNewDisk                  |
-| VirtualMachine.Configuration. Lägga till eller ta bort enhet       | VirtualMachine.Configuration. Lägga till eller ta bort enhet      |
-| VirtualMachine.Configuration.Advanced                     | VirtualMachine.Configuration.Advanced                    |
-| VirtualMachine.Configuration.Växla diskändringsspårning | VirtualMachine.Configuration.Disk ändra spårning       |
-| VirtualMachine.Configuration.Konfigurera värd-USB-enhet   | VirtualMachine.Configuration.Host USB-enhet            |
-| VirtualMachine.Configuration.Query Ej egna filer         | VirtualMachine.Configuration.Query Ej egna filer        |
-| VirtualMachine.Configuration.Change Swapfile Placering   | VirtualMachine.Configuration.Swapfile Placering         |
-| VirtualMachine.Interaction.Power Off                      | VirtualMachine.Interaction.Power Off                     |
-| VirtualMachine.inventory.Create Nytt                       | VirtualMachine.inventory.Create Nytt                      |
-| VirtualMachine.Provisioning.Allow Disk Access            | VirtualMachine.Provisioning.Allow Disk Access           |
-| VirtualMachine.provisioning.Tillåt filåtkomst            | VirtualMachine.provisioning.Tillåt filåtkomst           |
-| VirtualMachine.provisioning.Allow skrivskyddad diskåtkomst  | VirtualMachine.provisioning.Allow skrivskyddad diskåtkomst |
-| VirtualMachine.Snapshot Management.Create Snapshot       | VirtualMachine.Snapshot Management.Create Snapshot      |
-| VirtualMachine.Snapshot Management.Remove Snapshot       | VirtualMachine.Snapshot Management.Remove Snapshot      |
+| Privilegier för vCenter 6.7-användarkonto                     | Privilegier för vCenter 6.5-användarkonto                     |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Datalagerkluster. Konfigurera ett datatstore-kluster            | Datalagerkluster. Konfigurera ett datatstore-kluster            |
+| Datastore.AllocateSpace                                      | Datastore.AllocateSpace                                      |
+| Datastore.Bläddra datastore                                   | Datastore.Bläddra datastore                                   |
+| Filåtgärder på datastore.Låg nivå                          | Filåtgärder på datastore.Låg nivå                          |
+| Global.Inaktivera metoder                                       | Global.Inaktivera metoder                                       |
+| Global.Enable-metoder                                        | Global.Enable-metoder                                        |
+| Global.Licenser                                              | Global.Licenser                                              |
+| Global.Log-händelse                                             | Global.Log-händelse                                             |
+| Global.Hantera anpassade attribut                              | Global.Hantera anpassade attribut                              |
+| Anpassat attribut för Global.Set                                  | Anpassat attribut för Global.Set                                  |
+| Host.Local-åtgärder. Skapa virtuell dator                | Host.Local-åtgärder. Skapa virtuell dator                |
+| Network.Assign nätverk                                       | Network.Assign nätverk                                       |
+| Resurs. Tilldela virtuell dator till resurspoolen           | Resurs. Tilldela virtuell dator till resurspoolen           |
+| vApp.Add virtuell dator                                     | vApp.Add virtuell dator                                     |
+| vApp.Tilldela resurspool                                    | vApp.Tilldela resurspool                                    |
+| vApp.Avregistrera                                              | vApp.Avregistrera                                              |
+| VirtualMachine.Configuration. Lägga till eller ta bort enhet          | VirtualMachine.Configuration. Lägga till eller ta bort enhet          |
+| Virtuell dator. Configuration.Acquire disklåneavtal            | Virtuell dator. Configuration.Disk-lån                     |
+| Virtuell dator. Configuration.Lägg till ny disk                   | Virtuell dator. Configuration.Lägg till ny disk                   |
+| Virtuell dator. Configuration.Avancerad konfiguration        | Virtuell dator. Configuration.Advanced                       |
+| Virtuell dator. Configuration.Växla spårning av diskändringar   | Virtuell dator. Configuration.Disk ändringsspårning          |
+| Virtuell dator. Configuration.Konfigurera värd-USB-enhet     | Virtuell dator. Configuration.Host USB-enhet               |
+| Virtuell dator. Configuration.Utöka virtuell disk           | Virtuell dator. Configuration.Utöka virtuell disk           |
+| Virtuell dator. Configuration.Query ej egna filer           | Virtuell dator. Configuration.Query ej egna filer           |
+| Virtuell dator. Configuration.Change Swapfile-placering     | Virtuell dator. Configuration.Swapfile-placering            |
+| Virtuell dator. Gästoperationer.Körning av gästoperationsprogram | Virtuell dator. Gästoperationer.Körning av gästoperationsprogram |
+| Virtuell dator. Ändringar av gästoperationer.Ändringar av gäståtgärder | Virtuell dator. Ändringar av gästoperationer.Ändringar av gäståtgärder |
+| Virtuell dator. Gäståtgärder.Frågor om gäståtgärder    | Virtuell dator. Gäståtgärder.Frågor om gäståtgärder    |
+| Virtuell dator . Interaktion. Enhetsanslutning             | Virtuell dator . Interaktion. Enhetsanslutning             |
+| Virtuell dator . Interaktion. Hantering av gästoperativsystem av VIX API | Virtuell dator . Interaktion. Hantering av gästoperativsystem av VIX API |
+| Virtuell dator . Interaktion. Stäng av strömmen                      | Virtuell dator . Interaktion. Stäng av strömmen                      |
+| Virtuell dator . Inventory.Skapa nya                        | Virtuell dator . Inventory.Skapa nya                        |
+| Virtuell dator . Inventory.Ta bort                            | Virtuell dator . Inventory.Ta bort                            |
+| Virtuell dator . Invent.Registrera                          | Virtuell dator . Invent.Registrera                          |
+| Virtuell dator . Etablering.Tillåt diskåtkomst             | Virtuell dator . Etablering.Tillåt diskåtkomst             |
+| Virtuell dator . Etablering.Tillåt filåtkomst             | Virtuell dator . Etablering.Tillåt filåtkomst             |
+| Virtuell dator . Etablering.Tillåt skrivskyddad diskåtkomst   | Virtuell dator . Etablering.Tillåt skrivskyddad diskåtkomst   |
+| Virtuell dator . Provisioning.Tillåt hämtning av virtuella datorer | Virtuell dator . Provisioning.Tillåt hämtning av virtuella datorer |
+| Virtuell dator . Hantering av ögonblicksbilder.  Skapa en ögonblicksbild       | Virtuell dator . Hantering av ögonblicksbilder.  Skapa en ögonblicksbild       |
+| Virtuell dator . Hantering av ögonblicksbilder. Ta bort ögonblicksbild        | Virtuell dator . Hantering av ögonblicksbilder. Ta bort ögonblicksbild        |
+| Virtuell dator . Hantering av ögonblicksbilder. Återgå till ögonblicksbild     | Virtuell dator . Hantering av ögonblicksbilder. Återgå till ögonblicksbild     |
 
 <br>
 
@@ -174,8 +196,6 @@ Azure Backup Server behöver ett användarkonto med behörighet att komma åt v-
 | Virtuell dator. Etableringen. Tillåt skrivskyddad diskåtkomst |                                             |
 | Virtuell dator. Hantering av ögonblicksbilder. Skapa ögonblicksbild       |                                             |
 | Virtuell dator. Hantering av ögonblicksbilder. Ta bort ögonblicksbild       |                                             |
-
-
 
 ## <a name="create-a-vmware-account"></a>Skapa ett VMware-konto
 

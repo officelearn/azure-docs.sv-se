@@ -11,16 +11,16 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 582afef8929da2ba75aab70c1ed0fa9e57fd3f19
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 084083a704a007e6675234883c62350d1d9a0849
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76703481"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536156"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>Snabbstart: Anropa ett ASP.NET webb-API som skyddas av Microsofts identitetsplattform
 
-I den här snabbstarten exponerar du ett webb-API och skyddar det så att endast autentiserade användare kan komma åt det. Det här exemplet visar hur du exponerar ett ASP.NET webb-API så att det kan acceptera token som utfärdats av personliga konton (inklusive outlook.com, live.com och andra) samt arbets- och skolkonton från alla företag eller organisationer som har integrerats med Microsoft-identitet Plattform.
+I den här snabbstarten exponerar du ett webb-API och skyddar det så att endast autentiserade användare kan komma åt det. Det här exemplet visar hur du exponerar ett ASP.NET webb-API så att det kan acceptera token som utfärdats av personliga konton (inklusive outlook.com, live.com och andra) samt arbets- och skolkonton från alla företag eller organisationer som har integrerats med Microsofts identitetsplattform.
 
 Exemplet innehåller också en WPF-klient (Windows Desktop Application) som visar hur du kan begära en åtkomsttoken för att komma åt ett webb-API.
 
@@ -69,13 +69,13 @@ Om du vill registrera dina appar manuellt måste du som ett första steg:
      - för **Användning av scopenamn**`access_as_user`
      - Se till att alternativet **Administratörer och användare** är valt för Vem kan **medgivande**
      - i **Namntyp för administratörsmedgivande**`Access TodoListService as a user`
-     - i **Beskrivningstyp för administratörsmedgivande**`Accesses the TodoListService Web API as a user`
+     - i **Beskrivningstyp för administratörsmedgivande**`Accesses the TodoListService web API as a user`
      - i **Namntyp för visning av användarmedgivande**`Access TodoListService as a user`
-     - i **Beskrivningstyp för användarsamgivande**`Accesses the TodoListService Web API as a user`
+     - i **Beskrivningstyp för användarsamgivande**`Accesses the TodoListService web API as a user`
      - Behåll **tillstånd** som **aktiverat**
      - Välj **Lägg till omfattning**
 
-### <a name="configure-the-service-project-to-match-the-registered-web-api"></a>Konfigurera serviceprojektet så att det matchar det registrerade webb-API:et 
+### <a name="configure-the-service-project-to-match-the-registered-web-api"></a>Konfigurera serviceprojektet så att det matchar det registrerade webb-API:et
 
 1. Öppna lösningen i Visual Studio och öppna sedan filen **Web.config** under roten **till TodoListService-projektet.**
 1. Ersätt parametervärdet `ida:ClientId` med **klient-ID (Application ID)** från det program som du just registrerade i programregistreringsportalen.
@@ -86,7 +86,7 @@ Om du vill registrera dina appar manuellt måste du som ett första steg:
 
    > Kontrollera att följande format används:
    >
-   > `api://{TodoListService-Application-ID}/access_as_user` 
+   > `api://{TodoListService-Application-ID}/access_as_user`
    >
    >(där {TodoListService-Application-ID} är DET GUID som representerar program-ID:t för TodoListService).
 
@@ -126,7 +126,7 @@ I det här steget konfigurerar du *TodoListClient-projektet* genom att registrer
 
 ## <a name="pre-authorize-your-client-application"></a>Förauktorisera ditt klientprogram
 
-Ett sätt att tillåta användare från andra kataloger att komma åt ditt webb-API är att *föra auktoriserade* klientprogrammen åt ditt webb-API genom att lägga till program-ID:n från klientprogram i listan över *förauktoriserade* program för webb-API:et. Genom att lägga till en förauktoriserat klient behöver du inte användarens samtycke till att använda ditt webb-API. Följ stegen nedan för att förauktorisera webbprogrammet::
+Ett sätt att tillåta användare från andra kataloger att komma åt ditt webb-API är att *föra auktoriserade* klientprogrammen att komma åt ditt webb-API genom att lägga till program-ID:n från klientprogram i listan över *förauktoriserade* program för ditt webb-API. Genom att lägga till en förauktoriserat klient behöver du inte användarens samtycke till att använda ditt webb-API. Följ stegen nedan för att förauktorisera webbprogrammet::
 
 1. Gå tillbaka till *programregistreringsportalen* och öppna egenskaperna **för din TodoListService**.
 1. I avsnittet **Exponera ett API** klickar du på Lägg till ett **klientprogram** under avsnittet *Auktoriserade klientprogram.*
@@ -141,7 +141,7 @@ Ett sätt att tillåta användare från andra kataloger att komma åt ditt webb-
 
 ## <a name="optional-restrict-sign-in-access-to-your-application"></a>Valfritt: Begränsa inloggningsåtkomsten till ditt program
 
-Som standard, när du hämtar det här kodexemplet och konfigurerar programmet så att det använder Azure Active Directory v2-slutpunkten enligt föregående steg, både personliga konton – som outlook.com, live.com och andra – samt arbets- eller skolkonton från alla organisationer som är integrerade med Azure AD kan begära token och komma åt ditt webb-API. 
+När du hämtar det här kodexemplet och konfigurerar programmet så att det använder slutpunkten Azure Active Directory v2 enligt föregående steg kan både personliga konton – som outlook.com, live.com och andra – samt arbets- eller skolkonton från alla organisationer som är integrerade med Azure AD begära token och komma åt ditt webb-API.
 
 Om du vill begränsa vem som kan logga in på ditt program använder du något av alternativen:
 

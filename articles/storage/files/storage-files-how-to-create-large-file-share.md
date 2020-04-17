@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c683e9847864de4e3409fb6dbd533497a5ae3cea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd7726d2bbf2830d18d78b5f0b0d7202b734124d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061002"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537686"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Aktivera och skapa stora filresurser
 
@@ -43,7 +43,7 @@ Att aktivera stora filresurser på ett konto är en oåterkallelig process. När
     ![Skärmbild som visar hur du skapar en resursgrupp i portalen](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
 1. Ange sedan ett namn för lagringskontot. Namnet måste vara unikt i Azure. Namnet måste också vara 3 till 24 tecken i längd, och det kan bara ha siffror och gemener.
-1. Välj en plats för ditt lagringskonto och se till att det är [en av de replikering som stöds för stora filresurser](storage-files-planning.md#regional-availability).
+1. Välj en plats för ditt lagringskonto.
 1. Ställ in replikeringen på antingen **Lokalt redundant lagring** eller **Zonupptredande lagring**.
 1. Lämna dessa fält till sina standardvärden:
 

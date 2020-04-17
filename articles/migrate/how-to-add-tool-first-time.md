@@ -1,17 +1,14 @@
 ---
 title: Lägga till ett bedömnings-/migreringsverktyg i Azure Migrate
 description: Beskriver hur du skapar ett Azure Migrate-projekt och lägger till ett utvärderings-/migreringsverktyg.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
-ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: 319d97d96bd054aed90079777e2ff83d0e308e5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.topic: how-to
+ms.date: 04/16/2020
+ms.openlocfilehash: 48bdea31d17ea1ddf0b983af962dce30b22d8dcf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74185937"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537737"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Lägga till ett utvärderings-/migreringsverktyg för första gången
 
@@ -37,28 +34,14 @@ Konfigurera ett nytt Azure Migrate-projekt i en Azure-prenumeration och lägg ti
 
 1. I **Discover, assess and migrate servers** (Identifiera, utvärdera och migrera servrar) klickar du på **Lägg till verktyg**.
 2. I **Migrera projekt** väljer du din Azure-prenumeration och skapar en resursgrupp om du inte har någon.
-3. Ange projektnamnet och geografin där du vill skapa projektet i **Projektinformation.** 
+3. Ange projektnamnet och geografin där du vill skapa projektet i **Projektinformation.**  Granska geografiska områden som stöds för [offentliga](migrate-support-matrix.md#supported-geographies-public-cloud) och [statliga moln](migrate-support-matrix.md#supported-geographies-azure-government).
 
     ![Skapa ett Azure Migrate-projekt](./media/how-to-add-tool-first-time/migrate-project.png)
 
-    Du kan skapa ett Azure Migrate-projekt i någon av dessa geografiska områden.
+    - Den angivna geografiska platsen för projektet används bara för att lagra de metadata som samlats in från lokala virtuella datorer. Du kan välja ett målområde för den faktiska migreringen.
+    - Om du behöver distribuera ett projekt inom en viss region i en geografi använder du följande API för att skapa ett projekt. Ange prenumerations-ID, resursgruppsnamn och projektnamn tillsammans med platsen. Granska geografiska områden/regioner för [offentliga](migrate-support-matrix.md#supported-geographies-public-cloud) och [statliga moln](migrate-support-matrix.md#supported-geographies-azure-government).
 
-   **Geografi** | **Lagerplatsregion**
-    --- | ---
-    Asien   | Sydostasien eller Östasien
-    Europa | Europa, norra eller Europa, västra
-    Japan  | Japan Öst eller Västra Japan
-    Storbritannien | Storbritannien Syd- eller Storbritannien Väst
-    USA | Centrala USA eller västra USA 2
-    Kanada | Kanada, centrala
-    Indien  | Indien Central eller Indien South
-    Australien | Australien i söder
-
-    Den angivna geografiska platsen för projektet används bara för att lagra de metadata som samlats in från lokala virtuella datorer. Du kan välja ett målområde för den faktiska migreringen.
-
-    Om du vill ange en specifik region inom en geografi för distribution av migrera projektet och dess associerade resurser (Principbegränsningar i din prenumeration kan tillåta distribution av Azure-resurser endast till en viss Azure-region), kan du använda nedanstående API för att skapa ett migrerande projekt. Ange prenumerations-ID, resursgruppnamn, Migrera projektnamn tillsammans med plats(någon av de Azure-regioner som nämns i tabellen där Azure Migrate distribueras.)
-
-    `PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"`   
+        `PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"`   
 
 
 4. Klicka på **Nästa**och lägg till ett bedömnings- eller migreringsverktyg.

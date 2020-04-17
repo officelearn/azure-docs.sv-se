@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/13/2020
+ms.date: 04/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0866db6b549bc940d2e73bccfc77b8fad19abd51
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 4a361f384167fa522278b9c84a7927e938c12cb8
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273230"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534813"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använda Azure för att vara värd för och köra SAP-arbetsbelastningsscenarier
 
@@ -110,6 +110,8 @@ Information om integrering av Azure-tjänster i SAP-komponenter finns i:
 
 
 ## <a name="change-log"></a>Ändra logg
+
+- 2020-04-16: Lade till SAP HANA som stöds DBMS för SAP (Hybris) Commerce Platform i artiklar [Vad SAP-programvara stöds för Azure-distributioner](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) och [SAP-certifieringar och konfigurationer som körs på Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
 - 2020-04-13: Korrigera exakta SAP ASE-versionsnummer i [SAP ASE Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sapase)
 - 2020-04-07: Ändring i [inställning av pacemaker på SLES i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) för att förtydliga moln-netconfig-azure-instruktioner
 - 2020/04/06: Ändringar i [SAP HANA-utskalning med väntenod på Azure-virtuella datorer med Azure NetApp-filer på SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) och i [SAP HANA-utskalning med väntenod på Azure-virtuella datorer med Azure NetApp-filer på RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel) för att ta bort referenser till NetApp [TR-4435](https://www.netapp.com/us/media/tr-4746.pdf) (ersatt av [TR-4746](https://www.netapp.com/us/media/tr-4746.pdf))

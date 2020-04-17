@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 6a127510b454244b32ad481cdb32c5d2e8faf9a0
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 47485d8d9007a6cf6432b7bf401c7c1c34a9863a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991185"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536139"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en iOS- eller macOS-app
 
@@ -30,7 +30,7 @@ Den här snabbstarten gäller både iOS- och macOS-appar. Vissa steg behövs bar
 > [!NOTE]
 > **Krav**
 > * XCode 10+
-> * iOS 10+ 
+> * iOS 10+
 > * macOS 10.12+
 
 > [!div renderon="docs"]
@@ -83,7 +83,7 @@ I ett terminalfönster navigerar du till mappen med `pod install` det hämtade k
 #### <a name="step-4-configure-your-project"></a>Steg 4: Konfigurera projektet
 
 > [!div renderon="docs"]
-> Om du har valt Alternativ 1 ovan kan du hoppa över dessa steg. 
+> Om du har valt Alternativ 1 ovan kan du hoppa över dessa steg.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > 1. Extrahera zip-filen och öppna projektet i XCode.
@@ -149,9 +149,9 @@ I ett terminalfönster navigerar du till mappen med `pod install` det hämtade k
 >          </array>
 >       </dict>
 >    </array>
-> 
+>
 >    ```
-> 1. Bygg & kör appen! 
+> 1. Bygg & kör appen!
 
 ## <a name="more-information"></a>Mer information
 
@@ -192,7 +192,7 @@ Initiera sedan MSAL med hjälp av följande kod:
 
 ```swift
 let authority = try MSALAADAuthority(url: URL(string: kAuthority)!)
-            
+
 let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
 ```
@@ -209,7 +209,7 @@ Appen måste också ha följande `AppDelegate`i din . På så sätt kan MSAL SDK
 
  ```swift
  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        
+
         return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
     }
 
@@ -221,21 +221,21 @@ Appen måste också ha följande `AppDelegate`i din . På så sätt kan MSAL SDK
 
  ```swift
  func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        
+
         guard let urlContext = URLContexts.first else {
             return
         }
-        
+
         let url = urlContext.url
         let sourceApp = urlContext.options.sourceApplication
-        
+
         MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApp)
     }
  ```
 
-Slutligen måste din app `LSApplicationQueriesSchemes` ha en post i din `CFBundleURLTypes` ***Info.plist*** tillsammans med . Provet levereras med detta ingår. 
+Slutligen måste din app `LSApplicationQueriesSchemes` ha en post i din `CFBundleURLTypes` ***Info.plist*** tillsammans med . Provet levereras med detta ingår.
 
-   ```xml 
+   ```xml
    <key>LSApplicationQueriesSchemes</key>
    <array>
       <string>msauthv2</string>
@@ -249,10 +249,10 @@ MSAL har två metoder som används för att hämta token: `acquireToken` och `ac
 
 #### <a name="acquiretoken-get-a-token-interactively"></a>acquireToken: Få en token interaktivt
 
-Vissa situationer kräver att användarna interagerar med Microsofts identitetsplattform. I dessa fall kan slutanvändaren vara skyldig att välja sitt konto, ange sina autentiseringsuppgifter eller godkänna appens behörigheter. Exempel: 
+Vissa situationer kräver att användarna interagerar med Microsofts identitetsplattform. I dessa fall kan slutanvändaren vara skyldig att välja sitt konto, ange sina autentiseringsuppgifter eller godkänna appens behörigheter. Exempel:
 
 * Första gången användaren loggar in på programmet
-* Om en användare återställer sitt lösenord måste han eller hon ange sina autentiseringsuppgifter 
+* Om en användare återställer sitt lösenord måste han eller hon ange sina autentiseringsuppgifter
 * När ditt program begär åtkomst till en resurs för första gången
 * När MFA eller andra principer för villkorlig åtkomst krävs
 
@@ -267,15 +267,15 @@ self.applicationContext!.acquireToken(with: parameters) { (result, error) in /* 
 
 #### <a name="acquiretokensilent-get-an-access-token-silently"></a>acquireTokenSilent: Få en åtkomsttoken tyst
 
-Appar bör inte kräva att användarna loggar in varje gång de begär en token. Om användaren redan har loggat in tillåter den här metoden appar att begära token tyst. 
+Appar bör inte kräva att användarna loggar in varje gång de begär en token. Om användaren redan har loggat in tillåter den här metoden appar att begära token tyst.
 
 ```swift
 self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previousAccount, error) in
-            
+
    guard let account = currentAccount else {
       return
    }
-            
+
    let silentParams = MSALSilentTokenParameters(scopes: self.kScopes, account: account)
    self.applicationContext!.acquireTokenSilent(with: silentParams) { (result, error) in /* Add your handling logic */}
 }

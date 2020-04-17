@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: ac134dce5ad739d1d81ef0c62a6bfb04468cafff
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 1d22f66ad5f7adf5bb8196c3e72a2a343f4558b0
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991117"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536105"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Snabbstart: Logga in användare och få en åtkomsttoken i ett JavaScript SPA
 
@@ -39,7 +39,7 @@ I den här snabbstarten använder du ett kodexempel för att lära dig hur ett J
 > 1. Logga in på [Azure-portalen](https://portal.azure.com) med hjälp av antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 > 1. Om ditt konto ger dig åtkomst till mer än en klient väljer du kontot längst upp till höger och ställer sedan in portalsessionen på den Azure Active Directory-klient (Azure AD) som du vill använda.
 > 1. Gå till den nya [Azure-portalen - fönstret Appregistreringar.](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs)
-> 1. Ange ett namn för ditt program. 
+> 1. Ange ett namn för ditt program.
 > 1. Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
 > 1. Välj **Registrera**.
 > 1. Följ instruktionerna för att hämta och konfigurera ditt nya program automatiskt.
@@ -99,7 +99,7 @@ I den här snabbstarten använder du ett kodexempel för att lära dig hur ett J
 >      cacheLocation: "sessionStorage", // This configures where your cache will be stored
 >      storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
 >    }
->  };  
+>  };
 >
 >```
 
@@ -122,10 +122,10 @@ I den här snabbstarten använder du ett kodexempel för att lära dig hur ett J
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Steg 3: Appen är konfigurerad och redo att köras
-> Vi har konfigurerat ditt projekt med värden för appens egenskaper. 
+> Vi har konfigurerat ditt projekt med värden för appens egenskaper.
 
 > [!div renderon="docs"]
-> 
+>
 > Redigera sedan *filen graphConfig.js* i samma mapp `graphMeEndpoint` för `graphMeEndpoint` att `apiConfig` ställa in och för objektet.
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
@@ -199,7 +199,7 @@ Snabbstartskoden visar också hur du initierar MSAL-biblioteket:
       cacheLocation: "sessionStorage", // This configures where your cache will be stored
       storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
     }
-  };  
+  };
 
 const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
@@ -234,7 +234,7 @@ myMSALObj.loginPopup(loginRequest)
 
 > |Var  |  |
 > |---------|---------|
-> | `scopes`   | (Valfritt) Innehåller scope som begärs för användarens medgivande vid inloggning. Till exempel `[ "user.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API:er (det vill säga `api://<Application ID>/access_as_user`). |
+> | `scopes`   | (Valfritt) Innehåller scope som begärs för användarens medgivande vid inloggning. Till exempel `[ "user.read" ]` för Microsoft `[ "<Application ID URL>/scope" ]` Graph eller för anpassade `api://<Application ID>/access_as_user`webb-API:er (det vill ha ). |
 
 > [!TIP]
 > Du kanske vill använda `loginRedirect` metoden för att omdirigera den aktuella sidan till inloggningssidan i stället för ett popup-fönster.
@@ -264,7 +264,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 > |Var  |  |
 > |---------|---------|
-> | `scopes`   | Innehåller omfång som begärs att returneras i åtkomsttoken för API. Till exempel `[ "mail.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API:er (det vill säga `api://<Application ID>/access_as_user`).|
+> | `scopes`   | Innehåller omfång som begärs att returneras i åtkomsttoken för API. Till exempel `[ "mail.read" ]` för Microsoft `[ "<Application ID URL>/scope" ]` Graph eller för anpassade `api://<Application ID>/access_as_user`webb-API:er (det vill ha ).|
 
 #### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 

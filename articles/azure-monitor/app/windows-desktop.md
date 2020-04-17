@@ -3,12 +3,12 @@ title: Övervaka användning och prestanda för Windows-appar
 description: Analysera användning och prestanda för Windows-program med Application Insights.
 ms.topic: conceptual
 ms.date: 10/29/2019
-ms.openlocfilehash: 8234b9ba2c92fc64cfa8f598db99954e00caab45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eb9e0fc480098478a3a68265ac85e0d5450e27fe
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670839"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537397"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Övervaka användning och prestanda för klassiska Windows-appar
 
@@ -109,6 +109,6 @@ Instansiera initializern `Program.cs` `Main()` i metoden nedan och ange instrume
 ## <a name="next-steps"></a>Nästa steg
 * [Skapa en instrumentpanel](../../azure-monitor/app/overview-dashboard.md)
 * [Diagnostiksökning](../../azure-monitor/app/diagnostic-search.md)
-* [Utforska mått](../../azure-monitor/app/metrics-explorer.md)
+* [Utforska mått](../../azure-monitor/platform/metrics-charts.md)
 * [Skriv analysfrågor](../../azure-monitor/app/analytics.md)
 

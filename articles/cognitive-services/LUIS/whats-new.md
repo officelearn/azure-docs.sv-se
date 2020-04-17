@@ -3,12 +3,12 @@ title: Nyheter - Språkförståelse (LUIS)
 description: Den här artikeln uppdateras regelbundet med nyheter om Azure Cognitive Services Language Understanding API.
 ms.topic: conceptual
 ms.date: 02/11/2020
-ms.openlocfilehash: 562f7f8b4974363daab91991e6a8219b352432fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6334b157f68f09f2b165c6073ba63f45a0caf3c4
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80156012"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538026"
 ---
 # <a name="whats-new-in-language-understanding"></a>Nyheter inom språk understanding
 
@@ -73,8 +73,8 @@ Följande funktioner släpptes på Build 2019 Conference:
 * [Förhandsgranskning av V3 API-migreringsguide](luis-migration-api-v3.md)
 * [Förbättrad instrumentpanel för analys](luis-how-to-use-dashboard.md)
 * [Förbättrade fördefinierade domäner](luis-reference-prebuilt-domains.md)
-* [Dynamiska listentiteter](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
-* [Externa enheter](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
+* [Dynamiska listentiteter](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time)
+* [Externa enheter](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time)
 
 ## <a name="blogs"></a>Bloggar
 

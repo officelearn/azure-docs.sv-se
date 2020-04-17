@@ -3,12 +3,12 @@ title: Exportera med Stream Analytics från Azure Application Insights | Microso
 description: Stream Analytics kan kontinuerligt omvandla, filtrera och dirigera data som du exporterar från Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: b93bc49d005e3e54f1e5db84e6ff1adc49e25a65
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 15d1efa3a632024429d41f27fc23c569cd85bec2
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77664022"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536887"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Använda Stream Analytics för att bearbeta exporterade data från Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) är det perfekta verktyget för bearbetning av data [som exporteras från Application Insights](export-telemetry.md). Stream Analytics kan hämta data från en mängd olika källor. Det kan omvandla och filtrera data och sedan dirigera dem till en mängd olika sänkor.
@@ -55,7 +55,7 @@ Kontinuerlig export matar alltid ut data till ett Azure Storage-konto, så du m�
 
     ![Välj händelsetyper](./media/export-stream-analytics/080.png)
 
-1. Låt vissa data ackumuleras. Luta dig tillbaka och låt andra använda ditt program ett tag. Telemetri kommer in och du ser statistiska diagram i [metriska explorer](../../azure-monitor/app/metrics-explorer.md) och enskilda händelser i [diagnostisk sökning](../../azure-monitor/app/diagnostic-search.md). 
+1. Låt vissa data ackumuleras. Luta dig tillbaka och låt andra använda ditt program ett tag. Telemetri kommer in och du ser statistiska diagram i [metriska explorer](../../azure-monitor/platform/metrics-charts.md) och enskilda händelser i [diagnostisk sökning](../../azure-monitor/app/diagnostic-search.md). 
    
     Och även, data kommer att exportera till din lagring. 
 2. Kontrollera de exporterade data. I Visual Studio väljer du **Visa /Molnutforskaren**och öppnar Azure/Storage. (Om du inte har det här menyalternativet måste du installera Azure SDK: Öppna dialogrutan Nytt projekt och öppna Visual C# / Cloud / Get Microsoft Azure SDK för .NET.)

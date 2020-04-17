@@ -6,12 +6,12 @@ ms.date: 02/05/2019
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 5a6dbda59495fccb6b9d53440f408fd4750925b5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 250f51c9f028dd55d8327259e35b82b0c392c1f6
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75421671"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537006"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Skapa en Azure Automation-runbook
 
@@ -21,27 +21,27 @@ Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in i Azure på https://portal.azure.com
+Logga in på https://portal.azure.comAzure på .
 
-## <a name="create-runbook"></a>Skapa runbook
+## <a name="create-the-runbook"></a>Skapa runbooken
 
 Skapa en runbook först. Exempelrunbooken som skapas i den här snabbstarten matar ut `Hello World` som standard.
 
 1. Öppna ditt Automation-konto.
 
-1. Klicka på **Runbooks** under **PROCESSAUTOMATISERING**. En lista med runbooks visas.
+1. Klicka på **Runbooks** under **ProcessAutomation**. En lista med runbooks visas.
 
-1. Klicka på knappen **Skapa en runbook** högst upp i listan
+1. Klicka på **Skapa en runbook** högst upp i listan.
 
-1. Ange ”Hello-World” som runbookens **Namn** och välj **PowerShell** som **Typ av runbook**. Klicka på **Skapa**.
+1. Ange `Hello-World` för runbooknamnet i fältet **Namn** och välj **PowerShell** för fältet **Runbook-typ.** 
 
    ![Ange information om din Automation-runbook på sidan](./media/automation-quickstart-create-runbook/automation-create-runbook-configure.png)
 
-1. Runbooken skapas och sidan **Redigera PowerShell-runbook** öppnas.
+1. Klicka på **Skapa**. Runbooken skapas och sidan Redigera PowerShell-runbook öppnas.
 
     ![Skapa PowerShell-skript i runbook-redigeringsprogrammet](./media/automation-quickstart-create-runbook/automation-edit-runbook-empty.png)
 
-1. Skriv in eller kopiera och klistra in följande kod i redigeringsrutan. Detta skapar en valfri indataparameter som heter ”Name” med standardvärdet ”World”, och matar ut en sträng som använder det här indatavärdet:
+1. Skriv in eller kopiera och klistra in följande kod i redigeringsrutan. Den skapar en valfri `Name` indataparameter `World`som anropas med ett standardvärde på och matar ut en sträng som använder det här indatavärdet:
 
    ```powershell-interactive
    param
@@ -53,23 +53,23 @@ Skapa en runbook först. Exempelrunbooken som skapas i den här snabbstarten mat
    "Hello $Name!"
    ```
 
-1. Klicka på **Spara** och spara ett utkast av din runbook.
+1. Klicka på **Spara** om du vill spara en utkastkopia av runbooken.
 
     ![Skapa PowerShell-skript i runbook-redigeringsprogrammet](./media/automation-quickstart-create-runbook/automation-edit-runbook.png)
 
 ## <a name="test-the-runbook"></a>Testa runbooken
 
-När din runbook har skapats ska du testa den för att se om den fungerar.
+När runbooken har skapats måste du testa runbooken för att verifiera att den fungerar.
 
-1. Klicka på **testfönstret** för att öppna **testsidan**.
+1. Öppna testfönstret genom att klicka på **Testfönster**.
 
 1. Ange ett värde för **Namn** och klicka på **Starta**. Testjobbet startar och jobbstatus och utdata visas.
 
     ![Testjobb för runbook](./media/automation-quickstart-create-runbook/automation-test-runbook.png)
 
-1. Stäng **testsidan** genom att klicka på ”**X**” i det övre högra hörnet. Välj **OK** i popup-fönstret som visas.
+1. Stäng testfönstret genom att klicka på **X** i det övre högra hörnet. Välj **OK** i popup-fönstret som visas.
 
-1. På sidan **Redigera PowerShell-runbook** klickar du på **Publicera** för att publicera runbooken som den officiella versionen av runbooken på kontot.
+1. På sidan Redigera PowerShell-runbook klickar du på **Publicera** för att publicera runbooken som den officiella versionen av runbooken på kontot.
 
    ![Testjobb för runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
 
@@ -77,15 +77,15 @@ När din runbook har skapats ska du testa den för att se om den fungerar.
 
 När runbooken har publicerats visas översiktssidan.
 
-1. På översiktssidan i runbooken klickar du på **Starta** för att öppna konfigurationssidan **Starta runbook** för denna runbook.
+1. På översiktssidan i runbooken klickar du på **Starta** för att öppna konfigurationssidan Starta runbook för denna runbook.
 
    ![Testjobb för runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-start.png)
 
-1. Lämna **Namn** tomt, så standardvärdet används, och klicka på **OK**. Runbookjobbet skickas och jobbsidan visas.
+1. Lämna **Namn** tomt, så standardvärdet används, och klicka på **OK**. Runbook-jobbet skickas och sidan Jobb visas.
 
    ![Testjobb för runbook](./media/automation-quickstart-create-runbook/automation-job-page.png)
 
-1. När **Jobbstatus** visar **Körs** eller **Slutfört** klickar du på **Utdata** för att öppna rutan **Utdata** och visa runbookens utdata.
+1. När jobbstatusen `Running` `Completed`är eller klickar du på **Utdata** för att öppna utdatafönstret och visa runbookutdata.
 
    ![Testjobb för runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
 

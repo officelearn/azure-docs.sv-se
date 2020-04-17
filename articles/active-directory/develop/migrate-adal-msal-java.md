@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev
-ms.openlocfilehash: 2929b94a2cb624b96649292714fe93dea09a2085
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 7ba845e79074313f0ccf2c066ba016bd72d46efe
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886508"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534575"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>ADAL till MSAL-migreringsguide för Java
 
@@ -109,7 +109,8 @@ PublicClientApplication app = PublicClientApplication.builder(CLIENT_ID) // Clie
 IAuthenticationResult result = app.acquireToken(parameters);
 ```
 
-Returnerar `IAuthenticationResult` en åtkomsttoken och ID-token, medan den nya uppdateringstoken lagras i cacheminnet. Ansökan kommer nu också att innehålla ett IAccount:
+Returnerar `IAuthenticationResult` en åtkomsttoken och ID-token, medan den nya uppdateringstoken lagras i cacheminnet.
+Ansökan kommer nu också att innehålla ett IAccount:
 
 ```java
 Set<IAccount> accounts =  app.getAccounts().join();
@@ -118,6 +119,6 @@ Set<IAccount> accounts =  app.getAccounts().join();
 Om du vill använda de token som nu finns i cacheminnet anropar du:
 
 ```java
-SilentParameters parameters = SilentParameters.builder(scope, accounts.iterator().next()).build(); 
+SilentParameters parameters = SilentParameters.builder(scope, accounts.iterator().next()).build();
 IAuthenticationResult result = app.acquireToken(parameters);
 ```

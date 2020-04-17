@@ -1,7 +1,7 @@
 ---
 title: Läs mer om MSAL | Azure
 titleSuffix: Microsoft identity platform
-description: Med MSAL (Microsoft Authentication Library) kan programutvecklare hämta token för att anropa skyddade webb-API:er. Dessa webb-API:er kan vara Microsoft Graph, andra Microsoft-APIS, webb-API:er från tredje part eller ditt eget webb-API. MSAL stöder flera programarkitekturer och plattformar.
+description: Med MSAL (Microsoft Authentication Library) kan programutvecklare hämta token för att anropa skyddade webb-API:er. Dessa webb-API:er kan vara Microsoft Graph, andra Microsoft-API:er, webb-API:er från tredje part eller ditt eget webb-API. MSAL stöder flera programarkitekturer och plattformar.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,15 +13,15 @@ ms.date: 10/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c20d93c70484dc7ea800898da4309af2699c718e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89c5117e59f7856c3bd572bbea297a836b5ad589
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77085732"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536224"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Översikt över Microsoft Authentication Library (MSAL)
-Med MICROSOFT Authentication Library (MSAL) kan utvecklare hämta [token](developer-glossary.md#security-token) från slutpunkten för Microsoft-identitetsplattformen för att komma åt skyddade webb-API:er. Dessa webb-API:er kan vara Microsoft Graph, andra Microsoft-APIS, webb-API:er från tredje part eller ditt eget webb-API. MSAL är tillgängligt för .NET, JavaScript, Android och iOS, som stöder många olika programarkitekturer och plattformar.
+Med MICROSOFT Authentication Library (MSAL) kan utvecklare hämta [token](developer-glossary.md#security-token) från slutpunkten för Microsoft-identitetsplattformen för att komma åt skyddade webb-API:er. Dessa webb-API:er kan vara Microsoft Graph, andra Microsoft-API:er, webb-API:er från tredje part eller ditt eget webb-API. MSAL är tillgängligt för .NET, JavaScript, Android och iOS, som stöder många olika programarkitekturer och plattformar.
 
 MSAL ger dig många sätt att hämta token, med ett konsekvent API för ett antal plattformar. Att använda MSAL ger följande fördelar:
 

@@ -3,12 +3,12 @@ title: Azure Migrate-installation
 description: Ger en översikt över Azure Migrate-installationen som används vid serverutvärdering och migrering.
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.openlocfilehash: bccf4738d46b65f2d149eafc8e69591141d7d073
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 130de0824a1671fb0b0e3e980f06f4c3abc689d2
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437591"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538230"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 
@@ -24,6 +24,17 @@ Azure Migrate-enheten används i följande scenarier.
 **VMware VM-agentlös migrering** | Azure Migrera:Servermigrering | Upptäck virtuella datorer med VMware <br/><br/> Replikera virtuella virtuella datorer med agentlös migrering.
 **Bedömning av virtuella datorer med hyper-V** | Azure Migrera:Server-utvärdering | Upptäck virtuella virtuella hyper-virtuella datorer<br/><br/> Samla in datorns metadata och prestandametadata för utvärderingar.
 **Fysisk maskinbedömning** |  Azure Migrera:Server-utvärdering |  Upptäck fysiska servrar (eller virtuella datorer som du behandlar som fysiska servrar).<br/><br/> Samla in datorns metadata och prestandametadata för utvärderingar.
+
+## <a name="deployment-methods"></a>Distributionsmetoder
+
+Apparaten kan användas med ett par metoder:
+
+- Apparaten kan distribueras med hjälp av en mall för virtuella datorer och virtuella video-datorer med hyper-v (OVA-mall för VMware eller VHD för Hyper-V).
+- Om du inte vill använda en mall kan du distribuera apparaten för VMware eller Hyper-V med ett PowerShell-skript.
+- I Azure Government bör du distribuera enheten med ett skript.
+- För fysiska servrar distribuerar du alltid apparaten med ett skript.
+- Nedladdningslänkar finns i tabellerna nedan.
+
 
 ## <a name="appliance---vmware"></a>Apparat - VMware 
 
@@ -67,7 +78,7 @@ I följande tabell sammanfattas Azure Migrate-installationskraven för VMware.
 **Krav** | **Fysiska** 
 --- | ---
 **Komponenter till apparaten** | Apparaten har följande komponenter: <br/><br/> - **Hanteringsapp:** Det här är en webbapp för användarinmatning under distribution av installationen. Används vid bedömning av datorer för migrering till Azure.<br/> - **Identifieringsagent:** Agenten samlar in maskinkonfigurationsdata. Används vid bedömning av datorer för migrering till Azure.<br/>- **Bedömningsagent:** Agenten samlar in prestandadata. Används vid bedömning av datorer för migrering till Azure.<br/>- **Automatisk uppdatering:** Uppdaterar apparatens komponenter (körs var 24:e timme).
-**Distribution som stöds** | Distribuera som en dedikerad fysisk dator, eller en virtuell dator, med hjälp av ett PowerShell-installationsskript.
+**Distribution som stöds** | Distribuera som en dedikerad fysisk dator, eller en virtuell dator, med hjälp av ett PowerShell-installationsskript. Skriptet är tillgängligt för nedladdning från portalen.
 **Projektstöd** |  En apparat kan associeras med ett enda projekt. <br/> Valfritt antal apparater kan associeras med ett enda projekt.<br/> 
 **Begränsningar för identifiering** | En apparat kan upptäcka upp till 250 fysiska servrar.
 **PowerShell-skript** | Hämta skriptet (AzureMigrateInstaller.ps1) i en zippad mapp från portalen. [Läs mer](tutorial-assess-physical.md#set-up-the-appliance). Alternativt kan [du ladda ner direkt](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> Nedladdningsstorleken är 59,7 MB.
@@ -78,8 +89,10 @@ I följande tabell sammanfattas Azure Migrate-installationskraven för VMware.
 
 Azure Migrate-enheten behöver anslutning till internet.
 
-- När du distribuerar installationen gör Azure Migrate en anslutningskontroll till webbadresserna som sammanfattas i tabellen nedan.
+- När du distribuerar installationen gör Azure Migrate en anslutningskontroll till de webbadresser som krävs.
 - Om du använder en URL-baserad proxy för att ansluta till internet måste du tillåta åtkomst till dessa webbadresser och se till att proxyn löser alla CNAME-poster som tas emot när webbadresserna slås upp.
+
+### <a name="public-cloud-urls"></a>Offentliga molnadresser
 
 **URL** | **Detaljer**  
 --- | --- |
@@ -95,6 +108,25 @@ download.microsoft.com/download | Tillåt nedladdningar från Microsoft-nedladdn
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com | Ansluta till Azure Migrera tjänstadresser.
 *.hypervrecoverymanager.windowsazure.com | **Används för VMware agentless migration**<br/><br/> Ansluta till Azure Migrera tjänstadresser.
 *.blob.core.windows.net |  **Används för VMware agentless migration**<br/><br/>Ladda upp data till lagring för migrering.
+
+### <a name="government-cloud-urls"></a>Url:er för molnet från myndigheter
+
+**URL** | **Detaljer**  
+--- | --- |
+*.portal.azure.us  | Navigera till Azure Portal.
+graph.windows.net | Logga in på din Azure-prenumeration.
+login.microsoftonline.us  | Skapa Azure Active Directory (AD)-appar för att installationen ska kunna kommunicera med Azure Migrate.
+management.usgovcloudapi.net | Skapa Azure AD-appar för att installationen ska kommunicera med Azure Migrate-tjänsten.
+dc.services.visualstudio.com | Ladda upp apploggar som används för intern övervakning.
+*.vault.usgovcloudapi.net | Hantera hemligheter i Azure Key Vault.
+aka.ms/* | Ge tillgång till aka länkar. Används för Azure Migrate-installationer.
+download.microsoft.com/download | Tillåt nedladdningar från Microsoft-nedladdning.
+*.servicebus.usgovcloudapi.net  | Kommunikation mellan installationen och Azure Migrate-tjänsten.
+*.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Ansluta till Azure Migrera tjänstadresser.
+*.hypervrecoverymanager.windowsazure.us | **Används för VMware agentless migration**<br/><br/> Ansluta till Azure Migrera tjänstadresser.
+*.blob.core.usgovcloudapi.net  |  **Används för VMware agentless migration**<br/><br/>Ladda upp data till lagring för migrering.
+*.applicationinsights.us | Används av Gateway-agenten på enheten för att komma åt application insights-slutpunkten för diagnostikövervakning.
+
 
 
 

@@ -2,13 +2,13 @@
 title: Beroendeanalys i Utvärdering av Azure Migrate Server
 description: Beskriver hur du använder beroendeanalys för utvärdering med Azure Migrate Server Assessment.
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: f96496b66d6bcfd397fb0a7303d3dbfb4fd6f6b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: b11796f2c5d7c1d87f383e6780444e572352eff5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79455646"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537754"
 ---
 # <a name="dependency-analysis"></a>Beroendeanalys
 
@@ -30,7 +30,7 @@ Det finns två alternativ för att distribuera beroendeanalys
 - **Agentless**: Med agentless analys, behöver du inte installera agenter på maskiner som du vill dubbelkolla. Det här alternativet är för närvarande i förhandsversion och är endast tillgängligt för virtuella datorer med VMware.
 
 > [!NOTE]
-> Beroendeanalys är inte tillgängligt i Azure Government.
+> Agentbaserad beroendeanalys är inte tillgänglig i Azure Government. Du kan använda agentless dependency analysis.
 
 ## <a name="agentless-analysis"></a>Agentlös analys
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 7819de1f3dfab7f934421de86c0481d2e063f7a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4cfa136585611e81a4060c5544d5dc464b32f12c
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671196"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537448"
 ---
 # <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Komma igång med Azure Monitor Application Insights Agent för lokala servrar
 
@@ -71,7 +71,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 
  Visa telemetrin:
 
-- [Utforska mätvärden](../../azure-monitor/app/metrics-explorer.md) för att övervaka prestanda och användning.
+- [Utforska mätvärden](../../azure-monitor/platform/metrics-charts.md) för att övervaka prestanda och användning.
 - [Sök händelser och loggar](../../azure-monitor/app/diagnostic-search.md) för att diagnostisera problem.
 - [Använd Analytics](../../azure-monitor/app/analytics.md) för mer avancerade frågor.
 - [Skapa instrumentpaneler](../../azure-monitor/app/overview-dashboard.md).

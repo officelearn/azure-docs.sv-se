@@ -2,21 +2,21 @@
 title: Utvärdera virtuella virtuella hyper-v-datorer för migrering till Azure med Azure Migrate | Microsoft-dokument
 description: Beskriver hur du bedömer lokala virtuella hyper-v-datorer för migrering till Azure med Azure Migrate Server Assessment.
 ms.topic: tutorial
-ms.date: 03/23/2020
+ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: cb3c29e01b7917a6d639b6b2a53fc2842efc2172
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: c627902268af3a91e172223c1741dd24ea21fa92
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80336775"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535459"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Utvärdera virtuella virtuella hyper virtuella datorer med Utvärdering av Azure Migrate Server
 
 Den här artikeln visar hur du bedömer lokala virtuella virtuella hyper-virtuella datorer med hjälp av verktyget [Azure Migrate:Server Assessment.](migrate-services-overview.md#azure-migrate-server-assessment-tool)
 
 
-Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar virtuella hyper-virtuella datorer till Azure. I den här självstudiekursen får du lära du dig att:
+Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar virtuella hyper-virtuella datorer till Azure. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera ett Azure Migrate-projekt.
@@ -49,7 +49,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 4. I **Komma igång** klickar du på **Lägg till verktyg**.
 5. På **fliken Migrera projekt** väljer du din Azure-prenumeration och skapar en resursgrupp om du inte har någon.
-6. Ange projektnamnet och den region där du vill skapa projektet i **Projektinformation.** [Granska](migrate-support-matrix.md#supported-geographies) de regioner där du kan skapa Azure Migrate-projekt.
+6. Ange projektnamnet och den region där du vill skapa projektet i **Projektinformation.** Granska geografiska områden som stöds för [offentliga](migrate-support-matrix.md#supported-geographies-public-cloud) och [statliga moln](migrate-support-matrix.md#supported-geographies-azure-government).
 
     - Projektregionen används endast för att lagra metadata som samlats in från lokala virtuella datorer.
     - Du kan välja en annan Azure-målregion när du migrerar de virtuella datorerna. Alla Azure-regioner stöds för migreringsmål.
@@ -67,9 +67,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Konfigurera Azure Migrate-enheten
 
-Azure Migrate:server Assessment använder en lätt Azure Migrate-installation. Installationen av virtuella datorer utför vm-identifiering och skickar VM-metadata och prestandadata till Azure Migrate.
-- Apparaten kan ställas in på en Virtuell Hyper-V med en nedladdad Hyper-V VHD. Du kan också ställa in enheten på en virtuell dator eller en fysisk dator med ett PowerShell-installationsskript.
-- Den här självstudien använder den virtuella hårddisken. Läs [den här artikeln](deploy-appliance-script.md) om du vill konfigurera apparaten med ett skript.
+
+Azure Migrate:Server Assessment använder en lätt Azure Migrate-installation. Installationen av virtuella datorer utför vm-identifiering och skickar VM-metadata och prestandadata till Azure Migrate. Apparaten kan ställas in på flera olika sätt.
+
+- Konfigurera på en Virtuell Hyper-V-dator med en nedladdad Hyper-V VHD. Detta är den metod som används i den här självstudien.
+- Konfigurera på en virtuell hyper-V-dator eller en fysisk dator med ett PowerShell-installationsskript. [Den här metoden](deploy-appliance-script.md) bör användas om du inte kan konfigurera en virtuell dator med hjälp av den virtuella hårddisken eller om du är i Azure Government.
 
 När du har skapat installationen kontrollerar du att den kan ansluta till Azure Migrate:Server Assessment, konfigurera den för första gången och registrera den med Azure Migrate-projektet.
 
@@ -125,9 +127,9 @@ Importera den hämtade filen och skapa den virtuella datorn.
 7. Starta den virtuella datorn i Hyper-V **Manager-> virtuella datorer.**
 
 
-### <a name="verify-appliance-access-to-azure"></a>Verifiera åtkomst till Azure
+## <a name="verify-appliance-access-to-azure"></a>Verifiera åtkomst till Azure
 
-Se till att den virtuella datorn för den virtuella enheten kan ansluta till [Azure-url:er](migrate-appliance.md#url-access).
+Se till att den virtuella datorn för den virtuella enheten kan ansluta till Azure-url:er för [offentliga](migrate-appliance.md#public-cloud-urls) moln och [myndighetsmoln.](migrate-appliance.md#government-cloud-urls)
 
 ### <a name="configure-the-appliance"></a>Konfigurera apparaten
 

@@ -3,12 +3,12 @@ title: Hållbar funktionspublicering till Azure Event Grid (förhandsversion)
 description: Lär dig hur du konfigurerar automatisk Azure Event Grid-publicering för varaktiga funktioner.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 52ffcd4eb81936ffcfa61580288c60bd59ffb744
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 671f7bd5221a936ea9dad0f0cece895bdbe9512f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78249766"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535493"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Hållbar funktionspublicering till Azure Event Grid (förhandsversion)
 
@@ -68,14 +68,36 @@ Nu kan du skicka händelser till ämnet.
 
 Leta reda på filen `host.json` i projektet Varaktiga funktioner.
 
+### <a name="durable-functions-1x"></a>Hållbara funktioner 1.x
+
 Lägg `eventGridTopicEndpoint` `eventGridKeySettingName` till `durableTask` och i en egenskap.
 
 ```json
 {
+  "durableTask": {
+    "eventGridTopicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
+    "eventGridKeySettingName": "EventGridKey"
+  }
+}
+```
+
+### <a name="durable-functions-2x"></a>Hållbara funktioner 2.x
+
+Lägg `notifications` till ett `durableTask` avsnitt i egenskapen för filen och ersätt med `<topic_name>` det namn du valde. Om `durableTask` egenskaperna `extensions` eller inte finns skapar du dem så här:
+
+```json
+{
+  "version": "2.0",
+  "extensions": {
     "durableTask": {
-        "eventGridTopicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
-        "eventGridKeySettingName": "EventGridKey"
+      "notifications": {
+        "eventGrid": {
+          "topicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
+          "keySettingName": "EventGridKey"
+        }
+      }
     }
+  }
 }
 ```
 
@@ -132,7 +154,7 @@ public static void Run(JObject eventGridEvent, ILogger log)
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 module.exports = async function(context, eventGridEvent) {

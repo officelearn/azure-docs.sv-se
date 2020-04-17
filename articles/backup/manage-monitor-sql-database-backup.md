@@ -3,12 +3,12 @@ title: Hantera och övervaka SQL Server-DB:er på en virtuell Azure-dator
 description: I den här artikeln beskrivs hur du hanterar och övervakar SQL Server-databaser som körs på en Virtuell Azure.This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 4daf068e97a08d1a611ef64cb64569cacd5d7420
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 14e3a4797fe60a3d1857f1e6d947fa0c669bdcfe
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74172162"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537312"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Hantera och övervaka säkerhetskopierade SQL Server-databaser
 
@@ -59,7 +59,7 @@ Om du väljer att lämna återställningspunkter bör du tänka på följande:
 
 - Alla återställningspunkter förblir intakta för alltid, all beskärning ska stanna vid stoppskyddet med lagringsdata.
 - Du debiteras för den skyddade instansen och förbrukad lagring. Mer information finns i [Azure Backup-priser](https://azure.microsoft.com/pricing/details/backup/).
-- Om du tar bort en datakälla utan att stoppa säkerhetskopior misslyckas nya säkerhetskopior.
+- Om du tar bort en datakälla utan att stoppa säkerhetskopior misslyckas nya säkerhetskopior. Gamla återställningspunkter upphör att gälla enligt principen, men en sista återställningspunkt kommer alltid att behållas tills du stoppar säkerhetskopiorna och tar bort data.
 
 Så här stoppar du skydd för en databas:
 

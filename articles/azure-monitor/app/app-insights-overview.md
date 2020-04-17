@@ -4,12 +4,12 @@ description: Application Performance Management och användningsspårning av dit
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: e7cde3ca47afd4db072b734c797a42ecd5a053aa
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 2dbebf13b8674ba4aa0c578e1138a5e279b54355
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79136807"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536938"
 ---
 # <a name="what-is-application-insights"></a>Vad är Application Insights?
 Application Insights, en funktion i [Azure Monitor](../overview.md), är en utökningsbar APM-tjänst (Application Performance Management) för utvecklare och DevOps-proffs. Använd den för att övervaka dina live-program. Det kommer automatiskt att upptäcka prestandaavvikelser och innehåller kraftfulla analysverktyg som hjälper dig att diagnostisera problem och förstå vad användarna faktiskt gör med din app.  Den hjälper dig att kontinuerligt förbättra prestanda och användbarhet. Den fungerar för appar på en rad olika plattformar såsom .NET, Node.js och Java EE i lokala infrastrukturer, hybridkonfigurationer och offentliga moln. Den integrerar med din DevOps-process och kan användas med en rad olika utvecklingsverktyg. Den kan övervaka och analysera telemetri från mobilappar genom integrering med Visual Studio App Center.
@@ -51,17 +51,17 @@ Du kan utforska dina data på många sätt. Läs dessa artiklar:
 | --- | --- |
 | [**Smart identifiering och manuella aviseringar**](../../azure-monitor/app/proactive-diagnostics.md)<br/>Ställ in automatiska aviseringar som anpassar sig till appens normala mönster av telemetri och utlösa när det finns något utanför det vanliga mönstret. Du kan också [ställa in aviseringar](../../azure-monitor/app/alerts.md) på vissa nivåer av anpassade mått eller standardmått. |![Aviseringsexempel](./media/app-insights-overview/alerts-tn.png) |
 | [**Programkarta**](../../azure-monitor/app/app-map.md)<br/>Utforska komponenterna i din app med viktiga mått och aviseringar. |![Programkarta](./media/app-insights-overview/appmap-tn.png)  |
-| [**Profilerar**](../../azure-monitor/app/profiler.md)<br/>Granska körningsprofilerna för exempelbegäranden. |![Profilerare](./media/app-insights-overview/profiler.png) |
+| [**Profilerare**](../../azure-monitor/app/profiler.md)<br/>Granska körningsprofilerna för exempelbegäranden. |![Profilerare](./media/app-insights-overview/profiler.png) |
 | [**Analys av användning**](../../azure-monitor/app/usage-overview.md)<br/>Analysera användarsegment och kvarhållning.|![Kvarhållningsverktyg](./media/app-insights-overview/retention.png) |
 | [**Diagnostiksökning efter instansdata**](../../azure-monitor/app/diagnostic-search.md)<br/>Sök efter och filtrera händelser, till exempel begäranden, undantag, beroendeanrop, loggspårningar och sidvyer.  |![Telemetrisökning](./media/app-insights-overview/search-tn.png) |
-| [**Metrics Explorer för aggregerade data**](../../azure-monitor/app/metrics-explorer.md)<br/>Utforska, filtrera och segmentera aggregerade data, till exempel begärande-, fel- och undantagsfrekvens, svarstider och sidinläsningstider. |![Mått](./media/app-insights-overview/metrics-tn.png) |
+| [**Metrics Explorer för aggregerade data**](../../azure-monitor/platform/metrics-charts.md)<br/>Utforska, filtrera och segmentera aggregerade data, till exempel begärande-, fel- och undantagsfrekvens, svarstider och sidinläsningstider. |![Mått](./media/app-insights-overview/metrics-tn.png) |
 | [**Instrumentpaneler**](../../azure-monitor/app/overview-dashboard.md)<br/>Kombinera data från flera resurser och dela med andra. Perfekt för program med flera komponenter och för kontinuerlig visning i teamutrymmet. |![Exempel på instrumentpaneler](./media/app-insights-overview/dashboard-tn.png) |
 | [**Live-ström med mätvärden**](../../azure-monitor/app/live-stream.md)<br/>När du distribuerar en ny version kan du titta på dessa prestandaindikatorer som visas i realtid för att kontrollera att allt fungerar som förväntat. |![Exempel på live-mätvärden](./media/app-insights-overview/live-metrics-tn.png) |
 | [**Analys**](../../azure-monitor/app/analytics.md)<br/>Besvara svåra frågor om appens prestanda och användning med hjälp av det här kraftfulla frågespråket. |![Analytics-exempel](./media/app-insights-overview/analytics-tn.png) |
 | [**Visual Studio**](../../azure-monitor/app/visual-studio.md)<br/>Visa prestandadata i koden. Gå till kod från stackspårningar.|![Visual Studio](./media/app-insights-overview/visual-studio-tn.png) |
-| [**Felsökning av ögonblicksbild**](../../azure-monitor/app/snapshot-debugger.md)<br/>Felsök ögonblicksbilder från program som körs med parametervärden.|![Visual Studio](./media/app-insights-overview/snapshot.png) |
+| [**Felsökare för ögonblicksbilder**](../../azure-monitor/app/snapshot-debugger.md)<br/>Felsök ögonblicksbilder från program som körs med parametervärden.|![Visual Studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](../../azure-monitor/app/export-power-bi.md )<br/>Integrera användningsmätvärden med annan Business Intelligence.| ![Power BI](./media/app-insights-overview/power-bi.png)|
-| [**REST API**](https://dev.applicationinsights.io/)<br/>Skriv kod för att köra frågor mot dina mätvärden och rådata.| ![REST API](./media/app-insights-overview/rest-tn.png) |
+| [**REST-API**](https://dev.applicationinsights.io/)<br/>Skriv kod för att köra frågor mot dina mätvärden och rådata.| ![REST-API](./media/app-insights-overview/rest-tn.png) |
 | [**Löpande export**](../../azure-monitor/app/export-telemetry.md)<br/>Massexportera rådata till lagring så fort de anländer. |![Exportera](./media/app-insights-overview/export-tn.png) |
 
 ## <a name="how-do-i-use-application-insights"></a>Hur använder jag Application Insights?
@@ -87,7 +87,7 @@ När du får en avisering eller identifierar ett problem:
 * Skriv in anpassad telemetri i din kod.
 * Basera nästa utvecklingscykel på fakta från din telemetri.
 
-## <a name="get-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 Application Insights är en av de många tjänsterna som finns i Microsoft Azure, och telemetri skickas dit för analys och visning. Innan du gör något annat behöver du alltså en prenumeration på [Microsoft Azure](https://azure.com). Registreringen är gratis och om du väljer den grundläggande [prisplanen](https://azure.microsoft.com/pricing/details/application-insights/) för Application Insights betalar du inget förrän programmet har växt så pass mycket att det har en betydande användning. Om din organisation redan har en prenumeration kan du lägga till ditt Microsoft-konto till den.
 
 Det finns flera sätt att komma igång. Börja på det sätt som passar dig bäst. Du kan fortsätta med de andra senare.
@@ -126,8 +126,8 @@ Kom igång under utvecklingsfasen med:
 
 ## <a name="support-and-feedback"></a>Support och feedback
 * Frågor och problem:
-  * [Troubleshooting][qna] (Felsökning)
-  * [MSDN-forum](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
+  * [Felsökning][qna]
+  * [MSDN Forum](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
   * [Stackoverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * Dina förslag:
   * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)

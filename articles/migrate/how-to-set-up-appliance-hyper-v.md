@@ -3,21 +3,25 @@ title: Konfigurera en Azure Migrate-apparat för Hyper-V
 description: Lär dig hur du konfigurerar en Azure Migrera-installation för att bedöma och migrera virtuella virtuella datorer med hyper-V.
 ms.topic: article
 ms.date: 03/23/2020
-ms.openlocfilehash: 80db2c1d4f5482604ca1507174b127c150f76044
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 77c13a3a8c87d116bd0863324d28669185c53c84
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336801"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538298"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Konfigurera en apparat för virtuella hyper-virtuella datorer
 
-I den hÃ¤r artikeln beskrivs hur du konfigurerar Azure Migrate-anordningen för bedömning av virtuella hyper-v-datorer med verktyget [Azure Migrate:Server Assessment.](migrate-services-overview.md#azure-migrate-server-assessment-tool)
+Följ den här artikeln om du vill konfigurera Azure Migrate-enheten för bedömning av virtuella hyper-virtuella datorer med verktyget [Azure Migrate:Server Assessment.](migrate-services-overview.md#azure-migrate-server-assessment-tool)
 
 [Azure Migrate-installationen](migrate-appliance.md) är en lättinstallation som används av Azure Migrate:Server Assessment/Migration för att identifiera lokala virtuella datorer med hyper-vm och skicka VM-metadata/prestandadata till Azure.
 
-Du kan konfigurera Azure Migrate-enheten för Hyper-V VM-utvärdering med hjälp av en VHD-mall som du hämtar eller med hjälp av ett PowerShell-installationsskript. I den här artikeln beskrivs hur du konfigurerar enheten med hjälp av VHD-mallen. Om du vill konfigurera apparaten med skriptet följer du instruktionerna i den [här artikeln](deploy-appliance-script.md).
+Du kan distribuera apparaten med ett par metoder:
 
+- Konfigurera på en Virtuell Hyper-V-dator med en nedladdad virtuell hårddisk. Detta är den metod som beskrivs i den här artikeln.
+- Konfigurera på en virtuell hyper-V-dator eller en fysisk dator med ett PowerShell-installationsskript. [Den här metoden](deploy-appliance-script.md) bör användas om du inte kan konfigurera en virtuell dator med hjälp av en virtuell hårddisk eller om du är i Azure Government.
+
+När du har skapat installationen kontrollerar du att den kan ansluta till Azure Migrate:Server Assessment, konfigurera den för första gången och registrera den med Azure Migrate-projektet.
 
 ## <a name="appliance-deployment-vhd"></a>Distribution av apparat (VHD)
 
@@ -73,7 +77,7 @@ Importera den hämtade filen och skapa den virtuella datorn.
 
 ### <a name="verify-appliance-access-to-azure"></a>Verifiera åtkomst till Azure
 
-Se till att den virtuella datorn för den virtuella enheten kan ansluta till [Azure-url:er](migrate-appliance.md#url-access).
+Se till att den virtuella datorn för den virtuella enheten kan ansluta till Azure-url:er för [offentliga](migrate-appliance.md#public-cloud-urls) moln och [myndighetsmoln.](migrate-appliance.md#government-cloud-urls)
 
 ## <a name="configure-the-appliance"></a>Konfigurera apparaten
 

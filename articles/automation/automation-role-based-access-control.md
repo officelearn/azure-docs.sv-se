@@ -6,16 +6,19 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8caf502db91ab09eea48fc8a902dacf6bf40f24c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a49f2596df91c44deafa1be83483f8972e223742
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278641"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535578"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Rollbaserad åtkomstkontroll i Azure Automation
 
 Med rollbaserad åtkomstkontroll (RBAC) kan du hantera åtkomsten till Azure-resurser. Med HJÄLP AV [RBAC](../role-based-access-control/overview.md)kan du segregera uppgifter inom ditt team och endast bevilja åtkomst till användare, grupper och program som de behöver för att utföra sina jobb. Du kan bevilja rollbaserad åtkomst till användare med hjälp av Azure-portalen, Azure Command-Line-verktygen eller Azure Management API:er.
+
+>[!NOTE]
+>Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installationsinstruktioner för Az-modul på hybridkörningsarbetaren finns [i Installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med [så här uppdaterar du Azure PowerShell-moduler i Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="roles-in-automation-accounts"></a>Roller i Automation-konton
 
@@ -204,11 +207,11 @@ En administratör för användaråtkomst kan hantera användaråtkomst till Azur
 |Microsoft.Auktorisering/*|Hantera auktorisering|
 |Microsoft.Support/*|Skapa och hantera supportbiljetter|
 
-## <a name="onboarding"></a>Publicering
+## <a name="onboarding-permissions"></a>Behörigheter för introduktionsbehörighet
 
-Följande tabeller visar de lägsta behörigheter som krävs för introduktion av virtuella datorer för lösningar för ändringsspårning eller uppdateringshantering.
+I följande avsnitt beskrivs de lägsta behörigheter som krävs för introduktion av virtuella datorer för lösningar för ändringsspårning eller uppdateringshantering.
 
-### <a name="onboarding-from-a-virtual-machine"></a>Onboarding från en virtuell dator
+### <a name="permissions-for-onboarding-from-a-vm"></a>Behörigheter för introduktion från en virtuell dator
 
 |**Åtgärd**  |**Behörighet**  |**Minsta omfattning**  |
 |---------|---------|---------|
@@ -230,7 +233,7 @@ Följande tabeller visar de lägsta behörigheter som krävs för introduktion a
 
 <sup>1</sup> Den här behörigheten behövs för att gå ombord via vm-portalupplevelsen.
 
-### <a name="onboarding-from-automation-account"></a>Introduktion från Automation-konto
+### <a name="permissions-for-onboarding-from-automation-account"></a>Behörigheter för introduktion från Automation-konto
 
 |**Åtgärd**  |**Behörighet** |**Minsta räckvidd**  |
 |---------|---------|---------|
@@ -250,7 +253,7 @@ Följande tabeller visar de lägsta behörigheter som krävs för introduktion a
 |Skapa/redigera sparad sökning     | Microsoft.OperationalInsights/workspaces/write           | Arbetsyta        |
 |Skapa/redigera scope config  | Microsoft.OperationalInsights/workspaces/write   | Arbetsyta|
 
-## <a name="update-management"></a>Hantering av uppdateringar
+## <a name="update-management-permissions"></a>Uppdatera hanteringsbehörigheter
 
 Uppdateringshanteringen sträcker sig över flera tjänster för att tillhandahålla sin tjänst. I följande tabell visas de behörigheter som behövs för att hantera distributioner för uppdateringshantering:
 
@@ -265,12 +268,12 @@ Uppdateringshanteringen sträcker sig över flera tjänster för att tillhandah�
 
 ## <a name="configure-rbac-for-your-automation-account"></a>Konfigurera RBAC för ditt Automation-konto
 
-I följande avsnitt visas hur du konfigurerar RBAC på ditt Automation-konto via [portalen](#configure-rbac-using-the-azure-portal) och [PowerShell](#configure-rbac-using-powershell).
+I följande avsnitt visas hur du konfigurerar RBAC på ditt Automation-konto via [Azure-portalen](#configure-rbac-using-the-azure-portal) och [PowerShell](#configure-rbac-using-powershell).
 
 ### <a name="configure-rbac-using-the-azure-portal"></a>Konfigurera RBAC med Azure-portalen
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) och öppna Automation-kontot från sidan Automation-konton.
-2. Klicka på **iam-kontrollen (Access Control)** längst upp till vänster för att öppna sidan Access control (IAM). Du kan använda den här sidan för att lägga till nya användare, grupper och program för att hantera ditt Automation-konto och visa befintliga roller som kan konfigureras för Automation-kontot.
+2. Klicka på **Access Control (IAM)** för att öppna sidan Åtkomstkontroll (IAM). Du kan använda den här sidan för att lägga till nya användare, grupper och program för att hantera ditt Automation-konto och visa befintliga roller som kan konfigureras för Automation-kontot.
 3. Klicka på fliken **Rolltilldelningar**.
 
    ![Knappen Åtkomst](media/automation-role-based-access-control/automation-01-access-button.png)
@@ -281,7 +284,7 @@ I följande avsnitt visas hur du konfigurerar RBAC på ditt Automation-konto via
 
 2. Välj en roll i listan över tillgängliga roller. Du kan välja någon av de inbyggda roller som ett Automation-konto stöder eller en anpassad roll som du kanske har definierat.
 
-3. Skriv användarnamnet för den användare som du vill ge behörighet till i fältet **Välj.** Välj användaren i listan och klicka på **Spara**.
+3. Skriv namnet på den användare som du vill ge behörighet till i fältet **Välj.** Välj användaren i listan och klicka på **Spara**.
 
    ![Lägga till användare](media/automation-role-based-access-control/automation-04-add-users.png)
 
@@ -311,10 +314,10 @@ Du kan ta bort åtkomstbehörigheten för en användare som inte hanterar Automa
 
 Du kan också konfigurera rollbaserad åtkomst till ett Automation-konto med följande [Azure PowerShell-cmdlets:](../role-based-access-control/role-assignments-powershell.md)
 
-[Get-AzureRmRoleDefinition](/previous-versions/azure/mt603792(v=azure.100)) listar alla RBAC-roller som är tillgängliga i Azure Active Directory. Du kan använda den här cmdleten med parametern *Name* för att lista alla åtgärder som en viss roll kan utföra.
+[Get-AzRoleDefinition](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) listar alla RBAC-roller som är tillgängliga i Azure Active Directory. Du kan använda den här `Name` cmdleten med parametern för att lista alla åtgärder som en viss roll kan utföra.
 
 ```azurepowershell-interactive
-Get-AzureRmRoleDefinition -Name 'Automation Operator'
+Get-AzRoleDefinition -Name 'Automation Operator'
 ```
 
 Följande är exempelutdata:
@@ -330,12 +333,12 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzureRmRoleAssignment listar](/previous-versions/azure/mt619413(v=azure.100)) Azure AD RBAC-rolltilldelningar i det angivna omfånget. Utan några parametrar returnerar den här cmdleten alla rolltilldelningar som gjorts under prenumerationen. Använd parametern *ExpandPrincipalGroups* för att lista åtkomsttilldelningar för den angivna användaren, samt de grupper som användaren tillhör.
+[Get-AzRoleAssignment listar](https://docs.microsoft.com/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) Azure AD RBAC-rolltilldelningar i det angivna omfånget. Utan några parametrar returnerar den här cmdleten alla rolltilldelningar som gjorts under prenumerationen. Använd `ExpandPrincipalGroups` parametern för att lista åtkomsttilldelningar för den angivna användaren, samt de grupper som användaren tillhör.
 
 **Exempel:** Använd följande cmdlet för att lista alla användare och deras roller i ett Automation-konto.
 
 ```azurepowershell-interactive
-Get-AzureRMRoleAssignment -scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
+Get-AzRoleAssignment -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
 Följande är exempelutdata:
@@ -352,12 +355,12 @@ ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
 ObjectType         : User
 ```
 
-Använd [New-AzureRmRoleAssignment](/previous-versions/azure/mt603580(v=azure.100)) för att tilldela åtkomst till användare, grupper och program till ett visst scope.
+Använd [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0) för att tilldela åtkomst till användare, grupper och program till ett visst scope.
     
 **Exempel:** Använd följande kommando för att tilldela rollen "Automationsoperatör" för en användare i scopet för Automation-konto.
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName 'Automation operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
+New-AzRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName 'Automation operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
 Följande är exempelutdata:
@@ -374,17 +377,17 @@ ObjectId           : f5ecbe87-1181-43d2-88d5-a8f5e9d8014e
 ObjectType         : User
 ```
 
-Använd [Ta bort AzureRmRoleAstilldelning](/previous-versions/azure/mt603781(v=azure.100)) för att ta bort åtkomsten för en angiven användare, grupp eller ett program från ett visst scope.
+Använd [Ta bort AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/Remove-AzRoleAssignment?view=azps-3.7.0) för att ta bort åtkomsten för en angiven användare, grupp eller ett program från ett visst scope.
 
-**Exempel:** Använd följande kommando för att ta bort användaren från rollen "Automationsoperatör" i scopet för Automation-konto.
+**Exempel:** Använd följande kommando för att ta bort användaren från rollen Automationsoperatör i scopet för Automation-konto.
 
 ```azurepowershell-interactive
-Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
+Remove-AzRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
-I föregående exempel ersätter du "inloggnings-ID för en användare som du vill ta bort", "SubscriptionID", "Resursgruppnamn" och Automation-kontonamn med dina kontouppgifter. Välj **ja** när du uppmanas att bekräfta innan du fortsätter att ta bort användarrolltilldelningar.
+I föregående exempel `sign-in ID of a user you wish to remove`ersätter `SubscriptionID` `Resource Group Name`du `Automation account name` , och med dina kontouppgifter. Välj **ja** när du uppmanas att bekräfta innan du fortsätter att ta bort användarrolltilldelningar.
 
-### <a name="user-experience-for-automation-operator-role---automation-account"></a>Användarupplevelse för automationsoperatörsroll - Automation-konto
+### <a name="user-experience-for-automation-operator-role---automation-account"></a>Användarupplevelse för rollen Automation Operator - Automation-konto
 
 När en användare som tilldelats rollen Automation Operator i scopet Automation-konto visar automationskontot som han/hon har tilldelats, kan användaren bara visa listan över runbooks,runbook-jobb och scheman som skapats i Automation-kontot. Den här användaren kan inte visa definitionerna av dessa objekt. Användaren kan starta, stoppa, pausa, återuppta eller schemalägga körningsjobbet. Användaren har dock inte åtkomst till andra Automation-resurser, till exempel konfigurationer, hybridarbetsgrupper eller DSC-noder.
 
@@ -392,7 +395,7 @@ När en användare som tilldelats rollen Automation Operator i scopet Automation
 
 ## <a name="configure-rbac-for-runbooks"></a>Konfigurera RBAC för runbooks
 
-Med Azure Automation kan du tilldela RBAC till specifika runbooks. Det gör du genom att köra följande skript för att lägga till en användare i en viss runbook. En administratör för ett automationskonto eller en klientadministratör kan köra det här skriptet.
+Med Azure Automation kan du tilldela RBAC till specifika runbooks. Det gör du genom att köra följande skript för att lägga till en användare i en viss runbook. En administratör för automationskonto eller en klientadministratör kan köra det här skriptet.
 
 ```azurepowershell-interactive
 $rgName = "<Resource Group Name>" # Resource Group name for the Automation account
@@ -401,19 +404,19 @@ $rbName = "<Name of Runbook>" # Name of the runbook
 $userId = "<User ObjectId>" # Azure Active Directory (AAD) user's ObjectId from the directory
 
 # Gets the Automation account resource
-$aa = Get-AzureRmResource -ResourceGroupName $rgName -ResourceType "Microsoft.Automation/automationAccounts" -ResourceName $automationAccountName
+$aa = Get-AzResource -ResourceGroupName $rgName -ResourceType "Microsoft.Automation/automationAccounts" -ResourceName $automationAccountName
 
 # Get the Runbook resource
-$rb = Get-AzureRmResource -ResourceGroupName $rgName -ResourceType "Microsoft.Automation/automationAccounts/runbooks" -ResourceName "$automationAccountName/$rbName"
+$rb = Get-AzResource -ResourceGroupName $rgName -ResourceType "Microsoft.Automation/automationAccounts/runbooks" -ResourceName "$automationAccountName/$rbName"
 
 # The Automation Job Operator role only needs to be run once per user.
-New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Job Operator" -Scope $aa.ResourceId
+New-AzRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Job Operator" -Scope $aa.ResourceId
 
 # Adds the user to the Automation Runbook Operator role to the Runbook scope
-New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Runbook Operator" -Scope $rb.ResourceId
+New-AzRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Runbook Operator" -Scope $rb.ResourceId
 ```
 
-När skriptet har körts ska användaren logga in på Azure-portalen och visa **alla resurser**. I listan kan användaren se den runbook som han/hon har lagts till som automationskörningsoperator för.
+När skriptet har körts ska användaren logga in på Azure-portalen och välja **Alla resurser**. I listan kan användaren se den runbook som han/hon har lagts till som automationskörningsoperator för.
 
 ![Runbook RBAC i portalen](./media/automation-role-based-access-control/runbook-rbac.png)
 

@@ -3,17 +3,17 @@ title: Datamodell för Azure Application Insights | Microsoft-dokument
 description: Beskriver egenskaper som exporteras från kontinuerlig export i JSON och används som filter.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: e4dd2310169476e54c06083fee11b2e4cccecd8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9891bea1d52c61197fa32fa5c0764df5450b563c
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663883"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536853"
 ---
 # <a name="application-insights-export-data-model"></a>Exportera datamodell för programinsikter
 I den här tabellen visas egenskaperna för telemetri som skickas från [SDK:erna för Programinsikter](../../azure-monitor/app/app-insights-overview.md) till portalen.
 Du ser dessa egenskaper i datautdata från [Kontinuerlig export](export-telemetry.md).
-De visas också i egenskapsfilter i [Metric Explorer](../../azure-monitor/app/metrics-explorer.md) och [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md).
+De visas också i egenskapsfilter i [Metric Explorer](../../azure-monitor/platform/metrics-charts.md) och [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md).
 
 Punkter att notera:
 
@@ -127,16 +127,16 @@ Alla typer av telemetri åtföljs av ett sammanhangsavsnitt. Alla dessa fält ö
 | context.device.roleName |sträng | |
 | context.device.screenResolution |sträng | |
 | context.device.type |sträng |PC, Webbläsare, ... |
-| context.location (plats) |objekt |Härleds från clientip. |
-| context.location.city |sträng |Härledd från clientip, om det är känt |
+| context.location (plats) |objekt |Härledd `clientip`från . |
+| context.location.city |sträng |Härleds `clientip`från , om det är känt |
 | context.location.clientip |sträng |Sist oktagon anonymiseras till 0. |
 | context.location.continent |sträng | |
 | context.location.land |sträng | |
 | context.location.province |sträng |Delstat eller provins |
-| context.operation.id |sträng |Objekt som har samma operations-ID visas som Relaterade objekt i portalen. Vanligtvis begäran id. |
+| context.operation.id |sträng |Objekt som har `operation id` samma visas som Relaterade objekt i portalen. Vanligtvis `request id`. |
 | context.operation.name |sträng |url eller begär namn |
 | context.operation.parentId |sträng |Tillåter kapslade relaterade objekt. |
-| context.session.id |sträng |Id för en grupp åtgärder från samma källa. En period på 30 minuter utan en operation signalerar slutet på en session. |
+| context.session.id |sträng |`Id`en grupp av operationer från samma källa. En period på 30 minuter utan en operation signalerar slutet på en session. |
 | context.session.isFörsta |boolean | |
 | context.user.accountAcquisitionDate |sträng | |
 | context.user.accountId |sträng | |
@@ -147,7 +147,7 @@ Alla typer av telemetri åtföljs av ett sammanhangsavsnitt. Alla dessa fält ö
 | context.user.isAuthenticated |boolean | |
 | context.user.storeRegion |sträng | |
 | internt.data.documentVersion |sträng | |
-| internal.data.id |sträng | Unikt ID som tilldelas när ett objekt förtärs till Application Insights |
+| internal.data.id |sträng | `Unique id`som tilldelas när ett objekt förtärs till Application Insights |
 
 ## <a name="events"></a>Händelser
 Anpassade händelser som genereras av [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
@@ -173,7 +173,7 @@ Rapporterar [undantag](../../azure-monitor/app/asp-net-exceptions.md) på server
 | basicException [0] failedUserCodeAssembly |sträng | |
 | basicException [0] hanterasAt |sträng | |
 | basicException [0] hasFullStack |boolean | |
-| basicException [0] id |sträng | |
+| basicException [0]`id` |sträng | |
 | basicException [0] metod |sträng | |
 | basicException [0] meddelande |sträng |Undantagsmeddelande. Max längd 10k. |
 | basicException [0] outerExceptionMessage |sträng | |
@@ -210,7 +210,7 @@ Skickas av TrackDependency. Används för att rapportera prestanda och användni
 | remoteDependency [0] antal |heltal |100/([sampling](../../azure-monitor/app/sampling.md) provtagningshastighet). Till exempel 4 =&gt; 25%. |
 | remoteDependency [0] beroendeTypeName |sträng |HTTP, SQL, ... |
 | fjärrberoende [0] durationMetric.value |nummer |Tid från samtal till slutförande av svar efter beroende |
-| remoteDependency [0] id |sträng | |
+| fjärrberoende [0]`id` |sträng | |
 | remoteDependency [0] namn |sträng |Url. Max längd 250. |
 | fjärrberoende [0] resultCode |sträng |från HTTP-beroende |
 | remoteDependency [0] framgång |boolean | |
@@ -227,7 +227,7 @@ Skickas av [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#t
 | --- | --- | --- |
 | begäran [0] antal |heltal |100/([sampling](../../azure-monitor/app/sampling.md) provtagningshastighet). Till exempel: 4 =&gt; 25%. |
 | begäran [0] durationMetric.value |nummer |Tid från begäran anländer till svar. 1e7 == 1s |
-| begäran [0] id |sträng |Åtgärd id |
+| begäran [0]`id` |sträng |`Operation id` |
 | namn på begäran [0] |sträng |GET / POST + url bas.  Max längd 250 |
 | begär [0] responseCode |heltal |HTTP-svar som skickas till klienten |
 | begäran [0] framgång |boolean |Standard == (responseCode &lt; 400) |

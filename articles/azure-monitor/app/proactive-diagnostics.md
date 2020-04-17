@@ -3,12 +3,12 @@ title: Smart identifiering i Azure Application Insights | Microsoft-dokument
 description: Application Insights utför automatisk djupanalys av din apptelemetri och varnar dig för potentiella problem.
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: e232295f9da2a2ae8f3c6fafdd1dc33a42e92e69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ff9f88e1d2e643d04c4417283420217e7d496caf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671808"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536802"
 ---
 # <a name="smart-detection-in-application-insights"></a>Smart identifiering i Application Insights
  Smart identifiering varnar dig automatiskt för potentiella prestandaproblem och felavvikelser i webbprogrammet. Den utför proaktiv analys av telemetri som din app skickar till [Application Insights](../../azure-monitor/app/app-insights-overview.md). Om felfrekvensen plötsligt ökar eller onormala mönster i klient- eller serverprestanda får du en avisering. Den här funktionen behöver ingen konfiguration. Den fungerar om ditt program skickar tillräckligt med telemetri.
@@ -34,7 +34,7 @@ Smart identifiering identifierar och meddelar om en mängd olika problem, till e
 
 * [Smart identifiering - Felavvikelser](../../azure-monitor/app/proactive-failure-diagnostics.md). Vi använder maskininlärning för att ställa in den förväntade hastigheten för misslyckade begäranden för din app, korrelerar med belastning och andra faktorer. Om felfrekvensen går utanför det förväntade kuvertet skickar vi en avisering.
 * [Smart identifiering - Prestandaavvikelser](../../azure-monitor/app/proactive-performance-diagnostics.md). Du får aviseringar om svarstiden för en åtgärd eller beroendevaraktighet saktar ner jämfört med historisk originalplan eller om vi identifierar ett avvikande mönster i svarstiden eller sidans inläsningstid.   
-* Allmänna nedbrytningar och problem, som [Spåra avfettning](https://docs.microsoft.com/azure/azure-monitor/app/proactive-trace-severity), [Minnesläcka,](https://docs.microsoft.com/azure/azure-monitor/app/proactive-potential-memory-leak) [Onormal ökning av undantagsvolym](https://docs.microsoft.com/azure/azure-monitor/app/proactive-exception-volume) och [säkerhetsantimönster](https://docs.microsoft.com/azure/azure-monitor/app/proactive-application-security-detection-pack).
+* Allmänna nedbrytningar och problem, som [Spårningsförsämring](https://docs.microsoft.com/azure/azure-monitor/app/proactive-trace-severity), [Minnesläcka,](https://docs.microsoft.com/azure/azure-monitor/app/proactive-potential-memory-leak) [Onormal ökning av undantagsvolym](https://docs.microsoft.com/azure/azure-monitor/app/proactive-exception-volume) och [säkerhetsantimönster](https://docs.microsoft.com/azure/azure-monitor/app/proactive-application-security-detection-pack).
 
 (Hjälplänkarna i varje meddelande tar dig till relevanta artiklar.)
 
@@ -53,7 +53,7 @@ Du kan också ändra konfigurationen med Azure Resource Manager-mallar. Mer info
 ## <a name="next-steps"></a>Nästa steg
 De här diagnostikverktygen hjälper dig att granska telemetrin från din app:
 
-* [Statistikutforskare](../../azure-monitor/app/metrics-explorer.md)
+* [Statistikutforskare](../../azure-monitor/platform/metrics-charts.md)
 * [Sök explorer](../../azure-monitor/app/diagnostic-search.md)
 * [Analytics - kraftfullt frågespråk](../../azure-monitor/log-query/get-started-portal.md)
 

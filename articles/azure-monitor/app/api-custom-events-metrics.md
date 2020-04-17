@@ -3,12 +3,12 @@ title: API för programinsikter för anpassade händelser och mått | Microsoft-
 description: Infoga några rader kod i enheten eller skrivbordsappen, webbsidan eller tjänsten för att spåra användning och diagnostisera problem.
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.openlocfilehash: 06bd8bd0958afd26e1256a010b08c908c59aaf7d
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: d6cb2f5ab418e8d3b5935fef535565ccf55a3906
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585868"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536955"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API för Application Insights för anpassade händelser och mått
 
@@ -107,7 +107,7 @@ I Node.js-projekt kan `new applicationInsights.TelemetryClient(instrumentationKe
 
 ## <a name="trackevent"></a>TrackEvent
 
-I Application Insights är en *anpassad händelse* en datapunkt som du kan visa i [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) som ett aggregerat antal och i [Diagnostiksökning](../../azure-monitor/app/diagnostic-search.md) som enskilda förekomster. (Det är inte relaterat till MVC eller andra ramverk "händelser.")
+I Application Insights är en *anpassad händelse* en datapunkt som du kan visa i [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md) som ett aggregerat antal och i [Diagnostiksökning](../../azure-monitor/app/diagnostic-search.md) som enskilda förekomster. (Det är inte relaterat till MVC eller andra ramverk "händelser.")
 
 Infoga `TrackEvent` samtal i koden för att räkna olika händelser. Hur ofta användare väljer en viss funktion, hur ofta de uppnår vissa mål, eller kanske hur ofta de gör vissa typer av misstag.
 
@@ -443,7 +443,7 @@ requests
 
 Skicka undantag till Application Insights:
 
-* För att [räkna dem](../../azure-monitor/app/metrics-explorer.md), som en indikation på frekvensen av ett problem.
+* För att [räkna dem](../../azure-monitor/platform/metrics-charts.md), som en indikation på frekvensen av ett problem.
 * Att [undersöka enskilda händelser](../../azure-monitor/app/diagnostic-search.md).
 
 Rapporterna innehåller stackspårningarna.
@@ -774,7 +774,7 @@ Om din app grupperar användare till konton kan du också skicka en identifierar
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-I [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md)kan du skapa ett diagram som räknar **användare, autentiserade**och **användarkonton**.
+I [Metrics Explorer](../../azure-monitor/platform/metrics-charts.md)kan du skapa ett diagram som räknar **användare, autentiserade**och **användarkonton**.
 
 Du kan också [söka efter](../../azure-monitor/app/diagnostic-search.md) klientdatapunkter med specifika användarnamn och konton.
 

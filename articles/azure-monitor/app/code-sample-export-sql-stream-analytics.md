@@ -3,12 +3,12 @@ title: Exportera till SQL från Azure Application Insights | Microsoft-dokument
 description: Exportera kontinuerligt Application Insights-data till SQL med Hjälp av Stream Analytics.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 3ef0420cdab64f11b699fd4031ed2b0134f18609
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e67365038b9a481bc0cacf079e5d197cc3139a5f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663699"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536921"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Genomgång: Exportera till SQL från application insights med Hjälp av Stream Analytics
 Den här artikeln visar hur du flyttar dina telemetridata från [Azure Application Insights][start] till en Azure SQL-databas med hjälp av [Kontinuerlig export][export] och Azure [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -61,7 +61,7 @@ Kontinuerlig export matar alltid ut data till ett Azure Storage-konto, så du m�
     ![Välj händelsetyper](./media/code-sample-export-sql-stream-analytics/085-types.png)
 
 
-1. Låt vissa data ackumuleras. Luta dig tillbaka och låt andra använda ditt program ett tag. Telemetri kommer in och du ser statistiska diagram i [metriska explorer](../../azure-monitor/app/metrics-explorer.md) och enskilda händelser i [diagnostisk sökning](../../azure-monitor/app/diagnostic-search.md). 
+1. Låt vissa data ackumuleras. Luta dig tillbaka och låt andra använda ditt program ett tag. Telemetri kommer in och du ser statistiska diagram i [metriska explorer](../../azure-monitor/platform/metrics-charts.md) och enskilda händelser i [diagnostisk sökning](../../azure-monitor/app/diagnostic-search.md). 
    
     Och även, data kommer att exportera till din lagring. 
 2. Kontrollera de exporterade data, antingen i portalen - välj **Bläddra,** välj ditt lagringskonto och sedan **Behållare** - eller i Visual Studio. I Visual Studio väljer du **Visa /Molnutforskaren**och öppnar Azure/Storage. (Om du inte har det här menyalternativet måste du installera Azure SDK: Öppna dialogrutan Nytt projekt och öppna Visual C# / Cloud / Get Microsoft Azure SDK för .NET.)
@@ -240,7 +240,7 @@ Efter några minuter går du tillbaka till SQL Server Management Tools och titta
 
 
 ## <a name="related-articles"></a>Relaterade artiklar
-* [Exportera till PowerBI med Stream Analytics](../../azure-monitor/app/export-power-bi.md )
+* [Exportera till Power BI med Stream Analytics](../../azure-monitor/app/export-power-bi.md )
 * [Detaljerad datamodellreferens för egenskapstyper och värden.](../../azure-monitor/app/export-data-model.md)
 * [Kontinuerlig export i programinsikter](../../azure-monitor/app/export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
@@ -249,7 +249,7 @@ Efter några minuter går du tillbaka till SQL Server Management Tools och titta
 
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [export]: ../../azure-monitor/app/export-telemetry.md
-[metrics]: ../../azure-monitor/app/metrics-explorer.md
+[metrics]: ../../azure-monitor/platform/metrics-charts.md
 [portal]: https://portal.azure.com/
 [start]: ../../azure-monitor/app/app-insights-overview.md
 

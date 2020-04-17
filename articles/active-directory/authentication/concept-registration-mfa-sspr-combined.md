@@ -1,26 +1,31 @@
 ---
 title: Kombinerad registrering för SSPR och MFA – Azure Active Directory
-description: Azure AD Multi-Factor Autentisering och självbetjäning registrering av lösenordsåterställning (förhandsversion)
+description: Registrering av azure AD multifaktorautentisering och registrering av återställning av lösenord med självbetjäning
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/06/2020
+ms.date: 04/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26656b6dafd91d47c05c2d1f923e53f4ba790cf8
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 48350bf8f0ffb8681d95f6f42f9aa93256395f9a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309920"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534694"
 ---
-# <a name="combined-security-information-registration-preview"></a>Kombinerad registrering av säkerhetsinformation (förhandsgranskning)
+# <a name="combined-security-information-registration-overview"></a>Översikt över kombinerad registrering av säkerhetsinformation
 
 Före kombinerad registrering registrerade användare autentiseringsmetoder för Azure Multi-Factor Authentication och self-service password reset (SSPR) separat. Människor var förvirrade över att liknande metoder användes för Multi-Factor Authentication och SSPR men de var tvungna att registrera sig för båda funktionerna. Nu, med kombinerad registrering, användare kan registrera sig en gång och få fördelarna med både Multi-Factor Authentication och SSPR.
+
+I den här artikeln beskrivs vilken kombinerad säkerhetsregistrering som finns. Information om hur du kommer igång med kombinerad säkerhetsregistrering finns i följande artikel:
+
+> [!div class="nextstepaction"]
+> [Aktivera kombinerad säkerhetsregistrering](howto-registration-mfa-sspr-combined.md)
 
 ![Min profil som visar registrerad säkerhetsinformation för en användare](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
@@ -28,16 +33,10 @@ Innan du aktiverar den nya upplevelsen bör du läsa den här administratörsfok
 
 Azure AD kombinerad registrering av säkerhetsinformation är för närvarande inte tillgänglig för nationella moln som Azure US Government, Azure Germany eller Azure China 21Vianet.
 
-|     |
-| --- |
-| Kombinerad registrering av säkerhetsinformation för multifaktorautentisering och Azure Active Directory (Azure AD) självbetjäningslösenordsåterställning är en offentlig förhandsversion av Azure AD. Mer information om förhandsgranskningar finns i [Tilläggsvillkor för microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
-
 > [!IMPORTANT]
 > Användare som är aktiverade för både den ursprungliga förhandsversionen och den förbättrade kombinerade registreringsupplevelsen ser det nya beteendet. Användare som är aktiverade för båda upplevelserna ser bara den nya upplevelsen Min profil. Den nya Min profil överensstämmer med utseendet och känslan av kombinerad registrering och ger en sömlös upplevelse för användarna. Användare kan se Min [https://myprofile.microsoft.com](https://myprofile.microsoft.com)profil genom att gå till .
-
-> [!NOTE] 
-> Du kan stöta på ett felmeddelande när du försöker komma åt alternativet Säkerhetsinformation. Till exempel "Tyvärr, vi kan inte logga in dig". I det här fallet bekräftar du att du inte har någon konfigurations- eller grupprincipobjekt som blockerar cookies från tredje part i webbläsaren. 
+>
+> Du kan stöta på ett felmeddelande när du försöker komma åt alternativet Säkerhetsinformation. Till exempel "Tyvärr, vi kan inte logga in dig". I det här fallet bekräftar du att du inte har någon konfigurations- eller grupprincipobjekt som blockerar cookies från tredje part i webbläsaren.
 
 Mina profilsidor är lokaliserade baserat på språkinställningarna för den dator som använder sidan. Microsoft lagrar det senaste språket som används i webbläsarens cacheminne, så efterföljande försök att komma åt sidorna fortsätter att återges på det sista språk som användes. Om du rensar cacheminnet återges sidorna igen. Om du vill tvinga fram ett `?lng=<language>` visst språk kan du `<language>` lägga till i slutet av webbadressen, var är koden för det språk du vill återge.
 
@@ -77,7 +76,6 @@ När vi fortsätter att lägga till fler autentiseringsmetoder i Azure AD är de
 Det finns två former av kombinerad registrering: avbryta och hantera.
 
 - **Avbrottsläge** är en guideliknande upplevelse som presenteras för användare när de registrerar eller uppdaterar sin säkerhetsinformation vid inloggning.
-
 - **Hanteringsläge** är en del av användarprofilen och tillåter användare att hantera sin säkerhetsinformation.
 
 För båda lägena måste användare som tidigare har registrerat en metod som kan användas för multifaktorautentisering utföra multifaktorautentisering innan de kan komma åt sin säkerhetsinformation.
@@ -139,14 +137,8 @@ En användare som tidigare har ställt in minst en metod som kan [https://aka.ms
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Tvinga användare att registrera om autentiseringsmetoder](howto-mfa-userdevicesettings.md#manage-user-authentication-options)
+Information om hur du kommer igång finns i självstudierna för att [aktivera återställning av lösenord för självbetjäning](tutorial-enable-sspr.md) och aktivera Azure [Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 
-[Aktivera kombinerad registrering i din klientorganisation](howto-registration-mfa-sspr-combined.md)
+Lär dig hur du [aktiverar kombinerad registrering i din klientorganisation](howto-registration-mfa-sspr-combined.md) eller [tvingar användare att registrera om autentiseringsmetoder](howto-mfa-userdevicesettings.md#manage-user-authentication-options).
 
-[SSPR och MFA användning och insikter rapportering](howto-authentication-methods-usage-insights.md)
-
-[Tillgängliga metoder för multifaktorautentisering och SSPR](concept-authentication-methods.md)
-
-[Konfigurera återställning av lösenord för självbetjäning](howto-sspr-deployment.md)
-
-[Konfigurera Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+Du kan också granska [tillgängliga metoder för Azure Multi-Factor Authentication och SSPR](concept-authentication-methods.md).

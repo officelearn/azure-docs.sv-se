@@ -4,14 +4,14 @@ description: Tips för att undvika och åtgärda konfigurationsfel och andra pro
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 03/18/2020
 ms.author: rohogue
-ms.openlocfilehash: c88ffb9e87bc0688cc87b816efaa8e101e23407c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0a24530810a448a713c01efbc8933b9f22d15b3b
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77652092"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536377"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Felsöka problem med NAS-konfiguration och NFS-lagringsmål
 
@@ -63,6 +63,9 @@ Olika lagringssystem använder olika metoder för att möjliggöra den här åtk
 
 Om du använder exportregler bör du komma ihåg att cachen kan använda flera olika IP-adresser från cacheundernätet. Tillåt åtkomst från hela skalan av möjliga IP-adresser i undernätet.
 
+> [!NOTE]
+> Som standard krossar Azure HPC-cache rotåtkomst. Läs [Konfigurera ytterligare cacheinställningar](configuration.md#configure-root-squash) för mer information.
+
 Arbeta med din NAS-lagringsleverantör för att aktivera rätt åtkomstnivå för cachen.
 
 ### <a name="allow-root-access-on-directory-paths"></a>Tillåt rotåtkomst på katalogsökvägar
@@ -100,7 +103,7 @@ Använd om möjligt en Linux-klient från samma virtuella nätverk som cachen.
 Om det kommandot inte visar exporten har cachen problem med att ansluta till ditt lagringssystem. Arbeta med DIN NAS-leverantör för att aktivera exportnotering.
 
 ## <a name="adjust-vpn-packet-size-restrictions"></a>Justera begränsningar för VPN-paketstorlek
-<!-- link in prereqs article -->
+<!-- link in prereqs article and configuration article -->
 
 Om du har ett VPN mellan cachen och NAS-enheten kan VPN blockera Ethernet-paket med full storlek. Du kan ha det här problemet om stora utbyten mellan NAS och Azure HPC Cache-instansen inte slutförs, men mindre uppdateringar fungerar som förväntat.
 
@@ -128,7 +131,11 @@ Det finns inte ett enkelt sätt att avgöra om ditt system har detta problem om 
   1480 bytes from 10.54.54.11: icmp_seq=1 ttl=64 time=2.06 ms
   ```
 
-  Om ping misslyckas med 1472 byte kan du behöva konfigurera MSS-fastspänning på VPN för att fjärrsystemet ska upptäcka den maximala bildrutestorleken. Läs [dokumentationen för VPN Gateway IPsec/IKE-parametrar](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) om du vill veta mer.
+  Om ping misslyckas med 1472 byte, finns det förmodligen ett problem med paketstorleken.
+
+För att åtgärda problemet kan du behöva konfigurera MSS-fastspänning på VPN för att fjärrsystemet ska upptäcka den maximala bildrutestorleken på rätt sätt. Läs [dokumentationen för VPN Gateway IPsec/IKE-parametrar](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) om du vill veta mer.
+
+I vissa fall kan det vara till hjälp att ändra MTU-inställningen för Azure HPC-cachen till 1400. Men om du begränsar MTU på cacheminnet måste du också begränsa MTU-inställningarna för klienter och backend-lagringssystem som interagerar med cacheminnet. Läs [Konfigurera ytterligare Azure HPC-cacheinställningar](configuration.md#adjust-mtu-value) för mer information.
 
 ## <a name="check-for-acl-security-style"></a>Sök efter ACL-säkerhetsformat
 

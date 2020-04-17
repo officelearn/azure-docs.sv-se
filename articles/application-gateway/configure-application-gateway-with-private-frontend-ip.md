@@ -6,14 +6,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 01/30/2020
+ms.date: 04/16/2020
 ms.author: victorh
-ms.openlocfilehash: 809274aba35e9607aeacf7c6483ec3d10f899667
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: df21a2c40dd532ac1ff321638099ceee8a2b3e53
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312373"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535612"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Konfigurera en programgateway med en intern ILB-slutpunkt (Load Balancer)
 
@@ -95,8 +95,8 @@ För att göra detta, du:
    - välj *gruppen ResourceGroupAG* för **resurs**.
    - *myVM* - för **virtuellt datornamn**.
    - Välj **Windows Server 2019 Datacenter** för **avbildning**.
-   - *azureadmin* - för **användarnamnet**.
-   - *Azure123456!* för **lösenordet**.
+   - ett giltigt **användarnamn**.
+   - ett giltigt **lösenord**.
 5. Acceptera de återstående standardvärdena och välj **Nästa: Diskar**.
 6. Acceptera standardinställningarna och välj **Nästa: Nätverk .**
 7. Kontrollera att **myVNet** har valts för det virtuella nätverket och att undernätet är **myBackendSubnet**.

@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/16/2020
+ms.date: 04/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0aaa13ff4d3331378cc17cd0cde29be43822397
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 56341affee721b3ee6676da401e03dbbca84e597
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460797"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538247"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Vilken SAP-programvara som stöds för Azure-distributioner
 I den här artikeln beskrivs hur du kan ta reda på vad SAP-programvara som stöds för Azure-distributioner och vilka nödvändiga operativsystemversioner eller DBMS-versioner som behövs.
@@ -34,7 +34,7 @@ Utvärdera, om din nuvarande SAP-programvara stöds och vilka OS- och DBMS-versi
 
 
 ## <a name="general-restrictions-for-sap-workload"></a>Allmänna begränsningar för SAP-arbetsbelastning
-Azure IaaS-tjänster som kan användas för SAP-arbetsbelastning är begränsade till x86-64- eller x64-maskinvara. Det finns inga Sparc- eller Power CPU-baserade erbjudanden som gäller för SAP-arbetsbelastning. Kunder som kör på sina program på operativsystem som ägs till maskinvaruarkitekturer som IBM-stordator eller AS400, eller där operativsystemen HP-UX, Solaris eller AIX används, måste ändra sina SAP-program, inklusive DBMS till en av följande operativsystem:
+Azure IaaS-tjänster som kan användas för SAP-arbetsbelastning är begränsade till x86-64- eller x64-maskinvara. Det finns inga Sparc- eller Power CPU-baserade erbjudanden som gäller för SAP-arbetsbelastning. Kunder som kör på sina program på operativsystem som ägs av maskinvaruarkitekturer som IBM-stordator eller AS400, eller där operativsystemen HP-UX, Solaris eller AIX används, måste ändra sina SAP-program, inklusive DBMS till något av följande operativsystem:
 
 - Windows-server 64bit för x86-64-plattformen
 - SUSE linux 64bit för x86-64-plattformen
@@ -111,20 +111,20 @@ Eftersom du vet vilka HANA-versioner du kan köra på den riktade Azure-infrastr
 
 
 ## <a name="certified-azure-vms-and-hana-large-instance-units-and-business-transaction-throughput"></a>Certifierade virtuella Azure-datorer och HANA-enheter med stor instans och affärstransaktionsdataflöde
-Förutom att utvärdera operativsystemsversioner som stöds, DBMS-versioner och beroende support-SAP-programvaruversioner för Azure-infrastrukturenheter, har du behovet av att kvalificera dessa enheter efter affärstransaktionsgenomströmning, vilket uttrycks i enheten "SAP" av Sap. Alla SAP-storlek beror på SAPS-beräkningar. Utvärdera befintliga SAP-system, kan du vanligtvis, med hjälp av din infrastrukturleverantör, beräkna SAPS av enheterna. För DBMS-lagret samt för programlagret. I andra fall där nya funktioner skapas kan en storleksövning med SAP avslöja de nödvändiga SAPS-numren för programlagret och DBMS-lagret. Som infrastrukturleverantör är Microsoft skyldigt att tillhandahålla SAP-genomströmningskarakterisering av de olika enheter som antingen är NetWeaver- och/eller HANA-certifierade.
+Förutom att utvärdera operativsystemversioner som stöds, DBMS-versioner och beroende support SAP-programvaruversioner för Azure-infrastrukturenheter, har du behovet av att kvalificera dessa enheter efter affärstransaktionsgenomflöde, vilket uttrycks i enheten 'SAP' av SAP. Alla SAP-storlek beror på SAPS-beräkningar. Utvärdera befintliga SAP-system, kan du vanligtvis, med hjälp av din infrastrukturleverantör, beräkna SAPS av enheterna. För DBMS-lagret samt för programlagret. I andra fall där nya funktioner skapas kan en storleksövning med SAP avslöja de nödvändiga SAPS-numren för programlagret och DBMS-lagret. Som infrastrukturleverantör är Microsoft skyldigt att tillhandahålla SAP-genomströmningskarakterisering av de olika enheter som antingen är NetWeaver- och/eller HANA-certifierade.
 
 För virtuella Azure-datorer dokumenteras dessa SAPS-dataflödesnummer i [SAP-supportanteckning #1928533](https://launchpad.support.sap.com/#/notes/1928533). För Azure HANA Large Instance-enheter dokumenteras SAPS-dataflödesnumren i [SAP-supportanteckning #2316233](https://launchpad.support.sap.com/#/notes/2316233)
 
 Om du tittar på [SAP-stödanteckning #1928533](https://launchpad.support.sap.com/#/notes/1928533)gäller följande anmärkningar:
 
-- För virtuella virtuella datorer i **M-serien och virtuella virtuella datorer i Mv2-serien gäller olika minimiversioner av operativsystemet än för andra Azure VM-typer**. Kravet på nyare OS-versioner baseras på ändringar som de olika operativsystemleverantörerna var tvungna att tillhandahålla i sina operativsystemversioner för att antingen aktivera sina operativsystem som körs på de specifika Azure VM-typerna eller optimera prestanda och dataflöde av SAP-arbetsbelastning på dessa VM-typer
+- För virtuella virtuella datorer i **M-serien och virtuella virtuella datorer i Mv2-serien gäller olika minimiversioner av operativsystemet än för andra Azure VM-typer**. Kravet på nyare OS-versioner baseras på ändringar som de olika operativsystemleverantörerna var tvungna att tillhandahålla i sina operativsystemversioner för att antingen aktivera sina operativsystem som körs på de specifika Azure VM-typerna eller optimera prestanda och dataflöde för SAP-arbetsbelastning på dessa VM-typer
 - Det finns två tabeller som anger olika vm-typer. Den andra tabellen anger SAPS-dataflöde för Azure VM-typer som endast stöder Azure-standardlagring. DBMS-distribution på de enheter som anges i den andra tabellen i anteckningen stöds inte
 
 
 ## <a name="other-sap-products-supported-on-azure"></a>Andra SAP-produkter som stöds på Azure
 I allmänhet antagandet är att med tillståndet för hyperskala moln som Azure, de flesta av SAP-programvaran bör köras utan funktionella problem i Azure. Ändå och motsatsen till privata moln visualisering, SAP uttrycker fortfarande stöd för de olika SAP-produkter uttryckligen för de olika hyerpscale molnleverantörer. Därför finns det olika SAP-supportanteckningar som anger stöd för Azure för olika SAP-produkter. 
 
-För Business Objects BI-plattform ger [SAP-supportanteckning #2145537](https://launchpad.support.sap.com/#/notes/2145537) en lista över SAP Business Objects-produkter som stöds på Azure. Om det finns frågor kring komponenter eller kombinationer av programvaruversioner och OS-versioner som inte verkar listas eller stöds och som är nyare än de minsta utgåvor som anges, måste du öppna en SAP-supportbegäran mot den komponent du frågar stöd för.
+För Business Objects BI-plattform ger [SAP-supportanteckning #2145537](https://launchpad.support.sap.com/#/notes/2145537) en lista över SAP Business Objects-produkter som stöds på Azure. Om det finns frågor kring komponenter eller kombinationer av programvaruversioner och OS-versioner som inte verkar listas eller stöds och som är nyare än de minsta versioner som anges, måste du öppna en SAP-supportbegäran mot den komponent du frågar stöd för.
 
 För Business Objects Data Services förklarar [SAP-supportmeddelandet #22288344](https://launchpad.support.sap.com/#/notes/2288344) minimalt stöd för SAP-datatjänster som körs på Azure. 
 
@@ -135,7 +135,12 @@ SAP Datahub/Vora-stöd i Azure Kubernetes Services (AKS) beskrivs i [SAP-support
 
 Stöd för SAP BPC 10.1 SP08 beskrivs i [SAP-supportmeddelande #2451795](https://launchpad.support.sap.com/#/notes/2451795)
 
-Stöd för SAP Hybris Commerce Platform 5.x och 6.x på Azure beskrivs i [Hybris Wiki](https://wiki.hybris.com/display/SUP/Using+the+hybris+Platform+with+the+Cloud)
+Stöd för SAP Hybris Commerce Platform på Azure beskrivs i [Hybris Wiki](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud). Som av stöds DBMS för SAP Hybris Commerce Platform, den listar som:
+
+- SQL Server och Oracle på Windows operativsystem plattform. Samma minimiversioner gäller som för SAP NetWeaver. Se [SAP-supportanteckning #1928533](https://launchpad.support.sap.com/#/notes/1928533) för mer information
+- SAP HANA på Red Hat och SUSE Linux. SAP HANA-certifierade VM-typer krävs som dokumenterade tidigare i [det här dokumentet](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#sap-hana-support). SAP (Hybris) Commerce Platform anses OLTP arbetsbelastning
+
+
 
 
 ## <a name="next-steps"></a>Efterföljande moment

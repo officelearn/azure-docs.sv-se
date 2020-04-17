@@ -3,12 +3,12 @@ title: Utvärderingar i utvärdering av Azure Migrate Server
 description: Lär dig mer om utvärderingar i Utvärdering av Azure Migrate Server
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: ae55686f0152d9c2b170ae1b34d7493ed7ac8d94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1f32eea0ec6a8a4877fd1dc134344cfe68dcaba
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80127780"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537771"
 ---
 # <a name="assessments-in-azure-migrateserver-assessment"></a>Utvärderingar i Azure Migrate:Server-utvärdering
 
@@ -17,6 +17,9 @@ Den här artikeln innehåller en översikt över utvärderingar i verktyget [Azu
 ## <a name="whats-an-assessment"></a>Vad är en bedömning?
 
 En utvärdering med verktyget Serverutvärdering mäter beredskapen och beräknar effekten av att migrera lokala servrar till Azure.
+
+> [!NOTE]
+> I Azure Government granskar du de [målutvärderingsplatser som stöds.](migrate-support-matrix.md#supported-geographies-azure-government) Observera att rekommendationer för vm-storlek i utvärderingar använder VM-serien specifikt för government cloud-regioner. [Läs mer](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) om vm-typer.
 
 ## <a name="types-of-assessments"></a>Typer av bedömningar
 
@@ -77,7 +80,7 @@ Om du använder installationen för identifiering samlas prestandadata för ber�
     - Det 95:e percentilvärdet ser till att du ignorerar eventuella extremvärden, som kan inkluderas om du väljer den 99:e percentilen.
     - Om du vill välja toppanvändning för perioden och inte vill missa några avvikare, bör du välja den 99: e percentilen för percentilutnyttjande.
 
-5. Det här värdet multipliceras med komfortfaktorn för att få effektiva prestandautnyttjandedata för varje mått (CPU-användning, minnesanvändning, disk-IOPS (läsa och skriva), diskdataflöde (läs och skriv) och nätverksdataflöde (in och ut) som apparaten samlas upp.
+5. Det här värdet multipliceras med komfortfaktorn för att få effektiva prestandautnyttjandedata för varje mått (CPU-användning, minnesanvändning, disk-IOPS (läsa och skriva), diskdataflöde (läs och skriv) och nätverksdataflöde (in och ut) som enheten samlar in.
 
 
 
@@ -98,7 +101,7 @@ Det här ingår i en utvärdering i Serverutvärdering.
 
 **Egenskap** | **Detaljer**
 --- | ---
-**Målplats** | Den plats som du vill migrera till. Serverutvärdering stöder för närvarande dessa Azure-målregioner:<br/><br/> Australien Öst, Australien Sydost, Brasilien Syd, Kanada Central, Östra Kanada, Centrala Indien, Centrala USA, Östra Kina, Kina Nord, Östasien, Östra USA, Östra USA2, Tyskland Central, Tyskland Nordost, Japan Öst, Japan Väst, Korea Central, Korea Syd, Nord, Nord, Nord, Nord, Nord, Nord, Nord, Nord, Nord, Centrala USA, Norra Europa, Södra centrala USA, Sydostasien, Södra Indien, Storbritannien South, Storbritannien West, US Gov Arizona, US Gov Texas, US Gov Virginia, West Central US, West Europe, West India, West US och West US2.
+**Målplats** | Den plats som du vill migrera till. Serverutvärdering stöder för närvarande dessa Azure-målregioner:<br/><br/> Australien Öst, Australien Sydost, Brasilien Syd, Kanada Central, Kanada Öst, Centralasien, Centrala USA, Kina Öst, Kina Nord, Östra Asien, Östra USA, Östra USA2, Tyskland Central, Tyskland Nordost, Japan Öst, Japan Väst, Korea Central, Korea Syd, Norra Centrala USA, Nordeuropa, Södra centrala USA, Sydostasien, Södra Indien, Storbritannien Syd, Storbritannien Väst, US Gov Arizona, US Gov Texas, US Gov Virginia , Västra centrala USA, Västeuropa, Västra Indien, västra USA och västra US2.
 *Mållagringsdisk (storlekssortering)** | Den typ av diskar som ska användas för lagring i Azure. <br/><br/> Ange mållagringsdisken som premiumhanterad, standardhanterad SSD-hanterad eller standard hdd-hanterad.
 **Mållagringsdisk (prestandabaserad storlek)** | Ange vilken typ av mållagringsdisk som automatisk, premiumhanterad, standardad hdd-hanterad eller standard-SSD-hanterad.<br/><br/> **Automatisk**: Diskrekommendationen baseras på diskarnas prestandadata (in-/utdataåtgärder per sekund (IOPS) och dataflöde).<br/><br/>**Premium/standard**: Utvärderingen rekommenderar en disk SKU inom den valda lagringstypen.<br/><br/> Om du vill uppnå en enda instans VM SLA på 99,9%, med tanke på att använda premium hanterade diskar. Detta säkerställer att alla diskar i utvärderingen rekommenderas som premiumhanterade diskar.<br/><br/> Azure Migrate stöder endast hanterade diskar för migreringsutvärdering.
 **Reserverade instanser (RIs)** | Ange [reserverade instanser](https://azure.microsoft.com/pricing/reserved-vm-instances/) i Azure, så att kostnadsuppskattningar i utvärderingen tar hänsyn till RI-rabatter.<br/><br/> Ã fors stöds endast för pay-as-you-go-erbjudanden i Azure Migrate.
@@ -107,7 +110,7 @@ Det här ingår i en utvärdering i Serverutvärdering.
 **Percentilutnyttjande** | Används med prestandabaserad storlek. Anger percentilvärdet för det prestandaprov som ska användas för rätt storlek. 
 **VM-serie** | Ange azure VM-serien som du vill överväga för rätt storlek. Om du till exempel inte har en produktionsmiljö som behöver virtuella datorer i A-serien i Azure kan du utesluta A-serier från listan eller serien.
 **Komfortfaktor** | Buffert som används under bedömningen. Används ovanpå datoranvändningsdata för virtuella datorer (CPU, minne, disk och nätverk). Den står för problem som säsongsanvändning, kort prestandahistorik och sannolikt ökningar i framtida användning.<br/><br/> Till exempel resulterar en virtuell dator med 10 kärnor med 20 % utnyttjande normalt i en virtuell dator med två kärnor. Med en komfortfaktor på 2,0 x blir resultatet en virtuell dator med fyra kärnor istället.
-**Erbjuder** | Visar [Azure-erbjudandet](https://azure.microsoft.com/support/legal/offer-details/) där du är registrerad. Serverbedömningen beräknar kostnaden i enlighet med detta.
+**Erbjudande** | Visar [Azure-erbjudandet](https://azure.microsoft.com/support/legal/offer-details/) där du är registrerad. Serverbedömningen beräknar kostnaden i enlighet med detta.
 **Valuta** | Faktureringsvalutan för ditt konto.
 **Rabatt (%)** | Visar alla prenumerationsspecifika rabatter som du får utöver Azure-erbjudandet. Standardinställningen är 0%.
 **VM-drifttid** | Om virtuella Azure-datorer inte körs 24 timmar om dygnet, 7 dagar i veckan, kan du ange hur länge (dagar per månad och timmar per dag) som de ska köras. Kostnadsuppskattningar hanteras därefter.<br/><br/> Standardvärdet är 31 dagar per månad och 24 timmar per dag.
@@ -182,7 +185,7 @@ När datorn har markerats som klar för Azure ger Server Assessment storleksreko
 Om du använder storleksändring med prestandabasing gör Serverutvärderingsrekommendationer enligt följande:
 
 - Serverutvärdering tar hänsyn till datorns prestandahistorik för att identifiera den virtuella datorns storlek och disktyp i Azure.
-- Om servrar har importerats med hjälp av en CSV-fil används de värden du anger. Den här metoden är särskilt användbar om du har överallokerat den lokala datorn, utnyttjandet är faktiskt lågt och du vill rätt storlek på den virtuella datorn i Azure för att spara kostnader. 
+- Om servrar har importerats med hjälp av en CSV-fil används de värden du anger. Den här metoden är särskilt användbar om du har överallokerat den lokala datorn, användningen är låg och du vill rätt storlek på den virtuella datorn i Azure för att spara kostnader. 
 - Om du inte vill använda prestandadata återställer du storlekskriterierna till lokalt lokalt, enligt beskrivningen i föregående avsnitt.
 
 #### <a name="calculate-storage-sizing"></a>Beräkna lagringsstorlek

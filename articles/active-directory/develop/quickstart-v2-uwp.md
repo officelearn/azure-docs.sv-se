@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: feb1fa82653a0db7b3041a4f745d0563c220bd31
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 362f6d1f4e50e1cc78c8897499b9f6593096162b
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991100"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536020"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Snabbstart: Anropa Microsoft Graph API från en UWP-app (Universell Windows-plattform)
 
@@ -72,7 +72,7 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett UWP-program (
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Steg 3: Appen är konfigurerad och redo att köras
-> Vi har konfigurerat ditt projekt med värden för appens egenskaper och det är redo att köras. 
+> Vi har konfigurerat ditt projekt med värden för appens egenskaper och det är redo att köras.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
@@ -80,7 +80,7 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett UWP-program (
 
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-visual-studio-project"></a>Steg 3: Konfigurera ditt Visual Studio-projekt
-> 
+>
 > 1. Extrahera zip-filen i en lokal mapp nära diskens rot, till exempel **C:\Azure-Samples**.
 > 1. Öppna projektet i Visual Studio. Du kan bli ombedd att installera en UWP SDK. I så fall, acceptera.
 > 1. Redigera **MainPage.Xaml.cs** och ersätt fältets `ClientId` värden:
@@ -157,7 +157,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
 
 > |Där:||
 > |---------|---------|
-> | `scopes` | Innehåller de omfång som begärs, till exempel `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API:er. |
+> | `scopes` | Innehåller de scope som begärs, till `{ "user.read" }` `{ "api://<Application ID>/access_as_user" }` exempel för Microsoft Graph eller för anpassade webb-API:er. |
 
 #### <a name="get-a-user-token-silently"></a>Hämta en token obevakat
 
@@ -172,7 +172,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
 
 > |Där: ||
 > |---------|---------|
-> | `scopes` | Innehåller de omfång som begärs, till exempel `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API:er |
+> | `scopes` | Innehåller de scope som begärs, till `{ "user.read" }` `{ "api://<Application ID>/access_as_user" }` exempel för Microsoft Graph eller för anpassade webb-API:er |
 > | `firstAccount` | Anger det första användarkontot i cacheminnet (MSAL stöder flera användare i en enda app) |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

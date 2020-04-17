@@ -13,12 +13,12 @@ ms.date: 09/27/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 0262d22ae00456ce06cb8efbf995f1a093b20043
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b4595a63613afa3c6fef2fa2a85647d8b70b1388
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79262898"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81534473"
 ---
 # <a name="application-configuration-options"></a>Alternativ för programkonfiguration
 
@@ -106,11 +106,11 @@ Omdirigerings-URI är den URI som identitetsprovidern skickar tillbaka säkerhet
 ### <a name="redirect-uri-for-public-client-apps"></a>Omdirigera URI för offentliga klientappar
 
 Om du är en offentlig klientapputvecklare som använder MSAL:
-- Du vill använda `.WithDefaultRedirectUri()` i stationära eller UWP-program (MSAL.NET 4,1 +). Den här metoden anger den offentliga klientprogrammets omdirigeringsuri-egenskap till standardredokomrederingen uri för offentliga klientprogram. 
+- Du vill använda `.WithDefaultRedirectUri()` i stationära eller UWP-program (MSAL.NET 4,1 +). Den här metoden anger den offentliga klientprogrammets omdirigeringsuri-egenskap till standardredokomrederingen uri för offentliga klientprogram.
 
-  Plattform  | Omdirigerings-URI  
+  Plattform  | Omdirigerings-URI
   ---------  | --------------
-  Skrivbordsapp (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient` 
+  Skrivbordsapp (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient`
   UWP | värdet `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`på . Detta gör det möjligt för SSO med webbläsaren genom att ställa in värdet på resultatet av WebAuthenticationBroker.GetCurrentApplicationCallbackUri() som du måste registrera
   .NET Core | `https://localhost`. Detta gör det möjligt för användaren att använda systembläddraren för interaktiv autentisering eftersom .NET Core inte har ett användargränssnitt för den inbäddade webbvyn för tillfället.
 

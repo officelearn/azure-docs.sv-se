@@ -3,12 +3,12 @@ title: Prestandaövervakning för Java-webbappar – Azure Application Insights
 description: Utökad prestanda- och användningsövervakning av din Java-webbplats med Application Insights.
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.openlocfilehash: b29618179d22eac97a07bf41906465aba1fd7929
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b047a8dd8c67679a5cc8a45e8be82f9ab5227aa4
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77657035"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537550"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Övervaka beroenden, fångade undantag och metodkörningstider i Javas webbappar
 
@@ -135,4 +135,4 @@ Om du vill söka efter enskilda förekomster av beroende-, undantags- och metodr
 [eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/app/metrics-explorer.md
+[metrics]: ../../azure-monitor/platform/metrics-charts.md

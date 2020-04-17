@@ -1,17 +1,15 @@
 ---
 title: Konfigurera en Azure Migrate-installation för fysiska servrar
 description: Lär dig hur du konfigurerar en Azure Migrate-installation för fysisk serverutvärdering.
-author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: b60a30e5e30ee81cbaca7d5e4691ccedac2462b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: ddc70ee9430d3a767ce01191824c150a4dbd5e6f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77598178"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538281"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Konfigurera en apparat för fysiska servrar
 
@@ -49,11 +47,24 @@ Ladda ner den zippade filen för apparaten.
 Kontrollera att den zippade filen är säker innan du distribuerar den.
 
 1. Öppna ett kommandofönster för administratör på den dator som du laddade ned filen till.
-2. Kör följande kommando för att generera hash för DEN VIRTUELLA HÅRDDISKEN
+2. Kör följande kommando för att generera hash för den zippade filen:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exempel på användning: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  För den senaste installationen version, den genererade hash bör matcha dessa [inställningar](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security).
+    - Exempel på användning för offentligt moln:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+    - Exempel på användning för myndighetsmoln:```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
+3.  Verifiera hash-värden:
+ 
+    - För det offentliga molnet (för den senaste installationen):
 
+        **Algoritm** | **Hash-värde**
+          --- | ---
+          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
+          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+
+    - För Azure-myndighet (för den senaste installationen):
+
+        **Algoritm** | **Hash-värde**
+          --- | ---
+          MD5 | f81c155fc4a1409901caea948713913f
 
 
 ## <a name="run-the-azure-migrate-installer-script"></a>Köra Azure Migrate-installationsskriptet
@@ -69,23 +80,23 @@ Installationsskriptet gör följande:
 
 Kör skriptet på följande sätt:
 
-1. Extrahera den zippade filen till en mapp på servern som ska vara värd för apparaten.
+1. Extrahera den zippade filen till en mapp på servern som ska vara värd för apparaten.  Kontrollera att du inte kör skriptet på en dator på en befintlig Azure Migrate-installation.
 2. Starta PowerShell på ovanstående server med administrativ (förhöjd) behörighet.
 3. Ändra PowerShell-katalogen till mappen där innehållet har extraherats från den nedladdade zippade filen.
 4. Kör skriptet **AzureMigrateInstaller.ps1** genom att köra följande kommando:
-    ```
-    PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
-    ```
-Skriptet startar programmet för apparat när det är klart.
 
-Vid eventuella problem kan du komma åt skriptloggarna på C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>tidsstämpel</em>.log för felsökning.
+    - För det offentliga molnet:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
+    - För Azure Government:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
 
-> [!NOTE]
-> Kör inte azure migrate-installationsskriptet på en befintlig Azure Migrate-installation.
+    Skriptet startar programmet för apparat när det är klart.
+
+Om du stöter på några problem kan du komma åt skriptloggarna på C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>tidsstämpel</em>.log för felsökning.
+
+
 
 ### <a name="verify-appliance-access-to-azure"></a>Verifiera åtkomst till Azure
 
-Se till att den virtuella datorn för den virtuella enheten kan ansluta till de [Azure-url:er](migrate-appliance.md#url-access)som krävs .
+Se till att den virtuella datorn för den virtuella enheten kan ansluta till Azure-url:er för [offentliga](migrate-appliance.md#public-cloud-urls) moln och [myndighetsmoln.](migrate-appliance.md#government-cloud-urls)
 
 ## <a name="configure-the-appliance"></a>Konfigurera apparaten
 
@@ -120,7 +131,7 @@ Ställ in apparaten för första gången.
 Anslut från apparaten till fysiska servrar och starta identifieringen.
 
 1. Klicka på **Lägg till autentiseringsuppgifter** om du vill ange vilka kontouppgifter som används för att identifiera servrar.  
-2. Ange **operativsystem ,** eget namn för autentiseringsuppgifter, **användarnamn** och **lösenord** och klicka på **Lägg till**.
+2. Ange **operativsystemet**, ett eget namn för autentiseringsuppgifterna och användarnamn och lösenord. Klicka sedan på **Lägg till**.
 Du kan lägga till en uppsättning autentiseringsuppgifter vardera för Windows- och Linux-servrar.
 4. Klicka på **Lägg till server**och ange serverinformation- FQDN/IP-adress och eget namn på autentiseringsuppgifter (en post per rad) för att ansluta till servern.
 3. Klicka på **Validate** (Validera). Efter valideringen visas listan över servrar som kan identifieras.

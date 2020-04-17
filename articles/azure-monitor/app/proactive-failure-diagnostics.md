@@ -4,12 +4,12 @@ description: Varnar dig för ovanliga ändringar i hastigheten för misslyckade 
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: e1c07fca3a4eee19e56c313a889e5b86ce2b4c42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1bce3ab86748d8247a72da3bd70e0f2e8155dbf
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671757"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536819"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Smart identifiering - Felavvikelser
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) varnar dig automatiskt i nära realtid om din webbapp upplever en onormal ökning av antalet misslyckade begäranden. Den upptäcker en ovanlig ökning av antalet HTTP-begäranden eller beroendeanrop som rapporteras som misslyckade. För begäranden har misslyckade begäranden vanligtvis svarskoder på 400 eller högre. För att hjälpa dig att triage och diagnostisera problemet, en analys av egenskaperna hos fel och relaterade programdata finns i varningsinformationen. Det finns också länkar till Application Insights-portalen för ytterligare diagnos. Funktionen behöver ingen konfiguration eller konfiguration, eftersom den använder maskininlärningsalgoritmer för att förutsäga den normala felfrekvensen.
@@ -353,7 +353,7 @@ Smart identifiering av felavvikelser kompletterar andra liknande men distinkta f
 ## <a name="next-steps"></a>Nästa steg
 De här diagnostikverktygen hjälper dig att granska data från din app:
 
-* [Statistikutforskare](../../azure-monitor/app/metrics-explorer.md)
+* [Statistikutforskare](../../azure-monitor/platform/metrics-charts.md)
 * [Sök explorer](../../azure-monitor/app/diagnostic-search.md)
 * [Analytics - kraftfullt frågespråk](../../azure-monitor/log-query/get-started-portal.md)
 

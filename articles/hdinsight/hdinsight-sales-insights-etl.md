@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
-ms.date: 03/24/2020
-ms.openlocfilehash: a4df99c45b27ad662133010422cae2e30e36e584
-ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
+ms.date: 04/15/2020
+ms.openlocfilehash: c213b0089af0af295d44afd38bbc5c17b6db159d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80247273"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535238"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Självstudiekurs: Skapa en datapipeline från slutna till slutna dagar för att härleda försäljningsinsikter i Azure HDInsight
 
@@ -27,23 +27,28 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="prerequisites"></a>Krav
 
-* Azure CLI. Se [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Azure CLI - minst version 2.2.0. Se [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+* jq, en kommandorads-JSON-processor.  Se [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
 * En medlem [av azure-inbyggd roll - ägare](../role-based-access-control/built-in-roles.md).
 
-* [Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=45331) för att visualisera affärsinsikter i slutet av den här självstudien.
+* Om du använder PowerShell för att utlösa datafabrikspipelinen behöver du [Az-modulen](https://docs.microsoft.com/powershell/azure/overview).
+
+* [Power BI Desktop](https://aka.ms/pbiSingleInstaller) för att visualisera affärsinsikter i slutet av den här självstudien.
 
 ## <a name="create-resources"></a>Skapa resurser
 
 ### <a name="clone-the-repository-with-scripts-and-data"></a>Klona databasen med skript och data
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på din Azure-prenumeration. Om du planerar att använda Azure Cloud Shell väljer du **Prova det** i det övre högra hörnet av kodblocket. Annars anger du kommandot nedan:
 
-1. Öppna Azure Cloud Shell i det övre menyraden. Välj din prenumeration för att skapa en filresurs om Cloud Shell frågar dig.
+    ```azurecli-interactive
+    az login
 
-   ![Öppna Azure Cloud Shell](./media/hdinsight-sales-insights-etl/hdinsight-sales-insights-etl-click-cloud-shell.png)
-
-1. **Välj**Bash på listrutan **Välj miljö** .
+    # If you have multiple subscriptions, set the one to use
+    # az account set --subscription "SUBSCRIPTIONID"
+    ```
 
 1. Se till att du är [owner](../role-based-access-control/built-in-roles.md)medlem i Azure-rollägaren . Ersätt `user@contoso.com` med ditt konto och ange sedan kommandot:
 
@@ -55,29 +60,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
     Om ingen post returneras är du inte medlem och kan inte slutföra den här självstudien.
 
-1. Lista dina prenumerationer som anger kommandot:
-
-    ```azurecli
-    az account list --output table
-    ```
-
-    Observera ID:t för den prenumeration som du ska använda för det här projektet.
-
-1. Ange den prenumeration som du ska använda för det här projektet. Ersätt `SUBSCRIPTIONID` med det faktiska värdet och ange sedan kommandot.
-
-    ```azurecli
-    subscriptionID="SUBSCRIPTIONID"
-    az account set --subscription $subscriptionID
-    ```
-
-1. Skapa en ny resursgrupp för projektet. Ersätt `RESOURCEGROUP` med önskat namn och ange sedan kommandot.
-
-    ```azurecli
-    resourceGroup="RESOURCEGROUP"
-    az group create --name $resourceGroup --location westus
-    ```
-
-1. Ladda ner data och skript för den här självstudien från [HDInsight försäljningsstatistik ETL-arkivet](https://github.com/Azure-Samples/hdinsight-sales-insights-etl).  Ange följande kommando:
+1. Ladda ner data och skript för den här självstudien från [HDInsight försäljningsstatistik ETL-arkivet](https://github.com/Azure-Samples/hdinsight-sales-insights-etl). Ange följande kommando:
 
     ```bash
     git clone https://github.com/Azure-Samples/hdinsight-sales-insights-etl.git
@@ -98,11 +81,19 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
     chmod +x scripts/*.sh
     ````
 
-1. Kör skriptet. Ersätt `RESOURCE_GROUP_NAME` `LOCATION` och med relevanta värden och ange sedan kommandot:
+1. Ange variabel för resursgruppen. Ersätt `RESOURCE_GROUP_NAME` med namnet på en befintlig eller ny resursgrupp och ange sedan kommandot:
 
     ```bash
-    ./scripts/resources.sh RESOURCE_GROUP_NAME LOCATION
+    resourceGroup="RESOURCE_GROUP_NAME"
     ```
+
+1. Kör skriptet. Ersätt `LOCATION` med önskat värde och ange sedan kommandot:
+
+    ```bash
+    ./scripts/resources.sh $resourceGroup LOCATION
+    ```
+
+    Om du inte är säker på vilken region du ska ange kan du hämta en lista över regioner som stöds för din prenumeration med kommandot [az-kontolisteplatser.](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list-locations)
 
     Kommandot distribuerar följande resurser:
 
@@ -115,49 +106,26 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 Det kan ta cirka 20 minuter att skapa kluster.
 
-Skriptet `resources.sh` innehåller följande kommandon. Det krävs inte för dig att köra dessa kommandon om du redan kört skriptet i föregående steg.
-
-* `az group deployment create`- Det här kommandot använder`resourcestemplate.json`en Azure Resource Manager-mall ( ) för att skapa de angivna resurserna med önskad konfiguration.
-
-    ```azurecli
-    az group deployment create --name ResourcesDeployment \
-        --resource-group $resourceGroup \
-        --template-file resourcestemplate.json \
-        --parameters "@resourceparameters.json"
-    ```
-
-* `az storage blob upload-batch`- Det här kommandot överför försäljningsdata .csv-filer till det nyskapade Blob-lagringskontot med det här kommandot:
-
-    ```azurecli
-    az storage blob upload-batch -d rawdata \
-        --account-name <BLOB STORAGE NAME> -s ./ --pattern *.csv
-    ```
-
-Standardlösenordet för SSH-åtkomst `Thisisapassword1`till klustren är . Om du vill ändra lösenordet går `resourcesparameters.json` du till filen `sparksshPassword`och `sparkClusterLoginPassword` `llapClusterLoginPassword`ändrar `llapsshPassword` lösenordet för parametrarna , , och.
+Standardlösenordet för SSH-åtkomst `Thisisapassword1`till klustren är . Om du vill ändra lösenordet går `./templates/resourcesparameters_remainder.json` du till filen `sparksshPassword`och `sparkClusterLoginPassword` `llapClusterLoginPassword`ändrar `llapsshPassword` lösenordet för parametrarna , , och.
 
 ### <a name="verify-deployment-and-collect-resource-information"></a>Verifiera distribution och samla in resursinformation
 
-1. Om du vill kontrollera status för distributionen går du till resursgruppen på Azure-portalen. Välj **Distributioner** under **Inställningar**. Välj namnet på distributionen. `ResourcesDeployment` Här kan du se de resurser som har distribuerats och de resurser som fortfarande pågår.
+1. Om du vill kontrollera status för distributionen går du till resursgruppen på Azure-portalen. Under **Inställningar**väljer du **Distributioner**och sedan distributionen. Här kan du se de resurser som har distribuerats och de resurser som fortfarande pågår.
 
 1. Om du vill visa namnen på klustren anger du följande kommando:
 
-    ```azurecli
-    sparkCluster=$(az hdinsight list \
-        --resource-group $resourceGroup \
-        --query "[?contains(name,'spark')].{clusterName:name}" -o tsv)
+    ```bash
+    sparkClusterName=$(cat resourcesoutputs_remainder.json | jq -r '.properties.outputs.sparkClusterName.value')
+    llapClusterName=$(cat resourcesoutputs_remainder.json | jq -r '.properties.outputs.llapClusterName.value')
 
-    llapCluster=$(az hdinsight list \
-        --resource-group $resourceGroup \
-        --query "[?contains(name,'llap')].{clusterName:name}" -o tsv)
-
-    echo $sparkCluster
-    echo $llapCluster
+    echo "Spark Cluster" $sparkClusterName
+    echo "LLAP cluster" $llapClusterName
     ```
 
 1. Om du vill visa Azure-lagringskontot och åtkomstnyckeln anger du följande kommando:
 
     ```azurecli
-    blobStorageName=$(cat resourcesoutputs.json | jq -r '.properties.outputs.blobStorageName.value')
+    blobStorageName=$(cat resourcesoutputs_storage.json | jq -r '.properties.outputs.blobStorageName.value')
 
     blobKey=$(az storage account keys list \
         --account-name $blobStorageName \
@@ -171,7 +139,7 @@ Standardlösenordet för SSH-åtkomst `Thisisapassword1`till klustren är . Om d
 1. Om du vill visa kontot och åtkomstnyckeln för DataSjölagringsgen2 anger du följande kommando:
 
     ```azurecli
-    ADLSGen2StorageName=$(cat resourcesoutputs.json | jq -r '.properties.outputs.adlsGen2StorageName.value')
+    ADLSGen2StorageName=$(cat resourcesoutputs_storage.json | jq -r '.properties.outputs.adlsGen2StorageName.value')
 
     adlsKey=$(az storage account keys list \
         --account-name $ADLSGen2StorageName \
@@ -191,10 +159,13 @@ Denna datafabrik kommer att ha en pipeline med två aktiviteter:
 * Den första aktiviteten kopierar data från Azure Blob-lagring till lagringsgend 2-lagringskontot för datasjölagring för att efterlikna datainmatning.
 * Den andra aktiviteten omvandlar data i Spark-klustret. Skriptet omvandlar data genom att ta bort oönskade kolumner. Det lägger också till en ny kolumn som beräknar intäkten som en enskild transaktion genererar.
 
-Så här konfigurerar du azure data factory-pipelinen:
+Om du vill konfigurera din Azure Data Factory-pipeline kör du kommandot nedan.  Du bör fortfarande `hdinsight-sales-insights-etl` vara på katalogen.
 
 ```bash
-./scripts/adf.sh
+blobStorageName=$(cat resourcesoutputs_storage.json | jq -r '.properties.outputs.blobStorageName.value')
+ADLSGen2StorageName=$(cat resourcesoutputs_storage.json | jq -r '.properties.outputs.adlsGen2StorageName.value')
+
+./scripts/adf.sh $resourceGroup $ADLSGen2StorageName $blobStorageName
 ```
 
 Det här skriptet gör följande:
@@ -205,35 +176,47 @@ Det här skriptet gör följande:
 1. Hämtar lagringsnycklar för datasjölagringsgend2- och Blob-lagringskonton.
 1. Skapar en annan resursdistribution för att skapa en Azure Data Factory-pipeline med tillhörande länkade tjänster och aktiviteter. Lagringsnycklarna skickas som parametrar till mallfilen så att de länkade tjänsterna kan komma åt lagringskontona korrekt.
 
-Data Factory-pipelinen distribueras via följande kommando:
-
-```azurecli-interactive
-az group deployment create --name ADFDeployment \
-    --resource-group $resourceGroup \
-    --template-file adftemplate.json \
-    --parameters "@adfparameters.json"
-```
-
 ## <a name="run-the-data-pipeline"></a>Kör datapipelinen
 
 ### <a name="trigger-the-data-factory-activities"></a>Utlösa datafabrikens aktiviteter
 
 Den första aktiviteten i datafabrikspipelinen som du har skapat flyttar data från Blob-lagring till DataSjölagring gen2. Den andra aktiviteten tillämpar Spark-omvandlingarna på data och sparar de transformerade CSV-filerna på en ny plats. Hela pipelinen kan ta några minuter att slutföra.
 
-Om du vill utlösa pipelines kan du antingen:
+Om du vill hämta namnet på Data Factory anger du följande kommando:
 
-* Utlösa datafabrikspipelorna i PowerShell. Ersätt `DataFactoryName` med det faktiska datafabriksnamnet och kör sedan följande kommandon:
+```azurecli
+cat resourcesoutputs_adf.json | jq -r '.properties.outputs.factoryName.value'
+```
+
+Om du vill utlösa pipelinen kan du antingen:
+
+* Utlösa datafabrikspipelinen i PowerShell. Ersätt `RESOURCEGROUP`och `DataFactoryName` med lämpliga värden och kör sedan följande kommandon:
 
     ```powershell
-    Invoke-AzDataFactoryV2Pipeline -DataFactory DataFactoryName -PipelineName "CopyPipeline_k8z"
-    Invoke-AzDataFactoryV2Pipeline -DataFactory DataFactoryName -PipelineName "sparkTransformPipeline"
+    # If you have multiple subscriptions, set the one to use
+    # Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
+
+    $resourceGroup="RESOURCEGROUP"
+    $dataFactory="DataFactoryName"
+
+    $pipeline =Invoke-AzDataFactoryV2Pipeline `
+        -ResourceGroupName $resourceGroup `
+        -DataFactory $dataFactory `
+        -PipelineName "IngestAndTransform"
+
+    Get-AzDataFactoryV2PipelineRun `
+        -ResourceGroupName $resourceGroup  `
+        -DataFactoryName $dataFactory `
+        -PipelineRunId $pipeline
     ```
+
+    Kör om `Get-AzDataFactoryV2PipelineRun` efter behov för att övervaka förloppet.
 
     Eller
 
-* Öppna datafabriken och välj **Författare & Monitor**. Utlösa kopieringspipelinen och sedan Spark-pipelinen från portalen. Information om hur du utlöser pipelines via portalen finns i [Skapa Apache Hadoop-kluster på begäran i HDInsight med Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline).
+* Öppna datafabriken och välj **Författare & Monitor**. Utlösa `IngestAndTransform` pipelinen från portalen. Information om hur du utlöser pipelines via portalen finns i [Skapa Apache Hadoop-kluster på begäran i HDInsight med Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline).
 
-Om du vill kontrollera att pipelines har körts kan du vidta något av följande:
+Om du vill kontrollera att pipelinen har körts kan du vidta något av följande:
 
 * Gå till avsnittet **Monitor** i datafabriken via portalen.
 * Gå till ditt lagringsgend 2-lagringskonto i Azure Storage Explorer. Gå till `files` filsystemet och gå `transformed` sedan till mappen och kontrollera dess innehåll för att se om pipelinen lyckades.
@@ -242,37 +225,48 @@ Andra sätt att omvandla data med hjälp av HDInsight finns i [den här artikeln
 
 ### <a name="create-a-table-on-the-interactive-query-cluster-to-view-data-on-power-bi"></a>Skapa en tabell i det interaktiva frågeklustret för att visa data på Power BI
 
-1. Kopiera `query.hql` filen till LLAP-klustret med hjälp av SCP. Ersätt `LLAPCLUSTERNAME` med det faktiska namnet och ange sedan kommandot:
+1. Kopiera `query.hql` filen till LLAP-klustret med hjälp av SCP. Ange kommandot:
 
     ```bash
-    scp scripts/query.hql sshuser@LLAPCLUSTERNAME-ssh.azurehdinsight.net:/home/sshuser/
+    llapClusterName=$(cat resourcesoutputs_remainder.json | jq -r '.properties.outputs.llapClusterName.value')
+    scp scripts/query.hql sshuser@$llapClusterName-ssh.azurehdinsight.net:/home/sshuser/
     ```
 
-2. Använd SSH för att komma åt LLAP-klustret. Ersätt `LLAPCLUSTERNAME` med det faktiska namnet och ange sedan kommandot. Om du inte har `resourcesparameters.json` ändrat filen är `Thisisapassword1`lösenordet .
+    Påminnelse: Standardlösenordet är `Thisisapassword1`.
+
+1. Använd SSH för att komma åt LLAP-klustret. Ange kommandot:
 
     ```bash
-    ssh sshuser@LLAPCLUSTERNAME-ssh.azurehdinsight.net
+    ssh sshuser@$llapClusterName-ssh.azurehdinsight.net
     ```
 
-3. Använd följande kommando för att köra skriptet:
+1. Använd följande kommando för att köra skriptet:
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f query.hql
     ```
 
-Det här skriptet skapar en hanterad tabell i det interaktiva frågekluster som du kan komma åt från Power BI.
+    Det här skriptet skapar en hanterad tabell i det interaktiva frågekluster som du kan komma åt från Power BI.
 
 ### <a name="create-a-power-bi-dashboard-from-sales-data"></a>Skapa en Power BI-instrumentpanel från försäljningsdata
 
 1. Öppna Power BI Desktop.
-1. Välj **Hämta data**.
-1. Sök efter **klustret HDInsight Interactive Query**.
-1. Klistra in URI för klustret där. Versionsformatet ska vara `https://LLAPCLUSTERNAME.azurehdinsight.net`.
 
-   Ange `default` för databasen.
-1. Ange det användarnamn och lösenord som du använder för att komma åt klustret.
+1. Från menyn navigerar du till **Hämta data** > **mer...**  >  **Azure**Azure > **HDInsight interaktiv fråga**.
 
-När data har lästs in kan du experimentera med instrumentpanelen som du vill skapa. Se följande länkar för att komma igång med Power BI-instrumentpaneler:
+1. Välj **Anslut**.
+
+1. I dialogrutan **HDInsight Interactive Query:**
+    1. I textrutan **Server** anger du namnet på LLAP-klustret i formatet `https://LLAPCLUSTERNAME.azurehdinsight.net`.
+    1. Skriv i `default` **textrutan för databasen** .
+    1. Välj **OK**.
+
+1. Från **AzureHive-dialogrutan:**
+    1. Skriv `admin`i textrutan **Användarnamn** .
+    1. Skriv `Thisisapassword1`i textrutan **Lösenord** .
+    1. Välj **Anslut**.
+
+1. Välj och/eller `sales_raw` förhandsgranska data i **Navigator.** `sales` När data har lästs in kan du experimentera med instrumentpanelen som du vill skapa. Se följande länkar för att komma igång med Power BI-instrumentpaneler:
 
 * [Introduktion till instrumentpaneler för Power BI-designers](https://docs.microsoft.com/power-bi/service-dashboards)
 * [Självstudiekurs: Kom igång med Power BI-tjänsten](https://docs.microsoft.com/power-bi/service-get-started)
@@ -281,9 +275,18 @@ När data har lästs in kan du experimentera med instrumentpanelen som du vill s
 
 Om du inte ska fortsätta att använda det här programmet tar du bort alla resurser med hjälp av följande kommando så att du inte debiteras för dem.
 
-```azurecli-interactive
-az group delete -n $resourceGroup
-```
+1. Om du vill ta bort resursgruppen anger du kommandot:
+
+    ```azurecli
+    az group delete -n $resourceGroup
+    ```
+
+1. Om du vill ta bort tjänstens huvudnamn anger du kommandona:
+
+    ```azurecli
+    servicePrincipal=$(cat serviceprincipal.json | jq -r '.name')
+    az ad sp delete --id $servicePrincipal
+    ```
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/04/2020
+ms.date: 04/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1caa80469504d52d3103fb2776fb3e7210971690
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a670e32058794daeaa233464ba7d054f45ef25e3
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77024406"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536326"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Skapa time series insights-resurser med Azure Resource Manager-mallar
 
@@ -43,7 +43,7 @@ Snabbstartsmallen [för 201-timeseriesinsights-environment-with-eventhub publice
 
 ## <a name="specify-deployment-template-and-parameters"></a>Ange distributionsmall och parametrar
 
-I följande procedur beskrivs hur du använder PowerShell för att distribuera en Azure Resource Manager-mall som skapar en Time Series Insights-miljö, en underordnad händelsekälla som konfigurerats för att använda händelser från en händelsehubb och åtkomstprinciper som ger åtkomst till miljöns data. Om en befintlig händelsehubb inte har angetts skapas en med distributionen.
+I följande procedur beskrivs hur du använder PowerShell för att distribuera en Azure Resource Manager-mall som skapar en Time Series Insights-miljö, en underordnad händelsekälla som konfigurerats för att använda händelser från en eventnav och åtkomstprinciper som ger åtkomst till miljöns data. Om en befintlig händelsehubb inte har angetts skapas en med distributionen.
 
 1. Installera Azure PowerShell genom att följa instruktionerna i [Komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 

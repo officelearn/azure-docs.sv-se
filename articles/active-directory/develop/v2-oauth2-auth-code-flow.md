@@ -12,12 +12,12 @@ ms.date: 01/31/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5241089ff3cc7826216fcadd6fd94116ee4a2c89
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: ac630c4901c126ed883adbdc7efb03f36372e6ff
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309442"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535884"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft-identitetsplattform och OAuth 2.0-auktoriseringskodflöde
 
@@ -232,11 +232,11 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 ## <a name="refresh-the-access-token"></a>Uppdatera åtkomsttoken
 
-Access_tokens är kortlivade och du måste uppdatera dem när de har upphört att gälla för att fortsätta komma åt resurser. Du kan göra det `POST` genom att `/token` skicka en annan `refresh_token` begäran till `code`slutpunkten, den här gången som ger i stället för .  Uppdateringstoken är giltiga för alla behörigheter som klienten redan har fått medgivande `scope=mail.read` för - alltså kan en `scope=api://contoso.com/api/UseResource`uppdateringstoken som utfärdats på en begäran om användas för att begära en ny åtkomsttoken för .  
+Access_tokens är kortlivade och du måste uppdatera dem när de har upphört att gälla för att fortsätta komma åt resurser. Du kan göra det `POST` genom att `/token` skicka en annan `refresh_token` begäran till `code`slutpunkten, den här gången som ger i stället för .  Uppdateringstoken är giltiga för alla behörigheter som klienten redan har fått medgivande `scope=mail.read` för - alltså kan en `scope=api://contoso.com/api/UseResource`uppdateringstoken som utfärdats på en begäran om användas för att begära en ny åtkomsttoken för .
 
-Uppdatera token har inte angivna livstider. Vanligtvis är livslängden för uppdateringstoken relativt lång. I vissa fall upphör dock uppdateringstoken att gälla, återkallas eller saknar tillräckliga privilegier för den önskade åtgärden. Ditt program måste förvänta sig och hantera [fel som returneras av slutpunkten för tokenutfärdande korrekt.](#error-codes-for-token-endpoint-errors) 
+Uppdatera token har inte angivna livstider. Vanligtvis är livslängden för uppdateringstoken relativt lång. I vissa fall upphör dock uppdateringstoken att gälla, återkallas eller saknar tillräckliga privilegier för den önskade åtgärden. Ditt program måste förvänta sig och hantera [fel som returneras av slutpunkten för tokenutfärdande korrekt.](#error-codes-for-token-endpoint-errors)
 
-Även om uppdateringstoken inte återkallas när de används för att hämta nya åtkomsttoken, förväntas du ignorera den gamla uppdateringstoken. [OAuth 2.0-specifikationen](https://tools.ietf.org/html/rfc6749#section-6) säger: "Auktoriseringsservern kan utfärda en ny uppdateringstoken, i vilket fall klienten måste ignorera den gamla uppdateringstoken och ersätta den med den nya uppdateringstoken. Auktoriseringsservern KAN återkalla den gamla uppdateringstoken efter att ha utfärdat en ny uppdateringstoken till klienten."  
+Även om uppdateringstoken inte återkallas när de används för att hämta nya åtkomsttoken, förväntas du ignorera den gamla uppdateringstoken. [OAuth 2.0-specifikationen](https://tools.ietf.org/html/rfc6749#section-6) säger: "Auktoriseringsservern kan utfärda en ny uppdateringstoken, i vilket fall klienten måste ignorera den gamla uppdateringstoken och ersätta den med den nya uppdateringstoken. Auktoriseringsservern KAN återkalla den gamla uppdateringstoken efter att ha utfärdat en ny uppdateringstoken till klienten."
 
 ```
 // Line breaks for legibility only
@@ -254,7 +254,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!TIP]
 > Prova att köra denna begäran i Postman! (Glöm inte att ersätta `refresh_token`) [Prova att köra den här begäran i Postman ![](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
-> 
+>
 
 | Parameter     |                | Beskrivning        |
 |---------------|----------------|--------------------|

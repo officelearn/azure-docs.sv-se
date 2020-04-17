@@ -13,12 +13,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: e8c890a6daf2411b09162ab0072aed594820b936
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: aae1b8aa27363e8f1d3c72d3934146c47b0cf2c9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886355"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535901"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Utvecklarvägledning för Azure Active Directory Villkorlig åtkomst
 
@@ -59,12 +59,12 @@ Beroende på scenariot kan en företagskund tillämpa och ta bort principer för
 
 Vissa scenarier kräver kodändringar för att hantera villkorlig åtkomst medan andra fungerar som de är. Här är några scenarier med villkorlig åtkomst för att göra multifaktorautentisering som ger en inblick i skillnaden.
 
-* Du skapar en iOS-app med en klient och tillämpar en princip för villkorlig åtkomst. Appen loggar in en användare och begär inte åtkomst till ett API. När användaren loggar in anropas principen automatiskt och användaren måste utföra MFA (Multifaktorautentisering). 
+* Du skapar en iOS-app med en klient och tillämpar en princip för villkorlig åtkomst. Appen loggar in en användare och begär inte åtkomst till ett API. När användaren loggar in anropas principen automatiskt och användaren måste utföra MFA (Multifaktorautentisering).
 * Du skapar en inbyggd app som använder en tjänst på mellannivå för att komma åt ett efterföljande API. En företagskund på företaget som använder den här appen tillämpar en princip på API:et i efterföljande led. När en slutanvändare loggar in begär den inbyggda appen åtkomst till mellannivån och skickar token. Den mellersta nivån utför för-på-av flödet för att begära åtkomst till nedströms API. Vid denna punkt, en fordran "utmaning" presenteras för den mellersta nivån. Den mellersta nivån skickar tillbaka utmaningen till den inbyggda appen, som måste följa principen villkorlig åtkomst.
 
 #### <a name="microsoft-graph"></a>Microsoft Graph
 
-Microsoft Graph har särskilda överväganden när du skapar appar i miljöer med villkorlig åtkomst. I allmänhet fungerar mekaniken för villkorlig åtkomst på samma sätt, men de principer som användarna ser baseras på de underliggande data som appen begär från diagrammet. 
+Microsoft Graph har särskilda överväganden när du skapar appar i miljöer med villkorlig åtkomst. I allmänhet fungerar mekaniken för villkorlig åtkomst på samma sätt, men de principer som användarna ser baseras på de underliggande data som appen begär från diagrammet.
 
 Specifikt representerar alla Microsoft Graph-scope en viss datauppsättning som kan tillämpas individuellt. Eftersom principer för villkorlig åtkomst tilldelas specifika datauppsättningar kommer Azure AD att tillämpa principer för villkorlig åtkomst baserat på data bakom Graph – i stället för Själva graph.
 
@@ -74,13 +74,13 @@ Om en app till exempel begär följande Microsoft Graph-scope
 scopes="Bookings.Read.All Mail.Read"
 ```
 
-En app kan förvänta sig att användarna uppfyller alla policyer som anges i Bokningar och Exchange. Vissa scope kan mappas till flera datauppsättningar om de ger åtkomst. 
+En app kan förvänta sig att användarna uppfyller alla policyer som anges i Bokningar och Exchange. Vissa scope kan mappas till flera datauppsättningar om de ger åtkomst.
 
 ### <a name="complying-with-a-conditional-access-policy"></a>Följa en princip för villkorlig åtkomst
 
 För flera olika apptopologier utvärderas en princip för villkorlig åtkomst när sessionen upprättas. När en princip för villkorlig åtkomst fungerar på detaljerna i appar och tjänster beror den punkt där den anropas i hög grad på vilket scenario du försöker uppnå.
 
-När din app försöker komma åt en tjänst med en princip för villkorlig åtkomst kan den stöta på en utmaning för villkorlig åtkomst. Den här utmaningen kodas i parametern `claims` som kommer i ett svar från Azure AD. Här är ett exempel på den här utmaningsparametern: 
+När din app försöker komma åt en tjänst med en princip för villkorlig åtkomst kan den stöta på en utmaning för villkorlig åtkomst. Den här utmaningen kodas i parametern `claims` som kommer i ett svar från Azure AD. Här är ett exempel på den här utmaningsparametern:
 
 ```
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
@@ -106,7 +106,7 @@ I följande avsnitt beskrivs vanliga scenarier som är mer komplexa. Den grundl�
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scenario: App som utför flödet för den skull
 
-I det här fallet går vi igenom det fall där en inbyggd app anropar en webbtjänst/ETT-API. I sin tur gör den här tjänsten "för"-för-på"-flödet för att anropa en nedströmstjänst. I vårt fall har vi tillämpat vår policy för villkorlig åtkomst på nedströmstjänsten (Webb-API 2) och använder en inbyggd app i stället för en server/daemon-app. 
+I det här fallet går vi igenom det fall där en inbyggd app anropar en webbtjänst/ETT-API. I sin tur gör den här tjänsten "för"-för-på"-flödet för att anropa en nedströmstjänst. I vårt fall har vi tillämpat vår policy för villkorlig åtkomst på nedströmstjänsten (Webb-API 2) och använder en inbyggd app i stället för en server/daemon-app.
 
 ![App som utför flödesdiagrammet för den skull](./media/v2-conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -175,7 +175,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 Vår app måste `error=interaction_required`fånga . Programmet kan sedan `acquireTokenPopup()` använda `acquireTokenRedirect()` antingen eller på samma resurs. Användaren är tvungen att göra en multifaktorautentisering. När användaren har slutfört multifaktorautentiseringen får appen en ny åtkomsttoken för den begärda resursen.
 
-För att prova det här scenariot, se vår [JS SPA På uppdrag av kodexempel](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). Det här kodexemplet använder principen villkorlig åtkomst och webb-API som du registrerade tidigare med ett JS SPA för att demonstrera det här scenariot. Den visar hur du hanterar anspråksutmaningen på rätt sätt och får en åtkomsttoken som kan användas för webb-API:et. Alternativt kan du checka ut det allmänna [kodexemplet Angular.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) för vägledning om ett vinkelspa
+För att prova det här scenariot, se vår [JS SPA På uppdrag av kodexempel](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). Det här kodexemplet använder principen villkorlig åtkomst och webb-API som du registrerade tidigare med ett JS SPA för att demonstrera det här scenariot. Den visar hur du hanterar anspråksutmaningen på rätt sätt och får en åtkomsttoken som kan användas för ditt webb-API. Alternativt kan du checka ut det allmänna [kodexemplet Angular.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) för vägledning om ett vinkelspa
 
 ## <a name="see-also"></a>Se även
 

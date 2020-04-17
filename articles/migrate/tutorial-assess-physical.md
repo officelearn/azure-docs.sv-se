@@ -2,21 +2,21 @@
 title: Utvärdera fysiska servrar för migrering till Azure med Azure Migrate Server Assessment
 description: Beskriver hur du bedömer lokala fysiska servrar för migrering till Azure med Azure Migrate Server Assessment.
 ms.topic: tutorial
-ms.date: 11/18/2019
-ms.openlocfilehash: c89c731712a625e5f3b7a1a7e9306f6a7480b96b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/15/2020
+ms.openlocfilehash: b36cba18bd154cd5d14e16a9f8bf85cda6bf87a8
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76990308"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535442"
 ---
-# <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Utvärdera fysiska servrar med Azure Migrate: Serverutvärdering
+# <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Utvärdera fysiska servrar med Azure Migrate:Server Assessment
 
-Den här artikeln visar hur du bedömer lokala fysiska servrar med hjälp av verktyget Azure Migrate: Server Assessment.
+Den här artikeln visar hur du bedömer lokala fysiska servrar med hjälp av verktyget Azure Migrate:Server Assessment.
 
 [Azure Migrate](migrate-services-overview.md) innehåller ett nav med verktyg som hjälper dig att identifiera, bedöma och migrera appar, infrastruktur och arbetsbelastningar till Microsoft Azure. Navet innehåller Azure Migrate-verktyg och ISV-erbjudanden (Independent Software Vendor) från tredje part.
 
-Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar fysiska servrar till Azure. I den här självstudiekursen får du lära du dig att:
+Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar fysiska servrar till Azure. I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Konfigurera ett Azure Migrate-projekt.
 > * Konfigurera en Azure Migrate-installation som körs lokalt för att bedöma fysiska servrar.
@@ -34,8 +34,10 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 - [Slutför](tutorial-prepare-physical.md) den första självstudien i den här serien. Om du inte gör det kommer instruktionerna i den här självstudien inte att fungera.
 - Här är vad du borde ha gjort i den första handledningen:
-    - [Konfigurera Azure-behörigheter](tutorial-prepare-physical.md#prepare-azure) för Azure Migrate.
+    - [Konfigurera Azure-behörigheter](tutorial-prepare-physical.md) för Azure Migrate.
     - [Förbered fysiska servrar](tutorial-prepare-physical.md#prepare-for-physical-server-assessment) för bedömning. Apparatkraven bör kontrolleras. Du bör också ha ett konto konfigurerat för fysisk serveridentifiering. Obligatoriska portar bör vara tillgängliga och du bör vara medveten om de webbadresser som behövs för åtkomst till Azure.
+
+
 
 
 ## <a name="set-up-an-azure-migrate-project"></a>Konfigurera ett Azure Migrate-projekt
@@ -49,8 +51,8 @@ Konfigurera ett nytt Azure Migrate-projekt enligt följande.
     ![Upptäck och utvärdera servrar](./media/tutorial-assess-physical/assess-migrate.png)
 
 4. I **Komma igång** klickar du på **Lägg till verktyg**.
-5. I **Migrera projekt** väljer du din Azure-prenumeration och skapar en resursgrupp om du inte har någon.     
-6. Ange projektnamnet och den geografi där du vill skapa projektet i **Projektinformation.** Asien, Europa, Storbritannien och USA stöds.
+5. I **Migrera projekt** väljer du din Azure-prenumeration och skapar en resursgrupp om du inte har någon.  
+6. Ange projektnamnet och den geografi där du vill skapa projektet i **Projektinformation.** Granska geografiska områden som stöds för [offentliga](migrate-support-matrix.md#supported-geographies-public-cloud) och [statliga moln](migrate-support-matrix.md#supported-geographies-azure-government).
 
     - Projektets geografi används endast för att lagra metadata som samlats in från lokala servrar.
     - Du kan välja vilken målregion du vill när du kör en migrering.
@@ -96,16 +98,24 @@ Ladda ner den zippade filen för apparaten.
 Kontrollera att den zippade filen är säker innan du distribuerar den.
 
 1. Öppna ett kommandofönster för administratör på den dator som du laddade ned filen till.
-2. Kör följande kommando för att generera hash för den zippade filen
+2. Kör följande kommando för att generera hash för den zippade filen:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exempel på användning: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
+    - Exempel på användning för offentligt moln:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+    - Exempel på användning för myndighetsmoln:```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
+3.  Verifiera hash-värden:
+ 
+    - För det offentliga molnet (för den senaste installationen):
 
-3.  För den senaste installationen version bör den genererade hash matcha dessa inställningar.
+        **Algoritm** | **Hash-värde**
+          --- | ---
+          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
+          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
 
-  **Algoritm** | **Hash-värde**
-  --- | ---
-  MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-  SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+    - För Azure-myndighet (för den senaste installationen):
+
+        **Algoritm** | **Hash-värde**
+          --- | ---
+          MD5 | f81c155fc4a1409901caea948713913f
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Köra Azure Migrate-installationsskriptet
 
@@ -116,28 +126,26 @@ Installationsskriptet gör följande:
 - Ladda ner och installerar en IIS rewritable modul. [Läs mer](https://www.microsoft.com/download/details.aspx?id=7435).
 - Uppdaterar en registernyckel (HKLM) med beständig inställningsinformation för Azure Migrate.
 - Skapar följande filer under sökvägen:
-    - **Config-filer**: %ProgramData%\Microsoft Azure\Config
-    - **Loggfiler**: %ProgramData%\Microsoft Azure\Loggar
+    - **Config-filer**: %Programdata%\Microsoft Azure\Config
+    - **Loggfiler**: %Programdata%\Microsoft Azure\Loggar
 
 Kör skriptet på följande sätt:
 
-1. Extrahera den zippade filen till en mapp på servern som ska vara värd för apparaten.
+1. Extrahera den zippade filen till en mapp på servern som ska vara värd för apparaten.  Kontrollera att du inte kör skriptet på en dator på en befintlig Azure Migrate-installation.
 2. Starta PowerShell på ovanstående server med administrativ (förhöjd) behörighet.
 3. Ändra PowerShell-katalogen till mappen där innehållet har extraherats från den nedladdade zippade filen.
 4. Kör skriptet **AzureMigrateInstaller.ps1** genom att köra följande kommando:
-    ```
-    PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
-    ```
-Skriptet startar programmet för apparat när det är klart.
 
-Vid eventuella problem kan du komma åt skriptloggarna på C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>tidsstämpel</em>.log för felsökning.
+    - För det offentliga molnet:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
+    - För Azure Government:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
 
-> [!NOTE]
-> Kör inte azure migrate-installationsskriptet på en befintlig Azure Migrate-installation.
+    Skriptet startar programmet för apparat när det är klart.
+
+Om du stöter på några problem kan du komma åt skriptloggarna på C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>tidsstämpel</em>.log för felsökning.
 
 ### <a name="verify-appliance-access-to-azure"></a>Verifiera åtkomst till Azure
 
-Se till att installationen kan ansluta till [Azure-url:er](migrate-appliance.md#url-access).
+Se till att installationen kan ansluta till Azure-url:er för [offentliga](migrate-appliance.md#public-cloud-urls) moln och [myndighetsmoln.](migrate-appliance.md#government-cloud-urls)
 
 
 ### <a name="configure-the-appliance"></a>Konfigurera apparaten
@@ -161,7 +169,7 @@ Ställ in apparaten för första gången.
 1. Klicka på **Logga in**. Om den inte visas kontrollerar du att du har inaktiverat popup-blockeraren i webbläsaren.
 2. Logga in med dina Azure-autentiseringsuppgifter på den nya fliken.
     - Logga in med ditt användarnamn och lösenord.
-    - Inloggning med en PIN-kod stöds inte.
+    - Logga in med en PIN-kod stöds inte.
 3. När du har loggat in går du tillbaka till webbappen.
 4. Välj den prenumeration där Azure Migrate-projektet skapades. Välj sedan projektet.
 5. Ange ett namn på apparaten. Namnet ska vara alfanumeriskt med högst 14 tecken.
@@ -173,7 +181,7 @@ Ställ in apparaten för första gången.
 Anslut nu från apparaten till de fysiska servrar som ska upptäckas och starta identifieringen.
 
 1. Klicka på **Lägg till autentiseringsuppgifter** om du vill ange vilka kontouppgifter som används för att identifiera servrar.  
-2. Ange **operativsystem ,** eget namn för autentiseringsuppgifter, **användarnamn** och **lösenord** och klicka på **Lägg till**.
+2. Ange **operativsystemet**, ett eget namn för autentiseringsuppgifterna och användarnamn och lösenord. Klicka sedan på **Lägg till**.
 Du kan lägga till en uppsättning autentiseringsuppgifter vardera för Windows- och Linux-servrar.
 4. Klicka på **Lägg till server**och ange serverinformation- FQDN/IP-adress och eget namn på autentiseringsuppgifter (en post per rad) för att ansluta till servern.
 3. Klicka på **Validate** (Validera). Efter valideringen visas listan över servrar som kan identifieras.

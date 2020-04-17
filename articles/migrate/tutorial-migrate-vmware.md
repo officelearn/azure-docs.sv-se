@@ -2,22 +2,22 @@
 title: Migrera virtuella virtuella datorer med VMware-agentlösa Azure Migrerad servermigrering
 description: Lär dig hur du kör en agentlös migrering av virtuella datorer med Virtuella datorer med Azure Migrate.
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 825d6ff16a1f51fa476541ee10fea5f8a1c2972e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4612c9b0ea2ef8d53b0c04f47628f3789705d833
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78304216"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535323"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrera virtuella virtuella datorer med VMware till Azure (agentless)
 
 Den här artikeln visar hur du migrerar lokala virtuella datorer med VMware till Azure med hjälp av agentlös migrering med verktyget Migrera server för Azure.This article shows how to migrate on-premises VMware VMs to Azure, using agentless migration with the Azure Migrate Server Migration tool.
 
-[Azure Migrate](migrate-services-overview.md) är en central hubb för att spåra identifiering, utvärdering och migrering av dina lokala appar och arbetsbelastningar samt AWS/GCP VM-instanser till Azure. Hubben tillhandahåller Azure Migrate-verktyg för utvärdering och migrering samt ISV-erbjudanden (Independent Software Vendor) från tredje part.
+[Azure Migrate](migrate-services-overview.md) tillhandahåller en central hubb för att spåra identifiering, utvärdering och migrering av dina lokala appar och arbetsbelastningar och AWS/GCP VM-instanser till Azure. Hubben tillhandahåller Azure Migrate-verktyg för utvärdering och migrering samt ISV-erbjudanden (Independent Software Vendor) från tredje part.
 
-Den här självstudien är den tredje i en serie som visar hur du bedömer och migrerar virtuella virtuella datorer med VMware till Azure med Azure Migrate Server Assessment and Migration. I den här självstudiekursen får du lära du dig att:
+Den här självstudien är den tredje i en serie som visar hur du bedömer och migrerar virtuella virtuella datorer med VMware till Azure med Azure Migrate Server Assessment and Migration. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Förbered virtuella datorer för migrering.
@@ -55,9 +55,12 @@ Innan du börjar de här självstudierna bör du:
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>Lägga till verktyget migrera server för Azure-migrera server
 
-Om du inte följde den andra självstudien för att bedöma virtuella datorer med VMware måste du [följa dessa instruktioner](how-to-add-tool-first-time.md) som konfigurerar ett Azure Migrate-projekt och välja verktyget Azure Migrate Server Migration. 
+Lägg till verktyget Azure Migrate:Server Migration.
 
-Om du har följt den andra självstudien och redan har konfigurerat ett Azure Migrate-projekt lägger du till verktyget För migrera server på följande sätt:
+- Om du följde den andra handledningen för att bedöma virtuella datorer med [VMware](/tutorial-assess-vmware.md)kan du lägga till verktyget.
+- Om du inte följde den andra självstudien [följer du dessa instruktioner](how-to-add-tool-first-time.md) för att konfigurera ett Azure Migrate-projekt.  Du lägger till verktyget Azure Migrate:Server Migration när du skapar projektet.
+
+Om du har konfigurerat ett projekt lägger du till verktyget på följande sätt:
 
 1. Klicka på **Översikt**i Azure Migrate-projektet . 
 2. Klicka på Utvärdera och migrera servrar i **identifiera, bedöma och migrera** **servrar.**
@@ -70,19 +73,18 @@ Om du har följt den andra självstudien och redan har konfigurerat ett Azure Mi
 
 4. Välj **Azure Migrate: Servermigreringstillägg** > **Add tool** i verktygslistan
 
-    ![Verktyget Servermigrering](./media/tutorial-migrate-vmware/server-migration-tool.png)
+    ![Verktyg för servermigrering](./media/tutorial-migrate-vmware/server-migration-tool.png)
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Konfigurera Azure Migrate-enheten
 
-Azure Migrate Server Migration kör en lätt VMware VM-apparat. Installationen av virtuella datorer utför vm-identifiering och skickar VM-metadata och prestandadata till Azure Migrate Server Migration. Samma installation används också av verktyget Azure Migrate Server Assessment.
+Azure Migrate Server Migration kör en lätt VMware VM-apparat. Installationen av virtuella datorer utför vm-identifiering och skickar VM-metadata och prestandadata till Azure Migrate:Server Migration. Samma apparat används också av verktyget Azure Migrate:Server Assessment för att utföra agentlös migrering av virtuella datorer med VMware.
 
-Om du följde den andra självstudien för att bedöma virtuella datorer med VMware har du redan ställt in apparaten under den självstudien. Om du inte följde den självstudien måste du konfigurera apparaten nu. För att göra detta, du: 
+- Om du har följt [självstudien för att bedöma virtuella virtuella datorer med VMware](tutorial-assess-vmware.md)har du redan ställt in apparaten under den självstudien.
+- Om du inte följde den självstudien kan du ställa in apparaten nu med någon av följande metoder:
+    - [Konfigurera](how-to-set-up-appliance-vmware.md) på en virtuell virtuell VMware-dator med hjälp av en nedladdad OVA-mall.
+    - Konfigurera på en virtuell virtuell dator eller en fysisk dator med ett PowerShell-installationsskript. [Den här metoden](deploy-appliance-script.md) bör användas om du inte kan konfigurera en virtuell dator med hjälp av en OVA-mall eller om du är i Azure-myndighet.
 
-- Hämta en OVA-mallfil och importera den till vCenter Server.
-- Skapa installationen och kontrollera att den kan ansluta till Azure Migrate Server Assessment. 
-- Konfigurera installationen för första gången och registrera den med Azure Migrate-projektet.
-
-Följ instruktionerna i [den här artikeln](how-to-set-up-appliance-vmware.md) för att ställa in apparaten.
+När du har skapat installationen kontrollerar du att den kan ansluta till Azure Migrate:Server Assessment, konfigurera den för första gången och registrera den med Azure Migrate-projektet.
 
 
 ## <a name="prepare-vms-for-migration"></a>Förbereda virtuella datorer för migrering

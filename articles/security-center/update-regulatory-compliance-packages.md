@@ -1,6 +1,6 @@
 ---
 title: Så här uppdaterar du till dynamisk efterlevnadsövervakning i instrumentpanelen för regelefterlevnad i Azure Security Center | Microsoft-dokument
-description: Uppdatera dina regelefterlevnadspaket (förhandsversion)
+description: Uppdatera dina regelefterlevnadspaket
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 4080825bbb1f6c274f5b5aafd28e8c672148b98f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa5027ed285456247891c84e559b74a14237f553
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80159293"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537788"
 ---
-# <a name="update-to-dynamic-compliance-packages-in-your-regulatory-compliance-dashboard-preview"></a>Uppdatera till dynamiska efterlevnadspaket på instrumentpanelen för regelefterlevnad (förhandsversion)
+# <a name="update-to-dynamic-compliance-packages-in-your-regulatory-compliance-dashboard"></a>Uppdatera till dynamiska efterlevnadspaket på instrumentpanelen för regelefterlevnad
 
 Azure Security Center jämför kontinuerligt konfigurationen av dina resurser med krav i branschstandarder, föreskrifter och riktmärken. **Instrumentpanelen för regelefterlevnad** ger insikter om din efterlevnadsposition baserat på hur du uppfyller specifika efterlevnadskontroller och krav.
 
@@ -28,7 +28,7 @@ En standard som du kan spåra din efterlevnadsposition för är [Azure CIS 1.1.0
 
 Representationen av Azure CIS som ursprungligen visas i instrumentpanelen för efterlevnad är beroende av en statisk uppsättning regler som ingår i Security Center.
 
-Med funktionen **dynamiska efterlevnadspaket (förhandsversion)** förbättrar Security Center automatiskt sin täckning av branschstandarder över tid. Efterlevnadspaket är i huvudsak initiativ som definieras i Azure Policy. De kan tilldelas till ditt valda scope (prenumeration, hanteringsgrupp och så vidare). Om du vill se efterlevnadsdata mappade som utvärderingar på instrumentpanelen lägger du till ett efterlevnadspaket i din hanteringsgrupp eller prenumeration från säkerhetspolicyn. Om du lägger till ett efterlevnadspaket tilldelas initiativet för regelefterlevnad effektivt ditt valda scope. På så sätt kan du spåra nyligen publicerade lagstiftningsinitiativ som efterlevnadsstandarder i instrumentpanelen. När Microsoft släpper nytt innehåll för initiativet (nya principer som mappar till fler kontroller i standarden) visas det ytterligare innehållet automatiskt på instrumentpanelen.
+Med funktionen **för dynamiska efterlevnadspaket** förbättrar Security Center automatiskt sin täckning av branschstandarder över tid. Efterlevnadspaket är i huvudsak initiativ som definieras i Azure Policy. De kan tilldelas till ditt valda scope (prenumeration, hanteringsgrupp och så vidare). Om du vill se efterlevnadsdata mappade som utvärderingar på instrumentpanelen lägger du till ett efterlevnadspaket i din hanteringsgrupp eller prenumeration från säkerhetspolicyn. Om du lägger till ett efterlevnadspaket tilldelas initiativet för regelefterlevnad effektivt ditt valda scope. På så sätt kan du spåra nyligen publicerade lagstiftningsinitiativ som efterlevnadsstandarder i instrumentpanelen. När Microsoft släpper nytt innehåll för initiativet (nya principer som mappar till fler kontroller i standarden) visas det ytterligare innehållet automatiskt på instrumentpanelen.
 
 Det dynamiska efterlevnadspaketet för Azure CIS-riktmärket, **Azure CIS 1.1.0 (ny),** förbättrar den ursprungliga *statiska* versionen genom att:
 
@@ -47,7 +47,7 @@ I följande steg beskrivs hur du lägger till det dynamiska paketet för att öv
 
 1. Välj den prenumeration eller hanteringsgrupp som du vill hantera regelefterlevnadspositionen för. Vi rekommenderar att du väljer det högsta scope som standarden är tillämplig på så att efterlevnadsdata aggregeras och spåras för alla kapslade resurser. 
 
-1. I avsnittet Bransch & regulatoriska standarder (förhandsversion) ser du att Azure CIS 1.1.0 kan uppdateras för nytt innehåll. Klicka på **Uppdatera nu**. 
+1. I avsnittet Bransch & regulatoriska standarder ser du att Azure CIS 1.1.0 kan uppdateras för nytt innehåll. Klicka på **Uppdatera nu**. 
 
 1. Du kan också klicka på **Lägg till fler standarder** för att öppna sidan Lägg till efterlevnadsstandarder för **regelefterlevnad.** Där kan du söka manuellt efter **Azure CIS 1.1.0 (Nya)** och dynamiska paket för andra efterlevnadsstandarder som **NIST SP 800-53 R4**, **SWIFT CSP CSCF-v2020,** **UKO och UK NHS**och Canada **PBMM**.
     

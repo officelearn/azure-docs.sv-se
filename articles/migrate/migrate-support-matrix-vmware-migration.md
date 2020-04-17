@@ -2,13 +2,13 @@
 title: Stöd för VMware-migrering i Azure Migrate
 description: Läs mer om stöd för VMware VM-migrering i Azure Migrate.
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: bf9cc471eef31edd513358a97d2ece17015ba781
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.date: 04/15/2020
+ms.openlocfilehash: eee16b244ae4f9d517bdd42a0b7f37b1494ac480
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81314001"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538145"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Stödmatris för VMware-migrering
 
@@ -64,10 +64,12 @@ Läs [den här artikeln](server-migrate-overview.md) för att ta reda på vilken
 
 
 ## <a name="agentless-azure-migrate-appliance"></a>Agentless-Azure Migrera-apparat 
-Agentless migrering använder Azure Migrate-enheten, som distribueras på en virtuell VMware-dator.
+
+Agentless migrering använder [Azure Migrate-enheten](migrate-appliance.md). Du kan distribuera enheten som en VMWare-vm med en OVA-mall, importerad till vCenter Server eller med ett [PowerShell-skript](deploy-appliance-script.md).
 
 - Läs mer om [apparatkrav](migrate-appliance.md#appliance---vmware) för VMware.
-- Läs mer om [webbadresser](migrate-appliance.md#url-access) som apparaten behöver komma åt.
+- Läs mer om webbadresser som apparaten behöver komma åt i [offentliga](migrate-appliance.md#public-cloud-urls) moln och [myndighetsmoln.](migrate-appliance.md#government-cloud-urls)
+- I Azure Government måste du distribuera enheten med skriptet.
 
 ## <a name="agentless-ports"></a>Agentless-portar
 
@@ -123,7 +125,8 @@ När du konfigurerar replikeringsverktyget med hjälp av OVA-mallen som finns i 
 
 - Läs mer om [krav på replikeringsinstallationer](migrate-replication-appliance.md#appliance-requirements) för VMware.
 - MySQL måste installeras på apparaten. Läs mer om [installationsalternativ](migrate-replication-appliance.md#mysql-installation).
-- Läs mer om [webbadresser](migrate-replication-appliance.md#url-access) och [portar](migrate-replication-appliance.md#port-access) som replikeringsverktyget behöver komma åt.
+- Lär dig mer om webbadresser som replikeringsverktyget behöver komma åt i [offentliga](migrate-replication-appliance.md#url-access) moln och [myndighetsmoln.](migrate-replication-appliance.md#azure-government-url-access)
+- Granska de [portar](migrate-replication-appliance.md#port-access) som replikeringsverktyget behöver komma åt.
 
 ## <a name="agent-based-ports"></a>Agentbaserade portar
 

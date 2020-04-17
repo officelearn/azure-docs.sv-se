@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: c606f6e60b1c906a0d5c29992287d126aaa37b7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1fd22772e72cba4cce3f9fa2751dc0df0e15bb9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77602935"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535606"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Så använder du Azure WebJobs SDK för händelsedriven bakgrundsbearbetning
 
@@ -155,14 +155,14 @@ Automatiska utlösare anropar en funktion som svar på en händelse. Tänk på d
 ```cs
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
-    [Blob("samples-workitems/{myQueueItem}", FileAccess.Read)] Stream myBlob,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
     ILogger log)
 {
     log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 ```
 
-Attributet `QueueTrigger` talar om för körningen att anropa funktionen `myqueue-items` när ett kömeddelande visas i kön. Attributet `Blob` talar om för körningen att använda kömeddelandet för att läsa en blob i *exempelarbetsplatsbehållaren.* Innehållet i kömeddelandet, som skickas in `myQueueItem` till funktionen i parametern, är namnet på bloben.
+Attributet `QueueTrigger` talar om för körningen att anropa funktionen `myqueue-items` när ett kömeddelande visas i kön. Attributet `Blob` talar om för körningen att använda kömeddelandet för att läsa en blob i *exempelarbetsplatsbehållaren.* Namnet på blob-objektet `samples-workitems` i behållaren hämtas direkt från köutlösaren som ett bindningsuttryck (`{queueTrigger}`).
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
@@ -829,7 +829,7 @@ Varje logg som `ILogger` skapas `Category` av `Level`en instans har en associera
 |Varning     | 3 |
 |Fel       | 4 |
 |Kritisk    | 5 |
-|Inget        | 6 |
+|Ingen        | 6 |
 
 Du kan filtrera varje kategori [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel)oberoende av varandra till en viss . Du kanske till exempel vill se alla loggar för `Error` blob-utlösare bearbetning men bara och högre för allt annat.
 

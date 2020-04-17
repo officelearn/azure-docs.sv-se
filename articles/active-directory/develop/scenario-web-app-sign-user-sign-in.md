@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 317ca55adb9f680dc93343a185395abad08889da
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 2ab5697ceff612e65174fdb7f9ef6137e2c8b9a5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80881323"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537074"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Webbapp som loggar in användare: Logga in och logga ut
 
@@ -205,7 +205,7 @@ När användaren har loggat in på din app vill du att de ska logga ut.
 ## <a name="sign-out"></a>Logga ut
 
 Att logga ut från en webbapp innebär mer än att ta bort informationen om det inloggade kontot från webbappens tillstånd.
-Webbappen måste också omdirigera användaren till `logout` slutpunkten för Microsoft-identitetsplattformen för att kunna logga ut. 
+Webbappen måste också omdirigera användaren till `logout` slutpunkten för Microsoft-identitetsplattformen för att kunna logga ut.
 
 När webbappen omdirigerar användaren `logout` till slutpunkten rensar den här slutpunkten användarens session från webbläsaren. Om appen inte gick till `logout` slutpunkten kommer användaren att oma till din app utan att ange sina autentiseringsuppgifter igen. Anledningen är att de har en giltig enstaka inloggningssession med slutpunkten för Microsoft-identitetsplattformen.
 
@@ -306,7 +306,7 @@ I snabbstarten Python finns ut logga ut-knappen i [filen templates/index.html#L1
     <meta charset="UTF-8">
 </head>
 <body>
-    <h1>Microsoft Identity Python Web App</h1>
+    <h1>Microsoft Identity Python web app</h1>
     Welcome {{ user.get("name") }}!
     <li><a href='/graphcall'>Call Microsoft Graph API</a></li>
     <li><a href="/logout">Logout</a></li>

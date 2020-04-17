@@ -2,21 +2,26 @@
 title: Konfigurera en Azure Migrate-installation för VMware
 description: Lär dig hur du konfigurerar en Azure Migrera-installation för att bedöma och migrera virtuella virtuella datorer med VMware.
 ms.topic: article
-ms.date: 03/23/2020
-ms.openlocfilehash: 7a7d0007d2824abc781411f9529f9fa4ac89e55c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: b32c6a9b703e4d341fe353d6b472ea7a18adadf3
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336793"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538264"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Konfigurera en apparat för virtuella datorer med VMware
 
-I den hÃ¤r artikeln beskrivs hur du konfigurerar Azure Migrate-anordningen fÃ¤r utvärdering med verktyget [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) och för agentless migration med verktyget [Azure Migrate:Server Migration.](migrate-services-overview.md#azure-migrate-server-migration-tool)
+Följ den här artikeln om du vill konfigurera Azure Migrate-enheten för bedömning med verktyget [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) och för agentlös migrering med verktyget [Azure Migrate:Server Migration.](migrate-services-overview.md#azure-migrate-server-migration-tool)
 
 [Azure Migrate-installationen](migrate-appliance.md) är en lättinstallation som används av Azure Migrate:Server Assessment and Server Migration för att identifiera lokala virtuella datorer med VMware, skicka VM-metadata/prestandadata till Azure och för replikering av virtuella datorer med VMware under agentlös migrering.
 
-Du kan konfigurera Azure Migrate-enheten för VMware VM-utvärdering med hjälp av en OVA-mall som du hämtar eller med hjälp av ett PowerShell-installationsskript. I den här artikeln beskrivs hur du ställer in apparaten med hjälp av OVA-mallen. Om du vill konfigurera apparaten med skriptet följer du instruktionerna i den [här artikeln](deploy-appliance-script.md).
+Du kan distribuera apparaten med ett par metoder:
+
+- Konfigurera på en virtuell virtuell VMware-dator med hjälp av en nedladdad OVA-mall. Detta är den metod som beskrivs i den här artikeln.
+- Konfigurera på en virtuell virtuell dator eller en fysisk dator med ett PowerShell-installationsskript. [Den här metoden](deploy-appliance-script.md) bör användas om du inte kan konfigurera en virtuell dator med hjälp av en OVA-mall eller om du är i Azure-myndighet.
+
+När du har skapat installationen kontrollerar du att den kan ansluta till Azure Migrate:Server Assessment, konfigurera den för första gången och registrera den med Azure Migrate-projektet.
 
 
 ## <a name="appliance-deployment-ova"></a>Distribution av apparater (OVA)
@@ -62,9 +67,9 @@ Importera den hämtade filen och skapa en virtuell dator.
 9. Granska och bekräfta inställningarna. Klicka sedan på **Slutför**.
 
 
-### <a name="verify-appliance-access-to-azure"></a>Verifiera åtkomst till Azure
+## <a name="verify-appliance-access-to-azure"></a>Verifiera åtkomst till Azure
 
-Se till att den virtuella datorn för den virtuella enheten kan ansluta till [Azure-url:er](migrate-appliance.md#url-access).
+Se till att den virtuella datorn för den virtuella enheten kan ansluta till Azure-url:er för [offentliga](migrate-appliance.md#public-cloud-urls) moln och [myndighetsmoln.](migrate-appliance.md#government-cloud-urls)
 
 
 ## <a name="configure-the-appliance"></a>Konfigurera apparaten

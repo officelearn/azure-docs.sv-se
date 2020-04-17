@@ -318,8 +318,6 @@
               href: app/pre-aggregated-metrics-log-metrics.md
             - name: Loggbaserade måttdefinitioner
               href: platform/app-insights-metrics.md
-            - name: Klassiska Metrics Explorer
-              href: app/metrics-explorer.md
         - name: Search
           href: app/diagnostic-search.md
         - name: Profilerare

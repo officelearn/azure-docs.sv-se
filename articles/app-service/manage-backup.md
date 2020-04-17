@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 783737729601bfef3bee8741a097d4319349f18e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b812ae10b3462dbeff05c8a67e7ebb725281e7e8
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79259336"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535765"
 ---
 # <a name="back-up-your-app-in-azure"></a>Säkerhetskopiera din app i Azure
 Med funktionen Säkerhetskopiering och återställning i [Azure App Service](overview.md) kan du enkelt skapa appsäkerhetskopior manuellt eller enligt ett schema. Du kan konfigurera säkerhetskopiorna så att de behålls upp till en obestämd tid. Du kan återställa appen till en ögonblicksbild av ett tidigare tillstånd genom att skriva över den befintliga appen eller återställa till en annan app.
@@ -44,8 +44,8 @@ Följande databaslösningar stöds med säkerhetskopieringsfunktionen:
 * Funktionen Säkerhetskopiering och återställning kräver att App Service-planen finns på **standardnivån** eller **Premium-nivån.** Mer information om hur du skalar apptjänstplanen så att den använder en högre nivå finns [i Skala upp en app i Azure](manage-scale-up.md). **Premium-nivån** tillåter ett större antal dagliga säkerhetskopieringar än **standardnivå.**
 * Du behöver ett Azure-lagringskonto och en behållare i samma prenumeration som appen som du vill säkerhetskopiera. Mer information om Azure-lagringskonton finns i [Översikt över Azure storage-konto](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 * Säkerhetskopior kan vara upp till 10 GB app- och databasinnehåll. Om säkerhetskopieringsstorleken överskrider den här gränsen får du ett felmeddelande.
-* Säkerhetskopieringar av SSL-aktiverad Azure-databas för MySQL stöds inte. Om en säkerhetskopia har konfigurerats får du misslyckade säkerhetskopior.
-* Säkerhetskopieringar av SSL-aktiverad Azure-databas för PostgreSQL stöds inte. Om en säkerhetskopia har konfigurerats får du misslyckade säkerhetskopior.
+* Säkerhetskopieringar av TLS-aktiverade Azure Database för MySQL stöds inte. Om en säkerhetskopia har konfigurerats får du misslyckade säkerhetskopior.
+* Säkerhetskopior av TLS-aktiverad Azure-databas för PostgreSQL stöds inte. Om en säkerhetskopia har konfigurerats får du misslyckade säkerhetskopior.
 * MySQL-databaser i appen säkerhetskopieras automatiskt utan någon konfiguration. Om du gör manuellt inställningarna för MySQL-databaser i appen, till exempel lägga till anslutningssträngar, kanske säkerhetskopiorna inte fungerar korrekt.
 * Det går inte att använda ett brandväggsaktiverat lagringskonto som mål för dina säkerhetskopior. Om en säkerhetskopia har konfigurerats får du misslyckade säkerhetskopior.
 

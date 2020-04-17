@@ -12,12 +12,12 @@ ms.date: 10/20/2018
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f3585cfa7ea6f0d8afc61e899f9641d415a2e354
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e0a38eb03df3d1da64172842fb6eca3cd762f9cd
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77161196"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537244"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Signering av nyckelöverrullning i Azure Active Directory
 I den här artikeln beskrivs vad du behöver veta om de offentliga nycklar som används i Azure Active Directory (Azure AD) för att signera säkerhetstoken. Det är viktigt att notera att dessa nycklar rulla över regelbundet och, i en nödsituation, kan rullas över omedelbart. Alla program som använder Azure AD ska kunna hantera nyckelförtrollningsprocessen programmatiskt eller upprätta en periodisk manuell överrullningsprocess. Fortsätt läsa för att förstå hur nycklarna fungerar, hur du bedömer effekten av överrullningen till ditt program och hur du uppdaterar ditt program eller upprättar en periodisk manuell överrullningsprocess för att hantera nyckelvälpning om det behövs.
@@ -239,7 +239,7 @@ namespace JWTValidation
 ```
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2012"></a><a name="vs2012"></a>Webbprogram som skyddar resurser och skapas med Visual Studio 2012
-Om ditt program byggdes i Visual Studio 2012 använde du förmodligen identity and access-verktyget för att konfigurera ditt program. Det är också troligt att du använder [det validerande utfärdarens namnregister (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). VINR ansvarar för att underhålla information om betrodda identitetsleverantörer (Azure AD) och de nycklar som används för att validera token som utfärdats av dem. VINR gör det också enkelt att automatiskt uppdatera den nyckelinformation som lagras i en Web.config-fil genom att hämta det senaste federationsmetadatadokumentet som är associerat med katalogen, kontrollera om konfigurationen är inaktuell med det senaste dokumentet och uppdatera programmet för att använda den nya nyckeln om det behövs.
+Om ditt program byggdes i Visual Studio 2012 använde du förmodligen identity and access-verktyget för att konfigurera ditt program. Det är också troligt att du använder [det validerande utfärdarens namnregister (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). VINR ansvarar för att underhålla information om betrodda identitetsleverantörer (Azure AD) och de nycklar som används för att validera token som utfärdats av dem. VINR gör det också enkelt att automatiskt uppdatera viktig information som lagras i en Web.config-fil genom att hämta det senaste federationsmetadatadokumentet som är associerat med katalogen, kontrollera om konfigurationen är inaktuell med det senaste dokumentet och uppdatera programmet så att det nya nyckeln används efter behov.
 
 Om du har skapat programmet med något av kodexemplen eller genomgången dokumentation som tillhandahålls av Microsoft, finns redan nyckelöverrullningslogiken i projektet. Du kommer att märka att koden nedan redan finns i ditt projekt. Om ditt program inte redan har den här logiken följer du stegen nedan för att lägga till det och för att kontrollera att det fungerar korrekt.
 
@@ -299,7 +299,7 @@ Instruktioner för att använda FedUtil för att uppdatera din konfiguration:
 4. Klicka på **Slutför** om du vill slutföra uppdateringsprocessen.
 
 ### <a name="web-applications--apis-protecting-resources-using-any-other-libraries-or-manually-implementing-any-of-the-supported-protocols"></a><a name="other"></a>Webbprogram/API:er som skyddar resurser med andra bibliotek eller implementerar något av de protokoll som stöds
-Om du använder något annat bibliotek eller har implementerat något av de protokoll som stöds manuellt måste du granska biblioteket eller implementeringen för att säkerställa att nyckeln hämtas från antingen OpenID Connect-identifieringsdokumentet eller federationsmetadata Dokument. Ett sätt att söka efter detta är att göra en sökning i koden eller bibliotekets kod för alla anrop till antingen OpenID-identifieringsdokumentet eller federationsmetadatadokumentet.
+Om du använder något annat bibliotek eller har implementerat något av de protokoll som stöds manuellt måste du granska biblioteket eller implementeringen för att säkerställa att nyckeln hämtas från antingen OpenID Connect-identifieringsdokumentet eller federationsmetadatadokumentet. Ett sätt att söka efter detta är att göra en sökning i koden eller bibliotekets kod för alla anrop till antingen OpenID-identifieringsdokumentet eller federationsmetadatadokumentet.
 
 Om nyckeln lagras någonstans eller hårdkodas i ditt program kan du hämta nyckeln manuellt och uppdatera den därefter genom att utföra en manuell överrullning enligt instruktionerna i slutet av det här vägledningsdokumentet. **Det rekommenderas starkt att du förbättrar ditt program för att stödja automatisk överrullning** med någon av de metoder som beskrivs i den här artikeln för att undvika framtida störningar och omkostnader om Azure AD ökar dess överrullningskadens eller har en nödutrullning utanför bandet.
 
@@ -308,4 +308,3 @@ Du kan verifiera om programmet stöder automatisk nyckelöverrullning genom att 
 
 ## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>Så här utför du en manuell överrullning om programmet inte stöder automatisk överrullning
 Om ditt program **inte** stöder automatisk överrullning måste du upprätta en process som regelbundet övervakar Azure AD:s signeringsnycklar och utför en manuell överrullning i enlighet med detta. [Den här GitHub-databasen](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) innehåller skript och instruktioner om hur du gör detta.
-

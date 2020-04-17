@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2cdf3ff45a400d4b8d0b2605bf7ddc364aff1fe6
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 997dd98d35b74effe5d195f9a781fa0935286ee9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80882394"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537227"
 ---
 # <a name="protected-web-api-app-registration"></a>Skyddat webb-API: Appregistrering
 
@@ -82,9 +82,9 @@ Scope visas också i samtyckesfönstret som visas för användare av din app. S�
     - Välj **Scope-namn** och ange **access_as_user**.
     - Välj **Vem som kan medgivande** och se till att administratörer och **användare** är valda.
     - Välj **Visa namn för administratörsmedgivande** och ange Access **TodoListService som användare**.
-    - Välj **Administratörsmedgivande beskrivning** och ange **Åtkomst till TodoListService Web API som användare**.
+    - Välj **Administratörsmedgivande beskrivning** och ange **Åtkomst till TodoListService-webb-API:et som användare**.
     - Välj **Visningsnamn för användarmedgivande** och ange **Access TodoListService som användare**.
-    - Välj **Beskrivning av användarmedgivande** och ange **Åtkomst till TodoListService Web API som användare**.
+    - Välj **Beskrivning av användarsamtycke** och ange **Åtkomst till TodoListService-webb-API:et som användare**.
     - Behåll **tillståndsvärdet** inställt **på Aktiverat**.
  1. Välj **Lägg till omfattning**.
 

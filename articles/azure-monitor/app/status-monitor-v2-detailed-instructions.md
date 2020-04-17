@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: cd5ca5039b537859d5b31c901ed1f93877ecb629
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a0eb83b4b056230e8e7ef103f220b216fceb9e9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79275729"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537465"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights Agent (tidigare namnet Status Monitor v2): Detaljerade instruktioner
 
@@ -227,7 +227,7 @@ Se [API-referensen](status-monitor-v2-api-enable-monitoring.md) för en detaljer
 
  Visa telemetrin:
 
-- [Utforska mätvärden](../../azure-monitor/app/metrics-explorer.md) för att övervaka prestanda och användning.
+- [Utforska mätvärden](../../azure-monitor/platform/metrics-charts.md) för att övervaka prestanda och användning.
 - [Sök händelser och loggar](../../azure-monitor/app/diagnostic-search.md) för att diagnostisera problem.
 - [Använd Analytics](../../azure-monitor/app/analytics.md) för mer avancerade frågor.
 - [Skapa instrumentpaneler](../../azure-monitor/app/overview-dashboard.md).

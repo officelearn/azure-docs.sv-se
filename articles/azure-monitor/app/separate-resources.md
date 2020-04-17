@@ -3,12 +3,12 @@ title: Separera telemetri i Azure Application Insights
 description: Direkt telemetri till olika resurser för utveckling, test och produktionsstämplar.
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 3580d162f4b3955a04ffcd0f13933221bfef3b65
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 565d51751ad50479f4e227b6855ac63b80bd949e
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671468"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536785"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Separera telemetri från utveckling, test och produktion
 
@@ -69,7 +69,7 @@ Lägg till en application insights-resurs i [portal.azure.com:](https://portal.a
 
 ![Klicka på Nytt, Application Insights](./media/separate-resources/01-new.png)
 
-* **Programtypen** påverkar vad du ser på översiktsbladet och de egenskaper som är tillgängliga i [måttutforskaren](../../azure-monitor/app/metrics-explorer.md). Om du inte ser din typ av app väljer du en av webbtyperna för webbsidor.
+* **Programtypen** påverkar vad du ser på översiktsbladet och de egenskaper som är tillgängliga i [måttutforskaren](../../azure-monitor/platform/metrics-charts.md). Om du inte ser din typ av app väljer du en av webbtyperna för webbsidor.
 * **Resursgrupp** är en bekvämlighet för att hantera egenskaper som [åtkomstkontroll](../../azure-monitor/app/resources-roles-access-control.md). Du kan använda separata resursgrupper för utveckling, test och produktion.
 * **Prenumeration** är ditt betalkonto i Azure.
 * **Plats** är där vi för dina uppgifter. För närvarande kan det inte ändras. 
@@ -89,7 +89,7 @@ Du behöver instrumenteringsnycklarna för alla resurser som appen skickar data 
 ## <a name="filter-on-build-number"></a>Filtrera på byggnummer
 När du publicerar en ny version av appen vill du kunna separera telemetrin från olika versioner.
 
-Du kan ange egenskapen Programversion så att du kan filtrera [sökresultat](../../azure-monitor/app/diagnostic-search.md) [och måttutforskarens](../../azure-monitor/app/metrics-explorer.md) resultat.
+Du kan ange egenskapen Programversion så att du kan filtrera [sökresultat](../../azure-monitor/app/diagnostic-search.md) [och måttutforskarens](../../azure-monitor/platform/metrics-charts.md) resultat.
 
 ![Filtrering på en egenskap](./media/separate-resources/050-filter.png)
 
@@ -139,7 +139,7 @@ Om du vill kunna spåra programversionen, se till att `buildinfo.config` generer
     </PropertyGroup>
 ```
 
-När Application Insights-webbmodulen har fått versionsinformationen läggs **programversionen** automatiskt till som en egenskap för alla telemetriobjekt. Det gör att du kan filtrera baserat på version när du utför [diagnostiksökningar](../../azure-monitor/app/diagnostic-search.md) eller när du [undersöker mätvärden](../../azure-monitor/app/metrics-explorer.md).
+När Application Insights-webbmodulen har fått versionsinformationen läggs **programversionen** automatiskt till som en egenskap för alla telemetriobjekt. Det gör att du kan filtrera baserat på version när du utför [diagnostiksökningar](../../azure-monitor/app/diagnostic-search.md) eller när du [undersöker mätvärden](../../azure-monitor/platform/metrics-charts.md).
 
 Observera dock att versionsnumret för bygget genereras endast av Microsoft Build Engine, inte av utvecklarversionen från Visual Studio.
 

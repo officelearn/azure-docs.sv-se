@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: ac53a6cf6953255f51a6b586703147c5ce2338b6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a34264870ce812da5d7e7c790a1482d90b33d06a
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/16/2020
-ms.locfileid: "81407159"
+ms.locfileid: "81536173"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft i en ASP.NET Core-webbapp
 I den här snabbstarten använder du ett kodexempel för att lära dig hur en ASP.NET Core-webbapp kan logga in på personliga konton (hotmail.com, outlook.com, andra) och arbets- och skolkonton från en Azure Active Directory-instans (Azure AD). (Se [Hur exemplet fungerar](#how-the-sample-works) för en illustration.)
@@ -71,15 +71,15 @@ I den här snabbstarten använder du ett kodexempel för att lära dig hur en AS
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Steg 3: Appen är konfigurerad och redo att köras
-> Vi har konfigurerat ditt projekt med värden för appens egenskaper och det är redo att köras. 
+> Vi har konfigurerat ditt projekt med värden för appens egenskaper och det är redo att köras.
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 > [!div renderon="docs"]
 > #### <a name="step-3-run-your-visual-studio-project"></a>Steg 3: Kör visual studio-projektet
 > 1. Extrahera zip-filen i en lokal mapp i rotkatalogen, till exempel **C:\Azure-Samples**
-> 1. Öppna lösningen i Visual Studio 
-> 1. Redigera filen **appsettings.json**. Hitta `ClientId` och uppdatera `ClientId` värdet för med **värdet Program (klient) för** det program du registrerade. 
+> 1. Öppna lösningen i Visual Studio
+> 1. Redigera filen **appsettings.json**. Hitta `ClientId` och uppdatera `ClientId` värdet för med **värdet Program (klient) för** det program du registrerade.
 >
 >    ```json
 >    "ClientId": "Enter_the_Application_Id_here"
@@ -141,7 +141,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Metoden `AddAuthentication` konfigurerar tjänsten för att lägga till cookie-baserad autentisering, som används i webbläsarscenarier och för att ställa in utmaningen på OpenID Connect. 
+Metoden `AddAuthentication` konfigurerar tjänsten för att lägga till cookie-baserad autentisering, som används i webbläsarscenarier och för att ställa in utmaningen på OpenID Connect.
 
 Raden som `.AddAzureAd` innehåller lägger till Microsoft identity-plattformsautentiseringen i ditt program. Den är sedan konfigurerad för att logga in med slutpunkten för Microsoft identity platform.
 
@@ -167,4 +167,4 @@ Du kan skydda en kontrollant eller kontrollantmetoder med attributet `[Authorize
 Kolla in GitHub-repo för den här ASP.NET Core-självstudien för mer information, inklusive instruktioner om hur du lägger till autentisering i en helt ny ASP.NET Core Web-program, hur du anropar Microsoft Graph och andra Microsoft-API:er, hur du anropar egna API:er, hur du lägger till auktorisering, hur du loggar in användare i nationella moln eller med sociala identiteter med mera :
 
 > [!div class="nextstepaction"]
-> [självstudiekurs för ASP.NET Core Web App](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
+> [självstudiekurs för webbappar ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)

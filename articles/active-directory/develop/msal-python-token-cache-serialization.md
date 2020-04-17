@@ -13,12 +13,12 @@ ms.date: 11/13/2019
 ms.author: rayluo
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2593cc856afb98cf5186c4e33032c5e9151614f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c6edd0b3cfd6620f04553f9f6dfe89f1c7b7024
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76704399"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536207"
 ---
 # <a name="custom-token-cache-serialization-in-msal-for-python"></a>Anpassad tokencacheserieisering i MSAL för Python
 
@@ -26,7 +26,7 @@ I MSAL Python tillhandahålls en tokencache i minnet som finns kvar under appses
 
 Serialisering av tokencachen, så att olika sessioner i din app kan komma åt den, tillhandahålls inte "out of the box". Det beror på att MSAL Python kan användas i apptyper som inte har åtkomst till filsystemet – till exempel webbappar. Om du vill ha en beständig tokencache i en MSAL Python-app måste du tillhandahålla anpassad serialisering av tokencache.
 
-Strategierna för serialisering av tokencachen varierar beroende på om du skriver ett offentligt klientprogram (Desktop) eller ett konfidentiellt klientprogram (Web App, Webb-API eller Daemon-appen).
+Strategierna för serialisering av tokencachen varierar beroende på om du skriver ett offentligt klientprogram (Desktop) eller ett konfidentiellt klientprogram (webbapp, webb-API eller daemonapp).
 
 ## <a name="token-cache-for-a-public-client-application"></a>Tokencache för ett offentligt klientprogram
 

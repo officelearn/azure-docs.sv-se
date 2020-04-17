@@ -5,18 +5,18 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 01/04/2017
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b385136183fba5d1e64db3763453d2f4b23d4d96
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f8449c516bce3f3ab949e88808f73c7240995f99
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80045175"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535646"
 ---
 # <a name="app-service-overview"></a>Översikt över App Service
 
 *Azure App Service* är en HTTP-baserad tjänst för värd för webbprogram, REST-API:er och mobila bakåtslutningar. Du kan utveckla i det språk du föredrar, oavsett om det är .NET, .NET Core, Java, Ruby, Node.js, PHP eller Python. Program körs och skalas enkelt i både Windows- och Linux-baserade miljöer. Mer information om Linux-baserade miljöer finns i [App Service i Linux](containers/app-service-linux-intro.md). 
 
-App Services lägger inte bara till kraften hos Microsoft Azure i ditt program, t.ex. säkerhet, belastningsutjämning, automatisk skalning och automatiserad hantering. Du kan även dra nytta av dess DevOps-funktioner, t.ex. löpande utveckling från Azure DevOps, GitHub, Docker Hub och andra källor, pakethantering, mellanlagringsmiljöer, anpassade domäner och SSL-certifikat. 
+App Services lägger inte bara till kraften hos Microsoft Azure i ditt program, t.ex. säkerhet, belastningsutjämning, automatisk skalning och automatiserad hantering. Du kan också dra nytta av dess DevOps-funktioner, till exempel kontinuerlig distribution från Azure DevOps, GitHub, Docker Hub och andra källor, pakethantering, mellanlagringsmiljöer, anpassade domäner och TLS/SSL-certifikat. 
 
 Med App Service betalar du för de Azure-beräkningsresurer du använder. De beräkningsresurser du använder fastställs av den _App Service-plan_ som du använder för att köra appar på. Mer information finns i [Översikt över Azure App Service planer](overview-hosting-plans.md).
 
@@ -47,7 +47,7 @@ Skapa din första webbapp.
 > [ASP.NET](app-service-web-get-started-dotnet-framework.md)
 
 > [!div class="nextstepaction"]
-> [Php](app-service-web-get-started-php.md)
+> [PHP](app-service-web-get-started-php.md)
 
 > [!div class="nextstepaction"]
 > [Ruby (på Linux)](containers/quickstart-ruby.md)

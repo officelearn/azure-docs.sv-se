@@ -2,14 +2,14 @@
 title: Migrera datorer som fysisk server till Azure med Azure Migrate.
 description: I den här artikeln beskrivs hur du migrerar fysiska datorer till Azure med Azure Migrate.
 ms.topic: tutorial
-ms.date: 02/03/2020
+ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: 51ce45b091fe2d8845963953c2c50cd7be618f58
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 1824fc6c7cbc0fd0390770027f4a15d9130139de
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80298002"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535391"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrera datorer som fysiska servrar till Azure
 
@@ -22,12 +22,10 @@ Den här artikeln visar hur du migrerar datorer som fysiska servrar till Azure m
 - Migrera virtuella datorer som körs i offentliga moln som Amazon Web Services (AWS) eller Google Cloud Platform (GCP).
 
 
-[Azure Migrate](migrate-services-overview.md) är en central hubb för att spåra identifiering, utvärdering och migrering av dina lokala appar och arbetsbelastningar och moln-VM-instanser till Azure. Hubben tillhandahåller Azure Migrate-verktyg för utvärdering och migrering samt ISV-erbjudanden (Independent Software Vendor) från tredje part.
+Den här självstudien är den tredje i en serie som visar hur du bedömer och migrerar fysiska servrar till Azure. I den här guiden får du lära dig att:
 
-
-I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
-> * Förbered Azure för migrering med verktyget Migrera servermigrering av Azure.Prepare Azure for migration with the Azure Migrate Server Migration tool.
+> * Förbered att använda Azure med Azure Migrate:Server Migration.
 > * Kontrollera kraven för datorer som du vill migrera och förbered en dator för Azure Migrate-replikeringsverktyget som används för att identifiera och migrera datorer till Azure.
 > * Lägg till verktyget För migrera azure-migrera server i Azure Migrate-hubben.
 > * Ställ in replikeringsverktyget.
@@ -46,21 +44,20 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 Innan du börjar de här självstudierna bör du:
 
-1. [Granska](migrate-architecture.md) migreringsarkitekturen.
-2. Kontrollera att ditt Azure-konto har tilldelats rollen Deltagare i den virtuella datorn, så att du har behörighet att:
+[Granska](migrate-architecture.md) migreringsarkitekturen.
 
-    - Skapa en virtuell dator i den valda resursgruppen.
-    - Skapa en virtuell dator i det valda virtuella nätverket.
-    - Skriv till en Azure-hanterad disk. 
 
-3. [Konfigurera ett Azure-nätverk](../virtual-network/manage-virtual-network.md#create-a-virtual-network). När du replikerar till Azure skapas virtuella Azure-datorer och ansluts till ett Azure-nätverk som du anger när du konfigurerar migreringen.
 
 
 ## <a name="prepare-azure"></a>Förbereda Azure
 
-Konfigurera Azure-behörigheter innan du kan migrera med Azure Migrera servermigrering.
+Förbered Azure för migrering med servermigrering.
 
-- **Skapa ett projekt**: Ditt Azure-konto behöver behörigheter för att skapa ett Azure Migrate-projekt. 
+**Aktivitet** | **Detaljer**
+--- | ---
+**Skapa ett Azure Migrate-projekt** | Ditt Azure-konto behöver Contributer- eller ägarbehörigheter för att skapa ett projekt.
+**Verifiera behörigheter för ditt Azure-konto** | Ditt Azure-konto behöver behörigheter för att skapa en virtuell dator och skriva till en Azure-hanterad disk.
+
 
 ### <a name="assign-permissions-to-create-project"></a>Tilldela behörigheter för att skapa projekt
 
@@ -70,32 +67,51 @@ Konfigurera Azure-behörigheter innan du kan migrera med Azure Migrera servermig
     - Om du just har skapat ett kostnadsfritt Azure-konto är du ägare till din prenumeration.
     - Om du inte är prenumerationsägare arbetar du med ägaren för att tilldela rollen.
 
+
+### <a name="assign-azure-account-permissions"></a>Tilldela Azure-kontobehörigheter
+
+Tilldela rollen Deltagare i den virtuella datorn till Azure-kontot. Detta ger behörigheter till:
+
+    - Skapa en virtuell dator i den valda resursgruppen.
+    - Skapa en virtuell dator i det valda virtuella nätverket.
+    - Skriv till en Azure-hanterad disk. 
+
+### <a name="create-an-azure-network"></a>Skapa ett Azure-nätverk
+
+[Konfigurera](../virtual-network/manage-virtual-network.md#create-a-virtual-network) ett virtuellt Azure-nätverk (VNet). När du replikerar till Azure skapas och ansluts virtuella Azure-datorer till Det Virtuella Azure-nätverk som du anger när du konfigurerar migreringen.
+
 ## <a name="prepare-for-migration"></a>Förbereda för migrering
+
+Om du vill förbereda för den fysiska servermigreringen måste du verifiera de fysiska serverinställningarna och förbereda distributionen av en replikeringsverktyget.
 
 ### <a name="check-machine-requirements-for-migration"></a>Kontrollera maskinkrav för migrering
 
 Se till att datorer uppfyller kraven för migrering till Azure. 
 
 > [!NOTE]
-> Agentbaserad migrering med Azure Migrate Server Migration, har samma replikeringsarkitektur som den agentbaserade haveriberedskapsfunktionen i Azure Site Recovery-tjänsten och några av de komponenter som används delar samma kodbas. Vissa krav kan länka till dokumentationen för webbplatsåterställning.
+> När Azure Migrate:Server-migreringen migrerar fysiska datorer använder du samma replikeringsarkitektur som agentbaserad haveriberedskap i Azure Site Recovery-tjänsten och vissa komponenter delar samma kodbas. En del innehåll kan länka till dokumentationen för webbplatsåterställning.
 
 1. [Kontrollera](migrate-support-matrix-physical-migration.md#physical-server-requirements) fysiska serverkrav.
-2. Verifiera vm-inställningar. Lokala datorer som du replikerar till Azure måste uppfylla Kraven på [Azure VM](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
+2. Verifiera att lokala datorer som du replikerar till Azure uppfyller [Kraven på Azure VM](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
 
 ### <a name="prepare-a-machine-for-the-replication-appliance"></a>Förbereda en maskin för replikeringsverktyget
 
-Azure Migrate Server Migration använder en replikeringsinstallation för att replikera datorer till Azure. Replikeringsverktyget kör följande komponenter.
+Azure Migrate:Server Migration använder en replikeringsinstallation för att replikera datorer till Azure. Replikeringsverktyget kör följande komponenter.
 
 - **Konfigurationsserver:** Konfigurationsservern samordnar kommunikationen mellan lokala och Azure och hanterar datareplikering.
 - **Processserver:** Processservern fungerar som en replikeringsgateway. Den tar emot replikeringsdata. optimerar den med cachelagring, komprimering och kryptering och skickar den till ett cachelagringskonto i Azure. 
 
-Innan du börjar måste du förbereda en Windows Server 2016-dator för att vara värd för replikeringsverktyget. Maskinen bör uppfylla [dessa krav](migrate-replication-appliance.md). Apparaten ska inte installeras på en källdator som du vill skydda.
+Förbered för distribution av apparater enligt följande:
 
+- Du förbereder en dator som värd för replikeringsverktyget. [Granska](migrate-replication-appliance.md#appliance-requirements) maskinens krav. Apparaten ska inte installeras på en källdator som du vill replikera.
+- Replikeringsverktyget använder MySQL. Läs [alternativen](migrate-replication-appliance.md#mysql-installation) för att installera MySQL på apparaten.
+- Granska Azure-url:erna som krävs för replikeringsinstallationen för att komma åt [offentliga](migrate-replication-appliance.md#url-access) moln och [myndighetsmoln.](migrate-replication-appliance.md#azure-government-url-access)
+- Granska [port] (migrera-replikering-appliance.md#port-access) åtkomstkrav för replikeringsverktyget.
 
-## <a name="add-the-azure-migrate-server-migration-tool"></a>Lägga till verktyget migrera server för Azure-migrera server
+## <a name="add-the-server-migration-tool"></a>Lägga till verktyget Servermigrering
 
-Konfigurera ett Azure Migrate-projekt och lägg sedan till verktyget För migrera server för Azure Server i det.
+Konfigurera ett Azure Migrate-projekt och lägg sedan till verktyget Servermigrering i det.
 
 1. I Azure-portalen > **Alla tjänster** söker du efter **Azure Migrate**.
 2. Under **Tjänster** väljer du **Azure Migrate**.
@@ -106,19 +122,10 @@ Konfigurera ett Azure Migrate-projekt och lägg sedan till verktyget För migrer
 
 5. I **Discover, assess and migrate servers** (Identifiera, utvärdera och migrera servrar) klickar du på **Lägg till verktyg**.
 6. I **Migrera projekt** väljer du din Azure-prenumeration och skapar en resursgrupp om du inte har någon.
-7. Ange projektnamnet och geografin där du vill skapa projektet i **Projektinformation**och klicka på **Nästa**
+7. I **Projektinformation** anger du projektnamnet och geografin där du vill skapa projektet och klickar på **Nästa**. Granska geografiska områden som stöds för [offentliga](migrate-support-matrix.md#supported-geographies-public-cloud) och [statliga moln](migrate-support-matrix.md#supported-geographies-azure-government).
 
     ![Skapa ett Azure Migrate-projekt](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
 
-    Du kan skapa ett Azure Migrate-projekt i någon av dessa geografiska områden.
-
-    **Geografi** | **Regionen**
-    --- | ---
-    Asien | Sydostasien
-    Europa | Europa, norra eller Europa, västra
-    USA | USA, östra eller USA, västra centrala
-
-    Den angivna geografiska platsen för projektet används bara för att lagra de metadata som samlats in från lokala virtuella datorer. Du kan välja ett målområde för den faktiska migreringen.
 8. I **Välj bedömningsverktyg**väljer du **Hoppa över att lägga till ett bedömningsverktyg för nu** > **Nästa**.
 9. I **Välj migreringsverktyg**väljer du **Azure Migrate: Servermigrering** > **Nästa**.
 10. I **Review + add tools** (Granska + lägg till verktyg)
@@ -127,7 +134,7 @@ granskar du inställningarna och klickar på **Lägg till verktyg**
 
 ## <a name="set-up-the-replication-appliance"></a>Konfigurera replikeringsverktyget
 
-Det första steget i migreringen är att ställa in replikeringsverktyget. Du laddar ner installationsfilen för installationen och kör den på [den maskin du förberett](#prepare-a-machine-for-the-replication-appliance). När du har installerat installationen registrerar du den med Azure Migrate Server Migration.
+Det första steget i migreringen är att ställa in replikeringsverktyget. Om du vill konfigurera apparaten för fysisk servermigrering hämtar du installationsfilen för installationen och kör den sedan på [den dator du förberett](#prepare-a-machine-for-the-replication-appliance). När du har installerat installationen registrerar du den med Azure Migrate Server Migration.
 
 
 ### <a name="download-the-replication-appliance-installer"></a>Hämta installationsprogrammet för replikeringsverktyget
@@ -318,7 +325,7 @@ När du har verifierat att testmigrering fungerar som förväntat kan du migrera
 3.  > Välj **Migrate** >  **Ja****OK**i Migrera Stäng av virtuella datorer och utför en**planerad migrering utan dataförlust**.
     - Om du inte vill stänga av den virtuella datorn väljer du **Nej**
 
-    För migrering av fysiska servrar är rekommendationen att få ned programmet som en del av migreringsfönstret (låt inte programmen acceptera några anslutningar) och sedan initiera migreringen (servern måste fortsätta att köras, så återstående ändringar synkroniseras) innan migreringen är klar.
+    För migrering av fysiska servrar är rekommendationen att sänka programmet som en del av migreringsfönstret (låt inte programmen acceptera några anslutningar) och sedan initiera migreringen (servern måste fortsätta att köras, så att återstående ändringar kan synkroniseras) innan migreringen är klar.
 
 4. Ett migreringsjobb startas för den virtuella datorn. Spåra jobbet i Azure-meddelanden.
 5. När jobbet är klart kan du se och hantera den virtuella datorn på sidan **Virtual Machines**.

@@ -1,21 +1,22 @@
 ---
-title: Utvärdera virtuella VMware-datorer för migrering till Azure
+title: Utvärdera virtuella virtuella datorer med Azure Migrate Server Assessment
 description: Beskriver hur du bedömer lokala virtuella datorer med VMware för migrering till Azure med Azure Migrate Server Assessment.
 ms.topic: tutorial
-ms.date: 03/23/2019
-ms.openlocfilehash: 944b7c12a353a29a172576974261eece63ebf668
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/15/2020
+ms.custom: mvc
+ms.openlocfilehash: bd9e6b5923207297b1aa70a67052a7796b901781
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548751"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535374"
 ---
-# <a name="assess-vmware-vms-by-using-azure-migrate-server-assessment"></a>Utvärdera virtuella virtuella datorer med hjälp av Azure Migrate Server Assessment
+# <a name="assess-vmware-vms-with-server-assessment"></a>Utvärdera virtuella VMware-datorer med Server Assessment
 
 Den här artikeln visar hur du bedömer lokala virtuella VMware-datorer (VMs) med hjälp av verktyget [Azure Migrate:Server Assessment.](migrate-services-overview.md#azure-migrate-server-assessment-tool)
 
 
-Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar virtuella virtuella datorer med VMware till Azure. I den här självstudiekursen får du lära du dig att:
+Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar virtuella virtuella datorer med VMware till Azure. I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Konfigurera ett Azure Migrate-projekt.
 > * Konfigurera en Azure Migrate-apparat som körs lokalt för att bedöma virtuella datorer.
@@ -48,9 +49,7 @@ Konfigurera ett nytt Azure Migrate-projekt enligt följande:
 
 1. Välj **Lägg till verktyg**i Komma **igång**.
 1. I **Migrera projekt** väljer du din Azure-prenumeration och skapar en resursgrupp om du inte har någon.     
-1. I **Projektinformation**anger du projektnamnet och geografin där du vill skapa projektet. Asien, Europa, Storbritannien och USA stöds.
-
-   Projektgeografin används bara för att lagra de metadata som samlas in från lokala virtuella datorer. Du kan välja vilken målregion du vill när du kör en migrering.
+1. I **Projektinformation**anger du projektnamnet och geografin där du vill skapa projektet. Granska geografiska områden som stöds för [offentliga](migrate-support-matrix.md#supported-geographies-public-cloud) och [statliga moln](migrate-support-matrix.md#supported-geographies-azure-government).
 
    ![Rutor för projektnamn och projektregion](./media/tutorial-assess-vmware/migrate-project.png)
 
@@ -65,12 +64,12 @@ Konfigurera ett nytt Azure Migrate-projekt enligt följande:
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Konfigurera Azure Migrate-enheten
 
-Azure Migrate:Server Assessment använder en lätt Azure Migrate-installation. Installationen av virtuella datorer utför vm-identifiering och skickar VM-metadata och prestandadata till Azure Migrate.
-- Apparaten kan ställas in på en virtuell virtuell VMware-dator med hjälp av en nedladdad OVA-mall. Du kan också ställa in enheten på en virtuell dator eller en fysisk dator med ett PowerShell-installationsskript.
-- Den här självstudien använder OVA-mallen. Läs [den här artikeln](deploy-appliance-script.md) om du vill konfigurera apparaten med ett skript.
+Azure Migrate:Server Assessment använder en lätt Azure Migrate-installation. Installationen av virtuella datorer utför vm-identifiering och skickar VM-metadata och prestandadata till Azure Migrate. Apparaten kan ställas in på flera olika sätt.
+
+- Konfigurera på en virtuell virtuell VMware-dator med hjälp av en nedladdad OVA-mall. Detta är den metod som används i den här självstudien.
+- Konfigurera på en virtuell virtuell dator eller en fysisk dator med ett PowerShell-installationsskript. [Den här metoden](deploy-appliance-script.md) bör användas om du inte kan konfigurera en virtuell dator med hjälp av en OVA-mall eller om du är i Azure Government.
 
 När du har skapat installationen kontrollerar du att den kan ansluta till Azure Migrate:Server Assessment, konfigurera den för första gången och registrera den med Azure Migrate-projektet.
-
 
 
 ### <a name="download-the-ova-template"></a>Ladda ner OVA-mallen
@@ -115,9 +114,9 @@ Importera den hämtade filen och skapa en virtuell dator:
 1. I **Nätverksmappning**anger du det nätverk som den virtuella datorn ska ansluta till. Nätverket behöver internetanslutning för att skicka metadata till Azure Migrate Server Assessment.
 1. Granska och bekräfta inställningarna och välj sedan **Slutför**.
 
-### <a name="verify-appliance-access-to-azure"></a>Verifiera åtkomst till Azure
+## <a name="verify-appliance-access-to-azure"></a>Verifiera åtkomst till Azure
 
-Se till att den virtuella datorn för den virtuella enheten kan ansluta till [Azure-url:er](migrate-appliance.md#url-access).
+Se till att den virtuella datorn för den virtuella enheten kan ansluta till Azure-url:er för [offentliga](migrate-appliance.md#public-cloud-urls) moln och [myndighetsmoln.](migrate-appliance.md#government-cloud-urls)
 
 ### <a name="configure-the-appliance"></a>Konfigurera apparaten
 
@@ -136,7 +135,7 @@ Ställ in apparaten för första gången.
    - **Anslutning**: Appen kontrollerar att den virtuella datorn har tillgång till internet. Om den virtuella datorn använder en proxy:
      - Välj **Proxyinställningar**och ange proxyadress och lyssningsport i formuläret http://ProxyIPAddress eller http://ProxyFQDN.
      - Ange autentiseringsuppgifter om proxyn kräver autentisering.
-     - Observera att endast HTTP-proxy stöds.
+     - Endast HTTP-proxy stöds.
    - **Tidssynkronisering:** Tiden på apparaten ska vara synkroniserad med internettiden för att identifieringen ska fungera korrekt.
    - **Installera uppdateringar:** Apparaten ser till att de senaste uppdateringarna är installerade.
    - **Installera VDDK:** Apparaten kontrollerar att VMWare vSphere Virtual Disk Development Kit (VDDK) är installerat. Om den inte är installerad hämtar du VDDK 6.7 från VMware och extraherar det nedladdade zip-innehållet till den angivna platsen på apparaten.
@@ -167,7 +166,7 @@ Installationen måste ansluta till vCenter Server för att identifiera konfigura
     - Om du vill begränsa identifieringen till specifika VMware-objekt (vCenter Server datacenter, kluster, en mapp med kluster, värdar, en mapp med värdar eller enskilda virtuella datorer.), läser du instruktionerna i den [här artikeln](set-discovery-scope.md) för att begränsa kontot som används av Azure Migrate.
 
 3. Välj **Validera anslutning** för att kontrollera att enheten kan ansluta till vCenter Server.
-4. I **Identifiera program och beroenden för virtuella datorer**klickar du eventuellt på Lägg till **autentiseringsuppgifter**och anger vilket operativsystem autentiseringsuppgifterna är relevanta för och användarnamn och lösenord för autentiseringsuppgifter. Klicka sedan på **Lägg till**..
+4. I **Identifiera program och beroenden för virtuella datorer**klickar du eventuellt på Lägg till **autentiseringsuppgifter**och anger vilket operativsystem autentiseringsuppgifterna är relevanta för och användarnamn och lösenord för autentiseringsuppgifter. Klicka sedan på **Lägg till**.
 
     - Du kan också lägga till autentiseringsuppgifter här om du har skapat ett konto som ska användas för [programidentifieringsfunktionen](how-to-discover-applications.md)eller [funktionen för beroendeanalys utan agent.](how-to-create-group-machine-dependencies-agentless.md)
     - Om du inte använder dessa funktioner kan du hoppa över den här inställningen.
@@ -255,7 +254,7 @@ De aggregerade lagringskostnaderna för den bedömda gruppen är uppdelade över
 
 ### <a name="review-confidence-rating"></a>Granska säkerhetsomdöme
 
-Azure Migrate Server Assessment tilldelar en konfidensklassificering till en prestandabaserad bedömning, från 1 stjärna (lägsta) till 5 stjärnor (högst).
+Azure Migrate Server Assessment tilldelar en konfidensklassificering till en prestandabaserad bedömning, från en stjärna (lägsta) till fem stjärnor (högst).
 
 ![Säkerhetsomdöme](./media/tutorial-assess-vmware/confidence-rating.png)
 

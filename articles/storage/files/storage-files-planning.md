@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 76a96d36387f55889b65f16ea1ca6ec07359c377
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d5bf3a6df9d7292c18a93737fb7dea5d8c91f984
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502430"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536511"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 [Azure-filer](storage-files-introduction.md) kan distribueras på två huvudsätt: genom att direkt montera de serverlösa Azure-filresurserna eller genom att cachelagring av Azure-filresurser lokalt med Azure File Sync. Vilket distributionsalternativ du väljer ändrar de saker du behöver tänka på när du planerar för distributionen. 
@@ -28,7 +28,7 @@ Den här artikeln behandlar främst distributionsöverväganden för distributio
 
 När du distribuerar Azure-filresurser till lagringskonton rekommenderar vi:
 
-- Distribuera endast Azure-filresurser i lagringskonton med andra Azure-filresurser. Även om GPv2-lagringskonton gör att du kan ha lagringskonton för blandade ändamål, kan det göra det svårare att felsöka lagringsresurser som Azure-filresurser och blob-behållare för lagringskontots begränsningar, men att blanda ihop resurser kan göra det svårare att felsöka prestandaproblem senare. 
+- Distribuera endast Azure-filresurser i lagringskonton med andra Azure-filresurser. Även om GPv2-lagringskonton gör att du kan ha lagringskonton för blandade ändamål, eftersom lagringsresurser som Azure-filresurser och blob-behållare delar lagringskontots gränser, kan det göra det svårare att felsöka prestandaproblem senare. 
 
 - Var uppmärksam på ett lagringskontos IOPS-begränsningar när du distribuerar Azure-filresurser. Helst skulle du mappa filresurser 1:1 med lagringskonton, men detta kanske inte alltid är möjligt på grund av olika begränsningar och begränsningar, både från din organisation och från Azure. När det inte är möjligt att bara ha en filresurs distribuerad i ett lagringskonto bör du tänka på vilka resurser som kommer att vara mycket aktiva och vilka resurser som blir mindre aktiva för att säkerställa att de hetaste filresurserna inte placeras i samma lagringskonto tillsammans.
 
@@ -36,8 +36,8 @@ När du distribuerar Azure-filresurser till lagringskonton rekommenderar vi:
 
 ## <a name="identity"></a>Identitet
 För att komma åt en Azure-filresurs måste användaren av filresursen autentiseras och ha behörighet att komma åt resursen. Detta görs baserat på identiteten på användaren som använder filresursen. Azure Files integreras med tre huvudsakliga identitetsleverantörer:
-- **Kundägda Active Directory** (förhandsversion): Azure-lagringskonton kan domänen anslutas till en kundägd, Windows Server Active Directory, precis som en Windows Server-filserver eller NAS-enhet. Active Directory-domänkontrollanten kan distribueras lokalt, i en virtuell Azure-dator eller till och med som en virtuell dator i en annan molnleverantör. Azure-filer är agnostiker till där din domänkontrollant finns. När ett lagringskonto har anslutits kan slutanvändaren montera en filresurs med användarkontot som de loggade in på sin dator med. AD-baserad autentisering använder Kerberos-autentiseringsprotokollet.
-- **Azure Active Directory Domain Services (Azure AD DS):** Azure AD DS tillhandahåller en Microsoft-hanterad Active Directory-domänkontrollant som kan användas för Azure-resurser. Domän som ansluter ditt lagringskonto till Azure AD DS ger liknande fördelar som domän som ansluter det till en kundägd Active Directory. Det här distributionsalternativet är mest användbart för scenarier för lyft och skift som kräver AD-baserade behörigheter. Eftersom Azure AD DS tillhandahåller AD-baserad autentisering använder det här alternativet även Kerberos-autentiseringsprotokollet.
+- **Lokala Active Directory Domain Services (AD DS eller lokalt AD DS)** (förhandsversion): Azure-lagringskonton kan domänanslutas till en kundägd, Active Directory Domain Services, precis som en Windows Server-filserver eller NAS-enhet. Du kan distribuera en domänkontrollant lokalt, i en virtuell Azure-dator eller till och med som en virtuell dator i en annan molnleverantör. Azure Files är agnostiker till där domänkontrollanten är värd. När ett lagringskonto är domänanslutet kan slutanvändaren montera en filresurs med användarkontot som de loggade in på sin dator med. AD-baserad autentisering använder Kerberos-autentiseringsprotokollet.
+- **Azure Active Directory Domain Services (Azure AD DS):** Azure AD DS tillhandahåller en Microsoft-hanterad domänkontrollant som kan användas för Azure-resurser. Domän som ansluter ditt lagringskonto till Azure AD DS ger liknande fördelar som domän som ansluter det till en kundägd Active Directory. Det här distributionsalternativet är mest användbart för scenarier för lyft och skift som kräver AD-baserade behörigheter. Eftersom Azure AD DS tillhandahåller AD-baserad autentisering använder det här alternativet även Kerberos-autentiseringsprotokollet.
 - **Azure storage account key**: Azure-filresurser kan också monteras med en Azure-lagringskontonyckel. För att montera en filresurs på det här sättet används lagringskontonamnet som användarnamn och lagringskontonyckeln används som lösenord. Att använda lagringskontonyckeln för att montera Azure-filresursen är i själva verket en administratörsåtgärd, eftersom den monterade filresursen har fullständig behörighet till alla filer och mappar på resursen, även om de har ACL:er. När du använder lagringskontonyckeln för att montera över SMB används NTLMv2-autentiseringsprotokollet.
 
 För kunder som migrerar från lokala filservrar eller skapar nya filresurser i Azure Files som är avsedda att fungera som Windows-filservrar eller NAS-enheter, är domän som ansluter ditt lagringskonto till **Kundägda Active Directory** det rekommenderade alternativet. Mer information om domän som ansluter ditt lagringskonto till en kundägd Active Directory finns i [Azure Files Active Directory översikt](storage-files-active-directory-overview.md).
@@ -49,7 +49,7 @@ Azure-filresurser är tillgängliga var som helst via lagringskontots offentliga
 
 Om du vill avblockera åtkomsten till din Azure-filresurs har du två huvudalternativ:
 
-- Avblockera port 445 för organisationens lokala nätverk. Azure-filresurser kan endast nås externt via den offentliga slutpunkten med hjälp av internetsäkra protokoll som SMB 3.0 och FileREST API. Det här är det enklaste sättet att komma åt din Azure-filresurs från lokala eftersom den inte kräver avancerad nätverkskonfiguration utöver att ändra organisationens regler för utgående port, men vi rekommenderar att du tar bort äldre och föråldrade versioner av SMB protokoll, nämligen SMB 1.0. Mer information om hur du gör detta finns i [Skydda Windows/Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server) och [Skydda Linux](storage-how-to-use-files-linux.md#securing-linux).
+- Avblockera port 445 för organisationens lokala nätverk. Azure-filresurser kan endast nås externt via den offentliga slutpunkten med hjälp av internetsäkra protokoll som SMB 3.0 och FileREST API. Det här är det enklaste sättet att komma åt din Azure-filresurs från lokala eftersom den inte kräver avancerad nätverkskonfiguration utöver att ändra organisationens regler för utgående port, men vi rekommenderar att du tar bort äldre och inaktuella versioner av SMB-protokollet, nämligen SMB 1.0. Mer information om hur du gör detta finns i [Skydda Windows/Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server) och [Skydda Linux](storage-how-to-use-files-linux.md#securing-linux).
 
 - Få åtkomst till Azure-filresurser via en ExpressRoute- eller VPN-anslutning. När du öppnar din Azure-filresurs via en nätverkstunnel kan du montera din Azure-filresurs som en lokal filresurs eftersom SMB-trafik inte passerar organisationsgränsen.   
 
@@ -153,7 +153,7 @@ Nya filresurser börjar med det fulla antalet krediter i sin burst bucket. Burst
 ### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Aktivera standardfilresurser för att sträcka sig över upp till 100 TiB
 [!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]
 
-#### <a name="regional-availability"></a>Regional tillgänglighet
+#### <a name="limitations"></a>Begränsningar
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
 
 ## <a name="redundancy"></a>Redundans

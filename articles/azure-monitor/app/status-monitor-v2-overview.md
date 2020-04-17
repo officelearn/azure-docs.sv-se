@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 4a240bc62816a46bc37108777a8b081b74047738
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4042fc05f278915fe72bf8fc4e6afd69a5bbb4b9
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79275716"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537431"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Distribuera Azure Monitor Application Insights Agent för lokala servrar
 
@@ -46,7 +46,7 @@ Application Insights Agent finns https://www.powershellgallery.com/packages/Az.A
 - [Start-ProgramInsightsMonitoringTrace](status-monitor-v2-api-start-trace.md)
 
 ## <a name="troubleshooting"></a>Felsökning
-- [Troubleshooting](status-monitor-v2-troubleshoot.md) (Felsökning)
+- [Felsökning](status-monitor-v2-troubleshoot.md)
 - [Kända problem](status-monitor-v2-troubleshoot.md#known-issues)
 
 
@@ -76,7 +76,7 @@ Vart och ett av dessa alternativ beskrivs i de [detaljerade instruktionerna](sta
 
 Visa telemetrin:
 
-* [Utforska mätvärden](../../azure-monitor/app/metrics-explorer.md) för att övervaka prestanda och användning.
+* [Utforska mätvärden](../../azure-monitor/platform/metrics-charts.md) för att övervaka prestanda och användning.
 * [Sök händelser och loggar](../../azure-monitor/app/diagnostic-search.md) för att diagnostisera problem.
 * [Använd Analytics](../../azure-monitor/app/analytics.md) för mer avancerade frågor.
 * [Skapa instrumentpaneler](../../azure-monitor/app/overview-dashboard.md).

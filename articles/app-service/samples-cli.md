@@ -6,12 +6,12 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 12/12/2017
 ms.custom: mvc
-ms.openlocfilehash: 0b3acb1b421962cde7d90398f42bdfeefda578e3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 499bf25f06030ae9fc5c1f8381ef4cd6ff6873dc
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74971510"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535629"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>CLI-exempel för Azure App Service
 
@@ -28,8 +28,8 @@ Följande tabell innehåller länkar till bash-skript som skapats med hjälp av 
 | [Skapa en ASP.NET Core-app i en Docker-container](./scripts/cli-linux-docker-aspnetcore.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en App Service-app i Linux och läser in en Docker-avbildning från Docker Hub. |
 |**Konfigurera app**||
 | [Mappa en anpassad domän till en app](./scripts/cli-configure-custom-domain.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en App Service-app och mappar ett anpassat domännamn till den. |
-| [Binda ett anpassat SSL-certifikat till en app](./scripts/cli-configure-ssl-certificate.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en App Service-app och binder SSL-certifikatet för ett anpassat domännamn till den. |
-|**Skala app**||
+| [Binda ett anpassat TLS/SSL-certifikat till en app](./scripts/cli-configure-ssl-certificate.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en App Service-app och binder TLS/SSL-certifikatet för ett anpassat domännamn till den. |
+|**Skalningsapp**||
 | [Skala en app manuellt](./scripts/cli-scale-manual.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar en App Service-app och skalar den över 2 instanser. |
 | [Skala en app globalt med en arkitektur för hög tillgänglighet](./scripts/cli-scale-high-availability.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar två App Service-appar i två olika geografiska regioner och gör dem tillgängliga via en enskild slutpunkt med Azure Traffic Manager. |
 |**Skydda appen**||

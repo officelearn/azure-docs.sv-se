@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: 12dd17045715a24d1e5151b30a5e7706b0e58717
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 161fd9276427db0d0d7d56da1bfc0bb8ccf52a52
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383807"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536666"
 ---
 # <a name="create-an-azure-virtual-machine-offer"></a>Skapa ett erbjudande om virtuell azure-dator
 
@@ -296,7 +296,7 @@ Välj **Spara utkast** innan du fortsätter till nästa avsnitt, Planera översi
 
 ## <a name="plan-overview"></a>Översikt över plan
 
-Du kan ange olika planalternativ i samma erbjudande i Partner Center. Dessa planer kallades tidigare SKU:er. Ett erbjudande kräver minst en plan, som kan skilja sig åt när det gäller intäktsgenereringspublik, Azure-moln, funktioner eller VM-avbildningar.
+Du kan ange olika planalternativ i samma erbjudande i Partner Center. Dessa planer kallades tidigare SKU:er. Ett erbjudande kräver minst en plan, som kan skilja sig åt när det gäller intäktsgenereringsmålgrupp, Azure-regioner, funktioner eller VM-avbildningar.
 
 När du har skapat dina planer visas på fliken **Planera översikt:**
 
@@ -326,7 +326,7 @@ Välj **Skapa**.
 
 ### <a name="plan-setup"></a>Planera inställningar
 
-Ange konfiguration på hög nivå för typen av plan, om den återanvänder teknisk konfiguration från en annan plan och i vilka moln planen ska vara tillgänglig. Dina val här avgör vilka fält som visas på andra flikar för samma plan.
+Ange konfiguration på hög nivå för typen av plan, om den återanvänder teknisk konfiguration från en annan plan och där Azure-regioner planen ska vara tillgänglig. Dina val här avgör vilka fält som visas på andra flikar för samma plan.
 
 #### <a name="reuse-technical-configuration"></a>Återanvänd teknisk konfiguration
 
@@ -335,24 +335,24 @@ Om du har mer än en plan av samma typ och paketen är identiska mellan dem, kan
 > [!NOTE]
 > När du återanvänder den tekniska konfigurationen från ett annat plan försvinner hela fliken **Teknisk konfiguration** från den här planen. Den tekniska konfigurationsinformationen från den andra planen, inklusive eventuella uppdateringar du gör i framtiden, kommer också att användas för den här planen. Den här inställningen kan inte ändras när den här planen har publicerats.
 
-#### <a name="cloud-availability"></a>Molntillgänglighet
+#### <a name="azure-regions"></a>Azure-regioner
 
-Din plan måste göras tillgänglig i minst ett moln.
+Din plan måste göras tillgänglig i minst en Azure-region.
 
-Välj alternativet **Azure Global** för att göra din plan tillgänglig för kunder i alla offentliga Azure-regioner som har kommersiell marketplace-integrering. Mer information finns i [Geografisk tillgänglighet och valutastöd](https://aka.ms/AzureGovCurrencies).
+Välj alternativet **Azure Global** för att göra din plan tillgänglig för kunder i alla offentliga Azure-regioner som har kommersiell marketplace-integrering. Mer information finns i [Geografisk tillgänglighet och valutastöd](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Välj alternativet **Azure Government Cloud** för att göra din plan tillgänglig i Azure Government [Cloud](https://aka.ms/WhatIsAzureGovernment). Detta är ett moln för myndigheter med kontrollerad åtkomst för kunder från amerikanska federala, statliga, lokala eller stambaserade myndigheter samt partner som är berättigade att betjäna dessa enheter. Som utgivare är du ansvarig för alla efterlevnadskontroller, säkerhetsåtgärder och bästa praxis för att betjäna den här molncommunityn. Azure Government använder fysiskt isolerade datacenter och nätverk (endast i USA).
+Välj alternativet **Azure Government** för att göra din plan tillgänglig i [Azure Government-regionen.](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) Den här regionen ger kontrollerad åtkomst för kunder från amerikanska federala, statliga, lokala eller stam-enheter, samt partner som är berättigade att betjäna dem. Du som utgivare är ansvarig för alla efterlevnadskontroller, säkerhetsåtgärder och bästa praxis. Azure Government använder fysiskt isolerade datacenter och nätverk (endast i USA).
 
-Innan du publicerar till [Azure Government](https://aka.ms/azuregovpublish), testa och validera din plan i miljön eftersom vissa slutpunkter kan skilja sig åt. Om du vill konfigurera och testa din plan begär du ett utvärderingskonto från [testperioden](https://aka.ms/AzureGovernmentTrial)för Microsoft Azure Government .
+Innan du publicerar till [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), testa och validera din plan i miljön eftersom vissa slutpunkter kan skilja sig åt. Om du vill konfigurera och testa din plan begär du ett utvärderingskonto från [testperioden](https://azure.microsoft.com/global-infrastructure/government/request/)för Microsoft Azure Government .
 
 > [!NOTE]
-> När ditt abonnemang har publicerats och är tillgängligt i ett visst moln kan du inte ta bort molnet.
+> När ditt abonnemang har publicerats och är tillgängligt i en viss Azure-region kan du inte ta bort den regionen.
 
-#### <a name="azure-government-cloud-certifications"></a>Azure Government Cloud-certifieringar
+#### <a name="azure-government-certifications"></a>Azure Government-certifieringar
 
-Det här alternativet visas bara om **Azure Government Cloud** har valts under **Molntillgänglighet**.
+Det här alternativet visas bara om du väljer **Azure Government** under **Azure-regioner**.
 
-Azure Government-tjänster hanterar data som omfattas av vissa myndighetsregler och krav. FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 och CJIS. För att öka medvetenheten om dina certifieringar för dessa program kan du tillhandahålla upp till 100 länkar som beskriver dem. Dessa kan vara antingen länkar till dina uppgifter på programmet direkt eller länkar till beskrivningar av din efterlevnad av dem på dina egna webbplatser. Dessa länkar som endast är synliga för Azure Government Cloud-kunder.
+Azure Government-tjänster hanterar data som omfattas av vissa myndighetsregler och krav. FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 och CJIS. För att öka medvetenheten om dina certifieringar för dessa program kan du tillhandahålla upp till 100 länkar som beskriver dem. Dessa kan vara antingen länkar till dina uppgifter på programmet direkt eller länkar till beskrivningar av din efterlevnad av dem på dina egna webbplatser. Dessa länkar som endast är synliga för Azure Government-kunder.
 
 Välj **Spara utkast** innan du fortsätter.
 
@@ -384,7 +384,7 @@ På den här fliken konfigurerar du följande:
 
 #### <a name="markets"></a>Marknader
 
-Varje plan måste finnas tillgänglig på minst en marknad. Markera kryssrutan för varje marknadsplats där den här planen ska vara tillgänglig för köp (användare på dessa marknader kan fortfarande distribuera erbjudandet till alla Azure-regioner för de moln som valts). Knappen **Momsbesänd** visar länder där Microsoft skickar moms och använder moms för din räkning. Publicering till Kina är begränsad till planer som antingen är **gratis** eller **ta med egen licens** (BYOL).
+Varje plan måste finnas tillgänglig på minst en marknad. Markera kryssrutan för varje marknadsplats där den här planen ska vara tillgänglig för köp (användare på dessa marknader kan fortfarande distribuera erbjudandet till alla Azure-regioner som valts i **[Planinställningar](#plan-setup)**). Knappen **Momsbesänd** visar länder där Microsoft skickar moms och använder moms för din räkning. Publicering till Kina är begränsad till planer som antingen är **gratis** eller **ta med egen licens** (BYOL).
 
 Om du redan har angett priser för din plan i USA-dollar (USD) och lägger till en annan marknadsplats, beräknas priset för den nya marknaden enligt aktuella valutakurser. Granska alltid priset för varje marknad innan publicering. Granska priser med hjälp av länken **Exportpriser (xlsx)** när du har sparat ändringarna.
 

@@ -2,20 +2,20 @@
 title: Använda Azure Key Vault i mallar
 description: Lär dig att använda Azure Key Vault för att skicka säkra parametrar under malldistributionen av Resource Manager
 author: mumian
-ms.date: 05/23/2019
+ms.date: 04/16/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 440835f50d2ef9c03dabc7a66e8f162e3fa15b2f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: c33ad17927dae701e4201e76b7a75690c59dc374
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260827"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536715"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Självstudiekurs: Integrera Azure Key Vault i distributionen av ARM-mall
 
-Lär dig hur du hämtar hemligheter från ett Azure-nyckelvalv och skickar hemligheterna som parametrar när du distribuerar en ARM-mall (Azure Resource Manager). Parametervärdet visas aldrig, eftersom du bara refererar till dess nyckelvalvs-ID. Mer information finns i [Använda Azure Key Vault för att skicka säkert parametervärde under distributionen](./key-vault-parameter.md).
+Lär dig hur du hämtar hemligheter från ett Azure-nyckelvalv och skickar hemligheterna som parametrar när du distribuerar en ARM-mall (Azure Resource Manager). Parametervärdet visas aldrig, eftersom du bara refererar till dess nyckelvalvs-ID. Du kan referera till nyckelvalvets hemlighet med hjälp av ett statiskt ID eller ett dynamiskt ID. Den här självstudien använder ett statiskt ID. Med den statiska ID-metoden refererar du till nyckelvalvet i mallparameterfilen, inte mallfilen. Mer information om båda metoderna finns i [Använda Azure Key Vault för att skicka säkert parametervärde under distributionen](./key-vault-parameter.md).
 
 I [självstudiekursen Ange resursdistributionsorder](./template-tutorial-create-templates-with-dependent-resources.md) skapar du en virtuell dator (VM). Du måste ange användarnamn och lösenord för vm-administratören. I stället för att ange lösenordet kan du förförvara lösenordet i ett Azure-nyckelvalv och sedan anpassa mallen för att hämta lösenordet från nyckelvalvet under distributionen.
 
@@ -33,8 +33,6 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## <a name="prerequisites"></a>Krav
 
 För att kunna följa stegen i den här artikeln behöver du:
@@ -49,7 +47,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 ## <a name="prepare-a-key-vault"></a>Förbereda ett nyckelvalv
 
-I det här avsnittet skapar du ett nyckelvalv och lägger till en hemlighet i det, så att du kan hämta hemligheten när du distribuerar mallen. Det finns många sätt att skapa ett nyckelvalv. I den här självstudien använder du Azure PowerShell för att distribuera en [ARM-mall](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json). Den här mallen gör följande:
+I det här avsnittet skapar du ett nyckelvalv och lägger till en hemlighet i det, så att du kan hämta hemligheten när du distribuerar mallen. Det finns många sätt att skapa ett nyckelvalv. I den här självstudien använder du Azure PowerShell för att distribuera en [ARM-mall](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json). Den här mallen gör två saker:
 
 * Skapar ett nyckelvalv `enabledForTemplateDeployment` med egenskapen aktiverad. Den här egenskapen måste vara *true* innan malldistributionsprocessen kan komma åt hemligheterna som har definierats i nyckelvalvet.
 * Lägger till en hemlighet i nyckelvalvet. Hemligheten lagrar vm-administratörens lösenord.
@@ -72,14 +70,16 @@ $templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -keyVaultName $keyVaultName -adUserId $adUserId -secretValue $secretValue
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 > [!IMPORTANT]
 > * Resursgruppsnamnet är projektnamnet, men med **rg** bifogat. Om du vill göra det enklare att [rensa de resurser som du skapade i den här självstudien](#clean-up-resources)använder du samma projektnamn och resursgruppsnamn när du [distribuerar nästa mall](#deploy-the-template).
 > * Standardnamnet för hemligheten är **vmAdminPassword**. Det är hårdkodat i mallen.
-> * Om du vill att mallen ska kunna hämta hemligheten måste du aktivera en åtkomstprincip som heter "Aktivera åtkomst till Azure Resource Manager för malldistribution" för nyckelvalvet. Den här principen är aktiverad i mallen. Mer information om åtkomstprincipen finns i [Distribuera nyckelvalv och hemligheter](./key-vault-parameter.md#deploy-key-vaults-and-secrets).
+> * Om du vill att mallen ska kunna hämta hemligheten måste du aktivera en åtkomstprincip som kallas **Aktivera åtkomst till Azure Resource Manager för malldistribution** för nyckelvalvet. Den här principen är aktiverad i mallen. Mer information om åtkomstprincipen finns i [Distribuera nyckelvalv och hemligheter](./key-vault-parameter.md#deploy-key-vaults-and-secrets).
 
-Mallen har ett utdatavärde, kallat *keyVaultId*. Skriv ned ID-värdet för senare användning när du distribuerar den virtuella datorn. Resurs-ID-formatet är:
+Mallen har ett utdatavärde, kallat *keyVaultId*. Du kommer att använda detta ID tillsammans med det hemliga namnet för att hämta det hemliga värdet senare i självstudien. Resurs-ID-formatet är:
 
 ```json
 /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
@@ -108,13 +108,14 @@ Azure Quickstart Templates är en lagringsplats för ARM-mallar. I stället för
     ```
 
 1. Välj **Öppna** för att öppna filen. Scenariot är detsamma som det som används i [Självstudiekurs: Skapa ARM-mallar med beroende resurser](./template-tutorial-create-templates-with-dependent-resources.md).
-   Mallen definierar fem resurser:
+   Mallen definierar sex resurser:
 
-   * `Microsoft.Storage/storageAccounts`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-   * `Microsoft.Network/publicIPAddresses`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-   * `Microsoft.Network/virtualNetworks`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-   * `Microsoft.Network/networkInterfaces`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-   * `Microsoft.Compute/virtualMachines`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * [**Microsoft.Storage/storageKonton**](/azure/templates/Microsoft.Storage/storageAccounts).
+   * [**Microsoft.Network/publicIPAdresser**](/azure/templates/microsoft.network/publicipaddresses).
+   * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups).
+   * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks).
+   * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
+   * [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
 
    Det är bra att ha en grundläggande förståelse för mallen innan du anpassar den.
 
@@ -128,7 +129,7 @@ Azure Quickstart Templates är en lagringsplats för ARM-mallar. I stället för
 
 ## <a name="edit-the-parameters-file"></a>Redigera parameterfilen
 
-Du behöver inte göra några ändringar i mallfilen.
+Med den statiska ID-metoden behöver du inte göra några ändringar i mallfilen. Hämtning av det hemliga värdet görs genom att mallparameterfilen konfigureras.
 
 1. Öppna *azuredeploy.parameters.json* i Visual Studio Code om den inte redan är öppen.
 1. Uppdatera `adminPassword` parametern till:
@@ -145,7 +146,7 @@ Du behöver inte göra några ändringar i mallfilen.
     ```
 
     > [!IMPORTANT]
-    > Ersätt värdet för **id** med resurs-ID:t för nyckelvalvet som du skapade i föregående procedur.
+    > Ersätt värdet för **id** med resurs-ID:t för nyckelvalvet som du skapade i föregående procedur. Den secretName är hårdkodad som **vmAdminPassword**.  Se [Förbereda ett nyckelvalv](#prepare-a-key-vault).
 
     ![Integrera parameterfilen för nyckelvalv och Resource Manager-mall för distribution av virtuella datorer](./media/template-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
 

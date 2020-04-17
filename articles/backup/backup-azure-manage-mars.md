@@ -4,12 +4,12 @@ description: Lär dig hur du hanterar och övervakar SÄKERHETSKOPIERing av Micr
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: c11d73edd32c197aac2cec58eeb1cc20e5c6a339
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 404341c8324d9e127e8d8e6bc8083926c0d3106f
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78673253"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537363"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Hantera säkerhetskopiering av Microsoft Azure Recovery Services (MARS) Agent med hjälp av Azure Backup-tjänsten
 
@@ -90,7 +90,7 @@ Det finns två sätt att sluta skydda säkerhetskopiering av filer och mappar:
 
 - **Stoppa skyddet och behåll säkerhetskopierade data**.
   - Det här alternativet stoppar alla framtida säkerhetskopieringsjobb från skydd.
-  - Azure Backup-tjänsten behåller återställningspunkterna som har säkerhetskopierats baserat på bevarandeprincipen.
+  - Azure Backup-tjänsten behåller alla befintliga återställningspunkter på obestämd tid. Återställningspunkter kontrolleras inte för utgångsdatum förrän skyddet har återupptagits.
   - Du kan återställa säkerhetskopierade data för oexpirerade återställningspunkter.
   - Om du bestämmer dig för att återuppta skyddet kan du använda alternativet *Aktivera schema för säkerhetskopiering.* Därefter skulle data lagras baserat på den nya bevarandeprincipen.
 - **Stoppa skyddet och ta bort säkerhetskopierade data**.

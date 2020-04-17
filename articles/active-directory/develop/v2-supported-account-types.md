@@ -12,18 +12,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a6c9ccb3dc29865c790e5d8cc9cfc35e68f5561d
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b3b0114bb5d545755fe59c49605d6def341d2275
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886151"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535782"
 ---
 # <a name="supported-account-types"></a>Kontotyper som stöds
 
 I den här artikeln beskrivs vilka kontotyper (ibland namngivna målgrupper) som stöds i program.
 
-<!-- This section can be in an include for many of the scenarios (SPA, Web App signing-in users, protecting a Web API, Desktop (depending on the flows), Mobile -->
+<!-- This section can be in an include for many of the scenarios (SPA, web app signing-in users, protecting a web API, Desktop (depending on the flows), Mobile -->
 
 ## <a name="supported-accounts-types-in-microsoft-identity-platform-applications"></a>Konton som stöds i Microsoft Identity-plattformsprogram
 
@@ -44,7 +44,7 @@ I Microsoft Azure public Cloud kan de flesta typer av appar logga in användare 
 
 Vissa kontotyper kan inte användas med vissa autentiseringsflöden. Till exempel i skrivbords-, UWP-program eller demonprogram:
 
-- Daemon-program kan endast användas med Azure Active Directory-organisationer. Det är inte meningsfullt att försöka använda demonprogram för att manipulera Microsofts personliga konton (administratörssamtyckeet beviljas aldrig).  
+- Daemon-program kan endast användas med Azure Active Directory-organisationer. Det är inte meningsfullt att försöka använda demonprogram för att manipulera Microsofts personliga konton (administratörssamtyckeet beviljas aldrig).
 - Du kan bara använda flödet Integrerad Windows-autentisering med arbets- eller skolkonton (i din organisation eller i någon organisation). Integrerad Windows-autentisering fungerar med domänkonton och kräver att datorerna är domänanslutna eller Azure AD-anslutna. Det här flödet är inte meningsfullt för personliga Microsoft-konton.
 - Det går inte att använda [resursägarelösenordsbeslag](./v2-oauth-ropc.md) (användarnamn/lösenord) med personliga Microsoft-konton. Personliga Microsoft-konton kräver att användaren samtycker till att komma åt personliga resurser vid varje inloggningssession. Det är därför det här beteendet inte är kompatibelt med icke-interaktiva flöden.
 - Enhetskodflödet fungerar ännu inte med personliga Microsoft-konton.

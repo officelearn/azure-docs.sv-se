@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: 3fbc4e683c2b0e72c3a084a59793dbf9eb4b658c
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: cecafd9209b095270e9a06ca59ffef162326efc2
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657407"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538009"
 ---
 # <a name="add-storage-targets"></a>Lägga till lagringsmål
 
@@ -118,8 +118,6 @@ Fyll i dessa värden för varje namnområdessökväg:
 
 * **Sökväg till virtuellt namnområde** – Ange sökvägen till klienten för det här lagringsmålet. Läs [Konfigurera aggregerat namnområde](hpc-cache-namespace.md) om du vill veta mer om funktionen för det virtuella namnområdet.
 
-<!--  The virtual path should start with a slash ``/``. -->
-
 * **NFS-exportsökväg** - Ange sökvägen till NFS-exporten.
 
 * **Underkatalogsökväg** - Om du vill montera en specifik underkatalog för exporten anger du den här. Om inte, lämna det här fältet tomt.
@@ -151,9 +149,9 @@ I den här tabellen sammanfattas skillnaderna i användningsmodell:
 
 | Användningsmodell | Cachelagringsläge | Backend-verifiering | Maximal tillbakaskrivningsfördröjning |
 | ---- | ---- | ---- | ---- |
-| Läs tunga, sällan skriver | Läsa | Aldrig | Inget |
+| Läs tunga, sällan skriver | Läsa | Aldrig | Ingen |
 | Större än 15% skriver | Läsa/skriva | Aldrig | 1 timme |
-| Klienter kringgår cachen | Läsa | 30 sekunder | Inget |
+| Klienter kringgår cachen | Läsa | 30 sekunder | Ingen |
 
 ## <a name="next-steps"></a>Nästa steg
 

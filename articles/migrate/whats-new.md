@@ -2,18 +2,20 @@
 title: Nyheter i Azure Migrate
 description: Läs mer om nyheter och senaste uppdateringar i Azure Migrate-tjänsten.
 ms.topic: overview
-ms.date: 03/22/2020
+ms.date: 04/16/2020
 ms.custom: mvc
-ms.openlocfilehash: 9767f3ea31b57d23c8a6772ff5eb6500f7550802
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1b0221f497ae7bbf84f163eef1ddb862d8de2951
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80127596"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535255"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Nyheter i Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) hjälper dig att identifiera, bedöma och migrera lokala servrar, appar och data till Microsoft Azure-molnet. Den här artikeln sammanfattar nya versioner och funktioner i Azure Migrate.
+
+
 
 ## <a name="update-march-2020"></a>Uppdatering (mars 2020)
 
@@ -58,7 +60,7 @@ Den aktuella versionen av Azure Migrate (släpptes i juli 2019) innehåller ett 
 
 ## <a name="azure-migrate-previous-version"></a>Azure Migrera tidigare version
 
-Om du använde den tidigare versionen av Azure Migrate (endast utvärdering av lokala virtuella datorer med VMware stöddes), bör du nu använda den aktuella versionen. I den tidigare versionen kan du inte längre skapa nya Azure Migrate-projekt eller utföra nya identifieringar. Du kan fortfarande komma åt befintliga projekt. Om du vill göra detta i Azure-portalen > **Alla tjänster**söker du efter **Azure Migrate**. I Azure Migrate-meddelanden finns det en länk för att komma åt gamla Azure Migrate-projekt.
+Om du använder den tidigare versionen av Azure Migrate (endast utvärdering av lokala virtuella datorer med VMware stöddes), bör du nu använda den aktuella versionen. I den tidigare versionen kan du inte längre skapa nya Azure Migrate-projekt eller utföra nya identifieringar. Du kan fortfarande komma åt befintliga projekt. Om du vill göra detta i Azure-portalen > **Alla tjänster**söker du efter **Azure Migrate**. I Azure Migrate-meddelanden finns det en länk för att komma åt gamla Azure Migrate-projekt.
 
 
 

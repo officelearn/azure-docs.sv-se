@@ -4,12 +4,12 @@ description: Innehåller en sammanfattning av supportinställningar och begräns
 ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: raynew
-ms.openlocfilehash: bf719f9179384ec3dca99d2429f569ef209b5daa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0f766bf95bb7e26d942e7dde3f315bbef6d5dc5c
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80127708"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81535204"
 ---
 # <a name="azure-migrate-support-matrix"></a>Supportmatris för Azure Migrate
 
@@ -69,13 +69,12 @@ Skapa ett Azure Migrate-projekt | Ditt Azure-konto behöver behörigheter för a
 Registrera Azure Migrate-enheten| Azure Migrate använder en lätt [Azure Migrate-installation](migrate-appliance.md) för att bedöma datorer med Azure Migrate Server Assessment och för att köra [agentlös migrering](server-migrate-overview.md) av virtuella VMware-datorer med Azure Migrate Server Migration. Den här installationen identifierar datorer och skickar metadata och prestandadata till Azure Migrate.<br/><br/> Under registreringen registreras registerleverantörer (Microsoft.OffAzure, Microsoft.Migrate och Microsoft.KeyVault) med den prenumeration som valts i installationen, så att prenumerationen fungerar med resursleverantören. För att registrera dig behöver du åtkomst till Deltagare eller Ägare i prenumerationen.<br/><br/> **VMware**-Under introduktion skapar Azure Migrate två Azure Active Directory-appar (Azure AD). Den första appen kommunicerar mellan apparatagenterna och Azure Migrate-tjänsten. Appen har inte behörighet att ringa Azure-resurshanteringsanrop eller ha RBAC-åtkomst för resurser. Den andra appen har åtkomst till ett Azure Key Vault som skapats i användarprenumerationen för endast agentlös VMware-migrering. I agentlös migrering skapar Azure Migrate ett nyckelvalv för att hantera åtkomstnycklar till replikeringslagringskontot i din prenumeration. Den har RBAC-åtkomst på Azure Key Vault (i kundens klientorganisation) när identifiering initieras från installationen.<br/><br/> **Hyper-V**-Under introduktion. Azure Migrate skapar en Azure AD-app. Appen kommunicerar mellan apparatagenterna och Azure Migrate-tjänsten. Appen har inte behörighet att ringa Azure-resurshanteringsanrop eller ha RBAC-åtkomst för resurser. | Konfigurera för [VMware,](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance) [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-register-the-appliance)eller [fysiska servrar](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance).
 Skapa ett nyckelvalv för VMware agentless migrering | Om du vill migrera virtuella virtuella datorer med VMware med agentlös Azure Migrate Server-migrering skapar Azure Migrate ett nyckelvalv för att hantera åtkomstnycklar till replikeringslagringskontot i din prenumeration. Om du vill skapa valvet anger du behörigheter (ägare eller deltagare och administratör för användaråtkomst) i resursgruppen där Azure Migrate-projektet finns. | [Ställ in](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault) behörigheter.
 
-## <a name="supported-geographies"></a>Geografiska områden som stöds
+## <a name="supported-geographies-public-cloud"></a>Geografiska områden som stöds (offentligt moln)
 
-Du kan skapa ett Azure Migrate-projekt i ett antal geografiska områden. Även om du bara kan skapa projekt i dessa geografiska områden kan du bedöma eller migrera datorer för andra målplatser. Projektets geografi används endast för att lagra de identifierade metadata.
+Du kan skapa ett Azure Migrate-projekt i ett antal geografiska områden i det offentliga molnet. Även om du bara kan skapa projekt i dessa geografiska områden kan du bedöma eller migrera datorer för andra målplatser. Projektets geografi används endast för att lagra de identifierade metadata.
 
 **Geografi** | **Lagringsplats för metadata**
 --- | ---
-Azure Government | US Gov, Virginia
 Asien och stillahavsområdet | Östasien eller Sydostasien
 Australien | Östra Australien eller Sydöstra Australien
 Brasilien | Brasilien, södra
@@ -89,9 +88,13 @@ Storbritannien | Storbritannien Syd- eller Storbritannien Väst
 USA | Centrala USA eller västra USA 2
 
 
- > [!NOTE]
- > Stöd för Azure Government är för närvarande endast tillgängligt för den [äldre versionen](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) av Azure Migrate.
+## <a name="supported-geographies-azure-government"></a>Geografiska områden som stöds (Azure Government)
 
+**Aktivitet** | **Geografi** | **Detaljer**
+--- | --- | ---
+Skapa projekt | USA | Metadata lagras i US Gov Arizona, US Gov Virginia
+Målbedömning | USA | Målregioner: US Gov Arizona, US Gov Virginia /US Gov Texas
+Målreplikering | USA | Målregioner: US DoD Central, US DoD East, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia
 
 
 ## <a name="vmware-assessment-and-migration"></a>VMware bedömning och migrering

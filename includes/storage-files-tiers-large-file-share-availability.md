@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 625b7fc8d49c91a9f2b1c09e1add72993e828d43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 27e3f0ef7539f3fb875c087ff7d1351916877d19
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77597872"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536509"
 ---
-Standardfilresurser med kapacitetsgränsen på 100 TiB är tillgängliga globalt i alla Azure-regioner, utom:
+Standardfilaktier med 100 TiB-kapacitet har vissa begränsningar.
 
-- Lokalt redundant lagring: Alla regioner, utom Sydafrika North, South Africa West, Tyskland Västcentralen och Tyskland North.
-- Zon redundant lagring: Stöds för alla regioner där zon redundant lagring stöds, med undantag för Japan East, North Europe, Sydafrika North.
-- Geo-redundant/GeoZone redundant lagring: Stöds inte.
+- För närvarande stöds endast lokalt redundanta lagringskonton (LRS) och zon redundant lagring (ZRS).
+- När du har aktiverat stora filresurser kan du inte konvertera lagringskonton till GEO-redundant lagringskonton (GRS) eller GZRS-konton (Geo-Zone-redundant storage).
+- När du har aktiverat stora filresurser kan du inte inaktivera den.

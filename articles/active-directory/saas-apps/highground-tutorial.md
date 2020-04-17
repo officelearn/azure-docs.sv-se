@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/09/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aff7de84f0523403f8d36c0661b3c469e18116e2
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 2c299d93e6f054ad7ea8d9a288ec61c36ca11cce
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81265624"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537057"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-highground"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med HighGround
 
@@ -83,13 +83,13 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
 1. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** anger du värdena för följande fält:
 
-    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://<SUBDOMAIN>.highground.com/`
+    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://app.highground.com/`
 
-    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<SUBDOMAIN>.highground.com/svc/SSONoAuth/<companyName>`
+    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://app.highground.com/svc/SSONoAuth/SAML?groupid=<company-guid>`
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://app.highground.com/#/login/<companyName>`
+    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://app.highground.com/#/login/<company-slug>`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Supportteamet för HighGround Client](https://youearnedit.freshdesk.com/support/home) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

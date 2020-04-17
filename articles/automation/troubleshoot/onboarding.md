@@ -8,12 +8,12 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c949556949e0c187d7c23c4dd32436e245bfbb95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae359e5210a9a11c33dd3ff9b474e28aa2548c57
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75889338"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536972"
 ---
 # <a name="troubleshoot-errors-when-onboarding-update-management-change-tracking-and-inventory"></a>Felsöka fel vid introduktion av uppdateringshantering, ändringsspårning och lager
 
@@ -72,7 +72,7 @@ Det här felet orsakas av felaktiga eller saknade behörigheter på den virtuell
 
 #### <a name="resolution"></a>Lösning
 
-Kontrollera att du har rätt behörighet att gå in på den virtuella datorn. Granska de [behörigheter som behövs för att komma in på datorer](../automation-role-based-access-control.md#onboarding) och försök att gå in på lösningen igen. Om felet visas `The solution cannot be enabled on this VM because the permission to read the workspace is missing`kontrollerar du `Microsoft.OperationalInsights/workspaces/read` att du har behörighet att kunna hitta om den virtuella datorn är inbyggd på en arbetsyta.
+Kontrollera att du har rätt behörighet att gå in på den virtuella datorn. Granska de [behörigheter som behövs för att komma in på datorer](../automation-role-based-access-control.md#onboarding-permissions) och försök att gå in på lösningen igen. Om felet visas `The solution cannot be enabled on this VM because the permission to read the workspace is missing`kontrollerar du `Microsoft.OperationalInsights/workspaces/read` att du har behörighet att kunna hitta om den virtuella datorn är inbyggt på en arbetsyta.
 
 ### <a name="scenario-onboarding-fails-with-the-message---failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Scenario: Introduktionen misslyckas med meddelandet - Det gick inte att konfigurera Automation-konto för diagnostikloggning
 
@@ -162,7 +162,7 @@ När du har tagit bort lösningarna kan du ta bort länken till arbetsytan. Det 
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-När du distribuerar en lösning distribueras en mängd relaterade resurser. En av dessa resurser är Microsoft Monitoring Agent Extension eller Log Analytics agent för Linux. Dessa är tillägg för virtuella datorer som installeras av den virtuella datorns gästagent som ansvarar för att kommunicera med den konfigurerade Log Analytics-arbetsytan, i syfte att senare samordna nedladdningen av binärfiler och andra filer som lösning som du är ombord på beror på när den börjar utföra den.
+När du distribuerar en lösning distribueras en mängd relaterade resurser. En av dessa resurser är Microsoft Monitoring Agent Extension eller Log Analytics agent för Linux. Dessa är tillägg för virtuella datorer som installeras av den virtuella datorns gästagent som ansvarar för att kommunicera med den konfigurerade Log Analytics-arbetsytan, i syfte att senare samordna hämtningen av binärfiler och andra filer som lösningen du är ombord på beror på när den börjar körningen.
 Du får vanligtvis först kännedom om MMA- eller Log Analytics-agent för Linux-installationsfel från ett meddelande som visas i notificationshubben. Om du klickar på meddelandet får du ytterligare information om det specifika felet. Navigering till resursen Resursgrupper och sedan till distributionselementet i den innehåller också information om distributionsfel som inträffade.
 Installationen av MMA- eller Log Analytics-agenten för Linux kan misslyckas av olika anledningar, och stegen för att åtgärda dessa fel varierar beroende på problemet. Specifika felsökningssteg följer.
 

@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: dfca2b1311f1b55f19d5709f7c9ca7c3e366769c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f3bb4dd1c564e5f6c4a8ee1bb5bf7424a74a339e
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76695746"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81533997"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Använda MSAL i en nationell molnmiljö
 
@@ -62,16 +62,16 @@ Du kan använda MSAL.NET för att logga in användare, hämta token och anropa M
 Följande självstudier visar hur du skapar en .NET Core 2.2 MVC Web app. Appen använder OpenID Connect för att logga in användare med ett arbets- och skolkonto i en organisation som tillhör ett nationellt moln.
 
 - Om du vill logga in användare och hämta token följer du den här självstudien: [Skapa en ASP.NET Core Web App-inloggade användare i suveräna moln med Microsofts identitetsplattform](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-4-Sovereign#build-an-aspnet-core-web-app-signing-in-users-in-sovereign-clouds-with-the-microsoft-identity-platform).
-- Så här anropar du Microsoft Graph API: [Använda Microsoft identity-plattformen för att anropa Microsoft Graph API från en En ASP.NET Core 2.x Web App, på uppdrag av en användare som loggar in med hjälp av sitt arbets- och skolkonto i Microsoft National Cloud](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-4-Sovereign-Call-MSGraph#using-the-microsoft-identity-platform-to-call-the-microsoft-graph-api-from-an-an-aspnet-core-2x-web-app-on-behalf-of-a-user-signing-in-using-their-work-and-school-account-in-microsoft-national-cloud).
+- Så här anropar du Microsoft Graph API: [Använda Microsoft identity-plattformen för att anropa Microsoft Graph API från en ASP.NET Core 2.x-webbapp, på uppdrag av en användare som loggar in med hjälp av sitt arbets- och skolkonto i Microsoft National Cloud](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-4-Sovereign-Call-MSGraph#using-the-microsoft-identity-platform-to-call-the-microsoft-graph-api-from-an-an-aspnet-core-2x-web-app-on-behalf-of-a-user-signing-in-using-their-work-and-school-account-in-microsoft-national-cloud).
 
-## <a name="javascript"></a>[Javascript](#tab/javascript)
+## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Så här aktiverar du din MSAL.js-applikation för suveräna moln:
 
 ### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
 
 1. Logga in på [Azure-portalen](https://portal.azure.us/).
-    
+
    Information om hur du hittar Azure-portalslutpunkter för andra nationella moln finns i slutpunkter för [appregistrering](authentication-national-cloud.md#app-registration-endpoints).
 
 1. Om ditt konto ger dig åtkomst till mer än en klient väljer du ditt konto i det övre högra hörnet och anger din portalsession till önskad Azure AD-klientorganisation.
@@ -126,12 +126,12 @@ I den koden:
 - `Enter_the_Tenant_Info_Here`är inställd på något av följande alternativ:
     - Om ditt program stöder **konton i den här organisationskatalogen**ersätter du det här värdet med klient-ID: n eller klientnamnet (till exempel contoso.microsoft.com).
     - Om programmet stöder **konton i en organisationskatalog** `organizations`ersätter du det här värdet med .
-    
+
     Information om hur du hittar autentiseringsslutpunkter för alla nationella moln finns i slutpunkter för [Azure AD-autentisering](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
 
     > [!NOTE]
     > Personliga Microsoft-konton stöds inte i nationella moln.
-  
+
 - `graphEndpoint`är Microsoft Graph-slutpunkten för Microsoft-molnet för amerikanska myndigheter.
 
    Information om hur du hittar Microsoft Graph-slutpunkter för alla nationella moln finns [i Microsoft Graph-slutpunkter i nationella moln](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
@@ -149,16 +149,16 @@ Så här aktiverar du ditt MSAL Python-program för suveräna moln:
     ```json
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
-    
+
 - För att anropa Microsoft graph krävs en specifik graph-url som beror på vilket moln du använder. Information om hur du hittar Microsoft Graph-slutpunkter för alla nationella moln finns i [microsoft graph- och graph explorer-tjänstrotslutpunkter](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
     Här är ett exempel på en diagramslutpunkt, med omfattning:
-    
+
     ```json
     "endpoint" : "https://graph.microsoft.us/v1.0/me"
     "scope": "User.Read"
     ```
-    
+
 ## <a name="java"></a>[Java](#tab/java)
 
 Så här aktiverar du din MSAL för Java-program för suveräna moln:
@@ -194,12 +194,12 @@ MSALAADAuthority *aadAuthority =
                                                    audienceType:MSALAzureADMultipleOrgsAudience
                                                       rawTenant:nil
                                                           error:nil];
-                                                          
+
 MSALPublicClientApplicationConfig *config =
                 [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"
                                                                 redirectUri:@"<your-redirect-uri-here>"
                                                                   authority:aadAuthority];
-                                                                  
+
 NSError *applicationError = nil;
 MSALPublicClientApplication *application =
                 [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&applicationError];
@@ -213,7 +213,7 @@ Om du till exempel vill att ditt program ska vara ett program med flera innehava
 
 ```swift
 let authority = try? MSALAADAuthority(cloudInstance: .usGovernmentCloudInstance, audienceType: .azureADMultipleOrgsAudience, rawTenant: nil)
-        
+
 let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>", redirectUri: "<your-redirect-uri-here>", authority: authority)
 if let application = try? MSALPublicClientApplication(configuration: config) { /* Use application */}
 ```

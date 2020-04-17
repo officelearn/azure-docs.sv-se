@@ -1,56 +1,58 @@
 ---
 title: Använd tomma kantnoder i Apache Hadoop-kluster i Azure HDInsight
-description: Så här lägger du till en tom kantnod i ett HDInsight-kluster som kan användas som klient och sedan testa/vara värd för dina HDInsight-program.
+description: Så här lägger du till en tom kantnod i ett HDInsight-kluster. Används som klient och testa eller är värd för dina HDInsight-program.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 01/27/2020
-ms.openlocfilehash: d7723ea63cbb9bab6adf42d7e92f84a6b8b2ab9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: f6dea00bf3b3e8a58f42da8fd8ad59ccec2dea72
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272609"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537805"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Använd tomma kantnoder på Apache Hadoop-kluster i HDInsight
 
-Lär dig hur du lägger till en tom kantnod i ett HDInsight-kluster. En tom kantnod är en virtuell Linux-dator med samma klientverktyg installerade och konfigurerade som i headnodes, men utan [Apache Hadoop-tjänster](https://hadoop.apache.org/) som körs. Du kan använda kantnoden för åtkomst till klustret, testa klientprogrammen och vara värd för klientprogram.
+Lär dig hur du lägger till en tom kantnod i ett HDInsight-kluster. En tom kantnod är en virtuell Linux-dator med samma klientverktyg installerade och konfigurerade som i headnodes. Men utan [Apache Hadoop](./hadoop/apache-hadoop-introduction.md) tjänster igång. Du kan använda kantnoden för åtkomst till klustret, testa klientprogrammen och vara värd för klientprogram.
 
 Du kan lägga till en tom kantnod i ett befintligt HDInsight-kluster i ett nytt kluster när du skapar klustret. Det görs en tom kantnod med Azure Resource Manager-mallen.  Följande exempel visar hur det görs med hjälp av en mall:
 
-    "resources": [
-        {
-            "name": "[concat(parameters('clusterName'),'/', variables('applicationName'))]",
-            "type": "Microsoft.HDInsight/clusters/applications",
-            "apiVersion": "2015-03-01-preview",
-            "dependsOn": [ "[concat('Microsoft.HDInsight/clusters/',parameters('clusterName'))]" ],
-            "properties": {
-                "marketPlaceIdentifier": "EmptyNode",
-                "computeProfile": {
-                    "roles": [{
-                        "name": "edgenode",
-                        "targetInstanceCount": 1,
-                        "hardwareProfile": {
-                            "vmSize": "{}"
-                        }
-                    }]
-                },
-                "installScriptActions": [{
-                    "name": "[concat('emptynode','-' ,uniquestring(variables('applicationName')))]",
-                    "uri": "[parameters('installScriptAction')]",
-                    "roles": ["edgenode"]
-                }],
-                "uninstallScriptActions": [],
-                "httpsEndpoints": [],
-                "applicationType": "CustomApplication"
-            }
+```json
+"resources": [
+    {
+        "name": "[concat(parameters('clusterName'),'/', variables('applicationName'))]",
+        "type": "Microsoft.HDInsight/clusters/applications",
+        "apiVersion": "2015-03-01-preview",
+        "dependsOn": [ "[concat('Microsoft.HDInsight/clusters/',parameters('clusterName'))]" ],
+        "properties": {
+            "marketPlaceIdentifier": "EmptyNode",
+            "computeProfile": {
+                "roles": [{
+                    "name": "edgenode",
+                    "targetInstanceCount": 1,
+                    "hardwareProfile": {
+                        "vmSize": "{}"
+                    }
+                }]
+            },
+            "installScriptActions": [{
+                "name": "[concat('emptynode','-' ,uniquestring(variables('applicationName')))]",
+                "uri": "[parameters('installScriptAction')]",
+                "roles": ["edgenode"]
+            }],
+            "uninstallScriptActions": [],
+            "httpsEndpoints": [],
+            "applicationType": "CustomApplication"
         }
-    ],
+    }
+],
+```
 
-Som visas i exemplet kan du anropa en [skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md) för att utföra ytterligare konfiguration, till exempel installera [Apache Hue](hdinsight-hadoop-hue-linux.md) i kantnoden. Skriptåtgärdsskriptet måste vara allmänt tillgängligt på webben.  Om skriptet till exempel lagras i Azure Storage använder du antingen offentliga behållare eller offentliga blobbar.
+Som visas i exemplet kan du anropa en [skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md) för att utföra ytterligare konfiguration. Till exempel installera [Apache Hue](hdinsight-hadoop-hue-linux.md) i kantnoden. Skriptåtgärdsskriptet måste vara allmänt tillgängligt på webben.  Om skriptet till exempel lagras i Azure Storage använder du antingen offentliga behållare eller offentliga blobbar.
 
 Den virtuella kantnodens storlek måste uppfylla storlekskraven för HDInsight-klusterarbetaren vm. För de rekommenderade vm-storlekarna för arbetsnoder finns i [Skapa Apache Hadoop-kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-type).
 
@@ -69,7 +71,7 @@ När du har skapat en kantnod kan du ansluta till kantnoden med SSH och köra kl
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Lägga till en kantnod i ett befintligt kluster
 
-I det här avsnittet använder du en Resource Manager-mall för att lägga till en kantnod i ett befintligt HDInsight-kluster.  Mallen Resource Manager finns i [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). Mallen Resurshanteraren anropar en https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.shskriptåtgärd som finns på . Skriptet utför inga åtgärder.  Det är för att demonstrera anropa skriptåtgärder från en Resource Manager-mall.
+I det här avsnittet använder du en Resource Manager-mall för att lägga till en kantnod i ett befintligt HDInsight-kluster.  Mallen Resource Manager finns i [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). Mallen Resurshanteraren anropar en https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.shskriptåtgärd som finns på . Skriptet gör inga åtgärder.  Det är för att demonstrera anropa skriptåtgärder från en Resource Manager-mall.
 
 1. Välj följande avbildning för att logga in på Azure och öppna Azure Resource Manager-mallen i Azure-portalen.
 
@@ -91,7 +93,7 @@ I det här avsnittet använder du en Resource Manager-mall för att lägga till 
 
 ## <a name="add-an-edge-node-when-creating-a-cluster"></a>Lägga till en kantnod när du skapar ett kluster
 
-I det här avsnittet använder du en Resource Manager-mall för att skapa HDInsight-kluster med en kantnod.  Resource Manager-mallen finns i [azure-snabbstartsmallargalleriet](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). Mallen Resurshanteraren anropar en https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.shskriptåtgärd som finns på . Skriptet utför inga åtgärder.  Det är för att demonstrera anropa skriptåtgärder från en Resource Manager-mall.
+I det här avsnittet använder du en Resource Manager-mall för att skapa HDInsight-kluster med en kantnod.  Resource Manager-mallen finns i [azure-snabbstartsmallargalleriet](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). Mallen Resurshanteraren anropar en https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.shskriptåtgärd som finns på . Skriptet gör inga åtgärder.  Det är för att demonstrera anropa skriptåtgärder från en Resource Manager-mall.
 
 1. Skapa ett HDInsight-kluster om du inte har ett ännu.  Se [Kom igång med Hadoop i HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
@@ -119,7 +121,7 @@ I det här avsnittet använder du en Resource Manager-mall för att skapa HDInsi
 
 ## <a name="add-multiple-edge-nodes"></a>Lägga till noder med flera kanter
 
-Du kan lägga till flera kantnoder i ett HDInsight-kluster.  Konfigurationen av flera kanter kan bara göras med Azure Resource Manager-mallar.  Se mallexemplet i början av den här artikeln.  Du måste uppdatera **targetInstanceCount** för att återspegla antalet kantnoder som du vill skapa.
+Du kan lägga till flera kantnoder i ett HDInsight-kluster.  Konfigurationen av flera kanter kan bara göras med Azure Resource Manager-mallar.  Se mallexemplet i början av den här artikeln.  Uppdatera **targetInstanceCount** för att återspegla antalet kantnoder som du vill skapa.
 
 ## <a name="access-an-edge-node"></a>Komma åt en kantnod
 

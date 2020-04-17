@@ -5,12 +5,12 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 621b429f5dc3a6b6620e4d41ad46763e1d4fa226
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f33f829b6cb86cb01c848e5fc48e1618a3e00a2c
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78299542"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537040"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Inbyggda uppdateringshanterings-, ändringsspårnings- och lagerlösningar från en virtuell Azure-dator
 
@@ -24,38 +24,38 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 Aktivera först en eller alla tre lösningarna på den virtuella datorn:
 
-1. I [Azure-portalen](https://portal.azure.com)väljer du **virtuella datorer** i den vänstra rutan eller söker efter och väljer **Virtuella datorer** på **startsidan.**
+1. I [Azure-portalen](https://portal.azure.com)väljer du **Virtuella datorer** eller söker efter och väljer **Virtuella datorer** på startsidan.
 2. Välj den virtuella dator som du vill aktivera en lösning för.
-3. Välj **Uppdatera hantering,** **Lager**eller **Ändra spårning**under **Operationer**på sidan Virtuell dator. Den virtuella datorn kan finnas i valfri region oavsett var ditt Automation-konto finns. När du ã¤kar en lösning frÃ¥n en virtuell dator måste du ha `Microsoft.OperationalInsights/workspaces/read` behörighet att avgöra om den virtuella datorn är 900 till en arbetsyta. Mer information om ytterligare behörigheter som krävs finns i [behörigheter som behövs för att registrera datorer](automation-role-based-access-control.md#onboarding).
+3. Välj **Uppdatera hantering,** **Lager**eller **Ändra spårning**under **Operationer**på sidan Virtuell dator. Den virtuella datorn kan finnas i alla regioner, oavsett var ditt Automation-konto finns. När du ã¤kar en lösning frÃ¥n en virtuell dator måste du ha `Microsoft.OperationalInsights/workspaces/read` behörighet att avgöra om den virtuella datorn är 900 till en arbetsyta. Mer information om ytterligare behörigheter som krävs finns i [behörigheter som behövs för att registrera datorer](automation-role-based-access-control.md#onboarding-permissions). Mer information om hur du ar ombord på flera datorer samtidigt finns [i Lösningar för uppdateringshantering, ändringsspårning och lager.](automation-onboard-solutions-from-automation-account.md)
 
-Mer information om hur du ar ombord på flera datorer samtidigt finns [i Lösningar för uppdateringshantering, ändringsspårning och lager.](automation-onboard-solutions-from-automation-account.md)
-
-Välj arbetsytan Azure Log Analytics och Automation-kontot och välj sedan **Aktivera** för att aktivera lösningen. Det tar upp till 15 minuter att aktivera lösningen.
+4. Välj arbetsytan Azure Log Analytics och Automation-kontot och klicka sedan på **Aktivera** för att aktivera lösningen. Det tar upp till 15 minuter att aktivera lösningen.
 
 ![Ombord på lösning för uppdateringshantering](media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
-Gå till de andra lösningarna och välj sedan **Aktivera**. Listrutorna Log Analytics-arbetsyta och Automation-konto är inaktiverade eftersom dessa lösningar använder samma arbetsyta och Automation-konto som den tidigare aktiverade lösningen.
+5. Gå till de andra lösningarna och välj sedan **Aktivera**. Listrutorna Log Analytics-arbetsyta och Automation-konto är inaktiverade eftersom dessa lösningar använder samma arbetsyta och Automation-konto som den tidigare aktiverade lösningen.
 
 > [!NOTE]
-> **Ändringsspårning** **och Lager** använder samma lösning. När en av dessa lösningar är aktiverad aktiveras även den andra.
+> Ändringsspårning och Lager använder samma lösning. När en av dessa lösningar är aktiverad aktiveras även den andra.
 
 ## <a name="scope-configuration"></a>Konfiguration av scope
 
-Varje lösning använder en scopekonfiguration på arbetsytan för att rikta in sig på de datorer som hämtar lösningen. Scopekonfigurationen är en grupp med en eller flera sparade sökningar som används för att begränsa lösningens omfattning till specifika datorer. Om du vill komma åt scopekonfigurationerna väljer du **Arbetsyta**i ditt Automation-konto under **Relaterade resurser**. Välj **Scopekonfigurationer**under **Datakällor**på arbetsytan på arbetsytan .
+Varje lösning använder en scopekonfiguration på arbetsytan för att rikta in sig på de datorer som hämtar lösningen. Scopekonfigurationen är en grupp med en eller flera sparade sökningar som används för att begränsa lösningens omfattning till specifika datorer. Så här kommer du åt scopekonfigurationerna:
 
-Om den valda arbetsytan inte redan har lösningarna Uppdateringshantering eller Ändringsspårning skapas följande scopekonfigurationer:
+1. Välj **Arbetsyta**under **Relaterade resurser**i ditt Automation-konto. 
+2. Välj **Scopekonfigurationer**under **Datakällor**på arbetsytan på arbetsytan .
+3. Om den valda arbetsytan inte redan har lösningen Uppdateringshantering eller Ändringsspårning skapas följande scopekonfigurationer:
 
-* **MicrosoftDefaultScopeConfig-ChangeTracking**
+    * `MicrosoftDefaultScopeConfig-ChangeTracking`
+    * `MicrosoftDefaultScopeConfig-Updates`
 
-* **MicrosoftDefaultScopeConfig-uppdateringar**
+    Om den valda arbetsytan redan har lösningen distribueras inte lösningen om och scopekonfigurationen läggs inte till.
 
-Om den valda arbetsytan redan har lösningen distribueras inte lösningen om och scopekonfigurationen läggs inte till.
-
-Välj ellipserna (**...**) på någon av konfigurationerna och välj sedan **Redigera**. Välj **Välj datorgrupper**i **konfigurationsfönstret Redigera scope** . I fönstret **Datorgrupper** visas de sparade sökningar som används för att skapa scopekonfigurationen.
+4. Markera ellipserna (**...**) i någon av konfigurationerna och klicka sedan på **Redigera**. 
+5. Välj **Välj datorgrupper**i **konfigurationsfönstret Redigera scope** . I fönstret **Datorgrupper** visas de sparade sökningar som används för att skapa scopekonfigurationen.
 
 ## <a name="saved-searches"></a>Sparade sökningar
 
-När en dator läggs till i lösningarna Uppdateringshantering, Ändringsspårning eller Lager läggs datorn till i en av två sparade sökningar på arbetsytan. De sparade sökningarna är frågor som innehåller de datorer som är avsedda för dessa lösningar.
+När en dator läggs till i lösningen Uppdateringshantering, Ändringsspårning eller Lager läggs datorn till i en av två sparade sökningar på arbetsytan. De sparade sökningarna är frågor som innehåller de datorer som är avsedda för dessa lösningar.
 
 Gå till din arbetsyta. Under **Allmänt**väljer du **Sparade sökningar**. De två sparade sökningar som används av dessa lösningar visas i följande tabell:
 
@@ -83,7 +83,7 @@ När du har tagit bort dessa lösningar kan du utföra följande steg för att t
 > [!NOTE]
 > Vissa lösningar, inklusive tidigare versioner av Azure SQL-övervakningslösningen, kan ha skapat automatiseringsresurser och kan också behöva tas bort innan arbetsytan tas bort.
 
-1. Öppna ditt Automation-konto på sidan Automation-konto på sidan Automation-konto **under** avsnittet **Relaterade resurser** till vänster.
+1. Öppna ditt Automation-konto på Azure-portalen och välj **Länkad arbetsyta** under avsnittet **Relaterade resurser** till vänster.
 
 2. Klicka på **Ta bort länk arbetsyta**på sidan Ta bort länk.
 
@@ -112,7 +112,7 @@ Du kan också ta bort länken till arbetsytan från ditt Automation-konto från 
 Så här tar du bort en virtuell dator från uppdateringshantering:
 
 * I logganalysarbetsytan tar du bort den virtuella datorn `MicrosoftDefaultScopeConfig-Updates`från den sparade sökningen efter scopekonfigurationen . Sparade sökningar hittar du under **Allmänt** på arbetsytan.
-* Ta bort [Microsoft Monitoring-agenten](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) eller [Log Analytics-agenten för Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+* Ta bort [Log Analytics-agenten för Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) eller Log [Analytics-agenten för Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Nästa steg
 

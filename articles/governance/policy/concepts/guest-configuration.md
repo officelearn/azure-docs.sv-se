@@ -3,12 +3,12 @@ title: Lär dig att granska innehållet i virtuella datorer
 description: Lär dig hur Azure Policy använder agenten Gästkonfiguration för att granska inställningar i virtuella datorer.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4a2989badc099a199bf21f7e020ca8e6256ddaf0
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: e4899f6b3108cabb4e9cdd36e4b2bc5cd2f1cbd4
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81113418"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538043"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure-principens gästkonfiguration
 
@@ -59,7 +59,7 @@ I följande tabell visas en lista över operativsystem som stöds på Azure-avbi
 |Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
 |Microsoft|Windows-klient|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5, 7.6, 7.7|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6, 7.7|
+|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6, 7.7, 7.8|
 |Suse|SLES|12 SP3 (PÅ ANDRA)|
 
 ### <a name="unsupported-client-types"></a>Klienttyper som inte stöds

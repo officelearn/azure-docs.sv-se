@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: b3f298ac31cc584cd16553186359c87f69f27aad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70102395b94c89d4ce0edfddeda1df0be0e2f216
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671366"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536768"
 ---
 # <a name="application-insights-agent-api-enable-instrumentationengine"></a>Api för programinsikter agent: Aktivera instrumentationEngine
 
@@ -62,7 +62,7 @@ Configuring registry for instrumentation engine...
 ## <a name="next-steps"></a>Nästa steg
 
   Visa telemetrin:
- - [Utforska mätvärden](../../azure-monitor/app/metrics-explorer.md) för att övervaka prestanda och användning.
+ - [Utforska mätvärden](../../azure-monitor/platform/metrics-charts.md) för att övervaka prestanda och användning.
 - [Sök händelser och loggar](../../azure-monitor/app/diagnostic-search.md) för att diagnostisera problem.
 - Använd [analyser](../../azure-monitor/app/analytics.md) för mer avancerade frågor.
 - [Skapa instrumentpaneler](../../azure-monitor/app/overview-dashboard.md).

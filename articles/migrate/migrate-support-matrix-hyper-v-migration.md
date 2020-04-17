@@ -2,13 +2,13 @@
 title: Stöd för Hyper-V-migrering i Azure Migrate
 description: Läs mer om stöd för Hyper-V-migrering med Azure Migrate.
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: 1eab96df7ee58a8170f75b41c5a2a06f033ced19
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.openlocfilehash: 8ec0b72cac75518ac938faa202b28d055409e8dc
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79245829"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538196"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Stödmatris för Hyper-V-migrering
 
@@ -23,18 +23,44 @@ Du kan välja upp till 10 virtuella datorer samtidigt för replikering. Om du vi
 
 | **Support**                | **Detaljer**               
 | :-------------------       | :------------------- |
-| **Distribution**       | Hyper-V-värden kan vara fristående eller distribuerad i ett kluster. <br/>Azure Migrate replikeringsprogramvara (Hyper-V Replication-provider) måste installeras på Hyper-V-värdarna.|
+| **Distribution**       | Hyper-V-värden kan vara fristående eller distribuerad i ett kluster. <br/>Azure Migrate replikeringsprogramvara (Hyper-V Replication-provider) är installerad på Hyper-V-värdarna.|
 | **Behörigheter**           | Du behöver administratörsbehörigheter för Hyper-V-värden. |
 | **Värdoperativsystem** | Windows Server 2019, Windows Server 2016 eller Windows Server 2012 R2. |
-| **URL-åtkomst** | Replikeringsproviderprogramvaran på Hyper-V-värdarna behöver åtkomst till dessa webbadresser:<br/><br/> - login.microsoftonline.com: Åtkomstkontroll och identitetshantering med Active Directory.<br/><br/> - *.backup.windowsazure.com: Överföring och samordning av replikeringsdata. Migrera tjänstadresser.<br/><br/> - *.blob.core.windows.net: Ladda upp data till lagringskonton.<br/><br/> - dc.services.visualstudio.com: Ladda upp apploggar som används för intern övervakning.<br/><br/> - time.windows.com: Verifierar tidssynkronisering mellan system och global tid.
 | **Tillträde till port** |  Utgående anslutningar på HTTPS-port 443 för att skicka VM-replikeringsdata.
+
+### <a name="url-access-public-cloud"></a>URL-åtkomst (offentligt moln)
+
+Replikeringsproviderprogramvaran på Hyper-V-värdarna behöver åtkomst till dessa webbadresser.
+
+**URL** | **Detaljer**
+--- | ---
+login.microsoftonline.com | Åtkomstkontroll och identitetshantering med Active Directory.
+backup.windowsazure.com | Överföring och samordning av replikeringsdata.
+*.hypervrecoverymanager.windowsazure.com | Används för migrering.
+*.blob.core.windows.net | Ladda upp data till lagringskonton. 
+dc.services.visualstudio.com | Ladda upp apploggar som används för intern övervakning.
+time.windows.com | Verifierar tidssynkronisering mellan system och global tid.
+
+### <a name="url-access-azure-government"></a>URL-åtkomst (Azure Government)
+
+Replikeringsproviderprogramvaran på Hyper-V-värdarna behöver åtkomst till dessa webbadresser.
+
+**URL** | **Detaljer**
+--- | ---
+login.microsoftonline.us | Åtkomstkontroll och identitetshantering med Active Directory.
+backup.windowsazure.us | Överföring och samordning av replikeringsdata.
+*.hypervrecoverymanager.windowsazure.us | Används för migrering.
+*.blob.core.usgovcloudapi.net | Ladda upp data till lagringskonton.
+dc.services.visualstudio.com | Ladda upp apploggar som används för intern övervakning.
+time.nist.gov | Verifierar tidssynkronisering mellan system och global tid.
+
 
 ## <a name="hyper-v-vms"></a>Hyper-V:s virtuella datorer
 
 | **Support**                  | **Detaljer**               
 | :----------------------------- | :------------------- |
 | **Operativsystem** | Alla [Windows-](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) och [Linux-operativsystem](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) som stöds av Azure. |
-| **Nödvändiga ändringar för Azure** | Vissa virtuella datorer kan kräva ändringar så att de kan köras i Azure. Du måste göra justeringar manuellt före migreringen. De relevanta artiklarna innehåller instruktioner om hur du gör detta. |
+| **Nödvändiga ändringar för Azure** | Vissa virtuella datorer kan kräva ändringar så att de kan köras i Azure. Gör justeringar manuellt före migreringen. De relevanta artiklarna innehåller instruktioner om hur du gör detta. |
 | **Linux-start**                 | Om /boot finns på en dedikerad partition bör den finnas på OS-disken och inte spridas över flera diskar.<br/> Om /boot är en del av rotpartitionen (/) ska /-partitionen finnas på OS-disken och inte sträcka sig över andra diskar. |
 | **UEFI-start**                  | Den migrerade virtuella datorn i Azure konverteras automatiskt till en VIRTUELL BIOS-start. Den virtuella datorn bör köra Windows Server 2012 och senare endast. OS-disken bör ha upp till fem partitioner eller färre och storleken på OS-disken bör vara mindre än 300 GB.
   |
@@ -48,7 +74,7 @@ Du kan välja upp till 10 virtuella datorer samtidigt för replikering. Om du vi
 | **Måldisk**                | Du kan migrera till virtuella Azure-datorer med hanterade diskar. |
 | **IPv6** | Stöds inte.
 | **NIC-teaming** | Stöds inte.
-| **Återställning av Azure-webbplatser** | Du kan inte replikera med Azure Migrate Server Migration om den virtuella datorn är aktiverad för replikering med Azure Site Recovery.
+| **Azure Site Recovery** | Du kan inte replikera med Azure Migrate Server Migration om den virtuella datorn är aktiverad för replikering med Azure Site Recovery.
 | **Portar** | Utgående anslutningar på HTTPS-port 443 för att skicka VM-replikeringsdata.
 
 ## <a name="azure-vm-requirements"></a>Virtuella Azure VMware-datorer

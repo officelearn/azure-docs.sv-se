@@ -2,13 +2,13 @@
 title: Konfigurera Azure Monitor för behållare Prometheus Integration | Microsoft-dokument
 description: I den här artikeln beskrivs hur du kan konfigurera Azure Monitor för behållare agent för att skrapa mått från Prometheus med kubernetes-klustret.
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: b774bf042778ca9118a7bc9f051655b200d87659
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: 7fcf52cceb69834f68f8e4ce7a2674972a6430fd
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75931427"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537380"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Konfigurera skrapning av Prometheus-mått med Azure Monitor för behållare
 
@@ -22,7 +22,6 @@ ms.locfileid: "75931427"
 Skrapning av Prometheus-mått stöds med Kubernetes-kluster som finns på:
 
 - Azure Kubernetes Service (AKS)
-- Azure Container Instances
 - Azure Stack eller lokalt
 - Azure Red Hat OpenShift
 
@@ -76,17 +75,17 @@ När en URL har angetts skrapar Azure Monitor för behållare bara slutpunkten. 
 |Omfång | Nyckel | Datatyp | Värde | Beskrivning |
 |------|-----|-----------|-------|-------------|
 | Hela kluster | | | | Ange någon av följande tre metoder för att skrapa slutpunkter för mått. |
-| | `urls` | String | Kommaavgränsad matris | HTTP-slutpunkt (Antingen IP-adress eller giltig URL-sökväg angiven). Till exempel: `urls=[$NODE_IP/metrics]`. ($NODE_IP är en specifik Azure Monitor för behållare parameter och kan användas i stället för nod IP-adress. Måste vara versaler.) |
-| | `kubernetes_services` | String | Kommaavgränsad matris | En matris med Kubernetes-tjänster för att skrapa mått från kube-state-metrics. Till exempel`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
-| | `monitor_kubernetes_pods` | Boolean | sant eller falskt | När azure `true` Monitor för behållare agent är inställd på i klusteromfattande inställningar skrapar kubernetes poddar över hela klustret för följande Prometheus-anteckningar:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
-| | `prometheus.io/scrape` | Boolean | sant eller falskt | Möjliggör skrapning av kapseln. `monitor_kubernetes_pods`måste ställas `true`in på . |
-| | `prometheus.io/scheme` | String | http eller https | Standarder till skrotning via HTTP. Om det behövs, ställ in på `https`. | 
-| | `prometheus.io/path` | String | Kommaavgränsad matris | HTTP-resurssökvägen som måtten ska hämtas från. Om sökvägen till `/metrics`mått inte är det definierar du den med den här anteckningen. |
-| | `prometheus.io/port` | String | 9102 | Ange en port som ska skrapas från. Om porten inte är inställd, kommer den som standard att 9102. |
-| | `monitor_kubernetes_pods_namespaces` | String | Kommaavgränsad matris | En tillåt lista över namnområden för att skrapa mått från Kubernetes poddar.<br> Till exempel, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
-| Nod-bred | `urls` | String | Kommaavgränsad matris | HTTP-slutpunkt (Antingen IP-adress eller giltig URL-sökväg angiven). Till exempel: `urls=[$NODE_IP/metrics]`. ($NODE_IP är en specifik Azure Monitor för behållare parameter och kan användas i stället för nod IP-adress. Måste vara versaler.) |
-| Nod hela eller klusteromfattande | `interval` | String | 60s | Standardinställningen för samlingsintervallet är en minut (60 sekunder). Du kan ändra samlingen för antingen *[prometheus_data_collection_settings.node]* och/eller *[prometheus_data_collection_settings.cluster]* till tidsenheter som s, m, h. |
-| Nod hela eller klusteromfattande | `fieldpass`<br> `fielddrop`| String | Kommaavgränsad matris | Du kan ange vissa mått som ska samlas in eller inte`fieldpass`från slutpunkten`fielddrop`genom att ange listan tillåt ( ) och inte tillåta ( ). Du måste ange listan tillåt först. |
+| | `urls` | Sträng | Kommaavgränsad matris | HTTP-slutpunkt (Antingen IP-adress eller giltig URL-sökväg angiven). Till exempel: `urls=[$NODE_IP/metrics]`. ($NODE_IP är en specifik Azure Monitor för behållare parameter och kan användas i stället för nod IP-adress. Måste vara versaler.) |
+| | `kubernetes_services` | Sträng | Kommaavgränsad matris | En matris med Kubernetes-tjänster för att skrapa mått från kube-state-metrics. Till exempel`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
+| | `monitor_kubernetes_pods` | Boolesk | sant eller falskt | När azure `true` Monitor för behållare agent är inställd på i klusteromfattande inställningar skrapar kubernetes poddar över hela klustret för följande Prometheus-anteckningar:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `prometheus.io/scrape` | Boolesk | sant eller falskt | Möjliggör skrapning av kapseln. `monitor_kubernetes_pods`måste ställas `true`in på . |
+| | `prometheus.io/scheme` | Sträng | http eller https | Standarder till skrotning via HTTP. Om det behövs, ställ in på `https`. | 
+| | `prometheus.io/path` | Sträng | Kommaavgränsad matris | HTTP-resurssökvägen som måtten ska hämtas från. Om sökvägen till `/metrics`mått inte är det definierar du den med den här anteckningen. |
+| | `prometheus.io/port` | Sträng | 9102 | Ange en port som ska skrapas från. Om porten inte är inställd, kommer den som standard att 9102. |
+| | `monitor_kubernetes_pods_namespaces` | Sträng | Kommaavgränsad matris | En tillåt lista över namnområden för att skrapa mått från Kubernetes poddar.<br> Till exempel, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
+| Nod-bred | `urls` | Sträng | Kommaavgränsad matris | HTTP-slutpunkt (Antingen IP-adress eller giltig URL-sökväg angiven). Till exempel: `urls=[$NODE_IP/metrics]`. ($NODE_IP är en specifik Azure Monitor för behållare parameter och kan användas i stället för nod IP-adress. Måste vara versaler.) |
+| Nod hela eller klusteromfattande | `interval` | Sträng | 60s | Standardinställningen för samlingsintervallet är en minut (60 sekunder). Du kan ändra samlingen för antingen *[prometheus_data_collection_settings.node]* och/eller *[prometheus_data_collection_settings.cluster]* till tidsenheter som s, m, h. |
+| Nod hela eller klusteromfattande | `fieldpass`<br> `fielddrop`| Sträng | Kommaavgränsad matris | Du kan ange vissa mått som ska samlas in eller inte`fieldpass`från slutpunkten`fielddrop`genom att ange listan tillåt ( ) och inte tillåta ( ). Du måste ange listan tillåt först. |
 
 ConfigMaps är en global lista och det kan bara finnas en ConfigMap som tillämpas på agenten. Du kan inte låta en annan ConfigMaps åsidosätta samlingarna.
 

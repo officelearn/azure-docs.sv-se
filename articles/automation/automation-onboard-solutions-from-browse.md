@@ -5,12 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 385806dca7dcac9fd0aac4c1bf9e1072e7fe5ecb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f5f18e9365b09f06c1bd4f25a8efe909cc308dad
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979476"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537023"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Aktivera lösningar för uppdateringshantering, ändringsspårning och lager på flera virtuella datorer
 
@@ -33,7 +33,7 @@ Med hjälp av kryssrutorna markerar du de virtuella datorer som du vill gå ombo
 Klicka på **Tjänster** i kommandofältet och välj antingen **Ändra spårning,** **Lager**eller **Uppdateringshantering**.
 
 > [!NOTE]
-> **Ändringsspårning** och **Lager** använder samma lösning när den ena är aktiverad den andra är aktiverad också.
+> Ändringsspårning och lager använder samma lösning. När en är aktiverad är den andra också aktiverad.
 
 Följande bild är för Uppdateringshantering. Ändringsspårning och lager har samma layout och beteende.
 
@@ -107,13 +107,13 @@ Du kan också ta bort länken till arbetsytan från ditt Automation-konto från 
 
 ## <a name="troubleshooting"></a>Felsökning
 
-När du ar in flera datorer kan det finnas datorer som visas som **Det inte går att aktivera**. Det finns olika orsaker till att vissa datorer kanske inte är aktiverade. Följande avsnitt visar möjliga orsaker till tillståndet **Kan inte aktivera** på en virtuell dator när du försöker vara ombord.
+När du ar in flera maskiner kan `Cannot enable`det finnas maskiner som visas som . Det finns olika orsaker till att vissa datorer kanske inte är aktiverade. Följande avsnitt visar möjliga orsaker `Cannot enable` till tillståndet på en virtuell dator när du försöker gå ombord.
 
 ### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>VM rapporterar till en\<annan arbetsyta: ' workspaceName\>'.  Ändra konfiguration för att använda den för att aktivera
 
 **Orsak**: Det här felet visar att den virtuella datorn som du försöker gå in på rapporterar till en annan arbetsyta.
 
-**Lösning**: Klicka på **Använd som konfiguration** för att ändra arbetsytan Automation-konto och Logganalys.
+**Lösning**: Klicka på **Använd som konfiguration** för att ändra det riktade Automation-kontot och Log Analytics-arbetsytan.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>VM-rapporter till en arbetsyta som inte är tillgänglig i den här prenumerationen
 
@@ -148,7 +148,7 @@ När du ar in flera datorer kan det finnas datorer som visas som **Det inte går
 Så här tar du bort en virtuell dator från uppdateringshantering:
 
 * I logganalysarbetsytan tar du bort den virtuella datorn `MicrosoftDefaultScopeConfig-Updates`från den sparade sökningen efter scopekonfigurationen . Sparade sökningar hittar du under **Allmänt** på arbetsytan.
-* Ta bort [Microsoft Monitoring-agenten](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) eller [Log Analytics-agenten för Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+* Ta bort [Log Analytics-agenten för Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) eller Log [Analytics-agenten för Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Nästa steg
 

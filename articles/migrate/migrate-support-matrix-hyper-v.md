@@ -2,13 +2,13 @@
 title: Stöd för Hyper-V-utvärdering i Azure Migrate
 description: Lär dig mer om stöd för Hyper-V-utvärdering med Azure Migrate Server Assessment
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.openlocfilehash: e8a698b110f19dff593a93a41e9d6f20eb80cdb0
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.date: 04/15/2020
+ms.openlocfilehash: 990d5026d9621c144c31635fabac4416eb9d20e6
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389009"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81538179"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Stödmatris för Hyper-V-bedömning
 
@@ -53,7 +53,8 @@ Om du vill konfigurera Hyper-V VM-utvärdering skapar du ett Azure Migrate-proje
 Azure Migrate använder [Azure Migrate-enheten](migrate-appliance.md) för identifiering och utvärdering. Du kan distribuera enheten med en komprimerad Hyper-V VHD som du hämtar från portalen eller med ett [PowerShell-skript](deploy-appliance-script.md).
 
 - Läs mer om [apparatkrav](migrate-appliance.md#appliance---hyper-v) för Hyper-V.
-- Läs mer om [webbadresser](migrate-appliance.md#url-access) som apparaten behöver komma åt.
+- Läs mer om webbadresser som apparaten behöver komma åt i [offentliga](migrate-appliance.md#public-cloud-urls) moln och [myndighetsmoln.](migrate-appliance.md#government-cloud-urls)
+- I Azure Government måste du distribuera enheten med skriptet.
 
 ## <a name="port-access"></a>Tillträde till port
 
@@ -72,12 +73,13 @@ I följande tabell sammanfattas portkrav för bedömning.
 --- | --- 
 **Före distribution** | Du bör ha ett Azure Migrate-projekt på plats, med serverbedömningsverktyget tillagt i projektet.<br/><br/>  Du distribuerar beroendevisualisering efter att ha konfigurerat en Azure Migrate-installation för att identifiera dina lokala datorer<br/><br/> [Läs om hur du](create-manage-projects.md) skapar ett projekt för första gången.<br/> [Läs om hur du](how-to-assess.md) lägger till ett bedömningsverktyg i ett befintligt projekt.<br/> Lär dig hur du konfigurerar Azure Migrate-enheten för bedömning av [virtuella hyper-virtuella datorer](how-to-set-up-appliance-hyper-v.md).
 **Azure Government** | Beroendevisualisering är inte tillgängligt i Azure Government.
-**Logga Analytics** | Azure Migrate [Service Map](../operations-management-suite/operations-management-suite-service-map.md) använder servicemappningslösningen i [Azure Monitor-loggar](../log-analytics/log-analytics-overview.md) för beroendevisualisering.<br/><br/> Du associerar en ny eller befintlig Log Analytics-arbetsyta med ett Azure Migrate-projekt. Arbetsytan för ett Azure Migrate-projekt kan inte ändras när det har lagts till. <br/><br/> Arbetsytan måste finnas i samma prenumeration som Azure Migrate-projektet.<br/><br/> Arbetsytan måste finnas i regionerna Östra USA, Sydostasien eller Västeuropa. Arbetsytor i andra regioner kan inte associeras med ett projekt.<br/><br/> Arbetsytan måste finnas i en region där [Service Map stöds](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).<br/><br/> I Logganalys taggas arbetsytan som är associerad med Azure Migrate med nyckeln Migreringsprojekt och projektnamnet.
+**Log Analytics** | Azure Migrate [Service Map](../operations-management-suite/operations-management-suite-service-map.md) använder servicemappningslösningen i [Azure Monitor-loggar](../log-analytics/log-analytics-overview.md) för beroendevisualisering.<br/><br/> Du associerar en ny eller befintlig Log Analytics-arbetsyta med ett Azure Migrate-projekt. Arbetsytan för ett Azure Migrate-projekt kan inte ändras när det har lagts till. <br/><br/> Arbetsytan måste finnas i samma prenumeration som Azure Migrate-projektet.<br/><br/> Arbetsytan måste finnas i regionerna Östra USA, Sydostasien eller Västeuropa. Arbetsytor i andra regioner kan inte associeras med ett projekt.<br/><br/> Arbetsytan måste finnas i en region där [Service Map stöds](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).<br/><br/> I Logganalys taggas arbetsytan som är associerad med Azure Migrate med nyckeln Migreringsprojekt och projektnamnet.
 **Nödvändiga agenter** | Installera följande agenter på varje dator som du vill analysera:<br/><br/> [Microsoft Monitoring agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows).<br/> [Beroendeagenten](../azure-monitor/platform/agents-overview.md#dependency-agent).<br/><br/> Om lokala datorer inte är anslutna till internet måste du hämta och installera Log Analytics-gatewayen på dem.<br/><br/> Läs mer om hur du installerar [beroendeagenten](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) och [MMA](how-to-create-group-machine-dependencies.md#install-the-mma).
 **Log Analytics-arbetsyta** | Arbetsytan måste finnas i samma prenumeration som Azure Migrate-projektet.<br/><br/> Azure Migrate stöder arbetsytor som finns i regionerna Östra USA, Sydostasien och Västeuropa.<br/><br/>  Arbetsytan måste finnas i en region där [Service Map stöds](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#prerequisites).<br/><br/> Arbetsytan för ett Azure Migrate-projekt kan inte ändras när det har lagts till.
 **Kostnader** | Service Map-lösningen medför inga avgifter för de första 180 dagarna (från den dag då du associerar Log Analytics-arbetsytan med Azure Migrate-projektet)/<br/><br/> Efter 180 dagar gäller standardpriserna för Log Analytics.<br/><br/> Om du använder någon annan lösning än Service Map på den associerade log analytics-arbetsytan medför [standardavgifter](https://azure.microsoft.com/pricing/details/log-analytics/) för Log Analytics.<br/><br/> När Azure Migrate-projektet tas bort tas arbetsytan inte bort tillsammans med den. När du har tagit bort projektet är användning av tjänstkartning inte gratis och varje nod debiteras enligt den betalda nivån på Log Analytics-arbetsytan/<br/><br/>Om du har projekt som du har skapat innan Azure Migrate allmän tillgänglighet (GA- 28 februari 2018), kan du ha ådragit dig ytterligare servicemappningsavgifter. För att säkerställa betalning efter endast 180 dagar rekommenderar vi att du skapar ett nytt projekt, eftersom befintliga arbetsytor innan GA fortfarande är avgiftsbelagda.
 **Hantering** | När du registrerar agenter på arbetsytan använder du ID och nyckel som tillhandahålls av Azure Migrate-projektet.<br/><br/> Du kan använda log analytics-arbetsytan utanför Azure Migrate.<br/><br/> Om du tar bort det associerade Azure Migrate-projektet tas arbetsytan inte bort automatiskt. [Ta bort den manuellt](../azure-monitor/platform/manage-access.md).<br/><br/> Ta inte bort arbetsytan som skapats av Azure Migrate, såvida du inte tar bort Azure Migrate-projektet. Om du gör det kommer beroendevisualiseringsfunktionen inte att fungera som förväntat.
 **Internetanslutning** | Om datorer inte är anslutna till internet måste du installera log analytics-gatewayen på dem.
+**Azure Government** | Agentbaserad beroendeanalys stöds inte.
 
 ## <a name="next-steps"></a>Nästa steg
 

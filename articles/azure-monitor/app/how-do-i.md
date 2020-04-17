@@ -3,12 +3,12 @@ title: Hur gör jag ... i Azure Application Insights | Microsoft-dokument
 description: Vanliga frågor och svar i Application Insights.
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 5b65087c361911f0714723c315e0b7f7e9bb74e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8d4b1e79c48b14ed7dce756468e4c48d633c3f04
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77663865"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536870"
 ---
 # <a name="how-do-i--in-application-insights"></a>Hur kan jag ... i Application Insights?
 ## <a name="get-an-email-when-"></a>Få ett mail när ...
@@ -45,7 +45,7 @@ Eftersom aviseringar har två tillstånd måste du skicka ett lågt värde när 
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-Skapa ett diagram i [måttutforskaren](../../azure-monitor/app/metrics-explorer.md) för att se ditt alarm:
+Skapa ett diagram i [måttutforskaren](../../azure-monitor/platform/metrics-charts.md) för att se ditt alarm:
 
 ![](./media/how-do-i/010-alarm.png)
 
@@ -82,7 +82,7 @@ Några saker att tänka på:
 
 ## <a name="visualize-data"></a>Visualisera data
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>Instrumentpanel med mått från flera appar
-* I [Metric Explorer](../../azure-monitor/app/metrics-explorer.md)anpassar du diagrammet och sparar det som en favorit. Fäst den på Azure-instrumentpanelen.
+* I [Metric Explorer](../../azure-monitor/platform/metrics-charts.md)anpassar du diagrammet och sparar det som en favorit. Fäst den på Azure-instrumentpanelen.
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Instrumentpanel med data från andra källor och Application Insights
 * [Exportera telemetri till Power BI](../../azure-monitor/app/export-power-bi.md ).
@@ -159,5 +159,5 @@ Bland de mått som du kan visa i mått explorer är en uppsättning systempresta
 * **Unix-server** - [Installera samlad](../../azure-monitor/app/java-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>Så här visar du fler prestandaräknare
-* Lägg [först till ett nytt diagram](../../azure-monitor/app/metrics-explorer.md) och se om räknaren finns i den grundläggande uppsättning som vi erbjuder.
+* Lägg [först till ett nytt diagram](../../azure-monitor/platform/metrics-charts.md) och se om räknaren finns i den grundläggande uppsättning som vi erbjuder.
 * Om inte, [lägg till räknaren i den uppsättning som samlas in av prestandaräknaren modulen](../../azure-monitor/app/performance-counters.md).

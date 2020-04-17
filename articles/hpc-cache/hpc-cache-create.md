@@ -4,14 +4,14 @@ description: Skapa en Azure HPC-cacheinstans
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 11/11/2019
-ms.author: rohogue
-ms.openlocfilehash: c6090d19ce530829b79dca69636c2123e2519961
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/15/2020
+ms.author: v-erkel
+ms.openlocfilehash: befbe2435a518b82cf5a3ab12e6129aa3ce5c22b
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80129558"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537990"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Skapa en Azure HPC-cache
 
@@ -23,7 +23,7 @@ Använd Azure-portalen för att skapa din cache.
 
 ![skärmbild av sidan projektinformation i Azure-portalen](media/hpc-cache-create-basics.png)
 
-Välj den prenumeration och resursgrupp som ska vara värd för cacheminnet i **Project Details.** Kontrollera att prenumerationen finns i [åtkomstlistan.](hpc-cache-prereqs.md#azure-subscription)
+Välj den prenumeration och resursgrupp som ska vara värd för cacheminnet i **Project Details.**
 
 I **Serviceinformation**anger du cachenamnet och dessa andra attribut:
 
@@ -51,6 +51,28 @@ Azure HPC Cache hanterar vilka filer som cachelagras och förinstalleras för at
 
 ![skärmbild av cachestorlekssidan](media/hpc-cache-create-capacity.png)
 
+## <a name="enable-azure-key-vault-encryption-optional"></a>Aktivera Kryptering av Azure Key Vault (valfritt)
+
+Om cacheminnet finns i en region som stöder kundhanterade krypteringsnycklar visas sidan **Diskkrypteringsnycklar** mellan flikarna **Cache** och **Taggar.** Från och med publiceringstiden stöds det här alternativet i östra USA, södra centrala USA och västra US 2.
+
+Om du vill hantera krypteringsnycklarna som används med cachelagringen anger du informationen om Azure Key Vault på **diskkrypteringsnyckelsidan.** Nyckelvalvet måste finnas i samma region och i samma prenumeration som cacheminnet.
+
+Du kan hoppa över det här avsnittet om du inte behöver kundhanterade nycklar. Azure krypterar data med Microsoft-hanterade nycklar som standard. Läs [Azure-lagringskryptering](../storage/common/storage-service-encryption.md) om du vill veta mer.
+
+> [!NOTE]
+>
+> * Du kan inte ändra mellan Microsoft-hanterade nycklar och kundhanterade nycklar när du har skapat cacheminnet.
+> * När cacheminnet har skapats måste du auktorisera den för att komma åt nyckelvalvet. Klicka på knappen **Aktivera kryptering** på sidan **Översikt** för cacheminnet för att aktivera kryptering. Ta det här steget inom 90 minuter efter att du har skapat cacheminnet.
+> * Cachediskar skapas efter den här auktoriseringen. Det innebär att den första cachetiden är kort, men cacheminnet är inte redo att användas på tio minuter eller mer efter att du har auktoriserat åtkomst.
+
+En fullständig förklaring av krypteringsprocessen för kundhanterad nyckel finns i [Använd kundhanterade krypteringsnycklar för Azure HPC-cache](customer-keys.md).
+
+![skärmbild av klientnycklar med "kundhanterade" valda och nyckelvalvsfält som visar](media/create-encryption.png)
+
+Välj **Kundhanterad** för att välja kundhanterad nyckelkryptering. De viktigaste valvspecifikationsfälten visas. Välj det Azure Key Vault som ska användas och välj sedan den nyckel och version som ska användas för den här cachen. Nyckeln måste vara en 2048-bitars RSA-nyckel. Du kan skapa ett nytt nyckelvalv, nyckel eller nyckelversion från den här sidan.
+
+När du har skapat cacheminnet måste du auktorisera den för att använda nyckelvalvstjänsten. Läs [Auktorisera Azure Key Vault-kryptering från cacheminnet](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) för mer information.
+
 ## <a name="add-resource-tags-optional"></a>Lägga till resurstaggar (valfritt)
 
 På sidan **Taggar** kan du lägga till [resurstaggar](https://go.microsoft.com/fwlink/?linkid=873112) i din Azure HPC-cacheinstans.
@@ -64,12 +86,15 @@ Cache skapande tar ca 10 minuter. Du kan spåra förloppet i Azure-portalens med
 ![skärmbild av cacheskapande "distribution pågår" och "meddelanden" sidor i portalen](media/hpc-cache-deploy-status.png)
 
 När skapandet är klart visas ett meddelande med en länk till den nya Azure HPC-cacheinstansen och cachen visas i prenumerationens **resurslista.**
-<!-- double check on notification -->
 
 ![skärmbild av Azure HPC Cache-instans i Azure-portalen](media/hpc-cache-new-overview.png)
 
+> [!NOTE]
+> Om cachen använder kundhanterade krypteringsnycklar kan cachen visas i resurslistan innan distributionsstatusen ändras för att slutföras. Så fort cachens status väntar **på nyckel** kan du [auktorisera](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) den för att använda nyckelvalvet.
+
 ## <a name="next-steps"></a>Nästa steg
 
-När cacheminnet har visas i listan **Resurser** definierar du lagringsmål för att ge cachen åtkomst till dina datakällor.
+När cacheminnet har visas i listan **Resurser** kan du gå vidare till nästa steg.
 
-* [Lägga till lagringsmål](hpc-cache-add-storage.md)
+* [Definiera lagringsmål](hpc-cache-add-storage.md) för att ge cacheåtkomst till dina datakällor.
+* Om du använder kundhanterade krypteringsnycklar måste du [auktorisera Azure Key Vault-kryptering](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) från cachens översiktssida för att slutföra cachekonfigurationen. Du måste göra det här steget innan du kan lägga till lagringsutrymme. Läs [Använd kundhanterade krypteringsnycklar](customer-keys.md) för mer information.

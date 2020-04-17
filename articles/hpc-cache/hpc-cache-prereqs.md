@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: rohogue
-ms.openlocfilehash: 6da35cb60dc5f22be01ae25393bd62327db64867
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: ab342dba5c8be2ff3793c0eb36926969b3e364e5
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655649"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537295"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Förutsättningar för Azure HPC-cache
 
@@ -20,9 +20,6 @@ Innan du använder Azure-portalen för att skapa en ny Azure HPC-cache, se till 
 ## <a name="azure-subscription"></a>Azure-prenumeration
 
 En betald prenumeration rekommenderas.
-
-> [!NOTE]
-> Under de första månaderna av GA-versionen måste Azure HPC-cacheteamet lägga till din prenumeration i åtkomstlistan innan den kan användas för att skapa en cacheinstans. Den här proceduren hjälper till att säkerställa att varje kund får svarstider av hög kvalitet från sina cacheminnen. Fyll [i det här formuläret](https://aka.ms/onboard-hpc-cache) för att begära åtkomst.
 
 ## <a name="network-infrastructure"></a>Nätverksinfrastruktur
 
@@ -84,11 +81,11 @@ Om du vill skapa ett kompatibelt lagringskonto använder du följande inställni
 * Åtkomstnivå (standard): **Hot**
 
 Det är bra att använda ett lagringskonto på samma plats som cacheminnet.
-<!-- clarify location - same region or same resource group or same virtual network? -->
 
 Du måste också ge cacheprogrammet åtkomst till ditt Azure-lagringskonto som nämns i [Behörigheter](#permissions)ovan. Följ proceduren i [Lägg till lagringsmål](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) för att ge cacheminnet de åtkomstroller som krävs. Om du inte är lagringskontoägare ber du ägaren göra det här steget.
 
 ### <a name="nfs-storage-requirements"></a>NFS-lagringskrav
+<!-- linked from configuration.md -->
 
 Om du använder ett NFS-lagringssystem (till exempel ett lokalt NAS-system för maskinvara) kontrollerar du att det uppfyller dessa krav. Du kan behöva arbeta med nätverksadministratörer eller brandväggshanterare för ditt lagringssystem (eller datacenter) för att verifiera dessa inställningar.
 

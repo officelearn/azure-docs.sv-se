@@ -3,17 +3,17 @@ title: Prissättning & faktureringsmodell
 description: Översikt över hur pris- och faktureringsmodellen fungerar för Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: kevinlam1
-ms.author: klam
+author: jonfancey
+ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 795acd67a8d4a9f8b8b7d78799a92134f249cf8d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f47c7412bdd5ada1e50d1005b8e740e3f46ffd8d
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79270464"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536241"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Prismodell för Azure Logic Apps
 
@@ -23,50 +23,55 @@ ms.locfileid: "79270464"
 
 ## <a name="consumption-pricing-model"></a>Modell för förbrukningspris
 
-För nya logikappar som körs i den offentliga eller "globala" Azure Logic Apps-tjänsten betalar du bara för det du använder. Dessa logikappar använder en förbrukningsbaserad plan och prismodell. I logikappen är varje steg en åtgärd och Azure Logic Apps mäter alla åtgärder som körs i logikappen.
+För nya logikappar som körs i den offentliga, "globala" Azure Logic Apps-tjänsten med flera innehavare, betalar du bara för det du använder. Dessa logikappar använder en förbrukningsbaserad plan och prismodell. I logikappen är varje steg en åtgärd och Azure Logic Apps mäter alla åtgärder som körs i logikappen.
 
 Åtgärder omfattar till exempel:
 
-* Utlösare, som är speciella åtgärder. Alla logikappar kräver en utlösare som första steg.
+* [Utlösare](#triggers), som är särskilda åtgärder. Alla logikappar kräver en utlösare som första steg.
+
 * ["Inbyggda" eller inbyggda åtgärder](../connectors/apis-list.md#built-in) som HTTP, anrop till Azure-funktioner och API-hantering och så vidare
+
 * Samtal till [hanterade anslutningsappar](../connectors/apis-list.md#managed-connectors) som Outlook 365, Dropbox och så vidare
-* Styr flödessteg, till exempel loopar, villkorssatser och så vidare
+
+* [Styra arbetsflödesåtgärder](../connectors/apis-list.md#control-workflow) som loopar, villkorssatser och så vidare
 
 [Standardkopplingar debiteras](../connectors/apis-list.md#managed-connectors) till [standardanslutningspriset](https://azure.microsoft.com/pricing/details/logic-apps). Allmänt tillgängliga [Enterprise-anslutningsappar debiteras](../connectors/apis-list.md#managed-connectors) till [företagskopplingspriset,](https://azure.microsoft.com/pricing/details/logic-apps)medan offentliga förhandsversioner Av Företagskopplingar debiteras enligt [standardanslutningspriset](https://azure.microsoft.com/pricing/details/logic-apps).
 
-Läs mer om hur fakturering fungerar för [utlösare](#triggers) och [åtgärder](#actions).
+Läs mer om hur fakturering fungerar på [triggers-](#triggers) och [åtgärdsnivå.](#actions) Eller, för information om gränser, se [Gränser och konfiguration för Azure Logic Apps](logic-apps-limits-and-config.md).
 
 <a name="fixed-pricing"></a>
 
 ## <a name="fixed-pricing-model"></a>Modell för fast prissättning
 
-En [ *integrationstjänstmiljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) är ett isolerat sätt för dig att skapa och köra logikappar som kan komma åt resurser i ett virtuellt Azure-nätverk. För nya logikappar som körs i en ISE betalar du ett [fast månadspris](https://azure.microsoft.com/pricing/details/logic-apps) för dessa funktioner:
+En [ *integrationstjänstmiljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) är ett isolerat sätt för dig att skapa och köra logikappar som kan komma åt resurser i ett virtuellt Azure-nätverk. Logikappar som körs i en ISE medför inte datalagringskostnader. När du skapar en ISE, och endast under skapandet, kan du välja en [ISE-nivå eller "SKU",](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)som har olika [priser:](https://azure.microsoft.com/pricing/details/logic-apps)
+
+* **Premie** ISE: Den här SKU:s basenhet har fast kapacitet, men om du behöver mer dataflöde kan du [lägga till fler skalenheter](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) när ISE skapas eller efteråt. För ISE-gränser finns i [Gränser och konfiguration för Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
+
+* **Utvecklare** ISE: Den här SKU:n har ingen möjlighet att skala upp, inget servicenivåavtal (SLA) och inga publicerade gränser. Använd den här SKU:n endast för att experimentera, utveckla och testa, inte produktion eller prestandatestning.
+
+För logikappar som du skapar och kör i en ISE betalar du ett [fast månadspris](https://azure.microsoft.com/pricing/details/logic-apps) för dessa funktioner:
 
 * [Inbyggda](../connectors/apis-list.md#built-in) utlösare och åtgärder
 
   I en ISE visar inbyggda utlösare och åtgärder **core-etiketten** och körs i samma ISE som dina logikappar.
 
-* [Standardkopplingar](../connectors/apis-list.md#managed-connectors) och [Enterprise-kopplingar](../connectors/apis-list.md#enterprise-connectors) (så många Enterprise-anslutningar du vill)
+* [Standardkopplingar](../connectors/apis-list.md#managed-connectors) och [Enterprise-kopplingar,](../connectors/apis-list.md#enterprise-connectors) som gör att du kan ha så många Enterprise-anslutningar du vill
 
-   Standard- och Enterprise-kopplingar som visar **ISE-etiketten** körs i samma ISE som dina logikappar. Kopplingar som inte visar ISE-etiketten körs i den globala Logic Apps-tjänsten. Fast månadspris gäller även för kopplingar som körs i den globala tjänsten när du använder dem med logikappar som körs i en ISE.
+   Standard- och Enterprise-kopplingar som visar **ISE-etiketten** körs i samma ISE som dina logikappar. Kopplingar som inte visar ISE-etiketten körs i den offentliga, "globala" logic apps-tjänsten med flera innehavare. Fast månadspris gäller även för kopplingar som körs i tjänsten med flera innehavare när du använder dem med logikappar som körs i en ISE.
 
 * Användning av [integrationskonto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) utan extra kostnad, baserat på din [ISE SKU:](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)
 
-  * **Premium SKU**: Ett integrationskonto [på en standardnivå](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
+  * **Premie** ISE SKU: Ett integrationskonto [på en enda standardnivå](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
 
-  * **Utvecklare SKU:** Ett enda konto för integration [på den kostnadsfria nivån](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
+  * **Utvecklare** ISE SKU: Ett enda konto för integrering [på den kostnadsfria nivån](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)
 
   Varje ISE SKU är begränsad till 5 totala integrationskonton. Mot en extra kostnad kan du ha fler integrationskonton, baserat på din ISE SKU:
 
-  * **Premium SKU**: Upp till ytterligare fyra standardkonton. Inga gratis- eller basic-konton.
+  * **Premie** ISE SKU: Upp till fyra fler standardkonton. Inga gratis- eller basic-konton.
 
-  * **Utvecklare SKU:** Antingen upp till 4 fler Standard-konton, eller upp till 5 totalt Standard konton. Inga grundläggande konton.
+  * **Utvecklare** ISE SKU: Antingen upp till 4 fler standardkonton eller upp till 5 totalt standardkonton. Inga grundläggande konton.
 
-  Mer information om begränsningar för integrationskonto finns i [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Du kan läsa mer om [integrationskontonivåer och deras prismodell](#integration-accounts) senare i det här avsnittet.
-
-Om du väljer Premium ISE SKU har basenheten fast kapacitet. Om du behöver mer dataflöde kan du [lägga till fler skalningsenheter](../logic-apps/ise-manage-integration-service-environment.md#add-capacity), antingen när du skapar eller efteråt. Utvecklaren ISE SKU har inte möjlighet att lägga till fler skalningsenheter. Logikappar som körs i en ISE medför inte datalagringskostnader.
-
-Prispriser finns i [Logic Apps prissättning](https://azure.microsoft.com/pricing/details/logic-apps).
+  Mer information om begränsningar för integrationskonto finns i [Gränser och konfiguration för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Du kan läsa mer om [integrationskontonivåer och deras prismodell](#integration-accounts) senare i det här avsnittet.
 
 <a name="connectors"></a>
 

@@ -3,12 +3,12 @@ title: Övervaka en ASP.NET-livewebbapp med Azure Application Insights | Microso
 description: Övervaka prestanda för en webbplats utan att distribuera den igen. Fungerar med ASP.NET webbappar som finns lokalt eller i virtuella datorer.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 63d632df61548d15a1e0a606cf2e198207faf341
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba17ee275a744b88f2c76e7e3f99a1ac9cc8e758
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670057"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536836"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentwebbappar vid körning med Application Insights Codeless Attach
 
@@ -84,7 +84,7 @@ Om du vill publicera på nytt utan att lägga till Application Insights i koden,
 4. Återställa redigeringar som har utförts på .config-filen.
 
 
-## <a name="troubleshooting"></a><a name="troubleshoot"></a>Troubleshooting (Felsökning)
+## <a name="troubleshooting"></a><a name="troubleshoot"></a>Felsökning
 
 ### <a name="confirm-a-valid-installation"></a>Bekräfta en giltig installation 
 
@@ -314,7 +314,7 @@ För program som redan har instrumenterats vid kompilering:
 
 Visa telemetrin:
 
-* [Utforska mått](../../azure-monitor/app/metrics-explorer.md) för att övervaka prestanda och användning
+* [Utforska mått](../../azure-monitor/platform/metrics-charts.md) för att övervaka prestanda och användning
 * [Sök efter händelser och loggar][diagnostic] för att diagnostisera problem
 * [Analys](../../azure-monitor/app/analytics.md) för mer avancerade frågor
 

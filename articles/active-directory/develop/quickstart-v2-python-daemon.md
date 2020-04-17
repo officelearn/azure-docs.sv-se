@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Python
-ms.openlocfilehash: ecbed58eabd2e835d8fa202916829d1da91210e7
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 3c6cb6303734b5336b3e9a7646e5eb3310d0f236
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991066"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536054"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Snabbstart: Skaffa en token och anropa Microsoft Graph API från en Python-konsolapp med appens identitet
 
@@ -55,7 +55,7 @@ För att kunna köra det här exemplet behöver du:
 > 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
 > 1. Navigera till sidan Microsoft identity platform för utvecklare [Appregistreringar.](https://go.microsoft.com/fwlink/?linkid=2083908)
 > 1. Välj **Ny registrering**.
-> 1. När sidan **Registrera en ansökan** visas anger du registreringsinformationen för din ansökan. 
+> 1. När sidan **Registrera en ansökan** visas anger du registreringsinformationen för din ansökan.
 > 1. I avsnittet **Namn** anger du ett beskrivande namn som visas för användare av appen, till exempel `Daemon-console`, och välj sedan **Registrera** för att skapa appen.
 > 1. När den har registrerats väljer du menyn **Certifikat och hemligheter**.
 > 1. Under **Klienthemligheter** väljer du **+ Ny klienthemlighet**. Ge den ett namn och välj **Lägg till**. Kopiera hemligheten på en säker plats. Du behöver den för att använda i din kod.
@@ -65,7 +65,7 @@ För att kunna köra det här exemplet behöver du:
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="download-and-configure-your-quickstart-app"></a>Hämta och konfigurera din app för Snabbstart
-> 
+>
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Steg 1: Konfigurera din app i Azure-portalen
 > För att kodexemplet för den här snabbstarten ska fungera måste du skapa en klienthemlighet och lägga till Graph-API:ts programbehörighet **User.Read.All**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
@@ -89,7 +89,7 @@ För att kunna köra det här exemplet behöver du:
 
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-python-project"></a>Steg 3: Konfigurera python-projektet
-> 
+>
 > 1. Extrahera zip-filen i en lokal mapp nära diskens rot, till exempel **C:\Azure-Samples**.
 > 1. Navigera till undermappen **1-Call-MsGraph-WithSecret"**.
 > 1. Redigera **parameters.json** och ersätt värdena i fälten `authority`och `client_id` `secret` med följande utdrag:
@@ -106,7 +106,7 @@ För att kunna köra det här exemplet behöver du:
 >
 > > [!TIP]
 > > För att hitta värdena för **program-ID (klient)**, **katalog-ID (klient)** och går du till appens **översiktssida** i Azure-portalen. Generera en ny nyckel genom att gå till sidan **Certifikat och hemligheter**.
-    
+
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-admin-consent"></a>Steg 3: Administratörssamtycke
 
@@ -212,7 +212,7 @@ if not result:
 
 > |Där:| |
 > |---------|---------|
-> | `config["scope"]` | Innehåller omfattningarna som begärdes. För konfidentiella klienter bör ett format som liknar `{Application ID URI}/.default` användas för att ange att omfattningarna som begärs är dem som statiskt definieras i appobjektet som anges i Azure-portalen (för Microsoft Graph, `{Application ID URI}` pekar på `https://graph.microsoft.com`). För anpassade webb-API:er definieras `{Application ID URI}` under avsnittet **Exponera ett API** i Programregistrering (förhandsversion) i Azure-portalen. |
+> | `config["scope"]` | Innehåller omfattningarna som begärdes. För konfidentiella klienter bör ett format som liknar `{Application ID URI}/.default` användas för att ange att omfattningarna som begärs är dem som statiskt definieras i appobjektet som anges i Azure-portalen (för Microsoft Graph, `{Application ID URI}` pekar på `https://graph.microsoft.com`). För anpassade webb-API:er `{Application ID URI}` definieras under Exponera ett **API-avsnitt** i Azure Portals programregistrering (förhandsversion). |
 
 Mer information finns i [referensdokumentationen för `AcquireTokenForClient`](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_for_client)
 

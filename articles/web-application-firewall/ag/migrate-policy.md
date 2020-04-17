@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/19/2019
+ms.date: 04/16/2020
 ms.author: ant
-ms.openlocfilehash: 1fac524af4b69f8e35934840643c6d3ad99fe1cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fb3b922b753b9696aa26ea189597589ecc5772db
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74174608"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81536632"
 ---
 # <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Migrera brandväggsprinciper för webbprogram med Azure PowerShell
 
@@ -28,6 +28,13 @@ Gör så här för att köra migreringsskriptet:
 2. Kopiera skriptet till molnskalfönstret och kör det.
 3. Skriptet frågar efter prenumerations-ID, Resursgruppsnamn, namnet på programgatewayen som WAF-konfigurationen är associerad med och namnet på den nya WAF-principen som ska skapas. När du har angett dessa indata körs skriptet och skapar din nya WAF-princip
 4. Associera den nya WAF-principen med programgatewayen. Gå till WAF-principen i portalen och välj fliken **Associerade programgateways.** Välj **Associera en programgateway** och välj sedan programgatewayen att associera WAF-principen till.
+
+> [!NOTE]
+> Skriptet slutför inte en migrering om följande villkor finns:
+> - En hel regel är inaktiverad. Om du vill slutföra en migrering kontrollerar du att en hel regelgrupp inte är inaktiverad.
+> - En uteslutningspost med samma operatör som *är lika med.* Om du vill slutföra en migrering kontrollerar du att det inte finns några *uteslutningsposter med operatorn Lika alla.*
+>
+> Mer information finns i funktionen *ValidateInput* i skriptet.
 
 ```azurepowershell-interactive
 <#PSScriptInfo

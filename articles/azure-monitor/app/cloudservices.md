@@ -3,12 +3,12 @@ title: Programinsikter för Azure-molntjänster | Microsoft-dokument
 description: Övervaka webb- och arbetsroller effektivt med Application Insights
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: ce794a7bd18635fddfa30056ab2d675dc138097d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 17813d17a1c40caac5587e37e279be6376992b90
+ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79276197"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81537601"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Programinsikter för Azure-molntjänster
 [Application Insights][start] kan övervaka [Azure cloud service-appar](https://azure.microsoft.com/services/cloud-services/) för tillgänglighet, prestanda, fel och användning genom att kombinera data från Application Insights SDK:er med [Azure Diagnostics-data](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) från dina molntjänster. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
@@ -31,7 +31,7 @@ Det här alternativet instrumenterar din app vid körning, vilket ger dig all te
 
 Om det här alternativet är allt du behöver är du klar. 
 
-Nästa steg är [att visa mått från din app](../../azure-monitor/app/metrics-explorer.md)och fråga dina data med [Analytics](../../azure-monitor/app/analytics.md). 
+Nästa steg är [att visa mått från din app](../../azure-monitor/platform/metrics-charts.md)och fråga dina data med [Analytics](../../azure-monitor/app/analytics.md). 
 
 Om du vill övervaka prestanda i webbläsaren kanske du också vill ställa in [tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md) och [lägga till kod på webbsidorna](../../azure-monitor/app/javascript.md).
 
@@ -165,7 +165,7 @@ Det här steget behövs bara om du vill fånga fullständiga SQL-frågor på .NE
 
 1. Öppna de application insights-resurser som du har skapat.
 
-   Enskilda datapunkter visas i [Sök][diagnostic]och aggregerade data visas i [Metric Explorer](../../azure-monitor/app/metrics-explorer.md).
+   Enskilda datapunkter visas i [Sök][diagnostic]och aggregerade data visas i [Metric Explorer](../../azure-monitor/platform/metrics-charts.md).
 
 1. Lägg till mer telemetri (se nästa avsnitt) och publicera sedan appen för att få livediagnostik och användningsfeedback. 
 
@@ -184,7 +184,7 @@ Du hittar [Azure Diagnostics-informationen](https://docs.microsoft.com/azure/mon
 * Windows-händelseloggar visas som spårningar och anpassade händelser.
 * Programloggar, ETW-loggar och diagnostikinfrastrukturloggar visas som spårningar.
 
-Om du vill visa prestandaräknare och antal händelser öppnar du [Statistikutforskaren](../../azure-monitor/app/metrics-explorer.md) och lägger till följande diagram:
+Om du vill visa prestandaräknare och antal händelser öppnar du [Statistikutforskaren](../../azure-monitor/platform/metrics-charts.md) och lägger till följande diagram:
 
 ![Azure Diagnostics-data](./media/cloudservices/23-wad.png)
 

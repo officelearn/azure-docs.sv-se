@@ -26,13 +26,13 @@
           href: tutorial-wpf-translation-csharp.md
         - name: 'Skapa en Flask-översättningsapp, Python'
           href: tutorial-build-flask-app-translation-synthesis.md
-    - name: Koncept
+    - name: Begrepp
       items:
         - name: Anpassa och förbättra textöversättning
           href: customization.md
         - name: 'Så här räknar API:et tecken'
           href: character-counts.md
-    - name: Instruktionsguider
+    - name: Anvisningar
       items:
         - name: Registrera dig för Translator Text API
           href: translator-text-how-to-signup.md
@@ -98,9 +98,9 @@
           href: 'https://aka.ms/TranslatorGitHub'
         - name: VANLIGA FRÅGOR OCH SVAR
           href: 'https://www.microsoft.com/translator/faq.aspx'
-        - name: Stöd för språk och region
+        - name: Stöd för språk
           href: language-support.md
-        - name: Priser
+        - name: Prissättning
           href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
         - name: Regional tillgänglighet
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
@@ -120,7 +120,7 @@
       items:
         - name: Skapa en anpassad modell
           href: custom-translator/quickstart-build-deploy-custom-model.md
-    - name: Koncept
+    - name: Begrepp
       items:
         - name: Arbetsytor och projekt
           href: custom-translator/workspace-and-project.md
@@ -138,7 +138,7 @@
           href: custom-translator/training-and-model.md
         - name: BLEU-poäng
           href: custom-translator/what-is-bleu-score.md
-    - name: Instruktionsguider
+    - name: Anvisningar
       items:
         - name: Skapa ett projekt
           href: custom-translator/how-to-create-project.md
@@ -168,7 +168,7 @@
           href: custom-translator/glossary.md
         - name: VANLIGA FRÅGOR OCH SVAR
           href: custom-translator/faq.md
-        - name: Priser
+        - name: Prissättning
           href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
         - name: Efterlevnad
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

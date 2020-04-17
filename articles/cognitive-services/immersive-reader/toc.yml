@@ -42,6 +42,6 @@
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: Stöd för språk
-      href: 'https://aka.ms/ltlangsupport'
+      href: language-support.md
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'

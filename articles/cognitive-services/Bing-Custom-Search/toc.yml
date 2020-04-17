@@ -15,7 +15,7 @@
       href: quick-start.md
     - name: Hämta sökresultat från din instans
       items:
-        - name: REST API
+        - name: REST-API
           items:
             - name: 'Använd C#'
               href: call-endpoint-csharp.md
@@ -37,7 +37,7 @@
   items:
     - name: Kodexempel
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Custom+Search'
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Konfigurera din anpassade sökupplevelse
       href: define-your-custom-view.md
@@ -90,7 +90,7 @@
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customimagesearch'
 - name: Resurser
   items:
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/598147-bing-custom-search-api'
@@ -108,7 +108,7 @@
       href: 'https://aka.ms/bingcustomsearchtryit'
     - name: Slutpunkt för Anpassad sökning i Bing
       href: endpoint-custom.md
-    - name: Stöd för språk och region
+    - name: Stöd för språk
       href: language-support.md
     - name: Efterlevnad
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

@@ -10,7 +10,7 @@
       maintainContext: true
 - name: Snabbstarter
   items:
-    - name: REST API
+    - name: REST-API
       items:
         - name: 'Använd C#'
           href: quickstarts/csharp.md
@@ -38,7 +38,7 @@
   items:
     - name: Kodexempel
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search'
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Hämta information om bilder
       href: image-insights.md
@@ -54,7 +54,7 @@
       href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Uppgradera från v5 till v7
       href: bing-image-upgrade-guide-v5-to-v7.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Hämta bilder från webben
       href: concepts/bing-image-search-get-images.md
@@ -89,7 +89,7 @@
   items:
     - name: VANLIGA FRÅGOR OCH SVAR
       href: bing-image-search-resource-faq.md
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/image/'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/555907-bing-search'
@@ -107,7 +107,7 @@
       href: 'https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/'
     - name: Slutpunkter för bildsökning i Bing
       href: image-search-endpoint.md
-    - name: Stöd för språk och region
+    - name: Stöd för språk
       href: language-support.md
     - name: Analys för API för bildsökning i Bing
       maintainContext: true

@@ -42,7 +42,7 @@
   items:
     - name: Använda formigenkänning med Logic Apps
       href: tutorial-form-recognizer-with-logic-apps.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Skapa en träningsdatauppsättning
       href: build-training-data-set.md
@@ -80,5 +80,7 @@
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: Regional tillgänglighet
       href: 'https://go.microsoft.com/fwlink/?linkid=2087185'
+    - name: Stöd för språk
+      href: language-support.md
     - name: Efterlevnad
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

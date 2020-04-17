@@ -97,7 +97,7 @@
       href: 'https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553'
     - name: Slutpunkt för nyhetssökning i Bing
       href: endpoint-news.md
-    - name: Stöd för språk och region
+    - name: Stöd för språk
       href: language-support.md
     - name: Analys för API för nyhetssökning i Bing
       href: bing-news-stats.md

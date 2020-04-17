@@ -9,7 +9,7 @@
       maintainContext: true
 - name: Snabbstarter
   items:
-    - name: REST API
+    - name: REST-API
       expanded: true
       items:
         - name: 'Använd C#'
@@ -32,11 +32,11 @@
   items:
     - name: Skapa en webbapp för stavningskontroll
       href: tutorials/spellcheck.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Uppgradera från v5 till v7
       href: bing-spell-check-upgrade-guide-v5-to-v7.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: 'Skicka förfrågningar till API:et för stavningskontroll i Bing'
       href: concepts/sending-requests.md
@@ -72,9 +72,9 @@
     - name: Analys för API för stavningskontroll i Bing
       maintainContext: true
       href: ../bing-web-search/bing-web-stats.md
-    - name: Stöd för språk och region
+    - name: Stöd för språk
       href: language-support.md
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/global-infrastructure/services/'

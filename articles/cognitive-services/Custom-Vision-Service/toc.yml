@@ -9,41 +9,33 @@
       href: whats-new.md
 - name: Snabbstarter
   items:
-    - name: Använda webbportalen
+    - name: Skapa en klassificerare
       items:
-        - name: Skapa en klassificerare
+        - name: Använda webbportalen
           href: getting-started-build-a-classifier.md
-        - name: Skapa en objektidentifierare
-          href: get-started-build-detector.md
-    - name: Använda .NET SDK
-      items:
-        - name: Bildklassificering
+        - name: Använda .NET SDK
           href: csharp-tutorial.md
-        - name: Objektidentifiering
-          href: csharp-tutorial-od.md
-    - name: Använda Python SDK
-      items:
-        - name: Bildklassificering
+        - name: Använda Python SDK
           href: python-tutorial.md
-        - name: Objektidentifiering
-          href: python-tutorial-od.md
-    - name: Använda Java SDK
-      items:
-        - name: Bildklassificering
+        - name: Använda Java SDK
           href: java-tutorial.md
-        - name: Objektidentifiering
-          href: java-tutorial-od.md
-    - name: Använda SDK för Node.js
-      items:
-        - name: Bildklassificering
+        - name: Använda SDK för Node.js
           href: node-tutorial.md
-        - name: Objektidentifiering
-          href: node-tutorial-object-detection.md
-    - name: Använda SDK för Go
-      items:
-        - name: Bildklassificering
+        - name: Använda SDK för Go
           href: go-tutorial.md
-        - name: Objektidentifiering
+    - name: Skapa en objektidentifierare
+      items:
+        - name: Använda webbportalen
+          href: get-started-build-detector.md
+        - name: Använda .NET SDK
+          href: csharp-tutorial-od.md
+        - name: Använda Python SDK
+          href: python-tutorial-od.md
+        - name: Använda Java SDK
+          href: java-tutorial-od.md
+        - name: Använda SDK för Node.js
+          href: node-tutorial-object-detection.md
+        - name: Använda SDK för Go
           href: go-tutorial-object-detection.md
 - name: Självstudier
   items:
@@ -51,7 +43,7 @@
       href: iot-visual-alerts-tutorial.md
     - name: Identifiera logotyper på mobila enheter
       href: logo-detector-mobile.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Testa din modell
       href: test-your-model.md

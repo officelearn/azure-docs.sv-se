@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5310c999cc44f0cf35f129751da7472031e6c57a
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 51be98654950ba290fa83f77eccdae4d6f549891
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537091"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81603832"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Självstudiekurs: Azure Active Directory-integrering med Amazon Web Services (AWS) (Äldre självstudiekurs)
 
@@ -37,7 +37,7 @@ Om du vill veta mer om Integrering av SaaS-appar med Azure AD läser du [vad som
 ![Amazon Web Services (AWS) i resultatlistan](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
 > [!NOTE]
-> Observera att det inte är vår rekommenderade metod att ansluta en AWS-app till alla dina AWS-konton. I stället rekommenderar vi att du använder [den här](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) metoden för att konfigurera flera instanser av AWS-konto till flera instanser av AWS-appar i Azure AD. Du bör bara använda den här metoden om du har mycket mindre antal AWS-konton och roller i den, den här modellen är inte skalbar eftersom AWS-konton och roller i dessa konton växer. Den här metoden använder inte heller aws-rollimportfunktionen med hjälp av Azure AD-användares etablering och därför måste du manuellt lägga till/uppdatera/ta bort rollerna. För andra begränsningar av detta tillvägagångssätt, se detaljerna nedan.
+> Observera att det inte är vår rekommenderade metod att ansluta en AWS-app till alla dina AWS-konton. I stället rekommenderar vi att du använder [den här](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) metoden för att konfigurera flera instanser av AWS-konto till flera instanser av AWS-appar i Azure AD. Du bör bara använda den här metoden om du har få AWS-konton och roller i den, den här modellen är inte skalbar när AWS-kontona och rollerna i dessa konton växer. Den här metoden använder inte AWS-rollimportfunktioner med Azure AD-användareetablering, så du måste manuellt lägga till/uppdatera/ta bort rollerna. För andra begränsningar av detta tillvägagångssätt, se detaljerna nedan.
 
 **Observera att vi inte rekommenderar att du använder denna metod av följande skäl:**
 

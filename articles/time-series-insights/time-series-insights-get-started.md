@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 04/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2c946c49884ef0de6843028976d4ec00ccfbcdfe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7459c6afc775aa0df43d6f9285191c4c7e1b8cb8
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934855"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81602374"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Skapa en ny Time Series Insights-miljö i Azure Portal
 
@@ -39,9 +39,9 @@ Så här skapar du en miljö:
 1. På sidan **Time Series Insights** väljer du **Skapa**.
 
 1. Fyll i de parametrar som krävs. I följande tabell förklaras varje parameter:
-   
+
    [![Skapa Time Series Insights-resursgruppen](media/time-series-insights-get-started/tsi-configure-and-create.png)](media/time-series-insights-get-started/tsi-configure-and-create.png#lightbox)
-   
+
    Inställning|Föreslaget värde|Beskrivning
    ---|---|---
    Miljönamn | Ett unikt namn | Det här namnet representerar miljön i [tidsserieutforskaren](https://insights.timeseries.azure.com)
@@ -49,7 +49,7 @@ Så här skapar du en miljö:
    Resursgrupp | Skapa en ny eller använd befintlig | En resursgrupp är en samling med Azure-resurser som används tillsammans. Du kan välja en befintlig resursgrupp, till exempel den som innehåller din eventhubb eller IoT Hub. Du kan också skapa en ny om resursen inte är relaterad till de andra resurserna.
    Location | Närmast din händelsekälla | Välj helst samma datacenterplats som innehåller händelsekällans data, i ett försök att undvika extra bandbreddskostnader mellan regioner och korszoner och ökad svarstid när data flyttas från regionen.
    Prisnivå | S1 | Välj det genomflöde som behövs. För lägsta kostnader och startkapacitet väljer du S1.
-   Kapacitet | 1 | Kapacitet är multiplikatorn gäller för ingående hastighet, lagringskapacitet och kostnad som är associerad med den valda SKU.  Du kan ändra kapacitet för en miljö när den har skapats. För lägsta kostnader väljer du en kapacitet på 1. 
+   Kapacitet | 1 | Kapacitet är multiplikatorn gäller för ingående hastighet, lagringskapacitet och kostnad som är associerad med den valda SKU.  Du kan ändra kapacitet för en miljö när den har skapats. För lägsta kostnader väljer du en kapacitet på 1.
   
 1. Välj **Skapa** om du vill påbörja etableringsprocessen. Det kan ta några minuter.
 

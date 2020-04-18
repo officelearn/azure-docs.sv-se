@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 5e0073bd14744338ff28c9c45193f126a1bba717
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: d9b10341f971c0e8177043126ff8fbd4df078b86
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81403037"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604990"
 ---
 # <a name="quickstart-face-client-library-for-net"></a>Snabbstart: Face-klientbibliotek för .NET
 
@@ -126,17 +126,19 @@ Du kommer förmodligen vill anropa `Main` den här metoden i metoden.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_client)]
 
-## <a name="detect-faces-in-an-image"></a>Identifiera ansikten i en bild
+### <a name="declare-helper-fields"></a>Deklarera hjälpfält
 
-Definiera följande URL-sträng i klassens rot. Den här webbadressen pekar på en uppsättning exempelbilder.
+Följande fält behövs för flera av de Face-åtgärder som du lägger till senare. Definiera följande URL-sträng i klassens rot. Den här URL:en pekar på en mapp med exempelbilder.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_image_url)]
 
-Du kan också välja vilken AI-modell som ska användas för att extrahera data från de upptäckta ansiktsytan. Se [Ange en igenkänningsmodell](../Face-API-How-to-Topics/specify-recognition-model.md) för information om dessa alternativ.
+Definiera strängar som pekar på de olika typerna av igenkänningsmodeller. Senare kan du ange vilken igenkänningsmodell du vill använda för ansiktsidentifiering. Se [Ange en igenkänningsmodell](../Face-API-How-to-Topics/specify-recognition-model.md) för information om dessa alternativ.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_models)]
 
-Den slutliga identifieringsåtgärden tar ett **[FaceClient-objekt,](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** en bild-URL och en igenkänningsmodell.
+## <a name="detect-faces-in-an-image"></a>Identifiera ansikten i en bild
+
+Lägg till följande metodanrop till **huvudmetoden.** Du definierar metoden nästa. Den slutliga identifieringsåtgärden tar ett **[FaceClient-objekt,](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** en bild-URL och en igenkänningsmodell.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_call)]
 
@@ -174,25 +176,21 @@ Följande kod skriver ut matchningsinformationen till konsolen:
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_find_similar_print)]
 
-## <a name="create-and-train-a-person-group"></a>Skapa och träna en persongrupp
+## <a name="identify-a-face"></a>Identifiera ett ansikte
+
+Åtgärden Identifiera tar en bild av en person (eller flera personer) och letar efter identiteten för varje ansikte i bilden. Den jämför varje upptäckt ansikte med en **PersonGroup**, en databas med olika **personobjekt** vars ansiktsdrag är kända. För att kunna identifiera-åtgärden måste du först skapa och träna en **PersonGroup**
+
+### <a name="create-and-train-a-person-group"></a>Skapa och träna en persongrupp
 
 Följande kod skapar en **persongrupp** med sex olika **personobjekt.** Det associerar varje **person** med en uppsättning exempel bilder, och sedan det tåg att känna igen varje person genom deras ansiktsegenskaper. **Person-** och **persongruppsobjekt** används i åtgärderna Verifiera, Identifiera och Gruppera.
 
-Om du inte redan har gjort det definierar du följande URL-sträng i klassens rot. Detta pekar på en uppsättning exempelbilder.
-
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_image_url)]
-
-Koden senare i det här avsnittet anger en igenkänningsmodell för att extrahera data från ansikten och följande kodavsnitt skapar referenser till tillgängliga modeller. Se [Ange en igenkänningsmodell](../Face-API-How-to-Topics/specify-recognition-model.md) för information om igenkänningsmodeller.
-
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_models)]
-
-### <a name="create-persongroup"></a>Skapa persongrupp
+#### <a name="create-persongroup"></a>Skapa persongrupp
 
 Deklarera en strängvariabel i klassens rot för att representera ID:t för den **persongrupp** som du ska skapa.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_persongroup_declare)]
 
-Lägg till följande kod i en ny metod. Den här koden associerar namnen på personer med deras exempelbilder.
+Lägg till följande kod i en ny metod. Den här metoden utför identifieringsåtgärden. Det första kodblocket associerar namnen på personer med deras exempelbilder.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_persongroup_files)]
 
@@ -200,20 +198,13 @@ Lägg sedan till följande kod för att skapa ett **personobjekt** för varje pe
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_persongroup_create)]
 
-### <a name="train-persongroup"></a>Tåg PersonGroup
+#### <a name="train-persongroup"></a>Tåg PersonGroup
 
 När du har extraherat ansiktsdata från dina bilder och sorterat dem i olika **personobjekt** måste du träna **PersonGroup** för att identifiera de visuella funktioner som är associerade med var och en av dess **personobjekt.** Följande kod anropar den asynkrona **tågmetoden** och avsöker resultatet och skriver ut statusen till konsolen.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_persongroup_train)]
 
 Den här **persongruppen** och dess associerade **personobjekt** är nu klara att användas i åtgärderna Verifiera, Identifiera eller Gruppera.
-
-## <a name="identify-a-face"></a>Identifiera ett ansikte
-
-Åtgärden Identifiera tar en bild av en person (eller flera personer) och letar efter identiteten för varje ansikte i bilden. Den jämför varje upptäckt ansikte med en **PersonGroup**, en databas med olika **personobjekt** vars ansiktsdrag är kända.
-
-> [!IMPORTANT]
-> För att kunna köra det här exemplet måste du först köra koden i [Skapa och träna en persongrupp](#create-and-train-a-person-group). De variabler som&mdash;`client`används `url`i `RECOGNITION_MODEL1` &mdash;det avsnittet , och måste också vara tillgängliga här.
 
 ### <a name="get-a-test-image"></a>Få en testbild
 
@@ -225,7 +216,7 @@ Följande kod tar källavbildningen och skapar en lista över alla ansikten som 
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_identify_sources)]
 
-Nästa kodavsnitt anropar identifiera-åtgärden och skriver ut resultaten till konsolen. Här försöker tjänsten matcha varje ansikte från källbilden till en **person** i den angivna **persongruppen**.
+Nästa kodavsnitt anropar **identifyasync-åtgärden** och skriver ut resultaten till konsolen. Här försöker tjänsten matcha varje ansikte från källbilden till en **person** i den angivna **persongruppen**. Detta stänger din Identifiera metod.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_identify)]
 

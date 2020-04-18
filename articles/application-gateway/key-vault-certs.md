@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: be558c3e3a68ce6c194dcf98d8f5ff92c4c14edb
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 934cf854b0c526ed994c7dc91763f65de64fd14b
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457832"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617516"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>TLS-avslutning med Key Vault-certifikat
 
@@ -47,7 +47,10 @@ Integrering av programgateway med Key Vault kräver en konfigurationsprocess i t
 
 1. **Konfigurera nyckelvalvet**
 
-   Du importerar sedan antingen ett befintligt certifikat eller skapar ett nytt i nyckelvalvet. Certifikatet används av program som körs via programgatewayen. I det här steget kan du också använda en nyckelvalvshemlighet som lagras som en lösenordslös, bas 64-kodad PFX-fil. Vi rekommenderar att du använder en certifikattyp på grund av funktionen för automatisk förnyelse som är tillgänglig med certifikattypsobjekt i nyckelvalvet. När du har skapat ett certifikat eller en hemlighet definierar du åtkomstprinciper i nyckelvalvet så att identiteten kan beviljas *få* åtkomst till hemligheten.
+   Du importerar sedan antingen ett befintligt certifikat eller skapar ett nytt i nyckelvalvet. Certifikatet används av program som körs via programgatewayen. I det här steget kan du också använda en nyckelvalvshemlighet som lagras som en lösenordslös, base-64-kodad PFX-fil. Vi rekommenderar att du använder en certifikattyp på grund av funktionen för automatisk förnyelse som är tillgänglig med certifikattypsobjekt i nyckelvalvet. När du har skapat ett certifikat eller en hemlighet definierar du åtkomstprinciper i nyckelvalvet så att identiteten kan beviljas *få* åtkomst till hemligheten.
+   
+   > [!NOTE]
+   > Om du distribuerar programgatewayen via en ARM-mall, antingen med hjälp av Azure CLI eller PowerShell, eller via ett Azure-program som distribueras från Azure-portalen, måste SSL-certifikatet som lagras i nyckelvalvet som en bas-64-kodad PFX-fil **vara lösenordslös**. Du måste också slutföra stegen i [Använd Azure Key Vault för att skicka säkert parametervärde under distributionen](../azure-resource-manager/templates/key-vault-parameter.md). Det är särskilt viktigt `enabledForTemplateDeployment` `true`att ställa in på .
 
 1. **Konfigurera progamgatewayen**
 

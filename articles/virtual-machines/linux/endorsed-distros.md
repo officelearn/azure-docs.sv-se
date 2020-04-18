@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: guybo
-ms.openlocfilehash: aebb31c825725e8b748fe52bfdf74a79074d6a52
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: ed7755251feb04a5f811d6ed96b00a347fba8994
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460502"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605925"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Godkände Linux-distributioner på Azure
 Partner tillhandahåller Linux-avbildningar på Azure Marketplace. Vi arbetar med olika Linux-samhällen för att lägga till ännu fler smaker till listan Övertecknade distributionsplatser. Under tiden, för distributioner som inte är tillgängliga från Marketplace, kan du alltid ta med din egen Linux genom att följa riktlinjerna på [Skapa och ladda upp en virtuell hårddisk som innehåller Operativsystemet Linux](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
@@ -37,7 +37,7 @@ Azure Linux Agent är redan förinstallerad på Azure Marketplace-avbildningar o
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0+ |I kärnan |Källkod: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |
 | Debian |Debian 7.9+, 8.2+, 9, 10 |I kärnan |Paket: I repo under "waagent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Oracle Linux |6,4+, 7,0+ |I kärnan |Paket: I repo under "WALinuxAgent" <br/>Källkod: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| Red Hat Enterprise Linux |RHEL 6,7+, 7,1+, 8,0+ |I kärnan |Paket: I repo under "WALinuxAgent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Red Hat Enterprise Linux |RHEL 7,1+, 8,0+ |I kärnan |Paket: I repo under "WALinuxAgent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Företag |SLES/SLES för SAP<br>11 SP4<br>12 SP1+<br>15|I kärnan |Paket:<p> för 11 i [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo<br>för 12 ingår i "Public Cloud" Module under "python-azure-agent"<br/>Källkod: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE |openSUSE Leap 42.2+ |I kärnan |Paket: I [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo under "python-azure-agent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu |Ubuntu 12.04+ ** <sup>1</sup>** |I kärnan |Paket: I repo under "walinuxagent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |

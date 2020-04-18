@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 5c84588290ce769b556002469b6a11c6950bb878
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd38f646b8dfc58839cd2645f7fadf7332693854
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476560"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605988"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Felsöka aktiveringsproblem med virtuella Azure Windows-datorer
 
@@ -77,7 +77,7 @@ För den virtuella datorn som skapas från en anpassad avbildning måste du konf
 
 ### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>Steg 2 Verifiera anslutningen mellan tjänsten VIRTUELL OCH Azure KMS
 
-1. Hämta och extrahera [PSping-verktyget](http:/technet.microsoft.com/sysinternals/jj729731.aspx) till en lokal mapp i den virtuella datorn som inte aktiveras. 
+1. Hämta och extrahera [PSping-verktyget](https://docs.microsoft.com/sysinternals/downloads/psping) till en lokal mapp i den virtuella datorn som inte aktiveras. 
 
 2. Gå till Start, sök i Windows PowerShell, högerklicka på Windows PowerShell och välj sedan Kör som administratör.
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: d7ba62c795e23e41a1947def77300ffe5d2cc010
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 520699b81024de9491f34263f16872428ddbd487
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262459"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81618029"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Azure Cognitive Search – vanliga frågor och svar ( Vanliga frågor och svar)
 
@@ -82,6 +82,14 @@ De flesta jokerteckensökningsfrågor, som prefix, fuzzy och regex, skrivs om in
 Som standard poängsätts sökresultaten baserat på de [statistiska egenskaperna för matchande termer](search-lucene-query-architecture.md#stage-4-scoring)och beställs högt till lågt i resultatuppsättningen. Vissa frågetyper (jokertecken, prefix, regex) bidrar dock alltid med en konstant poäng till den totala dokumentpoängen. Det här beteendet är avsiktligt. Azure Cognitive Search medför en konstant poäng för att tillåta att matchningar som hittas genom frågeexpansion inkluderas i resultaten, utan att påverka rangordningen.
 
 Anta till exempel att en inmatning av "tour*" i en jokerteckensökning ger matchningar på "turer", "tourettes" och "tourmaline". Med tanke på dessa resultats natur finns det inget sätt att rimligen dra slutsatsen vilka termer som är mer värdefulla än andra. Därför ignorerar vi termfrekvenser när du poängsättning resulterar i frågor om typer av jokertecken, prefix och regex. Sökresultat baserat på en partiell indata får en konstant poäng för att undvika fördomar mot potentiellt oväntade matchningar.
+
+## <a name="skillset-operations"></a>Kompetensverksamhet
+
+### <a name="are-there-any-tips-or-tricks-to-reduce-cognitive-services-charges-on-ingestion"></a>Finns det några tips eller knep för att minska kognitiva tjänster avgifter på intag?
+
+Det är förståeligt att du inte vill utföra inbyggda färdigheter eller anpassade färdigheter mer än vad som är absolut nödvändigt, särskilt om du har att göra med miljontals dokument att bearbeta. Med detta i åtanke har vi lagt till "inkrementell berikning" kapacitet till kompetensutveckling utförande. I huvudsak kan du ange en cacheplats (en blob lagringsanslutningssträng) som ska användas för att lagra utdata från "mellanliggande" anrikningssteg.  Det gör att anrikning pipeline att vara smart och tillämpa endast enrichments som är nödvändiga när du ändrar din skillset. Detta kommer naturligtvis också att spara indexeringstid eftersom rörledningen kommer att bli effektivare.
+
+Läs mer om [inkrementell anrikning](cognitive-search-incremental-indexing-conceptual.md)
 
 ## <a name="design-patterns"></a>Designmönster
 

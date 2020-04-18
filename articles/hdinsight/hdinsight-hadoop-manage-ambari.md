@@ -1,25 +1,25 @@
 ---
 title: Övervaka och hantera Azure HDInsight med Ambari Web UI
-description: Lär dig hur du använder Ambari för att övervaka och hantera Linux-baserade HDInsight-kluster. I det här dokumentet får du lära dig hur du använder webbgränssnittet i Ambari som ingår i HDInsight-kluster.
+description: Lär dig hur du använder Apache Ambari UI för att övervaka och hantera HDInsight-kluster.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/05/2020
-ms.openlocfilehash: bf780897317d41c7da85140f64313546cf5c31d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: 2ed3d6b1088315b580ab8ddc4f12d8d61434ec53
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064683"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606544"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Hantera HDInsight-kluster med hjälp av Apache Ambari-webbgränssnittet
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari förenklar hanteringen och övervakningen av ett Apache Hadoop-kluster genom att tillhandahålla ett lättanvänt webbgränssnitt och REST API. Ambari ingår i HDInsight-kluster och används för att övervaka klustret och göra konfigurationsändringar.
+Apache Ambari förenklar hanteringen och övervakningen av ett Apache Hadoop-kluster. Denna förenkling görs genom att tillhandahålla ett lättanvänt webbgränssnitt och REST API. Ambari ingår i HDInsight-kluster och används för att övervaka klustret och göra konfigurationsändringar.
 
 I det här dokumentet får du lära dig hur du använder Ambari Web UI med ett HDInsight-kluster.
 
@@ -82,7 +82,7 @@ Du kan hantera grupperna genom att använda **menyn Åtgärder** och välja **Ha
 
 ![Apache Ambari hanterar varningsgrupper](./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png)
 
-Du kan också hantera aviseringar och skapa aviseringar på **Menyn Åtgärder** genom att välja __Hantera meddelanden__. Alla aktuella meddelanden visas. Du kan också skapa aviseringar härifrån. Meddelanden kan skickas via **e-post** eller **SNMP** när specifika kombinationer av aviseringar/allvarlighetsgrad inträffar. Du kan till exempel skicka ett e-postmeddelande när någon av aviseringarna i gruppen **YARN Standard** är inställd **på Kritisk**.
+Du hanterar aviseringar och skapar aviseringar på **Menyn Åtgärder** genom att välja __Hantera meddelanden__. Alla aktuella meddelanden visas. Skapa aviseringar härifrån. Meddelanden kan skickas via **e-post** eller **SNMP** när specifika kombinationer av aviseringar/allvarlighetsgrad inträffar. Du kan till exempel skicka ett e-postmeddelande när någon av aviseringarna i gruppen **YARN Standard** är inställd **på Kritisk**.
 
 ![Apache Ambari skapa varningsmeddelande](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
@@ -119,10 +119,10 @@ Om du väljer en tjänst visas mer detaljerad information om tjänsten.
 
 #### <a name="quick-links"></a>Snabblänkar
 
-Vissa tjänster visar en **snabblänk** längst upp på sidan. Detta kan användas för att komma åt tjänstspecifika webb-UIs, till exempel:
+Vissa tjänster visar en **snabblänk** längst upp på sidan. Den här länken kan användas för att komma åt tjänstspecifika webb-UIs, till exempel:
 
 * **Jobbhistorik** - MapReduce jobbhistorik.
-* **Resurshanteraren** - YARN ResourceManager UI.
+* **Resurshanteraren** - UI för YARN Resource Manager.
 * **NameNode** - Hadoop Distributed File System (HDFS) NameNode UI.
 * **Oozie Web UI** - Oozie UI.
 
@@ -151,14 +151,14 @@ På sidan **Värdar** visas alla värdar i klustret. Gör så här om du vill ha
 
 1. Välj den värd som du vill hantera.
 
-2. Använd **menyn Åtgärder** för att välja den åtgärd som du vill utföra:
+2. Använd menyn **Åtgärder** för att välja den åtgärd som du vill utföra:
 
     |Objekt |Beskrivning |
     |---|---|
     |Starta alla komponenter|Starta alla komponenter på värden.|
     |Stoppa alla komponenter|Stoppa alla komponenter på värden.|
     |Starta om alla komponenter|Stoppa och starta alla komponenter på värden.|
-    |Aktivera underhållsläge|Undertrycker aviseringar för värden. Det här läget bör aktiveras om du utför åtgärder som genererar aviseringar. Till exempel stoppa och starta en tjänst.|
+    |Aktivera underhållsläge|Undertrycker aviseringar för värden. Det här läget bör aktiveras om du gör åtgärder som genererar aviseringar. Till exempel stoppa och starta en tjänst.|
     |Inaktivera underhållsläge|Returnerar värden till normal avisering.|
     |Stoppa|Stoppar DataNode eller NodeManagers på värden.|
     |Start|Startar DataNode eller NodeManagers på värden.|
@@ -179,7 +179,7 @@ Medan **knappen Åtgärder** kan starta om alla tjänster, vill du ofta starta, 
 
 1. Välj en tjänst på sidan **Instrumentpanel** eller **Tjänster.**
 
-2. Högst upp på fliken **Sammanfattning** använder du knappen **Serviceåtgärder** och väljer den åtgärd som ska vidtas. Detta startar om tjänsten på alla noder.
+2. Högst upp på fliken **Sammanfattning** använder du knappen **Serviceåtgärder** och väljer den åtgärd som ska vidtas. Den här åtgärden startar om tjänsten på alla noder.
 
     ![Apache Ambari enskilda serviceåtgärder](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
 
@@ -213,8 +213,10 @@ Ambari Views tillåter utvecklare att ansluta gränssnittselement till Ambari We
 
 Följande Ambari-åtgärder stöds inte på HDInsight:
 
-* __Flytta tjänsten Metrics Collector__. När du visar information om tjänsten Metrics Collector är en av de åtgärder som är tillgängliga på menyn Tjänståtgärder __Samlare__av Flytta mått . Detta stöds inte med HDInsight.
+* __Flytta tjänsten Metrics Collector__. När du visar information om tjänsten Metrics Collector är en av de åtgärder som är tillgängliga på menyn Tjänståtgärder __Samlare__av Flytta mått . Den här åtgärden stöds inte med HDInsight.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du använder [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) med HDInsight.
+* [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) med HDInsight.
+* [Använda Apache Ambari för att optimera HDInsight-klusterkonfigurationer](./hdinsight-changing-configs-via-ambari.md)
+* [Skala Azure HDInsight-kluster](./hdinsight-scaling-best-practices.md)

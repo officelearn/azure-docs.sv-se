@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 04/15/2020
 ms.author: ccompy
-ms.openlocfilehash: 7f2b011b2de5af0e4ace9cbeb4399911d8e83b7f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: f7208307df51ecefb76f9adaedea59b327cdc19e
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312830"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604888"
 ---
 Med hjälp av regional VNet-integrering kan appen komma åt:
 
@@ -19,7 +19,7 @@ Med hjälp av regional VNet-integrering kan appen komma åt:
 * Resurser över Azure ExpressRoute-anslutningar.
 * Resurser i det virtuella nätverk som du är integrerad med.
 * Resurser över peer-anslutningar, som innehåller Azure ExpressRoute-anslutningar.
-* Privata slutpunkter - Obs: DNS måste hanteras separat i stället för att använda privata Azure DNS-zoner.
+* Privata slutpunkter 
 
 När du använder VNet-integrering med virtuella nätverk i samma region kan du använda följande Azure-nätverksfunktioner:
 
@@ -50,7 +50,7 @@ Det finns vissa begränsningar med att använda VNet-integrering med virtuella n
 * Du kan bara integrera med virtuella nätverk i samma prenumeration som appen.
 * Du kan bara ha en regional VNet-integrering per apptjänstplan. Flera appar i samma App Service-plan kan använda samma virtuella nätverk.
 * Du kan inte ändra prenumerationen på en app eller ett abonnemang medan det finns en app som använder regional VNet-integrering.
-* Appen kan inte matcha adresser i Privata Azure DNS-zoner.
+* Appen kan inte matcha adresser i Azure DNS Private Zones utan konfigurationsändringar
 
 En adress används för varje planinstans. Om du skalar appen till fem instanser används fem adresser. Eftersom nätstorleken inte kan ändras efter tilldelningen måste du använda ett undernät som är tillräckligt stort för att hantera vilken skala appen kan nå. A /26 med 64 adresser är den rekommenderade storleken. A /26 med 64 adresser rymmer en Premium-plan med 30 instanser. När du skalar en plan uppåt eller nedåt behöver du dubbelt så många adresser under en kort tidsperiod.
 
@@ -83,9 +83,22 @@ Om du vill dirigera all utgående trafik lokalt kan du använda en vägtabell f�
 
 BGP-vägar (Border Gateway Protocol) påverkar också apptrafiken. Om du har BGP-vägar från något som liknar en ExpressRoute-gateway påverkas din app utgående trafik. Som standard påverkar BGP-vägar endast din RFC1918-måltrafik. Om WEBSITE_VNET_ROUTE_ALL är inställt på 1 kan all utgående trafik påverkas av dina BGP-vägar.
 
+### <a name="azure-dns-private-zones"></a>Privata zoner i Azure DNS 
+
+När appen har integrerats med ditt virtuella nätverk används samma DNS-server som ditt virtuella nätverk är konfigurerat med. Som standard fungerar inte appen med Azure DNS Private Zones. Om du vill arbeta med Privata Azure DNS-zoner måste du lägga till följande appinställningar:
+
+1. WEBSITE_DNS_SERVER med värde 168.63.129.16 
+1. WEBSITE_VNET_ROUTE_ALL med värde 1
+
+Dessa inställningar skickar alla dina utgående samtal från din app till ditt virtuella nätverk förutom att din app kan använda Privata Azure DNS-zoner.
+
+### <a name="private-endpoints"></a>Privata slutpunkter
+
+Om du vill ringa samtal till [privata slutpunkter][privateendpoints]måste du antingen integrera med Azure DNS Private Zones eller hantera den privata slutpunkten i DNS-servern som används av din app. 
 
 <!--Image references-->
 [4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png
 
 <!--Links-->
 [VNETnsg]: https://docs.microsoft.com/azure/virtual-network/security-overview/
+[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint

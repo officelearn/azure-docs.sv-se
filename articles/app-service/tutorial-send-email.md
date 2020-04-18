@@ -4,12 +4,12 @@ description: Läs om hur du anropar affärsprocesser från apptjänstappen. Skic
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 44f2dfb83e96e1d8fa31ee1acf350193b954dbd8
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: 4073b49a134356943bd7da8d54bf574f2e0d5eea
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80892855"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604855"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Självstudiekurs: Skicka e-post och anropa andra affärsprocesser från App Service
 
@@ -199,7 +199,7 @@ var statusCode = result.StatusCode.ToString();
 ```
 
 > [!NOTE]
-> Denna kod är skriven för enkelheten i demonstration. I praktiken ska du inte `HttpClient` instansiera ett objekt för varje begäran. Följ anvisningarna på [Använd IHttpClientFactory förhttps://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient att implementera fjädrande HTTP-begäranden]( -http-begäranden).
+> Denna kod är skriven för enkelheten i demonstration. I praktiken ska du inte `HttpClient` instansiera ett objekt för varje begäran. Följ anvisningarna på [Använd IHttpClientFactory för att implementera fjädrande HTTP-begäranden](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
 Om du testar den här koden i exempelappen för [självstudiekurs: Skapa en ASP.NET Core- och SQL Database-app i Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md)kan du använda den `Todo` för att skicka en e-postbekräftelse i åtgärden [Skapa](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65)när objektet har lagts till.
 

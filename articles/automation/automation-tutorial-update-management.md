@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 888dc99162551482afc715f1a793614d2c866384
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 62c661f75aef77117a61be7e802562e6dde17ba5
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677039"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604682"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer
 
@@ -19,7 +19,7 @@ Du kan använda uppdateringshanteringen för att hantera uppdateringar och korri
 
 Prisinformation finns i [Automatiseringspriser för uppdateringshantering](https://azure.microsoft.com/pricing/details/automation/).
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Visa en uppdateringsbedömning
@@ -40,13 +40,13 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="view-update-assessment"></a>Visa kontroll av uppdateringar
 
-När du har aktiverat Uppdateringshantering öppnas sidan **Uppdateringshantering.** Om några uppdateringar identifieras som saknade visas en lista över saknade uppdateringar på fliken **Saknade uppdateringar.**
+När du har aktiverat Uppdateringshantering öppnas sidan Uppdateringshantering. Om några uppdateringar identifieras som saknade visas en lista över saknade uppdateringar på fliken **Saknade uppdateringar.**
 
 Under **Informationslänk**väljer du uppdateringslänken för att öppna supportartikeln för uppdateringen. Du kan läsa viktig information om uppdateringen.
 
 ![Visa uppdateringsstatus](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 
-Klicka någon annanstans på uppdateringen för att öppna **loggsökfönstret** för den valda uppdateringen. Frågan för loggsökningen är fördefinierad för den specifika uppdateringen. Du kan ändra den här frågan eller skapa en egen fråga för att visa detaljerad information om uppdateringar som distribuerats eller saknas i din miljö.
+Klicka någon annanstans på uppdateringen för att öppna loggsökfönstret för den valda uppdateringen. Frågan för loggsökningen är fördefinierad för den specifika uppdateringen. Du kan ändra den här frågan eller skapa en egen fråga för att visa detaljerad information om uppdateringar som distribuerats eller saknas i din miljö.
 
 ![Visa uppdateringsstatus](./media/automation-tutorial-update-management/logsearch.png)
 
@@ -58,7 +58,7 @@ I det här steget lär du dig hur du ställer in en avisering som meddelar dig o
 
 Gå till **Aviseringar** under **Övervakning**i ditt Automation-konto och klicka sedan på **Ny varningsregel**.
 
-Ditt Automation-konto har redan valts som resurs. Om du vill ändra den klickar du på **Markera**. På sidan **Välj en resurs** väljer du **Automation-konton** på den **nedrullningsbara menyn Filter efter resurstyp.** Välj ditt Automation-konto och klicka sedan på **Klar**.
+Ditt Automation-konto har redan valts som resurs. Om du vill ändra den klickar du på **Markera**. På sidan Välj en resurs väljer du **Automation-konton** på den **nedrullningsbara menyn Filter efter resurstyp.** Välj ditt Automation-konto och klicka sedan på **Klar**.
 
 Klicka på **Lägg till villkor** för att välja lämplig signal för uppdateringsdistributionen. I följande tabell visas information om de två tillgängliga signalerna.
 
@@ -85,11 +85,11 @@ Ange ett namn på aviseringen och ett kort namn i fältet **Åtgärdsgruppnamn.*
 
 Under **Åtgärder**anger du ett namn för åtgärden, till **exempel E-postmeddelande**. För **åtgärdstyp**väljer du **E-post/SMS/Push/Voice**. För **mer information**väljer du Redigera **information**.
 
-I rutan **e-post/SMS/Push/röst**, ange ett namn. Välj kryssrutan **e-post** och ange sedan en giltig e-postadress.
+I rutan e-post/SMS/Push/röst, ange ett namn. Markera kryssrutan **E-post** och ange sedan en giltig e-postadress.
 
 ![Konfigurera en e-poståtgärdsgrupp](./media/automation-tutorial-update-management/configure-email-action-group.png)
 
-Klicka på **OK**i fönstret **E-post/SMS/Push/Voice** . Klicka på **OK**i fönstret **Lägg till åtgärdsgrupp** .
+Klicka på **OK**i fönstret E-post/SMS/Push/Voice . Klicka på **OK**i fönstret Lägg till åtgärdsgrupp .
 
 Om du vill anpassa ämnet för aviseringsmeddelandet väljer du **E-postämne**under **Skapa** **regel**. När du är klar väljer du **Skapa varningsregel**. Aviseringen talar om när en uppdateringsdistribution lyckas och vilka datorer som ingick i uppdateringsdistributionskörningen.
 
@@ -132,7 +132,7 @@ Under **Ny uppdateringsdistribution** anger du följande information:
 > Du kan inte ange uppdateringar som har ersatts för att inkluderas i uppdateringsdistributionen.
 >
 
-* **Schemainställningar**: Sidan **Schemainställningar** öppnas. Starttiden är som standard 30 minuter efter den aktuella tiden. Du kan ange starttiden till helst från 10 minuter i framtiden.
+* **Schemainställningar**: Sidan Schemainställningar öppnas. Starttiden är som standard 30 minuter efter den aktuella tiden. Du kan ange starttiden till helst från 10 minuter i framtiden.
 
    Du kan också ange om distributionen ska ske en gång eller ange ett schema med återkommande tider. Under **Återkommande**, välj **En gång**. Lämna standard som 1 dag och klicka på **OK**. Dessa transaktioner ställer in ett återkommande schema.
 

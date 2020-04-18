@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 847b6c4616cbbb7fd9c6ccad18ec426dc38a887a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: bceea53e6b177940305a2dc77f2a6ecfa37f277a
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81430856"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617896"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault kunddatafunktioner
 
@@ -40,7 +40,7 @@ Följande information identifierar kunddata i Azure Key Vault:
 
 Samma REST-API:er, portalupplevelsen och SDK:er som används för att skapa valv, nycklar, hemligheter, certifikat och hanterade lagringskonton kan också uppdatera och ta bort dessa objekt.
 
-Med mjuk borttagning kan du återställa borttagna data i 90 dagar efter borttagningen. När du använder mjuk borttagning kan data tas bort permanent innan lagringsperioden på 90 dagar upphör att gälla genom att utföra en rensningsåtgärd. Om valvet eller prenumerationen har konfigurerats för att blockera rensningsåtgärder, är det inte möjligt att ta bort data permanent förrän den schemalagda kvarhållningsperioden har passerats.
+Med mjukborttagning kan du återställa borttagna data i 90 dagar efter borttagningen. När du använder mjuk borttagning kan data tas bort permanent innan lagringsperioden på 90 dagar upphör att gälla genom att utföra en rensningsåtgärd. Om valvet eller prenumerationen har konfigurerats för att blockera rensningsåtgärder, är det inte möjligt att ta bort data permanent förrän den schemalagda kvarhållningsperioden har passerats.
 
 ## <a name="exporting-customer-data"></a>Exportera kunddata
 

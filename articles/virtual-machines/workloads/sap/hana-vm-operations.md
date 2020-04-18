@@ -15,19 +15,19 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 07c8f84f2e37abd87953d8e4cb20b37258b25fda
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7c4f3ec2727d06528eab788a2a24a6190fe26533
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77920533"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606151"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Konfigurationer och åtgärder för SAP HANA i Azure-infrastrukturer
 Det här dokumentet innehåller vägledning för att konfigurera Azure-infrastruktur och driva SAP HANA-system som distribueras på virtuella Azure-datorer (VMs). Dokumentet innehåller även konfigurationsinformation för SAP HANA-utskalning för M128s VM SKU. Det här dokumentet är inte avsett att ersätta standarddokumentationen för SAP, som innehåller följande innehåll:
 
 - [Sap-administrationsguide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/330e5550b09d4f0f8b6cceb14a64cd22.html)
 - [SAP-installationsguider](https://service.sap.com/instguides)
-- [SAP-anteckningar](https://sservice.sap.com/notes)
+- [SAP-anteckningar](https://service.sap.com/notes)
 
 ## <a name="prerequisites"></a>Krav
 Om du vill använda den här guiden behöver du grundläggande kunskaper om följande Azure-komponenter:
@@ -101,7 +101,7 @@ Artiklarna [Azure Virtual Datacenter: A Network Perspective](https://docs.micros
 
 
 >[!NOTE]
->Trafik som flödar mellan ett nav-VNet och eker-VNet med [Azure VNet-peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) är föremål för extra [kostnader](https://azure.microsoft.com/pricing/details/virtual-network/). Baserat på dessa kostnader kan du behöva överväga att göra kompromisser mellan att köra en strikt hubb och ekernätverksdesign och köra flera [Azure ExpressRoute Gateways](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways) som du ansluter till "ekrar" för att kringgå VNet-peering. Azure ExpressRoute Gateways medför dock även extra [kostnader.](https://azure.microsoft.com/pricing/details/vpn-gateway/) Du kan också få ytterligare kostnader för programvara från tredje part som du använder för nätverkstrafikloggning, granskning och övervakning. Beroende på kostnaderna för datautbyte via VNet-peering på ena sidan och kostnader som skapas av ytterligare Azure ExpressRoute Gateways och ytterligare programvarulicenser, kan du välja mikrosegmentering inom ett virtuella nätverk genom att använda undernät som isoleringsenhet i stället för virtuella nätverk.
+>Trafik som flödar mellan ett nav-VNet och eker-VNet med [Azure VNet-peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) är föremål för extra [kostnader](https://azure.microsoft.com/pricing/details/virtual-network/). Baserat på dessa kostnader kan du behöva överväga att göra kompromisser mellan att köra en strikt hubb och ekernätverksdesign och köra flera [Azure ExpressRoute Gateways](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways) som du ansluter till "ekrar" för att kringgå VNet-peering. Azure ExpressRoute Gateways medför dock även extra [kostnader.](https://azure.microsoft.com/pricing/details/vpn-gateway/) Du kan också få ytterligare kostnader för programvara från tredje part som du använder för nätverkstrafikloggning, granskning och övervakning. Beroende på kostnaderna för datautbyte via VNet-peering på ena sidan och kostnader som skapas av ytterligare Azure ExpressRoute Gateways och ytterligare programvarulicenser, kan du välja för mikrosegmentering inom ett virtuella nätverk genom att använda undernät som isoleringsenhet i stället för virtuella nätverk.
 
 
 En översikt över de olika metoderna för att tilldela IP-adresser finns [i IP-adresstyper och allokeringsmetoder i Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 

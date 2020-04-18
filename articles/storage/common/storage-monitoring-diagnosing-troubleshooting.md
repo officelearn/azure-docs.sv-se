@@ -8,20 +8,20 @@ ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 3d5f3ade3ef3b79ddb3996b5bf2d609b11aff8a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0bbffacc0a8c47950b8637e826d1d5db9fbdb234
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79255969"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605067"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
 
 ## <a name="overview"></a>Översikt
-Diagnostisera och felsöka problem i ett distribuerat program som finns i en molnmiljö kan vara mer komplext än i traditionella miljöer. Program kan distribueras i en PaaS- eller IaaS-infrastruktur, lokalt, på en mobil enhet eller i någon kombination av dessa miljöer. Vanligtvis kan programmets nätverkstrafik passera offentliga och privata nätverk och ditt program kan använda flera lagringstekniker, till exempel Microsoft Azure Storage Tables, Blobbar, Queues eller Files utöver andra datalager, till exempel relationella och dokumentdatabaser.
+Diagnostisera och felsöka problem i ett distribuerat program som finns i en molnmiljö kan vara mer komplext än i traditionella miljöer. Program kan distribueras i en PaaS- eller IaaS-infrastruktur, lokalt, på en mobil enhet eller i någon kombination av dessa miljöer. Vanligtvis kan programmets nätverkstrafik passera offentliga och privata nätverk och ditt program kan använda flera lagringstekniker, till exempel Microsoft Azure Storage Tables, Blobbar, Köer eller Filer utöver andra datalager, till exempel relations- och dokumentdatabaser.
 
-För att hantera sådana program framgångsrikt bör du övervaka dem proaktivt och förstå hur du diagnostiserar och felsöker alla aspekter av dem och deras beroende teknik. Som användare av Azure Storage-tjänster bör du kontinuerligt övervaka de lagringstjänster som ditt program använder för oväntade ändringar i beteende (t.ex. långsammare svarstider än vanligt) och använda loggning för att samla in mer detaljerade data och analysera ett problem i Djup. Diagnostikinformationen som du får från både övervakning och loggning hjälper dig att fastställa orsaken till problemet som programmet påträffades. Sedan kan du felsöka problemet och bestämma lämpliga åtgärder du kan vidta för att åtgärda det. Azure Storage är en grundläggande Azure-tjänst och utgör en viktig del av de flesta lösningar som kunder distribuerar till Azure-infrastrukturen. Azure Storage innehåller funktioner för att förenkla övervakning, diagnos och felsökning av lagringsproblem i dina molnbaserade program.
+För att hantera sådana program framgångsrikt bör du övervaka dem proaktivt och förstå hur du diagnostiserar och felsöker alla aspekter av dem och deras beroende teknik. Som användare av Azure Storage-tjänster bör du kontinuerligt övervaka lagringstjänsterna som ditt program använder för oväntade ändringar i beteende (till exempel långsammare svarstider än vanligt) och använda loggning för att samla in mer detaljerade data och analysera ett problem på djupet. Diagnostikinformationen som du får från både övervakning och loggning hjälper dig att fastställa orsaken till problemet som programmet påträffades. Sedan kan du felsöka problemet och bestämma lämpliga åtgärder du kan vidta för att åtgärda det. Azure Storage är en grundläggande Azure-tjänst och utgör en viktig del av de flesta lösningar som kunder distribuerar till Azure-infrastrukturen. Azure Storage innehåller funktioner för att förenkla övervakning, diagnos och felsökning av lagringsproblem i dina molnbaserade program.
 
 > [!NOTE]
 > Azure Files stöder inte loggning just nu.
@@ -140,7 +140,7 @@ Lagringsmått lagrar endast kapacitetsmått för blob-tjänsten eftersom blobbar
 Mer information om hur du uppskattar storleken på olika lagringsobjekt, till exempel blobbar, finns i blogginlägget [Understanding Azure Storage Billing – Bandwidth, Transactions och Capacity](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
 ### <a name="monitoring-availability"></a><a name="monitoring-availability"></a>Övervaka tillgänglighet
-Du bör övervaka tillgängligheten för lagringstjänsterna i ditt lagringskonto genom att övervaka värdet i kolumnen **Tillgänglighet** i tabellerna för tim- eller minutmått – **$MetricsHourPrimaryTransactionsBlob** **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$ MetricsCapacityBlob**. Kolumnen **Tillgänglighet** innehåller ett procentvärde som anger tjänstens tillgänglighet eller API-åtgärden som representeras av raden **(RowKey** visar om raden innehåller mått för tjänsten som helhet eller för en viss API-åtgärd).
+Du bör övervaka tillgängligheten för lagringstjänsterna i ditt lagringskonto genom att övervaka värdet i kolumnen **Tillgänglighet** i tabellerna för tim- eller minutmått – **$MetricsHourPrimaryTransactionsBlob** **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue** **$MetricsCapacityBlob**. Kolumnen **Tillgänglighet** innehåller ett procentvärde som anger tjänstens tillgänglighet eller API-åtgärden som representeras av raden **(RowKey** visar om raden innehåller mått för tjänsten som helhet eller för en viss API-åtgärd).
 
 Ett värde som är mindre än 100 % anger att vissa lagringsbegäranden misslyckas. Du kan se varför de misslyckas genom att undersöka de andra kolumnerna i måttdata som visar antalet begäranden med olika feltyper, till exempel **ServerTimeoutError**. Du bör förvänta dig att **tillgänglighet tillfälligt** understiger 100 % av skäl som tillfälliga tidsutgångar på servern medan tjänsten flyttar partitioner till bättre begäran om belastningsbalans. Logiken för återförsök i klientprogrammet bör hantera sådana intermittenta villkor. I artikeln [Storage Analytics Logged Operations and Status Messages](https://msdn.microsoft.com/library/azure/hh343260.aspx) visas de transaktionstyper som lagringsmått innehåller i beräkningen **av tillgänglighet.**
 
@@ -396,7 +396,7 @@ Mer information om hur du använder Wireshark för att felsöka nätverksproblem
 Mer information om hur du använder Microsoft Message Analyzer för att felsöka nätverksproblem finns i "[Bilaga 3: Använda Microsoft Message Analyzer för att samla in nätverkstrafik]."
 
 ### <a name="metrics-show-high-averageserverlatency"></a><a name="metrics-show-high-AverageServerLatency"></a>Mätningar visar ett högt värde för AverageServerLatency
-När det gäller hög **Genomsnittligserverlatency** för blob-hämtningsbegäranden bör du använda lagringsloggningsloggarna för att se om det finns upprepade begäranden om samma blob (eller uppsättning blobbar). För blob-uppladdningsbegäranden bör du undersöka vilken blockstorlek klienten använder (till exempel kan block som är mindre än 64 K i storlek resultera i omkostnader om inte läsningarna också finns i mindre än 64 K-segment) och om flera klienter laddar upp block till samma blob i Parallell. Du bör också kontrollera måtten per minut för toppar i antalet begäranden som resulterar i att minska skalbarhetsmålen per sekund: se även "[Mått visar en ökning av PercentTimeoutError]."
+När det gäller hög **Genomsnittligserverlatency** för blob-hämtningsbegäranden bör du använda lagringsloggningsloggarna för att se om det finns upprepade begäranden om samma blob (eller uppsättning blobbar). För blob-uppladdningsbegäranden bör du undersöka vilken blockstorlek klienten använder (till exempel kan block som är mindre än 64 K i storlek resultera i omkostnader om inte läsningarna också finns i mindre än 64 K-segment) och om flera klienter laddar upp block till samma blob parallellt. Du bör också kontrollera måtten per minut för toppar i antalet begäranden som resulterar i att minska skalbarhetsmålen per sekund: se även "[Mått visar en ökning av PercentTimeoutError]."
 
 Om du ser hög **GenomsnittligServerLatency** för blob-hämtningsbegäranden när det finns upprepade begäranden om samma blob eller uppsättning blobbar, bör du överväga att cachelagra dessa blobbar med Azure Cache eller Azure Content Delivery Network (CDN). För överföringsbegäranden kan du förbättra dataflödet med hjälp av en större blockstorlek. För frågor till tabeller är det också möjligt att implementera cachelagring på klientsidan på klienter som utför samma frågeåtgärder och där data inte ändras ofta.
 
@@ -458,7 +458,7 @@ Dina mått visar en ökning av **PercentTimeoutError** för en av dina lagringst
 
 Servertidsutseringarna orsakas av ett fel på servern. Klienttidsgränsen inträffar eftersom en åtgärd på servern har överskridit den timeout som anges av klienten. En klient som använder storage-klientbiblioteket kan till exempel ange en timeout för en åtgärd med hjälp av egenskapen **ServerTimeout** för klassen **QueueRequestOptions.**
 
-Servertidsutgångar indikerar ett problem med lagringstjänsten som kräver ytterligare undersökning. Du kan använda mått för att se om du når skalbarhetsgränserna för tjänsten och för att identifiera eventuella toppar i trafiken som kan orsaka det här problemet. Om problemet är intermittent kan det bero på belastningsutjämningsaktivitet i tjänsten. Om problemet är beständigt och inte orsakas av att ditt program når tjänstens skalbarhetsgränser bör du ta upp ett supportproblem. För klienttidsutgångar måste du bestämma om timeouten är inställd på ett lämpligt värde i klienten och antingen ändra tidsgränsen som angetts i klienten eller undersöka hur du kan förbättra prestanda för åtgärderna i lagringstjänsten, till exempel genom att optimera tabellfrågor eller minska storleken på dina meddelanden.
+Servertidsutgångar indikerar ett problem med lagringstjänsten som kräver ytterligare undersökning. Du kan använda mått för att se om du når skalbarhetsgränserna för tjänsten och för att identifiera eventuella toppar i trafiken som kan orsaka det här problemet. Om problemet är intermittent kan det bero på belastningsutjämningsaktivitet i tjänsten. Om problemet är beständigt och inte orsakas av att ditt program når tjänstens skalbarhetsgränser bör du ta upp ett supportproblem. För klienttidsutgångar måste du bestämma om timeouten är inställd på ett lämpligt värde i klienten och antingen ändra tidsgränsen som angetts i klienten eller undersöka hur du kan förbättra prestanda för åtgärderna i lagringstjänsten, till exempel genom att optimera tabellfrågorna eller minska storleken på dina meddelanden.
 
 ### <a name="metrics-show-an-increase-in-percentnetworkerror"></a><a name="metrics-show-an-increase-in-PercentNetworkError"></a>Mätningar visar en ökning i PercentNetworkError
 Dina mått visar en ökning av **PercentNetworkError** för en av dina lagringstjänster. **Måttet PercentNetworkError** är en aggregering av följande mått: **NetworkError**, **AnonymousNetworkError**och **SASNetworkError**. Dessa inträffar när lagringstjänsten upptäcker ett nätverksfel när klienten gör en lagringsbegäran.
@@ -516,24 +516,24 @@ Loggposter:
 
 | Begär ID | Åtgärdstext |
 | --- | --- |
-| 07b26a5d-... |Startar synkron begäran https://domemaildist.blob.core.windows.net/azuremmblobcontainertill . |
+| 07b26a5d-... |Startar synkron begäran `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`till . |
 | 07b26a5d-... |StringToSign = HEAD............ x-ms-client-request-id:07b26a5d-.... x-ms-date:tis, 03 jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Väntar på svar. |
 | 07b26a5d-... |Svar mottaget. Statuskod = 200, begärande-ID = eeead849-... Innehåll-MD5 = , &quot;ETag = 0x8D14D2DC63D059B&quot;. |
 | 07b26a5d-... |Svarshuvuden har bearbetats och fortsätter med resten av åtgärden. |
 | 07b26a5d-... |Ladda ner svarstext. |
 | 07b26a5d-... |Åtgärden har slutförts. |
-| 07b26a5d-... |Startar synkron begäran https://domemaildist.blob.core.windows.net/azuremmblobcontainertill . |
+| 07b26a5d-... |Startar synkron begäran `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`till . |
 | 07b26a5d-... |StringToSign = DELETE............ x-ms-client-request-id:07b26a5d-.... x-ms-date:tis, 03 jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Väntar på svar. |
 | 07b26a5d-... |Svar mottaget. Statuskod = 202, Begäran ID = 6ab2a4cf-..., Content-MD5 = , ETag = . |
 | 07b26a5d-... |Svarshuvuden har bearbetats och fortsätter med resten av åtgärden. |
 | 07b26a5d-... |Ladda ner svarstext. |
 | 07b26a5d-... |Åtgärden har slutförts. |
-| e2d06d78-... |Startar asynkron begäran https://domemaildist.blob.core.windows.net/azuremmblobcontainertill .</td> |
+| e2d06d78-... |Startar asynkron begäran `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`till .</td> |
 | e2d06d78-... |StringToSign = HEAD............ x-ms-client-request-id:e2d06d78-.... x-ms-date:tis, 03 jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Väntar på svar. |
-| de8b1c3c-... |Startar synkron begäran https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txttill . |
+| de8b1c3c-... |Startar synkron begäran `https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt`till . |
 | de8b1c3c-... |StringToSign = PUT... 64.qCmF+TQLPhq/YYK50mP9ZQ==........ x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-.... x-ms-date:tis, 03 jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |Förbereder att skriva begärandedata. |
 | e2d06d78-... |Undantag som genereras i väntan på svar: Fjärrservern returnerade ett fel: (404) Hittades inte.. |
@@ -541,7 +541,7 @@ Loggposter:
 | e2d06d78-... |Svarshuvuden har bearbetats och fortsätter med resten av åtgärden. |
 | e2d06d78-... |Ladda ner svarstext. |
 | e2d06d78-... |Åtgärden har slutförts. |
-| e2d06d78-... |Startar asynkron begäran https://domemaildist.blob.core.windows.net/azuremmblobcontainertill . |
+| e2d06d78-... |Startar asynkron begäran `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`till . |
 | e2d06d78-... |StringToSign = PUT... 0.........x-ms-client-request-id:e2d06d78-.... x-ms-date:tis, 03 jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Väntar på svar. |
 | de8b1c3c-... |Skriva förfråde uppgifter. |
@@ -567,10 +567,10 @@ I följande tabell visas ett exempel på serverserverns loggmeddelande från log
 | Begär starttid | 2014-05-30T06:17:48.4473697Z |
 | Typ av åtgärd     | GetBlobProperties            |
 | Status för begäran     | SASAuthorizationError        |
-| HTTP-statuskod   | 404                          |
+| HTTP-statuskod   | 404                            |
 | Autentiseringstyp| Sas                          |
 | Typ av tjänst       | Blob                         |
-| URL för begäran        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
+| URL för begäran         | `https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt` |
 | &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Begäran id-huvud  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | ID för klientförfrågan  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
@@ -650,7 +650,7 @@ Det är viktigt att notera att dessa åtgärder har slutförts och därför inte
 Du hittar en lista över vanliga REST API-felkoder som lagringstjänsterna returnerar på sidan [Vanliga REST API-felkoder](https://msdn.microsoft.com/library/azure/dd179357.aspx).
 
 ### <a name="capacity-metrics-show-an-unexpected-increase-in-storage-capacity-usage"></a><a name="capacity-metrics-show-an-unexpected-increase"></a>Kapacitetsmått visar en oväntad ökning av användningen av lagringskapacitet
-Om du ser plötsliga, oväntade ändringar i kapacitetsanvändningen i ditt lagringskonto kan du undersöka orsakerna genom att först titta på dina tillgänglighetsmått. Till exempel kan en ökning av antalet misslyckade borttagningsbegäranden leda till en ökning av mängden blob-lagring som du använder som programspecifika rensningsåtgärder som du kanske förväntade dig att frigöra utrymme kanske inte fungerar som förväntat (till exempel , eftersom SAS-token som används för att frigöra utrymme har upphört att gälla).
+Om du ser plötsliga, oväntade ändringar i kapacitetsanvändningen i ditt lagringskonto kan du undersöka orsakerna genom att först titta på dina tillgänglighetsmått. Till exempel kan en ökning av antalet misslyckade borttagningsbegäranden leda till en ökning av mängden blob-lagring som du använder som programspecifika rensningsåtgärder som du kanske har förväntat dig att frigöra utrymme kanske inte fungerar som förväntat (till exempel eftersom SAS-token som används för att frigöra utrymme har upphört att gälla).
 
 ### <a name="your-issue-arises-from-using-the-storage-emulator-for-development-or-test"></a><a name="your-issue-arises-from-using-the-storage-emulator"></a>Ditt problem uppstår från att använda lagringsemulatorn för utveckling eller test
 Du använder vanligtvis lagringsemulatorn under utveckling och test för att undvika kravet på ett Azure-lagringskonto. De vanligaste problemen som kan uppstå när du använder lagringsemulatorn är:
@@ -707,7 +707,7 @@ Mer information om hur du använder Wireshark finns i "[Tillägg 2: Använda Wir
 Mer information om hur du använder Microsoft Message Analyzer finns i "[Bilaga 3: Använda Microsoft Message Analyzer för att samla in nätverkstrafik]."
 
 ## <a name="appendices"></a><a name="appendices"></a>Bilagor
-Tilläggen beskriver flera verktyg som kan vara användbara när du diagnostiserar och felsöker problem med Azure Storage (och andra tjänster). Dessa verktyg är inte en del av Azure Storage och vissa är tredjepartsprodukter. Verktygen som beskrivs i dessa bilagor omfattas därför inte av något supportavtal som du kan ha med Microsoft Azure eller Azure Storage, och därför bör du som en del av utvärderingsprocessen undersöka vilka licensierings- och supportalternativ som är tillgängliga från leverantörer av dessa verktyg.
+Tilläggen beskriver flera verktyg som kan vara användbara när du diagnostiserar och felsöker problem med Azure Storage (och andra tjänster). Dessa verktyg är inte en del av Azure Storage och vissa är tredjepartsprodukter. Verktygen som beskrivs i dessa bilagor omfattas därför inte av något supportavtal som du kan ha med Microsoft Azure eller Azure Storage, och därför bör du som en del av utvärderingsprocessen undersöka de licensierings- och supportalternativ som är tillgängliga från leverantörerna av dessa verktyg.
 
 ### <a name="appendix-1-using-fiddler-to-capture-http-and-https-traffic"></a><a name="appendix-1"></a>Tillägg 1: Använda Fiddler för att fånga HTTP- och HTTPS-trafik
 [Fiddler](https://www.telerik.com/fiddler) är ett användbart verktyg för att analysera HTTP- och HTTPS-trafiken mellan klientprogrammet och den Azure-lagringstjänst som du använder.

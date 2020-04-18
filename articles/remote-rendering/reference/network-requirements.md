@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: reference
-ms.openlocfilehash: 73bbfad4c0535fa00b1aa53764eb52acb83124f8
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 9bb8818d2bb91c14eafc272774e0b633c51e58e1
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80680380"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617888"
 ---
 # <a name="network-requirements"></a>Nätverkskrav
 
@@ -27,6 +27,9 @@ De exakta nätverkskraven beror på ditt specifika användningsfall, till exempe
 * **Undvik konkurrerande bandbreddsintensiv trafik** – till exempel video- eller spelstreaming – i samma Wi-Fi-nätverk.
 * Att ha **bra Wi-Fi-signalstyrka** är viktigt. Om möjligt, håll dig nära din Wi-Fi-åtkomstpunkt och undvik hinder mellan klientenheten och åtkomstpunkterna.
 * Se till att du alltid ansluter till **närmaste Azure-datacenter** för din [region](regions.md). Ju närmare datacenter, desto lägre nätverksfördröjning, vilket har en enorm effekt på hologramstabiliteten.
+
+> [!NOTE]
+> Den nedströms bandbredden förbrukas mestadels av videoströmmen, som i sin tur delas mellan färg- och djupinformation (båda 60 Hz, stereo).
 
 ## <a name="network-performance-tests"></a>Nätverksprestandatester
 

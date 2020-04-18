@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2ddfa9611143d5c3f823539e018c8afc885c6a46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1f5ff48f4d5a658a1bbb4e6b9fb4b3f0f3fb190f
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77083223"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81602694"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrera arbetsbelastningar med hjälp av stretchade Layer 2-nätverk
 
@@ -108,7 +108,7 @@ Mer information finns i [Virtual Private Networks](https://docs.vmware.com/en/VM
 
 Följande steg visar hur du hämtar logisk router-ID för logiska routerinstansen för logiska routerinstanser för IPsec- och L2VPN-tjänsterna. Logiskt router-ID behövs senare när L2VPN implementeras.
 
-1. Logga in på NSX-T Manager https://*nsx-t-manager-ip-adress* och välj Översikt över > **nätverksroutrar** > **Provider-LR** > **.** **Networking** För **läget Hög tillgänglighet**väljer du Aktiv **vänteläge**. Den här åtgärden öppnar ett popup-fönster som visar edge-virtuella datorer där Tier0-routern är aktiv.
+1. Logga in på NSX-T `https://*nsx-t-manager-ip-address*` Manager och välj Översikt över**nätverksroutrar** >  **Networking** > **provider-LR** > **.** För **läget Hög tillgänglighet**väljer du Aktiv **vänteläge**. Den här åtgärden öppnar ett popup-fönster som visar edge-virtuella datorer där Tier0-routern är aktiv.
 
     ![Välj vänteläge med aktiv vänteläge](media/l2vpn-fetch01.png)
 
@@ -180,7 +180,7 @@ DE IP-adresser som valts för loopback- och tunnelgränssnitt som används för 
 ```
 Loopback interface ip : 192.168.254.254/32
 Tunnel interface subnet : 5.5.5.0/29
-Logical-router ID : UUID of Tier0 DR logical router obtained in section “Steps to fetch Logical-Router ID needed for L2VPN”
+Logical-router ID : UUID of Tier0 DR logical router obtained in section "Steps to fetch Logical-Router ID needed for L2VPN"
 Logical-switch ID(Stretch) : UUID of Stretch Logical Switch obtained earlier
 IPSec Service ID :
 IKE profile ID :
@@ -356,7 +356,7 @@ POST : https://192.168.110.201/api/v1/vpn/l2vpn/services
 
 För följande POST-kommando är L2VPN-tjänst-ID det ID som du just fått och IPsec VPN-sessions-ID är det ID som erhölls i föregående avsnitt.
 
-``` 
+```    
 POST: https://192.168.110.201/api/v1/vpn/l2vpn/sessions
 
 {

@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/23/2020
-ms.openlocfilehash: 08ad231b462e21fefebacd4e280bfb2b13bc0eef
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 24fe11610d2a91fcdb0f09b8e45ea6ff4b81bd70
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81413652"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606386"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Uppslagstransformation vid mappning av dataflöde
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Använd uppslagsomvandlingen för att referera till data från en annan källa i en dataflödesström. Uppslagsomvandlingen lägger till kolumner från matchade data till källdata.
 

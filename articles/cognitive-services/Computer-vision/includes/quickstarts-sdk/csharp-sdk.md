@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: ee4b6b4247ac1a5c988d8b455fd1d8a2bff889a9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ce311d2deaf0eec76ef0dec3ea279a387d14fd22
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80136002"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81637136"
 ---
 <a name="HOLTop"></a>
 
@@ -133,6 +133,12 @@ Spara en referens till webbadressen till den bild som du vill analysera i klasse
 Definiera din nya metod för bildanalys. Lägg till koden nedan, som anger visuella funktioner som du vill extrahera i analysen. Se **[VisualFeatureTypes-uppräkningen](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-dotnet)** för en fullständig lista.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_visualfeatures)]
+
+Infoga något av följande kodblock i **metoden AnalyzeImageUrl** för att implementera deras funktioner. Kom ihåg att lägga till en avslutande hakparentes i slutet.
+
+```csharp
+}
+```
 
 ### <a name="analyze"></a>Analysera
 
@@ -255,7 +261,7 @@ dotnet run
 
 Om du vill rensa och ta bort en Cognitive Services-prenumeration kan du ta bort resursen eller resursgruppen. Om du tar bort resursgruppen tas även alla andra resurser som är associerade bort.
 
-* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portalen](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg

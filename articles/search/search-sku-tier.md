@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: f103db1d0de7a9d538f56b8ade331dc856b26bce
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: eb11a5cc2deef372ca91c23a8b9c82e17143c85b
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547029"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617719"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Välj en prisnivå för Azure Cognitive Search
 
@@ -89,6 +89,8 @@ För [AI-anrikning](cognitive-search-concept-intro.md)bör du planera att [bifog
 | Dokumentsprickor, bildextrahering | Faktureras enligt antalet bilder som extraherats från dina dokument. I en [indexeringskonfiguration](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters)är **imageAction** den parameter som utlöser utvinning av bilder. Om **imageAction** är inställt på "ingen" (standard) debiteras du inte för bildextrahering. Hastigheten för utvinning av avbildning dokumenteras på [prisinformationssidan](https://azure.microsoft.com/pricing/details/search/) för Azure Cognitive Search.|
 | [Inbyggda kognitiva kompetenser](cognitive-search-predefined-skills.md) | Faktureras i samma takt som om du hade utfört uppgiften med hjälp av Cognitive Services direkt. |
 | Anpassade färdigheter | En anpassad färdighet är funktioner som du tillhandahåller. Kostnaden för att använda en anpassad färdighet beror helt på om anpassad kod anropar andra tjänster med datapriser. |
+
+Den [inkrementella anrikning (förhandsvisning)](cognitive-search-incremental-indexing-conceptual.md) funktionen kan du ge en cache som gör att indexeraren att vara mer effektiv på att köra endast de kognitiva färdigheter som är nödvändiga om du ändrar din kompetens i framtiden, vilket sparar tid och pengar.
 
 <a name="search-units"></a>
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7fcfac923da1c0daee58b10d92cbc6a6ad5e7910
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 625efcce7305cd7b1dd415a286e6b1e92682cc0a
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383410"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81616821"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Ställa in och använda beräkningsmål för modellutbildning 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -425,7 +425,7 @@ Mer information finns i dokumentationen [ScriptRunConfig](https://docs.microsoft
 
 Du kan använda [Azure CLI-](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) och [Machine Learning CLI-tillägg](reference-azure-machine-learning-cli.md) för att skapa körningskonfigurationer och skicka körs på olika beräkningsmål. Följande exempel förutsätter att du har en befintlig Azure Machine Learning `az login` Workspace och du har loggat in på Azure med CLI-kommandot. 
 
-[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
 ### <a name="create-run-configuration"></a>Skapa körningskonfiguration
 

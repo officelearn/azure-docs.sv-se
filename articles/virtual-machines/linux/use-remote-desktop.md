@@ -13,22 +13,22 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 2b1b708618c60153b8dbce69b26d832fa18b25aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2e97442d4104f52c1a76ba8cd1d81c99508bb242
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476611"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605188"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installera och konfigurera Fjärrskrivbord för att ansluta till en Virtuell Linux-dator i Azure
-Virtuella Linux-datorer (VMs) i Azure hanteras vanligtvis från kommandoraden med hjälp av en säker skalanslutning (SSH). När du är ny på Linux, eller för snabba felsökningsscenarier, kan det vara enklare att använda fjärrskrivbord. I den här artikeln beskrivs hur du installerar och konfigurerar en skrivbordsmiljö ([xfce)](https://www.xfce.org)och fjärrskrivbord[(xrdp)](https://www.xrdp.org)för din Virtuella Linux-dator med hjälp av resurshanterarens distributionsmodell.
+Virtuella Linux-datorer (VMs) i Azure hanteras vanligtvis från kommandoraden med hjälp av en säker skalanslutning (SSH). När du är ny på Linux, eller för snabba felsökningsscenarier, kan det vara enklare att använda fjärrskrivbord. I den här artikeln beskrivs hur du installerar och konfigurerar en skrivbordsmiljö ([xfce)](https://www.xfce.org)och fjärrskrivbord[(xrdp)](http://xrdp.org)för din Virtuella Linux-dator med hjälp av resurshanterarens distributionsmodell.
 
 
 ## <a name="prerequisites"></a>Krav
 Den här artikeln kräver en befintlig Ubuntu 18.04 LTS VM i Azure. Om du behöver skapa en virtuell dator använder du någon av följande metoder:
 
 - [Azure CLI](quick-create-cli.md)
-- [Azure Portal](quick-create-portal.md)
+- [Azure-portalen](quick-create-portal.md)
 
 
 ## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Installera en skrivbordsmiljö på din virtuella Linux-dator

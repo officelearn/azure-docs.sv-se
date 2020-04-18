@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/28/2020
-ms.openlocfilehash: 39d1f15b771168b618bfbc4951f2036a8b95b027
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8420cba043e7fc9285b473b877f0ff10212e9fda
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418464"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605318"
 ---
 # <a name="what-are-mapping-data-flows"></a>Vad är Mappa dataflöden?
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Mappning av dataflöden är visuellt utformade dataomvandlingar i Azure Data Factory. Dataflöden gör det möjligt för datatekniker att utveckla grafisk dataomvandlingslogik utan att skriva kod. De resulterande dataflödena körs som aktiviteter i Azure Data Factory-pipelines som använder utskalade Apache Spark-kluster. Dataflödesaktiviteter kan aktiveras via befintliga funktioner för schemaläggning, kontroll, flöde och övervakning.
 

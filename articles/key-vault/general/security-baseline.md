@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: cb908c4b105324e0866d53463ecd3a8a59e7e651
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 46fa0160dd8b37e89cdd77ba8acdae294fddbefe
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81429894"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81616896"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Azure Security Baseline för Nyckelvalv
 
@@ -1001,7 +1001,7 @@ https://docs.microsoft.com/azure/security-center/security-center-remediate-recom
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11: Hantera Azure-hemligheter på ett säkert sätt
 
-**Vägledning**: Använd hanterad tjänstidentitet tillsammans med Azure Key Vault för att förenkla och skydda hemlig hantering för dina molnprogram. Kontrollera att azure key vault mjuk borttagning är aktiverad.
+**Vägledning**: Använd hanterad tjänstidentitet tillsammans med Azure Key Vault för att förenkla och skydda hemlig hantering för dina molnprogram. Kontrollera att Azure Key Vault mjuk borttagning är aktiverat.
 
 Så här integrerar du med Azure-hanterade identiteter:
 
@@ -1175,7 +1175,7 @@ Så här återställer du Key Vault Secrets:https://docs.microsoft.com/powershel
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Se till att säkerhetskopior och kundhanterade nycklar skyddas
 
-**Vägledning**: Se till att mjuk borttagning är aktiverad för Azure Key Vault. Med mjuk borttagning kan du återställa borttagna nyckelvalv och valvobjekt som nycklar, hemligheter och certifikat. 
+**Vägledning**: Se till att mjuk borttagning är aktiverat för Azure Key Vault. Med mjuk borttagning kan du återställa borttagna nyckelvalv och valvobjekt som nycklar, hemligheter och certifikat. 
 
 Så här använder du Azure Key Vault's Soft Delete: 
 

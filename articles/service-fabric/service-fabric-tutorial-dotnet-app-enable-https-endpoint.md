@@ -4,12 +4,12 @@ description: I den här självstudien lär du dig hur du lägger till en HTTPS-s
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: aafe2e7c89f6d4a90806378e9cf25c81f51feb60
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: b88ecd8d169e7402d149481c22bae95e632efe26
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411188"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605291"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Självstudie: Lägga till en HTTPS-slutpunkt i en klienttjänst i webb-API:t för ASP.NET Core med hjälp av Kestrel
 
@@ -400,7 +400,7 @@ $slb | Set-AzLoadBalancer
 
 Spara alla filer, växla från Debug till Release och tryck på F6 för att bygga om programmet.  Högerklicka på **Voting** i Solution Explorer och välj **Publicera**. Välj klustrets slutpunkt för anslutning som du skapade i [Distribuera ett program till ett kluster](service-fabric-tutorial-deploy-app-to-party-cluster.md), eller välj ett annat kluster.  Klicka på **Publicera** så att programmet publiceras till fjärrklustret.
 
-När programmet distribueras öppnar du en [https://mycluster.region.cloudapp.azure.com:443](https://mycluster.region.cloudapp.azure.com:443) webbläsare och navigerar till (uppdatera URL:en med anslutningsslutpunkten för klustret). Om du använder ett självsignerat certifikat visas en varning om att datorn inte har förtroende för den här webbplatsens säkerhet.  Fortsätt till webbsidan.
+När programmet distribuerats öppnar du en webbläsare och går till `https://mycluster.region.cloudapp.azure.com:443` (uppdatera webbadressen med klustrets slutpunkt för anslutning). Om du använder ett självsignerat certifikat visas en varning om att datorn inte har förtroende för den här webbplatsens säkerhet.  Fortsätt till webbsidan.
 
 ![Röstningsprogrammet][image3]
 

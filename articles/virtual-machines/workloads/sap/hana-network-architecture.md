@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33684a6292d7e51c04f6bacc7c49ee5986dbec10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b3bc87b183803c0854542d6925af7429b593d2af
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79502398"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605175"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>SAP HANA-nätverksarkitektur (stora instanser)
 
@@ -86,7 +86,7 @@ För att ge deterministisk nätverksfördröjning mellan virtuella datorer och H
 För att sänka svarstiden introducerades ExpressRoute Fast Path i maj 2019 för specifik anslutning av HANA Stora instanser till virtuella Azure-nätverk som är värdar för virtuella SAP-program virtuella datorer. Den största skillnaden mot lösningen som hittills har distribuerats är att dataflödena mellan virtuella datorer och STORA HANA-instanser inte längre dirigeras via ExpressRoute-gatewayen. I stället kommunicerar de virtuella datorer som har tilldelats i undernäten i det virtuella Azure-nätverket direkt med den dedikerade företagsgränsroutern. 
 
 > [!IMPORTANT] 
-> ExpressRoute Fast Path-funktionen kräver att undernäten som kör virtuella SAP-program-datorer finns i samma virtuella Azure-nätverk som har anslutits till DEA Stora instanserna. Virtuella datorer som finns i virtuella Azure-nätverk som är peered med det virtuella Azure-nätverket som är anslutet direkt till HANA-enheter för stora instanser drar inte nytta av ExpressRoute Fast Path. Som ett resultat typiska nav och ekrade virtuella nätverk design, där ExpressRoute kretsar ansluter mot ett nav virtuellt nätverk och virtuella nätverk som innehåller SAP-programskiktet (ekrar) blir peered, optimering av ExpressRoute Fast Sökvägen fungerar inte. I tillägg stöder ExpressRoute Fast Path inte användardefinierade routningsregler (UDR) idag. Mer information finns i [ExpressRoutes virtuella nätverksgateway och FastPath](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways). 
+> ExpressRoute Fast Path-funktionen kräver att undernäten som kör virtuella SAP-program-datorer finns i samma virtuella Azure-nätverk som har anslutits till DEA Stora instanserna. Virtuella datorer som finns i virtuella Azure-nätverk som är peered med det virtuella Azure-nätverket som är anslutet direkt till HANA-enheter för stora instanser drar inte nytta av ExpressRoute Fast Path. Som ett resultat typiska nav och eker virtuella nätverk design, där ExpressRoute kretsar ansluter mot ett nav virtuellt nätverk och virtuella nätverk som innehåller SAP ansökan lager (ekrar) blir peered, optimering av ExpressRoute Fast Path kommer inte att fungera. I tillägg stöder ExpressRoute Fast Path inte användardefinierade routningsregler (UDR) idag. Mer information finns i [ExpressRoutes virtuella nätverksgateway och FastPath](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways). 
 
 
 Mer information om hur du konfigurerar Snabb sökväg för ExpressRoute finns i dokumentet [Anslut ett virtuellt nätverk till STORA HANA-instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-connect-vnet-express-route).    
@@ -151,7 +151,7 @@ Det finns tre sätt att aktivera transitiv routning i dessa scenarier:
 - Använda [IPTables-regler](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) i en virtuell Linux-dator för att aktivera routning mellan lokala platser och HANA-enheter för stora instanser, eller mellan HANA-enheter för stora instanser i olika regioner. Den virtuella datorn som kör IPTables måste distribueras i det virtuella Azure-nätverket som ansluter till STORA HANA-instanser och till lokala. Den virtuella datorn måste dimensioneras i enlighet med detta, så att nätverksdataflödet för den virtuella datorn är tillräckligt för den förväntade nätverkstrafiken. Mer information om vm-nätverksbandbredd finns i artikeln [Storlekar på virtuella Linux-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - [Azure-brandväggen](https://azure.microsoft.com/services/azure-firewall/) skulle vara en annan lösning för att aktivera direkt trafik mellan lokala och HANA Large-instansenheter. 
 
-All trafik av dessa lösningar skulle dirigeras via ett virtuellt Azure-nätverk och som sådan kan trafiken dessutom begränsas av de mjuka enheter som används eller av Azure Network Security Groups, så att vissa IP-adresser eller IP-adresser sträcker sig från lokala kan blockeras eller uttryckligen tillåtas komma åt STORA HANA-instanser. 
+All trafik av dessa lösningar skulle dirigeras via ett virtuellt Azure-nätverk och som sådan kan trafiken dessutom begränsas av de mjuka enheter som används eller av Azure Network Security Groups, så att vissa IP-adresser eller IP-adressintervall från lokala kan blockeras eller uttryckligen tillåtas åtkomst till STORA HANA-instanser. 
 
 > [!NOTE]  
 > Tänk på att implementering och support för anpassade lösningar som involverar nätverksinstallationer från tredje part eller IPTables inte tillhandahålls av Microsoft. Support måste tillhandahållas av leverantören av den komponent som används eller integratören. 
@@ -182,7 +182,7 @@ Mer information om hur du aktiverar ExpressRoute Global Reach finns i dokumentet
 HANA Large Instance har *ingen* direkt internetanslutning. Som ett exempel kan den här begränsningen begränsa din möjlighet att registrera OS-avbildningen direkt med OS-leverantören. Du kan behöva arbeta med din lokala SUSE Linux Enterprise Server Subscription Management Tool server eller Red Hat Enterprise Linux Subscription Manager.
 
 ## <a name="data-encryption-between-vms-and-hana-large-instance"></a>Datakryptering mellan virtuella datorer och STOR HANA-instans
-Data som överförs mellan HANA Large Instance och virtuella datorer är inte krypterade. Men enbart för utbytet mellan HANA DBMS-sidan och JDBC/ODBC-baserade program kan du aktivera kryptering av trafik. Mer information finns i [den här dokumentationen från SAP](http://help-legacy.sap.com/saphelp_hanaplatform/helpdata/en/db/d3d887bb571014bf05ca887f897b99/content.htm?frameset=/en/dd/a2ae94bb571014a48fc3b22f8e919e/frameset.htm&current_toc=/en/de/ec02ebbb57101483bdf3194c301d2e/plain.htm&node_id=20&show_children=false).
+Data som överförs mellan HANA Large Instance och virtuella datorer är inte krypterade. Men enbart för utbytet mellan HANA DBMS-sidan och JDBC/ODBC-baserade program kan du aktivera kryptering av trafik. Mer information finns i [den här dokumentationen från SAP](https://help.sap.com/viewer/102d9916bf77407ea3942fef93a47da8/1.0.11/en-US/dbd3d887bb571014bf05ca887f897b99.html).
 
 ## <a name="use-hana-large-instance-units-in-multiple-regions"></a>Använda HANA-stora instansenheter i flera regioner
 

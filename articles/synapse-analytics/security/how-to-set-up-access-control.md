@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 94699f2153fa8d1df3ab85c184f32792c7ae0b59
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ae8be848b5d12e01865fe6bd3b394b460252aa3e
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81428880"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606010"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Skydda din Synapse-arbetsyta (förhandsgranskning)
 
@@ -51,8 +51,8 @@ Skapa och fyll i tre säkerhetsgrupper för din arbetsyta:
 - **WS1\_WSAdmins** – för användare som behöver fullständig kontroll över arbetsytan
 - **WS1\_SparkAdmins** – för de användare som behöver fullständig kontroll över Spark-aspekterna på arbetsytan
 - **WS1\_SQLAdmins** – för användare som behöver fullständig kontroll över SQL-aspekterna på arbetsytan
-- Lägg till **WS1-administratörer\_** i **WS1\_SQLAdmins**
-- Lägg till **WS1-administratörer\_** i **WS1\_SparkAdmins**
+- Lägg till **WS1\_WSAdmins** i **WS1\_SQLAdmins**
+- Lägg till **WS1\_WSAdmins** till **WS1\_SparkAdmins**
 
 ## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>STEG 2: Förbered ditt Data Lake Storage Gen2-konto
 
@@ -89,7 +89,7 @@ Synapse-arbetsytan behöver åtkomst till STG1 och CNT1 så att den kan köra pi
 - Öppna Azure-portalen
 - Hitta STG1
 - Navigera till CNT1
-- Kontrollera att MSI för WS1 har tilldelats azure **blob-datadeltagare** roll på CNT1
+- Kontrollera att MSI (Managed Service Identity) för WS1 tilldelas azure **blob-datadeltagare** på CNT1
   - Om du inte ser den tilldelad, tilldela den.
   - MSI har samma namn som arbetsytan. I det här fallet &quot;skulle&quot;det vara WS1 .
 

@@ -3,18 +3,18 @@ title: Var och hur man använder - Personalizer
 description: Personalizer kan tillämpas i alla situationer där ditt program kan välja rätt objekt, åtgärd eller produkt att visa - för att göra upplevelsen bättre, uppnå bättre affärsresultat eller förbättra produktiviteten.
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: 63e66315898242beb5da59927e8d506e6f2cff78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c562d7a1853736204a7a03262547e083bd85fb75
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79219328"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617671"
 ---
 # <a name="where-and-how-to-use-personalizer"></a>Var och hur man använder Personalizer
 
 Använd Personalizer i alla situationer där ditt program måste välja rätt åtgärd (innehåll) att visa - för att göra upplevelsen bättre, uppnå bättre affärsresultat eller förbättra produktiviteten.
 
-Personalizer använder maskininlärning för att välja vilken åtgärd (innehåll) som ska visas för användaren. Urvalet kan variera drastiskt beroende på kvantitet, kvalitet och distribution av data som skickas till tjänsten.
+Personalizer använder förstärkningsinlärning för att välja vilken åtgärd (innehåll) som ska visas för användaren. Urvalet kan variera drastiskt beroende på kvantitet, kvalitet och distribution av data som skickas till tjänsten.
 
 ## <a name="example-use-cases-for-personalizer"></a>Exempel på användningsfall för Personalizer
 
@@ -44,7 +44,7 @@ Du kan använda Personalizer i situationer där du träffas eller kan implemente
 |Dagliga data|Det finns tillräckligt med händelser för att hålla koll på optimal personalisering om problemet driver över tiden (t.ex. preferenser i nyheter eller mode). Personalizer kommer att anpassa sig till kontinuerlig förändring i den verkliga världen, men resultaten kommer inte att vara optimala om det inte finns tillräckligt med händelser och data för att lära sig av att upptäcka och bosätta sig på nya mönster. Du bör välja ett användningsfall som händer tillräckligt ofta. Överväg att leta efter användningsfall som inträffar minst 500 gånger per dag.|
 |Historiska data|Ditt program kan behålla data tillräckligt länge för att ackumulera en historik på minst 100 000 interaktioner. Detta gör att Personalizer kan samla in tillräckligt med data för att utföra offlineutvärderingar och principoptimering.|
 
-**Använd inte Personalizer** där det personliga beteendet inte är något som kan upptäckas för alla användare. Till exempel, använda Personalizer att föreslå en första pizza ordning från en lista med 20 möjliga menyalternativ är användbart, men som kontakt för att ringa från användarnas kontaktlista när de behöver hjälp med barnomsorg (till exempel "Mormor") är inte något som är personalizable över din användarbas.
+**Använd inte Personalizer** där det personliga beteendet inte är något som kan upptäckas för alla användare. Till exempel, använda Personalizer att föreslå en första pizza ordning från en lista med 20 möjliga menyalternativ är användbart, men vilken kontakt att ringa från användarnas kontaktlista när du behöver hjälp med barnomsorg (till exempel "Mormor") är inte något som är personalizable över hela din användarbas.
 
 ## <a name="how-to-use-personalizer-in-a-web-application"></a>Så här använder du Personalizer i ett webbprogram
 
@@ -91,7 +91,7 @@ En vanlig användning är att ta utgången av en rekommendationsmotor (till exem
 
 ## <a name="adding-content-safeguards-to-your-application"></a>Lägga till innehållsskydd i din applikation
 
-Om ditt program tillåter stora avvikelser i innehåll som visas för användarna, och en del av innehållet kan vara osäkert eller olämpligt för vissa användare, bör du planera i förväg för att se till att rätt skyddsåtgärder finns på plats för att förhindra att användarna ser oacceptabla Innehåll. Det bästa mönstret för att genomföra skyddsåtgärder är:
+Om ditt program tillåter stora avvikelser i innehåll som visas för användarna, och en del av innehållet kan vara osäkert eller olämpligt för vissa användare, bör du planera i förväg för att se till att rätt skyddsåtgärder finns på plats för att förhindra att användarna ser oacceptabelt innehåll. Det bästa mönstret för att genomföra skyddsåtgärder är:
     * Hämta listan över åtgärder att rangordna.
     * Filtrera bort de som inte är genomförbara för publiken.
     * Rangordna bara dessa genomförbara åtgärder.

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 7ee219ae5ace0f0da398cc542f410d3c895c8bd4
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: ac7e721a863414cf0617177885e0ff1c9e9a35d4
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679990"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617864"
 ---
 # <a name="troubleshoot"></a>Felsöka
 
@@ -76,6 +76,14 @@ Videokvaliteten kan äventyras antingen av nätverkskvalitet eller den saknade H
 
 * Se stegen för att [identifiera nätverksproblem](#unstable-holograms).
 * Se [systemkraven](../overview/system-requirements.md#development-pc) för installation av den senaste grafikdrivrutinen.
+
+## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>Video inspelad med MRC återspeglar inte kvaliteten på liveupplevelsen
+
+En video kan spelas in på Hololens genom [Mixed Reality Capture (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). Men den resulterande videon har sämre kvalitet än live-upplevelsen av två skäl:
+* Video framerate är begränsad till 30 Hz i motsats till 60 Hz.
+* Videobilderna går inte igenom det [sena steget för omprojection](../overview/features/late-stage-reprojection.md) bearbetning, så videon verkar vara choppier.
+
+Båda är inneboende begränsningar av inspelningstekniken.
 
 ## <a name="black-screen-after-successful-model-loading"></a>Svart skärm efter lyckad modellinläsning
 

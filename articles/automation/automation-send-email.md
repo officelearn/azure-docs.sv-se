@@ -5,24 +5,25 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/15/2019
 ms.topic: tutorial
-ms.openlocfilehash: f12b5c158025db89dcc64a3be03b263f95a3a64c
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: d4b35458c76da82b33dfcb530cfdc71ee3da3bb6
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261367"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604786"
 ---
 # <a name="tutorial-send-an-email-from-an-azure-automation-runbook"></a>Självstudiekurs: Skicka ett e-postmeddelande från en Azure Automation-runbook
 
-Du kan skicka ett e-postmeddelande från en runbook med [SendGrid](https://sendgrid.com/solutions) med PowerShell. Den här självstudien visar hur du skapar en återanvändbar runbook som skickar ett e-postmeddelande med hjälp av en API-nyckel som lagras i [Azure KeyVault](/azure/key-vault/).
-
-I den här självstudiekursen får du lära du dig att:
+Du kan skicka ett e-postmeddelande från en runbook med [SendGrid](https://sendgrid.com/solutions) med PowerShell. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
-> * Skapa en Azure KeyVault
-> * Lagra din SendGrid API-nyckel i KeyVault
-> * Skapa en runbook som hämtar din API-nyckel och skickar ett e-postmeddelande
+> * Skapa ett Azure Key Vault.
+> * Lagra `SendGrid` DIN API-nyckel i nyckelvalvet.
+> * Skapa en återanvändbar runbook som hämtar din API-nyckel och skickar ett e-postmeddelande med hjälp av en API-nyckel som lagras i [Azure Key Vault](/azure/key-vault/).
+
+>[!NOTE]
+>Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installationsinstruktioner för Az-modul på hybridkörningsarbetaren finns [i Installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med [så här uppdaterar du Azure PowerShell-moduler i Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -32,9 +33,9 @@ Följande krävs för att genomföra kursen:
 * [Skapa ett SendGrid-konto](/azure/sendgrid-dotnet-how-to-send-email#create-a-sendgrid-account).
 * [Automation-konto](automation-offering-get-started.md) med **Az-moduler** och [Kör som-anslutning](automation-create-runas-account.md)för att lagra och köra runbooken.
 
-## <a name="create-an-azure-keyvault"></a>Skapa en Azure KeyVault
+## <a name="create-an-azure-key-vault"></a>Skapa ett Azure Key Vault
 
-Du kan skapa en Azure KeyVault med följande PowerShell-skript. Ersätt variabelvärdena med värden som är specifika för din miljö. Använd det inbäddade Azure Cloud Shell via <kbd>knappen Prova,</kbd> som finns längst upp till höger i kodblocket. Du kan också kopiera och köra koden lokalt om du har [Azure PowerShell-modulen](/powershell/azure/install-az-ps) installerad på din lokala dator.
+Du kan skapa ett Azure Key Vault med följande PowerShell-skript. Ersätt variabelvärdena med värden som är specifika för din miljö. Använd det inbäddade Azure Cloud Shell via **knappen Prova,** som finns längst upp till höger i kodblocket. Du kan också kopiera och köra koden lokalt om du har [Azure PowerShell-modulen](/powershell/azure/install-az-ps) installerad på din lokala dator.
 
 > [!NOTE]
 > Om du vill hämta DIN API-nyckel använder du stegen i [Hitta din SendGrid API-nyckel](/azure/sendgrid-dotnet-how-to-send-email#to-find-your-sendgrid-api-key).
@@ -64,30 +65,30 @@ $resourceId = $newKeyVault.ResourceId
 $Secret = ConvertTo-SecureString -String $SendGridAPIKey -AsPlainText -Force
 Set-AzKeyVaultSecret -VaultName $VaultName -Name 'SendGridAPIKey' -SecretValue $Secret
 
-# Grant access to the KeyVault to the Automation RunAs account.
+# Grant access to the Key Vault to the Automation Run As account.
 $connection = Get-AzAutomationConnection -ResourceGroupName $KeyVaultResourceGroupName -AutomationAccountName $AutomationAccountName -Name AzureRunAsConnection
 $appID = $connection.FieldDefinitionValues.ApplicationId
 Set-AzKeyVaultAccessPolicy -VaultName $VaultName -ServicePrincipalName $appID -PermissionsToSecrets Set, Get
 ```
 
-Andra sätt att skapa en Azure KeyVault och lagra en hemlighet finns i [KeyVault Quickstarts](/azure/key-vault/).
+Andra sätt att skapa ett Azure Key Vault och lagra en hemlighet finns i [Snabbstartar för Key Vault](/azure/key-vault/).
 
 ## <a name="import-required-modules-to-your-automation-account"></a>Importera nödvändiga moduler till ditt Automation-konto
 
-Om du vill använda Azure KeyVault i en runbook behöver ditt Automation-konto följande moduler:
+Om du vill använda Azure Key Vault i en runbook behöver ditt Automation-konto följande moduler:
 
-* [Az.Profile](https://www.powershellgallery.com/packages/Az.Profile).
-* [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault).
+* [Az.Profile](https://www.powershellgallery.com/packages/Az.Profile)
+* [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault)
 
-Klicka på <kbd>Distribuera till Azure Automation</kbd> på fliken Azure Automation under Installationsalternativ. Den här åtgärden öppnar Azure-portalen. På sidan Importera väljer du ditt Automation-konto och klickar på <kbd>OK</kbd>.
+Klicka på **Distribuera till Azure Automation** på fliken Azure Automation under **Installationsalternativ**. Den här åtgärden öppnar Azure-portalen. På sidan Importera väljer du ditt Automation-konto och klickar på **OK**.
 
 Mer information om hur du lägger till de moduler som krävs finns i [Importera moduler](/azure/automation/shared-resources/modules#importing-modules).
 
 ## <a name="create-the-runbook-to-send-an-email"></a>Skapa runbooken för att skicka ett e-postmeddelande
 
-När du har skapat en KeyVault och lagrat din SendGrid API-nyckel är det dags att skapa runbooken som hämtar API-nyckeln och skickar ett e-postmeddelande.
+När du har skapat ett `SendGrid` nyckelvalv och lagrat API-nyckeln är det dags att skapa runbooken som hämtar API-nyckeln och skickar ett e-postmeddelande.
 
-Den här runbooken använder AzureRunAsConnection [Run As-kontot](automation-create-runas-account.md) för att autentisera med Azure för att hämta hemligheten från Azure KeyVault.
+Den här `AzureRunAsConnection` runbooken använder som ett [Run As-konto](automation-create-runas-account.md) för att autentisera med Azure för att hämta hemligheten från Azure Key Vault.
 
 Använd det här exemplet om du vill skapa en runbook som heter **Send-GridMailMessage**. Du kan ändra PowerShell-skriptet och återanvända det för olika scenarier.
 
@@ -98,7 +99,7 @@ Använd det här exemplet om du vill skapa en runbook som heter **Send-GridMailM
    ![Skapa runbook](./media/automation-send-email/automation-send-email-runbook.png)
 5. Runbooken skapas och sidan **Redigera PowerShell-runbook** öppnas.
    ![Redigera runbooken](./media/automation-send-email/automation-send-email-edit.png)
-6. Kopiera följande PowerShell-exempel till sidan **Redigera.** Kontrollera att `$VaultName` det är det namn du angav när du skapade keyvault.
+6. Kopiera följande PowerShell-exempel till sidan **Redigera.** Kontrollera att `$VaultName` det är det namn du angav när du skapade nyckelvalvet.
 
     ```powershell-interactive
     Param(
@@ -156,12 +157,12 @@ Om du inte först ser din test-e-post kontrollerar du **dina** **skräppostmappa
 
 Ta bort din runbook när den inte längre behövs. Det gör du genom att markera runbooken i runbooklistan och klicka på **Ta bort**.
 
-Ta bort nyckelvalvet med hjälp av cmdleten [Remove-AzureRMKeyVault.](/powershell/module/azurerm.keyvault/remove-azurermkeyvault?view=azurermps)
+Ta bort nyckelvalvet med hjälp av cmdleten [Remove-AzKeyVault.](https://docs.microsoft.com/powershell/module/az.keyvault/remove-azkeyvault?view=azps-3.7.0)
 
 ```azurepowershell-interactive
 $VaultName = "<your KeyVault name>"
 $ResourceGroupName = "<your ResourceGroup name>"
-Remove-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $ResourceGroupName
+Remove-AzKeyVault -VaultName $VaultName -ResourceGroupName $ResourceGroupName
 ```
 
 ## <a name="next-steps"></a>Nästa steg

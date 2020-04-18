@@ -2,18 +2,18 @@
 title: ta med fil
 description: ta med fil
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: include
-ms.date: 07/05/2018
-ms.author: tomfitz
+ms.date: 04/16/2020
+ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: c3677e7897498aa06d7bd547988ad4dc0326f39b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8833bb75f5f50372deda3e71c1df90bed9a20054
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67187432"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605647"
 ---
 ## <a name="enable-event-grid-resource-provider"></a>Aktivera Event Grid-resursprovider
 
@@ -21,9 +21,9 @@ Om du inte har använt Event Grid förut i din Azure-prenumeration kan du behöv
 
 På Azure Portal:
 
-1. Välj **Prenumerationer**.
+1. Välj **Prenumerationer** på den vänstra menyn.
 1. Välj den prenumeration som du använder för Event Grid.
-1. Under **Inställningar** väljer du **Resursprovidrar**.
+1. Välj **Resursleverantörer**under **Inställningar**på den vänstra menyn .
 1. Hitta **Microsoft.EventGrid**.
 1. Om du inte är registrerad väljer du **Registrera**. 
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 68975f21ab810398da969384db4d3bddd22f1bd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 29713622be90ea280bff3c002be746bf1615718f
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284127"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605904"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Anropa Azure-funktioner från Azure Logic Apps
 
@@ -101,7 +101,9 @@ Nu när du har skapat din Azure-funktion följer du stegen för hur du lägger t
 
 ## <a name="create-functions-inside-logic-apps"></a>Skapa funktioner i logikappar
 
-Innan du kan skapa en Azure-funktion som börjar inifrån logikappen med hjälp av Logic App Designer måste du först ha en Azure-funktionsapp, som är en behållare för dina funktioner. Om du inte har en funktionsapp skapar du funktionsappen först. Se [Skapa din första funktion i Azure-portalen](../azure-functions/functions-create-first-azure-function.md).
+Du kan skapa Azure-funktioner direkt från logikappens arbetsflöde med hjälp av den inbyggda Azure Functions-åtgärden i Logic App Designer, men du kan bara använda den här metoden för Azure-funktioner som är skrivna i JavaScript. För andra språk kan du skapa Azure-funktioner via Azure Functions-upplevelsen i Azure-portalen. Mer information finns [i Skapa din första funktion i Azure-portalen](../azure-functions/functions-create-first-azure-function.md).
+
+Men innan du kan skapa en Azure-funktion måste du redan ha en Azure-funktionsapp, som är en behållare för dina funktioner. Om du inte har en funktionsapp skapar du funktionsappen först. Se [Skapa din första funktion i Azure-portalen](../azure-functions/functions-create-first-azure-function.md).
 
 1. Öppna logikappen i Logic App Designer i [Azure-portalen.](https://portal.azure.com)
 

@@ -1,30 +1,30 @@
 ---
-title: Visa uppdateringsutvärderingar för Azure Update Management
+title: Visa uppdateringsutvärderingar för Azure Automation Update Management
 description: I den här artikeln beskrivs hur du visar uppdateringsutvärderingar för uppdateringsdistributioner.
 services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 58d3cf6261456c09195ad6dafaeb781b55d9e5ee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 75762afc9ae69da81e89ce320f454d9764f82914
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278420"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617383"
 ---
-# <a name="view-azure-update-management-update-assessments"></a>Visa uppdateringsutvärderingar för Azure Update Management
+# <a name="view-azure-automation-update-management-update-assessments"></a>Visa uppdateringsutvärderingar för Azure Automation Update Management
 
 I ditt Azure Automation-konto väljer du **Uppdateringshantering** för att visa status för dina datorer.
 
 Den här vyn innehåller information om dina datorer, uppdateringar som saknas, uppdaterar distributioner och schemalagda uppdateringsdistributioner. I kolumnen **EFTERLEVNAD** kan du se när maskinen senast utvärderades. I kolumnen **UPPDATERINGSAGENTBEREDSKAP** kan du se hälsotillståndet för uppdateringsagenten. Om det finns ett problem väljer du länken för att gå till felsökningsdokumentation som kan hjälpa dig att åtgärda problemet.
 
-Om du vill köra en loggsökning som returnerar information om datorn, uppdateringen eller distributionen väljer du motsvarande objekt i listan. Fönstret **Loggsökning** öppnas med en fråga för det markerade objektet:
+Om du vill köra en loggsökning som returnerar information om datorn, uppdateringen eller distributionen väljer du motsvarande objekt i listan. Fönstret Loggsökning öppnas med en fråga för det markerade objektet.
 
 ![Standardvy för uppdateringshantering](media/automation-update-management/update-management-view.png)
 
 ## <a name="view-missing-updates"></a>Visa uppdateringar som saknas
 
-Välj **Saknade uppdateringar** om du vill visa listan över uppdateringar som saknas på dina datorer. Varje uppdatering visas och kan väljas. Information om antalet datorer som kräver uppdatering, operativsysteminformation och en länk för mer information visas alla. **Loggsökfönstret** visar också mer information om uppdateringarna.
+Välj **Saknade uppdateringar** om du vill visa listan över uppdateringar som saknas på dina datorer. Varje uppdatering visas och kan väljas. Information om antalet datorer som kräver uppdatering, operativsysteminformation och en länk för mer information visas alla. I fönstret Loggsökning visas också mer information om uppdateringarna.
 
 ![Uppdateringar som saknas](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
@@ -36,14 +36,14 @@ I följande tabeller visas de uppdateringsklassificeringar som stöds i Uppdater
 
 |Klassificering  |Beskrivning  |
 |---------|---------|
-|Kritiska uppdateringar     | En uppdatering för ett specifikt problem som åtgärdar ett kritiskt, icke-säkerhetsrelaterat fel.        |
-|Säkerhetsuppdateringar     | En uppdatering för ett produktspecifikt, säkerhetsrelaterat problem.        |
-|Samlade uppdateringar     | En kumulativ uppsättning snabbkorrigeringar som är paketerade tillsammans för enkel distribution.        |
+|Kritiska uppdateringar     | Uppdateringar för specifika problem som åtgärdar kritiska, icke-säkerhetsrelaterade fel.        |
+|Säkerhetsuppdateringar     | Uppdateringar för produktspecifika, säkerhetsrelaterade problem.        |
+|Samlade uppdateringar     | Uppsättningar med snabbkorrigeringar som är paketerade tillsammans för enkel distribution.        |
 |Funktionspaket     | Nya produktfunktioner som distribueras utanför en produktversion.        |
-|Service pack     | En kumulativ uppsättning snabbkorrigeringar som tillämpas på ett program.        |
-|Definitionsuppdateringar     | En uppdatering av virusfiler eller andra definitionsfiler.        |
-|Verktyg     | Ett verktyg eller en funktion som hjälper till att utföra en eller flera uppgifter.        |
-|Uppdateringar     | En uppdatering av ett program eller en fil som för närvarande är installerad.        |
+|Service pack     | Uppsättningar med snabbkorrigeringar som tillämpas på ett program.        |
+|Definitionsuppdateringar     | Uppdateringar av virusfiler eller andra definitionsfiler.        |
+|Verktyg     | Verktyg eller funktioner som hjälper till att utföra en eller flera uppgifter.        |
+|Uppdateringar     | Uppdateringar av program eller filer som är installerade för närvarande.        |
 
 ### <a name="linux"></a><a name="linux-2"></a>Linux
 

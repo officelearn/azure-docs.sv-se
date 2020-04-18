@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/10/2020
+ms.date: 04/16/2020
 ms.author: alsin
-ms.openlocfilehash: 40a715ea27be161f09dea59e57799b08406e8ca7
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 028c30fced14a60af9f5683e6c6e087b15591735
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393762"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605483"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Red Hat Enterprise Linux (RHEL) avbildningar tillgängliga i Azure
 Azure erbjuder en mängd olika RHEL-avbildningar för olika användningsfall.
@@ -47,8 +47,12 @@ RHEL          | 6.7      | Raw    | Linux-agent |
 |             | 7.6      | Raw    | Linux-agent | Bifogat till EUS-arkiv som standard från och med maj 2019.
 |             | 76-gen2  | Raw    | Linux-agent | Som standard är de kopplade till EUS-arkiven.
 |             | 7.7      | Lvm    | Linux-agent | Som standard är de kopplade till EUS-arkiven.
-|             | 8        | Lvm    | Linux-agent | RHEL 8.x bildfamilj
-|             | 8-gen2   | Lvm    | Linux-agent | Hyper-V Generation 2 - RHEL 8.x bildfamilj.
+|             | 8-LVM    | Lvm    | Linux-agent | RHEL 8.x bildfamilj. Ansluten till vanliga databaser.
+|             | 8-lvm-gen2| Lvm    | Linux-agent | Hyper-V Generation 2 - RHEL 8.x bildfamilj. Ansluten till vanliga databaser.
+|             | 8        | Lvm    | Linux-agent | RHEL 8.0-bilder
+|             | 8-gen2   | Lvm    | Linux-agent | Hyper-V Generation 2 - RHEL 8.0-bilder.
+|             | 8.1      | Lvm    | Linux-agent | RHEL 8.1 bilder. För närvarande ansluten till vanliga databaser.
+|             | 81gen2 (818)   | Lvm    | Linux-agent | Hyper-V Generation 2 - RHEL 8.1 bilder. För närvarande ansluten till vanliga databaser.
 RHEL-SAP      | 7.4      | Lvm    | Linux-agent | RHEL 7.4 för SAP HANA och Business Apps. Bifogat till E4S-arkiv, kommer att debitera en premie för SAP och RHEL samt bas beräkningsavgiften.
 |             | 74sap-gen2| Lvm    | Linux-agent | RHEL 7.4 för SAP HANA och Business Apps. Bild av generation 2. Bifogat till E4S-arkiv, kommer att debitera en premie för SAP och RHEL samt bas beräkningsavgiften.
 |             | 7.5       | Lvm    | Linux-agent | RHEL 7.5 för SAP HANA och Business Apps. Bifogat till E4S-arkiv, kommer att debitera en premie för SAP och RHEL samt bas beräkningsavgiften.

@@ -1,5 +1,5 @@
 ---
-title: Mjuk borttagning av Azure Key Vault | Microsoft-dokument
+title: Azure Key Vault mjuk-borttagning | Microsoft-dokument
 description: Med mjukborttagning i Azure Key Vault kan du återställa borttagna nyckelvalv och nyckelvalvobjekt, till exempel nycklar, hemligheter och certifikat.
 ms.service: key-vault
 ms.subservice: general
@@ -8,16 +8,16 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/19/2019
-ms.openlocfilehash: 6185f0d84f27b6be89e797fc7cfb22940d8c6401
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: be4f124863da39cc9f6a61ebe054d451b438e8c3
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81432104"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617748"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Översikt av mjuk borttagning för Azure Key Vault
 
-Key Vaults mjuka borttagningsfunktion gör det möjligt att återställa de borttagna valven och valvobjekten, så kallade soft-delete. Specifikt tar vi upp följande scenarier:
+Key Vault's soft-delete-funktion gör det möjligt att återställa de borttagna valven och valvobjekten, så kallade soft-delete. Specifikt tar vi upp följande scenarier:
 
 - Stöd för borttagning av nyckelvalv som kan återställas
 - Stöd för borttagning av nyckelvalvsobjekt (t.ex. nycklar, hemligheter, certifikat)
@@ -38,7 +38,7 @@ Azure Key Vaults spåras resurser som hanteras av Azure Resource Manager. Azure 
 
 När mjuk borttagning är aktiverat behålls resurser som markerats som borttagna resurser under en angiven period (90 dagar som standard). Tjänsten tillhandahåller vidare en mekanism för att återställa det borttagna objektet, vilket i huvudsak ångrar borttagningen.
 
-När du skapar ett nytt nyckelvalv är mjukborttagning aktiverat som standard. Du kan skapa ett nyckelvalv utan att ta bort [det mjukt](soft-delete-cli.md) via Azure CLI eller Azure [Powershell](soft-delete-powershell.md). När mjuk borttagning är aktiverat i ett nyckelvalv kan den inte inaktiveras
+När du skapar ett nytt nyckelvalv är mjukborttagning aktiverat som standard. Du kan skapa ett nyckelvalv utan att ta bort [det mjukt](soft-delete-cli.md) via Azure CLI eller Azure [PowerShell](soft-delete-powershell.md). När mjuk borttagning är aktiverat i ett nyckelvalv kan den inte inaktiveras
 
 Standardlagringsperioden är 90 dagar, men när nyckelvalv skapas är det möjligt att ange bevarandeprincipintervallet till ett värde från 7 till 90 dagar via Azure-portalen. Principen för rensningsskydd använder samma intervall. När du har angett kan bevarandeprincipintervallet inte ändras.
 
@@ -46,7 +46,7 @@ Du kan inte återanvända namnet på ett nyckelvalv som har tagits bort mjukt ti
 
 ### <a name="purge-protection"></a>Rensa skydd 
 
-Rensa skydd är ett valfritt Key Vault-beteende och är **inte aktiverat som standard**. Den kan slås på via [CLI](soft-delete-cli.md#enabling-purge-protection) eller [Powershell](soft-delete-powershell.md#enabling-purge-protection).
+Rensa skydd är ett valfritt Key Vault-beteende och är **inte aktiverat som standard**. Den kan slås på via [CLI](soft-delete-cli.md#enabling-purge-protection) eller [PowerShell](soft-delete-powershell.md#enabling-purge-protection).
 
 När rensningsskydd är aktiverat kan ett valv eller ett objekt i det borttagna tillståndet inte rensas förrän kvarhållningsperioden har passerats. Mjuka borttagna valv och objekt kan fortfarande återställas, vilket säkerställer att bevarandeprincipen följs. 
 
@@ -58,7 +58,7 @@ Permanent ta bort, rensa, ett nyckelvalv är möjligt via en POST-åtgärd på p
 
 Undantag är:
 - När Azure-prenumerationen har markerats som *oeklarbar*. I det här fallet kan endast tjänsten sedan utföra den faktiska borttagningen och gör det som en schemalagd process. 
-- När flaggan --enable-purge-protection är aktiverad i själva valvet. I det här fallet väntar Key Vault i 90 dagar från det att det ursprungliga hemliga objektet har markerats för att borttagningen ska tas bort permanent.
+- När `--enable-purge-protection flag` är aktiverat på valvet själv. I det här fallet väntar Key Vault i 90 dagar från det att det ursprungliga hemliga objektet har markerats för att borttagningen ska tas bort permanent.
 
 ### <a name="key-vault-recovery"></a>Återställning av nyckelvalv
 

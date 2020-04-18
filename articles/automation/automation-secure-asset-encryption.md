@@ -9,12 +9,12 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: a82d2b6d9521ba7dd5e7b194c26ff8fe5a100871
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 594bac257c2b9739f1ece276c881348b35d2f704
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457492"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604816"
 ---
 # <a name="encrypt-secure-assets-in-azure-automation"></a>Kryptera säkra resurser i Azure Automation
 
@@ -56,11 +56,11 @@ Innan du aktiverar kundhanterade nycklar för ett Automation-konto måste du se 
  - Endast RSA-nycklar stöds med Azure Automation-kryptering. Mer information om nycklar finns i [Om Azure Key Vault-nycklar, hemligheter och certifikat](../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 - Automation-kontot och nyckelvalvet kan finnas i olika prenumerationer, men måste finnas i samma Azure Active Directory-klientorganisation.
 
-### <a name="assign-an-identity-to-the-automation-account"></a>Tilldela en identitet till automationskontot
+### <a name="assign-an-identity-to-the-automation-account"></a>Tilldela en identitet till Automation-kontot
 
 Om du vill använda kundhanterade nycklar med ett Automation-konto måste ditt Automation-konto autentiseras mot nyckelvalvet som lagrar kundhanterade nycklar. Azure Automation använder systemtilldelade hanterade identiteter för att autentisera kontot med Azure Key Vault. Mer information om hanterade identiteter finns i [Vad är hanterade identiteter för Azure-resurser?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-Konfigurera en systemtilldelad hanterad identitet till automationskontot med hjälp av följande REST API-anrop:
+Konfigurera en systemtilldelad hanterad identitet till Automation-kontot med hjälp av följande REST API-anrop:
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
@@ -133,7 +133,7 @@ Begärandetext:
 
 ### <a name="change-the-configuration-of-automation-account-to-use-customer-managed-key"></a>Ändra konfigurationen för Automation-konto för att använda kundhanterad nyckel
 
-Slutligen kan du växla ditt Automation-konto från Microsft-hanterade nycklar till kundhanterade nycklar med hjälp av följande REST API-anrop:
+Slutligen kan du växla ditt Automation-konto från Microsoft-hanterade nycklar till kundhanterade nycklar med hjälp av följande REST API-anrop:
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
@@ -193,9 +193,6 @@ Om du vill återkalla åtkomsten till kundhanterade nycklar använder du PowerSh
 ## <a name="next-steps"></a>Nästa steg
 
 - [Vad är Azure Key Vault?](../key-vault/general/overview.md)
-
 - [Certifikattillgångar i Azure Automation](shared-resources/certificates.md)
-
 - [Autentiseringsuppgiftstillgångar i Azure Automation](shared-resources/credentials.md)
-
 - [Variabeltillgångar i Azure Automation](shared-resources/variables.md)

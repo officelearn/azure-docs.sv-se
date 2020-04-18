@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 4c510cae7ba5a952e6dc7f7cb7ae7591fe801560
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 6e361d23860ce8f40abba5c246242cf345bb974c
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461301"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606103"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Schemadrift i mappning av dataflöde
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Schema drift är fallet där dina källor ofta ändrar metadata. Fält, kolumner och typer kan läggas till, tas bort eller ändras i farten. Utan hantering för schemadrift blir dataflödet sårbart för ändringar i uppströmsdatakällan. Typiska ETL-mönster misslyckas när inkommande kolumner och fält ändras eftersom de tenderar att vara knutna till dessa källnamn.
 

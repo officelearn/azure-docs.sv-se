@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ffb3d590aebe80994de1e7e834a2eba5777df9a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 427ab6c4e0e769ab881af0af3023d514c1b092c6
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76262494"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604616"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Aktivitetshubbar i varaktiga funktioner (Azure-funktioner)
 
@@ -35,7 +35,13 @@ Alla dessa resurser skapas automatiskt i standardkontot för Azure Storage när 
 
 ## <a name="task-hub-names"></a>Namn på aktivitetsnav
 
-Aktivitetshubbar identifieras med ett namn som deklareras i *filen host.json,* vilket visas i följande exempel:
+Aktivitetshubbar identifieras med ett namn som följer dessa regler:
+
+* Innehåller endast alfanumeriska tecken
+* Börjar med en bokstav
+* Har en minsta längd på 3 tecken, maximal längd på 45 tecken
+
+Aktivitetsnavnamnet deklareras i *filen host.json,* vilket visas i följande exempel:
 
 ### <a name="hostjson-functions-20"></a>host.json (Funktioner 2.0)
 
@@ -98,7 +104,7 @@ Aktivitetsnavnamnet ställs in på `MyTaskHub` värdet för appinställningen. F
 
 Följande kod visar hur du skriver en funktion som använder [orchestration-klientbindningen](durable-functions-bindings.md#orchestration-client) för att arbeta med en aktivitetsnav som är konfigurerad som en appinställning:
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -121,7 +127,7 @@ public static async Task<HttpResponseMessage> Run(
 > [!NOTE]
 > Det föregående C#-exemplet är för varaktiga funktioner 2.x. För varaktiga funktioner 1.x `DurableOrchestrationContext` måste `IDurableOrchestrationContext`du använda i stället för . Mer information om skillnaderna mellan versioner finns i artikeln [Över huvudversioner för varaktiga funktioner.](durable-functions-versions.md)
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Egenskapen task hub `function.json` i filen anges via Appinställning:
 

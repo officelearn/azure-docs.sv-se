@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: victorh
-ms.openlocfilehash: 767e91af7fb5ff3de517a79ac4df55af5057c76f
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 53e5bf4f770ce986af2f3572bd6c1ef4cd9e3c2b
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679837"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605232"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-ip-groups---resource-manager-template"></a>Snabbstart: Skapa en Azure-brandvägg och IP-grupper – Resource Manager-mall
 
@@ -55,7 +55,7 @@ Distribuera Resource Manager-mall till Azure:
 
 1. Välj **Distribuera till Azure** för att logga in på Azure och öppna mallen. Mallen skapar en Azure-brandvägg, nätverksinfrastrukturen och två virtuella datorer.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-create-with-ipgroups-and-linux-jumpbox%2Fazuredeploy.json"><img src="./media/quick-create-ipgroup-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-create-with-ipgroups-and-linux-jumpbox%2Fazuredeploy.json)
 
 2. Skriv eller välj följande värden på sidan **Skapa en Azure-brandvägg med IpGroups** i portalen:
    - Prenumeration: Välj bland befintliga prenumerationer 

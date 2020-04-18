@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 95373ab8ff78c5bcb856e6d7e6d67d8525cd3f7e
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 74af841b777494744c72ed219bacd3b3835d41ac
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80655120"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617552"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Ansluta till en virtuell Ubuntu Linux-dator till en hanterad Azure AD Domain Services-domän
 
@@ -154,6 +154,12 @@ Successfully enrolled machine in realm
 ```
 
 Om den virtuella datorn inte kan slutföra domänanslutningsprocessen kontrollerar du att den virtuella datorns nätverkssäkerhetsgrupp tillåter utgående Kerberos-trafik på TCP + UDP-port 464 till det virtuella nätverksundernätet för din Azure AD DS-hanterad domän.
+
+Om du fick felet *Ospecificerat GSS-fel.  Mindre kod kan ge mer information (Server hittades inte i Kerberos databas),* öppna filen */etc/krb5.conf* och lägga till följande kod i `[libdefaults]` avsnittet och försök igen:
+
+```console
+rdns=false
+```
 
 ## <a name="update-the-sssd-configuration"></a>Uppdatera SSSD-konfigurationen
 

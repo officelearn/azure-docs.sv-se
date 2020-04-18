@@ -5,12 +5,12 @@ description: Lär dig metodtipsen för klusteroperatören för att använda avan
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 47b2d78f7dc831c4314c4215f5e0a9e17f75f0dc
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: d0d13a699d2559c6b4360c807721e0b748959382
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668362"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617520"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Metodtips för avancerade schemaläggarfunktioner i Azure Kubernetes Service (AKS)
 
@@ -134,7 +134,7 @@ Mer information om hur du använder nodväljare finns i [Tilldela poddar till no
 
 En nodväljare är ett grundläggande sätt att tilldela poddar till en viss nod. Mer flexibilitet är tillgänglig med *nodtillhörighet*. Med nodtillhörighet definierar du vad som händer om podden inte kan matchas med en nod. Du kan *kräva* att Kubernetes schemaläggare matchar en pod med en märkt värd. Eller så kan du *föredra* en matchning men låta podden schemaläggas på en annan värd om inte matchning är tillgänglig.
 
-I följande exempel anges nodtillhörigheten till *requiredUnderingSchedulingIgnoredUnderingExecution*. Den här tillhörigheten kräver att Kubernetes schema använder en nod med en matchande etikett. Om ingen nod är tillgänglig måste podden vänta på att schemaläggningen ska fortsätta. Om du vill att podden ska schemaläggas på en annan nod kan du i stället ange värdet till *preferredDuringScheduledIgnoreUnderingExecution:*
+I följande exempel anges nodtillhörigheten till *requiredUnderingSchedulingIgnoredUnderingExecution*. Den här tillhörigheten kräver att Kubernetes schema använder en nod med en matchande etikett. Om ingen nod är tillgänglig måste podden vänta på att schemaläggningen ska fortsätta. Om du vill att podden ska schemaläggas på en annan nod kan du i stället ange värdet till *preferredDuringSchedulingIgnoreUnderingExecution:*
 
 ```yaml
 kind: Pod

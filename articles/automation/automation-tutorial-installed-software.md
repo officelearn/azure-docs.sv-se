@@ -7,12 +7,12 @@ ms.date: 04/11/2018
 ms.topic: tutorial
 ms.subservice: change-inventory-management
 ms.custom: mvc
-ms.openlocfilehash: 136521799dbc928a03c339ecc1cef6fdd3d029b2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b93035fc7e315f8117516771236186f9d942a0aa
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79239667"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604665"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Identifiera vilken programvara som är installerad på dina datorer med och utan Azure
 
@@ -32,7 +32,7 @@ I den här guiden får du lära du dig hur man:
 För att slutföra den här kursen behöver du:
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Ett [Automation-konto](automation-offering-get-started.md) för bevakaren samt runbook-flöden för åtgärd och bevakaraktivitet.
+* Ett [Automation-konto](automation-offering-get-started.md) som innehåller watcher- och action-runbooks och Watcher-uppgiften.
 * En [virtuell dator](../virtual-machines/windows/quick-create-portal.md) som du vill publicera.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
@@ -43,13 +43,13 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 Först måste du aktivera Ändringsspårning och Inventering för den här självstudien. Om du redan har aktiverat **Ändringsspårning** kan du hoppa över det här steget.
 
-Gå till ditt Automation-konto och välj **Inventering** under **KONFIGURATIONSHANTERING**.
+Navigera till ditt Automation-konto och välj **Lager** under **Konfigurationshantering**.
 
-Välj arbetsytan Log Analytics och Automation-kontot och klicka på **Aktivera** för att aktivera lösningen. Det tar upp till 15 minuter att aktivera lösningen.
+Välj log analytics-arbetsytan och automationskontot och klicka på **Aktivera** för att aktivera lösningen. Det tar upp till 15 minuter att aktivera lösningen.
 
 ![Publicering av konfigurationsbanderoll för Inventering](./media/automation-tutorial-installed-software/enableinventory.png)
 
-Om du vill aktivera lösningen konfigurerar du arbetsytan, logganalysarbetsytan och Automation-konto som ska användas och klickar på **Aktivera**. Om fälten är nedtonade betyder det att en annan automatiseringslösning är aktiverad för den virtuella datorn. Samma arbetsyta och Automation-konto måste användas.
+För att aktivera lösningen konfigurerar du platsen, Log Analytics-arbetsytan och Automation-kontot som ska användas och klickar på **Aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas.
 
 En [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)-arbetsyta används för att samla in data som genereras av funktioner och tjänster som Inventering.
 Arbetsytan tillhandahåller en enda plats för att granska och analysera data från flera källor.
@@ -62,13 +62,13 @@ Det kan ta mellan 30 minuter och 6 timmar innan data blir tillgängliga för ana
 
 ## <a name="onboard-a-vm"></a>Publicera en virtuell dator
 
-I ditt Automation-konto går du till **Inventering** under **KONFIGURATIONSHANTERING**.
+I ditt Automation-konto navigerar du till **Lager** under **Konfigurationshantering**.
 
-Välj **+ Lägg till virtuell Azure-dator**. Sidan **Virtuella datorer** öppnas där du kan välja en befintlig virtuell dator i listan. Välj den virtuella dator som du vill publicera. På sidan som öppnas klickar du på **Aktivera** för att aktivera lösningen på den virtuella datorn. Microsofts hanteringsagent distribueras till den virtuella datorn och konfigurerar agenten till att prata med den Log Analytics-arbetsyta som du konfigurerade när du aktiverade lösningen. Det kan ta ett par minuter att slutföra registreringen. I det här steget kan du välja en ny virtuell dator i listan och publicera en annan virtuell dator.
+Välj **+ Lägg till virtuell Azure-dator**. Sidan Virtuella datorer öppnas där du kan välja en befintlig virtuell dator i listan. Välj den virtuella dator som du vill publicera. På sidan som öppnas klickar du på **Aktivera** för att aktivera lösningen på den virtuella datorn. Microsofts hanteringsagent distribueras till den virtuella datorn och konfigurerar agenten till att prata med den Log Analytics-arbetsyta som du konfigurerade när du aktiverade lösningen. Det kan ta ett par minuter att slutföra registreringen. I det här steget kan du välja en ny virtuell dator i listan och publicera en annan virtuell dator.
 
 ## <a name="onboard-a-non-azure-machine"></a>Publicera en virtuell dator utan Azure
 
-Lägg till datorer utan Azure genom att installera agenten för [Windows](../azure-monitor/platform/agent-windows.md) eller [Linux](automation-linux-hrw-install.md), beroende på vilket operativsystem du har. När agenten är installerad går du till ditt Automation-konto och **Inventering** under **KONFIGURATIONSHANTERING**. När du klickar på **Hantera datorer** visas en lista med de datorer som rapporterar till Log Analytics-arbetsytan och som inte har någon aktiverad lösning. Välj lämpligt alternativ för din miljö.
+Om du vill lägga till datorer som inte är Azure installerar du [Log Analytics-agenten för Windows](../azure-monitor/platform/agent-windows.md) eller Log [Analytics-agenten för Linux](automation-linux-hrw-install.md), beroende på ditt operativsystem. När agenten har installerats navigerar du till ditt Automation-konto och går till **Lager** under **Konfigurationshantering**. När du klickar på **Hantera datorer** visas en lista med de datorer som rapporterar till Log Analytics-arbetsytan och som inte har någon aktiverad lösning. Välj lämpligt alternativ för din miljö.
 
 * **Aktivera på alla tillgängliga datorer** – Med det här alternativet aktiveras lösningen på alla datorer som rapporterar till Log Analytics-arbetsytan just nu.
 * **Aktivera på alla tillgängliga och framtida datorer** – Med det här alternativet aktiveras lösningen på alla datorer som rapporterar till Log Analytics-arbetsytan och därefter på alla framtida datorer som läggs till i arbetsytan.
@@ -78,11 +78,11 @@ Lägg till datorer utan Azure genom att installera agenten för [Windows](../azu
 
 ## <a name="view-installed-software"></a>Visa installerade program
 
-När ändringsspårningen och inventeringslösningen har aktiverats kan du visa resultatet på sidan **Inventering**.
+När lösningen Ändra spårning och lager har aktiverats kan du visa resultaten på sidan Lager.
 
-Från ditt Automation-konto väljer du **Inventering** under **KONFIGURATIONSHANTERING**.
+I ditt Automation-konto väljer du **Lager** under **Konfigurationshantering**.
 
-På sidan **Inventering** klickar du på fliken **Programvara**.
+På sidan Inventering klickar du på fliken **Programvara**.
 
 På fliken **Programvara** finns det en tabell som visar den programvara som har hittats. Programvaran grupperas efter programnamn och version.
 
@@ -95,14 +95,14 @@ Klicka på en rad om du vill visa egenskaperna för programposterna och namnen p
 Om du vill söka efter en specifik programvara eller en grupp med programvara kan du söka i textrutan rakt ovanför programvarulistan.
 Med filtret kan du söka utifrån programvarans namn, version eller utgivare.
 
-Om du exempelvis söker efter ”Contoso” returneras all programvara med ett namn, utgivare eller version som innehåller ”Contoso”.
+Om du till exempel söker efter **Contoso** returneras all programvara med ett namn, en utgivare eller en version som innehåller **Contoso**.
 
 ## <a name="search-inventory-logs-for-installed-software"></a>Sök inventeringsloggar för installerad programvara
 
-Inventering genererar loggdata som skickas till Azure Monitor-loggar. Om du vill söka i loggarna genom att köra frågor väljer du **Log Analytics** högst upp i fönstret **Inventering**.
+Inventering genererar loggdata som skickas till Azure Monitor-loggar. Om du vill söka i loggarna genom att köra frågor väljer du **Logga analytics** högst upp på sidan Lager.
 
-Inventeringsdata lagras under typen **ConfigurationData**.
-Följande exempelfråga i Log Analytics returnerar inventeringsresultaten där utgivaren är ”Microsoft Corporation”.
+Lagerdata lagras under `ConfigurationData`typen .
+Följande exempelfråga i Logganalys returnerar lagerresultaten där Publisher är lika med **Microsoft Corporation**.
 
 ```loganalytics
 ConfigurationData
@@ -116,7 +116,7 @@ Mer information om hur du kör och söker efter loggfiler i Azure Monitor-loggar
 ### <a name="single-machine-inventory"></a>Inventering för en enda dator
 
 Om du vill se programvaruinventeringen för en enda dator kan du få åtkomst till Inventering från resurssidan för den virtuella Azure-datorn eller använda Azure Monitor-loggar för att filtrera fram motsvarande dator.
-Följande Log Analytics-exempelfråga returnerar en lista över programvara för en dator med namnet ContosoVM.
+I följande exempel loggar Analytics-fråga returneras listan över programvara för en dator med namnet **ContosoVM**.
 
 ```loganalytics
 ConfigurationData

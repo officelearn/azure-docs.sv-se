@@ -3,12 +3,12 @@ title: Övervaka Java-program i alla miljöer – Azure Monitor Application Insi
 description: Övervakning av programmets prestanda för Java-program som körs i alla miljöer utan att instrumentera appen. Distribuerad spårning och programkarta.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 5a62be45320523ee0577d56eb557a4f87a58a1cc
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 5706d5a74bd6850a237f7418b1a86a8e9c7762e1
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886865"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604582"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java-kodlöst program övervakning Azure Monitor Application Insights - offentlig förhandsversion
 
@@ -24,11 +24,11 @@ Du kan fortfarande skicka anpassad telemetri från ditt program. Den 3,0 agent k
 
 **1. Ladda ner agenten**
 
-Ladda ner [applicationinsights-agent-3.0.0-PREVIEW.2.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.2/applicationinsights-agent-3.0.0-PREVIEW.2.jar)
+Ladda ner [applicationinsights-agent-3.0.0-PREVIEW.3.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.3/applicationinsights-agent-3.0.0-PREVIEW.3.jar)
 
 **2. Rikta JVM till agenten**
 
-Lägg `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.2.jar` till i programmets JVM args
+Lägg `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.3.jar` till i programmets JVM args
 
 Typiska JVM `-Xmx512m` args inkluderar och `-XX:+UseG1GC`. Så om du vet var du ska lägga till dessa, då vet du redan var du ska lägga till detta.
 
@@ -37,7 +37,14 @@ Mer hjälp med att konfigurera programmets JVM-args finns i [3.0 Preview: Tips f
 **3. Peka agenten på din Application Insights-resurs**
 
 Om du inte redan har en Application Insights-resurs kan du skapa en ny genom att följa stegen i [resursgenereringsguiden](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
-Skapa en konfigurationsfil med namnet `ApplicationInsights.json`och `applicationinsights-agent-3.0.0-PREVIEW.2.jar`placera den i samma katalog som med följande innehåll:
+
+Peka agenten på application insights-resursen, antingen genom att ange en miljövariabel:
+
+```
+APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
+```
+
+Eller genom att skapa `ApplicationInsights.json`en konfigurationsfil med `applicationinsights-agent-3.0.0-PREVIEW.3.jar`namnet och placera den i samma katalog som , med följande innehåll:
 
 ```json
 {

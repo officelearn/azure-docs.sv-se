@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/18/2019
-ms.openlocfilehash: af88fdf3378a6290c773c658ea6dd3469d7c92cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 12280e8a5b90c6712703fefc60ec1bfb12ba8573
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79531285"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606096"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL Database och Azure SQL Data Warehouse IP-brandväggsregler
 
@@ -101,7 +101,7 @@ När en dator försöker ansluta till databasservern från internet kontrollerar
 
 ### <a name="connections-from-inside-azure"></a>Anslutningar inifrån Azure
 
-Om du vill att program som finns i Azure ska kunna ansluta till din SQL-server måste Azure-anslutningar vara aktiverade. När ett program från Azure försöker ansluta till databasservern verifierar brandväggen att Azure-anslutningar är tillåtna. En brandväggsinställning som har start- och slut-IP-adresser som är lika med *0.0.0.0* anger att Azure-anslutningar är tillåtna. Detta kan aktiveras direkt från Azure Portal-bladet genom att ange brandväggsregler, samt växla **till Tillåt Azure-tjänster och resurser för att komma åt den här servern** till **ON** i **inställningarna för brandväggar och virtuella nätverk.** Om anslutningen inte är tillåten når begäran inte SQL Database-servern.
+Om du vill att program som finns i Azure ska kunna ansluta till din SQL-server måste Azure-anslutningar vara aktiverade. När ett program från Azure försöker ansluta till databasservern verifierar brandväggen att Azure-anslutningar är tillåtna. Detta kan aktiveras direkt från Azure Portal-bladet genom att ange brandväggsregler, samt växla **till Tillåt Azure-tjänster och resurser för att komma åt den här servern** till **ON** i **inställningarna för brandväggar och virtuella nätverk.** Om anslutningen inte är tillåten når begäran inte SQL Database-servern.
 
 > [!IMPORTANT]
 > Det här alternativet konfigurerar brandväggen så att alla anslutningar från Azure tillåts, inklusive anslutningar från prenumerationer från andra kunder. Om du väljer det här alternativet kontrollerar du att dina inloggnings- och användarbehörigheter begränsar åtkomsten till behöriga användare.

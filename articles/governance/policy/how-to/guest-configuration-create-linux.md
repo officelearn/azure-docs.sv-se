@@ -3,12 +3,12 @@ title: Så här skapar du principer för gästkonfiguration för Linux
 description: Lär dig hur du skapar en Azure Policy Guest Configuration policy för Linux.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: f93aafc8f2c016218b1b7fea82558ea6ba4b4ff8
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 65e0082f87f05104e9a57ff0342cd3d2950b63e8
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365409"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617929"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Så här skapar du principer för gästkonfiguration för Linux
 
@@ -89,7 +89,7 @@ supports:
     - os-family: unix
 ```
 
-Spara filen i en `linux-path` mapp som heter i projektkatalogen.
+Spara filen med `inspec.yml` namnet i `linux-path` en mapp som heter i projektkatalogen.
 
 Skapa sedan Ruby-filen med inSpec-språkabstraktionen som används för att granska datorn.
 
@@ -99,7 +99,7 @@ describe file('/tmp') do
 end
 ```
 
-Spara filen i en `controls` ny `linux-path` mapp med namnet i katalogen.
+Spara filen med `linux-path.rb` namnet i `controls` en `linux-path` ny mapp som heter i katalogen.
 
 Skapa slutligen en konfiguration, importera **resursmodulen GuestConfiguration** och använda resursen `ChefInSpecResource` för att ange namnet på InSpec-profilen.
 

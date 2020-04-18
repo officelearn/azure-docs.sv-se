@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: 76211014f96aee864412fd19686d58d0338ec5c2
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 3d58173d239e7a9249b588ff038ea46cfedb27a3
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310240"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605210"
 ---
 # <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---resource-manager-template"></a>Snabbstart: Skapa en Azure-brandvägg med flera offentliga IP-adresser - Resource Manager-mall
 
@@ -56,7 +56,7 @@ Distribuera Resource Manager-mall till Azure:
 
 1. Välj **Distribuera till Azure** för att logga in på Azure och öppna mallen. Mallen skapar en Azure-brandvägg, nätverksinfrastrukturen och två virtuella datorer.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffw-docs-qs%2Fazuredeploy.json"><img src="./media/quick-create-multiple-ip-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffw-docs-qs%2Fazuredeploy.json)
 
 2. Skriv eller välj följande värden på sidan **Skapa en Azure-brandvägg med flera IP-adresser** i portalen:
    - Prenumeration: Välj bland befintliga prenumerationer 

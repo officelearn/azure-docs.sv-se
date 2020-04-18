@@ -4,15 +4,15 @@ description: Integrera app i Azure App Service med virtuella Azure-nätverk.
 author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
-ms.date: 04/15/2020
+ms.date: 04/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cb5747c6780da134dfb2f5ab088348b848c5f04a
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 4866397af244ffb3c6aa9c7547b0a9413b10ccfd
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312823"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604865"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera din app med ett virtuellt Azure-nätverk
 
@@ -41,8 +41,6 @@ Azure App Service har två varianter:
     ![Välj klassiskt virtuella nätverk][3]
 
 Under integrationen startas appen om. När integrationen är klar ser du information om det virtuella nätverk som du är integrerad med.
-
-När din app har integrerats med ditt virtuella nätverk använder den samma DNS-server som ditt virtuella nätverk är konfigurerat med, såvida det inte är Azure DNS Private Zones. För närvarande kan du inte använda VNet-integrering med Azure DNS Private Zones.
 
 ## <a name="regional-vnet-integration"></a>Regional VNet-integrering
 
@@ -200,3 +198,4 @@ För gateway-obligatorisk VNet-integrering kan du integrera App Service med ett 
 [setp2saddresses]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool
 [VNETRouteTables]: https://docs.microsoft.com/azure/virtual-network/manage-route-table/
 [installCLI]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest/
+[privateendpoints]: networking/private-endpoint.md

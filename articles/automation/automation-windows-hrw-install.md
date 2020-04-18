@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2bd9b4f46e28a28f99045319d8ac606cdcee7216
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 53dfe07ebd4925c96290db140b6e613c38eef564
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536793"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617333"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuera en Windows Hybrid Runbook Worker
 
@@ -144,7 +144,7 @@ I sökresultaten bör du se pulsslagsposter för datorn, vilket anger att den ä
 Följ följande steg för att slutföra agentinstallationen och installationen.
 
 1. Aktivera lösningen för att ombord på agentmaskinen. Se [Inbyggda datorer på arbetsytan](https://docs.microsoft.com/azure/automation/automation-onboard-solutions-from-automation-account#onboard-machines-in-the-workspace).
-2. Kontrollera att agenten har laddat ned Automation-lösningen korrekt. Den bör ha en mapp som heter **AzureAutomationFiles** i **C:\Program Files\Microsoft Monitoring Agent\Agent**. 
+2. Kontrollera att agenten har laddat ned Automation-lösningen korrekt. 
 3. Om du vill bekräfta versionen av Hybrid Runbook Worker bläddrar du till **C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation** och noterar versionsundermappen. **version**
 
 ### <a name="step-4---install-the-runbook-environment-and-connect-to-azure-automation"></a>Steg 4 – Installera runbook-miljön och anslut till Azure Automation

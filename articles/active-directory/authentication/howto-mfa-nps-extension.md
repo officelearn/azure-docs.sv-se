@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c8606f0b7ab47d624ec66c8cda539e571cec6ce
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: cc1be4637d56d7205d50ebfc6f7d1d5d22e62edf
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393056"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617660"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication
 
@@ -142,6 +142,14 @@ Så här hämtar du ett testkonto:
 1. Logga in [https://aka.ms/mfasetup](https://aka.ms/mfasetup) med ett testkonto.
 2. Ställ in en verifieringsmetod genom att följa anvisningarna.
 3. [Skapa en princip för villkorlig åtkomst](howto-mfa-getstarted.md#create-conditional-access-policy) för att kräva multifaktorautentisering för testkontot.
+
+> [!IMPORTANT]
+>
+> Kontrollera att användare har registrerat sig för Azure Multi-Factor Authentication. Om användare tidigare bara har registrerat sig för återställning av lösenord för självbetjäning (SSPR) *aktiveras StrongAuthenticationMethods* för sitt konto. Azure Multi-Factor Authentication tillämpas när *StrongAuthenticationMethods* är konfigurerad, även om användaren bara är registrerad för SSPR.
+>
+> Kombinerad säkerhetsregistrering kan aktiveras som konfigurerar SSPR- och Azure Multi-Factor-autentisering samtidigt. Mer information finns i [Aktivera kombinerad registrering av säkerhetsinformation i Azure Active Directory](howto-registration-mfa-sspr-combined.md).
+>
+> Du kan också [tvinga användare att registrera om autentiseringsmetoder](howto-mfa-userdevicesettings.md#manage-user-authentication-options) om de tidigare bara har aktiverat SSPR.
 
 ## <a name="install-the-nps-extension"></a>Installera NPS-tillägget
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: fbcd4ea174d4b6a2a45495c32f178ed1bd01bbe0
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 968e609772e08814a9943734d30c16bf6f5972e8
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261371"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604711"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer under off-hours-lösning i Azure Automation
 
@@ -106,7 +106,7 @@ Alla överordnade runbooks `WhatIf` innehåller parametern. När den är instäl
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject (VMObject) <br> Varningsåtgärd <br> WebHookURI (olikartade) | Anropad från den överordnade runbooken. Den här runbooken skapar aviseringar per resurs för scenariot Auto-Stop.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: Sant eller falskt  | Skapar eller uppdaterar Azure-aviseringsregler för virtuella datorer i den riktade prenumerationen eller resursgrupperna. <br> `VMList`är en kommaavgränsad lista över virtuella datorer. Till exempel `vm1, vm2, vm3`.<br> `WhatIf`aktiverar validering av runbook-logik utan att köra.|
-|AutoStop_Disable | Inget | Inaktiverar automatisk stoppvarningar och standardschema.|
+|AutoStop_Disable | Ingen | Inaktiverar automatisk stoppvarningar och standardschema.|
 |AutoStop_VM_Child | WebHookData (Olikartade) | Anropad från den överordnade runbooken. Varningsregler anropar den här runbooken för att stoppa en klassisk virtuell dator.|
 |AutoStop_VM_Child_ARM | WebHookData (Olikartade) |Anropad från den överordnade runbooken. Varningsregler anropar den här runbooken för att stoppa en virtuell dator.  |
 |ScheduledStartStop_Base_Classic | CloudServiceName<br> Åtgärd: Start eller stopp<br> VMList  | Utför åtgärdsstart eller stopp i den klassiska VM-gruppen av Molntjänster. |
@@ -225,11 +225,11 @@ Arbetsytan Automation-konto och Logganalys tas inte bort som en del av den här 
 
 1. Sök efter och välj **Log Analytics-arbetsytor**.
 
-2. Välj arbetsytan på sidan **Logganalysarbetsytor.**
+2. Välj arbetsytan på arbetsytan Log Analytics.
 
 3. Välj **Ta bort** på menyn på sidan inställningar för arbetsytan.
 
-4. Om du inte vill behålla Azure Automation-kontokomponenterna kan du ta bort var och en manuellt. Se [Lösningskomponenter](#solution-components).
+4. Om du inte vill behålla azure [automation-kontolösningskomponenterna](#solution-components)kan du manuellt ta bort var och en.
 
 ## <a name="next-steps"></a>Nästa steg
 

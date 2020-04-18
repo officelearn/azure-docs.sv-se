@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 00f6a5f88a66f0a19943ff3a2c722ae1a9938e9e
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 472f3762ca18f71ba95053576daf025d8477fee9
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80550401"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604729"
 ---
 # <a name="how-to-query-logs-from-startstop-vms-solution"></a>Så här frågar du efter loggar från start-/stopp-virtuella datorer
 
@@ -71,4 +71,4 @@ Följande tabell innehåller exempel på sökningar i loggen för jobbposter som
 
 ## <a name="next-steps"></a>Nästa steg
 
-Start/Stop virtuella datorer under lediga timmar innehåller inte en fördefinierad uppsättning aviseringar. Granska [Create-loggaviseringarna](../azure-monitor/platform/alerts-log.md) med Azure Monitor för att lära dig hur du skapar misslyckade aviseringar för jobb för att stödja dina DevOps eller operativa processer och procedurer.
+**Start/Stop virtuella datorer under off-hours-lösningen** innehåller inte en fördefinierad uppsättning aviseringar. Granska [Create-loggaviseringarna](../azure-monitor/platform/alerts-log.md) med Azure Monitor för att lära dig hur du skapar misslyckade aviseringar för jobb för att stödja dina DevOps eller operativa processer och procedurer.

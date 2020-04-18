@@ -5,31 +5,31 @@ services: automation
 ms.subservice: update-management
 ms.date: 02/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: eaba4bf7760e150f2477ee743c797f94784b8506
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 9bdc8cf97513854cf6a92ffd078febca6302d35c
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535510"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617413"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösning för uppdateringshantering i Azure
 
-Du kan använda update management-lösningen i Azure Automation för att hantera operativsystemuppdateringar för dina Windows- och Linux-datorer i Azure, i lokala miljöer och i andra molnmiljöer. Du kan snabbt bedöma statusen för tillgängliga uppdateringar på alla agentdatorer och hantera processen för att installera nödvändiga uppdateringar för servrar.
+Du kan använda **update management-lösningen** i Azure Automation för att hantera operativsystemuppdateringar för dina Windows- och Linux-datorer i Azure, i lokala miljöer och i andra molnmiljöer. Du kan snabbt bedöma statusen för tillgängliga uppdateringar på alla agentdatorer och hantera processen för att installera nödvändiga uppdateringar för servrar.
 
 Du kan aktivera uppdateringshantering för virtuella datorer med hjälp av följande metoder:
 
 - Från ditt [Azure Automation-konto](automation-onboard-solutions-from-automation-account.md) för en eller flera Azure-datorer och manuellt för datorer som inte är Azure.
 
-- För en enda Azure-virtuell dator från sidan för den virtuella datorn i Azure-portalen. Det här scenariot är tillgängligt för [virtuella Linux-](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) och [Windows-datorer.](../virtual-machines/windows/tutorial-config-management.md#enable-update-management)
+- För en enda Azure-virtuell dator från sidan Virtuell dator i Azure-portalen. Det här scenariot är tillgängligt för [virtuella Linux-](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) och [Windows-datorer.](../virtual-machines/windows/tutorial-config-management.md#enable-update-management)
 
-- För [flera virtuella Azure-datorer](manage-update-multi.md) genom att välja dem från sidan **Virtuella datorer** i Azure-portalen. 
+- För [flera virtuella Azure-datorer](manage-update-multi.md) genom att välja dem från sidan Virtuella datorer i Azure-portalen. 
 
 > [!NOTE]
-> Lösningen för uppdateringshantering kräver att du länkar en Log Analytics-arbetsyta till ditt Automation-konto. En slutgiltig lista över regioner som stöds finns i [Azure Workspace-mappningar](./how-to/region-mappings.md). Regionmappningarna påverkar inte möjligheten att hantera virtuella datorer i en separat region från ditt Automation-konto.
+> Lösningen **för uppdateringshantering** kräver att du länkar en Log Analytics-arbetsyta till ditt Automation-konto. En slutgiltig lista över regioner som stöds finns i [Azure Workspace-mappningar](./how-to/region-mappings.md). Regionmappningarna påverkar inte möjligheten att hantera virtuella datorer i en separat region från ditt Automation-konto.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-En Azure [Resource Manager-mall](automation-update-management-deploy-template.md) är tillgänglig som gör att du kan distribuera lösning för uppdateringshantering till ett nytt eller befintligt Automation-konto och Log Analytics-arbetsyta i din prenumeration.
+En Azure [Resource Manager-mall](automation-update-management-deploy-template.md) är tillgänglig för att hjälpa dig att distribuera lösning för **uppdateringshantering** till ett nytt eller befintligt Automation-konto och Log Analytics-arbetsyta i din prenumeration.
 
 ## <a name="solution-overview"></a>Lösningsöversikt
 
@@ -137,7 +137,7 @@ Lösningen består av följande resurser. Dessa resurser läggs automatiskt till
 
 När du har aktiverat den här lösningen konfigureras alla Windows-datorer som är direkt anslutna till logganalysarbetsytan automatiskt som en Hybrid Runbook Worker för att stödja runbooks som ingår i den här lösningen.
 
-Varje Windows-dator som hanteras av lösningen visas i fönstret **Hybrid-arbetargrupper** som en **systemhybridarbetsgrupp** för Automation-kontot. Lösningarna använder *namnkonventionen för värdnamn FQDN_GUID.* Du kan inte rikta in dig på dessa grupper med runbooks i ditt konto. Om du försöker misslyckas försöket. Dessa grupper är avsedda att stödja endast den här hanteringslösningen.
+Varje Windows-dator som hanteras av lösningen visas i fönstret Hybrid-arbetargrupper som en systemhybridarbetsgrupp för Automation-kontot. Lösningarna använder `Hostname FQDN_GUID` namngivningskonventionen. Du kan inte rikta in dig på dessa grupper med runbooks i ditt konto. Om du försöker misslyckas försöket. Dessa grupper är avsedda att stödja endast den här hanteringslösningen.
 
 Du kan lägga till Windows-datorn i en Hybrid Runbook Worker-grupp i ditt Automation-konto för att stödja Automation-runbooks om du använder samma konto för både lösningen och Hybrid Runbook Worker-gruppmedlemskapet. Den här funktionen har lagts till i version 7.2.12024.0 av Hybrid Runbook Worker.
 
@@ -150,12 +150,12 @@ Om hanteringsgruppen systemcenter operations manager är [ansluten till en Log A
 * Uppdatera distributions-MP
 
 > [!NOTE]
-> Om du har en Hanteringsgrupp för Operations Manager 1807 eller 2019 ansluten till en Log Analytics-arbetsyta med agenter som konfigurerats i hanteringsgruppen för att samla in loggdata måste du åsidosätta följande regel för att hantera dem med uppdateringshantering: Åsidosätt parametern **IsAutoRegistrationEnabled** och ställ in **True** i regeln **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init.**
+> Om du har en Hanteringsgrupp för Operations Manager 1807 eller 2019 ansluten till en Log Analytics-arbetsyta `IsAutoRegistrationEnabled` med agenter som konfigurerats i hanteringsgruppen för att samla in loggdata måste du åsidosätta parametern och ange den till True i regeln **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init.**
 
 Mer information om hur lösningshanteringspaket uppdateras finns i [Anslut Operations Manager till Azure Monitor-loggar](../azure-monitor/platform/om-agents.md).
 
 > [!NOTE]
-> För datorer med Operations Manger-agenten, som ska hanteras fullständigt av Update Management, måste agenten uppdateras till Log Analytics-agenten för Windows eller Linux. Mer information om hur du uppdaterar agenten finns i [Så här uppgraderar du en Operations Manager-agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents). I miljöer som använder Operations Manager måste du köra System Center Operations Manager 2012 R2 UR 14 eller senare.
+> För att datorer med Operations Manger-agenten ska kunna hanteras fullständigt av Update Management måste agenten uppdateras till Log Analytics-agenten för Windows eller Log Analytics-agenten för Linux. Mer information om hur du uppdaterar agenten finns i [Så här uppgraderar du en Operations Manager-agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents). I miljöer som använder Operations Manager måste du köra System Center Operations Manager 2012 R2 UR 14 eller senare.
 
 ## <a name="data-collection"></a>Datainsamling
 
@@ -249,13 +249,9 @@ Uppdateringshantering är beroende av den lokalt konfigurerade uppdateringsdatab
 För att börja uppdatera system måste du aktivera lösningen för uppdateringshantering. Följande är de rekommenderade och stöds metoder för att ombord på lösningen:
 
 - [Från en virtuell dator](automation-onboard-solutions-from-vm.md)
-
 - [Från att bläddra i flera maskiner](automation-onboard-solutions-from-browse.md)
-
 - [Från ditt Automation-konto](automation-onboard-solutions-from-automation-account.md)
-
 - [Med en Azure Automation-runbook](automation-onboard-solutions.md)
-
 - [Med en Azure Resource Manager-mall](automation-update-management-deploy-template.md)
 
 ## <a name="next-steps"></a>Nästa steg

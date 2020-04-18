@@ -7,16 +7,16 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 68423bee6096357add9b5d4b107c984ac67c9cab
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 0442c701f39fd3e84361ad0201aaf8d1840d8851
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81412974"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606272"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Översikt över dataflödesomvandling
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)] 
 
 Nedan finns en lista över de omvandlingar som för närvarande stöds vid mappning av dataflöde. Klicka på varje omvandlingar för att lära dig dess konfigurationsinformation.
 
@@ -38,6 +38,6 @@ Nedan finns en lista över de omvandlingar som för närvarande stöds vid mappn
 | [Sortera](data-flow-sort.md) | Radeifierare för rad | Sortera inkommande rader i den aktuella dataströmmen |
 | [Källa](data-flow-source.md) | - | En datakälla för dataflödet |
 | [Surrogatnyckel](data-flow-surrogate-key.md) | Schemamodifierare | Lägga till ett stegvis godtyckligt nyckelvärde som inte är affärsmässigt |
-| [Unionen](data-flow-union.md) | Flera ingångar/utdata | Kombinera flera dataströmmar lodrätt |
+| [Union](data-flow-union.md) | Flera ingångar/utdata | Kombinera flera dataströmmar lodrätt |
 | [Normalisera](data-flow-unpivot.md) | Schemamodifierare | Pivotera kolumner till radvärden |
 | [Fönster](data-flow-window.md) | Schemamodifierare |  Definiera fönsterbaserade aggregeringar av kolumner i dina dataströmmar. |

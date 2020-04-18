@@ -9,16 +9,16 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c8e4083035d87696ec44d06a62bc55ba721c6f03
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ae6ddac61ecbcef41704f71ed5188fc547a996a3
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81422930"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81616583"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Så här använder du Key Vault mjuk borttagning med CLI
 
-Azure Key Vaults mjuka borttagningsfunktion gör det möjligt att återställa borttagna valv och valvobjekt. I synnerhet tar mjuk borttagning upp följande scenarier:
+Azure Key Vaults mjuk-borttagningsfunktion möjliggör återställning av borttagna valv och valvobjekt. I synnerhet tar mjuk borttagning upp följande scenarier:
 
 - Stöd för borttagning av nyckelvalv som kan återställas
 - Stöd för återställningsbar borttagning av nyckelvalvsobjekt. nycklar, hemligheter och certifikat
@@ -46,7 +46,7 @@ Mer information om behörigheter och åtkomstkontroll finns i [Skydda nyckelvalv
 Du aktiverar "soft-delete" för att tillåta återställning av ett borttaget nyckelvalv eller objekt som lagras i ett nyckelvalv.
 
 > [!IMPORTANT]
-> Att aktivera "mjuk borttagning" på ett nyckelvalv är en oåterkallelig åtgärd. När egenskapen soft-delete har ställts in på "true" kan den inte ändras eller tas bort.  
+> Att aktivera "soft-delete" på ett nyckelvalv är en oåterkallelig åtgärd. När egenskapen soft-delete har ställts in på "true" kan den inte ändras eller tas bort.  
 
 ### <a name="existing-key-vault"></a>Befintligt nyckelvalv
 
@@ -231,7 +231,7 @@ När rensningsskydd är aktiverat kan ett valv eller ett objekt i borttaget till
 
 Du kan bara aktivera rensningsskydd om mjuk borttagning också är aktiverat. 
 
-Om du vill aktivera både mjukt borttagnings- och rensningsskydd när du skapar ett valv använder du kommandot [az keyvault create:](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)
+Om du vill aktivera både mjukborttagnings- och rensningsskydd när du skapar ett valv använder du kommandot [az keyvault create:](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)
 
 ```azurecli
 az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true

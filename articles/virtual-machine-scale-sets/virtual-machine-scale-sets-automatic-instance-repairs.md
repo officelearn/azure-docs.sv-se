@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: avverma
-ms.openlocfilehash: 8e73ef75b3313656b45d29270d9996c3ad17c630
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 8156c563573183e51e06650914117f8787922e93
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538077"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81603670"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Automatiska instansreparationer för Azure-skalningsuppsättningar för virtuella datorer
 
@@ -90,6 +90,8 @@ Om [funktionen för avsluta meddelande](./virtual-machine-scale-sets-terminate-n
 ## <a name="enabling-automatic-repairs-policy-when-creating-a-new-scale-set"></a>Aktivera princip för automatiska reparationer när du skapar en ny skalningsuppsättning
 
 För att aktivera principen för automatiska reparationer samtidigt som du skapar en ny skalningsuppsättning, se till att alla [krav](#requirements-for-using-automatic-instance-repairs) för att välja den här funktionen uppfylls. Programslutpunkten bör konfigureras korrekt för skalningsuppsättningsinstanser för att undvika att utlösa oavsiktliga reparationer medan slutpunkten konfigureras. För nyligen skapade skalningsuppsättningar utförs alla instansreparationer endast efter att ha väntat på respitperioden. Om du vill aktivera automatisk instansreparation i en skalningsuppsättning använder du *automatisktRepairsPolicy-objekt* i skaluppsättningsmodellen för den virtuella datorn.
+
+Du kan också använda den här [snabbstartsmallen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-automatic-repairs-slb-health-probe) för att distribuera en skalningsuppsättning för virtuella datorer med belastningsutjämnad hälsoavsökning och automatiska instansreparationer aktiverade med en respitperiod på 30 minuter.
 
 ### <a name="azure-portal"></a>Azure Portal
  

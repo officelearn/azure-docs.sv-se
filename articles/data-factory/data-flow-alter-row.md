@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: 2923e087426ee04c74da629f4e2d2d49a06eb1ef
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 77c58bb8dfa7d21b108d2aa63e90142f66877fb7
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81416537"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606511"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>Ändra radomvandling i mappning av dataflöde
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Använd omvandlingen Ändra rad för att ange principer för infogning, borttagning, uppdatering och upsert på rader. Du kan lägga till 1:1:00 villkor som uttryck. Dessa villkor bör anges i prioritetsordning, eftersom varje rad markeras med den princip som motsvarar det första matchande uttrycket. Vart och ett av dessa villkor kan resultera i att en rad (eller rader) infogas, uppdateras, tas bort eller upserted. Alter Row kan producera både DDL-& DML-åtgärder mot databasen.
 

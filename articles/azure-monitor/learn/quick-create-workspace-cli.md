@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
-ms.openlocfilehash: 89d397574c423e28bcbb0fec5ddd45959a737a93
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0e91bc9c994a48b335c3ccb7373a9f4f5dc6d1e8
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659895"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605094"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Skapa en log Analytics-arbetsyta med Azure CLI 2.0
 
@@ -106,7 +106,7 @@ Följande parametrar anger ett standardvärde:
     }
     ```
 
-2. Redigera mallen för att uppfylla dina krav. Läs [mallreferensen för Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) för att ta reda på vilka egenskaper och värden som stöds.
+2. Redigera mallen för att uppfylla dina krav. Läs [mallreferensen för Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) för att ta reda på vilka egenskaper och värden som stöds.
 3. Spara den här filen som **deploylaworkspacetemplate.json** i en lokal mapp.   
 4. Nu är det dags att distribuera den här mallen. Använd följande kommandon från mappen som innehåller mallen. När du uppmanas att ange ett arbetsområdesnamn anger du ett namn som är globalt unikt för alla Azure-prenumerationer.
 

@@ -10,16 +10,16 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: c0bedde8431ce713f0cc7185d0ec607d49b48ef1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a0e35a309fd30a36263b498b6a8e74a312004a99
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414963"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81606158"
 ---
 # <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Etablera Enterprise Edition för Azure-SSIS Integration Runtime
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Med Enterprise Edition av Azure-SSIS Integration Runtime kan du använda följande avancerade funktioner och premiumfunktioner:
 -   Komponenter för ändring av datainsamling (CDC)

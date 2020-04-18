@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9e1f62dcdb122726fc1c08b7bea4e4c214ce7906
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1cf1750924ab8ea8afff6ac788683565433866b
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76933373"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81618020"
 ---
 # <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>Inbyggda kognitiva färdigheter för text- och bildbehandling under indexering (Azure Cognitive Search)
 
@@ -23,6 +23,8 @@ I den här artikeln får du lära dig mer om de kognitiva färdigheter som medf�
 > När du utökar omfattningen genom att öka bearbetningsfrekvensen, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [bifoga en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifter ackumuleras när du anropar API:er i Cognitive Services och för bildutvinning som en del av dokumentsprickningsfasen i Azure Cognitive Search. Det finns inga avgifter för textextrahering från dokument.
 >
 > Utförande av inbyggda färdigheter debiteras på den befintliga [Cognitive Services pay-as-you go pris](https://azure.microsoft.com/pricing/details/cognitive-services/). Prissättning för avbildningsextrahering beskrivs på [prissidan](https://go.microsoft.com/fwlink/?linkid=2042400)för Azure Cognitive Search .
+>
+> Den [inkrementella anrikning (förhandsvisning)](cognitive-search-incremental-indexing-conceptual.md) funktionen kan du ge en cache som gör att indexeraren att vara mer effektiv på att köra endast de kognitiva färdigheter som är nödvändiga om du ändrar din kompetens i framtiden, vilket sparar tid och pengar.
 
 
 ## <a name="built-in-skills"></a>Inbyggda färdigheter

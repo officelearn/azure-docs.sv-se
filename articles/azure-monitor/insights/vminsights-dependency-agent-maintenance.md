@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2020
-ms.openlocfilehash: c55bee9880c4134f2e304a7fc5176225477fe5f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/16/2020
+ms.openlocfilehash: 01dd8422658aa0c8982733e48782efd27c1bf5be
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79480767"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617850"
 ---
 # <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Uppgradera Azure Monitor för VMs Dependency Agent
 
@@ -60,7 +60,7 @@ Du kan ladda ner den senaste versionen av Windows-agenten [härifrån](https://a
 
 Uppgradering från tidigare versioner av beroendeagenten på Linux stöds och utförs efter samma kommando som en ny installation.
 
-Du kan ladda ner den senaste versionen av Windows-agenten [härifrån](https://aka.ms/dependencyagentlinux).
+Du kan ladda ner den senaste versionen av Linux-agenten [härifrån](https://aka.ms/dependencyagentlinux).
 
 1. Logga in på datorn med ett konto som har administratörsrättigheter.
 

@@ -4,12 +4,12 @@ description: Lär dig hur du använder kluster automatisk skalning för att auto
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 0b94865d81afc56c24d470012c668662f003a1b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2baa64779713d0bac063e1d2c06107ba2ab291fb
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596257"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617550"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Skala automatiskt ett kluster för att uppfylla programkraven på Azure Kubernetes Service (AKS)
 
@@ -117,6 +117,7 @@ Du kan också konfigurera mer detaljerad information om kluster automatisk skaln
 | nedskala-ner-oläslig tid          | Hur länge en oläslig nod ska vara onödiga innan den kan skalas ned         | 20 minuter    |
 | nedvärderingströskel | Nodutnyttjandenivå, definierad som summan av begärda resurser dividerat med kapacitet, under vilken en nod kan beaktas för nedskalning | 0,5 |
 | max-graciös-uppsägning-sek     | Maximalt antal sekunder som klusterautomatenheten väntar på pod-avslutning när du försöker skala ned en nod. | 600 sekunder   |
+| balans-liknande-nod-grupper | Identifiera liknande nodpooler och balansera antalet noder mellan dem | false |
 
 > [!IMPORTANT]
 > Profilen för automatisk skalning av kluster påverkar alla nodpooler som använder kluster automatisk skalbar. Du kan inte ange en profil för automatisk skalning per nodpool.

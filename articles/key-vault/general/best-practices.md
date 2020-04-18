@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 57bb897978f47a66adebac069d8892d596ba78f5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 923fb90f7f0e8eefec650515ed2a3b9b75d2ae77
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81430869"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617916"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Metodtips för att använda Key Vault
 
@@ -44,4 +44,4 @@ Se till att du tar regelbundna säkerhetskopierare av [ditt valv](https://blogs.
 ## <a name="turn-on-recovery-options"></a>Aktivera återställningsalternativ
 
 1. Aktivera [Mjuk borttagning](overview-soft-delete.md)).
-2. Aktivera rensningsskydd om du vill skydda dig mot borttagning av hemliga/valv även efter att mjuk borttagning har aktiverats.
+2. Aktivera rensningsskydd om du vill skydda dig mot borttagning av hemliga/valv även efter att mjukborttagning har aktiverats.

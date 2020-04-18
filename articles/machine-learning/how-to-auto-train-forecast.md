@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: d4e36c0d3838af85768453496a51ecd295c22b93
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be3046a343e14be4a527363751081ba3f2593cd3
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79081853"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81605881"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Auto-träna en prognosmodell för tidsserier
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -205,12 +205,7 @@ fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
 
 Använd den bästa modelliterationen för att prognostisera värden för testdatauppsättningen.
 
-```python
-predict_labels = fitted_model.predict(test_data)
-actual_labels = test_labels.flatten()
-```
-
-Alternativt kan du använda `forecast()` funktionen `predict()`i stället för , vilket tillåter specifikationer för när förutsägelser ska starta. I följande exempel ersätter du `y_pred` först `NaN`alla värden med . Det prognostiserade ursprunget kommer att vara i slutet av utbildningsdata i detta fall, som det normalt skulle vara när du använder `predict()`. Men om du bara ersatte `y_pred` den `NaN`andra halvan av med , skulle funktionen lämna de `NaN` numeriska värdena i första halvlek oförändrade, men prognostisera värdena i andra halvlek. Funktionen returnerar både de prognostiserade värdena och de justerade funktionerna.
+Funktionen `forecast()` ska användas i `predict()`stället för , detta kommer att tillåta specifikationer för när förutsägelser ska starta. I följande exempel ersätter du `y_pred` först `NaN`alla värden med . Det prognostiserade ursprunget kommer att vara i slutet av utbildningsdata i detta fall, som det normalt skulle vara när du använder `predict()`. Men om du bara ersatte `y_pred` den `NaN`andra halvan av med , skulle funktionen lämna de `NaN` numeriska värdena i första halvlek oförändrade, men prognostisera värdena i andra halvlek. Funktionen returnerar både de prognostiserade värdena och de justerade funktionerna.
 
 Du kan också `forecast_destination` använda `forecast()` parametern i funktionen för att prognostisera värden fram till ett angivet datum.
 

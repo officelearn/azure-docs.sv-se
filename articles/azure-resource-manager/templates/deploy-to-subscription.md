@@ -3,12 +3,12 @@ title: Distribuera resurser till prenumeration
 description: Beskriver hur du skapar en resursgrupp i en Azure Resource Manager-mall. Den visar också hur du distribuerar resurser i Azure-prenumerationsomfattningen.
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.openlocfilehash: 65cc220d32d1e1149b7026fc438f5e34262511dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6bec29a07653ff5ad7d1e2f8317246049e127c8c
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80131963"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604995"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Skapa resursgrupper och resurser på prenumerationsnivå
 
@@ -23,11 +23,11 @@ Du kan distribuera följande resurstyper på prenumerationsnivå:
 * [Budgetar](/azure/templates/microsoft.consumption/budgets)
 * [distributioner](/azure/templates/microsoft.resources/deployments) - för kapslade mallar som distribueras till resursgrupper.
 * [händelseAbonnemang](/azure/templates/microsoft.eventgrid/eventsubscriptions)
-* [peerAsns](/azure/templates/microsoft.peering/peerasns)
+* [peerAsns](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitioner](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
-* [avhjälpande åtgärder](/azure/templates/microsoft.policyinsights/remediations)
+* [avhjälpande åtgärder](/azure/templates/microsoft.policyinsights/2019-07-01/remediations)
 * [resursGrupper](/azure/templates/microsoft.resources/resourcegroups)
 * [rollTilldelningar](/azure/templates/microsoft.authorization/roleassignments)
 * [rollDefinitioner](/azure/templates/microsoft.authorization/roledefinitions)

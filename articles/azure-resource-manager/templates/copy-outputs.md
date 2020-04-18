@@ -2,13 +2,13 @@
 title: Definiera flera förekomster av ett utdatavärde
 description: Använd kopieringsåtgärd i en Azure Resource Manager-mall för att iterera flera gånger när du returnerar ett värde från en distribution.
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 3889260d02f438274c80e99e99136515499443e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/17/2020
+ms.openlocfilehash: 0315af2f083285c4704b08fec608341b6f0b2231
+ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153394"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81617839"
 ---
 # <a name="output-iteration-in-arm-templates"></a>Utdataiteration i ARM-mallar
 
@@ -21,12 +21,10 @@ Du kan också använda kopia med [resurser,](copy-resources.md) [egenskaper i en
 Kopieringselementet har följande allmänna format:
 
 ```json
-"copy": [
-  {
-    "count": <number-of-iterations>,
-    "input": <values-for-the-variable>
-  }
-]
+"copy": {
+  "count": <number-of-iterations>,
+  "input": <values-for-the-output>
+}
 ```
 
 Egenskapen **count** anger hur många iterationer du vill använda för utdatavärdet.

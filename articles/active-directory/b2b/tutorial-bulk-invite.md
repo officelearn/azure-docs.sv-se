@@ -5,38 +5,29 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 2/11/2020
+ms.date: 04/13/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c429648adeb0c81799bff2dca1650de965395a60
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0ef9172ca5d0961bb6de1949a61199ce1d6c1bff
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77166444"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81603422"
 ---
-# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Självstudiekurs: Massinb-inbjudan till Azure AD B2B-samarbetsanvändare (förhandsversion)
-
-|     |
-| --- |
-| I den här artikeln beskrivs en offentlig förhandsgranskningsfunktion i Azure Active Directory. Mer information om förhandsgranskningar finns i [Tilläggsvillkor för microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
-
-> [!NOTE]
-> Från och med 2019-12-22 har funktionen Massinbjudna användare (Förhandsversion) tillfälligt inaktiverats.
-> Det finns för närvarande inget känt datum för när den här funktionen kommer att återaktiveras i Azure-portalen. Om du vill bjuda in gästanvändare i grupp med PowerShell läser du [självstudiekursen B2B-gruppinb-inb-post](bulk-invite-powershell.md) eller [B2B-koden och PowerShell-exemplen](code-samples.md).
+# <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Självstudier: Massinbjuda Azure AD B2B-samarbetsanvändare
 
 Om du använder Azure Active Directory (Azure AD) B2B-samarbete för att arbeta med externa partners, kan du bjuda in flera gästanvändare till din organisation samtidigt. I den här självstudien får du lära dig hur du använder Azure-portalen för att skicka massinbjudningar till externa användare. Närmare bestämt kan du göra följande:
 
 > [!div class="checklist"]
-> * Använd **Massinbjudningsanvändare (förhandsversion)** för att förbereda en kommaavgränsad värdefil (.csv) med användarinformation och inbjudningsinställningar
+> * Använd **massinbjudningsanvändare** för att förbereda en kommaavgränsad värdefil (.csv) med användarinformation och inbjudningsinställningar
 > * Ladda upp CSV-filen till Azure AD
 > * Verifiera att användarna har lagts till i katalogen
 
-Om du inte har Azure Active Directory skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+Om du inte har Azure Active Directory skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -47,7 +38,7 @@ Du behöver två eller flera test-e-postkonton att skicka inbjudningar till. Kon
 1. Logga in på Azure-portalen med ett konto som är användaradministratör i organisationen.
 2. Välj Azure Active **Directory**i navigeringsfönstret .
 3. Under **Hantera**väljer du **Användare** > **Massinbjudning**.
-4. På sidan **Massinbjudna användare (Förhandsgranska)** väljer du **Hämta** för att hämta en giltig CSV-fil med inbjudningsegenskaper.
+4. På sidan **Massinbjudna användare** väljer du **Hämta** för att hämta en giltig CSV-fil med inbjudningsegenskaper.
 
     ![Knappen Massinbjudning](media/tutorial-bulk-invite/bulk-invite-button.png)
 
@@ -63,10 +54,10 @@ Du behöver två eller flera test-e-postkonton att skicka inbjudningar till. Kon
    > Använd inte kommatecken i det **anpassade inbjudningsmeddelandet** eftersom de förhindrar att meddelandet tolkas.
 
 6. Spara filen.
-7. På sidan **Massinbjudningsanvändare (Förhandsgranska)** under **Ladda upp csv-filen**bläddrar du till filen. När du markerar filen startar valideringen av CSV-filen. 
+7. På sidan **Massinbjuda användare,** under **Ladda upp csv-filen,** bläddra till filen. När du markerar filen startar valideringen av CSV-filen. 
 8. När filinnehållet har **validerats visas Filen uppladdad**. Om det finns fel måste du åtgärda dem innan du kan skicka jobbet.
 9. När filen godkänns väljer du **Skicka** för att starta Azure-massåtgärden som lägger till inbjudningarna. 
-10. Om du vill visa jobbstatus väljer **du Klicka här om du vill visa status för varje operation**. Du kan också välja **Massåtgärdsresultat (Förhandsgranska)** i avsnittet **Aktivitet.** Om du vill ha information om varje radartikel i massåtgärden väljer du värdena under kolumnerna **# Lyckades,** **# Fel**eller Totalt **antal begäranden.** Om fel har inträffat visas orsakerna till felet.
+10. Om du vill visa jobbstatus väljer **du Klicka här om du vill visa status för varje operation**. Du kan också välja **Massåtgärdsresultat** i avsnittet **Aktivitet.** Om du vill ha information om varje radartikel i massåtgärden väljer du värdena under kolumnerna **# Lyckades,** **# Fel**eller Totalt **antal begäranden.** Om fel har inträffat visas orsakerna till felet.
 
     ![Exempel på resultat av massåtgärd](media/tutorial-bulk-invite/bulk-operation-results.png)
 

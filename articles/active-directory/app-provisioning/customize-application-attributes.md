@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7003899b59e409a785c3a50e89aae6674e377b4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bfee19e9cfd1def71ebad82c2210ffc10146c896
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264094"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639749"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa användaretablering av attributmappningar för SaaS-program i Azure Active Directory
 
@@ -143,7 +143,10 @@ SCIM RFC definierar ett centralt användar- och gruppschema, samtidigt som till�
    4. Välj **Redigera attributlista för AppName**.
    5. Längst ned i attributlistan anger du information om det anpassade attributet i de angivna fälten. Välj sedan **Lägg till attribut**.
 
-För SCIM-program måste attributnamnet följa mönstret som visas i exemplet nedan. "CustomExtensionName" och "CustomAttribute" kan anpassas enligt programmets krav, till exempel: urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute eller urn:ietf:params:scim:schemas:extension: CustomExtensionName:2.0:User.CustomAttributeName:värde
+För SCIM-program måste attributnamnet följa mönstret som visas i exemplet nedan. "CustomExtensionName" och "CustomAttribute" kan anpassas enligt programmets krav, till exempel:  
+ * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
+ * urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute  
+ * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User.CustomAttributeName:value
 
 Dessa instruktioner gäller endast för SCIM-aktiverade program. Program som ServiceNow och Salesforce är inte integrerade med Azure AD med SCIM, och därför kräver de inte det här specifika namnområdet när de lägger till ett anpassat attribut.
 

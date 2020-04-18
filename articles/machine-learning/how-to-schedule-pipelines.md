@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/12/2019
-ms.openlocfilehash: fed411ea171274513308ec3efa68da80e4d25f8a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d9e1bff3d25a978b5159d8e6ab8ab2453df77ca3
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77116755"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640517"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Schemalägga pipelines för maskininlärning med Azure Machine Learning SDK för Python
 
@@ -98,6 +98,10 @@ reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="
 ### <a name="optional-arguments-when-creating-a-schedule"></a>Valfria argument när du skapar ett schema
 
 Förutom de argument som diskuterats tidigare `status` kan `"Disabled"` du ange argumentet för att skapa ett inaktivt schema. Slutligen `continue_on_step_failure` kan du skicka en boolesk som åsidosätter pipelinens standardfelbeteende.
+
+### <a name="use-azure-logic-apps-for-more-complex-workflows"></a>Använda Azure Logic Apps för mer komplexa arbetsflöden
+
+Azure Logic Apps stöder mer komplexa arbetsflöden och är mycket mer allmänt integrerade än Azure Machine Learning-pipelines. Mer information [finns i Utlösa en körning av en Machine Learning-pipeline från en logikapp.](how-to-trigger-published-pipeline.md)
 
 ## <a name="view-your-scheduled-pipelines"></a>Visa schemalagda pipelines
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 69f8cd0f78a45c6c5e53368edc5902c4b6695701
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: e610bf94dfdee4e2765e4fae4259f18a9f1036b5
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80408834"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639982"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Hänsyn till virtual network design och konfigurationsalternativ för Azure AD Domain Services
 
@@ -109,10 +109,11 @@ Följande regler för nätverkssäkerhetsgrupper krävs för att Azure AD DS ska
 | 443         | TCP      | AzureActiveDirectoryDomainServices | Alla         | Tillåt  | Ja      | Synkronisering med din Azure AD-klientorganisation. |
 | 3389        | TCP      | CorpNetSaw (2000/90                         | Alla         | Tillåt  | Ja      | Hantering av din domän. |
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Alla         | Tillåt  | Ja      | Hantering av din domän. |
-| 636         | TCP      | Alla                                | Alla         | Tillåt  | Inga       | Aktiveras endast när du konfigurerar säker LDAP (LDAPS). |
 
 > [!WARNING]
 > Redigera inte dessa nätverksresurser och konfigurationer manuellt. När du associerar en felkonfigurerad nätverkssäkerhetsgrupp eller en användardefinierad vägtabell med undernätet där Azure AD DS distribueras kan du störa Microsofts möjlighet att serva och hantera domänen. Synkroniseringen mellan din Azure AD-klientorganisation och din Azure AD DS-hanterade domän störs också.
+>
+> Om du använder säker LDAP kan du lägga till den TCP-port 636-regeln som krävs för att tillåta extern trafik om det behövs. Om du lägger till den här regeln får du inte ett tillstånd av nätverkssäkerhetsgruppen. Mer information finns i [Låsa säker LDAP-åtkomst via internet](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet)
 >
 > Standardregler för *AllowVnetInBound*, *AllowAzureLoadBalancerInBound*, *DenyAllInBound*, *AllowVnetOutBound*, *AllowInternetOutBound*och *DenyAllOutBound* finns också för nätverkssäkerhetsgruppen. Redigera eller ta inte bort dessa standardregler.
 >

@@ -4,12 +4,12 @@ description: Lär dig hur du skyddar klustret med hjälp av ett IP-adressinterva
 services: container-service
 ms.topic: article
 ms.date: 11/05/2019
-ms.openlocfilehash: 593f9e0b335e6f4d62c76ce92f833ff4e9143372
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 570d842409fc019d24446e091f83402f4c288d7c
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79126617"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640054"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Säker åtkomst till API-servern med auktoriserade IP-adressintervall i Azure Kubernetes Service (AKS)
 
@@ -39,7 +39,7 @@ Mer information om API-servern och andra klusterkomponenter finns i [Kubernetes 
 API-server auktoriserade IP-intervall fungerar bara för nya AKS-kluster. Skapa ett kluster med parametern [az aks create][az-aks-create] och specify the *--api-server-authorized-ip-ranges* parameter to provide a list of authorized IP address ranges. Dessa IP-adressintervall är vanligtvis adressintervall som används av lokala nätverk eller offentliga IP-adresser. När du anger ett CIDR-intervall börjar du med den första IP-adressen i intervallet. Till exempel är *137.117.106.90/29* ett giltigt intervall, men se till att du anger den första IP-adressen i intervallet, till exempel *137.117.106.88/29*.
 
 > [!IMPORTANT]
-> Som standard använder klustret [standard-SKU-belastningsutjämnaren][standard-sku-lb] som du kan använda för att konfigurera den utgående gatewayen. När du aktiverar API-serverauktoriserat IP-intervall när klustret skapas tillåts även den offentliga IP-adressen för klustret som standard utöver de intervall som du anger. Om du anger *""* eller inget värde för *--api-server-authorized-ip-ranges*inaktiveras API-serverauktoriserat IP-intervall.
+> Som standard använder klustret [standard-SKU-belastningsutjämnaren][standard-sku-lb] som du kan använda för att konfigurera den utgående gatewayen. När du aktiverar API-serverauktoriserat IP-intervall när klustret skapas tillåts även den offentliga IP-adressen för klustret som standard utöver de intervall som du anger. Om du anger *""* eller inget värde för *--api-server-authorized-ip-ranges*inaktiveras API-serverauktoriserat IP-intervall. Observera att om du använder PowerShell använder du *--api-server-authorized-ip-ranges=""* (med likhetstecken) för att undvika tolkningsproblem.
 
 I följande exempel skapas ett kluster med en nod med namnet *myAKSCluster* i resursgruppen *myResourceGroup* med API-serverauktoriserade IP-intervall aktiverade. De tillåtna IP-adressintervallen är *73.140.245.0/24:*
 

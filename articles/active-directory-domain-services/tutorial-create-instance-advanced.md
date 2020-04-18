@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: iainfou
-ms.openlocfilehash: a7ab79fe7ccfbf6d292b6ba7be58026955a06516
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: f2d7f1725623dcc031f3c2b36bacd6dbc9ad339d
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80519241"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639958"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Självstudiekurs: Skapa och konfigurera en Azure Active Directory Domain Services-instans med avancerade konfigurationsalternativ
 
@@ -22,7 +22,7 @@ Azure Active Directory Domain Services (Azure AD DS) tillhandahåller hanterade 
 
 Du kan [skapa en hanterad domän med standardkonfigurationsalternativ][tutorial-create-instance] för nätverk och synkronisering, eller manuellt definiera dessa inställningar. Den här självstudien visar hur du definierar dessa avancerade konfigurationsalternativ för att skapa och konfigurera en Azure AD DS-instans med Azure-portalen.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera DNS- och virtuella nätverksinställningar för en hanterad domän
@@ -207,7 +207,7 @@ Stegen för att generera och lagra dessa lösenordshashar är olika för molnbas
 > [!TIP]
 > Om din Azure AD-klient har en kombination av molnanvändare och användare från din lokala AD måste du slutföra båda stegen.
 
-För användarkonton med enbart molnet måste användarna ändra sina lösenord innan de kan använda Azure AD DS. Den här lösenordsändringsprocessen gör att lösenordsh hashar för Kerberos- och NTLM-autentisering genereras och lagras i Azure AD. Du kan antingen upphöra att gälla lösenorden för alla användare i klienten som behöver använda Azure AD DS, vilket tvingar en lösenordsändring vid nästa inloggning eller instruera dem att manuellt ändra sina lösenord. För den här självstudien ska vi manuellt ändra ett användarlösenord.
+För användarkonton med enbart molnet måste användarna ändra sina lösenord innan de kan använda Azure AD DS. Den här lösenordsändringsprocessen gör att lösenordsh hashar för Kerberos- och NTLM-autentisering genereras och lagras i Azure AD. Kontot synkroniseras inte från Azure AD till Azure AD DS förrän lösenordet har ändrats. Antingen upphör lösenorden för alla molnanvändare i klienten som behöver använda Azure AD DS, vilket tvingar en lösenordsändring vid nästa inloggning, eller instruera molnanvändare att manuellt ändra sina lösenord. För den här självstudien ska vi manuellt ändra ett användarlösenord.
 
 Innan en användare kan återställa sitt lösenord måste Azure [AD-klienten konfigureras för återställning av lösenord med självbetjäning][configure-sspr].
 

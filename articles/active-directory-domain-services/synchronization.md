@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 7e0e904b182a57a51b5d76f0acebc13bce5902b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 38ed48df4d681543cc30daccf46b98635d973b89
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78944421"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639914"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Så här synkroniseras objekt och autentiseringsuppgifter i en hanterad Azure AD Domain Services-domän
 
@@ -31,6 +31,8 @@ Följande diagram illustrerar hur synkronisering fungerar mellan Azure AD DS, Az
 ## <a name="synchronization-from-azure-ad-to-azure-ad-ds"></a>Synkronisering från Azure AD till Azure AD DS
 
 Användarkonton, gruppmedlemskap och autentiseringsuppgifter synkroniseras på ett sätt från Azure AD till Azure AD DS. Den här synkroniseringsprocessen är automatisk. Du behöver inte konfigurera, övervaka eller hantera den här synkroniseringsprocessen. Den första synkroniseringen kan ta några timmar till ett par dagar, beroende på antalet objekt i Azure AD-katalogen. När den första synkroniseringen är klar synkroniseras ändringar som görs i Azure AD, till exempel lösenord eller attributändringar, automatiskt till Azure AD DS.
+
+När en användare skapas i Azure AD synkroniseras de inte med Azure AD DS förrän de ändrar sitt lösenord i Azure AD. Den här lösenordsändringsprocessen gör att lösenordsh hashar för Kerberos- och NTLM-autentisering genereras och lagras i Azure AD. Lösenordshã¤nden behövs för att autentisera en användare i Azure AD DS.
 
 Synkroniseringsprocessen är enkelriktad/ enkelriktad av design. Det finns ingen omvänd synkronisering av ändringar från Azure AD DS tillbaka till Azure AD. En Azure AD DS-hanterad domän är i stort sett skrivskyddad förutom anpassade us som du kan skapa. Du kan inte göra ändringar i användarattribut, användarlösenord eller gruppmedlemskap i en Azure AD DS-hanterad domän.
 
@@ -134,7 +136,7 @@ Krypteringsnycklarna är unika för varje Azure AD-klientorganisation. Dessa has
 
 Äldre lösenords hashar synkroniseras sedan från Azure AD till domänkontrollanterna för en Azure AD DS-hanterad domän. Diskarna för dessa hanterade domänkontrollanter i Azure AD DS krypteras i vila. Dessa lösenordshökar lagras och skyddas på dessa domänkontrollanter som liknar hur lösenord lagras och skyddas i en lokal AD DS-miljö.
 
-För Azure AD-miljöer med endast molnet [måste användare återställa/ändra sitt lösenord](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) för att de nödvändiga lösenordshönaren ska kunna genereras och lagras i Azure AD. För alla molnanvändarkonto som skapas i Azure AD efter att azure AD-domäntjänster har aktiverats genereras och lagras lösenordshã¤nderarna i kompatibla NTLM- och Kerberos-format. Dessa nya konton behöver inte återställa eller ändra sitt lösenord generera äldre lösenord hashar.
+För Azure AD-miljöer med endast molnet [måste användare återställa/ändra sitt lösenord](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) för att de nödvändiga lösenordshönaren ska kunna genereras och lagras i Azure AD. För alla molnanvändarkonto som skapas i Azure AD efter att azure AD-domäntjänster har aktiverats genereras och lagras lösenordshã¤nderarna i kompatibla NTLM- och Kerberos-format. Alla molnanvändarkonton måste ändra sitt lösenord innan de synkroniseras till Azure AD DS.
 
 För hybridanvändarkonton som synkroniserats från lokal AD DS-miljö med Azure AD Connect måste du [konfigurera Azure AD Connect för att synkronisera lösenordshökar i NTLM- och Kerberos-kompatibla format](tutorial-configure-password-hash-sync.md).
 

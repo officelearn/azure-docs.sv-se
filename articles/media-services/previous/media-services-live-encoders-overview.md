@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 71a31228602ef161158eaa05c80d50f65de98a50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82fa5968d004bd4460f2c05ec944f6e568508675
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77133275"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641142"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Konfigurera lokala kodare när du använder Azure Media Services för att skapa flerbitratströmmar
 I det här avsnittet visas lokala live-kodare som du kan använda för att fånga dina livehändelser och skicka en enda bitrate live stream till AMS-kanaler (som är aktiverat för live-kodning) för vidare bearbetning. Avsnittet länkar också till självstudier som visar hur du konfigurerar listade kodare.
@@ -32,9 +32,6 @@ Information om hur du [konfigurerar Haivision KB Encoder-kodaren](https://www.ha
 
 ## <a name="telestream-wirecast"></a>Telestream Wirecast
 Information om hur du konfigurerar [Telestream Wirecast-kodaren](https://www.telestream.net/wirecast/overview.htm) för att skicka en enda bithastighets direktuppspelning till en AMS-kanal finns i [Konfigurera Wirecast](media-services-configure-wirecast-live-encoder.md).
-
-## <a name="newtek-tricaster"></a>NyaTek TriCaster
-Information om hur du [konfigurerar Tricaster-kodaren](https://newtek.com/products/tricaster-40.html) för att skicka en enda bithastighets direktuppspelning till en AMS-kanal finns i [Konfigurera Tricaster](media-services-configure-tricaster-live-encoder.md).
 
 ## <a name="elemental-live"></a>Elemental Live
 Mer information finns i [Elemental Live](https://www.elementaltechnologies.com/products/elemental-live).

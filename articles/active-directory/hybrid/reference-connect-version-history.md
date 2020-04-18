@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/03/2020
+ms.date: 04/17/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d2e3f8da4a05feedb8c1ab585fabcc74edbc71a
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 815d3afe68003f56a5748584b322b731ef5a3dc7
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998751"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639649"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Versionshistorik för Azure AD Connect
 Azure Active Directory (Azure AD) -teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla målgrupper.
@@ -55,6 +55,15 @@ Alla versioner av Azure AD Connect kommer inte att göras tillgängliga för aut
 
 ### <a name="fixed-issues"></a>Åtgärdade problem
 Den här snabbkorrigeringsversionen åtgärdar ett problem med build 1.5.18.0 om du har funktionen Gruppfiltrering aktiverad och använder mS-DS-ConsistencyGuid som källankare.
+
+> [!IMPORTANT]
+> Om du använder mS-DS-ConsistencyGuid som källankare och har klonat synkroniseringsregeln **In från AD - Gruppanslutning** och planerar att uppgradera, slutför du följande steg som en del av uppgraderingen:
+> 1. Avmarkera alternativet **Starta synkroniseringsprocessen när konfigurationen är klar under**uppgraderingen .
+> 2. Redigera den klonade synkroniseringsregeln för koppling och lägg till följande två omvandlingar:
+>     - Ställ in `objectGUID` `sourceAnchorBinary`direktflöde på .
+>     - Ange uttrycksflöde `ConvertToBase64([objectGUID])` till `sourceAnchor`.     
+> 3. Aktivera schemaläggaren `Set-ADSyncScheduler -SyncCycleEnabled $true`med .
+
 
 ## <a name="15180"></a>1.5.18.0
 

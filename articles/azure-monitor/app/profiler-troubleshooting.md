@@ -6,19 +6,18 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: f284d4dfbe550c357f81c01fa0a66aa9878b6c1e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55bc4ff05b650884ef17e0de10d7156cbf458a9c
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671570"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640952"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Felsöka problem med att aktivera eller visa Profiler för programstatistik
 
 ## <a name="active-issues"></a>Aktiva frågor
 
-* Profilering för ASP.NET Core 3.x-program stöds inte ännu.
-  * Om du måste ha Profiler på, är en lösning att använda [Application Insights Profiler för ASP.NET Core](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore). Profileret är märkt för Linux, men det fungerar också med .NET Core 3.0 + program på Windows. Mer information finns i [versioner som stöds](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore#supported-versions).
+* Profilering för ASP.NET Core 3.x-program stöds nu på Azure App Services.
 
 ## <a name="general-troubleshooting"></a><a id="troubleshooting"></a>Allmän felsökning
 

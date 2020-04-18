@@ -3,12 +3,12 @@ title: Azure Principtillägg för Visual Studio-kod
 description: Lär dig hur du använder Azure Policy-tillägget för Visual Studio-kod för att slå upp Resurshanterarens alias.
 ms.date: 03/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 0e9123f2975bda0d61e9d6e9bf894ecd359e6c5a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5e31af652f2746adbf0eda386bdb178c752f5f84
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264679"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641028"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Använda Azure-principtillägg för Visual Studio-kod
 
@@ -26,7 +26,7 @@ Azure Policy-tillägg för Visual Studio-kod kan installeras på alla plattforma
 Följande objekt krävs för att slutföra stegen i den här artikeln:
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
-- [Visual Studio Code](https://code.visualstudio.com).
+- [Visual Studio-kod](https://code.visualstudio.com).
 
 ## <a name="install-azure-policy-extension"></a>Installera Azure-principtillägg
 
@@ -121,7 +121,7 @@ Kunder med hundratals eller tusentals resurser i en enda prenumeration kanske f�
 
 ## <a name="discover-aliases-for-resource-properties"></a>Identifiera alias för resursegenskaper
 
-När en resurs är markerad, antingen via sökgränssnittet eller genom att välja den i trädvyn, öppnar Azure Policy-tillägget JSON-filen som representerar resursen och allt dess Resource Manager-egenskapsvärden.
+När en resurs har valts, antingen via sökgränssnittet eller genom att välja den i trädvyn, öppnar Azure Policy-tillägget JSON-filen som representerar resursen och alla dess Resource Manager-egenskapsvärden.
 
 När en resurs är öppen visas Azure Policy-aliaset om det finns ett alias för Att hovra över egenskapsnamnet eller värdet i Resource Manager. I det här exemplet `Microsoft.Compute/virtualMachines` är resursen en resurstyp och egenskapen **properties.storageProfile.imageReference.offer** hovrar över. Hovring visar matchande alias.
 

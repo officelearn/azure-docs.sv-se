@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/15/2019
+ms.date: 04/17/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1e8587562ff452373fe2ee3b98fa20309e77cc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be5defb85547e8750dea9ceaa481217aa40a004e
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79266590"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639767"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Skapa, lista eller ta bort en användartilldelad hanterad identitet med Hjälp av Azure CLI
 
@@ -37,6 +37,12 @@ I den här artikeln får du lära dig hur du skapar, listar och tar bort en anv�
     - Använd [Azure Cloud Shell](../../cloud-shell/overview.md) från Azure-portalen (se nästa avsnitt).
     - Använd det inbäddade Azure Cloud Shell via knappen "Prova", som finns i det övre högra hörnet av varje kodblock.
     - [Installera den senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 eller senare) om du föredrar att använda en lokal CLI-konsol. Logga in på `az login`Azure med ett konto som är associerat med Azure-prenumerationen där du vill distribuera den användartilldelade hanterade identiteten.
+
+
+> [!NOTE]
+> För att ändra användarbehörigheter när du använder ett appobjektnamn med CLI måste du ange tjänstens huvudnamn ytterligare behörigheter i Azure AD Graph API som delar av CLI utföra GET-begäranden mot Graph API. Annars kan det sluta med att du får meddelandet "Otillräckliga privilegier för att slutföra åtgärden". För att göra detta måste du gå in i appregistreringen i Azure Active Directory, välja din app, klicka på API-behörigheter, rulla nedåt och välja Azure Active Directory Graph. Därifrån väljer programbehörigheter och lägger sedan till lämpliga behörigheter. 
+
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 682935fa2324b8de4992ab2f90c7f71e05c4f8ac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba281ffb30801e0ae10cab10ceb95c0a3bffde2d
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79264237"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640011"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Hanteringsbegrepp för användarkonton, lösenord och administration i Azure Active Directory Domain Services
 
@@ -48,7 +48,7 @@ Mer information om skillnaderna i hur lösenordsprinciper tillämpas beroende p�
 
 För att autentisera användare på den hanterade domänen behöver Azure AD DS lösenordshashar i ett format som är lämpligt för NT LAN Manager (NTLM) och Kerberos-autentisering. Azure AD genererar inte eller lagrar lösenordsh hashar i det format som krävs för NTLM- eller Kerberos-autentisering förrän du aktiverar Azure AD DS för din klient. Av säkerhetsskäl lagrar Azure AD inte heller några lösenordsuppgifter i klartextform. Därför kan Azure AD inte automatiskt generera dessa NTLM- eller Kerberos-lösenordshashar baserat på användarnas befintliga autentiseringsuppgifter.
 
-För användarkonton med enbart molnet måste användarna ändra sina lösenord innan de kan använda Azure AD DS. Den här lösenordsändringsprocessen gör att lösenordsh hashar för Kerberos- och NTLM-autentisering genereras och lagras i Azure AD.
+För användarkonton med enbart molnet måste användarna ändra sina lösenord innan de kan använda Azure AD DS. Den här lösenordsändringsprocessen gör att lösenordsh hashar för Kerberos- och NTLM-autentisering genereras och lagras i Azure AD. Kontot synkroniseras inte från Azure AD till Azure AD DS förrän lösenordet har ändrats.
 
 För användare som synkroniseras från en lokal AD DS-miljö med Azure AD Connect [aktiverar du synkronisering av lösenordshashar][hybrid-phs].
 
@@ -80,9 +80,9 @@ I Azure AD DS baseras de tillgängliga prestanda och funktioner på SKU. Du väl
 
 | SKU-namn   | Maximalt antal objekt | Säkerhetskopieringsfrekvens | Maximalt antal utgående skogsförtroende |
 |------------|----------------------|------------------|----|
-| Standard   | Unlimited            | Var 7:e dag     | 0  |
-| Enterprise | Unlimited            | Var tredje dag     | 5  |
-| Premium    | Unlimited            | Varje dag            | 10 |
+| Standard   | Obegränsat            | Var 7:e dag     | 0  |
+| Enterprise | Obegränsat            | Var tredje dag     | 5  |
+| Premium    | Obegränsat            | Varje dag            | 10 |
 
 Innan dessa Azure AD DS SKU:er användes en faktureringsmodell baserad på antalet objekt (användar- och datorkonton) i azure AD DS-hanterade domänen. Det finns inte längre rörlig prissättning baserat på antalet objekt i den hanterade domänen.
 

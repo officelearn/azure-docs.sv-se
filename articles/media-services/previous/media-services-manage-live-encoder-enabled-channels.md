@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: b0569907537f91f7e84b8156dffa0f313461f6e1
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 6210d6ee4877c6ba84178340cf0a6610e402da31
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677027"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641106"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter
 
@@ -31,7 +31,7 @@ ms.locfileid: "80677027"
 I Azure Media Services (AMS) representerar en **kanal** en pipeline för bearbetning av direktuppspelning av innehåll. En **kanal** tar emot live-indataströmmar på ett av två sätt:
 
 * En lokal live-kodare skickar en enbitrate-ström till kanalen som är aktiverad för att utföra live-kodning med Media Services i något av följande format: RTMP eller Smooth Streaming (Fragmenterad MP4). Kanalen utför sedan Live Encoding av strömmen med en enda bithastighet till en video-ström med flera bithastigheter (anpassningsbar). På begäran levererar Media Services strömmen till kunder.
-* En lokal live-kodare skickar en multibitrate **RTMP** eller **Smooth Streaming** (Fragmented MP4) till kanalen som inte är aktiverad för att utföra live-kodning med AMS. De intövda strömmarna passerar genom **Kanal**erna utan ytterligare bearbetning. Den här metoden kallas **genomströmning**. Du kan använda följande live-kodare som matar ut multibitrate Smooth Streaming: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco och Elemental. Följande live-kodare matar ut RTMP: [Telestream Wirecast,](media-services-configure-wirecast-live-encoder.md)Haivision, Teradek och Tricaster-kodare.  En livekodare kan även skicka en ström med en enda bithastighet till en kanal som inte har aktiverats för Live Encoding, men det rekommenderas inte. På begäran levererar Media Services strömmen till kunder.
+* En lokal live-kodare skickar en multibitrate **RTMP** eller **Smooth Streaming** (Fragmented MP4) till kanalen som inte är aktiverad för att utföra live-kodning med AMS. De intövda strömmarna passerar genom **Kanal**erna utan ytterligare bearbetning. Den här metoden kallas **genomströmning**. Du kan använda följande live-kodare som matar ut multibitrate Smooth Streaming: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco och Elemental. Följande live-kodare matar ut RTMP: [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Haivision, Teradek-kodare.  En livekodare kan även skicka en ström med en enda bithastighet till en kanal som inte har aktiverats för Live Encoding, men det rekommenderas inte. På begäran levererar Media Services strömmen till kunder.
 
   > [!NOTE]
   > Att använda en genomströmningsmetod är det mest ekonomiska sättet att göra livestreaming.

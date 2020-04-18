@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a02c099871ce9748f4c5f604900a7c4d57bb96b6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 298555da2056bc4c16d4d7b16615604f9798b91b
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79473531"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639271"
 ---
-# <a name="azure-app-service-access-restrictions"></a>Åtkomstbegränsningar för Azure App-tjänsten #
+# <a name="azure-app-service-access-restrictions"></a>Åtkomstbegränsningar för Azure App Service
 
 Med åtkomstbegränsningar kan du definiera en prioriterad lista för tillåt/neka som styr nätverksåtkomsten till din app. Listan kan innehålla IP-adresser eller Azure Virtual Network-undernät. När det finns en eller flera poster finns det sedan en implicit "förneka alla" som finns i slutet av listan.
 
@@ -125,12 +125,12 @@ JSON-syntaxen för det tidigare exemplet är:
 }
 ```
 
-## <a name="azure-function-app-access-restrictions"></a>Åtkomstbegränsningar för Azure-funktionsapp
+## <a name="azure-functions-access-restrictions"></a>Åtkomstbegränsningar för Azure Functions
 
 Åtkomstbegränsningar är också tillgängliga för funktionsappar med samma funktioner som App Service-abonnemang. Om du aktiverar åtkomstbegränsningar inaktiveras portalkodredigeraren för otillåtna IP-adresser.
 
 ## <a name="next-steps"></a>Nästa steg
-[Åtkomstbegränsningar för Azure-funktionsappar](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
+[Åtkomstbegränsningar för Azure-funktioner](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
 
 [Integrering av programgateway med tjänstslutpunkter](networking/app-gateway-with-service-endpoints.md)
 

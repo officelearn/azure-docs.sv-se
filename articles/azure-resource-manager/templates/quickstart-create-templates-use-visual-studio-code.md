@@ -1,215 +1,158 @@
 ---
 title: Skapa mall - Visual Studio-kod
 description: Använd Visual Studio Code och Azure Resource Manager-malltillägget för att arbeta med Resource Manager-mallar.
-author: mumian
-ms.date: 04/13/2020
+author: neilpeterson
+ms.date: 03/27/2019
 ms.topic: quickstart
-ms.author: jgao
-ms.openlocfilehash: 96e57146fb6bb17cbb8bb5975371e07b66f3ec8b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.author: nepeters
+ms.openlocfilehash: 4b1ecbf3a1f6083261e87537e20d52e755b77424
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255098"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640638"
 ---
-# <a name="quickstart-create-arm-templates-by-using-visual-studio-code"></a>Snabbstart: Skapa ARM-mallar med Visual Studio-kod
+# <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Snabbstart: Skapa Azure Resource Manager-mallar med Visual Studio-kod
 
-Lär dig hur du använder Visual Studio-kod och Azure Resource Manager Tools-tillägget för att skapa och redigera ARM-mallar (Azure Resource Manager). Du kan skapa ARM-mallar i Visual Studio-kod utan tillägget, men tillägget innehåller alternativ för automatisk komplettering som förenklar mallutvecklingen. Information om vilka begrepp som är associerade med distribution och hantering av dina Azure-lösningar finns i [översikt över malldistribution](overview.md).
+Azure Resource Manager-verktygen för Visual Studio-kod ger språkstöd, resurskodavsnitt och automatisk komplettering av resurser. De här verktygen hjälper till att skapa och validera Azure Resource Manager-mallar. I den här snabbstarten använder du tillägget för att skapa en Azure Resource Manager-mall från grunden. När du gör det uppstår tilläggsfunktionerna, till exempel ARM-mallavsnitt, validering, kompletteringar och parameterfilstöd.
 
-I den här snabbstarten distribuerar du ett lagringskonto:
-
-![Snabbstarts visual studio-koddiagram för Visual Studio-mallmallar för Resurshanteraren](./media/quickstart-create-templates-use-visual-studio-code/resource-manager-template-quickstart-vscode-diagram.png)
+För att slutföra den här snabbstarten behöver du [Visual Studio-kod](https://code.visualstudio.com/)med [tillägget Azure Resource Manager-verktyg](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) installerat. Du behöver också antingen [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) eller [Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.7.0) installerad och autentiserad.
 
 Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="create-an-arm-template"></a>Skapa en ARM-mall
 
-För att kunna följa stegen i den här artikeln behöver du:
+Skapa och öppna med Visual Studio Kod en ny fil med namnet *azuredeploy.json*. Ange `arm` kodredigeraren, som initierar Azure Resource Manager-kodavsnitt för byggnadsställningar i en ARM-mall.
 
-- [Visual Studio-kod](https://code.visualstudio.com/).
-- Resource Manager Tools-tillägget. Följ dessa steg för att installera:
+Välj `arm!` det här om du vill skapa en mall som omfattas av en Azure-resursgruppsdistribution.
 
-    1. Öppna Visual Studio Code.
-    2. Tryck på **CTRL + SKIFT + X** för att öppna fönsterrutan Tillägg
-    3. Sök efter **Azure Resource Manager Tools** och välj sedan **Installera**.
-    4. Välj **Läs in på nytt** för att slutföra installationen av tillägget.
+![Avbildning som visar Azure Resource Manager-byggnadsställningar](./media/quickstart-create-templates-use-visual-studio-code/1.png)
 
-## <a name="open-a-quickstart-template"></a>Öppna en snabbstartsmall
+Det här kodavsnittet skapar de grundläggande byggstenarna för en ARM-mall.
 
-I stället för att skapa en mall från början öppnar du en mall från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/). Azure Quickstart Templates är en lagringsplats för ARM-mallar.
+![Bild som visar en helt byggnadsställning ARM-mall](./media/quickstart-create-templates-use-visual-studio-code/2.png)
 
-Den mall som används i den här snabbstarten kallas [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/) (Skapa ett standardlagringskonto). Mallen definierar en Azure Storage-kontoresurs.
+Observera att språkläget för Visual Studio-kod har ändrats från *JSON* till *Azure Resource Manager-mall*. Tillägget innehåller en språkserver som är specifik för ARM-mallar som tillhandahåller ARM-mallspecifik validering, slutförande och andra språktjänster.
 
-1. Välj **Öppna**>**fil**i Visual Studio-kod .
-2. I **Filnamn** klistrar du in följande URL:
+![Bild som visar Azure Resource Manager som språkläge för Visual Studio-kod](./media/quickstart-create-templates-use-visual-studio-code/3.png)
 
-    ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
-    ```
+## <a name="add-an-azure-resource"></a>Lägga till en Azure-resurs
 
-3. Välj **Öppna** för att öppna filen.
-4. Välj **Spara fil**>**som** om du vill spara filen som **azuredeploy.json** på den lokala datorn.
+Tillägget innehåller utdrag för många Azure-resurser. Dessa utdrag kan användas för att enkelt lägga till resurser i malldistributionen.
 
-## <a name="edit-the-template"></a>Redigera mallen
+Placera markören i **mallresursblocket,** skriv in `storage`och markera utdraget för *vapenlagring.*
 
-Om du vill veta hur du redigerar en mall med hjälp av Visual Studio Code lägger du till ytterligare ett element i avsnittet `outputs` för att visa lagrings-URI.
+![Bild som visar en resurs som läggs till i ARM-mallen](./media/quickstart-create-templates-use-visual-studio-code/4.png)
 
-1. Lägg till ytterligare utdata i den exporterade mallen:
+Den här åtgärden lägger till en lagringsresurs i mallen.
 
-    ```json
-    "storageUri": {
-      "type": "string",
-      "value": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
-    }
-    ```
+![Avbildning som visar en Azure Storage-resurs i en ARM-mall](./media/quickstart-create-templates-use-visual-studio-code/5.png)
 
-    När du är klar ser utdataavsnittet ut så här:
+**Tabbtangenten** kan användas för att tabb igenom konfigurerbara egenskaper på lagringskontot.
 
-    ```json
-    "outputs": {
-      "storageAccountName": {
-        "type": "string",
-        "value": "[variables('storageAccountName')]"
-      },
-      "storageUri": {
-        "type": "string",
-        "value": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
-      }
-    }
-    ```
+![Bild som visar hur tabbtangenten kan användas för att navigera genom resurskonfigurationen](./media/quickstart-create-templates-use-visual-studio-code/6.png)
 
-    Om du kopierade och klistrade in koden i Visual Studio-koden försöker du skriva om **värdeelementet** så att det uppstår funktionen IntelliSense i tillägget Resource Manager Tools.
+## <a name="completion-and-validation"></a>Slutförande och validering
 
-    ![Resource Manager template visual studio code IntelliSense](./media/quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
+En av de mest kraftfulla funktionerna i tillägget är dess integrering med Azure-scheman. Azure-scheman ger tillägget funktioner för validering och resursmedveten slutförande. Nu ska vi ändra lagringskontot så att validering och slutförande visas. 
 
-2. Välj**Spara** **fil**>om du vill spara filen.
+Uppdatera först lagringskontosdyt till `megaStorage`ett ogiltigt värde, till exempel . Observera att den här åtgärden `megaStorage` ger en varning som anger att det inte är ett giltigt värde.
+
+![Bild som visar en ogiltig lagringskonfiguration](./media/quickstart-create-templates-use-visual-studio-code/7.png)
+
+Om du vill använda `megaStorage`slutförandefunktionerna tar du bort , placerar markören inuti de dubbla citaten och trycker på `ctrl`  +  `space`. Den här åtgärden visar en slutförandelista med giltiga värden.
+
+![Bild som visar automatisk komplettering av tillägg](./media/quickstart-create-templates-use-visual-studio-code/8.png)
+
+## <a name="add-template-parameters"></a>Lägga till mallparametrar
+
+Nu skapa och använda en parameter för att ange lagringskontots namn.
+
+Placera markören i parameterblocket, lägg `par`till en vagnretur, skriv och välj sedan kodavsnittet. `arm-param-value` Den här åtgärden lägger till en allmän parameter i mallen.
+
+![Bild som visar en parameter som läggs till i ARM-mallen](./media/quickstart-create-templates-use-visual-studio-code/9.png)
+
+Uppdatera namnet på parametern till `storageAccountName` `Storage Account Name`och beskrivningen till .
+
+![Bild som visar den slutförda parametern i en ARM-mall](./media/quickstart-create-templates-use-visual-studio-code/10.png)
+
+Azure storage-kontonamn har en minsta längd på 3 tecken och högst 24. Lägg `minLength` till `maxLength` både och till parametern och ange lämpliga värden.
+
+![Bild som visar minLength och maxLength som läggs till i en ARM-mallparameter](./media/quickstart-create-templates-use-visual-studio-code/11.png)
+
+Uppdatera nu namnegenskapen för att använda parametern på lagringsresursen. Om du vill göra det tar du bort det aktuella namnet. Ange en dubbel offert `[`och en inledande hakparentes , som skapar en lista över ARM-mallfunktioner. Välj *parametrar* i listan. 
+
+![Bild som visar automatisk komplettering när parametrar används i ARM-mallresurser](./media/quickstart-create-templates-use-visual-studio-code/12.png)
+
+Om du anger `'` ett enda citat inuti de runda hakparenteserna visas en lista över alla parametrar som definierats i mallen, i det här fallet *storageAccountName*. Välj parametern.
+
+![Bild som visar slutförd parameter i en ARM-mallresurs](./media/quickstart-create-templates-use-visual-studio-code/13.png)
+
+## <a name="create-a-parameter-file"></a>Skapa en parameterfil
+
+Med en ARM-mallparameterfil kan du lagra miljöspecifika parametervärden och skicka in dessa värden som en grupp vid distributionen. Du kan till exempel ha en parameterfil med värden som är specifika för en testmiljö och en annan för en produktionsmiljö.
+
+Tillägget gör det enkelt att skapa en parameterfil från dina befintliga mallar. För att göra det högerklicka på mallen i `Select/Create Parameter File`kodredigeraren och välj .
+
+![Bild som visar högerklicksprocessen för att skapa en parameterfil från en ARM-mall](./media/quickstart-create-templates-use-visual-studio-code/14.png)
+
+`New`  >  Välj `All Parameters` > Välj ett namn och en plats för parameterfilen.
+
+![Bild som visar dialogrutan namn och spara filer när du skapar en parameterfil från en ARM-mall](./media/quickstart-create-templates-use-visual-studio-code/15.png)
+
+Den här åtgärden skapar en ny parameterfil och mappar den med mallen som den skapades från. Du kan se och ändra den aktuella mappningen av mall-/parameterfil i statusfältet Visual Studio-kod medan mallen är markerad.
+
+![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
+
+Nu när parameterfilen har mappats till mallen validerar tillägget både mallen och parameterfilen tillsammans. Om du vill visa den här valideringen `storageAccountName` i praktiken lägger du till ett tvåteckensvärde i parametern i parameterfilen och sparar filen.
+
+![Bild som visar en ogiltig mall på grund av parameterfilproblem](./media/quickstart-create-templates-use-visual-studio-code/17.png)
+
+Navigera tillbaka till ARM-mallen och observera att ett fel har höjts som anger att värdet inte uppfyller parametervillkoren.
+
+![Bild som visar en giltig ARM-mall](./media/quickstart-create-templates-use-visual-studio-code/18.png)
+
+Uppdatera värdet till något lämpligt, spara filen och navigera tillbaka till mallen. Observera att felet på parametern har lösts.
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-Det finns många metoder för att distribuera mallar. Azure Cloud Shell används i den här snabbstarten. Cloud Shell stöder både Azure CLI och Azure PowerShell. Använd flikväljaren för att välja mellan CLI och PowerShell.
+Öppna den integrerade Visual Studio-kodterminalen med hjälp av tangentkombinationen `ctrl`  +  ```` ` ```` och använd antingen Azure CLI- eller Azure PowerShell-modulen för att distribuera mallen.
 
-1. Logga in på [Azure Cloud Shell](https://shell.azure.com)
+# <a name="cli"></a>[CLI](#tab/CLI)
 
-2. Välj önskad miljö genom att välja antingen **PowerShell** eller **Bash**(CLI) i det övre vänstra hörnet.  Du måste starta om gränssnittet när du byter.
+```azurecli
+az group create --name arm-vscode --location eastus
 
-    # <a name="cli"></a>[CLI](#tab/CLI)
+az deployment group create --resource-group arm-vscode --template-file azuredeploy.json --parameters azuredeploy.parameters.json
+```
 
-    ![Azure portal Cloud Shell CLI](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+```azurepowershell
+New-AzResourceGroup -Name arm-vscode -Location eastus
 
-    ![Azure portal Cloud Shell PowerShell](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-powershell.png)
-
-    ---
-
-3. Välj **Ladda upp/ned filer** och välj sedan **Ladda upp**.
-
-    # <a name="cli"></a>[CLI](#tab/CLI)
-
-    ![Ladda upp -fil för Azure portal Cloud Shell](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file.png)
-
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
-
-    ![Ladda upp -fil för Azure portal Cloud Shell](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file-powershell.png)
-
-    ---
-
-    Välj den fil som du sparade i föregående avsnitt. Standardnamnet är **azuredeploy.json**. Mallfilen måste vara tillgänglig från gränssnittet.
-
-    Alternativt kan du använda kommandona **ls** och **cat** för att kontrollera att filen laddas upp.
-
-    # <a name="cli"></a>[CLI](#tab/CLI)
-
-    ![Listfil för Azure portal Cloud Shell](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file.png)
-
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
-
-    ![Listfil för Azure portal Cloud Shell](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file-powershell.png)
-
-    ---
-4. Kör följande kommandon från Cloud Shell. Välj fliken så att du ser PowerShell-koden eller CLI-koden. Ange ett projektnamn som används för att generera ett resursgruppsnamn.  Resursgruppsnamnet är projektnamnet med **rg** bifogat.
-
-    # <a name="cli"></a>[CLI](#tab/CLI)
-
-    ```azurecli
-    echo "Enter a project name that is used to generate resource group name:" &&
-    read projectName &&
-    echo "Enter the location (i.e. centralus):" &&
-    read location &&
-    resourceGroupName="${projectName}rg" &&
-    az group create --name $resourceGroupName --location "$location" &&
-    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json" &&
-    echo "Press [ENTER] to continue ..."
-    ```
-
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
-
-    ```azurepowershell
-    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
-    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-    $resourceGroupName = "${projectName}rg"
-
-    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
-    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json"
-    Write-Host "Press [ENTER] to continue ..."
-    ```
-
-    ---
-
-    Uppdatera mallfilnamnet om du sparar filen som ett annat namn än **azuredeploy.json**.
-
-    Följande skärmbild visar ett distributionsexempel:
-
-    # <a name="cli"></a>[CLI](#tab/CLI)
-
-    ![Distribuera distributionsmall för Azure portal Cloud Shell](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template.png)
-
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
-
-    ![Distribuera distributionsmall för Azure portal Cloud Shell](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template-powershell.png)
-
-    ---
-
-    Lagringskontonamnet och lagrings-URL:en i utdataavsnittet är markerade på skärmbilden. Du behöver lagringskontonamnet i nästa steg.
-
-5. Kör följande CLI- eller PowerShell-kommando för att visa det nyligen skapade lagringskontot:
-
-    # <a name="cli"></a>[CLI](#tab/CLI)
-
-    ```azurecli
-    echo "Enter the Resource Group name:" &&
-    read resourceGroupName &&
-    echo "Enter the Storage Account name:" &&
-    read storageAccountName &&
-    az storage account show --resource-group $resourceGroupName --name $storageAccountName &&
-    echo "Press [ENTER] to continue ..."
-    ```
-
-    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
-
-    ```azurepowershell
-    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-    $storageAccountName = Read-Host -Prompt "Enter the Storage Account name"
-    Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-    Write-Host "Press [ENTER] to continue ..."
-    ```
-
-    ---
-
-Mer information om hur du använder Azure Storage-konton finns i [Snabbstart: Ladda upp, ladda ned och lista blobar med Azure Portal](../../storage/blobs/storage-quickstart-blobs-portal.md).
+New-AzResourceGroupDeployment -ResourceGroupName arm-vscode -TemplateFile ./azuredeploy.json -TemplateParameterFile ./azuredeploy.parameters.json
+```
+---
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När Azure-resurserna inte längre behövs rensar du de resurser som du har distribuerat genom att ta bort resursgruppen.
+När Azure-resurserna inte längre behövs använder du Azure CLI- eller Azure PowerShell-modulen för att ta bort snabbstartresursgruppen.
 
-1. Välj **Resursgrupp** på den vänstra menyn på Azure-portalen.
-2. Ange resursgruppens namn i fältet **Filtrera efter namn**.
-3. Välj resursgruppens namn. Resursgruppsnamnet är projektnamnet med **rg** bifogat. Du ska se en lagringskontoresurs i resursgruppen.
-4. Välj **Ta bort resursgrupp** på den övre menyn.
+# <a name="cli"></a>[CLI](#tab/CLI)
+
+```azurecli
+az group delete --name arm-vscode
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell
+Remove-AzResourceGroup -Name arm-vscode
+```
+---
 
 ## <a name="next-steps"></a>Nästa steg
-
-Huvudfokus för den här snabb är att använda Visual Studio Code för att redigera en befintlig mall från snabbstartsmallarna i Azure. Du har också lärt dig hur du distribuerar mallen med cli eller PowerShell från Azure Cloud Shell. Snabbstartsmallarna i Azure kanske inte innehåller exakt det du behöver. Mer information om mallutveckling finns i vår nya videoprogramledningsserie:
 
 > [!div class="nextstepaction"]
 > [Självstudier för nybörjare](./template-tutorial-create-first-template.md)

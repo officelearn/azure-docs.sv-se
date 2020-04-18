@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7360798f2f95184145a856babf501e3080cbaaf4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 87347cfea0e45d3498c48f07578523a20d5a13e2
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76274192"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641084"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Självstudier: Skapa en anpassad avbildning av en virtuell dator i Azure med hjälp av Azure PowerShell
 
@@ -112,7 +112,7 @@ New-AzImage `
  
 ## <a name="create-vms-from-the-image"></a>Skapa virtuella datorer från avbildningen
 
-Nu när du har en avbildning kan du skapa en eller flera nya virtuella datorer från avbildningen. Att skapa en virtuell dator från en anpassad avbildning påminner om att skapa en virtuell dator med hjälp av en Marketplace-avbildning. När du använder en Marketplace-avbildning måste du ange information om avbildningen, avbildningsprovidern, produkten, SKU och version. Med den förenklade parameteruppsättningen för cmdleten [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) behöver du i stället bara ange namnet på den anpassade avbildningen, förutsatt att den finns i samma resursgrupp. 
+Nu när du har en avbildning kan du skapa en eller flera nya virtuella datorer från avbildningen. Att skapa en virtuell dator från en anpassad avbildning påminner om att skapa en virtuell dator med hjälp av en Marketplace-avbildning. När du använder en Marketplace-avbildning måste du ange information om avbildningen, avbildningsprovidern, produkten, SKU och version. Med den förenklade parameteruppsättningen för cmdleten [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) behöver du i stället bara ange namnet på den anpassade avbildningen, förutsatt att den finns i samma resursgrupp. Om du planerar att skapa virtuell dator i en annan resursgrupp anger du resurs-ID för avbildningen för parametern -ImageName.
 
 I det här exemplet skapas en virtuell dator med namnet *myVMfromImage* från avbildningen *myImage* i *myResourceGroup*.
 

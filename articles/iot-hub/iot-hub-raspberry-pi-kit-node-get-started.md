@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: wesmc
-ms.openlocfilehash: 7c32ae73f065aa5cd1d0dabec421d354684fbb3c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3175956e35603cc4ad3a938f3d316c0af8f2d227
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79371517"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81640535"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Anslut Raspberry Pi till Azure IoT Hub (Node.js)
 
@@ -156,7 +156,7 @@ När du har anslutit BME280 till din Raspberry Pi, bör det vara som nedan bild.
 
 ### <a name="connect-pi-to-the-network"></a>Anslut Pi till nätverket
 
-Slå på Pi med hjälp av mikro-USB-kabeln och strömförsörjningen. Använd Ethernet-kabeln för att ansluta Pi till ditt kabelanslutna nätverk eller följ [instruktionerna från Raspberry Pi Foundation](https://www.raspberrypi.org/learning/software-guide/wifi/) för att ansluta Pi till ditt trådlösa nätverk. När din Pi har anslutits till nätverket måste du ta del av [IP-adressen](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address)för din Pi .
+Slå på Pi med hjälp av mikro-USB-kabeln och strömförsörjningen. Använd Ethernet-kabeln för att ansluta Pi till ditt kabelanslutna nätverk eller följ [instruktionerna från Raspberry Pi Foundation](https://www.raspberrypi.org/documentation/configuration/wireless/) för att ansluta Pi till ditt trådlösa nätverk. När din Pi har anslutits till nätverket måste du ta del av [IP-adressen](https://www.raspberrypi.org/documentation/remote-access/ip-address.md)för din Pi .
 
 ![Ansluten till kabelanslutet nätverk](./media/iot-hub-raspberry-pi-kit-node-get-started/5-power-on-pi.png)
 

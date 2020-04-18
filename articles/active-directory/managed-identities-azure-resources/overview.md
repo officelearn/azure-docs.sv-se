@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 03/25/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 707b03d46615f3acfa0797d1dc0865d53ef75dc0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f599ee3303ab907c319d1f8cf3da3e427a4c4c0b
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282128"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81639654"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Vad är hanterade identiteter för Azure-resurser?
 
@@ -51,8 +51,12 @@ Det finns två typer av hanterade identiteter:
 - En **användartilldelad hanterad identitet** skapas som en fristående Azure-resurs. När den skapas skapar Azure en identitet i den Azure AD-klientorganisation som är betrodd av den prenumeration som används. När identiteten har skapats kan den tilldelas till en eller flera tjänstinstanser i Azure. Livscykeln för en användartilldelad identitet hanteras separat från livscykeln för de Azure-tjänstinstanser som den är tilldelad till.
 
 Internt är hanterade identiteter tjänsthuvudnamn av en speciell typ, som är låsta för att endast användas med Azure-resurser. När den hanterade identiteten tas bort tas motsvarande tjänsthuvudnamn bort automatiskt.
+När en användartilldelad eller systemtilldelad identitet skapas utfärdar MSRP (Managed Identity Resource Provider) ett certifikat internt till den identiteten. 
 
-Din kod kan använda en hanterad identitet för att begära åtkomsttoken för tjänster som stöder Azure AD-autentisering. Azure tar hand om de autentiseringsuppgifter som används av tjänstinstansen.
+Din kod kan använda en hanterad identitet för att begära åtkomsttoken för tjänster som stöder Azure AD-autentisering. Azure tar hand om de autentiseringsuppgifter som används av tjänstinstansen. 
+
+## <a name="credential-rotation"></a>Rotation av autentiseringsuppgifter
+Autentiseringsrotationen styrs av resursleverantören som är värd för Azure-resursen. Standardrotationen för autentiseringsuppgifterna sker var 46:e dag. Det är upp till resursleverantören att ringa efter nya autentiseringsuppgifter, så att resursleverantören kan vänta längre än 46 dagar.
 
 Följande diagram visar hur hanterade tjänstidentiteter fungerar med virtuella datorer i Azure (VM):
 
@@ -131,7 +135,7 @@ Lär dig hur du använder en hanterad identitet med en virtuell Linux-dator:
 
 Lär dig hur du använder en hanterad identitet med andra Azure-tjänster:
 
-* [Azure App-tjänst](/azure/app-service/overview-managed-identity)
+* [Azure App Service](/azure/app-service/overview-managed-identity)
 * [Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md)
 * [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 * [Azure Container Registry Tasks](../../container-registry/container-registry-tasks-authentication-managed-identity.md)

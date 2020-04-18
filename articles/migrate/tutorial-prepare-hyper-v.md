@@ -4,16 +4,16 @@ description: Lär dig hur du förbereder för utvärdering/migrering av virtuell
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: e86e634812e9f2782a003a11b48cfecf91d95359
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: ea6290eae187ed4ead39f7307a84a54a23c19c29
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535306"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641639"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Förbereda för bedömning och migrering av virtuella hyper-virtuella datorer till Azure
 
-I den hÃ¤r artikeln beskrivs hur du förbereder sig fÃ¤r utvärdering av lokala virtuella virtuella fÃ¤r hyper-V-fÃ¤r med Azure Migrate:Server Assessment(migrate-services-overview.md#azure-migrate-server-assessment-tool) och migrering av virtuella hyper-V-datorer med [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
+I den hÃ¤r artikeln beskrivs hur du förbereder för utvärdering av lokala virtuella virtuella hyper v-datorer med [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool)och migrering av virtuella hyper-V-datorer med [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
 Den här självstudien är den första i en serie som visar hur du bedömer och migrerar virtuella hyper-virtuella datorer till Azure. I den här guiden får du lära dig att:

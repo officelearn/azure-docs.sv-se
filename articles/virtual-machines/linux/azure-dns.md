@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 3d5ecaf67dcff182c7dace474b7bda45cdfd5c58
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0910b31685aa408c319b40ea23782b11724b6237
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78969323"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641720"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>DNS-namnmatchningsalternativ för virtuella Linux-datorer i Azure
 Azure tillhandahåller DNS-namnmatchning som standard för alla virtuella datorer som finns i ett enda virtuellt nätverk. Du kan implementera din egen DNS-namnmatchningslösningslösning genom att konfigurera dina egna DNS-tjänster på dina virtuella datorer som Azure är värd för. Följande scenarier bör hjälpa dig att välja den som fungerar för din situation.
@@ -97,7 +97,7 @@ För att kontrollera de aktuella inställningarna på en Virtuell Linux-dator, "
 Filen resolv.conf genereras automatiskt och bör inte redigeras. De specifika stegen som lägger till raden "alternativ" varierar beroende på distribution:
 
 **Ubuntu** (använder resolvconf)
-1. Lägg till alternativraden i '/etc/resolveconf/resolv.conf.d/head'.
+1. Lägg till alternativraden i '/etc/resolvconf/resolv.conf.d/head'.
 2. Kör resolvconf -u för att uppdatera.
 
 **SUSE** (använder netconf)

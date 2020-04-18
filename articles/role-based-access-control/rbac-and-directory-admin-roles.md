@@ -15,12 +15,12 @@ ms.date: 02/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: e8d82011fe4fdd40bb07c77411ad0e948ddad049
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f2229d57b249bab734b1ef91c10d5ec42ab95a17
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240102"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641434"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Administratörsroller för klassiska prenumerationer, Azure RBAC-roller och administratörsroller för Azure AD
 
@@ -131,3 +131,4 @@ Flera Azure AD-administratörsroller sträcker sig över Azure AD och Microsoft 
 - [Vad är rollbaserad åtkomstkontroll (RBAC) för Azure-resurser?](overview.md)
 - [Behörigheter för administratörsrollen i Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
 - [Klassiska Azure-prenumerationsadministratörer](classic-administrators.md)
+- [Cloud Adoption Framework: Hantering av resursåtkomst i Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

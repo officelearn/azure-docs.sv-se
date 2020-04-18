@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 260ddccc1a1b0bd4090284025b79e20ff5ce4fdc
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 44d6776a367a5cb1eeb86c955f083598d417aba6
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80475243"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641675"
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services-koncept 
 
@@ -112,7 +112,7 @@ Information om kodare som stöds finns i [Kodare](media-services-encode-asset.md
 ## <a name="live-streaming"></a>Liveuppspelning
 I Azure Media Services representerar en kanal en pipeline för bearbetning av direktuppspelning av innehåll. En kanal tar emot live-indataströmmar på ett av två sätt:
 
-* En lokal live-kodare skickar rtmp-kodning med flera bithastigheter (Smooth Streaming )till kanalen. Du kan använda följande live-kodare som matar ut multibitrate Smooth Streaming: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco och Elemental. Följande live-kodare matar ut RTMP: Adobe Flash Live Encoder, [Telestream Wirecast,](media-services-configure-wirecast-live-encoder.md)Teradek, Haivision och Tricaster-kodare. De intas strömmarna passerar genom kanaler utan ytterligare omkodning och kodning. På begäran levererar Media Services strömmen till kunder.
+* En lokal live-kodare skickar rtmp-kodning med flera bithastigheter (Smooth Streaming )till kanalen. Du kan använda följande live-kodare som matar ut multibitrate Smooth Streaming: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco och Elemental. Följande live-kodare matar ut RTMP: Adobe Flash Live Encoder, [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Teradek, Haivision-kodare. De intas strömmarna passerar genom kanaler utan ytterligare omkodning och kodning. På begäran levererar Media Services strömmen till kunder.
 * En enda bithastighetsström (i något av följande format: RTMP eller Smooth Streaming (Fragmenterad MP4)) skickas till kanalen som är aktiverad för att utföra live-kodning med Media Services. Kanalen utför sedan Live Encoding av strömmen med en enda bithastighet till en video-ström med flera bithastigheter (anpassningsbar). På begäran levererar Media Services strömmen till kunder.
 
 ### <a name="channel"></a>Kanal

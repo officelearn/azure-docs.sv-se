@@ -6,27 +6,27 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: 3432f981df3f666d6276eee4564ef33000faa6b1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/17/2020
+ms.openlocfilehash: d4bf2d1d4beeb00325d54e091a00438073509eef
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81410897"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641319"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurera utgående nätverkstrafik för Azure HDInsight-kluster med brandvägg
 
-Den här artikeln innehåller stegen för att skydda utgående trafik från ditt HDInsight-kluster med Azure-brandväggen. Stegen nedan förutsätter att du konfigurerar om en Azure-brandvägg för ett befintligt kluster. Om du distribuerar ett nytt kluster och bakom en brandvägg skapar du hdinsight-klustret och undernätet först och följer sedan stegen i den här guiden.
+Den här artikeln innehåller stegen för att skydda utgående trafik från ditt HDInsight-kluster med Azure-brandväggen. Stegen nedan förutsätter att du konfigurerar om en Azure-brandvägg för ett befintligt kluster. Om du distribuerar ett nytt kluster bakom en brandvägg skapar du hdinsight-klustret och undernätet först. Följ sedan stegen i den här guiden.
 
 ## <a name="background"></a>Bakgrund
 
-Azure HDInsight-kluster distribueras normalt i ditt eget virtuella nätverk. Klustret har beroenden på tjänster utanför det virtuella nätverket som kräver nätverksåtkomst för att fungera korrekt.
+HDInsight-kluster distribueras normalt i ett virtuellt nätverk. Klustret har beroenden av tjänster utanför det virtuella nätverket.
 
 Det finns flera beroenden som kräver inkommande trafik. Den inkommande hanteringstrafiken kan inte skickas via en brandväggsenhet. Källadresserna för den här trafiken är kända och publiceras [här](hdinsight-management-ip-addresses.md). Du kan också skapa NSG-regler (Network Security Group) med den här informationen för att skydda inkommande trafik till klustren.
 
-HDInsight-utgående trafikberoenden definieras nästan helt med FQDN:er, som inte har statiska IP-adresser bakom sig. Bristen på statiska adresser innebär att NSG(Network Security Groups) inte kan användas för att låsa den utgående trafiken från ett kluster. Adresserna ändras ofta nog att man inte kan ställa in regler baserat på den aktuella namnmatchningen och använda den för att ställa in NSG-regler.
+HdInsight-utgående trafikberoenden definieras nästan helt med FQDN.The HDInsight outbound traffic dependencies are almost wholely defined with FQDNs. Som inte har statiska IP-adresser bakom sig. Bristen på statiska adresser innebär att NSG(Network Security Groups) inte kan låsa utgående trafik från ett kluster. Adresserna ändras ofta nog man inte kan ställa in regler baserat på den aktuella namnmatchningen och användningen.
 
-Lösningen för att skydda utgående adresser är att använda en brandväggsenhet som kan styra utgående trafik baserat på domännamn. Azure-brandväggen kan begränsa utgående HTTP- och HTTPS-trafik baserat på FQDN-taggarna för målet eller [FQDN](../firewall/fqdn-tags.md).
+Säkra utgående adresser med en brandvägg som kan styra utgående trafik baserat på domännamn. Azure-brandväggen begränsar utgående trafik baserat på FQDN för mål- eller [FQDN-taggarna](../firewall/fqdn-tags.md).
 
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>Konfigurera Azure-brandväggen med HDInsight
 
@@ -74,7 +74,7 @@ Skapa en programregelsamling som gör att klustret kan skicka och ta emot viktig
 
     **Avsnittet Mål-FQDN**
 
-    | Namn | Källadresser | Protokoll:Port | Mål FQDNS | Anteckningar |
+    | Namn | Källadresser | `Protocol:Port` | Mål FQDNS | Anteckningar |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Tillåter Windows-inloggningsaktivitet |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Tillåter Windows-inloggningsaktivitet |
@@ -106,14 +106,14 @@ Skapa nätverksregler för att konfigurera HDInsight-klustret på rätt sätt.
     | --- | --- | --- | --- | --- | --- |
     | Rule_1 | UDP | * | * | 123 | Tidsservice |
     | Rule_2 | Alla | * | DC_IP_Address_1, DC_IP_Address_2 | * | Om du använder ESP (Enterprise Security Package) lägger du till en nätverksregel i avsnittet IP-adresser som möjliggör kommunikation med AAD-DS för ESP-kluster. Du hittar IP-adresserna för domänkontrollanterna i AAD-DS-avsnittet i portalen |
-    | Rule_3 | TCP | * | IP-adress för ditt datasjölagringskonto | * | Om du använder Azure Data Lake Storage kan du lägga till en nätverksregel i avsnittet IP-adresser för att lösa ett SNI-problem med ADLS Gen1 och Gen2. Det här alternativet dirigerar trafiken till brandväggen, vilket kan leda till högre kostnader för stora databelastningar, men trafiken loggas och granskas i brandväggsloggar. Bestäm IP-adressen för ditt Data Lake Storage-konto. Du kan använda ett powershell-kommando, till exempel `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` för att matcha FQDN till en IP-adress.|
+    | Rule_3 | TCP | * | IP-adress för ditt datasjölagringskonto | * | Om du använder Azure Data Lake Storage kan du lägga till en nätverksregel i avsnittet IP-adresser för att lösa ett SNI-problem med ADLS Gen1 och Gen2. Det här alternativet dirigerar trafiken till brandväggen. Vilket kan leda till högre kostnader för stora databelastningar men trafiken loggas och granskas i brandväggsloggar. Bestäm IP-adressen för ditt Data Lake Storage-konto. Du kan använda ett PowerShell-kommando, till exempel `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` för att matcha FQDN till en IP-adress.|
     | Rule_4 | TCP | * | * | 12000 | (Valfritt) Om du använder Log Analytics skapar du en nätverksregel i avsnittet IP-adresser för att aktivera kommunikation med logganalysarbetsytan. |
 
     **Avsnittet Servicemärken**
 
     | Namn | Protokoll | Källadresser | Tjänsttaggar | Målportar | Anteckningar |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_7 | TCP | * | SQL | 1433 | Konfigurera en nätverksregel i avsnittet Tjänsttaggar för SQL som gör att du kan logga och granska SQL-trafik, såvida du inte har konfigurerat tjänstslutpunkter för SQL Server i HDInsight-undernätet, vilket kommer att kringgå brandväggen. |
+    | Rule_7 | TCP | * | SQL | 1433 | Konfigurera en nätverksregel i avsnittet Tjänsttaggar för SQL som gör att du kan logga och granska SQL-trafik. Såvida du inte har konfigurerat tjänstslutpunkter för SQL Server i HDInsight-undernätet, vilket kommer att kringgå brandväggen. |
 
    ![Titel: Ange insamling av programregel](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
@@ -153,7 +153,7 @@ Slutför konfigurationen av vägtabellen:
 
 1. Välj **+ Associera**.
 
-1. På skärmen **Associera undernät** väljer du det virtuella nätverk som klustret skapades till och **det undernät** som du använde för HDInsight-klustret.
+1. På skärmen **Associera undernät** väljer du det virtuella nätverk som klustret skapades till. Och **undernätet** som du använde för ditt HDInsight-kluster.
 
 1. Välj **OK**.
 
@@ -171,13 +171,13 @@ Om dina program har andra beroenden måste de läggas till i din Azure-brandväg
 
 Azure-brandväggen kan skicka loggar till några olika lagringssystem. Instruktioner om hur du konfigurerar loggning för brandväggen följer du stegen i [Självstudiekursen: Övervaka Azure-brandväggsloggar och mått](../firewall/tutorial-diagnostics.md).
 
-När du har slutfört loggningsinställningarna, om du loggar data till Log Analytics, kan du visa blockerad trafik med en fråga som följande:
+När du har slutfört loggningsinställningarna kan du, om du använder Log Analytics, visa blockerad trafik med en fråga som:
 
 ```Kusto
 AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
-Det är användbart att integrera din Azure-brandvägg med Azure Monitor-loggar när du först får ett program att fungera när du inte är medveten om alla programberoenden. Du kan läsa mer om Azure Monitor-loggar från [Analysera loggdata i Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+Det är användbart att integrera Azure-brandväggen med Azure Monitor-loggar när du först får ett program att fungera. Speciellt när du inte är medveten om alla programberoenden. Du kan läsa mer om Azure Monitor-loggar från [Analysera loggdata i Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 
 Mer information om skalningsgränserna för Azure-brandväggen och begäransökningar finns i [det här](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) dokumentet eller refererar till vanliga frågor och [svar](../firewall/firewall-faq.md).
 
@@ -185,14 +185,14 @@ Mer information om skalningsgränserna för Azure-brandväggen och begäransökn
 
 När brandväggen har konfigurerats kan du använda`https://CLUSTERNAME-int.azurehdinsight.net`den interna slutpunkten ( ) för att komma åt Ambari inifrån det virtuella nätverket.
 
-Om du vill använda`https://CLUSTERNAME.azurehdinsight.net`den offentliga slutpunkten`CLUSTERNAME-ssh.azurehdinsight.net`( ) eller ssh-ändpunkten ( ) kontrollerar du att du har rätt vägar i flödestabellen och NSG-reglerna för att undvika det asymmetriska routningsproblem som förklaras [här](../firewall/integrate-lb.md). I det här fallet måste du tillåta klient-IP-adressen i reglerna för inkommande NSG och även lägga till `internet`den i den användardefinierade vägtabellen med nästa hopp som . Om detta inte är korrekt konfigurerat visas ett timeout-fel.
+Om du vill använda`https://CLUSTERNAME.azurehdinsight.net`den offentliga slutpunkten`CLUSTERNAME-ssh.azurehdinsight.net`( ) eller ssh-ändpunkten ( ) kontrollerar du att du har rätt vägar i flödestabellen och NSG-reglerna för att undvika det asymmetriska routningsproblem som förklaras [här](../firewall/integrate-lb.md). I det här fallet måste du tillåta klient-IP-adressen i reglerna för inkommande NSG och även lägga till `internet`den i den användardefinierade vägtabellen med nästa hopp som . Om routningen inte är korrekt konfigurerad visas ett timeout-fel.
 
 ## <a name="configure-another-network-virtual-appliance"></a>Konfigurera en virtuell nätverksinstallation
 
 > [!Important]
 > Följande information krävs **endast** om du vill konfigurera en virtuell nätverksinstallation (NVA) förutom Azure-brandväggen.
 
-De tidigare instruktionerna hjälper dig att konfigurera Azure-brandväggen för att begränsa utgående trafik från ditt HDInsight-kluster. Azure-brandväggen konfigureras automatiskt för att tillåta trafik för många av de vanliga viktiga scenarierna. Om du vill använda en annan virtuell nätverksinstallation måste du konfigurera ett antal ytterligare funktioner manuellt. Tänk på följande när du konfigurerar den virtuella nätverksinstallationen:
+De tidigare instruktionerna hjälper dig att konfigurera Azure-brandväggen för att begränsa utgående trafik från ditt HDInsight-kluster. Azure-brandväggen konfigureras automatiskt för att tillåta trafik för många av de vanliga viktiga scenarierna. Om du använder en annan virtuell nätverksinstallation måste du konfigurera ett antal ytterligare funktioner. Tänk på följande när du konfigurerar den virtuella nätverksinstallationen:
 
 * Tjänstslutpunktskompatibla tjänster bör konfigureras med tjänstslutpunkter.
 * IP-adressberoenden är för trafik som inte är HTTP/S (både TCP- och UDP-trafik).
@@ -213,7 +213,7 @@ De tidigare instruktionerna hjälper dig att konfigurera Azure-brandväggen för
 | **Slutpunkt** | **Detaljer** |
 |---|---|
 | \*:123 | NTP-klockkontroll. Trafiken kontrolleras vid flera slutpunkter på port 123 |
-| IPs publiceras [här](hdinsight-management-ip-addresses.md) | Dessa är HDInsight-tjänsten |
+| IPs publiceras [här](hdinsight-management-ip-addresses.md) | Dessa IPs är HDInsight-tjänst |
 | AAD-DS privata IPs för ESP-kluster |
 | \*:16800 för KMS Windows-aktivering |
 | \*12000 för Log Analytics |

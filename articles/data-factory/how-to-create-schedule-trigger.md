@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.openlocfilehash: 100f95c20743f70bb4a9f2ac7e74853eab80f3e9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: a0a01dad5ae86cf20d57ade845326838f8fd686a
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414475"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641604"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Skapa en utlösare som kör en pipeline enligt ett schema
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -31,38 +31,46 @@ I följande avsnitt finns steg för att skapa en schemautlösare på olika sätt
 Du kan skapa en **schemautlösare** för att schemalägga en pipeline så att den körs med jämna mellanrum (varje timme, dagligen osv.). 
 
 > [!NOTE]
-> En fullständig genomgång av hur du skapar en pipeline och en schemautlösare, associerar utlösaren med pipelinen och kör och övervakar pipelinen finns i [Snabbstart: skapa en datafabrik med datafabrikens användargränssnitt](quickstart-create-data-factory-portal.md).
+> En fullständig genomgång av hur du skapar en pipeline och en schemautlösare, som associerar utlösaren med pipelinen, och kör och övervakar pipelinen finns i [Snabbstart: skapa en datafabrik med datafabrikens användargränssnitt](quickstart-create-data-factory-portal.md).
 
-1. Växla till fliken **Redigera**. 
+1. Växla till fliken **Redigera,** som visas med en pennsymbol. 
 
     ![Växla till fliken Redigera](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
-1. Klicka på **Utlösare** på menyn och klicka på **New/Edit** (Nytt/Redigera). 
+
+1. Välj **Utlösare** på menyn och välj sedan **Ny/Redigera**. 
 
     ![Menyn Ny utlösare](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
-2. På sidan **Add Triggers** (Lägg till utlösare) klickar du på **Choose trigger...** (Välj utlösare...) och klickar på **New** (Nytt). 
+
+1. På sidan **Lägg till utlösare** väljer du **Välj utlösare...** och väljer sedan **+Nytt**. 
 
     ![Lägg till utlösare – ny utlösare](./media/how-to-create-schedule-trigger/add-trigger-new-button.png)
-3. Gör följande på sidan **Ny utlösare:** 
+
+1. Gör följande på sidan **Ny utlösare:** 
 
     1. Bekräfta att **schema** är valt för **typ**. 
-    2. Ange startdatum för utlösaren för **STARTdatum (UTC)**. Den är inställd på den aktuella datetime som standard. 
-    3. Ange **Återkommande** för utlösaren. Välj ett av värdena i listrutan (Varje minut, Timme, Varje dag, Varje vecka, Varje vecka och Varje månad). Ange multiplikatorn i textrutan. Om du till exempel vill att utlösaren ska köras en gång var 15:e minut väljer du **Varje minut**och anger **15** i textrutan. 
-    4. Om du inte vill ange en slutdatumtid för utlösaren för fältet **Slut** väljer du **Inget slut**. Om du vill ange en slutdatumtid väljer du **På datum**och anger slutdatumtid och klickar på **Använd**. Det finns ingen associerad kostnad till varje pipelinekörning. Om du testar kanske du vill se till att pipelinen bara utlöses ett par gånger. Men se till att det finns tillräckligt med tid att köra pipelinen mellan publiceringstiden och sluttiden. Utlösaren träder endast i kraft när du har publicerat lösningen till Data Factory, och inte när du sparar utlösaren i användargränssnittet.
+    1. Ange startdatum för utlösaren för **STARTdatum (UTC)**. Den är inställd på den aktuella datetime som standard. 
+    1. Ange **Återkommande** för utlösaren. Välj ett av värdena i listrutan (Varje minut, Timme, Varje dag, Varje vecka, Varje vecka och Varje månad). Ange multiplikatorn i textrutan. Om du till exempel vill att utlösaren ska köras en gång var 15:e minut väljer du **Varje minut**och anger **15** i textrutan. 
+    1. Om du inte vill ange en slutdatumtid för utlösaren för fältet **Slut** väljer du **Inget slut**. Om du vill ange en slutdatumtid väljer du **På datum**och anger slutdatumtid och väljer sedan **OK**. Det finns ingen associerad kostnad till varje pipelinekörning. Om du testar kanske du vill se till att pipelinen bara utlöses ett par gånger. Men se till att det finns tillräckligt med tid att köra pipelinen mellan publiceringstiden och sluttiden. Utlösaren träder endast i kraft när du har publicerat lösningen till Data Factory, och inte när du sparar utlösaren i användargränssnittet.
 
         ![Inställningar för utlösare](./media/how-to-create-schedule-trigger/trigger-settings.png)
-4. I fönstret **Ny utlösare** markerar du alternativet **Aktiverad** och klickar på **Nästa**. Du kan använda den här kryssrutan för att inaktivera utlösaren senare. 
+
+1. I fönstret **Ny utlösare** väljer du **Ja** i alternativet **Aktiverad** och väljer sedan **OK**. Du kan använda den här kryssrutan för att inaktivera utlösaren senare. 
 
     ![Inställningar för utlösare – knappen Nästa](./media/how-to-create-schedule-trigger/trigger-settings-next.png)
-5. På sidan **Ny utlösare** läser du varningsmeddelandet och klickar på **Slutför**.
+
+1. Granska varningsmeddelandet i fönstret **Ny utlösare** och välj sedan **OK**.
 
     ![Inställningar för utlösare – knappen Slutför](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
-6. Klicka på **Publicera** för att publicera Data Factory-ändringar. Tills du publicerar ändringar i Data Factory startar inte utlösaren att köra pipelinen. 
+
+1. Välj **Publicera alla** om du vill publicera ändringarna i Data Factory. Tills du publicerar ändringarna i Data Factory startar inte utlösaren att utlösa pipelinen. 
 
     ![Knappen Publicera](./media/how-to-create-schedule-trigger/publish-2.png)
-8. Växla till fliken **Övervaka** till vänster. Om du vill uppdatera listan klickar du på **Uppdatera**. Du ser pipeline-körningar som utlöses av den schemalagda utlösaren. Observera värdena i kolumnen **Aktiverad av**. Om du använder alternativet **Utlösare nu** visas den manuella utlösaren i listan. 
+
+1. Växla till fliken **Pipeline-körningar** till vänster och välj sedan **Uppdatera** för att uppdatera listan. Du kommer att se pipeline-körningar som utlöses av den schemalagda utlösaren. Observera värdena i kolumnen **Aktiverad av**. Om du använder alternativet **Utlösare nu** visas den manuella utlösaren i listan. 
 
     ![Övervaka utlösta körningar](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
-9. Klicka på nedåtpilen bredvid **Pipeline Runs** (Pipelinekörningar) för att växla till vyn **Trigger Runs** (Utlösarkörningar). 
+
+1. Växla till vyn **Trigger Runs** (Utlösarkörningar). 
 
     ![Övervaka utlösarkörningar](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
@@ -112,31 +120,31 @@ I det här avsnittet visas hur du använder Azure PowerShell för att skapa, sta
     - Utlösaren är associerad med **Adfv2QuickStartPipeline-pipelinen.** Om du vill associera flera pipelines med en utlösare lägger du till fler **pipelineReference-avsnitt.**
     - Pipelinen i Snabbstarten tar två **parametervärden:** **inputPath** och **outputPath**. Därför skickar du värden för dessa parametrar från utlösaren.
 
-2. Skapa en utlösare med hjälp av cmdleten **Set-AzDataFactoryV2Trigger:**
+1. Skapa en utlösare med hjälp av cmdleten **Set-AzDataFactoryV2Trigger:**
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-3. Bekräfta att utlösarens status **stoppas** med hjälp av cmdleten **Get-AzDataFactoryV2Trigger:**
+1. Bekräfta att utlösarens status **stoppas** med hjälp av cmdleten **Get-AzDataFactoryV2Trigger:**
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Starta utlösaren med hjälp av cmdleten **Start-AzDataFactoryV2Trigger:**
+1. Starta utlösaren med hjälp av cmdleten **Start-AzDataFactoryV2Trigger:**
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Bekräfta att utlösarens status är **Startad** med hjälp av cmdleten **Get-AzDataFactoryV2Trigger:**
+1. Bekräfta att utlösarens status är **Startad** med hjälp av cmdleten **Get-AzDataFactoryV2Trigger:**
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6.  Hämta utlösaren körs i Azure PowerShell med hjälp av cmdleten **Get-AzDataFactoryV2TriggerRun.** Om du vill hämta information om utlösarkörningarna kör du följande kommando med jämna mellanrum. Uppdatera **triggerrunstartedafter** och **TriggerRunStartedBefore** värdena för att matcha värdena i utlösardefinitionen:
+1.  Hämta utlösaren körs i Azure PowerShell med hjälp av cmdleten **Get-AzDataFactoryV2TriggerRun.** Om du vill hämta information om utlösarkörningarna kör du följande kommando med jämna mellanrum. Uppdatera **triggerrunstartedafter** och **TriggerRunStartedBefore** värdena för att matcha värdena i utlösardefinitionen:
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"

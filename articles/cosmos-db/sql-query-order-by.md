@@ -4,18 +4,18 @@ description: Läs mer om SQL ORDER BY-satsen för Azure Cosmos DB. Använd SQL s
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 04/17/2020
 ms.author: tisande
-ms.openlocfilehash: b88184be39a41ec42f8fb304a7511073f645f1cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 70702ee4a77e8b3c46de4354f3394bca4080d837
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77188735"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641398"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>ORDER BY-satsen i Azure Cosmos DB
 
-Den valfria ORDER BY-satsen anger sorteringsordningen för resultat som returneras av frågan.
+Den `ORDER BY` valfria satsen anger sorteringsordningen för resultat som returneras av frågan.
 
 ## <a name="syntax"></a>Syntax
   
@@ -31,9 +31,9 @@ ORDER BY <sort_specification>
   
    Anger en egenskap eller ett uttryck som frågeresultatuppsättningen ska sorteras på. En sorteringskolumn kan anges som ett namn eller egenskapsalias.  
   
-   Flera egenskaper kan anges. Egenskapsnamn måste vara unika. Sekvensen för sorteringsegenskaperna i satsen ORDER BY definierar organisationen för den sorterade resultatuppsättningen. Det innebär att resultatuppsättningen sorteras efter den första egenskapen och sedan sorteras den ordnade listan efter den andra egenskapen och så vidare.  
+   Flera egenskaper kan anges. Egenskapsnamn måste vara unika. Sekvensen för sorteringsegenskaperna `ORDER BY` i satsen definierar organisationen för den sorterade resultatuppsättningen. Det innebär att resultatuppsättningen sorteras efter den första egenskapen och sedan sorteras den ordnade listan efter den andra egenskapen och så vidare.  
   
-   De egenskapsnamn som refereras i ORDER BY-satsen måste motsvara antingen en egenskap i urvalslistan eller till en egenskap som definieras i samlingen som anges i FROM-satsen utan några tvetydigheter.  
+   De egenskapsnamn som `ORDER BY` refereras i satsen måste motsvara antingen en egenskap i urvalslistan eller till en egenskap som definieras i samlingen som anges i `FROM` satsen utan några oklarheter.  
   
 - `<sort_expression>`  
   
@@ -45,7 +45,7 @@ ORDER BY <sort_specification>
   
 - `ASC | DESC`  
   
-   Anger att värdena i den angivna kolumnen ska sorteras i stigande eller fallande ordning. ASC sorteras från det lägsta värdet till det högsta värdet. DESC sorterar från högsta värde till lägsta värde. ASC är standardsorteringsordningen. Null-värden behandlas som lägsta möjliga värden.  
+   Anger att värdena i den angivna kolumnen ska sorteras i stigande eller fallande ordning. `ASC`från det lägsta värdet till det högsta värdet. `DESC`från högsta till lägsta värde. `ASC`är standardsorteringsordningen. Null-värden behandlas som lägsta möjliga värden.  
   
 ## <a name="remarks"></a>Anmärkningar  
   
@@ -152,7 +152,7 @@ Resultaten omfattar endast det dokument `lastName`som har en definierad:
     ]
 ```
 
-Om vi uppdaterar behållarens indexeringsprincip så `lastName`att den uttryckligen innehåller en sökväg för inkluderar vi dokument med en odefinierad sorteringsegenskap i frågeresultatet. Du måste uttryckligen definiera sökvägen för att leda till det här skalärvärdet (och inte utanför det). Du bör `?` använda tecknet i sökvägsdefinitionen i indexeringsprincipen för att säkerställa att du uttryckligen indexerar egenskapen `lastName` och inga ytterligare kapslade banor utanför den.
+Om vi uppdaterar behållarens indexeringsprincip så `lastName`att den uttryckligen innehåller en sökväg för inkluderar vi dokument med en odefinierad sorteringsegenskap i frågeresultatet. Du måste uttryckligen definiera sökvägen för att leda till det här skalärvärdet (och inte utanför det). Du bör `?` använda tecknet i sökvägsdefinitionen i indexeringsprincipen för att säkerställa att du uttryckligen indexerar egenskapen `lastName` och inga ytterligare kapslade banor utanför den. Om `Order By` frågan använder ett [sammansatt index](index-policy.md#composite-indexes)innehåller resultaten alltid dokument med en odefinierad sorteringsegenskap i frågeresultatet.
 
 Här är ett exempel indexeringsprincip som gör att `lastName` du kan ha dokument med en odefinierad visas i frågeresultatet:
 

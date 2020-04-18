@@ -11,24 +11,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: e4e4ac1b0a867130dd7b9e276db52e1ca1e72976
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 777ea7cc29679a3819e94d39913f167ea1cb3453
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062133"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641382"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Förstå rolldefinitioner för Azure-resurser
 
 Om du försöker förstå hur en roll fungerar eller om du skapar din egen [anpassade roll för Azure-resurser](custom-roles.md)är det bra att förstå hur roller definieras. I den här artikeln beskrivs information om rolldefinitioner och några exempel.
 
-## <a name="role-definition-structure"></a>Rolldefinitionsstruktur
+## <a name="role-definition"></a>Rolldefinition
 
-En *rolldefinition* är en uppsättning behörigheter. Ibland kallas det helt enkelt för en *roll*. En rolldefinition listar de åtgärder som kan utföras, till exempel läsa, skriva och ta bort. Den kan också ange vilka åtgärder som inte kan utföras eller åtgärder relaterade till underliggande data. En rolldefinition har följande struktur:
+En *rolldefinition* är en uppsättning behörigheter. Ibland kallas det helt enkelt för en *roll*. En rolldefinition listar de åtgärder som kan utföras, till exempel läsa, skriva och ta bort. Den kan också ange vilka åtgärder som inte kan utföras eller åtgärder relaterade till underliggande data. En rolldefinition har följande egenskaper:
 
 ```
 Name
@@ -41,6 +41,20 @@ DataActions []
 NotDataActions []
 AssignableScopes []
 ```
+
+| Egenskap | Beskrivning |
+| --- | --- |
+| `Name` | Visningsnamnet för rollen. |
+| `Id` | Rollens unika ID. |
+| `IsCustom` | Anger om det är en anpassad roll. Ställ `true` in på för anpassade roller. |
+| `Description` | Beskrivningen av rollen. |
+| `Actions` | En matris med strängar som anger de hanteringsåtgärder som rollen tillåter att utföras. |
+| `NotActions` | En matris med strängar som anger de hanteringsåtgärder som `Actions`är undantagna från den tillåtna . |
+| `DataActions` | En matris med strängar som anger de dataåtgärder som rollen gör det möjligt att utföra till dina data i det objektet. |
+| `NotDataActions` | En matris med strängar som anger de dataåtgärder som `DataActions`är undantagna från den tillåtna . |
+| `AssignableScopes` | En matris med strängar som anger de scope som rollen är tillgänglig för tilldelning. |
+
+### <a name="operations-format"></a>Operationsformat
 
 Åtgärder anges med strängar som har följande format:
 
@@ -55,6 +69,8 @@ Den `{action}` del av en operationssträng anger vilken typ av åtgärder du kan
 | `write` | Aktiverar skrivåtgärder (PUT eller PATCH). |
 | `action` | Aktiverar anpassade åtgärder som omstart av virtuella datorer (POST). |
 | `delete` | Aktiverar borttagningsåtgärder (DELETE). |
+
+### <a name="role-definition-example"></a>Exempel på rolldefinition
 
 Här är [deltagarrolldefinitionen](built-in-roles.md#contributor) i JSON-format. Jokertecknet (`*`) under `Actions` anger att huvudnamnet som tilldelats den här rollen kan utföra alla åtgärder, eller med andra ord sköta all administration. Det här inbegriper även åtgärder som definieras i framtiden när Azure lägger till nya resurstyper. Åtgärderna under `NotActions` dras bort från `Actions`. För rollen [Deltagare](built-in-roles.md#contributor) tar `NotActions` bort rollens möjlighet att hantera åtkomsten till resurser och även att ge åtkomst till resurser.
 
@@ -92,7 +108,7 @@ Hanteringsåtkomst ärvs inte till dina data förutsatt att behållarautentiseri
 
 Tidigare användes inte rollbaserad åtkomstkontroll för dataåtgärder. Auktoriseringen för dataåtgärder varierade mellan resursleverantörer. Samma rollbaserade auktoriseringsmodell för åtkomstkontroll som används för hanteringsåtgärder har utökats till dataåtgärder.
 
-För att stödja dataåtgärder har nya dataegenskaper lagts till i rolldefinitionsstrukturen. Dataåtgärder anges i egenskaperna `DataActions` och `NotDataActions`. Genom att lägga till dessa dataegenskaper bibehålls separationen mellan hantering och data. På så sätt kan du förhindra att rolltilldelningar med jokertecken (`*`) plötsligt får åtkomst till data. Här är några dataåtgärder du kan ange i `DataActions` och `NotDataActions`:
+För att stödja dataåtgärder har nya dataegenskaper lagts till i rolldefinitionen. Dataåtgärder anges i egenskaperna `DataActions` och `NotDataActions`. Genom att lägga till dessa dataegenskaper bibehålls separationen mellan hantering och data. På så sätt kan du förhindra att rolltilldelningar med jokertecken (`*`) plötsligt får åtkomst till data. Här är några dataåtgärder du kan ange i `DataActions` och `NotDataActions`:
 
 - Läsa en lista med blobar i en container
 - Skriva till en lagringsblob i en container

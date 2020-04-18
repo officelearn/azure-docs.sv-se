@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: 920d8bfbcef33464d528306113abe6223d752889
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a99038f41043b899886c7161f9b12c77c807c4c
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477756"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641815"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Översikt: Automatisera distributionen för Azure Logic Apps med hjälp av Azure Resource Manager-mallar
 
@@ -321,7 +321,7 @@ Här är attributen som är specifika för logikappresursdefinitionen:
 
 | Attribut | Krävs | Typ | Beskrivning |
 |-----------|----------|------|-------------|
-| `state` | Ja | String | Logikappens tillstånd vid `Enabled` distributionen innebär att `Disabled` logikappen är live och innebär att logikappen är inaktiv. Om du till exempel inte är redo för logikappen att visas men vill `Disabled` distribuera en utkastversion kan du använda alternativet. |
+| `state` | Ja | Sträng | Logikappens tillstånd vid `Enabled` distributionen innebär att `Disabled` logikappen är live och innebär att logikappen är inaktiv. Om du till exempel inte är redo för logikappen att visas men vill `Disabled` distribuera en utkastversion kan du använda alternativet. |
 | `integrationAccount` | Inga | Objekt | Om logikappen `id` använder ett integrationskonto som lagrar artefakter för B2B-scenarier (Business-to-Business) innehåller det här objektet attributet som anger ID:t för integrationskontot. |
 | `definition` | Ja | Objekt | Logikappens underliggande arbetsflödesdefinition, som är samma objekt som visas i kodvyn och som beskrivs fullständigt i avsnittet [Schemareferens för arbetsflödesdefinitionsspråk.](../logic-apps/logic-apps-workflow-definition-language.md) I den här `parameters` arbetsflödesdefinitionen deklarerar objektet parametrar för de värden som ska användas vid logikappkörning. Mer information finns i [Arbetsflödesdefinition och parametrar](#workflow-definition-parameters). <p><p>Om du vill visa attributen i logikappens arbetsflödesdefinition växlar du från "designvy" till "kodvy" i Azure-portalen eller Visual Studio, eller med hjälp av ett verktyg som [Azure Resource Explorer](https://resources.azure.com). |
 | `parameters` | Inga | Objekt | [Parametervärdena för arbetsflödesdefinition som](#workflow-definition-parameters) ska användas vid logikappkörning. Parameterdefinitionerna för dessa värden visas i [arbetsflödesdefinitionens parameterobjekt](#workflow-definition-parameters). Om logikappen använder [hanterade kopplingar](../connectors/apis-list.md) för åtkomst till andra tjänster `$connections` och system innehåller det här objektet också ett objekt som anger de anslutningsvärden som ska användas under körning. |
@@ -391,7 +391,9 @@ Den här syntaxen visar var du kan deklarera parametrar på både mall- och arbe
             },
             // Workflow definition parameter value
             "parameters": {
-               "<workflow-definition-parameter-name>": "[parameters('<template-parameter-name>')]"
+               "<workflow-definition-parameter-name>": { 
+                  "value": "[parameters('<template-parameter-name>')]"
+               }
             },
             "accessControl": {}
          },

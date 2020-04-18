@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/10/2020
-ms.openlocfilehash: d40d4cfe1b86448f1e8df307013905d69f203dcd
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.date: 04/14/2020
+ms.openlocfilehash: 1e2a837acef976b6b872c2d4002ee49d662ad594
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261065"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641331"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Skapa en förslagsman för att aktivera komplettera automatiskt och föreslagna resultat i en fråga
 
@@ -42,15 +42,15 @@ När du skapar prefix har en förslagsställare en egen analyskedja, liknande de
 
 ## <a name="define-a-suggester"></a>Definiera en förslagsman
 
-Även om en förslagsansvarig har flera egenskaper är det i första hand en samling fält som du aktiverar en sökupplevelse som du skriver. En reseapp kanske till exempel vill aktivera komplettera automatiskt på destinationer, städer och attraktioner. Därför skulle alla tre fälten gå i fältsamlingen.
+Om du vill skapa en förslagsförrättning lägger du till ett i ett [indexschema](https://docs.microsoft.com/rest/api/searchservice/create-index) och [anger varje egenskap](#property-reference). I indexet kan du ha en förslagsman (särskilt en förslagsman i förslagssamlingen). Den bästa tiden att skapa en förslagsman är när du också definierar det fält som ska använda den.
 
-Om du vill skapa en förslagsfören lägger du till ett i ett indexschema. Du kan ha en förslagsman i ett index (närmare bestämt en förslagsman i förslagssamlingen). En förslagsman tar en lista med fält. 
+### <a name="choose-fields"></a>Välj fält
 
-+ Förslag på förslag genom att välja fält som bäst representerar ett enda resultat. Namn, titlar eller andra unika fält som skiljer mellan dokument fungerar bäst. Om fälten består av liknande eller identiska värden kommer förslagen att bestå av identiska resultat och en användare vet inte vilken som ska klickas.
+Även om en förslagsansvarig har flera egenskaper är det i första hand en samling fält som du aktiverar en sökupplevelse som du skriver. För förslag i synnerhet, välj fält som bäst representerar ett enda resultat. Namn, titlar eller andra unika fält som skiljer mellan flera matchningar fungerar bäst. Om fälten består av repetitiva värden består förslagen av identiska resultat och en användare vet inte vilken som ska klickas.
 
-+ Kontrollera att varje fält `sourceFields` i förslagslistan använder antingen standardmodellen`"analyzer": null`Lucene () eller `"analyzer": "en.Microsoft"`en [språkanalysator](index-add-language-analyzers.md) (till exempel ). 
+Kontrollera att varje fält använder en analysator som utför lexikal analys under indexeringen. Du kan använda antingen standardstandarden Lucene analyzer (`"analyzer": null`) eller en [språkanalysator](index-add-language-analyzers.md) (till exempel ). `"analyzer": "en.Microsoft"` 
 
-  Ditt val av en analysator avgör hur fält tokeniseras och därefter föregås. För en avstavad sträng som "kontextkänslig" resulterar till exempel dessa tokenkombinationer med hjälp av en språkanalysator: "kontext", "känslig", "kontextkänslig". Om du hade använt Lucene-standardanalysatorn skulle den avstavade strängen inte existera.
+Ditt val av en analysator avgör hur fält tokeniseras och därefter föregås. För en avstavad sträng som "kontextkänslig" resulterar till exempel dessa tokenkombinationer med hjälp av en språkanalysator: "kontext", "känslig", "kontextkänslig". Om du hade använt Lucene-standardanalysatorn skulle den avstavade strängen inte existera.
 
 > [!TIP]
 > Överväg att använda [API:et](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) analysera text för att få insikt i hur termer tokeniseras och därefter föregås. När du har byggt ett index kan du prova olika analysatorer på en sträng för att visa de token som det avger.
@@ -61,7 +61,7 @@ Den bästa tiden att skapa en förslagsman är när du också skapar själva fä
 
 Om du försöker skapa en förslagsställare med befintliga fält kommer API:et inte att tillåta det. Prefix genereras under indexeringen, när partiella termer i två eller flera teckenkombinationer tokeniseras tillsammans med hela termer. Med tanke på att befintliga fält redan är tokeniserade måste du återskapa indexet om du vill lägga till dem i en förslagsförenare. Mer information finns i [Så här återskapar du ett Azure Cognitive Search-index](search-howto-reindex.md).
 
-### <a name="create-using-the-rest-api"></a>Skapa med REST API
+## <a name="create-using-rest"></a>Skapa med REST
 
 Lägg till förslagsföreare i REST API via [Skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index) eller [uppdatera index](https://docs.microsoft.com/rest/api/searchservice/update-index). 
 
@@ -99,7 +99,7 @@ Lägg till förslagsföreare i REST API via [Skapa index](https://docs.microsoft
   }
   ```
 
-### <a name="create-using-the-net-sdk"></a>Skapa med hjälp av .NET SDK
+## <a name="create-using-net"></a>Skapa med .NET
 
 Definiera ett [Suggester-objekt](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet)i C#. `Suggesters`är en samling, men den kan bara ta ett objekt. 
 
@@ -122,37 +122,40 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 }
 ```
 
-### <a name="property-reference"></a>Egenskapsreferens
+## <a name="property-reference"></a>Egenskapsreferens
 
 |Egenskap      |Beskrivning      |
 |--------------|-----------------|
 |`name`        |Namnet på förslagsen.|
-|`searchMode`  |Den strategi som används för att söka efter kandidatfraser. Det enda läge `analyzingInfixMatching`som för närvarande stöds är , som utför flexibel matchning av fraser i början eller i mitten av meningar.|
+|`searchMode`  |Den strategi som används för att söka efter kandidatfraser. Det enda läge `analyzingInfixMatching`som för närvarande stöds är , som för närvarande matchar i början av en term.|
 |`sourceFields`|En lista över ett eller flera fält som är källan till innehållet för förslag. Fälten måste `Edm.String` vara `Collection(Edm.String)`av typen och . Om en analysator anges i fältet måste den vara en namngiven analysator från [den här listan](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) (inte en anpassad analysator).<p/> Det bästa är att ange endast de fält som lämpar sig för ett förväntat och lämpligt svar, oavsett om det är en slutförd sträng i ett sökfält eller en listruta.<p/>Ett hotellnamn är en bra kandidat eftersom det har precision. Utförliga fält som beskrivningar och kommentarer är för täta. På samma sätt är repetitiva fält, till exempel kategorier och taggar, mindre effektiva. I exemplen inkluderar vi "kategori" ändå för att visa att du kan inkludera flera fält. |
 
 <a name="how-to-use-a-suggester"></a>
 
 ## <a name="use-a-suggester"></a>Använda en förslagshållare
 
-En förslagsman används i en fråga. När en förslagsman har skapats anropar du lämpligt API i frågelogiken för att anropa funktionen. 
+En förslagsman används i en fråga. När en förslagsfören har skapats anropar du någon av följande API:er för en sökupplevelse som du skriver:
 
 + [REST API-förslag](https://docs.microsoft.com/rest/api/searchservice/suggestions) 
 + [Rest-API för automatisk komplettering](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 
 + [SuggestWithHttpMessagesAsync-metod](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
 + [Komplettera automatiskt medhttpMessagesAsync-metoden](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
 
-API-användning illustreras i följande anrop till REST API för komplettera automatiskt. Det finns två takeaways från detta exempel. För det första, som med alla frågor, är åtgärden mot dokumentsamlingen i ett index. För det andra kan du lägga till frågeparametrar. Många frågeparametrar är gemensamma för båda API:erna, men listan är olika för var och en.
+I ett sökprogram bör klientkoden utnyttja ett bibliotek som [automatisk komplettering av jQuery UI](https://jqueryui.com/autocomplete/) för att samla in den partiella frågan och tillhandahålla matchningen. Mer information om den här uppgiften finns i [Lägga till komplettera automatiskt eller föreslagna resultat i klientkoden](search-autocomplete-tutorial.md).
+
+API-användning illustreras i följande anrop till REST API för komplettera automatiskt. Det finns två takeaways från detta exempel. För det första, som med alla frågor, är åtgärden mot dokumentsamlingen för ett index och frågan innehåller en **sökparameter,** som i det här fallet tillhandahåller den partiella frågan. För det andra måste du lägga till **suggesterName** i begäran. Om en förslagsförenare inte definieras i indexet misslyckas ett anrop till automatisk komplettering eller förslag.
 
 ```http
-GET https://[service name].search.windows.net/indexes/[index name]/docs/autocomplete?[query parameters]  
-api-key: [admin or query key]
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
+{
+  "search": "minecraf",
+  "suggesterName": "sg"
+}
 ```
-
-Om en förslagsförenare inte definieras i indexet misslyckas ett anrop till automatisk komplettering eller förslag.
 
 ## <a name="sample-code"></a>Exempelkod
 
-+ [Skapa din första app i C#](tutorial-csharp-type-ahead-and-suggestions.md) exempel visar en förslagsförrättning konstruktion, föreslagna frågor, komplettera automatiskt och fasterad navigering. Det här kodexemplet körs på en Azure Cognitive Search-tjänst i begränsat läge och använder ett förinlät Hotellindex så allt du behöver göra är att trycka på F5 för att köra programmet. Ingen prenumeration eller inloggning är nödvändig.
++ [Skapa din första app i C# (lektion 3 - Lägg till sök-som-du-typ)](tutorial-csharp-type-ahead-and-suggestions.md) exempel visar en förslagsförrättning konstruktion, föreslagna frågor, komplettera automatiskt och fakulterad navigering. Det här kodexemplet körs på en Azure Cognitive Search-tjänst i begränsat läge och använder ett förinlät Hotellindex så allt du behöver göra är att trycka på F5 för att köra programmet. Ingen prenumeration eller inloggning är nödvändig.
 
 + [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) är ett äldre urval som innehåller både C# och Java-kod. Det visar också en förslagsfören konstruktion, föreslagna frågor, komplettera automatiskt och fasterad navigering. Det här kodexemplet använder de värdbaserade EXEMPELDATA FÖR [NYCJobs.](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) 
 
@@ -161,4 +164,4 @@ Om en förslagsförenare inte definieras i indexet misslyckas ett anrop till aut
 Vi rekommenderar följande exempel för att se hur begäranden formuleras.
 
 > [!div class="nextstepaction"]
-> [Förslag och komplettera automatiskt](search-autocomplete-tutorial.md) 
+> [Lägga till komplettera automatiskt och förslag i klientkoden](search-autocomplete-tutorial.md) 

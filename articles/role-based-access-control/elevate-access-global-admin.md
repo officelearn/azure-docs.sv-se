@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/03/2019
+ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1731c630cb98ac542ebcdc7aedf07f7bb63eaec0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 18490ec7c3cfde33cef186b753e2adc809f854c6
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77137467"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641356"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Öka åtkomsten för att hantera alla Azure-prenumerationer och hanteringsgrupper
 
@@ -30,7 +30,7 @@ Som global administratör i Azure Active Directory (Azure AD) kanske du inte har
 
 ## <a name="why-would-you-need-to-elevate-your-access"></a>Varför skulle du behöva höja din tillgång?
 
-Om du är global administratör kan det finnas tillfällen då du vill göra följande:
+Om du är global administratör kan det finnas tillfällen då du vill utföra följande åtgärder:
 
 - Återfå åtkomsten till en Azure-prenumeration eller hanteringsgrupp när en användare har förlorat åtkomst
 - tilldela en annan användare eller sig själv en Azure-prenumeration eller -hanteringsgrupp
@@ -55,9 +55,7 @@ Följ dessa steg för att öka åtkomsten för en global administratör med hjä
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) eller [Azure Active Directory-administrationscentret](https://aad.portal.azure.com) som global administratör.
 
-1. Sök efter och välj **Azure Active Directory**.
-
-   ![Välj Azure Active Directory - skärmdump](./media/elevate-access-global-admin/search-for-azure-active-directory.png)
+1. Öppna **Azure Active Directory**.
 
 1. Välj **Egenskaper**under **Hantera**.
 
@@ -180,7 +178,7 @@ Så här tar du bort rolltilldelningen för`/`användaråtkomstadministratör f�
     az role assignment delete --assignee username@example.com --role "User Access Administrator" --scope "/"
     ```
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 
 ### <a name="elevate-access-for-a-global-administrator"></a>Öka åtkomsten för en global administratör
 
@@ -233,7 +231,7 @@ Du kan lista alla neka-tilldelningar för en`/`användare i rotomfattning ( ).
 
 ### <a name="remove-elevated-access"></a>Ta bort förhöjd åtkomst
 
-När du `elevateAccess`anropar skapar du en rolltilldelning åt dig själv, så för att återkalla dessa privilegier måste du ta bort rolltilldelningen för användaråtkomstadministratör för dig själv i rotomfattningen (`/`)
+När du `elevateAccess`anropar skapar du en rolltilldelning åt dig själv, så för att återkalla de privilegier du behöver ta bort rolltilldelningen för användaråtkomstadministratör för dig själv vid rotomfattning (`/`).
 
 1. Anropa [GET-rollDefinitioner](/rest/api/authorization/roledefinitions/get) där `roleName` är lika med användaråtkomstadministratör för att fastställa namn-ID för rollen Administratör för användaråtkomst.
 

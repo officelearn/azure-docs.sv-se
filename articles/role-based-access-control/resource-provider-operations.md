@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 274e85a914ebec31a03f1149bc4467ea142e7255
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 50a1971fed4cce49eea1922bc9b81f06667f4dd8
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81482114"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641008"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager-resursprovideråtgärder
 
@@ -10859,5 +10859,5 @@ Azure-tjänst: [Azure-övervakare](../azure-monitor/index.yml)
 ## <a name="next-steps"></a>Nästa steg
 
 - [Matcha resursprovidern till tjänsten](../azure-resource-manager/management/azure-services-resource-providers.md)
-- [Anpassade Azure-roller](custom-roles.md)
 - [Azure inbyggda roller](built-in-roles.md)
+- [Cloud Adoption Framework: Hantering av resursåtkomst i Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

@@ -5,7 +5,7 @@
   items:
     - name: Scenarier och tillgänglighet
       href: scenarios-and-availability.md
-    - name: Koncept
+    - name: Begrepp
       href: media-services-concepts.md
 - name: Kom igång
   items:
@@ -33,7 +33,7 @@
           href: media-services-powershell-create-and-configure-aad-app.md
     - name: Leverera video på begäran
       items:
-        - name: Azure-portalen
+        - name: Azure Portal
           href: media-services-portal-vod-get-started.md
         - name: .NET SDK
           href: media-services-dotnet-get-started.md
@@ -43,7 +43,7 @@
           href: media-services-rest-get-started.md
     - name: Utföra liveuppspelning
       items:
-        - name: Azure-portalen
+        - name: Azure Portal
           href: media-services-portal-live-passthrough-get-started.md
         - name: .NET
           href: media-services-dotnet-live-encode-with-onpremises-encoders.md
@@ -75,7 +75,7 @@
         - name: Slutpunkter för direktuppspelning
           href: media-services-streaming-endpoints-overview.md
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: media-services-portal-manage-streaming-endpoints.md
             - name: .NET
               href: media-services-dotnet-manage-streaming-endpoints.md
@@ -100,7 +100,7 @@
       items:
         - name: Överföra filer till ett konto
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: media-services-portal-upload-files.md
             - name: .NET
               href: media-services-dotnet-upload-files.md
@@ -127,7 +127,7 @@
               href: media-services-autogen-bitrate-ladder-with-mes.md
             - name: Koda med Media Encoder Standard
               items:
-                - name: Azure-portalen
+                - name: Azure Portal
                   href: media-services-portal-encode.md
                 - name: .NET
                   href: media-services-dotnet-encode-with-media-encoder-standard.md
@@ -241,14 +241,14 @@
           items:
             - name: Rekommenderade lokala kodare
               href: media-services-recommended-encoders.md
-            - name: Azure-portalen
+            - name: Azure Portal
               href: media-services-portal-live-passthrough-get-started.md
             - name: .NET
               href: media-services-dotnet-live-encode-with-onpremises-encoders.md
         - name: Liveuppspelning med molnkodare
           href: media-services-manage-live-encoder-enabled-channels.md
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: media-services-portal-creating-live-encoder-enabled-channel.md
             - name: .NET
               href: media-services-dotnet-creating-live-encoder-enabled-channel.md
@@ -257,8 +257,6 @@
           items:
             - name: Haivision KB-kodare
               href: media-services-configure-kb-live-encoder.md
-            - name: NewTek TriCaster-kodare
-              href: media-services-configure-tricaster-live-encoder.md
             - name: Wirecast-kodare
               href: media-services-configure-wirecast-live-encoder.md
         - name: Hantera långvariga åtgärder
@@ -306,7 +304,7 @@
               href: media-services-rest-configure-asset-delivery-policy.md
         - name: Konfigurera principen för auktorisering av innehållsnycklar
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: media-services-portal-configure-content-key-auth-policy.md
             - name: .NET
               href: media-services-dotnet-configure-content-key-auth-policy.md
@@ -356,16 +354,16 @@
           href: media-services-rest-telemetry.md
     - name: Skala
       items:
-        - name: Mediabearbetning
+        - name: Mediebearbetning
           href: media-services-scale-media-processing-overview.md
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: media-services-portal-scale-media-processing.md
             - name: .NET
               href: media-services-dotnet-encoding-units.md
         - name: Slutpunkter för direktuppspelning
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: media-services-portal-scale-streaming-endpoints.md
     - name: Leverera innehåll
       href: media-services-deliver-content-overview.md
@@ -383,7 +381,7 @@
           href: ../../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json
         - name: Publicera innehåll
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: media-services-portal-publish.md
             - name: .NET
               href: media-services-deliver-streaming-content.md
@@ -398,7 +396,7 @@
       items:
         - name: Spela upp media med befintliga spelare
           href: media-services-playback-content-with-existing-players.md
-        - name: Andra uppspelningalternativ
+        - name: Andra uppspelningsalternativ
           items:
             - name: Smooth Streaming Windows Store-program
               href: media-services-build-smooth-streaming-apps.md
@@ -422,7 +420,7 @@
           items:
             - name: REST
               href: media-services-rest-check-job-progress.md
-            - name: Azure-portalen
+            - name: Azure Portal
               href: media-services-portal-check-job-progress.md
             - name: .NET
               href: media-services-check-job-progress.md
@@ -469,7 +467,7 @@
       href: media-services-community.md
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/media-services/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

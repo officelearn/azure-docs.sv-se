@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 451e83fa6ab547536a4cfd85304930e749a8247f
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: 0f815003449f0600bce1cb8927b92b85b51b09a1
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80998402"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81641611"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Så här arbetar du med sökresultat i Azure Cognitive Search
 
@@ -108,10 +108,22 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06
     }
 ```
 
-> [!IMPORTANT]
-> Tjänster som skapas efter den 15 juli 2020 kommer att ge en annan belysningsupplevelse. Tjänster som skapats före det datumet ändras inte i markeringsbeteendet. Med den här ändringen returneras endast fraser som matchar den fullständiga frasfrågan. Det är också möjligt att ange den fragmentstorlek som returneras för högdager.
->
-> När du skriver klientkod som implementerar träffmarkering bör du vara medveten om den här ändringen. Observera att detta inte påverkar dig om du inte skapar en helt ny söktjänst.
+### <a name="new-behavior-starting-july-15"></a>Nytt beteende (från 15 juli)
+
+Tjänster som skapas efter den 15 juli 2020 kommer att ge en annan belysningsupplevelse. Tjänster som skapats före det datumet ändras inte i markeringsbeteendet. 
+
+Med det nya beteendet:
+
+* Endast fraser som matchar hela frasfrågan returneras. Frågan "Super Bowl" kommer tillbaka höjdpunkter så här:
+
+    ```html
+    '<em>super bowl</em> is super awesome with a bowl of chips'
+    ```
+  Observera att termen *skål med marker* inte har någon markering eftersom det inte matchar hela frasen.
+  
+* Det kommer att vara möjligt att ange den fragmentstorlek som returneras för högdager. Fragmentstorlek anges som antal tecken (högst 1 000 tecken).
+
+När du skriver klientkod som implementerar träffmarkering bör du vara medveten om den här ändringen. Observera att detta inte påverkar dig om du inte skapar en helt ny söktjänst.
 
 ## <a name="next-steps"></a>Nästa steg
 

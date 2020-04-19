@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: 0cfe651a91cc16e7d4b58af67dac29fe5106a48c
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 1414d86577e5aa17cb42762403b3767948c1e30c
+ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986623"
+ms.lasthandoff: 04/18/2020
+ms.locfileid: "81642910"
 ---
 <a name="HOLTop"></a>
 
@@ -61,7 +61,7 @@ npm init
 Installera `@azure/ai-text-analytics` NPM-paketen:
 
 ```console
-npm install --save @azure/ai-text-analytics@1.0.0-preview.3
+npm install --save @azure/ai-text-analytics@1.0.0-preview.4
 ```
 
 > [!TIP]
@@ -88,7 +88,7 @@ Skapa en `index.js` fil med namnet och lägg till följande:
 ```javascript
 "use strict";
 
-const { TextAnalyticsClient, TextAnalyticsApiKeyCredential } = require("@azure/ai-text-analytics");
+const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
 ```
 
 #### <a name="version-21"></a>[Version 2.1](#tab/version-2)
@@ -120,11 +120,11 @@ Svarsobjektet är en lista som innehåller analysinformationen för varje dokume
 ## <a name="code-examples"></a>Kodexempel
 
 * [Klientautentisering](#client-authentication)
-* [Attitydanalys](#sentiment-analysis) 
+* [Sentiment analys](#sentiment-analysis) 
 * [Språkidentifiering](#language-detection)
 * [Namngiven entitetsigenkänning](#named-entity-recognition-ner)
 * [Entitetslänkning](#entity-linking)
-* [Extraktion av nyckelfraser](#key-phrase-extraction)
+* [Extrahering av nyckelfraser](#key-phrase-extraction)
 
 ## <a name="client-authentication"></a>Klientautentisering
 
@@ -133,7 +133,7 @@ Svarsobjektet är en lista som innehåller analysinformationen för varje dokume
 Skapa ett `TextAnalyticsClient` nytt objekt med nyckeln och slutpunkten som parametrar.
 
 ```javascript
-const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new TextAnalyticsApiKeyCredential(key));
+const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCredential(key));
 ```
 
 #### <a name="version-21"></a>[Version 2.1](#tab/version-2)
@@ -266,7 +266,6 @@ Document ID: 3 , Language: Chinese_Simplified
 
 > [!NOTE]
 > I `3.0-preview`version :
-> * NER innehåller separata metoder för att upptäcka personlig information. 
 > * Entitetslänkning är en separat begäran än NER.
 
 Skapa en matris med strängar som innehåller det dokument som du vill analysera. Anropa klientens `recognizeEntities()` metod och `RecognizeEntitiesResult` hämta objektet. Iterera genom resultatlistan och skriv ut entitetsnamn, typ, undertyp, förskjutning, längd och poäng.
@@ -318,40 +317,6 @@ Document ID: 1
         Score: 0.8
         Name: Seattle   Category: Location      Subcategory: GPE
         Score: 0.31
-```
-
-## <a name="using-ner-to-detect-personal-information"></a>Använda NER för att upptäcka personlig information
-
-Skapa en matris med strängar som innehåller det dokument som du vill analysera. Anropa klientens `recognizePiiEntities()` metod och `EntitiesBatchResult` hämta objektet. Iterera genom resultatlistan och skriv ut entitetsnamn, typ, undertyp, förskjutning, längd och poäng.
-
-
-```javascript
-async function entityPiiRecognition(client){
-
-    const entityPiiInput = [
-        "Insurance policy for SSN on file 123-12-1234 is here by approved."
-    ];
-    const entityPiiResults = await client.recognizePiiEntities(entityPiiInput);
-
-    entityPiiResults.forEach(document => {
-        console.log(`Document ID: ${document.id}`);
-        document.entities.forEach(entity => {
-            console.log(`\tName: ${entity.text} \tCategory: ${entity.category} \tSubcategory: ${entity.subCategory ? entity.subCategory : "N/A"}`);
-            console.log(`\tScore: ${entity.score}`);
-        });
-    });
-}
-entityPiiRecognition(textAnalyticsClient);
-```
-
-Kör koden `node index.js` med i konsolfönstret.
-
-### <a name="output"></a>Resultat
-
-```console
-Document ID: 0
-        Name: 123-12-1234       Category: U.S. Social Security Number (SSN)     Subcategory: N/A
-        Score: 0.85
 ```
 
 ## <a name="entity-linking"></a>Entity Linking

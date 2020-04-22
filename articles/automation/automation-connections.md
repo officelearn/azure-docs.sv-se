@@ -1,18 +1,18 @@
 ---
-title: Anslutningstillgångar i Azure Automation
+title: Hantera anslutningar i Azure Automation
 description: Anslutningsresurser i Azure Automation innehåller den information som krävs för att ansluta till en extern tjänst eller ett program från en runbook- eller DSC-konfiguration. I den här artikeln beskrivs information om anslutningar och hur du arbetar med dem i både text- och grafisk redigering.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: d1ce59322b0cbfaf5a4f7b31371f0d0929a3a3ab
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 90d4ec1bbfd0d76ffedf1505c9147376e3947c3c
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457730"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729045"
 ---
-# <a name="connection-assets-in-azure-automation"></a>Anslutningstillgångar i Azure Automation
+# <a name="manage-connections-in-azure-automation"></a>Hantera anslutningar i Azure Automation
 
 En automationsanslutningstillgång innehåller den information som krävs för att ansluta till en extern tjänst eller ett externt program från en runbook- eller DSC-konfiguration. Detta kan omfatta information som krävs för autentisering, till exempel ett användarnamn och lösenord, utöver anslutningsinformation som en URL eller en port. Värdet för en anslutning behåller alla egenskaper för anslutning till ett visst program i en tillgång i stället för att skapa flera variabler. Användaren kan redigera värdena för en anslutning på ett ställe och du kan skicka namnet på en anslutning till en runbook- eller DSC-konfiguration i en enda parameter. Egenskaperna för en anslutning kan nås i runbook- eller `Get-AutomationConnection` DSC-konfigurationen med aktiviteten.
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: 161fd9276427db0d0d7d56da1bfc0bb8ccf52a52
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: d5626f00e9627338349d9b579bcf26256148b551
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536666"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731254"
 ---
 # <a name="create-an-azure-virtual-machine-offer"></a>Skapa ett erbjudande om virtuell azure-dator
 
@@ -34,19 +34,19 @@ Publicering till Azure Marketplace har följande fördelar:
 
 ### <a name="before-you-begin"></a>Innan du börjar
 
-Om du inte har gjort det ännu läser du [den virtuella datorns erbjudandeförlagsguide](https://aka.ms/Virtualmachineofferpublishingguide) och det här Azure-material med virtuella datorer:
+Om du inte har gjort det ännu läser du [den virtuella datorns erbjudandeförlagsguide](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) och det här Azure-material med virtuella datorer:
 
 - Snabbstartsguider
   - [Snabbstartsmallar för Azure](https://azure.microsoft.com/resources/templates/)
   - [Snabbstartsmallar för GitHub Azure](https://github.com/azure/azure-quickstart-templates)
 - Självstudier
-  - [Virtuella Linux-datorer](https://aka.ms/LinuxVMtutorial)
-  - [Virtuella Windows-datorer](https://aka.ms/windowsvms)
+  - [Virtuella Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
+  - [Virtuella Windows-datorer](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 - Exempel
-  - [Azure CLI-exempel för virtuella Linux-datorer](https://aka.ms/linuxclisamples)
-  - [Virtuella Azure PowerShell för virtuella Linux-datorer](https://aka.ms/linuxpowershellsamples)
-  - [Azure CLI-exempel för virtuella Windows-datorer](https://aka.ms/windowsclisamples)
-  - [Virtuella Azure PowerShell för Windows-datorer](https://aka.ms/windowspowershellvmsamples)
+  - [Azure CLI-exempel för virtuella Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
+  - [Virtuella Azure PowerShell för virtuella Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
+  - [Azure CLI-exempel för virtuella Windows-datorer](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
+  - [Virtuella Azure PowerShell för Windows-datorer](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick)
 
 ### <a name="fundamentals-in-technical-knowledge"></a>Grunderna i teknisk kunskap
 
@@ -66,7 +66,7 @@ Innan du kan skapa ett azure-erbjudande för virtuella datorer måste du ha ett 
 2. I fältet till vänster väljer du **Kommersiell marknadsplats**och sedan **Översikt**.
 3. På sidan **Översikt** väljer du **+ Nytt erbjudande**och sedan Azure Virtual **Machine**. Dialogrutan **Nytt erbjudande** visas.
 
-![Illustrerar översiktssidan i Partnercenter med knappen Nytt erbjudande och Azure Virtual Machine-erbjudandet valt.](media/avm-create7.png)
+    ![Illustrerar översiktssidan i Partnercenter med knappen Nytt erbjudande och Azure Virtual Machine-erbjudandet valt.](media/avm-create7.png)
 
 ## <a name="offer-id-and-alias"></a>Erbjudande-ID och alias
 
@@ -91,7 +91,7 @@ Om du vill aktivera en provkörning markerar du kryssrutan **Aktivera en provkö
 Ytterligare provkörningsresurser:
 
 - [Tekniska bästa metoder](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Metodtips för marknadsföring](https://aka.ms/TestDriveMarketingBestPractices)
+- [Metodtips för marknadsföring](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
 - [Översikt över testenheter](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF (se till att popup-blockeraren är avstängd).
 
 ### <a name="lead-management"></a>Leadhantering
@@ -99,12 +99,12 @@ Ytterligare provkörningsresurser:
 När du publicerar ditt erbjudande på den kommersiella marknadsplatsen med Partner Center ansluter du det till crm-systemet (Customer Relationship Management). På så sätt kan du få information om kundkontakter så snart någon uttrycker intresse för eller använder din produkt. Det krävs anslutning till en CRM om du aktiverar **Test Drive** (se föregående avsnitt), annars är det valfritt.
 
 1. Välj ett leadmål där du vill att vi ska skicka kundleads. Partner Center stöder följande CRM-system:
-    - [Dynamics 365](https://aka.ms/Dyn365LeadMgmt) för kundengagemang
-    - [Marketo](https://aka.ms/LeadMgmtMarketo)
-    - [Salesforce](https://aka.ms/LeadMgmtSalesforce)
+    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) för kundengagemang
+    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
+    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
     > [!NOTE]
-    > Om ditt CRM-system inte visas ovan använder du [Azure Table](https://aka.ms/AzureTableLeadMgmt) eller [Https Endpoint](https://aka.ms/LeadMgmtHTTPS) för att lagra leaddata för kunder. Exportera sedan data till crm-systemet.
+    > Om ditt CRM-system inte visas ovan använder du [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) eller [Https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) för att lagra leaddata för kunder. Exportera sedan data till crm-systemet.
 
 2. Anslut ditt erbjudande till leaddestinationen när du publicerar i Partner Center.
 3. Kontrollera att anslutningen till lead-målet är korrekt konfigurerad. När du har publicerat den i Partner Center validerar vi anslutningen och skickar en testledare till dig. Medan du förhandsgranskar erbjudandet innan det visas kan du också testa din leadanslutning genom att försöka distribuera erbjudandet själv i förhandsversionen.
@@ -274,7 +274,7 @@ Lägg till upp till fem skärmbilder som visar hur erbjudandet fungerar. Varje s
 
 Lägg till upp till fem videor som visar ditt erbjudande. Dessa bör finnas på en extern videotjänst. Ange videons namn, webbadress och en PNG-miniatyrbild av videon med en storlek på 1 280 x 720 pixlar.
 
-Ytterligare resurser för marknadsplatslistning finns i [Metodtips för marknadsplatserbjudanden.](https://aka.ms/LdMgmtOfferListingBestPractices)
+Ytterligare resurser för marknadsplatslistning finns i [Metodtips för marknadsplatserbjudanden.](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
 Välj **Spara utkast** innan du fortsätter.
 
@@ -554,4 +554,4 @@ De här exemplen visar hur erbjudandet visas på Azure Marketplace.
 
 ## <a name="next-step"></a>Nästa steg
 
-- [Uppdatera ett befintligt erbjudande på den kommersiella marknaden](https://aka.ms/UpdateOfferCM)
+- [Uppdatera ett befintligt erbjudande på den kommersiella marknaden](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)

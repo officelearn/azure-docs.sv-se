@@ -6,14 +6,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 34de5f59e96a37282063741a1664f512697c167b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2fa67d81546db86535c179a9c59d0602c1175cba
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80288724"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687500"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Publiceringsguide för virtuell dator
 
@@ -53,7 +53,7 @@ Använd erbjudandetypen för den virtuella datorn när du distribuerar en virtue
 | Krav | Information |  
 |:--- |:--- | 
 | Fakturering och mätning | Din virtuella dator måste ha stöd för antingen BYOL eller Pay-As-You-Go månadsvis fakturering. |  
-| Azure-kompatibel virtuell hårddisk (VHD) | Virtuella datorer måste byggas på Windows eller Linux. <ul> <li>Mer information om hur du skapar en Virtuell Linux-hårddisk finns i [Linux-distributioner som är godkända på Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Mer information om hur du skapar en Virtuell Windows-hårddisk finns i [Skapa en Azure-kompatibel virtuell hårddisk](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
+| Azure-kompatibel virtuell hårddisk (VHD) | Virtuella datorer måste byggas på Windows eller Linux. <ul> <li>Mer information om hur du skapar en Virtuell Linux-hårddisk finns i [Linux-distributioner som är godkända på Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Mer information om hur du skapar en Virtuell Windows-hårddisk finns i [Skapa en Azure-kompatibel virtuell hårddisk](./partner-center-portal/azure-vm-create-offer.md).</li> </ul> |  
 
 >[!Note]
 >Opt-in (Cloud Solution Providers) partnerkanal är nu tillgänglig.  Se [Cloud Solution Providers](./cloud-solution-providers.md) för mer information om marknadsföring ditt erbjudande via Microsoft CSP partnerkanaler.
@@ -62,9 +62,9 @@ Använd erbjudandetypen för den virtuella datorn när du distribuerar en virtue
 
 Om du inte redan har gjort det, 
 
-- [Registrera dig](https://azuremarketplace.microsoft.com/sell) på marknaden.
+- [Läs mer](https://azuremarketplace.microsoft.com/sell) om marknadsplatsen.
 
 Om du är registrerad och skapar ett nytt erbjudande eller arbetar med ett befintligt,
 
-- [Logga in på Cloud Partner Portal](https://cloudpartner.azure.com) för att skapa eller slutföra ditt erbjudande.
-- Se [Erbjudandet om virtuella datorer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer) för mer information.
+- [Logga in på Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) för att skapa eller slutföra erbjudandet.
+- Mer information finns i Skapa ett erbjudande om [en virtuell dator.](./partner-center-portal/azure-vm-create-offer.md)

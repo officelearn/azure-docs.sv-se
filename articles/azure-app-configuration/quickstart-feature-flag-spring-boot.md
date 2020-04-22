@@ -4,14 +4,14 @@ description: Lägga till funktionsflaggor i Spring Boot-appar och hantera dem me
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 04/13/2020
+ms.date: 04/18/2020
 ms.author: lcozzens
-ms.openlocfilehash: 398005b37660cfa68936a0c8b3a3d90da8160e49
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: e6dc51250987e0282530209ffa13e52d6e75aa9c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309076"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687370"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Snabbstart: Lägga till funktionsflaggor i en spring boot-app
 
@@ -55,9 +55,9 @@ Använd [Spring Initializr](https://start.spring.io/) för att skapa ett nytt Sp
 
 1. När du har extraherat filerna på ditt lokala system är springstartprogrammet redo för redigering. Leta reda på *pom.xml* i appens rotkatalog.
 
-1. Öppna *filen pom.xml* i en textredigerare `<dependencies>`och lägg till följande i listan över .:
+1. Öppna *filen pom.xml* i en textredigerare `<dependencies>`och lägg till följande i listan över:
 
-### <a name="spring-cloud-11x"></a>Vårmoln 1.1.x
+    **Vårmoln 1.1.x**
 
     ```xml
     <dependency>
@@ -76,7 +76,7 @@ Använd [Spring Initializr](https://start.spring.io/) för att skapa ett nytt Sp
     </dependency>
     ```
 
-### <a name="spring-cloud-12x"></a>Vårmoln 1.2.x
+    **Vårmoln 1.2.x**
 
     ```xml
     <dependency>

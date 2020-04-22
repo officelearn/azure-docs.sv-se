@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/10/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: bbe973f5c701f55705fe197f56f5f8ab1d9e8c68
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: e589fa8ae5627746ec1f04e2098a7b592f00dc24
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260801"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684925"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Självstudiekurs: Skapa ARM-mallar med beroende resurser
 
@@ -96,11 +96,11 @@ När du utforskar mallen i det här avsnittet kan du försöka besvara följande
 
     ![Visual Studio Code Azure Resource Manager-mallar beror påPå](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
 
-    Med elementet dependsOn kan du definiera en resurs som beroende på en eller flera resurser. Med elementet dependsOn kan du definiera en resurs som beroende på en eller flera resurser.  Den här resursen är beroende av en annan resurs:
+    Med elementet dependsOn kan du definiera en resurs som beroende på en eller flera resurser. Den här resursen är beroende av en annan resurs:
 
     * `Microsoft.Network/networkSecurityGroups`
 
-1. Expandera den femtio resursen. Resurstypen är `Microsoft.Network/networkInterfaces`. Resursen beror på två resurser:
+1. Expandera den femte resursen. Resurstypen är `Microsoft.Network/networkInterfaces`. Resursen beror på två resurser:
 
     * `Microsoft.Network/publicIPAddresses`
     * `Microsoft.Network/virtualNetworks`
@@ -163,7 +163,7 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 
 1. Välj **Resursgrupp** på den vänstra menyn på Azure-portalen.
 2. Ange resursgruppens namn i fältet **Filtrera efter namn**.
-3. Välj resursgruppens namn.  Du bör se totalt sex resurser i resursgruppen.
+3. Välj resursgruppens namn. Totalt visas sex resurser i resursgruppen.
 4. Välj **Ta bort resursgrupp** på den övre menyn.
 
 ## <a name="next-steps"></a>Nästa steg

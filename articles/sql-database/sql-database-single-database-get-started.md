@@ -10,13 +10,13 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
-ms.date: 03/10/2020
-ms.openlocfilehash: 638adaac699bb7aa2774f5cbd37dc8394a2baee3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/19/2020
+ms.openlocfilehash: b06c255f94b4d539c7c85e318238b10629cbb907
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240522"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685156"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Snabbstart: Skapa en enda Azure SQL Database-databas
 
@@ -67,7 +67,7 @@ Behåll resursgruppen, servern och den enskilda databasen för att gå vidare ti
 
 När du är klar med dessa resurser kan du ta bort resursgruppen som du skapade, som också tar bort servern och den enda databasen i den.
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+### <a name="portal"></a>[Portalen](#tab/azure-portal)
 
 Så här tar du bort **myResourceGroup** och alla dess resurser med Azure-portalen:
 
@@ -75,7 +75,7 @@ Så här tar du bort **myResourceGroup** och alla dess resurser med Azure-portal
 1. På resursgruppssidan väljer du **Ta bort resursgrupp**.
 1. Under **Skriv resursgruppsnamnet**anger du *myResourceGroup*och väljer sedan **Ta bort**.
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Om du vill ta bort resursgruppen och alla dess resurser kör du följande Azure CLI-kommando med namnet på resursgruppen:
 
@@ -83,15 +83,16 @@ Om du vill ta bort resursgruppen och alla dess resurser kör du följande Azure 
 az group delete --name <your resource group>
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Om du vill ta bort resursgruppen och alla dess resurser kör du följande PowerShell-cmdlet med namnet på resursgruppen:
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name <your resource group>
 ```
 
 ---
+
 ## <a name="next-steps"></a>Nästa steg
 
 [Anslut och fråga](sql-database-connect-query.md) databasen med olika verktyg och språk:

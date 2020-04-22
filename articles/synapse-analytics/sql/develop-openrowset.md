@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 25eb93a01c59225b6d9e64db5d08b954adb4f8ab
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 6325d5555b01373b148dce69731ec64896d6e1fd
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81424071"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680498"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Så här använder du OPENROWSET med SQL on-demand (förhandsversion)
 
@@ -26,7 +26,7 @@ OPENROWSET stöds för närvarande inte i SQL-poolen.
 
 ## <a name="syntax"></a>Syntax
 
-```
+```syntaxsql
 --OPENROWSET syntax for reading Parquet files
 OPENROWSET  
 ( { BULK 'unstructured_data_path' , 
@@ -60,36 +60,39 @@ Du har två alternativ för indatafiler som innehåller måldata för frågor. G
 
 - "PARKETT" - Binär fil i parkettformat 
 
-"unstructured_data_path"
+**"unstructured_data_path"**
 
-Den unstructured_data_path som upprättar en väg till data är strukturerad på följande sätt: "<prefix>://<storage_account_path>/<storage_path>" 
+Den unstructured_data_path som upprättar en sökväg till data är strukturerad på följande sätt:  
+"\<prefix>://\<storage_account_path>/\<storage_path>"
  
  
  Nedan hittar du relevanta sökvägar för lagringskonto som länkar till just din externa datakälla. 
 
-| Extern datakälla       | Prefix | Sökväg till lagringskonto                                |
-| -------------------------- | ------ | --------------------------------------------------- |
-| Azure Blob Storage         | https  | <storage_account>.blob.core.windows.net             |
-| Azure Data Lake Store Gen1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
-| Azure Data Lake Store Gen2 | https  | <storage_account>.dfs.core.windows.net              |
+| Extern datakälla       | Prefix | Sökväg till lagringskonto                                 |
+| -------------------------- | ------ | ---------------------------------------------------- |
+| Azure Blob Storage         | https  | \<storage_account>.blob.core.windows.net             |
+| Azure Data Lake Store Gen1 | https  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
+| Azure Data Lake Store Gen2 | https  | \<storage_account>.dfs.core.windows.net              |
+||||
 
- "<storage_path>" 
+"\<storage_path>"
 
  Anger en sökväg i lagringsutrymmet som pekar på mappen eller filen som du vill läsa. Om sökvägen pekar på en behållare eller mapp kommer alla filer att läsas från just den behållaren eller mappen. Filer i undermappar inkluderas inte. 
  
  Du kan använda jokertecken för att rikta in dig på flera filer eller mappar. Användning av flera icke-samtidiga jokertecken är tillåten.
-Nedan följer ett exempel som läser *population* alla *CSV-filer* som börjar med befolkninghttps://sqlondemandstorage.blob.core.windows.net/csv/populationfrån alla mappar som börjar med */csv/population*: '*/population*.csv'
+Nedan är ett exempel som läser alla *CSV-filer* som börjar med *befolkning* från alla mappar som börjar med */ csv / befolkning:*  
+`https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
 Om du anger unstructured_data_path ska vara en mapp hämtas filer från mappen i en SQL on-demand-fråga. 
 
 > [!NOTE]
 > Till skillnad från Hadoop och PolyBase returnerar SQL on-demand inte undermappar. Till skillnad från Hadoop och PloyBase returnerar SQL on-demand filer som filnamnet börjar med en understrykning (_) eller en punkt (.).
 
-I exemplet nedan, om unstructured_data_path='https://mystorageaccount.dfs.core.windows.net/webdata/', returnerar en SQL on-demand-fråga rader från mydata.txt och _hidden.txt. Det kommer inte att returnera mydata2.txt och mydata3.txt eftersom de finns i en undermapp.
+Om unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`returnerar en SQL on-demand-fråga rader från mydata.txt och _hidden.txt i exemplet nedan. Det kommer inte att returnera mydata2.txt och mydata3.txt eftersom de finns i en undermapp.
 
 ![Rekursiva data för externa tabeller](./media/develop-openrowset/folder-traversal.png)
 
-[MED ( {'column_name' 'column_type' [ 'column_ordinal'] }) ]
+`[WITH ( {'column_name' 'column_type' [ 'column_ordinal'] }) ]`
 
 Med satsen MED MED kan du ange kolumner som du vill läsa från filer.
 
@@ -113,7 +116,8 @@ WITH (
     --[population] bigint
 )
 ```
-<bulk_options>
+
+**\<bulk_options>**
 
 FIELDTERMINATOR ='field_terminator'
 

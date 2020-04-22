@@ -15,91 +15,91 @@ ms.topic: tutorial
 ms.date: 04/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3d33634a8e6c3f7fd311ab70ab04f2839672191
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 02cc78f7e786e97062cce6d402c972e66fa56860
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261150"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81688118"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mongodb-cloud"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med MongoDB Cloud
 
 I den här självstudien får du lära dig hur du integrerar MongoDB Cloud med Azure Active Directory (Azure AD). När du integrerar MongoDB Cloud med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till MongoDB Cloud, MongoDB Atlas, MongoDB-communityn, universitetet och supporten.
+* Kontroll i Azure AD som har åtkomst till MongoDB Cloud, MongoDB Atlas, MongoDB-communityn, MongoDB University och MongoDB Support.
 * Aktivera dina användare så att de automatiskt loggas in i MongoDB Cloud med sina Azure AD-konton.
-* Hantera dina konton på en central plats - Azure-portalen.
+* Hantera dina konton på en central plats: Azure-portalen.
 
-Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Mer information om integrering av SaaS-appar (Software as a Service) med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande:
+Du behöver följande för att komma igång:
 
 * En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
-* MongoDB Cloud enkel inloggning (SSO) aktiverad prenumeration.
+* En MongoDB Cloud-prenumeration som är aktiverad för enkel inloggning (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
 
-* MongoDB Cloud stöder **SP och IDP** initierad SSO
-* MongoDB Cloud stöder just in time-användaretablering **Just In Time**
-* När du har konfigurerat MongoDB Cloud kan du framtvinga sessionskontroll, som skyddar exfiltrering och infiltration av organisationens känsliga data i realtid. Sessionskontrollen sträcker sig från villkorlig åtkomst. [Lär dig hur du framtvingar sessionskontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* MongoDB Cloud stöder **SP** och **IDP** initierade SSO.
+* MongoDB Cloud stöder just in time-användaretablering. **Just In Time**
+* När du har konfigurerat MongoDB Cloud kan du framtvinga sessionskontroll, som skyddar exfiltrering och infiltration av organisationens känsliga data i realtid. Sessionskontrollen sträcker sig från villkorlig åtkomst. Mer information finns i [Lär dig hur du framtvingar sessionskontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-mongodb-cloud-from-the-gallery"></a>Lägga till MongoDB Cloud från galleriet
+## <a name="add-mongodb-cloud-from-the-gallery"></a>Lägg till MongoDB Cloud från galleriet
 
 Om du vill konfigurera integreringen av MongoDB Cloud i Azure AD måste du lägga till MongoDB Cloud från galleriet i listan över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
-1. Navigera till **företagsprogram** och välj sedan **Alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med hjälp av antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. Välj Azure Active **Directory**i den vänstra rutan .
+1. Gå till **Företagsprogram** och välj sedan **Alla program**.
 1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
 1. Skriv **MongoDB Cloud** i sökrutan i avsnittet **Lägg till från galleriet.**
-1. Välj **MongoDB Cloud** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
+1. Välj **MongoDB Cloud** från resultaten och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-mongodb-cloud"></a>Konfigurera och testa en azure AD-inloggning för MongoDB Cloud
 
-Konfigurera och testa Azure AD SSO med MongoDB Cloud med en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i MongoDB Cloud.
+Konfigurera och testa Azure AD SSO med MongoDB Cloud med hjälp av en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkad relation mellan en Azure AD-användare och den relaterade användaren i MongoDB Cloud.
 
 Så här konfigurerar och testar du Azure AD SSO med MongoDB Cloud:
 
-1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa azure AD-enkel inloggning med B.Simon.
-    1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** - så att B.Simon kan använda azure AD-enkel inloggning.
-1. **[Konfigurera MongoDB Cloud SSO](#configure-mongodb-cloud-sso)** - för att konfigurera de enskilda inloggningsinställningarna på programsidan.
-    1. **[Skapa MongoDB Cloud testanvändare](#create-mongodb-cloud-test-user)** - att ha en motsvarighet till B.Simon i MongoDB Cloud som är kopplad till Azure AD-representationen av användaren.
-1. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
+1. [Konfigurera Azure AD SSO](#configure-azure-ad-sso) så att användarna kan använda den här funktionen.
+    1. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) för att testa Azure AD enkel inloggning med B.Simon.
+    1. [Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user) för att aktivera B.Simon att använda Azure AD enkel inloggning.
+1. [Konfigurera MongoDB Cloud SSO](#configure-mongodb-cloud-sso) för att konfigurera de enskilda inloggningsinställningarna på programsidan.
+    1. [Skapa en MongoDB Cloud-testanvändare](#create-a-mongodb-cloud-test-user) för att ha en motsvarighet till B.Simon i MongoDB Cloud, länkad till Azure AD-representationen av användaren.
+1. [Testa SSO](#test-sso) för att kontrollera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
 Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
-1. I [Azure-portalen](https://portal.azure.com/)på sidan **MongoDB** Cloud-programintegrering hittar du avsnittet **Hantera** och väljer **enkel inloggning**.
+1. Hitta avsnittet Hantera på sidan **MongoDB** Cloud-programintegrering på [Azure-portalen.](https://portal.azure.com/) **Manage** Välj **enkel inloggning**.
 1. På sidan **Välj en enda inloggningsmetod** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
+1. På sidan **Konfigurera enkel inloggning med SAML** väljer du pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
 
-   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+   ![Skärmbild av Konfigurera enkel inloggning med SAML-sida, med pennikonen markerad](common/edit-urls.png)
 
 1. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** anger du värdena för följande fält:
 
-    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://www.okta.com/saml2/service-provider/<Customer_Unique>`
+    a. Skriv en URL som använder följande mönster i textrutan **Identifierare:**`https://www.okta.com/saml2/service-provider/<Customer_Unique>`
 
-    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://auth.mongodb.com/sso/saml2/<Customer_Unique>`
+    b. Skriv en URL som använder följande mönster i textrutan **Svara URL:**`https://auth.mongodb.com/sso/saml2/<Customer_Unique>`
 
-1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
+1. Välj **Ange ytterligare webbadresser**och utför följande steg om du vill konfigurera programmet i **återupptan** av SP-initierat läge:
 
-    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://cloud.mongodb.com/sso/<Customer_Unique>`
+    Skriv en URL som använder följande mönster i textrutan **Sign-on-URL:**`https://cloud.mongodb.com/sso/<Customer_Unique>`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [MongoDB Cloud Client supportteam](https://support.mongodb.com/) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med url:en för faktisk identifierare, svar och inloggning. Kontakta supportteamet för [MongoDB Cloud Client](https://support.mongodb.com/)för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. MongoDB Cloud-programmet förväntar sig SAML-påståenden i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. I följande skärmbild visas listan över standardattribut.
+1. MongoDB Cloud-programmet förväntar sig att SAML-påståendena är i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. I följande skärmbild visas listan över standardattribut.
 
-    ![image](common/default-attributes.png)
+    ![Skärmbild av standardattribut](common/default-attributes.png)
 
-1. Utöver ovanstående förväntar sig MongoDB Cloud-programmet att få fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda men du kan granska dem enligt dina krav.
+1. Förutom de föregående attributen förväntar sig MongoDB Cloud-programmet att några fler attribut skickas tillbaka i SAML-svaret. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
     
     | Namn | |  Källattribut|
     | ---------------| --------------- | --------- |
@@ -107,62 +107,62 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
     | firstName | | user.givenname |
     | lastName | | user.surname |
 
-1. På sidan **Konfigurera enkel inloggning med SAML** i avsnittet **SAML-signeringscertifikat** hittar du **XML för federationsmetadata** och väljer **Hämta** för att hämta certifikatet och spara det på datorn.
+1. Leta reda på XML för **federationsmetadata**i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML.** Välj **Hämta** om du vill hämta certifikatet och spara det på datorn.
 
-    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
+    ![Skärmbild av avsnittet SAML-signeringscertifikat, med länken Hämta markerad](common/metadataxml.png)
 
-1. Kopiera lämpliga webbadresser baserat på dina behov i avsnittet **Konfigurera MongoDB-moln.**
+1. I avsnittet **Konfigurera MongoDB Cloud** kopierar du lämpliga webbadresser baserat på dina behov.
 
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+    ![Skärmbild av avsnittet Konfigurera Mongo DB Cloud, med webbadresser markerade](common/copy-configuration-urls.png)
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B.Simon.
+I det här avsnittet skapar du en testanvändare i Azure-portalen som heter B.Simon.
 
-1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
+1. Välj Azure Active Directory**Users** > **All-användare**i den vänstra rutan i **Azure-portalen** > .
 1. Välj **Ny användare** högst upp på skärmen.
 1. Gör så här i egenskaperna **Användare:**
    1. I **Namn**-fältet skriver du `B.Simon`.  
    1. Ange **.** username@companydomain.extension Till exempel `B.Simon@contoso.com`.
-   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
-   1. Klicka på **Skapa**.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned lösenordet.
+   1. Välj **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till MongoDB Cloud.
 
-1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
+1. I Azure-portalen väljer du Alla**program för** >  **företagsprogram**.
 1. Välj **MongoDB Cloud**i programlistan .
 1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
 
-   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+   ![Skärmbild av avsnittet Hantera, med användare och grupper markerade](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
+1. Välj **Lägg till användare**. Välj sedan **Användare och grupper**i dialogrutan Lägg till **tilldelning** .
 
-    ![Länken Lägg till användare](common/add-assign-user.png)
+    ![Skärmbild av sidan Användare och grupper, med Lägg till användare markerad](common/add-assign-user.png)
 
-1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
+1. Välj **B.Simon** i listan över användare **och grupper.** Välj sedan **Välj** längst ned på skärmen.
+1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll.** Välj sedan **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** väljer du **Tilldela**.
 
 ## <a name="configure-mongodb-cloud-sso"></a>Konfigurera MongoDB Cloud SSO
 
-Om du vill konfigurera enkel inloggning på **MongoDB Cloud-sidan** behöver du lämpliga url:er som kopieras från Azure-portalen och du måste konfigurera federationsprogrammet för din MongoDB Cloud Organization. Följ instruktionerna i [MongoDB Cloud Docs](https://docs.atlas.mongodb.com/security/federated-authentication/index.html). Om du stöter på några problem kan du kontakta [MongoDB Cloud supportteam](https://support.mongodb.com/) för hjälp.
+Om du vill konfigurera enkel inloggning på MongoDB Cloud-sidan behöver du lämpliga url:er som kopieras från Azure-portalen. Du måste också konfigurera federationsprogrammet för din MongoDB Cloud Organization. Följ instruktionerna i [MongoDB Cloud-dokumentationen](https://docs.atlas.mongodb.com/security/federated-authentication/index.html). Om du har problem kontaktar du Supportteamet för [MongoDB Cloud](https://support.mongodb.com/).
 
-### <a name="create-mongodb-cloud-test-user"></a>Skapa MongoDB Cloud-testanvändare
+### <a name="create-a-mongodb-cloud-test-user"></a>Skapa en MongoDB Cloud-testanvändare
 
-I det här avsnittet skapas en användare som heter B.Simon i MongoDB Cloud. MongoDB Cloud stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i MongoDB Cloud skapas en ny efter autentisering.
+MongoDB Cloud stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns ingen ytterligare åtgärd för dig att vidta. Om en användare inte redan finns i MongoDB Cloud skapas en ny efter autentisering.
 
 ## <a name="test-sso"></a>Testa SSO 
 
-I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+I det här avsnittet testar du din Azure AD-konfiguration med hjälp av Åtkomstpanelen.
 
-När du klickar på panelen MongoDB Cloud på åtkomstpanelen ska du automatiskt loggas in i mongoDb-molnet som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen MongoDB Cloud på Åtkomstpanelen loggas du automatiskt in i MongoDB-molnet som du konfigurerar SSO för. Mer information finns [i Logga in och starta appar från portalen Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
@@ -172,5 +172,5 @@ När du klickar på panelen MongoDB Cloud på åtkomstpanelen ska du automatiskt
 
 - [Vad är sessionskontroll i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Så här skyddar du MongoDB Cloud med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Skydda MongoDB Cloud med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 

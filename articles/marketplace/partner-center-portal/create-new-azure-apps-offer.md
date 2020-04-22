@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 6b7ca1f10744bf38137c57d94d796655946c31b3
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: a62551b31c51836dfa50534ee6db907c8a4e111a
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81390352"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730624"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 
@@ -293,7 +293,7 @@ Den här planen måste göras tillgänglig i minst ett moln.
 
 Välj alternativet **Offentlig Azure** för att göra din lösning distribuerad till kunder i alla offentliga Azure-regioner som har Marketplace-integrering.  Läs mer om [geografisk tillgänglighet](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Välj alternativet **Azure Government Cloud** för att göra din lösning distribuerad i Azure Government [Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome), ett moln för myndigheter med kontrollerad åtkomst för kunder från usa:s federala, statliga, lokala eller stam- och stam- och partner som är kvalificerade att betjäna dessa entiteter.  Du som utgivare är ansvarig för alla efterlevnadskontroller, säkerhetsåtgärder och bästa praxis för att betjäna den här molncommunityn.  Azure Government använder fysiskt isolerade datacenter och nätverk (endast i USA).  Innan du publicerar till [Azure Government](https://aka.ms/azuregovpublish)rekommenderar Microsoft att du testar och validerar din lösning i miljön eftersom vissa slutpunkter kan skilja sig åt. Om du vill arrangera och testa din lösning begär du ett utvärderingskonto från den här [länken](https://azure.microsoft.com/global-infrastructure/government/request/).
+Välj alternativet **Azure Government Cloud** för att göra din lösning distribuerad i Azure Government [Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome), ett moln för myndigheter med kontrollerad åtkomst för kunder från usa:s federala, statliga, lokala eller stam- och stam- och partner som är kvalificerade att betjäna dessa entiteter.  Du som utgivare är ansvarig för alla efterlevnadskontroller, säkerhetsåtgärder och bästa praxis för att betjäna den här molncommunityn.  Azure Government använder fysiskt isolerade datacenter och nätverk (endast i USA).  Innan du publicerar till [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)rekommenderar Microsoft att du testar och validerar din lösning i miljön eftersom vissa slutpunkter kan skilja sig åt. Om du vill arrangera och testa din lösning begär du ett utvärderingskonto från den här [länken](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 >[!Note]
 >När en plan har publicerats som tillgänglig i ett visst moln kan inte molnet tas bort.

@@ -3,12 +3,13 @@ title: Övervaka prestanda för Azure-apptjänster | Microsoft-dokument
 description: Övervakning av programmets prestanda för Azure-apptjänster. Diagraminläsning och svarstid, beroendeinformation och ange aviseringar om prestanda.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: d2134e059a446c18108e8dd16bcc74504b42b15a
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.custom: fasttrack-edit
+ms.openlocfilehash: dd0d3be6ed7e5185183618cc2bdeff5ee8d749f3
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437198"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729795"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka Azure App Service-prestanda
 
@@ -55,15 +56,16 @@ Det finns två sätt att aktivera programövervakning för Azure App Services-v�
 2. När du har angett vilken resurs som ska användas kan du välja hur du vill att programinsikter ska samlas in data per plattform för ditt program. ASP.NET appövervakning är som standard med två olika insamlingsnivåer.
 
     ![Välj alternativ per plattform](./media/azure-web-apps/choose-options-new.png)
-
-   * .NET **Basic insamlingsnivå** erbjuder viktiga APM-funktioner med en instans.
-
-   * .NET **Rekommenderad insamlingsnivå:**
-       * Lägger till trender för CPU,minne och I/O-användning.
-       * Korrelerar mikrotjänster över begäran/beroendegränser.
-       * Samlar in användningstrender och möjliggör korrelation från tillgänglighetsresultat till transaktioner.
-       * Samlar in undantag som inte hanteras av värdprocessen.
-       * Förbättrar APM-måttens noggrannhet under belastning när sampling används.
+ 
+ Nedan följer en sammanfattning av data som samlats in för varje rutt:
+        
+|  | .NET Grundläggande samling | .NET Rekommenderad samling |
+| --- | --- | --- |
+| Lägger till trender för processor-, minnes- och I/O-användning |Ja |Ja |
+| Samlar in användningstrender och aktiverar korrelation från tillgänglighetsresultat till transaktioner | Ja |Ja |
+| Samlar in undantag som hanteras av värdprocessen | Ja |Ja |
+| Förbättrar precisionen för APM-mått under belastning när sampling används | Ja |Ja |
+| Korrelerar mikrotjänster över begärande-/beroendegränser | Nej (endast APM-funktioner med en instans) |Ja |
 
 3. För att konfigurera inställningar som sampling, som du tidigare kunde styra via filen applicationinsights.config kan du nu interagera med samma inställningar via programinställningar med motsvarande prefix. 
 

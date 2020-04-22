@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: a4f9833e8dd14dc7c8ec5849cb809bf2089a5dae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ecde5acb7dc57ed9e5802c1589d5813a9206643
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77206131"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684830"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Språk- och regionstöd för Translator Text API
 
@@ -63,6 +63,7 @@ Translator Text API stöder följande språk för text till text översättning.
 |Franska|    `fr`    |   Neurala|
 |Tyska|    `de`    |   Neurala|
 |Grekiska| `el`    |   Neurala|
+|Gujarati|  `gu`    |   Neurala|
 |Haitiska|    `ht`        |Statistiska|
 |Hebreiska |`he`   |Neurala
 |Hindi| `hi`    |   Neurala|
@@ -85,6 +86,7 @@ Translator Text API stöder följande språk för text till text översättning.
 |Malayalam| `ml` | Neurala
 |Maltesiska|   `mt`    |   Statistiska|
 |Maori| `mi`  | Neurala|
+|Marathi| `mr`  | Neurala|
 |Norska| `nb`    |   Neurala|
 |Persiska|   `fa`    |   Neurala|
 |Polska|    `pl`    |   Neurala|

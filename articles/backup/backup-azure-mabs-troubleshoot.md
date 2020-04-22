@@ -4,12 +4,12 @@ description: Felsöka installation, registrering av Azure Backup Server och säk
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: deff49a7d00a335c396a6fa36d3846ef353331c5
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: 7a1cac63ba6497b8580c83fe2b666b020701283a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421297"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81688037"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Felsöka Azure Backup Server
 
@@ -62,7 +62,7 @@ Vi rekommenderar att du utför valideringen nedan innan du börjar felsöka Micr
 
 | Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
-| Att driva agenter till skyddade servrar | Agentåtgärden misslyckades på grund av ett kommunikationsfel \<med DPM-agentkoordinatorn på ServerName>. | **Om den rekommenderade åtgärden som visas i produkten inte fungerar utför du följande steg:** <ul><li> Om du ansluter en dator från en domän som inte är betrodd följer du [dessa steg](https://docs.microsoft.com/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019). <br> Jag vet inte vad du ska ta på dig. </li><li> Om du ansluter en dator från en betrodd domän felsöker du med hjälp av stegen i [den här bloggen](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726). <br>Jag vet inte vad du ska ta på dig.</li><li> Prova att inaktivera antivirusprogram som ett felsökningssteg. Om problemet lösers ändrar du antivirusinställningarna enligt förslaget i [den här artikeln](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757911(v=sc.12)).</li></ul> |
+| Att driva agenter till skyddade servrar | Agentåtgärden misslyckades på grund av ett kommunikationsfel \<med DPM-agentkoordinatorn på ServerName>. | **Om den rekommenderade åtgärden som visas i produkten inte fungerar utför du följande steg:** <ul><li> Om du ansluter en dator från en domän som inte är betrodd följer du [dessa steg](https://docs.microsoft.com/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019). <br> Jag vet inte vad du ska ta på dig. </li><li> Om du ansluter en dator från en betrodd domän felsöker du med hjälp av stegen i [den här bloggen](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726). <br>Jag vet inte vad du ska ta på dig.</li><li> Prova att inaktivera antivirusprogram som ett felsökningssteg. Om problemet lösers ändrar du antivirusinställningarna enligt förslaget i [den här artikeln](https://docs.microsoft.com/system-center/dpm/run-antivirus-server?view=sc-dpm-2019).</li></ul> |
 
 ## <a name="setup-could-not-update-registry-metadata"></a>Det gick inte att uppdatera metadata för registret
 
@@ -96,7 +96,7 @@ Vi rekommenderar att du utför valideringen nedan innan du börjar felsöka Micr
 | Backup | Om du säkerhetskopierar systemtillståndet kontrollerar du att det finns tillräckligt med ledigt utrymme på den skyddade datorn för att lagra säkerhetskopian av systemtillståndet. | <ol><li>Kontrollera att Windows Server Backup är installerat på den skyddade datorn.</li><li>Kontrollera att det finns tillräckligt med utrymme på den skyddade datorn för systemtillståndet. Det enklaste sättet att kontrollera detta är att gå till den skyddade datorn, öppna Windows Server Backup, klicka igenom valen och sedan välja BMR. Användargränssnittet talar sedan om hur mycket utrymme som krävs. Öppna **WSB** > Lokal**säkerhetskopieringsschemaVal** > **Local backup** > **Backup Configuration** > **Full server** (storleken visas). Använd den här storleken för verifiering.</li></ol>
 | Backup | Säkerhetskopiera fel för BMR | Om BMR-storleken är stor flyttar du vissa programfiler till OS-enheten och försöker igen. |
 | Backup | Alternativet att återreda en virtuell virtuell vmware-dator på en ny Microsoft Azure Backup Server visas inte som tillgängligt att lägga till. | VMware-egenskaper pekar på en gammal, pensionerad instans av Microsoft Azure Backup Server. Gör så här för att lösa problemet:<br><ol><li>I VCenter (MOTSVARANDE SC-VMM) går du till fliken **Sammanfattning** och går sedan till **Anpassade attribut**.</li>  <li>Ta bort det gamla Microsoft Azure Backup Server-namnet från **DPMServer-värdet.**</li>  <li>Gå tillbaka till den nya Microsoft Azure Backup Server och ändra PG.  När du har **markerat** knappen Uppdatera visas den virtuella datorn med en kryssruta som finns att lägga till i skyddet.</li></ol> |
-| Backup | Fel vid åtkomst till filer/delade mappar | Prova att ändra antivirusinställningarna som föreslås i den här artikeln [Kör antivirusprogram på DPM-servern](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757911(v=sc.12)).|
+| Backup | Fel vid åtkomst till filer/delade mappar | Prova att ändra antivirusinställningarna som föreslås i den här artikeln [Kör antivirusprogram på DPM-servern](https://docs.microsoft.com/system-center/dpm/run-antivirus-server?view=sc-dpm-2019).|
 
 ## <a name="change-passphrase"></a>Ändra lösenfras
 

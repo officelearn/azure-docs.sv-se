@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/27/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6aea537ebff4ae61e00861e6cafe742a7feb165e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cac7e6feb632456b63b97ead057f9ecaf49322ea
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78186785"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729708"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection hävdar omvandlingar
 
@@ -159,4 +159,38 @@ Följande exempel kontrollerar om strängenKollyrningsanspråkstypen `roles` inn
 - Utdataanspråk:
     - **outputClaim**: "sant"
 
+## <a name="stringcollectioncontainsclaim"></a>StringCollectionContainsClaim
 
+Kontrollerar om en StringCollection-anspråkstyp innehåller ett anspråksvärde.
+
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | samling | strängInsamling | Anspråkstypen som ska genomsökas. |
+| InputClaim | objekt|sträng| Anspråkstypen som innehåller värdet att söka i.|
+|InputParameter|ignoreCase (ignoreraFall)|sträng|Anger om den här jämförelsen ska ignorera fallet med de strängar som jämförs.|
+| OutputClaim | outputClaim | boolean | Den ClaimType som produceras efter att den här ClaimsTransformation har anropats. En boolesk indikator om samlingen innehåller en sådan sträng |
+
+I det här `roles` exemplet kontrolleras om anspråkstypen stringCollection innehåller värdet för anspråkstypen. `role`
+
+```XML
+<ClaimsTransformation Id="HasRequiredRole" TransformationMethod="StringCollectionContainsClaim">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="collection" />
+    <InputClaim ClaimTypeReferenceId="role" TransformationClaimType="item" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="ignoreCase" DataType="string" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="hasAccess" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation> 
+```
+
+- Ingående anspråk:
+    - **samling**: ["läsare", "författare", "admin"]
+    - **objekt:**"Admin"
+- Indataparametrar:
+    - **ignoreCase**: "sant"
+- Utdataanspråk:
+    - **outputClaim**: "sant"

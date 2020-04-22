@@ -8,12 +8,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 6d1ab50e471c9c603c7886130375dc74e9b2a755
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 3e7f31371a0582a6f4941efbfa0087119278d2d1
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284634"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729120"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Referens - välj ett kommunikationsprotokoll
 
@@ -39,7 +42,7 @@ Tänk på följande när du väljer ditt protokoll för kommunikation på enhets
 
 * **Moln-till-enhet mönster**. HTTPS har inget effektivt sätt att implementera servertryck. När du använder HTTPS avsöker enheter därför IoT Hub för meddelanden från molnet till enheten. Den här metoden är ineffektiv för både enheten och IoT Hub. Enligt gällande HTTPS-riktlinjer bör varje enhet söka efter meddelanden var 25:e minut eller mer. MQTT och AMQP stöder server push när du tar emot meddelanden från molnet till enheten. De möjliggör omedelbara pushes av meddelanden från IoT Hub till enheten. Om leveransfördröjning är ett problem är MQTT eller AMQP de bästa protokollen att använda. För sällan anslutna enheter fungerar HTTPS också.
 
-* **Fältgateways**. När du använder MQTT och HTTPS kan du inte ansluta flera enheter (var och en med sina egna autentiseringsuppgifter per enhet) med samma TLS-anslutning. För [fältgatewayscenarier](iot-hub-devguide-endpoints.md#field-gateways) som kräver en TLS-anslutning mellan fältgatewayen och IoT Hub för varje ansluten enhet är dessa protokoll suboptimala.
+* **Fältgateways**. MQTT och HTTPS stöder endast en enhetsidentitet (enhets-ID plus autentiseringsuppgifter) per TLS-anslutning. Därför stöds inte dessa protokoll för [fältgatewayscenarier](iot-hub-devguide-endpoints.md#field-gateways) som kräver multiplexeringsmeddelanden med flera enhetsidentiteter över en enda eller en pool med uppströmsanslutningar till IoT Hub. Sådana gateways kan använda ett protokoll som stöder flera enhetsidentiteter per anslutning, till exempel AMQP, för sin uppströmstrafik.
 
 * **Enheter med låg resurs**. MQTT- och HTTPS-biblioteken har ett mindre fotavtryck än AMQP-biblioteken. Om enheten har begränsade resurser (till exempel mindre än 1 MB RAM) kan dessa protokoll vara den enda tillgängliga protokollimplementeringen.
 

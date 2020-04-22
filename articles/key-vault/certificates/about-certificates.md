@@ -10,57 +10,14 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e9fbe624563ad03880ff1a75efdc2df41b151846
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5e014634ecb251f05710de16daee30d72dae619e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81424281"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685903"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Om Azure Key Vault-certifikat
-
-Azure Key Vault gör det möjligt för Microsoft Azure-program och användare att lagra och använda certifikat, som bygger på nycklar och hemligheter och lägger till en automatisk förnyelsefunktion.
-
-Mer allmän information om Key Vault finns i [Vad är Azure Key Vault?](/azure/key-vault/key-vault-overview)
-
-## <a name="azure-key-vault"></a>Azure Key Vault
-
-Följande avsnitt innehåller allmän information som gäller för implementeringen av Key Vault-tjänsten.
-
-### <a name="supporting-standards"></a>Stödjande standarder
-
-Specifikationerna JavaScript Object Notation (JSON) och JavaScript Object Signing and Encryption (JOSE) är viktig bakgrundsinformation.  
-
--   [JSON webbnyckel (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41)  
--   [JSON Webbkryptering (JWE)](https://tools.ietf.org/html/draft-ietf-jose-json-web-encryption-40)  
--   [JSON Webbalgoritmer (JWA)](https://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms-40)  
--   [JSON webbsignatur (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature-41)  
-
-### <a name="objects-identifiers-and-versioning"></a>Objekt, identifierare och versionshantering
-
-Objekt som lagras i Key Vault versions när en ny instans av ett objekt skapas. Varje version tilldelas en unik identifierare och URL. När ett objekt först skapas får det en unik versionsidentifierare och markeras som den aktuella versionen av objektet. Skapandet av en ny instans med samma objektnamn ger det nya objektet en unik versionsidentifierare, vilket gör att den blir den aktuella versionen.  
-
-Objekt i Key Vault kan åtgärdas med den aktuella identifieraren eller en versionsspecifik identifierare. Om du till exempel anger `MasterKey`en nyckel med namnet, gör det att utföra åtgärder med den aktuella identifieraren att systemet använder den senaste tillgängliga versionen. Om du utför åtgärder med den versionsspecifika identifieraren används systemet den specifika versionen av objektet.  
-
-Objekt identifieras unikt i Key Vault med hjälp av en URL. Inga två objekt i systemet har samma URL, oavsett geografisk plats. Den fullständiga URL:en till ett objekt kallas objektidentifieraren. URL:en består av ett prefix som identifierar Nyckelvalvet, objekttypen, objektets namn och en objektversion. Objektnamnet är skiftlägesokänsligt och oföränderligt. Identifierare som inte innehåller objektversionen kallas basidentifierare.  
-
-Mer information finns i [Autentisering, begäranden och svar](../general/authentication-requests-and-responses.md)
-
-En objektidentifierare har följande allmänna format:  
-
-`https://{keyvault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
-
-Där:  
-
-|||  
-|-|-|  
-|`keyvault-name`|Namnet på ett nyckelvalv i Tjänsten Microsoft Azure Key Vault.<br /><br /> Key Vault-namn väljs av användaren och är globalt unika.<br /><br /> Key Vault-namnet måste vara en 3-24 teckensträng som endast innehåller 0-9, a-z, A-Z och -.|  
-|`object-type`|Typen av objekt, antingen "nycklar" eller "hemligheter".|  
-|`object-name`|En `object-name` är ett användarnamn för och måste vara unikt i ett Nyckelvalv. Namnet måste vara en 1-127 teckensträng som innehåller endast 0-9, a-z, A-Z och -.|  
-|`object-version`|En `object-version` är en systemgenererad 32 teckensträngidentifierare som eventuellt används för att adressera en unik version av ett objekt.|  
-
-
-## <a name="key-vault-certificates"></a>Certifikat för nyckelvalv
 
 Support för Key Vault-certifikat ger hantering av dina x509-certifikat och följande beteenden:  
 
@@ -73,7 +30,7 @@ Support för Key Vault-certifikat ger hantering av dina x509-certifikat och föl
 >[!Note]
 >Icke-partnerleverantörer/myndigheter är också tillåtna, men kommer inte att stödja funktionen för automatisk förnyelse.
 
-### <a name="composition-of-a-certificate"></a>Ett certifikats sammansättning
+## <a name="composition-of-a-certificate"></a>Ett certifikats sammansättning
 
 När ett Key Vault-certifikat skapas skapas också en adresserbar nyckel och hemlighet med samma namn. Key Vault-nyckeln tillåter nyckelåtgärder och Key Vault-hemligheten gör det möjligt att hämta certifikatvärdet som en hemlighet. Ett Key Vault-certifikat innehåller också offentliga x509-certifikatmetadata.  
 
@@ -81,7 +38,7 @@ Identifieraren och versionen av certifikat liknar den för nycklar och hemlighet
  
 ![Certifikat är komplexa objekt](../media/azure-key-vault.png)
 
-### <a name="exportable-or-non-exportable-key"></a>Exporteras eller icke-exportbar nyckel
+## <a name="exportable-or-non-exportable-key"></a>Exporteras eller icke-exportbar nyckel
 
 När ett Key Vault-certifikat skapas kan det hämtas från den adresserbara hemligheten med den privata nyckeln i antingen PFX- eller PEM-format. Principen som används för att skapa certifikatet måste ange att nyckeln kan exporteras. Om principen anger att den inte kan exporteras är den privata nyckeln inte en del av värdet när den hämtas som en hemlighet.  
 
@@ -89,11 +46,11 @@ Den adresserbara nyckeln blir mer relevant med KV-certifikat som inte kan export
 
 Två typer av nyckel stöds – *RSA* eller *RSA HSM* med certifikat. Exportbar är endast tillåten med RSA, som inte stöds av RSA HSM.  
 
-### <a name="certificate-attributes-and-tags"></a>Certifikatattribut och -taggar
+## <a name="certificate-attributes-and-tags"></a>Certifikatattribut och -taggar
 
 Förutom certifikatmetadata, en adresserbar nyckel och adresserbar hemlighet innehåller ett Key Vault-certifikat också attribut och taggar.  
 
-#### <a name="attributes"></a>Attribut
+### <a name="attributes"></a>Attribut
 
 Certifikatattributen speglas till attribut för den adresserbara nyckeln och hemlighet som skapas när KV-certifikat skapas.  
 
@@ -111,14 +68,14 @@ Det finns ytterligare skrivskyddade attribut som ingår i svaret:
 > [!Note] 
 > Om ett Key Vault-certifikat upphör att gälla är den adresserbar nyckel och hemligheten blir obrukbar.  
 
-#### <a name="tags"></a>Taggar
+### <a name="tags"></a>Taggar
 
  Klientens angivna ordlista med nyckelvärdespar, liknande taggar i nycklar och hemligheter.  
 
  > [!Note]
 > Taggar kan läsas av en uppringare om de har *listan* eller *får* behörighet till objekttypen (nycklar, hemligheter eller certifikat).
 
-### <a name="certificate-policy"></a>Certifikatprincip
+## <a name="certificate-policy"></a>Certifikatprincip
 
 En certifikatprincip innehåller information om hur du skapar och hanterar livscykeln för ett Key Vault-certifikat. När ett certifikat med privat nyckel importeras till nyckelvalvet skapas en standardprincip genom att läsa x509-certifikatet.  
 
@@ -138,7 +95,7 @@ På en hög nivå innehåller en certifikatprincip följande information:
 -   Utfärdare: Parametrar om certifikatutfärdaren som ska användas för att utfärda x509-certifikat.  
 -   Principattribut: innehåller attribut som är associerade med principen  
 
-#### <a name="x509-to-key-vault-usage-mapping"></a>X509 till användningsmappning för Nyckelvalv
+### <a name="x509-to-key-vault-usage-mapping"></a>X509 till användningsmappning för Nyckelvalv
 
 Följande tabell representerar mappningen av x509-nyckelanvändningsprincipen till effektiva nyckelåtgärder för en nyckel som skapats som en del av skapandet av nyckelvalvscertifikat.
 
@@ -153,7 +110,7 @@ Följande tabell representerar mappningen av x509-nyckelanvändningsprincipen ti
 |Oavvislighet|tecken, verifiera| Ej tillämpligt |
 |crlsign (crlsign)|tecken, verifiera| Ej tillämpligt |
 
-### <a name="certificate-issuer"></a>Certifikatutfärdare
+## <a name="certificate-issuer"></a>Certifikatutfärdare
 
 Ett Key Vault-certifikatobjekt innehåller en konfiguration som används för att kommunicera med en vald certifikatutfärdare för att beställa x509-certifikat.  
 
@@ -180,7 +137,7 @@ Key Vault gör det möjligt att skapa flera utfärdarobjekt med olika konfigurat
 
 Utfärdarobjekt skapas i valvet och kan endast användas med KV-certifikat i samma valv.  
 
-### <a name="certificate-contacts"></a>Certifikatkontakter
+## <a name="certificate-contacts"></a>Certifikatkontakter
 
 Certifikatkontakter innehåller kontaktinformation för att skicka meddelanden som utlöses av certifikatets livstidshändelser. Kontaktinformationen delas av alla certifikat i nyckelvalvet. Ett meddelande skickas till alla angivna kontakter för en händelse för alla certifikat i nyckelvalvet.  
 
@@ -191,7 +148,7 @@ Om ett certifikats princip är inställd på automatisk förnyelse skickas ett m
 
   När en certifikatprincip som har angetts för att förnyas manuellt (endast e-post) skickas ett meddelande när det är dags att förnya certifikatet.  
 
-### <a name="certificate-access-control"></a>Kontroll av certifikatåtkomst
+## <a name="certificate-access-control"></a>Kontroll av certifikatåtkomst
 
  Åtkomstkontrollen för certifikat hanteras av Key Vault och tillhandahålls av Nyckelvalvet som innehåller dessa certifikat. Åtkomstkontrollprincipen för certifikat skiljer sig från åtkomstkontrollprinciperna för nycklar och hemligheter i samma Nyckelvalv. Användare kan skapa ett eller flera valv för att lagra certifikat, för att upprätthålla scenariot lämplig segmentering och hantering av certifikat.  
 
@@ -219,7 +176,11 @@ Om ett certifikats princip är inställd på automatisk förnyelse skickas ett m
 
 Mer information finns [i certifikatåtgärderna i REST-API-referensen för Nyckelvalvet](/rest/api/keyvault). Information om hur du upprättar behörigheter finns i [Arkiv - Skapa eller Uppdatera](/rest/api/keyvault/vaults/createorupdate) och [Valv - Uppdatera åtkomstprincip](/rest/api/keyvault/vaults/updateaccesspolicy).
 
-## <a name="see-also"></a>Se även
+## <a name="next-steps"></a>Nästa steg
 
+- [Om Key Vault](../general/overview.md)
+- [Om nycklar, hemligheter och certifikat](../general/about-keys-secrets-certificates.md)
+- [Om nycklar](../keys/about-keys.md)
+- [Om hemligheter](../secrets/about-secrets.md)
 - [Autentisering, begäranden och svar](../general/authentication-requests-and-responses.md)
 - [Utvecklarguide för Key Vault](../general/developers-guide.md)

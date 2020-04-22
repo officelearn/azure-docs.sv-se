@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 82fa5968d004bd4460f2c05ec944f6e568508675
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 5a17f98d69cb2196f92e19b66fc23dcd89bce188
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641142"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687149"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Konfigurera lokala kodare när du använder Azure Media Services för att skapa flerbitratströmmar
 I det här avsnittet visas lokala live-kodare som du kan använda för att fånga dina livehändelser och skicka en enda bitrate live stream till AMS-kanaler (som är aktiverat för live-kodning) för vidare bearbetning. Avsnittet länkar också till självstudier som visar hur du konfigurerar listade kodare.
@@ -34,7 +34,7 @@ Information om hur du [konfigurerar Haivision KB Encoder-kodaren](https://www.ha
 Information om hur du konfigurerar [Telestream Wirecast-kodaren](https://www.telestream.net/wirecast/overview.htm) för att skicka en enda bithastighets direktuppspelning till en AMS-kanal finns i [Konfigurera Wirecast](media-services-configure-wirecast-live-encoder.md).
 
 ## <a name="elemental-live"></a>Elemental Live
-Mer information finns i [Elemental Live](https://www.elementaltechnologies.com/products/elemental-live).
+Mer information finns i [Elemental Live](https://www.elemental.com/products/aws-elemental-appliances-software/#elemental-live).
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

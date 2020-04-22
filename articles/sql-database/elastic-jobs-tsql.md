@@ -11,12 +11,12 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: c228f3d6591cd72845101c00188f3fc4a55be644
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 740a42dc94cdfa8d5c5a91b32b58cbff4c1bcda0
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77087359"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687772"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Använda Transact-SQL (T-SQL) för att skapa och hantera elastiska databasjobb
 
@@ -435,7 +435,7 @@ Lägger till ett nytt jobb.
 #### <a name="syntax"></a>Syntax  
   
 
-```sql
+```syntaxsql
 [jobs].sp_add_job [ @job_name = ] 'job_name'  
     [ , [ @description = ] 'description' ]   
     [ , [ @enabled = ] enabled ]
@@ -500,7 +500,7 @@ Uppdaterar ett befintligt jobb.
 
 #### <a name="syntax"></a>Syntax
 
-```sql
+```syntaxsql
 [jobs].sp_update_job [ @job_name = ] 'job_name'  
     [ , [ @new_name = ] 'new_name' ]
     [ , [ @description = ] 'description' ]   
@@ -563,7 +563,7 @@ Tar bort ett befintligt jobb.
 
 #### <a name="syntax"></a>Syntax
 
-```sql
+```syntaxsql
 [jobs].sp_delete_job [ @job_name = ] 'job_name'
     [ , [ @force = ] force ]
 ```
@@ -596,7 +596,7 @@ Lägger till ett steg i ett jobb.
 #### <a name="syntax"></a>Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_add_jobstep [ @job_name = ] 'job_name'   
      [ , [ @step_id = ] step_id ]   
      [ , [ @step_name = ] step_name ]   
@@ -721,7 +721,7 @@ Uppdaterar ett jobbsteg.
 
 #### <a name="syntax"></a>Syntax
 
-```sql
+```syntaxsql
 [jobs].sp_update_jobstep [ @job_name = ] 'job_name'   
      [ , [ @step_id = ] step_id ]   
      [ , [ @step_name = ] 'step_name' ]   
@@ -847,7 +847,7 @@ Tar bort ett jobbsteg från ett jobb.
 #### <a name="syntax"></a>Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_delete_jobstep [ @job_name = ] 'job_name'   
      [ , [ @step_id = ] step_id ]
      [ , [ @step_name = ] 'step_name' ]   
@@ -893,7 +893,7 @@ Börjar köra ett jobb.
 #### <a name="syntax"></a>Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_start_job [ @job_name = ] 'job_name'   
      [ , [ @job_execution_id = ] job_execution_id OUTPUT ]   
 ```
@@ -924,7 +924,7 @@ Stoppar en jobbkörning.
 #### <a name="syntax"></a>Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_stop_job [ @job_execution_id = ] ' job_execution_id '
 ```
 
@@ -953,7 +953,7 @@ Lägger till en målgrupp.
 #### <a name="syntax"></a>Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_add_target_group [ @target_group_name = ] 'target_group_name'   
      [ , [ @target_group_id = ] target_group_id OUTPUT ]
 ```
@@ -984,7 +984,7 @@ Tar bort en målgrupp.
 #### <a name="syntax"></a>Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_delete_target_group [ @target_group_name = ] 'target_group_name'
 ```
 
@@ -1011,7 +1011,7 @@ Lägger till en databas eller grupp av databaser i en målgrupp.
 
 #### <a name="syntax"></a>Syntax
 
-```sql
+```syntaxsql
 [jobs].sp_add_target_group_member [ @target_group_name = ] 'target_group_name'
          [ @membership_type = ] 'membership_type' ]   
         [ , [ @target_type = ] 'target_type' ]   
@@ -1101,7 +1101,7 @@ Tar bort en målgruppsmedlem från en målgrupp.
 #### <a name="syntax"></a>Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_delete_target_group_member [ @target_group_name = ] 'target_group_name'
         [ , [ @target_id = ] 'target_id']
 ```
@@ -1152,7 +1152,7 @@ Tar bort historikposterna för ett jobb.
 #### <a name="syntax"></a>Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_purge_jobhistory [ @job_name = ] 'job_name'   
       [ , [ @job_id = ] job_id ]
       [ , [ @oldest_date = ] oldest_date []

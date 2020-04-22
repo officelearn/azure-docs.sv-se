@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 262129084be5c6a68bfd8d8708c9a10fbb606144
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: e51b8c705533fd74a5e46eaa2570563fef485309
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383735"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730625"
 ---
 # <a name="create-an-azure-vm-technical-asset"></a>Skapa en teknisk azure VM-tillgång
 
@@ -46,7 +46,7 @@ Välj en eller båda av följande skriptmiljöer för att hantera containeravbil
 
 Vi rekommenderar att du lägger till dessa verktyg i utvecklingsmiljön:
 
-- [Azure Lagringsutforskaren](https://aka.ms/GetStartedWithStorageExplorer)
+- [Azure Lagringsutforskaren](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)
 - [Visual Studio-koden](https://code.visualstudio.com/)
   - Tillägg: [Verktyg för Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   - Förlängning: [Försköna](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)

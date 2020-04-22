@@ -10,12 +10,12 @@ ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 05e668ff5b0ec19c5e380cf6bfee4b6e46900b2f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 9c15e4217c5331346c5a95329bae7e2a4f0e0841
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77371838"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732084"
 ---
 Använd klientbiblioteket Språk understanding (LUIS) för Node.js för att:
 
@@ -28,6 +28,7 @@ Använd klientbiblioteket Språk understanding (LUIS) för Node.js för att:
 
 * Körningsresurs för språk understanding: [Skapa en i Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
 * [Node.js](https://nodejs.org)
+* Ett LUIS-app-ID – använd det offentliga `df67dcdb-c37d-46af-88e1-8b97951ca1c2`IoT-app-ID:et för . Användarfrågan som används i snabbstartskoden är specifik för den appen.
 
 ## <a name="setting-up"></a>Inrätta
 
@@ -37,9 +38,9 @@ Hämta [din körningsnyckel](../luis-how-to-azure-subscription.md) genom att ska
 
 [!INCLUDE [Set up environment variables for prediction quickstart](sdk-prediction-environment-variables.md)]
 
-### <a name="create-a-new-javascript-nodejs-file"></a>Skapa en ny javascript-fil (Node.js)
+### <a name="create-a-new-javascript-nodejs-file"></a>Skapa en ny JavaScript-fil (Node.js)
 
-Skapa en ny javascript-fil i önskad `luis_prediction.js`redigerare eller IDE med namnet .
+Skapa en ny JavaScript-fil i önskad `luis_prediction.js`redigerare eller IDE med namnet .
 
 ### <a name="install-the-npm-library-for-the-luis-runtime"></a>Installera NPM-biblioteket för LUIS-körningen
 

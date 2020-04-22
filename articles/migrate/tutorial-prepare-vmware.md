@@ -2,14 +2,14 @@
 title: Förbereda virtuella virtuella datorer för VMware för utvärdering/migrering med Azure Migrate
 description: Lär dig hur du förbereder för utvärdering/migrering av virtuella datorer med Virtuella VMware-datorer med Azure Migrate.
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 9f0729a3ddb2d8196a855557a6b8587940563984
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: a3f9716d6302c41f139d9a2a8b1f994b79afd199
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535272"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677285"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Förbereda virtuella VMware-datorer för utvärdering och migrering till Azure
 
@@ -151,7 +151,7 @@ Granska kraven för [agentbaserad migrering](server-migrate-overview.md) av virt
 3. Agentbaserad migrering använder en replikeringsverktyget:
     - [Granska](migrate-replication-appliance.md#appliance-requirements) distributionskraven för replikeringsverktyget.
     - [Läs alternativen](migrate-replication-appliance.md#mysql-installation) för att installera MySQL på apparaten.
-    - Observera den URL-åtkomst [som krävs](migrate-replication-appliance.md#url-access).
+    - Observera den URL-åtkomst som krävs för [offentliga](migrate-replication-appliance.md#url-access) moln och [myndighetsmoln.](migrate-replication-appliance.md#azure-government-url-access)
     - Granska [portåtkomstkraven](migrate-replication-appliance.md#port-access) för replikeringsverktyget.
     
 ## <a name="next-steps"></a>Nästa steg

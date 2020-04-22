@@ -8,12 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 3a7254cc9de89a297811792b4dd64b4b669ba8e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: mqtt
+ms.openlocfilehash: 307ab47c1f7498f71e61108a616d35ef1d4f61c9
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271244"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729998"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Skicka meddelanden från molnet till enheten från en IoT-hubb
 
@@ -96,7 +97,7 @@ Brödtexten är en JSON-serialiserad matris med poster, var och en med följande
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | En tidsstämpel som anger när resultatet av meddelandet inträffade (till exempel tog navet emot feedbackmeddelandet eller det ursprungliga meddelandet upphörde att gälla) |
 | OriginalMessageId  | *MessageId* för molnet-till-enhet-meddelandet som den här feedbackinformationen gäller |
-| Statuskod         | En obligatorisk sträng som används i feedbackmeddelanden som genereras av IoT-hubben: <br/> *Framgång* <br/> *Löpt ut* <br/> *DeliveryCountExceeded* <br/> *Avvisad* <br/> *Renade* |
+| Statuskod         | En obligatorisk sträng som används i feedbackmeddelanden som genereras av IoT-hubben: <br/> *Framgång* <br/> *Upphörd* <br/> *DeliveryCountExceeded* <br/> *Avvisad* <br/> *Renade* |
 | Beskrivning        | Strängvärden för *StatusCode* |
 | DeviceId           | *DeviceId* för målenheten för det meddelande från molnet till enheten som den här feedbacken gäller |
 | DeviceGenerationId | *DeviceGenerationId* för målenheten för molnet-till-enhet-meddelandet som den här feedbacken gäller |

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 04/20/2020
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcccc64e0c766164a06932e9b65a4459816f9deb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89e09fd63ee6121ac9bf7f3c2be00f0ac22f752f
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409124"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731696"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Konfigurera självbetjäningsprogramtilldelning
 
@@ -41,6 +41,9 @@ Med den här funktionen kan du:
 -   Du kan också tillåta en företagsgodkännare att ange de lösenord som användarna kan använda för att logga in på programmet, direkt från företagsgodkännarens [programåtkomstpanel](https://myapps.microsoft.com/).
 
 -   Du kan automatiskt tilldela självbetjäningstilldelade användare till en programroll direkt.
+
+> [!NOTE]
+> En Azure Active Directory Premium-licens (P1 eller P2) krävs för att användare ska begära att gå med i en självbetjäningsapp och för att ägare ska godkänna eller neka begäranden. Utan en Azure Active Directory Premium-licens kan användare inte lägga till självbetjäningsappar.
 
 ## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>Aktivera självbetjäningsprogramåtkomst så att användarna kan hitta sina egna program
 

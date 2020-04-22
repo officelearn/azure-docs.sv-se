@@ -2,13 +2,13 @@
 title: Mallstruktur och syntax
 description: Beskriver strukturen och egenskaperna för Azure Resource Manager-mallar med den deklarativa JSON-syntaxen.
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.openlocfilehash: 4e8334e4ddfaee52c5d1aa68fb8689fcde0a6cbf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/20/2020
+ms.openlocfilehash: 60d800eb5251fb3454ba60a67bd109261c6ff9d4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79459998"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687872"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Förstå strukturen och syntaxen för ARM-mallar
 
@@ -130,7 +130,7 @@ Information om `copy` hur du använder för att skapa flera värden för en vari
 
 Exempel på hur du använder variabler finns [i Variabler i Azure Resource Manager-mallen](template-variables.md).
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>Functions
 
 I mallen kan du skapa egna funktioner. Dessa funktioner är tillgängliga för användning i mallen. Vanligtvis definierar du komplicerade uttryck som du inte vill upprepa i hela mallen. Du skapar användardefinierade funktioner från uttryck och [funktioner](template-functions.md) som stöds i mallar.
 
@@ -293,7 +293,7 @@ Du har några alternativ för att lägga till kommentarer och metadata i mallen.
 För infogade kommentarer kan `//` du `/* ... */` använda antingen eller men den här syntaxen fungerar inte med alla verktyg. Du kan inte använda portalmallredigeraren för att arbeta med mallar med infogade kommentarer. Om du lägger till den här kommentarsstilen kontrollerar du att de verktyg du använder stöder inline JSON-kommentarer.
 
 > [!NOTE]
-> Om du vill distribuera mallar med kommentarer `--handle-extended-json-format` med hjälp av Azure CLI måste du använda växeln.
+> Om du vill distribuera mallar med kommentarer med hjälp av Azure CLI med `--handle-extended-json-format` version 2.3.0 eller äldre måste du använda växeln.
 
 ```json
 {
@@ -404,7 +404,7 @@ Du kan dela upp en sträng i flera rader. Se till exempel platsegenskapen och en
   ],
 ```
 
-Om du vill distribuera mallar med strängar med flera `--handle-extended-json-format` rader med hjälp av Azure CLI måste du använda växeln.
+Om du vill distribuera mallar med strängar med flera rader med hjälp av Azure CLI `--handle-extended-json-format` med version 2.3.0 eller äldre måste du använda växeln.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
-ms.date: 04/03/2020
-ms.openlocfilehash: 5bf405840de54c4e2399ee73e723201acca9e6bc
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.date: 04/20/2020
+ms.openlocfilehash: 76fcdb52df88be2c4033140f4bc71b28424d7f38
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80657037"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687783"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Vad är ML-tjänster i Azure HDInsight
 
@@ -23,7 +23,7 @@ ML Services på HDInsight ger de senaste funktionerna för R-baserad analys av d
 
 Kantnoden är en bekväm plats att ansluta till klustret och köra dina R-skript. Kantnoden gör det möjligt att köra ScaleR-parallelliserade distribuerade funktioner över serverns kärnor. Du kan också köra dem över noderna i klustret med hjälp av ScaleR:s Hadoop-karta minska. Du kan också använda Apache Spark-beräkningskontexter.
 
-De modeller eller förutsägelser som resultat av analys kan laddas ner för lokal användning. De kan också användas på andra ställen i Azure. I synnerhet via [Azure Machine Learning Studio (klassisk)](https://studio.azureml.net)och [webbtjänst](../../machine-learning/studio/deploy-a-machine-learning-web-service.md).
+De modeller eller förutsägelser som resultat av analys kan laddas ner för lokal användning. De kan `operationalized` också vara någon annanstans i Azure. I synnerhet via [Azure Machine Learning Studio (klassisk)](https://studio.azureml.net)och [webbtjänst](../../machine-learning/studio/deploy-a-machine-learning-web-service.md).
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>Komma igång med ML Services på HDInsight
 
@@ -63,16 +63,16 @@ Följande funktioner ingår i ML Services på HDInsight.
 | R-aktiverad | [R-paket](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) för lösningar skrivna i R, med en distribution med öppen källkod av R och körningsinfrastruktur för skriptkörning. |
 | Python-aktiverad | [Python-moduler](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) för lösningar skrivna i Python, med en distribution med öppen källkod av Python och körningsinfrastruktur för skriptkörning.
 | [Förtränade modeller](https://docs.microsoft.com/machine-learning-server/install/microsoftml-install-pretrained-models) | För visuell analys och text sentimentanalys, redo att poäng data som du anger. |
-| [Distribuera och förbruka](r-server-operationalize.md) | Operationalisera servern och distribuera lösningar som en webbtjänst. |
+| [Distribuera och förbruka](r-server-operationalize.md) | `Operationalize`servern och distribuera lösningar som en webbtjänst. |
 | [Fjärrkörning](r-server-hdinsight-manage.md#connect-remotely-to-microsoft-ml-services) | Starta fjärrsessioner i ML Services-klustret i nätverket från klientarbetsstationen. |
 
 ## <a name="data-storage-options-for-ml-services-on-hdinsight"></a>Datalagringsalternativ för ML-tjänster på HDInsight
 
-Standardlagring för HDFS-filsystemet kan vara ett Azure Storage-konto eller Azure Data Lake Storage. Överförda data till klusterlagring under analys görs beständig. Data är tillgängliga även efter att klustret har tagits bort. Olika verktyg kan hantera dataöverföringen till lagring. Verktygen inkluderar den portalbaserade uppladdningsanläggningen för lagringskontot och [AzCopy-verktyget.](../../storage/common/storage-use-azcopy.md)
+Standardlagring för HDFS-filsystemet kan vara ett Azure Storage-konto eller Azure Data Lake Storage. Överförda data till klusterlagring under analys görs beständig. Data är tillgängliga även efter att klustret har tagits bort. Olika verktyg kan hantera dataöverföringen till lagring. Verktygen inkluderar den portalbaserade uppladdningsanläggningen för lagringskontot och AzCopy-verktyget.
 
 Du kan aktivera åtkomst till ytterligare Blob- och Datasjölager när klustret skapas. Du begränsas inte av det primära lagringsalternativet som används.  Mer information om hur du använder flera lagringskonton finns i [Azure Storage-alternativ för ML-tjänster i hdinsight-artikeln.](./r-server-storage.md)
 
-Du kan också använda [Azure-filer](../../storage/files/storage-how-to-use-files-linux.md) som ett lagringsalternativ för användning på kantnoden. Azure Files aktiverar filresurser som skapats i Azure Storage till Linux-filsystemet. Mer information finns i [Azure Storage-alternativ för ML-tjänster på HDInsight](r-server-storage.md).
+Du kan också använda Azure-filer som ett lagringsalternativ för användning på kantnoden. Azure Files aktiverar filresurser som skapats i Azure Storage till Linux-filsystemet. Mer information finns i [Azure Storage-alternativ för ML-tjänster på HDInsight](r-server-storage.md).
 
 ## <a name="access-ml-services-edge-node"></a>Få tillgång till ML Services kantnod
 
@@ -82,9 +82,9 @@ Du kan ansluta till Microsoft ML Server på kantnoden med en webbläsare eller S
 
 Dina R-skript kan använda något av de 8000+ R-paketen med öppen källkod. Du kan också använda parallelliserade och distribuerade rutiner från ScaleR-biblioteket. Skript körs på kantnoden körs inom R-tolken på den noden. Förutom steg som anropar ScaleR-funktioner med en beräkningskontext (Kartarminka) (RxHadoopMR) eller Spark (RxSpark). Funktionerna körs på ett distribuerat sätt över de datanoder som är associerade med data. Mer information om kontextalternativ finns i [Beräkningskontextalternativ för ML-tjänster på HDInsight](r-server-compute-contexts.md).
 
-## <a name="operationalize-a-model"></a>Operationalisera en modell
+## <a name="operationalize-a-model"></a>`Operationalize`en modell
 
-När datamodelleringen är klar kan du operationalisera modellen för att göra förutsägelser för nya data antingen från Azure eller lokalt. Den här processen kallas poängsättning. Poängsättning kan göras i HDInsight, Azure Machine Learning eller lokalt.
+När datamodelleringen är `operationalize` klar, modellen för att göra förutsägelser för nya data antingen från Azure eller lokalt. Den här processen kallas poängsättning. Poängsättning kan göras i HDInsight, Azure Machine Learning eller lokalt.
 
 ### <a name="score-in-hdinsight"></a>Poäng i HDInsight
 
@@ -96,7 +96,7 @@ Om du vill göra mål med Azure Machine Learning använder du Azure Machine Lear
 
 ### <a name="score-on-premises"></a>Betyg lokalt
 
-Att göra mål lokalt när du har skapat din modell: serialisera modellen i R, ladda ner den, av serialisera den och använd den sedan för att göra nya data. Du kan få nya data att göra mål med hjälp av den metod som beskrivs tidigare i [Poäng i HDInsight](#score-in-hdinsight) eller genom att använda [webbtjänster](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
+Att göra mål lokalt när du har skapat din modell: serialisera modellen i R, ladda ner den, av serialisera den och använd den sedan för att göra nya data. Du kan få nya data att göra mål med hjälp av den metod som beskrivs tidigare i Poäng i HDInsight eller genom att använda [webbtjänster](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
 
 ## <a name="maintain-the-cluster"></a>Underhåll klustret
 
@@ -130,7 +130,7 @@ Jobb som körs kan sakta ner under underhåll. De bör dock fortfarande köras t
 
 Linux-edgenoden för ett HDInsight-kluster är landningszonen för R-baserad analys. De senaste versionerna av HDInsight ger en webbläsarbaserad IDE för RStudio Server på kantnoden. RStudio Server är mer produktiv än R-konsolen för utveckling och körning.
 
-En stationär IDE kan komma åt klustret via en fjärrkarteduce eller Spark-beräkningskontext. Alternativen inkluderar: Microsofts [R Tools for Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS), RStudio och Walware's Eclipse-baserade [StatET](http://www.walware.de/goto/statet).
+En stationär IDE kan komma åt klustret via en fjärrkarteduce eller Spark-beräkningskontext. Alternativen inkluderar: Microsofts [R Tools for Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS), RStudio och Walware's Eclipse-baserade StatET.
 
 Öppna R-konsolen på kantnoden genom att skriva **R** i kommandotolken. När du använder konsolgränssnittet är det praktiskt att utveckla R-skript i en textredigerare. Klipp sedan ut och klistra in delar av skriptet i R-konsolen efter behov.
 

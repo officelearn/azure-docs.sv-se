@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, H1Hack27Feb2017
 ms.date: 10/23/2019
 ms.author: jushiman
-ms.openlocfilehash: 410ae93ea109e5757ccb5b65d353a600574dd595
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 5855c53a73ac94985f34f229fbe5ab77067ef17d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010485"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680426"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Snabbstart: Skapa en VM-skalningsuppsättning med Azure Portal
 
@@ -59,7 +59,7 @@ Du kan distribuera en skalningsuppsättning som anges med en Windows Server-avbi
 1. Skriv **Skala i** sökrutan. Välj **skaluppsättningar för virtuella datorer**under **Marketplace.** Sidan **Skapa en uppsättning** för virtuell dator öppnas. 
 1. På fliken **Grundläggande inställningar** går du till **Projektinformation**, kontrollerar att korrekt prenumeration har valts och väljer sedan **Skapa ny** för resursgruppen. Skriv *myVMSSResourceGroup* för namnet och välj sedan **OK** . 
 1. Skriv *myScaleSet* som namn på skalningsuppsättningen.
-1. Välj en region som ligger nära området i **Region.**
+1. Välj en region som ligger nära ditt område i **Region.**
 1. Lämna standardvärdet för **ScaleSet-virtuella datorer** för **Orchestrator**.
 1. Välj en marknadsplatsavbildning för **Image**. I det här exemplet har vi valt *Ubuntu Server 18.04 LTS*.
 1. Ange önskat användarnamn och välj den autentiseringstyp du föredrar.

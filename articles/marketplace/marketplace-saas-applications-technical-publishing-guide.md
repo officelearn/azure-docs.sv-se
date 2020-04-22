@@ -1,21 +1,21 @@
 ---
-title: Teknisk publiceringsguide för Azure Marketplace SaaS Applications
+title: Publiceringsguide för Azure Marketplace SaaS-program
 description: Steg-för-steg-guide och publiceringschecklista för publicering av SaaS-program på Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-author: keithcharlie
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/09/2018
-ms.author: kevidal
-ms.openlocfilehash: 641297ea74a08dea163cf768b8e9b245348824a4
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.date: 04/15/2020
+ms.author: dsindona
+ms.openlocfilehash: 1bc2feb4d8f3f103802bd823c66cd3f54ac5d74a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80544287"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687543"
 ---
-# <a name="saas-applications-offer-publishing-guide"></a>Publiceringsguiden för SaaS-programerbjudanden
+# <a name="saas-applications-offer-publishing-guide"></a>SaaS-applikationer erbjuder publiceringsguide
 
 SaaS-program kan publiceras på marknaden med tre olika uppmaningar: "Kontakta mig", "Prova nu" och "Hämta det nu". I den här guiden förklaras dessa tre alternativ, inklusive krav för varje. 
 
@@ -110,8 +110,8 @@ Certifiera din Azure AD-integrering på några olika sätt, beroende på om ditt
 **För program med flera innehavare:**  
 
 Om du redan har stöd för Azure AD gör du följande:
-1.  Registrera ditt program i Azure-portalen
-2.  Aktivera supportfunktionen för flera innehavare i Azure AD för att få en utvärderingsversion med ett klick. Mer specifik information finns [här](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
+1.    Registrera ditt program i Azure-portalen
+2.    Aktivera supportfunktionen för flera innehavare i Azure AD för att få en utvärderingsversion med ett klick. Mer specifik information finns [här](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
 
 Om du inte har gjort något nytt för Azure AD-federerade SSO gör du följande: 
 1.  Registrera ditt program i Azure-portalen
@@ -144,9 +144,9 @@ Microsoft är värd för handelstransaktionen. Microsoft fakturerar din kund fö
 ## <a name="next-steps"></a>Nästa steg
 Om du inte redan har gjort det,
 
-- [Registrera dig](https://azuremarketplace.microsoft.com/sell) på marknaden.
+* [Läs mer](https://azuremarketplace.microsoft.com/sell) om marknadsplatsen.
 
-Om du är registrerad och skapar ett nytt erbjudande eller arbetar med ett befintligt,
+Om du vill registrera dig i Partner center börjar du skapa ett nytt erbjudande eller arbetar på ett befintligt:
 
-- [Logga in på Cloud Partner Portal](https://cloudpartner.azure.com) för att skapa eller slutföra ditt erbjudande.
-- Mer information finns i [Erbjudandet om Azure SaaS-program.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer)
+* [Logga in på Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) för att skapa eller slutföra erbjudandet.
+* Mer information finns i [skapa ett SaaS-programerbjudande.](./partner-center-portal/create-new-saas-offer.md)

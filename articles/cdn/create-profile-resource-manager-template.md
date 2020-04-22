@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 7c7186b6ac5d5dcf4db75ccba9e08f8e0484932f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: dfd7b933502b96c0952a24dbee563e9b537dcdd8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81253432"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683477"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>Snabbstart: Skapa en Azure CDN-profil och slutpunkt med hjälp av Resource Manager-mallen
 
@@ -211,7 +211,7 @@ az cdn endpoint list --profile-name standard-microsoft --resource-group cdn -o t
 
 ![Visa CDN-slutpunkt](./media/create-profile-resource-manager-template/cdn-view-endpoint.png)
 
-Använd HostName för att visa innehållet. Till exempel https://cdndemo-azurewebsites-net.azureedge.net komma åt med hjälp av din webbläsare.
+Använd HostName för att visa innehållet. Åtkomst till https:\//cdndemo-azurewebsites-net.azureedge.net med hjälp av din webbläsare.
 
 ## <a name="clean-up"></a>Rensa
 

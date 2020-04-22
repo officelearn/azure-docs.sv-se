@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: c2a0dde496d6af66387210ca9b2ebf9cb4bdae7f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b3cf4fd958202c28586b7c15932dc88a21d7c60f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79087936"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686866"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Självstudiekurs: Anslut, konfigurera, aktivera Azure Data Box Gateway
 
@@ -23,7 +23,7 @@ I den här självstudien beskrivs hur du ansluter till, konfigurerar och aktiver
 
 Installationen och aktiveringsprocessen kan ta cirka 10 minuter att slutföra. 
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Ansluta till en virtuell enhet
@@ -41,7 +41,7 @@ Innan du konfigurerar och konfigurerar databoxgatewayen ska du se till att:
 
 1. Öppna ett webbläsarfönster och få tillgång till enhetens lokala webbgränssnitt på:
    
-   [https://ip-address-of-network-interface](https://ip-address-of-network-interface)
+   https:\//ip-address-of-network-interface https: /ip-address-of-network-interface https: /ip-address-of-network-interface https:
    
    Använd anslutnings-URL:en som anges i föregående självstudiekurs. Du ser ett fel eller en varning som anger att det finns ett problem med webbplatsens säkerhetscertifikat.
 

@@ -6,12 +6,12 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: dbd0313c3edca8c5a875572fe52d7ec751ba65e8
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 8e473a5692c3fa2be3b0f2d823d2a36ba768d661
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641991"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731362"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>Använda IntelliJ för att distribuera Azure Spring Cloud-program
 IntelliJ-plugin-programmet för Azure Spring Cloud stöder programdistribution från IntelliJ IDEA.  
@@ -19,11 +19,10 @@ IntelliJ-plugin-programmet för Azure Spring Cloud stöder programdistribution f
 ## <a name="prerequisites"></a>Krav
 * [JDK 8 Azul Zulu](https://docs.microsoft.com/java/azure/jdk/java-jdk-install?view=azure-java-stable)
 * [Maven 3.5.0+](https://maven.apache.org/download.cgi)
-* [IntelliJ IDEA Community Edition, version [2020.1]](https://www.jetbrains.com/idea/download/#section=windows)
-* Eller: IntelliJ IDEA Ultimate Edition, version [2020.1]
+* [IntelliJ IDEA, Community/Ultimate Edition, version 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
 
 ## <a name="install-the-plug-in"></a>Installera plugin-programmet
-Du kan Azure Toolkit för IntelliJ IDEA 3.35.0 från IntelliJ **Plugins** ANVÄNDARGRÄNSSNITTET.
+Du kan lägga till Azure Toolkit för IntelliJ IDEA 3.35.0 från IntelliJ Plugins-användargränssnittet. **Plugins**
 
 1. Starta IntelliJ.  Om du har öppnat ett projekt tidigare stänger du projektet för att visa välkomstdialogrutan. Välj **Konfigurera** från länken längst ned till höger och klicka sedan på **Plugins** för att öppna dialogrutan för plugin-program och välj **Installera insticksprogram från disk**.
 
@@ -52,7 +51,7 @@ Följande procedurer distribuerar ett Hello World-program med IntelliJ IDEA.
     ![Importera projekt](media/spring-cloud-intellij-howto/import-project-1.png)
 
 ## <a name="deploy-to-azure-spring-cloud"></a>Distribuera till Azure Spring Cloud
-För att kunna distribuera till Azure måste du logga in med ditt Azure-konto och välja din prenumeration.  Information om inloggning finns i [Installation och inloggning](https://docs.microsoft.com/azure/java/intellij/azure-toolkit-for-intellij-create-hello-world-web-app#installation-and-sign-in).
+För att kunna distribuera till Azure måste du logga in med ditt Azure-konto och välja din prenumeration.  Information om inloggning finns i [Installation och inloggning](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Högerklicka på projektet i IntelliJ-projektutforskaren och välj **Azure** -> **Deploy till Azure Spring Cloud**.
 
@@ -60,7 +59,7 @@ För att kunna distribuera till Azure måste du logga in med ditt Azure-konto oc
 
 1. Acceptera namnet på appen i fältet **Namn.** **Namn** refererar till konfigurationen, inte appnamnet. Användare behöver vanligtvis inte ändra det.
 1. Acceptera identifieraren från projektet för **artefakten**.
-1. Välj **App:** och klicka sedan på **Skapa app...**.
+1. Välj **App:** klicka sedan på **Skapa app...**.
 
     ![Distribuera till Azure 2](media/spring-cloud-intellij-howto/deploy-to-azure-2.png)
 
@@ -98,6 +97,6 @@ Så här hämtar du loggarna:
 
     ![Utdata för strömmande logg](media/spring-cloud-intellij-howto/streaming-log-output.png)
 
-## <a name="see-also"></a>Se även
-* [Skapa en Hello World-webbapp för Azure App Service i IntelliJ](https://docs.microsoft.com/azure/java/intellij/azure-toolkit-for-intellij-create-hello-world-web-app)
-* [Förbereda ett Java Spring-program för distribution i Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment) 
+## <a name="next-steps"></a>Nästa steg
+* [Förbered spring-program för Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment)
+* [Läs mer om Azure Toolkit för IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/)

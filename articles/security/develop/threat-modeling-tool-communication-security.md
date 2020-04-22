@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 39ee0fa2dc973cd6c20756cae2024af79d1375dc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1945025ff89a784908a1a3dffd2240172a6e2449
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294152"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687987"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Säkerhetsram: Kommunikationssäkerhet | Mitigations 
 | Produkt/tjänst | Artikel |
@@ -147,7 +147,7 @@ Den här regeln fungerar genom att returnera en HTTP-statuskod på 301 (permanen
 | **SDL-fas**               | Utveckla |  
 | **Tillämplig teknik** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
-| **Referenser**              | [OWASP HTTP Strikt transportsäkerhet lathund](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) |
+| **Referenser**              | [OWASP HTTP Strikt transportsäkerhet lathund](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html) |
 | **Steg** | <p>HTTP Strict Transport Security (HSTS) är en opt-in säkerhetsförbättring som anges av ett webbprogram med hjälp av ett särskilt svarshuvud. När en webbläsare som stöds tar emot det här huvudet förhindrar webbläsaren att all kommunikation skickas via HTTP till den angivna domänen och skickar i stället all kommunikation via HTTPS. Det förhindrar också HTTPS klicka igenom uppmaningar på webbläsare.</p><p>För att implementera HSTS måste följande svarshuvud konfigureras för en webbplats globalt, antingen i kod eller i config. Strikt-Transport-Säkerhet: max-ålder = 300; includeSubDomains HSTS tar itu med följande hot:</p><ul><li>Användarbokmärken eller manuellt `https://example.com` typer och är föremål för en man-in-the-middle-angripare: HSTS omdirigerar automatiskt HTTP-begäranden till HTTPS för måldomänen</li><li>Webbprogram som är avsett att vara rent HTTPS innehåller oavsiktligt HTTP-länkar eller betjänar innehåll via HTTP: HSTS omdirigerar automatiskt HTTP-begäranden till HTTPS för måldomänen</li><li>En man-in-the-middle angripare försöker avlyssna trafik från en offer användare med hjälp av ett ogiltigt certifikat och hoppas att användaren kommer att acceptera det dåliga certifikatet: HSTS tillåter inte en användare att åsidosätta ogiltigt certifikat meddelande</li></ul>|
 
 ## <a name="ensure-sql-server-connection-encryption-and-certificate-validation"></a><a id="sqlserver-validation"></a>Kontrollera kryptering av SQL-serveranslutning och certifikatvalidering
@@ -181,7 +181,7 @@ Den här regeln fungerar genom att returnera en HTTP-statuskod på 301 (permanen
 | **Tillämplig teknik** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [Kryptering på Azure Storage Transport-Nivå – med HTTPS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_encryption-in-transit) |
-| **Steg** | För att säkerställa säkerheten för Azure Storage-data under överföring, använd alltid HTTPS-protokollet när du anropar REST-API:erna eller åtkomst till objekt i lagring. Signaturer för delad åtkomst, som kan användas för att delegera åtkomst till Azure Storage-objekt, innehåller också ett alternativ för att ange att endast HTTPS-protokollet kan användas när du använder signaturer för delad åtkomst, så att alla som skickar ut länkar med SAS-token ska använda rätt protokoll.|
+| **Steg** | För att säkerställa säkerheten för Azure Storage-data under överföring, använd alltid HTTPS-protokollet när du anropar REST-API:erna eller åtkomst till objekt i lagring. Signaturer för delad åtkomst, som kan användas för att delegera åtkomst till Azure Storage-objekt, innehåller också ett alternativ för att ange att endast HTTPS-protokollet kan användas när du använder signaturer för delad åtkomst, så att alla som skickar ut länkar med SAS-token använder rätt protokoll.|
 
 ## <a name="validate-md5-hash-after-downloading-blob-if-https-cannot-be-enabled"></a><a id="md5-https"></a>Validera MD5-hash efter hämtning av blob om HTTPS inte kan aktiveras
 
@@ -213,7 +213,7 @@ Den här regeln fungerar genom att returnera en HTTP-statuskod på 301 (permanen
 | **SDL-fas**               | Utveckla |  
 | **Tillämplig teknik** | Allmänt, Windows Phone |
 | **Attribut**              | Ej tillämpligt  |
-| **Referenser**              | [Certifikat och offentlig nyckel-pinning](https://www.owasp.org/index.php/Certificate_and_Public_Key_Pinning#.Net) |
+| **Referenser**              | [Certifikat och offentlig nyckel-pinning](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning) |
 | **Steg** | <p>Certificate pinning försvarar mot Man-In-The-Middle (MITM) attacker. Pinning är processen att associera en värd med deras förväntade X509-certifikat eller offentlig nyckel. När ett certifikat eller en offentlig nyckel är känd eller sedd för en värd associeras certifikatet eller den offentliga nyckeln eller "fäst" till värden. </p><p>Således, när en motståndare försöker göra SSL MITM-attack, under SSL-handskakning nyckeln från angriparens server kommer att skilja sig från den fästa certifikatets nyckel, och begäran kommer att ignoreras, vilket förhindrar MITM-certifikat nålning kan uppnås genom att genomföra `ServerCertificateValidationCallback` ServicePointManagers delegat.</p>|
 
 ### <a name="example"></a>Exempel

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: af99f369245d6006d0d4784e572020b820e406a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 50028e81c4ca130aa3266c164a431dc935a271cb
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71266046"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730042"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Migrera data till Azure Cosmos DB Cassandra API-konto med Striim
 
@@ -155,7 +155,7 @@ I det här avsnittet konfigurerar du Azure Cosmos DB Cassandra API-konto som må
 
    ![Anslut till målet](./media/cosmosdb-cassandra-api-migrate-data-striim/connect-to-target.png)
 
-1. Innan du konfigurerar målet ska du se till att du har lagt till ett [Baltimore-rotcertifikat i Striims Java-miljö](/azure/java/java-sdk-add-certificate-ca-store#to-add-a-root-certificate-to-the-cacerts-store).
+1. Innan du konfigurerar målet ska du se till att du har lagt till ett [Baltimore-rotcertifikat i Striims Java-miljö](/azure/developer/java/sdk/java-sdk-add-certificate-ca-store#to-add-a-root-certificate-to-the-cacerts-store).
 
 1. Ange konfigurationsegenskaperna för din mål-Azure Cosmos DB-instans och välj **Spara** för att fortsätta. Här är de viktigaste parametrarna att notera:
 

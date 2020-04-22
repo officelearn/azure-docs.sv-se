@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 05b166b2ec46900d9e3972025efb581d9619ec6a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: a1ec89dfd2dda91a10f2cc00b6ca4d9d7abbf032
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81252674"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731146"
 ---
 # <a name="customer-leads-from-your-marketplace-offer"></a>Kundleads från ditt Marketplace-erbjudande
 
@@ -96,7 +96,7 @@ Kundens information skickas via flera fält. I följande exempel visas kundinfor
 
 ### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>Var kan jag få hjälp med att konfigurera mitt leadmål?
 
-Du kan hitta dokumentation [här](#connect-to-your-crm-system) eller skicka in en supportbiljett via aka.ms/marketplacepublishersupport sedan välja **"erbjudandeskapande"** → **din typ av erbjudande** → **"lead management configuration".**
+Du kan hitta dokumentation [här](#connect-to-your-crm-system) eller https://partner.microsoft.com/support/v2/?stage=1 skicka in en supportbiljett genom att sedan välja **"erbjudandeskapande"** → **din typ av erbjudande** → **"lead management configuration".**
 
 ### <a name="am-i-required-to-configure-a-lead-destination-in-order-to-publish-an-offer-on-the-marketplace"></a>Måste jag konfigurera en leaddestination för att kunna publicera ett erbjudande på marknadsplatsen?
 
@@ -133,7 +133,7 @@ Azure Blob-lead-målet stöds inte längre så du saknar alla kundleads som gene
 
 ### <a name="i-received-an-email-from-marketplace-why-cant-i-find-the-lead-in-my-crm"></a>Jag fick ett e-postmeddelande från Marketplace, varför kan jag inte hitta leadet i min CRM?
 
-Det är möjligt att slutanvändarens e-postdomän kommer från .edu. Av sekretessskäl skickar vi inte privat identifierbar information från .edu-domänen. Skicka in en supportbiljett via aka.ms/marketplacepublishersupport.
+Det är möjligt att slutanvändarens e-postdomän kommer från .edu. Av sekretessskäl skickar vi inte privat identifierbar information från .edu-domänen. Skicka in en https://partner.microsoft.com/support/v2/?stage=1supportbiljett via .
 
 ### <a name="i-have-configured-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>Jag har konfigurerat Azure Table som min leaddestination, hur kan jag visa leads?
 

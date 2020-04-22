@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: e17a76d5a017400287644ad2da46caa5b6636654
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 3979be6f49f4ad01a6092fc0d5aa767d342c4642
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262306"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730493"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Kontomigrering från Cloud Partner Portal till Partnercenter
 
@@ -47,7 +47,7 @@ Klicka på bannern för att starta din kontomigreringsprocess. Du förväntas an
 
 Företag som vill samarbeta med Microsoft måste gå med i Microsoft Partner Network (MPN) och få ett MPN-ID. Om du redan är medlem i Microsoft Partner Network och har ett MPN-ID behåller du informationen till hands eftersom du behöver den under kontoaktiveringsprocessen.  
 
-Om du inte är medlem i Microsoft Partner Network kan du [gå med här](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/en-us/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) för att få ett MPN-ID. Anteckna ditt MPN-ID eftersom du måste ange det under kontoaktiveringsprocessen.
+Om du inte är medlem i Microsoft Partner Network kan du [gå med här](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) för att få ett MPN-ID. Anteckna ditt MPN-ID eftersom du måste ange det under kontoaktiveringsprocessen.
 
 Mer information om Microsoft Partner Network finns [i Gå med i Microsoft Partner Network](https://partner.microsoft.com/en-US/membership) på partnerwebbplatsen. Mer information om ISV-fördelar i Microsoft Partner Network finns i [ISV Resource Hub](https://partner.microsoft.com/isv-resource-hub).  
 
@@ -61,7 +61,7 @@ För specifik information om vad som behöver göras senast **den 15 oktober 201
 > Detta gäller inte för Dynamics 365 Business Central-erbjudanden.  
 
 1. Om ditt MPN-medlemskapskonto ursprungligen skapades i Partner Membership Center (PMC) loggar du in på [Partner Center](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) för att bekräfta att ditt konto har migrerats. Om du ser en profilskärm med mpn-ID:t är du redo att fortsätta. Om inte, måste du starta din kontomigrering genom att följa anvisningarna i [partnermedlemskapscentret](https://partners.microsoft.com/partnerprogram/Welcome.aspx). Om du behöver hjälp, besök [support](https://partner.microsoft.com/support?issueid=100-0077).
-2. Gå till [översiktssidan för Kommersiella marknadsplatser i Partnercenter](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). Om du ser "Kommersiell marknadsplats" i det vänstra navigeringsfönstret registreras du och bör fortsätta till nästa steg. Om inte, [registrera dig på den kommersiella marknaden](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) nu.
+2. Gå till [översiktssidan för Kommersiella marknadsplatser i Partnercenter](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). Om du ser "Kommersiell marknadsplats" i det vänstra navigeringsfönstret registreras du och bör fortsätta till nästa steg. Om inte, [registrera dig på den kommersiella marknaden](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) nu.
 3. Bekräfta att dina erbjudanden finns i AppSource genom [att söka efter dina erbjudanden](https://appsource.microsoft.com/). Om dina erbjudanden redan finns i AppSource fortsätter du till nästa steg. Skapa ett [nytt Dynamics 365 Customer Engagement-erbjudande](create-new-customer-engagement-offer.md) eller ett [nytt Dynamics 365 Operations-erbjudande](create-new-operations-offer.md)för alla erbjudanden som inte ingår i AppSource.
 4. På [sidan Avtal i](https://partner.microsoft.com/dashboard/account/agreements)Partnercenter kontrollerar du att du har granskat och godkänt **ISV-tillägget för företagsprogram**.
 5. Kontrollera att faktureringsinformationen är klar i Partnercentrets [kontoinställningar.](https://partner.microsoft.com/dashboard/account/v3/accountsettings/billingprofile)
@@ -73,10 +73,10 @@ För specifik information om vad som behöver göras senast **den 15 oktober 201
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-Gå med i det veckovisa [Dynamics ISV-communitysamtalet](https://aka.ms/DynamicsISV-CommunityCall) för support och uppdateringar.
+Få hjälp av experter och kollegor i forum och upptäck bloggar, webbseminarier, videor, evenemang med mera på [Microsoft Dynamics CRM](https://community.dynamics.com/crm?wa=wsignin1.0).
 
-Om du behöver hjälp med att publicera, certifiera eller hantera marknadsplatserbjudanden [skickar du en supportbiljett.](https://aka.ms/MarketplacePublisherSupport)
+Om du behöver hjälp med att publicera, certifiera eller hantera marknadsplatserbjudanden [skickar du en supportbiljett.](https://partner.microsoft.com/support/v2/?stage=1)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-step"></a>Nästa steg
 
 - [Hantera ditt kommersiella marketplace-konto i Partner Center](./manage-account.md)

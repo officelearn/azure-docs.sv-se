@@ -4,12 +4,12 @@ description: Så här autentiserar du begäranden och använder AZURE Monitor RE
 ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.openlocfilehash: f52776fc6b5f5f530cc368a2f148a2ff63fb5b40
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6b0e321747e0f84be5a75ab96749311ff0071e8d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294626"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687420"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Övervakning REST API genomgång
 
@@ -238,7 +238,7 @@ Använd måttets namn "värde" (inte "localizedValue") för alla filtreringsbeg�
 
 **Metod**: GET
 
-**Begär URI**\:: https //management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/mått?metricnames=*{metric}*&tidsintervall=*{starttid/sluttid}*&$filter=*{filter}*&resultType=metadata&api-version=*{apiVersion }*
+**Begär URI**\:: https //management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/mått?metricnames=*{metric}*&tidsintervall=*{starttid/sluttid}*&$filter=*{filter}*&resultType=metadata&api-version=*{apiVersion}*
 
 Om du till exempel vill hämta listan över dimensionsvärden som har avgetts för DIMENSIONEN "API-namn" för måttet Transaktioner, där GeoType-dimensionen = "Primär" under det angivna tidsintervallet, skulle begäran vara följande:
 
@@ -311,7 +311,7 @@ Använd måttets namn "värde" (inte "localizedValue") för alla filtreringsbeg�
 
 **Metod**: GET
 
-**Begär URI**: https://management.azure.com/subscriptions/ *{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames= {metricnames= {metricnames= {metricnames= {metricnames= {metricnames= {metricnames= {metricnames= {metricnames= {metricnames= {metricnames= {metricnames= {metricnames= {metricnames= {metricnames= {metricnames= {metricnames= {metricnames= {metricnames= {metricnames= {metricnames= {metricnames= {metricnames= {metricnames= {metricnames=*{metricnames}*&tidsintervall=*{starttid/sluttid}*&$filter=*{filter}*&intervall=*{timeGrain}*&aggregering=*{aggreation}*&api-version=*{ apiVersion}*
+**Begär URI**:\/https: /management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{metric}*&tidsspann=*{starttid/sluttid}*&$filter=*{filter}*&intervall=*{timeGrain}*&aggregering=*{aggreation}*&api-version=*{apiVersion}*
 
 Om du till exempel vill hämta de 3 översta API:erna, i fallande värde, efter antalet "Transaktioner" under ett 5 minintervall, där GeotType var "Primär", skulle begäran vara följande:
 
@@ -463,7 +463,7 @@ När de tillgängliga måttdefinitionerna är kända är det då möjligt att h�
 
 **Metod**: GET
 
-**Begär URI:**`https://management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
+**Begär URI:**`https:\//management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
 
 Om du till exempel vill hämta datapunkterna RunsSucceeded för det angivna tidsintervallet och för en tidskorn på 1 timme, skulle begäran vara följande:
 

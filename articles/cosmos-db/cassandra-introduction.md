@@ -8,34 +8,38 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 05/21/2019
-ms.openlocfilehash: 075b55b5a798924b55ef9d901e4d2e9ecfc9dc1e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 70dbceb51ed030124d1b793d77c6bc287da91065
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77597583"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687629"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Introduktion till Cassandra-API:et för Azure Cosmos DB
 
 Cassandra-API:et för Azure Cosmos DB kan användas som datalager för appar som är skrivna för [Apache Cassandra](https://cassandra.apache.org). Det betyder att ditt befintliga Cassandra-program, genom att använda befintliga [Apache-drivrutiner](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) som är kompatibla med CQLv4, nu kan kommunicera med Cassandra-API:et för Azure Cosmos DB. I många fall kan du växla från att använda Apache Cassandra till att använda Azure Cosmos DB:s Cassandra API genom att bara ändra en anslutningssträng. 
 
-Cassandra-API:t låter dig interagera med data som lagras i Azure Cosmos DB med hjälp av Cassandra Query Language (CQL), Cassandra-baserade verktyg (till exempel cqlsh) och de Cassandra-klientdrivrutiner som du redan är bekant med.
+Med Cassandra API kan du interagera med data som lagras i Azure Cosmos DB med hjälp av CQL-klientdrivrutinerna (Cassandra Query Language), Cassandra-baserade verktyg (som cqlsh) och Cassandra-klientdrivrutiner som du redan är bekant med.
 
 ## <a name="what-is-the-benefit-of-using-apache-cassandra-api-for-azure-cosmos-db"></a>Vad är fördelen med att använda Apache Cassandra API:t för Azure Cosmos DB?
 
 **Ingen åtgärdshantering**: Som en fullständigt hanterad molntjänst eliminerar Cassandra-API:et för Azure Cosmos DB det tidskrävande arbetet med att hantera och övervaka en mängd olika inställningar i operativsystem, JVM och yaml-filer och deras interaktioner. Azure Cosmos DB erbjuder övervakning av dataflödet, svarstider, lagring, tillgänglighet och konfigurerbara aviseringar.
 
+**Öppen källkod standard:** Trots att en fullt hanterad tjänst, Cassandra API stöder fortfarande en stor yta av den infödda [Apache Cassandra tråd protokoll,](cassandra-support.md)så att du kan bygga program på en allmänt använd och moln agnostiker öppen källkod standard.
+
 **Prestandahantering**: Azure Cosmos DB tillhandahåller läsningar och skrivningar med garanterat korta svarstider inom den 99:e percentilen, backade av serviceavtalen. Användarna behöver inte bekymra sig om driftsomkostnader för att säkerställa höga prestanda och snabba läsningar och skrivningar. Det innebär att användarna inte behöver lösa schemaläggningsproblem, hantera tombstones eller skapa bloomfilter och repliker manuellt. Med Azure Cosmos DB slipper du ägna tid åt dessa problem så att du kan fokusera på programlogiken.
 
 **Möjlighet att använda befintlig kod och verktyg**: Azure Cosmos DB erbjuder kompatibilitet på trådprotokollsnivå med befintliga SDK:er och verktyg för Cassandra. Den här kompatibiliteten garanterar att du kan använda din befintliga kodbas med Cassandra-API:et för Azure Cosmos DB med minimala ändringar.
 
-**Dataflöde och lagringselasticitet**: Azure Cosmos DB tillhandahåller garanterad genomströmning i alla regioner och kan skala det etablerade dataflödet via Azure-portalen, PowerShell eller CLI. Du kan skala lagringsutrymmet och dataflödet elastiskt för dina tabeller efter behov med förutsägbara prestanda.
+**Dataflöde och lagringselasticitet**: Azure Cosmos DB tillhandahåller garanterad genomströmning i alla regioner och kan skala det etablerade dataflödet via Azure-portalen, PowerShell eller CLI. Du kan [elastiskt skala](manage-scale-cassandra.md) lagring och dataflöde för dina tabeller efter behov med förutsägbar prestanda.
 
 **Global distribution och tillgänglighet**: Med Azure Cosmos DB kan du distribuera data över alla Azure-regioner globalt och tillhandahålla data lokalt med snabb dataåtkomst och hög tillgänglighet. Azure Cosmos DB erbjuder 99,99 % hög tillgänglighet inom en region och 99,999 % läs- och skrivtillgänglighet i flera regioner utan ytterligare driftkostnader. Läs mer i artikeln [Distribuera data globalt](distribute-data-globally.md). 
 
 **Val av konsekvensnivåer:** Azure Cosmos DB låter dig välja mellan fem väldefinierade konsekvensnivåer för bästa möjliga balans mellan konsekvens och prestanda. Dessa konsekvensnivåer är stark, begränsat föråldrad, session, konsekvent prefix och eventuell. Dessa väldefinierade, praktiska och intuitiva konsekvensnivåer hjälper utvecklare att göra exakta avvägningarna mellan konsekvens, tillgänglighet och svarstider. Läs mer i artikeln om [konsekvensnivåer](consistency-levels.md). 
 
 **Enterprise-klass**: Azure Cosmos DB erbjuder [kompatibilitetscertifieringar](https://www.microsoft.com/trustcenter) så att användare kan använda plattformen på ett säkert sätt. Azure Cosmos DB erbjuder även kryptering i vila och i rörelse, IP-brandvägg och granskningsloggar för kontrollplansaktiviteter.
+
+**Event Sourcing:** Cassandra API ger tillgång till en beständig ändringslogg, [Ändringsflödet](cassandra-change-feed.md), vilket kan underlätta händelseinköp direkt från databasen. I Apache Cassandra är den enda motsvarigheten förändring datainsamling (CDC), som bara är en mekanism för att flagga specifika tabeller för arkivering samt avvisa skrivningar till dessa tabeller när en konfigurerbar storlek-på-disk för CDC loggen nås (dessa funktioner är överflödiga i Cosmos DB som relevanta aspekter automatiskt styrs).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -52,4 +56,4 @@ Cassandra-API:t låter dig interagera med data som lagras i Azure Cosmos DB med 
 
 * Mer information om Apache Cassandra-funktioner som stöds av Cassandra-API:et för Azure Cosmos DB finns i artikeln om [Cassandra-stöd](cassandra-support.md).
 
-* Läs våra [vanliga frågor och svar](faq.md#cassandra).
+* Läs våra [vanliga frågor och svar](cassandra-faq.md).

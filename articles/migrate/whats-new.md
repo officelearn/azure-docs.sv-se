@@ -2,20 +2,30 @@
 title: Nyheter i Azure Migrate
 description: Läs mer om nyheter och senaste uppdateringar i Azure Migrate-tjänsten.
 ms.topic: overview
-ms.date: 04/16/2020
+ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 1b0221f497ae7bbf84f163eef1ddb862d8de2951
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: ba85b0a4ed30320099388ccb48dd91ad6445efd5
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535255"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677245"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Nyheter i Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) hjälper dig att identifiera, bedöma och migrera lokala servrar, appar och data till Microsoft Azure-molnet. Den här artikeln sammanfattar nya versioner och funktioner i Azure Migrate.
 
 
+## <a name="update-april-2020"></a>Uppdatering (april 2020)
+
+Azure Migrate stöder distributioner i Azure Government. 
+
+- Du kan identifiera och bedöma virtuella datorer, virtuella datorer med hyper-v och fysiska servrar.
+- Du kan migrera virtuella virtuella datorer, virtuella hyper-virtuella datorer och fysiska servrar till Azure.
+- För VMware-migrering kan du använda agentless eller agentbaserad migrering. [Läs mer](server-migrate-overview.md).
+- [Granska](migrate-support-matrix.md#supported-geographies-azure-government) geografiska områden och regioner som stöds för Azure Government.
+- [Agentbaserad beroendeanalys](concepts-dependency-visualization.md#agent-based-analysis) stöds inte i Azure Government.
+- Funktioner i förhandsversion stöds i Azure Government, särskilt [agentless dependency analysis](concepts-dependency-visualization.md#agentless-analysis)och [application discovery](how-to-discover-applications.md).
 
 ## <a name="update-march-2020"></a>Uppdatering (mars 2020)
 

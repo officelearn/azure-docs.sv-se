@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/4/2019
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 6a142ce3c082f6f9a53287885ba347fc78f77718
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: da324e1e1a40e515cac4b26d6c9f8661f344e1d7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262034"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687608"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>Vanliga frågor och svar om Microsofts kommersiella marknadsplats
 
@@ -57,7 +57,7 @@ Med Azure Marketplace kan kunder upptäcka tekniska program som skapats för ell
 Azure Marketplace-erbjudanden kan köpas via:
 
 * [Det webbaserade skyltfönstret](https://azuremarketplace.microsoft.com/marketplace/apps)
-* [Azure portalen][Azure Portal]
+* [Azure-portalen] [Azure-portal]
 * [Azure-kommandoradsgränssnittet (CLI)](/cli/azure/?view=azure-cli-latest)
 
 >[!Note]
@@ -307,7 +307,7 @@ Det finns inga publiceringsavgifter när du laddar upp en lista, utvärderingsve
 
 **Finns det några transaktionsavgifter för inköp via Azure Marketplace?**
 
-När lösningslicensen köps via Azure Marketplace delas intäkterna för programvarulicensen mellan utgivaren och Microsoft.  Detta görs i enlighet med villkoren i [Marketplace Publisher-avtalet](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf). Dessutom ådrar sig inte lösningar med BYOL-utgivare (Bring Your Own License) transaktionsavgifter.
+När lösningslicensen köps via Azure Marketplace delas intäkterna för programvarulicensen mellan utgivaren och Microsoft.  Detta görs i enlighet med villkoren i [Marketplace Publisher-avtalet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt). Dessutom ådrar sig inte lösningar med BYOL-utgivare (Bring Your Own License) transaktionsavgifter.
 
 **Vad är ett standardavtal?**
 
@@ -335,7 +335,7 @@ Leads är kunder som distribuerar dina produkter från Marketplace. Oavsett om d
 
 **Var kan jag få hjälp med att konfigurera mitt leadmål?**
 
-Läs mer i [dokumentationen för Kundleadser](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md) [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) i Partner center eller skicka in en supportbiljett genom att välja din erbjudandetyp och leadhantering.
+Läs mer i [dokumentationen för Kundleadser](./partner-center-portal/commercial-marketplace-get-customer-leads.md) [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) i Partner center eller skicka in en supportbiljett genom att välja din erbjudandetyp och leadhantering.
 
 **Måste jag konfigurera en leaddestination för att publicera ett erbjudande på Marketplace?**
 
@@ -343,7 +343,7 @@ Ja, om du publicerar en **Kontakta mig-** **saaS-app**eller **konsulttjänster**
 
 **Hur kan jag bekräfta att leadkonfigurationen är korrekt?**
 
-När du har slutfört erbjudandet och ställt in en leaddestination kan listan publiceras korrekt i [Partnercenter](https://cloudpartner.azure.com/). Innan listan publiceras kan du verifiera om leadkonfigurationskonfigurationen fungerar korrekt.  Skicka en testled till leadmålet som konfigurerats i erbjudandet.
+När du har slutfört erbjudandet och ställt in en leaddestination kan listan publiceras korrekt i [Partnercenter](https://partner.microsoft.com/). Innan listan publiceras kan du verifiera om leadkonfigurationskonfigurationen fungerar korrekt.  Skicka en testled till leadmålet som konfigurerats i erbjudandet.
 
 **Vilka länder/regioner är Azure Marketplace tillgängligt för utgivare att sälja från?**
 
@@ -353,13 +353,13 @@ Utgivare baserade i följande länder/regioner kan för närvarande sälja på A
 
 *Virtuell dator & Azure-appar:*
 
-1. Logga in [på Partner Center](https://cloudpartner.azure.com/).
+1. Logga in [på Partner Center](https://partner.microsoft.com/).
 1. Välj erbjudandet på fliken **Alla erbjudanden.**
 1. Välj fliken **SKU:er** i fönstret till vänster på skärmen.
 1. Markera SKU för borttagning och klicka på **borttagningsknappen** för den SKU: den.
 1. [Publicera](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) erbjudandet på Azure Marketplace.
 
-Mer information finns i [Ta bort ett erbjudande](./cloud-partner-portal/manage-offers/cpp-delete-offer.md).
+Mer information finns i [uppdatera ett erbjudande](./partner-center-portal/update-existing-offer.md).
 
 *Webbappar (SaaS-appar, tillägg) & Konsulttjänster:*
 
@@ -392,7 +392,7 @@ Besök [Microsoft GTM Services](https://partner.microsoft.com/reach-customers/gt
 
 **Var marknadsförs Azure Marketplace-lösningar inom Microsofts webbegenskaper?**
 
-Azure Marketplace-lösningar är tillgängliga på webbplatsen Microsoft [Azure och] [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/). Molnutvecklare och IT-proffs som använder Azure har exponering för partnerlösningar varje gång de loggar in. En delmängd av partnerlösningar visas också upp och roteras på [sidan Azure Marketplace-startsida](https://azuremarketplace.microsoft.com/marketplace) och [Azure-lösningar](https://azure.microsoft.com/solutions/).
+Azure Marketplace-lösningar är tillgängliga på webbplatsen Microsoft [Azure portal] och [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/). Molnutvecklare och IT-proffs som använder Azure har exponering för partnerlösningar varje gång de loggar in. En delmängd av partnerlösningar visas också upp och roteras på [sidan Azure Marketplace-startsida](https://azuremarketplace.microsoft.com/marketplace) och [Azure-lösningar](https://azure.microsoft.com/solutions/).
 
 ### <a name="billing-and-payments"></a>Fakturering och betalningar
 
@@ -474,6 +474,3 @@ Ja, på din begäran via supportbiljett kommer Microsoft att behandla krediter t
 ## <a name="next-steps"></a>Nästa steg
 
 Besök den [kommersiella marknadsplatsen utgivare guide](/azure/marketplace/marketplace-publishers-guide) sida.
-
-
-[Azure Portal]: https://portal.azure.com

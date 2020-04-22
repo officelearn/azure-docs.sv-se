@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 256ea1a03cd22df443362623177f91893f28b664
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 2e057ca16e2e4f7fcb16ee39d090be853639fc12
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419161"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731451"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Hantera ditt kommersiella marketplace-konto i Partner Center
 
@@ -120,11 +120,11 @@ Enhetshanteringsinställningarna gäller endast för UWP-publicering. [Läs mer]
 
 Globalt unika identifierare (GUIDs) är unika referensnummer (med 32 hexadecimala siffror) som kan användas för att spåra din Azure-användning. 
 
-Om du vill skapa GUID:er för spårning bör du använda en GUID-generator. Azure Storage-teamet har skapat ett [GUID-generatorformulär](https://aka.ms/StoragePartners) som skickar ett GUID-gränssnitt med rätt format och kan återanvändas över de olika spårningssystemen.
+Om du vill skapa GUID:er för spårning bör du använda en GUID-generator. Azure Storage-teamet har skapat ett [GUID-generatorformulär](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUMVRVVFFLTDFLS0E2QzNYSkFZR1U3WVJCTSQlQCN0PWcu) som skickar ett GUID-gränssnitt med rätt format och kan återanvändas över de olika spårningssystemen.
 
 Vi rekommenderar att du skapar ett unikt GUID för varje erbjudande och distributionskanal för varje produkt. Du kan välja att använda ett enda GUID för produktens flera distributionskanaler om du inte vill att rapporteringen ska delas.
 
-Om du distribuerar en produkt med hjälp av en mall och den är tillgänglig på både Azure Marketplace och på GitHub kan du skapa och registrera två olika GUIDS:
+Om du distribuerar en produkt med hjälp av en mall och den är tillgänglig på både Azure Marketplace och på GitHub kan du skapa och registrera två olika GUID:If you deploy a product by using a template and it is available on both the Azure Marketplace and on GitHub, you can create and register two distinct GUIDs:
 
 *    Produkt A på Azure Marketplace
 *    Produkt A på GitHub

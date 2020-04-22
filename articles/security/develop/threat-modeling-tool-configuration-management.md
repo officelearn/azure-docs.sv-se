@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 3c89fae09583c96cf8139885fe2554cf6784b4e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ead6a79109c221d31ead96a202e97294ef218c5f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78269825"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687979"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Säkerhetsram: Konfigurationshantering | Mitigations 
 | Produkt/tjänst | Artikel |
@@ -76,7 +76,7 @@ Example: var str="alert(1)"; eval(str);
 | **SDL-fas**               | Utveckla |  
 | **Tillämplig teknik** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
-| **Referenser**              | [XSS-skyddsfilter](https://www.owasp.org/index.php/List_of_useful_HTTP_headers#X-XSS-Protection) |
+| **Referenser**              | [XSS-skyddsfilter](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) |
 | **Steg** | <p>X-XSS-Protection svarshuvud konfiguration styr webbläsarens korsplats skriptfilter. Det här svarshuvudet kan ha följande värden:</p><ul><li>`0:`Detta kommer att inaktivera filtret</li><li>`1: Filter enabled`Om en skriptattack på flera webbplatser upptäcks, för att stoppa attacken, kommer webbläsaren att sanera sidan</li><li>`1: mode=block : Filter enabled`. I stället för att sanera sidan, när en XSS-attack upptäcks, kommer webbläsaren att förhindra rendering av sidan</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. Webbläsaren kommer att sanera sidan och rapportera överträdelsen.</li></ul><p>Detta är en kromfunktion som använder CSP-överträdelserapporter för att skicka information till en URI som du väljer. De senaste 2 alternativen betraktas som säkra värden.</p>|
 
 ## <a name="aspnet-applications-must-disable-tracing-and-debugging-prior-to-deployment"></a><a id="trace-deploy"></a>ASP.NET program måste inaktivera spårning och felsökning före distribution
@@ -109,7 +109,7 @@ Example: var str="alert(1)"; eval(str);
 | **SDL-fas**               | Utveckla |  
 | **Tillämplig teknik** | Allmänna |
 | **Attribut**              | Ej tillämpligt  |
-| **Referenser**              | [OWASP klicka-jacking Defense lathund](https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet), [IE Internals - Bekämpa klicka-jacking med X-Frame-Alternativ](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) |
+| **Referenser**              | [OWASP klicka-jacking Defense lathund](https://cheatsheetseries.owasp.org/cheatsheets/Clickjacking_Defense_Cheat_Sheet.html), [IE Internals - Bekämpa klicka-jacking med X-Frame-Alternativ](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) |
 | **Steg** | <p>click-jacking, även känd som en "UI redress attack", är när en angripare använder flera genomskinliga eller ogenomskinliga lager för att lura en användare att klicka på en knapp eller länk på en annan sida när de hade för avsikt att klicka på den översta sidan.</p><p>Detta skiktning uppnås genom att skapa en skadlig sida med en iframe, som laddar offrets sida. Således är angriparen "kapning" klick avsedda för deras sida och routing dem till en annan sida, troligen ägs av ett annat program, domän, eller båda. Om du vill förhindra klick-jacking-attacker anger du rätt HTTP-svarshuvuden för X-Frame-Options som instruerar webbläsaren att inte tillåta inramning från andra domäner</p>|
 
 ### <a name="example"></a>Exempel

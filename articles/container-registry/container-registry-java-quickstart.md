@@ -5,12 +5,12 @@ author: KarlErickson
 ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
-ms.openlocfilehash: 62d63b24baab204cb029565b109ea2de768e1d80
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ef933ae9a6b0a34529c7ec145b13c023728a3457
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78165448"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731859"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Snabbstart: Skapa och skicka Java-behållaravbildningar till Azure Container Registry
 
@@ -163,7 +163,7 @@ Andra versioner av de officiella Java-basavbildningarna som stöds av Microsoft 
 Om du vill veta mer om Spring och Azure kan du fortsätta till dokumentationscentret för Spring i Azure.
 
 > [!div class="nextstepaction"]
-> [Spring på Azure](/azure/java/spring-framework)
+> [Spring på Azure](/azure/developer/java/spring-framework)
 
 ### <a name="additional-resources"></a>Ytterligare resurser
 
@@ -173,5 +173,5 @@ Mer information finns i följande resurser:
 * [Arbeta med Azure DevOps och Java](/azure/devops/java)
 * [Spring Boot on Docker Getting Started](https://spring.io/guides/gs/spring-boot-docker)
 * [Spring Initializr](https://start.spring.io)
-* [Distribuera ett Spring Boot-program till Azure App Service](/azure/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin)
+* [Distribuera ett Spring Boot-program till Azure App Service](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin)
 * [Använda en anpassad Docker-avbildning för Azure Web App i Linux](/azure/app-service-web/app-service-linux-using-custom-docker-image)

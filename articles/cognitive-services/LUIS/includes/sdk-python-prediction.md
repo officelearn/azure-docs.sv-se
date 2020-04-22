@@ -10,12 +10,12 @@ ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: ff4c33aea3d3ce604f44c38e6e3856242388b0e9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: eabec50f57785bde6760db053eb3b12f6f5b6452
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77371872"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732039"
 ---
 Använd klientbiblioteket Language Understanding (LUIS) för Python för att:
 
@@ -28,6 +28,7 @@ Använd klientbiblioteket Language Understanding (LUIS) för Python för att:
 
 * Portalkonto (Language Understanding) - [Skapa ett gratis](https://www.luis.ai)
 * [Python 3.x](https://www.python.org/)
+* Ett LUIS-app-ID – använd det offentliga `df67dcdb-c37d-46af-88e1-8b97951ca1c2`IoT-app-ID:et för . Användarfrågan som används i snabbstartskoden är specifik för den appen.
 
 ## <a name="setting-up"></a>Inrätta
 

@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/08/2020
-ms.openlocfilehash: 77c58bb8dfa7d21b108d2aa63e90142f66877fb7
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.date: 04/20/2020
+ms.openlocfilehash: 6b353967c9b9c7517f1a42581717c6394c0e6374
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606511"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729145"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>Ändra radomvandling i mappning av dataflöde
 
@@ -48,10 +48,12 @@ För att ändringsradsprinciperna ska fungera måste dataströmmen skriva till e
 
 ![Ändra radfländning](media/data-flow/alter-row2.png "Ändra radfländning")
 
- Standardbeteendet är att endast tillåta infogningar. Om du vill tillåta uppdateringar, upserts eller borttagningar markerar du rutan i diskhon som motsvarar det villkoret. Om uppdateringar, upserts eller borttagningar är aktiverade måste du ange vilka nyckelkolumner i diskhon som ska matchas.
+Standardbeteendet är att endast tillåta infogningar. Om du vill tillåta uppdateringar, upserts eller borttagningar markerar du rutan i diskhon som motsvarar det villkoret. Om uppdateringar, upserts eller borttagningar är aktiverade måste du ange vilka nyckelkolumner i diskhon som ska matchas.
 
 > [!NOTE]
 > Om dina infogningar, uppdateringar eller upserts ändrar schemat för måltabellen i diskhon, misslyckas dataflödet. Om du vill ändra målschemat i databasen väljer du **Återskapa tabell** som tabellåtgärd. Detta kommer att släppa och återskapa tabellen med den nya schemadefinitionen.
+
+Sink-omvandlingen kräver antingen en enda nyckel eller en serie nycklar för unik radidentifiering i måldatabasen. För SQL-diskhoar anger du tangenterna på fliken sink-inställningar. För CosmosDB ställer du in partitionsnyckeln i inställningarna och ställer även in CosmosDB-systemfältet "id" i diskhonmappningen. För CosmosDB är det obligatoriskt att inkludera systemkolumnen "id" för uppdateringar, upserts och deletes.
 
 ## <a name="data-flow-script"></a>Dataflödesskript
 

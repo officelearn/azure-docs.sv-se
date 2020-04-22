@@ -6,15 +6,15 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 8e6fd4955d6d68764895619efd968a957bcb5184
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 2126996620d6f891dde4e7530c057d2c7f31a996
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460604"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676679"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Fråga lagringsfiler med SQL on-demand (preview) resurser inom Synapse SQL
 
@@ -62,7 +62,7 @@ Mer information finns [i Frågemappar och flera filer.](query-folders-multiple-c
 
 Om du vill fråga om parkettkällasdata använder du FORMAT = "PARKETT"
 
-```sql
+```syntaxsql
 OPENROWSET
 (
     { BULK 'data_file' ,
@@ -121,7 +121,6 @@ Genom att utelämna WITH-satsen från OPENROWSET-satsen kan du instruera tjänst
 ```sql
 OPENROWSET(
 BULK N'path_to_file(s)', FORMAT='PARQUET');
-
 ```
 
 ### <a name="filename-function"></a>Funktionen Filnamn
@@ -163,7 +162,7 @@ Om du vill komma åt kapslade element från en kapslad kolumn, till exempel Stru
 
 Syntaxfragmentexempelet är följande:
 
-```sql
+```syntaxsql
     OPENROWSET
     (   BULK 'unstructured_data_path' ,
         FORMAT = 'PARQUET' )
@@ -197,7 +196,7 @@ Om du vill komma åt icke-skalärelement från en upprepad kolumn använder du [
 
 Se syntaxfragment nedan:
 
-```sql
+```syntaxsql
     SELECT
        { JSON_VALUE (column_name, path_to_sub_element), }
        { JSON_QUERY (column_name [ , path_to_sub_element ]), )
@@ -215,9 +214,9 @@ Du kan hitta frågeexempel för åtkomst till element från upprepade kolumner i
 Mer information om hur du frågar olika filtyper och skapar och använder vyer finns i följande artiklar:
 
 - [Fråga en enda CSV-fil](query-single-csv-file.md)
-- [Fråga parquet-filer](query-parquet-files.md)
-- [Fråga JSON-filer](query-json-files.md)
-- [Frågor Parkett kapslade typer](query-parquet-nested-types.md)
+- [Efterfråga Parquet-filer](query-parquet-files.md)
+- [Efterfråga JSON-filer](query-json-files.md)
+- [Efterfråga kapslade Parquet-typer](query-parquet-nested-types.md)
 - [Fråga mappar och flera CSV-filer](query-folders-multiple-csv-files.md)
 - [Använda filmetadata i frågor](query-specific-files.md)
 - [Skapa och använda vyer](create-use-views.md)

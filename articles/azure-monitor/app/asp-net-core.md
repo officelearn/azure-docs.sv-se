@@ -3,12 +3,12 @@ title: Azure Application Insights för ASP.NET Core-program | Microsoft-dokument
 description: Övervaka ASP.NET Core-webbprogram för tillgänglighet, prestanda och användning.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: d6a0e507022452f1491e71651ba3bc8db3d1c090
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1a9a81d76df7f14fb99b8521e7bfa2edff6c9e9e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284797"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687378"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights för ASP.NET Core-program
 
@@ -162,11 +162,11 @@ De föregående stegen är tillräckligt för att du ska kunna börja samla in t
     
 Alternativt att använda `FullScript` `ScriptBody` den är tillgänglig från och med SDK v2.14. Använd detta om du `<script>` behöver styra taggen för att ange en säkerhetsprincip för innehåll:
 
-    ```cshtml
-        <script> // apply custom changes to this script tag.
-            @Html.Raw(JavaScriptSnippet.ScriptBody)
-        </script>
-    ```
+```cshtml
+ <script> // apply custom changes to this script tag.
+     @Html.Raw(JavaScriptSnippet.ScriptBody)
+ </script>
+```
 
 De `.cshtml` filnamn som refererades tidigare kommer från en standardmall för MVC-program. Om du vill aktivera övervakning på klientsidan för ditt program måste JavaScript-kodavsnittet visas i `<head>` avsnittet på varje sida i programmet som du vill övervaka. Du kan uppnå det här målet för den här `_Layout.cshtml`programmallen genom att lägga till JavaScript-kodavsnittet i . 
 

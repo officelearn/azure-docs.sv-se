@@ -1,5 +1,5 @@
 ---
-title: Geografisk tillgänglighet och valutastöd | Azure
+title: Geografisk tillgänglighet och valutastöd för den kommersiella marknaden | Azure Marketplace
 description: Geografisk tillgänglighet på den kommersiella marknaden
 author: qianw211
 ms.service: marketplace
@@ -7,14 +7,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.author: dsindona
-ms.openlocfilehash: 82c3ed79bbcc566a91f9f249ec2df747bbc01cac
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 83906e6270ed41c2ea8f489c5a5312d32a565a29
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262017"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687590"
 ---
-# <a name="geographic-availability-and-currency-support"></a>Geografisk tillgänglighet och valutasupport
+# <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Geografisk tillgänglighet och valutastöd för kommersiell marknadsplats
 
 Kommersiella marknadsplatserbjudanden kan köpas i 141 geografiska områden enligt kundens faktureringsadress, och transaktioner kan slutföras i 17 valutor. I tabellen nedan visas varje geografisk plats som stöds, dess [tvåsiffriga ISO 3166-alfakod](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)och den tilldelade valutan.
 

@@ -4,12 +4,12 @@ description: Application Insights utför smart analys av din apptelemetri och va
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 3d8de08605d3dd693eb74a84a29c2efa6cad669a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6c5b19c7e03993ef973cd708ed7a6fe89feb01a5
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671740"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687699"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Smart identifiering - Prestandaavvikelser
 
@@ -71,7 +71,7 @@ E-postmeddelanden om prestandaavvikelser för smarta identifieringar är begrän
 
   * Inte än, men du kan:
     * [Ställ in aviseringar](../../azure-monitor/app/alerts.md) som talar om för dig när ett mått överskrider ett tröskelvärde.
-    * [Exportera telemetri](../../azure-monitor/app/export-telemetry.md) till en [databas](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) eller [till PowerBI](../../azure-monitor/app/export-power-bi.md ), där du kan analysera den själv.
+    * [Exportera telemetri](../../azure-monitor/app/export-telemetry.md) till en [databas](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) eller [till Power BI](../../azure-monitor/app/export-power-bi.md ), där du kan analysera den själv.
 * *Hur ofta utförs analysen?*
 
   * Vi kör analysen dagligen på telemetrin från föregående dag (hel dag i UTC tidszon).
@@ -129,7 +129,7 @@ Meddelandet om försämring av svarstiden visar:
 
 ## <a name="dependency-duration-degradation"></a>Försämring av beroendevaraktighet
 
-Modern tillämpning mer och mer anta mikrotjänster design strategi, vilket i många fall leder till tung tillförlitlighet på externa tjänster. Till exempel, om ditt program förlitar sig på vissa dataplattform eller ens om du bygger din egen bot tjänst kommer du förmodligen vidarebefordra på vissa kognitiva tjänsteleverantörer för att göra det möjligt för dina robotar att interagera på mer mänskliga sätt och vissa datalager tjänst för bot att dra svaren Från.  
+Moderna applikationer använder sig mer och mer av en designmetod för mikrotjänster, vilket i många fall leder till stor tillförlitlighet på externa tjänster. Till exempel, om ditt program förlitar sig på vissa dataplattform eller ens om du bygger din egen bot tjänst kommer du förmodligen vidarebefordra på vissa kognitiva tjänsteleverantörer för att göra det möjligt för dina robotar att interagera på mer mänskliga sätt och vissa datalager tjänst för bot att dra svaren från.  
 
 Exempel på meddelande om försämring av beroendeberoende:
 
@@ -173,9 +173,9 @@ Klicka på länkarna för att öppna Metric Explorer och Sök i relevanta rappor
 ## <a name="next-steps"></a>Nästa steg
 De här diagnostikverktygen hjälper dig att granska telemetrin från din app:
 
-* [Profiler](profiler.md) 
-* [Felsökning av ögonblicksbild](../../azure-monitor/app/snapshot-debugger.md)
-* [Analys](../../azure-monitor/log-query/get-started-portal.md)
+* [Profilerare](profiler.md) 
+* [Felsökare för ögonblicksbilder](../../azure-monitor/app/snapshot-debugger.md)
+* [Analytics](../../azure-monitor/log-query/get-started-portal.md)
 * [Analysera smart diagnostik](../../azure-monitor/app/analytics.md)
 
 Smarta identifieringar är helt automatiska. Men du kanske vill sätta upp fler varningar?

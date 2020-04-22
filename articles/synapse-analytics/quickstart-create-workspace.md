@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: josels
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0b6bf4c6a54e2f187a5751d267720f356e0c30ff
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1ccfb1b008a7e3e48f56b1af62087d303522ed73
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81424400"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676731"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Snabbstart: Skapa en Azure Synapse Analytics-arbetsyta (förhandsversion)
 
@@ -54,7 +54,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/)
     - Ange manuellt med kontonamnet
 
     > [!IMPORTANT]
-    > Arbetsytan Azure Synapse måste kunna läsa och skriva till det valda ADLS Gen2-kontot.
+    > Arbetsytan Azure Synapse måste kunna läsa och skriva till det valda ADLS Gen2-kontot. För alla lagringskonto som du länkar som det primära lagringskontot måste du dessutom ha aktiverat **hierarkiskt namnområde** när lagringskontot skapas.
     >
     > Under ADLS Gen2-urvalsfälten finns en anteckning om att arbetsytans hanterade identitet kommer att tilldelas rollen **Storaqe Blob Data Contributor** i det valda filsystemet Data Lake Storage Gen2 som ger den fullständig åtkomst.
 

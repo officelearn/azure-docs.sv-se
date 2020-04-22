@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/12/2020
 ms.author: juliako
-ms.openlocfilehash: 9bea9e375e00d6fc0f6c33aa1bcc766773db2059
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 1c7156da171a101f04db9f83df587f5b8bc71e8f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81269949"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687102"
 ---
 # <a name="what-is-video-indexer"></a>Vad är Video Indexer?
 
@@ -70,8 +70,8 @@ Följande lista visar de insikter du kan hämta från dina videor med videoindex
 
 ### <a name="audio-insights"></a>Ljudinsikter
 
-* **Ljudtranskription**: Konverterar tal till text på 12 språk och tillåter tillägg. Språk som stöds inkluderar engelska, spanska, franska, tyska, italienska, mandarin chines, japanska, arabiska, ryska, brasiliansk portugisiska, hindi och koreanska.
-* **Automatisk språkidentifiering**: Identifierar automatiskt dominant talat språk. Språk som stöds inkluderar engelska, spanska, franska, tyska, italienska, mandarin chines, japanska, ryska och brasiliansk portugisiska. Om språket inte kan identifieras med tillförsikt förutsätter Video Indexer att det talade språket är engelska. Mer information finns i [Språkidentifieringsmodell](language-identification-model.md).
+* **Ljudtranskription**: Konverterar tal till text på 12 språk och tillåter tillägg. Språk som stöds inkluderar engelska, spanska, franska, tyska, italienska, mandarin kinesiska, japanska, arabiska, ryska, brasilianska portugisiska, hindi och koreanska.
+* **Automatisk språkidentifiering**: Identifierar automatiskt dominant talat språk. Språk som stöds inkluderar engelska, spanska, franska, tyska, italienska, mandarin kinesiska, japanska, ryska och brasilianska portugisiska. Om språket inte kan identifieras med tillförsikt förutsätter Video Indexer att det talade språket är engelska. Mer information finns i [Språkidentifieringsmodell](language-identification-model.md).
 * **Talidentifiering och transkription** på flera språk (förhandsgranskning): Identifierar automatiskt det talade språket i olika segment från ljud. Det skickar varje segment av mediefilen som ska transkriberas och sedan kombinerar transkriptionen tillbaka till en enhetlig transkription. Mer information finns i [Identifiera och transkribera innehåll med flera språk](multi-language-identification-transcription.md)automatiskt .
 * **Textning**: Skapar textning i tre format: VTT, TTML och SRT.
 * **Två kanalbearbetning:** Automatisk identifierar separat avskrift och sammanfogas till en enda tidslinje.

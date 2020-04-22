@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 69ef68dafc2385eb5614179c3d04265250383104
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b7dd00d28ecfe844094677e0ae19f4fd359d97d0
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471548"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687812"
 ---
 # <a name="front-door-routing-methods"></a>Routningsmetoder för ytterdörren
 
@@ -27,7 +27,7 @@ Det finns fyra huvudbegrepp för trafikroutning som finns i Ytterdörren:
 * ** [Latens:](#latency)** Den svarstidsbaserade routningen säkerställer att begäranden skickas till de lägsta svarstidshandlade serverdarna som är godtagbara inom ett känslighetsintervall. I grund och botten skickas dina användarförfrågningar till den "närmaste" uppsättningen med serverenheter med avseende på nätverksfördröjning.
 * ** [Prioritet](#priority):** Du kan tilldela prioriteter till dina olika serverdelar när du vill använda en primär tjänst serverdel för all trafik och tillhandahålla säkerhetskopior om de primära eller säkerhetskopieringsdelarna inte är tillgängliga.
 * ** [Viktad:](#weighted)** Du kan tilldela vikter till dina olika backends när du vill distribuera trafik över en uppsättning backends, antingen jämnt eller enligt viktkoefficienter.
-* **Session tillhörighet:** Du kan konfigurera sessionstillhörighet för frontend-värdar eller domäner när du vill att efterföljande begäranden från en användare ska skickas till samma serverdel så länge användarsessionen fortfarande är aktiv och serverdelsinstansen fortfarande rapporterar felfri baserat på hälsoavsökningar. 
+* ** [Session Tillhörighet:](#affinity)** Du kan konfigurera sessionstillhörighet för frontend-värdar eller domäner när du vill att efterföljande begäranden från en användare ska skickas till samma serverdel så länge användarsessionen fortfarande är aktiv och serverdelsinstansen fortfarande rapporterar felfri baserat på hälsoavsökningar. 
 
 I alla Front Door-konfigurationer ingår övervakning av hälsotillståndet på serverdelen och automatiserad omedelbar global redundans. Mer information finns i [Front Door Backend Monitoring](front-door-health-probes.md). Ytterdörren kan konfigureras för att antingen arbeta baserat på en enda routningsmetod och beroende på dina programbehov kan du använda flera eller alla dessa routningsmetoder i kombination för att skapa en optimal routningstopologi.
 
@@ -71,7 +71,7 @@ Den viktade metoden möjliggör några användbara scenarier:
 * **Cloud-bursting för ytterligare kapacitet:** Expandera snabbt en lokal distribution i molnet genom att lägga den bakom ytterdörren. När du behöver extra kapacitet i molnet kan du lägga till eller aktivera fler backends och ange vilken del av trafiken som går till varje backend.
 
 ## <a name="session-affinity"></a><a name = "affinity"></a>Session tillhörighet
-Som standard, utan sessionstillhörighet, vidarebefordrar Front Door begäranden som kommer från samma klient till olika serverdelskonfiguration baserat på belastningsutjämningskonfiguration, särskilt som svarstiderna till olika serverdelsändringar ändras eller om olika begäranden från samma användaren landar på en annan ytterdörrsmiljö. Men med vissa tillståndskänsliga program eller i vissa andra scenarier är det att föredra att efterföljande förfrågningar från samma användare hamnar på samma serverdel som bearbetade den första begäran. Cookie-baserad sessionstillhörighet är användbart om du vill behålla en användarsession på samma serverdel. Genom att använda Front Door-hanterade cookies kan Azure Front Door dirigera efterföljande trafik från en användarsession till samma backend för bearbetning så länge backend är felfri och användarsessionen inte har upphört att gälla. 
+Som standard, utan sessionstillhörighet, vidarebefordrar Front Door begäranden som kommer från samma klient till olika serverdelskonfiguration baserat på belastningsutjämningskonfiguration, särskilt som svarstider till olika serverdelar ändras eller om olika begäranden från samma användare landar på en annan frontdörrmiljö. Men med vissa tillståndskänsliga program eller i vissa andra scenarier är det att föredra att efterföljande förfrågningar från samma användare hamnar på samma serverdel som bearbetade den första begäran. Cookie-baserad sessionstillhörighet är användbart om du vill behålla en användarsession på samma serverdel. Genom att använda Front Door-hanterade cookies kan Azure Front Door dirigera efterföljande trafik från en användarsession till samma backend för bearbetning så länge backend är felfri och användarsessionen inte har upphört att gälla. 
 
 Sessionstillhörighet kan aktiveras på nivån för klientdelsvärden, dvs. för var och en av dina konfigurerade domäner (eller underdomäner). När funktionen har aktiverats lägger Front Door till en cookie till användarens session. Med cookie-baserad sessionstillhörighet kan Front Door identifiera olika användare även bakom samma IP-adress, vilket i sin tur möjliggör en mer jämn fördelning av trafik mellan dina olika serverdelar.
 

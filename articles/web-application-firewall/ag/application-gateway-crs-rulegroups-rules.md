@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 563aa701c1403a1ef26c6073496e7e59c7c5096c
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 59409c428aba938c49fc37647db82f30d783a629
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521843"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730564"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Crs-regelgrupper och regler för brandvägg för webbprogram
 
@@ -218,6 +218,7 @@ Följande regelgrupper och regler är tillgängliga när du använder brandvägg
 |932120|Fjärrkommandokörning = Kommandot Windows PowerShell hittades|
 |932130|Fjärrkommandokörning = Unix-skaluttryck hittades|
 |932140|Fjärrkommandokörning = kommandot Windows FOR/IF hittades|
+|932150|Fjärrkommandokörning: Direkt körning av Unix-kommando|
 |932160|Fjärrkommandokörning = Unix-skalkod hittades|
 |932170|Fjärrkommandoutförande = Shellshock (CVE-2014-6271)|
 |932171|Fjärrkommandoutförande = Shellshock (CVE-2014-6271)|

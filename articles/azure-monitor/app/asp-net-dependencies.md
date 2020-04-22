@@ -3,12 +3,12 @@ title: Beroendespårning i Azure Application Insights | Microsoft-dokument
 description: Övervaka beroendeanrop från ditt lokala webbprogram eller Microsoft Azure-webbprogram med Application Insights.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 1d4e8d1a0482257c92f47a00bd440e786c09c7aa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1e30d8036c1fc624d39f027f38e314c6c57360f6
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80292127"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731498"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Beroendespårning i Azure Application Insights 
 
@@ -97,7 +97,7 @@ För ASP.NET-program samlas fullständig SQL-fråga in med hjälp av bytekodinst
 | Plattform | Steg som behövs för att få fullständig SQL Query |
 | --- | --- |
 | Azure Web App |Öppna [bladet Application Insights på kontrollpanelen](../../azure-monitor/app/azure-web-apps.md) för webbappen och aktivera SQL-kommandon under .NET |
-| IIS Server (Azure VM, on-prem och så vidare.) | Använd Status Monitor PowerShell-modulen för att [installera instrumenteringsmotorn](../../azure-monitor/app/status-monitor-v2-api-enable-instrumentation-engine.md) och starta om IIS. |
+| IIS Server (Azure VM, on-prem och så vidare.) | Använd Status Monitor PowerShell-modulen för att [installera instrumenteringsmotorn](../../azure-monitor/app/status-monitor-v2-api-reference.md) och starta om IIS. |
 | Azure Cloud Service | Lägga till [startuppgift för att installera StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> Din app ska vara inbyggd i ApplicationInsights SDK vid byggtid genom att installera NuGet-paket för [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) eller [ASP.NET Core-program](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) |
 | IIS Express | Stöds inte
 

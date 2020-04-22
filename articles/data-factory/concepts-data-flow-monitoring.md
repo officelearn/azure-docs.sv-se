@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/07/2019
-ms.openlocfilehash: dea0f9a038958ea747147a179020545f2f6922a2
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.date: 04/17/2020
+ms.openlocfilehash: 18099e853aa44e4434a14d7ea913f968593021ec
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605344"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687900"
 ---
 # <a name="monitor-data-flows"></a>Övervaka dataflöden
 
@@ -32,6 +32,10 @@ Du kommer att se statistik på denna nivå samt inklusive körtider och status. 
 När du befinner dig i den grafiska nodövervakningsvyn visas en förenklad version av dataflödesdiagrammet.
 
 ![Övervakning av dataflöde](media/data-flow/mon003.png "Dataflödesövervakning")
+
+Här är en video översikt över övervakning prestanda för dina dataflöden från ADF övervakningsskärmen:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4u4mH]
 
 ## <a name="view-data-flow-execution-plans"></a>Visa planer för körning av dataflöde
 

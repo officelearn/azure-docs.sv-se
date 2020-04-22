@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/18/2020
-ms.openlocfilehash: 9b6b4143ea2eeefcf0d0afbe281f7e27ca7794a1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 95a3c9e81bfc1d3b010027e628204666c472d1da
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80067847"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81731882"
 ---
 # <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MySQL: Använda MySQL Workbench för att ansluta och fråga efter data
 Den här snabbstarten visar hur du ansluter till en Azure Database for MySQL med hjälp av ett MySQL Workbench-program. 
@@ -45,15 +45,15 @@ Ansluta till Azure MySQL-servern med GUI-verktyget MySQL Workbench:
 2.    I dialogrutan **Konfigurera ny anslutning** anger du följande information på fliken **Parametrar**:
 
     ![konfigurera ny anslutning](./media/connect-workbench/2-setup-new-connection.png)
-
-    | **Inställning** | **Föreslaget värde** | **Fältbeskrivning** |
-    |---|---|---|
-    |    Anslutningsnamn | Demoanslutning | Ange ett namn på anslutningen. |
-    | Anslutningsmetod | Standard (TCP/IP) | Standard (TCP/IP) är tillräckligt. |
-    | Värdnamn | *serverns namn* | Ange det värde för servernamn som användes när du tidigare skapade Azure Database för MySQL. Vår exempelserver visas som mydemoserver.mysql.database.azure.com. Använd det fullständiga domännamnet (\*.mysql.database.azure.com) som i det här exemplet. Följ anvisningarna i föregående avsnitt för att hitta anslutningsinformation om du inte kommer ihåg namnet på servern.  |
-    | Port | 3306 | Använd alltid port 3306 när du ansluter till Azure Database för MySQL. |
-    | Användarnamn |  *inloggningsnamn för serveradministratör* | Ange det användarnamn för serveradministratörsinloggning som användes när du tidigare skapade Azure Database för MySQL. Vår användarnamn i exemplet är myadmin@mydemoserver. Följ anvisningarna i föregående avsnitt för att hitta anslutningsinformation om du inte kommer ihåg användarnamnet. Formatet är *\@användarnamn servernamn*.
-    | lösenord | ditt lösenord | Klicka på **Lagra i Arkiv...** för att spara lösenordet. |
+    
+   | **Inställning** | **Föreslaget värde** | **Fältbeskrivning** |
+   |---|---|---|
+   |    Anslutningsnamn | Demoanslutning | Ange ett namn på anslutningen. |
+   | Anslutningsmetod | Standard (TCP/IP) | Standard (TCP/IP) är tillräckligt. |
+   | Värdnamn | *serverns namn* | Ange det värde för servernamn som användes när du tidigare skapade Azure Database för MySQL. Vår exempelserver visas som mydemoserver.mysql.database.azure.com. Använd det fullständiga domännamnet (\*.mysql.database.azure.com) som i det här exemplet. Följ anvisningarna i föregående avsnitt för att hitta anslutningsinformation om du inte kommer ihåg namnet på servern.  |
+   | Port | 3306 | Använd alltid port 3306 när du ansluter till Azure Database för MySQL. |
+   | Användarnamn |  *inloggningsnamn för serveradministratör* | Ange det användarnamn för serveradministratörsinloggning som användes när du tidigare skapade Azure Database för MySQL. Vår användarnamn i exemplet är myadmin@mydemoserver. Följ anvisningarna i föregående avsnitt för att hitta anslutningsinformation om du inte kommer ihåg användarnamnet. Formatet är *\@användarnamn servernamn*.
+   | lösenord | ditt lösenord | Klicka på **Lagra i Arkiv...** för att spara lösenordet. |
 
 3.   Klicka på **Testanslutning** för att testa om alla parametrar är rätt konfigurerade. 
 

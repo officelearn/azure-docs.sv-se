@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 42f8f51545f643e1ed9e1a23c9445f6e216fdabe
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: eadbe13269ce1259b4560af117f5b15b3b294151
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81273417"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81730590"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Prestandajustering med cachelagring av resultatuppsättningar
 
@@ -42,10 +42,11 @@ När cachelagring av resultatuppsättning har aktiverats för en databas cachela
 - Frågor med användardefinierade funktioner
 - Frågor som använder tabeller med säkerhet på radnivå eller kolumnnivå aktiverad
 - Frågor som returnerar data med radstorlek som är större än 64KB
+- Frågor som returnerar stora data i storlek (>10 GB) 
 
 > [!IMPORTANT]
 > Åtgärderna för att skapa resultatuppsättningscachen och hämta data från cacheminnet sker på kontrollnoden för en Synapse SQL-poolinstans.
-> När cachelagring av resultatuppsättning är aktiverat kan frågor som returnerar stora resultatuppsättningar (till exempel >1 miljon rader) orsaka hög CPU-användning på kontrollnoden och sakta ned det övergripande frågesvaret på instansen.  Dessa frågor används ofta under datautforskning eller ETL-åtgärder. För att undvika att framtämda kontrollnoden och orsaka prestandaproblem bör användare inaktivera avresultatuppsättningscachening i databasen innan de körs av dessa typer av frågor.  
+> När cachelagring av resultatuppsättning är aktiverat kan frågor som returnerar stora resultatuppsättningar (till exempel >1 GB) orsaka hög begränsning på kontrollnoden och sakta ned det övergripande frågesvaret på instansen.  Dessa frågor används ofta under datautforskning eller ETL-åtgärder. För att undvika att framtämda kontrollnoden och orsaka prestandaproblem bör användare inaktivera avresultatuppsättningscachening i databasen innan de körs av dessa typer av frågor.  
 
 Kör den här frågan för den tid det tar för resultatuppsättningens cachelagringsåtgärder för en fråga:
 

@@ -11,14 +11,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 55a7c6e505d6d0c43319280bf7199805b108cd77
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9334cd0fa54212eac937742215f9c2e704a8bd9c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81425086"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81688027"
 ---
-# <a name="what-is-azure-key-vault"></a>Vad är Azure Key Vault?
+# <a name="about-azure-key-vault"></a>Om Azure Key Vault
 
 Azure Key Vault kan hjälpa dig att lösa följande problem:
 
@@ -80,4 +80,7 @@ Själva Key Vault kan integreras med lagringskonton, händelsehubbar och Log Ana
 
 ## <a name="next-steps"></a>Nästa steg
 
+- Läs mer om [nycklar, hemligheter och certifikat](about-keys-secrets-certificates.md)
 - [Snabbstart: Skapa ett nyckelvalv med hjälp av CLI](../secrets/quick-create-cli.md)
+- [Autentisering, begäranden och svar](../general/authentication-requests-and-responses.md)
+- [Utvecklarguide för Key Vault](../general/developers-guide.md)

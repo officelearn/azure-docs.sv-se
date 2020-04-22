@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/09/2020
+ms.date: 04/09/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63ec58711c5dd142064e2d5cb29ccaa9eb9c0ed9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1c2427fff37158745e416f4b2f0641697ad62ea9
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79300657"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682666"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-invision"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med InVision
 
@@ -157,13 +157,15 @@ I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning ge
 
     e. Öppna det nedladdade **certifikatet (Base64)** i Anteckningar i **SMS:en** i SMS:en, kopiera innehållet och klistra in det i SMS-certifikatet.
 
-    f. Välj **SHA-256** i listrutan för **HASH-algoritmen**.
+    f. Använd `Unspecified` för **namn-ID-format i**textrutan **Namn-ID.**
 
-    g. Ange lämpligt namn på **SSO-knappetiketten**.
+    g. Välj **SHA-256** i listrutan för **HASH-algoritmen**.
 
-    h. Gör **Tillåt just-in-time-etablering** på.
+    h. Ange lämpligt namn på **SSO-knappetiketten**.
 
-    i. Klicka på **Uppdatera**.
+    i. Gör **Tillåt just-in-time-etablering** på.
+
+    j. Klicka på **Uppdatera**.
 
 ### <a name="create-invision-test-user"></a>Skapa InVision-testanvändare
 

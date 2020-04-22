@@ -3,12 +3,12 @@ title: Självstudiekurs - Säkerhetskopiera SQL Server-databaser till Azure
 description: I den här självstudien kan du läsa om hur du säkerhetskopierar en SQL Server-databas som körs på en Azure VM-dator till ett Azure Backup Recovery Services-valv.
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.openlocfilehash: 3216404b04647e2fb5f15beb09b9a4ccd6648bba
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f1d76fe0dfa428688714b8383c3974ac63195681
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74171891"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680737"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Säkerhetskopiera en SQL Server-databas i en virtuell Azure-dator
 
@@ -64,7 +64,7 @@ Undvik följande för databasnamn:
 * Avslutande hakparentes ”]”
 * Databasnamn som börjar med 'F:\'
 
-Vi har alias för tecken som inte stöds i Azure-tabellen, men vi rekommenderar att du undviker dem. [Läs mer](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
+Vi har alias för tecken som inte stöds i Azure-tabellen, men vi rekommenderar att du undviker dem. [Läs mer](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

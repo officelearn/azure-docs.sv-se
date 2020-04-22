@@ -3,12 +3,12 @@ title: Övervaka Java-program i alla miljöer – Azure Monitor Application Insi
 description: Övervakning av programmets prestanda för Java-program som körs i alla miljöer utan att instrumentera appen. Distribuerad spårning och programkarta.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 5706d5a74bd6850a237f7418b1a86a8e9c7762e1
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: b9c1a52051e63beee9a784714a7bb1a6a79e8759
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604582"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687722"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java-kodlöst program övervakning Azure Monitor Application Insights - offentlig förhandsversion
 
@@ -32,7 +32,7 @@ Lägg `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.3.jar` till i 
 
 Typiska JVM `-Xmx512m` args inkluderar och `-XX:+UseG1GC`. Så om du vet var du ska lägga till dessa, då vet du redan var du ska lägga till detta.
 
-Mer hjälp med att konfigurera programmets JVM-args finns i [3.0 Preview: Tips för uppdatering av dina JVM-args](https://github.com/microsoft/ApplicationInsights-Java/wiki/3.0-Preview:-Tips-for-updating-your-JVM-args).
+Mer hjälp med att konfigurera programmets JVM-args finns i [3.0 Preview: Tips för uppdatering av dina JVM-args](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-arguments).
 
 **3. Peka agenten på din Application Insights-resurs**
 
@@ -80,7 +80,7 @@ I `ApplicationInsights.json` filen kan du dessutom konfigurera:
 * HTTP-proxy
 * Självdiagnostik
 
-Se information på [3.0 Offentlig förhandsversion: Konfigurationsalternativ](https://github.com/microsoft/ApplicationInsights-Java/wiki/3.0-Preview:-Configuration-Options).
+Se information på [3.0 Offentlig förhandsversion: Konfigurationsalternativ](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config).
 
 ## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>Automatiskt sammanställda begäranden, beroenden, loggar och mått
 

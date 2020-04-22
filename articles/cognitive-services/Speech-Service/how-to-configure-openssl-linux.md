@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jhakulin
-ms.openlocfilehash: 350c2bf3c4d0fc0a16f1b393e7c8d8a372679797
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 42960c25c4124203b64646fdc5cbca833b246e21
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78331152"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683169"
 ---
 # <a name="configure-openssl-for-linux"></a>Konfigurera OpenSSL för Linux
 
@@ -50,6 +50,8 @@ Ange att `SSL_CERT_FILE` miljövariabeln ska peka på den filen innan du kör et
 ```bash
 export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
+> [!NOTE]
+> Det är också värt att notera att vissa distributioner av Linux inte har en TMP eller TMPDIR miljö variabel definieras. Detta medför att Tal-SDK hämtar listan över återkallade certifikat (CRL) varje gång, i stället för att cachelagring av referensvärdet till disken för återanvändning tills de upphör att gälla. Om du vill förbättra den första anslutningsprestandan kan du [skapa en miljövariabel med namnet TMPDIR och ange den till sökvägen till den valda tillfälliga katalogen.](https://help.ubuntu.com/community/EnvironmentVariables)
 
 ## <a name="next-steps"></a>Nästa steg
 

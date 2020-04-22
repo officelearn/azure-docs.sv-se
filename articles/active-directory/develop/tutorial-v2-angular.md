@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 84d7be64e7157c35639fec19cb28fe787fe29b19
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: c3c12f78118734c31641b90e6fcb8469ddda30b0
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81533895"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678012"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Självstudiekurs: Logga in användare och anropa Microsoft Graph API från ett kantigt ensidigt program
 
@@ -53,10 +53,6 @@ Den här självstudien använder följande bibliotek:
 |Bibliotek|Beskrivning|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft-autentiseringsbibliotek för JavaScript-vinkelomslag|
-
-> [!NOTE]
-> *Msal.js* riktar in sig på slutpunkten för Microsoft identity platform, som gör det möjligt för personliga konton, arbetskonton och skolkonton att logga in och hämta token. Slutpunkten för Microsoft-identitetsplattformen har [vissa begränsningar](../azuread-dev/azure-ad-endpoint-comparison.md#limitations).
-> För att förstå skillnaderna mellan v1.0- och v2.0-slutpunkterna finns i [jämförelseguiden för slutpunkt](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 Du hittar källkoden för MSAL.js-biblioteket i [AzureAD/microsoft-authentication-library-for-js-databasen](https://github.com/AzureAD/microsoft-authentication-library-for-js) på GitHub.
 

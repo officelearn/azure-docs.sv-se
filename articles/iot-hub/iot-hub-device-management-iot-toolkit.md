@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 9d4d82472664900c96b77b31740573d0463465b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d85e0e967dd802a77ccbc11b884d7a9f2891524d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75911918"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81688101"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Använda Azure IoT Tools för Visual Studio-kod för Azure IoT Hub-enhetshantering
 
@@ -47,8 +47,8 @@ Kör Azure IoT Tools för Visual Studio-kod med olika hanteringsalternativ.
 
 * En aktiv Azure-prenumeration.
 * En Azure IoT-hubb under din prenumeration.
-* [Visual Studio-kod](https://code.visualstudio.com/)
-* [Azure IoT Tools for VS-kod](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) eller [öppna den här länken i Visual Studio Code](vscode:extension/vsciot-vscode.azure-iot-tools).
+* [Visual Studio-koden](https://code.visualstudio.com/)
+* [Azure IoT Tools for VS-kod](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) eller kopiera den`vscode:extension/vsciot-vscode.azure-iot-tools`här URL:en och klistra in den i ett webbläsarfönster: .
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Logga in för att komma åt din IoT-hubb
 

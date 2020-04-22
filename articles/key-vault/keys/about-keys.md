@@ -10,80 +10,34 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1c12135ec6e5a0f4de1fdd46134a056447d3c331
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 3d89275e1418035fed8aad3ffddd8def2c1d59ce
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81424239"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686049"
 ---
 # <a name="about-azure-key-vault-keys"></a>Om Azure Key Vault-nycklar
 
-Azure Key Vault gör det möjligt för Microsoft Azure-program och användare att lagra och använda nycklar. Den stöder flera nyckeltyper och algoritmer och möjliggör användning av HSM (Hardware Security Modules) för nycklar med högt värde. 
+Azure Key Vault stöder flera nyckeltyper och algoritmer och möjliggör användning av HSM (Hardware Security Modules) för nycklar med högt värde.
 
-Mer allmän information om Key Vault finns i [Vad är Azure Key Vault?](/azure/key-vault/key-vault-overview)
+Kryptografiska nycklar i Key Vault representeras som JSON Web Key [JWK]-objekt. Specifikationerna För JavaScript-objekt notation (JSON) och JavaScript-objektsignering och kryptering (JOSE) är:
 
-## <a name="azure-key-vault"></a>Azure Key Vault
+-   [JSON webbnyckel (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
+-   [JSON Webbkryptering (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
+-   [JSON Webbalgoritmer (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
+-   [JSON webbsignatur (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature) 
 
-Följande avsnitt innehåller allmän information som gäller för implementeringen av Key Vault-tjänsten.
+Bas-JWK/JWA-specifikationerna utökas också för att aktivera nyckeltyper som är unika för Key Vault-implementeringen. Om du till exempel importerar nycklar med HSM-leverantörsspecifika förpackningar kan du begränsa säker transport av nycklar som endast får användas i Key Vault-HSM-moduler. 
 
-### <a name="supporting-standards"></a>Stödjande standarder
-
-Specifikationerna JavaScript Object Notation (JSON) och JavaScript Object Signing and Encryption (JOSE) är viktig bakgrundsinformation.  
-
--   [JSON webbnyckel (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41)  
--   [JSON Webbkryptering (JWE)](https://tools.ietf.org/html/draft-ietf-jose-json-web-encryption-40)  
--   [JSON Webbalgoritmer (JWA)](https://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms-40)  
--   [JSON webbsignatur (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature-41)  
-
-### <a name="data-types"></a>Datatyper
-
-Se JOSE-specifikationerna för relevanta datatyper för nycklar, kryptering och signering.  
-
--   **algoritm** - en algoritm som stöds för en nyckelåtgärd, till exempel RSA1_5  
--   **ciphertext-värde** - chiffertextoktetter, kodade med Base64URL  
--   **digest-värde** - utdata från en hash-algoritm, kodad med Base64URL  
--   **nyckeltyp** - en av de nyckeltyper som stöds, till exempel RSA (Rivest-Shamir-Adleman).  
--   **klartextvärde** - oktett i klartext, kodade med Base64URL  
--   **signaturvärde** - utdata från en signaturalgoritm, kodad med Base64URL  
--   **base64URL** - ett Base64URL [RFC4648] kodat binärt värde  
--   **boolesk** - antingen sant eller falskt  
--   **Identity** - en identitet från Azure Active Directory (Azure AD).  
--   **IntDate** - ett JSON-decimalvärde som representerar antalet sekunder från 1970-01-01T0:0:0Z UTC fram till angivet UTC-datum/-tid. Se RFC3339 för mer information om datum/tider, i allmänhet och UTC i synnerhet.  
-
-### <a name="objects-identifiers-and-versioning"></a>Objekt, identifierare och versionshantering
-
-Objekt som lagras i Key Vault versions när en ny instans av ett objekt skapas. Varje version tilldelas en unik identifierare och URL. När ett objekt först skapas får det en unik versionsidentifierare och markeras som den aktuella versionen av objektet. Skapandet av en ny instans med samma objektnamn ger det nya objektet en unik versionsidentifierare, vilket gör att den blir den aktuella versionen.  
-
-Objekt i Key Vault kan åtgärdas med den aktuella identifieraren eller en versionsspecifik identifierare. Om du till exempel anger `MasterKey`en nyckel med namnet, gör det att utföra åtgärder med den aktuella identifieraren att systemet använder den senaste tillgängliga versionen. Om du utför åtgärder med den versionsspecifika identifieraren används systemet den specifika versionen av objektet.  
-
-Objekt identifieras unikt i Key Vault med hjälp av en URL. Inga två objekt i systemet har samma URL, oavsett geografisk plats. Den fullständiga URL:en till ett objekt kallas objektidentifieraren. URL:en består av ett prefix som identifierar Nyckelvalvet, objekttypen, objektets namn och en objektversion. Objektnamnet är skiftlägesokänsligt och oföränderligt. Identifierare som inte innehåller objektversionen kallas basidentifierare.  
-
-Mer information finns i [Autentisering, begäranden och svar](../general/authentication-requests-and-responses.md)
-
-En objektidentifierare har följande allmänna format:  
-
-`https://{keyvault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
-
-Där:  
-
-|||  
-|-|-|  
-|`keyvault-name`|Namnet på ett nyckelvalv i Tjänsten Microsoft Azure Key Vault.<br /><br /> Key Vault-namn väljs av användaren och är globalt unika.<br /><br /> Key Vault-namnet måste vara en 3-24 teckensträng som endast innehåller 0-9, a-z, A-Z och -.|  
-|`object-type`|Typen av objekt, antingen "nycklar" eller "hemligheter".|  
-|`object-name`|En `object-name` är ett användarnamn för och måste vara unikt i ett Nyckelvalv. Namnet måste vara en 1-127 teckensträng som innehåller endast 0-9, a-z, A-Z och -.|  
-|`object-version`|En `object-version` är en systemgenererad 32 teckensträngidentifierare som eventuellt används för att adressera en unik version av ett objekt.|  
-
-## <a name="key-vault-keys"></a>Nyckelvalvsnycklar
-
-### <a name="keys-and-key-types"></a>Nycklar och nyckeltyper
-
-Kryptografiska nycklar i Key Vault representeras som JSON Web Key [JWK]-objekt. Bas-JWK/JWA-specifikationerna utökas också för att aktivera nyckeltyper som är unika för Key Vault-implementeringen. Om du till exempel importerar nycklar med HSM-leverantörsspecifika förpackningar kan du begränsa säker transport av nycklar som endast får användas i Key Vault-HSM-moduler.  
+Azure Key Vault stöder både mjuka och hårda nycklar:
 
 - **"Soft"-nycklar:** En nyckel som bearbetas i programvara av Key Vault, men krypteras i vila med hjälp av en systemnyckel som finns i en HSM. Klienter kan importera en befintlig RSA- eller EC-nyckel (Elliptic Curve) eller begära att Key Vault genererar en.
 - **"Hard"-nycklar:** En nyckel som bearbetas i en HSM (Hardware Security Module). Dessa nycklar är skyddade i en av Key Vault HSM Security Worlds (det finns en Security World per geografi för att upprätthålla isolering). Klienter kan importera en RSA- eller EC-nyckel, i mjuk form eller genom att exportera från en kompatibel HSM-enhet. Klienter kan också begära Key Vault för att generera en nyckel. Den här nyckeltypen lägger till key_hsm-attributet till JWK-erhållet för att bära HSM-nyckelmaterialet.
 
-     Mer information om geografiska gränser finns i [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
+Mer information om geografiska gränser finns i [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
+
+## <a name="cryptographic-protection"></a>Kryptografiskt skydd
 
 Key Vault stöder endast RSA- och Elliptic Curve-tangenter. 
 
@@ -94,9 +48,7 @@ Key Vault stöder endast RSA- och Elliptic Curve-tangenter.
 
 Key Vault stöder RSA-nycklar med storlekarna 2048, 3072 och 4096. Key Vault stöder nyckeltyperna P-256, P-384, P-521 och P-256K (SECP256K1).
 
-### <a name="cryptographic-protection"></a>Kryptografiskt skydd
-
-De kryptografiska moduler som Key Vault använder, oavsett om det är HSM eller programvara, är FIPS (Federal Information Processing Standards) validerade. Du behöver inte göra något speciellt för att köras i FIPS-läge. Nycklar som **skapas** eller **importeras** som HSM-skyddade bearbetas i en HSM, validerad till FIPS 140-2 Nivå 2. Nycklar som **skapas** eller **importeras** som programvaruskyddade bearbetas inuti kryptografiska moduler som validerats till FIPS 140-2 Nivå 1. Mer information finns i [Nycklar och nyckeltyper](#keys-and-key-types).
+De kryptografiska moduler som Key Vault använder, oavsett om det är HSM eller programvara, är FIPS (Federal Information Processing Standards) validerade. Du behöver inte göra något speciellt för att köras i FIPS-läge. Nycklar som **skapas** eller **importeras** som HSM-skyddade bearbetas i en HSM, validerad till FIPS 140-2 Nivå 2. Nycklar som **skapas** eller **importeras** som programvaruskyddade bearbetas inuti kryptografiska moduler som validerats till FIPS 140-2 Nivå 1.
 
 ###  <a name="ec-algorithms"></a>EG-algoritmer
  Följande algoritmidentifierare stöds med EG- och EC-HSM-nycklar i Key Vault. 
@@ -114,7 +66,6 @@ De kryptografiska moduler som Key Vault använder, oavsett om det är HSM eller 
 -   **ES256K** - ECDSA för SHA-256 sammanfattningar och nycklar som skapats med kurvan P-256K. Den här algoritmen väntar på standardisering.
 -   **ES384** - ECDSA för SHA-384 sammanfattningar och nycklar som skapats med kurvan P-384. Denna algoritm beskrivs på [RFC7518](https://tools.ietf.org/html/rfc7518).
 -   **ES512** - ECDSA för SHA-512-sammandrag och nycklar skapade med kurvan P-521. Denna algoritm beskrivs på [RFC7518](https://tools.ietf.org/html/rfc7518).
-
 
 ###  <a name="rsa-algorithms"></a>RSA-algoritmer  
  Följande algoritmidentifierare stöds med RSA- och RSA-HSM-nycklar i Key Vault.  
@@ -134,7 +85,7 @@ De kryptografiska moduler som Key Vault använder, oavsett om det är HSM eller 
 -   **RS512** - RSASSA-PKCS-v1_5 med SHA-512. Det angivna rötvärdet måste beräknas med SHA-512 och måste vara 64 byte i längd.  
 -   **RSNULL** - Se [RFC2437], ett specialiserat användningsfall för att aktivera vissa TLS-scenarier.  
 
-###  <a name="key-operations"></a>Viktiga operationer
+##  <a name="key-operations"></a>Viktiga operationer
 
 Key Vault stöder följande åtgärder för viktiga objekt:  
 
@@ -164,7 +115,7 @@ Användare kan begränsa någon av de kryptografiska åtgärder som Key Vault st
 
 Mer information om JWK-objekt finns i [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).  
 
-###  <a name="key-attributes"></a>Nyckelattribut
+## <a name="key-attributes"></a>Nyckelattribut
 
 Utöver nyckelmaterialet kan följande attribut anges. I en JSON-begäran krävs nyckelordet attribut och klammerparenteser, {' '}, även om inga attribut har angetts.  
 
@@ -177,24 +128,24 @@ Det finns ytterligare skrivskyddade attribut som ingår i alla svar som innehål
 - *skapad*: IntDate, valfritt. Attributet *skapad* anger när den här versionen av nyckeln skapades. Värdet är null för nycklar som skapats före tillägget av det här attributet. Dess värde MÅSTE vara ett tal som innehåller ett intdate-värde.  
 - *uppdaterad*: IntDate, valfritt. Det *uppdaterade* attributet anger när den här versionen av nyckeln uppdaterades. Värdet är null för nycklar som senast uppdaterades före tillägget av det här attributet. Dess värde MÅSTE vara ett tal som innehåller ett intdate-värde.  
 
-Mer information om IntDate och andra datatyper finns i [Datatyper](#data-types)  
+Mer information om IntDate och andra datatyper finns i [Om nycklar, hemligheter och certifikat: [Datatyper](../general/about-keys-secrets-certificates.md#data-types).
 
-#### <a name="date-time-controlled-operations"></a>Datum-tidsstyrda operationer
+### <a name="date-time-controlled-operations"></a>Datum-tidsstyrda operationer
 
 Ännu inte giltiga och utgångna nycklar, utanför *nbf* / *exp-fönstret,* kommer att fungera för **dekryptera,** packa **upp**och **verifiera** åtgärder (kommer inte tillbaka 403, Förbjudet). Grunden för att använda det ännu inte giltiga tillståndet är att tillåta att en nyckel testas före produktionsanvändning. Grunden för att använda det utgångna tillståndet är att tillåta återställningsåtgärder på data som skapades när nyckeln var giltig. Du kan också inaktivera åtkomst till en nyckel med hjälp av Key Vault-principer eller genom att uppdatera *attributet aktiverad* nyckel till **false**.
 
-Mer information om datatyper finns i [Datatyper](#data-types).
+Mer information om datatyper finns i [Datatyper](../general/about-keys-secrets-certificates.md#data-types).
 
 Mer information om andra möjliga attribut finns i [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).
 
-### <a name="key-tags"></a>Viktiga taggar
+## <a name="key-tags"></a>Viktiga taggar
 
 Du kan ange ytterligare programspecifika metadata i form av taggar. Key Vault stöder upp till 15 taggar, som alla kan ha ett 256 teckennamn och ett 256 teckenvärde.  
 
 >[!Note]
 >Taggar kan läsas av en uppringare om de har *listan* eller *får* behörighet till objekttypen (nycklar, hemligheter eller certifikat).
 
-###  <a name="key-access-control"></a>Nyckelåtkomstkontroll
+##  <a name="key-access-control"></a>Nyckelåtkomstkontroll
 
 Åtkomstkontroll för nycklar som hanteras av Key Vault finns på nivån för ett nyckelvalv som fungerar som behållare med nycklar. Åtkomstkontrollprincipen för nycklar skiljer sig från åtkomstkontrollprincipen för hemligheter i samma Nyckelvalv. Användare kan skapa ett eller flera valv för att hålla nycklar och måste underhålla scenariot lämplig segmentering och hantering av nycklar. Åtkomstkontroll för nycklar är oberoende av åtkomstkontroll för hemligheter.  
 
@@ -224,7 +175,11 @@ Följande behörigheter kan beviljas, per användare /tjänst huvudnamn, i nyckl
 
 Mer information om hur du arbetar med nycklar finns [i Nyckelåtgärder i REST-API-referensen för Nyckelvalvet](/rest/api/keyvault). Information om hur du upprättar behörigheter finns i [Arkiv - Skapa eller Uppdatera](/rest/api/keyvault/vaults/createorupdate) och [Valv - Uppdatera åtkomstprincip](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
-## <a name="see-also"></a>Se även
+## <a name="next-steps"></a>Nästa steg
 
+- [Om Key Vault](../general/overview.md)
+- [Om nycklar, hemligheter och certifikat](../general/about-keys-secrets-certificates.md)
+- [Om hemligheter](../secrets/about-secrets.md)
+- [Om certifikat](../certificates/about-certificates.md)
 - [Autentisering, begäranden och svar](../general/authentication-requests-and-responses.md)
 - [Utvecklarguide för Key Vault](../general/developers-guide.md)

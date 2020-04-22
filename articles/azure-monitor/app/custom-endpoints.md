@@ -3,20 +3,25 @@ title: Azure Application Insights åsidosätter standard-SDK-slutpunkter
 description: Ändra standard-Azure Monitor Application Insights SDK-slutpunkter för regioner som Azure Government.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: b4ab05c7ee815b385ffb2d1ff9e621063d744dd7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b43bd13c73f77c6292e2062db88d68a20e5bf480
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298326"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81729534"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Programstatistik åsidosätter standardslutpunkter
 
 Om du vill skicka data från Application Insights till vissa regioner måste du åsidosätta standardslutpunktsadresserna. Varje SDK kräver lite olika ändringar, som alla beskrivs i den här artikeln. Dessa ändringar kräver att exempelkoden justeras och `QuickPulse_Endpoint_Address` `TelemetryChannel_Endpoint_Address`att `Profile_Query_Endpoint_address` platshållarvärdena för , och med de faktiska slutpunktsadresserna för din specifika region. Slutet av den här artikeln innehåller länkar till slutpunktsadresser för regioner där den här konfigurationen krävs.
 
+> [!NOTE]
+> [Anslutningssträngar](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) är den nya metoden för att ange anpassade slutpunkter i Application Insights.
+
+---
+
 ## <a name="sdk-code-changes"></a>Ändringar av SDK-kod
 
-### <a name="net-with-applicationinsightsconfig"></a>.NET med applicationinsights.config
+# <a name="net"></a>[.NET](#tab/net)
 
 > [!NOTE]
 > Filen applicationinsights.config skrivs automatiskt över när som helst en SDK-uppgradering utförs. När du har utfört en SDK-uppgradering ska du ange regionspecifika slutpunktsvärden igen.
@@ -41,7 +46,7 @@ Om du vill skicka data från Application Insights till vissa regioner måste du 
 </ApplicationInsights>
 ```
 
-### <a name="aspnet-core"></a>ASP.NET Core
+# <a name="net-core"></a>[.NET Core](#tab/netcore)
 
 Ändra filen appsettings.json i projektet på följande sätt för att justera huvudslutpunkten:
 
@@ -68,6 +73,8 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
     //Place in the ConfigureServices method. Place this before services.AddApplicationInsightsTelemetry("instrumentation key"); if it's present
 ```
+
+# <a name="azure-functions"></a>[Azure Functions](#tab/functions)
 
 ### <a name="azure-functions-v2x"></a>Azure-funktioner v2.x
 
@@ -120,7 +127,7 @@ namespace Example
 }
 ```
 
-### <a name="java"></a>Java
+# <a name="java"></a>[Java](#tab/java)
 
 Ändra filen applicationinsights.xml om du vill ändra standardslutpunktsadressen.
 
@@ -155,7 +162,7 @@ namespace Example
 azure.application-insights.channel.in-process.endpoint-address= TelemetryChannel_Endpoint_Address
 ```
 
-### <a name="nodejs"></a>Node.js
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 ```javascript
 var appInsights = require("applicationinsights");
@@ -174,7 +181,7 @@ Profile Endpoint: "Profile_Query_Endpoint_address"
 Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 ```
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascript"></a>[JavaScript](#tab/js)
 
 ```javascript
 <script type="text/javascript">
@@ -187,9 +194,11 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 </script>
 ```
 
-### <a name="python"></a>Python
+# <a name="python"></a>[Python](#tab/python)
 
 För vägledning om hur du ändrar slutpunkten för intag för opencensus-python SDK finns i [opencensus-python repo.](https://github.com/census-instrumentation/opencensus-python/blob/af284a92b80bcbaf5db53e7e0813f96691b4c696/contrib/opencensus-ext-azure/opencensus/ext/azure/common/__init__.py)
+
+---
 
 ## <a name="regions-that-require-endpoint-modification"></a>Regioner som kräver ändring av slutpunkt
 
@@ -209,8 +218,8 @@ Om du för närvarande använder [REST-API:et för Application Insights](https:/
 
 |Region |  Namn på slutpunkt | Värde |
 |-----------------|:------------|:-------------|
-| Azure Kina | REST API | `api.applicationinsights.azure.cn` |
-| Azure Government | REST API | `api.applicationinsights.us`|
+| Azure Kina | REST-API | `api.applicationinsights.azure.cn` |
+| Azure Government | REST-API | `api.applicationinsights.us`|
 
 > [!NOTE]
 > Kodlös agent/tilläggsbaserad övervakning för Azure App Services **stöds för närvarande inte** i dessa regioner. Så snart den här funktionen blir tillgänglig kommer den här artikeln att uppdateras.

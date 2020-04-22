@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
-ms.date: 01/15/2019
-ms.openlocfilehash: 958d937ad85fd62249c7ce3f0e0ab2f8cc1d1b80
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/19/2020
+ms.openlocfilehash: 992c981d49e7c6fbf8b6156570f6554a05caab5d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73819929"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687762"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Komma igång med JSON-funktioner i Azure SQL Database
 Med Azure SQL Database kan du tolka och fråga data som representeras i [JSON-format (JavaScript](https://www.json.org/) Object Notation) och exportera relationsdata som JSON-text. Följande JSON-scenarier är tillgängliga i Azure SQL Database:
@@ -30,7 +30,7 @@ Om du har en webbtjänst som tar data från databaslagret och ger ett svar i JSO
 
 I följande exempel formateras rader från tabellen Sales.Customer som JSON med hjälp av FOR JSON-satsen:
 
-```
+```sql
 select CustomerName, PhoneNumber, FaxNumber
 from Sales.Customers
 FOR JSON PATH
@@ -38,7 +38,7 @@ FOR JSON PATH
 
 FOR JSON PATH-satsen formaterar resultatet av frågan som JSON-text. Kolumnnamn används som nycklar, medan cellvärdena genereras som JSON-värden:
 
-```
+```json
 [
 {"CustomerName":"Eric Torres","PhoneNumber":"(307) 555-0100","FaxNumber":"(307) 555-0101"},
 {"CustomerName":"Cosmina Vlad","PhoneNumber":"(505) 555-0100","FaxNumber":"(505) 555-0101"},
@@ -50,7 +50,7 @@ Resultatuppsättningen är formaterad som en JSON-matris där varje rad är form
 
 PATH anger att du kan anpassa utdataformatet för JSON-resultatet med hjälp av punktatering i kolumnalias. Följande fråga ändrar namnet på nyckeln "CustomerName" i utdata-JSON-formatet och placerar telefon- och faxnummer i underobjektet "Kontakt":
 
-```
+```sql
 select CustomerName as Name, PhoneNumber as [Contact.Phone], FaxNumber as [Contact.Fax]
 from Sales.Customers
 where CustomerID = 931
@@ -59,7 +59,7 @@ FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
 
 Utdata för den här frågan ser ut så här:
 
-```
+```json
 {
     "Name":"Nada Jovanovic",
     "Contact":{
@@ -73,7 +73,7 @@ I det här exemplet returnerade vi ett enda JSON-objekt i stället för en matri
 
 Huvudvärdet i FOR JSON-satsen är att du kan returnera komplexa hierarkiska data från databasen som är formaterade som kapslade JSON-objekt eller matriser. I följande exempel visas hur du `Orders` tar med raderna från tabellen som tillhör den `Customer` kapslade matrisen `Orders`i :
 
-```
+```sql
 select CustomerName as Name, PhoneNumber as Phone, FaxNumber as Fax,
         Orders.OrderID, Orders.OrderDate, Orders.ExpectedDeliveryDate
 from Sales.Customers Customer
@@ -81,12 +81,11 @@ from Sales.Customers Customer
         on Customer.CustomerID = Orders.CustomerID
 where Customer.CustomerID = 931
 FOR JSON AUTO, WITHOUT_ARRAY_WRAPPER
-
 ```
 
 I stället för att skicka separata frågor för att hämta kunddata och sedan hämta en lista över relaterade order kan du hämta alla nödvändiga data med en enda fråga, som visas i följande exempelutdata:
 
-```
+```json
 {
   "Name":"Nada Jovanovic",
   "Phone":"(215) 555-0100",
@@ -95,7 +94,7 @@ I stället för att skicka separata frågor för att hämta kunddata och sedan h
     {"OrderID":382,"OrderDate":"2013-01-07","ExpectedDeliveryDate":"2013-01-08"},
     {"OrderID":395,"OrderDate":"2013-01-07","ExpectedDeliveryDate":"2013-01-08"},
     {"OrderID":1657,"OrderDate":"2013-01-31","ExpectedDeliveryDate":"2013-02-01"}
-]
+  ]
 }
 ```
 
@@ -104,7 +103,7 @@ Om du inte har strikt strukturerade data, om du har komplexa underobjekt, matris
 
 JSON är ett textformat som kan användas som alla andra strängtyper i Azure SQL Database. Du kan skicka eller lagra JSON-data som en vanlig NVARCHAR:
 
-```
+```sql
 CREATE TABLE Products (
   Id int identity primary key,
   Title nvarchar(200),
@@ -120,7 +119,7 @@ END
 
 JSON-data som används i det här exemplet representeras med hjälp av typen NVARCHAR(MAX). JSON kan infogas i den här tabellen eller tillhandahållas som ett argument för den lagrade proceduren med standardtransakt-SQL-syntax som visas i följande exempel:
 
-```
+```sql
 EXEC InsertProduct 'Toy car', '{"Price":50,"Color":"White","tags":["toy","children","games"]}'
 ```
 
@@ -131,7 +130,7 @@ Om du har data formaterad som JSON lagrad i Azure SQL-tabeller kan du använda d
 
 Med JSON-funktioner som är tillgängliga i Azure SQL-databasen kan du behandla data som är formaterade som JSON som alla andra SQL-datatyper. Du kan enkelt extrahera värden från JSON-texten och använda JSON-data i valfri fråga:
 
-```
+```sql
 select Id, Title, JSON_VALUE(Data, '$.Color'), JSON_QUERY(Data, '$.tags')
 from Products
 where JSON_VALUE(Data, '$.Color') = 'White'
@@ -149,7 +148,7 @@ Med funktionen JSON_MODIFY kan du ange sökvägen till värdet i JSON-texten som
 
 Eftersom JSON lagras i en standardtext finns det inga garantier för att de värden som lagras i textkolumner är korrekt formaterade. Du kan kontrollera att text som lagras i JSON-kolumnen är korrekt formaterad med hjälp av standardkontrollbegränsningar för Azure SQL Database och funktionen ISJSON:
 
-```
+```sql
 ALTER TABLE Products
     ADD CONSTRAINT [Data should be formatted as JSON]
         CHECK (ISJSON(Data) > 0)
@@ -168,7 +167,7 @@ I exemplet ovan kan vi ange var JSON-matrisen ska öppnas (i $. Ordersökväg), 
 
 Vi kan omvandla en JSON-matris i variabeln @orders till en uppsättning rader, analysera den här resultatuppsättningen eller infoga rader i en standardtabell:
 
-```
+```sql
 CREATE PROCEDURE InsertOrders(@orders nvarchar(max))
 AS BEGIN
 
@@ -181,9 +180,9 @@ AS BEGIN
             Customer varchar(200),
             Quantity int
      )
-
 END
 ```
+
 Samlingen av order som är formaterad som en JSON-matris och som anges som en parameter till den lagrade proceduren kan tolkas och infogas i tabellen Order.
 
 ## <a name="next-steps"></a>Nästa steg

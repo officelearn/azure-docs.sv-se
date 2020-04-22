@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3e27550ecc5b42c2bf0d947690da09e13d88ea4f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 91451ff3024a9a5019b3982b0e4471e2c4d80c74
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79128029"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683921"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Delegerad åtkomst i Windows Virtual Desktop
 
@@ -37,8 +37,8 @@ Delegerad åtkomst för Virtuellt skrivbord i Windows Stöder följande värden 
 Delegerad åtkomst i Windows Virtual Desktop har flera inbyggda rolldefinitioner som du kan tilldela användare och tjänsthuvudnamn.
 
 * En RDS-ägare kan hantera allt, inklusive åtkomst till resurser.
-* En RDS-deltagare kan hantera allt utom åtkomst till resurser.
-* En RDS Reader kan visa allt men kan inte göra några ändringar.
+* En RDS-deltagare kan hantera allt, men kan inte komma åt resurser.
+* En RDS Reader kan visa allt, men kan inte göra några ändringar.
 * En RDS-operatör kan visa diagnostikaktiviteter.
 
 ## <a name="powershell-cmdlets-for-role-assignments"></a>PowerShell-cmdletar för rolltilldelningar

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5a80c6e3bd8cf647590ed757c042ef3301e27b4a
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 34ed6d043f713aa55bfe464c48d4332364df805d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743508"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680385"
 ---
 # <a name="secure-your-restful-services"></a>Säkra dina RESTful-tjänster 
 
@@ -211,11 +211,19 @@ Ett anspråk ger tillfällig lagring av data under en Azure AD B2C-principkörni
 1. Öppna filen för tillägg i principen. Till exempel <em> `SocialAndLocalAccounts/` </em>.
 1. Sök efter elementet [BuildingBlocks.](buildingblocks.md) Om elementet inte finns lägger du till det.
 1. Leta reda på elementet [ClaimsSchema.](claimsschema.md) Om elementet inte finns lägger du till det.
-1. Lägg till stadsbärarenToken i **elementet ClaimsSchema.**  
+1. Lägg till följande anspråk i elementet **ClaimsSchema.**  
 
 ```xml
 <ClaimType Id="bearerToken">
-  <DisplayName>bearer token</DisplayName>
+  <DisplayName>Bearer token</DisplayName>
+  <DataType>string</DataType>
+</ClaimType>
+<ClaimType Id="grant_type">
+  <DisplayName>Grant type</DisplayName>
+  <DataType>string</DataType>
+</ClaimType>
+<ClaimType Id="scope">
+  <DisplayName>scope</DisplayName>
   <DataType>string</DataType>
 </ClaimType>
 ```

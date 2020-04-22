@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: 9ed17ed0825e0011d1402efc45155755a1ecbadf
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 2739e960c4bc6d35ac9ad757e80ed620e5dc04f8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81459176"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684648"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
@@ -308,7 +308,7 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig me
     + Den "y_query" togs bort från Dominick's Orange Juice notebook service request avsnitt.
     + Fixade felförebyggande prognoser på de distribuerade modellerna och fungerade på datauppsättningar med datumtidskolumner.
     + Lade till Matthews Korrelationskoefficient som klassificeringsmått, för både binär och multiklassklassificering.
-  + **azureml-contrib-interpret**
+  + **azureml-contrib-tolka**
     + Borttagna text explainers från azureml-contrib-tolka som text förklaring har flyttats till tolka-text repo som kommer att släppas snart.
   + **azureml-core**
     + Datauppsättning: användningar för fildatauppsättning beror inte längre på numpy och pandor som ska installeras i python env.
@@ -825,7 +825,7 @@ Fliken Experiment i den [nya arbetsytan](https://ml.azure.com) har uppdaterats s
 ### <a name="azure-machine-learning-sdk-for-python-v1062"></a>Azure Machine Learning SDK för Python v1.0.62
 
 + **Nya funktioner**
-  + Introducerade egenskapen `timeseries` på TabularDataset. Den här egenskapen möjliggör enkel tidsstämpelfiltrering på data som en Tabelldatauppsättning, till exempel att ta alla data mellan ett tidsintervall eller de senaste data. Om du vill `timeseries` veta mer om detta egenskapen på TabularDataset, besök https://aka.ms/azureml-data för dokumentation eller https://aka.ms/azureml-tsd-notebook till exempel anteckningsbok.
+  + Introducerade egenskapen `timeseries` på TabularDataset. Den här egenskapen möjliggör enkel tidsstämpelfiltrering på data som en Tabelldatauppsättning, till exempel att ta alla data mellan ett tidsintervall eller de senaste data. Om du vill `timeseries` veta mer om detta egenskapen på TabularDataset, besök https://aka.ms/azureml-data för dokumentation eller https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb till exempel anteckningsbok.
   + Aktiverad utbildning med TabularDataset och FileDataset. Besök https://aka.ms/dataset-tutorial för ett exempel anteckningsbok.
 
   + **azureml-train-core**
@@ -1339,7 +1339,7 @@ Vi återställde en förändring som förbättrade prestanda, eftersom det orsak
 + **Förhandsgranska funktioner**
     + Integrering med [MLflow](https://mlflow.org) 1.0.0-spårning via azureml-mlflow-paket ([exempel på anteckningsböcker](https://aka.ms/azureml-mlflow-examples)).
     + Skicka In Jupyter notebook som en körning. [Api-referensdokumentation](https://docs.microsoft.com/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
-    + Offentlig förhandsversion av [Data Drift Detector](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) via azureml-contrib-datadrift-paket ( exempel[anteckningsböcker](https://aka.ms/azureml-datadrift-example)). Data Drift är en av de främsta anledningarna till att modellens noggrannhet försämras med tiden. Det händer när data som serveras till modell i produktion skiljer sig från de data som modellen har tränats på. AML Data Drift detektor hjälper kunden att övervaka data drift och skickar varning när drift upptäcks.
+    + Offentlig förhandsversion av [Data Drift Detector](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) via azureml-contrib-datadrift-paket ( exempel[anteckningsböcker](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/monitor-models/data-drift)). Data Drift är en av de främsta anledningarna till att modellens noggrannhet försämras med tiden. Det händer när data som serveras till modell i produktion skiljer sig från de data som modellen har tränats på. AML Data Drift detektor hjälper kunden att övervaka data drift och skickar varning när drift upptäcks.
 
 + **Icke-bakåtkompatibla ändringar**
 

@@ -7,25 +7,23 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/24/2020
-ms.openlocfilehash: 888f24e13ce67c878592068927383dd8cbfefa60
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/20/2020
+ms.openlocfilehash: 4f2e8b2a691a6b17b5ed075745d556db4e330535
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77623091"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682471"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Använda Apache Spark för att läsa och skriva Apache HBase-data
 
-Apache HBase är vanligtvis efterfrågas antingen med sin låg nivå API (skannar, får och sätter) eller med en SQL-syntax med Apache Phoenix. Apache tillhandahåller också Apache Spark HBase Connector, vilket är ett bekvämt och högpresterande alternativ till fråga och ändra data som lagras av HBase.
+Apache HBase är vanligtvis efterfrågas antingen med sin låg nivå API (skannar, får och sätter) eller med en SQL-syntax med Apache Phoenix. Apache tillhandahåller också Apache Spark HBase Connector. Kopplingen är ett bekvämt och högpresterande alternativ till fråga och ändra data som lagras av HBase.
 
 ## <a name="prerequisites"></a>Krav
 
 * Två separata HDInsight-kluster som distribueras i samma [virtuella nätverk](./hdinsight-plan-virtual-network-deployment.md). En HBase och en Spark med minst Spark 2.1 (HDInsight 3.6) installerad. Mer information finns [i Skapa Linux-baserade kluster i HDInsight med Hjälp av Azure-portalen](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-* En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-* [URI-schemat](hdinsight-hadoop-linux-information.md#URI-and-scheme) för klustrets primära lagring. Det här schemat skulle vara wasb:// för Azure Blob Storage, abfs:// för Azure Data Lake Storage Gen2 eller adl:// för Azure Data Lake Storage Gen1. Om säker överföring är aktiverad för Blob `wasbs://`Storage, skulle URI vara .  Se även [säker överföring](../storage/common/storage-require-secure-transfer.md).
+* URI-schemat för klustrets primära lagring. Det här schemat skulle vara wasb:// för `abfs://` Azure Blob Storage, för Azure Data Lake Storage Gen2 eller adl:// för Azure Data Lake Storage Gen1. Om säker överföring är aktiverad för Blob `wasbs://`Storage, skulle URI vara .  Se även [säker överföring](../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="overall-process"></a>Övergripande process
 

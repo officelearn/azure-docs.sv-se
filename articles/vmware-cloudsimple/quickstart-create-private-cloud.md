@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7460490dbd45862f4269d25e3910373700ec9a03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 10831c0dc39fa241a43541850afae39593ae033b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77564728"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678273"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Snabbstart - Konfigurera en privat molnmiljö
 
@@ -26,7 +26,7 @@ Granska [nätverksförutsättning .](cloudsimple-network-checklist.md)
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-private-cloud"></a>Skapa ett privat moln
 
@@ -159,8 +159,8 @@ Du kan nu logga in på vCenter för att ställa in virtuella datorer och princip
     ![Starta vSphere-klient](media/launch-vcenter-from-cloudsimple-portal.png)
 
 2. Välj önskad vSphere-klient för att komma åt vCenter och logga in med ditt användarnamn och lösenord.  Standardvärdena är:
-    * Användarnamn: **CloudOwner\@cloudsimple.local**
-    * Lösenord: **CloudSimple123!**  
+    * Användarnamn:`CloudOwner@cloudsimple.local`
+    * Lösenord: `CloudSimple123!`
 
 VCenter-skärmarna i nästa procedurer kommer från HTML5-klienten (vSphere).
 

@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: fb982324b66c5ac0d2db00eb906ed850827bc72e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 80c0afafca3b0bf497689cbd4a0870eedd066cfd
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79533291"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677133"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrera Azure Data Lake Storage från Gen1 till Gen2
 
@@ -100,9 +100,9 @@ I den här tabellen jämförs gen1:s funktioner med Gen2.
 |Autentisering|[AAD hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Huvudmän för tjänsten](../../active-directory/develop/app-objects-and-service-principals.md)|[AAD hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Huvudmän för tjänsten](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Nyckel för delad åtkomst](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
 |Auktorisering|Förvaltning - [RBAC](../../role-based-access-control/overview.md)<br>Data – [ACL:er](data-lake-storage-access-control.md)|Förvaltning – [RBAC](../../role-based-access-control/overview.md)<br>Data - [ACL ,](data-lake-storage-access-control.md) [RBAC](../../role-based-access-control/overview.md) |
 |Kryptering – Data i vila|Serversidan – med [Microsoft-hanterade](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) eller [kundhanterade](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) nycklar|Serversidan – med [Microsoft-hanterade](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) eller [kundhanterade](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) nycklar|
-|VNET-stöd|[VNET-integrering](../../data-lake-store/data-lake-store-network-security.md)|[Tjänstslutpunkter](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [privata slutpunkter (offentlig förhandsversion)](../common/storage-private-endpoints.md)|
-|Utvecklarupplevelse|[REST](../../data-lake-store/data-lake-store-data-operations-rest-api.md), [.NET](../../data-lake-store/data-lake-store-data-operations-net-sdk.md), [Java](../../data-lake-store/data-lake-store-get-started-java-sdk.md), [Python](../../data-lake-store/data-lake-store-data-operations-python.md), [PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), [Azure CLI](../../data-lake-store/data-lake-store-get-started-cli-2.0.md)|[REST](/rest/api/storageservices/data-lake-storage-gen2), [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md), [JavaScript](data-lake-storage-directory-file-acl-javascript.md), [PowerShell](data-lake-storage-directory-file-acl-powershell.md), [Azure CLI](data-lake-storage-directory-file-acl-cli.md) (I offentlig förhandsversion)|
-|Diagnostikloggar|Klassiska loggar<br>[Azure Monitor integrerad](../../data-lake-store/data-lake-store-diagnostic-logs.md)|[Klassiska loggar](../common/storage-analytics-logging.md) (I offentlig förhandsgranskning)<br>Azure-övervakarintegrering – tbd-skärmtid på tidslinjen|
+|VNET-stöd|[VNET-integrering](../../data-lake-store/data-lake-store-network-security.md)|[Tjänstslutpunkter](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [privata slutpunkter](../common/storage-private-endpoints.md)|
+|Utvecklarupplevelse|[REST](../../data-lake-store/data-lake-store-data-operations-rest-api.md), [.NET](../../data-lake-store/data-lake-store-data-operations-net-sdk.md), [Java](../../data-lake-store/data-lake-store-get-started-java-sdk.md), [Python](../../data-lake-store/data-lake-store-data-operations-python.md), [PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), [Azure CLI](../../data-lake-store/data-lake-store-get-started-cli-2.0.md)|Allmänt tillgänglig - [REST](/rest/api/storageservices/data-lake-storage-gen2), [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md)<br>Offentlig förhandsversion - [JavaScript](data-lake-storage-directory-file-acl-javascript.md), [PowerShell](data-lake-storage-directory-file-acl-powershell.md), [Azure CLI](data-lake-storage-directory-file-acl-cli.md)|
+|Diagnostikloggar|Klassiska loggar<br>[Azure Monitor integrerad](../../data-lake-store/data-lake-store-diagnostic-logs.md)|[Klassiska loggar](../common/storage-analytics-logging.md) - Allmänt tillgängliga<br>Azure-övervakarintegrering – tbd-skärmtid på tidslinjen|
 |Ekosystem|[HDInsight (3.6),](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) [Azure Databricks (3.1 och högre),](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html) [SQL DW](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store), [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight (3.6, 4.0),](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) [Azure Databricks (5.1 och högre),](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2) [SQL DW](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md), [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
 
 <a id="migration-patterns" />

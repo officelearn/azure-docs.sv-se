@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: ac7e721a863414cf0617177885e0ff1c9e9a35d4
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: b86af2ff8fad3793fc47cec9399fd499c1cabba7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617864"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681858"
 ---
 # <a name="troubleshoot"></a>Felsöka
 
@@ -101,6 +101,35 @@ Om dessa två steg inte hjälpte, är det nödvändigt att ta reda på om videob
 **Modellen är inte inne i vyn frustum:**
 
 I många fall visas modellen korrekt men ligger utanför kamerans frustum. En vanlig orsak är att modellen har exporterats med en långt utanför centrum pivot så det klipps av kamerans långt klippning plan. Det hjälper till att fråga modellens markeringsram programmässigt och visualisera rutan med Unity som en linjeruta eller skriva ut dess värden till felsökningsloggen.
+
+Dessutom genererar konverteringsprocessen en [utdatajisonfil](../how-tos/conversion/get-information.md) tillsammans med den konverterade modellen. För att felsöka modellpositioneringsproblem är `boundingBox` det värt att titta på posten i [avsnittet outputStatistics:](../how-tos/conversion/get-information.md#the-outputstatistics-section)
+
+```JSON
+{
+    ...
+    "outputStatistics": {
+        ...
+        "boundingBox": {
+            "min": [
+                -43.52,
+                -61.775,
+                -79.6416
+            ],
+            "max": [
+                43.52,
+                61.775,
+                79.6416
+            ]
+        }
+    }
+}
+```
+
+Markeringsramen beskrivs som `min` `max` en och placera i 3D-rymden, i meter. Så en koordinat på 1000,0 betyder att det är 1 kilometer från ursprunget.
+
+Det kan finnas två problem med denna begränsningsram som leder till osynlig geometri:
+* **Lådan kan vara långt borta,** så objektet klipps helt på grund av långt plan klippning. Värdena `boundingBox` i det här fallet `min = [-2000, -5,-5], max = [-1990, 5,5]`skulle se ut så här: , med en stor förskjutning på x-axeln som ett exempel här. Lös den här typen av `recenterToOrigin` problem genom att aktivera alternativet i [modellkonverteringskonfigurationen](../how-tos/conversion/configure-model-conversion.md).
+* **Lådan kan centrerats men vara storleksordningar för stor**. Det innebär att även om kameran startar i mitten av modellen, är dess geometri klippt i alla riktningar. Typiska `boundingBox` värden i det här `min = [-1000,-1000,-1000], max = [1000,1000,1000]`fallet skulle se ut så här: . Orsaken till den här typen av problem är vanligtvis en enhetsskala som inte stämmer överens. Om du vill kompensera anger du ett [skalningsvärde under konverteringen](../how-tos/conversion/configure-model-conversion.md#geometry-parameters) eller markerar källmodellen med rätt enheter. Skalning kan också tillämpas på rotnoden när modellen läses in under körning.
 
 **Unity-renderingspipelinen innehåller inte renderingskrokarna:**
 

@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 4583c02b52ab6b3a4e5056a47db096d4e34399ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a3eedb5440711c7a45a13dcd53dd489c490588fc
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79248026"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677414"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: Problem med agenten eller tillägget
 
@@ -141,6 +141,13 @@ Om den schemalagda säkerhetskopieringen tar längre tid, i konflikt med nästa 
 **Felmeddelande:** Säkerhetskopieringen misslyckades på grund av ett fel. Mer information finns i Information om jobbfel.
 
 Det här felet rapporteras från IaaS VM. Om du vill identifiera orsaken till problemet går du till inställningarna för Återställningstjänster. Under avsnittet **Övervakning** väljer du **Säkerhetskopieringsjobb** för att filtrera och visa status. Klicka på **Fel** om du vill granska den underliggande felmeddelandeinformationen. Vidta ytterligare åtgärder enligt rekommendationerna på felinformationssidan.
+
+## <a name="usererrorbcmdatasourcenotpresent---backup-failed-this-virtual-machine-is-not-actively-protected-by-azure-backup"></a>UserErrorBcmDatasourceNotPresent - Säkerhetskopiering misslyckades: Den här virtuella datorn är inte (aktivt) skyddad av Azure Backup
+
+**Felkod:** UserErrorBcmDatasourceNotPresent <br>
+**Felmeddelande:** Säkerhetskopiering misslyckades: Den här virtuella datorn är inte (aktivt) skyddad av Azure Backup.
+
+Kontrollera om den angivna virtuella datorn är aktivt (inte i paustillstånd) skyddad av Azure Backup. För att lösa problemet, se till att den virtuella datorn är aktiv och sedan försöka åtgärden igen.
 
 ## <a name="causes-and-solutions"></a>Orsaker och lösningar
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 04/14/2020
-ms.openlocfilehash: d62d05cdbda86af3c3a38757877624e87f6d1719
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 1bd71a4fb150d544125703679cf0fa0b8951e1eb
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383757"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684140"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Skapa ett kommersiellt marketplace-konto i Partner Center
 
@@ -164,7 +164,7 @@ En organisation kan ha flera utgivare kopplade till ett kommersiellt Marketplace
 
 En annan användare från samma Azure Active Directory-klient kan lägga till en ny utgivare genom att följa stegen nedan:
 
-1. Starta registreringsflödet på [Microsoft Partner Center](https://partner.microsoft.com/en-us/dashboard/account/v3/enrollment/introduction/azureisv).
+1. Starta registreringsflödet på [Microsoft Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership).
 2. Välj **Logga in med ett arbetskonto** och ange din e-postadress för arbetet.
 3. Välj knappen **Lägg till Publisher.**
 4. Välj det MPN-ID som du vill associera till utgivaren.

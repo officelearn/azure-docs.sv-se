@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7eb01f3997ac4ab2e439c00f07990c51ec3e3d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bdf0cbfb91332d60516432a7a67fb10404d89113
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370350"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683839"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera arbetsdag för automatisk etablering av användare
 
@@ -281,6 +281,7 @@ I det här steget ska du bevilja principbehörigheter för domänsäkerhet för 
     ![Principer för domänsäkerhet](./media/workday-inbound-tutorial/wd_isu_06.png "Principer för domänsäkerhet")  
 2. Sök efter följande domäner i textrutan **Domän** och lägg till dem i filtret en efter en.  
    * *Etablera externt konto*
+   * *Arbetardata: Arbetare*
    * *Arbetardata: Rapporter för offentliga arbetare*
    * *Persondata: Kontaktinformation för arbete*
    * *Arbetardata: Alla befattningar*
@@ -312,6 +313,7 @@ I det här steget ska du bevilja principbehörigheter för domänsäkerhet för 
    | ---------- | ---------- |
    | Få och sätta | Arbetardata: Rapporter för offentliga arbetare |
    | Få och sätta | Persondata: Kontaktinformation för arbete |
+   | Hämta | Arbetardata: Arbetare |
    | Hämta | Arbetardata: Alla befattningar |
    | Hämta | Arbetardata: Aktuell bemanningsinformation |
    | Hämta | Arbetardata: Företagstitel i arbetarprofilen |
@@ -451,11 +453,15 @@ I det här steget upprättar vi anslutning med Workday och Active Directory i Az
 
 1. Fyll i avsnittet **Administratörsautentiseringsuppgifter** på följande sätt:
 
-   * **Administratörsanvändarnamn** – Ange användarnamnet för systemkontot för workday-integrering, med klientdomännamnet bifogat. Det bör se ut ungefär som: **användarnamn\@tenant_name**
+   * **Användarnamn för arbetsdag** – Ange användarnamnet för systemkontot för workday-integreringssystem, med klientdomännamnet bifogat. Det bör se ut ungefär som: **användarnamn\@tenant_name**
 
-   * **Admin lösenord -** Ange lösenordet för systemkontot för system för arbetsdagsintegrering
+   * **Arbetsdag lösenord -** Ange lösenordet för systemkontot för system för arbetsdagsintegrering
 
-   * **Url till klient –** Ange URL:en till slutpunkten för webbtjänster arbetsdag för din klientorganisation. Det här värdet https://wd3-impl-services1.workday.com/ccx/service/contoso4ska se ut så här: , där *contoso4* ersätts med rätt klientnamn och *wd3-impl* ersätts med rätt miljösträng.
+   * **API-URL för workday-webbtjänster –** Ange URL:en till slutpunkten för webbtjänster arbetsdag för din klientorganisation. Det här värdet https://wd3-impl-services1.workday.com/ccx/service/contoso4ska se ut så här: , där *contoso4* ersätts med rätt klientnamn och *wd3-impl* ersätts med rätt miljösträng.
+
+     > [!NOTE]
+     > Som standard använder appen Workday Web Services v21.1 om ingen versionsinformation anges i URL:en. Om du vill använda en specifik API-version för Workday Web Services använder du URL-formatet:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
+     > Exempel: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0
 
    * **Active Directory Skog -** Namnet på din Active Directory-domän, som registrerats hos agenten. Använd listrutan för att välja måldomänen för etablering. Det här värdet är vanligtvis en sträng som: *contoso.com*
 
@@ -607,11 +613,16 @@ I följande avsnitt beskrivs steg för att konfigurera användaretablering från
 
 8. Fyll i avsnittet **Administratörsautentiseringsuppgifter** på följande sätt:
 
-   * **Administratörsanvändarnamn** – Ange användarnamnet för systemkontot för workday-integrering, med klientdomännamnet bifogat. Bör se ut ungefär som:username@contoso4
+   * **Användarnamn för arbetsdag** – Ange användarnamnet för systemkontot för workday-integreringssystem, med klientdomännamnet bifogat. Bör se ut ungefär som:username@contoso4
 
-   * **Admin lösenord -** Ange lösenordet för systemkontot för system för arbetsdagsintegrering
+   * **Arbetsdag lösenord -** Ange lösenordet för systemkontot för system för arbetsdagsintegrering
 
-   * **Url till klient –** Ange URL:en till slutpunkten för webbtjänster arbetsdag för din klientorganisation. Det här värdet https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resourcesska se ut så här: , där *contoso4* ersätts med rätt klientnamn och *wd3-impl* ersätts med rätt miljösträng. Om den här webbadressen inte är känd kan du samarbeta med din workday-integrationspartner eller supportrepresentant för att fastställa rätt webbadress som ska användas.
+   * **API-URL för workday-webbtjänster –** Ange URL:en till slutpunkten för webbtjänster arbetsdag för din klientorganisation. Det här värdet https://wd3-impl-services1.workday.com/ccx/service/contoso4ska se ut så här: , där *contoso4* ersätts med rätt klientnamn och *wd3-impl* ersätts med rätt miljösträng. Om den här webbadressen inte är känd kan du samarbeta med din workday-integrationspartner eller supportrepresentant för att fastställa rätt webbadress som ska användas.
+
+     > [!NOTE]
+     > Som standard använder appen Workday Web Services v21.1 om ingen versionsinformation anges i URL:en. Om du vill använda en specifik API-version för Workday Web Services använder du URL-formatet:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
+     > Exempel: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0
+
 
    * **E-postmeddelande –** Ange din e-postadress och markera kryssrutan "skicka e-post om fel inträffar" .
 
@@ -807,9 +818,13 @@ Den här funktionen stöds inte för närvarande. Rekommenderad lösning är att
 
 Lösningen använder för närvarande följande Workday API:er:
 
-* Get_Workers (v21.1) för att hämta arbetarinformation
-* Maintain_Contact_Information (v26.1) för funktionen För återskrivning av e-post
-* Update_Workday_Account (v31.2) för funktionen För användarnamn
+* **API-formatet för arbetsdagar för webbtjänster** som används i avsnittet **Administratörsautentiseringsuppgifter** avgör vilken API-version som används för Get_Workers
+  * Om URL-formatet är: https://\#\#\#\#\.arbetsdag\.com/ccx/service/tenantName används API v21.1. 
+  * Om URL-formatet är: https://\#\#\#\#\.arbetsdag\.com/ccx/service/tenantName/Human\_Resources används API v21.1 
+  * Om URL-formatet är:\#\#\#\#\.https://\.\_arbetsdag com/ccx/service/tenantName/Human\# \# \. \# Resources/v används den angivna API-versionen. (Exempel: om v34.0 anges används den.)  
+   
+* Funktionen för tillbakaskrivning av e-post på arbetsdag använder Maintain_Contact_Information (v26.1) 
+* Funktionen för tillbakaskrivning av användarnamn arbetsdag använder Update_Workday_Account (v31.2) 
 
 #### <a name="can-i-configure-my-workday-hcm-tenant-with-two-azure-ad-tenants"></a>Kan jag konfigurera min Workday HCM-klient med två Azure AD-klienter?
 
@@ -1135,7 +1150,7 @@ När du klickar på någon av granskningsloggposterna öppnas sidan **Aktivitets
 
   Om det finns problem med attributmappningsuttrycken eller om inkommande Workday-data har problem (till exempel: tomt eller null-värde för obligatoriska attribut), kommer du att observera ett fel i det här skedet med ErrorCode som anger information om felet.
 
-* **AD-exportpost:** Den här loggposten visar resultatet av ad-kontoskapande åtgärd tillsammans med de attributvärden som angavs i processen. Använd information i avsnittet *Ytterligare information* i loggposten för att felsöka problem med åtgärden för att skapa konton. En exempelpost visas nedan tillsammans med pekare om hur varje fält ska tolkas. I avsnittet "Ytterligare information" är "EventName" inställt på "EntryExportAdd", "JoiningProperty" är inställt på värdet för attributet Matching ID, "SourceAnchor" är inställt på WorkdayID (WID) som är associerad med posten och "TargetAnchor" är inställt på värdet för attributet AD "ObjectGuid" för den nyskapade användaren. 
+* **AD-exportpost:** Den här loggposten visar resultatet av ad-kontoskapande åtgärd tillsammans med de attributvärden som angavs i processen. Använd information i avsnittet *Ytterligare information* i loggposten för att felsöka problem med åtgärden för att skapa konton. En exempelpost visas nedan tillsammans med pekare om hur varje fält ska tolkas. I avsnittet "Ytterligare information" är "EventName" inställt på "EntryExportAdd", "JoiningProperty" är inställt på värdet för attributet Matching ID, "SourceAnchor" är inställt på WorkdayID (WID) som är associerad med posten och "TargetAnchor" är inställt på värdet för AD "ObjectGuid"-attributet för den nyskapade användaren. 
 
   ```JSON
   ErrorCode : None // Use the error code captured here to troubleshoot AD account creation issues
@@ -1352,7 +1367,7 @@ Se artikeln [Exportera och importera etableringskonfiguration](../app-provisioni
 
 ## <a name="managing-personal-data"></a>Hantera personliga data
 
-Lösning för etablering av arbetsdag för Active Directory kräver att en etableringsagent installeras på en lokal Windows-server, och den här agenten skapar loggar i Windows-händelseloggen som kan innehålla personuppgifter beroende på ditt Workday to AD-attribut Mappningar. För att uppfylla användarnas sekretesskrav kan du se till att inga data lagras i händelseloggarna efter 48 timmar genom att konfigurera en schemalagd Windows-aktivitet för att rensa händelseloggen.
+Lösning för arbetsdagsetablering för Active Directory kräver att en etableringsagent installeras på en lokal Windows-server, och den här agenten skapar loggar i Windows-händelseloggen som kan innehålla personuppgifter beroende på din arbetsdag till AD-attributmappningar. För att uppfylla användarnas sekretesskrav kan du se till att inga data lagras i händelseloggarna efter 48 timmar genom att konfigurera en schemalagd Windows-aktivitet för att rensa händelseloggen.
 
 Azure AD-etableringstjänsten hör till **dataprocessorkategorin** för GDPR-klassificering. Som dataprocessorpipeline tillhandahåller tjänsten databehandlingstjänster till viktiga partner och slutkonsumenter. Azure AD-etableringstjänsten genererar inte användardata och har ingen oberoende kontroll över vilka personuppgifter som samlas in och hur de används. Datahämtning, aggregering, analys och rapportering i Azure AD-etableringstjänst baseras på befintliga företagsdata.
 

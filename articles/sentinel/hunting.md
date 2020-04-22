@@ -16,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: yelevin
-ms.openlocfilehash: 54ddf6818b95a4037188ab222501ddfa69b28149
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 52af688917aa531d125f83844df29a988ed7cb7e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77587906"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686636"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Jakten på hot med Azure Sentinel
 
 Om du är en utredare som vill vara proaktiv när det gäller att leta efter säkerhetshot kan Azure Sentinel kraftfulla jaktsöknings- och frågeverktyg söka efter säkerhetshot i organisationens datakällor. Men dina system och säkerhetsapparater genererar berg av data som kan vara svåra att tolka och filtrera till meningsfulla händelser. För att hjälpa säkerhetsanalytiker att proaktivt leta efter nya avvikelser som inte har upptäckts av dina säkerhetsappar, hjälper Azure Sentinels inbyggda jaktfrågor dig att ställa rätt frågor för att hitta problem i de data du redan har i nätverket. 
 
-En inbyggd fråga innehåller till exempel data om de mest ovanliga processerna som körs på infrastrukturen – du vill inte ha en avisering om varje gång de körs, de kan vara helt oskyldiga, men du kanske vill ta en titt på frågan ibland för att se om Det är något ovanligt. 
+En inbyggd fråga innehåller till exempel data om de mest ovanliga processerna som körs på infrastrukturen – du vill inte ha en avisering om varje gång de körs, de kan vara helt oskyldiga, men du kanske vill ta en titt på frågan ibland för att se om det är något ovanligt. 
 
 
 
@@ -54,7 +54,7 @@ Med Azure Sentinel-jakt kan du dra nytta av följande funktioner:
 
 3. Gör en snabb granskning av den underliggande frågan i frågeinformationsfönstret eller klicka på **Visa frågeresultat** för att öppna frågan i Logganalys. Granska matchningarna för frågan längst ned.
 
-4.  Klicka på raden och välj **Lägg till bokmärke** för att lägga till de rader som ska undersökas - du kan göra detta för allt som ser misstänkt ut. 
+4.    Klicka på raden och välj **Lägg till bokmärke** för att lägga till de rader som ska undersökas - du kan göra detta för allt som ser misstänkt ut. 
 
 5. Gå sedan tillbaka till **huvudsidan Jakt** och klicka på fliken **Bokmärken** för att se alla misstänkta aktiviteter. 
 
@@ -66,7 +66,7 @@ Med Azure Sentinel-jakt kan du dra nytta av följande funktioner:
 
 ## <a name="query-language"></a>Frågespråk 
 
-Jakt i Azure Sentinel baseras på Kusto-frågespråk. Mer information om frågespråket och operatorer som stöds finns i [Fråga språkreferens](https://docs.loganalytics.io/docs/Language-Reference/).
+Jakt i Azure Sentinel baseras på Kusto-frågespråk. Mer information om frågespråket och operatorer som stöds finns i [Fråga språkreferens](/azure/azure-monitor/log-query/get-started-queries).
 
 ## <a name="public-hunting-query-github-repository"></a>Fråga om offentlig jakt fråga GitHub-databas
 

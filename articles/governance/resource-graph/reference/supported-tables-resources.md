@@ -1,14 +1,14 @@
 ---
 title: Resurstyper för Resurshanteraren som stöds
 description: Ange en lista över resurshanterarens resurstyper som stöds av Azure Resource Graph och Change History.
-ms.date: 04/15/2020
+ms.date: 04/20/2020
 ms.topic: reference
-ms.openlocfilehash: 99cb2176e4b0642be1fc31d49528ebf915ea440a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 99a10e084f8ae24156c447f7abca31a8ef977720
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415143"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685485"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabell- och resurstypreferens för Azure Resource Graph
 
@@ -50,7 +50,11 @@ Azure Resource Graph stöder följande **resurstyper** i [Azure Resource Manager
 - livearena.broadcast/tjänster
 - mailjet.email/services
 - microsoft.aad/domainservices
+- microsoft.aadiam/privatelinkforazuread
 - microsoft.aadiam/klienter
+- microsoft.aisupercomputer/konton
+- microsoft.aisupercomputer/accounts/jobgroups
+- microsoft.aisupercomputer/accounts/jobgroups/jobs
 - microsoft.alertsmanagement/actionrules
 - microsoft.alertsmanagement/smartdetectoralertrules
 - microsoft.analysisservices/servers
@@ -63,6 +67,7 @@ Azure Resource Graph stöder följande **resurstyper** i [Azure Resource Manager
 - microsoft.automation/automationkonton/runbooks
 - microsoft.azconfig/configurationstores
 - microsoft.azureactivedirectory/b2cdirectories
+- microsoft.azuredata/datacontrollers
 - microsoft.azuredata/hybriddatamanagers
 - microsoft.azuredata/postgresinstances
 - microsoft.azuredata/sqlbigdataclusters
@@ -351,6 +356,7 @@ Azure Resource Graph stöder följande **resurstyper** i [Azure Resource Manager
 - microsoft.remoteapp/samlingar
 - microsoft.resourcegraph/frågor
 - microsoft.resources/deploymentscripts
+- microsoft.resources/templatespecs
 - microsoft.saas/applikationer
 - microsoft.scheduler/jobcollections
 - microsoft.search/searchservices
@@ -405,6 +411,7 @@ Azure Resource Graph stöder följande **resurstyper** i [Azure Resource Manager
 - microsoft.visualstudio/konto
 - microsoft.visualstudio/konto/tillägg
 - microsoft.visualstudio/account/project
+- microsoft.vmware/arczones
 - microsoft.vmwarecloudsimple/dedikeradcloudnodes
 - microsoft.vmwarecloudsimple/dedikerade molntjänster
 - microsoft.vmwarecloudsimple/virtualmachines
@@ -454,7 +461,6 @@ Azure Resource Graph stöder följande **resurstyper** i [Azure Resource Manager
 
 ## <a name="securityresources"></a>säkerhetresurser
 
-- bedömningsmetadata
 - microsoft.security/bedömningar
 - microsoft.security/assessments/delbedömningar
 - microsoft.security/priser

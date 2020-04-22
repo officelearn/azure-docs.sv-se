@@ -4,12 +4,12 @@ description: Den här artikeln innehåller information om kända problem och lö
 ms.topic: conceptual
 ms.date: 11/22/2018
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: b47d83e0e3714f3f035397acaadeac9cda39d12a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03863f7598da06bb36cbb7497d7c773f811a004e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74172268"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685616"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Viktig information för Microsoft Azure Backup Server
 
@@ -60,7 +60,7 @@ Den här artikeln innehåller kända problem och lösningar för MICROSOFT Azure
 4. [Installera](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) SQL Server Management Studio (SSMS).
 5. Konfigurera rapportering med hjälp av parametrarna som dokumenteras i [SSRS-konfigurationen med SQL 2017](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs).
 6. [Installera](backup-azure-microsoft-azure-backup.md) MABS V3.
-7. [Återställ](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL med SSMS och kör DPM-Sync-verktyget enligt beskrivningen [här](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10)).
+7. [Återställ](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL med SSMS och kör DPM-Sync-verktyget enligt beskrivningen [här](https://docs.microsoft.com/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019#using-dpmsync).
 8. Uppdatera egenskapen "DataBaseVersion" i tabellen dbo.tbl_DLS_GlobalSetting med följande kommando:
 
 ```sql

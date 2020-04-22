@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 29ac9239b8dc87b1ed12fc8333bf5201fe8fa204
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: a1229ee389b41625554fb2869089b08a3cb9cb6d
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80617132"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676519"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Hantera runbooks i Azure Automation
 
@@ -46,13 +46,13 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 Du kan skapa en ny runbook i Azure Automation genom att importera ett PowerShell-skript eller PowerShell-arbetsflöde (**.ps1**), en exporterad grafisk runbook (**.graphrunbook**) eller ett Python2-skript (**.py**).  Du måste ange vilken [typ av runbook](automation-runbook-types.md) som skapas under importen, med beaktande av följande överväganden.
 
-* En **PS1-fil** som inte innehåller ett arbetsflöde kan importeras till antingen en [PowerShell-runbook](automation-runbook-types.md#powershell-runbooks) eller en [PowerShell Workflow-runbook](automation-runbook-types.md#powershell-workflow-runbooks). Om du importerar den till en PowerShell Workflow-runbook konverteras den till ett arbetsflöde. I det här fallet inkluderas kommentarer i runbooken för att beskriva de ändringar som har gjorts.
+* Du kan importera en **PS1-fil** som inte innehåller ett arbetsflöde till en [PowerShell-runbook](automation-runbook-types.md#powershell-runbooks) eller en [PowerShell-arbetsflödeskörningsbok](automation-runbook-types.md#powershell-workflow-runbooks). Om du importerar den till en PowerShell Workflow-runbook konverteras den till ett arbetsflöde. I det här fallet inkluderas kommentarer i runbooken för att beskriva de ändringar som har gjorts.
 
-* En **PS1-fil** som innehåller ett PowerShell-arbetsflöde kan bara importeras till en [PowerShell-arbetsflödeskörningsbok](automation-runbook-types.md#powershell-workflow-runbooks). Om filen innehåller flera PowerShell-arbetsflöden misslyckas importen. Du måste spara varje arbetsflöde i en egen fil och importera var och en separat.
+* Du kan bara importera en **PS1-fil** som innehåller ett PowerShell-arbetsflöde till en [PowerShell-arbetsflödeskörningsbok](automation-runbook-types.md#powershell-workflow-runbooks). Om filen innehåller flera PowerShell-arbetsflöden misslyckas importen. Du måste spara varje arbetsflöde i en egen fil och importera var och en separat.
 
-* En **PS1-fil** som innehåller ett PowerShell-arbetsflöde bör inte importeras till en [PowerShell-runbook,](automation-runbook-types.md#powershell-runbooks)eftersom PowerShell-skriptmotorn inte kan känna igen den.
+* Importera inte en **PS1-fil** som innehåller ett PowerShell-arbetsflöde till en [PowerShell-runbook](automation-runbook-types.md#powershell-runbooks), eftersom PowerShell-skriptmotorn inte kan känna igen den.
 
-* En **.graphrunbook-fil** kan bara importeras till en ny [grafisk runbook](automation-runbook-types.md#graphical-runbooks). Observera att du bara kan skapa en grafisk runbook från en **.graphrunbook-fil.**
+* Du kan bara importera en **GRAPHRUNBOOK-fil** till en ny [grafisk runbook](automation-runbook-types.md#graphical-runbooks). Observera att du bara kan skapa en grafisk runbook från en **.graphrunbook-fil.**
 
 ### <a name="import-a-runbook-from-a-file-with-the-azure-portal"></a>Importera en runbook från en fil med Azure-portalen
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9ad51e113a752e0692cb377a83d4819b4e284bb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 320723744e1366fdc73cd0593fb0ebece03367f8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188451"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678107"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning för Azure Active Directory med flera innehavare med anpassade principer i Azure Active Directory B2C
 
@@ -44,7 +44,7 @@ Om du vill aktivera inloggning för användare från en viss Azure AD-organisati
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-    Till exempel `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+    Till exempel `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
 
 1. Välj **Registrera**. Registrera **program-ID:t (klient)** för användning i ett senare steg.
 1. Välj **Certifikat & hemligheter**och välj sedan Ny **klienthemlighet**.
@@ -57,10 +57,10 @@ Om du vill `family_name` hämta `given_name` och anspråk från Azure AD kan du 
 1. Logga in på [Azure-portalen](https://portal.azure.com). Sök efter och välj **Azure Active Directory**.
 1. Välj **Appregistreringar**i avsnittet **Hantera** .
 1. Välj det program som du vill konfigurera valfria anspråk för i listan.
-1. Välj **Tokenkonfiguration (förhandsgranskning)** i avsnittet **Hantera** .
+1. Välj **Tokenkonfiguration**i avsnittet **Hantera** .
 1. Välj **Lägg till valfritt anspråk**.
-1. Välj den tokentyp som du vill konfigurera.
-1. Välj valfria anspråk att lägga till.
+1. För **tokentypen**väljer du **ID**.
+1. Välj valfria anspråk `family_name` att `given_name`lägga till och .
 1. Klicka på **Lägg till**.
 
 ## <a name="create-a-policy-key"></a>Skapa en principnyckel

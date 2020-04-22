@@ -12,21 +12,18 @@ ms.date: 01/31/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ac630c4901c126ed883adbdc7efb03f36372e6ff
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: e5e462c52c8b06af6da5081f84a082138cd53a3f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535884"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677936"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft-identitetsplattform och OAuth 2.0-auktoriseringskodflöde
 
 Bevilja oauth 2.0-auktoriseringskod kan användas i appar som är installerade på en enhet för att få åtkomst till skyddade resurser, till exempel webb-API:er. Med implementeringen av Microsofts identitetsplattform för OAuth 2.0 kan du lägga till inloggning och API-åtkomst till dina mobil- och skrivbordsappar. Den här guiden är språkoberoende och beskriver hur du skickar och ta emot HTTP-meddelanden utan att använda något av [Azures autentiseringsbibliotek med öppen källkod](reference-v2-libraries.md).
 
 I den här artikeln beskrivs hur du programmerar direkt mot protokollet i ditt program.  När det är möjligt rekommenderar vi att du använder de Microsoft Authentication Libraries (MSAL) som stöds i stället för att [hämta token och anropa skyddade webb-API:er](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Ta också en titt på [exempelapparna som använder MSAL](sample-v2-code.md).
-
-> [!NOTE]
-> Alla Azure Active Directory-scenarier & funktioner stöds inte av slutpunkten för Microsoft-identitetsplattformen. För att ta reda på om du ska använda slutpunkten för Microsoft identity platform läser du om begränsningar av [Microsofts identitetsplattform](active-directory-v2-limitations.md).
 
 OAuth 2.0-auktoriseringskodflödet beskrivs i [avsnitt 4.1 i OAuth 2.0-specifikationen](https://tools.ietf.org/html/rfc6749). Den används för att utföra autentisering och auktorisering i de flesta apptyper, inklusive [webbappar](v2-app-types.md#web-apps) och [inbyggda appar](v2-app-types.md#mobile-and-native-apps). Flödet gör det möjligt för appar att på ett säkert sätt skaffa access_tokens som kan användas för att komma åt resurser som skyddas av slutpunkten för Microsoft-identitetsplattformen.
 

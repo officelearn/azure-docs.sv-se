@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/11/2020
+ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e73eae4d66f4ff94a48dfa27e258f8ba8ef87633
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 94ff7ddda41f2df2634d927a7dbf8a5a0d4fc1d8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79126754"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681419"
 ---
 # <a name="localization"></a>Lokalisering
 
@@ -146,65 +146,190 @@ Elementet **LocalizedString** innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Elementtyp | Ja | En referens till ett anspråkstypelement eller ett användargränssnittselement i principen. `ClaimType`Möjliga värden: `UxElement` `ErrorMessage`, `Predicate`, `GetLocalizedStringsTransformationClaimType`, , eller . Värdet `ClaimType` används för att lokalisera ett av anspråksattributen, enligt vad som anges i StringId. Värdet `UxElement` används för att lokalisera ett av de användargränssnittselement som anges i StringId. Värdet `ErrorMessage` används för att lokalisera ett av systemfelmeddelandena som anges i StringId. Värdet `Predicate` används för att lokalisera ett av [predikatfelmeddelandena,](predicates.md) enligt vad som anges i StringId. Värdet `InputValidation` används för att lokalisera ett av felmeddelandena [för gruppen PredicateValidation](predicates.md) enligt vad som anges i StringId. Värdet `GetLocalizedStringsTransformationClaimType` används för att kopiera lokaliserade strängar till anspråk. Mer information finns i [GetLocalizedStringsTransformation claims transformation](string-transformations.md#getlocalizedstringstransformation)  | 
+| Elementtyp | Ja | Möjliga värden: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [Predikat](#predicate), [InputValidation](#inputvalidation)eller [UxElement](#uxelement).   | 
 | ElementId (elementId) | Ja | Om **ElementType** är `ClaimType` `Predicate`inställt `InputValidation`på , eller innehåller det här elementet en referens till en anspråkstyp som redan har definierats i avsnittet ClaimsSchema. |
 | StringId (på) | Ja | Om **ElementType** är `ClaimType`inställt på innehåller det här elementet en referens till ett attribut av en anspråkstyp. Möjliga `DisplayName`värden: `AdminHelpText`, `PatternHelpText`, eller . Värdet `DisplayName` används för att ange anspråksvisningsnamnet. Värdet `AdminHelpText` används för att ange anspråksanvändarens hjälptextnamn. Värdet `PatternHelpText` används för att ange hjälptexten för anspråksmönster. Om **ElementType** är `UxElement`inställt på innehåller det här elementet en referens till ett attribut för ett användargränssnittselement. Om **ElementType** är `ErrorMessage`inställt på anger det här elementet identifieraren för ett felmeddelande. Se [Lokaliseringssträng-ID:er](localization-string-ids.md) `UxElement` för en fullständig lista över identifierarna.|
 
+## <a name="elementtype"></a>Elementtyp
 
-I följande exempel visas en lokaliserad registreringssida. De tre första **värdena LocalizedString** anger anspråksattributet. Den tredje ändrar värdet på continue-knappen. Den sista ändrar felmeddelandet.
+ElementType-referensen till en anspråkstyp, en anspråksomvandling eller ett användargränssnittselement i principen som ska lokaliseras.
 
-```XML
-<LocalizedResources Id="api.selfasserted.en">
-  <LocalizedStrings>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
-   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
-  </LocalizedStrings>
-</LocalizedResources>
-```
+| Element för att lokalisera | Elementtyp | ElementId (elementId) |StringId (på) |
+| --------- | -------- | ----------- |----------- |
+| Identitetsproviderns namn |`ClaimsProvider`| | ID för elementet ClaimsExchange|
+| Attribut för anspråkstyp|`ClaimType`|Anspråkstypens namn| Attributet för anspråket som ska lokaliseras. Möjliga `AdminHelpText`värden: `DisplayName` `PatternHelpText`, `UserHelpText`, och .|
+|Felmeddelande|`ErrorMessage`||ID:n för felmeddelandet |
+|Kopierar lokaliserade strängar till anspråk|`GetLocalizedStringsTra nsformationClaimType`||Namnet på utdataanspråket|
+|Predikatanvändarmeddelande|`Predicate`|Namnet på predikatet| Attributet för predikatet som ska lokaliseras. Möjliga värden: `HelpText`.|
+|Användarmeddelande för predikatgrupp|`InputValidation`|ID för elementet Predikatvalidation.|ID för elementet PredicateGroup. Predikatgruppen måste vara underordnad det predikatvalideringselement som definieras i ElementId.|
+|Element för användargränssnitt |`UxElement` | | ID:n för det användargränssnittselement som ska lokaliseras.|
 
-I följande exempel visas en lokaliserad **UserHelpText** av `IsLengthBetween8And64` **Predikat** med ID . Och en lokaliserad **UserHelpText** av **PredicateGroup** med ID `CharacterClasses` för `StrongPassword` **predikatvalidation** med ID .
+## <a name="examples"></a>Exempel
 
-```XML
-<PredicateValidation Id="StrongPassword">
-  <PredicateGroups>
-    ...
-    <PredicateGroup Id="CharacterClasses">
-    ...
-    </PredicateGroup>
-  </PredicateGroups>
-</PredicateValidation>
+### <a name="claimsprovider"></a>FordringarProvider
 
-...
+Värdet för ClaimsProvider används för att lokalisera ett av anspråksleverantörernas visningsnamn. 
 
-<Predicate Id="IsLengthBetween8And64" Method="IsLengthRange">
+```xml
+<OrchestrationStep Order="2" Type="ClaimsExchange">
   ...
-</Predicate>
-...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
+    <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
+    <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
+  </ClaimsExchanges>
+</OrchestrationStep>
 
-
-<LocalizedString ElementType="InputValidation" ElementId="StrongPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
-
-<LocalizedString ElementType="Predicate" ElementId="IsLengthBetween8And64" StringId="HelpText">The password must be between 8 and 64 characters.</LocalizedString>
 ```
 
-## <a name="set-up-localization"></a>Konfigurera lokalisering
+I följande exempel visas hur anspråksleverantörers visningsnamn lokaliseras.
 
-I den här artikeln visas hur du stöder flera språk eller språk i principen för användarresor. Lokalisering kräver tre steg: konfigurera den explicita listan över språk som stöds, tillhandahålla språkspecifika strängar och samlingar och redigera ContentDefinition för sidan.
+```xml
+<LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
+<LocalizedString ElementType="ClaimsProvider" StringId="GoogleExchange">Google</LocalizedString>
+<LocalizedString ElementType="ClaimsProvider" StringId="LinkedInExchange">LinkedIn</LocalizedString>
+```
 
-### <a name="set-up-the-explicit-list-of-supported-languages"></a>Ställ in den explicita listan över språk som stöds
+### <a name="claimtype"></a>ClaimType (Påståttstyp)
 
-Lägg till **lokaliseringselementet** i elementet BuildingBlocks under elementet **BuildingBlocks** med listan över språk som stöds. I följande exempel visas hur du definierar lokaliseringsstödet för både engelska (standard) och spanska:
+ClaimType-värdet används för att lokalisera ett av anspråksattributen. 
+
+```xml
+<ClaimType Id="email">
+  <DisplayName>Email Address</DisplayName>
+  <DataType>string</DataType>
+  <UserHelpText>Email address that can be used to contact you.</UserHelpText>
+  <UserInputType>TextBox</UserInputType>
+</ClaimType>
+```
+
+I följande exempel visas hur du lokaliserar attributen DisplayName, UserHelpText och PatternHelpText för e-anspråkstypen.
 
 ```XML
-<Localization Enabled="true">
-  <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
-    <SupportedLanguage>en</SupportedLanguage>
-    <SupportedLanguage>es</SupportedLanguage>
-  </SupportedLanguages>
-</Localization>
+<LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
+<LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
+<LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
+```
+
+### <a name="errormessage"></a>Errormessage
+
+ErrorMessage-värdet används för att lokalisera ett av systemfelmeddelandena. 
+
+```xml
+<TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
+  <Metadata>
+    <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
+    <Item Key="UserMessageIfClaimsPrincipalAlreadyExists">You are already registered, please press the back button and sign in instead.</Item>
+  </Metadata>
+  ...
+</TechnicalProfile>
+```
+
+I följande exempel visas hur du lokaliserar felmeddelandet UserMessageIfClaimsPrincipalreadyExists.
+
+
+```XML
+<LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
+```
+
+### <a name="getlocalizedstringstransformationclaimtype"></a>GetLocalizedStringsTransformationClaimType
+
+Värdet GetLocalizedStringsTransformationClaimType används för att kopiera lokaliserade strängar till anspråk. Mer information finns i [GetLocalizedStringsTransformation claims transformation](string-transformations.md#getlocalizedstringstransformation)
+
+
+```xml
+<ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
+    <OutputClaim ClaimTypeReferenceId="message" TransformationClaimType="email_message" />
+    <OutputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="email_code" />
+    <OutputClaim ClaimTypeReferenceId="signature" TransformationClaimType="email_signature" />
+   </OutputClaims>
+</ClaimsTransformation>
+```
+
+I följande exempel visas hur du lokaliserar utdataanspråk för getlocalizedStringsTransformation claims transformation.
+
+```xml
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Thanks for verifying your account!</LocalizedString>
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Your code is</LocalizedString>
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sincerely</LocalizedString>
+```
+
+### <a name="predicate"></a>Predikat
+
+Predikatvärdet används för att lokalisera ett av [predikatfelmeddelandena.](predicates.md) 
+
+```xml
+<Predicates>
+  <Predicate Id="LengthRange" Method="IsLengthRange"  HelpText="The password must be between 6 and 64 characters.">
+    <Parameters>
+      <Parameter Id="Minimum">6</Parameter>
+      <Parameter Id="Maximum">64</Parameter>
+    </Parameters>
+  </Predicate>
+  <Predicate Id="Lowercase" Method="IncludesCharacters" HelpText="a lowercase letter">
+    <Parameters>
+      <Parameter Id="CharacterSet">a-z</Parameter>
+    </Parameters>
+  </Predicate>
+  <Predicate Id="Uppercase" Method="IncludesCharacters" HelpText="an uppercase letter">
+    <Parameters>
+      <Parameter Id="CharacterSet">A-Z</Parameter>
+    </Parameters>
+  </Predicate>
+</Predicates>
+```
+
+I följande exempel visas hur du lokaliserar predikathjälptext.
+
+```xml
+<LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">The password must be between 6 and 64 characters.</LocalizedString>
+<LocalizedString ElementType="Predicate" ElementId="Lowercase" StringId="HelpText">a lowercase letter</LocalizedString>
+<LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">an uppercase letter</LocalizedString>
+```
+
+### <a name="inputvalidation"></a>InputValidation
+
+Värdet för indatavalidation används för att lokalisera ett av felmeddelandena [för predicateValidation-gruppen.](predicates.md) 
+
+```xml
+<PredicateValidations>
+  <PredicateValidation Id="CustomPassword">
+    <PredicateGroups>
+      <PredicateGroup Id="LengthGroup">
+        <PredicateReferences MatchAtLeast="1">
+          <PredicateReference Id="LengthRange" />
+        </PredicateReferences>
+      </PredicateGroup>
+      <PredicateGroup Id="CharacterClasses">
+        <UserHelpText>The password must have at least 3 of the following:</UserHelpText>
+        <PredicateReferences MatchAtLeast="3">
+          <PredicateReference Id="Lowercase" />
+          <PredicateReference Id="Uppercase" />
+          <PredicateReference Id="Number" />
+          <PredicateReference Id="Symbol" />
+        </PredicateReferences>
+      </PredicateGroup>
+    </PredicateGroups>
+  </PredicateValidation>
+</PredicateValidations>
+```
+
+I följande exempel visas hur du lokaliserar en hjälptext för predikatverifieringsgrupper.
+
+```XML
+<LocalizedString ElementType="InputValidation" ElementId="CustomPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
+```
+
+### <a name="uxelement"></a>UxElement (olikartade)
+
+UxElement-värdet används för att lokalisera ett av elementen i användargränssnittet. I följande exempel visas hur du lokaliserar knapparna för fortsätt och avbryt.
+
+```XML
+<LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
+<LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
 ```
 
 ## <a name="next-steps"></a>Nästa steg

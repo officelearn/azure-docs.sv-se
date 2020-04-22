@@ -7,121 +7,149 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 903ce52120fce7c23c6a3754498b81fc6fc2430f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6141d48d67dd44c348961c6e09acf4e2531a61e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80247324"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685994"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrera till Azure-filresurser
 
 Den här artikeln beskriver de grundläggande aspekterna av en migrering till Azure-filresurser.
 
-Tillsammans med grunderna för migrering innehåller den här artikeln en lista över befintliga, individualiserade migreringsguider. Dessa migreringsguider hjälper dig att flytta dina filer till Azure-filresurser och är ordnade efter var dina data finns idag och vilken distributionsmodell (endast molnet eller hybrid) som du planerar att flytta till.
+Den här artikeln innehåller grunderna för migrering och en tabell med migreringsguider. Dessa guider hjälper dig att flytta dina filer till Azure-filresurser. Guiderna är ordnade baserat på var dina data finns och vilken distributionsmodell (endast molnet eller hybrid) du flyttar till.
 
 ## <a name="migration-basics"></a>Grunderna i migrering
 
-Det finns flera olika typer av molnlagring som är tillgängliga i Azure. En grundläggande aspekt av en migrering av filer till Azure är att avgöra vilket Azure-lagringsalternativ som är rätt för dina data.
+Azure har flera tillgängliga typer av molnlagring. En grundläggande aspekt av filmigreringar till Azure är att avgöra vilket Azure-lagringsalternativ som är rätt för dina data.
 
-Azure-filresurser är bra för allmänna fildata. Verkligen något du använder en lokal SMB eller NFS aktie för. Med [Azure File Sync](storage-sync-files-planning.md)kan du eventuellt cachela innehållet i flera Azure-filresurser på flera lokala Windows-servrar.
+[Azure-filresurser](storage-files-introduction.md) är lämpliga för fildata för allmänt ändamål. Dessa data innehåller allt du använder en lokal SMB- eller NFS-resurs för. Med [Azure File Sync](storage-sync-files-planning.md)kan du cachelagra innehållet i flera Azure-filresurser på servrar som kör Windows Server lokalt.
 
-Om du har ett program som körs på en lokal server kan lagring av filer i Azure-filresurser vara rätt för dig, beroende på programmet. Du kan lyfta programmet för att köras i Azure och använda Azure-filresurser som delad lagring. Du kan också överväga [Azure-diskar](../../virtual-machines/windows/managed-disks-overview.md) för det här scenariot. För molnfödda program som inte är beroende av SMB eller datorlokal åtkomst till sina data eller delad åtkomst är objektlagring, till exempel [Azure-blobbar,](../blobs/storage-blobs-overview.md)ofta det bästa valet.
+För en app som för närvarande körs på en lokal server kan det vara ett bra val att lagra filer i en Azure-filresurs. Du kan flytta appen till Azure och använda Azure-filresurser som delad lagring. Du kan också överväga [Azure-diskar](../../virtual-machines/windows/managed-disks-overview.md) för det här scenariot.
 
-Nyckeln i en migrering är att fånga alla tillämpliga filåtergivning när du migrerar dina filer från deras aktuella lagringsplats till Azure. En hjälp med att välja rätt Azure-lagring är också en aspekt av hur mycket återgivning som stöds av Azure-lagringsalternativet och krävs av ditt scenario. Fildata för allmänt ändamål beror traditionellt på filmetadata. Programdata kanske inte gör det. Det finns två grundläggande komponenter i en fil:
+Vissa molnappar är inte beroende av SMB eller åtkomst till datorlokala data eller delad åtkomst. För dessa appar är objektlagring som [Azure-blobbar](../blobs/storage-blobs-overview.md) ofta det bästa valet.
+
+Nyckeln i en migrering är att fånga alla tillämpliga filåtergivning när du flyttar dina filer från sin nuvarande lagringsplats till Azure. Hur mycket återgivning azure-lagringsalternativet stöder och hur mycket ditt scenario kräver hjälper dig också att välja rätt Azure-lagring. Fildata för allmänna ändamål beror traditionellt på filmetadata. Appdata kanske inte gör det.
+
+Här är de två grundläggande komponenterna i en fil:
 
 - **Dataström:** Dataströmmen för en fil lagrar filinnehållet.
-- **Filmetadata**: Filens metadata har flera underkomponenter:
-   * Filattribut: Skrivskyddad, till exempel.
-   * Filbehörigheter: Kallas *NTFS-behörigheter* eller *ACL:er*för fil och mapp .
-   * Tidsstämplar: Framför allt *de skapa-* och sista ändrade tidsstämplarna. *last modified-*
-   * Alternativ dataström: Ett utrymme för att lagra större mängder icke-standardiserade egenskaper.
+- **Filmetadata**: Filmetadata har dessa underkomponenter:
+   * Filattribut som skrivskyddade
+   * Filbehörigheter, som kan kallas *NTFS-behörigheter* eller *ACL:er* för fil och mapp
+   * Tidsstämplar, framför allt skapande och senast modifierade tidsstämplar
+   * En alternativ dataström, som är ett utrymme för att lagra större mängder icke-standardiserade egenskaper
 
-Filåtergivning, i en migrering, kan därför definieras som möjligheten att lagra all tillämplig filinformation på källan, möjligheten att överföra dem med migreringsverktyget och möjligheten att lagra dem på mållagringen av migreringen.
+Filåtergivning i en migrering kan definieras som möjligheten att:
 
-Om du vill vara säker på att migreringsningen fortsätter så smidigt som möjligt kan du identifiera [det bästa kopieringsverktyget för dina behov](#migration-toolbox) och matcha ett lagringsmål med källan.
+- Lagra all tillämplig filinformation på källan.
+- Överför filer med migreringsverktyget.
+- Lagra filer i mållagringen för migreringen.
 
-Med hänsyn till den tidigare informationen blir det tydligt vad mållagringen för allmänna filer i Azure är: [Azure-filresurser](storage-files-introduction.md). Jämfört med objektlagring i Azure-blobbar kan filmetadata lagras inbyggt på filer i en Azure-filresurs.
+För att säkerställa att migrering fortsätter smidigt identifierar du [det bästa kopieringsverktyget för dina behov](#migration-toolbox) och matchar ett lagringsmål med källan.
 
-Azure-filresurser bevarar också fil- och mapphierarkin. Dessutom:
-* NTFS-behörigheter kan lagras på filer och mappar när de är lokala.
-* AD-användare (eller Azure AD DS-användare) kan komma åt en Azure-filresurs internt. 
-    De använder sin nuvarande identitet och får åtkomst baserat på resursbehörigheter samt fil- och mapp-ACL:er. Ett beteende som inte skiljer sig från när användare ansluter till en lokal filresurs.
-*  Den alternativa dataströmmen är den primära aspekten av filåtergivning som för närvarande inte kan lagras på en fil i en Azure-filresurs.
-   Den bevaras lokalt när Azure File Sync är inblandad.
+Med hänsyn till den tidigare informationen kan du se att mållagringen för filer med allmänt syfte i Azure är [Azure-filresurser](storage-files-introduction.md).
 
-* [Läs mer om AD-autentisering för Azure-filresurser](storage-files-identity-auth-active-directory-enable.md)
-* [Läs mer om AAD DS-autentisering (Azure Active Directory Domain Services) för Azure-filresurser](storage-files-identity-auth-active-directory-domain-service-enable.md)
+Till skillnad från objektlagring i Azure-blobbar kan en Azure-filresurs lagra filmetadata inbyggt. Azure-filresurser bevarar också fil- och mapphierarkin, attributen och behörigheterna. NTFS-behörigheter kan lagras i filer och mappar eftersom de är lokala.
+
+En användare av Active Directory, som är deras lokala domänkontrollant, kan komma åt en Azure-filresurs. Det kan även en användare av Azure Active Directory Domain Services (Azure AD DS). Var och en använder sin aktuella identitet för att få åtkomst baserat på resursbehörigheter och på fil- och mapp-ACL:er. Det här problemet liknar en användare som ansluter till en lokal filresurs.
+
+Den alternativa dataströmmen är den primära aspekten av filåtergivning som för närvarande inte kan lagras på en fil i en Azure-filresurs. Den bevaras lokalt när Azure File Sync används.
+
+Läs mer om [Azure AD-autentisering](storage-files-identity-auth-active-directory-enable.md) och [Azure AD DS-autentisering](storage-files-identity-auth-active-directory-domain-service-enable.md) för Azure-filresurser.
 
 ## <a name="migration-guides"></a>Migreringsguider
 
 I följande tabell visas detaljerade migreringsguider.
 
-Navigera den genom att:
-1. Leta reda på raden för källsystemet som filerna för närvarande lagras på.
-2. Bestäm om du inriktar dig på en hybriddistribution där du använder Azure File Sync för att cachelagra innehållet i en eller flera Azure-filresurser lokalt, eller om du gillar att använda Azure-filresurser direkt i molnet. Välj den målkolumn som återspeglar ditt beslut.
-3. I skärningspunkten mellan källa och mål visar en tabellcell tillgängliga migreringsscenarier. Välj en av dem om du vill länka direkt till den detaljerade migreringsguiden.
+Så här använder du tabellen:
 
-Ett scenario utan länk har ännu inte en publicerad migreringsguide. Kontrollera den här tabellen ibland för uppdateringar. Nya guider kommer att publiceras när de är tillgängliga.
+1. Leta reda på raden för källsystemet som filerna för närvarande lagras på.
+
+1. Välj ett av följande mål:
+
+   - En hybriddistribution med Azure File Sync för att cachelagra innehållet i Azure-filresurser lokalt
+   - Azure-filresurser i molnet
+
+   Välj den målkolumn som matchar ditt val.
+
+1. I skärningspunkten mellan källa och mål visar en tabellcell tillgängliga migreringsscenarier. Välj en om du vill länka direkt till den detaljerade migreringsguiden.
+
+Ett scenario utan en länk har ännu inte en publicerad migreringsguide. Kontrollera den här tabellen ibland för uppdateringar. Nya guider publiceras när de är tillgängliga.
 
 | Källa | Mål: </br>Hybriddistribution | Mål: </br>Distribution endast för molnet |
 |:---|:--|:--|
 | | Verktygskombination:| Verktygskombination: |
-| Windows Server 2012 R2 och nyare | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Synkronisering av Azure-filer + DataBox](storage-sync-offline-data-transfer.md)</li><li>Migreringstjänst för lagring + Synkronisering av Azure-filer</li></ul> | <ul><li>Azure File Sync</li><li>Synkronisering av Azure-filer + DataBox</li><li>Migreringstjänst för lagring + Synkronisering av Azure-filer</li><li>Robocopy</li></ul> |
-| Windows Server 2012 och äldre | <ul><li>Synkronisering av Azure-filer + DataBox</li><li>Migreringstjänst för lagring + Synkronisering av Azure-filer</li></ul> | <ul><li>Migreringstjänst för lagring + Synkronisering av Azure-filer</li><li>Robocopy</li></ul> |
-| Nätverksansluten lagring (NAS) | <ul><li>[Synkronisering av Azure-filer + RoboCopy](storage-files-migration-nas-hybrid.md)</li></ul> | <ul><li>Robocopy</li></ul> |
-| Linux / Samba | <ul><li>[RoboCopy + Azure-filsynkronisering](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>Robocopy</li></ul> |
-| StorSimple 8100 / 8600 | <ul><li>[Virtuell Azure-filsynkronisering + 8020 virtuell installation](storage-files-migration-storsimple-8000.md)</li></ul> | |
-| StorSimple 1200 | <ul><li>[Azure File Sync](storage-files-migration-storsimple-1200.md)</li></ul> | |
+| Windows Server 2012 R2 och senare | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync och Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>Tjänsten För synkronisering och lagring i Azure-fil</li></ul> | <ul><li>Azure File Sync</li><li>Synkronisering av Azure-filer och dataruta</li><li>Tjänsten För synkronisering och lagring i Azure-fil</li><li>Robocopy</li></ul> |
+| Windows Server 2012 och tidigare | <ul><li>Synkronisering av Azure-filer och dataruta</li><li>Tjänsten För synkronisering och lagring i Azure-fil</li></ul> | <ul><li>Tjänsten För synkronisering och lagring i Azure-fil</li><li>Robocopy</li></ul> |
+| Nätverksansluten lagring (NAS) | <ul><li>[Synkronisering av Azure-filer och RoboCopy](storage-files-migration-nas-hybrid.md)</li></ul> | <ul><li>Robocopy</li></ul> |
+| Linux eller Samba | <ul><li>[Synkronisering av Azure-filer och RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>Robocopy</li></ul> |
+| Microsoft Azure StorSimple Cloud Appliance 8100 eller StorSimple Cloud Appliance 8600 | <ul><li>[Azure File Sync och StorSimple Cloud Appliance 8020](storage-files-migration-storsimple-8000.md)</li></ul> | |
+| StorSimple Cloud Appliance 1200 | <ul><li>[Azure File Sync](storage-files-migration-storsimple-1200.md)</li></ul> | |
 | | | |
 
 ## <a name="migration-toolbox"></a>Verktygslåda för migrering
 
 ### <a name="file-copy-tools"></a>Verktyg för filkopiering
 
-Det finns flera microsoft- och filkopieringsverktyg som inte kommer från Microsoft. För att välja rätt filkopieringsverktyg för migreringsscenariot måste du ta hänsyn till tre grundläggande frågor:
+Det finns flera filkopieringsverktyg tillgängliga från Microsoft och andra. Om du vill välja rätt verktyg för migreringsscenariot måste du tänka på följande grundläggande frågor:
 
-* Stöder kopieringsverktyget källan och målplatsen för en viss filkopia? 
-    * Stöder den nätverkssökvägen och/eller tillgängliga protokoll (till exempel REST/SMB/NFS) till och från käll- och mållagringsplatserna?
-* Bevarar kopieringsverktyget den nödvändiga filåtergivningen som stöds av käll-/målplatsen? I vissa fall stöder mållagringen inte samma trohet som källan. Du har redan fattat beslutet att mållagringen är tillräcklig för dina behov, därav kopieringsverktyget behöver bara matcha målen filåtergivningsfunktioner.
-* Har kopieringsverktyget funktioner som gör att det passar in i min migreringsstrategi? 
-    * Tänk till exempel på om det finns alternativ som gör att du kan minimera driftstopp. En bra fråga att ställa är: Kan jag köra den här kopian flera gånger på samma, av användare aktivt nås plats? Om så är fallet kan du minska antalet driftstopp avsevärt. Jämför det med en situation där du bara kan starta kopian när källan slutar ändras, för att garantera en fullständig kopia.
+* Stöder verktyget käll- och målplatserna för filkopian?
+
+* Stöder verktyget nätverkssökvägen eller tillgängliga protokoll (till exempel REST, SMB eller NFS) mellan käll- och mållagringsplatserna?
+
+* Bevarar verktyget den nödvändiga filåtergivningen som stöds av käll- och målplatserna?
+
+    I vissa fall stöder mållagringen inte samma trohet som källan. Om mållagringen är tillräcklig för dina behov måste verktyget bara matcha målets filåtergivningsfunktioner.
+
+* Har verktyget funktioner som låter det passa in i din migreringsstrategi?
+
+    Tänk till exempel på om verktyget gör att du kan minimera stilleståndstiden.
+    
+    När ett verktyg stöder ett alternativ för att spegla en källa till ett mål kan du ofta köra den flera gånger på samma källa och mål medan källan förblir tillgänglig.
+
+    Första gången du kör verktyget kopieras huvuddelen av data. Den här inledande körningen kan pågå ett tag. Det varar ofta längre än du vill för att ta datakällan offline för dina affärsprocesser.
+
+    Genom att spegla en källa till ett mål (som med **robocopy /MIR)** kan du köra verktyget igen på samma källa och mål. Körningen är mycket snabbare eftersom den behöver bara transportera källändringar som inträffar efter föregående körning. Om du kör ett kopieringsverktyg på det här sättet kan du minska stilleståndstiden avsevärt.
 
 I följande tabell klassificeras Microsoft-verktyg och deras nuvarande lämplighet för Azure-filresurser:
 
-| Rekommenderas | Verktyg | Stöder Azure-filresurser | Bevarar filåtergivning |
+| Rekommenderas | Verktyg | Stöd för Azure-filresurser | Bevarande av filåtergivning |
 | :-: | :-- | :---- | :---- |
-|![Ja, rekommenderas.](media/storage-files-migration-overview/circle-green-checkmark.png)| Robocopy | Stöds. Azure-filresurser kan monteras som nätverksenheter. | Fullständig trohet* |
-|![Ja, rekommenderas.](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure File Sync | Integrerat i Azure-filresurser. | Fullständig trohet* |
-|![Ja, rekommenderas.](media/storage-files-migration-overview/circle-green-checkmark.png)| Migreringstjänst för lagring (SMS) | Indirekt stöds. Azure-filresurser kan monteras som nätverksenheter på en SMS-målserver. | Fullständig trohet* |
-|![Rekommenderas inte fullt ut.](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure-databox | Stöds. | Kopierar inte metadata. [Kan användas i kombination med Azure File Sync](storage-sync-offline-data-transfer.md). |
-|![Rekommenderas ej.](media/storage-files-migration-overview/circle-red-x.png)| AzCopy | Stöds. | Kopierar inte metadata. |
-|![Rekommenderas ej.](media/storage-files-migration-overview/circle-red-x.png)| Azure Lagringsutforskaren | Stöds. | Kopierar inte metadata. |
-|![Rekommenderas ej.](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Stöds. | Kopierar inte metadata. |
+|![Ja, rekommenderas](media/storage-files-migration-overview/circle-green-checkmark.png)| Robocopy | Stöds. Azure-filresurser kan monteras som nätverksenheter. | Full trohet.* |
+|![Ja, rekommenderas](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure File Sync | Integrerat i Azure-filresurser. | Full trohet.* |
+|![Ja, rekommenderas](media/storage-files-migration-overview/circle-green-checkmark.png)| Tjänsten Lagringsmigrering | Indirekt stöds. Azure-filresurser kan monteras som nätverksenheter på SMS-målservrar. | Full trohet.* |
+|![Rekommenderas inte fullt ut](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box | Stöds. | Kopierar inte metadata. [Data Box kan användas med Azure File Sync](storage-sync-offline-data-transfer.md). |
+|![Rekommenderas inte](media/storage-files-migration-overview/circle-red-x.png)| AzCopy | Stöds. | Kopierar inte metadata. |
+|![Rekommenderas inte](media/storage-files-migration-overview/circle-red-x.png)| Azure Lagringsutforskaren | Stöds. | Kopierar inte metadata. |
+|![Rekommenderas inte](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Stöds. | Kopierar inte metadata. |
 |||||
 
 *\*Fullständig återgivning: uppfyller eller överskrider Azure-fildelningsfunktioner.*
 
 ### <a name="migration-helper-tools"></a>Verktyg för migreringshjälp
 
-I det här avsnittet visas verktyg som hjälper till att planera och utföra migreringar.
+I det här avsnittet beskrivs verktyg som hjälper dig att planera och köra migreringar.
 
-* **RoboCopy, från Microsoft Corporation**
+#### <a name="robocopy-from-microsoft-corporation"></a>RoboCopy från Microsoft Corporation
 
-    Ett av de mest tillämpliga kopieringsverktygen för filmigreringar kommer som en del av Microsoft Windows. På grund av de många alternativen i det här verktyget är den viktigaste [RoboCopy-dokumentationen](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) en användbar källa.
+RoboCopy är ett av de verktyg som är mest tillämpliga på filmigreringar. Det kommer som en del av Windows. Den huvudsakliga [RoboCopy dokumentationen](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) är en användbar resurs för det här verktygets många alternativ.
 
-* **TreeSize, från JAM Software GmbH**
+#### <a name="treesize-from-jam-software-gmbh"></a>TreeSize från JAM Software GmbH
 
-    Azure File Sync skalas främst med antalet objekt (filer och mappar) och mindre så med det totala TiB-beloppet. Verktyget kan användas för att bestämma antalet filer och mappar på Dina Windows Server-volymer. Dessutom kan den användas för att skapa ett perspektiv före en [Azure File Sync-distribution](storage-sync-files-deployment-guide.md) - men också efter, när molnnivådelning är engagerad och du vill se inte bara antalet objekt utan också där kataloger din servercache används mest.
-    Det här verktyget (testad version 4.4.1) är kompatibelt med filer på molnnivå. Det kommer inte att orsaka återkallande av nivåindelade filer under sin normala drift.
+Azure File Sync skalas främst med antalet objekt (filer och mappar) och inte med det totala lagringsbeloppet. Med TreeSize-verktyget kan du bestämma antalet objekt på Windows Server-volymerna.
 
+Du kan använda verktyget för att skapa ett perspektiv innan en [Azure File Sync-distribution](storage-sync-files-deployment-guide.md). Du kan också använda den när molnnivådelning aktiveras efter distribution. I det scenariot ser du antalet objekt och vilka kataloger som använder servercachen mest.
+
+Den testade versionen av verktyget är version 4.4.1. Den är kompatibel med filer på molnnivå. Verktyget kommer inte att orsaka återkallande av nivåindelade filer under normal drift.
 
 ## <a name="next-steps"></a>Nästa steg
 
-1. Skapa en plan som distribution av Azure-filresurser (endast molnet eller hybrid) du strävar efter.
-2. Granska listan över tillgängliga migreringsguider för att hitta den detaljerade guiden som matchar din källa och distribution av Azure-filresurser.
+1. Skapa en plan för vilken distribution av Azure-filresurser (endast molnet eller hybrid) du vill ha.
+1. Granska listan över tillgängliga migreringsguider för att hitta den detaljerade guiden som matchar din källa och distribution av Azure-filresurser.
 
-Det finns mer information om Azure Files-teknikerna som nämns i den här artikeln:
+Här finns mer information om Azure Files-teknikerna som nämns i den här artikeln:
 
 * [Översikt över Azure-filresurs](storage-files-introduction.md)
 * [Planera för distribution av Azure File Sync](storage-sync-files-planning.md)

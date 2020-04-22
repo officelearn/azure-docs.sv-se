@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 5cf3f02284777a54a9d26cad8a7f3b5b4fa6b335
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 301e2be0c8b971a0236de6a8b5c8bd5f278c3aee
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79087810"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686754"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-guide för lösningar för förebyggande underhåll
 
@@ -449,6 +449,6 @@ Microsoft Azure erbjuder utbildningsvägar för de grundläggande begreppen bako
 | [Microsoft AI YouTube Webbseminarier](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Offentlig |
 | [Microsoft AI-mässa](https://channel9.msdn.com/Shows/AI-Show) | Offentlig |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | Partner |
-| [Microsoft Partner Network](https://learningportal.microsoft.com) | Partner |
+| [Microsoft Partner Network](https://partner.microsoft.com/training/training-center) | Partner |
 
 Dessutom erbjuds gratis MOOCS (massiva öppna online-kurser) på AI online av akademiska institutioner som Stanford och MIT, och andra utbildningsföretag.

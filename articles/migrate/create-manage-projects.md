@@ -2,13 +2,13 @@
 title: Skapa och hantera Azure Migrate-projekt
 description: Hitta, skapa, hantera och ta bort projekt i Azure Migrate.
 ms.topic: how-to
-ms.date: 02/17/2020
-ms.openlocfilehash: a49595f0580e71048239d5c5d8f4d1a66e24fe6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/19/2020
+ms.openlocfilehash: f5079ed979d98f2c6f0c654c860c6f176f366497
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79269645"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676398"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Skapa och hantera Azure Migrate-projekt
 
@@ -23,7 +23,7 @@ Första gången du konfigurerar Azure Migrate skapar du ett projekt och lägger 
 
 Om du redan har ett Azure Migrate-projekt och vill skapa ytterligare ett projekt gör du följande:  
 
-1. Sök efter Azure Migrate i [Azure-portalen](https://portal.azure.com). **Azure Migrate**
+1. Sök efter **Azure Migrate**i [Den offentliga Azure-portalen](https://portal.azure.com) eller [Azure Government](https://portal.azure.us).
 2. Välj **ändring** i det övre **Servers**högra hörnet på instrumentpanelen > För Azure Migrate.
 
    ![Ändra Azure Migrate-projekt](./media/create-manage-projects/switch-project.png)

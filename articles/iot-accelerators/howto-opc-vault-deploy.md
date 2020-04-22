@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: f577059e1ebf70e3a9dfe9e538a9d3d49d7c8e96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7ee186684b702a42335c6e1a7832cc5c761a69d0
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71200007"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686939"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Skapa och distribuera tjänsten för hantering av OPC Vault-certifikat
 
@@ -107,7 +107,7 @@ Använd ett kort och enkelt resursgruppsnamn. Namnet används också för att na
 
 ### <a name="website-name-already-in-use"></a>Webbplatsnamn som redan används
 
-Det är möjligt att namnet på webbplatsen redan används. Du måste använda ett annat resursgruppsnamn. De värdnamn som används av distributionsskriptet är: https://resourcegroupname.azurewebsites.net och https://resourgroupname-service.azurewebsites.net.
+Det är möjligt att namnet på webbplatsen redan används. Du måste använda ett annat resursgruppsnamn. Värdnamnen som används av distributionsskriptet\/är: https: /resourcegroupname.azurewebsites.net och https:\//resourgroupname-service.azurewebsites.net.
 Andra namn på tjänster byggs av en kombination av kortnamn hashar, och är osannolikt att stå i konflikt med andra tjänster.
 
 ### <a name="azure-ad-registration"></a>Azure Active Directory-registrering 

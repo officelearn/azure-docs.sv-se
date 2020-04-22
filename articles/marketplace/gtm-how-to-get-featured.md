@@ -1,18 +1,18 @@
 ---
-title: Go-To-Market Services - Hur man får med på marknaden | Azure
+title: Go-To-Market Services - Hur man får med på marknaden | Azure Marketplace
 description: Go-To-Market Services – I det här avsnittet beskrivs hur du får en lista med i Azure Marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/21/2018
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 266070a6292e41af6ce1b4258774d20a9bd90312
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fe18ca41942ff58b8d9eefef3122c90980029766
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286293"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684610"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Så här visas du i AppSource och Azure Marketplace
 
@@ -38,7 +38,7 @@ Du kan vidta följande åtgärdsobjekt för att förbättra dina poäng:
 Kampanjer för utvalda appar fungerar separat från sökalgoritmen.
 
 >[!Note]
->Om din lösning inte visas korrekt i sökresultaten kan du fila en supportbiljett via hjälpmenyn i [Cloud Partner Portal](https://cloudpartner.azure.com/).
+>Om din lösning inte visas korrekt i sökresultaten filar du en supportbiljett via hjälpmenyn i [Partnercenter](https://partner.microsoft.com/).
 
 Ditt GTM-stöd innehåller också ett komplett bibliotek med självhjälpsmallar, webbinnehåll, utbildning och verktyg som hjälper dig att ytterligare marknadsföra dina uppgifter och ditt företag.
 
@@ -46,6 +46,6 @@ Ditt GTM-stöd innehåller också ett komplett bibliotek med självhjälpsmallar
 
 Läs mer om dina [kommersiella marknadsplatsfördelar.](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)
 
-Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com) för att skapa och konfigurera ditt erbjudande.
+Logga in [på Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) för att skapa och konfigurera erbjudandet.
 
 ---

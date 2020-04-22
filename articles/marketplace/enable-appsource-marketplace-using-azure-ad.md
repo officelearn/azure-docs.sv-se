@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 45855038e60dcdc3be4f98cfdceed69df5e8c946
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d2f33fc8b1bdd15b53ad9130b5cc598dd6d5ee1a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286327"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684630"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Aktivera en AppSource- och Marketplace-lista genom att använda Azure Active Directory
 
@@ -87,5 +87,10 @@ Använd Azure AD för att stödja någon av följande åtgärder:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Kontrollera att du har [registrerat dig på Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
-- Se [hur du skapar ett Partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) för mer information om hur du skapar eller slutför ditt erbjudande.
+Om du inte redan har gjort det, 
+
+- [Läs mer](https://azuremarketplace.microsoft.com/sell) om marknadsplatsen.
+
+Om du vill registrera dig i Partner center börjar du skapa ett nytt erbjudande eller arbetar på ett befintligt:
+
+- [Logga in på Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) för att skapa eller slutföra erbjudandet.

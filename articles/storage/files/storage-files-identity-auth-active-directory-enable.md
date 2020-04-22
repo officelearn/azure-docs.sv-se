@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 04/20/2020
 ms.author: rogarana
-ms.openlocfilehash: 8d1e1262c592f0120b191e18a5c16b97b887a6a2
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 44debc299054568769bfbe6cfc089cc528594274
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536546"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677079"
 ---
 # <a name="enable-on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Aktivera lokal Active Directory Domain Services-autentisering över SMB för Azure-filresurser
 
@@ -68,11 +68,7 @@ Innan du aktiverar AD DS-autentisering för Azure-filresurser kontrollerar du at
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
-Azure Files-autentisering med AD DS (förhandsversion) är tillgänglig i [de flesta offentliga regioner](https://azure.microsoft.com/global-infrastructure/regions/).
-
-Azure Files-autentisering med lokalt AD DS är inte tillgängligt i:
-- USA, västra
-
+Azure Files-autentisering med AD DS (förhandsversion) är tillgänglig i [alla offentliga regioner och Azure Gov-regioner](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## <a name="workflow-overview"></a>Översikt över arbetsflöden
 
@@ -84,13 +80,13 @@ Följ sedan stegen nedan för att konfigurera Azure Files for AD Authentication:
 
 1. Aktivera AZURE Files AD DS-autentisering på ditt lagringskonto. 
 
-1. Tilldela åtkomstbehörigheter för en resurs till Azure AD-identiteten (en användare, grupp eller tjänsthuvudnamn) som är synkroniserad med ad-identiteten för målet. 
+2. Tilldela åtkomstbehörigheter för en resurs till Azure AD-identiteten (en användare, grupp eller tjänsthuvudnamn) som är synkroniserad med ad-identiteten för målet. 
 
-1. Konfigurera ACL:er över SMB för kataloger och filer. 
+3. Konfigurera ACL:er över SMB för kataloger och filer. 
  
-1. Montera en Azure-filresurs till en virtuell dator som är ansluten till din AD DS. 
+4. Montera en Azure-filresurs till en virtuell dator som är ansluten till din AD DS. 
 
-1. Uppdatera lösenordet för ditt lagringskontoidentitet i AD DS.
+5. Uppdatera lösenordet för ditt lagringskontoidentitet i AD DS.
 
 Följande diagram illustrerar arbetsflödet från slutna till slutna för att aktivera Azure AD-autentisering via SMB för Azure-filresurser. 
 

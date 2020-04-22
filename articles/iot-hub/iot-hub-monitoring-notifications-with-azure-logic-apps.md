@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: ad1fcb67704e79f5aef62a59604e47f477804405
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68385711"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680711"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>IoT fjärrövervakning och meddelanden med Azure Logic Apps som ansluter din IoT-hubb och postlåda
 
@@ -22,7 +22,7 @@ ms.locfileid: "68385711"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) kan hjälpa dig att orkestrera arbetsflöden över lokala tjänster och molntjänster, ett eller flera företag och i olika protokoll. En logikapp börjar med en utlösare, som sedan följs av en eller flera åtgärder som kan sekvenseras med hjälp av inbyggda kontroller, till exempel villkor och iteratorer. Den här flexibiliteten gör Logic Apps till en idealisk IoT-lösning för IoT-övervakningsscenarier. Till exempel kan ankomsten av telemetridata från en enhet vid en IoT Hub-slutpunkt initiera logikapparbetsflöden för att lagra data i en Azure Storage-blob, skicka e-postaviseringar för att varna för dataavvikelser, schemalägga ett teknikerbesök om en enhet rapporterar ett fel , och så vidare.
+[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) kan hjälpa dig att orkestrera arbetsflöden över lokala tjänster och molntjänster, ett eller flera företag och i olika protokoll. En logikapp börjar med en utlösare, som sedan följs av en eller flera åtgärder som kan sekvenseras med hjälp av inbyggda kontroller, till exempel villkor och iteratorer. Den här flexibiliteten gör Logic Apps till en idealisk IoT-lösning för IoT-övervakningsscenarier. Till exempel kan ankomsten av telemetridata från en enhet vid en IoT Hub-slutpunkt initiera logikapparbetsflöden för att lagra data i en Azure Storage-blob, skicka e-postaviseringar för att varna för dataavvikelser, schemalägga ett teknikerbesök om en enhet rapporterar ett fel och så vidare.
 
 ## <a name="what-you-learn"></a>Detta får du får lära dig
 
@@ -212,7 +212,7 @@ I föregående avsnitt ställer du in IoT-hubben för att dirigera meddelanden s
       Hämta SMTP-informationen för [Hotmail/Outlook.com,](https://support.office.com/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970) [Gmail](https://support.google.com/a/answer/176600?hl=en)och [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html).
 
       > [!NOTE]
-      > Du kan behöva inaktivera SSL för att upprätta anslutningen. Om så är fallet och du vill återaktivera SSL när anslutningen har upprättats läser du det valfria steget i slutet av det här avsnittet.
+      > Du kan behöva inaktivera TLS/SSL för att upprätta anslutningen. Om så är fallet och du vill återaktivera TLS när anslutningen har upprättats läser du det valfria steget i slutet av det här avsnittet.
 
    1. Välj **Från**, **Till**, **Ämne** och **Brödtext**i listrutan Lägg **till ny parameter** i steget **Skicka e-post** . Klicka eller tryck var som helst på skärmen för att stänga markeringsrutan.
 
@@ -224,7 +224,7 @@ I föregående avsnitt ställer du in IoT-hubben för att dirigera meddelanden s
 
    1. Välj **Spara** om du vill spara SMTP-anslutningen.
 
-1. (Valfritt) Om du var tvungen att inaktivera SSL för att upprätta en anslutning till din e-postleverantör och vill återaktivera den gör du så här:
+1. (Valfritt) Om du var tvungen att inaktivera TLS för att upprätta en anslutning till din e-postleverantör och vill återaktivera den gör du så här:
 
    1. Välj **API-anslutningar**under **Utvecklingsverktyg**i **fönstret Logik.**
 

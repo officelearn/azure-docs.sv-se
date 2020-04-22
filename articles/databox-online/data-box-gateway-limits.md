@@ -8,17 +8,16 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: e80b03f696a78887676e9f16750055a4dcfac230
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 641d7410e414be2adae2a83840c90a680aedd2fc
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60755258"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683356"
 ---
 # <a name="azure-data-box-gateway-limits"></a>Azure Data Box Gateway gränser
 
 Tänk på dessa gränser när du distribuerar och använder din Microsoft Azure Data Box Gateway-lösning. 
-
 
 ## <a name="data-box-gateway-service-limits"></a>Servicegränser för Data Box Gateway
 
@@ -30,7 +29,7 @@ I följande tabell beskrivs gränserna för databoxgatewayenheten.
 
 | Beskrivning | Värde |
 |---|---|
-|Nej. filer per enhet |100 miljoner <br> Gräns är ~ 25 miljoner filer för varje 2 TB diskutrymme med maximal gräns på 100 miljoner |
+|Nej. filer per enhet |100 miljoner <br> För varje 25 miljoner filer som läggs till (med maximal gräns på 100 miljoner) bör du lägga till 2 TB diskutrymme, 8 GB RAM och 4 kärnor av CPU. |
 |Nej. av aktier per enhet |24 |
 |Nej. av resurser per Azure-lagringsbehållare |1 |
 |Maximal filstorlek som skrivits till en resurs|För en virtuell enhet på 2 TB är den maximala filstorleken 500 GB. <br> Den maximala filstorleken ökar med datadiskstorleken i föregående förhållande tills den når högst 5 TB. |

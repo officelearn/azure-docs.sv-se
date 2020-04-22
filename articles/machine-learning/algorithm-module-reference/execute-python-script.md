@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2020
-ms.openlocfilehash: 0f86d1ad03062797764af6a0d49beacaa3458a8f
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 79dc1b188e91028a98f43dc24972228f2d2101be
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365551"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684734"
 ---
 # <a name="execute-python-script-module"></a>Kör Python-skriptmodul
 
@@ -164,7 +164,7 @@ I följande exempel visas hur du laddar upp en bildfil i modulen **Kör Python-s
 # imports up here can be used to
 import pandas as pd
 
-# The entry point function can contain up to two input arguments:
+# The entry point function must have two input arguments:
 #   Param<dataframe1>: a pandas.DataFrame
 #   Param<dataframe2>: a pandas.DataFrame
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -217,10 +217,17 @@ Modulen **Kör Python-skript** innehåller exempel på Python-kod som du kan anv
 
 5. Skriv eller klistra in giltigt **Python-skript** i textrutan Python.
 
+    > [!NOTE]
+    > Var mycket försiktig när du skriver skriptet och se till att det inte finns något syntaxfel, till exempel att använda ett odeklarerat objekt eller en icke-importerad modul. Också ägna extra uppmärksamhet åt den förinstallerade modullistan. Om du vill importera moduler som inte finns med i listan installerar du motsvarande paket i skriptet, till exempel
+    >  ``` Python
+    > import os
+    > os.system(f"pip install scikit-misc")
+    > ```
+    
     Textrutan **Python-skript** fylls i i flera instruktioner i kommentarerna och exempelkod för dataåtkomst och utdata. Du måste redigera eller ersätta den här koden. Var noga med att följa Python-konventioner om indrag och hölje.
 
     + Skriptet måste innehålla `azureml_main` en funktion som heter som startpunkt för den här modulen.
-    + Ingångsfunktionen kan innehålla upp till `Param<dataframe1>` två indataargument: och`Param<dataframe2>`
+    + Startpunktsfunktionen måste ha två `Param<dataframe1>` `Param<dataframe2>`indataargument: och även om dessa argument inte används i skriptet.
     + Zippade filer som är anslutna till den tredje indataporten packas upp och lagras i katalogen, `.\Script Bundle`som också läggs till i Python `sys.path`. 
 
     Om zip-filen innehåller `mymodule.py`importerar du `import mymodule`den därför med .

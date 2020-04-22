@@ -5,16 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2660e4a348d2ffd71f912ff80c36a5a9a3c9fe88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 910f284eedbf50be5b58b6c18f02e50adda35e9a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75417784"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680009"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrera dina OMS-uppdateringsdistributioner till Azure
 
-Oms-portalen (Operations Management Suite) är [inaktuell.](../azure-monitor/platform/oms-portal-transition.md) Alla funktioner som var tillgängliga i OMS-portalen för uppdateringshantering är tillgängliga i Azure-portalen. Den här artikeln innehåller den information du behöver för att migrera till Azure-portalen.
+Oms-portalen (Operations Management Suite) är [inaktuell.](../azure-monitor/platform/oms-portal-transition.md) Alla funktioner som var tillgängliga i OMS-portalen för uppdateringshantering är tillgängliga i Azure-portalen, via Azure Monitor-loggar. Den här artikeln innehåller den information du behöver för att migrera till Azure-portalen.
 
 ## <a name="key-information"></a>Viktig information
 
@@ -23,7 +23,7 @@ Oms-portalen (Operations Management Suite) är [inaktuell.](../azure-monitor/pla
 
 ## <a name="access-the-azure-portal"></a>Åtkomst till Azure-portalen
 
-Klicka på Öppna i **Azure**på din OMS-arbetsyta . Detta navigerar till log analytics arbetsyta som OMS används.
+Klicka på Öppna i **Azure**på din OMS-arbetsyta . Det här valet navigerar till arbetsytan Log Analytics som OMS har använt.
 
 ![Öppna i Azure - OMS-portal](media/migrate-oms-update-deployments/link-to-azure-portal.png)
 
@@ -31,11 +31,13 @@ Klicka på **Automation-konto** i Azure-portalen
 
 ![Azure Monitor-loggar](media/migrate-oms-update-deployments/log-analytics.png)
 
-Öppna **uppdateringshantering** i ditt Automation-konto.
+Klicka på Uppdatera **hantering**i ditt Automation-konto.
 
 ![Uppdateringshantering](media/migrate-oms-update-deployments/azure-automation.png)
 
-I framtiden kan du gå direkt till Azure-portalen under **Alla tjänster,** välj **Automation-konton** under **Hanteringsverktyg,** välja lämpligt Automation-konto och klicka på **Uppdatera hantering**.
+I Azure-portalen väljer du **Automation-konton** under **Alla tjänster**. 
+
+Under **Hanteringsverktyg**väljer du lämpligt Automation-konto och klickar på **Uppdatera hantering**.
 
 ## <a name="recreate-existing-deployments"></a>Återskapa befintliga distributioner
 
@@ -49,9 +51,9 @@ Om du vill skapa en ny uppdateringsdistribution går du till Azure-portalen, vä
 
 ![Schemalägg distribution av uppdateringar](media/migrate-oms-update-deployments/schedule-update-deployment.png)
 
-Fönstret **Ny uppdateringsdistribution** öppnas. Ange värden för de egenskaper som beskrivs i följande tabell och klicka sedan på **Skapa:**
+Fönstret Ny uppdateringsdistribution öppnas. Ange värden för de egenskaper som beskrivs i följande tabell och klicka sedan på **Skapa:**
 
-För datorer som ska uppdateras väljer du den sparade sökning som används av den befintliga OMS-distributionen.
+För **datorer att uppdatera**väljer du den sparade sökning som används av den befintliga OMS-distributionen.
 
 | Egenskap | Beskrivning |
 | --- | --- |
@@ -72,4 +74,4 @@ Som tidigare nämnts kan de befintliga distributionerna tas bort från OMS-porta
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om uppdateringshantering i Azure finns i [Uppdatera hantering](automation-update-management.md)
+Mer information om uppdateringshantering i Azure finns i [Uppdatera hantering](automation-update-management.md).

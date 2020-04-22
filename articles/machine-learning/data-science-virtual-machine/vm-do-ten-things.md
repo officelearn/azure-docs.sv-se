@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 8da8cd7110cd17d0aadd52cce1263c7c0fcfdf5c
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 0f42f075f5d3be4486157334403bfa7d3f1aa80c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632160"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682879"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tio saker du kan göra på Virtual Machine för Windows Data Science
 
@@ -817,7 +817,7 @@ Använd följande nödvändiga steg för att komma åt Azure Cosmos DB från DSV
 1. Azure Cosmos DB Python SDK är redan installerat på DSVM. Om du vill ```pip install pydocumentdb --upgrade``` uppdatera den körs den från en kommandotolk.
 2. Skapa ett Azure Cosmos DB-konto och -databas från [Azure-portalen](https://portal.azure.com).
 3. Hämta Azure Cosmos DB Data Migration Tool från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53595) och extrahera till en valfri katalog.
-4. Importera JSON-data (vulkandata) som lagras i en [offentlig blob](https://cahandson.blob.core.windows.net/samples/volcano.json) till Azure Cosmos DB med följande kommandoparametrar till migreringsverktyget. (Använd dtui.exe från katalogen där du installerade Azure Cosmos DB Data Migration Tool.) Ange käll- och målplatsen med följande parametrar:
+4. Importera JSON-data (vulkandata) som lagras i en [offentlig blob](https://dotnet.microsoft.com/) till Azure Cosmos DB med följande kommandoparametrar till migreringsverktyget. (Använd dtui.exe från katalogen där du installerade Azure Cosmos DB Data Migration Tool.) Ange käll- och målplatsen med följande parametrar:
    
     `/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
 

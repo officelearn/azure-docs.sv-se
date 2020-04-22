@@ -14,18 +14,18 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78f45d9e1ca5b8237779fe096154c83749aa08fe
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1f0b0c0a7b666aed56ad24625c80c0a57683b998
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81428438"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683260"
 ---
 # <a name="add-and-manage-groups-in-administrative-units-in-azure-active-directory"></a>Lägga till och hantera grupper i administrativa enheter i Azure Active Directory
 
 I Azure Active Directory (Azure AD) kan du lägga till grupper i en administrativ enhet (AU) för mer detaljerad administrativt omfång för kontroll.
 
-Steg för att förbereda hur du använder PowerShell och Microsoft Graph för hantering av administrativa enheter finns i [Komma igång](roles-admin-units-manage.md#getting-started).
+Steg för att förbereda hur du använder PowerShell och Microsoft Graph för hantering av administrativa enheter finns i [Kom igång](roles-admin-units-manage.md#get-started).
 
 ## <a name="add-groups-to-an-au"></a>Lägga till grupper i en AU
 

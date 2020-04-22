@@ -1,24 +1,24 @@
 ---
-title: Standardavtal | Azure
+title: Standardavtal | Azure Marketplace
 description: Standardkontrakt för Azure Marketplace och AppSource
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 00a83a1b3005043f317ed49cafa735540cd21793
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: facb500299f7196e0e1387c3a7267a917d13a3a6
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284967"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681452"
 ---
 # <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Standardkontrakt för Microsofts kommersiella marknadsplats
 
 För att förenkla upphandlingsprocessen för kunder och minska den juridiska komplexiteten för programvaruleverantörer erbjuder Microsoft ett standardavtal för Microsofts kommersiella marknadsplats för att underlätta transaktioner på marknaden. Hellre än crafting anpassade villkor, kommersiella marknadsplats förlag kan välja att erbjuda sin programvara enligt standardavtalet, som kunderna bara behöver veterinär och acceptera en gång. Standardavtalet hittar du här: [https://go.microsoft.com/fwlink/?linkid=2041178](https://go.microsoft.com/fwlink/?linkid=2041178).
 
-Villkoren för ett erbjudande definieras när erbjudandet skapas i Partnercenter eller i Cloud Partner Portal. Du kan välja att använda standardkontraktet för Microsofts kommersiella marknadsplats i stället för att tillhandahålla dina egna anpassade villkor.
+Villkoren för ett erbjudande definieras när erbjudandet skapas i Partner center. Du kan välja att använda standardkontraktet för Microsofts kommersiella marknadsplats i stället för att tillhandahålla dina egna anpassade villkor.
 
 >[!Note]
 >När du har publicerat ett erbjudande med standardkontraktet för Microsofts kommersiella marknadsplats kan du inte använda dina egna anpassade villkor. Det är ett "eller" scenario. Du erbjuder antingen din lösning enligt standardavtalet *eller* dina egna villkor. Om du vill ändra villkoren i standardavtalet kan du göra det genom standardavtalsändringar.
@@ -36,7 +36,7 @@ Det finns två typer av ändringar tillgängliga för kommersiella marknadsplats
 >[!Note]
 >Dessa två typer av ändringsförslag stapla ovanpå varandra. Kunder som är inriktade på anpassade ändringar kommer också att få den universella ändringen av standardavtalet vid köp.
 
-Du kan utnyttja standardkontraktet för Microsofts kommersiella marknadsplats för följande erbjudandetyper: Azure Applications (lösningsmallar och hanterade program), virtuella datorer, behållare, behållarprogram, IoT Edge-moduler och SaaS .
+Du kan utnyttja standardkontraktet för Microsofts kommersiella marknadsplats för följande erbjudandetyper: Azure Applications (lösningsmallar och hanterade program), virtuella datorer, behållare, behållarprogram, IoT Edge-moduler och SaaS.
 
 ## <a name="customer-experience"></a>Kundupplevelse
 

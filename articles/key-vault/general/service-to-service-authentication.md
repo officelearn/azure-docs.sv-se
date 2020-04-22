@@ -10,12 +10,12 @@ ms.date: 08/28/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: d6ac5961cbecf4e81c0b6bcc25c39aad42b18416
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: cd630acfd65f0a79c186ba35bc15627bf7ccfdbe
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81429842"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686198"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Tjänst-till-tjänst-autentisering till Azure Key Vault med .NET
 
@@ -88,7 +88,7 @@ Så här använder du Azure CLI:
 
 1. Logga in på Azure-portalen: *az logga in* för att logga in på Azure.
 
-1. Verifiera åtkomst genom att ange *az-konto https://vault.azure.netget-access-token --resource *. Om du får ett felmeddelande kontrollerar du att rätt version av Azure CLI är korrekt installerad.
+1. Verifiera åtkomst genom att ange *az-account get-access-token --resource https:\//vault.azure.net*. Om du får ett felmeddelande kontrollerar du att rätt version av Azure CLI är korrekt installerad.
 
    Om Azure CLI inte är installerat i standardkatalogen kan `AzureServiceTokenProvider` du få en felrapportering som inte kan hitta sökvägen till Azure CLI. Använd variabeln **AzureCLIPath-miljö** för att definiera azure CLI-installationsmappen. `AzureServiceTokenProvider`lägger till den katalog som anges i variabeln **AzureCLIPath-miljö** i **sökvägsmiljövariabeln** när det behövs.
 

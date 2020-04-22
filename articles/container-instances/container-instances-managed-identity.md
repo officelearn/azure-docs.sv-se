@@ -3,12 +3,12 @@ title: Aktivera hanterad identitet i behållargruppen
 description: Lär dig hur du aktiverar en hanterad identitet i Azure Container Instances som kan autentisera med andra Azure-tjänster
 ms.topic: article
 ms.date: 01/29/2020
-ms.openlocfilehash: 003055d5021dd8ad7c3bab6d2900298ffd13b222
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 19d2ab22eea15278c7753046f9222c7856fbf5ef
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76901930"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685646"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Så här använder du hanterade identiteter med Azure Container Instances
 
@@ -189,7 +189,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-Använd nu åtkomsttoken för att autentisera till nyckelvalvet och läsa en hemlighet. Var noga med att ersätta namnet på*https://mykeyvault.vault.azure.net/..* ditt nyckelvalv i webbadressen ( . ):
+Använd nu åtkomsttoken för att autentisera till nyckelvalvet och läsa en hemlighet. Var noga med att ersätta namnet på ditt nyckelvalv i webbadressen (*https:\//mykeyvault.vault.azure.net/...*):
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"

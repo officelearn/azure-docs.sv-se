@@ -8,14 +8,14 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 6f5d2dc30ac0f6316587fa0836b87cbd4efc0a8b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2ebf5d574b4d185953ab0f7984648c440d6f107e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774398"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678644"
 ---
-PowerShell cmdlet **Get-AzPeeringLocation returnerar** en lista över `Kind`peering-platser med den obligatoriska parametern , som du ska använda i senare steg:
+PowerShell cmdlet **Get-AzPeeringLocation returnerar** en lista över peering-platser med den obligatoriska parametern `Kind`, som du ska använda i senare steg.
 
 ```powershell
 Get-AzPeeringLocation -Kind "Exchange"
@@ -32,7 +32,7 @@ Exchange peering-platser innehåller följande fält:
 
 Verifiera att du är närvarande vid önskad peering-anläggning genom att referera till [PeeringDB](https://wwww.peeringdb.com).
 
-Nedan finns ett exempel som visar hur du använder Seattle som peering-plats för att skapa en peering:
+I det här exemplet visas hur du använder Seattle som peering-plats för att skapa en peering.
 
 ```powershell
 $exchangeLocations = Get-AzPeeringLocation -Kind Exchange

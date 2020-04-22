@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: f1d0ca1ffc2e7a3d645ac5acbaafdf45f85550be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f195a5c05c6c95dac898b2d471747952a3446d52
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76271102"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681719"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>(FÖRÅLDRAD) Övervaka ett Azure Container Service Kubernetes-kluster med CoScale
 
@@ -62,7 +62,7 @@ az acs kubernetes install-cli
 [DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) används av Kubernetes för att köra en enda instans av en behållare på varje värd i klustret.
 De är perfekta för att köra övervakningsagenter som CoScale-agenten.
 
-När du har loggat in på CoScale går du till [agentsidan](https://app.coscale.com/) för att installera coscale-agenter i klustret med hjälp av en DaemonSet. CoScale-användargränssnittet innehåller guidade konfigurationssteg för att skapa en agent och börja övervaka ditt kompletta Kubernetes-kluster.
+När du har loggat in på CoScale går du till [agentsidan](https://developer.newrelic.com/) för att installera coscale-agenter i klustret med hjälp av en DaemonSet. CoScale-användargränssnittet innehåller guidade konfigurationssteg för att skapa en agent och börja övervaka ditt kompletta Kubernetes-kluster.
 
 ![Konfiguration av coscale-agent](./media/container-service-kubernetes-coscale/installation.png)
 
@@ -70,7 +70,7 @@ Om du vill starta agenten i klustret kör du det medföljande kommandot:
 
 ![Starta CoScale-agenten](./media/container-service-kubernetes-coscale/agent_script.png)
 
-Klart! När agenterna är igång bör du se data i konsolen om några minuter. Besök [agentsidan](https://app.coscale.com/) för att se en sammanfattning av klustret, utföra ytterligare konfigurationssteg och se instrumentpaneler som **kubernetes-klusteröversikten**.
+Klart! När agenterna är igång bör du se data i konsolen om några minuter. Besök [agentsidan](https://developer.newrelic.com/) för att se en sammanfattning av klustret, utföra ytterligare konfigurationssteg och se instrumentpaneler som **kubernetes-klusteröversikten**.
 
 ![Kubernetes klusteröversikt](./media/container-service-kubernetes-coscale/dashboard_clusteroverview.png)
 

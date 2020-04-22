@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 968e609772e08814a9943734d30c16bf6f5972e8
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 369e3bcf4e5913f4a3ff82206d1e24a206db3f34
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604711"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681297"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer under off-hours-lösning i Azure Automation
 
@@ -120,7 +120,7 @@ Alla överordnade runbooks `WhatIf` innehåller parametern. När den är instäl
 I följande tabell visas de variabler som skapats i ditt Automation-konto. Ändra endast variabler som `External`föregås av . Ändra variabler föregås `Internal` med orsakar oönskade effekter.
 
 > [!NOTE]
-> Begränsningar för VM-namn och resursgrupp är till stor del ett resultat av variabel storlek.
+> Begränsningar för VM-namn och resursgrupp är till stor del ett resultat av variabel storlek. Se [Variabla resurser i Azure Automation](https://docs.microsoft.com/azure/automation/shared-resources/variables).
 
 |Variabel | Beskrivning|
 |---------|------------|
@@ -159,7 +159,7 @@ Aktivera inte alla scheman, eftersom detta kan skapa överlappande schemaåtgär
 |Schedule_AutoStop_CreateAlert_Parent | Var 8:e timme | Kör **AutoStop_CreateAlert_Parent** runbook var 8:e timme, vilket i sin `External_Start_ResourceGroupNames`tur `External_Stop_ResourceGroupNames`stoppar `External_ExcludeVMNames` de VM-baserade värdena i , och variablerna. Du kan också ange en kommaavgränsad lista med `VMList` virtuella datorer med hjälp av parametern.|
 |Scheduled_StopVM | Användardefinierad, daglig | Kör **ScheduledStopStart_Parent** runbook med en `Stop` parameter för varje dag vid den angivna tiden.Stoppar automatiskt alla virtuella datorer som uppfyller de regler som definieras av variabla tillgångar.Aktivera det relaterade schemat **Scheduled-StartVM**.|
 |Scheduled_StartVM | Användardefinierad, daglig | Kör **ScheduledStopStart_Parent** runbook med ett parametervärde `Start` för varje dag vid den angivna tiden. Startar automatiskt alla virtuella datorer som uppfyller de regler som definieras av variabla tillgångar.Aktivera det relaterade schemat **Scheduled-StopVM**.|
-|Sekvenserade-StopVM | 01:00 (UTC), varje fredag | Kör Sequenced_Parent runbook med ett parametervärde `Stop` för varje fredag vid den angivna tidpunkten.Sekventiellt (stigande) stoppar alla virtuella datorer med en tagg **sequenceStop** som definieras av lämpliga variabler. Mer information om taggvärden och tillgångsvariabler finns i avsnittet Runbooks.Aktivera det relaterade **schemat, Sequenced-StartVM**.|
+|Sekvenserade-StopVM | 01:00 (UTC), varje fredag | Kör **Sequenced_StopStop_Parent** runbook med ett parametervärde `Stop` för varje fredag vid den angivna tidpunkten.Sekventiellt (stigande) stoppar alla virtuella datorer med en tagg **sequenceStop** som definieras av lämpliga variabler. Mer information om taggvärden och tillgångsvariabler finns i [Runbooks](#runbooks).Aktivera det relaterade **schemat, Sequenced-StartVM**.|
 |Sekvenserade StartVM | 13:00 (UTC), varje måndag | Kör **SequencedStopStart_Parent** runbook med ett parametervärde `Start` för varje måndag vid den angivna tidpunkten. Sekventiellt (fallande) startar alla virtuella datorer med en tagg **i SequenceStart** som definieras av lämpliga variabler. Mer information om taggvärden och variabla tillgångar finns i [Runbooks](#runbooks). Aktivera det relaterade **schemat, Sequenced-StopVM**.
 
 ## <a name="use-of-the-solution-with-classic-vms"></a>Användning av lösningen med klassiska virtuella datorer

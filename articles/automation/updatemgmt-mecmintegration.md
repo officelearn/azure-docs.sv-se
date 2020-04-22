@@ -1,5 +1,5 @@
 ---
-title: Använda Azure Update Management med Configuration Manager-klienter
+title: Använda Azure Automation Update Management med Configuration Manager-klienter
 description: Den här artikeln är avsedd att hjälpa dig att konfigurera Microsoft Endpoint Configuration Manager med den här lösningen för att distribuera programuppdateringar till ConfigMgr-klienter.
 services: automation
 ms.subservice: update-management
@@ -7,18 +7,18 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 12/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: f0ca836e3b53c3cce755d45b50fe168073f0bbaa
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 32a077c476d9669c3f32bd4040fdc8ff90156c19
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81618729"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678737"
 ---
 # <a name="deploy-updates-to-microsoft-endpoint-configuration-manager-clients-with-update-management"></a>Distribuera uppdateringar till Microsoft Endpoint Configuration Manager-klienter med Uppdateringshantering
 
 Kunder som har investerat i Microsoft Endpoint Configuration Manager för att hantera datorer, servrar och mobila enheter förlitar sig också på sin styrka och mognad i hanteringen av programuppdateringar som en del av sin cykel för hantering av programuppdateringar (SUM).
 
-Du kan rapportera och uppdatera hanterade Windows-servrar genom att skapa och fördämpa programuppdateringsdistributioner i Configuration Manager och få detaljerad status för slutförda uppdateringsdistributioner med hjälp av [lösning för uppdateringshantering](automation-update-management.md). Om du använder Configuration Manager för uppdateringskompatibilitetsrapportering men inte för att hantera uppdateringsdistributioner med Dina Windows-servrar kan du fortsätta att rapportera till Configuration Manager medan säkerhetsuppdateringar hanteras med lösning för uppdateringshantering.
+Du kan rapportera och uppdatera hanterade Windows-servrar genom att skapa och förproduktion av programuppdateringsdistributioner i Configuration Manager och få detaljerad status för slutförda uppdateringsdistributioner med [uppdateringshantering](automation-update-management.md). Om du använder Configuration Manager för uppdateringskompatibilitetsrapportering men inte för att hantera uppdateringsdistributioner med Dina Windows-servrar kan du fortsätta att rapportera till Configuration Manager medan säkerhetsuppdateringar hanteras med lösning för uppdateringshantering.
 
 ## <a name="prerequisites"></a>Krav
 

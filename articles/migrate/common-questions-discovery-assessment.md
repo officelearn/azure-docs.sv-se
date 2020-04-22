@@ -3,12 +3,12 @@ title: Frågor om identifierings-, utvärderings- och beroendeanalys i Azure Mig
 description: Få svar på vanliga frågor om identifiering, utvärdering och beroendeanalys i Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 700e5318b66cdf4993a17b1dae85fb43f75ab035
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: b4b2a50bc88768d46c82f6bce73447dc901e5dfd
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81529781"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681906"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Upptäckt, bedömning och beroendeanalys - Vanliga frågor
 
@@ -28,6 +28,10 @@ Granska de geografiska områden som stöds för [offentliga](migrate-support-mat
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Hur många virtuella datorer kan jag upptäcka med en apparat?
 
 Du kan upptäcka upp till 10 000 virtuella virtuella datorer med VMware, upp till 5 000 virtuella virtuella datorer med hyper-V och upp till 250 fysiska servrar med hjälp av en enda apparat. Om du har fler datorer läser du om [skalning av en Hyper-V-bedömning,](scale-hyper-v-assessment.md) [skalning av en VMware-bedömning](scale-vmware-assessment.md)eller [skalning av en fysisk serverutvärdering](scale-physical-assessment.md).
+
+## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Jag kan inte se vissa vm-typer i Azure Government
+
+VM-typer som stöds för utvärdering och migrering beror på tillgänglighet på Azure Government-platsen. Du kan [granska och jämföra](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) vm-typer i Azure Government.
 
 
 ## <a name="the-size-of-my-vm-changed-can-i-run-an-assessment-again"></a>Storleken på min virtuella dator har ändrats. Kan jag göra en bedömning igen?
@@ -87,7 +91,7 @@ Importbaserade utvärderingar är utvärderingar som skapats med datorer som imp
 Beroendevisualisering kan hjälpa dig att bedöma grupper av virtuella datorer att migrera med större förtroende. Beroendevisualisering dubbelkontrollerar datorberoenden innan du kör en utvärdering. Det hjälper till att säkerställa att ingenting lämnas kvar och det hjälper till att undvika oväntade avbrott när du migrerar till Azure. Azure Migrate använder servicemappningslösningen i Azure Monitor för att aktivera beroendevisualisering. [Läs mer](concepts-dependency-visualization.md).
 
 > [!NOTE]
-> Beroendevisualisering är inte tillgängligt i Azure Government.
+> Agentbaserad beroendeanalys är inte tillgänglig i Azure Government. Du kan använda agentless beroende analys
 
 ## <a name="whats-the-difference-between-agent-based-and-agentless"></a>Vad är skillnaden mellan agentbaserad och agentlös?
 

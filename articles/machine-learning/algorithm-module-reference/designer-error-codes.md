@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: cc04d11475568af92ba6a617a1eb6b2b51accb45
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 38e728de22d49de760e998ddc97c5067beb3ecd1
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81481673"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684699"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Undantag och felkoder för designern (förhandsgranskning)
 
@@ -145,6 +145,7 @@ Följande är felkoder för moduler i designern.
 |Parametern {arg_name}"-värdet ska vara mindre än eller lika med parametern {upper_boundary_parameter_name}-värde.|
 |Parametern {arg_name}" har värdet {{actual_value}" som ska vara mindre än eller lika med {upper_boundary}.|
 |Parametern {arg_name}" {actual_value} ska vara mindre än eller lika med parametern {upper_boundary_parameter_name}- värde {upper_boundary}.|
+|Parametern {arg_name}" {actual_value} ska vara mindre än eller lika med {upper_boundary_meaning} värde {upper_boundary}.|
 
 
 ## <a name="error-0008"></a>Fel 0008  
@@ -271,6 +272,7 @@ Om modellen har tränats med någon av de specialiserade utbildningsmodulerna an
 |Eleven av ogiltig typ skickas.|
 |Eleven {arg_name}har ogiltig typ.|
 |Eleven {arg_name}" har ogiltig typ {learner_type}.|
+|Eleven av ogiltig typ skickas. Undantagsmeddelande: {exception_message}|
 
 
 ## <a name="error-0014"></a>Fel 0014  
@@ -393,6 +395,7 @@ För kolumner som du tänker använda för gruppering eller kategorisering vidta
 |Värden i kolumnen sorteras inte.|
 |Värden i kolumnen {col_index}} sorteras inte.|
 |Värden i kolumnen {col_index}" av datauppsättningen {dataset} sorteras inte.|
+|Värden i argumentet {arg_name}} sorteras inte i ordningen {sorting_order}.|
 
 
 ## <a name="error-0020"></a>Fel 0020  
@@ -633,6 +636,7 @@ Det kan också hända att en etikettkolumn finns i datauppsättningen, men inte 
 |------------------------|
 |Argumentet måste vara begränsat.|
 |"{arg_name}" är inte ändligt.|
+|Kolumnen {column_name}" innehåller oändliga värden.|
 
 
 ## <a name="error-0034"></a>Fel 0034  
@@ -1492,6 +1496,18 @@ Lösning:
 |------------------------------------------------------------|
 |Given TransformationDirectory är ogiltig.|
 |TransformationDirectory {arg_name}är ogiltig. Orsak: {orsak}. Kör utbildningsexperiment igen som genererar transformeringsfilen. Om träningsexperimentet har tagits bort återskapas och sparas transformeringsfilen.|
+|TransformationDirectory {arg_name}är ogiltig. Orsak: {orsak}. {troubleshoot_hint}|
+
+
+## <a name="error-0159"></a>Fel 0159
+ Undantag inträffar om det är ogiltigt att skickas till modulmodellkatalogen. 
+
+|Undantagsmeddelanden|
+|------------------------------------------------------------|
+|Given ModelDirectory är ogiltig.|
+|ModelDirectory {arg_name}är ogiltig.|
+|ModelDirectory {arg_name}är ogiltig. Orsak: {orsak}.|
+|ModelDirectory {arg_name}är ogiltig. Orsak: {orsak}. {troubleshoot_hint}|
 
 
 ## <a name="error-1000"></a>Fel 1000  

@@ -1,14 +1,14 @@
 ---
 title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurshantering möjliggör en hantering av flera innehavare.
-ms.date: 04/06/2020
+ms.date: 04/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 66e2b2f7fbbae5940b576ead22a416625af3c058
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 107350cdab90751e918d4c7845776464b43abbdd
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81418530"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682818"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -72,6 +72,14 @@ De flesta uppgifter och tjänster kan utföras på delegerade resurser över han
 - Logganalys: Frågedata från fjärranslutna kundarbetsytor i flera klienter
 - Skapa aviseringar i kundklienter som utlöser automatisering, till exempel Azure Automation-runbooks eller Azure Functions, i tjänstleverantörens klient via webhooks
 
+[Azure-nätverk:](../../networking/networking-overview.md)
+
+- Distribuera och hantera [Virtuella Azure-nätverk (VNet)](../../virtual-network/index.yml) och virtuella nätverkskort (vNICs) inom kundklienter
+- Distribuera och konfigurera [Azure-brandväggen](../../firewall/overview.md) för att skydda kundernas virtuella nätverksresurser
+- Hantera anslutningstjänster som [Azure Virtual WAN,](../../virtual-wan/virtual-wan-about.md) [ExpressRoute](../../expressroute/expressroute-introduction.md)och [VPN-gateways](../../vpn-gateway/vpn-gateway-about-vpngateways.md) för kunder
+- Använd Azure Lighthouse för att stödja viktiga scenarier för [AZURE Networking MSP-programmet](../../networking/networking-partners-msp.md)
+
+
 [Azure-princip:](../../governance/policy/index.yml)
 
 - Ögonblicksbilder av kompatibilitet visar information om tilldelade principer i delegerade prenumerationer
@@ -121,10 +129,6 @@ De flesta uppgifter och tjänster kan utföras på delegerade resurser över han
 - Använd startdiagnostik för att felsöka virtuella Azure-datorer i kundklienter
 - Få tillgång till virtuella datorer med seriekonsol i kundklienter
 - Observera att du inte kan använda Azure Active Directory för fjärrinloggning till en virtuell dator, och du kan inte integrera en virtuell dator med ett Nyckelvalv för lösenord, hemligheter eller kryptografiska nycklar för diskkryptering
-
-[Virtuella Azure-nätverk:](../../virtual-network/index.yml)
-
-- Distribuera och hantera virtuella nätverk och virtuella nätverkskort (vNICs) inom kundklienter
 
 Supportförfrågningar:
 

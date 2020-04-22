@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 05698596f966f879da1affc58af0122d08d519ff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7db3f6f50745526876ef2ca6e3253f1931420f0f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79256242"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683251"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Snabbstart: Importera en BACPAC-fil till en databas i Azure SQL Database
 
@@ -88,7 +88,7 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [!NOTE]
 > De datorer som bearbetar import-/exportbegäranden som skickas via portalen eller Powershell måste lagra bacpac-filen samt temporära filer som genereras av DacFX (Data-Tier Application Framework). Det diskutrymme som krävs varierar avsevärt mellan DBs med samma storlek och kan ta upp till 3 gånger av databasstorleken. Datorer som kör import-/exportbegäran har bara 450 GB lokalt diskutrymme. Därför kan vissa begäranden misslyckas med felet "Det finns inte tillräckligt med utrymme på disken". I det här fallet är lösningen att köra sqlpackage.exe på en dator med tillräckligt med lokalt diskutrymme. När du importerar/exporterar databaser som är större än 150 GB använder du SqlPackage för att undvika det här problemet.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager (RM) stöds fortfarande av Azure SQL Database, men all framtida utveckling är för Az.Sql-modulen. AzureRM-modulen fortsätter att ta emot buggfixar fram till åtminstone december 2020.  Argumenten för kommandona i Az-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](/powershell/azure/new-azureps-module-az).
@@ -144,7 +144,8 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 
 ## <a name="limitations"></a>Begränsningar
 
-Det går inte att importera till en databas i elastisk pool. Du kan importera data till en enda databas och sedan flytta databasen till en elastisk pool.
+- Det går inte att importera till en databas i elastisk pool. Du kan importera data till en enda databas och sedan flytta databasen till en elastisk pool.
+- Import exporttjänsten fungerar inte när Tillåt åtkomst till Azure-tjänster är inställt på OFF. Du kan dock komma runt problemet genom att manuellt köra sqlpackage.exe från en Virtuell Azure eller utföra exporten direkt i koden med hjälp av DACFx API.
 
 ## <a name="import-using-wizards"></a>Importera med guider
 

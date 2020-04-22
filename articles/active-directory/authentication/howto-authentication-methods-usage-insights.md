@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1730939de399cacd13c62988259904ba84ee78ff
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 053b052abf6f23c385dc7447639aa40b6c2c58a1
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80654135"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680189"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Användning av autentiseringsmetoder & insikter (förhandsgranskning)
 
@@ -93,6 +93,8 @@ Med hjälp av kontrollerna högst upp i listan kan du söka efter en användare 
 De data som visas i dessa rapporter kommer att försenas med upp till 60 minuter. Det finns ett fält "Senast uppdaterad" i Azure-portalen för att identifiera hur senaste dina data är.
 
 Användnings- och insiktsdata ersätter inte aktivitetsrapporterna eller informationen i Azure AD-inloggningsrapporten.
+
+Rapporten kan för närvarande inte filtreras för att utesluta externa användare.
 
 ## <a name="next-steps"></a>Nästa steg
 

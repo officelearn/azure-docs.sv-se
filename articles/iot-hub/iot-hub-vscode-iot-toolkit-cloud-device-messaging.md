@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
-ms.openlocfilehash: 0b081229dcb382786fea03dff358b5cc47d77ee7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 31a5d55d1067b9dd946c1667118d0bde5ee3d59e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75912007"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682501"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Använda Azure IoT Tools for Visual Studio Code för att skicka och ta emot meddelanden mellan enheten och IoT Hub
 
@@ -39,9 +39,9 @@ Du lär dig hur du använder Azure IoT Tools för Visual Studio-kod för att öv
 
 * En Azure IoT-hubb under din prenumeration.
 
-* [Visual Studio-kod](https://code.visualstudio.com/)
+* [Visual Studio-koden](https://code.visualstudio.com/)
 
-* [Azure IoT Tools for VS-kod](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) eller [öppna den här länken i Visual Studio Code](vscode:extension/vsciot-vscode.azure-iot-tools).
+* [Azure IoT Tools for VS-kod](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) eller kopiera och klistra in den här URL:en i ett webbläsarfönster:`vscode:extension/vsciot-vscode.azure-iot-tools`
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Logga in för att komma åt din IoT-hubb
 

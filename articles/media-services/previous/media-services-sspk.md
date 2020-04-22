@@ -1,6 +1,6 @@
 ---
-title: Licensiering av Microsoft® Smooth Streaming Client Porting Kit
-description: Läs mer om hur du licensierar Microsoft® Smooth Streaming Client Porting Kit.
+title: Licensiering&reg; av Microsoft Smooth Streaming Client Porting Kit
+description: Läs mer om hur&reg; du licensierar Microsoft Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
 author: xpouyat
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: 59ac3ab2e70bfa00f19bae7e551780f2b2bb8ccb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bd77c53a195a9549f6aaad9ee2928206f5324b0c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79096709"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686899"
 ---
-# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licensiering av Microsoft® Smooth Streaming Client Porting Kit 
+# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licensiering&reg; av Microsoft Smooth Streaming Client Porting Kit 
 ## <a name="overview"></a>Översikt
 Microsoft Smooth Streaming Client Porting Kit **(SSPK** för kort) är en Smooth Streaming klientimplementering som är optimerad för att hjälpa inbäddade enhetstillverkare, kabel-och mobiloperatörer, innehållsleverantörer, mobiltelefontillverkare, oberoende programvaruleverantörer (ISV) och lösningsleverantörer för att skapa produkter och tjänster för direktuppspelning adaptivt innehåll i Smooth Streaming-format. SSPK är en enhet och plattformsoberoende implementering av Smooth Streaming-klient som kan portas av licenstagaren till vilken enhet och plattform som helst. 
 
@@ -55,13 +55,13 @@ Microsoft Smooth Streaming Client Porting Kit görs tillgängligt för licenstag
 * För enhetstillverkare eller ISV:er som kräver distributionsrättigheter för smooth streaming-klientfinalprodukter till slutanvändare bör Microsoft Smooth Streaming Client Porting Kit **Final Product License** utföras.
 
 ### <a name="microsoft-smooth-streaming-client-porting-kit-interim-product-license"></a>Microsoft Smooth Streaming Client Porting Kit Interim Product License
-Under den här licensen erbjuder Microsoft ett Smooth Streaming Client Porting Kit och nödvändiga immateriella rättigheter för att utveckla och distribuera Smooth Streaming Client Interim Products till andra Smooth Streaming Client Porting Kit-enhetslicenstagare som distribuera Smooth Streaming Client Final Products.
+Under den här licensen erbjuder Microsoft ett Smooth Streaming Client Porting Kit och nödvändiga immateriella rättigheter för att utveckla och distribuera Smooth Streaming Client Interim Products till andra Smooth Streaming Client Porting Kit-enhetslicenstagare som distribuerar Smooth Streaming Client Final Products.
 
 #### <a name="fee-structure"></a>Avgiftsstruktur
 En engångslicensavgift på 50 000 USD ger tillgång till Smooth Streaming Client Porting Kit. 
 
 ### <a name="microsoft-smooth-streaming-client-porting-kit-final-product-license"></a>Slutproduktlicens för Microsoft Smooth Streaming Client Porting Kit
-Under denna licens erbjuder Microsoft alla nödvändiga immateriella rättigheter för att ta emot Smooth Streaming Client Interim Products från andra Smooth Streaming Client Porting Kit-licenstagare och för att distribuera företag märkt Smooth Streaming Client Final Produkter till slutanvändare.
+Under den här licensen erbjuder Microsoft alla nödvändiga immateriella rättigheter för att ta emot Smooth Streaming Client Interim Products från andra Smooth Streaming Client Porting Kit-licenstagare och för att distribuera företagsmärkta Smooth Streaming Client Final Products till slutanvändare.
 
 #### <a name="fee-structure"></a>Avgiftsstruktur
 Smooth Streaming Client Final Product erbjuds under en royaltymodell enligt:
@@ -73,7 +73,7 @@ Smooth Streaming Client Final Product erbjuds under en royaltymodell enligt:
 ## <a name="licensing-procedure-and-sspk-access"></a>Licensieringsförfarande och SSPK-åtkomst
 E-post [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) för alla licensfrågor.
 
-[SSPK:s distributionsportal](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) är tillgänglig för registrerade interimslicenstagare.
+SSPK:s distributionsportal är tillgänglig för registrerade interimslicenstagare.
 
 Interims- och Final SSPK-licenstagare kan ställa tekniska frågor till [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com).
 

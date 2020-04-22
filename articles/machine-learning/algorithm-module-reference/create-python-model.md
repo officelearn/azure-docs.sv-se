@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 929938bba9c9512ecfd663a540cf4a7ebbf68e2b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8be0882452dc120f538394a5481769e26e3fa15
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79371825"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682811"
 ---
 # <a name="create-python-model-module"></a>Skapa Python-modellmodul
 
@@ -31,13 +31,21 @@ När du har skapat modellen kan du använda [Train Model](train-model.md) för a
 ## <a name="configure-the-module"></a>Konfigurera modulen
 
 Användning av den här modulen kräver mellanliggande eller expertkunskaper om Python. Modulen stöder användning av alla elever som ingår i Python-paket som redan är installerade i Azure Machine Learning. Se den förinstallerade Python-paketlistan i [Kör Python Script](execute-python-script.md).
-  
 
+> [!NOTE]
+> Var mycket försiktig när du skriver skriptet och ser till att det inte finns något syntaxfel, till exempel att använda ett odeklarerat objekt eller en icke-importerad modul.
+
+> [!NOTE]
+Ägna också extra uppmärksamhet åt den förinstallerade modulens listan i [Kör Python Script](execute-python-script.md). Importera endast förinstallerade moduler. Installera inte extra paket som "pip installera xgboost" i det här skriptet, annars fel kommer att höjas när du läser modeller i ned-stream moduler.
+  
 Den här artikeln visar hur du använder **Skapa Python-modell** med en enkel pipeline. Här är ett diagram över rörledningen:
 
 ![Diagram över Skapa Python-modell](./media/module/create-python-model.png)
 
 1. Välj **Skapa Python-modell**och redigera skriptet för att implementera din modellerings- eller datahanteringsprocess. Du kan basera modellen på alla elever som ingår i ett Python-paket i Azure Machine Learning-miljön.
+
+> [!NOTE]
+> Var extra uppmärksam på kommentarerna i exempelkoden för skriptet och se till att skriptet strikt följer kravet, inklusive klassnamn, metoder samt metodsignatur. Överträdelse kommer att leda till undantag. 
 
    Följande exempelkod för klassificeraren Med två klasser Av Naive Bayes används det populära *sklearnpaketet:*
 
@@ -50,7 +58,9 @@ Den här artikeln visar hur du använder **Skapa Python-modell** med en enkel pi
        # predict: which generates prediction result, the input argument and the prediction result MUST be pandas DataFrame.
    # The signatures (method names and argument names) of all these methods MUST be exactly the same as the following example.
 
-
+   # Please do not install extra packages such as "pip install xgboost" in this script,
+   # otherwise errors will be raised when reading models in down-stream modules.
+   
    import pandas as pd
    from sklearn.naive_bayes import GaussianNB
 
@@ -61,10 +71,15 @@ Den här artikeln visar hur du använder **Skapa Python-modell** med en enkel pi
            self.feature_column_names = list()
 
        def train(self, df_train, df_label):
+           # self.feature_column_names records the column names used for training.
+           # It is recommended to set this attribute before training so that the
+           # feature columns used in predict and train methods have the same names.
            self.feature_column_names = df_train.columns.tolist()
            self.model.fit(df_train, df_label)
 
        def predict(self, df):
+           # The feature columns used for prediction MUST have the same names as the ones for training.
+           # The name of score column ("Scored Labels" in this case) MUST be different from any other columns in input data.
            return pd.DataFrame(
                {'Scored Labels': self.model.predict(df[self.feature_column_names]), 
                 'probabilities': self.model.predict_proba(df[self.feature_column_names])[:, 1]}

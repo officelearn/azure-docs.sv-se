@@ -5,14 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 5fec72ce5f86c1bee9ec0e978e458f5be454c8e3
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: e061baa8e7eb73bae0a78f4215f0d48610e85fcb
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81256611"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686738"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Attribution för kommersiell marketplace-partner och kundanvändning
 
@@ -31,7 +31,7 @@ Attribution för kundanvändning stöder tre distributionsalternativ:
 >
 >- Kundanvändningsattribution är för nya distributioner och stöder INTE taggning av befintliga resurser som redan har distribuerats.
 >
->- Attribution för kundanvändning krävs för [Azure Application-erbjudanden](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer) som publiceras på Azure Marketplace.
+>- Attribution för kundanvändning krävs för [Azure Application-erbjudanden](./partner-center-portal/create-new-azure-apps-offer.md) som publiceras på Azure Marketplace.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -83,7 +83,7 @@ Många partnerlösningar distribueras med Azure Resource Manager-mallar. Om du h
 > [!NOTE]
 > Mer information om hur du skapar och publicerar lösningsmallar finns i
 > * [Skapa och distribuera den första Resource Manager-mallen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
->* [Azure-programerbjudande](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
+>* [Azure-programerbjudande](./partner-center-portal/create-new-azure-apps-offer.md).
 >* Video: [Skapa lösningsmallar och hanterade program för Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 

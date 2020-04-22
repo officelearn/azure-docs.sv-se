@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: fb82cec6874f8ef4f41897cc22939fe69ed02ec2
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 1e7eaf49fb8b62259b8c619c89edffd629dfde7f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457424"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685518"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Använd ID Broker (förhandsversion) för hantering av autentiseringsuppgifter
 
@@ -46,6 +46,46 @@ ID Broker-funktionen lägger till en extra virtuell dator i klustret. Den här v
 
 ![Alternativ för att aktivera ID Broker](./media/identity-broker/identity-broker-enable.png)
 
+### <a name="using-azure-resource-manager-templates"></a>Använda Azure Resource Manager-mallar
+Om du lägger `idbrokernode` till en ny roll som anropas med följande attribut i beräkningsprofilen för mallen skapas klustret med ID-mäklarnoden aktiverad:
+
+```json
+.
+.
+.
+"computeProfile": {
+    "roles": [
+        {
+            "autoscale": null,
+            "name": "headnode",
+           ....
+        },
+        {
+            "autoscale": null,
+            "name": "workernode",
+            ....
+        },
+        {
+            "autoscale": null,
+            "name": "idbrokernode",
+            "targetInstanceCount": 1,
+            "hardwareProfile": {
+                "vmSize": "Standard_A2_V2"
+            },
+            "virtualNetworkProfile": {
+                "id": "string",
+                "subnet": "string"
+            },
+            "scriptActions": [],
+            "dataDisksGroups": null
+        }
+    ]
+}
+.
+.
+.
+```
+
 ## <a name="tool-integration"></a>Verktygsintegrering
 
 HdInsight [IntelliJ-plugin-programmet](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) uppdateras för att stödja OAuth. Du kan använda det här plugin-programmet för att ansluta till klustret och skicka jobb.
@@ -62,7 +102,7 @@ I ID-mäklaren kan anpassade appar och klienter som ansluter till gatewayen uppd
 
 *   OAuth resurs uri:https://hib.azurehdinsight.net 
 * AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
-*   Behörighet: (namn: Cluster.ReadWrite, id:8f89faa0-ffef-4007-974d-4989b39ad77d)
+*   Behörighet: (namn: Cluster.ReadWrite, id: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
 ## <a name="next-steps"></a>Nästa steg
 

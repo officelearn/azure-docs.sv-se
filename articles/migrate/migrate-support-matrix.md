@@ -2,14 +2,14 @@
 title: Supportmatris för Azure Migrate
 description: Innehåller en sammanfattning av supportinställningar och begränsningar för Azure Migrate-tjänsten.
 ms.topic: conceptual
-ms.date: 03/22/2020
+ms.date: 04/19/2020
 ms.author: raynew
-ms.openlocfilehash: 0f766bf95bb7e26d942e7dde3f315bbef6d5dc5c
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 44a971894f53a3f31c068b3c3ed4912bc7e00dab
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535204"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680698"
 ---
 # <a name="azure-migrate-support-matrix"></a>Supportmatris för Azure Migrate
 
@@ -25,6 +25,8 @@ Tabellen sammanfattar scenarier för identifiering, utvärdering och migrering s
 **Lokal bedömning** | Utvärdera lokala arbetsbelastningar och data som körs på virtuella datorer med VMware, virtuella datorer med hyper-vm och fysiska servrar. Utvärdera med Hjälp av Azure Migrate Server Assessment och Microsoft Data Migration Assistant (DMA), samt andra verktyg och ISV-erbjudanden.
 **Lokal migrering till Azure** | Migrera arbetsbelastningar och data som körs på fysiska servrar, virtuella VMware-datorer, virtuella datorer med hyper-v. fysiska servrar och molnbaserade VMS till Azure. Migrera med Azure Migrate Server Assessment och Azure Database Migration Service (DMS) och andra verktyg och ISV-erbjudanden.
 
+> [!NOTE]
+> Isv-verktyg kan för närvarande inte skicka data till Azure Migrate i Azure Government. Du kan använda integrerade Microsoft-verktyg eller använda partnerverktyg oberoende av annat.
 
 ## <a name="supported-tools"></a>Verktyg som stöds
 
@@ -93,7 +95,7 @@ USA | Centrala USA eller västra USA 2
 **Aktivitet** | **Geografi** | **Detaljer**
 --- | --- | ---
 Skapa projekt | USA | Metadata lagras i US Gov Arizona, US Gov Virginia
-Målbedömning | USA | Målregioner: US Gov Arizona, US Gov Virginia /US Gov Texas
+Målbedömning | USA | Målregioner: US Gov Arizona, US Gov Virginia, US Gov Texas
 Målreplikering | USA | Målregioner: US DoD Central, US DoD East, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia
 
 

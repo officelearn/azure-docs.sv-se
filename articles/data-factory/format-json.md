@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: jingwang
-ms.openlocfilehash: c18d767afd3721bd6f6250058b9fbe66990133e4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7b554ea5c2868559574979c58697fd31f8d2a2c4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81417750"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686270"
 ---
 # <a name="json-format-in-azure-data-factory"></a>JSON-format i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -288,6 +288,8 @@ File3.json
     "json": "record 3"
 }
 ```
+> [!NOTE]
+> Om dataflöden genererar ett fel som anger "corrupt_record" när du förhandsgranskar dina JSON-data, är det troligt att dina data innehåller innehåller ett enda dokument i din JSON-fil. Om du ställer in "ett enda dokument" bör felet visas.
 
 #### <a name="unquoted-column-names"></a>Namn på ej citerad kolumn
 

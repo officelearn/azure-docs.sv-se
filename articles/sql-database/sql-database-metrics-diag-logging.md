@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 04/06/2020
-ms.openlocfilehash: 9c9f069ad38c65aa0bbfdcde9eef3fed32585d9e
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 288d4e4d0c5faa6bb2b51451fb36bbb6d666c9eb
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756411"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683182"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-diagnostic-telemetry"></a>Konfigurera strömmande export av diagnostiktelemetri för Azure SQL Database
 
@@ -363,7 +363,7 @@ Du kan använda SQL Analytics som en hierarkisk instrumentpanel för att visa di
 
 ## <a name="stream-into-event-hubs"></a>Strömma till Event Hubs
 
-Du kan strömma SQL Database-mått och resursloggar till eventhubbar med hjälp av det inbyggda **flödet till ett händelsenavalternativ** i Azure-portalen. Du kan också aktivera servicebussregel-ID genom att använda diagnostikinställningar via PowerShell-cmdlets, Azure CLI eller AZURE Monitor REST API.
+Du kan strömma SQL Database-mått och resursloggar till eventhubbar med hjälp av det inbyggda **flödet till ett händelsenavalternativ** i Azure-portalen. Du kan också aktivera servicebussregel-ID genom att använda diagnostikinställningar via PowerShell-cmdlets, Azure CLI eller AZURE Monitor REST API. Kontrollera att händelsehubben är i samma region som databasen och servern.
 
 ### <a name="what-to-do-with-metrics-and-resource-logs-in-event-hubs"></a>Vad du ska göra med mått och resursloggar i eventhubbar
 

@@ -1,22 +1,22 @@
 ---
-title: Go-To-Market Services - Erbjudande notering bästa praxis | Azure
+title: Go-To-Market Services - Erbjudande notering bästa praxis | Azure Marketplace
 description: Go-To-Market Services – i det här avsnittet beskrivs de bästa metoderna för ett erbjudande
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/21/2018
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 3cb625e613d8dbe9398e947925a8dc574a277614
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 95f5083b5f00834e65a8385835635588033bd977
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286259"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684582"
 ---
 # <a name="offer-listing-best-practices"></a>Metodtips för erbjudandelistor
 
-Tabellerna i det här avsnittet innehåller förslag på hur du skapar och engagerar marketplace-erbjudanden. Om du vill skriva och konfigurera ditt marknadsföringsmaterial går du till [Cloud Partner-portalen](https://cloudpartner.azure.com/#insights). 
+Tabellerna i det här avsnittet innehåller förslag på hur du skapar och engagerar marketplace-erbjudanden. Om du vill skriva och konfigurera marknadsföringsmaterialet går du till [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights). 
 
 ## <a name="storefront-offer-details"></a>Information om skyltfönster erbjuder
 
@@ -25,14 +25,14 @@ Tabellerna i det här avsnittet innehåller förslag på hur du skapar och engag
 | Erbjudandets namn | Ge en stark titel:<br> <ul> <li> Ditt appnamn bör kommunicera kärnvärdet för dina kunder. </li> <li> Inkludera sökord i appens titel för att få högre rankning i sökmotorresultat. </li> </ul> Följ ett inställt titelformat för konsulttjänster:<br>[Erbjudandenamn: [Varaktighet] [Erbjudandetyp] (till exempel *Contoso: 2-veckors implementering*) <br><br> Följ varumärkesriktlinjerna:<br>Följ [Microsofts riktlinjer för varumärken och varumärken](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) och andra relevanta, produktspecifika riktlinjer när du hänvisar till Microsofts varumärken och namnen på Microsofts programvara, produkter och tjänster. |
 | Beskrivning av erbjudandet | Ge en tydlig beskrivning av erbjudandet:<br> <ul> <li> Beskriv tydligt erbjudandets värdeerbjudande i de första meningarna i din beskrivning. </li> <li> Tänk på att de första meningarna kan visas i sökmotorresultat. </li> <li> Lita inte på funktioner och funktioner för att sälja din produkt. Fokusera istället på det värde du levererar. </li> <li> Använd branschspecifik vokabulär eller förmånsbaserad formulering så mycket som möjligt.</li> <li> Dessutom måste Consulting Service-listor tydligt ange den professionella service du tillhandahåller. </li></ul> Centrala komponenter i ditt värdeerbjudande bör innehålla följande information:<ul><li>Beskrivning av produkten.</li><li>Typ av användare som drar nytta av produkten.</li><li>Kunden behöver eller smärta som produkten adresserar.</li></ul> |
 
-Tabellerna i det här avsnittet innehåller förslag på hur du skapar och engagerar marketplace-erbjudanden. Om du vill skriva och konfigurera ditt marknadsföringsmaterial går du till [Cloud Partner-portalen](https://cloudpartner.azure.com/#insights). 
+Tabellerna i det här avsnittet innehåller förslag på hur du skapar och engagerar marketplace-erbjudanden. Om du vill skriva och konfigurera marknadsföringsmaterial går du till [Partnercenter](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights). 
 
 ## <a name="storefront-listing-details"></a>Information om skyltfönster
 
 | Inställningar för skyltfönster | Regelverk |
 |:--- |:--- |  
-| Branscher: AppSource-appar och konsulttjänster endast | Välj branscher om ditt erbjudande tillgodoser branschspecifika behov: <ul><li> Ropa ut branschspecifika funktioner i erbjudandebeskrivningen.</li> </ul> **Obs:** Det maximala antalet alternativ varierar beroende på erbjudandetyp och anges i [Cloud Partner-portalen](https://cloudpartner.azure.com/#insights). |
-| Kategorier | Välj kategorier som bäst stämmer överens med ditt erbjudande:<br> <ul> <li> Välj kategorierna noggrant eftersom kunderna använder dem för att söka efter relevanta appar. </li> <li> Var noga med att ropa ut hur ditt erbjudande stöder kategorispecifika behov i erbjudandebeskrivningen. </li> </ul> **Obs:** Det maximala antalet alternativ varierar beroende på erbjudandetyp och anges i [Cloud Partner-portalen](https://cloudpartner.azure.com/#insights). |
+| Branscher: AppSource-appar och konsulttjänster endast | Välj branscher om ditt erbjudande tillgodoser branschspecifika behov: <ul><li> Ropa ut branschspecifika funktioner i erbjudandebeskrivningen.</li> </ul> **Obs:** Det maximala antalet alternativ varierar beroende på erbjudandetyp och anges i [Partner center](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights). |
+| Kategorier | Välj kategorier som bäst stämmer överens med ditt erbjudande:<br> <ul> <li> Välj kategorierna noggrant eftersom kunderna använder dem för att söka efter relevanta appar. </li> <li> Var noga med att ropa ut hur ditt erbjudande stöder kategorispecifika behov i erbjudandebeskrivningen. </li> </ul> **Obs:** Det maximala antalet alternativ varierar beroende på erbjudandetyp och anges i [Partner center](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights). |
 | Produkter som din app fungerar med (max 3): Endast AppSource-appar | Lista ytterligare produkter och tekniker som din lösning använder eller utökar. Azure IoT Hub eller Azure Machine Learning. |
 | Sökord (3 max) | Sökord kan hjälpa företagsanvändare att hitta ditt erbjudande när de söker <ul> <li> på Azure Marketplace </li> <li> på AppSource </li> <li> använda sökmotorer </li> </ul> För att dina uppgifter ska visas i dessa sökningar måste du: <ul> <li> Identifiera de tre bästa sökorden för ditt erbjudande. </li> <li> införliva sökorden i ditt erbjudande sammanfattning och beskrivning; </li> <li> lista sökorden här. </li> </ul> |
 
@@ -89,12 +89,12 @@ När du länkar från AppSource- eller Azure Marketplace-märket på din webbpla
 
 Följande exempel-URL innehåller båda föregående frågeparametrar:`https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 
-Genom att lägga till parametrarna i appsource-URL:en kan du granska hur effektiv kampanjen är i instrumentpanelen för analys i [Cloud Partner-portalen](https://cloudpartner.azure.com/#insights).
+Genom att lägga till parametrarna i appsource-URL:en kan du granska hur effektiv kampanjen är i instrumentpanelen för analys i [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om dina [kommersiella marknadsplatsfördelar.](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)
+Läs mer om dina [kommersiella marknadsplatsfördelar.](./gtm-your-marketplace-benefits.md)
 
-Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com) för att skapa och konfigurera ditt erbjudande.
+Logga in [på Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) för att skapa och konfigurera erbjudandet.
 
 ---

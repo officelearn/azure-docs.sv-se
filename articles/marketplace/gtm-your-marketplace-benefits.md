@@ -1,18 +1,18 @@
 ---
-title: Go-To-Market Services - din kommersiella marknadsplats fördelar | Azure
+title: Go-To-Market Services - din kommersiella marknadsplats fördelar | Azure Marketplace
 description: Go-To-Market Services – Microsoft-resurser som utgivare kan använda beskrivs i det här avsnittet.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/08/2020
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: d34fb989e7f656df93faae63ef4dc42ed0fe5abe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d5c8b2f5cb03c7e1777137100547fbbbaf107f0b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286242"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684546"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Fördelar med din kommersiella marknadsplats
 
@@ -24,7 +24,7 @@ När du sänder live med ditt erbjudande kommer Marketplace Rewards-teamet att k
 
 Marketplace Rewards är utformat för att stödja dig i ditt specifika tillväxtstadium, till att börja med medvetenhetsaktiviteter som hjälper dig att få dina första kunder. När du växer genom marknaden låser du upp nya förmåner som hjälper dig att konvertera kunder och avsluta erbjudanden. 
 
-Programmet skapar en positiv feedbackloop: fördelarna i varje steg av tillväxt är utformade för att gå vidare till nästa steg, så att du kan växa din verksamhet till Microsoft-kunder, med Microsofts fält och via Microsofts kanal genom att utnyttja kommersiella marknadsplatsen som din plattform. 
+Programmet skapar en positiv feedbackloop: fördelarna i varje steg av tillväxt är utformade för att gå vidare till nästa steg, så att du kan växa din verksamhet till Microsoft-kunder, med Microsofts fält, och genom Microsofts kanal genom att utnyttja den kommersiella marknaden som din plattform. 
 
 Dina förmåner är differentierade beroende på om ditt erbjudande är [Lista, Trial eller Transact.](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#choose-a-publishing-option)
 
@@ -44,7 +44,7 @@ Dina steg för att komma igång är enkla:
 2. Teamet når ut till "ägare" eller "primär kontakt" per marknadsplats erbjudande. Det är en bra idé att ange antingen en individ eller ett alias info@company.com som du kontrollerar regelbundet: meddelanden som skickas till alias som ofta försvinner.
 
 >[!Note]
->Om ditt erbjudande har varit live i mer än fyra veckor och du inte har fått något meddelande, kontrollera inom din organisation vem som äger erbjudandet i fråga, antingen genom att titta i Cloud Partner Portal eller i Partner Center. De bör ha kommunikation och nästa steg. <br> <br> Om du inte kan bestämma ägaren, eller om ägaren har lämnat https://aka.ms/marketplacepublishersupportditt företag, kan du höja en supportbiljett på .
+>Om ditt erbjudande har varit live i mer än fyra veckor och du inte har fått något meddelande, kontrollera inom din organisation vem som äger erbjudandet i fråga genom att titta i Partner Center. De bör ha kommunikation och nästa steg. <br> <br> Om du inte kan bestämma ägaren, eller om ägaren har lämnat https://aka.ms/marketplacepublishersupportditt företag, kan du höja en supportbiljett på .
 
 Omfattningen av de aktiviteter som är tillgängliga för dig utökas när du växer dina erbjudanden på marknaden. Alla listor får en basnivå av optimeringsrekommendationer och marknadsföring som en del av en självbetjäning e-post med resurser och bästa praxis.
 
@@ -96,7 +96,7 @@ Microsoft förbehåller sig rätten att återkalla och avsluta Marketplace Rewar
 * bedriva olaglig verksamhet med hjälp av sin marknadsplatslistning.
 * avlistas från den kommersiella marknaden. 
 * använda sitt erbjudande för att visa marknadsföring eller annat innehåll som bryter mot upphovsrätts- eller varumärkeslagar.
-* bryter mot policyerna för [Azure-sponsringsprogrammet](https://azure.microsoft.com/offers/ms-azr-0036p/), inklusive, men inte begränsat till, med hjälp av Azure-sponsringsfinansieringen för sina egna interna operationer eller bitcoin-gruvdrift. 
+* bryter mot policyerna för [Azure-sponsringsprogrammet](https://azure.microsoft.com/offers/ms-azr-0036p/), inklusive, men inte begränsat till, med hjälp av Azure-sponsringsfinansieringen för sina egna interna operationer eller Bitcoin-gruvdrift. 
 
 ### <a name="offer-availability"></a>Tillgänglighet för erbjudandet
 
@@ -106,9 +106,7 @@ Transaktioner som har visat sig vara bedrägliga kommer inte att räknas in i en
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har skapat ditt erbjudande i [Cloud Partner Portal](https://cloudpartner.azure.com)loggar du in för att skapa eller konfigurera ditt erbjudande.
-
-Om du har skapat erbjudandet i [Partner center](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview)loggar du in för att skapa eller konfigurera erbjudandet.
+Om du har skapat erbjudandet i [Partner center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)loggar du in för att skapa eller konfigurera erbjudandet.
 
 Granska de [självbetjäningsresurser som är tillgängliga för dig](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 

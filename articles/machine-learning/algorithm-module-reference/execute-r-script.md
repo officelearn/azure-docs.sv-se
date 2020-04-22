@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2020
-ms.openlocfilehash: f038293b48956ac89314e426df3f5dc491954df3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eb778c8d24639320b60927438de76a29de724ac2
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064207"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684717"
 ---
 # <a name="execute-r-script"></a>Köra R-skript
 
@@ -44,7 +44,10 @@ azureml_main <- function(dataframe1, dataframe2){
 ```
 
 ## <a name="installing-r-packages"></a>Installera R-paket
-Om du vill installera ytterligare `install.packages()` R-paket använder du metoden. Var noga med att ange CRAN-databasen. Paket installeras för varje **Kör R Script-modul** och delas inte mellan andra Kör **R-skriptmoduler.**
+Om du vill installera ytterligare `install.packages()` R-paket använder du metoden. Paket installeras för varje **Kör R Script-modul** och delas inte mellan andra Kör **R-skriptmoduler.**
+
+> [!NOTE]
+> Ange CRAN-arkivet när du installerar paket som`install.packages("zoo",repos = "http://cran.us.r-project.org")`
 
 Det här exemplet visar hur du installerar Zoo:
 ```R
@@ -52,7 +55,13 @@ Det här exemplet visar hur du installerar Zoo:
 # The script MUST contain a function named azureml_main
 # which is the entry point for this module.
 
-# The entry point function can contain up to two input arguments:
+# Please note that functions dependant on X11 library
+# such as "View" are not supported because X11 library
+# is not pre-installed.
+
+# The entry point function MUST have two input arguments.
+# If the input port is not connected, the corresponding
+# dataframe argument will be null.
 #   Param<dataframe1>: a R DataFrame
 #   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
@@ -77,7 +86,13 @@ I följande exempel visas hur du laddar upp en bildfil i **Execute R Script:**
 # The script MUST contain a function named azureml_main
 # which is the entry point for this module.
 
-# The entry point function can contain up to two input arguments:
+# Please note that functions dependant on X11 library
+# such as "View" are not supported because X11 library
+# is not pre-installed.
+
+# The entry point function MUST have two input arguments.
+# If the input port is not connected, the corresponding
+# dataframe argument will be null.
 #   Param<dataframe1>: a R DataFrame
 #   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
@@ -124,6 +139,12 @@ Datauppsättningar som lagras i designern konverteras automatiskt till en R-data
 
 1. Skriv eller klistra in giltigt R-skript i textrutan **R-skript.**
 
+    > [!NOTE]
+    > Var mycket försiktig när du skriver skriptet och ser till att det inte finns något syntaxfel, till exempel att använda en ej deklarerad variabel eller en icke-importerad modul eller funktion. Också ägna extra uppmärksamhet åt den förinstallerade paketlistan i slutet av detta dokument. Om du vill använda paket som inte finns med i listan installerar du dem i skriptet, till exempel`install.packages("zoo",repos = "http://cran.us.r-project.org")`
+    
+    > [!NOTE]
+    > Funktioner som är beroende av X11-bibliotek, till exempel "Visa" stöds inte eftersom X11-biblioteket inte är förinstallerat.
+    
     För att hjälpa dig att komma igång fylls i textrutan **R-skript** med exempelkod som du kan redigera eller ersätta.
     
     ```R
@@ -131,7 +152,13 @@ Datauppsättningar som lagras i designern konverteras automatiskt till en R-data
     # The script MUST contain a function named azureml_main
     # which is the entry point for this module.
 
-    # The entry point function can contain up to two input arguments:
+    # Please note that functions dependant on X11 library
+    # such as "View" are not supported because X11 library
+    # is not pre-installed.
+    
+    # The entry point function MUST have two input arguments.
+    # If the input port is not connected, the corresponding
+    # dataframe argument will be null.
     #   Param<dataframe1>: a R DataFrame
     #   Param<dataframe2>: a R DataFrame
     azureml_main <- function(dataframe1, dataframe2){
@@ -148,8 +175,8 @@ Datauppsättningar som lagras i designern konverteras automatiskt till en R-data
 
  * Skriptet måste innehålla `azureml_main`en funktion med namnet , som är startpunkten för den här modulen.
 
- * Ingångsfunktionen kan innehålla upp till `Param<dataframe1>` två indataargument: och`Param<dataframe2>`
- 
+ * Startpunktsfunktionen måste ha två `Param<dataframe1>` `Param<dataframe2>`indataargument: och , även om dessa två argument inte används i funktionen.
+
    > [!NOTE]
     > Data som skickas till modulen **Kör R-skript** refereras `dataframe1` som `dataframe2`och , vilket `dataset1`skiljer `dataset2`sig från Azure Machine Learning designer (designerreferensen som , ). Kontrollera att indata refereras korrekt i skriptet.  
  
@@ -195,7 +222,14 @@ Följande exempel visar hur du skalar och normaliserar indata:
 # R version: 3.5.1
 # The script MUST contain a function named azureml_main
 # which is the entry point for this module.
-# The entry point function can contain up to two input arguments:
+
+# Please note that functions dependant on X11 library
+# such as "View" are not supported because X11 library
+# is not pre-installed.
+
+# The entry point function MUST have two input arguments.
+# If the input port is not connected, the corresponding
+# dataframe argument will be null.
 #   Param<dataframe1>: a R DataFrame
 #   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){

@@ -1,6 +1,6 @@
 ---
-title: Diagnostisera Windows Hybrid Runbook Worker - Azure Update Management
-description: Lär dig hur du felsöker och löser problem med Azure Automation Hybrid Runbook Worker i Windows som stöder uppdateringshantering.
+title: Felsöka problem med Windows Update-agenten i Azure Automation Update Management
+description: Lär dig hur du felsöker och löser problem med Windows Update-agenten med hjälp av lösningen För uppdateringshantering.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,36 +9,36 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: ec35d11eba59ea21947e2c3cd5286bababa4eabb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6983a2ac7ab5fafcb00aee0b72221a8540ea1668
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76153862"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678978"
 ---
-# <a name="understand-and-resolve-windows-hybrid-runbook-worker-health-in-update-management"></a>Förstå och lösa hälsa för Windows Hybrid Runbook Worker i uppdateringshantering
+# <a name="troubleshoot-windows-update-agent-issues"></a>Felsöka problem med Windows Update-agenten
 
-Det kan finnas många orsaker till att datorn inte visar **Klar** i uppdateringshantering. I Uppdateringshantering kan du kontrollera hälsotillståndet för en Hybrid Runbook Worker-agent för att fastställa det underliggande problemet. I den hÃ¤r artikeln beskrivs hur du kÃ¶r felsökaren för Azure-datorer frÃ¶r Azure-portalen och icke-Azure-datorer i [offlinescenariot](#troubleshoot-offline).
+Det kan finnas många anledningar till varför din maskin inte visas som redo (felfri) i Uppdateringshantering. I Uppdateringshantering kan du kontrollera hälsotillståndet för en Hybrid Runbook Worker-agent för att fastställa det underliggande problemet. I den hÃ¤r artikeln beskrivs hur du kÃ¶r felsökaren för Azure-datorer frÃ¶r Azure-portalen och icke-Azure-datorer i [offlinescenariot](#troubleshoot-offline).
 
-Följande lista är de tre beredskapstillstånd som en maskin kan vara i:
+Följande är de tre beredskapstillstånden för en maskin:
 
-* **Ready** - Hybrid Runbook Worker distribueras och sågs senast för mindre än 1 timme sedan.
-* **Frånkopplad** - Hybrid Runbook Worker distribueras och sågs senast för över 1 timme sedan.
-* **Inte konfigurerad** – Hybrid Runbook Worker hittades inte eller har inte slutförts.
+* Ready - Hybrid Runbook Worker distribueras och sågs senast för mindre än 1 timme sedan.
+* Frånkopplad - Hybrid Runbook Worker distribueras och sågs senast för över 1 timme sedan.
+* Inte konfigurerad – Hybrid Runbook Worker hittades inte eller har inte slutförts.
 
 > [!NOTE]
-> Det kan finnas en liten fördröjning mellan vad Azure-portalen visar och datorns aktuella tillstånd.
+> Det kan finnas en liten fördröjning mellan vad Azure-portalen visar och det aktuella tillståndet för en dator.
 
 ## <a name="start-the-troubleshooter"></a>Starta felsökaren
 
-För Azure-datorer startar sidan **Felsöka uppdateringsagent** om du klickar på länken **Felsöka** under kolumnen **Beredskap för uppdateringsagenter** i portalen. För datorer som inte är Azure tar länken dig till den här artikeln. Se [offlineinstruktionerna](#troubleshoot-offline) för att felsöka en annan dator än Azure.
+För Azure-datorer startar sidan **Felsöka** uppdateringsagent om du klickar på länken Felsöka under kolumnen **Beredskap för uppdateringsagenter** i portalen. För datorer som inte är Azure tar länken dig till den här artikeln. Se [offlineinstruktionerna](#troubleshoot-offline) för att felsöka en annan dator än Azure.
 
 ![Uppdateringshanteringslista över virtuella datorer](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
 > För att kontrollera hälsotillståndet för Hybrid Runbook Worker måste den virtuella datorn köras. Om den virtuella datorn inte körs visas knappen **Starta den virtuella datorn.**
 
-På sidan **Felsöka uppdateringsagent** väljer du **Kör checkar** för att starta felsökaren. Felsökaren använder [Kör kommando](../../virtual-machines/windows/run-command.md) för att köra ett skript på datorn för att verifiera beroenden. När felsökaren är klar returneras resultatet av checkarna.
+På sidan Felsöka uppdateringsagent väljer du **Kör checkar** för att starta felsökaren. Felsökaren använder [Kör kommando](../../virtual-machines/windows/run-command.md) för att köra ett skript på datorn för att verifiera beroenden. När felsökaren är klar returneras resultatet av checkarna.
 
 ![Felsöka sidan Update Agent](../media/update-agent-issues/troubleshoot-page.png)
 
@@ -86,15 +86,13 @@ Proxy- och brandväggskonfigurationer måste tillåta hybridkörningsarbetsagent
 
 ### <a name="monitoring-agent-service-status"></a>Tjänststatus för övervakning av agent
 
-Den här kontrollen `HealthService`avgör om Microsoft Monitoring Agent körs på datorn.
+Den här kontrollen avgör om Log`healthservice`Analytics-agenten för Windows ( ) körs på datorn. Mer information om felsökning av tjänsten finns [inte i Logganalysagenten för Windows.](hybrid-runbook-worker.md#mma-not-running)
 
-Mer information om felsökning av tjänsten finns i [Microsoft Monitoring Agent körs inte](hybrid-runbook-worker.md#mma-not-running).
-
-Om du vill installera om Microsoft Monitoring Agent finns i [Installera och konfigurera Microsoft Monitoring Agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+Om du vill installera om Log Analytics-agenten för Windows finns i [Installera och konfigurera Log Analytics-agenten för Windows](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
 ### <a name="monitoring-agent-service-events"></a>Övervaka agenttjänsthändelser
 
-Den här kontrollen `4502` avgör om några händelser visas i Azure Operations Manager-loggen på datorn under de senaste 24 timmarna.
+Den här kontrollen avgör om 4502 händelser visas i Azure Operations Manager-loggen på datorn under de senaste 24 timmarna.
 
 Mer information om den här händelsen finns i [felsökningsguiden](hybrid-runbook-worker.md#event-4502) för den här händelsen.
 
@@ -167,9 +165,9 @@ RuleName                    : Monitoring Agent service status
 RuleGroupName               : VM Service Health Checks
 RuleDescription             : HealthService must be running on the machine
 CheckResult                 : Failed
-CheckResultMessage          : Microsoft Monitoring Agent service (HealthService) is not running
+CheckResultMessage          : Log Analytics for Windows service (HealthService) is not running
 CheckResultMessageId        : MonitoringAgentServiceRunningCheck.Failed
-CheckResultMessageArguments : {Microsoft Monitoring Agent, HealthService}
+CheckResultMessageArguments : {Log Analytics agent for Windows, HealthService}
 
 RuleId                      : MonitoringAgentServiceEventsCheck
 RuleGroupId                 : servicehealth
@@ -177,9 +175,9 @@ RuleName                    : Monitoring Agent service events
 RuleGroupName               : VM Service Health Checks
 RuleDescription             : Event Log must not have event 4502 logged in the past 24 hours
 CheckResult                 : Failed
-CheckResultMessage          : Microsoft Monitoring Agent service Event Log (Operations Manager) does not exist on the machine
+CheckResultMessage          : Log Analytics agent for Windows service Event Log (Operations Manager) does not exist on the machine
 CheckResultMessageId        : MonitoringAgentServiceEventsCheck.Failed.NoLog
-CheckResultMessageArguments : {Microsoft Monitoring Agent, Operations Manager, 4502}
+CheckResultMessageArguments : {Log Analytics agent for Windows, Operations Manager, 4502}
 
 RuleId                      : CryptoRsaMachineKeysFolderAccessCheck
 RuleGroupId                 : permissions

@@ -1,14 +1,14 @@
 ---
 title: Information om principtilldelningsstrukturen
 description: Beskriver principtilldelningsdefinitionen som används av Azure Policy för att relatera principdefinitioner och parametrar till resurser för utvärdering.
-ms.date: 09/23/2019
+ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: f03c654dfc4c8dfdf2bdc5103a5961b4d8ce1e64
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cdb2fc0c6f057ece44383f68bc79fca54507db9b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79265303"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683224"
 ---
 # <a name="azure-policy-assignment-structure"></a>Tilldelningsstruktur i Azure Policy
 
@@ -20,6 +20,7 @@ Du använder JSON för att skapa en principtilldelning. Principtilldelningen inn
 - description
 - metadata
 - verkställighetsläge
+- undantagna scope
 - principdefinition
 - parameters
 
@@ -34,6 +35,7 @@ Följande JSON visar till exempel en principtilldelning i _DoNotEnforce-läge_ m
             "assignedBy": "Cloud Center of Excellence"
         },
         "enforcementMode": "DoNotEnforce",
+        "notScopes": [],
         "policyDefinitionId": "/subscriptions/{mySubscriptionID}/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
         "parameters": {
             "prefix": {
@@ -65,6 +67,10 @@ Den här egenskapen har följande värden:
 |Disabled |DoNotEnforce (DoNotEnforce) |sträng |Ja |Inga | Principeffekten tillämpas inte när resurser skapas eller uppdateras. |
 
 Om **enforcementMode** inte anges i en princip- eller initiativdefinition används värdet _Standard._ [Reparationsuppgifter](../how-to/remediate-resources.md) kan startas för [distributionOmutexistera](./effects.md#deployifnotexists) principer, även när **enforcementMode** är inställt på _DoNotEnforce_.
+
+## <a name="excluded-scopes"></a>Undantagna scope
+
+**Tilldelningens omfattning** omfattar alla underordnade resursbehållare och underordnade resurser. Om en underordnad resursbehållare eller underordnad resurs inte bör ha definitionen tillämpad, kan var och en uteslutas från utvärderingen genom att ange **notScopes**. Den här egenskapen är en matris som gör det möjligt att utesluta en eller flera resursbehållare eller resurser från utvärderingen. **notScopes** kan läggas till eller uppdateras när den ursprungliga tilldelningen har skapats.
 
 ## <a name="policy-definition-id"></a>Principdefinitions-ID
 

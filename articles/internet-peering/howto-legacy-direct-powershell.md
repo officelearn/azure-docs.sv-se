@@ -1,39 +1,39 @@
 ---
-title: Konvertera en äldre Direkt peering till Azure-resurs med PowerShell
+title: Konvertera en äldre direkt peering till en Azure-resurs med hjälp av PowerShell
 titleSuffix: Azure
-description: Konvertera en äldre Direkt peering till Azure-resurs med PowerShell
+description: Konvertera en äldre direkt peering till en Azure-resurs med hjälp av PowerShell
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: ba41f4ad8014ba3e85174b7c32e11394f0068643
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5d2a8c910c9e384e137785bc1cd491bc85c7e7a8
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75775022"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678499"
 ---
-# <a name="convert-a-legacy-direct-peering-to-azure-resource-using-powershell"></a>Konvertera en äldre Direkt peering till Azure-resurs med PowerShell
+# <a name="convert-a-legacy-direct-peering-to-an-azure-resource-by-using-powershell"></a>Konvertera en äldre direkt peering till en Azure-resurs med hjälp av PowerShell
 
-I den här artikeln beskrivs hur du konverterar en befintlig direkt peering till Azure-resurs med PowerShell-cmdletar.
+I den här artikeln beskrivs hur du konverterar en befintlig äldre direkt peering till en Azure-resurs med hjälp av PowerShell-cmdletar.
 
-Om du vill kan du slutföra den här guiden med hjälp av [portalen](howto-legacy-direct-portal.md).
+Om du vill kan du slutföra den här guiden med hjälp av [Azure-portalen](howto-legacy-direct-portal.md).
 
 ## <a name="before-you-begin"></a>Innan du börjar
-* Granska [förutsättningar](prerequisites.md) och [direkt peer-genomgång](walkthrough-direct-all.md) innan du börjar konfigurera.
+* Granska [förutsättningarna](prerequisites.md) och direkt [peer-genomgången](walkthrough-direct-all.md) innan du börjar konfigurera.
 
-### <a name="working-with-azure-powershell"></a>Arbeta med Azure PowerShell
+### <a name="work-with-azure-powershell"></a>Arbeta med Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
-## <a name="convert-legacy-direct-peering-to-azure-resource"></a>Konvertera äldre direkt peering till Azure-resurs
+## <a name="convert-a-legacy-direct-peering-to-an-azure-resource"></a>Konvertera en äldre direkt peering till en Azure-resurs
 
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Logga in på ditt Azure-konto och välj din prenumeration
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name="get-legacy-direct-peering-for-conversion"></a><a name= get></a>Få äldre direkt peering för konvertering
-Nedan är ett exempel för att få äldre Direkt peering på Seattle peering plats
+### <a name="get-a-legacy-direct-peering-for-conversion"></a><a name= get></a>Skaffa en äldre direkt peering för konvertering
+Det här exemplet visar hur du får en äldre direkt peering på Seattle peering-platsen.
 
 ```powershell
 $legacyPeering = Get-AzLegacyPeering `
@@ -41,7 +41,7 @@ $legacyPeering = Get-AzLegacyPeering `
 $legacyPeering
 ```
 
-Nedan följer ett exempel på svar:
+Här är ett exempelsvar:
 ```powershell
 Name                       :
 Sku                        : Basic_Direct_Free
@@ -79,13 +79,13 @@ ProvisionedBandwidthInMbps : 20000
 ProvisioningState          : Succeeded
 ```
 
-### <a name="convert-legacy-direct-peering"></a>Konvertera äldre direkt peering
+### <a name="convert-a-legacy-direct-peering"></a>Konvertera en äldre direkt peering
 
 &nbsp;
 > [!IMPORTANT]
-> Observera att när du konverterar äldre peering till azure-resurs stöds inte ändringar. &nbsp;
+> När du konverterar en äldre peering till en Azure-resurs stöds inte ändringar. &nbsp;
 
-Använd nedan för att konvertera äldre direkt peering till Azure-resurs:
+Använd det här kommandot för att konvertera en äldre Direct-peering till en Azure-resurs:
 
 ```powershell
 $legacyPeering[0] | New-AzPeering `
@@ -94,7 +94,7 @@ $legacyPeering[0] | New-AzPeering `
 
 ```
 
-Nedan följer ett exempel på svar:
+Här är ett exempelsvar:
 
 ```powershell
 Name                 : SeattleDirectPeering
@@ -112,14 +112,14 @@ Tags                 : {}
 ```
 
 ## <a name="additional-resources"></a>Ytterligare resurser
-Du kan få detaljerade beskrivningar av alla parametrar genom att köra följande kommando:
+Du kan få detaljerade beskrivningar av alla parametrar genom att köra det här kommandot:
 
 ```powershell
 Get-Help Get-AzPeering -detailed
 ```
 
-Mer information finns på [vanliga frågor om internet peering](faqs.md)
+Mer information finns i [Vanliga frågor och frågor om Internet-peering](faqs.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa eller ändra en direkt peering med PowerShell](howto-direct-powershell.md).
+* [Skapa eller ändra en direkt peering med powershell](howto-direct-powershell.md)

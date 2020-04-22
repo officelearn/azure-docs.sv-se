@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 678af1855baf52efa727444236de8a1724a7d0b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a9a3c10687b92d946fccb282f2eda4af637cf2ab
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79078474"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686777"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Träna modeller med Azure Machine Learning med uppskattning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -80,7 +80,7 @@ print(run.get_portal_url())
 >
 > Om du vill skapa artefakter under träningen (till exempel modellfiler, kontrollpunkter, `./outputs` datafiler eller ritade bilder) skriver du dessa till mappen.
 >
-> På samma sätt kan du skriva alla loggar `./logs` från din träningskörning till mappen. Om du vill använda Azure Machine Learnings [TensorBoard-integrering](https://aka.ms/aml-notebook-tb) måste du skriva dina TensorBoard-loggar till den här mappen. Medan din körning pågår kan du starta TensorBoard och strömma dessa loggar.  Senare kommer du också att kunna återställa loggarna från någon av dina tidigare körningar.
+> På samma sätt kan du skriva alla loggar `./logs` från din träningskörning till mappen. Om du vill använda Azure Machine Learnings [TensorBoard-integrering](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/export-run-history-to-tensorboard/export-run-history-to-tensorboard.ipynb) måste du skriva dina TensorBoard-loggar till den här mappen. Medan din körning pågår kan du starta TensorBoard och strömma dessa loggar.  Senare kommer du också att kunna återställa loggarna från någon av dina tidigare körningar.
 >
 > Om du till exempel vill hämta en fil som skrivits till *utdatamappen* till den lokala datorn efter att fjärrträningen har körts:`run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`
 

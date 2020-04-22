@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 958dcd441d35b5c28746ff79a0b341e5aa7383a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/19/2020
+ms.openlocfilehash: 6f33f49be74419a8f0cd31d973d64798f5d76a2c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79214014"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683006"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Övervaka prestanda Azure SQL Database med hjälp av dynamiska hanteringsvyer
 
@@ -604,7 +604,7 @@ I nästa exempel visas olika sätt att använda **katalogvyn sys.resource_stats*
 
 3. Med den här informationen om de genomsnittliga och högsta värdena för varje resursmått kan du bedöma hur väl din arbetsbelastning passar in i den beräkningsstorlek du har valt. Vanligtvis ger medelvärden från **sys.resource_stats** dig en bra baslinje att använda mot målstorleken. Det bör vara din primära måttsticka. Du kan till exempel använda standardtjänstnivån med S2-beräkningsstorlek. Den genomsnittliga användningen procentsatser för CPU och IO läser och skriver är under 40 procent, det genomsnittliga antalet arbetstagare är under 50, och det genomsnittliga antalet sessioner är under 200. Din arbetsbelastning kan passa in i S1-beräkningsstorleken. Det är lätt att se om databasen passar i arbets- och sessionsgränserna. Om du vill se om en databas passar in i en lägre beräkningsstorlek när det gäller CPU, läsningar och skrivningar delar du DTU-numret för den lägre beräkningsstorleken med DTU-numret för din aktuella beräkningsstorlek och multiplicerar sedan resultatet med 100:
 
-    ```S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40```
+    `S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40`
 
     Resultatet är den relativa prestandaskillnaden mellan de två beräkningsstorlekarna i procent. Om resursanvändningen inte överstiger det här beloppet kan arbetsbelastningen passa in i den lägre beräkningsstorleken. Du måste dock titta på alla intervall av resursanvändningsvärden och i procent bestämma hur ofta din databasarbetsbelastning skulle passa in i den lägre beräkningsstorleken. Följande fråga matar ut passningsprocenten per resursdimension, baserat på tröskelvärdet på 40 procent som vi beräknade i det här exemplet:
 

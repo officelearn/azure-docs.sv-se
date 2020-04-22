@@ -6,18 +6,18 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: f8f1eb353087c5121eaafb4c8789e7a2f7638b99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1ff8e0aedce5d3a6acc9a39084cf0839efdd88e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79475129"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678442"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Använda beroendeinmatning i .NET Azure Functions
 
 Azure Functions stöder beroendeinjektion (DI) programdesignmönster, vilket är en teknik för att uppnå [inversion av kontroll (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) mellan klasser och deras beroenden.
 
-- Beroendeinjektion i Azure Functions bygger på funktionerna för .NET Core Dependency Dependency Injection. Förtrogenhet med [beroendeinjektionen .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) rekommenderas. Det finns dock skillnader i hur du åsidosätter beroenden och hur konfigurationsvärden läss med Azure-funktioner i förbrukningsplanen.
+- Beroendeinjektion i Azure Functions bygger på funktionerna för .NET Core Dependency Dependency Injection. Förtrogenhet med [.NET Core beroende injektion](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) rekommenderas. Det finns skillnader i hur du åsidosätter beroenden och hur konfigurationsvärden läss med Azure-funktioner i förbrukningsplanen.
 
 - Stöd för beroendeinjektion börjar med Azure Functions 2.x.
 

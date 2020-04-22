@@ -4,12 +4,12 @@ description: I den här artikeln kan du läsa om hur du säkerhetskopierar SQL S
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 5b10907738feeecbec06669175e82578f2915f92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 887f15deed74330cf132e0574d166c074d2c7cad
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79273337"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685715"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Säkerhetskopiera SQL Server-databaser i virtuella Azure-datorer
 
@@ -112,7 +112,7 @@ Undvik att använda följande element i databasnamn:
 * Semikolon ';'
 * Snedstrecket framåt'/'
 
-Aliasing är tillgängligt för tecken som inte stöds, men vi rekommenderar att du undviker dem. Mer information finns i [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN) (Så här fungerar datamodellen för Table Storage).
+Aliasing är tillgängligt för tecken som inte stöds, men vi rekommenderar att du undviker dem. Mer information finns i [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) (Så här fungerar datamodellen för Table Storage).
 
 >[!NOTE]
 >Åtgärden **Konfigurera skydd** för databaser med specialtecken som "+" eller "&" i namnet stöds inte. Du kan antingen ändra databasnamnet eller aktivera **Automatiskt skydd**, som kan skydda dessa databaser.

@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 9d98660230e0ab9f4edcd9a7af8a3797106dd17a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 03f5b0124f95465c4a5da5043364a2f5816dae62
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78255650"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685751"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Utveckla säkra program på Azure
 I den här artikeln presenterar vi säkerhetsaktiviteter och kontroller att tänka på när du utvecklar program för molnet. Säkerhetsfrågor och begrepp att tänka på under implementerings- och verifieringsfaserna av Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) behandlas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utveckla ett säkrare program.
@@ -44,7 +44,7 @@ Azure Marketplace erbjuder [utvecklarverktyg](https://azuremarketplace.microsoft
 
 ### <a name="validate-and-sanitize-every-input-for-your-application"></a>Validera och sanera alla indata för ditt program
 
-Behandla alla indata som ej betrodda för att skydda ditt program från de vanligaste sårbarheterna för webbprogram. Ej betrodda data är ett fordon för injektionsattacker. Indata för ditt program innehåller parametrar i URL: en, indata från användaren, data från databasen eller från ett API, och allt som skickas i att en användare potentiellt kan manipulera. Ett program bör [validera](https://www.owasp.org/index.php/OWASP_Proactive_Controls_2016#4:_Validate_All_Inputs) att data är syntaktiskt och semantiskt giltiga innan programmet använder data på något sätt (inklusive att visa dem tillbaka för användaren).
+Behandla alla indata som ej betrodda för att skydda ditt program från de vanligaste sårbarheterna för webbprogram. Ej betrodda data är ett fordon för injektionsattacker. Indata för ditt program innehåller parametrar i URL: en, indata från användaren, data från databasen eller från ett API, och allt som skickas i att en användare potentiellt kan manipulera. Ett program bör [validera](https://owasp.org/www-project-proactive-controls/v3/en/c5-validate-inputs) att data är syntaktiskt och semantiskt giltiga innan programmet använder data på något sätt (inklusive att visa dem tillbaka för användaren).
 
 Validera indata tidigt i dataflödet för att säkerställa att endast korrekt utformade data kommer in i arbetsflödet. Du vill inte att felaktiga data ska finnas kvar i databasen eller utlösa ett fel i en underordnad komponent.
 

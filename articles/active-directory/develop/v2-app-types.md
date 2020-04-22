@@ -12,19 +12,16 @@ ms.date: 04/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bdbda8bed38819ca2b4d2fb1ef3d9bf591269890
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: def92071496716f90b24158a50e4a5233e93c994
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535918"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677990"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Programtyper för Microsoft identity-plattform
 
 Slutpunkten för Microsoft identity platform (v2.0) stöder autentisering för en mängd olika moderna apparkitekturer, alla baserade på branschstandardprotokollen [OAuth 2.0 eller OpenID Connect](active-directory-v2-protocols.md). I den här artikeln beskrivs vilka typer av appar du kan skapa med hjälp av Microsofts identitetsplattform, oavsett vilket språk eller plattform du föredrar. Informationen är utformad för att hjälpa dig att förstå scenarier på hög nivå innan du [börjar arbeta med koden](v2-overview.md#getting-started).
-
-> [!NOTE]
-> Slutpunkten för Microsoft-identitetsplattform stöder inte alla Azure Active Directory-scenarier och -funktioner (Azure AD). För att avgöra om du ska använda slutpunkten för Microsoft identity platform läser du om begränsningar av [Microsofts identitetsplattform](active-directory-v2-limitations.md).
 
 ## <a name="the-basics"></a>Grunderna
 

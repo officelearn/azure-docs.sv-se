@@ -6,18 +6,18 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: mathoma
 ms.reviewer: vanto
-ms.openlocfilehash: c1ca87b6e7b8afb50522e73107707e15782a0a91
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 563ac8748e9d4f8a254a151814491113b9c816e6
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79200198"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685142"
 ---
 I det här steget skapar du en Azure SQL Database-server och en enda databas som använder AdventureWorksLT-exempeldata. Du kan skapa databasen med hjälp av Azure portal menyer och skärmar, eller med hjälp av ett Azure CLI eller PowerShell-skript i Azure Cloud Shell.
 
 Alla metoder är att ställa in en brandväggsregel på servernivå så att den offentliga IP-adressen för den dator som du använder för att komma åt servern. Mer information om hur du skapar serverbrandväggsregler finns i [Skapa en brandvägg på servernivå](../sql-database-server-level-firewall-rule.md). Du kan också ange brandväggsregler på databasnivå. Se [Skapa en brandväggsregel på databasnivå](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database). 
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
 Så här skapar du en resursgrupp, SQL-server och en enda databas i Azure-portalen:
 
@@ -106,7 +106,7 @@ location=westus2
 adminlogin=azureuser
 password=Azure1234567
 
-# Set a logical server name that is unique in the system
+# Set a logical server name that is unique to Azure DNS (<server_name>.database.windows.net)
 servername=server-$RANDOM
 
 # Set the ip address range that can access your database
@@ -157,7 +157,7 @@ Den föregående koden använder dessa Azure CLI-kommandon:
 
 Mer Azure SQL Database Azure CLI-exempel finns i [Azure CLI-exempel](../sql-database-cli-samples.md).
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Du kan skapa en Azure-resursgrupp, SQL-server och en enda databas med Windows PowerShell. Om du inte vill använda Azure Cloud Shell [installerar du Azure PowerShell-modulen](/powershell/azure/install-az-ps).
 

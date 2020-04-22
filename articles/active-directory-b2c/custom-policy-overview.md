@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f72aedb010301f9c7b12778432c4f10feb10f7a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f18f44208b97ab5bc8d9cd9ff01d604c62deb963
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79246050"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678154"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Anpassade principer i Azure Active Directory B2C
 
@@ -43,7 +43,9 @@ Dessa tre typer av principfiler används:
 - **Tilläggsfil** - innehåller de unika konfigurationsändringarna för din klient.
 - **RP-fil (Relying Party)** - Den enda uppgiftsfokuserade filen som anropas direkt av programmet eller tjänsten (även, känd som en förlitande part). Varje unik uppgift kräver sin egen RP och beroende på varumärkeskrav kan antalet vara "totalt antal program x totalt antal användningsfall".
 
-Användarflöden i Azure AD B2C följer det trefilsmönster som beskrivs ovan, men utvecklaren ser bara RP-filen, medan Azure-portalen gör ändringar i bakgrunden till tilläggsfilen.
+Användarflöden i Azure AD B2C följer filmönstret som visas ovan, men utvecklaren ser bara RP-filen, medan Azure-portalen gör ändringar i bakgrunden till tilläggsfilen.
+
+Även om det finns tre typer av principfiler är du inte begränsad till endast tre filer. Du kan ha flera filer av varje filtyp. Om du till exempel inte vill göra ändringar i filen Tillägg kan du skapa en Extensions2-fil för att utöka filen Tillägg ytterligare.
 
 ## <a name="custom-policy-core-concepts"></a>Anpassade principgrundkoncept
 
@@ -55,7 +57,7 @@ CIAM-tjänsten (Customer Identity and Access Management) i Azure innehåller:
 
 Azure AD B2C interagerar med identitetsleverantörer, användare, andra system och med den lokala användarkatalogen i följd för att uppnå en identitetsuppgift. Logga till exempel in en användare, registrera en ny användare eller återställa ett lösenord. Identity Experience Framework och en princip (kallas även en användarresa eller en förtroenderamsprincip) skapar förtroende för flera parter och definierar uttryckligen aktörerna, åtgärderna, protokollen och sekvensen av steg som ska slutföras.
 
-Identity Experience Framework är en helt konfigurerbar, principdriven, molnbaserad Azure-plattform som dirigerar förtroende mellan entiteter i standardprotokollformat som OpenID Connect, OAuth, SAML och några icke-standardiserade, till exempel REST API-baserade system-till-system anspråk utbyten. Ramverket skapar användarvänliga, vitmärkta upplevelser som stöder HTML och CSS.
+Identity Experience Framework är en helt konfigurerbar, principdriven, molnbaserad Azure-plattform som dirigerar förtroende mellan entiteter i standardprotokollformat som OpenID Connect, OAuth, SAML och några icke-standardbaserade, till exempel REST API-baserade system-till-system-anspråksutbyten. Ramverket skapar användarvänliga, vitmärkta upplevelser som stöder HTML och CSS.
 
 En anpassad princip representeras som en eller flera XML-formaterade filer som refererar till varandra i en hierarkisk kedja. XML-elementen definierar anspråksschema, anspråksomvandlingar, innehållsdefinitioner, anspråksleverantörer, tekniska profiler och steg för användarfärdorkestrering, bland andra element. En anpassad princip är tillgänglig som en eller flera XML-filer som körs av Identity Experience Framework när den anropas av en förlitande part. Utvecklare som konfigurerar anpassade principer måste definiera de betrodda relationerna i detalj för att inkludera metadataslutpunkter, exakta definitioner för anspråksutbyte och konfigurera hemligheter, nycklar och certifikat efter behov av varje identitetsprovider.
 

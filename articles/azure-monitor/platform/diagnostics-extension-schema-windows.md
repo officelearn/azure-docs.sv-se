@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: 4c711e1b0a63fbcf978c0e4467eadaed8d91f3de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c04fc82b8b04e474a656a0849177f7aa5d27b427
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274715"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676419"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Tilläggsschema för Windows-diagnostik
 Azure Diagnostics-tillägget är en agent i Azure Monitor som samlar in övervakningsdata från gästoperativsystemet och arbetsbelastningar för Azure-beräkningsresurser. I den här artikeln beskrivs schemat som används för konfiguration av diagnostiktillägget på virtuella Datorer i Windows och andra beräkningsresurser.
@@ -87,7 +87,7 @@ Elementet på den översta nivån i konfigurationsfilen för diagnostik.
 |**DiagnosticInfrastructureLogs**|Aktivera insamling av loggar som genereras av Azure Diagnostics. Diagnostikinfrastrukturloggarna är användbara för felsökning av själva diagnostiksystemet. Valfria attribut är:<br /><br /> - **scheduledTransferLogLevelFilter** - Konfigurerar den lägsta allvarlighetsgraden för de insamlade loggarna.<br /><br /> - **scheduledTransferPeriod** - Intervallet mellan schemalagda överföringar till lagring avrundas uppåt till närmaste minut. Värdet är en [XML "Varaktighetsdatatyp".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 |**Kataloger**|Se beskrivning någon annanstans på den här sidan.|  
 |**EtwProviders (EtwProviders)**|Se beskrivning någon annanstans på den här sidan.|  
-|**Statistik**|Se beskrivning någon annanstans på den här sidan.|  
+|**Mått**|Se beskrivning någon annanstans på den här sidan.|  
 |**PerformanceCounters (PerformanceCounters)**|Se beskrivning någon annanstans på den här sidan.|  
 |**WindowsEventLog**|Se beskrivning någon annanstans på den här sidan.|
 |**DockerSources**|Se beskrivning någon annanstans på den här sidan. |
@@ -223,9 +223,8 @@ Elementet på den översta nivån i konfigurationsfilen för diagnostik.
 
 |Underordnat element|Beskrivning|  
 |-------------------|-----------------|  
-|**Datakälla**|Windows-händelseloggarna som ska samlas in. Obligatoriskt attribut:<br /><br /> **namn** - XPath-frågan som beskriver de windowshändelser som ska samlas in. Ett exempel:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Om du vill samla in alla händelser anger du "*"|  
-
-
+|**Datakälla**|Windows-händelseloggarna som ska samlas in. Obligatoriskt attribut:<br /><br /> **namn** - XPath-frågan som beskriver de windowshändelser som ska samlas in. Ett exempel:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Om du vill samla in alla händelser anger du "*" |
+|**Sjunker** | Tillagd i 1,5. Valfri. Pekar på en sink-plats om du också vill skicka diagnostikdata för alla underordnade element som stöder sänkor. Sink exempel är Application Insights eller Event Hubs.|  
 
 
 ## <a name="logs-element"></a>Logelement  
@@ -238,9 +237,9 @@ Elementet på den översta nivån i konfigurationsfilen för diagnostik.
 |Attribut|Typ|Beskrivning|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Valfri. Anger den maximala mängden filsystemlagring som är tillgänglig för de angivna data.<br /><br /> Standardvärdet är 0.|  
-|**schemalagdtransferloglevelfilter**|**sträng**|Valfri. Anger den lägsta allvarlighetsgraden för loggtransaktioner som överförs. Standardvärdet är **Odefinierat**, som överför alla loggar. Andra möjliga värden (i ordning efter mest till minst information) är **Utförlig**, **Information**, **Varning**, **Fel**och **Kritisk**.|  
+|**schemalagdtransferloglevelfilter**|**Sträng**|Valfri. Anger den lägsta allvarlighetsgraden för loggtransaktioner som överförs. Standardvärdet är **Odefinierat**, som överför alla loggar. Andra möjliga värden (i ordning efter mest till minst information) är **Utförlig**, **Information**, **Varning**, **Fel**och **Kritisk**.|  
 |**schemalagdtransferperiod**|**Varaktighet**|Valfri. Anger intervallet mellan schemalagda överföringar av data, avrundade uppåt till närmaste minut.<br /><br /> Standard är PT0S.|  
-|**Sjunker** |**sträng**| Tillagd i 1,5. Valfri. Pekar på en sink-plats för att även skicka diagnostikdata. Till exempel Application Insights eller Event Hubs.|  
+|**Sjunker** |**Sträng**| Tillagd i 1,5. Valfri. Pekar på en sink-plats för att även skicka diagnostikdata. Till exempel Application Insights eller Event Hubs.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Träd: Rot - DiagnostikKonfigurering - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
@@ -296,8 +295,8 @@ Elementet på den översta nivån i konfigurationsfilen för diagnostik.
 
 |Attribut|Typ|Beskrivning|  
 |----------------|----------|-----------------|  
-|**logLevel**|**sträng**|Anger den lägsta allvarlighetsgraden för loggtransaktioner som överförs. Standardvärdet är **Odefinierat**, som överför alla loggar. Andra möjliga värden (i ordning efter mest till minst information) är **Utförlig**, **Information**, **Varning**, **Fel**och **Kritisk**.|  
-|**Namn**|**sträng**|Ett unikt namn på kanalen som ska referera till|  
+|**logLevel**|**Sträng**|Anger den lägsta allvarlighetsgraden för loggtransaktioner som överförs. Standardvärdet är **Odefinierat**, som överför alla loggar. Andra möjliga värden (i ordning efter mest till minst information) är **Utförlig**, **Information**, **Varning**, **Fel**och **Kritisk**.|  
+|**Namn**|**Sträng**|Ett unikt namn på kanalen som ska referera till|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig Element

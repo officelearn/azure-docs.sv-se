@@ -3,12 +3,12 @@ title: Konfigurera din utvecklingsmiljö på Linux
 description: Installera runtime och SDK, och skapa ett lokalt utvecklingskluster i Linux. När den här installationen är klar kan du börja bygga program.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 1048e1ccf6b9bc921daa3014ab8003fd53473461
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 6cedd97144a3fd32d9af8582e24ad5c12914e575
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309119"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682627"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Förbereda utvecklingsmiljön i Linux
 > [!div class="op_single_selector"]
@@ -265,7 +265,7 @@ Du kan installera Eclipse-pluginprogrammet för Service Fabric i Eclipse IDE fö
 
 2. Om du vill installera plugin-programmet Service Fabric väljer du **Hjälp** > **installera ny programvara**.
 
-3. I rutan **Work with** (Arbeta med) skriver du **https://dl.microsoft.com/eclipse**.
+3. Skriv **\/https: /dl.microsoft.com/eclipse**i rutan **Arbeta med** .
 
 4. Välj **Lägg till**.
 

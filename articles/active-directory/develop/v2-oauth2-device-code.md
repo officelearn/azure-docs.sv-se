@@ -13,21 +13,18 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 9186f633b773a243a84692c30ddc2c2261fb69ba
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 2a39dbb3676df5ed916203bdcbbc51d5a0da32a4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309412"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677837"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Microsoft-identitetsplattform och tilldelningsflödet för OAuth 2.0-enheter
 
-Microsofts identitetsplattform stöder [tilldelningen](https://tools.ietf.org/html/rfc8628)av enheten , vilket gör att användare kan logga in på indatabegränsade enheter som en smart-TV, IoT-enhet eller skrivare.  För att aktivera det här flödet har enheten användaren som besöker en webbsida i sin webbläsare på en annan enhet för att logga in.  När användaren loggar in kan enheten få åtkomsttoken och uppdatera token efter behov.  
+Microsofts identitetsplattform stöder [tilldelningen](https://tools.ietf.org/html/rfc8628)av enheten , vilket gör att användare kan logga in på indatabegränsade enheter som en smart-TV, IoT-enhet eller skrivare.  För att aktivera det här flödet har enheten användaren som besöker en webbsida i sin webbläsare på en annan enhet för att logga in.  När användaren loggar in kan enheten få åtkomsttoken och uppdatera token efter behov.
 
 I den här artikeln beskrivs hur du programmerar direkt mot protokollet i ditt program.  När det är möjligt rekommenderar vi att du använder de Microsoft Authentication Libraries (MSAL) som stöds i stället för att [hämta token och anropa skyddade webb-API:er](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Ta också en titt på [exempelapparna som använder MSAL](sample-v2-code.md).
-
-> [!NOTE]
-> Slutpunkten för Microsoft-identitetsplattform stöder inte alla Azure Active Directory-scenarier och -funktioner. För att avgöra om du ska använda slutpunkten för Microsoft identity platform läser du om begränsningar av [Microsofts identitetsplattform](active-directory-v2-limitations.md).
 
 ## <a name="protocol-diagram"></a>Protokolldiagram
 
@@ -62,7 +59,7 @@ scope=user.read%20openid%20profile
 
 ### <a name="device-authorization-response"></a>Svar på enhetsauktorisering
 
-Ett lyckat svar blir ett JSON-objekt som innehåller den information som krävs för att användaren ska kunna logga in.  
+Ett lyckat svar blir ett JSON-objekt som innehåller den information som krävs för att användaren ska kunna logga in.
 
 | Parameter | Format | Beskrivning |
 | ---              | --- | --- |
@@ -80,11 +77,11 @@ Ett lyckat svar blir ett JSON-objekt som innehåller den information som krävs 
 
 När du `user_code` `verification_uri`har tagit emot och visar klienten dessa för användaren och instruerar dem att logga in med sin mobiltelefon eller datorwebbläsare.
 
-Om användaren autentiserar med ett personligt konto (på /common eller /consumers) uppmanas han att logga in igen för att överföra autentiseringstillståndet till enheten.  De kommer också att uppmanas att ge sitt samtycke, för att säkerställa att de är medvetna om de tillstånd som beviljas.  Detta gäller inte för arbets- eller skolkonton som används för att autentisera. 
+Om användaren autentiserar med ett personligt konto (på /common eller /consumers) uppmanas han att logga in igen för att överföra autentiseringstillståndet till enheten.  De kommer också att uppmanas att ge sitt samtycke, för att säkerställa att de är medvetna om de tillstånd som beviljas.  Detta gäller inte för arbets- eller skolkonton som används för att autentisera.
 
 Medan användaren autentiserar `verification_uri`vid , ska klienten avsöka `/token` slutpunkten `device_code`för den begärda token med hjälp av .
 
-``` 
+```
 POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 Content-Type: application/x-www-form-urlencoded
 
@@ -95,21 +92,21 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 
 | Parameter | Krävs | Beskrivning|
 | -------- | -------- | ---------- |
-| `tenant`  | Krävs | Samma klient- eller klientalias som används i den ursprungliga begäran. | 
+| `tenant`  | Krävs | Samma klient- eller klientalias som används i den ursprungliga begäran. |
 | `grant_type` | Krävs | Måste vara`urn:ietf:params:oauth:grant-type:device_code`|
 | `client_id`  | Krävs | Måste matcha `client_id` den som används i den ursprungliga begäran. |
 | `device_code`| Krävs | Den `device_code` returnerade i enhetsauktoriseringsbegäran.  |
 
 ### <a name="expected-errors"></a>Förväntade fel
 
-Enhetskodflödet är ett avsökningsprotokoll så att klienten måste förvänta sig att få fel innan användaren har autentiserats.  
+Enhetskodflödet är ett avsökningsprotokoll så att klienten måste förvänta sig att få fel innan användaren har autentiserats.
 
 | Fel | Beskrivning | Klientåtgärd |
 | ------ | ----------- | -------------|
 | `authorization_pending` | Användaren har inte autentiserats klart, men har inte avbrutit flödet. | Upprepa begäran efter `interval` minst några sekunder. |
 | `authorization_declined` | Slutanvändaren nekade auktoriseringsbegäran.| Stoppa avsökning och återgå till ett oautentiserade tillstånd.  |
 | `bad_verification_code`| Skickade `device_code` till `/token` slutpunkten kändes inte igen. | Kontrollera att klienten skickar `device_code` rätt i begäran. |
-| `expired_token` | Minst `expires_in` sekunder har gått och autentisering är `device_code`inte längre möjligt med detta . | Stoppa avsökningen och återgå till ett oautentiserade tillstånd. |   
+| `expired_token` | Minst `expires_in` sekunder har gått och autentisering är `device_code`inte längre möjligt med detta . | Stoppa avsökningen och återgå till ett oautentiserade tillstånd. |
 
 ### <a name="successful-authentication-response"></a>Lyckat autentiseringssvar
 
@@ -135,4 +132,4 @@ Ett lyckat tokensvar kommer att se ut:
 | `id_token`   | Jwt | Utfärdas om den `scope` ursprungliga `openid` parametern inkluderade scopet.  |
 | `refresh_token` | Ogenomskinlig sträng | Utfärdas om den `scope` ursprungliga `offline_access`parametern ingår .  |
 
-Du kan använda uppdateringstoken för att hämta nya åtkomsttoken och uppdatera token med samma flöde som dokumenteras i [OAuth-kodflödesdokumentationen](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  
+Du kan använda uppdateringstoken för att hämta nya åtkomsttoken och uppdatera token med samma flöde som dokumenteras i [OAuth-kodflödesdokumentationen](v2-oauth2-auth-code-flow.md#refresh-the-access-token).

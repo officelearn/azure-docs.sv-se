@@ -9,12 +9,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 0b855584ef6efef574e8264f3cead79000a51b13
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1125bafa43ce1752c58d1cce0bba66a6bbd32c32
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81432013"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685420"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Hantera lagringskontonycklar med Key Vault och Azure CLI
 
@@ -71,13 +71,23 @@ az login
 Använd kommandot Skapa Azure CLI [az-rolltilldelning](/cli/azure/role/assignment?view=azure-cli-latest) för att ge Key Vault åtkomst till ditt lagringskonto. Ange följande parametervärden för kommandot:
 
 - `--role`: Skicka RBAC-rollen "Key Operator Service Role" för lagringskonto nyckeloperatör. Den här rollen begränsar åtkomstomfånget till ditt lagringskonto. För ett klassiskt lagringskonto skickar du i stället "Klassisk lagringskontonyckeloperatörstjänstroll" i stället.
-- `--assignee-object-id`: Skicka värdet "93c27d83-f79b-4cb2-8dd4-4aa716542e74", vilket är objekt-ID för nyckelvalv i det offentliga Azure-molnet. (Information om hur du hämtar object-ID för Nyckelvalv i Azure Government-molnet finns i [Tjänstens huvudprogram-ID](#service-principal-application-id).)
+- `--assignee`: Skicka värdethttps://vault.azure.net" ", som är url:en för Key Vault i det offentliga Azure-molnet. (För Azure Goverment-moln använd '-asingee-object-id' i stället, se [Tjänsthuvudnamnstillämbetningsprogram-ID](#service-principal-application-id).)
 - `--scope`: Skicka ditt lagringskontoresurs-ID, `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`som finns i formuläret . Om du vill hitta ditt prenumerations-ID använder du kommandot Azure CLI [az account list;](/cli/azure/account?view=azure-cli-latest#az-account-list) Om du vill hitta ditt lagringskontonamn och resursgrupp för lagringskonto använder du kommandot Azure CLI [az storage account list.](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list)
 
 ```azurecli-interactive
-az role assignment create --role "Storage Account Key Operator Service Role" --assignee-object-id 93c27d83-f79b-4cb2-8dd4-4aa716542e74 --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
+az role assignment create --role "Storage Account Key Operator Service Role" --assignee 'https://vault.azure.net' --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
  ```
+### <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>Ge ditt användarkonto behörighet till hanterade lagringskonton
 
+Använd cmdleten Azure CLI [az keyvault-set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) för att uppdatera åtkomstprincipen för Key Vault och bevilja lagringskontobehörigheter till ditt användarkonto.
+
+```azurecli-interactive
+# Give your user principal access to all storage account permissions, on your Key Vault instance
+
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --storage-permissions get list delete set update regeneratekey getsas listsas deletesas setsas recover backup restore purge
+```
+
+Observera att behörigheter för lagringskonton inte är tillgängliga på sidan "Åtkomstprinciper" för lagringskontot i Azure-portalen.
 ### <a name="create-a-key-vault-managed-storage-account"></a>Skapa ett key vault-hanterat lagringskonto
 
  Skapa ett Key Vault-hanterat lagringskonto med azure CLI [az keyvault-lagringskommandot.](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) Ställ in en regenereringsperiod på 90 dagar. Efter 90 dagar återskapas `key1` och byts `key2` den `key1`aktiva nyckeln från till . `key1`markeras sedan som den aktiva nyckeln. Ange följande parametervärden för kommandot:

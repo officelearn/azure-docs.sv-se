@@ -12,12 +12,12 @@ ms.date: 1/3/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7a91f61302b5944e69f71c3cfee2f41cd87b809f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 947286a7238e3ddf2aebe66c6ea87e0e1cf8a853
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309368"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677720"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsofts identitetsplattform och OAuth 2.0 för flödet för räkning
 
@@ -27,9 +27,7 @@ OAuth 2.0 On-Behalf-Of flow (OBO) tjänar användningsfallet när ett program an
 I den här artikeln beskrivs hur du programmerar direkt mot protokollet i ditt program.  När det är möjligt rekommenderar vi att du använder de Microsoft Authentication Libraries (MSAL) som stöds i stället för att [hämta token och anropa skyddade webb-API:er](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Ta också en titt på [exempelapparna som använder MSAL](sample-v2-code.md).
 
 > [!NOTE]
->
-> - Slutpunkten för Microsoft-identitetsplattform stöder inte alla scenarier och funktioner. För att avgöra om du ska använda slutpunkten för Microsoft identity platform läser du om begränsningar av [Microsofts identitetsplattform](active-directory-v2-limitations.md). 
-> - Från och med maj 2018 kan `id_token` vissa implicita flöde som härleds inte användas för OBO-flöde. Ensidiga appar (SPA) ska skicka en **åtkomsttoken** till en konfidentiell klient på mellannivå för att utföra OBO-flöden i stället. Mer information om vilka klienter som kan utföra OBO-samtal finns i [begränsningar](#client-limitations).
+> Från och med maj 2018 kan `id_token` vissa implicita flöde som härleds inte användas för OBO-flöde. Ensidiga appar (SPA) ska skicka en **åtkomsttoken** till en konfidentiell klient på mellannivå för att utföra OBO-flöden i stället. Mer information om vilka klienter som kan utföra OBO-samtal finns i [begränsningar](#client-limitations).
 
 ## <a name="protocol-diagram"></a>Protokolldiagram
 
@@ -186,10 +184,10 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Få samtycke för programmet på mellannivå
 
-Beroende på arkitektur eller användning av ditt program kan du överväga olika strategier för att säkerställa att OBO-flödet lyckas. I samtliga fall är det slutliga målet att se till att korrekt samtycke ges så att klientappen kan anropa appen på mellannivå och att appen på mellannivå har behörighet att anropa backend-resursen. 
+Beroende på arkitektur eller användning av ditt program kan du överväga olika strategier för att säkerställa att OBO-flödet lyckas. I samtliga fall är det slutliga målet att se till att korrekt samtycke ges så att klientappen kan anropa appen på mellannivå och att appen på mellannivå har behörighet att anropa backend-resursen.
 
 > [!NOTE]
-> Tidigare stödde inte Microsoft-kontosystemet (personliga konton) fältet "Känt klientprogram" och kunde inte heller visa kombinerat medgivande.  Detta har lagts till och alla appar i Microsofts identitetsplattform kan använda den kända klientprogrammetoden för gettign-medgivande för OBO-anrop. 
+> Tidigare stödde inte Microsoft-kontosystemet (personliga konton) fältet "Känt klientprogram" och kunde inte heller visa kombinerat medgivande.  Detta har lagts till och alla appar i Microsofts identitetsplattform kan använda den kända klientprogrammetoden för gettign-medgivande för OBO-anrop.
 
 ### <a name="default-and-combined-consent"></a>/.standard och kombinerat samtycke
 

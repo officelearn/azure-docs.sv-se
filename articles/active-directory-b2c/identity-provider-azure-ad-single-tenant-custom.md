@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5a6c85ebed7271655745de45694542fb359836e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: be3a7a3ce4ce3a06398436058ea5d4d935ef5a5c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78188418"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678099"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med ett Azure Active Directory-konto med hjälp av anpassade principer i Azure Active Directory B2C
 
@@ -28,40 +28,8 @@ I den här artikeln visas hur du aktiverar inloggning för användare från en A
 
 Slutför stegen i [Komma igång med anpassade principer i Azure Active Directory B2C](custom-policy-get-started.md).
 
-## <a name="register-an-application"></a>Registrera ett program
 
-Om du vill aktivera inloggning för användare från en viss Azure AD-organisation måste du registrera ett program inom den organisatoriska Azure AD-klienten.
-
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Kontrollera att du använder katalogen som innehåller din organisation Azure AD-klientorganisation (till exempel contoso.com). Välj **katalog + prenumerationsfilter** i den övre menyn och välj sedan den katalog som innehåller din Azure AD-klientorganisation.
-1. Välj **Alla tjänster** i det övre vänstra hörnet på Azure-portalen och sök sedan efter och välj **Appregistreringar**.
-1. Välj **Ny registrering**.
-1. Ange ett **namn** för ditt program. Till exempel `Azure AD B2C App`.
-1. Acceptera standardvalet av **konton i den här organisationskatalogen endast** för det här programmet.
-1. För **Omdirigera URI**godkänner du värdet **för webben**och anger följande `your-B2C-tenant-name` URL i alla gemener, där ersätts med namnet på din Azure AD B2C-klient.
-
-    ```
-    https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
-    ```
-
-    Till exempel `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
-
-1. Välj **Registrera**. Registrera **program-ID:t (klient)** för användning i ett senare steg.
-1. Välj **Certifikat & hemligheter**och välj sedan Ny **klienthemlighet**.
-1. Ange en **beskrivning** för hemligheten, välj en förfallodatum och välj sedan **Lägg till**. Registrera **värdet** för hemligheten för användning i ett senare steg.
-
-## <a name="configuring-optional-claims"></a>Konfigurera valfria anspråk
-
-Om du vill `family_name` hämta `given_name` och anspråk från Azure AD kan du konfigurera valfria anspråk för ditt program i Azure-portalens användargränssnitt eller programmanifest. Mer information finns i [Så här anger du valfria anspråk till din Azure AD-app](../active-directory/develop/active-directory-optional-claims.md).
-
-1. Logga in på [Azure-portalen](https://portal.azure.com). Sök efter och välj **Azure Active Directory**.
-1. Välj **Appregistreringar**i avsnittet **Hantera** .
-1. Välj det program som du vill konfigurera valfria anspråk för i listan.
-1. Välj **Tokenkonfiguration (förhandsgranskning)** i avsnittet **Hantera** .
-1. Välj **Lägg till valfritt anspråk**.
-1. Välj den tokentyp som du vill konfigurera.
-1. Välj valfria anspråk att lägga till.
-1. Klicka på **Lägg till**.
+[!INCLUDE [active-directory-b2c-identity-provider-azure-ad](../../includes/active-directory-b2c-identity-provider-azure-ad.md)]
 
 ## <a name="create-a-policy-key"></a>Skapa en principnyckel
 

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 0b2b9dbe52a5696f21b287402fc4cbaa32b29c73
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f4138c4ae24ae599d4058c9fd06c33b69657fe38
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79263184"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680075"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Konfigurerbara tokenlivstider i Azure Active Directory (förhandsversion)
 
@@ -102,7 +102,7 @@ En tokenlivsprincip är en typ av principobjekt som innehåller tokenlivslängds
 | Uppdatera token max inaktiv tid (utfärdad för konfidentiella klienter) |Uppdatera token (utfärdade för konfidentiella klienter) |90 dagar |
 | Uppdatera token maxålder (utfärdas för konfidentiella klienter) |Uppdatera token (utfärdade för konfidentiella klienter) |Tills återkallas |
 
-* <sup>1.</sup> Federerade användare som inte har tillräcklig återkallningsinformation inkluderar alla användare som inte har attributet "LastpasswordChangeTimestamp" synkroniserat. Dessa användare får denna korta Max Age eftersom AAD inte kan verifiera när token som är kopplade till en gammal autentiseringsuppgifter ska återkallas (till exempel ett lösenord som har ändrats) och måste checka in oftare för att säkerställa att användaren och associerade token fortfarande är i gott Stående. För att förbättra den här upplevelsen måste klientadministratörer se till att de synkroniserar attributet "LastpasswordChangeTimestamp" (detta kan ställas in på användarobjektet med Powershell eller via AADSync).
+* <sup>1.</sup> Federerade användare som inte har tillräcklig återkallningsinformation inkluderar alla användare som inte har attributet "LastpasswordChangeTimestamp" synkroniserat. Dessa användare får den här korta maxåldern eftersom AAD inte kan verifiera när token som är kopplade till en gammal autentiseringsuppgifter ska återkallas (till exempel ett lösenord som har ändrats) och måste checka in oftare för att säkerställa att användaren och associerade token fortfarande har god status. För att förbättra den här upplevelsen måste klientadministratörer se till att de synkroniserar attributet "LastpasswordChangeTimestamp" (detta kan ställas in på användarobjektet med Powershell eller via AADSync).
 
 ### <a name="policy-evaluation-and-prioritization"></a>Utvärdering och prioritering av policy
 Du kan skapa och sedan tilldela en tokenlivsprincip till ett visst program, till din organisation och till tjänsthuvudnamn. Flera principer kan gälla för ett visst program. Principen för tokenlivstid som träder i kraft följer dessa regler:
@@ -243,19 +243,25 @@ I det här exemplet skapar du en princip som gör att användarna kan logga in m
         }')
         ```
 
-    2. Om du vill skapa principen kör du följande kommando:
+    1. Om du vill skapa principen kör du följande kommando:
 
         ```powershell
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    3. Om du vill visa den nya principen och hämta principens **ObjectId**kör du följande kommando:
+    1. Om du vill ta bort ett blanksteg kör du följande kommando:
+
+        ```powershell
+        Get-AzureADPolicy -id | set-azureadpolicy -Definition @($((Get-AzureADPolicy -id ).Replace(" ","")))
+        ```
+
+    1. Om du vill visa den nya principen och hämta principens **ObjectId**kör du följande kommando:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Uppdatera principen.
+1. Uppdatera principen.
 
     Du kan bestämma att den första principen som du anger i det här exemplet inte är så strikt som din tjänst kräver. Om du vill att uppdateringstoken för en faktor ska upphöra att gälla om två dagar kör du följande kommando:
 
@@ -277,13 +283,13 @@ I det här exemplet skapar du en princip som kräver att användarna autentisera
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2. Om du vill visa din nya princip och hämta principen **ObjectId**kör du följande kommando:
+    1. Om du vill visa din nya princip och hämta principen **ObjectId**kör du följande kommando:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Tilldela principen till tjänstens huvudnamn. Du måste också hämta **ObjectId** för din tjänst huvudnamn.
+1. Tilldela principen till tjänstens huvudnamn. Du måste också hämta **ObjectId** för din tjänst huvudnamn.
 
     1. Använd cmdleten [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) för att se alla organisationens tjänsthuvudnamn eller ett enda tjänsthuvudnamn.
         ```powershell
@@ -291,7 +297,7 @@ I det här exemplet skapar du en princip som kräver att användarna autentisera
         $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
         ```
 
-    2. Kör följande kommando när du har tjänstens huvudnamn:
+    1. Kör följande kommando när du har tjänstens huvudnamn:
         ```powershell
         # Assign policy to a service principal
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
@@ -308,13 +314,13 @@ I det här exemplet skapar du en princip som kräver att användare autentiserar
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2. Kör följande kommando om du vill se den nya principen:
+    1. Kör följande kommando om du vill se den nya principen:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Tilldela principen till webb-API:et. Du måste också hämta **ObjectId** för ditt program. Använd [cmdleten Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) för att hitta appens **ObjectId**eller använda [Azure-portalen](https://portal.azure.com/).
+1. Tilldela principen till webb-API:et. Du måste också hämta **ObjectId** för ditt program. Använd [cmdleten Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) för att hitta appens **ObjectId**eller använda [Azure-portalen](https://portal.azure.com/).
 
     Hämta **ObjectId** för din app och tilldela principen:
 
@@ -337,19 +343,19 @@ I det här exemplet skapar du några principer för att lära dig hur prioritets
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    2. Kör följande kommando om du vill se den nya principen:
+    1. Kör följande kommando om du vill se den nya principen:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Tilldela principen till ett huvudnamn för tjänsten.
+1. Tilldela principen till ett huvudnamn för tjänsten.
 
     Nu har du en princip som gäller för hela organisationen. Du kanske vill bevara den här 30-dagarsprincipen för ett visst tjänsthuvudnamn, men ändra organisationens standardprincip till den övre gränsen för "tills den återkallas".
 
     1. Om du vill visa alla organisationens tjänsthuvudnamn använder du cmdleten [Get-AzureADServicePrincipal.](/powershell/module/azuread/get-azureadserviceprincipal)
 
-    2. Kör följande kommando när du har tjänstens huvudnamn:
+    1. Kör följande kommando när du har tjänstens huvudnamn:
 
         ```powershell
         # Get ID of the service principal
@@ -359,13 +365,13 @@ I det här exemplet skapar du några principer för att lära dig hur prioritets
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
         ```
 
-3. Ange `IsOrganizationDefault` flaggan till false:
+1. Ange `IsOrganizationDefault` flaggan till false:
 
     ```powershell
     Set-AzureADPolicy -Id $policy.Id -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
     ```
 
-4. Skapa en ny standardprincip för organisationen:
+1. Skapa en ny standardprincip för organisationen:
 
     ```powershell
     New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "ComplexPolicyScenarioTwo" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"

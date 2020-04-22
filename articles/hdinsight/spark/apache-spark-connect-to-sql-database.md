@@ -1,23 +1,23 @@
 ---
 title: Använda Apache Spark för att läsa och skriva data till Azure SQL Database
-description: Lär dig hur du konfigurerar en anslutning mellan HDInsight Spark-kluster och en Azure SQL-databas för att läsa data, skriva data och strömma data till en SQL-databas
+description: Lär dig hur du konfigurerar en anslutning mellan HDInsight Spark-kluster och en Azure SQL-databas. Så här läser du data, skriver data och strömmar data till en SQL-databas
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 03/05/2020
-ms.openlocfilehash: 4e0c1626582297aa7d80cbbd4241b6f81e314f8f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/20/2020
+ms.openlocfilehash: 4e783a233bd35e012c02fbbbdc7f4223552fc734
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78927464"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686854"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Använda HDInsight Spark-kluster för att läsa och skriva data till Azure SQL Database
 
-Lär dig hur du ansluter ett Apache Spark-kluster i Azure HDInsight med en Azure SQL-databas och sedan läser, skriver och strömmar data till SQL-databasen. Instruktionerna i den här artikeln använder en [Jupyter Notebook](https://jupyter.org/) för att köra Scala-kodavsnitten. Du kan dock skapa ett fristående program i Scala eller Python och utföra samma uppgifter.
+Lär dig hur du ansluter ett Apache Spark-kluster i Azure HDInsight med en Azure SQL-databas. Läs, skriva och strömma data till SQL-databasen. Instruktionerna i den här artikeln använder en Jupyter Notebook för att köra Scala-kodavsnitten. Du kan dock skapa ett fristående program i Scala eller Python och utföra samma uppgifter.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -33,7 +33,7 @@ Lär dig hur du ansluter ett Apache Spark-kluster i Azure HDInsight med en Azure
 
 ## <a name="create-a-jupyter-notebook"></a>Skapa en Jupyter Notebook
 
-Börja med att skapa en [Jupyter-anteckningsbok](https://jupyter.org/) som är associerad med Spark-klustret. Du kan använda den här anteckningsboken för att köra kodavsnitten som används i den här artikeln.
+Börja med att skapa en Jupyter-anteckningsbok som är associerad med Spark-klustret. Du kan använda den här anteckningsboken för att köra kodavsnitten som används i den här artikeln.
 
 1. Öppna klustret från [Azure-portalen.](https://portal.azure.com/)
 1. Välj **Jupyter-anteckningsbok** under **Klusterinstrumentpaneler** till höger.  Om du inte ser **klusterinstrumentpaneler**väljer du **Översikt** på den vänstra menyn. Ange administratörsautentiseringsuppgifterna för klustret om du uppmanas att göra det.
@@ -54,7 +54,7 @@ Börja med att skapa en [Jupyter-anteckningsbok](https://jupyter.org/) som är a
    > [!NOTE]  
    > I den här artikeln använder vi en Spark -kärna (Scala), eftersom strömmande data från Spark till SQL-databas för närvarande bara stöds i Scala och Java. Även om läsning från och skrivning i SQL kan göras med Python, för konsekvens i den här artikeln, använder vi Scala för alla tre åtgärder.
 
-1. Då öppnas en ny anteckningsbok med standardnamnet **Untitled**. Klicka på anteckningsbokens namn och ange ett namn som du väljer.
+1. En ny anteckningsbok öppnas med ett standardnamn, **Untitled**. Klicka på anteckningsbokens namn och ange ett namn som du väljer.
 
     ![Ange ett namn för anteckningsboken](./media/apache-spark-connect-to-sql-database/hdinsight-spark-jupyter-notebook-name.png "Ange ett namn för anteckningsboken")
 
@@ -66,44 +66,56 @@ I det här avsnittet läser du data från en tabell (till exempel **SalesLT.Addr
 
 1. I en ny Jupyter-anteckningsbok, i en kodcell, klistrar du in följande kodavsnitt och ersätter platshållarvärdena med värdena för din Azure SQL-databas.
 
-       // Declare the values for your Azure SQL database
+    ```scala
+    // Declare the values for your Azure SQL database
 
-       val jdbcUsername = "<SQL DB ADMIN USER>"
-       val jdbcPassword = "<SQL DB ADMIN PWD>"
-       val jdbcHostname = "<SQL SERVER NAME HOSTING SDL DB>" //typically, this is in the form or servername.database.windows.net
-       val jdbcPort = 1433
-       val jdbcDatabase ="<AZURE SQL DB NAME>"
+    val jdbcUsername = "<SQL DB ADMIN USER>"
+    val jdbcPassword = "<SQL DB ADMIN PWD>"
+    val jdbcHostname = "<SQL SERVER NAME HOSTING SDL DB>" //typically, this is in the form or servername.database.windows.net
+    val jdbcPort = 1433
+    val jdbcDatabase ="<AZURE SQL DB NAME>"
+    ```
 
     Kör kodcellen genom att trycka på **SKIFT + RETUR**.  
 
 1. Använd kodavsnittet nedan för att skapa en JDBC-URL som du kan skicka till Spark-dataram-API:erna. Koden skapar ett `Properties` objekt som ska innehålla parametrarna. Klistra in kodavsnittet i en kodcell och tryck på **SKIFT + RETUR** för att köras.
 
-       import java.util.Properties
+    ```scala
+    import java.util.Properties
 
-       val jdbc_url = s"jdbc:sqlserver://${jdbcHostname}:${jdbcPort};database=${jdbcDatabase};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=60;"
-       val connectionProperties = new Properties()
-       connectionProperties.put("user", s"${jdbcUsername}")
-       connectionProperties.put("password", s"${jdbcPassword}")         
+    val jdbc_url = s"jdbc:sqlserver://${jdbcHostname}:${jdbcPort};database=${jdbcDatabase};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=60;"
+    val connectionProperties = new Properties()
+    connectionProperties.put("user", s"${jdbcUsername}")
+    connectionProperties.put("password", s"${jdbcPassword}")
+    ```
 
 1. Använd kodavsnittet nedan för att skapa en dataram med data från en tabell i din Azure SQL-databas. I det här kodavsnittet `SalesLT.Address` använder vi en tabell som är tillgänglig som en del av **AdventureWorksLT-databasen.** Klistra in kodavsnittet i en kodcell och tryck på **SKIFT + RETUR** för att köras.
 
-       val sqlTableDF = spark.read.jdbc(jdbc_url, "SalesLT.Address", connectionProperties)
+    ```scala
+    val sqlTableDF = spark.read.jdbc(jdbc_url, "SalesLT.Address", connectionProperties)
+    ```
 
 1. Du kan nu utföra åtgärder på dataramen, till exempel hämta dataschemat:
 
-       sqlTableDF.printSchema
+    ```scala
+    sqlTableDF.printSchema
+    ```
 
-    Du ser en utdata som liknar följande:
+    Du ser en utdata som liknar följande bild:
 
     ![schemautdata](./media/apache-spark-connect-to-sql-database/read-from-sql-schema-output.png "schemautdata")
 
-1. Du kan också utföra åtgärder som, hämta de 10 översta raderna.
+1. Du kan också göra åtgärder som, hämta de 10 översta raderna.
 
-       sqlTableDF.show(10)
+    ```scala
+    sqlTableDF.show(10)
+    ```
 
 1. Hämta eller hämta specifika kolumner från datauppsättningen.
 
-       sqlTableDF.select("AddressLine1", "City").show(10)
+    ```scala
+    sqlTableDF.select("AddressLine1", "City").show(10)
+    ```
 
 ## <a name="write-data-into-azure-sql-database"></a>Skriva data till Azure SQL Database
 
@@ -111,38 +123,48 @@ I det här avsnittet använder vi en EXEMPEL-CSV-fil som är tillgänglig i klus
 
 1. I en ny Jupyter-anteckningsbok, i en kodcell, klistrar du in följande kodavsnitt och ersätter platshållarvärdena med värdena för din Azure SQL-databas.
 
-       // Declare the values for your Azure SQL database
+    ```scala
+    // Declare the values for your Azure SQL database
 
-       val jdbcUsername = "<SQL DB ADMIN USER>"
-       val jdbcPassword = "<SQL DB ADMIN PWD>"
-       val jdbcHostname = "<SQL SERVER NAME HOSTING SDL DB>" //typically, this is in the form or servername.database.windows.net
-       val jdbcPort = 1433
-       val jdbcDatabase ="<AZURE SQL DB NAME>"
+    val jdbcUsername = "<SQL DB ADMIN USER>"
+    val jdbcPassword = "<SQL DB ADMIN PWD>"
+    val jdbcHostname = "<SQL SERVER NAME HOSTING SDL DB>" //typically, this is in the form or servername.database.windows.net
+    val jdbcPort = 1433
+    val jdbcDatabase ="<AZURE SQL DB NAME>"
+    ```
 
     Kör kodcellen genom att trycka på **SKIFT + RETUR**.  
 
 1. Följande kodavsnitt skapar en JDBC-URL som du kan skicka till Spark-dataram-API:erna. Koden skapar ett `Properties` objekt som ska innehålla parametrarna. Klistra in kodavsnittet i en kodcell och tryck på **SKIFT + RETUR** för att köras.
 
-       import java.util.Properties
+    ```scala
+    import java.util.Properties
 
-       val jdbc_url = s"jdbc:sqlserver://${jdbcHostname}:${jdbcPort};database=${jdbcDatabase};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=60;"
-       val connectionProperties = new Properties()
-       connectionProperties.put("user", s"${jdbcUsername}")
-       connectionProperties.put("password", s"${jdbcPassword}")
+    val jdbc_url = s"jdbc:sqlserver://${jdbcHostname}:${jdbcPort};database=${jdbcDatabase};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=60;"
+    val connectionProperties = new Properties()
+    connectionProperties.put("user", s"${jdbcUsername}")
+    connectionProperties.put("password", s"${jdbcPassword}")
+    ```
 
 1. Använd följande kodavsnitt för att extrahera schemat för data i HVAC.csv och använda schemat för att `readDf`läsa in data från CSV i en dataram, . Klistra in kodavsnittet i en kodcell och tryck på **SKIFT + RETUR** för att köras.
 
-       val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
-       val readDf = spark.read.format("csv").schema(userSchema).load("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    ```scala
+    val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
+    val readDf = spark.read.format("csv").schema(userSchema).load("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    ```
 
 1. Använd `readDf` dataramen för att skapa `temphvactable`en temporär tabell. Använd sedan den temporära tabellen `hvactable_hive`för att skapa en registreringstabell.
 
-       readDf.createOrReplaceTempView("temphvactable")
-       spark.sql("create table hvactable_hive as select * from temphvactable")
+    ```scala
+    readDf.createOrReplaceTempView("temphvactable")
+    spark.sql("create table hvactable_hive as select * from temphvactable")
+    ```
 
 1. Slutligen använder du registreringsfilen för att skapa en tabell i Azure SQL Database. Följande kodavsnitt skapas `hvactable` i Azure SQL Database.
 
-       spark.table("hvactable_hive").write.jdbc(jdbc_url, "hvactable", connectionProperties)
+    ```scala
+    spark.table("hvactable_hive").write.jdbc(jdbc_url, "hvactable", connectionProperties)
+    ```
 
 1. Anslut till Azure SQL Database med SSMS `dbo.hvactable` och kontrollera att du ser en där.
 
@@ -172,62 +194,68 @@ I det här avsnittet skickar `hvactable` vi data till det som du redan har skapa
 
 1. Skapa en ny Jupyter-anteckningsbok i HDInsight Spark-klustret. Klistra in följande kodavsnitt i en kodcell och tryck sedan på **SKIFT + RETUR:**
 
-       import org.apache.spark.sql._
-       import org.apache.spark.sql.types._
-       import org.apache.spark.sql.functions._
-       import org.apache.spark.sql.streaming._
-       import java.sql.{Connection,DriverManager,ResultSet}
+    ```scala
+    import org.apache.spark.sql._
+    import org.apache.spark.sql.types._
+    import org.apache.spark.sql.functions._
+    import org.apache.spark.sql.streaming._
+    import java.sql.{Connection,DriverManager,ResultSet}
+    ```
 
 1. Vi strömma data från **HVAC.csv** i `hvactable`. HVAC.csv-filen finns i `/HdiSamples/HdiSamples/SensorSampleData/HVAC/`klustret på . I följande kodavsnitt får vi först schemat för de data som ska strömmas. Sedan skapar vi en strömmande dataram med det schemat. Klistra in kodavsnittet i en kodcell och tryck på **SKIFT + RETUR** för att köras.
 
-       val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
-       val readStreamDf = spark.readStream.schema(userSchema).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 
-       readStreamDf.printSchema
+    ```scala
+    val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
+    val readStreamDf = spark.readStream.schema(userSchema).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 
+    readStreamDf.printSchema
+    ```
 
 1. Utdata visar schemat för **HVAC.csv**. Den `hvactable` har samma schema också. Utdata visar kolumnerna i tabellen.
 
-    ![hdinsight Apache Spark schema tabell](./media/apache-spark-connect-to-sql-database/hdinsight-schema-table.png "Schema för tabellen")
+    !['hdinsight Apache Spark schematabell'](./media/apache-spark-connect-to-sql-database/hdinsight-schema-table.png "Schema för tabellen")
 
 1. Slutligen använder du följande kodavsnitt för att läsa data från HVAC.csv och strömma det `hvactable` till i Azure SQL Database. Klistra in kodavsnittet i en kodcell, ersätt platshållarvärdena med värdena för Din Azure SQL-databas och tryck sedan på **SKIFT + RETUR** för att köra.
 
-       val WriteToSQLQuery  = readStreamDf.writeStream.foreach(new ForeachWriter[Row] {
-          var connection:java.sql.Connection = _
-          var statement:java.sql.Statement = _
-          
-          val jdbcUsername = "<SQL DB ADMIN USER>"
-          val jdbcPassword = "<SQL DB ADMIN PWD>"
-          val jdbcHostname = "<SQL SERVER NAME HOSTING SDL DB>" //typically, this is in the form or servername.database.windows.net
-          val jdbcPort = 1433
-          val jdbcDatabase ="<AZURE SQL DB NAME>"
-          val driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-          val jdbc_url = s"jdbc:sqlserver://${jdbcHostname}:${jdbcPort};database=${jdbcDatabase};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
-  
-         def open(partitionId: Long, version: Long):Boolean = {
-           Class.forName(driver)
-           connection = DriverManager.getConnection(jdbc_url, jdbcUsername, jdbcPassword)
-           statement = connection.createStatement
-           true
-         }
-  
-         def process(value: Row): Unit = {
-           val Date  = value(0)
-           val Time = value(1)
-           val TargetTemp = value(2)
-           val ActualTemp = value(3)
-           val System = value(4)
-           val SystemAge = value(5)
-           val BuildingID = value(6)  
-    
-           val valueStr = "'" + Date + "'," + "'" + Time + "'," + "'" + TargetTemp + "'," + "'" + ActualTemp + "'," + "'" + System + "'," + "'" + SystemAge + "'," + "'" + BuildingID + "'"
-           statement.execute("INSERT INTO " + "dbo.hvactable" + " VALUES (" + valueStr + ")")   
-           }
+    ```scala
+    val WriteToSQLQuery  = readStreamDf.writeStream.foreach(new ForeachWriter[Row] {
+        var connection:java.sql.Connection = _
+        var statement:java.sql.Statement = _
 
-         def close(errorOrNull: Throwable): Unit = {
-            connection.close
-          }
-         })
-        
-         var streamingQuery = WriteToSQLQuery.start()
+        val jdbcUsername = "<SQL DB ADMIN USER>"
+        val jdbcPassword = "<SQL DB ADMIN PWD>"
+        val jdbcHostname = "<SQL SERVER NAME HOSTING SDL DB>" //typically, this is in the form or servername.database.windows.net
+        val jdbcPort = 1433
+        val jdbcDatabase ="<AZURE SQL DB NAME>"
+        val driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+        val jdbc_url = s"jdbc:sqlserver://${jdbcHostname}:${jdbcPort};database=${jdbcDatabase};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
+
+        def open(partitionId: Long, version: Long):Boolean = {
+        Class.forName(driver)
+        connection = DriverManager.getConnection(jdbc_url, jdbcUsername, jdbcPassword)
+        statement = connection.createStatement
+        true
+        }
+
+        def process(value: Row): Unit = {
+        val Date  = value(0)
+        val Time = value(1)
+        val TargetTemp = value(2)
+        val ActualTemp = value(3)
+        val System = value(4)
+        val SystemAge = value(5)
+        val BuildingID = value(6)  
+
+        val valueStr = "'" + Date + "'," + "'" + Time + "'," + "'" + TargetTemp + "'," + "'" + ActualTemp + "'," + "'" + System + "'," + "'" + SystemAge + "'," + "'" + BuildingID + "'"
+        statement.execute("INSERT INTO " + "dbo.hvactable" + " VALUES (" + valueStr + ")")
+        }
+
+        def close(errorOrNull: Throwable): Unit = {
+        connection.close
+        }
+        })
+
+    var streamingQuery = WriteToSQLQuery.start()
+    ```
 
 1. Kontrollera att data strömmas till `hvactable` genom att köra följande fråga i SQL Server Management Studio (SSMS). Varje gång du kör frågan visas antalet rader i tabellen som ökar.
 
@@ -238,5 +266,5 @@ I det här avsnittet skickar `hvactable` vi data till det som du redan har skapa
 ## <a name="next-steps"></a>Nästa steg
 
 * [Använda HDInsight Spark-kluster för att analysera data i DataSjölagring](apache-spark-use-with-data-lake-store.md)
-* [Bearbeta strukturerade direktuppspelningshändelser med EventHub](apache-spark-eventhub-structured-streaming.md)
+* [Läsa in data och köra frågor på ett Apache Spark-kluster i Azure HDInsight](apache-spark-load-data-run-query.md)
 * [Använda Apache Spark Structured Streaming med Apache Kafka i HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)

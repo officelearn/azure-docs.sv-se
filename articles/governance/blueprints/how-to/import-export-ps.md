@@ -3,12 +3,12 @@ title: Importera och exportera ritningar med PowerShell
 description: Lär dig hur du arbetar med dina skissdefinitioner som kod. Dela, källkontroll och hantera dem med hjälp av export- och importkommandona.
 ms.date: 09/03/2019
 ms.topic: how-to
-ms.openlocfilehash: 98bd21aad944346a17d8bdce7fb74c0eb8be2ed7
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: dcdf48f8941198591b39d6cf89ec5e6dac7ba94c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677141"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686842"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importera och exportera skissdefinitioner med PowerShell
 
@@ -88,7 +88,7 @@ Stegen för att exportera ritningsdefinitionen är enkla. Exportera skissdefinit
 
 När du har antingen en [exporterad skissdefinition](#export-your-blueprint-definition) eller har en manuellt skapad skissdefinition i den [mappstruktur som krävs](#folder-structure-of-a-blueprint-definition)kan du importera skissdefinitionen till en annan hanteringsgrupp eller prenumeration.
 
-Exempel på inbyggda skissdefinitioner finns i [Azure Blueprint GitHub repo](https://github.com/Azure/azure-blueprints/tree/master/samples/builtins).
+Exempel på inbyggda skissdefinitioner finns i [Azure Blueprint GitHub repo](https://github.com/Azure/azure-blueprints/tree/master/samples/001-builtins).
 
 - **Namn** [obligatoriskt]
   - Anger namnet på den nya skissdefinitionen
@@ -121,8 +121,8 @@ Information om hur du skapar avancerade skissdefinitioner finns i följande arti
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [skisslivscykeln](../concepts/lifecycle.md).
+- Mer information om [livscykeln för en skiss](../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../concepts/parameters.md).
-- Lär dig att anpassa [ordningsföljden för skisssekvensering](../concepts/sequencing-order.md).
-- Ta reda på hur du använder [skiss resurs låsning](../concepts/resource-locking.md).
-- Lös problem under tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md).
+- Lär dig hur du anpassar [sekvensordningen för en skiss](../concepts/sequencing-order.md).
+- Lär dig hur du använder [resurslåsning för en skiss](../concepts/resource-locking.md).
+- Lös problem som kan uppstå vid tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md).

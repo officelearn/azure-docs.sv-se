@@ -5,31 +5,28 @@ services: automation
 ms.subservice: update-management
 ms.date: 03/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: c9a3c88ea0c3e656adf0f8c514b418cfc07c9590
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5376562d9df35539a33f6746b387a1ff7083b8f1
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335776"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676449"
 ---
-# <a name="manage-updates-for-multiple-machines"></a>Hantera uppdateringar av flera datorer
+# <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Hantera uppdateringar för flera virtuella Azure-datorer
 
-Du kan använda lösningen Update Management för att hantera uppdateringar och korrigeringar för dina virtuella Windows- och Linux-datorer. Från [Azure Automation](automation-offering-get-started.md)-kontot kan du:
+Du kan använda Azure Automation Update Management för att hantera uppdateringar och korrigeringar för dina virtuella Windows- och Linux-datorer. Från [Azure Automation](automation-offering-get-started.md)-kontot kan du:
 
-- Inbyggda virtuella datorer
-- Utvärdera status för tillgängliga uppdateringar
-- Schemalägg installation av nödvändiga uppdateringar
-- Granska distributionsresultat för att kontrollera att uppdateringar har tillämpats på alla virtuella datorer för vilka uppdateringshantering är aktiverat
+- Publicera virtuella datorer.
+- Bedöma statusen för tillgängliga uppdateringar.
+- Schemalägga installation av obligatoriska uppdateringar.
+- Granska distributionsresultat för att kontrollera att uppdateringar har tillämpats på alla virtuella datorer som uppdateringshantering är aktiverat för.
+
+Mer information om systemkraven för uppdateringshantering finns i [Uppdateringshanteringsklientkrav](automation-update-management.md#clients).
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill använda Uppdateringshantering behöver du:
-
-- En virtuell dator eller en dator med ett operativsystem som stöds installerat.
-
-- Åtkomst till en uppdateringsdatabas för virtuella Linux-datorer som är inbyggda i lösningen.
-
-Mer information om systemkraven för uppdateringshantering finns i [Uppdateringshanteringsklientkrav](automation-update-management.md#clients).
+* En virtuell dator eller en dator med ett operativsystem som stöds installerat.
+* Åtkomst till en uppdateringsdatabas för virtuella Linux-datorer som finns med på uppdateringshantering.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Aktivera uppdateringshantering för virtuella Azure-datorer
 
@@ -53,25 +50,23 @@ Log Analytics-agenten för Windows och Linux måste installeras på de virtuella
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>Visa datorer som är anslutna till ditt Automation-konto
 
-När du har aktiverat Uppdateringshantering för dina datorer kan du visa maskininformation genom att välja **Datorer**. Du kan se information om *datornamn,* *efterlevnadsstatus,* *miljö,* *OS-typ,* *viktiga uppdateringar och säkerhetsuppdateringar installerade,* *andra installerade uppdateringar*och *uppdateringsagentberedskap* för dina datorer.
+När du har aktiverat Uppdateringshantering för dina datorer kan du visa maskininformation genom att välja **Datorer**. Du kan se information om datornamn, efterlevnadsstatus, miljö, OS-typ, viktiga uppdateringar och säkerhetsuppdateringar installerade, andra installerade uppdateringar och uppdateringsagentberedskap för dina datorer.
 
   ![Visa fliken för datorer](./media/manage-update-multi/update-computers-tab.png)
 
-Datorer som nyligen har aktiverats för uppdateringshantering kanske inte har utvärderats ännu. Kompatibilitetstillståndsstatusen för dessa datorer **bedöms inte**. Här är en lista över möjliga värden för efterlevnadstillstånd:
+Datorer som nyligen har aktiverats för uppdateringshantering kanske inte har utvärderats ännu. Efterlevnadstillståndet för `Not assessed`dessa datorer är . Här är en lista över möjliga värden för efterlevnadstillstånd:
 
-- **Kompatibel**: Datorer som inte saknar kritiska uppdateringar eller säkerhetsuppdateringar.
+- `Compliant`: Datorer som inte saknar kritiska uppdateringar eller säkerhetsuppdateringar.
+- `Non-compliant`: Datorer som saknar minst en kritisk eller säkerhetsuppdatering.
+- `Not assessed`: Uppdateringsutvärderingsdata har inte tagits emot från datorn inom den förväntade tidsramen. För Linux-datorer är den förväntade tidsramen den sista timmen. För Windows-datorer är den förväntade tidsramen de senaste 12 timmarna.
 
-- **Icke-kompatibla**: Datorer som saknar minst en kritisk eller säkerhetsuppdatering.
-
-- **Ej utvärderad**: Uppdateringsutvärderingsdata har inte tagits emot från datorn inom den förväntade tidsramen. För Linux-datorer är den förväntade tidsramen under den senaste timmen. För Windows-datorer är den förväntade tidsramen under de senaste 12 timmarna.
-
-Om du vill visa agentens status väljer du länken i kolumnen **För beredskap för uppdateringsagenten.** Om du väljer det här alternativet öppnas fönstret **Hybridarbetare** och hybridarbetarens status visas. Följande bild visar ett exempel på en agent som inte har varit ansluten till Uppdateringshantering under en längre tid:
+Om du vill visa agentens status väljer du länken i kolumnen **För beredskap för uppdateringsagenten.** Om du väljer det här alternativet öppnas fönstret Hybridarbetare och hybridarbetarens status visas. Följande bild visar ett exempel på en agent som inte har varit ansluten till Uppdateringshantering under en längre tid:
 
 ![Visa fliken för datorer](./media/manage-update-multi/update-agent-broken.png)
 
 ## <a name="view-an-update-assessment"></a>Visa en uppdateringsbedömning
 
-När uppdateringshantering är aktiverat visas fönstret **Uppdateringshantering**. Du kan se en lista med uppdateringar som saknas på fliken ** Uppdateringar som saknas**.
+När uppdateringshantering har aktiverats öppnas fönstret Uppdateringshantering. Du kan se en lista med uppdateringar som saknas på fliken ** Uppdateringar som saknas**.
 
 ## <a name="collect-data"></a>Samla in data
 
@@ -132,7 +127,7 @@ Ange följande information i **distributionsfönstret Ny uppdatering:**
   - Verktyg
   - Uppdateringar
 
-- **Uppdateringar att inkludera/exkludera** – detta öppnar sidan **Inkludera/exkludera**. Uppdateringar som ska inkluderas eller exkluderas visas på en separat flik. Mer information om hur inkludering hanteras finns i [Schemalägga en uppdateringsdistribution](automation-tutorial-update-management.md#schedule-an-update-deployment).
+- **Uppdateringar att inkludera/exkludera** – detta öppnar sidan Inkludera/exkludera. Uppdateringar som ska inkluderas eller exkluderas visas på en separat flik. Mer information om hur inkludering hanteras finns i [Schemalägga en uppdateringsdistribution](automation-tutorial-update-management.md#schedule-an-update-deployment).
 
 > [!NOTE]
 > Det är viktigt att veta att undantag åsidosätter inkluderingar. Om du till exempel definierar `*`en undantagsregel för installeras inga korrigeringsfiler eller paket eftersom de alla är uteslutna. Undantagna patchar visas fortfarande som saknade från maskinen. För Linux-datorer om ett paket ingår men har ett beroende paket som uteslöts, installeras inte paketet.
@@ -176,11 +171,11 @@ Om en eller flera uppdateringar i distributionen misslyckas visas statusen **Mis
 
 Välj den slutförda uppdateringsdistributionen för att visa instrumentpanelen för distributionen.
 
-Fönstret **Uppdatera resultat** visar det totala antalet uppdateringar och distributionsresultaten för den virtuella datorn. Tabellen till höger ger en detaljerad uppdelning av varje uppdatering och installationsresultaten. Installationsresultaten kan ha något av följande värden:
+Fönstret Uppdatera resultat visar det totala antalet uppdateringar och distributionsresultaten för den virtuella datorn. Tabellen till höger ger en detaljerad uppdelning av varje uppdatering och installationsresultaten. Installationsresultaten kan ha något av följande värden:
 
-- **Inte försök:** Uppdateringen installerades inte eftersom det inte fanns tillräckligt med tid baserat på det definierade underhållsfönstret.
-- **Lyckades**: Uppdateringen lyckades.
-- **Misslyckades**: Uppdateringen misslyckades.
+- `Not attempted`: Uppdateringen installerades inte eftersom det inte fanns tillräckligt med tid baserat på det definierade underhållsfönstret.
+- `Succeeded`: Uppdateringen lyckades.
+- `Failed`: Uppdateringen misslyckades.
 
 Välj **Alla loggar** om du vill se alla loggposter som har skapats för distributionen.
 

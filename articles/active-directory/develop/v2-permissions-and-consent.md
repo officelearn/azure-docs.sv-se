@@ -12,19 +12,16 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: 55055f65e1b725e079b60e960837e05558ef08d6
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 26bfbcb4762d889b2c56276e66e4bf8e0acb64b2
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886219"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677695"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Behörigheter och medgivande i slutpunkten för Microsoft-identitetsplattform
 
 Program som integreras med Microsofts identitetsplattform följer en auktoriseringsmodell som ger användare och administratörer kontroll över hur data kan nås. Implementeringen av auktoriseringsmodellen har uppdaterats på slutpunkten för Microsofts identitetsplattform och ändrar hur en app måste interagera med Microsofts identitetsplattform. Den här artikeln beskriver de grundläggande begreppen i den här auktoriseringsmodellen, inklusive scope, behörigheter och medgivande.
-
-> [!NOTE]
-> Slutpunkten för Microsoft-identitetsplattform stöder inte alla scenarier och funktioner. För att avgöra om du ska använda slutpunkten för Microsoft identity platform läser du om begränsningar av [Microsofts identitetsplattform](active-directory-v2-limitations.md).
 
 ## <a name="scopes-and-permissions"></a>Scope och behörigheter
 
@@ -66,8 +63,8 @@ _Gällande behörigheter_ är de behörigheter som din app kommer att ha när du
 - För delegerade behörigheter är de _gällande behörigheterna_ för din app den minst privilegierade skärningspunkten mellan de delegerade behörigheter som appen har beviljats (via medgivande) och behörigheterna för den inloggade användaren. Din app kan aldrig ha fler behörigheter än den inloggade användaren. Inom organisationer kan behörigheter för den inloggade användaren fastställas med en princip eller av medlemskap i en eller flera administratörsroller. Information om vilka administratörsroller som kan medgivande till delegerade behörigheter finns [i Administratörsrollbehörigheter i Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
    Anta till exempel att appen har tilldelats _behörigheten User.ReadWrite.All._ Den här behörigheten ger i princip din app behörighet att läsa och uppdatera profilen för alla användare i en organisation. Om den inloggade användaren är en global administratör, kommer din app att kunna uppdatera profilen för alla användare i organisationen. Men om den inloggade användaren inte är i en administratörsroll kan appen bara uppdatera profilen för den inloggade användaren. Den kommer inte att kunna uppdatera profilerna för andra användare i organisationen, eftersom den användare som den har behörighet att agera på uppdrag åt inte har den behörigheten.
-  
-- För programbehörigheter är de _gällande behörigheterna_ för din app den fulla behörighetsnivån som följer av behörigheten. En app som har programbehörigheten _User.ReadWrite.All_ kan till exempel uppdatera profilen för alla användare i organisationen. 
+
+- För programbehörigheter är de _gällande behörigheterna_ för din app den fulla behörighetsnivån som följer av behörigheten. En app som har programbehörigheten _User.ReadWrite.All_ kan till exempel uppdatera profilen för alla användare i organisationen.
 
 ## <a name="openid-connect-scopes"></a>OpenID Connect-scope
 
@@ -92,7 +89,7 @@ Scopet `profile` kan användas `openid` med omfånget och alla andra. Det ger ap
 > [!NOTE]
 > Den här behörigheten visas på alla medgivandeskärmar idag, även för flöden som inte tillhandahåller en uppdateringstoken (det [implicita flödet).](v2-oauth2-implicit-grant-flow.md)  Detta för att täcka scenarier där en klient kan börja inom det implicita flödet och sedan gå vidare till kodflödet där en uppdateringstoken förväntas.
 
-På Microsofts identitetsplattform (begäranden till v2.0-slutpunkten) `offline_access` måste appen uttryckligen begära omfånget för att ta emot uppdateringstoken. Det innebär att när du löser in en auktoriseringskod i [OAuth 2.0-auktoriseringskodflödet](active-directory-v2-protocols.md)får du bara en åtkomsttoken från `/token` slutpunkten. Åtkomsttoken är giltig en kort stund. Åtkomsttoken upphör vanligtvis att gälla om en timme. Då måste appen omdirigera användaren tillbaka till `/authorize` slutpunkten för att få en ny auktoriseringskod. Under den här omdirigeringen, beroende på vilken typ av app det är, kan användaren behöva ange sina autentiseringsuppgifter igen eller godkänna behörigheter igen. 
+På Microsofts identitetsplattform (begäranden till v2.0-slutpunkten) `offline_access` måste appen uttryckligen begära omfånget för att ta emot uppdateringstoken. Det innebär att när du löser in en auktoriseringskod i [OAuth 2.0-auktoriseringskodflödet](active-directory-v2-protocols.md)får du bara en åtkomsttoken från `/token` slutpunkten. Åtkomsttoken är giltig en kort stund. Åtkomsttoken upphör vanligtvis att gälla om en timme. Då måste appen omdirigera användaren tillbaka till `/authorize` slutpunkten för att få en ny auktoriseringskod. Under den här omdirigeringen, beroende på vilken typ av app det är, kan användaren behöva ange sina autentiseringsuppgifter igen eller godkänna behörigheter igen.
 
 Mer information om hur du hämtar och använder uppdateringstoken finns i [microsoft identity platform protocol reference](active-directory-v2-protocols.md).
 
@@ -117,7 +114,7 @@ Parametern `scope` är en utrymmesavgränsad lista över delegerade behörighete
 När användaren har angett sina autentiseringsuppgifter söker slutpunkten för Microsoft identity platform efter en matchande post för *användarens medgivande*. Om användaren inte har samtyckt till någon av de begärda behörigheterna tidigare, och inte heller har en administratör medgivande till dessa behörigheter för hela organisationen, ber Slutpunkten för Microsoft-identitetsplattformen användaren att bevilja de begärda behörigheterna.
 
 > [!NOTE]
->För närvarande inkluderas `offline_access` ("Behåll åtkomst till data som `user.read` du har gett den åtkomst till") och ("Logga in dig och läs din profil") automatiskt i det ursprungliga medgivandet till ett program.  Dessa behörigheter krävs i allmänhet för `offline_access` korrekt appfunktionalitet – ger appen åtkomst till `user.read` uppdateringstoken, som är viktiga för inbyggda appar och webbappar, samtidigt som de ger åtkomst till anspråket, `sub` vilket gör att klienten eller appen kan identifiera användaren korrekt över tid och komma åt rudimentär användarinformation.  
+>För närvarande inkluderas `offline_access` ("Behåll åtkomst till data som `user.read` du har gett den åtkomst till") och ("Logga in dig och läs din profil") automatiskt i det ursprungliga medgivandet till ett program.  Dessa behörigheter krävs i allmänhet för `offline_access` korrekt appfunktionalitet – ger appen åtkomst till `user.read` uppdateringstoken, som är viktiga för inbyggda appar och webbappar, samtidigt som de ger åtkomst till anspråket, `sub` vilket gör att klienten eller appen kan identifiera användaren korrekt över tid och komma åt rudimentär användarinformation.
 
 ![Exempel skärmdump som visar arbetskonto samtycke](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -149,8 +146,8 @@ Om programmet begär programbehörigheter och en administratör beviljar dessa b
 
 ## <a name="using-the-admin-consent-endpoint"></a>Använda slutpunkten för administratörsmedgivande
 
-> [!NOTE] 
-> Observera att efter att ha beviljat administratörsgodkännande med hjälp av administratörsmedgivandeslutpunkten har du slutfört beviljandet av administratörsmedgivande och användare behöver inte utföra några ytterligare åtgärder. När du har beviljat administratörsmedgivande kan användare få en åtkomsttoken via ett typiskt auth-flöde och den resulterande åtkomsttoken har behörigheten med medgivande. 
+> [!NOTE]
+> Observera att efter att ha beviljat administratörsgodkännande med hjälp av administratörsmedgivandeslutpunkten har du slutfört beviljandet av administratörsmedgivande och användare behöver inte utföra några ytterligare åtgärder. När du har beviljat administratörsmedgivande kan användare få en åtkomsttoken via ett typiskt auth-flöde och den resulterande åtkomsttoken har behörigheten med medgivande.
 
 När en företagsadministratör använder ditt program och dirigeras till den auktorisera slutpunkten identifierar Microsofts identitetsplattform användarens roll och frågar dem om de vill godkänna för hela klientens räkning om de behörigheter du har begärt. Det finns dock också en dedikerad slutpunkt för administratörsgodkännande som du kan använda om du vill proaktivt begära att en administratör beviljar behörighet för hela klienten. Det är också nödvändigt att använda den här slutpunkten för att begära programbehörigheter (som inte kan begäras med hjälp av den auktoriserade slutpunkten).
 
@@ -189,7 +186,7 @@ När du är redo att begära behörigheter från organisationens administratör 
   &state=12345
   &redirect_uri=http://localhost/myapp/permissions
   &scope=
-  https://graph.microsoft.com/calendars.read 
+  https://graph.microsoft.com/calendars.read
   https://graph.microsoft.com/mail.send
 ```
 
@@ -200,7 +197,7 @@ När du är redo att begära behörigheter från organisationens administratör 
 | `client_id` | Krävs | **Program-ID (klient)** som [Azure-portalen – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) erfarenhet som tilldelats din app. |
 | `redirect_uri` | Krävs |Omdirigerings-URI:n där du vill att svaret ska skickas för att appen ska hanteras. Den måste exakt matcha en av de omdirigerings-URI:er som du registrerade i appregistreringsportalen. |
 | `state` | Rekommenderas | Ett värde som ingår i begäran som också returneras i tokensvaret. Det kan vara en sträng av vilket innehåll du vill. Använd tillståndet för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, till exempel sidan eller vyn som de var på. |
-|`scope`        | Krävs        | Definierar den uppsättning behörigheter som begärs av programmet. Detta kan vara antingen [`/.default`](#the-default-scope)statiska (med ) eller dynamiska scope.  Detta kan inkludera OIDC-scope `profile` `email`(`openid`, , ). Om du behöver programbehörigheter `/.default` måste du använda för att begära den statiskt konfigurerade listan med behörigheter.  | 
+|`scope`        | Krävs        | Definierar den uppsättning behörigheter som begärs av programmet. Detta kan vara antingen [`/.default`](#the-default-scope)statiska (med ) eller dynamiska scope.  Detta kan inkludera OIDC-scope `profile` `email`(`openid`, , ). Om du behöver programbehörigheter `/.default` måste du använda för att begära den statiskt konfigurerade listan med behörigheter.  |
 
 
 Nu kräver Azure AD att en klientadministratör loggar in för att slutföra begäran. Administratören uppmanas att godkänna alla behörigheter som `scope` du har begärt i parametern.  Om du har använt`/.default`ett statiskt ( ) värde fungerar det som slutpunkten v1.0 admin consent och begär medgivande för alla scope som finns i de behörigheter som krävs för appen.
@@ -253,7 +250,7 @@ Content-Type: application/json
 }
 ```
 
-Du kan använda den resulterande åtkomsttoken i HTTP-begäranden till resursen. Det visar på ett tillförlitligt sätt för resursen att appen har rätt behörighet att utföra en viss uppgift. 
+Du kan använda den resulterande åtkomsttoken i HTTP-begäranden till resursen. Det visar på ett tillförlitligt sätt för resursen att appen har rätt behörighet att utföra en viss uppgift.
 
 Mer information om OAuth 2.0-protokollet och hur du får åtkomsttoken finns i [microsoft identity platform endpoint protocol reference](active-directory-v2-protocols.md).
 
@@ -261,7 +258,7 @@ Mer information om OAuth 2.0-protokollet och hur du får åtkomsttoken finns i [
 
 Du kan `/.default` använda scopet för att migrera dina appar från v1.0-slutpunkten till slutpunkten för Microsoft-identitetsplattformen. Detta är ett inbyggt scope för alla program som refererar till den statiska listan över behörigheter som konfigurerats för programregistreringen. Ett `scope` värde `https://graph.microsoft.com/.default` av är funktionellt samma som v1.0-slutpunkterna `resource=https://graph.microsoft.com` - det vill säga begär en token med scope på Microsoft Graph som programmet har registrerats för i Azure-portalen.  Den konstrueras med hjälp `/.default` av resursen URI + (t.ex. om resursen URI är `https://contosoApp.com`, då det begärda scopet skulle vara). `https://contosoApp.com/.default`  Se [avsnittet om avslutande snedstreck](#trailing-slash-and-default) för fall där du måste inkludera ett andra snedstreck för att korrekt begära token.
 
-/.default-scopet kan användas i alla OAuth 2.0-flöde, men är nödvändigt i [flödet On-Behalf-Of](v2-oauth2-on-behalf-of-flow.md) och [klientautentiseringsflödet](v2-oauth2-client-creds-grant-flow.md)samt när du använder slutpunkten v2-administratörsgodkännande för att begära programbehörigheter.  
+/.default-scopet kan användas i alla OAuth 2.0-flöde, men är nödvändigt i [flödet On-Behalf-Of](v2-oauth2-on-behalf-of-flow.md) och [klientautentiseringsflödet](v2-oauth2-client-creds-grant-flow.md)samt när du använder slutpunkten v2-administratörsgodkännande för att begära programbehörigheter.
 
 > [!NOTE]
 > Klienter kan inte kombinera`/.default`statisk ( ) och dynamiskt medgivande i en enda begäran. Således `scope=https://graph.microsoft.com/.default+mail.read` kommer att resultera i ett fel på grund av kombinationen av omfattning typer.
@@ -301,13 +298,13 @@ response_type=token            //code or a hybrid flow is also possible here
 &state=1234
 ```
 
-Detta ger en medgivandeskärm för alla registrerade behörigheter (om `/.default`tillämpligt baserat på ovanstående beskrivningar av samtycke och ), returnerar sedan en id_token i stället för en åtkomsttoken.  Det här problemet finns för vissa äldre klienter som flyttar från ADAL till MSAL och **bör inte** användas av nya klienter som är inriktade på slutpunkten för Microsoft-identitetsplattformen.  
+Detta ger en medgivandeskärm för alla registrerade behörigheter (om `/.default`tillämpligt baserat på ovanstående beskrivningar av samtycke och ), returnerar sedan en id_token i stället för en åtkomsttoken.  Det här problemet finns för vissa äldre klienter som flyttar från ADAL till MSAL och **bör inte** användas av nya klienter som är inriktade på slutpunkten för Microsoft-identitetsplattformen.
 
 ### <a name="trailing-slash-and-default"></a>Avslutande snedstreck och /.default
 
-Vissa resurs-URI:er`https://contoso.com/` har ett `https://contoso.com`avslutande snedstreck ( i motsats till ), vilket kan orsaka problem med tokenvalidering.  Detta kan främst inträffa när du begär`https://management.azure.com/`en token för Azure Resource Management ( ), som har ett avslutande snedstreck på sin resurs URI och kräver att den finns när token begärs.  Således, när du begär `https://management.azure.com/` en `/.default`token för `https://management.azure.com//.default` och använda, måste du begära - notera dubbel snedstreck! 
+Vissa resurs-URI:er`https://contoso.com/` har ett `https://contoso.com`avslutande snedstreck ( i motsats till ), vilket kan orsaka problem med tokenvalidering.  Detta kan främst inträffa när du begär`https://management.azure.com/`en token för Azure Resource Management ( ), som har ett avslutande snedstreck på sin resurs URI och kräver att den finns när token begärs.  Således, när du begär `https://management.azure.com/` en `/.default`token för `https://management.azure.com//.default` och använda, måste du begära - notera dubbel snedstreck!
 
-I allmänhet - om du har validerat att token utfärdas och token avvisas av API:et som ska acceptera det, överväg att lägga till ett andra snedstreck och försöka igen. Detta beror på att inloggningsservern avger en token `scope` med `/.default` målgruppen som matchar URI:erna i parametern - med borttaget från slutet.  Om detta tar bort det efterföljande snedstrecket bearbetar inloggningsservern fortfarande begäran och validerar den mot resursen URI, även om de inte längre matchar - detta är icke-standardiserat och bör inte åberopas av ditt program.  
+I allmänhet - om du har validerat att token utfärdas och token avvisas av API:et som ska acceptera det, överväg att lägga till ett andra snedstreck och försöka igen. Detta beror på att inloggningsservern avger en token `scope` med `/.default` målgruppen som matchar URI:erna i parametern - med borttaget från slutet.  Om detta tar bort det efterföljande snedstrecket bearbetar inloggningsservern fortfarande begäran och validerar den mot resursen URI, även om de inte längre matchar - detta är icke-standardiserat och bör inte åberopas av ditt program.
 
 ## <a name="troubleshooting-permissions-and-consent"></a>Felsöka behörigheter och medgivande
 

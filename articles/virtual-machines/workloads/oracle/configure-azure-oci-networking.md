@@ -2,7 +2,7 @@
 title: Anslut Azure ExpressRoute med Oracles molninfrastruktur | Microsoft-dokument
 description: Anslut Azure ExpressRoute med Oracle Cloud Infrastructure (OCI) FastConnect för att aktivera Oracle-programlösningar över moln
 documentationcenter: virtual-machines
-author: mimckitt
+author: BorisB2015
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/16/2020
-ms.author: mimckitt
-ms.openlocfilehash: d85c0fc8986adfa00559eab1c49a79daacdeb33f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.author: borisb
+ms.openlocfilehash: 70556cbbfefd6ad22ef96ee16065209031ea456c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81263190"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683760"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Konfigurera en direkt sammanlänkning mellan Azure och Oracles molninfrastruktur  
 

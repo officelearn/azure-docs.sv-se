@@ -1,6 +1,6 @@
 ---
-title: Felsöka fel med Azure Update Management
-description: Lär dig hur du felsöker och löser problem med lösningshanteringslösningen för uppdatering i Azure.
+title: Felsöka Azure Automation Update Management
+description: Lär dig hur du felsöker och löser problem med lösningshanteringslösningen för uppdatering i Azure Automation.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,22 +8,22 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c9ff05591c98fda8be39e32f26da484f56e0831b
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 91ecff311b8820d3b97e1de0e4b4e87c150e749b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984631"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678925"
 ---
-# <a name="troubleshooting-issues-with-update-management"></a>Felsöka problem med uppdateringshantering
+# <a name="troubleshoot-issues-with-the-update-management-solution"></a>Felsöka problem med lösningen för uppdateringshantering
 
-I den här artikeln beskrivs lösningar på problem som kan uppstå när du använder Uppdateringshantering.
+I den här artikeln beskrivs problem som du kan stöta på när du använder lösningen för uppdateringshantering. Det finns en agentfelsökare för Hybrid Runbook Worker-agenten för att fastställa det underliggande problemet. Mer information om felsökaren finns i [Felsöka problem med Windows Update-agenten](update-agent-issues.md) och [felsöka problem med Linux update agent](update-agent-issues-linux.md). Andra introduktionsproblem finns i [Felsöka lösningsantagning.](onboarding.md)
 
-Det finns en agentfelsökare för Hybrid Worker-agenten för att fastställa det underliggande problemet. Mer information om felsökaren finns i [Felsöka problem med uppdateringsagenten](update-agent-issues.md). Om du vill ha alla andra problem kan du använda följande felsökningsvägledning.
+>[!NOTE]
+>Om du hittar problem när du kontrollerar lösningen på en virtuell dator (VM) kontrollerar du **Operations Manager-loggen** under **Program- och tjänstloggar** på den lokala datorn. Leta efter händelser med händelse-ID 4502 och händelseinformation som innehåller `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
 
-Om du hittar problem när du kontrollerar lösningen på en virtuell dator (VM) kontrollerar du **Operations Manager-loggen** under **Program- och tjänstloggar** på den lokala datorn. Leta efter händelser med händelse-ID 4502 och händelseinformation som innehåller `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
-
-I följande avsnitt beskrivs specifika felmeddelanden och möjliga lösningar för varje. Andra introduktionsproblem finns i [Felsöka lösningsantagning.](onboarding.md)
+>[!NOTE]
+>Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installationsinstruktioner för Az-modul på hybridkörningsarbetaren finns [i Installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med [så här uppdaterar du Azure PowerShell-moduler i Azure Automation](../automation-update-azure-modules.md).
 
 ## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a>Scenario: Felet "Det gick inte att aktivera uppdateringslösningen"
 
@@ -299,7 +299,7 @@ Det här felet kan uppstå av följande skäl:
 
 * Det finns ett dubblettdatornamn med olika källdator-ID:n. Det här scenariot uppstår när en virtuell dator med ett visst datornamn skapas i olika resursgrupper och rapporterar till samma Logistics Agent-arbetsyta i prenumerationen.
 
-* Den vm-avbildning som är inbyggd kan komma från en klonad dator som inte har förberetts med System preparation (sysprep) med Microsoft Monitoring Agent (MMA) installerat.
+* Den vm-avbildning som är inbyggd kan komma från en klonad dator som inte har förberetts med Systemförberedelse (sysprep) med Log Analytics-agenten för Windows installerad.
 
 ### <a name="resolution"></a>Lösning
 
@@ -351,17 +351,16 @@ Det här felet uppstår när du skapar en uppdateringsdistribution som har virtu
 
 ### <a name="resolution"></a>Lösning
 
-Använd följande lösning för att få dessa objekt schemalagda. Du kan använda cmdleten [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) med parametern `ForUpdate` för att skapa ett schema. Använd sedan cmdleten [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
-) och skicka datorerna `NonAzureComputer` i den andra klienten till parametern. I följande exempel visas hur du gör detta:
+Använd följande lösning för att få dessa objekt schemalagda. Du kan använda cmdleten [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) med parametern `ForUpdateConfiguration` för att skapa ett schema. Använd sedan cmdleten [New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) och skicka maskinerna `NonAzureComputer` i den andra klienten till parametern. I följande exempel visas hur du gör detta:
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
 
 $startTime = ([DateTime]::Now).AddMinutes(10)
 
-$s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdate
+$s = New-AzAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdateConfiguration
 
-New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
 ## <a name="scenario-unexplained-reboots"></a><a name="node-reboots"></a>Scenario: Oförklarliga omstarter
@@ -614,7 +613,7 @@ KB2267602 är [Windows Defender-definitionsuppdateringen](https://www.microsoft.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte såg problemet eller inte kan lösa problemet kan du prova någon av följande kanaler för ytterligare support.
+Om du inte ser problemet eller inte kan lösa problemet kan du prova någon av följande kanaler för ytterligare support.
 
 * Få svar från Azure-experter via [Azure Forum](https://azure.microsoft.com/support/forums/).
 * Anslut [@AzureSupport](https://twitter.com/azuresupport)med , det officiella Microsoft Azure-kontot för att förbättra kundupplevelsen.

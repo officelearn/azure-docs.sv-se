@@ -6,14 +6,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 987d04a4138c37d9073e5e9925f06c93d7ebb8e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 528c393983cb3d8d96dbcee9157e38ebc4f193f4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281586"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685395"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Konsulttjänster för Azure Marketplace och AppSource
 Konsulttjänster i Azure Marketplace och AppSource ger Microsoft-partner målet att ansluta kunder med tjänster för att stödja och utöka deras användning av Azure och affärsmål. 
@@ -27,22 +27,22 @@ Marknadsplatsens skyltfönster är anpassade till målgrupper och Microsofts mol
 
 |         |Azure Marketplace  |Microsoft AppSource |
 |---------|---------|---------|
-|**Målgrupp**   |**IT-proffs och molnutvecklare**|**Företagsanvändare / Beslutsfattare i branschen**|
-|Lösningsreleva     |Tekniska appar byggda för eller byggda på Azure|Affärsappar som utnyttjar / utökar D365, Power BI, O365, Azure. (Appar för tillägg eller tillägg)|
-|Publiceringsalternativ     |Kontakta mig, utvärderingsversion, Transact eller Tjänster för Azure|Kontakta mig, utvärderingsversionen eller tjänsterna för Dynamics 365 och Power BI|
+|**Målgrupp**      |**IT-proffs och molnutvecklare**|**Företagsanvändare / Beslutsfattare i branschen**|
+|Lösningsreleva      |Tekniska appar byggda för eller byggda på Azure|Affärsappar som utnyttjar / utökar D365, Power BI, O365, Azure. (Appar för tillägg eller tillägg)|
+|Publiceringsalternativ      |Kontakta mig, utvärderingsversion, Transact eller Tjänster för Azure|Kontakta mig, utvärderingsversionen eller tjänsterna för Dynamics 365 och Power BI|
 |I produkterfarenhet      |Hanteringsportalen för Azure|Dynamics 365, Office 365, Office-klientappar| 
 |Annat      |Lokal publicering via Azure Stack, Consulting Services for Azure, Managed Services for Azure|Konsulttjänster för Dynamics och Power BI|
 
 Erbjudanden om konsulttjänster som baseras på Microsoft Dynamics 365, Power Apps och Power BI kan listas på Microsoft AppSource. Mer information finns i [riktlinjer för listar riktlinjer för microsoft appsource-konsulttjänster](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409).
 
-Erbjudanden om konsulttjänster och hanterade tjänster som baseras på Microsoft Azure kan visas på Azure Marketplace. Mer information finns i artiklar om [publicering av en Azure-konsulttjänst](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) och [publicera ett erbjudande om hanterade tjänster till Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
+Erbjudanden om konsulttjänster och hanterade tjänster som baseras på Microsoft Azure kan visas på Azure Marketplace. Mer information finns i artiklar om [publicering av en Azure-konsulttjänst](./partner-center-portal/create-consulting-service-offer.md) och [publicera ett erbjudande om hanterade tjänster till Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
 
 > [!Note]
 > Konsulttjänster på Azure Marketplace bör utnyttja erbjudanden som är inriktade på en **teknisk målgrupp med fokus på *Azures tekniska lösningar och tjänster.* ** Konsulttjänster i AppSource bör utnyttja erbjudanden som är inriktade på deras expertis när det gäller att leverera kvalitetslösningar för Dynamics 365, Power BI eller Power Apps för att lista sina konsulttjänster erbjudanden på AppSource
 > 
 > 
 > [!TIP]
-> Om du vill publicera i Azure Marketplace-skyltfönstret gör du det här valet genom att välja "Azure" på den nedrullningsbar menyn "Primär produkt" i Molnpartnerportalen. Om du vill publicera på AppSource gör du det här valet genom att välja "Dynamics 365", "Power BI" eller "Power Apps" på den nedrullningsliga menyn "Primär produkt" i Molnpartnerportalen.
+> Om du vill publicera i Azure Marketplace-skyltfönstret gör du det här valet genom att välja "Azure" på den nedrullningsbar menyn "Primär produkt" i Partnercenter. Om du vill publicera på AppSource gör du det här valet genom att välja "Dynamics 365", "Power BI" eller "Power Apps" på den nedrullningsda menyn "Primär produkt" i Partnercenter.
 
 ## <a name="eligible-partners-and-supported-countriesregions"></a>Stödberättigade partner och länder/regioner som får stöd
 
@@ -87,13 +87,18 @@ Ytterligare resurser och stöd:
 | Storbritannien  |
 
 
-## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Så här registrerar du dig för konsulttjänster på Azure Marketplace och AppSource
-Börja med [att registrera](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) din företagsinformation på marknaden. Utgivare kan referera till [Bli publisher på Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher)för en fullständig checklista över registreringskrav. 
+## <a name="how-to-register-for-consulting-services-in-commercial-marketplace"></a>Hur man registrerar sig för konsulttjänster på kommersiell marknad
 
-**Vad du kan förvänta dig efter registrering** Onboarding-teamet kommer att nå ut inom 1-3 arbetsdagar med ett välkomstmeddelande, som inkluderar din Inloggningsinformation för Cloud Partner Portal (CPP). [Cloud Partner Portal](https://cloudpartner.azure.com) är erbjudandelistningsportalen där utgivare skickar in information och inlämningar. 
+Börja med [att registrera](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) din företagsinformation på marknaden. Utgivare kan referera till [Bli publisher på Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher)för en fullständig checklista över registreringskrav. 
+
+<!---
+**What To Expect After Registration**
+The Onboarding Team will reach out in 1-3 business days with a welcome email, which will include your Cloud Partner Portal (CPP) login information. [Cloud Partner Portal](https://cloudpartner.azure.com) is the offer listing portal where publishers submit listing information and submissions. 
 
 >[!Note]
->Partner behöver bara registrera sig en gång för att bli utgivare. När du har fått ditt välkomstmeddelande och Cloud Partner Portal-inloggning behöver utgivare inte registrera om för att kunna publicera olika listningstyper. 
+>Partners only need to register once to become a publisher. Once you receive your welcome email and Partner Center login, publishers do not need to re-register in order to publish different listing types. 
+
+--->
 
 ## <a name="prepare-your-publishing-artifacts"></a>Förbereda dina publiceringsartefakter
 Innan registrering, Du kan börja samla in och förbereda innehåll som hjälper din notering formulera värdet av din tjänst och lösning till din målgrupp. 
@@ -120,7 +125,7 @@ Innan registrering, Du kan börja samla in och förbereda innehåll som hjälper
 ## <a name="publishing-process"></a>Publiceringsprocess
 Att ange ditt erbjudande om konsulttjänster på Azure Marketplace och AppSource omfattar följande steg:
 
-1. **Lista**: Börja utarbeta en ny erbjudandelista genom att logga in på ditt [Cloud Partner](https://cloudpartner.azure.com) Portal-konto. Välj "Nytt erbjudande" och "Konsulttjänster" på rullgardinsmenyn. Ange din lista artefakt och publicera.
+1. **Lista**: Börja utarbeta en ny erbjudandelista genom att logga in på ditt [Partner Center-konto.](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) Välj "Nytt erbjudande" och "Konsulttjänster" på rullgardinsmenyn. Ange din lista artefakt och publicera.
 2. **Validering**: Din begäran granskas för att säkerställa att du uppfyller behörighetskriterierna. Vi skickar sedan instruktioner för att lista ditt konsulttjänster erbjudande. 
 3. **Skicka**: Ange den information som krävs i instruktionerna. Allt innehåll och allt stödmaterial måste lämnas in på engelska. 
 4. **Recension:** Vår marknadsföring och redaktion granskar ditt bidrag och optimerar det för läsbarhet, grammatik och effektivitet. 
@@ -165,7 +170,7 @@ När du granskar erbjudandebeskrivningar och erbjudandesammanfattningar tillämp
 |**Proof of Concept**    |    Artikulera vilka tekniska förändringar, tekniska artefakter eller andra artefakter en kund kan förvänta sig som resultat av engagemanget     | Optimera din erbjudande sammanfattning med din topp sökmotoroptimering sökord        |
 |**Workshop**    |   Inkludera en detaljerad agenda dagligen, veckovis eller månadsvis, beroende på erbjudandets valda varaktighet. Artikulera vad lärandemål eller andra resultat är av din verkstad     |   Optimera din erbjudande sammanfattning med din topp sökmotoroptimering sökord      |
 
-I Cloud Partner Portal kan du lägga till formatering i dina uppgifter med hjälp av [Markdown](/contribute/markdown-reference). Detta är ett lätt designspråk som kommer att bidra till att lägga polska till din notering. 
+I Partnercenter kan du lägga till formatering i dina uppgifter med Hjälp av [Markdown](/contribute/markdown-reference). Detta är ett lätt designspråk som kommer att bidra till att lägga polska till din notering. 
 
 **Exempel på markdown-anteckningar**
 * Lägg till * i början och slutet av kopian block - utan utrymme för att skapa kursiv stil (Ex: *innehåll)*
@@ -181,9 +186,9 @@ I Cloud Partner Portal kan du lägga till formatering i dina uppgifter med hjäl
 
 Om du inte redan har gjort det, 
 
-- [Registrera dig](https://azuremarketplace.microsoft.com/sell) på marknaden.
+- [Läs mer](https://azuremarketplace.microsoft.com/sell) om marknadsplatsen.
 
-Om du är registrerad och arbetar i Cloud Partner Portal, 
+Om du vill registrera dig och börja arbeta i Partner Center 
 
-- [Logga in på Cloud Partner Portal](https://cloudpartner.azure.com) för att skapa eller slutföra ditt erbjudande.
-- Mer information finns i [Azure och Dynamics 365 konsulttjänster.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer)
+- [Logga in på Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) för att skapa eller slutföra erbjudandet.
+- Mer information finns i [skapa ett konsultserviceerbjudande.](./partner-center-portal/create-consulting-service-offer.md)

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: 05d892edf20cda228bc566b30b0b693ea7c4a184
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f52dfd92d430abffe5857d231898dd4b0e7745e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75417651"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81679925"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Hantera Python 2-paket i Azure Automation
 
@@ -22,11 +22,11 @@ I ditt Automation-konto väljer du **Python 2-paket** under **Delade resurser**.
 
 ![Lägg till Python-paket](media/python-packages/add-python-package.png)
 
-På sidan **Lägg till Python 2-paket** väljer du ett lokalt paket att ladda upp. Paketet kan vara `.whl` en `.tar.gz` fil eller fil. När du väljer det här alternativet klickar du på **OK** för att ladda upp paketet.
+På sidan Lägg till Python 2-paket väljer du ett lokalt paket att ladda upp. Paketet kan vara en **WHL-** eller **.tar.gz-fil.** När paketet är markerat klickar du på **OK** för att ladda upp det.
 
 ![Lägg till Python-paket](media/python-packages/upload-package.png)
 
-När ett paket har importerats visas det på sidan **Python 2-paket** i ditt Automation-konto. Om du behöver ta bort ett paket markerar du paketet och väljer **Ta bort** på paketsidan.
+När ett paket har importerats visas det på sidan Python 2-paket i ditt Automation-konto. Om du behöver ta bort ett paket markerar du paketet och klickar på **Ta bort**.
 
 ![Paketlista](media/python-packages/package-list.png)
 
@@ -55,13 +55,13 @@ Importera python runbook [Import Python 2-paket från pypi till Azure Automation
 
 ![Paketlista](media/python-packages/import-python-runbook.png)
 
-Med runbooken kan du ange vilket paket `Azure` som ska hämtas ,till exempel (den fjärde parametern) ska hämta alla Azure-moduler och alla dess beroenden, vilket är ca 105.
+Med runbooken kan du ange vilket paket som ska hämtas. Till exempel hämtar `Azure` användningen av parametern alla Azure-moduler och alla beroenden (ca 105).
 
-När runbooken är klar kan du kontrollera sidan **Python 2-paket** under **Delade resurser** i ditt Automation-konto för att kontrollera att paketet importerades korrekt.
+När runbooken är klar kan du kontrollera **Python 2-paketen** under **Delade resurser** i ditt Automation-konto för att kontrollera att paketet har importerats korrekt.
 
 ## <a name="use-a-package-in-a-runbook"></a>Använda ett paket i en runbook
 
-När du har importerat ett paket kan du nu använda det i en runbook. I följande exempel används [Azure Automation-verktygspaketet](https://github.com/azureautomation/azure_automation_utility). Det här paketet gör det enklare att använda Python med Azure Automation. Om du vill använda paketet följer du instruktionerna i GitHub-databasen `from azure_automation_utility import get_automation_runas_credential` och lägger till det i runbooken genom att till exempel importera funktionen för att hämta RunAs-kontot.
+Med ett paket importerat kan du använda det i en runbook. I följande exempel används [Azure Automation-verktygspaketet](https://github.com/azureautomation/azure_automation_utility). Det här paketet gör det enklare att använda Python med Azure Automation. Om du vill använda paketet följer du instruktionerna i GitHub-databasen och lägger till det i runbooken. Du kan till `from azure_automation_utility import get_automation_runas_credential` exempel använda för att importera funktionen för att hämta kontot Kör som.
 
 ```python
 import azure.mgmt.resource
@@ -89,4 +89,4 @@ Om du vill utveckla och testa dina Python 2-runbooks offline kan du använda [Az
 
 ## <a name="next-steps"></a>Nästa steg
 
-För att komma igång med Python 2 runbooks, se [Min första Python 2 runbook](automation-first-runbook-textual-python2.md)
+Kom igång med Python 2-runbooks finns i [Min första Python 2-runbook](automation-first-runbook-textual-python2.md).

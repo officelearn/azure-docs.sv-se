@@ -3,31 +3,22 @@ title: Konfigurera en Azure Migrate-apparat med ett skript
 description: Lär dig hur du konfigurerar en Azure Migrate-apparat med ett skript
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: faed7f96ea8c1850af5523d35f9f891011a48df8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 0c4d85909bbfa623b5ad8590e973250474d9d95a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537720"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676300"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Konfigurera en apparat med ett skript
 
-I den hÃ¤r artikeln beskrivs hur du konfigurerar [Azure Migrate-anordningen](deploy-appliance.md) med ett PowerShell-installationsskript, vmware-virtuella datorer och virtuella virtuella hyper-V-datorer. Om du vill konfigurera apparaten för fysiska servrar [läser du den här artikeln](how-to-set-up-appliance-physical.md).
+Följ den här artikeln om du vill skapa en [Azure Migrate-apparat](deploy-appliance.md) för utvärdering/migrering av virtuella datorer och virtuella datorer med hyper-v.Follow this article to create an Azure Migrate appliance for the assessment/migration of VMware VMs, and Hyper-VMs. Du kör ett skript för att skapa en installation och verifiera att den kan ansluta till Azure. 
 
+Du kan distribuera installationen för virtuella och virtuella datorer med virtuella datorer med hjälp av ett skript eller använda en mall som du hämtar från Azure-portalen. Det är användbart att använda ett skript om du inte kan skapa en virtuell dator med den hämtade mallen.
 
-Du kan distribuera apparaten med ett par metoder:
-
-
-- Använda en mall för virtuella datorer (VMware) (OVA) eller virtuella datorer med hyper-V (VHD).
-- Använda ett skript. Detta är den metod som beskrivs i den här artikeln. Skriptet ger:
-    - Ett alternativ till att ställa in apparaten med hjälp av en OVA-mall, för bedömning och agentlös migrering av virtuella datorer med videoprogram.
-    - Ett alternativ till att konfigurera enheten med hjälp av en VHD-mall, för bedömning och migrering av virtuella hyper-virtuella datorer.
-    - För bedömning av fysiska servrar (eller virtuella datorer som du vill migrera som fysiska servrar) är skriptet den enda metoden för att konfigurera installationen av installationen av den.
-    - Ett sätt att distribuera installationen i Azure Government.
-
-
-När du har skapat installationen kontrollerar du att den kan ansluta till Azure Migrate. Du konfigurerar sedan installationen för första gången och registrerar den med Azure Migrate-projektet.
-
+- Om du vill använda en mall följer du självstudierna för [VMware](tutorial-prepare-vmware.md) eller [Hyper-V](tutorial-prepare-hyper-v.md).
+- Om du vill konfigurera en installation för fysiska servrar kan du bara använda ett skript. Följ [den här artikeln](how-to-set-up-appliance-physical.md).
+- Om du vill konfigurera en installation i ett Azure Government-moln följer du [den här artikeln](deploy-appliance-script-government.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -55,24 +46,15 @@ Kontrollera att den zippade filen är säker innan du distribuerar den.
 1. Öppna ett kommandofönster för administratör på den dator som du laddade ned filen till.
 2. Kör följande kommando för att generera hash för den zippade filen
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exempel på användning för offentligt moln:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
-    - Exempel på användning för myndighetsmoln:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip```
+    - Exempel: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
+3. Verifiera det genererade hash-värdet. För den senaste apparatversionen:
 
-3. Verifiera de genererade hash-värdena:
+    **Algoritm** | **Hash-värde**
+    --- | ---
+    MD5 | 1e92ede3e87c03bd148e56a708cdd33f
+    SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
 
-    - För det offentliga molnet (för den senaste installationen):
 
-        **Algoritm** | **Hash-värde**
-          --- | ---
-          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
-
-    - För Azure-myndighet (för den senaste installationen):
-
-        **Algoritm** | **Hash-värde**
-          --- | ---
-          MD5 | 6316bcc8bc932204295bfe33f4be3949
-          
 
 ### <a name="run-the-script"></a>Kör skriptet
 
@@ -92,15 +74,14 @@ Kör skriptet så här:
 2. Starta PowerShell på datorn med administratörsbehörighet (förhöjd).
 3. Ändra PowerShell-katalogen till mappen som innehåller innehållet som extraherats från den nedladdade zippade filen.
 4. Kör skriptet **AzureMigrateInstaller.ps1**enligt följande:
-    - För det offentliga molnet:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario VMware ```
-    - För Azure Government:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>AzureMigrateInstaller.ps1 ```
+
+    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario VMware ```
    
 5. När skriptet har körts startar det programmet för apparatwebb så att du kan konfigurera apparaten. Om du stöter på några problem läser du skriptloggarna på C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Tidsstämpel</em>.log.
 
 ### <a name="verify-access"></a>Verifiera åtkomst
 
-Se till att installationen kan ansluta till Azure-URL:er för [offentliga](migrate-appliance.md#public-cloud-urls) moln och [myndighetsmoln](migrera-appliance.md#government-cloud-urls.
-
+Se till att installationen kan ansluta till Azure-url:er för det [offentliga](migrate-appliance.md#public-cloud-urls) molnet.
 
 ## <a name="set-up-the-appliance-for-hyper-v"></a>Konfigurera apparaten för Hyper-V
 
@@ -120,24 +101,14 @@ Kontrollera att den zippade filen är säker innan du distribuerar den.
 1. Öppna ett kommandofönster för administratör på den dator som du laddade ned filen till.
 2. Kör följande kommando för att generera hash för den zippade filen
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exempel på användning för offentligt moln:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
-    - Exempel på användning för myndighetsmoln:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-HyperV-USGov.zip MD5```
+    - Exempel: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
 
-3. Verifiera de genererade hash-värdena:
+3. Verifiera de genererade hash-värdena. För den senaste apparatversionen:
 
-    - För det offentliga molnet (för den senaste installationen):
-
-        **Algoritm** | **Hash-värde**
-          --- | ---
-          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
-
-    - För Azure-myndighet (för den senaste installationen):
-
-        **Algoritm** | **Hash-värde**
-          --- | ---
-          MD5 | 717f8b9185f565006b5aff0215ecadac
-          
+    **Algoritm** | **Hash-värde**
+    --- | ---
+    MD5 | 1e92ede3e87c03bd148e56a708cdd33f
+    SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
 
 ### <a name="run-the-script"></a>Kör skriptet
 
@@ -156,22 +127,17 @@ Kör skriptet så här:
 1. Extrahera den zippade filen till en mapp på datorn som är värd för apparaten. Kontrollera att du inte kör skriptet på en dator på en befintlig Azure Migrate-installation.
 2. Starta PowerShell på datorn med administratörsbehörighet (förhöjd).
 3. Ändra PowerShell-katalogen till mappen som innehåller innehållet som extraherats från den nedladdade zippade filen.
-4. Kör skriptet **AzureMigrateInstaller.ps1**enligt följande:
-    - För det offentliga molnet:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario Hyperv ```
-    - För Azure Government:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>AzureMigrateInstaller.ps1 ```
+4. Kör skriptet **AzureMigrateInstaller.ps1**enligt följande:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario Hyperv ```
    
 5. När skriptet har körts startar det programmet för apparatwebb så att du kan konfigurera apparaten. Om du stöter på några problem läser du skriptloggarna på C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Tidsstämpel</em>.log.
 
 ### <a name="verify-access"></a>Verifiera åtkomst
 
-Se till att installationen kan ansluta till Azure-URL:er för [offentliga](migrate-appliance.md#public-cloud-urls) moln och [myndighetsmoln](migrera-appliance.md#government-cloud-urls.
-
-
+Se till att installationen kan ansluta till Azure-url:er för det [offentliga](migrate-appliance.md#public-cloud-urls) molnet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du konfigurerar en mall med en mall eller för fysiska servrar finns i följande artiklar:
+När du har distribuerat installationen måste du konfigurera den för första gången och registrera den med Azure Migrate-projektet.
 
 - Ställ in apparaten för [VMware](how-to-set-up-appliance-vmware.md#configure-the-appliance).
 - Ställ in apparaten för [Hyper-V](how-to-set-up-appliance-hyper-v.md#configure-the-appliance).
-- Konfigurera apparaten för [fysiska servrar](how-to-set-up-appliance-physical.md).

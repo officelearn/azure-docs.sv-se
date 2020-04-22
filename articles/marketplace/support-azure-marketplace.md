@@ -1,20 +1,21 @@
 ---
-title: Stöd till den kommersiella marknaden | Azure
+title: Stöd till den kommersiella marknaden | Azure Marketplace
 description: Supportinformation och länkar för Azure Marketplace och AppSource
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 3/19/2020
+ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: b2dba23bdf07233a9945086fba2274602cb2dcf1
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 2b73fee33692b65770caeea651c12e9780dba2c4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81252242"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81681388"
 ---
-# <a name="support-for-the-marketplace"></a>Stöd för Marketplace  
+# <a name="support-for-the-marketplace"></a>Stöd för Marketplace
+
 Här är en lista över supportalternativ för Marketplace.  
 
 Dessutom kan du få många av dina frågor besvarade i [Marketplace-kanalen för C+AI Community Forum](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
@@ -23,11 +24,11 @@ Dessutom kan du få många av dina frågor besvarade i [Marketplace-kanalen för
 
 Öppna en biljett med [Microsoft Marketplace-utgivares support](https://aka.ms/marketplacepublishersupport) för problem med introduktion och komma igång.
 
-## <a name="partner-center-or-cloud-partner-portal"></a>Partnercenter eller molnpartnerportal  
+## <a name="partner-center"></a>Partnercenter   
 
 | Supportkanal | Beskrivning | Tillgänglighet |  
 |:--- |:--- |:--- |  
-| Om du behöver hjälp kan du besöka sidan Skapa en incident som finns på [Marketplace Support](https://aka.ms/marketplacepublishersupport)</li> </ul> | Stöd för Partner Center eller Cloud Partner Portal. | Support tillhandahålls 24x5. |  
+| Om du behöver hjälp kan du besöka sidan Skapa en incident som finns på [Marketplace Support](https://aka.ms/marketplacepublishersupport)</li> </ul> | Stöd för Partner Center. | Support tillhandahålls 24x5. |  
 
 ## <a name="technical"></a>Teknik  
 

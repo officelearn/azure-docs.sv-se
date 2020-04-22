@@ -12,12 +12,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b946ab6157ba63213a4c140221d36f231aa62f0d
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 7fb2bbcdd5f84e3637a108d0753566d3a9de7fd0
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535850"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677750"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsofts identitetsplattform och implicita bidragsflöde
 
@@ -32,9 +32,6 @@ För dessa program (Angular, Ember.js, React.js och så vidare) stöder Microsof
 I den här artikeln beskrivs hur du programmerar direkt mot protokollet i ditt program.  När det är möjligt rekommenderar vi att du använder de Microsoft Authentication Libraries (MSAL) som stöds i stället för att [hämta token och anropa skyddade webb-API:er](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Ta också en titt på [exempelapparna som använder MSAL](sample-v2-code.md).
 
 Om du föredrar att inte använda ett bibliotek i din ensidiga app och skicka protokollmeddelanden själv följer du de allmänna stegen nedan.
-
-> [!NOTE]
-> Alla Azure Active Directory-scenarier och -funktioner (Azure Active Directory) stöds inte av slutpunkten för Microsoft-identitetsplattformen. För att ta reda på om du ska använda slutpunkten för Microsoft identity platform läser du om begränsningar av [Microsofts identitetsplattform](active-directory-v2-limitations.md).
 
 ## <a name="suitable-scenarios-for-the-oauth2-implicit-grant"></a>Lämpliga scenarier för OAuth2 implicita bidrag
 

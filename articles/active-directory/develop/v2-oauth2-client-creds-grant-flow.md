@@ -12,12 +12,12 @@ ms.date: 12/17/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6021348160b338bc3a153764968f6c846a644cd1
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: f559dc0da8680a6cd3243b5ee12c3145244c9c2c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535867"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677873"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft-identitetsplattform och OAuth 2.0-klientautentiseringsflödet
 
@@ -26,9 +26,6 @@ Du kan använda [bevilja OAuth 2.0-klientautentiseringsuppgifter](https://tools.
 I den här artikeln beskrivs hur du programmerar direkt mot protokollet i ditt program. När det är möjligt rekommenderar vi att du använder de Microsoft Authentication Libraries (MSAL) som stöds i stället för att [hämta token och anropa skyddade webb-API:er](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Ta också en titt på [exempelapparna som använder MSAL](sample-v2-code.md).
 
 OAuth 2.0-klientautentiseringsuppgifterna bevilja flödet tillåter en webbtjänst (konfidentiell klient) att använda sina egna autentiseringsuppgifter, i stället för att personifiera en användare, för att autentisera när du ringer en annan webbtjänst. I det här fallet är klienten vanligtvis en mellannivåwebbtjänst, en daemontjänst eller en webbplats. För en högre säkerhetsnivå gör Microsofts identitetsplattform det också möjligt för den anropande tjänsten att använda ett certifikat (i stället för en delad hemlighet) som en autentiseringstjänst.
-
-> [!NOTE]
-> Slutpunkten för Microsoft-identitetsplattform stöder inte alla Azure AD-scenarier och -funktioner. För att avgöra om du ska använda slutpunkten för Microsoft identity platform läser du om begränsningar av [Microsofts identitetsplattform](active-directory-v2-limitations.md).
 
 I den mer typiska *oauth med trebent*beviljas ett klientprogram behörighet att komma åt en resurs för en viss användares räkning. Behörigheten delegeras från användaren till programmet, vanligtvis under [medgivandeprocessen.](v2-permissions-and-consent.md) I klientautentiseringsuppgifterna *(tvåbenta OAuth)* beviljas dock behörigheter direkt till själva programmet. När appen visar en token för en resurs, tvingar resursen att själva appen har behörighet att utföra en åtgärd och inte användaren.
 

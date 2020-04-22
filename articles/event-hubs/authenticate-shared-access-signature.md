@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: spelluru
-ms.openlocfilehash: 82773ab6decfe15ee1a9d839a1f10a158ae72c42
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: cde5992355d274410bb43b1e3e60fbba1afe4e44
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521325"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676356"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autentisera åtkomst till eventhubbar-resurser med hjälp av SIGNATURER för delad åtkomst (SAS)
 Med SAS (Shared Access Signature) får du detaljerad kontroll över vilken typ av åtkomst du beviljar till de klienter som har signaturen för delad åtkomst. Här är några av de kontroller som du kan ställa in i en SAS: 
@@ -22,7 +22,7 @@ Med SAS (Shared Access Signature) får du detaljerad kontroll över vilken typ a
 - De behörigheter som beviljas av SAS. En SAS för ett namnområde för händelsehubbar kan till exempel ge lysningsbehörigheten, men inte sändningsbehörigheten.
 - Endast klienter som presenterar giltiga autentiseringsuppgifter kan skicka data till en händelsehubb.
 - En klient kan inte utge sig för att vara en annan klient.
-- En rouge-klient kan blockeras från att skicka data till en händelsehubb.
+- En otillåten klient kan blockeras från att skicka data till en händelsehubb.
 
 Den här artikeln handlar om att autentisera åtkomsten till Event Hubs-resurser med HJÄLP av SAS. Mer information om hur du **auktoriserar** åtkomst till Event Hubs-resurser med SAS finns i [den här artikeln](authorize-access-shared-access-signature.md). 
 

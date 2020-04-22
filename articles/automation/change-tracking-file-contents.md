@@ -1,16 +1,16 @@
 ---
 title: Visa ändringar av filinnehåll med Azure Automation
-description: Använd funktionen för ändring av filinnehåll i Ändringsspårning om du vill visa innehållet i en fil som har ändrats.
+description: Använd funktionen för ändringsspårning av filinnehåll för att visa innehållet i en fil som har ändrats.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 23c4f24e430d58895eb551c3e2cb62b5f0003ac0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57c3c2c7a0c923921c727ccea7839940457bc1ee
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75418817"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682998"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Visa innehållet i en fil som spåras med ändringsspårning
 
@@ -44,19 +44,19 @@ Med filinnehållsspårning kan du visa innehållet i en fil före och efter en �
 
 Följande steg går igenom att aktivera ändringsspårning för en fil:
 
-1. På sidan **Redigera inställningar i** Ändra **spårning**väljer du antingen fliken **Windows-filer** eller **Linux-filer** och klickar på **Lägg till**
+1. På sidan Redigera inställningar i **Ändra spårning**väljer du antingen fliken **Windows-filer** eller **Linux-filer** och klickar på **Lägg till**
 
-1. Fyll i informationen för filsökvägen och välj **Sant** under **Ladda upp filinnehåll för alla inställningar**. Den här inställningen aktiverar endast filinnehållsspårning för den filsökvägen.
+1. Fyll i informationen för filsökvägen och välj Sant under **Ladda upp filinnehåll för alla inställningar**. Den här inställningen aktiverar endast filinnehållsspårning för den filsökvägen.
 
    ![lägga till en Linux-fil](./media/change-tracking-file-contents/add-linux-file.png)
 
 ## <a name="viewing-the-contents-of-a-tracked-file"></a>Visa innehållet i en spårad fil
 
-1. När en ändring har upptäckts för filen eller en fil i sökvägen visas den i portalen. Markera filändringen i listan över ändringar. Fönstret **Ändra information** visas.
+1. När en ändring har upptäckts för filen eller en fil i sökvägen visas den i portalen. Markera filändringen i listan över ändringar. Fönstret Ändra information visas.
 
    ![liständringar](./media/change-tracking-file-contents/change-list.png)
 
-1. På sidan **Ändra information** visas standardinformationen före och efter filinformationen, längst upp till vänster, klicka på **Visa filinnehållsändringar** för att se innehållet i filen.
+1. I fönstret Ändra information visas standardinformationen före och efter fil. Välj Visa ändringar av **filinnehåll** om du vill visa innehållet i filen.
 
    ![ändra information](./media/change-tracking-file-contents/change-details.png)
 

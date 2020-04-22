@@ -1,6 +1,6 @@
 ---
-title: Diagnostisera Linux Hybrid Runbook Worker - Azure Update Management
-description: Lär dig hur du felsöker och löser problem med Azure Automation Hybrid Runbook Worker på Linux som stöder uppdateringshantering.
+title: Felsöka problem med Linux-uppdateringsagenten i Azure Automation Update Management
+description: Lär dig hur du felsöker och löser problem med Linux Windows Update-agenten med hjälp av lösningen för uppdateringshantering.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,36 +9,36 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: e60ba71607b99f0ea97e0725ffdd0740f3e9c579
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bba1c7e89a9c3bb1c9aa1567e36dd71a40f14636
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79278303"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81679064"
 ---
-# <a name="understand-and-resolve-linux-hybrid-runbook-worker-health-for-update-management"></a>Förstå och lösa Hälsa för Linux Hybrid Runbook Worker för uppdateringshantering
+# <a name="troubleshoot-linux-update-agent-issues"></a>Felsöka problem med Linux-uppdateringsagenten
 
-Det kan finnas många orsaker till att datorn inte visar **Klar** i uppdateringshantering. I Uppdateringshantering kan du kontrollera hälsotillståndet för en Hybrid Runbook Worker-agent för att fastställa det underliggande problemet. I den hÃ¤r artikeln beskrivs hur du kÃ¶r felsökaren för Azure-datorer frÃ¶r Azure-portalen och icke-Azure-datorer i [offlinescenariot](#troubleshoot-offline).
+Det kan finnas många orsaker till att din dator inte visas som redo (felfri) i Uppdateringshantering. I Uppdateringshantering kan du kontrollera hälsotillståndet för en Hybrid Runbook Worker-agent för att fastställa det underliggande problemet. I den hÃ¤r artikeln beskrivs hur du kÃ¶r felsökaren för Azure-datorer frÃ¶r Azure-portalen och icke-Azure-datorer i [offlinescenariot](#troubleshoot-offline). 
 
 Följande lista är de tre beredskapstillstånd som en maskin kan vara i:
 
-* **Ready** - Hybrid Runbook Worker distribueras och sågs senast för mindre än 1 timme sedan.
-* **Frånkopplad** - Hybrid Runbook Worker distribueras och sågs senast för över 1 timme sedan.
-* **Inte konfigurerad** – Hybrid Runbook Worker hittades inte eller har inte slutförts.
+* Ready - Hybrid Runbook Worker distribueras och sågs senast för mindre än 1 timme sedan.
+* Frånkopplad - Hybrid Runbook Worker distribueras och sågs senast för över 1 timme sedan.
+* Inte konfigurerad – Hybrid Runbook Worker hittades inte eller har inte slutförts.
 
 > [!NOTE]
-> Det kan finnas en liten fördröjning mellan vad Azure-portalen visar och datorns aktuella tillstånd.
+> Det kan finnas en liten fördröjning mellan vad Azure-portalen visar och det aktuella tillståndet för en dator.
 
 ## <a name="start-the-troubleshooter"></a>Starta felsökaren
 
-För Azure-datorer startar sidan **Felsöka uppdateringsagent** om du klickar på länken **Felsöka** under kolumnen **Beredskap för uppdateringsagenter** i portalen. För datorer som inte är Azure tar länken dig till den här artikeln. Se offlineinstruktionerna för att felsöka en annan dator än Azure.
+För Azure-datorer startar sidan **Felsöka** uppdateringsagent om du klickar på länken Felsöka under kolumnen **Beredskap för uppdateringsagenter** i portalen. För datorer som inte är Azure tar länken dig till den här artikeln. Se offlineinstruktionerna för att felsöka en annan dator än Azure.
 
 ![vm-listsida](../media/update-agent-issues-linux/vm-list.png)
 
 > [!NOTE]
-> Kontrollerna kräver att den virtuella datorn körs. Om den virtuella datorn inte körs visas en knapp för att **starta den virtuella datorn**.
+> Kontrollerna kräver att den virtuella datorn körs. Om den virtuella datorn inte körs visas knappen **Starta den virtuella datorn.**
 
-På sidan **Felsöka uppdateringsagent** klickar du på **Kör checkar**för att starta felsökaren. Felsökaren använder [kommandot Kör](../../virtual-machines/linux/run-command.md) för att köra ett skript på datorn för att verifiera beroenden. När felsökaren är klar returneras resultatet av checkarna.
+På sidan Felsöka uppdateringsagent klickar du på **Kör checkar**för att starta felsökaren. Felsökaren använder [kommandot Kör](../../virtual-machines/linux/run-command.md) för att köra ett skript på datorn för att verifiera beroenden. När felsökaren är klar returneras resultatet av checkarna.
 
 ![Felsöka sida](../media/update-agent-issues-linux/troubleshoot-page.png)
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 005d4fe1b6ec59e7f05be3dd2ab3e72d0e7aa8e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bf69786f56f52874bd9358ae44a6b88b466e77f4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79283425"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677463"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Teamdatascience-processen i aktion: Använd Azure HDInsight Hadoop-kluster
 I den här genomgången använder vi [Team Data Science Process (TDSP)](overview.md) i ett end-to-end-scenario. Vi använder ett [Azure HDInsight Hadoop-kluster](https://azure.microsoft.com/services/hdinsight/) för att lagra, utforska och funktionstekniska data från den allmänt tillgängliga [NYC Taxi Trips-datauppsättningen](https://www.andresmh.com/nyctaxitrips/) och för att lägga ned urvalet av data. För att hantera binära och multiklassklassificerings- och regressionsfördiktiva uppgifter skapar vi modeller av data med Azure Machine Learning. 
@@ -721,7 +721,7 @@ Om du vill utfärda Hive-frågor i modulen [Importera data][import-data] i Machi
 
 Här är några detaljer om [modulen Importera data][import-data] och parametrarna för inmatning:
 
-**HCatalog server URI**: Om klusternamnet är **abc123**, använd sedan: https://abc123.azurehdinsight.net.
+**HCatalog server URI**: Om klusternamnet är **abc123**, använd sedan: https:\//abc123.azurehdinsight.net.
 
 **Hadoop-användarkontonamn**: Användarnamnet som valts för klustret (inte fjärråtkomstanvändarnamnet).
 

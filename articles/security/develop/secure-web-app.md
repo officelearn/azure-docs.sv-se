@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 55c6d374c8a3c308323c0d003726492477e33ff8
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 730e478622da8cd90af1c559e4d0c6fd04151cca
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811235"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81686796"
 ---
 # <a name="develop-a-secure-web-app"></a>Utveckla en säker webbapp
 
@@ -803,7 +803,7 @@ Konfigurera appen så att den använder de autentiseringsuppgifter som krävs i 
 När du har lagt till Azure AD-konfigurationen och hemligheterna i Key Vault kan användare autentiseras i appen med hjälp av Azure OAuth-autentisering.
 I appkoden hanteras detta av Azure Active Directory Authentication Library (ADAL).
 
-När hemligheterna finns i Key Vault och programmet har tillgång till hemligheter och databasen, kan programtjänsten nås via gatewayens program-URL (https://GATEWAY_HASH.cloudapp.net), som du kan få från bladet.
+När hemligheterna finns i Key Vault och programmet har tillgång till hemligheter och databasen kan programtjänsten nås\/via gatewayens program-URL (https: /GATEWAY_HASH.cloudapp.net), som du kan få från bladet.
 
 Om du när du loggar in på Azure AD får du ett felmeddelande med "Användaren är inte registrerad i katalogen du försöker logga in på", måste du lägga till användaren. Om du vill lägga till användaren går du till fliken **Användare** i Azure AD och lägger till användaren manuellt genom att ange deras information eller bjuda in användaren genom att ange sin e-postadress som gästanvändare till Azure AD i bladet **Bjud in gäst.**
 
@@ -978,7 +978,7 @@ När du har åtgärdat några av de kodfel som hittades av linningsverktygen har
 
 ### <a name="find-and-fix-vulnerabilities-in-app-dependencies"></a>Hitta och åtgärda säkerhetsproblem i appberoenden
 
-Om du vill söka efter och åtgärda programberoenden kan du använda [OWASP:s dependency check](https://www.owasp.org/index.php/OWASP_Dependency_Check).
+Om du vill söka efter och åtgärda programberoenden kan du använda [OWASP:s dependency check](https://owasp.org/www-project-dependency-check/).
 
 Säkerhet är ett liknande program som kontrollerar beroenden. Du hittar den på [GitHub](https://github.com/pyupio/safety). Säkerhetsskanningar efter sårbarheter som finns i välkända sårbarhetsdatabaser.
 

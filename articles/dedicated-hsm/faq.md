@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a0cb7957008308425d91abb3e0f828cc40301736
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f9e759372f01d2a1b48562aef2bace1e8435a67
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064934"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683311"
 ---
 # <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
 
@@ -40,7 +40,7 @@ Microsoft samarbetar med Gemalto för att leverera Azure Dedicated HSM-tjänsten
 
 ### <a name="q-what-is-an-hsm-used-for"></a>F: Vad används en HSM för?
 
-HSM används för att lagra kryptografiska nycklar som används för kryptografiska funktioner som SSL (säkert socketlager), kryptera data, PKI (infrastruktur för offentliga nycklar), DRM (hantering av digitala rättigheter) och signeringsdokument.
+HSM används för att lagra kryptografiska nycklar som används för kryptografiska funktioner som TLS (transportlagersäkerhet), kryptera data, PKI (infrastruktur för offentliga nycklar), DRM (hantering av digitala rättigheter) och signeringsdokument.
 
 ### <a name="q-how-does-dedicated-hsm-work"></a>F: Hur fungerar dedikerad HSM?
 
@@ -69,6 +69,7 @@ Från och med slutet av mars 2019 finns de särskilda HSM i de 14 regioner som a
 * USA, östra
 * USA, östra 2
 * USA, västra
+* USA, västra 2
 * USA, södra centrala
 * Sydostasien
 * Asien, östra
@@ -84,6 +85,10 @@ Från och med slutet av mars 2019 finns de särskilda HSM i de 14 regioner som a
 * Kanada, östra
 * Australien, östra
 * Australien, sydöstra
+* Schweiz Norr
+* Schweiz Väst
+* US Gov, Virginia
+* US Gov, Texas
 
 ## <a name="interoperability"></a>Samverkan
 
@@ -132,13 +137,13 @@ Ja. Se gemaltomigreringsguiden.
 
 ### <a name="q-how-do-i-decide-whether-to-use-azure-key-vault-or-azure-dedicated-hsm"></a>F: Hur bestämmer jag om jag ska använda Azure Key Vault eller Azure Dedicated HSM?
 
-Azure Dedikerad HSM är det lämpliga valet för företag som migrerar till Azure lokala program som använder HSM.Azure Dedicated HSM is the appropriate choice for enterprises migration to Azure on-premises applications that use HSMs. Dedikerade HSM:er presenterar ett alternativ för att migrera ett program med minimala ändringar. Om kryptografiska åtgärder utförs i programmets kod som körs i en Azure VM eller Web App kan de använda dedikerad HSM. I allmänhet kan krymplindad programvara som körs i IaaS (infrastruktur som tjänst) modeller, som stöder HSM som ett nyckelarkiv kan använda Dedikera HSM, till exempel Application gateway eller traffic manager för nyckellösa SSL, ADCS (Active Directory Certificate Services) eller liknande PKI-verktyg, verktyg/program som används för dokumentsignering, kodsignering eller en SQL Server (IaaS) konfigurerad med TDE (transparent databaskryptering) med huvudnyckel i en HSM med hjälp av en EKM-leverantör (utökningsbar nyckelhantering). Azure Key Vault är lämplig för "born-in-cloud"-program eller för kryptering i vila scenarier där kunddata bearbetas av PaaS (plattform som en tjänst) eller SaaS (Software as a service) scenarier såsom Office 365 Kundnyckel, Azure Information Protection , Azure Disk Encryption, Azure Data Lake Store-kryptering med kundhanterad nyckel, Azure Storage-kryptering med kundhanterad nyckel och Azure SQL med kundhanterad nyckel.
+Azure Dedikerad HSM är det lämpliga valet för företag som migrerar till Azure lokala program som använder HSM.Azure Dedicated HSM is the appropriate choice for enterprises migration to Azure on-premises applications that use HSMs. Dedikerade HSM:er presenterar ett alternativ för att migrera ett program med minimala ändringar. Om kryptografiska åtgärder utförs i programmets kod som körs i en Azure VM eller Web App kan de använda dedikerad HSM. I allmänhet kan krymplindad programvara som körs i IaaS (infrastruktur som tjänst) modeller, som stöder HSM som ett nyckelarkiv kan använda Dedikera HSM, till exempel Application gateway eller traffic manager för nyckellösa TLS, ADCS (Active Directory Certificate Services) eller liknande PKI-verktyg, verktyg/program som används för dokumentsignering, kodsignering eller en SQL Server (IaaS) konfigurerad med TDE (transparent databaskryptering) med huvudnyckel i en HSM med hjälp av en EKM-leverantör (utökningsbar nyckelhantering). Azure Key Vault är lämplig för "born-in-cloud"-program eller för kryptering i vila scenarier där kunddata bearbetas av PaaS (plattform som en tjänst) eller SaaS (Software as a service) scenarier som Office 365 Customer Key, Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store kryptering med kundhanterad nyckel, Azure Storage kryptering med kundhanterad nyckel och Azure SQL med kundhanterad nyckel.
 
 ### <a name="q-what-usage-scenarios-best-suit-azure-dedicated-hsm"></a>F: Vilka användningsscenarier passar bäst Azure Dedicated HSM?
 
 Azure Dedicated HSM är mest lämplig för migreringsscenarier. Det innebär att om du migrerar lokala program till Azure som redan använder HSM-moduler. Detta ger ett alternativ med låg friktion för att migrera till Azure med minimala ändringar i programmet. Om kryptografiska åtgärder utförs i programmets kod som körs i Azure VM eller Web App kan dedikerad HSM användas. I allmänhet kan krympinslagna program som körs i IaaS-modeller (infrastruktur som en tjänst) som stöder HSM som en nyckelbutik använda Dedikera HSM, till exempel:
 
-* Programgateway eller traffic manager för keyless SSL
+* Programgateway eller traffic manager för nyckellösa TLS
 * ADCS (Active Directory-certifikattjänster)
 * Liknande PKI-verktyg
 * Verktyg/program som används för dokumentsignering

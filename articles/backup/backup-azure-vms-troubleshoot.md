@@ -4,18 +4,18 @@ description: I den här artikeln kan du läsa om hur du felsöker fel som påtr�
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 15e4b4c8850798fd2386cd2874b6ab58a18d5406
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 019c27b1f7e8560c86252aaf2ed1fb79df2439fa
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79297398"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677345"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Felsöka säkerhetskopieringsfel på virtuella Azure-datorer
 
 Du kan felsöka fel som påträffades när du använder Azure Backup med informationen nedan:
 
-## <a name="backup"></a>Säkerhetskopiering
+## <a name="backup"></a>Backup
 
 Det här avsnittet täcker säkerhetskopieringsåtgärdsfel för Azure Virtual Machine.
 
@@ -191,14 +191,15 @@ Detta säkerställer att ögonblicksbilderna tas via värden i stället för gä
 | **Felkod:** ExtensionSnapshotFailedNoSecureNetwork <br/> **Felmeddelande:** Ögonblicksbilden misslyckades på grund av att det inte gick att skapa en säker nätverkskommunikationskanal. | <ol><li> Öppna Registereditorn genom att köra **regedit.exe** i ett upphöjt läge. <li> Identifiera alla versioner av .NET Framework som finns i systemet. De finns under hierarkin av registernyckel **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> För varje .NET Framework som finns i registernyckeln lägger du till följande nyckel: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
 | **Felkod**: ExtensionVCRedistInstallationFailure <br/> **Felmeddelande:** Ögonblicksbilden misslyckades på grund av att Visual C++ Redistributable för Visual Studio 2012 inte kunde installeras. | Navigera till C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion och installera vcredist2013_x64.<br/>Kontrollera att registernyckelvärdet som tillåter tjänstinstallationen är inställt på rätt värde. Det vill än ange **startvärdet** i **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** till **3** och inte **4**. <br><br>Om du fortfarande har problem med installationen startar du om installationstjänsten genom att köra **MSIEXEC /UNREGISTER** följt av **MSIEXEC /REGISTER** från en upphöjd kommandotolk.  |
 | **Felkod**: UserErrorRequestDisallowedByPolicy <BR> **Felmeddelande:** En ogiltig princip har konfigurerats på den virtuella datorn som förhindrar att ögonblicksbilder utförs. | Om du har en Azure-princip som [styr taggar i din miljö](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags)kan du antingen överväga att ändra principen från en [neka-effekt](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) till en [ändra-effekt](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify)eller skapa resursgruppen manuellt enligt [namngivningsschemat som krävs av Azure Backup](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines).
+
 ## <a name="jobs"></a>Jobb
 
 | Felinformation | Lösning |
 | --- | --- |
-| Annullering stöds inte för den här jobbtypen: <br>Vänta tills jobbet är klart. |Inget |
+| Annullering stöds inte för den här jobbtypen: <br>Vänta tills jobbet är klart. |Ingen |
 | Jobbet är inte i ett avbokningsbart tillstånd: <br>Vänta tills jobbet är klart. <br>**Eller**<br> Det valda jobbet är inte i ett avbokningsbart tillstånd: <br>Vänta tills jobbet är klart. |Det är troligt att jobbet är nästan klart. Vänta tills jobbet är klart.|
 | Säkerhetskopiering kan inte avbryta jobbet eftersom det inte pågår: <br>Annullering stöds endast för pågående jobb. Försök att avbryta ett pågående jobb. |Det här felet inträffar på grund av ett övergående tillstånd. Vänta en minut och försök igen. |
-| Det gick inte att avbryta jobbet för säkerhetskopiering: <br>Vänta tills jobbet är klart. |Inget |
+| Det gick inte att avbryta jobbet för säkerhetskopiering: <br>Vänta tills jobbet är klart. |Ingen |
 
 ## <a name="restore"></a>Återställ
 
@@ -206,14 +207,14 @@ Detta säkerställer att ögonblicksbilderna tas via värden i stället för gä
 | --- | --- |
 | Återställningen misslyckades med ett internt fel i molnet. |<ol><li>Molntjänsten som du försöker återställa är konfigurerad med DNS-inställningar. Du kan kontrollera: <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Produktion" Get-AzureDns -DnsSettings $deployment. DnsSettings**.<br>Om **Adressen** är konfigurerad konfigureras DNS-inställningarna.<br> <li>Molntjänsten som du försöker återställa till är konfigurerad med **ReservedIP**och befintliga virtuella datorer i molntjänsten är i stoppat tillstånd. Du kan kontrollera att en molntjänst har reserverat en IP med hjälp av följande PowerShell-cmdlets: **$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep. ReservedIPName**. <br><li>Du försöker återställa en virtuell dator med följande speciella nätverkskonfigurationer till samma molntjänst: <ul><li>Virtuella datorer under belastningsutjämnad konfiguration, interna och externa.<li>Virtuella datorer med flera reserverade IP-adresser. <li>Virtuella datorer med flera nätverkskort. </ul><li>Välj en ny molntjänst i användargränssnittet eller se [återställa överväganden](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) för virtuella datorer med särskilda nätverkskonfigurationer.</ol> |
 | Det valda DNS-namnet har redan tagits: <br>Ange ett annat DNS-namn och försök igen. |Det här DNS-namnet refererar till molntjänstnamnet och slutar vanligtvis med **.cloudapp.net**. Det här namnet måste vara unikt. Om du får det här felet måste du välja ett annat VM-namn under återställningen. <br><br> Det här felet visas endast för användare av Azure-portalen. Återställningen via PowerShell lyckas eftersom den bara återställer diskarna och inte skapar den virtuella datorn. Felet uppstår när den virtuella datorn uttryckligen skapas av dig efter diskåterställningsåtgärden. |
-| Den angivna virtuella nätverkskonfigurationen är inte korrekt: <br>Ange en annan konfiguration för virtuella nätverk och försök igen. |Inget |
-| Den angivna molntjänsten använder en reserverad IP som inte matchar konfigurationen av den virtuella datorn som återställs: <br>Ange en annan molntjänst som inte använder en reserverad IP. Eller välj en annan återställningspunkt att återställa från. |Inget |
-| Molntjänsten har nått sin gräns för antalet indataslutpunkter: <br>Försök igen genom att ange en annan molntjänst eller med hjälp av en befintlig slutpunkt. |Inget |
-| Valvet för återställningstjänster och mållagring finns i två olika regioner: <br>Kontrollera att lagringskontot som anges i återställningsåtgärden finns i samma Azure-region som ditt Recovery Services-valv. |Inget |
-| Det lagringskonto som angetts för återställningen stöds inte: <br>Endast grundläggande eller standardlagringskonton med lokalt redundanta eller geoundundanta replikeringsinställningar stöds. Välj ett lagringskonto som stöds. |Inget |
+| Den angivna virtuella nätverkskonfigurationen är inte korrekt: <br>Ange en annan konfiguration för virtuella nätverk och försök igen. |Ingen |
+| Den angivna molntjänsten använder en reserverad IP som inte matchar konfigurationen av den virtuella datorn som återställs: <br>Ange en annan molntjänst som inte använder en reserverad IP. Eller välj en annan återställningspunkt att återställa från. |Ingen |
+| Molntjänsten har nått sin gräns för antalet indataslutpunkter: <br>Försök igen genom att ange en annan molntjänst eller med hjälp av en befintlig slutpunkt. |Ingen |
+| Valvet för återställningstjänster och mållagring finns i två olika regioner: <br>Kontrollera att lagringskontot som anges i återställningsåtgärden finns i samma Azure-region som ditt Recovery Services-valv. |Ingen |
+| Det lagringskonto som angetts för återställningen stöds inte: <br>Endast grundläggande eller standardlagringskonton med lokalt redundanta eller geoundundanta replikeringsinställningar stöds. Välj ett lagringskonto som stöds. |Ingen |
 | Den typ av lagringskonto som angetts för återställningen är inte online: <br>Kontrollera att lagringskontot som anges i återställningsåtgärden är online. |Det här felet kan inträffa på grund av ett tillfälligt fel i Azure Storage eller på grund av ett avbrott. Välj ett annat lagringskonto. |
-| Resursgruppskvoten har uppnåtts: <br>Ta bort vissa resursgrupper från Azure-portalen eller kontakta Azure Support för att öka gränserna. |Inget |
-| Det valda undernätet finns inte: <br>Välj ett undernät som finns. |Inget |
+| Resursgruppskvoten har uppnåtts: <br>Ta bort vissa resursgrupper från Azure-portalen eller kontakta Azure Support för att öka gränserna. |Ingen |
+| Det valda undernätet finns inte: <br>Välj ett undernät som finns. |Ingen |
 | Säkerhetskopieringstjänsten har inte behörighet att komma åt resurser i prenumerationen. |LÃ¶s problemet genom att först återställa diskar med hjälp av stegen i [Restore säkerhetskopiera diskar](backup-azure-arm-restore-vms.md#restore-disks). Använd sedan PowerShell-stegen i [Skapa en virtuell dator från återställda diskar](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
 ## <a name="backup-or-restore-takes-time"></a>Säkerhetskopiering eller återställning tar tid
@@ -229,12 +230,12 @@ Vanligtvis finns vm-agenten redan i virtuella datorer som har skapats från Azur
 #### <a name="windows-vms"></a>Virtuella Windows-datorer
 
 * Ladda ned och installera [agentens MSI-fil](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du behöver administratörsbehörighet för att slutföra installationen.
-* För virtuella datorer som skapas med hjälp av den klassiska distributionsmodellen [uppdaterar du egenskapen VIRTUELL](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) för att ange att agenten är installerad. Det här steget krävs inte för virtuella Azure Resource Manager-datorer.
+* För virtuella datorer som skapas med hjälp av den klassiska distributionsmodellen [uppdaterar du egenskapen VIRTUELL](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) för att ange att agenten är installerad. Det här steget krävs inte för virtuella Azure Resource Manager-datorer.
 
 #### <a name="linux-vms"></a>Virtuella Linux-datorer
 
 * Installera den senaste versionen av agenten från distributionsdatabasen. Mer information om paketnamnet finns i [Linux Agent-databasen](https://github.com/Azure/WALinuxAgent).
-* För virtuella datorer som skapats med hjälp av den klassiska distributionsmodellen använder du den [här bloggen](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) för att uppdatera egenskapen VM och kontrollera att agenten är installerad. Det här steget krävs inte för virtuella resurser för Resource Manager-datorer.
+* För virtuella datorer som skapats med hjälp av den klassiska distributionsmodellen [uppdaterar du egenskapen VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) och kontrollerar att agenten är installerad. Det här steget krävs inte för virtuella resurser för Resource Manager-datorer.
 
 ### <a name="update-the-vm-agent"></a>Uppdatera VM-agenten
 
@@ -280,4 +281,3 @@ Få mer information om hur du konfigurerar en statisk IP via PowerShell:
 
 * [Så här lägger du till en statisk intern IP-adress i en befintlig virtuell dator](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkinterfaceipconfig?view=azps-3.5.0#description)
 * [Ändra allokeringsmetoden för en privat IP-adress som tilldelats ett nätverksgränssnitt](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
-

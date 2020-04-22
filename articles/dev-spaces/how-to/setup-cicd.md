@@ -8,12 +8,12 @@ ms.topic: conceptual
 manager: gwallace
 description: Lär dig hur du konfigurerar kontinuerlig integrering/kontinuerlig distribution med Azure DevOps med Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
-ms.openlocfilehash: 66ff2080ad44098757a5d9360fd3307e65f7431a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2eb9449518b32ab74f2dbbca6b5489aed325db7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75438449"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685623"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Använda CI/CD med Azure Dev Spaces
 
@@ -131,7 +131,7 @@ En automatiserad utgivningsprocess börjar nu, distribuera *mywebapi-* och *webf
 Versionen görs när alla uppgifter är slutförda.
 
 > [!TIP]
-> Om din version misslyckas med ett felmeddelande som *UPPGRADERING MISSLYCKADES: timed out väntar på villkoret,* försök att inspektera poddar i klustret [med hjälp av Kubernetes instrumentpanelen](../../aks/kubernetes-dashboard.md). Om poddar misslyckas med att starta med felmeddelanden som *Det gick inte att hämta avbildningen "azdsexample.azurecr.io/mywebapi:122": rpc-fel: https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: kod = Okänt desc = Felsvar från demon: Få obehörig: autentisering krävs,* kan det bero på att klustret inte har auktoriserats att hämta från ditt Azure-behållarregister. Kontrollera att du har slutfört [auktorisera AKS-klustret för att hämta från din Azure Container Registry](../../aks/cluster-container-registry-integration.md) förutsättning.
+> Om din version misslyckas med ett felmeddelande som *UPPGRADERING MISSLYCKADES: timed out väntar på villkoret,* försök att inspektera poddar i klustret [med hjälp av Kubernetes instrumentpanelen](../../aks/kubernetes-dashboard.md). Om poddar misslyckas med att starta med felmeddelanden som *Det gick inte att hämta avbildningen "azdsexample.azurecr.io/mywebapi:122": rpc-fel: kod\/= Okänt desc = Felsvar från demon: Få https: /azdsexample.azurecr.io/v2/mywebapi/manifests/122: obehörig: autentisering krävs,* kan det bero på att klustret inte har auktoriserats för att hämta från ditt Azure-behållarregister. Kontrollera att du har slutfört [auktorisera AKS-klustret för att hämta från din Azure Container Registry](../../aks/cluster-container-registry-integration.md) förutsättning.
 
 Du har nu en helt automatiserad CI/CD-pipeline för din GitHub-gaffel av exempelapparna Dev Spaces. Varje gång du genomför och push-kod, kommer bygga pipeline bygga och driva *mywebapi* och *webfrontend* bilder till din anpassade ACR-instans. Sedan distribuerar versionspipelinen Helm-diagrammet för varje app till _utvecklingsutrymmet_ i ditt Dev Spaces-aktiverade kluster.
 

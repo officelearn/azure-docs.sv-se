@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 04/13/2020
 ms.author: v-umha
-ms.openlocfilehash: d64735e683ba1133e7d381a68611d204c4068026
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 1665c535d4b1fb6190ee5736b688b402f8b4a541
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313076"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81683896"
 ---
 # <a name="disaster-recovery-for-farmbeats"></a>Katastrofåterställning för FarmBeats
 
@@ -28,7 +28,7 @@ I följande avsnitt finns information om hur du kan konfigurera dataåterställn
 
 FarmBeats lagrar data i tre Azure-tjänster i första part, som är **Azure storage,** **Cosmos DB** och **Time Series Insights**. Gör så här för att aktivera dataredundans för dessa tjänster till en parkopplad Azure-region:
 
-1.  **Azure Storage** – Följ den här riktlinjen för att aktivera dataredundans för varje lagringskonto i farmbbeats-distributionen.
+1.  **Azure Storage** – Följ den här riktlinjen för att aktivera dataredundans för varje lagringskonto i din FarmBeats-distribution.
 2.  **Azure Cosmos DB** – Följ den här riktlinjen för att aktivera dataredundans för Cosmos DB-konto som din FarmBeats-distribution.
 3.  **Azure Time Series Insights (TSI)** – TSD erbjuder för närvarande inte dataredundans. Om du vill återställa Time Series Insights-data går du till din sensor/väderpartner och skickar data igen till FarmBeats-distributionen.
 

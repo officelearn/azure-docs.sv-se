@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/14/2020
-ms.openlocfilehash: c9edbbf54696a817d0495f6890e0d796e482231f
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.date: 04/19/2020
+ms.openlocfilehash: 24eacb555704593fe44bc2d949de44de163345bc
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81393720"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677106"
 ---
 # <a name="manage-azure-sql-database-managed-instance-long-term-backup-retention-powershell"></a>Hantera Azure SQL Database-hanterad instans för långsiktig lagring av säkerhetskopiering (PowerShell)
 
@@ -36,23 +36,22 @@ För **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** och **Restore-AzSqlIns
 - Rollen Prenumerationsägare eller
 - Rollen Hanterad instansdeltagare eller
 - Anpassad roll med följande behörigheter:
-
-   ```Microsoft.Sql/locations/longTermRetentionManagedInstanceBackups/read``` ```Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionManagedInstanceBackups/read```
-   ```Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/read```
+  - `Microsoft.Sql/locations/longTermRetentionManagedInstanceBackups/read`
+  - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionManagedInstanceBackups/read`
+  - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/read`
 
 För **Ta bort-AzSqlInstanceDatabaseLongTermRetentionBackup**måste du ha någon av följande roller:
 
 - Rollen Prenumerationsägare eller
 - Anpassad roll med följande behörighet:
-
-   ```Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete```
+  - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete`
 
 > [!NOTE]
 > Rollen Hanterad instansdeltagare har inte behörighet att ta bort LTR-säkerhetskopior.
 
 RBAC-behörigheter kan beviljas i antingen *prenumerations-* eller *resursgruppsomfattning.* För att komma åt LTR-säkerhetskopior som tillhör en bortsläppt instans måste dock behörigheten beviljas i prenumerationsomfånget för den instansen. *subscription*
 
-```Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete```
+- `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete`
 
 ## <a name="create-an-ltr-policy"></a>Skapa en LTR-princip
 
@@ -75,7 +74,6 @@ Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceName $instanceNa
 # create LTR policy with WeeklyRetention = 12 weeks, YearlyRetention = 5 years and WeekOfYear = 16 (week of April 15). MonthlyRetention = 0 by default.
 Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceName $instanceName `
     -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W -YearlyRetention P5Y -WeekOfYear 16
-
 ```
 
 ## <a name="view-ltr-policies"></a>Visa LTR-principer
@@ -86,7 +84,6 @@ Det här exemplet visar hur du listar LTR-principerna i en instans
 # gets the current version of LTR policy for the database
 $ltrPolicies = Get-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceName $instanceName `
     -DatabaseName $dbName -ResourceGroupName $resourceGroup
-
 ```
 
 ## <a name="clear-an-ltr-policy"></a>Rensa en LTR-princip
@@ -118,7 +115,6 @@ $ltrBackups = Get-AzSqlInstanceDatabaseLongTermRetentionBackup -Location $instan
 
 # only list the latest LTR backup for each database
 $ltrBackups = Get-AzSqlInstanceDatabaseLongTermRetentionBackup -Location $instance.Location -InstanceName $instanceName -OnlyLatestPerDatabase
-
 ```
 
 ## <a name="delete-ltr-backups"></a>Ta bort LTR-säkerhetskopior
@@ -142,7 +138,6 @@ Det här exemplet visar hur du återställer från en LTR-säkerhetskopia. Det h
 # restore a specific LTR backup as an P1 database on the instance $instanceName of the resource group $resourceGroup
 Restore-AzSqlInstanceDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId `
    -TargetInstanceName $instanceName -TargetResourceGroupName $resourceGroup -TargetInstanceDatabaseName $dbName
-
 ```
 
 > [!IMPORTANT]

@@ -3,12 +3,12 @@ title: Azure Migrate-installation
 description: Ger en översikt över Azure Migrate-installationen som används vid serverutvärdering och migrering.
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.openlocfilehash: 130de0824a1671fb0b0e3e980f06f4c3abc689d2
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 1c21f06e674871aefde1ae952a459db16feeb717
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538230"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676342"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 
@@ -125,7 +125,7 @@ download.microsoft.com/download | Tillåt nedladdningar från Microsoft-nedladdn
 *.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Ansluta till Azure Migrera tjänstadresser.
 *.hypervrecoverymanager.windowsazure.us | **Används för VMware agentless migration**<br/><br/> Ansluta till Azure Migrera tjänstadresser.
 *.blob.core.usgovcloudapi.net  |  **Används för VMware agentless migration**<br/><br/>Ladda upp data till lagring för migrering.
-*.applicationinsights.us | Används av Gateway-agenten på enheten för att komma åt application insights-slutpunkten för diagnostikövervakning.
+*.applicationinsights.us | Ladda upp apploggar som används för intern övervakning.
 
 
 

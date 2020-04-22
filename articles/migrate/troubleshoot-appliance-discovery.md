@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 9fbf55fbe16d958bf10541894159dade26668bef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6cb83a87f2e96eb62696e5d92095ef2b8d7c7def
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336730"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677325"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Felsöka Azure Migrate-installationen och identifieringen
 
@@ -41,6 +41,15 @@ Detta kan inträffa om apparaten maskinen är bakom en proxy.
 - Se till att du anger behörighetsautentiseringsuppgifterna om proxyn behöver dem.
 - Om du använder en URL-baserad brandväggsproxy för att styra utgående anslutning lägger du till [dessa url:er](migrate-appliance.md#url-access) i en tillåt-lista.
 - Om du använder en avlyssningsproxy för att ansluta till Internet importerar du proxycertifikatet till den virtuella datorn med hjälp av [dessa steg](https://docs.microsoft.com/azure/migrate/concepts-collector).
+
+## <a name="cant-sign-into-azure-from-the-appliance-web-app"></a>Det går inte att logga in på Azure från appen förinstallationswebben
+
+Felet "Tyvärr, men vi har problem med att logga in dig" visas om du använder det felaktiga Azure-kontot för att logga in på Azure. Det här felet uppstår av ett par skäl:
+
+- Om du loggar in på programmet för installationsprogrammet för det offentliga molnet använder du användarkontoautentiseringsuppgifter för molnportalen Government.
+- Om du loggar in på programmet för apparat för myndighetsmolnet med hjälp av användarkontouppgifter för den privata molnportalen.
+
+Kontrollera att du använder rätt autentiseringsuppgifter.
 
 ##  <a name="datetime-synchronization-error"></a>Synkroniseringsfel för datum/tid
 

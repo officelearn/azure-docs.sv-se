@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 218fb96f6960e194f0fc4a4a3a3e603388b961c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1198d3cc7ccc0013e7c894488027d8e162470247
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76760818"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677593"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Teamdatascience-processen i aktion – använda ett Azure HDInsight Hadoop-kluster på en datauppsättning med 1 TB
 
@@ -434,7 +434,7 @@ För modulen **Importera data** är värdena för de parametrar som finns i bild
 
 1. Välj "Hive-fråga" för **datakälla**
 2. I **frågerutan Hive-databasen** räcker det med ett\_\_enkelt SELECT\_\_* FRÅN <ditt databasnamn.ditt tabellnamn> .
-3. **Hcatalog server URI:** Om ditt kluster är "abc", så är detta helt enkelt:https://abc.azurehdinsight.net
+3. **Hcatalog server URI:** Om ditt kluster är "abc",\/så är detta helt enkelt: https: /abc.azurehdinsight.net
 4. **Hadoop-användarkontonamn**: Användarnamnet som valdes vid driftsättning av klustret. (INTE fjärråtkomstanvändarnamnet!)
 5. **Hadoop-användarkontolösenord**: Lösenordet för det användarnamn som valdes vid driftsättning av klustret. (INTE lösenordet för fjärråtkomst!)
 6. **Plats för utdata:** Välj "Azure"

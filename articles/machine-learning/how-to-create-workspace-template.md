@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/05/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 457979837b1c56eb85fc19c9a1fce5dc7df8c23b
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: b802a9c9df7e7f0c44ea66ee0061efb517b80050
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81481992"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682765"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 <br>
@@ -81,7 +81,9 @@ Följande exempelmall visar hur du skapar en arbetsyta med tre inställningar:
 
 * Aktivera inställningar för hög sekretess för arbetsytan
 * Aktivera kryptering för arbetsytan
-* Använder ett befintligt Azure Key Vault
+* Använder ett befintligt Azure Key Vault för att hämta kundhanterade nycklar
+
+Mer information finns i Kryptering i [vila](concept-enterprise-security.md#encryption-at-rest).
 
 ```json
 {
@@ -121,7 +123,7 @@ Följande exempelmall visar hur du skapar en arbetsyta med tre inställningar:
         "description": "Specifies the sku, also referred to as 'edition' of the Azure Machine Learning workspace."
       }
     },
-    "hbi_workspace":{
+    "high_confidentiality":{
       "type": "string",
       "defaultValue": "false",
       "allowedValues": [
@@ -256,27 +258,31 @@ Följande exempelmall visar hur du skapar en arbetsyta med tre inställningar:
                     "keyIdentifier": "[parameters('resource_cmk_uri')]"
                   }
             },
-        "hbiWorkspace": "[parameters('hbi_workspace')]"
+        "hbiWorkspace": "[parameters('high_confidentiality')]"
       }
     }
   ]
 }
 ```
 
-Om du vill ha ID:t för Key Vault och den viktiga URI som behövs i den här mallen kan du använda Azure CLI. Följande kommando är ett exempel på hur du använder Azure CLI för att hämta resurs-ID:t och URI för Key Vault:
+Om du vill ha ID:t för Key Vault och den viktiga URI som behövs i den här mallen kan du använda Azure CLI. Följande kommando hämtar Key Vault ID:
 
 ```azurecli-interactive
-az keyvault show --name mykeyvault --resource-group myresourcegroup --query "[id, properties.vaultUri]"
+az keyvault show --name mykeyvault --resource-group myresourcegroup --query "id"
 ```
 
-Det här kommandot returnerar ett värde som liknar följande text. Det första värdet är ID och det andra är URI:
+Det här kommandot returnerar ett värde som liknar `"/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault"`.
 
-```text
-[
-  "/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault",
-  "https://mykeyvault.vault.azure.net/"
-]
+Om du vill hämta URI för den hanterade nyckeln för kunden använder du följande kommando:
+
+```azurecli-interactive
+az keyvault key show --vault-name mykeyvault --name mykey --query "key.kid"
 ```
+
+Det här kommandot returnerar ett värde som liknar `"https://mykeyvault.vault.azure.net/keys/mykey/{guid}"`.
+
+> [!IMPORTANT]
+> När en arbetsyta har skapats kan du inte ändra inställningarna för konfidentiella data, kryptering, nyckelvalvs-ID eller nyckelidentifierare. Om du vill ändra dessa värden måste du skapa en ny arbetsyta med de nya värdena.
 
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 

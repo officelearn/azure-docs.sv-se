@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: f30ccd498b79c36c8892ae38a3e26d169249621a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e4d6098b7b4de76461e924fc7d42d039046d7ce5
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481107"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677177"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Anslutningsarkitektur för en hanterad instans i Azure SQL Database
 
@@ -81,7 +81,7 @@ När anslutningar startar inuti den hanterade instansen (som med säkerhetskopio
 > [!NOTE]
 > Trafik som går till Azure-tjänster som finns i den hanterade instansens region är optimerad och därför inte NATed till hanterad instanshanteringsslutpunkts offentlig IP-adress. Därför måste tjänsten vara i en annan region än hanterad instans om du behöver använda IP-baserade brandväggsregler, oftast för lagring.
 
-## <a name="service-aided-subnet-configuration"></a>Konfiguration av servicestödda undernät
+## <a name="service-aided-subnet-configuration"></a>Undernätskonfiguration med tjänststöd
 
 För att åtgärda kundsäkerhet och hanterbarhetskrav Hanterad instans övergår från manuell till servicestödd undernätskonfiguration.
 
@@ -306,6 +306,7 @@ Följande virtuella nätverksfunktioner stöds för närvarande inte med hantera
 - **Microsoft-peering:** Aktivera [Microsoft-peering](../expressroute/expressroute-faqs.md#microsoft-peering) på expressrännliga vägkretsar som peeras direkt eller transitivt med virtuellt nätverk där hanterad instans finns påverkar trafikflödet mellan komponenter i hanterade instanser i virtuellt nätverk och tjänster som det beror på att orsaka tillgänglighetsproblem. Hanterade instansdistributioner till virtuellt nätverk med Microsoft-peering som redan är aktiverat förväntas misslyckas.
 - **Global virtuell nätverks peering:** [Virtual network peering-anslutning](../virtual-network/virtual-network-peering-overview.md) över Azure-regioner fungerar inte för hanterad instans på grund av [dokumenterade belastningsutjämnadbegränsningar](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 - **AzurePlatformDNS**: Om du använder AzurePlatformDNS-tjänsttaggen för att blockera plattforms-DNS-lösning skulle hanterad instans inte tillgänglig. [service tag](../virtual-network/service-tags-overview.md) Även om hanterad instans stöder kunddefinierad DNS för DNS-upplösning i motorn finns det ett beroende av plattforms-DNS för plattformsåtgärder.
+- **NAT-gateway:** Om du använder [NAT för virtuellt nätverk](../virtual-network/nat-overview.md) för att kontrollera utgående anslutning med specifik offentlig IP-adress skulle hanterad instans inte vara tillgänglig. Tjänsten Managed Instance är för närvarande begränsad till användning av grundläggande belastningsutjämnare som inte ger samexistens för inkommande och utgående flöden med Virtual Network NAT.
 
 ### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>-Jag har inte varit med om det. Nätverkskrav utan servicestödd undernätskonfiguration
 

@@ -1,18 +1,18 @@
 ---
-title: Azure IoT Edge-moduler
+title: Azure Marketplace IoT Edge-moduler
 description: IoT Edge-modulerbjudandet på Azure Marketplace för app- och tjänstutgivare.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/22/2018
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: aadbf33914f919e393a5ec88cf6fc0a6103911b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 762d9947046f159e992f09211bfcd76ff8d6712e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286157"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684341"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge-moduler
 
@@ -58,7 +58,7 @@ Alla villkor i Microsoft Azure Marketplace-avtal och principer gäller för IoT 
 
 Om du vill publicera en IoT Edge-modul på Azure Marketplace måste du uppfylla följande förutsättningar:
 
-- Tillgång till Cloud Partner Portal (CPP). Mer information finns i [Publiceringsguiden för Azure Marketplace och AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
+- Tillgång till partnercentret. Mer information finns i [Publiceringsguiden för Azure Marketplace och AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
 - Vara värd för din IoT Edge-modul i ett Azure-behållarregister. 
 - Ha metadata för IoT Edge-modul redo, till exempel (icke uttömmande lista): 
     - En titel
@@ -71,19 +71,19 @@ Om du vill publicera en IoT Edge-modul på Azure Marketplace måste du uppfylla 
 
 **Tekniska krav**
 
-De primära tekniska kraven för en IoT Edge-modul för att den ska bli certifierad och publicerad på Azure Marketplace beskrivs i tekniska resurser för [förbereda din IoT Edge-modul](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets).  
+De primära tekniska kraven för en IoT Edge-modul för att den ska bli certifierad och publicerad på Azure Marketplace beskrivs i tekniska resurser för [förbereda din IoT Edge-modul](./partner-center-portal/create-iot-edge-module-asset.md).
 
 ## <a name="documentation-and-resources"></a>Dokumentation och resurser
 
-[Skapa ett IoT Edge-modulerbjudande](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) – Stegen för att publicera ett nytt IoT Edge-modulerbjudande med Cloud Publishing Portal.
+[Skapa ett IoT Edge-modulerbjudande](./partner-center-portal/azure-iot-edge-module-creation.md) – Stegen för att publicera ett nytt IoT Edge-modulerbjudande i Partner Center.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Om du inte redan har gjort det,
 
-- [Registrera dig](https://azuremarketplace.microsoft.com/sell) på marknaden.
+- [Läs mer](https://azuremarketplace.microsoft.com/sell) om marknadsplatsen.
 
-Om du är registrerad och skapar ett nytt erbjudande eller arbetar med ett befintligt,
+Om du vill registrera dig i Partner Center och börja skapa ett nytt erbjudande eller arbeta med ett befintligt,
 
-- Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/) för att skapa eller slutföra ditt erbjudande.
-- Se [IoT Edge-modulen erbjuder publiceringsöversikt](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts) för information om hur du publicerar ett IoT Edge-modulerbjudande.
+- Logga in [på Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) för att skapa eller slutföra erbjudandet.
+- Se [skapa ett IoT Edge-modulerbjudande](./partner-center-portal/azure-iot-edge-module-creation.md) för information om hur du publicerar ett IoT Edge-modulerbjudande.

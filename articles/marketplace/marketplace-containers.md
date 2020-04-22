@@ -6,14 +6,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 882d428d7a8a9b56408aaa68964fa1e36c7cc7c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 80bcf0d5d37a44cee2aab38161abac619542204a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80277314"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684327"
 ---
 # <a name="containers-offer-publishing-guide"></a>Publiceringsguide för behållare erbjuder
 
@@ -41,9 +41,9 @@ Microsoft stöder för närvarande gratis och bring-your-own-license (BYOL) lice
 
 Om du inte redan har gjort det, 
 
-- [Registrera dig](https://azuremarketplace.microsoft.com/sell) på marknaden.
+- [Läs mer](https://azuremarketplace.microsoft.com/sell) om marknadsplatsen.
 
-Om du är registrerad och skapar ett nytt erbjudande eller arbetar med ett befintligt,
+Om du vill registrera dig i Partner center börjar du skapa ett nytt erbjudande eller arbetar på ett befintligt:
 
-- [Logga in på Cloud Partner Portal](https://cloudpartner.azure.com) för att skapa eller slutföra ditt erbjudande.
-- Se [Behållare](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) för mer information.
+- [Logga in på Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) för att skapa eller slutföra erbjudandet.
+- Mer information [finns i Skapa ett Azure-behållarerbjudande.](./partner-center-portal/create-azure-container-offer.md)

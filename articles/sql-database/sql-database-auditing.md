@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 4e20129502e7538bd2f3354b75b33095970e1595
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9e8aa9bbbdf166ba0caf29cd0bce22b8ed321e4e
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81411867"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685192"
 ---
 # <a name="azure-sql-auditing"></a>Azure SQL-granskning
 
@@ -111,9 +111,6 @@ Om du vill konfigurera skriva granskningsloggar till ett lagringskonto väljer d
 ### <a name=""></a><a id="audit-log-analytics-destination">Granskning till logganalysmål</a>
   
 Om du vill konfigurera skriva granskningsloggar till en Log Analytics-arbetsyta väljer du **Log Analytics (Preview)** och öppnar **Log Analytics-information**. Markera eller skapa arbetsytan Log Analytics där loggar ska skrivas och klicka sedan på **OK**.
-    
-  > [!WARNING]
-   > Om du aktiverar granskning i Log Analytics medför du kostnader baserat på inmatningshastigheter. Tänk på den associerade kostnaden med att använda det här [alternativet](https://azure.microsoft.com/pricing/details/monitor/)eller överväg att lagra granskningsloggarna i ett Azure-lagringskonto.
    
    ![LogAnalyticsworkspace](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 

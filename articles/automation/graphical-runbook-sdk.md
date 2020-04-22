@@ -1,24 +1,24 @@
 ---
-title: Översikt över Azure Automation Grpahical runbook SDK
-description: I den här artikeln beskrivs hur du använder Azure Automation Graphical Runbook SDK
+title: Använda den grafiska runbooken För Azure Automation SDK
+description: I den här artikeln beskrivs hur du använder den grafiska runbooken SDK för Azure Automation.
 services: automation
 ms.subservice: process-automation
 ms.date: 07/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: d4dcf6681ade977847c204dd1237f7cd7a67775e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 21f6ff8078d5a1db88b2fde33c9063a56b3ee43a
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75418248"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682910"
 ---
-# <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Använda Azure Automation Graphical runbook SDK
+# <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Använda den grafiska runbooken För Azure Automation SDK
 
-[Grafiska runbooks](automation-graphical-authoring-intro.md) är runbooks som hjälper till att hantera komplexiteten i den underliggande Windows PowerShell- eller PowerShell-arbetsflödeskoden. Microsoft Azure Automation Graphical Authoring SDK gör det möjligt för utvecklare att skapa och redigera grafiska runbooks som kan användas med Azure Automation-tjänsten. Följande kodavsnitt visar det grundläggande flödet för att skapa en grafisk runbook från koden.
+[Grafiska runbooks](automation-graphical-authoring-intro.md) hjälper till att hantera komplexiteten i den underliggande Windows PowerShell- eller PowerShell-arbetsflödeskoden. Microsoft Azure Automation grafisk redigering SDK gör det möjligt för utvecklare att skapa och redigera grafiska runbooks för användning med Azure Automation. I den här artikeln beskrivs grundläggande steg i hur du skapar en grafisk runbook från koden.
 
-## <a name="pre-requisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Du kan börja `Microsoft.Azure.Automation.GraphicalRunbook.Model` med att importera paketet till projektet.
+Importera `Microsoft.Azure.Automation.GraphicalRunbook.Model` paketet till projektet.
 
 ## <a name="create-a-runbook-object-instance"></a>Skapa en runbook-objektförekomst
 
@@ -89,7 +89,7 @@ var initializeRunbookVariable = runbook.AddActivity(
  });
 ```
 
-Aktiviteterna genomförs av följande klasser `Orchestrator.GraphRunbook.Model` i namnområdet:
+Aktiviteter implementeras av följande klasser `Orchestrator.GraphRunbook.Model` i namnområdet.
 
 |Klass  |Aktivitet  |
 |---------|---------|
@@ -99,9 +99,9 @@ Aktiviteterna genomförs av följande klasser `Orchestrator.GraphRunbook.Model` 
 |Arbetsflödesscriptaktivitet     | Kör ett block med PowerShell- eller PowerShell-arbetsflödeskod (beroende på runbook-typ) i ramen för runbooken. Detta är ett kraftfullt verktyg, men inte överanvända det: användargränssnittet kommer att visa detta skriptblock som text; Körningsmotorn behandlar det medföljande blocket som en svart ruta och gör inga försök att analysera dess innehåll, förutom en grundläggande syntaxkontroll. Om du bara behöver anropa ett enda PowerShell-kommando föredrar du CommandActivity.        |
 
 > [!NOTE]
-> Härled inte dina egna aktiviteter från de angivna klasserna: Azure Automation kan inte använda runbooks med anpassade aktivitetstyper.
+> Härled inte dina egna aktiviteter från de medföljande klasserna. Azure Automation kan inte använda runbooks med anpassade aktivitetstyper.
 
-Parametrarna CommandActivity och InvokeRunbookActivity måste anges som värdebeskrivare, inte direkta värden. Värdebeskrivningar anger hur de faktiska parametervärdena ska produceras. Följande värdebeskrivare tillhandahålls för närvarande:
+Du måste `CommandActivity` `InvokeRunbookActivity` ange och parametrar som värdebeskrivare, inte direkta värden. Värdebeskrivningar anger hur de faktiska parametervärdena ska skapas. Följande värdebeskrivare tillhandahålls för närvarande:
 
 
 |Deskriptor  |Definition  |
@@ -115,7 +115,7 @@ Parametrarna CommandActivity och InvokeRunbookActivity måste anges som värdebe
 |PowerShellExpressionValueDescriptor     | Anger ett PowerShell-uttryck i fri form som ska utvärderas precis innan aktiviteten anropas.  <br/>Detta är ett kraftfullt verktyg, men inte överanvända det: användargränssnittet kommer att visa detta uttryck som text; Körningsmotorn behandlar det medföljande blocket som en svart ruta och gör inga försök att analysera dess innehåll, förutom en grundläggande syntaxkontroll. Om möjligt föredrar du mer specifika värdebeskrivare.      |
 
 > [!NOTE]
-> Härled inte dina egna värdebeskrivare från de angivna klasserna: Azure Automation kan inte använda runbooks med anpassade värdebeskrivningstyper.
+> Härled inte dina egna värdebeskrivare från de angivna klasserna. Azure Automation kan inte använda runbooks med anpassade värdebeskrivningstyper.
 
 Instansiera länkar som kopplar samman aktiviteter och lägger till dem i runbooken:
 
@@ -136,10 +136,9 @@ Används `Orchestrator.GraphRunbook.Model.Serialization.RunbookSerializer` för 
 var serialized = RunbookSerializer.Serialize(runbook);
 ```
 
-Den här strängen kan sparas i en fil med **.graphrunbook-tillägget** och den här filen kan importeras till Azure Automation.
+Du kan spara strängen i en fil med **tillägget .graphrunbook.** Motsvarande runbook kan importeras till Azure Automation.
 Serialiserat format kan ändras i `Orchestrator.GraphRunbook.Model.dll`framtida versioner av . Vi lovar bakåtkompatibilitet: alla runbook serialiserade `Orchestrator.GraphRunbook.Model.dll` med en äldre version av kan deserialiseras av någon nyare version. Kompatibilitet för vidarebefordran är inte garanterad: en runbook serialiserad med en nyare version kanske inte kan anpassas av äldre versioner.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om grafiska runbooks i Azure Automation finns i [Introduktion till grafisk redigering](automation-graphical-authoring-intro.md)
-
+Mer information om grafiska runbooks i Azure Automation finns i [Introduktion till grafisk redigering](automation-graphical-authoring-intro.md).

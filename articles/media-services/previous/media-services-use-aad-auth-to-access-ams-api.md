@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8b38b38789edfd5a0a30fdd589849bfa345eaac9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8e1aeaf105ce371e965b433ac78e2b257f4bc18b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77157864"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682049"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Ansluta till API:et för Azure Media Services med Azure AD-autentisering  
 
@@ -79,7 +79,7 @@ I föregående diagram representerar talen flödet av begäranden i kronologisk 
        Klientinformationen kan hämtas från Azure-portalen. Placera markören över namnet på den inloggade användaren i det övre högra hörnet.
    * Resurs-URI för Media Services. 
 
-       Den här URI:n är densamma för Media Services-konton https://rest.media.azure.net)som finns i samma Azure-miljö (till exempel .
+       Den här URI:n är densamma för Media Services-konton som\/finns i samma Azure-miljö (till exempel https: /rest.media.azure.net).
 
    * Media Services (inbyggt) programklient-ID.
    * Media Services (native) program omdirigera URI.
@@ -121,7 +121,7 @@ I föregående figur representerar talen flödet av begäranden i kronologisk or
        Klientinformationen kan hämtas från Azure-portalen. Placera markören över namnet på den inloggade användaren i det övre högra hörnet.
    * Resurs-URI för Media Services. 
 
-       Den här URI:n är densamma för Media Services-konton som https://rest.media.azure.net)finns i samma Azure-miljö (till exempel .
+       Den här URI:n är densamma för Media Services-konton som finns\/i samma Azure-miljö (till exempel https: /rest.media.azure.net).
 
    * Resurs-URI för REST Media Services.
 

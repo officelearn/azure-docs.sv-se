@@ -8,43 +8,43 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: b967c844ab145074490e931122cbe092d67de0c1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 000971878e24c46892aaef1fa0c65237a4219883
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774554"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678535"
 ---
-När **peering-resursen** har distribuerats kan du visa den genom att följa stegen nedan.
+När **peering-resursen** har distribuerats kan du visa den genom att följa dessa steg.
 
-1. Gå till **resursgrupper** och klicka på den resursgrupp du valde när du skapade **peering-resurs.** Du kan använda fältet *Filter* om du har för många resursgrupper.
+1. Gå till **resursgrupper**och välj den resursgrupp som du valde när du skapade **peering-resursen.** Använd rutan **Filter** om du har för många resursgrupper.
 
     > [!div class="mx-imgBorder"]
-    > ![Resursgrupp för peering](../media/setup-direct-get-resourcegroup.png)
+    > ![Resursgrupper](../media/setup-direct-get-resourcegroup.png)
 
-1. Klicka på **peering-resursen** som du skapade.
+1. Välj den **peering-resurs** som du skapade.
 
     > [!div class="mx-imgBorder"]
     > ![Peering resursvy](../media/setup-direct-get-open.png)
 
-1. På sidan **Översikt** visas information på hög nivå. Observera den information som markeras nedan.
+1. På sidan **Översikt** visas information på hög nivå, som visas här.
 
     > [!div class="mx-imgBorder"]
-    > ![Peering resursvy](../media/setup-exchange-get-overview.png)
+    > ![Översiktsfönster för peering-resurser](../media/setup-exchange-get-overview.png)
 
-1. Till vänster klickar du på **ASN-information** för att visa information som lämnats när du skapar PeerAsn
-
-    > [!div class="mx-imgBorder"]
-    > ![Peering resursvy](../media/setup-direct-get-asninfo.png)
-
-1. Till vänster klickar du på **Anslutningar**. Observera på toppen en sammanfattning av peering-anslutningar mellan ditt ASN och Microsoft, över olika anläggningar inom tunnelbanan. Du kan också komma fram till sammanfattningen av anslutningar från **översiktssidan** genom att klicka på **Anslutningar** i mittrutan som markerats ovan.
+1. Till vänster väljer du **ASN-information** för att visa informationen som skickades när du skapade PeerAsn.
 
     > [!div class="mx-imgBorder"]
-    > ![Peering resursvy](../media/setup-exchange-get-connectionssummary.png)
+    > ![ASN-information om peering-resurs](../media/setup-direct-get-asninfo.png)
 
-    * **Anslutningstillståndet** motsvarar tillståndet för den peering-anslutning som ställts in. De tillstånd som visas i det här fältet följer tillståndsdiagrammet som visas i [Exchange peer-genomgången](../walkthrough-exchange-all.md)
-    * **IPv4-sessionstillstånd** och **IPv6-sessionstillstånd** motsvarar iPv4- respektive IPv6 BGP-sessionstillståndet.  
-    * När du väljer en rad överst visar avsnittet ***Anslutning*** längst ned information för varje anslutning. Du kan klicka på pilmarker för att expandera ***underavsnitten Konfiguration,*** ***IPv4-adress*** och ***IPv6-adress***
+1. Till vänster väljer du **Anslutningar**. Högst upp på skärmen visas en sammanfattning av peering-anslutningar mellan DITT ASN och Microsoft, över olika anläggningar inom tunnelbanan. Du kan också komma åt sammanfattningen av anslutningar från sidan **Översikt** genom att välja **Anslutningar** i mittfönstret, som det visas.
+
+    > [!div class="mx-imgBorder"]
+    > ![Peering-resursanslutningar](../media/setup-exchange-get-connectionssummary.png)
+
+    * **Anslutningstillståndet** motsvarar tillståndet för peering-anslutningsinställningarna. De tillstånd som visas i det här fältet följer tillståndsdiagrammet som visas i [genomgången Exchange-peering](../walkthrough-exchange-all.md).
+    * **IPv4-sessionstillståndet** och **IPv6-sessionstillståndet** motsvarar iPv4- respektive IPv6 BGP-sessionstillståndet.  
+    * När du väljer en rad högst upp på skärmen visas information om information för varje anslutning i avsnittet **Anslutning** längst ned. Markera pilarna för att expandera **Configuration,** **IPv4-adress**och **IPv6-adress**.
 
     > [!div class="mx-imgBorder"]
     > ![Peering resursvy](../media/setup-exchange-get-connectionsipv4.png)

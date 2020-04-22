@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/08/2019
-ms.openlocfilehash: 6dfeab3530445f8f9a102f47039d15b04fdf134a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f11c19ba33ee2fbae0fef265371bedad2fe29cb7
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73821742"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684943"
 ---
 # <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>Använda en hanterad Azure SQL-databas-hanterad instans på ett säkert sätt med offentliga slutpunkter
 
@@ -35,7 +35,7 @@ En SQL Database-hanterad instans ger en privat slutpunkt för att tillåta anslu
 
 ## <a name="secure-data-in-motion"></a>Säkra data i rörelse
 
-Datatrafik för hanterade instanser krypteras alltid om klientdrivrutinen stöder kryptering. Data som skickas mellan den hanterade instansen och andra virtuella Azure-datorer eller Azure-tjänster lämnar aldrig Azures stamnät. Om det finns en anslutning mellan den hanterade instansen och ett lokalt nätverk rekommenderar vi att du använder Azure ExpressRoute med Microsoft-peering. ExpressRoute hjälper dig att undvika att flytta data över det offentliga internet. För privat anslutning med hanterade instanser kan endast privat peering användas.
+Datatrafik för hanterade instanser krypteras alltid om klientdrivrutinen stöder kryptering. Data som skickas mellan den hanterade instansen och andra virtuella Azure-datorer eller Azure-tjänster lämnar aldrig Azures stamnät. Om det finns en anslutning mellan den hanterade instansen och ett lokalt nätverk rekommenderar vi att du använder Azure ExpressRoute. ExpressRoute hjälper dig att undvika att flytta data över det offentliga internet. För privat anslutning med hanterade instanser kan endast privat peering användas.
 
 ## <a name="lock-down-inbound-and-outbound-connectivity"></a>Låsa inkommande och utgående anslutning
 

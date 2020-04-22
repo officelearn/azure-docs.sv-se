@@ -8,30 +8,30 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 3a5f7157ef8f3645dd03ec93684238dd8bbc067e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: beffb2babefd86c2807e21e9337cba66f42fcfc2
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774229"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678500"
 ---
-Innan du påbörjar konfigurationen installerar och importerar du de moduler som krävs. Du behöver administratörsbehörighet för att installera moduler i PowerShell.
+Installera och importera de moduler som krävs innan du börjar konfigurera. Du behöver administratörsbehörighet för att kunna installera moduler i PowerShell.
 
-1. Installera och importera Az-modul
+1. Installera och importera Az-modulen.
     ```powershell
     Install-Module Az -AllowClobber
     Import-Module Az
     ```
-1. Installera och importera Az.Peering-modul
+1. Installera och importera modulen Az.Peering.
     ```powershell
     Install-Module -Name Az.Peering -AllowClobber
     Import-Module Az.Peering
     ```
-1. Kontrollera att modulerna importeras fint med kommandot nedan.
+1. Kontrollera att modulerna har importerats på rätt sätt med det här kommandot:
     ```powershell
     Get-Module
     ```
-1. Logga in på ditt Azure-konto med följande kommando.
+1. Logga in på ditt Azure-konto med det här kommandot:
     ```powershell
     Connect-AzAccount
     ```
@@ -46,8 +46,8 @@ Innan du påbörjar konfigurationen installerar och importerar du de moduler som
     New-AzResourceGroup -Name "PeeringResourceGroup" -Location "Central US"
     ```
 > [!IMPORTANT]
-> Om du inte redan har associerat ditt ASN och din prenumeration följer du stegen för [Associera peer ASN](../howto-subscription-association-powershell.md). Detta krävs för att begära en peering.
+> Om du inte redan har associerat ditt ASN och din prenumeration följer du stegen i [Associera peer ASN](../howto-subscription-association-powershell.md). Den här åtgärden krävs för att begära en peering.
 
 > [!NOTE]
-> Resursgruppens plats är oberoende av den plats där du väljer att ställa in en peering.
+> Platsen för en resursgrupp är oberoende av den plats där du väljer att ställa in en peering.
 &nbsp;

@@ -12,19 +12,16 @@ ms.date: 04/13/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bc635addc2a5cd7d3c698f6885bec0399e28743a
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: e94bdd6e79ff13d8ba736e140538bae74091f727
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309658"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680095"
 ---
 # <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>OAuth 2.0- och OpenID Connect-protokoll på Microsofts identitetsplattform
 
 Slutpunkten för Microsoft-identitetsplattform för identitet som en tjänst med branschstandardprotokoll, OpenID Connect och OAuth 2.0. Även om tjänsten är standardkompatibel kan det finnas subtila skillnader mellan två implementeringar av dessa protokoll. Informationen här är användbar om du väljer att skriva din kod genom att direkt skicka och hantera HTTP-förfrågningar eller använda ett bibliotek med öppen källkod från tredje part, i stället för att använda ett av våra [bibliotek med öppen källkod](reference-v2-libraries.md).
-
-> [!NOTE]
-> Alla Azure AD-scenarier och -funktioner stöds inte av slutpunkten för Microsoft identity platform. För att ta reda på om du ska använda slutpunkten för Microsoft identity platform läser du om begränsningar av [Microsofts identitetsplattform](active-directory-v2-limitations.md).
 
 ## <a name="the-basics"></a>Grunderna
 
@@ -68,7 +65,7 @@ Där `{tenant}` kan ta en av fyra olika värden:
 Om du vill veta hur du interagerar med dessa slutpunkter väljer du en viss apptyp i avsnittet [Protokoll](#protocols) och följer länkarna för mer information.
 
 > [!TIP]
-> Alla appar som är registrerade i Azure AD kan använda slutpunkten för Microsoft-identitetsplattformen, även om de inte loggar in på personliga konton.  På så sätt kan du migrera befintliga program till Microsoft identity platform och [MSAL](reference-v2-libraries.md) utan att återskapa ditt program.  
+> Alla appar som är registrerade i Azure AD kan använda slutpunkten för Microsoft-identitetsplattformen, även om de inte loggar in på personliga konton.  På så sätt kan du migrera befintliga program till Microsoft identity platform och [MSAL](reference-v2-libraries.md) utan att återskapa ditt program.
 
 ## <a name="tokens"></a>Token
 

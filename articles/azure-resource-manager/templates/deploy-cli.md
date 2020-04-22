@@ -2,13 +2,13 @@
 title: Distribuera resurser med Azure CLI och mall
 description: Använd Azure Resource Manager och Azure CLI för att distribuera resurser till Azure. Resurserna definieras i en Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: 241b84bc7b8c0b213e74cd7ee5f3d7668fe0d808
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/20/2020
+ms.openlocfilehash: 8ee15699a085178add05137be895fe6b660b715b
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282655"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81685691"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Distribuera resurser med ARM-mallar och Azure CLI
 
@@ -168,7 +168,7 @@ az deployment group create \
 
 ## <a name="handle-extended-json-format"></a>Hantera utökat JSON-format
 
-Om du vill distribuera en mall med strängar eller `--handle-extended-json-format` kommentarer med flera rader måste du använda växeln.  Ett exempel:
+Om du vill distribuera en mall med strängar eller kommentarer med flera rader med Azure CLI `--handle-extended-json-format` med version 2.3.0 eller äldre måste du använda växeln.  Ett exempel:
 
 ```json
 {

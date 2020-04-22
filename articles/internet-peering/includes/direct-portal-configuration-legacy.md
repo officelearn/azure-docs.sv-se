@@ -8,46 +8,46 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 16909e0a5d59b0ae019d91aad00e0168b0c5f433
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 632490498b8dd13414657edb9518cd543ac07af6
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75775074"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81678837"
 ---
-1. På sidan **Skapa en peering** under **fliken Konfiguration** fyller du i fälten som visas nedan.
+1. På sidan **Skapa en peering** på fliken **Konfiguration** fyller du i rutorna som visas här.
 
     > [!div class="mx-imgBorder"]
-    > ![Peering-konfiguration - Direkt](../media/setup-direct-conf-tab.png)
+    > ![Skapa fliken Konfiguration av peering-sidor](../media/setup-direct-conf-tab.png)
 
-    * För **peering-typ**väljer du *Direkt*.
-    * För **Microsoft-nätverk**väljer du *AS8075*. Välj inte ASN 8069. Den är reserverad för speciella program och används endast av [Microsoft peering](mailto:peering@microsoft.com).
-    * Välj **SKU** som *Basic Free*. Välj inte *Premium Free* eftersom det är reserverat för speciella applikationer.
-    * Välj **Metro-platsen** för den plats där du vill konvertera peering till Azure-resurs. Om du har peering-anslutningar med Microsoft på den valda **Metro-platsen** som inte konverteras till Azure-resurs, visas sådana anslutningar i avsnittet **Peering-anslutningar** enligt nedan. Du kan nu konvertera dessa peering-anslutningar till Azure-resurs.
+    * För **peering-typ**väljer du **Direkt**.
+    * För **Microsoft-nätverk**väljer du **AS8075**. Välj inte ASN 8069. Den är reserverad för speciella program och används endast av [Microsoft peering](mailto:peering@microsoft.com).
+    * Välj **SKU** som **Basic Free**. Välj inte Premium Free eftersom det är reserverat för speciella program.
+    * Välj den **Metro-plats** där du vill konvertera peering till en Azure-resurs. Om du har peering-anslutningar med Microsoft på den valda **Metro-platsen** som inte konverteras till en Azure-resurs visas dessa anslutningar i avsnittet **Peering-anslutningar** som visas. Du kan nu konvertera dessa peering-anslutningar till en Azure-resurs.
 
         > [!div class="mx-imgBorder"]
-        > ![Peering-konfiguration - Direkt - äldre anslutningar](../media/setup-directlegacy-conf-tab.png)
+        > ![Lista över peering-anslutningar](../media/setup-directlegacy-conf-tab.png)
 
-1. Om du behöver uppdatera bandbredden klickar du på redigeringsknappen för en rad, som markerats nedan, för att ändra anslutningsinställningarna.
+1. Om du behöver uppdatera bandbredden väljer du redigeringsknappen för en linje för att ändra anslutningsinställningarna.
 
     > [!div class="mx-imgBorder"]
-    > ![Peering-konfiguration – direktredigering](../media/setup-directlegacy-conf-tab-edit.png)
+    > ![Knappen Redigera](../media/setup-directlegacy-conf-tab-edit.png)
 
     > [!NOTE]
-    > Om du vill lägga till ytterligare peering-anslutningar med Microsoft på den valda **Metro-platsen** kan du göra det genom att klicka på **Skapa ny** knapp. Mer information [finns i Skapa eller ändra en direkt peering med hjälp av portalen.](../howto-direct-portal.md)
+    > Om du vill lägga till ytterligare peering-anslutningar med Microsoft på den valda **Metro-platsen** väljer du **Skapa nya**. Mer information finns i [Skapa eller ändra en direkt peering med hjälp av portalen](../howto-direct-portal.md).
     >
 
-1. Klicka på **Granska + skapa**. Observera att portalen kör grundläggande validering av den information du angav. Detta visas i ett band på toppen, som *Kör slutlig validering...*.
+1. Välj **Granska + skapa**. Observera att portalen kör grundläggande validering av den information du angav. Ett menyfliksområdet högst upp visar meddelandet *Kör slutlig validering...*.
 
     > [!div class="mx-imgBorder"]
     > ![Fliken Validering av peering](../media/setup-direct-review-tab-validation.png)
 
-1. När den har överförts till *Godkänd validering*verifierar du din information och skickar begäran genom att klicka på **Skapa**. Om du behöver ändra din begäran klickar du på **Föregående** och upprepar stegen ovan.
+1. När meddelandet har ändrades till *Valideringen har du*verifierat din information. Skicka begäran genom att välja **Skapa**. Om du vill ändra din begäran väljer du **Föregående** och upprepar stegen.
 
     > [!div class="mx-imgBorder"]
-    > ![Skicka in peering](../media/setup-direct-review-tab-submit.png)
+    > ![Peering-inlämning](../media/setup-direct-review-tab-submit.png)
 
-1. När du har skickat begäran väntar du tills den har slutfört distributionen. Om distributionen misslyckas kontaktar du [Microsoft peering](mailto:peering@microsoft.com). En lyckad distribution visas enligt nedan.
+1. När du har skickat begäran väntar du tills distributionen är klar. Om distributionen misslyckas kontaktar du [Microsoft peering](mailto:peering@microsoft.com). En lyckad distribution visas som visas här.
 
     > [!div class="mx-imgBorder"]
     > ![Peering framgång](../media/setup-direct-success.png)

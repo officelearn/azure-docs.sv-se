@@ -4,12 +4,12 @@ description: Den här artikeln innehåller en översikt över hur du hanterar et
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 69c10b0e9d3b7c29122c8432ab1e4bc06d3a3120
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a9f59e3e44d3302ac19c7a9e7e77beb51947ce4
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79481124"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682631"
 ---
 # <a name="service-fabric-application-resource-model"></a>Resursmodell för tjänst fabric-program
 
@@ -40,13 +40,13 @@ Mer information finns [i Paketera ett program](service-fabric-package-apps.md#cr
 
 Sedan skapar du en Resource Manager-mall, uppdaterar parameterfilen med programinformation och distribuerar mallen i Service Fabric-klustret. [Utforska exempel](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM).
 
-### <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+### <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 Om du vill distribuera ett program från en Resource Manager-mall måste du ha ett lagringskonto. Lagringskontot används för att arrangera programavbildningen. 
 
 Du kan återanvända ett befintligt lagringskonto eller skapa ett nytt lagringskonto för mellanlagring av dina program. Om du använder ett befintligt lagringskonto kan du hoppa över det här steget. 
 
-![Skapa ett lagringskonto][CreateStorageAccount]
+![skapar ett lagringskonto][CreateStorageAccount]
 
 ### <a name="configure-your-storage-account"></a>Konfigurera ditt lagringskonto
 
@@ -99,7 +99,7 @@ Exempelprogrammet innehåller [Azure Resource Manager-mallar](https://github.com
 | applicationTypeVersion (applicationTypeVersion) | Versionen av programtypen         | 1.0.0                                                        | Måste matcha ApplicationManifest.xml                 |
 | Tjänstnamn            | Namnet på tjänsten         | Röstning ~ VotingWeb                                             | Måste vara i formatet ApplicationName~ServiceType            |
 | serviceTypeName        | Tjänstens typnamn                | VotingWeb                                                    | Måste matcha ServiceManifest.xml                 |
-| appPackageUrl          | Programmets url för blob-lagring     | https://servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | URL:en för programpaketet i blob storage (proceduren för att ange URL beskrivs senare i artikeln) |
+| appPackageUrl          | Programmets url för blob-lagring     | https:\//servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | URL:en för programpaketet i blob storage (proceduren för att ange URL beskrivs senare i artikeln) |
 
 ```json
 {

@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 798fec4dacb33a9f16de319062baf12adaffdbd0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5196c85ca1d68028893caee55035c6c455b37d64
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81428750"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81676942"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statistik i Synapse SQL
 
@@ -163,13 +163,15 @@ Om du vill skapa statistik i en kolumn anger du ett namn på statistikobjektet o
 Den här syntaxen använder alla standardalternativ. Som standard tar SQL-pool prov **20 procent** av tabellen när den skapar statistik.
 
 ```sql
-CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
+CREATE STATISTICS [statistics_name]
+    ON [schema_name].[table_name]([column_name]);
 ```
 
 Ett exempel:
 
 ```sql
-CREATE STATISTICS col1_stats ON dbo.table1 (col1);
+CREATE STATISTICS col1_stats
+    ON dbo.table1 (col1);
 ```
 
 #### <a name="create-single-column-statistics-by-examining-every-row"></a>Skapa statistik med en kolumn genom att granska varje rad
@@ -177,13 +179,17 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 Standardprovtagningshastigheten på 20 procent är tillräcklig för de flesta situationer. Du kan dock justera samplingsfrekvensen. Om du vill prova hela tabellen använder du den här syntaxen:
 
 ```sql
-CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
+CREATE STATISTICS [statistics_name]
+    ON [schema_name].[table_name]([column_name])
+    WITH FULLSCAN;
 ```
 
 Ett exempel:
 
 ```sql
-CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
+CREATE STATISTICS col1_stats
+    ON dbo.table1 (col1)
+    WITH FULLSCAN;
 ```
 
 #### <a name="create-single-column-statistics-by-specifying-the-sample-size"></a>Skapa statistik med en kolumn genom att ange exempelstorleken
@@ -191,7 +197,9 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 Ett annat alternativ som du har är att ange exempelstorleken som en procent:
 
 ```sql
-CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
+CREATE STATISTICS col1_stats
+    ON dbo.table1 (col1)
+    WITH SAMPLE = 50 PERCENT;
 ```
 
 #### <a name="create-single-column-statistics-on-only-some-of-the-rows"></a>Skapa statistik med en kolumn på endast några av raderna
@@ -203,7 +211,9 @@ Du kan till exempel använda filtrerad statistik när du planerar att fråga en 
 I det här exemplet skapas statistik för ett värdeintervall. Värdena kan enkelt definieras för att matcha intervallet av värden i en partition.
 
 ```sql
-CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '20001231';
+CREATE STATISTICS stats_col1
+    ON table1(col1)
+    WHERE col1 > '2000101' AND col1 < '20001231';
 ```
 
 > [!NOTE]
@@ -214,7 +224,10 @@ CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '
 Du kan också kombinera alternativen tillsammans. I följande exempel skapas ett filtrerat statistikobjekt med en anpassad exempelstorlek:
 
 ```sql
-CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
+CREATE STATISTICS stats_col1
+    ON table1 (col1)
+    WHERE col1 > '2000101' AND col1 < '20001231'
+    WITH SAMPLE = 50 PERCENT;
 ```
 
 Den fullständiga referensen finns i [SKAPA STATISTIK](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
@@ -229,7 +242,10 @@ Om du vill skapa ett statistikobjekt med flera kolumner använder du föregåend
 I det här exemplet finns histogrammet på *produktkategorin\_*. Statistik över flera kolumner beräknas på *produktkategori\_* och *\_produkt sub_category:*
 
 ```sql
-CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
+CREATE STATISTICS stats_2cols
+    ON table1 (product_category, product_sub_category)
+    WHERE product_category > '2000101' AND product_category < '20001231'
+    WITH SAMPLE = 50 PERCENT;
 ```
 
 Eftersom det finns en korrelation mellan *produktkategori\_* och *\_produktunderkategori\_* kan ett statistikobjekt med flera kolumner vara användbart om dessa kolumner används samtidigt.
@@ -263,7 +279,7 @@ I följande exempel kan du komma igång med databasdesignen. Anpassa den gärna 
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
-(   @create_type    tinyint -- 1 default 2 Fullscan 3 Sample
+(   @create_type    tinyint -- 1 default, 2 Fullscan, 3 Sample
 ,   @sample_pct     tinyint
 )
 AS
@@ -470,8 +486,8 @@ JOIN    sys.stats_columns   AS sc ON    st.[stats_id]       = sc.[stats_id]
 JOIN    sys.columns         AS co ON    sc.[column_id]      = co.[column_id]
                             AND         sc.[object_id]      = co.[object_id]
 JOIN    sys.types           AS ty ON    co.[user_type_id]   = ty.[user_type_id]
-JOIN    sys.tables          AS tb ON  co.[object_id]        = tb.[object_id]
-JOIN    sys.schemas         AS sm ON  tb.[schema_id]        = sm.[schema_id]
+JOIN    sys.tables          AS tb ON    co.[object_id]      = tb.[object_id]
+JOIN    sys.schemas         AS sm ON    tb.[schema_id]      = sm.[schema_id]
 WHERE   1=1
 AND     st.[user_created] = 1
 ;
@@ -506,18 +522,20 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 Om du bara är intresserad av att `WITH` visa specifika delar använder du satsen och anger vilka delar du vill se:
 
 ```sql
-DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
+DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
+    WITH stat_header, histogram, density_vector
 ```
 
 Ett exempel:
 
 ```sql
-DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
+DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
+    WITH histogram, density_vector
 ```
 
 ### <a name="dbcc-show_statistics-differences"></a>DBCC SHOW_STATISTICS() skillnader
 
-DBCC SHOW_STATISTICS() implementeras striktare i SQL-poolen jämfört med SQL Server:
+`DBCC SHOW_STATISTICS()`implementeras striktare i SQL-poolen jämfört med SQL Server:
 
 - Odokumenterade funktioner stöds inte.
 - Kan inte använda Stats_stream.
@@ -602,7 +620,7 @@ sys.sp_create_file_statistics [ @stmt = ] N'statement_text'
 
 Argument: @stmt [ = ] N'statement_text' - Anger en Transact-SQL-sats som returnerar kolumnvärden som ska användas för statistik. Du kan använda TABLESAMPLE för att ange exempel på data som ska användas. Om TABLESAMPLE inte har angetts används FULLSCAN.
 
-```sql
+```syntaxsql
 <tablesample_clause> ::= TABLESAMPLE ( sample_number PERCENT )
 ```
 
@@ -744,14 +762,18 @@ PROV kan inte användas med alternativet FULLSCAN.
 #### <a name="create-single-column-statistics-by-examining-every-row"></a>Skapa statistik med en kolumn genom att granska varje rad
 
 ```sql
-CREATE STATISTICS sState on census_external_table (STATENAME) WITH FULLSCAN, NORECOMPUTE
+CREATE STATISTICS sState
+    on census_external_table (STATENAME)
+    WITH FULLSCAN, NORECOMPUTE
 ```
 
 #### <a name="create-single-column-statistics-by-specifying-the-sample-size"></a>Skapa statistik med en kolumn genom att ange exempelstorleken
 
 ```sql
 -- following sample creates statistics with sampling 20%
-CREATE STATISTICS sState on census_external_table (STATENAME) WITH SAMPLE 5 percent, NORECOMPUTE
+CREATE STATISTICS sState
+    on census_external_table (STATENAME)
+    WITH SAMPLE 5 percent, NORECOMPUTE
 ```
 
 ### <a name="examples-update-statistics"></a>Exempel: Uppdatera statistik
@@ -765,7 +787,9 @@ DROP STATISTICS census_external_table.sState
 Och skapa statistik:
 
 ```sql
-CREATE STATISTICS sState on census_external_table (STATENAME) WITH FULLSCAN, NORECOMPUTE
+CREATE STATISTICS sState
+    on census_external_table (STATENAME)
+    WITH FULLSCAN, NORECOMPUTE
 ```
 
 ## <a name="next-steps"></a>Nästa steg

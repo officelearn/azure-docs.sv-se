@@ -8,18 +8,18 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: e1cb1bec6273fa79315b9439bec1412622ebfe28
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 610bac5c08d7f3aa3c93e273bc6573a08ca1239f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75774307"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81680772"
 ---
-I följande exempel visas hur du skapar en 10 Gbit/s direkt peering i Seattle.
+I följande exempel visas hur du skapar en 10-Gbps Direct-peering i Seattle.
 
-Använd PowerShell cmdlet **New-AzPeeringDirectConnectionObject** för att skapa DirectConnections som ska användas i den nya peering-begäran.
+Använd PowerShell cmdlet **New-AzPeeringDirectConnectionObject** för att skapa DirectConnection-objekt som ska användas i den nya peering-begäran.
 
-Nedan finns ett exempel för att skapa en DirectConnection:
+I det här exemplet visas hur du skapar ett DirectConnection-objekt.
 
 ```powershell
 $connection1 = New-AzPeeringDirectConnectionObject `
@@ -32,9 +32,9 @@ $connection1 = New-AzPeeringDirectConnectionObject `
 ```
 
 > [!NOTE]
-> Den <index> för $peeringLocation[<index>] i ovanstående exempel bör motsvara peering plats som du väljer
+> Värdet för <index> **$peeringLocation[]** <index> i föregående exempel bör motsvara valfri peering-plats.
 
-Skapa en annan anslutning om du behöver redundans på viss peering-plats:
+Skapa en annan anslutning om du behöver redundans på en viss peering-plats.
 
 ```powershell
 $connection2 = New-AzPeeringDirectConnectionObject `
@@ -46,7 +46,7 @@ $connection2 = New-AzPeeringDirectConnectionObject `
     -BandwidthInMbps 10000
 ```
 
-Använd PowerShell cmdlet **New-AzPeering** för att skapa en ny Direct-peering. Det här kommandot kräver ASN-resurs-ID som kan hämtas enligt nedan.
+Använd PowerShell cmdlet **New-AzPeering** för att skapa en ny Direct-peering. Det här kommandot kräver ett ASN-resurs-ID som kan hämtas enligt bilden här.
 
 
 ```powershell
@@ -60,7 +60,7 @@ New-AzPeering `
 ```
 &nbsp;
 
-Nedan visas ett exempelsvar när begäran har bearbetats:
+I det här exemplet visas svaret när begäran bearbetades.
 
 ```powershell
 
@@ -78,4 +78,4 @@ Nedan visas ett exempelsvar när begäran har bearbetats:
     Tags                 : {}
 
 ```
-Observera att i stället **för {subscriptionId}** i utdata ovan visas faktiskt prenumerations-ID.
+Observera att i stället **för {subscriptionId}** i den här utdata visas det faktiska prenumerations-ID:et.

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 768fa9ca2080fc9a58fb321e62d8d61a608f9564
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7a0f0b96f8140118f1c74ecbd4368aac49d7ece6
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415264"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81684297"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Kommersiella marknadsplats transact kapacitet
 
@@ -202,11 +202,11 @@ När prissättningsmodeller för prenumerationer eller användningsbaserad betal
 * Kunder köper vanligtvis med enterprise-avtalet eller ett kreditkort aktiverat pay-as-you-go-avtal. Avtalstypen bestämmer fakturering, fakturering, insamling och utbetalningstid.
 
 >[!NOTE]
->All rapportering och insikter för alternativet för transactpublicering är tillgängliga via avsnittet Insikter i avsnittet Cloud Partner Portal eller Analytics i Partner center.
+>All rapportering och insikter för alternativet för transactpublicering är tillgängliga via avsnittet Analytics i Partner center.
 
 #### <a name="billing-questions-and-support"></a>Faktureringsfrågor och support
 
-Mer information och juridiska policyer finns i [Publisher-avtalet](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf) (tillgängligt i Molnpartnerportalen).
+Mer information och rättspolicy finns i [Publisher-avtalet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) (tillgängligt i Partnercenter).
 
 Om du vill ha hjälp med faktureringsfrågor kontaktar du [supporten för marknadsplatsutgivare.](https://aka.ms/marketplacepublishersupport)
 

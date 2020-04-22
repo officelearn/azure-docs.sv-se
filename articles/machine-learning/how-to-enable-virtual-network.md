@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 04/17/2020
-ms.openlocfilehash: 1f3c9f86072eeedbc999946d0f846fbc3b41f94d
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: f94136ca6bfcb7e33415f2f44fdf4c44ef9f6a6f
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641761"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81682785"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Skydda Azure ML-experiment och slutledningsjobb i ett virtuellt Azure-nätverk
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -140,12 +140,13 @@ Om du vill använda en Azure Machine Learning-beräkningsinstans eller beräknin
 > * Om Azure Storage-konton för arbetsytan också är skyddade i ett virtuellt nätverk måste de finnas i samma virtuella nätverk som Azure Machine Learning-beräkningsinstansen eller klustret. 
 
 > [!TIP]
-> Beräkningsinstansen för Machine Learning eller -klustret allokerar automatiskt ytterligare nätverksresurser i resursgruppen som innehåller det virtuella nätverket. För varje beräkningsinstans eller kluster allokerar tjänsten följande resurser:
+> Beräkningsinstansen för Maskininlärning eller -klustret allokerar automatiskt ytterligare nätverksresurser __i resursgruppen som innehåller det virtuella nätverket__. För varje beräkningsinstans eller kluster allokerar tjänsten följande resurser:
 > 
 > * En nätverkssäkerhetsgrupp
 > * En offentlig IP-adress
 > * En belastningsutjämnare
 > 
+> När det gäller kluster dessa resurser tas bort (och återskapas) varje gång klustret skalas ner till 0 noder, men för en instans resurserna hålls på tills instansen är helt borttagen (stoppa inte ta bort resurserna). 
 > Dessa resurser begränsas av prenumerationens [resurskvoter](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 

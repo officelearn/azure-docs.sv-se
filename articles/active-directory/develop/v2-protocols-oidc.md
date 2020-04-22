@@ -12,19 +12,16 @@ ms.date: 04/12/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: fa42bf65ea5f4469f714dda4331d3cb66156d187
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: ebec4cb6bbbac5b331eb2eb4145716e16e7320fa
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535814"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81677690"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft identity-plattform och OpenID Connect-protokoll
 
 OpenID Connect är ett autentiseringsprotokoll som bygger på OAuth 2.0 och som du kan använda för att logga in en användare på ett säkert sätt i ett webbprogram. När du använder slutpunkten för Microsoft identity platform-slutpunkten för OpenID Connect kan du lägga till inloggning och API-åtkomst till dina webbaserade appar. Den här artikeln visar hur du gör detta oberoende av språk och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda microsofts bibliotek med öppen källkod.
-
-> [!NOTE]
-> Slutpunkten för Microsoft-identitetsplattform stöder inte alla Scenarier och funktioner för Azure Active Directory (Azure AD). För att avgöra om du ska använda slutpunkten för Microsoft identity platform läser du om begränsningar av [Microsofts identitetsplattform](active-directory-v2-limitations.md).
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) utökar OAuth 2.0-auktoriseringsprotokollet så att det används som ett *authorization* *autentiseringsprotokoll,* så att du kan göra enstaka inloggning med OAuth. OpenID Connect introducerar konceptet med en *ID-token*, vilket är en säkerhetstoken som gör att klienten kan verifiera användarens identitet. ID-token hämtar också grundläggande profilinformation om användaren. Eftersom OpenID Connect utökar OAuth 2.0 kan appar hämta *åtkomsttoken*på ett säkert sätt , som kan användas för att komma åt resurser som skyddas av en [auktoriseringsserver](active-directory-v2-protocols.md#the-basics). Slutpunkten för Microsoft-identitetsplattformen gör det också möjligt för appar från tredje part som är registrerade med Azure AD att utfärda åtkomsttoken för skyddade resurser som webb-API:er. Mer information om hur du konfigurerar ett program för att utfärda åtkomsttoken finns i [Så här registrerar du en app med slutpunkten för Microsoft identity-plattformen](quickstart-register-app.md). Vi rekommenderar att du använder OpenID Connect om du skapar ett [webbprogram](v2-app-types.md#web-apps) som finns på en server och nås via en webbläsare.
 

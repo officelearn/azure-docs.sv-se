@@ -6,16 +6,19 @@ ms.author: mamccrea
 ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.openlocfilehash: 21dbd4128cad7df11aeb713286d868879a58519b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5e654fe5d31a225a855da8477e073ceeb1a68634
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75431531"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767235"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Snabbstart: Skapa ett Azure Stream Analytics-jobb med hjälp av Visual Studio
 
 Den här snabbstarten visar hur du skapar och kör ett Stream Analytics-jobb med hjälp av Azure Stream Analytics-verktyg för Visual Studio. Exempeljobbet läser strömmande data från en IoT Hub-enhet. Du definierar ett jobb som beräknar medeltemperaturen när den överstiger 27° och skriver utdatahändelser till en ny fil i Blob Storage.
+
+> [!NOTE]
+> Visual Studio och Visual Studio Code-verktyg stöder inte jobb i Regionerna China East, China North, Germany Central och Germany NorthEast.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

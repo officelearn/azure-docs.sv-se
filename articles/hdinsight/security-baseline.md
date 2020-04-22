@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 93a5bcd77bb4f42d9099cc1ddb1b5c3130c19059
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 2ddb9a9c205135707d7d96beb106074baa1ce324
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010145"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758259"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Azure Security Baseline för HDInsight
 
@@ -704,7 +704,7 @@ Om du har en Rapid7-, Qualys- eller någon annan prenumeration på säkerhetspro
 
 Så här installerar du Rapid7 Agent manuellt:
 
-https://insightvm.help.rapid7.com/v1.0/docs/agent-installation-on-linux
+https://insightvm.help.rapid7.com/docs/install
 
 Så här installerar du Qualys Agent manuellt:
 
@@ -774,7 +774,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-li
 
 Även om klassiska Azure-resurser kan identifieras via Resource Graph, rekommenderas det starkt att skapa och använda Azure Resource Manager-resurser framöver.
 
-Så här skapar du frågor med Azure Graph:
+Så här skapar du frågor med Azure Resource Graph:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 

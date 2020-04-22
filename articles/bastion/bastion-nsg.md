@@ -5,14 +5,14 @@ services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 04/20/2020
 ms.author: charwen
-ms.openlocfilehash: 15abee4688a2f6aefa2b08ad2b8eee6622d56be2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0188f9bc1c7c0e8d7fed9f590d078085b175614f
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77087265"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732202"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Arbeta med NSG-åtkomst och Azure Bastion
 
@@ -32,9 +32,9 @@ I det här diagrammet:
 
 I det här avsnittet visas nätverkstrafiken mellan användaren och Azure Bastion och genom att rikta virtuella datorer i ditt virtuella nätverk:
 
-### <a name="azurebastionsubnet"></a>AzureBastionSubnet
+### <a name="azurebastionsubnet"></a><a name="apply"></a>AzureBastionSubnet
 
-Azure Bastion distribueras specifikt till AzureBastionSubnet.
+Azure Bastion distribueras specifikt till ***AzureBastionSubnet***.
 
 * **Inträngning Trafik:**
 
@@ -46,19 +46,11 @@ Azure Bastion distribueras specifikt till AzureBastionSubnet.
    * **Egress Traffic till mål virtuella datorer:** Azure Bastion når virtuella mål virtuella datorer via privat IP. NSG:erna måste tillåta utgående trafik till andra virtuella mål-undernät för port 3389 och 22.
    * **Utgående trafik till andra offentliga slutpunkter i Azure:** Azure Bastion måste kunna ansluta till olika offentliga slutpunkter i Azure (till exempel för lagring av diagnostikloggar och mätarloggar). Därför behöver Azure Bastion utgående till 443 till **AzureCloud-tjänsttagg.**
 
-* **Mål-VM-undernät:** Det här är undernätet som innehåller den virtuella måldator som du vill RDP/SSH till.
+### <a name="target-vm-subnet"></a>Undernät för mål-VM
+Det här är undernätet som innehåller den virtuella måldator som du vill RDP/SSH till.
 
    * **Inträngningstrafik från Azure Bastion:** Azure Bastion når till måldatorn via privat IP. RDP/SSH-portar (portar 3389/22) måste öppnas på mål-VM-sidan över privat IP. På bästa sätt kan du lägga till IP-adressintervallet för Azure Bastion Undernät i den här regeln så att endast Bastion kan öppna dessa portar på måldatorn i ditt virtuella mål-VM-undernät.
 
-## <a name="apply-nsgs-to-azurebastionsubnet"></a><a name="apply"></a>Använda NSG:er på AzureBastionSubnet
-
-Om du skapar och tillämpar en NSG på ***AzureBastionSubnet***kontrollerar du att du har lagt till följande regler i NSG. Om du inte lägger till dessa regler misslyckas NSG-skapandet/uppdateringen:
-
-* **Kontrollera planetanslutning:** Inkommande på 443 från GatewayManager
-* **Diagnostikloggning och andra:** Utgående på 443 till AzureCloud. Regionala taggar i den här tjänsttaggen stöds inte ännu.
-* **Mål-VM:** Utgående för 3389 och 22 till VirtualNetwork
-
-Ett NSG-regelexempel finns tillgängligt som referens i den här [snabbstartsmallen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 
 ## <a name="next-steps"></a>Nästa steg
 

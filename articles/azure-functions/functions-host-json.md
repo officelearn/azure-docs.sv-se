@@ -3,12 +3,12 @@ title: host.json-referens för Azure Functions 2.x
 description: Referensdokumentation för Azure Functions host.json-filen med v2-körningen.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 7b3c9d15fc8cf3a1651c44a5656f731a7820e344
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 7967cdc7f5f7cbb92c12de15d31471fda8aa6569
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405488"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758852"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>host.json-referens för Azure Functions 2.x och senare 
 
@@ -216,7 +216,7 @@ Konfigurationsinställningen finns i [bindningar för varaktiga funktioner](dura
 
 ## <a name="eventhub"></a>eventHub
 
-Konfigurationsinställningar finns i [utlösare och bindningar i eventhubb](functions-bindings-event-hubs-output.md#host-json). 
+Konfigurationsinställningar finns i [utlösare och bindningar i eventhubb](functions-bindings-event-hubs-trigger.md#host-json). 
 
 ## <a name="extensions"></a>Tillägg
 

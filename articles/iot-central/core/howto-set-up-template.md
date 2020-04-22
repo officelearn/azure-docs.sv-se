@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 6f93d74653aab78e48e613ddf9252a0876548b95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a99f261e1a834705d081e8197e4ae627cf1cb9f
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80157678"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756658"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definiera en ny IoT-enhetstyp i ditt Azure IoT Central-program
+
+*Den här artikeln gäller lösningsbyggare och enhetsutvecklare.*
 
 En enhetsmall är en skiss som definierar egenskaperna och beteendena för en typ av enhet som ansluter till ett Azure IoT Central-program.
 
@@ -253,18 +255,6 @@ Om du vill publicera en enhetsmall går du till enhetsmallen och väljer **Publi
 
 När du har publicerat en enhetsmall kan en operatör gå till sidan **Enheter** och lägga till verkliga eller simulerade enheter som använder enhetsmallen. Du kan fortsätta att ändra och spara enhetsmallen när du gör ändringar. När du vill skicka ut ändringarna till operatorn för att visa under sidan **Enheter** måste du välja **Publicera** varje gång.
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
-
-* Skapa en ny IoT-enhetsmall.
-* Skapa molnegenskaper.
-* Skapa anpassningar.
-* Definiera en visualisering för enhetens telemetri.
-* Publicera enhetsmallen.
-
-Därefter kan du:
-
-> [!div class="nextstepaction"]
-> [Ansluta en enhet](howto-connect-devkit.md)
+Om du är enhetsutvecklare är ett förslag på nästa steg att läsa om versionshantering av [enhetsmallar](./howto-version-device-template.md).

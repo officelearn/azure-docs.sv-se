@@ -6,20 +6,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/31/2020
+ms.date: 04/20/2020
 ms.author: diberry
-ms.openlocfilehash: 23ac98f91c989c9bedb6b91e6a7ce26dc164ac5a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 2307ef6ea8940a3b3ddfb8c7539f4f809dc4c52c
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76987815"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733307"
 ---
 ## <a name="prerequisites"></a>Krav
 
 * [Python 3.6](https://www.python.org/downloads/) eller senare.
-* [Visual Studio-kod](https://code.visualstudio.com/)
-* Offentligt app-ID:`df67dcdb-c37d-46af-88e1-8b97951ca1c2`
+* [Visual Studio-koden](https://code.visualstudio.com/)
+* Ett LUIS-app-ID – använd det offentliga `df67dcdb-c37d-46af-88e1-8b97951ca1c2`IoT-app-ID:et för . Användarfrågan som används i snabbstartskoden är specifik för den appen.
 
 ## <a name="create-luis-runtime-key-for-predictions"></a>Skapa LUIS-körningsnyckel för förutsägelser
 

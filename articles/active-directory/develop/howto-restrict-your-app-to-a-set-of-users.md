@@ -13,14 +13,14 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: cccd2df334828c0b8103e4da2ffcd8549673b69c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8bdc7e6e3795719128a8ecfb1e8bc97c1a9a08c7
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76697004"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759023"
 ---
-# <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users"></a>Så här begränsar du din Azure AD-app till en uppsättning användare
+# <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Så här begränsar du din Azure AD-app till en uppsättning användare i en Azure AD-klientorganisation
 
 Program som registrerats i en Azure Active Directory-klientorganisation (Azure AD) är som standard tillgängliga för alla användare av klienten som autentiserar.
 
@@ -28,7 +28,7 @@ På samma sätt, i händelse av en app [med flera innehavare,](howto-convert-app
 
 Klientadministratörer och utvecklare har ofta krav där en app måste begränsas till en viss uppsättning användare. Utvecklare kan åstadkomma samma sak genom att använda populära auktoriseringsmönster som Rollbaserad åtkomstkontroll (RBAC), men den här metoden kräver en betydande mängd arbete på en del av utvecklaren.
 
-Azure AD gör det möjligt för klientadministratörer och utvecklare att begränsa en app till en viss uppsättning användare eller säkerhetsgrupper i klienten.
+Klientadministratörer och utvecklare kan begränsa en app till en viss uppsättning användare eller säkerhetsgrupper i klienten med hjälp av den här inbyggda funktionen i Azure AD.
 
 ## <a name="supported-app-configurations"></a>Appkonfigurationer som stöds
 
@@ -62,7 +62,7 @@ Det finns två sätt att skapa ett program med aktiverad användartilldelning. E
 
 1. Välj det program som du vill tilldela en användare eller säkerhetsgrupp till i listan.
 1. På programmets **översiktssida** väljer du **Egenskaper** på programmets navigeringsmeny till vänster.
-1. Vill du söka efter inställningen **Yes** **Användartilldelning som krävs?** När det här alternativet är inställt på **Ja**måste användarna först tilldelas det här programmet innan de kan komma åt det.
+1. Vill du söka efter inställningen **Yes** **Användartilldelning som krävs?** När det här alternativet är inställt på **Ja**måste användare i klienten först tilldelas det här programmet eller så kan de inte logga in på det här programmet.
 1. Välj **Spara** om du vill spara den här konfigurationsändringen.
 
 ### <a name="app-registration"></a>Appregistrering
@@ -75,7 +75,7 @@ Det finns två sätt att skapa ett program med aktiverad användartilldelning. E
 1. Skapa eller välj den app som du vill hantera. Du måste vara **ägare** till den här appregistreringen.
 1. På sidan **Översikt på** programmet följer du länken **Hanterat program i lokal katalog** under det väsentliga längst upp på sidan. Detta tar dig till den _hanterade Enterprise Application_ av din appregistrering.
 1. Välj **Egenskaper**i navigeringsbladet till vänster .
-1. Vill du söka efter inställningen **Yes** **Användartilldelning som krävs?** När det här alternativet är inställt på **Ja**måste användarna först tilldelas det här programmet innan de kan komma åt det.
+1. Vill du söka efter inställningen **Yes** **Användartilldelning som krävs?** När det här alternativet är inställt på **Ja**måste användare i klienten först tilldelas det här programmet eller så kan de inte logga in på det här programmet.
 1. Välj **Spara** om du vill spara den här konfigurationsändringen.
 
 ## <a name="assign-users-and-groups-to-the-app"></a>Tilldela användare och grupper till appen
@@ -89,6 +89,14 @@ När du har konfigurerat appen för att aktivera användartilldelning kan du gå
      En lista över användare och säkerhetsgrupper visas tillsammans med en textruta för att söka efter och hitta en viss användare eller grupp. På den här skärmen kan du välja flera användare och grupper på en gång.
 
 1. När du är klar med att välja användare och grupper trycker du på **välj-knappen** längst ned för att gå till nästa del.
+1. (Valfritt) Om du har definierat approller i ditt program kan du använda alternativet **Välj roll** för att tilldela de valda användarna och grupperna till en av programmets roller. 
 1. Tryck på knappen **Tilldela** längst ned för att slutföra tilldelningarna av användare och grupper till appen. 
 1. Bekräfta att de användare och grupper som du har lagt till visas i listan Uppdaterade **användare och grupper.**
 
+## <a name="more-information"></a>Mer information
+
+- [Så här lägger du till approller i ditt program](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
+- [Lägga till auktorisering med approller & roller anspråk på en ASP.NET Core webbapp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
+- [Använda säkerhetsgrupper och programroller i dina appar (video)](https://www.youtube.com/watch?v=V8VUPixLSiM)
+- [Azure Active Directory, nu med gruppanspråk och programroller](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
+- [Azure Active Directory-appmanifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)

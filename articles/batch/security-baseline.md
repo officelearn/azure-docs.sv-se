@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: fef1afb9748fd6f2f59b972c451d95ae1204ef70
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 8bda712523faa90f32a12fe7eecce27dccf3a55c
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81011641"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756633"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Azure Security Baseline för batch
 
@@ -712,7 +712,7 @@ Om du har en Rapid7-, Qualys- eller någon annan prenumeration på sårbarhetsha
 
 Även om klassiska Azure-resurser kan identifieras via Resource Graph, rekommenderas det starkt att skapa och använda Azure Resource Manager (ARM) resurser framöver.
 
-Så här skapar du frågor med Azure Graph:
+Så här skapar du frågor med Azure Resource Graph:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -899,7 +899,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ### <a name="73-maintain-secure-configurations-for-all-azure-resources"></a>7.3: Underhåll säkra konfigurationer för alla Azure-resurser
 
-**Vägledning**: Använd Azure-principen [neka] och [distribuera om det inte finns] för att framtvinga säkra inställningar för Azure-resurser som är relaterade till ditt batch-konto och pooler (till exempel virtuella nätverk, undernät, Azure-brandväggar, Azure Storage-konton osv.). Du kan använda Azure Policy Alias från följande namnområden för att skapa anpassade principer:
+**Vägledning**: Använd Azure-principen [neka] och [distribuera om det inte finns] för att framtvinga säkra inställningar för Azure-resurser som är relaterade till ditt batch-konto och pooler (till exempel virtuella nätverk, undernät, Azure-brandväggar, Azure Storage-konton osv.). Du kan använda Azure Policy-alias från följande namnområden för att skapa anpassade principer:
 
 - Microsoft.Batch
 

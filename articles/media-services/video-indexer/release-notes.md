@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: f1387273f9736fea70682177d5d48dc2f141bbad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5aa7abf7aafc14e71af5618cec892ef9f843d88a
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76933862"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733056"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Viktig information om Azure Media Services Video Indexer
 
@@ -29,6 +29,20 @@ För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikel
 * Kända problem
 * Felkorrigeringar
 * Föråldrade funktioner
+
+## <a name="april-2020"></a>April 2020
+
+### <a name="new-widget-parameters-capabilities"></a>Nya funktioner för widgetparametrar
+
+Widgeten **Insikter** innehåller nya `language` `control`parametrar: och .
+
+Widgeten **Player** har `locale` en ny parameter. Både `locale` `language` och parametrar styr spelarens språk.
+
+Mer information finns i avsnittet [widgettyper.](video-indexer-embed-widgets.md#widget-types) 
+
+## <a name="new-player-skin"></a>Ny spelare hud
+
+En ny spelare hud lanseras med uppdaterad design.
 
 ## <a name="january-2020"></a>Januari 2020
  
@@ -46,7 +60,7 @@ En ny Video Indexer GitHub med olika projekt, komma igång guider och kodexempel
  
 ### <a name="swagger-update"></a>Swagger uppdatering
 
-Video Indexer enhetliga **autentiseringar** och **operationer** till en enda [Video Indexer OpenAPI Specifikation (swagger)](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson). Develpers kan hitta API: er i [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/).
+Video Indexer enhetliga **autentiseringar** och **operationer** till en enda [Video Indexer OpenAPI Specifikation (swagger)](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson). Utvecklare kan hitta API:erna i [Utvecklarportalen för Video Indexer](https://api-portal.videoindexer.ai/).
 
 ## <a name="december-2019"></a>December 2019
 

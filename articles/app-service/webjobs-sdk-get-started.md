@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 4976be485a9b7609c6e8d23f6b897092217663fc
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 4ee724ec66d5fb474f8c8a9a967cc7235fef5e85
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535680"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732615"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Komma igång med Azure WebJobs SDK för händelsedriven bakgrundsbearbetning
 
@@ -134,7 +134,7 @@ I det här avsnittet konfigurerar du konsolloggning som använder [ASP.NET Core-
     * Inaktiverar [instrumentpanelsloggning](https://github.com/Azure/azure-webjobs-sdk/wiki/Queues#logs). Instrumentpanelen är ett äldre övervakningsverktyg och instrumentpanelsloggning rekommenderas inte för produktionsscenarier med högt dataflöde.
     * Lägger till konsolleverantören med [standardfiltrering](webjobs-sdk-how-to.md#log-filtering).
 
-Nu kan du lägga till en funktion som utlöses av meddelanden som anländer i en [Azure Storage-kö](../azure-functions/functions-bindings-storage-queue.md).
+Nu kan du lägga till en funktion som utlöses av meddelanden som anländer i en Azure Storage-kö.
 
 ## <a name="install-the-storage-binding-extension"></a>Installera tillägget för Storage-bindning
 
@@ -184,7 +184,7 @@ Från och med version 3.x måste du uttryckligen installera det lagringsbindning
 
    Attributet `QueueTrigger` talar om för körningen att anropa den här funktionen `queue`när ett nytt meddelande skrivs på en Azure Storage-kö som heter . Innehållet i kömeddelandet anges till metodkoden `message` i parametern. Brödtexten i metoden är där du bearbetar utlösardata. I det här exemplet loggar koden bara meddelandet.
 
-   Parametern `message` behöver inte vara en sträng. Du kan också binda till ett JSON-objekt, en bytematris eller ett [CloudQueueMessage-objekt.](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) [Se Användning av köutlösare](../azure-functions/functions-bindings-storage-queue-trigger.md#usage). Varje bindningstyp (till exempel köer, blobbar eller tabeller) har en annan uppsättning parametertyper som du kan binda till.
+   Parametern `message` behöver inte vara en sträng. Du kan också binda till ett JSON-objekt, en bytematris eller ett [CloudQueueMessage-objekt.](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) [Se Användning av köutlösare](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#usage). Varje bindningstyp (till exempel köer, blobbar eller tabeller) har en annan uppsättning parametertyper som du kan binda till.
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
@@ -280,7 +280,7 @@ I det här avsnittet skapar och kör du projektet lokalt och utlöser funktionen
 
    Eftersom du `QueueTrigger` har använt `ProcessQueueMessage` attributet i funktionen lyssnar WeJobs SDK-körningen efter kömeddelanden när det startar. Den hittar ett nytt kömeddelande i kön med namnet *kö* och anropar funktionen.
 
-   På grund av [köavsökning exponentiell backoff](../azure-functions/functions-bindings-storage-queue-trigger.md#polling-algorithm)kan det ta upp till 2 minuter för körningen att hitta meddelandet och anropa funktionen. Den här väntetiden kan minskas genom att köra i [utvecklingsläge](webjobs-sdk-how-to.md#host-development-settings).
+   På grund av [köavsökning exponentiell backoff](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm)kan det ta upp till 2 minuter för körningen att hitta meddelandet och anropa funktionen. Den här väntetiden kan minskas genom att köra i [utvecklingsläge](webjobs-sdk-how-to.md#host-development-settings).
 
    Konsolen utgång ser ut så här:
 
@@ -444,7 +444,7 @@ Under distributionen skapar du en apptjänstinstans där du kan köra dina funkt
 1. Uppdatera **sidan Kö** och det nya meddelandet försvinner eftersom det har bearbetats av funktionen som körs i Azure.
 
    > [!TIP]
-   > När du testar i Azure använder du [utvecklingsläge](webjobs-sdk-how-to.md#host-development-settings) för att säkerställa att en köutlösarefunktion anropas direkt och undvik förseningar på grund av [köavsökning exponentiell backoff](../azure-functions/functions-bindings-storage-queue-trigger.md#polling-algorithm).
+   > När du testar i Azure använder du [utvecklingsläge](webjobs-sdk-how-to.md#host-development-settings) för att säkerställa att en köutlösarefunktion anropas direkt och undvik förseningar på grund av [köavsökning exponentiell backoff](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm).
 
 ### <a name="view-logs-in-application-insights"></a>Visa loggar i Application Insights
 

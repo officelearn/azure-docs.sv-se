@@ -1,25 +1,20 @@
 ---
 title: Konfigurera PostgreSQL på en Virtuell Linux-dator
 description: Lär dig hur du installerar och konfigurerar PostgreSQL på en virtuell Linux-dator i Azure
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 1a747363-0cc5-4ba3-9be7-084dfeb04651
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: bbfad994de663881e3aa03292fc0d0611a0d0933
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d86e42dcc16d108cc82c9d245c7919145cef365f
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75747794"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759343"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Installera och konfigurera PostgreSQL på Azure
 PostgreSQL är en avancerad öppen källkod databas som liknar Oracle och DB2. Den innehåller företagsfärdiga funktioner som fullständig ACID-efterlevnad, tillförlitlig transaktionsbearbetning och samtidighetskontroll i flera versioner. Den stöder också standarder som ANSI SQL och SQL /MED (inklusive utländska dataomslag för Oracle, MySQL, MongoDB och många andra). Det är mycket utökningsbart med stöd för över 12 procedurspråk, GIN- och GiST-index, stöd för rumsliga data och flera NoSQL-liknande funktioner för JSON eller nyckelvärdesbaserade program.

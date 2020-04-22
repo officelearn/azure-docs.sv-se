@@ -3,12 +3,12 @@ title: Så här skapar du principer för gästkonfiguration för Windows
 description: Lär dig hur du skapar en azure-princip gästkonfigurationsprincip för Windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: deb51cf502d26dc994bf74ef3cb0c728f624afde
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 7b06aa0a70bfa17d67da9c6af447138f8bb9e712
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313985"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757410"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Så här skapar du principer för gästkonfiguration för Windows
 
@@ -25,6 +25,11 @@ Använd följande åtgärder för att skapa din egen konfiguration för att vali
 
 > [!IMPORTANT]
 > Anpassade principer med gästkonfiguration är en förhandsgranskningsfunktion.
+>
+> Tillägget Gästkonfiguration krävs för att utföra granskningar i virtuella Azure-datorer.
+> Om du vill distribuera tillägget i stor skala tilldelar du följande principdefinitioner:
+>   - Distribuera förutsättningar för att aktivera princip för gästkonfiguration på virtuella datorer i Windows.
+>   - Distribuera förutsättningar för att aktivera princip för gästkonfiguration på virtuella Linux-datorer.
 
 ## <a name="install-the-powershell-module"></a>Installera PowerShell-modulen
 
@@ -176,8 +181,10 @@ Configuration AuditBitLocker
 }
 
 # Compile the configuration to create the MOF files
-AuditBitLocker -out ./Config
+AuditBitLocker ./Config
 ```
+
+Spara filen med `config.ps1` namnet i projektmappen. Kör den i PowerShell `./config.ps1` genom att köra i terminalen. En ny mof-fil kommer att skapas.
 
 Kommandot `Node AuditBitlocker` är inte tekniskt krävs, men `AuditBitlocker.mof` det ger en `localhost.mof`fil som heter snarare än standard, . Med .mof filnamnet följa konfigurationen gör det enkelt att organisera många filer när du arbetar i stor skala.
 

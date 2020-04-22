@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: victorh
-ms.openlocfilehash: e64b0a8602a4a0806ada15546972856743c38161
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 0e5a683c95e213a0fc37ec4f559e89abfecf034a
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312470"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758909"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -72,7 +72,7 @@ För v2 SKU öppnar du den offentliga IP-resursen och väljer **Konfiguration**.
 
 *Tidsgränsen keep-Alive* styr hur länge Application Gateway väntar på att en klient ska skicka en annan HTTP-begäran på en beständig anslutning innan den återanvänds eller stängs. *TCP-inaktiv timeout* styr hur länge en TCP-anslutning hålls öppen vid ingen aktivitet. 
 
-*Tidsgränsen keep-alive* i Application Gateway v1 SKU är 120 sekunder och i v2 SKU är det 75 sekunder. *TCP-timeout för inaktiv* är en 4-minuters standard på frontend virtual IP (VIP) för både v1 och v2 SKU of Application Gateway. 
+*Tidsgränsen keep-alive* i Application Gateway v1 SKU är 120 sekunder och i v2 SKU är det 75 sekunder. *TCP-timeout för inaktiv* är en 4-minuters standard på frontend virtual IP (VIP) för både v1 och v2 SKU of Application Gateway. Du kan inte ändra dessa värden.
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>Ändras IP- eller DNS-namnet under programgatewayens livstid?
 

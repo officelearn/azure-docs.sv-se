@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.openlocfilehash: fe7d076fab6a70736843fc644cd56bef44a55df2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 04/21/2020
+ms.openlocfilehash: 4db9624fbc71e48fcc10ae1d9a1d700d301248a2
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415129"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759543"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Säkerhet och datasekretess i Azure Cognitive Search
 
@@ -40,7 +40,7 @@ Krypteringen utökas i hela indexeringspipelinen: från anslutningar, genom öve
 
 | Säkerhetslager | Beskrivning |
 |----------------|-------------|
-| Kryptering under överföring <br>(HTTPS/SSL/TLS) | Azure Cognitive Search lyssnar på HTTPS-port 443. På plattformen krypteras anslutningar till Azure-tjänster. <br/><br/>Alla Azure Cognitive Search-interaktioner från klient till tjänst är SSL/TLS 1.2 som kan.  Var noga med att använda TLSv1.2 för SSL-anslutningar till din tjänst.|
+| Kryptering under överföring <br>(HTTPS/SSL/TLS) | Azure Cognitive Search lyssnar på HTTPS-port 443. På plattformen krypteras anslutningar till Azure-tjänster. <br/><br/>Alla Azure Cognitive Search-interaktioner från klient till tjänst använder SSL/TLS 1.2-kryptering. Tidigare versioner (1.0 eller 1.1) stöds inte.|
 | Vilande kryptering <br>Microsoft hanterade nycklar | Krypteringen är helt internaliserad i indexeringsprocessen, utan mätbar inverkan på indexering av tid till slutförande eller indexstorlek. Den sker automatiskt på all indexering, inklusive på inkrementella uppdateringar av ett index som inte är helt krypterat (skapas före januari 2018).<br><br>Internt baseras krypteringen på [Azure Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), med 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).<br><br> Kryptering är internt för Azure Cognitive Search, med certifikat och krypteringsnycklar som hanteras internt av Microsoft och tillämpas universellt. Du kan inte aktivera eller inaktivera kryptering, hantera eller ersätta dina egna nycklar eller visa krypteringsinställningar i portalen eller programmässigt.<br><br>Kryptering i vila tillkännagavs i januari 24, 2018 och gäller för alla tjänstnivåer, inklusive den kostnadsfria nivån, i alla regioner. För fullständig kryptering måste index som skapats före det datumet tas bort och återskapas för att kryptering ska kunna ske. Annars krypteras endast nya data som läggs till efter den 24 januari.|
 | Vilande kryptering <br>Kundhanterade nycklar | Kryptering med kundhanterade nycklar är nu allmänt tillgänglig för söktjänster som skapats på eller efter januari 2019. Det stöds inte på kostnadsfria (delade) tjänster.<br><br>Azure Cognitive Search index och synonymmappningar kan nu krypteras i vila med kundhanterade nycklar i Azure Key Vault. Mer information finns [i Hantera krypteringsnycklar i Azure Cognitive Search](search-security-manage-encryption-keys.md).<br><br>Den här funktionen ersätter inte standardkrypteringen i vila, utan tillämpas utöver den.<br><br>Om du aktiverar den här funktionen ökar indexstorleken och frågeprestanda försämras. Baserat på observationer hittills kan du förvänta dig att se en ökning med 30%-60% i frågetider, även om den faktiska prestandan varierar beroende på indexdefinition och typer av frågor. På grund av den här prestandapåverkan rekommenderar vi att du bara aktiverar den här funktionen på index som verkligen kräver det.
 

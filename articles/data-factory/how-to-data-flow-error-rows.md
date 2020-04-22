@@ -6,14 +6,14 @@ author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 04/20/2020
 ms.author: makromer
-ms.openlocfilehash: 4f65421a6457d4bf4d438ce9d035d46476829da2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8225143bb75118620b45c2520bb62ea30501a617
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414362"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732694"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Hantera SQL-trunkeringsfelrader i dataflöden för datamappning av dataflöden för data
 
@@ -30,6 +30,9 @@ Ett vanligt scenario i Data Factory när du använder mappning av dataflöden ä
     ![Dataflöde för film 1](media/data-flow/error4.png)
     
 3. Problemet är att filmtiteln inte alla får plats i en sinkkolumn som bara rymmer fem tecken. När du kör det här dataflödet visas ett fel som det här:```"Job failed due to reason: DF-SYS-01 at Sink 'WriteToDatabase': java.sql.BatchUpdateException: String or binary data would be truncated. java.sql.BatchUpdateException: String or binary data would be truncated."```
+
+Den här videon går igenom ett exempel på inställning av felradhanteringslogik i dataflödet:
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4uOHj]
 
 ## <a name="how-to-design-around-this-condition"></a>Hur man utformar runt detta villkor
 

@@ -4,22 +4,22 @@ description: I den här artikeln kan du hitta svar på vanliga frågor om säker
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 5d2f702b49e1e7aeb2ab33008556e91264b39427
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: accfc57055f70254814c889de875f5360878bcd9
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76705419"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757466"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Vanliga frågor och svar-Säkerhetskopiera virtuella Azure-datorer
 
 Den här artikeln besvarar vanliga frågor om säkerhetskopiering av virtuella Azure-datorer med [Azure Backup-tjänsten.](backup-introduction-to-azure-backup.md)
 
-## <a name="backup"></a>Säkerhetskopiering
+## <a name="backup"></a>Backup
 
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Vilka VM-avbildningar kan aktiveras för säkerhetskopiering när jag skapar dem?
 
-När du skapar en virtuell dator kan du aktivera säkerhetskopiering för virtuella datorer som kör [operativsystem som stöds](backup-support-matrix-iaas.md#supported-backup-actions)
+När du skapar en virtuell dator kan du aktivera säkerhetskopiering för virtuella datorer som kör [operativsystem som stöds](backup-support-matrix-iaas.md#supported-backup-actions).
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>Ingår kostnaden för säkerhetskopiering i den virtuella datorn?
 
@@ -47,7 +47,7 @@ Nej. Ange kvarhållningsintervallet för ett säkerhetskopieringsjobb på begär
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Jag nyligen har aktiverat Azure Disk Encryption på vissa virtuella datorer. Kommer mina säkerhetskopior att fungera även i fortsättningen?
 
-Ge behörigheter för Azure Backup för att komma åt Key Vault. Ange behörigheterna i PowerShell enligt beskrivningen i avsnittet **Aktivera säkerhetskopiering** i [Azure Backup PowerShell-dokumentationen.](backup-azure-vms-automation.md)
+Ge behörigheter för Azure Backup för att komma åt Nyckelvalvet. Ange behörigheterna i PowerShell enligt beskrivningen i avsnittet **Aktivera säkerhetskopiering** i [Azure Backup PowerShell-dokumentationen.](backup-azure-vms-automation.md)
 
 ### <a name="i-migrated-vm-disks-to-managed-disks-will-my-backups-continue-to-work"></a>Jag migrerade VM-diskar till hanterade diskar. Kommer mina säkerhetskopior att fungera även i fortsättningen?
 
@@ -65,11 +65,11 @@ Ja. Säkerhetskopior körs när en dator stängs av. Återställningspunkten mar
 
 Ja. Du kan avbryta säkerhetskopieringsjobbet i ett **ta ögonblicksbildtillstånd.** Du kan inte avbryta ett jobb om dataöverföring från ögonblicksbilden pågår.
 
-### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>Jag aktiverade lås på resursgrupp som skapats av Azure Backup Service (dvs. `AzureBackupRG_<geo>_<number>`), kommer mina säkerhetskopior att fortsätta att fungera?
+### <a name="i-enabled-a-lock-on-the-resource-group-created-by-azure-backup-service-for-example-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>Jag har aktiverat ett lås för resursgruppen som skapats av Azure Backup Service (till exempel `AzureBackupRG_<geo>_<number>`). Kommer mina säkerhetskopior att fungera även i fortsättningen?
 
 Om du låser resursgruppen som skapats av Azure Backup Service, kommer säkerhetskopior att börja misslyckas eftersom det finns en maximal gräns på 18 återställningspunkter.
 
-Användaren måste ta bort låset och rensa insamlingen av återställningsplatsen från den resursgruppen för att framtida säkerhetskopior ska lyckas, [följ dessa steg](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) för att ta bort insamlingen av återställningsplatsen.
+Ta bort låset och rensa insamlingen av återställningsplatsen från den resursgruppen för att göra framtida säkerhetskopior framgångsrika. [Följ dessa steg](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) för att ta bort samlingen återställningspunkt.
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>Stöder Azure backup standard-SSD-hanterade diskar?
 
@@ -83,17 +83,21 @@ Ja, Azure Backup stöder [vanliga SSD-hanterade diskar](https://azure.microsoft.
 
 Azure Backup kan inte säkerhetskopiera den WA-aktiverade disken men kan utesluta den från säkerhetskopiering. Säkerhetskopieringen ger dock inte databasen konsekvens eftersom informationen på den WA-aktiverade disken inte säkerhetskopieras. Du kan säkerhetskopiera diskar med den här konfigurationen om du vill att operativsystemets disksäkerhetskopiering och säkerhetskopiering av diskar som inte är WA-aktiverade.
 
-Vi kör privat förhandsversion för en SAP HANA-säkerhetskopia med en RPO på 15 minuter. Den är byggd på ett liknande sätt som SQL DB backup, och använder backInt-gränssnittet för tredjepartslösningar certifierade av SAP HANA. Om du är intresserad, `AskAzureBackupTeam@microsoft.com` maila oss med ämnet **Registrera dig för privat förhandsgranskning för säkerhetskopiering av SAP HANA i Azure virtuella datorer**.
+Azure Backup tillhandahåller en lösning för säkerhetskopiering av direktuppspelning för SAP HANA-databaser med en RPO på 15 minuter. Det är Backint certifierat av SAP för att tillhandahålla ett inbyggt stöd för säkerhetskopiering som utnyttjar SAP HANA:s inbyggda API:er. Läs mer [om säkerhetskopiering av SAP HANA-databaser i virtuella Azure-datorer](https://docs.microsoft.com/azure/backup/sap-hana-db-about).
 
 ### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>Vad är den maximala fördröjningen jag kan förvänta mig i säkerhetskopieringsstarttid från den schemalagda säkerhetskopieringstiden som jag har angett i min princip för säkerhetskopiering av virtuella datorer?
 
-Den schemalagda säkerhetskopieringen utlöses inom 2 timmar efter den schemalagda säkerhetskopieringstiden. Om till exempel 100 virtuella datorer har sin starttid för säkerhetskopiering schemalagd klockan 02:00, kommer alla 100 virtuella datorer att ha säkerhetskopieringsjobb på gång. Om schemalagda säkerhetskopior har pausats på grund av avbrott och återupptagits/görs om kan säkerhetskopieringen starta utanför det schemalagda tvåtimmarsfönstret.
+Den schemalagda säkerhetskopieringen utlöses inom 2 timmar efter den schemalagda säkerhetskopieringstiden. Om till exempel 100 virtuella datorer har sin starttid för säkerhetskopiering schemalagd klockan 02:00, kommer senast alla 100 virtuella datorer att ha sitt säkerhetskopieringsjobb på gång. Om schemalagda säkerhetskopior har pausats på grund av ett avbrott och återupptagits eller gjorts om kan säkerhetskopieringen starta utanför det schemalagda tvåtimmarsfönstret.
 
-### <a name="what-is-the-minimum-allowed-retention-range-for-daily-backup-point"></a>Vad är det minsta tillåtna kvarhållningsintervallet för daglig säkerhetskopieringspunkt?
+### <a name="what-is-the-minimum-allowed-retention-range-for-a-daily-backup-point"></a>Vad är det minsta tillåtna kvarhållningsintervallet för en daglig säkerhetskopieringspunkt?
 
-Azure Virtual Machine backup princip stöder ett minsta kvarhållningsintervall på sju dagar upp till 9999 dagar. Alla ändringar av en befintlig princip för säkerhetskopiering av virtuella datorer med mindre än sju dagar kräver en uppdatering för att uppfylla det minsta kvarhållningsintervallet på sju dagar.
+Azure Virtual Machine backup princip stöder ett minsta kvarhållningsintervall från sju dagar upp till 9999 dagar. Alla ändringar av en befintlig princip för säkerhetskopiering av virtuella datorer med mindre än sju dagar kräver en uppdatering för att uppfylla det minsta kvarhållningsintervallet på sju dagar.
 
-### <a name="can-i-backup-or-restore-selective-disks-attached-to-a-vm"></a>Kan jag säkerhetskopiera eller återställa selektiva diskar som är anslutna till en virtuell dator?
+### <a name="what-happens-if-i-change-the-case-of-the-name-of-my-vm-or-my-vm-resource-group"></a>Vad händer om jag ändrar fallet med namnet på min virtuella dator eller min VM-resursgrupp?
+
+Om du ändrar skiftläge (till övre eller nedre) för din vm- eller VM-resursgrupp ändras inte fallet med namnet på säkerhetskopieringsobjektet. Detta förväntas dock Azure Backup beteende. Ärendeändringen visas inte i säkerhetskopian, men uppdateras i backend.
+
+### <a name="can-i-back-up-or-restore-selective-disks-attached-to-a-vm"></a>Kan jag säkerhetskopiera eller återställa selektiva diskar som är anslutna till en virtuell dator?
 
 Azure Backup stöder nu selektiv säkerhetskopiering och återställning av disk med hjälp av azure virtual machine-säkerhetskopieringslösningen.
 
@@ -129,9 +133,9 @@ Ja, du kan använda säkerhetskopior som tagits innan diskar migrerades från oh
 
 Ja. Även om du tar bort den virtuella datorn kan du gå till motsvarande säkerhetskopieringsobjekt i valvet och återställa från en återställningspunkt.
 
-### <a name="how-to-restore-a-vm-to-the-same-availability-sets"></a>Hur återställer du en virtuell dator till samma tillgänglighetsuppsättningar?
+### <a name="how-do-i-restore-a-vm-to-the-same-availability-sets"></a>Hur återställer jag en virtuell dator till samma tillgänglighetsuppsättningar?
 
-För hanterad hårddisk Azure VM aktiveras återställning till tillgänglighetsuppsättningarna genom att tillhandahålla ett alternativ i mallen samtidigt som du återställer som hanterade diskar. Den här mallen har indataparametern **Tillgänglighetsuppsättningar**.
+För virtuella datorer med hanterad disk Azure aktiveras återställning till tillgänglighetsuppsättningarna genom att tillhandahålla ett alternativ i mallen samtidigt som du återställer som hanterade diskar. Den här mallen har indataparametern **Tillgänglighetsuppsättningar**.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>Hur får vi snabbare återställa föreställningar?
 
@@ -139,7 +143,7 @@ För hanterad hårddisk Azure VM aktiveras återställning till tillgänglighets
 
 ### <a name="what-happens-when-we-change-the-key-vault-settings-for-the-encrypted-vm"></a>Vad händer när vi ändrar nyckelvalvsinställningarna för den krypterade virtuella datorn?
 
-När du har ändrat KeyVault-inställningarna för den krypterade virtuella datorn fortsätter säkerhetskopieringarna att fungera med den nya uppsättningen detaljer. Men efter återställningen från en återställningspunkt före ändringen måste du återställa hemligheterna i en KeyVault innan du kan skapa den virtuella datorn från den. Mer information finns i den här [artikeln](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret)
+När du har ändrat nyckelvalvets inställningar för den krypterade virtuella datorn fortsätter säkerhetskopieringarna att fungera med den nya uppsättningen detaljer. Men efter återställningen från en återställningspunkt före ändringen måste du återställa hemligheterna i ett nyckelvalv innan du kan skapa den virtuella datorn från den. Mer information finns i den här [artikeln](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret).
 
 Åtgärder som hemlig/nyckel-överrullning kräver inte det här steget och samma KeyVault kan användas efter återställning.
 
@@ -160,10 +164,10 @@ Den virtuella datorn säkerhetskopieras med hjälp av schema- och kvarhållnings
 
 1. Stoppa säkerhetskopian tillfälligt och behåll säkerhetskopieringsdata.
 2. Flytta den virtuella datorn till målresursgruppen.
-3. Återaktiverad säkerhetskopiering i samma eller nya valv.
+3. Återaktivera säkerhetskopiering i samma eller nya valv.
 
 Du kan återställa den virtuella datorn från tillgängliga återställningspunkter som skapades före flytten.
 
-### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy"></a>Finns det en gräns för antalet virtuella datorer som kan associeras med samma säkerhetskopieringsprincip?
+### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy"></a>Finns det en gräns för antalet virtuella datorer som kan associeras med samma säkerhetskopieringsprincip?
 
 Ja, det finns en gräns på 100 virtuella datorer som kan associeras till samma säkerhetskopieringsprincip från portalen. Vi rekommenderar att du skapar flera principer för säkerhetskopiering med samma schema eller olika schema för mer än 100 virtuella datorer.

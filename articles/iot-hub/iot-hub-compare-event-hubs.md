@@ -8,12 +8,15 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 7a589ba80b61ea5ef9ea1c941e9a0218a1653c99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: 7aa59f8181ad60b3d43846a3f4f1f471a050b238
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60735534"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733445"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Ansluta IoT-enheter till Azure: IoT Hub och Event Hubs
 
@@ -27,7 +30,7 @@ Sammanfattningsvis är båda lösningarna utformade för datainmatning i stor sk
 
 I följande tabell finns information om hur de två nivåerna i IoT Hub jämför med eventhubbar när du utvärderar dem för IoT-funktioner. Mer information om standard- och grundläggande nivåer i IoT Hub finns i [Så här väljer du rätt IoT Hub-nivå](iot-hub-scaling.md).
 
-| IoT-kapacitet | Standardnivå för IoT Hub | Grundläggande nivå för IoT Hub | Händelsehubbar |
+| IoT-kapacitet | Standardnivå för IoT Hub | Grundläggande nivå för IoT Hub | Event Hubs |
 | --- | --- | --- | --- |
 | Meddelanden från enhet till moln | ![Markera][checkmark] | ![Markera][checkmark] | ![Markera][checkmark] |
 | Protokoll: HTTPS, AMQP, AMQP över webSockets | ![Markera][checkmark] | ![Markera][checkmark] | ![Markera][checkmark] |

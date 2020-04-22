@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 2a0eb83b4b056230e8e7ef103f220b216fceb9e9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 8f6134e8f8fdb9af3f578afaf0670c32a3896e01
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537465"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81766857"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights Agent (tidigare namnet Status Monitor v2): Detaljerade instruktioner
 
@@ -219,7 +219,7 @@ Application Insights SDK måste skicka appens telemetri till Microsoft. Vi rekom
 
 Använd `Enable-ApplicationInsightsMonitoring` kommandot för att aktivera övervakning.
 
-Se [API-referensen](status-monitor-v2-api-enable-monitoring.md) för en detaljerad beskrivning av hur du använder den här cmdleten.
+Se [API-referensen](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#enable-applicationinsightsmonitoring) för en detaljerad beskrivning av hur du använder den här cmdleten.
 
 
 

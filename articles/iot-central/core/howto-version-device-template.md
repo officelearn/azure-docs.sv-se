@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: bb77d1a09cb2692765c4c834ce617d13465d4d67
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 37c7bc99881c8d1106c8464cfe18c9e63b8a1b02
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80157576"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756735"
 ---
 # <a name="create-a-new-device-template-version"></a>Skapa en ny enhetsmallversion
 
-
+*Den här artikeln gäller lösningsbyggare och enhetsutvecklare.*
 
 Azure IoT Central möjliggör snabb utveckling av IoT-program. Du kan snabbt iterera över enhetsmalldesignen genom att lägga till, redigera eller ta bort enhetsfunktioner, vyer och anpassningar. När du har publicerat enhetsmallen visas enhetsfunktionsmodellen som Publicerad med låsikoner **bredvid** modellen. För att kunna göra ändringar i enhetskapacitetsmodellen måste du skapa en ny version av enhetsmallen. Under tiden kan molnegenskaper, anpassningar och vyer redigeras när som helst utan att behöva version av enhetsmallen. När du har sparat någon av dessa ändringar kan du publicera enhetsmallen så att de senaste ändringarna är tillgängliga för operatören att visa i Enhetsutforskaren.
 
@@ -81,7 +81,4 @@ Du kan skapa flera versioner av enhetsmallen. Med tiden har du flera anslutna en
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du använder enhetsmallversioner i ditt Azure IoT Central-program, här är det föreslagna nästa steget:
-
-> [!div class="nextstepaction"]
-> [Så här skapar du telemetriregler](tutorial-create-telemetry-rules.md)
+Om du är enhetsutvecklare är ett förslag på nästa steg att läsa om [Azure IoT Edge-enheter och Azure IoT Central](./concepts-iot-edge.md).

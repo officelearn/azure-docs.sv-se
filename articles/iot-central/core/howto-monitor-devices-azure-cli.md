@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 0fa1b58547e0260ec5486003cf4cb85d855de33a
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 1a6106a45f5062850ceb12205528a05ed1d494be
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310218"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756666"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Övervaka enhetsanslutningar med Azure CLI
 
-*Det här avsnittet gäller byggare och administratörer.*
+*Det här avsnittet gäller enhetsutvecklare och lösningsbyggare.*
 
 Använd Azure CLI IoT-tillägget för att se meddelanden som dina enheter skickar till IoT Central och observera ändringar i enhetstvillingen. Du kan använda det här verktyget för att felsöka och observera enhetsanslutning och diagnostisera problem med enhetsmeddelanden som inte når molnet eller enheter som inte svarar på dubbla ändringar.
 
@@ -79,4 +79,4 @@ az iot central device-twin show --app-id <app-id> --device-id <device-id>
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du använder IoT Central Explorer är det föreslagna nästa steget att utforska [hanteringen av enheter IoT Central](howto-manage-devices.md).
+Om du är enhetsutvecklare är ett förslag på nästa steg att läsa om [enhetsanslutning i Azure IoT Central](./concepts-get-connected.md).

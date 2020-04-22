@@ -2,18 +2,17 @@
 title: Köra skript i en virtuell Azure Linux-dator
 description: I det här avsnittet beskrivs hur du kör skript i en virtuell dator
 services: automation
-ms.service: automation
+ms.service: virtual-machines-linux
 author: bobbytreed
 ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: article
-manager: carmonm
-ms.openlocfilehash: 6175ae4263aee0ecdca5b1d768438ad20352375c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9dbfb3e76fe1c0e80dd8020b79f4edd6d32a24a3
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67477024"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758594"
 ---
 # <a name="run-scripts-in-your-linux-vm"></a>Kör skript i din Virtuella Linux-dator
 
@@ -29,7 +28,7 @@ Om du vill automatisera uppgifter eller felsöka problem kan du behöva köra ko
 * Kör PowerShell-skript i Windows-maskiner och Bash-skript i Linux-datorer.
 * Användbart för konfiguration efter distribution, programvaruinstallation och andra konfigurations- eller hanteringsuppgifter.
 
-## <a name="run-command"></a>Kör kommandot 
+## <a name="run-command"></a>Kör, kommando
 
 Funktionen [Kör kommando](run-command.md) möjliggör hantering av virtuella datorer och program med skript och är tillgänglig även när datorn inte kan nås, till exempel om gästbrandväggen inte har RDP- eller SSH-porten öppen.
 

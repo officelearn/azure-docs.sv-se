@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ba96dd2fcfb995afa6e3b1302a2c8b075abfd90
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 275215a69f97d93a1b1741a8fa8f3ca752c8c9ef
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72968703"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758977"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-dynatrace"></a>Självstudiekurs: Azure Active Directory single sign-on (SSO) integration med Dynatrace
 
@@ -140,7 +140,7 @@ I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning ge
 
 ## <a name="configure-dynatrace-sso"></a>Konfigurera Dynatrace SSO
 
-Om du vill konfigurera enkel inloggning på **Dynatrace-sidan** måste du skicka den nedladdade **XML-filen för federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [Dynatrace-supportteamet](https://www.dynatrace.com/services-support/). De konfigurerar den här inställningen att ha SAML SSO-anslutningen korrekt inställd på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Dynatrace-sidan** måste du skicka den nedladdade **XML-filen för federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [Dynatrace](https://www.dynatrace.com/support/help/shortlink/users-sso-hub). Du kan följa instruktionerna på Dynatrace webbplats för att konfigurera SAML SSO-anslutningen på båda sidor.
 
 ### <a name="create-dynatrace-test-user"></a>Skapa Dynatrace-testanvändare
 

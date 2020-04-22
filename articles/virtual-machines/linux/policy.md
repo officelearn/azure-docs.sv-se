@@ -1,25 +1,19 @@
 ---
 title: Framtvinga säkerhet med principer för virtuella Linux-datorer i Azure
 description: Så här tillämpar du en princip på en virtuell Virtuell Azure Resource Manager Linux-dator
-services: virtual-machines-linux
-documentationcenter: ''
 author: mimckitt
-manager: vashan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 06778ab4-f8ff-4eed-ae10-26a276fc3faa
 ms.service: virtual-machines-linux
+ms.subservice: security
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mimckitt
-ms.openlocfilehash: b585b4d0aef06b01cba07ab8ef016b59f9b4f61b
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 6eb571ccc8c996a06d3bdf2dda25860df4dc930f
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878926"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759376"
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>Tillämpa principer på virtuella Linux-datorer med Azure Resource Manager
 Genom att använda principer kan en organisation tillämpa olika konventioner och regler i hela företaget. Verkställighet av önskat beteende kan bidra till att minska risken och samtidigt bidra till organisationens framgång. I den här artikeln beskriver vi hur du kan använda Azure Resource Manager-principer för att definiera önskat beteende för organisationens virtuella datorer.

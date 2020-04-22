@@ -10,14 +10,16 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: e8d1c4a605e8db2e9753bb80c9712dd6c2be7b59
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93e4d3d0bed9090573d2b6ee87a29b86ccd72e42
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158270"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758953"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Ansluta en RuuviTag-sensor till ditt Azure IoT Central-program
+
+*Den här artikeln gäller lösningsbyggare och enhetsutvecklare.*
 
 I den här artikeln beskrivs hur du som lösningsbyggare kan ansluta en RuuviTag-sensor till ditt Microsoft Azure IoT Central-program.
 
@@ -74,4 +76,7 @@ Så här skapar du en simulerad RuuviTag:
 
 ## <a name="next-steps"></a>Efterföljande moment
 
-Nu när du har lärt dig hur du ansluter en RuuviTag till ditt Azure IoT Central-program, är det föreslagna nästa steget att lära dig hur du [anpassar ditt IoT Central-program](../retail/tutorial-in-store-analytics-customize-dashboard-pnp.md) för att skapa en lösning från på.
+Om du är enhetsutvecklare är några föreslagna nästa steg att:
+
+- Läs om [enhetsanslutning i Azure IoT Central](./concepts-get-connected.md)
+- Lär dig hur du [övervakar enhetsanslutning med Azure CLI](./howto-monitor-devices-azure-cli.md)

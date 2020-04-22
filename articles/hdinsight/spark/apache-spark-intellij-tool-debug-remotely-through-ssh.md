@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/23/2019
-ms.openlocfilehash: 67660e3e98f5a12236798d74cc61f71616e6751d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a012c3ce8f7c9e105a42d8383a502f3608c84070
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76934755"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732909"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Felsöka Apache Spark-program i ett HDInsight-kluster med Azure Toolkit för IntelliJ via SSH
 
@@ -29,7 +29,7 @@ Den här artikeln innehåller steg-för-steg-vägledning om hur du använder HDI
 
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows) (Gemenskapen upplagan är gratis.).
 
-* [Azure Toolkit för IntelliJ](https://docs.microsoft.com/azure/java/intellij/azure-toolkit-for-intellij-installation).
+* [Azure Toolkit för IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/installation).
 
 * [Scala plugin för IntelliJ](../spark/apache-spark-intellij-tool-plugin.md#install-scala-plugin-for-intellij-idea).
 

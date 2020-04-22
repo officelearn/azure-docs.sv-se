@@ -8,14 +8,19 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 8178e585ecb7b1cdfd5e530f3d3406b7397f0968
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: f37b070c74abd8511fc597f9b159312d91281083
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79476057"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759108"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Ansluta till Azure IoT Central
+
+*Den här artikeln gäller operatörer och enhetsutvecklare.*
 
 I den här artikeln beskrivs alternativen för att ansluta dina enheter till ett Azure IoT Central-program.
 
@@ -265,7 +270,8 @@ Alla data som utbyts mellan enheter och din Azure IoT Central är krypterad. IoT
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig om enhetsanslutning i Azure IoT Central, här är de föreslagna nästa steg:
+Om du är enhetsutvecklare är några föreslagna nästa steg att:
 
-- [Förbereda och ansluta en DevKit-enhet](howto-connect-devkit.md)
-- [C SDK: Etableringsenhetsklient SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
+- Lär dig hur du [övervakar enhetsanslutning med Azure CLI](./howto-monitor-devices-azure-cli.md)
+- Lär dig hur du [definierar en ny IoT-enhetstyp i ditt Azure IoT Central-program](./howto-set-up-template.md)
+- Läs om [Azure IoT Edge-enheter och Azure IoT Central](./concepts-iot-edge.md)

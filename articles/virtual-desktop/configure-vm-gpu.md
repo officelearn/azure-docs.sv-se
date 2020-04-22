@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 941a1ff23668a3202028e8b693b57d902095b3b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b675a78041b68210fa7583510582783c506c720
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78384820"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767041"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Konfigurera GPU-acceleration (Graphics Processing Unit) för Windows Virtual Desktop
 
@@ -88,7 +88,7 @@ Så här kontrollerar du att fjärrskrivbord använder GPU-accelererad kodning:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Dessa instruktioner bör få dig igång med GPU-acceleration på en enda session värd VM. Några ytterligare överväganden för att aktivera GPU-acceleration över en större värdpool:
+Dessa instruktioner bör få dig igång med GPU acceleration på en session värd (en virtuell dator). Några ytterligare överväganden för att aktivera GPU-acceleration över en större värdpool:
 
 * Överväg att använda ett [VM-tillägg](/azure/virtual-machines/extensions/overview) för att förenkla installationen av drivrutiner och uppdateringar för ett antal virtuella datorer. Använd [NVIDIA GPU Driver Extension](/azure/virtual-machines/extensions/hpccompute-gpu-windows) för virtuella datorer med NVIDIA GPU: er och använd AMD GPU Driver Extension (kommer snart) för virtuella datorer med AMD GPU: er.
 * Överväg att använda Active Directory-grupprincip för att förenkla grupprincipkonfigurationen för ett antal virtuella datorer. Information om hur du distribuerar grupprinciper i Active Directory-domänen finns i [Arbeta med grupprincipobjekt](https://go.microsoft.com/fwlink/p/?LinkId=620889).

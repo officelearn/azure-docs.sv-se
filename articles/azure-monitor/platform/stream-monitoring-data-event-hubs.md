@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 08177165439ff7d3205e31757e5d1e28759a9836
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 32bc90cc069ac82641c3aa7692c900c60db7ba87
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274195"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733101"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Strömma Azure-övervakningsdata till en händelsehubb
 Azure Monitor tillhandahåller en komplett fullständig stackövervakningslösning för program och tjänster i Azure, i andra moln och lokalt. Förutom att använda Azure Monitor för att analysera dessa data och utnyttja dem för olika övervakningsscenarier, kan du behöva skicka dem till andra övervakningsverktyg i din miljö. Den mest effektiva metoden för att strömma övervakningsdata till externa verktyg i de flesta fall är att använda [Azure Event Hubs](/azure/event-hubs/). Den här artikeln innehåller en kort beskrivning av hur du kan strömma övervakningsdata från olika källor till en händelsehubb och länkar till detaljerad vägledning.
@@ -56,7 +56,7 @@ Genom att dirigera dina övervakningsdata till en händelsehubb med Azure Monito
 | ArcSight | Inga | Den smarta ArcSight Azure Event Hub-anslutningen är tillgänglig som en del av [ArcSight smart connector collection](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
 | Syslog-server | Inga | Om du vill strömma Azure Monitor-data direkt till en syslog-server kan du använda en [lösning baserad på en Azure-funktion](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 | LogRytm | Inga| Instruktioner för att ställa in LogRhythm för att samla in loggar från en händelsehubb finns [här](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
-|Logz.io | Ja | Mer information finns i [Komma igång med övervakning och loggning med Logz.io för Java-appar som körs på Azure](https://docs.microsoft.com/azure/java/java-get-started-with-logzio)
+|Logz.io | Ja | Mer information finns i [Komma igång med övervakning och loggning med Logz.io för Java-appar som körs på Azure](https://docs.microsoft.com/azure/developer/java/fundamentals/java-get-started-with-logzio)
 
 
 ## <a name="next-steps"></a>Efterföljande moment

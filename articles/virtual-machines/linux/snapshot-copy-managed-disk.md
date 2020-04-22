@@ -1,25 +1,20 @@
 ---
 title: Skapa en ögonblicksbild av en virtuell hårddisk i Azure
 description: Lär dig hur du skapar en kopia av en virtuell hårddisk i Azure som en säkerhetskopia eller för felsökningsproblem.
-documentationcenter: ''
 author: roygara
 manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 15696469ca3861586617e9f418f8a55a7ea90467
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f2d905d041198bd35c4657052bf18d981904dc44
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74034784"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758386"
 ---
 # <a name="create-a-snapshot"></a>Skapa en ögonblicksbild 
 

@@ -8,14 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: 0a393ae8629f1742002344ee717a6719269a6722
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bcf1dd2f89cf049d7da5b56170b2c13874c83ba4
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158663"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756805"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Ansluta en MXChip IoT DevKit-enhet till ditt Azure IoT Central-program
+
+*Den här artikeln gäller enhetsutvecklare.*
 
 Den här artikeln visar hur du ansluter en MXChip IoT DevKit-enhet (DevKit) till ett Azure IoT Central-program. Enheten använder den certifierade IoT Plug and Play -modellen (preview) för DevKit-enheten för att konfigurera anslutningen till IoT Central.
 
@@ -104,4 +106,7 @@ Om du vill granska koden eller ändra och kompilera den går du till [kodexemple
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du ansluter en DevKit-enhet till ditt Azure IoT Central-program, är det föreslagna nästa steget att lära dig hur [du konfigurerar en anpassad enhetsmall](./howto-set-up-template.md) för din egen IoT-enhet.
+Om du är enhetsutvecklare är några föreslagna nästa steg att:
+
+- Läs om [enhetsanslutning i Azure IoT Central](./concepts-get-connected.md)
+- Lär dig hur du [övervakar enhetsanslutning med Azure CLI](./howto-monitor-devices-azure-cli.md)

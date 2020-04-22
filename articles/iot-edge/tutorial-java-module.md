@@ -8,17 +8,19 @@ ms.author: kgremban
 ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 228e50160e5c13b2d24a504b02c4bb7e3a420a46
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom:
+- mvc
+- mqtt
+ms.openlocfilehash: d8ea58dca8235b6dfc49c14c519dd44dabdf0592
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76772915"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733074"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Självstudiekurs: Utveckla en Java IoT Edge-modul för Linux-enheter
 
-Du kan använda Azure IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. Du använder den simulerade IoT Edge-enheten som du skapade i Deploy Azure [Linux](quickstart-linux.md) IoT Edge på en simulerad enhet i Linux-snabbstart. I den här självstudiekursen får du lära du dig att:
+Du kan använda Azure IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. Du använder den simulerade IoT Edge-enheten som du skapade i Deploy Azure [Linux](quickstart-linux.md) IoT Edge på en simulerad enhet i Linux-snabbstart. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >

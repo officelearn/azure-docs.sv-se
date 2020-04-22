@@ -2,23 +2,18 @@
 title: Azure Serial Console för GRUB- och enanvändarläge
 description: Använda seriekonsol för grub i virtuella Azure-datorer.
 services: virtual-machines-linux
-documentationcenter: ''
 author: asinn826
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 87f16ec615c8b47c93745b33be12d3acd6d9177a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2aa7110ab4e52fdc5c3804bd27be5f41081fb435
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74035039"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758501"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Använda seriekonsolen för att komma åt GRUB och enanvändarläge
 GRUB är GRand Unified Bootloader. Från GRUB kan du ändra din startkonfiguration för att starta upp till enanvändarläge, bland annat.

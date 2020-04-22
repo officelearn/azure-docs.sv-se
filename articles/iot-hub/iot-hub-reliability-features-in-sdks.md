@@ -7,12 +7,15 @@ ms.author: robinsh
 ms.date: 07/07/2018
 ms.topic: article
 ms.service: iot-hub
-ms.openlocfilehash: 1ca7219824a00a5af0bed7d42da75fc06ce2010d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom:
+- amqp
+- mqtt
+ms.openlocfilehash: a645ab1fa4a1be3ec8e939452a1457e84bbafe15
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79284452"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759673"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Hantera anslutning och tillförlitliga meddelanden med hjälp av Azure IoT Hub-enhet SDK:er
 
@@ -32,7 +35,7 @@ Implementeringsinformationen kan variera beroende på språk. Mer information fi
 
 * [Java SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
 
-* [Node SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
+* [SDK för Node](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
 * [Python SDK](https://github.com/Azure/azure-iot-sdk-python) (Tillförlitlighet ännu inte implementerad)
 
@@ -127,7 +130,7 @@ För kodexempel på andra språk, granska följande implementeringsdokument. Dat
 
 * [Java SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
 
-* [Node SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
+* [SDK för Node](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
 * [Python SDK](https://github.com/Azure/azure-iot-sdk-python)
 

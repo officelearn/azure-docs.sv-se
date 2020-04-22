@@ -8,12 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: a22808b1d7ab2b2451f50470e8da3770d07407a5
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.custom: amqp
+ms.openlocfilehash: ac45cf42ed174d3e9423b4ea39cadf16b84897ef
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985668"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759647"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Konfigurera X.509-baserad säkerhet i din Azure IoT-hubb
 

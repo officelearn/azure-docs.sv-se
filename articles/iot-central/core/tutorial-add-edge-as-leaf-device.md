@@ -9,18 +9,20 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: bf74784998de6bbad6310c48c24d6353512bff13
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c60cf4b90b089d271c0ccd91031420efe9017b1e
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77027736"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758170"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>Självstudiekurs: Lägga till en Azure IoT Edge-enhet i ditt Azure IoT Central-program
 
+*Den här artikeln gäller lösningsbyggare och enhetsutvecklare.*
+
 Den här självstudien visar hur du konfigurerar och lägger till en Azure IoT Edge-enhet i ditt Azure IoT Central-program. Självstudien använder en IoT Edge-aktiverad virtuell Linux-dator (VM) från Azure Marketplace för att simulera en IoT Edge-enhet. IoT Edge-enheten använder en modul som genererar simulerad miljötelemetri. Du kan visa telemetrin på en instrumentpanel i ditt IoT Central-program.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en enhetsmall för en IoT Edge-enhet
@@ -262,9 +264,9 @@ Sidan **Moduler** visar status för IoT Edge-modulerna:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du arbetar med och hanterar IoT Edge-enheter i IoT Central, här är det föreslagna nästa steget:
+Som enhetsutvecklare, nu när du har lärt dig att arbeta med och hantera IoT Edge-enheter i IoT Central, är ett förslag till nästa steg att läsa:
 
 <!-- Next how-tos in the sequence -->
 
 > [!div class="nextstepaction"]
-> [Konfigurera transparent gateway](../../iot-edge/how-to-create-transparent-gateway.md)
+> [Ansluta till Azure IoT Central](./concepts-get-connected.md)

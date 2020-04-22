@@ -3,12 +3,12 @@ title: Lär dig att granska innehållet i virtuella datorer
 description: Lär dig hur Azure Policy använder agenten Gästkonfiguration för att granska inställningar i virtuella datorer.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: e4899f6b3108cabb4e9cdd36e4b2bc5cd2f1cbd4
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 1721c0f1ca7c084d636278aabc96f8dac3293038
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538043"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759090"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure-principens gästkonfiguration
 
@@ -20,19 +20,25 @@ Förutom att granska och [åtgärda](../how-to/remediate-resources.md) Azure-res
 
 För närvarande granskar de flesta Azure Policy Guest Configuration-principer endast inställningarna inuti datorn. De tillämpar inte konfigurationer. Undantaget är en inbyggd princip [som refereras nedan](#applying-configurations-using-guest-configuration).
 
+## <a name="resource-provider"></a>Resursprovider
+
+Innan du kan använda Gästkonfiguration måste du registrera resursleverantören. Resursleverantören registreras automatiskt om tilldelning av en princip för gästkonfiguration görs via portalen. Du kan registrera dig manuellt via [portalen,](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)eller [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
+
 ## <a name="extension-and-client"></a>Tillägg och klient
 
 Om du vill granska inställningarna i en dator aktiveras ett [tillägg för den virtuella datorn.](../../../virtual-machines/extensions/overview.md) Tillägget hämtar tillämplig principtilldelning och motsvarande konfigurationsdefinition.
+
+> [!Important]
+> Tillägget Gästkonfiguration krävs för att utföra granskningar i virtuella Azure-datorer.
+> Om du vill distribuera tillägget i stor skala tilldelar du följande principdefinitioner:
+>   - Distribuera förutsättningar för att aktivera princip för gästkonfiguration på virtuella datorer i Windows.
+>   - Distribuera förutsättningar för att aktivera princip för gästkonfiguration på virtuella Linux-datorer.
 
 ### <a name="limits-set-on-the-extension"></a>Gränser för förlängningen
 
 För att begränsa tillägget från att påverka program som körs inuti datorn, är gästkonfigurationen inte tillåtet att överskrida mer än 5% av CPU. Den här begränsningen finns för både inbyggda och anpassade definitioner.
 
-## <a name="register-guest-configuration-resource-provider"></a>Registrera resursleverantör för gästkonfiguration
-
-Innan du kan använda Gästkonfiguration måste du registrera resursleverantören. Du kan registrera dig via [portalen,](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)eller [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli). Resursleverantören registreras automatiskt om tilldelning av en princip för gästkonfiguration görs via portalen.
-
-## <a name="validation-tools"></a>Valideringsverktyg
+### <a name="validation-tools"></a>Valideringsverktyg
 
 Inuti datorn använder gästkonfigurationsklienten lokala verktyg för att köra granskningen.
 
@@ -50,17 +56,17 @@ Resultaten skickas till resursleverantören gästkonfiguration när granskningen
 
 ## <a name="supported-client-types"></a>Klienttyper som stöds
 
-I följande tabell visas en lista över operativsystem som stöds på Azure-avbildningar:
+Principer för gästkonfiguration ingår i nya versioner. Äldre versioner av operativsystem som är tillgängliga på Azure-marknadsplatsen är undantagna om gästkonfigurationsagenten inte är kompatibel. I följande tabell visas en lista över operativsystem som stöds på Azure-avbildningar:
 
 |Utgivare|Namn|Versioner|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04, 16.04, 18.04|
-|Credativ (credativ)|Debian|8, 9|
-|Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
+|Canonical|Ubuntu Server|14.04 och senare|
+|Credativ (credativ)|Debian|8 och senare|
+|Microsoft|Windows Server|2012 och senare|
 |Microsoft|Windows-klient|Windows 10|
-|OpenLogic|CentOS|7.3, 7.4, 7.5, 7.6, 7.7|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6, 7.7, 7.8|
-|Suse|SLES|12 SP3 (PÅ ANDRA)|
+|OpenLogic|CentOS|7.3 och senare|
+|Red Hat|Red Hat Enterprise Linux|7.4 och senare|
+|Suse|SLES|12 SP3 och senare|
 
 ### <a name="unsupported-client-types"></a>Klienttyper som inte stöds
 

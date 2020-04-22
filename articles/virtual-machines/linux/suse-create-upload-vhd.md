@@ -1,24 +1,19 @@
 ---
 title: Skapa och ladda upp en SUSE Linux VHD i Azure
 description: Lär dig att skapa och ladda upp en virtuell Azure-hårddisk (VHD) som innehåller ett SUSE Linux-operativsystem.
-services: virtual-machines-linux
-documentationcenter: ''
 author: gbowerman
-manager: gwallace
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 066d01a6-2a54-4718-bcd0-90fe7a5303a1
 ms.service: virtual-machines-linux
+ms.subservice: imaging
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: guybo
-ms.openlocfilehash: fe057cb4e831fd95669ad5d5f93332a3952f16ef
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 032b49631c6adb30d4b25f8b82d35dab49ffd3a2
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460944"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757666"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Förbereda en virtuell SLES- eller openSUSE-dator för Azure
 

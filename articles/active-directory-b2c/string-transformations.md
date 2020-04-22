@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/16/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: acacba591c9b895f1bd6abfbab5d3d4a4c858d12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f08107874598a68fb5ce2a1a8a98b6a81d7b94d4
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79472783"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756788"
 ---
 # <a name="string-claims-transformations"></a>Omvandling av stränganspråk
 
@@ -615,13 +615,17 @@ Kontrollerar att `claimToMatch` en `matchTo` stränganspråks- och indataparamet
 | inputClaim | claimToMatch | sträng | Anspråkstypen, som ska jämföras. |
 | InputParameter | matchaTill | sträng | Det reguljära uttrycket som ska matchas. |
 | InputParameter | outputClaimIfMatched | sträng | Det värde som ska anges om strängarna är lika. |
+| InputParameter | extraheraGrupper | boolean | [Valfritt] Anger om Regex-matchningen ska extrahera gruppvärden. Möjliga värden: `true` `false` , eller (standard). | 
 | OutputClaim | outputClaim | sträng | Om reguljärt uttryck matchas innehåller det `outputClaimIfMatched` här utdataanspråket värdet för indataparametern. Eller null, om ingen matchning. |
 | OutputClaim | regexCompareResultClaim | boolean | Anspråkstypen för svar om resultatet för `true` reguljära uttryck matchar resultatutdatatypen, som ska anges som eller `false` baseras på resultatet av matchningen. |
+| OutputClaim| Namnet på fordran| sträng | Om indataparametern extractGroups är true, visas en lista över anspråkstyper som produceras efter att den här anspråksomvandlingen har anropats. Namnet på claimType måste matcha Regex-gruppens namn. | 
 
-Du kontrollerar till exempel om det angivna telefonnumret är giltigt, baserat på mönstret för reguljära uttryck för telefonnummer.
+### <a name="example-1"></a>Exempel 1
+
+Kontrollerar om det angivna telefonnumret är giltigt, baserat på mönstret för reguljära uttryck för telefonnummer.
 
 ```XML
-<ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="setClaimsIfRegexMatch">
+<ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="SetClaimsIfRegexMatch">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="phone" TransformationClaimType="claimToMatch" />
   </InputClaims>
@@ -636,8 +640,6 @@ Du kontrollerar till exempel om det angivna telefonnumret är giltigt, baserat p
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exempel
-
 - Ingående anspråk:
     - **claimToMatch**: "64854114520"
 - Indataparametrar:
@@ -647,6 +649,39 @@ Du kontrollerar till exempel om det angivna telefonnumret är giltigt, baserat p
     - **outputClaim**: "isPhone"
     - **regexCompareResultClaim**: sant
 
+### <a name="example-2"></a>Exempel 2
+
+Kontrollerar om den angivna e-postadressen är giltig och returnerar e-postaliaset.
+
+```XML
+<ClaimsTransformation Id="GetAliasFromEmail" TransformationMethod="SetClaimsIfRegexMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="claimToMatch" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="matchTo" DataType="string" Value="(?&lt;mailAlias&gt;.*)@(.*)$" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="isEmail" />
+    <InputParameter Id="extractGroups" DataType="boolean" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="validationResult" TransformationClaimType="outputClaim" />
+    <OutputClaim ClaimTypeReferenceId="isEmailString" TransformationClaimType="regexCompareResultClaim" />
+    <OutputClaim ClaimTypeReferenceId="mailAlias" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+- Ingående anspråk:
+    - **claimToMatch**:emily@contoso.com" "
+- Indataparametrar:
+    - **matchTo**:`(?&lt;mailAlias&gt;.*)@(.*)$`
+    - **outputClaimIfMatched**: "isEmail"
+    - **extractGroups**: true
+- Utdataanspråk:
+    - **outputClaim**: "isEmail"
+    - **regexCompareResultClaim**: sant
+    - **mailAlias**: Emily
+    
 ## <a name="setclaimsifstringsareequal"></a>SetClaimsIfStringsAreEqual
 
 Kontrollerar att en `matchTo` stränganspråks- och indataparameter är `stringMatchMsg` `stringMatchMsgCode` lika och anger utdataanspråken med värdet `true` som `false` finns i och indataparametrar, tillsammans med jämför resultatutdataanspråk, som ska anges som eller baseras på resultatet av jämförelsen.

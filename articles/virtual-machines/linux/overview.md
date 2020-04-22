@@ -1,23 +1,19 @@
 ---
 title: Översikt över virtuella Linux-datorer i Azure
 description: Översikt över virtuella Linux-datorer i Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines-linux
 author: cynthn
-manager: gwallace
 ms.service: virtual-machines-linux
 ms.topic: overview
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 69a9722436aea1cf794e6e3f3ce02ec79180cff3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 83676850a58da4e4bd3c549d9d0c6ac25ae20f83
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80159480"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759423"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Virtuella Linux-datorer i Azure
 
@@ -53,7 +49,7 @@ I den här tabellen finns några exempel på hur du kan hämta en lista över ti
 | --- | --- |
 | Azure Portal |Välj en plats i listan när du skapar en virtuell dator. |
 | Azure PowerShell |Använd kommandot [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation). |
-| REST API |Använd åtgärden [List locations](https://docs.microsoft.com/rest/api/resources/subscriptions) (Listplatser). |
+| REST-API |Använd åtgärden [List locations](https://docs.microsoft.com/rest/api/resources/subscriptions) (Listplatser). |
 | Azure CLI |Använd åtgärden [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest). |
 
 ## <a name="availability"></a>Tillgänglighet
@@ -105,7 +101,7 @@ Azure stöder för [cloud-init](https://cloud-init.io/) över de flesta Linux-di
 
 * [Använda cloud-init på virtuella Azure Linux-datorer](using-cloud-init.md)
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 * [Introduktion till Microsoft Azure Storage](../../storage/common/storage-introduction.md)
 * [Lägga till en disk i en virtuell Linux-dator med azure-cli](add-disk.md)
 * [Lägga till en datadisk i en virtuell Linux-dator i Azure-portalen](attach-disk-portal.md)
@@ -121,7 +117,7 @@ Azure stöder för [cloud-init](https://cloud-init.io/) över de flesta Linux-di
 
 Skapa din första VM!
 
-- [Portal](quick-create-portal.md)
+- [Portalen](quick-create-portal.md)
 - [Azure CLI](quick-create-cli.md)
-- [Powershell](quick-create-powershell.md)
+- [PowerShell](quick-create-powershell.md)
 

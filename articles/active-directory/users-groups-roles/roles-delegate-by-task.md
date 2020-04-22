@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ac44661dd5a52ba19a3b2dd461aabec1ec250bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fd24650c9bf0c4de155b5bfc8723cfa1fef01548
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284882"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81755410"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Administratörsroller efter administratörsuppgift i Azure Active Directory
 
@@ -76,9 +76,9 @@ Konfigurera företagsegenskaper | Global administratör |
 
 Aktivitet | Minst privilegierad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Genomgångsautentisering | Global administratör | 
-Läs alla konfigurationer | Global läsare | 
-Sömlös enkel inloggning | Global administratör | 
+Genomgångsautentisering | Administratör för hybrididentitet | 
+Läs alla konfigurationer | Global läsare | Administratör för hybrididentitet |
+Sömlös enkel inloggning | Administratör för hybrididentitet | 
 
 ## <a name="connect-health"></a>Connect Health
 
@@ -346,7 +346,7 @@ Uppdatera användarinställningar | Global administratör |
 
 Aktivitet | Minst privilegierad roll | Ytterligare roller
 ---- | --------------------- | ----------------
-Skicka supportbiljett | Tjänstadministratör | Programadministratör, Azure Information Protection Administrator, Faktureringsadministratör, Cloud Application Administrator, Compliance Administrator, Dynamics 365 Administrator, Desktop Analytics Administrator, Exchange Administrator, Password Administratör, Intune-administratör, Skype för företag-administratör, Power BI-administratör, administratör för privilegierad autentisering, SharePoint-administratör, Teamkommunikationsadministratör, Teamadministratör, Användaradministratör, Administratör för arbetsplatsanalys
+Skicka supportbiljett | Tjänstadministratör | Programadministratör, Azure Information Protection Administrator, Faktureringsadministratör, Cloud Application Administrator, Compliance Administrator, Dynamics 365 Administrator, Desktop Analytics Administrator, Exchange Administrator, Password Administrator, Intune Administrator, Skype för företag Administratör, Power BI-administratör, Privilegierad autentiseringsadministratör, SharePoint-administratör, Teams Communications Administrator, Teams Administrator, User Administrator, Workplace Analytics Administrator
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a2d79391832bbb5424c6d4096eb5c1a597623367
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 2b30c176cf3c9dd31ae3efa85d308b3f89bd4dbe
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81422030"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81734687"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Behöver användaren ha nav och talat med SD-WAN/VPN-enheter för att kunna använda Azure Virtual WAN?
 
@@ -212,7 +212,7 @@ En virtuell hubb kan sprida en inlärd standardväg till en virtuell VPN/Express
 ### <a name="how-does-the-virtual-hub-in-a-virtual-wan-select-the-best-path-for-a-route-from-multiple-hubs"></a>Hur väljer den virtuella hubben i ett virtuellt WAN den bästa sökvägen för en väg från flera hubbar
 
 Om en virtuell hubb lär sig samma väg från flera fjärrnav, är den ordning i vilken den bestämmer sig enligt följande
-1) Dirigera Origin a) Nätverksvägar – VNET-prefix som direkt har lärts av Virtual Hub-gateways b) BGP c) Hub RouteTable (statiskt konfigurerade vägar) d) InterHub-vägar
+1) Dirigera Origin a) Nätverksvägar – VNET-prefix som direkt har lärts av Virtual Hub-gateways b) Hub RouteTable (statiskt konfigurerade vägar) c) BGP d) InterHub-vägar
 2)  Ruttmått: Virtual WAN föredrar ExpressRoute framför VPN. ExpressRoute peer har en högre viktning jämfört med VPN-peer
 3)  AS-banans längd
 

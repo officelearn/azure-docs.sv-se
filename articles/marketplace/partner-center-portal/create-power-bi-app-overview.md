@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: c348a172b16e12334d33cf2718609694147fdce3
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 8f050a43cbdf4ab29df55cd5526eb231c301b271
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674532"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732666"
 ---
 # <a name="power-bi-app-creation-overview"></a>Översikt över skapande av Power BI-appar
 
@@ -69,7 +69,7 @@ Du kan bara skapa en Power BI-app i [Power BI-miljön.](https://powerbi.microsof
 2. Skapa och testa din app i Power BI.
 3. När du får webbadressen till appinstallationen lägger du till den på sidan **Teknisk konfiguration** i Partnercenter.
 
-När appen har skapats och testats i Power BI sparar du webbadressen för programinstallationen, eftersom du behöver den för att [skapa ett Power BI-apperbjudande](https://aka.ms/AzureCreatePBIServiceApp).
+När appen har skapats och testats i Power BI sparar du webbadressen för programinstallationen, eftersom du behöver den för att [skapa ett Power BI-apperbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer).
 
 ### <a name="business-requirements"></a>Affärskrav
 
@@ -81,4 +81,4 @@ Affärskraven omfattar processuella, avtalsenliga och rättsliga skyldigheter. D
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa ett Power BI-apperbjudande i Partner Center](https://aka.ms/AzureCreatePBIServiceApp)
+- [Skapa ett Power BI-apperbjudande i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer)

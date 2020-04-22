@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 6c50e5892aca37bac47e68a9ae17435611c99817
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ffaab22efb2f6969f03720abba4a7afc6387021a
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80157474"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758216"
 ---
 # <a name="what-is-azure-iot-central"></a>Vad är Azure IoT Central?
 
@@ -197,7 +197,7 @@ Varje Azure-prenumeration har standardkvoter som kan påverka omfattningen av di
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har en översikt över IoT Central föreslås följande steg:
+Nu när du har en översikt över IoT Central, här är några förslag på nästa steg:
 
 - Förstå tillgängliga [Azure-tekniker och tjänster för att skapa IoT-lösningar](../../iot-fundamentals/iot-services-and-technologies.md).
 - bekanta dig med [Azure IoT Central-användargränssnittet](overview-iot-central-tour.md)
@@ -205,3 +205,5 @@ Nu när du har en översikt över IoT Central föreslås följande steg:
 - Läs mer om [IoT Plug and Play (förhandsgranskning)](../../iot-pnp/overview-iot-plug-and-play.md).
 - Lär dig hur du [ansluter en Azure IoT Edge-enhet](./tutorial-add-edge-as-leaf-device.md).
 - Läs mer om [Azure IoT-tekniker och -tjänster](../../iot-fundamentals/iot-services-and-technologies.md).
+
+Om du är enhetsutvecklare och vill dyka in i någon kod är det föreslagna nästa steget att [skapa och ansluta ett klientprogram till ditt Azure IoT Central-program](./tutorial-connect-device-nodejs.md).

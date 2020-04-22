@@ -10,15 +10,16 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: d52366684d772f91b53a1ab385b51ae4f11f0a5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3e6026e683d46ca9062c5c139fcd7febd7df9bd1
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80158404"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758241"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Ansluta en Rigado Cascade 500-gatewayenhet till ditt Azure IoT Central-program
 
+*Den här artikeln gäller lösningsbyggare och enhetsutvecklare.*
 
 I den här artikeln beskrivs hur du som lösningsbyggare kan ansluta en Rigado Cascade 500-gatewayenhet till ditt Microsoft Azure IoT Central-program. 
 
@@ -70,4 +71,7 @@ Du är nu redo att använda din C500-enhet i din IoT Central ansökan!
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du ansluter en Rigado Cascade 500 till ditt Azure IoT Central-program, är det föreslagna nästa steget att lära dig hur du [skapar ett analysprogram i butik](../retail/tutorial-in-store-analytics-create-app-pnp.md) för att skapa en lösning från på på. 
+Om du är enhetsutvecklare är några föreslagna nästa steg att:
+
+- Läs om [enhetsanslutning i Azure IoT Central](./concepts-get-connected.md)
+- Lär dig hur du [övervakar enhetsanslutning med Azure CLI](./howto-monitor-devices-azure-cli.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 04/12/2020
-ms.openlocfilehash: dbd217c7135172c52a5ec7459930977960c452aa
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 25fdb0aefacbdd9c2630a69981a67821ac155786
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260877"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758816"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Azure Monitor kundhanterad nyckelkonfiguration 
 
@@ -281,7 +281,7 @@ Uppdatera *klusterresursen* KeyVaultProperties med information om nyckelidentifi
 
 **Uppdatera**
 
-Den här Resource Manager-begäran är asynkron åtgärd.
+Den här Resource Manager-begäran är asynkron åtgärd när du uppdaterar information om nyckelidentifierare, medan den är synkron när kapacitetsvärdet uppdateras.
 
 > [!Warning]
 > Du måste ange en hel *brödtext* i klusterresursuppdatering som innehåller *identitet*, *sku*, *KeyVaultProperties* och *plats*. Om du saknar *keyVaultProperties-informationen* tas nyckelidentifieraren bort från *klusterresursen* och [orsaka nyckelåterkallelse](#cmk-kek-revocation).
@@ -314,7 +314,7 @@ Content-type: application/json
 **Svar**
 
 200 OK och header.
-Det tar att sprida nyckelidentifieraren några minuter att slutföra. Du kan kontrollera etableringstillståndet på två sätt:
+Det tar att sprida nyckelidentifieraren några minuter att slutföra. Du kan kontrollera uppdateringstillståndet på två sätt:
 1. Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ [statuskontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
 2. Skicka en GET-begäran på *klusterresursen* och titta på egenskaperna *KeyVaultProperties.* Din nyligen uppdaterade nyckelidentifierare bör returneras i svaret.
 
@@ -436,13 +436,13 @@ Alla dina data är tillgängliga efter nyckelrotationen, inklusive data som inta
 
 - Maxantal *klusterresurser* per prenumeration är begränsat till 2
 
-- *Cluster* Klusterresursasociation till arbetsyta bör endast utföras efter att du har verifierat att ADX-klusteretableringen har uppfyllts. Data som skickas före den här etableringen kommer att tas bort och kan inte återställas.
+- *Cluster* Klusterresursasociation till arbetsytan ska endast utföras när du har verifierat att ADX-klusteretablering har slutförts. Data som skickas till arbetsytan innan etableringen har slutförts kommer att tas bort och kan inte återställas.
 
 - CMK-kryptering gäller för nyligen intjesterade data efter CMK-konfigurationen. Data som intas före CMK-konfigurationen förblir krypterade med Microsoft-nyckeln. Du kan fråga data som förtärs före och efter CMK-konfigurationen sömlöst.
 
-- När arbetsytan är associerad med en *klusterresurs* kan den inte avkoma från *klusterresursen,* eftersom data krypteras med din nyckel och inte är tillgängliga utan din KEK i Azure Key Vault.
+- Du kan av associera en arbetsyta från en *klusterresurs* när du bestämmer dig för att CMK inte krävs för en viss arbetsyta. Nya inmatade data efter att de-association-åtgärden har lagrats i delad *Cluster* Log Analytics-lagring som den var innan den associerades till klusterresursen. Du kan fråga data som intas före och efter avasocieringen sömlöst om *klusterresursen* har etablerats och konfigurerats med giltig Key Vault-nyckel.
 
-- Azure Key Vault måste konfigureras som återställningsbart. Dessa egenskaper är inte aktiverade som standard och bör konfigureras med CLI och PowerShell:
+- Azure Key Vault måste konfigureras som återställningsbart. Dessa egenskaper är inte aktiverade som standard och bör konfigureras med CLI eller PowerShell:
 
   - [Mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) måste vara aktiverat
   - [Rensa skydd](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) bör slås på för att skydda mot kraft radering av den hemliga / valv även efter mjuk bort
@@ -470,6 +470,8 @@ Alla dina data är tillgängliga efter nyckelrotationen, inklusive data som inta
 
 - Om du försöker ta bort en *klusterresurs* som är associerad med en arbetsyta misslyckas borttagningen.
 
+- Om du får konfliktfel när du skapar en *klusterresurs* – Det kan bero på att du har tagit bort *klusterresursen* under de senaste 14 dagarna och att den är i en mjuk borttagningsperiod. *Klusterresursnamnet* förblir reserverat under den mjuka borttagningsperioden och du kan inte skapa ett nytt kluster med det namnet. Namnet släpps efter den mjuka borttagningsperioden när *klusterresursen* tas bort permanent.
+
 - Hämta alla *klusterresurser* för en resursgrupp:
 
   ```rst
@@ -488,6 +490,11 @@ Alla dina data är tillgängliga efter nyckelrotationen, inklusive data som inta
           "tenantId": "tenant-id",
           "principalId": "principal-Id"
         },
+        "sku": {
+          "name": "capacityReservation",
+          "capacity": 1000,
+          "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
+          },
         "properties": {
            "KeyVaultProperties": {
               KeyVaultUri: "https://key-vault-name.vault.azure.net",
@@ -517,8 +524,10 @@ Alla dina data är tillgängliga efter nyckelrotationen, inklusive data som inta
   **Svar**
     
   Samma svar som för*klusterresurser* för en resursgrupp, men i prenumerationsomfång.
-    
-- Ta bort *klusterresursen* – en mjuk borttagningsåtgärd utförs för att möjliggöra återställning av klusterresursen, dina data och associerade arbetsytor inom 14 dagar, oavsett om borttagningen var oavsiktlig eller avsiktlig. *Klusterresursnamnet* förblir reserverat under den mjuka borttagningsperioden och du kan inte skapa ett nytt kluster med det namnet. Efter mjukborttagningsperioden kan *klusterresursen* och dina data inte återställas. Associerade arbetsytor är avabestärade från *klusterresursen* och nya data intas i delad lagring och krypteras med Microsoft-nyckel.
+
+- Uppdatera *kapacitetsreservationen* i *klusterresurs* – när datavolymen till dina associerade arbetsytor ändras och du vill uppdatera kapacitetsreserveringsnivån för faktureringsöverväganden följer du [ *uppdateringsklusterresursen* ](#update-cluster-resource-with-key-identifier-details) och anger det nya kapacitetsvärdet. Kapacitetsreserveringsnivån kan ligga i intervallet 1 000 till 2 000 GB per dag och i steg om 100. För nivå som är högre än 2 000 GB per dag kontaktar du din Microsoft-kontakt för att aktivera den.
+
+- Ta bort *klusterresursen* – en mjuk borttagningsåtgärd utförs för att tillåta återställning av *klusterresursen,* inklusive dess data inom 14 dagar, oavsett om borttagningen var oavsiktlig eller avsiktlig. *Klusterresursnamnet* förblir reserverat under den mjuka borttagningsperioden och du kan inte skapa ett nytt kluster med det namnet. Efter den mjuka borttagningsperioden släpps *klusterresursnamnet,* *klusterresursen* och data tas bort permanent och kan inte återställas. Alla associerade arbetsytar avförs från *klusterresursen* vid borttagning. Ny intämda data lagras i delad Log Analytics-lagring och krypteras med Microsoft-nyckel. Den avaförde åtgärden för arbetsytor är asynkron.
 
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -529,8 +538,7 @@ Alla dina data är tillgängliga efter nyckelrotationen, inklusive data som inta
 
   200 OK
 
-- Återställ *klusterresursen* och dina data – under den mjuka borttagningsperioden skapar du en *klusterresurs* med samma namn och i samma prenumeration, resursgrupp och region. Följ steget **Skapa *klusterresurs* ** för att återställa *klusterresursen.*
-
+- Återställa *klusterresursen* och dina data – En *klusterresurs* som har tagits bort under de senaste 14 dagarna är i mjukt borttagningsläge och kan återställas. Detta utförs manuellt av produktgruppen för närvarande. Använd Din Microsoft-kanal för återställningsbegäranden.
 
 ## <a name="appendix"></a>Bilaga
 

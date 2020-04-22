@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 6b56b748ef31bcfd33893e55d3ea5f8d9851a3ff
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: c4eddf68e964b412e7270319630f41fc4d802241
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674480"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81733149"
 ---
-# <a name="create-an-iot-edge-module-offer"></a>Skapa ett erbjudande för IoT Edge-moduler
+# <a name="create-an-iot-edge-module-offer"></a>Skapa ett IoT Edge-modulerbjudande
 
 > [!IMPORTANT]
 > Vi flyttar hanteringen av dina IoT Edge-modulerbjudanden från Cloud Partner Portal till Partner Center. Tills dina erbjudanden har migrerats följer du instruktionerna i [IoT Edge-modulen som erbjuder publiceringsöversikt](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts) för Cloud Partner Portal för att hantera dina erbjudanden.
@@ -322,9 +322,9 @@ På den här fliken kan du konfigurera vilka moln planen är tillgänglig i. Din
 
 Din plan måste vara tillgänglig i minst ett moln med Azure IoT Hub.
 
-Välj alternativet **Azure Global** så att din plan kan användas av kunder i alla globala Azure-regioner som använder marknadsplatsen. Mer information finns i [Geografisk tillgänglighet och valutastöd](https://aka.ms/AzureGovCurrencies).
+Välj alternativet **Azure Global** så att din plan kan användas av kunder i alla globala Azure-regioner som använder marknadsplatsen. Mer information finns i [Geografisk tillgänglighet och valutastöd](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Välj alternativet [Azure Government Cloud](https://aka.ms/WhatIsAzureGovernment) för att få din lösning att visas här. Detta är en regering gemenskap moln med kontrollerad åtkomst för kunder från amerikanska federala, statliga och lokala eller tribal myndigheter, samt partner som är berättigade att betjäna dem. Som utgivare är du ansvarig för alla efterlevnadskontroller, säkerhetsåtgärder och metodtips för den här molncommunityn. Azure Government använder fysiskt isolerade datacenter och nätverk (endast i USA). Innan [du publicerar](https://aka.ms/azuregovpublish) till Azure Government testar och bekräftar du din lösning inom det området eftersom resultaten kan vara annorlunda. Om du vill arrangera och testa din lösning begär du ett utvärderingskonto från [testversionen](https://aka.ms/AzureGovernmentTrial)av Microsoft Azure Government .
+Välj alternativet [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) för att få din lösning att visas här. Detta är en regering gemenskap moln med kontrollerad åtkomst för kunder från amerikanska federala, statliga och lokala eller tribal myndigheter, samt partner som är berättigade att betjäna dem. Som utgivare är du ansvarig för alla efterlevnadskontroller, säkerhetsåtgärder och metodtips för den här molncommunityn. Azure Government använder fysiskt isolerade datacenter och nätverk (endast i USA). Innan [du publicerar](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) till Azure Government testar och bekräftar du din lösning inom det området eftersom resultaten kan vara annorlunda. Om du vill arrangera och testa din lösning begär du ett utvärderingskonto från [testversionen](https://azure.microsoft.com/global-infrastructure/government/request/)av Microsoft Azure Government .
 
 > [!NOTE]
 > När ditt abonnemang har publicerats och är tillgängligt i ett visst moln kan du inte ta bort molnet.
@@ -378,11 +378,11 @@ Det här fältet används ofta när:
 
 ## <a name="technical-configuration"></a>Teknisk konfiguration
 
-**Erbjudandetypen IoT Edge-modul** är en viss typ av behållare som körs på en IoT Edge-enhet. På fliken **Teknisk konfiguration** anger du referensinformation för behållaravbildningsdatabasen i Azure [Container Registry](https://aka.ms/ContainerRegistry), tillsammans med konfigurationsinställningar som gör att kunderna enkelt kan använda modulen.
+**Erbjudandetypen IoT Edge-modul** är en viss typ av behållare som körs på en IoT Edge-enhet. På fliken **Teknisk konfiguration** anger du referensinformation för behållaravbildningsdatabasen i Azure [Container Registry](https://azure.microsoft.com/services/container-registry/), tillsammans med konfigurationsinställningar som gör att kunderna enkelt kan använda modulen.
 
 När erbjudandet har publicerats kopieras avbildningen av IoT Edge-behållare till Azure Marketplace i ett specifikt offentligt behållarregister. Alla begäranden från Azure-användare som ska använda modulen visas från Azure Marketplaces offentliga behållarregister, inte från ditt privata behållarregister.
 
-Du kan rikta in dig på flera plattformar och tillhandahålla flera versioner av modulbehållarens avbildning med hjälp av taggar. Mer information om taggar och versionshantering finns i [Förbereda tekniska resurser för IoT Edge-modulen](https://aka.ms/AzureIoTTechAsset).
+Du kan rikta in dig på flera plattformar och tillhandahålla flera versioner av modulbehållarens avbildning med hjälp av taggar. Mer information om taggar och versionshantering finns i [Förbereda tekniska resurser för IoT Edge-modulen](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-iot-edge-module-asset).
 
 ### <a name="image-repository-details"></a>Information om bilddatabas
 
@@ -392,25 +392,25 @@ Du anger följande information på fliken **Information om bilddatabasen.**
 
 **Azure-prenumerations-ID:** Ange prenumerations-ID där resursanvändning rapporteras och tjänster faktureras för Azure Container Registry som innehåller din behållaravbildning. Du hittar det här ID:t på [sidan Prenumerationer](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) i Azure-portalen.
 
-**Namn på Azure-resursgrupp**: Ange [resursgruppsnamnet](https://aka.ms/ResourceManagerAzurePortal) som innehåller Azure Container-registret med behållaravbildningen. Resursgruppen måste vara tillgänglig i prenumerations-ID (ovan). Du hittar namnet på sidan [Resursgrupper](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) i Azure-portalen.
+**Namn på Azure-resursgrupp**: Ange [resursgruppsnamnet](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) som innehåller Azure Container-registret med behållaravbildningen. Resursgruppen måste vara tillgänglig i prenumerations-ID (ovan). Du hittar namnet på sidan [Resursgrupper](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) i Azure-portalen.
 
-**Azure-behållarregisternamn**: Ange namnet på [Azure Container Registry](https://aka.ms/DockerContainerRegistriesAzure) som har din behållaravbildning. Behållarregistret måste finnas i den Azure-resursgrupp som du angav tidigare. Ange endast registernamnet, inte det fullständiga inloggningsservernamnet. Var noga med att utelämna **azurecr.io** från namnet. Du hittar registernamnet på [sidan Behållarregister](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) i Azure-portalen.
+**Azure-behållarregisternamn**: Ange namnet på [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-intro) som har din behållaravbildning. Behållarregistret måste finnas i den Azure-resursgrupp som du angav tidigare. Ange endast registernamnet, inte det fullständiga inloggningsservernamnet. Var noga med att utelämna **azurecr.io** från namnet. Du hittar registernamnet på [sidan Behållarregister](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) i Azure-portalen.
 
-**Administratörsanvändarnamn för Azure Container Registry:** Ange [administratörsanvändarnamnet](https://aka.ms/AdminAccountContainerRegistry) som är associerat med Azure Container-registret som har din behållaravbildning. Användarnamnet och lösenordet krävs för att säkerställa att ditt företag har tillgång till registret. Om du vill hämta administratörsanvändarnamnet och lösenordet anger du egenskapen **för adminaktiverad** till **True** med hjälp av AZURE Command-Line Interface (CLI). Du kan också ange **admin-användare** till **Aktivera** i Azure-portalen.
+**Administratörsanvändarnamn för Azure Container Registry:** Ange [administratörsanvändarnamnet](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account) som är associerat med Azure Container-registret som har din behållaravbildning. Användarnamnet och lösenordet krävs för att säkerställa att ditt företag har tillgång till registret. Om du vill hämta administratörsanvändarnamnet och lösenordet anger du egenskapen **för adminaktiverad** till **True** med hjälp av AZURE Command-Line Interface (CLI). Du kan också ange **admin-användare** till **Aktivera** i Azure-portalen.
 
 :::image type="content" source="media/iot-edge-module-creation/iot-edge-module-admin-user.png" alt-text="Illustrerar dialogrutan Uppdatera behållarregister.":::
 
-**Lösenord för Azure Container Registry:** Ange lösenordet för administratörsanvändarnamnet som är associerat med Azure Container Registry och har din behållaravbildning. Användarnamnet och lösenordet krävs för att säkerställa att ditt företag har tillgång till registret. Du kan hämta lösenordet från Azure-portalen genom att gå till **Container Registry** > **Access Keys** eller med Azure CLI med kommandot [Visa.](https://aka.ms/azacrcredentialshow)
+**Lösenord för Azure Container Registry:** Ange lösenordet för administratörsanvändarnamnet som är associerat med Azure Container Registry och har din behållaravbildning. Användarnamnet och lösenordet krävs för att säkerställa att ditt företag har tillgång till registret. Du kan hämta lösenordet från Azure-portalen genom att gå till **Container Registry** > **Access Keys** eller med Azure CLI med kommandot [Visa.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
 
 :::image type="content" source="media/iot-edge-module-creation/iot-edge-module-username-password.png" alt-text="Illustrerar skärmen för åtkomstnyckel i Azure-portalen.":::
 
-**Databasnamn i Azure Container Registry**. Ange namnet på azure container-registerdatabasen som har avbildningen. Du anger namnet på databasen när du skickar avbildningen till registret. Du hittar namnet på databasen genom att gå till sidan [Behållarregisterdatabaser](https://aka.ms/ContainerRegistry) > **Repositories page**. Mer information finns [i Visa behållarregisterdatabaser i Azure-portalen](https://aka.ms/ContainerRegistryRepositoriesAzure). Observera att när namnet har angetts kan det inte ändras. Använd ett unikt namn för varje erbjudande i ditt konto.
+**Databasnamn i Azure Container Registry**. Ange namnet på azure container-registerdatabasen som har avbildningen. Du anger namnet på databasen när du skickar avbildningen till registret. Du hittar namnet på databasen genom att gå till sidan [Behållarregisterdatabaser](https://azure.microsoft.com/services/container-registry/) > **Repositories page**. Mer information finns [i Visa behållarregisterdatabaser i Azure-portalen](https://docs.microsoft.com/azure/container-registry/container-registry-repositories). Observera att när namnet har angetts kan det inte ändras. Använd ett unikt namn för varje erbjudande i ditt konto.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Bildtaggar för nya versioner av ditt erbjudande
 
 Kunder måste kunna hämta uppdateringar automatiskt från Azure Marketplace när du publicerar en uppdatering. Om de inte vill uppdatera måste de kunna behålla en viss version av bilden. Du kan göra detta genom att lägga till nya bildtaggar varje gång du gör en uppdatering av bilden.
 
-**Bildtagg**. Det här fältet måste innehålla en **senaste** tagg som pekar på den senaste versionen av avbildningen på alla plattformar som stöds. Den måste också innehålla en versionstagg (till exempel från xx.xx.xx, där xx är ett tal). Kunder bör använda [manifesttaggar](https://aka.ms/GitHubmanifest-tool) för att rikta in sig på flera plattformar. Alla taggar som refereras av en manifesttagg måste också läggas till så att vi kan ladda upp dem. Alla manifesttaggar (utom den senaste taggen) måste börja med antingen X.Y- eller X.Y.Z- där X, Y och Z är heltal. Om till exempel en senaste tagg pekar på 1.0.1-linux-x64, 1.0.1-linux-arm32 och 1.0.1-windows-arm32, måste dessa sex taggar läggas till i det här fältet. Mer information om taggar och versionshantering finns i [Förbereda tekniska resurser för IoT Edge-modulen.](https://aka.ms/PrepareIoTEdgeModTechAssets)
+**Bildtagg**. Det här fältet måste innehålla en **senaste** tagg som pekar på den senaste versionen av avbildningen på alla plattformar som stöds. Den måste också innehålla en versionstagg (till exempel från xx.xx.xx, där xx är ett tal). Kunder bör använda [manifesttaggar](https://github.com/estesp/manifest-tool) för att rikta in sig på flera plattformar. Alla taggar som refereras av en manifesttagg måste också läggas till så att vi kan ladda upp dem. Alla manifesttaggar (utom den senaste taggen) måste börja med antingen X.Y- eller X.Y.Z- där X, Y och Z är heltal. Om till exempel en senaste tagg pekar på 1.0.1-linux-x64, 1.0.1-linux-arm32 och 1.0.1-windows-arm32, måste dessa sex taggar läggas till i det här fältet. Mer information om taggar och versionshantering finns i [Förbereda tekniska resurser för IoT Edge-modulen.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets)
 
 ### <a name="default-deployment-settings-optional"></a>Standardinställningar för distribution (valfritt)
 
@@ -418,7 +418,7 @@ Definiera de vanligaste inställningarna för att distribuera IoT Edge-modulen. 
 
 **Standardvägar**. IoT Edge Hub hanterar kommunikation mellan moduler, IoT Hub och enheter. Du kan ange vägar för datainmatning och datautdata mellan moduler och IoT Hub, vilket ger dig flexibiliteten att skicka meddelanden där de behöver gå utan att behöva ytterligare tjänster för att bearbeta meddelanden eller skriva ytterligare kod. Rutter konstrueras med namn/värdepar. Du kan definiera upp till fem standardvägnamn, var och en upp till 512 tecken långa.
 
-Var noga med att använda rätt [vägsyntax](https://aka.ms/DeclareRoutesAzureIoT) i flödesvärdet (vanligtvis definierad som FROM/message/* INTO $upstream). Det innebär att alla meddelanden som skickas av moduler går till din IoT Hub. Om du vill referera till modulen använder du standardmodulnamnet, som blir ditt **erbjudandenamn**, utan mellanslag eller specialtecken. Om du vill referera till andra moduler som ännu inte är kända använder du <FROM_MODULE_NAME> konvention för att informera dina kunder om att de behöver uppdatera den här informationen. Mer information om IoT Edge-vägar finns i [Deklarera vägar](https://aka.ms/DeclareRoutesAzureIoT).
+Var noga med att använda rätt [vägsyntax](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) i flödesvärdet (vanligtvis definierad som FROM/message/* INTO $upstream). Det innebär att alla meddelanden som skickas av moduler går till din IoT Hub. Om du vill referera till modulen använder du standardmodulnamnet, som blir ditt **erbjudandenamn**, utan mellanslag eller specialtecken. Om du vill referera till andra moduler som ännu inte är kända använder du <FROM_MODULE_NAME> konvention för att informera dina kunder om att de behöver uppdatera den här informationen. Mer information om IoT Edge-vägar finns i [Deklarera vägar](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes).
 
 Om modul ContosoModule till exempel lyssnar efter indata på ContosoInput och utdata på ContosoOutput, är det vettigt att definiera följande två standardvägar:
 
@@ -427,7 +427,7 @@ Om modul ContosoModule till exempel lyssnar efter indata på ContosoInput och ut
 - Namn #2: FromContosoModuleToCloud
 - Värde #2: FRÅN /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream
 
-**Standardmodul dubbla önskade egenskaper**. En modultvilling är ett JSON-dokument i IoT Hub som lagrar tillståndsinformationen för en modulinstans, inklusive önskade egenskaper. Önskade egenskaper används tillsammans med rapporterade egenskaper för att synkronisera modulkonfiguration eller villkor. Lösningens backend kan ställa in önskade egenskaper och modulen kan läsa dem. Modulen kan också ta emot ändringsmeddelanden i önskade egenskaper. Önskade egenskaper skapas med upp till fem namn-/värdepar och varje standardvärde måste vara mindre än 512 tecken. Du kan definiera upp till fem önskade egenskaper för namn/värdetvilling. Värden för dubbla önskade egenskaper måste vara giltiga JSON, som inte har rymts, utan matriser med en maximal kapslad hierarki på fyra nivåer. I ett scenario där en parameter som krävs för ett standardvärde inte är meningsfull (till exempel IP-adressen för en kunds server) kan du lägga till en parameter som standardvärde. Mer information om dubbla önskade egenskaper finns i [Definiera eller uppdatera önskade egenskaper](https://aka.ms/DefineUpdateProperties).
+**Standardmodul dubbla önskade egenskaper**. En modultvilling är ett JSON-dokument i IoT Hub som lagrar tillståndsinformationen för en modulinstans, inklusive önskade egenskaper. Önskade egenskaper används tillsammans med rapporterade egenskaper för att synkronisera modulkonfiguration eller villkor. Lösningens backend kan ställa in önskade egenskaper och modulen kan läsa dem. Modulen kan också ta emot ändringsmeddelanden i önskade egenskaper. Önskade egenskaper skapas med upp till fem namn-/värdepar och varje standardvärde måste vara mindre än 512 tecken. Du kan definiera upp till fem önskade egenskaper för namn/värdetvilling. Värden för dubbla önskade egenskaper måste vara giltiga JSON, som inte har rymts, utan matriser med en maximal kapslad hierarki på fyra nivåer. I ett scenario där en parameter som krävs för ett standardvärde inte är meningsfull (till exempel IP-adressen för en kunds server) kan du lägga till en parameter som standardvärde. Mer information om dubbla önskade egenskaper finns i [Definiera eller uppdatera önskade egenskaper](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties).
 
 Om en modul till exempel stöder en dynamiskt konfigurerbar uppdateringsfrekvens med dubbla önskade egenskaper, är det klokt att definiera följande önskade standardtvillingegenskaper:
 
@@ -441,7 +441,7 @@ Om en modul till exempel måste acceptera användningsvillkor innan den startas 
 - Namn #1: ACCEPT_EULA
 - Värde #1: Y
 
-**Alternativ för att skapa standardbehållare**. Alternativ för att skapa behållare direkt för att skapa IoT Edge-modulen Docker-behållaren. IoT Edge stöder alternativen för Docker-motorns API Create Container. Se alla alternativ på [List containers.](https://aka.ms/ContainerList) Fältet Skapa alternativ måste vara giltigt JSON, som inte har escapes och färre än 512 tecken.
+**Alternativ för att skapa standardbehållare**. Alternativ för att skapa behållare direkt för att skapa IoT Edge-modulen Docker-behållaren. IoT Edge stöder alternativen för Docker-motorns API Create Container. Se alla alternativ på [List containers.](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) Fältet Skapa alternativ måste vara giltigt JSON, som inte har escapes och färre än 512 tecken.
 
 Om en modul till exempel kräver portbindning definierar du följande skapa alternativ:
 

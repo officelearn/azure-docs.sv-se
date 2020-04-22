@@ -2,17 +2,17 @@
 title: Kryptering på serversidan av Azure Managed Disks – Azure CLI
 description: Azure Storage skyddar dina data genom att kryptera dem i vila innan den sparas i lagringskluster. Du kan lita på Microsoft-hanterade nycklar för kryptering av dina hanterade diskar, eller så kan du använda kundhanterade nycklar för att hantera kryptering med dina egna nycklar.
 author: roygara
-ms.date: 04/02/2020
+ms.date: 04/21/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 68341de82ae15df91477947664c500caaa96a09a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 151c84424e33233cd48414875230a63df598d8e2
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81452731"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757427"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Kryptering på serversidan av Hanterade Azure-diskar
 
@@ -72,7 +72,7 @@ För tillfället har kundhanterade nycklar följande begränsningar:
 
 - Om den här funktionen är aktiverad för disken kan du inte inaktivera den.
     Om du behöver komma runt detta måste du [kopiera alla data](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) till en helt annan hanterad disk som inte använder kundhanterade nycklar.
-- Endast ["mjuka" och "hårda" RSA-nycklar](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) i storlek 2048 stöds, inga andra nycklar eller storlekar.
+- Endast ["mjuka" och "hårda" RSA-nycklar](../../key-vault/keys/about-keys.md) i storlek 2048 stöds, inga andra nycklar eller storlekar.
 - Diskar som skapas från anpassade avbildningar som krypteras med kryptering på serversidan och kundhanterade nycklar måste krypteras med samma kundhanterade nycklar och måste finnas i samma prenumeration.
 - Ögonblicksbilder som skapas från diskar som krypteras med kryptering på serversidan och kundhanterade nycklar måste krypteras med samma kundhanterade nycklar.
 - Anpassade avbildningar som krypterats med kryptering på serversidan och kundhanterade nycklar kan inte användas i det delade bildgalleriet.

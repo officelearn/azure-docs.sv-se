@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4034759dc4f20649c15236b057e348966d72409e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: dfe1bd1cbc99838f427aaba5bc29b23f8bfcbaff
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261168"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758675"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Azure Security Baseline för Azure-databas för postgresQL-server
 
@@ -652,7 +652,7 @@ Funktionstäckning för Azure PaaS-tjänster i Azure Security Center:https://doc
 
 **Vägledning**: Använd Azure Resource Graph för att fråga och identifiera alla resurser (inklusive Azure Database for PostgreSQL-instanser) i dina prenumerationer. Se till att du har lämpliga (läs) behörigheter i din klientorganisation och kan räkna upp alla Azure-prenumerationer samt resurser i dina prenumerationer.
 
-Så här skapar du frågor med Azure Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Så här skapar du frågor med Azure Resource Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Så här visar du dina Azure-prenumerationer:https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 

@@ -7,20 +7,22 @@ ms.date: 03/24/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 493dcd71905970434dd2ab2997cfebd17b8e47ff
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.openlocfilehash: d6c44c81db78fa76eeaf4b7181cca34fb8e81523
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80891602"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758181"
 ---
-# <a name="tutorial-create-and-connect-a-python-client-application-to-your-azure-iot-central-application-python"></a>Självstudiekurs: Skapa och ansluta ett Python-klientprogram till ditt Azure IoT Central-program (Python)
+# <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>Självstudiekurs: Skapa och ansluta ett klientprogram till ditt Azure IoT Central-program (Python)
 
 [!INCLUDE [iot-central-selector-tutorial-connect](../../../includes/iot-central-selector-tutorial-connect.md)]
 
+*Den här artikeln gäller lösningsbyggare och enhetsutvecklare.*
+
 Den här självstudien visar hur du som enhetsutvecklare ansluter ett Python-klientprogram till ditt Azure IoT Central-program. Python-programmet simulerar beteendet hos en miljösensorenhet. Du använder en _exempelenhetsfunktionsmodell_ för att skapa en _enhetsmall_ i IoT Central. Du lägger till vyer i enhetsmallen så att en operatör kan interagera med en enhet.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Importera en enhetsfunktionsmodell för att skapa en enhetsmall.
@@ -303,7 +305,12 @@ Du kan se hur enheten svarar på kommandon och egenskapsuppdateringar:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om enhetskapacitetsmodeller och hur du skapar egna enhetsmallar fortsätter du till instruktioner:
+Som enhetsutvecklare, nu när du har lärt dig grunderna i hur du skapar en enhet med Node.js, några föreslagna nästa steg är att:
+
+- Lär dig hur du ansluter en riktig enhet till IoT Central i [Connect an MXChip IoT DevKit-enheten till din Azure IoT Central-program](./howto-connect-devkit.md) how-to-artikel.
+- Läs [Anslut till Azure IoT Central](./concepts-get-connected.md) om du vill veta mer om hur du registrerar enheter med IoT Central och hur IoT Central skyddar enhetsanslutningar.
+
+Om du föredrar att fortsätta genom uppsättningen IoT Central tutorials och lära sig mer om att bygga en IoT Central lösning, se:
 
 > [!div class="nextstepaction"]
-> [Definiera en ny IoT-enhetstyp](./howto-set-up-template.md)
+> [Mall för att skapa en gateway-enhet](./tutorial-define-gateway-device-type.md)

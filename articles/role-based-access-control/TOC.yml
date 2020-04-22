@@ -26,13 +26,13 @@
       href: tutorial-custom-role-powershell.md
     - name: Skapa en anpassad roll – CLI
       href: tutorial-custom-role-cli.md
-- name: Koncept
+- name: Begrepp
   items:
-    - name: PIM för Azure-resurser
-      href: pim-azure-resource.md
+    - name: Bästa praxis
+      href: best-practices.md
     - name: Villkorlig åtkomst för hantering av Azure
       href: conditional-access-azure-management.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Visa lista över rolldefinitioner
       items:
@@ -42,17 +42,17 @@
           href: role-definitions-list.md
     - name: Visa lista över rolltilldelningar
       items:
-        - name: Portal
+        - name: Portalen
           href: role-assignments-list-portal.md
         - name: PowerShell
           href: role-assignments-list-powershell.md
         - name: CLI
           href: role-assignments-list-cli.md
-        - name: REST API
+        - name: REST-API
           href: role-assignments-list-rest.md
     - name: Lägg till eller ta bort rolltilldelningar
       items:
-        - name: Portal
+        - name: Portalen
           href: role-assignments-portal.md
         - name: Portalen – gästanvändare
           href: role-assignments-external-users.md
@@ -60,7 +60,7 @@
           href: role-assignments-powershell.md
         - name: Azure CLI
           href: role-assignments-cli.md
-        - name: REST API
+        - name: REST-API
           href: role-assignments-rest.md
         - name: Mall
           href: role-assignments-template.md
@@ -68,23 +68,23 @@
       items:
         - name: Översikt
           href: deny-assignments.md
-        - name: Portal
+        - name: Portalen
           href: deny-assignments-portal.md
         - name: PowerShell
           href: deny-assignments-powershell.md
-        - name: REST API
+        - name: REST-API
           href: deny-assignments-rest.md
     - name: Skapa anpassade roller
       items:
         - name: Översikt
           href: custom-roles.md
-        - name: Portal
+        - name: Portalen
           href: custom-roles-portal.md
         - name: PowerShell
           href: custom-roles-powershell.md
         - name: Azure CLI
           href: custom-roles-cli.md
-        - name: REST API
+        - name: REST-API
           href: custom-roles-rest.md
     - name: Visa aktivitetsloggar
       href: change-history-report.md
@@ -106,7 +106,7 @@
       href: /powershell/module/az.resources
     - name: Azure CLI
       href: /cli/azure/role?view=azure-cli-latest
-    - name: REST API
+    - name: REST-API
       href: /rest/api/authorization/
     - name: Mallar för Resurshanteraren
       displayName: ARM
@@ -117,5 +117,5 @@
           href: /azure/templates/microsoft.authorization/roledefinitions
 - name: Resurser
   items:
-    - name: Utveckla din kompetens med Microsoft Learn
+    - name: Utveckla dina färdigheter med Microsoft Learn
       href: /learn/browse/?products=azure-active-directory

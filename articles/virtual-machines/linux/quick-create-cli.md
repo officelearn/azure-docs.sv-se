@@ -1,12 +1,7 @@
 ---
 title: 'Snabbstart: Använd Azure CLI för att skapa en Virtuell Linux-dator'
 description: I den här snabbstarten lär du dig hur du använder Azure CLI för att skapa en virtuell Linux-dator
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
@@ -18,12 +13,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-javascript-october2019
 - seo-python-october2019
-ms.openlocfilehash: cbe5276f1b302d62e84c8ba448ad594694a8290c
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 103d4d2aec701dd7754d2a8e0046edf7eeab9a4c
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458734"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759264"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Snabbstart: Skapa en virtuell Linux-dator med Azure CLI
 

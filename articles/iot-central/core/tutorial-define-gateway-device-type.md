@@ -9,16 +9,18 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 7bb386d39f53331e77bee4d863c431c2e3655f5c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2411eab50cc921a09ba55780b3c6620744a78f3f
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79298843"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758125"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Definiera en ny IoT-gatewayenhetstyp i ditt Azure IoT Central-program
 
-Den här självstudien visar hur du som byggare använder en gateway-enhetsmall för att definiera en gateway-enhet i ditt IoT Central-program. Du kan sedan konfigurera flera underordnade enheter som ansluter till ditt IoT Central-program via gateway-enheten. 
+*Den här artikeln gäller lösningsbyggare och enhetsutvecklare.*
+
+Den här självstudien visar hur du som lösningsbyggare använder en gateway-enhetsmall för att definiera en gateway-enhet i ditt IoT Central-program. Du kan sedan konfigurera flera underordnade enheter som ansluter till ditt IoT Central-program via gateway-enheten. 
 
 I den här självstudien skapar du en enhetsmall **för Smart Building-gateway.** En **Smart Building** gateway-enhet har relationer med andra underordnade enheter.
 
@@ -105,8 +107,8 @@ Så här lägger du till molnegenskaper i **smartbyggarkördsenhetens** mall.
 
     | Visningsnamn      | Semantiktyp | Schema |
     | ----------------- | ------------- | ------ |
-    | Senaste servicedatum | Inget          | Datum   |
-    | Kundens namn     | Inget          | String |
+    | Senaste servicedatum | Ingen          | Date   |
+    | Kundens namn     | Ingen          | Sträng |
 
 2. Välj **Spara**.
 
@@ -207,7 +209,7 @@ I den här självstudiekursen lärde du dig att:
 > [!NOTE]
 > VS-kodbaserad kodgenerering stöds för närvarande inte för gateway-enheter som modelleras i IoT Central.
 
-Därefter kan du:
+Som enhetsutvecklare kan du sedan läsa om hur du:
 
 > [!div class="nextstepaction"]
-> [Ansluta en enhet](tutorial-connect-device.md)
+> [Lägga till en Azure IoT Edge-enhet i ditt Azure IoT Central-program](tutorial-add-edge-as-leaf-device.md)

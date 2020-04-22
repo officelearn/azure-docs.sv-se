@@ -1,24 +1,19 @@
 ---
 title: Skapa och ladda upp en Red Hat Enterprise Linux VHD för användning i Azure
 description: Lär dig att skapa och ladda upp en virtuell Azure-hårddisk (VHD) som innehåller ett Red Hat Linux-operativsystem.
-services: virtual-machines-linux
-documentationcenter: ''
 author: gbowerman
-manager: gwallace
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 6c6b8f72-32d3-47fa-be94-6cb54537c69f
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: guybo
-ms.openlocfilehash: cc806fe0c3894174835c99493ebf2ba19a11ca28
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 625dd1c8051d7949987d0dd19ee8a08347eedf14
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460468"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758634"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Förbereda en Red Hat-baserad virtuell dator för Azure
 I den här artikeln får du lära dig hur du förbereder en virtuell Red Hat Enterprise Linux -dator (RHEL) för användning i Azure. De versioner av RHEL som beskrivs i den här artikeln är 6,7+ och 7,1+. De hypervisorer som beskrivs i den här artikeln är Hyper-V, kärnbaserad virtuell dator (KVM) och VMware. Mer information om behörighetskrav för att delta i Red Hats Cloud Access-program finns på [Red Hats Cloud Access-webbplats](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) och [Köra RHEL på Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Olika sätt att automatisera byggandet av RHEL-avbildningar finns i [Azure Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
@@ -122,7 +117,7 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat
 
 1. Kör följande kommandon för att avetablera den virtuella datorn och förbereda den för etablering på Azure:
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # sudo waagent -force -deprovision
 

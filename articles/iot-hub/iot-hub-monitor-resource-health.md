@@ -8,12 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: kgremban
-ms.openlocfilehash: f801abc40caf273c28a0c01dedf9735f5198c2af
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: amqp
+ms.openlocfilehash: a1d74085090a3e20764d7b6fee84ffca52d5cb74
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79271088"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732435"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Övervaka hälsotillståndet för Azure IoT Hub och diagnostisera problem snabbt
 
@@ -379,8 +380,8 @@ I `properties` avsnittet innehåller den här loggen ytterligare information om 
 
 | Egenskap | Typ | Beskrivning |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **ärRoutingEnabled** | String | Antingen sant eller falskt anger om meddelanderoutning är aktiverad i IoT Hub |
-| **parentSpanId** | String | [Span-id](https://w3c.github.io/trace-context/#parent-id) för det överordnade meddelandet, som skulle vara D2C-meddelandespårningen i det här fallet |
+| **ärRoutingEnabled** | Sträng | Antingen sant eller falskt anger om meddelanderoutning är aktiverad i IoT Hub |
+| **parentSpanId** | Sträng | [Span-id](https://w3c.github.io/trace-context/#parent-id) för det överordnade meddelandet, som skulle vara D2C-meddelandespårningen i det här fallet |
 
 ##### <a name="iot-hub-egress-logs"></a>IoT Hub utgående loggar
 
@@ -411,9 +412,9 @@ I `properties` avsnittet innehåller den här loggen ytterligare information om 
 
 | Egenskap | Typ | Beskrivning |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **slutpunktNamn** | String | Namnet på routningsslutpunkten |
-| **slutpunktTyp** | String | Typ av routningslutpunkt |
-| **parentSpanId** | String | Det [överordnade meddelandets span-id,](https://w3c.github.io/trace-context/#parent-id) som skulle vara ioT Hub-inkommande meddelandespårning i det här fallet |
+| **slutpunktNamn** | Sträng | Namnet på routningsslutpunkten |
+| **slutpunktTyp** | Sträng | Typ av routningslutpunkt |
+| **parentSpanId** | Sträng | Det [överordnade meddelandets span-id,](https://w3c.github.io/trace-context/#parent-id) som skulle vara ioT Hub-inkommande meddelandespårning i det här fallet |
 
 #### <a name="configurations"></a>Konfigurationer
 

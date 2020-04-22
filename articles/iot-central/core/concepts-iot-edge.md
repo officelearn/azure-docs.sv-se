@@ -7,14 +7,16 @@ ms.date: 12/12/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 69660152458de26e9dbcbf1f50db6ce6824351d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 89d068fbd835a5b4f8886a2ed77691f94a701bb0
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77027074"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759100"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Ansluta Azure IoT Edge-enheter till ett Central-program för Azure IoT
+
+*Den här artikeln gäller lösningsbyggare och enhetsutvecklare.*
 
 IoT Edge består av tre komponenter:
 
@@ -72,4 +74,4 @@ Om du har valt en IoT Edge-enhet som en gateway-enhet kan du lägga till underor
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du vet vad IoT Central programmallar är, komma igång genom att [skapa en IoT Central Application](quick-deploy-iot-central.md).
+Om du är enhetsutvecklare är ett förslag på nästa steg att lära dig mer om [gateway-enhetstyper i IoT Central](./tutorial-define-gateway-device-type.md).

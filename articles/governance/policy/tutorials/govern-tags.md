@@ -1,19 +1,19 @@
 ---
 title: 'Självstudiekurs: Hantera taggstyrning'
 description: I den här självstudien använder du effekten Ändra av Azure-principen för att skapa och framtvinga en taggstyrningsmodell på nya och befintliga resurser.
-ms.date: 11/25/2019
+ms.date: 04/21/2020
 ms.topic: tutorial
-ms.openlocfilehash: 5e9cb9a4acb930c117374281a3debaeecce47110
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6319bbde2fdc8f78e2743dd5f1565c8680433fea
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75965984"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759059"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Självstudiekurs: Hantera taggstyrning med Azure Policy
 
 [Taggar](../../../azure-resource-manager/management/tag-resources.md) är en viktig del av att organisera dina Azure-resurser till en taxonomi. När du följer [metodtips för tagghantering](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources)kan taggar ligga till grund för att tillämpa dina affärsprinciper med Azure Policy eller [spåra kostnader med Kostnadshantering](../../../cost-management-billing/costs/cost-mgt-best-practices.md#organize-and-tag-your-resources).
-Oavsett hur eller varför du använder taggar är det viktigt att du snabbt kan lägga till, ändra och ta bort dessa taggar på dina Azure-resurser.
+Oavsett hur eller varför du använder taggar är det viktigt att du snabbt kan lägga till, ändra och ta bort dessa taggar på dina Azure-resurser. Information om du vill se om din Azure-resurs har stöd för taggning finns i [Taggstöd](../../../azure-resource-manager/management/tag-support.md).
 
 Azure [Policy's Modify-effekt](../concepts/effects.md#modify) är utformad för att underlätta styrningen av taggar oavsett i vilket skede av resursstyrning du befinner dig i. **Ändra** hjälper när:
 

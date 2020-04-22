@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/30/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1c4bbd98682d964cfdf72031c7d6cb77cf42a809
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 0bdede482b79c82e6e05b1429cb7c17399bc2277
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396074"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81756604"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Om anspråkslösare i Azure Active Directory B2C-anpassade principer
 
@@ -90,7 +90,14 @@ I följande avsnitt listas tillgängliga anspråkslösare.
 | {Kontext:IPAddress} | Användarens IP-adress. | 11.111.111.11 |
 | {Sammanhang:KMSI} | Anger om [kryssrutan Behåll mig inloggad](custom-policy-keep-me-signed-in.md) är markerad. |  true |
 
-### <a name="non-protocol-parameters"></a>Parametrar som inte är protokollsst.
+### <a name="claims"></a>Anspråk 
+
+| Begär | Beskrivning | Exempel |
+| ----- | ----------- | --------|
+| {Anspråk:anspråkstyp} | En identifierare av en anspråkstyp som redan har definierats i avsnittet ClaimsSchema i principfilen eller den överordnade principfilen.  Till exempel: `{Claim:displayName}` `{Claim:objectId}`eller . | Ett anspråkstypsvärde.|
+
+
+### <a name="oauth2-key-value-parameters"></a>OAuth2 nyckelvärdesparametrar
 
 Alla parameternamn som ingår som en del av en OIDC- eller OAuth2-begäran kan mappas till ett anspråk i användarfärden. Begäran från programmet kan till exempel innehålla en frågesträngparameter med namnet `app_session`, `loyalty_number`eller en anpassad frågesträng.
 
@@ -118,6 +125,7 @@ Alla parameternamn som ingår som en del av en OIDC- eller OAuth2-begäran kan m
 | {SAML:AllowCreate} | Attributvärdet, `AllowCreate` från `NameIDPolicy` elementet i SAML-begäran. | True |
 | {SAML:ForceAuthn} | Attributvärdet, `ForceAuthN` från `AuthnRequest` elementet i SAML-begäran. | True |
 | {SAML:ProviderName} | Attributvärdet, `ProviderName` från `AuthnRequest` elementet i SAML-begäran.| Contoso.com |
+| {SAML:RelayState} | Parametern `RelayState` för frågesträngen.| 
 
 ## <a name="using-claim-resolvers"></a>Använda anspråkslösare
 

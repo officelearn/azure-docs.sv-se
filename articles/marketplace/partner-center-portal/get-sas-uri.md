@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mingshen
-ms.openlocfilehash: 50bda733b0bb8b0c98eb69a15ab3000ad278031c
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: c226d35647e4a5a2b1d583dd6328bfb73dae2a1c
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81265712"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732643"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Skaffa signatur-URI för delad åtkomst för vm-avbildningen
 
@@ -127,6 +127,6 @@ Granska varje skapad SAS URI med hjälp av följande checklista för att kontrol
 
 ## <a name="next-step"></a>Nästa steg
 
-Om du har problem med att skapa en SAS-URI läser du [Vanliga SAS-URL-problem](https://aka.ms/AzureSAS_URI_FAQ). Annars sparar du SAS URI:er på en säker plats för senare användning. Du behöver det för att publicera ditt VM-erbjudande i Partner Center.
+Om du har problem med att skapa en SAS-URI läser du [Vanliga SAS-URL-problem](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-sas-uri-issues). Annars sparar du SAS URI:er på en säker plats för senare användning. Du behöver det för att publicera ditt VM-erbjudande i Partner Center.
 
-* [Skapa ett Azure-erbjudande för virtuella datorer](https://aka.ms/Create_AzureVMoffer)
+* [Skapa ett erbjudande för virtuella datorer i Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer)

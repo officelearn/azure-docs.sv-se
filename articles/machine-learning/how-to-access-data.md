@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: ca892b5f360f523ee2b5ff875dfb0707136a5ab5
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 4a2102f442fc176762b7d5d69f7b367a94633ef5
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383447"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758786"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ansluta till Azure-lagringstjänster
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -99,7 +99,7 @@ Välj **Lagringskonton** i den vänstra rutan och välj det lagringskonto som du
 * För tjänsthuvudobjekt som klient-ID och klient-ID går du till dina **appregistreringar** och väljer vilken app du vill använda. Motsvarande **översiktssida** innehåller dessa objekt.
 
 > [!IMPORTANT]
-> Om ditt lagringskonto finns i ett virtuellt nätverk stöds endast skapandet av Blob- , File share, ADLS Gen 1 och ADLS Gen **2-datalager via SDK.** Om du vill ge arbetsytan åtkomst till `grant_workspace_access` `True`ditt lagringskonto anger du parametern till .
+> Om ditt lagringskonto finns i ett virtuellt nätverk stöds endast skapandet av datalager **via SDK.**
 
 Följande exempel visar hur du registrerar en Azure blob-behållare, en Azure-filresurs och Azure Data Lake Storage Generation 2 som ett datalager. För andra lagringstjänster, se [referensdokumentationen för `register_azure_*` tillämpliga metoder](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods).
 
@@ -121,6 +121,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
                                                          account_name=account_name,
                                                          account_key=account_key)
 ```
+Om blob-behållaren finns i `skip_validation=True` [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)det virtuella nätverket anger du med .
 
 #### <a name="file-share"></a>Filresurs
 
@@ -140,6 +141,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
                                                      account_name=account_name,
                                                      account_key=account_key)
 ```
+Om filresursen finns i `skip_validation=True` det [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)virtuella nätverket anger du med . 
 
 #### <a name="azure-data-lake-storage-generation-2"></a>Azure Data Lake Storage Generation 2
 

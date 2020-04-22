@@ -3,12 +3,12 @@ title: Så här skapar du principer för gästkonfiguration för Linux
 description: Lär dig hur du skapar en Azure Policy Guest Configuration policy för Linux.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 65e0082f87f05104e9a57ff0342cd3d2950b63e8
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 24442a89d55e34f9ce9697c2f6a32cfc740bcd85
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617929"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758957"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Så här skapar du principer för gästkonfiguration för Linux
 
@@ -24,6 +24,11 @@ Använd följande åtgärder för att skapa din egen konfiguration för att vali
 
 > [!IMPORTANT]
 > Anpassade principer med gästkonfiguration är en förhandsgranskningsfunktion.
+>
+> Tillägget Gästkonfiguration krävs för att utföra granskningar i virtuella Azure-datorer.
+> Om du vill distribuera tillägget i stor skala tilldelar du följande principdefinitioner:
+>   - Distribuera förutsättningar för att aktivera princip för gästkonfiguration på virtuella datorer i Windows.
+>   - Distribuera förutsättningar för att aktivera princip för gästkonfiguration på virtuella Linux-datorer.
 
 ## <a name="install-the-powershell-module"></a>Installera PowerShell-modulen
 
@@ -101,7 +106,7 @@ end
 
 Spara filen med `linux-path.rb` namnet i `controls` en `linux-path` ny mapp som heter i katalogen.
 
-Skapa slutligen en konfiguration, importera **resursmodulen GuestConfiguration** och använda resursen `ChefInSpecResource` för att ange namnet på InSpec-profilen.
+Skapa slutligen en konfiguration, importera **resursmodulen PSDesiredStateConfiguration** och kompilera konfigurationen.
 
 ```powershell
 # Define the configuration and import GuestConfiguration
@@ -119,10 +124,15 @@ Configuration AuditFilePathExists
 }
 
 # Compile the configuration to create the MOF files
+import-module PSDesiredStateConfiguration
 AuditFilePathExists -out ./Config
 ```
 
+Spara filen med `config.ps1` namnet i projektmappen. Kör den i PowerShell `./config.ps1` genom att köra i terminalen. En ny mof-fil kommer att skapas.
+
 Kommandot `Node AuditFilePathExists` är inte tekniskt krävs, men `AuditFilePathExists.mof` det ger en `localhost.mof`fil som heter snarare än standard, . Med .mof filnamnet följa konfigurationen gör det enkelt att organisera många filer när du arbetar i stor skala.
+
+
 
 Du bör nu ha en projektstruktur enligt nedan:
 
@@ -150,8 +160,8 @@ Kör följande kommando för att skapa ett paket med hjälp av konfigurationen s
 ```azurepowershell-interactive
 New-GuestConfigurationPackage `
   -Name 'AuditFilePathExists' `
-  -Configuration './Config/AuditFilePathExists.mof'
-  -ChefProfilePath './'
+  -Configuration './Config/AuditFilePathExists.mof' `
+  -ChefInSpecProfilePath './'
 ```
 
 När du har skapat konfigurationspaketet men innan du publicerar det på Azure kan du testa paketet från din arbetsstation eller CI/CD-miljö. Cmdlet `Test-GuestConfigurationPackage` för GuestConfiguration innehåller samma agent i utvecklingsmiljön som används i Azure-datorer. Med den här lösningen kan du utföra integrationstestning lokalt innan du släpper till fakturerade molnmiljöer.
@@ -168,7 +178,7 @@ Kör följande kommando för att testa paketet som skapats av föregående steg:
 
 ```azurepowershell-interactive
 Test-GuestConfigurationPackage `
-  -Path ./AuditFilePathExists.zip
+  -Path ./AuditFilePathExists/AuditFilePathExists.zip
 ```
 
 Cmdlet stöder också indata från PowerShell-pipelinen. Rör utgången `New-GuestConfigurationPackage` av cmdlet till `Test-GuestConfigurationPackage` cmdlet.

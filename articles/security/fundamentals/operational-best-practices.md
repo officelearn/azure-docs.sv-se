@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 72d7a2dd112e5e7a5105ff977e3917ccdfd7b53e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5724a9e4308f05a82df84ae6a7d5602747f5a140
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77500296"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757370"
 ---
 # <a name="azure-operational-security-best-practices"></a>Metodtips för Azure-driftsäkerhet
 Den här artikeln innehåller en uppsättning metodtips för att skydda data, program och andra resurser i Azure.
@@ -108,7 +108,7 @@ Här är några metodtips för att förebygga, upptäcka och svara på hot:
 **Detalj:** Undersök funktionerna i [Azure Sentinel](/azure/sentinel/overview) och jämför dem med funktionerna i det du använder lokalt. Överväg att använda Azure Sentinel om det uppfyller organisationens SIEM-krav.
 
 **Bästa praxis**: Hitta de allvarligaste säkerhetsproblemen så att du kan prioritera undersökning.   
-**Detalj:** Granska din [Azure-säkra poäng](../../security-center/security-center-secure-score.md) för att se rekommendationerna från Azure-principer och initiativ som är inbyggda i Azure Security Center. Dessa rekommendationer hjälper till att hantera de största riskerna som säkerhetsuppdateringar, slutpunktsskydd, kryptering, säkerhetskonfigurationer, saknade WAF, internetanslutna virtuella datorer och många fler.
+**Detalj:** Granska din [Azure-säkra poäng](../../security-center/secure-score-security-controls.md) för att se rekommendationerna från Azure-principer och initiativ som är inbyggda i Azure Security Center. Dessa rekommendationer hjälper till att hantera de största riskerna som säkerhetsuppdateringar, slutpunktsskydd, kryptering, säkerhetskonfigurationer, saknade WAF, internetanslutna virtuella datorer och många fler.
 
 Med den säkra poängen, som baseras på CIS-kontroller (Center for Internet Security), kan du jämföra organisationens Azure-säkerhet mot externa källor. Extern validering hjälper till att validera och berika teamets säkerhetsstrategi.
 
@@ -116,7 +116,7 @@ Med den säkra poängen, som baseras på CIS-kontroller (Center for Internet Sec
 **Detalj**: Följ [säkerhetsrekommendationerna](../../security-center/security-center-recommendations.md) i Security Center från och med de högst prioriterade objekten.
 
 **Bästa praxis:** Integrera Säkerhetscentervarningar i din siem-lösning (Security Information and Event Management).   
-**Detalj**: De flesta organisationer med en SIEM använder den som ett centralt clearinghouse för säkerhetsvarningar som kräver ett analytikersvar. Bearbetade händelser som produceras av Security Center publiceras i Azure Activity Log, en av loggarna som är tillgängliga via Azure Monitor. Azure Monitor erbjuder en konsoliderad pipeline för routning av någon av dina övervakningsdata till ett SIEM-verktyg. Instruktioner [finns i Integrera säkerhetslösningar i Security Center.](../../security-center/security-center-partner-integration.md#exporting-data-to-a-siem) Om du använder Azure Sentinel läser du [Anslut Azure Security Center](../../sentinel/connect-azure-security-center.md).
+**Detalj**: De flesta organisationer med en SIEM använder den som ett centralt clearinghouse för säkerhetsvarningar som kräver ett analytikersvar. Bearbetade händelser som produceras av Security Center publiceras i Azure Activity Log, en av loggarna som är tillgängliga via Azure Monitor. Azure Monitor erbjuder en konsoliderad pipeline för routning av någon av dina övervakningsdata till ett SIEM-verktyg. Se [Exportera säkerhetsaviseringar och rekommendationer](../../security-center/continuous-export.md#configuring-siem-integration-via-azure-event-hubs) för instruktioner.. Om du använder Azure Sentinel läser du [Anslut Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
 **Bästa praxis:** Integrera Azure-loggar med din SIEM.   
 **Detalj:** Använd [Azure Monitor för att samla in och exportera data](/azure/azure-monitor/overview#integrate-and-export-data). Den här metoden är avgörande för att aktivera utredning av säkerhetsincidenter och lagring av onlineloggar är begränsad. Om du använder Azure Sentinel läser du [Ansluta datakällor](../../sentinel/connect-data-sources.md).

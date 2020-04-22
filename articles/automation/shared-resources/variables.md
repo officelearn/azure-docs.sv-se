@@ -1,5 +1,5 @@
 ---
-title: Variabeltillgångar i Azure Automation
+title: Hantera variabler i Azure Automation
 description: Variabla tillgångar är värden som är tillgängliga för alla runbooks- och DSC-konfigurationer i Azure Automation.  I den här artikeln beskrivs information om variabler och hur du arbetar med dem i både text- och grafisk redigering.
 services: automation
 ms.service: automation
@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d4a4a92feb3e1b400c0f40076148f7898c4bdef1
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 4778e9b2c0d3b442b214966ab69810d2f42b70b8
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80365820"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732751"
 ---
-# <a name="variable-assets-in-azure-automation"></a>Variabeltillgångar i Azure Automation
+# <a name="manage-variables-in-azure-automation"></a>Hantera variabler i Azure Automation
 
 Variabla tillgångar är värden som är tillgängliga för alla runbooks- och DSC-konfigurationer i ditt Automation-konto. Du kan hantera dem från Azure-portalen, från PowerShell, i en runbook eller i en DSC-konfiguration.
 
@@ -39,17 +39,20 @@ Azure Automation lagrar varje krypterad variabel på ett säkert sätt. När du 
 
 När du skapar en variabel med Azure-portalen måste du ange en datatyp från listrutan så att portalen kan visa lämplig kontroll för att ange variabelvärdet. Följande är variabla typer som är tillgängliga i Azure Automation:
 
-* String
+* Sträng
 * Integer
 * DateTime
-* Boolean
+* Boolesk
 * Null
 
-Variabeln är inte begränsad till den angivna datatypen. Du måste ange variabeln med Windows PowerShell om du vill ange ett värde av en annan typ. Om du `Not defined`anger är variabelns värde inställt på Null och du måste ange värdet med cmdleten [Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) eller `Set-AutomationVariable` aktiviteten.
+Variabeln är inte begränsad till den angivna datatypen. Du måste ange variabeln med Windows PowerShell om du vill ange ett värde av en annan typ. Om du `Not defined`anger är variabelns värde inställt på Null. Du måste ange värdet med cmdleten [Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) eller `Set-AutomationVariable` aktiviteten.
 
 Du kan inte använda Azure-portalen för att skapa eller ändra värdet för en komplex variabeltyp. Du kan dock ange ett värde av alla typer med Windows PowerShell. Komplexa typer hämtas som en [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
 
 Du kan lagra flera värden till en enda variabel genom att skapa en matris eller hashtable och spara den i variabeln.
+
+>[!NOTE]
+>VM-namnvariabler kan vara högst 80 tecken. Resursgruppsvariabler kan vara högst 90 tecken. Se [Namngivningsregler och begränsningar för Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules).
 
 ## <a name="powershell-cmdlets-that-create-and-manage-variable-assets"></a>PowerShell-cmdlets som skapar och hanterar variabla tillgångar
 
@@ -140,7 +143,7 @@ $vmIpAddress = $vmValue.IpAddress
 
 ### <a name="create-and-use-a-variable-in-a-runbook-or-dsc-configuration"></a>Skapa och använda en variabel i en runbook- eller DSC-konfiguration
 
-Det enda sättet att skapa en ny variabel inifrån en runbook eller DSC-konfiguration är att använda `New-AzAutomationVariable` cmdlet, eller dess AzureRM-modul motsvarande. Skriptet använder den här cmdleten för att ange variabelns ursprungliga värde. Skriptet kan sedan hämta `Get-AzAutomationVariable`värdet med . Om värdet är en enkel typ hämtas samma typ. Om det är en komplex `PSCustomObject` typ hämtas en typ.
+Det enda sättet att skapa en ny variabel inifrån en runbook eller DSC-konfiguration är att använda `New-AzAutomationVariable` cmdlet eller dess AzureRM-modul motsvarande. Skriptet använder den här cmdleten för att ange variabelns ursprungliga värde. Skriptet kan sedan hämta `Get-AzAutomationVariable`värdet med . Om värdet är en enkel typ hämtas samma typ. Om det är en komplex `PSCustomObject` typ hämtas en typ.
 
 >[!NOTE]
 >Det enda sättet att hämta ett krypterat värde är att använda `Get-AutomationVariable` aktiviteten i runbook- eller DSC-konfigurationen. 

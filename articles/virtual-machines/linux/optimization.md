@@ -1,26 +1,19 @@
 ---
 title: Optimera din virtuella Linux-dator på Azure
 description: Lär dig några optimeringstips för att se till att du har konfigurerat din Virtuella Linux-dator för optimal prestanda på Azure
-keywords: Linux virtuell maskin, virtuell maskin Linux, Ubuntu virtuell maskin
-services: virtual-machines-linux
-documentationcenter: ''
 author: rickstercdn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: 8baa30c8-d40e-41ac-93d0-74e96fe18d4c
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: 0ff901e7d53e0814ab064867be6185709e9b6a20
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 87776c14e45ff4bb3cce6661323d74a1315c8ab2
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81452357"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81757100"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimera din virtuella Linux-dator på Azure
 Det är enkelt att skapa en virtuell Linux-dator (VM) från kommandoraden eller från portalen. Den här självstudien visar hur du säkerställer att du har konfigurerat den för att optimera prestanda på Microsoft Azure-plattformen. Det här avsnittet använder en virtuell Ubuntu Server-dator, men du kan också skapa virtuella Linux-datorer med [dina egna avbildningar som mallar](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  

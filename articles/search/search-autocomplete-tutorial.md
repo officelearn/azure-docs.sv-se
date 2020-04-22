@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 1d8085c6056cb0d2541999c3e9c249cde3da8834
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 60e9a435d705ee0fee6509e92cdcb056ac7ab609
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641259"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758121"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Lägga till komplettera automatiskt och förslag i klientappar
 
@@ -22,7 +22,7 @@ Search-as-you-type är en vanlig teknik för att förbättra produktiviteten i a
 Om du vill implementera dessa upplevelser i Azure Cognitive Search behöver du:
 
 + En *förslagsenare* på baksidan.
-+ En *fråga* som anger API för automatisk komplettering eller förslag på begäran.
++ En *fråga* som anger API för automatisk [komplettering](https://docs.microsoft.com/rest/api/searchservice/suggestions) eller förslag på begäran. [Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
 + En *gränssnittskontroll* för att hantera interaktioner med sök-som du-typ i klientappen. Vi rekommenderar att du använder ett befintligt JavaScript-bibliotek för detta ändamål.
 
 I Azure Cognitive Search hämtas automatiskt tillslutna frågor och föreslagna resultat från sökindexet, från valda fält som du har registrerat med en förslagsställare. En förslagsställare är en del av indexet och anger vilka fält som ska tillhandahålla innehåll som antingen slutför en fråga, föreslår ett resultat eller gör båda. När indexet skapas och läses in skapas en förslagsställardatastruktur internt för att lagra prefix som används för matchning på partiella frågor. För förslag, att välja lämpliga områden som är unika, eller åtminstone inte repetitiva, är avgörande för upplevelsen. Mer information finns i [Skapa en förslagsman](index-add-suggesters.md).
@@ -31,7 +31,7 @@ Resten av den här artikeln är inriktad på frågor och klientkod. Den använde
 
 ## <a name="set-up-a-request"></a>Konfigurera en begäran
 
-Element i en begäran inkluderar API[(Komplettera rest eller](https://docs.microsoft.com/rest/api/searchservice/autocomplete) [förslag rest),](https://docs.microsoft.com/rest/api/searchservice/suggestions)en partiell fråga och en förslagsställare.
+Element i en begäran inkluderar en av API:erna för sökning som du skriver, en partiell fråga och en förslagsställare. Följande skript illustrerar komponenter i en begäran med hjälp av REST API för automatisk komplettering som ett exempel.
 
 ```http
 POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
@@ -49,7 +49,7 @@ API:erna ställer inte minimikrav på den partiella frågan. det kan vara så li
 
 Matchningar är i början av en term var som helst i indatasträngen. Med tanke på "den snabba bruna räven", både komplettera automatiskt och förslag kommer att matcha på partiella versioner av "den", "snabb", "brun" eller "räv" men inte på partiell infix termer som "rown" eller "ox". Dessutom anger varje match utrymme för utvidgningar nedströms. En partiell fråga om "quick br" kommer att matcha på "quick brown" eller "snabbt bröd", men varken "brun" eller "bröd" i sig skulle matcha om inte "snabb" föregår dem.
 
-### <a name="apis"></a>API:er
+### <a name="apis-for-search-as-you-type"></a>API:er för sök-som-du-typ
 
 Följ dessa länkar för referenssidorna REST och .NET SDK:
 
@@ -64,12 +64,13 @@ Svar för komplettera automatiskt och förslag är vad du kan förvänta dig fö
 
 Svaren formas av parametrarna på begäran. För Komplettera automatiskt anger du [**komplettera automatisktMode**](https://docs.microsoft.com/rest/api/searchservice/autocomplete#autocomplete-modes) för att avgöra om texten ska slutföras på en eller två termer. För förslag avgör det fält du väljer innehållet i svaret.
 
-Om du vill förfina svaret ytterligare bör du inkludera fler parametrar för begäran. Följande parametrar gäller både Komplettera automatiskt och Förslag.
+För förslag bör du ytterligare förfina svaret för att undvika dubbletter eller vad som verkar vara orelaterade resultat. Om du vill styra resultaten inkluderar du fler parametrar för begäran. Följande parametrar gäller både komplettera automatiskt och förslag, men är kanske mer nödvändiga för förslag, särskilt när en förslagsförenare innehåller flera fält.
 
 | Parameter | Användning |
 |-----------|-------|
-| **$select** | Om du har flera **sourceFields**använder du **$select** för`$select=GameTitle`att välja vilket fält som ska bidra med värden ( ). |
-| **$filter** | Använd matchningsvillkor på`$filter=ActionAdventure`resultatuppsättningen ( ). |
+| **$select** | Om du har flera **sourceFields** i en förslagsman använder du`$select=GameTitle` **$select** för att välja vilket fält som bidrar med värden ( ). |
+| **sökFält** | Begränsa frågan till specifika fält. |
+| **$filter** | Använd matchningsvillkor på`$filter=Category eq 'ActionAdventure'`resultatuppsättningen ( ). |
 | **$top** | Begränsa resultaten till ett`$top=5`visst nummer ( ).|
 
 ## <a name="add-user-interaction-code"></a>Lägga till användarinteraktionskod
@@ -149,6 +150,8 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
     // Call suggest API and return results
     SuggestParameters sp = new SuggestParameters()
     {
+        Select = HotelName,
+        SearchFields = HotelName,
         UseFuzzyMatching = fuzzy,
         Top = 5
     };

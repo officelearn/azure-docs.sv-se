@@ -3,12 +3,12 @@ title: Mall för att skapa resurshälsoaviseringar
 description: Skapa aviseringar programmässigt som meddelar dig när dina Azure-resurser blir otillgängliga.
 ms.topic: conceptual
 ms.date: 9/4/2018
-ms.openlocfilehash: c01934cc88dc29d0503abfafc203ab0f04bf1761
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 60ff5bdf2f4f0dab94c18fd7c751869c1893ad65
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80062898"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759012"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Konfigurera resurshälsoaviseringar med hjälp av Resource Manager-mallar
 
@@ -228,6 +228,9 @@ Du kanske bara vill bli meddelad när en resurs blir felfritt, i `status` vilket
 ```
 
 Om du vill bli meddelad för alla fyra stadierna av hälsohändelser kan du ta `status` bort det här villkoret tillsammans och aviseringen meddelar dig oavsett egenskap.
+
+> [!NOTE]
+> Varje "anyOf"-avsnitt ska bara innehålla ett fälttypsvärden.
 
 ### <a name="adjusting-the-resource-health-alerts-to-avoid-unknown-events"></a>Justera resurshälsoaviseringarna för att undvika "okända" händelser
 

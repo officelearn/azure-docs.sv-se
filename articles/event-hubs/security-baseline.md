@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 10fc822f9f36512405dd4e3b5aba6270b53e163f
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 1c7e18214ec175b8b21d25643098631a044da19c
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80549033"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758313"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Azure Security Baseline för eventhubbar
 
@@ -335,7 +335,7 @@ Så här använder du Azure Policy:https://docs.microsoft.com/azure/governance/p
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: Använd enkel inloggning (SSO) med Azure Active Directory
 
-**Vägledning**: Microsoft Azure tillhandahåller integrerad hantering av åtkomstkontroll för resurser och program baserade på Azure Active Directory (AD). En viktig fördel med att använda Azure AD med Azure Event Hubs är att du inte behöver lagra dina autentiseringsuppgifter i koden längre. I stället kan du begära en OAuth 2.0-åtkomsttoken från Microsoft Identity-plattformen. Resursnamnet som begär en https://eventhubs.azure.net/token är . Azure AD autentiserar säkerhetsobjektet (en användare, grupp eller tjänsthuvudnamn) som kör programmet. Om autentiseringen lyckas returnerar Azure AD en åtkomsttoken till programmet och programmet kan sedan använda åtkomsttoken för att auktorisera begäran till Azure Event Hubs-resurser.
+**Vägledning**: Microsoft Azure tillhandahåller integrerad hantering av åtkomstkontroll för resurser och program baserade på Azure Active Directory (AD). En viktig fördel med att använda Azure AD med Azure Event Hubs är att du inte behöver lagra dina autentiseringsuppgifter i koden längre. I stället kan du begära en OAuth 2.0-åtkomsttoken från Microsoft Identity-plattformen. Resursnamnet som begär en token\/är https: /eventhubs.azure.net/. Azure AD autentiserar säkerhetsobjektet (en användare, grupp eller tjänsthuvudnamn) som kör programmet. Om autentiseringen lyckas returnerar Azure AD en åtkomsttoken till programmet och programmet kan sedan använda åtkomsttoken för att auktorisera begäran till Azure Event Hubs-resurser.
 
 Så här autentiserar du ett program med Azure AD för åtkomst till eventhubbar-resurser:https://docs.microsoft.com/azure/event-hubs/authenticate-application
 
@@ -631,7 +631,7 @@ Så här skapar du aviseringar för Azure Activity Log-händelser:https://docs.m
 
 **Vägledning**: Använd Azure Resource Graph för att fråga och identifiera alla resurser (inklusive Azure Event Hubs-namnområden) i dina prenumerationer. Se till att du har lämpliga (läs) behörigheter i din klientorganisation och kan räkna upp alla Azure-prenumerationer samt resurser i dina prenumerationer.
 
-Så här skapar du frågor med Azure Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Så här skapar du frågor med Azure Resource Graph:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Så här visar du dina Azure-prenumerationer:https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 

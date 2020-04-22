@@ -8,12 +8,13 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: robinsh
-ms.openlocfilehash: 706e1920c6c4fe39e885fd3f5a631070545509ee
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.custom: mqtt
+ms.openlocfilehash: 47fb7c615389e24322450ed1785aa7da9ec50db6
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80529244"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81759689"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>Ladda upp filer från enheten till molnet med IoT Hub (Python)
 
@@ -202,7 +203,7 @@ I den här självstudien lärde du dig hur du använder filöverföringsfunktion
 
 * [Introduktion till C SDK](iot-hub-device-sdk-c-intro.md)
 
-* [Azure IoT SDK:er](iot-hub-devguide-sdks.md)
+* [SDK:er för Azure IoT](iot-hub-devguide-sdks.md)
 
 Läs mer om Azure Blob Storage med följande länkar:
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/13/2020
-ms.openlocfilehash: a5f6ac76d509a0a63c2d641f91cd91cdb2e0d19d
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 88392e4e61c28d4fe821c8176242246d10e52b23
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313812"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770897"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Skapa Linux-baserade kluster i HDInsight med hjälp av Azure-portalen
 
@@ -94,7 +94,7 @@ Ange följande information på fliken **Säkerhet + nätverk:**
 |Egenskap |Beskrivning |
 |---|---|
 |Säkerhetspaket för företag|Valfritt: Markera kryssrutan om du vill använda **Enterprise Security Package**. Mer information finns i [Konfigurera ett HDInsight-kluster med Enterprise Security Package med hjälp av Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
-|TLS|Valfritt: Välj en TLS-version i listrutan. Mer information finns i [Transport layer security](./hdinsight-plan-virtual-network-deployment.md#transport-layer-security).|
+|TLS|Valfritt: Välj en TLS-version i listrutan. Mer information finns i [Transport layer security](./transport-layer-security.md).|
 |Virtuellt nätverk|Valfritt: Välj ett befintligt virtuellt nätverk och undernät i listrutan. Information finns i [Planera en virtuell nätverksdistribution för Azure HDInsight-kluster](hdinsight-plan-virtual-network-deployment.md). Artikeln innehåller specifika konfigurationskrav för det virtuella nätverket.|
 |Inställningar för diskkryptering|Valfritt: Markera kryssrutan om du vill använda kryptering. Mer information finns i [Kryptering med kundhanterad nyckeldisk](./disk-encryption.md).|
 |Kafka REST-proxy|Den här inställningen är endast tillgänglig för klustertyp Kafka. Mer information finns i [Använda en REST-proxy](./kafka/rest-proxy.md).|

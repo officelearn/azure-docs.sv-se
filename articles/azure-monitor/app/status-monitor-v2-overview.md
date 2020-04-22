@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 4042fc05f278915fe72bf8fc4e6afd69a5bbb4b9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 626a8c96fdc247db174e2cbcd2e5c99cec43d2ea
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537431"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770970"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Distribuera Azure Monitor Application Insights Agent för lokala servrar
 
@@ -36,14 +36,14 @@ Application Insights Agent finns https://www.powershellgallery.com/packages/Az.A
 - Se [detaljerade instruktioner](status-monitor-v2-detailed-instructions.md) för en djupdykning om hur du kommer igång.
 
 ## <a name="powershell-api-reference"></a>PowerShell-API-referens
-- [Inaktivera-ApplicationInsightsMonitoring](status-monitor-v2-api-disable-monitoring.md)
-- [Inaktivera instrumenteringsengine](status-monitor-v2-api-disable-instrumentation-engine.md)
-- [Aktivera-ApplicationInsightsMonitoring](status-monitor-v2-api-enable-monitoring.md)
-- [Aktivera instrumenteringEngine](status-monitor-v2-api-enable-instrumentation-engine.md)
-- [Hämta programInightsMonitoringConfig](status-monitor-v2-api-get-config.md)
-- [Hämta programInightsMonitoringStatus](status-monitor-v2-api-get-status.md)
-- [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
-- [Start-ProgramInsightsMonitoringTrace](status-monitor-v2-api-start-trace.md)
+- [Inaktivera-ApplicationInsightsMonitoring](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#disable-applicationinsightsmonitoring)
+- [Inaktivera instrumenteringsengine](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#disable-instrumentationengine)
+- [Aktivera-ApplicationInsightsMonitoring](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#enable-applicationinsightsmonitoring)
+- [Aktivera instrumenteringEngine](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#enable-instrumentationengine)
+- [Hämta programInightsMonitoringConfig](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringconfig)
+- [Hämta programInightsMonitoringStatus](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringstatus)
+- [Set-ApplicationInsightsMonitoringConfig](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#set-applicationinsightsmonitoringconfig)
+- [Start-ProgramInsightsMonitoringTrace](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#start-applicationinsightsmonitoringtrace)
 
 ## <a name="troubleshooting"></a>Felsökning
 - [Felsökning](status-monitor-v2-troubleshoot.md)
@@ -64,7 +64,7 @@ Vart och ett av dessa alternativ beskrivs i de [detaljerade instruktionerna](sta
 
 - Hur verifierar jag att aktiveringen lyckades?
 
-  - [Cmdlet Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md) kan användas för att verifiera att enablement lyckades.
+  - [Cmdlet Get-ApplicationInsightsMonitoringStatus](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringstatus) kan användas för att verifiera att enablement lyckades.
   - Vi rekommenderar att du använder [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) för att snabbt avgöra om din app skickar telemetri.
 
   - Du kan också använda [Log Analytics](../log-query/get-started-portal.md) för att lista alla molnroller som för närvarande skickar telemetri:

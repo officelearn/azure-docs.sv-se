@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: be3046a343e14be4a527363751081ba3f2593cd3
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 9f80156f61ad82e5563f1c38764c81297f5979f2
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81605881"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767309"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Auto-träna en prognosmodell för tidsserier
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -36,13 +36,13 @@ Du kan [konfigurera](#config) hur långt in i framtiden prognosen ska sträcka s
 
 Funktioner som extraheras från träningsdata spelar en avgörande roll. Och automatiserade ML utför standardförbehandlingssteg och genererar ytterligare funktioner i tidsserier för att fånga säsongseffekter och maximera prediktiv noggrannhet.
 
-## <a name="time-series-and-deep-learning-models"></a>Time-series och Deep Learning modeller
+## <a name="time-series-and-deep-learning-models"></a>Tidsserier och djupinlärningsmodeller
 
 
 Automatiserad ML ger användare med både inbyggda tidsserier och djupinlärningsmodeller som en del av rekommendationssystemet. Bland dessa elever finns:
-+ Profeten
-+ Auto-ARIMA
-+ PrognosTCN
++ Profet (förhandsvisning)
++ Auto-ARIMA (förhandsgranskning)
++ ForecastTCN (förhandsgranskning)
 
 Automatiserad ML: s djupinlärning möjliggör prognoser univariat och multivariata tidsserier data.
 
@@ -51,7 +51,7 @@ Deep learning-modeller har tre inneboende funktioner:
 1. De stöder flera ingångar och utgångar
 1. De kan automatiskt extrahera mönster i indata som sträcker sig över långa sekvenser
 
-Med tanke på större data kan djupinlärningsmodeller, till exempel Microsofts ForecastTCN, förbättra poängen för den resulterande modellen. 
+Med tanke på större data kan djupinlärningsmodeller, till exempel Microsofts ForecastTCN, förbättra poängen för den resulterande modellen. Lär dig hur du [konfigurerar experimentet för djupinlärning](#configure-a-dnn-enable-forecasting-experiment).
 
 Inbyggda tidsserier elever tillhandahålls också som en del av automatiserade ML. Profeten fungerar bäst med tidsserier som har starka säsongseffekter och flera säsonger av historiska data. Profeten är korrekt & snabb, robust för avvikare, saknade data och dramatiska förändringar i din tidsserie. 
 
@@ -181,6 +181,17 @@ Se [prognostiseringsprovets anteckningsböcker](https://github.com/Azure/Machine
 > DNN-stöd för prognoser i automatiserad maskininlärning finns i förhandsversion och stöds inte för lokala körningar.
 
 För att kunna utnyttja DNN för prognoser måste `enable_dnn` du ställa in parametern i AutoMLConfig till true. 
+
+```python
+automl_config = AutoMLConfig(task='forecasting',
+                             enable_dnn=True,
+                             ...
+                             **time_series_settings)
+```
+Läs mer om [AutoMLConfig](#configure-and-run-experiment).
+
+Alternativt kan du välja `Enable deep learning` alternativet i studion.
+![alternativ text](./media/how-to-auto-train-forecast/enable_dnn.png)
 
 Vi rekommenderar att du använder ett AML Compute-kluster med GPU SKU:er och minst två noder som beräkningsmål. För att ge tillräckligt med tid för att DNN-träningen ska slutföras rekommenderar vi att du ställer in tidsgränsen för experimentet på minst ett par timmar.
 Mer information om AML-beräknings- och VM-storlekar som innehåller GPU:er finns i [dokumentationen för AML Compute](how-to-set-up-training-targets.md#amlcompute) och [GPU-optimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).

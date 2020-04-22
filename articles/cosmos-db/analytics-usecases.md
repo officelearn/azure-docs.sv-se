@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: cosmos-db
 ms.date: 09/26/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b9bac14ff47107a4b39f12989685e2e510569ba2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: adf1db2d737de7004b5ab71c8e0e44d61d1da8c9
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72757067"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768512"
 ---
 # <a name="use-cases-for-built-in-analytics-with-azure-cosmos-db"></a>Användningsfall för inbyggd analys med Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Med inbyggt inbyggt Apache Spark erbjuder Azure Cosmos DB ett snabbt, enkelt och
 
 I vissa fall kan du behöva svara på frågor baserat på data som vid en viss tidpunkt över händelser som slutförts tidigare. Till exempel, för att få räkningen av CRM-aktivitetsstatus vid ett visst datum. Om du körde rapporten för en vecka sedan skulle antalet statusar vara enligt statusarna för varje aktivitet vid den tidpunkten. Köra samma rapport i dag kommer att ge dig räkna av de aktiviteter vars status är som de är i dag, som kan ha förändrats sedan förra veckan, eftersom de går igenom sin livscykel från öppen till nära. Så måste du rapportera om ögonblicksbilden i varje skede av ärendets livscykel.
 
-I traditionella scenarier för informationslager är begreppet ögonblicksbild inte möjligt eftersom informationslagermen inte är utformade för att införliva den och data bara ger en aktuell vy över vad som händer. Med Azure Cosmos DB har användarna möjlighet att implementera begreppet tidsresor, att kunna fråga och köra analyser på data retroaktivt och be om hur data tittade på en viss tidpunkt i historiken. Det innebär att användarna enkelt kan visa både aktuella och historiska vyer av data och köra analyser på den.
+Med Azure Cosmos DB har användarna möjlighet att implementera begreppet tidsresor, att kunna fråga och köra analyser på data retroaktivt och be om hur data tittade på en viss tidpunkt i historiken. Det innebär att användarna enkelt kan visa både aktuella och historiska vyer av data och köra analyser på den.
 
 ## <a name="globally-distributed-machine-learning-and-ai"></a>Globalt distribuerad maskininlärning och AI
 

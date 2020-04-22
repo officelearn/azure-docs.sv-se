@@ -7,16 +7,19 @@ ms.author: mamccrea
 ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: e3e878b4f548da64ab04eb079d51b0846cf35c57
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: fe666359b9ed2773f615ff496f4032bda5e74dc2
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76313883"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767765"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Snabbstart: Skapa ett Azure Stream Analytics-jobb i Visual Studio-kod (förhandsversion)
 
 Den här snabbstarten visar hur du skapar och kör ett Azure Stream Analytics-jobb med hjälp av Azure Stream Analytics Tools-tillägget för Visual Studio-kod. Exempeljobbet läser strömmande data från en Azure IoT Hub-enhet. Du definierar ett jobb som beräknar medeltemperaturen när den överstiger 27° och skriver utdatahändelser till en ny fil i Blob Storage.
+
+> [!NOTE]
+> Visual Studio och Visual Studio Code-verktyg stöder inte jobb i Regionerna China East, China North, Germany Central och Germany NorthEast.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -140,14 +143,6 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som senar
    FROM Input
    HAVING Temperature > 27
    ```
-
-## <a name="test-the-query-locally-with-sample-data"></a>Testa frågan lokalt med exempeldata
-
-Innan du kör frågan i molnet kan du testa den lokalt med en lokal exempeldatafil eller med data som hämtas från liveindata för att verifiera frågelogiken.
-
-Följ instruktionerna i [Testfrågor lokalt med exempeldata](visual-studio-code-local-run.md) för mer information.
-
- ![Testa med exempeldata i Visual Studio-kod](./media/vscode-local-run/localrun-localinput.gif)
 
 ## <a name="define-a-live-input"></a>Definiera en live-inmatning
 
@@ -279,6 +274,8 @@ Om du planerar att använda jobbet i framtiden kan du stoppa det och starta om d
 I den här snabbstarten har du distribuerat ett enkelt Stream Analytics-jobb med hjälp av Visual Studio Code. Du kan också distribuera Stream Analytics-jobb med hjälp av [Azure-portalen,](stream-analytics-quick-create-portal.md) [PowerShell](stream-analytics-quick-create-powershell.md)och [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Om du vill veta mer om Azure Stream Analytics Tools för Visual Studio Code fortsätter du till följande artiklar:
+
+* [Testa Stream Analytics-frågor lokalt med exempeldata med Visual Studio-kod](visual-studio-code-local-run.md)
 
 * [Testa Azure Stream Analytics-jobb lokalt mot liveindata med Visual Studio-kod](visual-studio-code-local-run-live-input.md)
 

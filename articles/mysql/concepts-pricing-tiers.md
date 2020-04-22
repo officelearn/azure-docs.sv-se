@@ -1,17 +1,17 @@
 ---
 title: Prisnivåer – Azure Database for MySQL
 description: Lär dig mer om de olika prisnivåerna för Azure Database för MySQL, inklusive beräkningsgenerationer, lagringstyper, lagringsstorlek, virtuella kärnor, minne och lagringsperioder för säkerhetskopiering.
-author: jan-eng
-ms.author: janeng
+author: jasonwhowell
+ms.author: jasonh
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: cf959112a2a717da1005be062dda3b83163d8d6c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0123436eab2cdfa91066a2bd0652e16896ee838a
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79269450"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767847"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure-databas för mysQL-prisnivåer
 
@@ -39,7 +39,7 @@ När du har skapat en server kan antalet virtuella kärnor, maskinvarugenerering
 
 Beräkningsresurser tillhandahålls som virtuella kärnor, som representerar den logiska processorn för den underliggande maskinvaran. China East 1, China North 1, US DoD Central och US DoD East använder Gen 4 logiska processorer som är baserade på Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer. Alla andra regioner använder logiska gen 5-processorer som är baserade på Intel E5-2673 v4 (Broadwell) 2,3 GHz-processorer.
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 Lagringen som du etablerar är den mängd lagringskapacitet som är tillgänglig för din Azure-databas för MySQL-server. Lagringen används för databasfiler, temporära filer, transaktionsloggar och MySQL-serverloggar. Den totala mängden lagringsutrymme som du etablerar definierar också den I/O-kapacitet som är tillgänglig för servern.
 
@@ -51,7 +51,7 @@ Lagringen som du etablerar är den mängd lagringskapacitet som är tillgänglig
 | IOPS | Variabel |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20 000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20 000 IOPS |
 
 > [!NOTE]
-> Lagring upp till 16 TB och 20 000 IOPS stöds i följande regioner: Östra USA, Östra USA 2, Centrala USA, Västra USA, Norra CENTRALA USA, Södra Centrala USA, Nordeurop, Västeuropa, Storbritannien syd, västra Storbritannien, Sydostasien, Östasien, Östra Japan, Västra Japan, Korea Central , Korea South, Östra Australien, Sydöstra Australien.
+> Lagring upp till 16 TB och 20 000 IOPS stöds i följande regioner: Östra USA, Östra USA 2, Centrala USA, Västra USA, Norra centrala USA, Södra Centrala USA, Norra Europa, Västeuropa, Storbritannien syd, västra Storbritannien, Sydostasien, Östra Japan, Japan Väst, Västra Japan, Korea Central, Korea Syd- och Sydamerika öst, Australien sydost.
 >
 > Alla andra regioner har stöd för upp till 4 TB lagringsutrymme och upp till 6 000 IOPS.
 >
@@ -83,7 +83,7 @@ Om du till exempel har etablerat 1000 GB lagringsutrymme och det faktiska utnytt
 
 Kom ihåg att lagring bara kan skalas upp, inte ner.
 
-## <a name="backup"></a>Säkerhetskopiering
+## <a name="backup"></a>Backup
 
 Tjänsten tar automatiskt säkerhetskopior av servern. Du kan välja en kvarhållningsperiod från intervallet 7 till 35 dagar. Allmänna servrar och minnesoptimerade servrar kan välja att ha geouppsagbar lagring för säkerhetskopior. Läs mer om säkerhetskopior i [begreppsartikeln](concepts-backup.md).
 

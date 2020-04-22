@@ -7,16 +7,16 @@ manager: saudas
 ms.topic: article
 ms.date: 04/02/2020
 ms.author: saudas
-ms.openlocfilehash: 8a150e2f197f24db5da331195290d11ad925c47e
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 907aa83bc293aacd9920d8fd79a1b3184dd1d5dc
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392639"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767591"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Använda hanterade identiteter i Azure Kubernetes Service
 
-För närvarande kräver ett AKS-kluster (Azure Kubernetes Service) (särskilt Kubernetes molnprovider) och identitet för att skapa ytterligare resurser som belastningsutjämnare och hanterade diskar i Azure, den här identiteten kan vara antingen en *hanterad identitet* eller ett *tjänsthuvudnamn*. Om du använder ett [huvudnamn](kubernetes-service-principal.md)för tjänsten måste du antingen ange ett eller så måste AKS skapa ett för din räkning. Om du använder hanterad identitet skapas detta automatiskt av AKS. Kluster som använder tjänsthuvudnamn når så småningom ett tillstånd där tjänstens huvudnamn måste förnyas för att hålla klustret i arbete. Hantera tjänsthuvudnamn lägger till komplexitet, vilket är anledningen till att det är lättare att använda hanterade identiteter istället. Samma behörighetskrav gäller för både tjänsthuvudnamn och hanterade identiteter.
+För närvarande kräver ett AKS-kluster (Azure Kubernetes Service) (särskilt Kubernetes molnprovider) en identitet för att skapa ytterligare resurser som belastningsutjämnare och hanterade diskar i Azure, den här identiteten kan vara antingen en *hanterad identitet* eller ett *tjänsthuvudnamn*. Om du använder ett [huvudnamn](kubernetes-service-principal.md)för tjänsten måste du antingen ange ett eller så måste AKS skapa ett för din räkning. Om du använder hanterad identitet skapas detta automatiskt av AKS. Kluster som använder tjänsthuvudnamn når så småningom ett tillstånd där tjänstens huvudnamn måste förnyas för att hålla klustret i arbete. Hantera tjänsthuvudnamn lägger till komplexitet, vilket är anledningen till att det är lättare att använda hanterade identiteter istället. Samma behörighetskrav gäller för både tjänsthuvudnamn och hanterade identiteter.
 
 *Hanterade identiteter* är i huvudsak ett omslag runt tjänstens huvudnamn och gör deras hantering enklare. Läs mer om [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0df8ac495b6aca81e46dffc248019483b1c82202
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e0ac6ccde2443a7b374d9eb85f6f960af79c69dc
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81422454"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769482"
 ---
 # <a name="tutorial-connect-sql-on-demand-preview-to-power-bi-desktop--create-report"></a>Självstudiekurs: Anslut SQL on-demand (förhandsversion) till Power BI Desktop & skapa rapport
 
@@ -24,7 +24,7 @@ I den här guiden får du lära dig att:
 >
 > - Skapa demodatabas
 > - Skapa vy som används för rapport
-> - Ansluta till Power BI-skrivbordet
+> - Ansluta till Power BI Desktop
 > - Skapa rapport baserat på vy
 
 ## <a name="prerequisites"></a>Krav
@@ -51,7 +51,7 @@ Skapa demodatabasen (och släpp en befintlig databas om det behövs) genom att k
 
 ```sql
 -- Drop database if it exists
-IF EXISTS (SELECT * FROM sys.sysdatabases WHERE name = 'Demo')
+IF EXISTS (SELECT * FROM sys.databases WHERE name = 'Demo')
 BEGIN
     DROP DATABASE Demo
 END;

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e52c37e293941a767621cf56ef75f8cc83b1925
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 541deb5cf44ad5440e31641b673ed5da5b5d2b26
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79298011"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768555"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Konfigurera grupphantering med självbetjäning i Azure Active Directory 
 
@@ -33,7 +33,7 @@ När säkerhetsgrupper skapas i Azure-portalen eller med Azure AD PowerShell kan
 Grupper som skapats i | Standardbeteende för säkerhetsgrupp | Standardbeteende för Office 365-grupp
 ------------------ | ------------------------------- | ---------------------------------
 [Azure AD PowerShell](groups-settings-cmdlets.md) | Endast ägare kan lägga till medlemmar<br>Synlig men inte tillgänglig för att ansluta till Access-panelen | Öppen för anslutning för alla användare
-[Azure-portal](https://portal.azure.com) | Endast ägare kan lägga till medlemmar<br>Synlig men inte tillgänglig för att ansluta till Access-panelen<br>Ägaren tilldelas inte automatiskt när gruppen skapas | Öppen för anslutning för alla användare
+[Azure Portal](https://portal.azure.com) | Endast ägare kan lägga till medlemmar<br>Synlig men inte tillgänglig för att ansluta till Access-panelen<br>Ägaren tilldelas inte automatiskt när gruppen skapas | Öppen för anslutning för alla användare
 [Åtkomstpanel](https://account.activedirectory.windowsazure.com/r#/joinGroups) | Öppen för anslutning för alla användare<br>Medlemskapsalternativ kan ändras när gruppen skapas | Öppen för anslutning för alla användare<br>Medlemskapsalternativ kan ändras när gruppen skapas
 
 ## <a name="self-service-group-management-scenarios"></a>Scenarier för grupphantering med självbetjäning
@@ -55,6 +55,9 @@ Grupper som skapats i | Standardbeteende för säkerhetsgrupp | Standardbeteende
 Du kan också använda **Ägare som kan tilldela medlemmar som gruppägare i Azure-portaler** och ägare som kan tilldela medlemmar som **gruppägare i Azure-portaler** för att uppnå mer detaljerad åtkomstkontroll över självbetjäningsgrupphantering för dina användare.
 
 När användare kan skapa grupper får alla användare i organisationen skapa nya grupper och kan sedan, som standardägare, lägga till medlemmar i dessa grupper. Du kan inte ange personer som kan skapa sina egna grupper. Du kan bara ange personer för att göra en annan gruppmedlem till gruppägare.
+
+> [!NOTE]
+> En Azure Active Directory Premium-licens (P1 eller P2) krävs för att användare ska begära att gå med i en säkerhetsgrupp eller Office 365-grupp och för att ägare ska godkänna eller neka medlemsbegäranden. Utan en Azure Active Directory Premium-licens kan användare fortfarande hantera sina grupper på åtkomstpanelen, men de kan inte skapa en grupp som kräver ägargodkännande på åtkomstpanelen och de kan inte begära att gå med i en grupp. 
 
 ## <a name="next-steps"></a>Nästa steg
 

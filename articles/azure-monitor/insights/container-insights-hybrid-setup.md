@@ -3,12 +3,12 @@ title: Konfigurera Hybrid Kubernetes-kluster med Azure Monitor för behållare |
 description: I den här artikeln beskrivs hur du kan konfigurera Azure Monitor för behållare för att övervaka Kubernetes-kluster som finns på Azure Stack eller annan miljö.
 ms.topic: conceptual
 ms.date: 01/24/2020
-ms.openlocfilehash: 5a973e7e500906ebe833ec4cc6fd2fa8ee79c19e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 6c2782fdd810403a793f6ef682d1112fadc22465
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255438"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769041"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Konfigurera hybridkubernätskluster med Azure Monitor för behållare
 
@@ -240,6 +240,9 @@ Om du först vill identifiera det fullständiga resurs-ID:t för din Log Analyti
        När du har aktiverat övervakning kan det ta ungefär 15 minuter innan du kan visa hälsomått för klustret.
 
 ## <a name="install-the-chart"></a>Installera diagrammet
+
+>[!NOTE]
+>Följande kommandon gäller endast för Helm version 2. Användning av parametern --name gäller inte med Helm version 3.
 
 Så här aktiverar du HELM-diagrammet:
 

@@ -2,17 +2,17 @@
 title: Felsöka anslutningar – Azure Database för PostgreSQL - Single Server
 description: Lär dig hur du felsöker anslutningsproblem till Azure Database för PostgreSQL - Single Server.
 keywords: postgresql-anslutning,anslutningssträng,anslutningsproblem,tillfälligt fel,anslutningsfel
-author: jan-eng
-ms.author: janeng
+author: jasonwhowell
+ms.author: jasonh
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: c74b819893133116b8ac6905988f3fe11220ed95
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 593dc060ff92c7f4bc338e235dd1a0dd9f303ab3
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74770075"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767612"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Felsöka anslutningsproblem till Azure Database för PostgreSQL - Single Server
 

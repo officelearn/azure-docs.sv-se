@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/28/2019
-ms.openlocfilehash: ad9b4b69b0be34c89d03b677c1889e486aae0379
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: db37a56ffbf0cb64530f8f7af38841bac72c77d4
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75931701"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767545"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Utveckling av skriptåtgärder med HDInsight
 
@@ -159,7 +159,7 @@ I det här `hdfs` exemplet använder kommandot transparent standardklusterlagrin
 HDInsight loggar skriptutdata som skrivs till STDOUT och STDERR. Du kan visa den här informationen med webbgränssnittet Ambari.
 
 > [!NOTE]  
-> Apache Ambari är endast tillgängligt om klustret har skapats. Om du använder en skriptåtgärd när klustret skapas och skapandet misslyckas läser du felsökningsavsnittet [Anpassa HDInsight-kluster med hjälp](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) av skriptåtgärd för andra sätt att komma åt logginformation.
+> Apache Ambari är endast tillgängligt om klustret har skapats. Om du använder en skriptåtgärd när klustret skapas och skapandet misslyckas läser [du Felsöka skriptåtgärder](./troubleshoot-script-action.md) för andra sätt att komma åt loggad information.
 
 De flesta verktyg och installationspaket skriver redan information till STDOUT och STDERR, men du kanske vill lägga till ytterligare loggning. Om du vill skicka text `echo`till STDOUT använder du . Ett exempel:
 
@@ -175,7 +175,7 @@ Som standard `echo` skickar strängen till STDOUT. Om du vill rikta den `>&2` `e
 
 Detta omdirigerar information skriven till STDOUT till STDERR (2) istället. Mer information om omdirigering av IO finns i [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html).
 
-Mer information om hur du visar information som loggas av skriptåtgärder finns i [Anpassa HDInsight-kluster med hjälp av skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
+Mer information om hur du visar information som loggas av skriptåtgärder finns i [Felsöka skriptåtgärder](./troubleshoot-script-action.md).
 
 ### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a>Spara filer som ASCII med LF-radslut
 

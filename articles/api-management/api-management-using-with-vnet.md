@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/09/2020
 ms.author: apimpm
-ms.openlocfilehash: 462a44f7766e0ec52ba7156d6de5ae5261e21376
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 0ecb7ee7f5c7c0ebaa87eb6b32eee1926d9e294d
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80547369"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768951"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Använda Azure API Management med virtuella nätverk
 Med virtuella Azure-nätverk (VNET) kan du placera valfria Azure-resurser i ett dirigerbart icke-Internetbaserat nätverk som du kontrollerar åtkomsten till. Dessa nätverk kan sedan anslutas till dina lokala nätverk med hjälp av olika VPN-tekniker. Om du vill veta mer om Azure Virtual Networks börja med informationen här: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
@@ -108,7 +108,7 @@ Nedan följer en lista över vanliga felkonfigurationsproblem som kan uppstå n�
 
 <a name="required-ports"> </a> När en API Management-tjänstinstans finns i ett VNET används portarna i följande tabell.
 
-| Källa / Destinationsport(er) | Riktning          | Transportprotokoll |   [Tjänsttaggar](../virtual-network/security-overview.md#service-tags) <br> Källa / Destination   | Syfte (*)                                                 | Typ av virtuellt nätverk |
+| Källa / Destinationsport(er) | Riktning          | Transportprotokoll |   [Tjänsttaggar](../virtual-network/security-overview.md#service-tags) <br> Källa / Destination   | Syfte\*( )                                                 | Typ av virtuellt nätverk |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / [80], 443                  | Inkommande            | TCP                | INTERNET / VIRTUAL_NETWORK            | Klientkommunikation till API Management                      | Extern             |
 | * / 3443                     | Inkommande            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Hanteringsslutpunkt för Azure-portalen och Powershell         | Extern & Internt  |
@@ -132,9 +132,7 @@ Nedan följer en lista över vanliga felkonfigurationsproblem som kan uppstå n�
 
 + **DNS Access**: Utgående åtkomst på port 53 krävs för kommunikation med DNS-servrar. Om det finns en anpassad DNS-server i andra änden av en VPN-gateway måste DNS-servern kunna nås från api-hanteringen av undernätet.
 
-+ **Mått och hälsoövervakning:** Utgående nätverksanslutning till Azure Monitoring-slutpunkter, som matchar under följande domäner:
-
-+ **Regional tjänsttaggar**": NSG-regler som tillåter utgående anslutning till lagrings-, SQL- och EventHubs-tjänsttaggar kan använda de regionala versionerna av dessa taggar som motsvarar den region som innehåller API Management-instansen (till exempel Storage.WestUS för en API Management-instans i regionen Västra USA). I distributioner med flera regioner bör NSG i varje region tillåta trafik till tjänsttaggarna för den regionen.
++ **Mått och hälsoövervakning:** Utgående nätverksanslutning till Azure Monitoring-slutpunkter, som löser under följande domäner. Som visas i tabellen representeras dessa url:er under AzureMonitor-tjänsttaggen för användning med nätverkssäkerhetsgrupper.
 
     | Azure-miljö | Slutpunkter                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -142,8 +140,10 @@ Nedan följer en lista över vanliga felkonfigurationsproblem som kan uppstå n�
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.microsoftmetrics.com(**ny)**</li><li>shoebox2.metrics.nsatc.net(**att vara föråldrad)**</li><li>prod3.metrics.microsoftmetrics.com(**ny)**</li><li>prod3.metrics.nsatc.net( att**vara föråldrad)**</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
     | Azure Kina 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.microsoftmetrics.com(**ny)**</li><li>shoebox2.metrics.nsatc.net(**att vara föråldrad)**</li><li>prod3.metrics.microsoftmetrics.com(**ny)**</li><li>prod3.metrics.nsatc.net( att**vara föråldrad)**</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
 
->[!IMPORTANT]
-> Ändringen av kluster ovan med DNS-zonen **.nsatc.net** till **.microsoftmetrics.com** är oftast en DNS-ändring. IP-adressen för klustret ändras inte.
+  >[!IMPORTANT]
+  > Ändringen av kluster ovan med DNS-zonen **.nsatc.net** till **.microsoftmetrics.com** är oftast en DNS-ändring. IP-adressen för klustret ändras inte.
+
++ **Regional tjänsttaggar:** NSG-regler som tillåter utgående anslutning till lagrings-, SQL- och Event Hubs-tjänsttaggar kan använda de regionala versionerna av dessa taggar som motsvarar den region som innehåller API Management-instansen (till exempel Storage.WestUS för en API Management-instans i regionen Västra USA). I distributioner med flera regioner bör NSG i varje region tillåta trafik till tjänsttaggarna för den regionen och den primära regionen.
 
 + **SMTP Relay:** Utgående nätverksanslutning för SMTP Relay, som `smtpi-co1.msn.com` `smtpi-ch1.msn.com`löser `smtpi-db3.msn.com` `smtpi-sin.msn.com` under värd-, , och`ies.global.microsoft.com`
 
@@ -151,7 +151,7 @@ Nedan följer en lista över vanliga felkonfigurationsproblem som kan uppstå n�
 
 + **Azure portal Diagnostics**: För att aktivera flödet av diagnostikloggar från Azure-portalen när `dc.services.visualstudio.com` du använder API Management-tillägget inifrån ett virtuellt nätverk krävs utgående åtkomst till på port 443. Detta hjälper till att felsöka problem som du kan ställas inför när du använder tillägg.
 
-+ **Tvinga tunneltrafik till on-prem-brandvägg med hjälp av Express Route eller Network Virtual Appliance**: En gemensam kundkonfiguration är att definiera sin egen standardväg (0.0.0.0/0) som tvingar all trafik från API Management-delegerat undernät att flöda genom en lokal brandvägg eller till en virtuell nätverksinstallation. Det här trafikflödet bryter alltid anslutningen med Azure API Management eftersom den utgående trafiken antingen blockeras lokalt eller NAT'd till en oigenkännlig uppsättning adresser som inte längre fungerar med olika Azure-slutpunkter. Lösningen kräver att du gör ett par saker:
++ **Tvinga tunneltrafik till lokal brandvägg med hjälp av Express Route eller Network Virtual Appliance:** En gemensam kundkonfiguration är att definiera sin egen standardväg (0.0.0.0/0) som tvingar all trafik från API Management-delegerat undernät att flöda genom en lokal brandvägg eller till en virtuell nätverksinstallation. Det här trafikflödet bryter alltid anslutningen med Azure API Management eftersom den utgående trafiken antingen blockeras lokalt eller NAT'd till en oigenkännlig uppsättning adresser som inte längre fungerar med olika Azure-slutpunkter. Lösningen kräver att du gör ett par saker:
 
   * Aktivera tjänstslutpunkter i undernätet där API Management-tjänsten distribueras. [Tjänstslutpunkter][ServiceEndpoints] måste aktiveras för Azure Sql, Azure Storage, Azure EventHub och Azure ServiceBus. Om du aktiverar slutpunkter direkt från API Management-delegerat undernät till dessa tjänster kan de använda Microsoft Azure-stamnätet som ger optimal routning för tjänsttrafik. Om du använder tjänstslutpunkter med en tvingad tunnel Api Management tvingas inte den ovannämnda Azure-tjänstens trafik tunnel. Den andra API Management-tjänstberoendetrafiken tvingas tunnelförs och kan inte gå förlorad eller api-hanteringstjänsten fungerar inte korrekt.
     

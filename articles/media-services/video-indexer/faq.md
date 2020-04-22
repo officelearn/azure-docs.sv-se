@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/30/2020
+ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: dd41596b6631bb63e1625325f8bec065b43881cd
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: dc57978dd881532cab59150dec921df9ffa958c3
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421387"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767213"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Video Indexer ofta ställde frågor
 
@@ -43,7 +43,7 @@ Mer information och fler videoindexeringsfunktioner finns i [Översikt](video-in
 
 ### <a name="how-do-i-get-started-with-video-indexer"></a>Hur kommer jag igång med Video Indexer?
 
-Video Indexer innehåller en gratis testperiod erbjudande som ger dig 600 minuter i det webbaserade gränssnittet och 2.400 minuter via API. Du kan [logga in på det webbaserade gränssnittet Video Indexer](https://www.videoindexer.ai/) och prova själv med hjälp av vilken webbidentitet som helst och utan att behöva konfigurera en Azure-prenumeration. 
+Video Indexer innehåller en gratis testperiod erbjudande som ger dig 600 minuter i det webbaserade gränssnittet och 2.400 minuter via API. Du kan [logga in på det webbaserade gränssnittet Video Indexer](https://www.videoindexer.ai/) och prova själv med hjälp av vilken webbidentitet som helst och utan att behöva konfigurera en Azure-prenumeration. Följ [detta enkla introduktionslabb](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md) för att få bättre uppfattning om hur du använder Video Indexer.
 
 Om du vill indexera videor och ljudflugor i stor skala kan du ansluta Video Indexer till en betald Microsoft Azure-prenumeration. Du hittar mer information om priser på [prissidan.](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/)
 
@@ -61,9 +61,18 @@ Nej, Video Indexer tillhandahåller integrering av flera maskininlärningsmodell
 
 Video Indexer stöder de vanligaste medieformaten. Mer information finns i [standardformatlistan för Azure Media Encoder.](https://docs.microsoft.com/azure/media-services/latest/media-encoder-standard-formats)
 
-### <a name="how-to-do-i-upload-a-media-into-video-indexer"></a>Hur laddar jag upp ett media till Video Indexer?
+### <a name="how-do-i-upload-a-media-file-into-video-indexer-and-what-are-the-limitations"></a>Hur laddar jag upp en mediefil till Video Indexer och vilka är begränsningarna?
 
-I den webbaserade portalen Video Indexer kan du ladda upp en mediefil med hjälp av dialogrutan filöverföring eller genom att peka på en URL som är direkt värd för källfilen (se [exempel](https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4)). Alla webbadresser som är värdar för medieinnehållet med hjälp av en iFrame- eller inbäddningskod fungerar inte (se [exempel](https://www.videoindexer.ai/accounts/7e1282e8-083c-46ab-8c20-84cae3dc289d/videos/5cfa29e152/?t=4.11)). Api:et för videoindexering kräver att du anger indatafilen via en URL eller en byte-matris. Uppladdningar via en URL med API:et är begränsade till 10 GB, men har ingen tidsgräns. För mer information, se denna [hur-till guide](https://docs.microsoft.com/azure/media-services/video-indexer/upload-index-videos).
+I den webbaserade portalen Video Indexer kan du ladda upp en mediefil med hjälp av dialogrutan filöverföring eller genom att peka på en URL som är direkt värd för källfilen (se [exempel](https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4)). Alla webbadresser som är värdar för medieinnehållet med hjälp av en iFrame- eller inbäddningskod fungerar inte (se [exempel](https://www.videoindexer.ai/accounts/7e1282e8-083c-46ab-8c20-84cae3dc289d/videos/5cfa29e152/?t=4.11)). 
+
+För mer information, se denna [hur-till guide](https://docs.microsoft.com/azure/media-services/video-indexer/upload-index-videos).
+
+#### <a name="limitations"></a>Begränsningar
+
+* Namnet på videon får inte överstiga 80 tecken.
+* Om du laddar upp en video med byte array är videostorleken begränsad till 2 GB (och 30 GB när du använder URL). 
+
+Den omfattande listan finns i [Ladda upp överväganden och begränsningar](upload-index-videos.md#uploading-considerations-and-limitations).
 
 ### <a name="how-long-does-it-take-video-indexer-to-extract-insights-from-media"></a>Hur lång tid tar det videoindexer att extrahera insikter från media?
 
@@ -71,7 +80,7 @@ Hur lång tid det tar att indexera en video- eller ljudfil, både med hjälp av 
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>Kan jag skapa anpassade arbetsflöden för att automatisera processer med Video Indexer?
 
-Ja, du kan integrera Video Indexer i serverlösa tekniker som Logic Apps, Flow och [Azure Functions](https://azure.microsoft.com/services/functions/). Du hittar mer information om [Logic App-](https://azure.microsoft.com/services/logic-apps/) och [Flow-kopplingarna](https://flow.microsoft.com/en-us/) för Video Indexer [här](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/). 
+Ja, du kan integrera Video Indexer i serverlösa tekniker som Logic Apps, Flow och [Azure Functions](https://azure.microsoft.com/services/functions/). Du hittar mer information om [Logic App-](https://azure.microsoft.com/services/logic-apps/) och [Flow-kopplingarna](https://flow.microsoft.com/en-us/) för Video Indexer [här](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/). Du kan se vissa automatiseringsprojekt som utförs av partner i [repoeringen för videoindexeringsprover.](https://github.com/Azure-Samples/media-services-video-indexer)
 
 ### <a name="in-which-azure-regions-is-video-indexer-available"></a>I vilka Azure-regioner är Video indexerare tillgänglig?
 
@@ -84,6 +93,12 @@ Ja. I Video Indexer kan du anpassa några av de tillgängliga modellerna för at
 Vår personmodell stöder till exempel out-of-the-box 1.000.000 ansikten kändis erkännande, men du kan också träna den att känna igen andra ansikten som inte finns i databasen. 
 
 Mer information finns i artiklar om hur du anpassar [modeller för person,](customize-person-model-overview.md) [varumärken](customize-brands-model-overview.md)och [språk.](customize-language-model-overview.md) 
+
+###  <a name="can-i-edit-the-videos-in-my-library"></a>Kan jag redigera videorna i mitt bibliotek?
+
+Ja. Tryck på **knappen redigera video** från biblioteksvisningen eller knappen öppna i **redigeraren** från spelarvisningen för att komma till fliken **Projekt.** Du kan skapa ett nytt projekt och lägga till fler videor från biblioteket för att redigera dem tillsammans, när du är klar kan du återge din video och ladda ner. 
+
+Om du vill få insikter om din nya video indexerar du den med Video Indexer så visas den i biblioteket med dess insikter.
 
 ### <a name="what-is-the-sla-for-video-indexer"></a>Vad är SLA för Video Indexer?
 

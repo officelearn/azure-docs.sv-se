@@ -2,17 +2,17 @@
 title: Felsöka anslutningsproblem - Azure Database för MySQL
 description: Lär dig hur du felsöker anslutningsproblem till Azure Database for MySQL, inklusive tillfälliga fel som kräver återförsök, brandväggsproblem och avbrott.
 keywords: mysql-anslutning,anslutningssträng,anslutningsproblem,tillfälligt fel,anslutningsfel
-author: jan-eng
-ms.author: janeng
+author: jasonwhowell
+ms.author: jasonh
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: a68f351276c47f623728a279ad551744c61b6d14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b22d47d177c4606396b0c8b2279301121c905ca2
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063235"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768271"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Felsöka anslutningsproblem till Azure Database for MySQL
 

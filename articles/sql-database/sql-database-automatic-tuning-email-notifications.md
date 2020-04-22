@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: 1dbcf953ad5f70c6ddf2a73eef2ea712f1e1278c
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: b3b235833e794e48ae655d184bf938effc0d7ac0
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632087"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768372"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>E-postmeddelanden för automatisk justering
 
@@ -38,17 +38,17 @@ Om du vill använda Azure Automation är det första steget att skapa ett automa
 
 Följ dessa steg för att skapa Azure Automation-konto med hjälp av metoden för att välja och konfigurera Automation-appen från Marketplace:
 
-- Logga in på Azure-portalen
-- Klicka på "**+ Skapa en resurs**" i det övre vänstra hörnet
-- Sök efter "**Automation**" (tryck enter)
-- Klicka på automationsappen i sökresultaten
+1. Logga in på Azure-portalen.
+1. Klicka på "**+ Skapa en resurs**" i det övre vänstra hörnet.
+1. Sök efter "**Automation**" (tryck enter).
+1. Klicka på automationsappen i sökresultaten.
 
-![Lägga till Azure-automatisering](./media/sql-database-automatic-tuning-email-notifications/howto-email-01.png)
+    ![Lägga till Azure-automatisering](./media/sql-database-automatic-tuning-email-notifications/howto-email-01.png)
 
-- En gång i fönstret "Skapa ett automationskonto" klickar du på "**Skapa**"
-- Fyll i den information som krävs: ange ett namn för det här automatiseringskontot, välj ditt Azure-prenumerations-ID och Azure-resurser som ska användas för körningen av PowerShell-skriptet
-- För alternativet "**Skapa Azure Kör som konto**" väljer du **Ja** för att konfigurera den typ av konto under vilket PowerShell-skript körs med hjälp av Azure Automation. Mer information om kontotyper finns i [Kör som-konto](https://docs.microsoft.com/azure/automation/automation-create-runas-account)
-- Avsluta skapandet av automationskontot genom att klicka på **Skapa**
+1. En gång i fönstret "Skapa ett automationskonto" klickar du på "**Skapa**".
+1. Fyll i den information som krävs: ange ett namn för det här automatiseringskontot, välj ditt Azure-prenumerations-ID och Azure-resurser som ska användas för PowerShell-skriptkörningen.
+1. För alternativet "**Skapa Azure Kör som konto**" väljer du **Ja** för att konfigurera den typ av konto under vilket PowerShell-skript körs med hjälp av Azure Automation. Mer information om kontotyper finns i [Kör som konto](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+1. Avsluta skapandet av automationskontot genom att klicka på **Skapa**.
 
 > [!TIP]
 > Registrera ditt Azure Automation-kontonamn, prenumerations-ID och resurser (till exempel kopiera och klistra in på ett anteckningsblock) precis som du angav när du skapar Automation-appen. Du behöver den här informationen senare.
@@ -60,7 +60,7 @@ Om du har flera Azure-prenumerationer som du vill skapa samma automatisering fö
 
 PowerShell-skriptet för att hämta rekommendation för automatisk justering använder [kommandona Get-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) och [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) för vilka Azure Module version 4 och högre krävs.
 
-- Om dina Azure-moduler behöver uppdateras, se [Stöd för Az-modul i Azure Automation](../automation/az-modules.md).
+- Om dina Azure-moduler behöver uppdateras, se [Stöd för Az-modul i Azure Automation](../automation/shared-resources/modules.md).
 
 ## <a name="create-azure-automation-runbook"></a>Skapa Azure Automation Runbook
 
@@ -68,18 +68,18 @@ Nästa steg är att skapa en Runbook i Azure Automation där PowerShell-skriptet
 
 Så här skapar du en ny Azure Automation-runbook:
 
-- Få tillgång till Det Azure Automation-konto som du skapade i föregående steg
-- En gång i fönstret för automatiseringskonto klickar du på menyalternativet "**Runbooks**" till vänster för att skapa en ny Azure Automation-runbook med PowerShell-skriptet. Mer information om hur du skapar automatiseringskörningar finns i [Skapa en ny runbook](../automation/manage-runbooks.md#creating-a-runbook).
-- Om du vill lägga till en ny runbook klickar du på menyalternativet "**+Lägg till en runbook**" och klickar sedan på "**Snabbskapa – Skapa en ny runbook**".
-- I runbook-fönstret skriver du in namnet på runbooken (i det här exemplet används "**AutomaticTuningEmailAutomation**" ), typen av runbook som **PowerShell** och skriv en beskrivning av den här runbooken för att beskriva dess syfte.
-- Klicka på knappen **Skapa** för att slutföra skapandet av en ny runbook
+1. Öppna Azure Automation-kontot som du skapade i föregående steg.
+1. En gång i fönstret för automatiseringskonto klickar du på menyalternativet "**Runbooks**" till vänster för att skapa en ny Azure Automation-runbook med PowerShell-skriptet. Mer information om hur du skapar automatiseringskörningar finns i [Skapa en ny runbook](../automation/manage-runbooks.md#creating-a-runbook).
+1. Om du vill lägga till en ny runbook klickar du på menyalternativet "**+Lägg till en runbook**" och klickar sedan på "**Snabbskapa – Skapa en ny runbook**"..
+1. I runbook-fönstret skriver du in namnet på runbooken (i det här exemplet används "**AutomaticTuningEmailAutomation**" ), typen av runbook som **PowerShell** och skriv en beskrivning av den här runbooken för att beskriva dess syfte.
+1. Klicka på knappen **Skapa** för att slutföra skapandet av en ny runbook.
 
-![Lägg till Azure automation runbook](./media/sql-database-automatic-tuning-email-notifications/howto-email-03.png)
+    ![Lägg till Azure automation runbook](./media/sql-database-automatic-tuning-email-notifications/howto-email-03.png)
 
 Så här läser du in ett PowerShell-skript i den skapad körningsboken:
 
-- I fönstret**Redigera PowerShell Runbook**väljer du "**RUNBOOKS**" i menyträdet och utökar vyn tills du ser namnet på din runbook (i det här exemplet "**AutomaticTuningEmailAutomation**"). Välj den här runbooken.
-- På den första raden i "Redigera PowerShell Runbook" (med början på nummer 1) kopierar du in följande PowerShell-skriptkod. Det här PowerShell-skriptet tillhandahålls i dess ädst. Ändra skriptet för att passa dina behov.
+1. I fönstret**Redigera PowerShell Runbook**väljer du "**RUNBOOKS**" i menyträdet och utökar vyn tills du ser namnet på din runbook (i det här exemplet "**AutomaticTuningEmailAutomation**"). Välj den här runbooken.
+1. På den första raden i "Redigera PowerShell Runbook" (med början på nummer 1) kopierar du in följande PowerShell-skriptkod. Det här PowerShell-skriptet tillhandahålls i dess ädst. Ändra skriptet för att passa dina behov.
 
 I huvudet på det medföljande PowerShell-skriptet måste du ersätta `<SUBSCRIPTION_ID_WITH_DATABASES>` med ditt Azure-prenumerations-ID. Mer information om hur du hämtar ditt Azure-prenumerations-ID finns i [Hämta ditt AZURE-prenumerations-GUID](https://blogs.msdn.microsoft.com/mschray/20../../getting-your-azure-subscription-guid-new-portal/).
 
@@ -184,45 +184,45 @@ Med ovanstående steg läses PowerShell-skriptet för att hämta automatiska jus
 
 För att slutföra lösningen, som det sista steget, skapa ett automatiseringsflöde i Microsoft Flow som består av tre åtgärder (jobb):
 
-1. "**Azure Automation - Skapa jobb**" – som används för att köra PowerShell-skriptet för att hämta automatiska justeringsrekommendationer i Azure Automation-runbooken
-2. "**Azure Automation - Get job output**" – används för att hämta utdata från det utförda PowerShell-skriptet
-3. "**Office 365 Outlook – Skicka ett e-postmeddelande**" – som används för att skicka ut e-post. E-postmeddelanden skickas ut med office 365-kontot för den person som skapar flödet.
+ - "**Azure Automation - Skapa jobb**" – som används för att köra PowerShell-skriptet för att hämta automatiska justeringsrekommendationer i Azure Automation-runbooken.
+ - "**Azure Automation - Get job output**" – används för att hämta utdata från det utförda PowerShell-skriptet.
+ - "**Office 365 Outlook – Skicka ett e-postmeddelande**" – som används för att skicka ut e-post. E-postmeddelanden skickas ut med office 365-kontot för den person som skapar flödet.
 
 Mer information om Microsoft Flow-funktioner finns i [Komma igång med Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
 
 Förutsättningen för det här steget är att registrera dig för [Microsoft Flow-konto](https://flow.microsoft.com) och logga in. En gång inne i lösningen, följ dessa steg för att ställa in ett **nytt flöde:**
 
-- Menyalternativet **"Mina flöden"**
-- Inuti Mina flöden väljer du länken "**+Skapa från tomt**" högst upp på sidan
-- Klicka på länken "**Sök efter hundratals kontakter och triggers**" längst ner på sidan
-- I sökfältet skriver du "**återkommande**" och väljer "**Schema - Återkommande**" från sökresultaten för att schemalägga e-postleveransjobbet så att det körs.
-- I fönstret Återkommande i fältet Frekvens väljer du schemaläggningsfrekvensen för det här flödet som ska köras, till exempel skicka automatisk e-post varje minut, timme, dag, vecka, etc.
+1. Menyalternativet **"Mina flöden"** i Access .
+1. I Mina flöden väljer du länken "**+Skapa från tomt**" högst upp på sidan.
+1. Klicka på länken "**Sök efter hundratals kopplingar och utlösare**" längst ner på sidan.
+1. I sökfältet skriver du "**återkommande**" och väljer "**Schema - Återkommande**" från sökresultaten för att schemalägga e-postleveransjobbet så att det körs.
+1. I fönstret Återkommande i fältet Frekvens väljer du schemaläggningsfrekvensen för det här flödet som ska köras, till exempel skicka automatisk e-post varje minut, timme, dag, vecka, etc.
 
 Nästa steg är att lägga till tre jobb (skapa, få utdata och skicka e-post) till det nyligen skapade återkommande flödet. Så här utför du att lägga till de jobb som krävs i flödet:
 
 1. Skapa åtgärd för att köra PowerShell-skript för att hämta justeringsrekommendationer
 
-   - Välj "**+Nytt steg**", följt av "**Lägg till en åtgärd**" i fönstret Återkommande flöde
-   - I sökfältet skriver du "**automation**" och väljer "**Azure Automation – Create job**" i sökresultaten
+   - Välj "**+Nytt steg**", följt av "**Lägg till en åtgärd**" i fönstret Återkommande flöde.
+   - I sökfältet skriver du "**automation**" och väljer "**Azure Automation – Create job**" i sökresultaten.
    - Konfigurera jobbegenskaperna i fönstret Skapa jobb. För den här konfigurationen behöver du information om ditt Azure-prenumerations-ID, Resursgrupp och Automation-konto **som tidigare registrerats** i **fönstret Automation-konto**. Mer information om tillgängliga alternativ i det här avsnittet finns i [Azure Automation - Create Job](https://docs.microsoft.com/connectors/azureautomation/#create-job).
-   - Slutför skapandet av den här åtgärden genom att klicka på "**Spara flöde**"
+   - Slutför skapandet av den här åtgärden genom att klicka på "**Spara flöde**".
 
 2. Skapa åtgärd för att hämta utdata från det utförda PowerShell-skriptet
 
    - Välj "**+Nytt steg**", följt av "**Lägg till en åtgärd**" i fönstret Återkommande flöde
    - I sök arkiverad typ "**automation**" och välj "**Azure Automation – Get job output**" från sökresultaten. Mer information om tillgängliga alternativ i det här avsnittet finns i [Azure Automation – Hämta jobbutdata](https://docs.microsoft.com/connectors/azureautomation/#get-job-output).
-   - Fyll i fält som krävs (liknande skapandet av föregående jobb) – fyll i ditt Azure-prenumerations-ID, Resursgrupp och Automation-konto (som anges i fönstret Automation-konto)
+   - Fyll i fält som krävs (på samma sätt som att skapa föregående jobb) – fyll i ditt Azure-prenumerations-ID, resursgrupp och automationskonto (som anges i fönstret Automation-konto).
    - Klicka i fältet "**Jobb-ID**" för menyn "**Dynamiskt innehåll**" för att visa. Välj alternativet "**Jobb-ID**" i den här menyn.
-   - Slutför skapandet av den här åtgärden genom att klicka på "**Spara flöde**"
+   - Slutför skapandet av den här åtgärden genom att klicka på "**Spara flöde**".
 
 3. Skapa åtgärd för att skicka e-post med Office 365-integrering
 
-   - Välj "**+Nytt steg**", följt av "**Lägg till en åtgärd**" i fönstret Återkommande flöde
-   - I sök arkiverad typ "**skicka ett e-postmeddelande**" och välj "**Office 365 Outlook - Skicka ett e-postmeddelande**" från sökresultaten
-   - I fältet "**Till**" skriver du den e-postadress som du måste skicka e-postmeddelandet till
-   - I fälttypen **"Ämne"** i ämnet för din e-post, till exempel "E-postmeddelande med automatisk justeringsrekommendationer"
-   - Klicka inuti fältet "**Brödtext**" för att menyn "**Dynamiskt innehåll**" ska visas. Välj " Innehåll "**Get job output****Innehåll**"
-   - Slutför skapandet av den här åtgärden genom att klicka på "**Spara flöde**"
+   - Välj "**+Nytt steg**", följt av "**Lägg till en åtgärd**" i fönstret Återkommande flöde.
+   - I sök arkiverad typ "**skicka ett e-postmeddelande**" och välj "**Office 365 Outlook - Skicka ett e-postmeddelande**" från sökresultaten.
+   - I fältet "**Till**" skriver du den e-postadress som du måste skicka e-postmeddelandet till.
+   - I fälttypen **"Ämne"** i ämnet för din e-post, till exempel "Automatisk justering rekommendationer e-postmeddelande".
+   - Klicka inuti fältet "**Brödtext**" för att menyn "**Dynamiskt innehåll**" ska visas. Välj " Innehåll "**i**den här menyn under "**Hämta jobbutdata**".
+   - Slutför skapandet av den här åtgärden genom att klicka på "**Spara flöde**".
 
 > [!TIP]
 > Om du vill skicka automatiska e-postmeddelanden till olika mottagare skapar du separata flöden. I dessa ytterligare flöden ändrar du mottagarens e-postadress i fältet "Till" och ämnesraden för e-post i fältet Ämne. Genom att skapa nya runbooks i Azure Automation med anpassade PowerShell-skript (till exempel med ändring av Azure-prenumerations-ID) kan du ytterligare anpassa automatiserade scenarier, till exempel att skicka separata mottagare via e-post till exempel separata mottagare på automatiska justeringsrekommendationer för separata prenumerationer.

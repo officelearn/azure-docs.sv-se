@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 7069f2cc96b8876f5514acfa4ba49274b61be46f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73c18d45136eea90ad29dc1bd40c4539dddc0ee6
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282944"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767250"
 ---
 # <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Aktivera Azure Monitor för virtuella datorer med hjälp av Azure Policy
 
@@ -79,7 +79,7 @@ Så här aktiverar du Azure Monitor för virtuella datorer genom att använda Az
 - Tilldela initiativet till ett scope: hanteringsgrupp, prenumeration eller resursgrupp.
 - Granska och åtgärda efterlevnadsresultat.
 
-Mer information om hur du tilldelar Azure Policy finns i [Översikt över Azure-princip](../../governance/policy/overview.md#policy-assignment) och granska [översikten över hanteringsgrupper](../../governance/management-groups/overview.md) innan du fortsätter.
+Mer information om hur du tilldelar Azure Policy finns i [Översikt över Azure-princip](../../governance/policy/overview.md#assignments) och granska [översikten över hanteringsgrupper](../../governance/management-groups/overview.md) innan du fortsätter.
 
 ### <a name="policies-for-azure-vms"></a>Principer för virtuella Azure-datorer
 

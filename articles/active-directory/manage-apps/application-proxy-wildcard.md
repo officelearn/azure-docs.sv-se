@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e17cc4bf6f70901e3bb5d250f0a55f073ad8d99e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1e5861e802f39adecb5661bc17c22b432f137d59
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81406719"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770305"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Jokerteckenprogram i Azure Active Directory-programproxyn
 
@@ -48,8 +48,6 @@ Du kan publicera program med jokertecken om båda, de interna och externa webbad
 Till exempel: `http(s)://*.adventure-works.com`.
 
 Även om interna och externa webbadresser kan använda olika domäner bör de som bästa praxis vara desamma. När du publicerar programmet visas ett fel om en av webbadresserna inte har ett jokertecken.
-
-Om du har ytterligare program med olika konfigurationsinställningar måste du publicera dessa undantag som separata program för att skriva över standardinställningarna för jokertecknet. Program utan jokertecken har alltid företräde framför jokerteckenprogram. Ur konfigurationssynpunkt är dessa "bara" vanliga program.
 
 Att skapa ett jokerteckenprogram baseras på samma [programpubliceringsflöde](application-proxy-add-on-premises-application.md) som är tillgängligt för alla andra program. Den enda skillnaden är att du inkluderar ett jokertecken i webbadresserna och eventuellt SSO-konfigurationen.
 

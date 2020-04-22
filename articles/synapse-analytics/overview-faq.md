@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: ec2791911d1461ae47d9353629d23a5d7dc30791
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 00a98fdeb4b8febbcb9d1183fabffc7298cc9e4c
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81424652"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770729"
 ---
 # <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Vanliga frågor och svar i Azure Synapse Analytics (förhandsversion av arbetsytan)
 
@@ -92,7 +92,7 @@ S: Dataflödet gör det möjligt för datatekniker att utveckla grafisk dataomva
 
 ## <a name="security-and-access"></a>Säkerhet och åtkomst
 
-S: End-to-end enkel inloggningsupplevelse är en viktig autentiseringsprocess i Synapse Analytics. Att hantera och passera genom identiteten via en fullständig AAD-integration är ett måste.
+S: End-to-end enkel inloggningsupplevelse är en viktig autentiseringsprocess i Synapse Analytics. Att hantera och överföra identiteten via en fullständig AAD-integration är ett måste.
 
 ### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adlsg2"></a>F: Hur får jag tillgång till filer och mappar i ADLSg2
 

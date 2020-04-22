@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 02/12/2020
-ms.openlocfilehash: 246ec08e9b4edb33fa49318b68cc4364534282b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6bba71ab35920027cc7296e774936c3d1deb8f92
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064651"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770320"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera
 
@@ -30,13 +30,13 @@ Ett Hadoop-kluster består av flera virtuella datorer (noder) som används för 
 
 I följande tabell visas de olika metoder som du kan använda för att konfigurera ett HDInsight-kluster.
 
-| Kluster som skapats med | Webbläsare | Kommandorad | REST API | SDK |
+| Kluster som skapats med | Webbläsare | Kommandorad | REST-API | SDK |
 | --- |:---:|:---:|:---:|:---:|
-| [Azure-portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
+| [Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
 | [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
-| [Curl](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
+| [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
 | [Azure Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
 I den här artikeln får du hjälp med installationsprogrammet i [Azure-portalen](https://portal.azure.com), där du kan skapa ett HDInsight-kluster.
@@ -79,7 +79,7 @@ Azure HDInsight tillhandahåller för närvarande följande klustertyper, var oc
 | [Interaktiv fråga](./interactive-query/apache-interactive-query-get-started.md) |Cachelagring i minnet för interaktiva och snabbare Hive-frågor |
 | [Kafka](kafka/apache-kafka-introduction.md) | En distribuerad streamingplattform som kan användas för att skapa strömmande datapipellines och program i realtid |
 | [ML Services](r-server/r-server-overview.md) |Olika stordatastatistik, prediktiv modellering och maskininlärningsfunktioner |
-| [Gnista](spark/apache-spark-overview.md) |Bearbetning i minnet, interaktiva frågor, bearbetning av mikrobatchström |
+| [Spark](spark/apache-spark-overview.md) |Bearbetning i minnet, interaktiva frågor, bearbetning av mikrobatchström |
 | [Storm](storm/apache-storm-overview.md) |Händelsebearbetning i realtid |
 
 #### <a name="version"></a>Version
@@ -104,9 +104,9 @@ SSH-användarnamnet har följande begränsningar:
 * Tillåtna specialtecken:`_` och`@`
 * Tecken är inte tillåtna:\/#;."', :'!*?$(){}[]<>|&--=+%~-utrymme
 * Max längd: 64
-* Reserverade namn: hadoop, användare, oozie, hive, mapred, ambari-qa, zookeeper, tez, hdfs, sqoop, garn, hcat, ams, hbase, storm, administratör, admin, användare, user1, test, user2, test1, user3, admin1, 1, 123, a, actuser, adm, admin2, aspnet, backup, console, david, gäst, john, ägare, rot, server, sql, stöd, support_388945a0, sys, test2, test3, user4, user5, spark
+* Reserverade namn: hadoop, användare, oozie, hive, mapred, ambari-qa, zookeeper, tez, hdfs, sqoop, garn, hcat, ams, hbase, storm, administratör, admin, användare1, testa, user2, test1, user3, admin1, 1, 123, a, actuser, adm, admin2, aspnet, backup, console, david, gäst, john, ägare, rot, server, sql, stöd, support_388945a0, sys, test2, test3, user4, user5, spark
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 ![Inställningar för klusterlagring: HDFS-kompatibla slutpunkter](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage.png)
 
@@ -169,7 +169,7 @@ Mer information om hur du skapar ett domänanslutet HDInsight-kluster finns i [S
 
 ### <a name="tls"></a>TLS
 
-Mer information finns i [Transport layer security](./hdinsight-plan-virtual-network-deployment.md#transport-layer-security)
+Mer information finns i [Transport layer security](./transport-layer-security.md)
 
 ### <a name="virtual-network"></a>Virtuellt nätverk
 

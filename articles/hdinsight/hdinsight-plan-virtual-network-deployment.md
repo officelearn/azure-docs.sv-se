@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/25/2020
-ms.openlocfilehash: 30664d533215cb49fa6f436ec4cf88fa319c3300
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/21/2020
+ms.openlocfilehash: 18774ae4a98b795846459251174ee47671aef39c
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272271"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769891"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planera ett virtuellt nätverk för Azure HDInsight
 
@@ -243,7 +243,7 @@ Om du använder nätverkssäkerhetsgrupper eller användardefinierade vägar fö
 
 ## <a name="required-ports"></a><a id="hdinsight-ports"></a>Obligatoriska portar
 
-Om du planerar att använda en **brandvägg** och komma åt klustret utifrån på vissa portar kan du behöva tillåta trafik på de portar som behövs för ditt scenario. Som standard behövs ingen särskild vitlistning av portar så länge som azure management-trafik som förklaras i föregående avsnitt tillåts nå kluster på port 443.
+Om du planerar att använda en **brandvägg** och komma åt klustret utifrån på vissa portar kan du behöva tillåta trafik på de portar som behövs för ditt scenario. Som standard behövs ingen särskild vitlistning av portar så länge som Azure-hanteringstrafiken som förklaras i föregående avsnitt tillåts nå kluster på port 443.
 
 En lista över portar för specifika tjänster finns i [portarna som används av Apache Hadoop-tjänster i HDInsight-dokumentet.](hdinsight-hadoop-port-settings-for-services.md)
 
@@ -253,21 +253,10 @@ Mer information om brandväggsregler för virtuella enheter finns i [scenariodok
 
 När du skapar ett HDInsight-kluster skapas även en belastningsutjämnare. Typen av den här belastningsutjämnaren är på [den grundläggande SKU-nivån](../load-balancer/concepts-limitations.md#skus), som har vissa begränsningar. Ett av dessa begränsningar är att om du har två virtuella nätverk i olika regioner kan du inte ansluta till grundläggande belastningsutjämnare. Se [vanliga frågor och svar om virtuella nätverk: begränsningar för global vnet-peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers), för mer information.
 
-## <a name="transport-layer-security"></a>Säkerhet vid transportlager
-
-Anslutningar till klustret via den `https://<clustername>.azurehdinsight.net` offentliga klusterslutpunkten proxyseras via klustergatewaynoder. Dessa anslutningar är säkrade med hjälp av ett protokoll som kallas TLS. Genom att tillämpa högre versioner av TLS på gateways förbättras säkerheten för dessa anslutningar. Mer information om varför du bör använda nyare versioner av TLS finns i [Lösa TLS 1.0-problemet](https://docs.microsoft.com/security/solving-tls1-problem).
-
-Som standard accepterar Azure HDInsight-kluster TLS 1.2-anslutningar på offentliga HTTPS-slutpunkter samt äldre versioner för bakåtkompatibilitet. Du kan styra den minsta TLS-versionen som stöds på gateway-noderna när kluster skapas med hjälp av antingen Azure-portalen eller en resurshanterares mall. För portalen väljer du TLS-versionen på fliken **Säkerhet + nätverk** när klustret skapas. Använd egenskapen **minSupportedTlsVersion** för en resurshanterares mall vid distributionen. En exempelmall finns i [hdinsight minimum TLS 1.2 Quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls). Den här egenskapen stöder tre värden: "1,0", "1,1" och "1,2", vilket motsvarar TLS 1,0+, TLS 1.1+ respektive TLS 1.2+ .
-
-> [!IMPORTANT]
-> Från och med den 30 juni 2020 kommer Azure HDInsight att framtvinga TLS 1.2 eller senare versioner för alla HTTPS-anslutningar. Vi rekommenderar att du ser till att alla dina klienter är redo att hantera TLS 1.2 eller senare versioner. Mer information finns i [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/updates/azure-hdinsight-tls-12-enforcement/).
-
 ## <a name="next-steps"></a>Nästa steg
 
 * Kodexempel och exempel på hur du skapar Virtuella Azure-nätverk finns i [Skapa virtuella nätverk för Azure HDInsight-kluster](hdinsight-create-virtual-network.md).
 * Ett exempel från på sluten tid för att konfigurera HDInsight för att ansluta till ett lokalt nätverk finns i [Anslut HDInsight till ett lokalt nätverk](./connect-on-premises-network.md).
-* Information om hur du konfigurerar Apache HBase-kluster i virtuella Azure-nätverk finns i [Skapa Apache HBase-kluster på HDInsight i Azure Virtual Network](hbase/apache-hbase-provision-vnet.md).
-* Information om konfiguration av Apache HBase-georeplikering finns i [Konfigurera Apache HBase-klusterreplikering i virtuella Azure-nätverk](hbase/apache-hbase-replication.md).
 * Mer information om virtuella Azure-nätverk finns i [översikten över Virtuella Azure-nätverk](../virtual-network/virtual-networks-overview.md).
 * Mer information om nätverkssäkerhetsgrupper finns i [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md).
 * Mer information om användardefinierade vägar finns i [Användardefinierade vägar och IP-vidarebefordran](../virtual-network/virtual-networks-udr-overview.md).

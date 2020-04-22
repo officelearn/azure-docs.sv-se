@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 2853b1567618127866a4e9c61d81e599d3100823
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8596b435ffa02da7daf4ef98bfe0fe7995b9270a
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80064272"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768189"
 ---
 # <a name="what-is-azure-load-balancer"></a>Vad är Azure Load Balancer?
 
@@ -82,6 +82,7 @@ Basic Load Balancer tillhandahålls kostnadsfritt.
 Se [SLA för belastningsutjämnare](https://aka.ms/lbsla). Grundläggande belastningsutjämnare har inget serviceavtal.
 
 ## <a name="next-steps"></a>Nästa steg
+Se [Uppgradera en grundläggande belastningsutjämnare](upgrade-basic-standard.md) för att uppgradera grundläggande belastningsutjämnare till standardbelastningsutjämnare.
 
 Se [Skapa en offentlig standardbelastningsutjämningsfaktor](quickstart-load-balancer-standard-public-portal.md) för att komma igång med en belastningsutjämnare.
 

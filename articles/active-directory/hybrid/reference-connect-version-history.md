@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 04/21/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 815d3afe68003f56a5748584b322b731ef5a3dc7
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 3a03a03557fbb2e71ff79ff42fd9d9c72cd5907c
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81639649"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770496"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Versionshistorik för Azure AD Connect
 Azure Active Directory (Azure AD) -teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla målgrupper.
@@ -48,6 +48,14 @@ Alla versioner av Azure AD Connect kommer inte att göras tillgängliga för aut
 >
 >Se [den här artikeln](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) om du vill veta mer om hur du uppgraderar Azure AD Connect till den senaste versionen.
 
+## <a name="15220"></a>1.5.22.0
+
+### <a name="release-status"></a>Versionsstatus
+2020-04-20: Släppt för nedladdning
+
+### <a name="fixed-issues"></a>Åtgärdade problem
+Den här snabbkorrigeringsversionen åtgärdar ett problem i version 1.5.20.0 om du har klonat in **från AD - Gruppkopplingsregeln** och inte har klonat regeln In från AD - **Grupp common.**
+
 ## <a name="15200"></a>1.5.20.0
 
 ### <a name="release-status"></a>Versionsstatus
@@ -57,12 +65,13 @@ Alla versioner av Azure AD Connect kommer inte att göras tillgängliga för aut
 Den här snabbkorrigeringsversionen åtgärdar ett problem med build 1.5.18.0 om du har funktionen Gruppfiltrering aktiverad och använder mS-DS-ConsistencyGuid som källankare.
 
 > [!IMPORTANT]
-> Om du använder mS-DS-ConsistencyGuid som källankare och har klonat synkroniseringsregeln **In från AD - Gruppanslutning** och planerar att uppgradera, slutför du följande steg som en del av uppgraderingen:
+> Om du har klonat synkroniseringsregeln **In från AD - Gruppanslutning** och inte har klonat synkroniseringsregeln In från AD - Grupp **Gemensam** synkronisering och planerar att uppgradera, slutför du följande steg som en del av uppgraderingen:
 > 1. Avmarkera alternativet **Starta synkroniseringsprocessen när konfigurationen är klar under**uppgraderingen .
 > 2. Redigera den klonade synkroniseringsregeln för koppling och lägg till följande två omvandlingar:
 >     - Ställ in `objectGUID` `sourceAnchorBinary`direktflöde på .
 >     - Ange uttrycksflöde `ConvertToBase64([objectGUID])` till `sourceAnchor`.     
 > 3. Aktivera schemaläggaren `Set-ADSyncScheduler -SyncCycleEnabled $true`med .
+
 
 
 ## <a name="15180"></a>1.5.18.0

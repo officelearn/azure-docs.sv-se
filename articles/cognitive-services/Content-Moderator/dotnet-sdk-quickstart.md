@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: dccd2ebb6ac2c11e19e986d39eabda5f0ab6a8fc
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: e93cfd6d44e6a59b4b3d94a49bef766fadf4381c
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76774294"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770629"
 ---
 # <a name="quickstart-content-moderator-client-library-for-net"></a>Snabbstart: Klientbibliotek för Content Moderator för .NET
 
@@ -73,11 +73,11 @@ Build succeeded.
 
 Öppna den *Program.cs* filen i önskad redigerare eller IDE från projektkatalogen. Lägg till följande `using`-uttryck:
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_using)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_using)]
 
 Skapa variabler för resursens slutpunktsplats och nyckel som miljövariabler i klassen **Program.**
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_creds)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_creds)]
 
 > [!NOTE]
 > Om du har skapat miljövariablerna efter att du har startat programmet måste du stänga och öppna redigeraren, IDE:t eller skalet som kör det för att komma åt variablerna.
@@ -117,13 +117,13 @@ De här kodavsnitten visar hur du utför följande uppgifter med klientbibliotek
 
 I en ny metod instansierar du klientobjekt med slutpunkten och nyckeln. Du behöver inte en annan klient för varje scenario, men det kan hjälpa till att hålla koden organiserad.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_client)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_client)]
 
 ## <a name="moderate-text"></a>Moderera text
 
 Följande kod använder en Content Moderator-klient för att analysera en texttext och skriva ut resultaten till konsolen. Definiera in- och utdatafiler i roten **för klassen Program:**
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_text_vars)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_text_vars)]
 
 Sedan vid roten av ditt projekt och lägga till en *TextFile.txt* fil. Lägg till din egen text i den här filen eller använd följande exempeltext:
 
@@ -134,11 +134,11 @@ Crap is the profanity here. Is this information PII? phone 4255550111
 
 Lägg till följande metodanrop i metoden: `Main`
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_textmod_call)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_textmod_call)]
 
 Definiera sedan textmoderingsmetoden någonstans i **klassen Program:**
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_textmod)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_textmod)]
 
 ## <a name="moderate-images"></a>Måttliga bilder
 
@@ -151,7 +151,7 @@ Följande kod använder en Content Moderator-klient, tillsammans med ett [ImageM
 
 Definiera in- och utdatafiler:
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_image_vars)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_image_vars)]
 
 Skapa sedan indatafilen *ImageFiles.txt*i projektets rot. I den här filen lägger du&mdash;till url:erna för bilder för att analysera en URL på varje rad. Du kan använda följande exempelbilder:
 
@@ -162,13 +162,13 @@ https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
 Skicka indata- och utdatafilerna `Main` till följande metodanrop i metoden. Du definierar den här metoden i ett senare steg.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_textmod_call)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_textmod_call)]
 
 ### <a name="define-helper-class"></a>Definiera hjälpklass
 
 Lägg till följande klassdefinition i klassen **Program.** Den här inre klassen hanterar resultatet av bildmoderering.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_dataclass)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_dataclass)]
 
 ### <a name="define-the-image-moderation-method"></a>Definiera metoden för bildmoderering
 
@@ -176,17 +176,17 @@ Följande metod iterar igenom bild-URL:erna i en textfil, skapar en **Evaluation
 
 #### <a name="iterate-through-image-urls"></a>Iterera genom bildadresser
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_imagemod_iterate)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_imagemod_iterate)]
 
 #### <a name="analyze-content"></a>Analysera innehåll
 
 Mer information om bildattributen som Innehållsmoderator söker efter finns i begreppsguiden för begrepp för [bildmoderering.](./image-moderation-api.md)
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_imagemod_analyze)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_imagemod_analyze)]
 
 #### <a name="write-moderation-results-to-file"></a>Skriv modereringsresultat till fil
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_imagemod_save)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_imagemod_save)]
 
 ## <a name="create-a-review"></a>Skapa en recension
 
@@ -194,53 +194,53 @@ Du kan använda Innehållsmoderatorn .NET SDK för att mata in innehåll i [gran
 
 Metoden i det här avsnittet använder klassen [Reviews](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet) för att skapa en granskning, hämta dess ID och kontrollera dess information efter att ha tagit emot mänsklig indata via granskningsverktygets webbportal. Den loggar all denna information i en utdatatextfil. Anropa metoden från `Main` din metod:
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_review_call)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_review_call)]
 
 ### <a name="get-sample-images"></a>Hämta exempelbilder
 
 Deklarera följande matris i roten till **programklassen.** Den här variabeln refererar till en exempelbild som ska användas för att skapa granskningen.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_review_urls)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_review_urls)]
 
 ### <a name="get-review-credentials"></a>Hämta granskningsautentiseringsuppgifter
 
 Logga in på [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com) och hämta ditt teamnamn. Tilldela den sedan till lämplig variabel i **klassen Program.** Du kan också ställa in en motringningsslutpunkt för att få uppdateringar om granskningens aktivitet.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_review_vars)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_review_vars)]
 
 ### <a name="define-helper-class"></a>Definiera hjälpklass
 
 Lägg till följande klassdefinition i **klassen Program.** Den här klassen används för att representera en enda granskningsinstans som skickas till granskningsverktyget.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_review_item)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_review_item)]
 
 ### <a name="define-helper-method"></a>Definiera hjälpmetod
 
 Lägg till följande metod i klassen **Program**. Den här metoden skriver resultatet av granskningsfrågor till utdatatextfilen.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_writeline)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_writeline)]
 
 ### <a name="define-the-review-creation-method"></a>Definiera metoden för att skapa granskning
 
 Nu är du redo att definiera den metod som ska hantera granskningens skapande och frågor. Lägg till en ny metod, **CreateReviews**och definiera följande lokala variabler.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_createreview_fields)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_createreview_fields)]
 
 #### <a name="post-reviews-to-the-review-tool"></a>Skicka recensioner till granskningsverktyget
 
 Lägg sedan till följande kod för att iterera genom de givna exempelbilderna, lägga till metadata och skicka dem till granskningsverktyget i en enda batch. 
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_createreview_create)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_createreview_create)]
 
 Objektet som returneras från API-anropet innehåller unika ID-värden för varje uppladdad bild. Följande kod tolkar dessa ID:n och använder dem sedan för att fråga innehållsmoderator för status för varje bild i batchen.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_createreview_ids)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_createreview_ids)]
 
 ### <a name="get-review-details"></a>Få information om recension
 
 Följande kod gör att programmet väntar på indata från användaren. När du kommer till det här steget vid körning kan du själv gå till [granskningsverktyget,](https://contentmoderator.cognitive.microsoft.com) kontrollera att exempelbilden laddades upp och interagerar med den. Information om hur du interagerar med en recension finns i [vägledningen för recensioner](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/review-moderated-images). När du är klar kan du trycka på valfri tangent för att fortsätta programmet och hämta resultatet av granskningsprocessen.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_createreview_results)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_createreview_results)]
 
 Om du har använt en motringningsslutpunkt i det här scenariot bör den få en händelse i det här formatet:
 
@@ -270,7 +270,7 @@ dotnet run
 
 Om du vill rensa och ta bort en Cognitive Services-prenumeration kan du ta bort resursen eller resursgruppen. Om du tar bort resursgruppen tas även alla andra resurser som är associerade bort.
 
-* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portalen](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -281,4 +281,4 @@ I den här snabbstarten lärde du dig hur du använder Content Moderator .NET-bi
 > [Begrepp för bildmoderering](https://docs.microsoft.com/azure/cognitive-services/content-moderator/image-moderation-api)
 
 * [Vad är Azure Content Moderator?](./overview.md)
-* Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/ContentModerator/Program.cs).
+* Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ContentModerator/Program.cs).

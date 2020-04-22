@@ -1,17 +1,17 @@
 ---
 title: Felsöka anslutningsproblem - Azure Database för MariaDB
 description: Lär dig hur du felsöker anslutningsproblem till Azure Database för MariaDB, inklusive tillfälliga fel som kräver återförsök, brandväggsproblem och avbrott.
-author: jan-eng
-ms.author: janeng
+author: jasonwhowell
+ms.author: jasonh
 ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: d134bcd0c5f9bfde0fdb095122d54848873174be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6817807d0a85b1465beafc86045ea1e0dd8a31ec
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79536368"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770348"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Felsöka anslutningsproblem till Azure Database for MariaDB
 

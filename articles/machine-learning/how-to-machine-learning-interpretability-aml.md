@@ -1,5 +1,5 @@
 ---
-title: Förklara maskininlärningsmodeller och förutsägelser
+title: Tolka & förklara ML-modeller i Python
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du får förklaringar till hur din maskininlärningsmodell avgör funktionens betydelse och gör förutsägelser när du använder Azure Machine Learning SDK.
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/12/2020
-ms.openlocfilehash: c1282ed16c9e3b92e7d5ec3f9969bee6fc3d917f
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 45eef976fe10bbb5acda2cd348a77b28c3ffbe02
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81257213"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769813"
 ---
-# <a name="explain-machine-learning-models-and-predictions"></a>Förklara maskininlärningsmodeller och förutsägelser
+# <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python"></a>Använd tolkningspaketet för att förklara ML-modeller & förutsägelser i Python
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -41,10 +41,10 @@ Mer information om tolkningstekniker och maskininlärningsmodeller som stöds fi
 ## <a name="generate-feature-importance-value-on-your-personal-machine"></a>Generera prioritetsvärde för funktioner på din personliga dator 
 I följande exempel visas hur du använder tolkningspaketet på din personliga dator utan att kontakta Azure-tjänster.
 
-1. Installera `azureml-interpret` `azureml-interpret-contrib` och paket.
+1. Installera `azureml-interpret` `azureml-contrib-interpret` och paket.
     ```bash
     pip install azureml-interpret
-    pip install azureml-interpret-contrib
+    pip install azureml-contrib-interpret
     ```
 
 2. Träna en provmodell i en lokal Jupyter-anteckningsbok.

@@ -3,14 +3,14 @@ title: 'Snabbstart: Skapa en C# ASP.NET-app'
 description: Lär dig hur du kör webbappar i Azure App Service genom att distribuera standardmallen C# ASP.NET webbapp från Visual Studio.
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
-ms.date: 10/21/2019
+ms.date: 04/21/2020
 ms.custom: mvc, devcenter, seodec18
-ms.openlocfilehash: 4688cc358ec6ff792be58254b0607f5416422a21
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 47a5cf2586b8146a68772962c60dc0dbdbb7e2fe
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80047665"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768861"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Skapa en ASP.NET Framework-webbapp i Azure
 
@@ -55,7 +55,7 @@ Skapa en ASP.NET webbapp genom att följa dessa steg:
 
 1. Högerklicka på **projektet myFirstAzureWebApp** i **Solution Explorer**och välj **Publicera**.
 
-1. Välj **Apptjänst** och ändra sedan **Skapa profil** till **Publicera**.
+1. Välj **Apptjänst** och välj **Skapa profil**.
 
    ![Publicera från projektöversiktssidan](./media/app-service-web-get-started-dotnet-framework/publish-app-framework-vs2019.png)
 
@@ -82,23 +82,25 @@ Skapa en ASP.NET webbapp genom att följa dessa steg:
 
    | Inställning | Föreslaget värde | Beskrivning |
    |-|-|-|
-   |App Service-plan| myAppServicePlan | Namnet på App Service-planen. |
+   | Värdplan| myAppServicePlan | Namnet på App Service-planen. |
    | Location | Europa, västra | Datacenter som är värd för webbappen. |
    | Storlek | Kostnadsfri | [Prisnivån](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avgör tillgängliga värdfunktioner. |
 
    ![Skapa apptjänstplan](./media/app-service-web-get-started-dotnet-framework/app-service-plan-framework-vs2019.png)
 
-1. I **Namn**anger du ett unikt appnamn `a-z`som `A-Z`bara innehåller giltiga tecken som är , , `0-9`och `-`. Du kan acceptera det automatiskt genererade unika namnet. Webbadressen till webbappen är `http://<app_name>.azurewebsites.net`, där `<app_name>` är appens namn.
+1. I **Namn**anger du ett unikt appnamn `a-z`som `A-Z`bara innehåller giltiga tecken som är , , `0-9`och `-`. Du kan acceptera det automatiskt genererade unika namnet. Webbadressen till webbappen är `http://<app-name>.azurewebsites.net`, där `<app-name>` är appens namn.
 
 2. Välj **Skapa** för att börja skapa Azure-resurser.
 
    ![Konfigurera appnamn](./media/app-service-web-get-started-dotnet-framework/web-app-name-framework-vs2019.png)
 
-När guiden slutförs publiceras ASP.NET-webbappen till Azure och sedan öppnas appen i standardwebbläsaren.
+    När guiden är klar skapas Azure-resurserna åt dig och du är redo att publicera.
 
-![Publicerad ASP.NET-webbapp i Azure](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
+3. Klicka på **Publicera**på sidan **Publicera.** Visual Studio bygger, paketar och publicerar appen till Azure och startar sedan appen i standardwebbläsaren.
 
-Det appnamn som anges på sidan **Skapa ny apptjänst** används `http://<app_name>.azurewebsites.net`som URL-prefix i formatet .
+    ![Publicerad ASP.NET-webbapp i Azure](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
+
+Det appnamn som anges på sidan **Skapa ny apptjänst** används `http://<app-name>.azurewebsites.net`som URL-prefix i formatet .
 
 **Grattis!** Din ASP.NET webbapp körs live i Azure App Service.
 
@@ -117,9 +119,9 @@ Det appnamn som anges på sidan **Skapa ny apptjänst** används `http://<app_na
 
 1. Högerklicka på projektet **myFirstAzureWebApp** i **Solution Explorer** och välj **Publicera** för att distribuera om appen till Azure. Välj sedan **Publicera**.
 
-När publiceringen är klar startar Visual Studio en webbläsare till webbappens URL.
+    När publiceringen är klar startar Visual Studio en webbläsare till webbappens URL.
 
-![Uppdaterad ASP.NET-webbapp i Azure](./media/app-service-web-get-started-dotnet-framework/updated-azure-web-app.png)
+    ![Uppdaterad ASP.NET-webbapp i Azure](./media/app-service-web-get-started-dotnet-framework/updated-azure-web-app.png)
 
 ## <a name="manage-the-azure-app"></a>Hantera Azure-appen
 

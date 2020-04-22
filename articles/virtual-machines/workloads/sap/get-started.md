@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/16/2020
+ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4a361f384167fa522278b9c84a7927e938c12cb8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 3ce3311fd0538109dbe9ba5ae71a17dcfd4b8abe
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81534813"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769731"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använda Azure för att vara värd för och köra SAP-arbetsbelastningsscenarier
 
@@ -111,6 +111,7 @@ Information om integrering av Azure-tjänster i SAP-komponenter finns i:
 
 ## <a name="change-log"></a>Ändra logg
 
+- 2020/04/21: Lade till SQL Azure DB som stöds DBMS för SAP (Hybris) Commerce Platform 1811 och senare i artiklar [Vad SAP-programvara stöds för Azure-distributioner](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) och [SAP-certifieringar och konfigurationer som körs på Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
 - 2020-04-16: Lade till SAP HANA som stöds DBMS för SAP (Hybris) Commerce Platform i artiklar [Vad SAP-programvara stöds för Azure-distributioner](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) och [SAP-certifieringar och konfigurationer som körs på Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
 - 2020-04-13: Korrigera exakta SAP ASE-versionsnummer i [SAP ASE Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sapase)
 - 2020-04-07: Ändring i [inställning av pacemaker på SLES i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) för att förtydliga moln-netconfig-azure-instruktioner

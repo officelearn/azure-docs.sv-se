@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/20/2020
-ms.openlocfilehash: e5a96d2eb67937ce4eeaa1999d8168e7f5d3d926
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cdb31f1a46d7f46b69e9e0ad47a77ba6b32a50a0
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80130194"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770820"
 ---
 # <a name="release-notes"></a>Viktig information
 
@@ -34,7 +34,7 @@ Den här versionen gäller både HDInsight 3.6 och 4.0. HDInsight-versionen gör
 ### <a name="tls-12-enforcement"></a>Tvingande TLS 1.2
 TLS (Transport Layer Security) och SSL (Secure Sockets Layer) är kryptografiska protokoll som ger kommunikationssäkerhet över ett datornätverk. Läs mer om [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). HDInsight använder TLS 1.2 på offentliga HTTPs-slutpunkter, men TLS 1.1 stöds fortfarande för bakåtkompatibilitet. 
 
-Med den här versionen kan kunder endast anmäla sig till TLS 1.2 för alla anslutningar via slutpunkten för det offentliga klustret. För att stödja detta introduceras den nya egenskapen **minSupportedTlsVersion** och kan anges när klustret skapas. Om egenskapen inte har angett stöder klustret fortfarande TLS 1.0, 1.1 och 1.2, vilket är samma som dagens beteende. Kunder kan ange värdet för den här egenskapen till "1,2", vilket innebär att klustret endast stöder TLS 1.2 och högre. Mer information finns i [Planera ett virtuellt nätverk - Transport layer security](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#transport-layer-security).
+Med den här versionen kan kunder endast anmäla sig till TLS 1.2 för alla anslutningar via slutpunkten för det offentliga klustret. För att stödja detta introduceras den nya egenskapen **minSupportedTlsVersion** och kan anges när klustret skapas. Om egenskapen inte har angett stöder klustret fortfarande TLS 1.0, 1.1 och 1.2, vilket är samma som dagens beteende. Kunder kan ange värdet för den här egenskapen till "1,2", vilket innebär att klustret endast stöder TLS 1.2 och högre. Mer information finns i [Transport layer security](./transport-layer-security.md).
 
 ### <a name="bring-your-own-key-for-disk-encryption"></a>Ta med din egen nyckel för diskkryptering
 Alla hanterade diskar i HDInsight är skyddade med Azure Storage Service Encryption (SSE). Data på dessa diskar krypteras som standard av Microsoft-hanterade nycklar. Från och med den här versionen kan du ta med din egen nyckel (BYOK) för diskkryptering och hantera den med Azure Key Vault. BYOK-kryptering är en konfiguration i ett steg när kluster skapas utan extra kostnad. Registrera bara HDInsight som en hanterad identitet med Azure Key Vault och lägg till krypteringsnyckeln när du skapar ditt kluster. Mer information finns i [Kryptering med kundhanterad nyckeldisk](https://docs.microsoft.com/azure/hdinsight/disk-encryption).

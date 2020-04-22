@@ -1,17 +1,17 @@
 ---
 title: Prisnivåer – Azure Database for MariaDB
 description: Lär dig mer om de olika prisnivåerna för Azure Database för MariaDB, inklusive beräkningsgenerationer, lagringstyper, lagringsstorlek, virtuella kärnor, minne och lagringsperioder för säkerhetskopiering.
-author: jan-eng
-ms.author: janeng
+author: jasonwhowell
+ms.author: jasonh
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 39af6850810fa471003cea27ed274972fb2ff046
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c057bebf94362b3b9e42db9d311e99f1e35c651
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79528038"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770134"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure-databas för MariaDB-prisnivåer
 
@@ -39,7 +39,7 @@ När du har skapat en server kan antalet virtuella kärnor och prisnivå (förut
 
 Beräkningsresurser tillhandahålls som virtuella kärnor, som representerar den logiska processorn för den underliggande maskinvaran. Gen 5 logiska processorer är baserade på Intel E5-2673 v4 (Broadwell) 2,3 GHz-processorer.
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 Lagringen som du etablerar är den mängd lagringskapacitet som är tillgänglig för din Azure-databas för MariaDB-server. Lagringen används för databasfiler, temporära filer, transaktionsloggar och MariaDB-serverloggarna. Den totala mängden lagringsutrymme som du etablerar definierar också den I/O-kapacitet som är tillgänglig för servern.
 
@@ -77,7 +77,7 @@ Om du till exempel har etablerat 1000 GB lagringsutrymme och det faktiska utnytt
 
 Kom ihåg att lagring bara kan skalas upp, inte ner.
 
-## <a name="backup"></a>Säkerhetskopiering
+## <a name="backup"></a>Backup
 
 Tjänsten tar automatiskt säkerhetskopior av servern. Du kan välja en kvarhållningsperiod från intervallet 7 till 35 dagar. Allmänna servrar och minnesoptimerade servrar kan välja att ha geouppsagbar lagring för säkerhetskopior. Läs mer om säkerhetskopior i [begreppsartikeln](concepts-backup.md).
 

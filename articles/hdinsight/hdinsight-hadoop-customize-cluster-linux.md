@@ -1,18 +1,18 @@
 ---
 title: Anpassa Azure HDInsight-kluster med hjälp av skriptåtgärder
-description: Lägg till anpassade komponenter i HDInsight-kluster med hjälp av skriptåtgärder. Skriptåtgärder är Bash-skript som kan användas för att anpassa klusterkonfigurationen eller lägga till ytterligare tjänster och verktyg som Hue, Solr eller R.
+description: Lägg till anpassade komponenter i HDInsight-kluster med hjälp av skriptåtgärder. Skriptåtgärder är Bash-skript som kan användas för att anpassa klusterkonfigurationen. Eller lägg till ytterligare tjänster och verktyg som Hue, Solr eller R.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/26/2020
-ms.openlocfilehash: 12e6892930afe8ba9c7bad9b05fd39eeaf8835fc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/21/2020
+ms.openlocfilehash: 434d4adb763fd0e0a29c065ce051bfd4fa461180
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79272505"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770741"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Anpassa Azure HDInsight-kluster med hjälp av skriptåtgärder
 
@@ -33,7 +33,7 @@ Mer information om hur du arbetar med behörigheter med domänansluten HDInsight
 
 Om du inte är administratör eller ägare av din Azure-prenumeration måste ditt konto ha minst deltagaråtkomst till resursgruppen som innehåller HDInsight-klustret.
 
-Om du skapar ett HDInsight-kluster måste någon med minst deltagaråtkomst till Azure-prenumerationen ha registrerat providern för HDInsight. Leverantörregistrering sker när en användare med deltagaråtkomst skapar en resurs för första gången på en prenumeration. Det kan också göras utan att skapa en resurs om du [registrerar en leverantör med hjälp av REST](https://msdn.microsoft.com/library/azure/dn790548.aspx).
+Någon med minst deltagaråtkomst till Azure-prenumerationen måste ha registrerat providern tidigare. Providerregistrering sker när en användare med deltagares åtkomst till prenumerationen skapar en resurs. För utan att skapa en resurs, se [registrera en provider med hjälp av REST](https://msdn.microsoft.com/library/azure/dn790548.aspx).
 
 Få mer information om hur du arbetar med åtkomsthantering:
 
@@ -61,11 +61,11 @@ En skriptåtgärd är Bash-skript som körs på noderna i ett HDInsight-kluster.
 
 * Kan begränsas till att köras på endast vissa nodtyper. Exempel är huvudnoder eller arbetsnoder.
 
-* Kan bevaras eller ad hoc.
+* Kan bevaras `ad hoc`eller .
 
     Beständiga skriptåtgärder måste ha ett unikt namn. Beständiga skript används för att anpassa nya arbetsnoder som läggs till i klustret genom skalningsåtgärder. Ett beständigt skript kan också tillämpa ändringar på en annan nodtyp när skalningsåtgärder inträffar. Ett exempel är en huvudnod.
 
-    Ad hoc-skript sparas inte. Skriptåtgärder som används när klustret skapas sparas automatiskt. De tillämpas inte på arbetsnoder som läggs till i klustret när skriptet har körts. Sedan kan du befordra ett ad hoc-skript till ett beständigt skript eller nedgradera ett beständigt skript till ett ad hoc-skript. Skript som misslyckas sparas inte, även om du specifikt anger att de ska vara det.
+    `Ad hoc`skript inte sparas. Skriptåtgärder som används när klustret skapas sparas automatiskt. De tillämpas inte på arbetsnoder som läggs till i klustret när skriptet har körts. Sedan kan du `ad hoc` befordra ett skript till ett beständigt `ad hoc` skript eller nedgradera ett beständigt skript till ett skript. Skript som misslyckas sparas inte, även om du specifikt anger att de ska vara det.
 
 * Kan acceptera parametrar som används av skriptet under körningen.
 
@@ -92,7 +92,7 @@ Följande diagram illustrerar när skriptåtgärden körs under skapandeprocesse
 
 Skriptet körs medan HDInsight konfigureras. Skriptet körs parallellt på alla angivna noder i klustret. Den körs med rotprivilegier på noderna.
 
-Du kan utföra åtgärder som att stoppa och starta tjänster, inklusive Apache Hadoop-relaterade tjänster. Om du stoppar tjänster kontrollerar du att Ambari-tjänsten och andra Hadoop-relaterade tjänster körs innan skriptet är klart. Dessa tjänster krävs för att framgångsrikt fastställa hälsotillståndet och tillståndet för klustret medan det skapas.
+Du kan utföra åtgärder som att stoppa och starta tjänster, inklusive Apache Hadoop-relaterade tjänster. Om du stoppar tjänster, se till att Ambari och andra Hadoop-relaterade tjänster körs innan skriptet är klart. Dessa nödvändiga tjänster avgör hälsotillståndet för klustret medan det skapas.
 
 När klustret skapas kan du använda många skriptåtgärder samtidigt. Dessa skript anropas i den ordning som de angavs i.
 
@@ -103,7 +103,7 @@ När klustret skapas kan du använda många skriptåtgärder samtidigt. Dessa sk
 
 ### <a name="script-action-on-a-running-cluster"></a>Skriptåtgärd på ett kluster som körs
 
-Ett fel i ett skript som körs på ett kluster som körs redan gör det inte automatiskt att klustret ändras till ett misslyckat tillstånd. När ett skript har slutförts ska klustret återgå till ett körläge. Även om klustret har ett tillstånd som körs kan det misslyckade skriptet ha brutit saker. Ett skript kan till exempel ta bort filer som behövs av klustret.
+Ett skriptfel i ett kluster som körs redan gör att klustret inte ändras till ett misslyckat tillstånd. När ett skript har slutförts ska klustret återgå till ett körläge. Även om klustret har ett tillstånd som körs kan det misslyckade skriptet ha brutit saker. Ett skript kan till exempel ta bort filer som behövs av klustret.
 
 Skriptåtgärder körs med rotprivilegier. Se till att du förstår vad ett skript gör innan du använder det på klustret.
 
@@ -295,7 +295,7 @@ Ett exempel på hur du använder .NET SDK för att använda skript på ett klust
 
     ![Egenskaper för skriptåtgärder befordras](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
 
-1. Du kan också välja ellips, **...**, till höger om poster i skriptåtgärder avsnitt för att utföra åtgärder.
+1. Du kan också välja ellips, **...**, till höger om poster i skriptåtgärder avsnittet för att göra åtgärder.
 
     ![Beständiga skriptåtgärder tar bort](./media/hdinsight-hadoop-customize-cluster-linux/hdi-delete-promoted-sa.png)
 
@@ -305,8 +305,8 @@ Ett exempel på hur du använder .NET SDK för att använda skript på ett klust
 | --- | --- |
 | `Get-AzHDInsightPersistedScriptAction` |Hämta information om beständiga skriptåtgärder. Den här cmdleten ångrar inte de åtgärder som utförs av ett skript, den tar bara bort den beständiga flaggan.|
 | `Get-AzHDInsightScriptActionHistory` |Hämta en historik över skriptåtgärder som tillämpas på klustret eller information om ett visst skript. |
-| `Set-AzHDInsightPersistedScriptAction` |Befordra en ad hoc-skriptåtgärd till en beständig skriptåtgärd. |
-| `Remove-AzHDInsightPersistedScriptAction` |Nedgradera en beständig skriptåtgärd till en ad hoc-åtgärd. |
+| `Set-AzHDInsightPersistedScriptAction` |Befordra `ad hoc` en skriptåtgärd till en beständig skriptåtgärd. |
+| `Remove-AzHDInsightPersistedScriptAction` |Nedgradera en beständig skriptåtgärd `ad hoc` till en åtgärd. |
 
 Följande exempelskript visas med cmdlets för att befordra och sedan nedgradera ett skript.
 
@@ -316,12 +316,12 @@ Följande exempelskript visas med cmdlets för att befordra och sedan nedgradera
 
 | Kommando | Beskrivning |
 | --- | --- |
-| [az hdinsight script-action delete az hdinsight script-action delete az hdinsight script-action delete az hd](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-delete) |Tar bort en angiven beständig skriptåtgärd i klustret. Det här kommandot ångrar inte de åtgärder som utförs av ett skript, det tar bara bort den beständiga flaggan.|
-|[az hdinsight script-action kör](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute)|Kör skriptåtgärder i det angivna HDInsight-klustret.|
-| [az hdinsight script-action lista](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-list) |Visar en lista över alla beständiga skriptåtgärder för det angivna klustret. |
-|[az hdinsight script-action list-execution-historia](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-list-execution-history)|Visar en lista över alla skripts körningshistorik för det angivna klustret.|
-|[az hdinsight script-action främja](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-promote)|Befordrar den angivna ad hoc-skriptkörningen till ett beständigt skript.|
-|[az hdinsight script-action show-execution-details az hdinsight script-action show-execution-details az hdinsight script-action show-execution-details az hd](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-show-execution-details)|Hämtar skriptkörningsdetaljerna för det angivna skriptkörnings-ID:et.|
+| [`az hdinsight script-action delete`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-delete) |Tar bort en angiven beständig skriptåtgärd i klustret. Det här kommandot ångrar inte de åtgärder som utförs av ett skript, det tar bara bort den kvarstående flaggan.|
+|[`az hdinsight script-action execute`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute)|Kör skriptåtgärder i det angivna HDInsight-klustret.|
+| [`az hdinsight script-action list`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-list) |Visar en lista över alla beständiga skriptåtgärder för det angivna klustret. |
+|[`az hdinsight script-action list-execution-history`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-list-execution-history)|Visar en lista över alla skripts körningshistorik för det angivna klustret.|
+|[`az hdinsight script-action promote`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-promote)|Befordrar den angivna ad hoc-skriptkörningen till ett beständigt skript.|
+|[`az hdinsight script-action show-execution-details`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-show-execution-details)|Hämtar skriptkörningsdetaljerna för det angivna skriptkörnings-ID:et.|
 
 ### <a name="hdinsight-net-sdk"></a>HDInsight .NET SDK
 
@@ -330,126 +330,10 @@ Ett exempel på hur du använder .NET SDK för att hämta skripthistorik från e
 > [!NOTE]  
 > Det här exemplet visar också hur du installerar ett HDInsight-program med hjälp av .NET SDK.
 
-## <a name="support-for-open-source-software"></a>Stöd för programvara med öppen källkod
-
-Microsoft Azure HDInsight-tjänsten använder ett ekosystem av tekniker med öppen källkod som bildas runt Apache Hadoop. Microsoft Azure ger en allmän supportnivå för tekniker med öppen källkod. Mer information finns i avsnittet **Supportscope i** vanliga frågor om [Azure Support](https://azure.microsoft.com/support/faq/). HDInsight-tjänsten ger ytterligare stöd för inbyggda komponenter.
-
-Två typer av komponenter med öppen källkod finns i HDInsight-tjänsten:
-
-* **Inbyggda komponenter**. Dessa komponenter är förinstallerade på HDInsight-kluster och tillhandahåller kärnfunktioner i klustret. Följande komponenter tillhör den här kategorin:
-
-  * [Apache Hadoop GARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager.
-  * Hive-frågespråket [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
-  * [Apache Mahout](https://mahout.apache.org/).
-
-    En fullständig lista över klusterkomponenter finns i [Vilka är Apache Hadoop-komponenterna och versionerna tillgängliga med HDInsight?](hdinsight-component-versioning.md)
-
-* **Anpassade komponenter**. Som användare av klustret kan du installera eller använda alla komponenter som är tillgängliga i communityn eller som skapats av dig i din arbetsbelastning.
-
-> [!WARNING]  
-> Komponenter som medföljer HDInsight-klustret stöds fullt ut. Microsoft Support hjälper till att isolera och lösa problem som är relaterade till dessa komponenter.
->
-> Anpassade komponenter får kommersiellt rimligt stöd för att hjälpa dig att felsöka problemet ytterligare. Microsoft Support kanske kan lösa problemet. Eller så kan de be dig att engagera tillgängliga kanaler för öppen källkod teknik där djup expertis för den tekniken finns. Många community-webbplatser kan användas. Exempel är [MSDN forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) och [Stack Överflöd](https://stackoverflow.com).
->
-> Apache projekt har också projektwebbplatser på [Apache webbplats](https://apache.org). Ett exempel är [Hadoop](https://hadoop.apache.org/).
-
-HDInsight-tjänsten innehåller flera sätt att använda anpassade komponenter. Samma supportnivå gäller, oavsett hur en komponent används eller installeras i klustret. I följande lista beskrivs de vanligaste sätten att anpassade komponenter används i HDInsight-kluster:
-
-1. **Jobbinlämning**. Hadoop eller andra typer av jobb som kör eller använder anpassade komponenter kan skickas till klustret.
-
-2. **Anpassning av kluster**. När klustret skapas kan du ange ytterligare inställningar och anpassade komponenter som är installerade på klusternoderna.
-
-3. **Prover**. För populära anpassade komponenter kan Microsoft och andra ge exempel på hur dessa komponenter kan användas på HDInsight-kluster. Dessa prover tillhandahålls utan stöd.
-
-## <a name="troubleshooting"></a>Felsökning
-
-Du kan använda webbgränssnittet i Ambari för att visa information som loggas av skriptåtgärder. Om skriptet misslyckas när klustret skapas är loggarna också tillgängliga i standardlagringskontot som är associerat med klustret. Det här avsnittet innehåller information om hur du hämtar loggarna med hjälp av båda dessa alternativ.
-
-### <a name="the-apache-ambari-web-ui"></a>Apache Ambari webbgränssnitt
-
-1. Från en webbläsare navigerar du till `https://CLUSTERNAME.azurehdinsight.net`, var `CLUSTERNAME` är namnet på klustret.
-
-1. Välj **ops-posten** högst upp på sidan. En lista visar aktuella och tidigare åtgärder som utförs i klustret via Ambari.
-
-    ![Ambari webbgränssnittsfält med ops valt](./media/hdinsight-hadoop-customize-cluster-linux/hdi-apache-ambari-nav.png)
-
-1. Leta reda på de poster som har **\_kört customscriptaction** i kolumnen **Operationer.** Dessa poster skapas när skriptåtgärderna körs.
-
-    ![Åtgärder för apache ambari-skriptåtgärder](./media/hdinsight-hadoop-customize-cluster-linux/ambari-script-action.png)
-
-    Om du vill visa UTDATA FÖR **STDOUT** och **STDERR** markerar du posten **run\customscriptaction** och detaljgranskar nedåt genom länkarna. Den här utdata genereras när skriptet körs och kan ha användbar information.
-
-### <a name="access-logs-from-the-default-storage-account"></a>Komma åt loggar från standardlagringskontot
-
-Om klusterskapande misslyckas på grund av ett skriptfel sparas loggarna i klusterlagringskontot.
-
-* Förvaringsloggarna finns `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`på .
-
-    ![Åtgärdsloggar för skript](./media/hdinsight-hadoop-customize-cluster-linux/script-action-logs-in-storage.png)
-
-    Under den här katalogen ordnas loggarna separat för **headnode,** **arbetarnod**och **zookeeper-nod**. Se följande exempel:
-
-    * **Headnode**:`<ACTIVE-HEADNODE-NAME>.cloudapp.net`
-
-    * **Arbetsnod:**`<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
-
-    * **Zookeeper nod:**`<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
-
-* Alla **stdout** och **stderr** av motsvarande värd laddas upp till lagringskontot. Det finns en **utdata-\*.txt** och **fel-\*.txt** för varje skriptåtgärd. **Filen output-*.txt** innehåller information om URI-filen för skriptet som kördes på värden. Följande text är ett exempel på denna information:
-
-        'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
-
-* Det är möjligt att du upprepade gånger skapar ett skriptåtgärdskluster med samma namn. I så fall kan du skilja relevanta loggar baserat på **mappnamnet DATUM.** Mappstrukturen för ett kluster, **mycluster**, som skapats på olika datum, liknar till exempel följande loggposter:
-
-    `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04` `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
-
-* Om du skapar ett skriptåtgärdskluster med samma namn samma dag kan du använda det unika prefixet för att identifiera relevanta loggfiler.
-
-* Om du skapar ett kluster nära 12:00, midnatt, är det möjligt att loggfilerna sträcker sig över två dagar. I så fall visas två olika datummappar för samma kluster.
-
-* Det kan ta upp till fem minuter att överföra loggfiler till standardbehållaren, särskilt för stora kluster. Så om du vill komma åt loggarna bör du inte omedelbart ta bort klustret om en skriptåtgärd misslyckas.
-
-### <a name="ambari-watchdog"></a>Ambari vakthund
-
-> [!WARNING]  
-> Ändra inte lösenordet för Ambari vakthund, hdinsightwatchdog, på din Linux-baserade HDInsight kluster. Om du ändrar lösenordet för det här kontot bryts möjligheten att köra nya skriptåtgärder i HDInsight-klustret.
-
-### <a name="cant-import-name-blobservice"></a>Det går inte att importera namn BlobService
-
-__Symptom__. Skriptåtgärden misslyckas. Text som liknar följande fel visas när du visar åtgärden i Ambari:
-
-```
-Traceback (most recent call list):
-  File "/var/lib/ambari-agent/cache/custom_actions/scripts/run_customscriptaction.py", line 21, in <module>
-    from azure.storage.blob import BlobService
-ImportError: cannot import name BlobService
-```
-
-__Orsak__. Det här felet uppstår om du uppgraderar Python Azure Storage-klienten som ingår i HDInsight-klustret. HDInsight förväntar sig Azure Storage-klient 0.20.0.
-
-__Upplösning__. Lös det här felet genom att manuellt ansluta `ssh`till varje klusternod med hjälp av . Kör följande kommando för att installera om rätt lagringsklientversion:
-
-```bash
-sudo pip install azure-storage==0.20.0
-```
-
-Information om hur du ansluter till klustret med SSH finns i [Anslut till HDInsight (Apache Hadoop) med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-### <a name="history-doesnt-show-the-scripts-used-during-cluster-creation"></a>Historiken visar inte de skript som används när klustret skapades
-
-Om klustret skapades före den 15 mars 2016 kanske du inte ser någon post i skriptåtgärdshistoriken. Om du ändrar storlek på klustret visas skripten i skriptåtgärdshistoriken.
-
-Det finns två undantag:
-
-* Klustret skapades före den 1 september 2015. Det här datumet är när skriptåtgärder introducerades. Alla kluster som skapats före det här datumet kunde inte ha använt skriptåtgärder för att skapa kluster.
-
-* Du använde flera skriptåtgärder när klustret skapades. Du har också använt samma namn för flera skript eller samma namn, samma URI, men olika parametrar för flera skript. I dessa fall får du följande felmeddelande:
-
-    Inga nya skriptåtgärder kan köras i det här klustret på grund av skriptnamn i konflikt i befintliga skript. Skriptnamn som anges vid klusterskapande måste vara unika. Befintliga skript körs på ändra storlek.
-
 ## <a name="next-steps"></a>Nästa steg
 
 * [Utveckla skript åtgärd skript för HDInsight](hdinsight-hadoop-script-actions-linux.md)
 * [Lägga till ytterligare lagringsutrymme i ett HDInsight-kluster](hdinsight-hadoop-add-storage.md)
+* [Felsöka skriptåtgärder](troubleshoot-script-action.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/cluster-provisioning-states.png "Faser under skapande av kluster"

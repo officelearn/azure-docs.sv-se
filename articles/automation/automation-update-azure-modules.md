@@ -1,18 +1,18 @@
 ---
-title: Uppdatera Azure-moduler i Azure Automation
+title: Uppdatera Azure PowerShell-moduler i Azure Automation
 description: I den här artikeln beskrivs hur du nu kan uppdatera vanliga Azure PowerShell-moduler som tillhandahålls som standard i Azure Automation.
 services: automation
 ms.subservice: process-automation
 ms.date: 06/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: ba926ccbb069c8620259514e0a64c56957529a0f
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: bb73b3d644e96f9596f887faaf62eb15f01956ab
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617482"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769673"
 ---
-# <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Så här uppdaterar du Azure PowerShell-moduler i Azure Automation
+# <a name="update-azure-powershell-modules-in-azure-automation"></a>Uppdatera Azure PowerShell-moduler i Azure Automation
 
 Om du vill uppdatera Azure-modulerna i ditt Automation-konto måste du använda [runbooken Uppdatera Azure-moduler](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), som är tillgänglig som öppen källkod. Om du vill börja använda runbooken **Update-AutomationAzureModulesForAccount** för att uppdatera dina Azure-moduler hämtar du den från [runbook-databasen Update Azure-moduler](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) på GitHub. Du kan sedan importera det till ditt Automation-konto eller köra det som ett skript. Mer information om hur du importerar en runbook i ditt Automation-konto finns i [Importera en runbook](manage-runbooks.md#importing-a-runbook).
 
@@ -37,7 +37,7 @@ Om du utvecklar skript lokalt rekommenderar vi att du har samma modulversioner l
 
 Följande är några faktorer att ta hänsyn till när du använder den här artikeln för att uppdatera dina Azure-moduler:
 
-* Runbooken som beskrivs i den här artikeln stöder uppdatering av Azure-, AzureRM- och Az-modulerna som standard. Läs [update Azure-modulernas runbook README](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) för mer information om hur du uppdaterar Az.Automation-moduler med den här runbooken. Det finns ytterligare viktiga faktorer som du måste ta hänsyn till när du använder Az-modulerna i ditt Automation-konto. Mer information finns [i Använda Az-moduler i ditt Automation-konto](az-modules.md).
+* Runbooken som beskrivs i den här artikeln stöder uppdatering av Azure-, AzureRM- och Az-modulerna som standard. Läs [update Azure-modulernas runbook README](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) för mer information om hur du uppdaterar Az.Automation-moduler med den här runbooken. Det finns ytterligare viktiga faktorer som du måste ta hänsyn till när du använder Az-modulerna i ditt Automation-konto. Mer information finns [i Hantera moduler i Azure Automation](shared-resources/modules.md).
 
 * Innan du startar den här runbooken kontrollerar du att ditt Automation-konto har en [Azure Run As-kontoautentiseringsautentisering skapad.](manage-runas-account.md)
 

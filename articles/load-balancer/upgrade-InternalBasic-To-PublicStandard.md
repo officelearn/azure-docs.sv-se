@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 346fc3d5a4e7b165caafd9847b9797abae0c9113
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3eca498e5716ae7c0a03e5e624d618899da8dc8
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659993"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770406"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Uppgradera Azure Intern belastningsutjämning – utgående anslutning krävs
 [Azure Standard Load Balancer](load-balancer-overview.md) erbjuder en omfattande uppsättning funktioner och hög tillgänglighet via zonredundans. Mer information om belastningsutjämnare SKU finns i [jämförelsetabellen](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus). Eftersom standardintern belastningsutjämnare inte tillhandahåller utgående anslutning tillhandahåller vi en lösning för att skapa en vanlig offentlig belastningsutjämnare i stället.
@@ -21,8 +21,7 @@ Det finns fyra steg i en uppgradering:
 
 1. Migrera konfigurationen till Standard Public Load Balancer
 2. Lägga till virtuella datorer i backend-pooler med standardvarmtalbelastningsutjämning
-3. Skapa en utgående regel för belastningsutjämnaren för utgående anslutning
-4. Ställa in NSG-regler för undernät/virtuella datorer som ska avhållas från/till Internet
+3. Ställa in NSG-regler för undernät/virtuella datorer som ska avhållas från/till Internet
 
 Den här artikeln beskriver konfigurationsmigrering. Att lägga till virtuella datorer i backend-pooler kan variera beroende på din specifika miljö. Vissa allmänna rekommendationer på hög nivå [ges](#add-vms-to-backend-pools-of-standard-load-balancer)dock.
 
@@ -32,6 +31,7 @@ Ett Azure PowerShell-skript är tillgängligt som gör följande:
 
 * Skapar en standard SKU Public Load Balancer i resursgruppen och den plats som du anger.
 * Kopierar sömlöst konfigurationerna för den grundläggande SKU-interna belastningsutjämnaren till den nyligen skapande standarduppladdningshanteraren för offentlig belastning.
+* Skapar en utgående regel som möjliggör egressanslutning.
 
 ### <a name="caveatslimitations"></a>Varningar\Begränsningar
 
@@ -42,7 +42,7 @@ Ett Azure PowerShell-skript är tillgängligt som gör följande:
 
 ## <a name="download-the-script"></a>Ladda ner skriptet
 
-Hämta migreringsskriptet från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/1.0).
+Hämta migreringsskriptet från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureLBUpgrade/2.0).
 ## <a name="use-the-script"></a>Använda skriptet
 
 Det finns två alternativ för dig beroende på din lokala PowerShell-miljö inställning och inställningar:

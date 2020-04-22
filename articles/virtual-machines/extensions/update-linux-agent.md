@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mimckitt
-ms.openlocfilehash: e4489f7c810799ca8e89565fe698f398f942b089
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e3b2819b33feba52c3b02f0e2104d4106bd04cbb
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78251708"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770061"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Så här uppdaterar du Azure Linux-agenten på en virtuell dator
 
@@ -29,6 +29,8 @@ Om du vill uppdatera din [Azure Linux-agent](https://github.com/Azure/WALinuxAge
 - En anslutning till den virtuella Linux-datorn med SSH.
 
 Du bör alltid söka efter ett paket i Linux-distributionsarkivet först. Det är möjligt att paketet som är tillgängligt kanske inte är den senaste versionen, men att aktivera autoupdate kommer att se till att Linux-agenten alltid kommer att få den senaste uppdateringen. Om du har problem med att installera från pakethanterare bör du söka stöd från distributionsleverantören.
+
+> ! - Jag vet inte vad du säger. Mer information finns i [Signerade Linux-distributioner på Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)
 
 ## <a name="minimum-virtual-machine-agent-support-in-azure"></a>Minsta stöd för agenter för virtuella datorer i Azure
 Verifiera [stöd för minsta version för agenter för virtuella datorer i Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) innan du fortsätter.

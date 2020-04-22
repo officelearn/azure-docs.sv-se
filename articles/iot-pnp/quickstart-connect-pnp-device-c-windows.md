@@ -1,19 +1,19 @@
 ---
 title: Anslut IoT Plug and Play Preview-exempelenhetskod till IoT Hub (Windows) | Microsoft-dokument
 description: Skapa och kör IoT Plug and Play Preview-exempelenhetskod i Windows som ansluter till en IoT-hubb. Använd Azure IoT explorer-verktyget för att visa informationen som skickas av enheten till navet.
-author: ChrisGMsft
-ms.author: chrisgre
+author: Philmea
+ms.author: philmea
 ms.date: 12/26/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 1c8b6a5d133d8838c2c7a23f8881092affa424dc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 080820024db1302ff5a841761428442396b90040
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75531220"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769852"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-windows-to-iot-hub-c-windows"></a>Snabbstart: Ansluta ett exempel på IoT Plug and Play Preview-enhetsprogram som körs på Windows till IoT Hub (C Windows)
 

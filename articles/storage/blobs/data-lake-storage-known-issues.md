@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 204b5dd4661b34aae8b76d65505a65e20f293f0f
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: dfa4d65464192b90d4a6f74255faaf8b664ce118
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115332"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81767971"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -62,14 +62,11 @@ Ohanterat VM-diskar stöds inte i konton som har ett hierarkiskt namnområde. Om
 
 <a id="api-scope-data-lake-client-library" />
 
-## <a name="file-system-support-in-sdks"></a>Stöd för filsystem i SDK:er
+## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>Stöd för filsystem i SDK:er, PowerShell och Azure CLI
 
-Hämta och ange ACL-åtgärder är för närvarande inte rekursiva.
-
-## <a name="file-system-support-in-powershell-and-azure-cli"></a>Stöd för filsystem i PowerShell och Azure CLI
-
-- [Support för PowerShell](data-lake-storage-directory-file-acl-powershell.md) och [Azure CLI](data-lake-storage-directory-file-acl-cli.md) är i offentlig förhandsversion.
 - Hämta och ange ACL-åtgärder är för närvarande inte rekursiva.
+- [Azure](data-lake-storage-directory-file-acl-cli.md) CLI-supporten är i offentlig förhandsversion.
+
 
 ## <a name="lifecycle-management-policies"></a>Principer för livscykelhantering
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b199854867c48906061cff65bad21e514456c911
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 845948d9aec28ee79a11fb11aaef4cfbf1b263fa
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81378709"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770555"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Konfigurera och aktivera användare för SMS-baserad autentisering med Azure Active Directory (förhandsversion)
 
@@ -40,7 +40,8 @@ För att kunna slutföra den här artikeln behöver du följande resurser och pr
 * Du behöver globala administratörsbehörighet i din Azure AD-klient för att aktivera SMS-baserad autentisering. *global administrator*
 * Varje användare som är aktiverad i princip för textmeddelandeautentiseringsmetod måste licensieras, även om de inte använder den. Varje aktiverad användare måste ha någon av följande Azure AD- eller Microsoft 365-licenser:
     * [Azure AD Premium P1 eller P2][azuread-licensing]
-    * [Microsoft 365 F1 eller F3][m365-firstline-workers-licensing]
+    * [Microsoft 365 (M365) F1 eller F3][m365-firstline-workers-licensing]
+    * [Enterprise Mobility + Security (EMS) E3 eller E5][ems-licensing] eller [Microsoft 365 (M365) E3 eller E5][m365-licensing]
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -161,3 +162,5 @@ Mer information om hur du loggar in på Azure AD utan lösenord, till exempel s�
 [office]: https://www.office.com
 [m365-firstline-workers-licensing]: https://www.microsoft.com/licensing/news/m365-firstline-workers
 [azuread-licensing]: https://azure.microsoft.com/pricing/details/active-directory/
+[ems-licensing]: https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing
+[m365-licensing]: https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans

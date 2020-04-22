@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 9bc40e71c1da6eb60b62cd08c51df89a7f35af09
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 08a97f0f7b1a6a65feb7a2ec041001f2199ffdf7
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80057373"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770636"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introduktion till Azure App Service-miljöer #
  
@@ -24,7 +24,7 @@ Azure App Service-miljön är en funktion i Azure App Service som ger en helt is
 * Linux-webbappar 
 * Docker-containrar
 * Mobilappar
-* Funktioner
+* Functions
 
 App Service-miljöer (ASE) är lämpliga för programarbetsbelastningar som kräver:
 
@@ -34,7 +34,7 @@ App Service-miljöer (ASE) är lämpliga för programarbetsbelastningar som krä
 
 Kunderna kan skapa flera ASE-miljöer inom en enda Azure-region eller över flera Azure-regioner. Den här flexibiliteten gör ASE-miljöer perfekta för vågrätt skalning av tillståndslösa programnivåer med stöd för höga RPS-arbetsbelastningar.
 
-ASE-miljöer är isolerade så att de endast kör en enda kunds program och de distribueras alltid till ett virtuellt nätverk. Kunderna har detaljerad kontroll över inkommande och utgående programnätverkstrafik. Programmen kan upprätta säkra anslutningar med hög hastighet över VPN till lokala företagsresurser.
+ASEs värd program från endast en kund och gör det i ett av sina virtuella nätverk. Kunderna har detaljerad kontroll över inkommande och utgående programnätverkstrafik. Programmen kan upprätta säkra anslutningar med hög hastighet över VPN till lokala företagsresurser.
 
 * ASE levereras med sin egen prisnivå. Läs mer om hur [isolerade erbjudanden](https://channel9.msdn.com/Shows/Azure-Friday/Security-and-Horsepower-with-App-Service-The-New-Isolated-Offering?term=app%20service%20environment) främjar storskalighet och säkerhet.
 * [App Service Environment v2](https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment) ger en omgivning för att skydda dina program i ett undernät i nätverket och ger en privat distribution av Azure App Service.

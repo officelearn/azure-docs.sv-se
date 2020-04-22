@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: 1e2a837acef976b6b872c2d4002ee49d662ad594
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.date: 04/21/2020
+ms.openlocfilehash: 7eb2988628d60fa72c7d83b81a58a1e0fae5de33
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641331"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770087"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Skapa en förslagsman för att aktivera komplettera automatiskt och föreslagna resultat i en fråga
 
-I Azure Cognitive Search aktiveras "sök-som-du-typ" genom en **förslagsförd** konstruera som läggs till i ett [sökindex](search-what-is-an-index.md). En förslagsställare stöder två upplevelser: *komplettera automatiskt*, som kompletterar termen eller frasen, och förslag som *returnerar* en kort lista med matchande dokument.  
+I Azure Cognitive Search aktiveras "sök-som-du-typ" genom en **förslagsförd** konstruera som läggs till i ett [sökindex](search-what-is-an-index.md). En förslagsställare stöder två upplevelser: *komplettera automatiskt*, som slutför en partiell indata för en hel termfråga, och *förslag* som inbjuder klickar sig vidare till en viss matchning. Komplettera automatiskt skapar en fråga. Förslag ger ett matchande dokument.
 
 Följande skärmbild från [Skapa din första app i C#](tutorial-csharp-type-ahead-and-suggestions.md) illustrerar båda. Komplettera automatiskt förutser en potentiell term, efterbehandling "tw" med "i". Förslag är minisökresultat, där ett fält som hotellnamn representerar ett matchande hotellsökdokument från indexet. Om du vill ha förslag kan du visa alla fält som innehåller beskrivande information.
 
@@ -33,27 +33,36 @@ Stöd för söktyp är aktiverat per fält för strängfält. Du kan implementer
 
 ## <a name="what-is-a-suggester"></a>Vad är en förslagsman?
 
-En förslagsställare är en datastruktur som stöder sök-som-du-typ beteenden genom att lagra prefix för matchning på partiella frågor. I likhet med tokeniserade termer lagras prefix i inverterade index, ett för varje fält som anges i en förslagsfältssamling.
-
-När du skapar prefix har en förslagsställare en egen analyskedja, liknande den som används för fulltextsökning. Till skillnad från analys i fulltextsökning kan dock en förslagsförenare bara arbeta över fält som använder standard Lucene-analysatorn (standard) eller en [språkanalysator](index-add-language-analyzers.md). Fält som använder [anpassade analysatorer](index-add-custom-analyzers.md) eller [fördefinierade analysatorer](index-add-custom-analyzers.md#predefined-analyzers-reference) (med undantag för standard Lucene) tillåts uttryckligen för att förhindra dåliga resultat.
-
-> [!NOTE]
-> Om du behöver kringgå analysatorbegränsningen använder du två separata fält för samma innehåll. Detta gör att ett av fälten kan ha en förslagsman, medan det andra kan ställas in med en anpassad analysatorkonfiguration.
+En förslagsställare är en intern datastruktur som stöder sök-som-du-typ beteenden genom att lagra prefix för matchning på partiella frågor. Precis som med tokeniserade termer lagras prefix i inverterade index, ett för varje fält som anges i en förslagsfältssamling.
 
 ## <a name="define-a-suggester"></a>Definiera en förslagsman
 
-Om du vill skapa en förslagsförrättning lägger du till ett i ett [indexschema](https://docs.microsoft.com/rest/api/searchservice/create-index) och [anger varje egenskap](#property-reference). I indexet kan du ha en förslagsman (särskilt en förslagsman i förslagssamlingen). Den bästa tiden att skapa en förslagsman är när du också definierar det fält som ska använda den.
+Om du vill skapa en förslagsförrättning lägger du till ett i ett [indexschema](https://docs.microsoft.com/rest/api/searchservice/create-index) och [anger varje egenskap](#property-reference). Den bästa tiden att skapa en förslagsman är när du också definierar det fält som ska använda den.
+
++ Använd endast strängfält
+
++ Använd standardanalysatorn för Lucene (`"analyzer": null`) eller en [språkanalysator](index-add-language-analyzers.md) (till `"analyzer": "en.Microsoft"`exempel) på fältet
 
 ### <a name="choose-fields"></a>Välj fält
 
-Även om en förslagsansvarig har flera egenskaper är det i första hand en samling fält som du aktiverar en sökupplevelse som du skriver. För förslag i synnerhet, välj fält som bäst representerar ett enda resultat. Namn, titlar eller andra unika fält som skiljer mellan flera matchningar fungerar bäst. Om fälten består av repetitiva värden består förslagen av identiska resultat och en användare vet inte vilken som ska klickas.
+Även om en förslagsansvarig har flera egenskaper är det i första hand en samling strängfält som du aktiverar en sökupplevelse för dig. Det finns en förslagsställare för varje index, så förslagslistan måste innehålla alla fält som bidrar med innehåll för både förslag och komplettera automatiskt.
 
-Kontrollera att varje fält använder en analysator som utför lexikal analys under indexeringen. Du kan använda antingen standardstandarden Lucene analyzer (`"analyzer": null`) eller en [språkanalysator](index-add-language-analyzers.md) (till exempel ). `"analyzer": "en.Microsoft"` 
+Komplettera automatiskt drar nytta av en större grupp fält att dra från eftersom det ytterligare innehållet har större potential för slutförande av termen.
 
-Ditt val av en analysator avgör hur fält tokeniseras och därefter föregås. För en avstavad sträng som "kontextkänslig" resulterar till exempel dessa tokenkombinationer med hjälp av en språkanalysator: "kontext", "känslig", "kontextkänslig". Om du hade använt Lucene-standardanalysatorn skulle den avstavade strängen inte existera.
+Förslag ger å andra sidan bättre resultat när ditt fältval är selektivt. Kom ihåg att förslaget är en proxy för ett sökdokument så att du vill ha fält som bäst representerar ett enda resultat. Namn, titlar eller andra unika fält som skiljer mellan flera matchningar fungerar bäst. Om fälten består av repetitiva värden består förslagen av identiska resultat och en användare vet inte vilken som ska klickas.
 
-> [!TIP]
-> Överväg att använda [API:et](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) analysera text för att få insikt i hur termer tokeniseras och därefter föregås. När du har byggt ett index kan du prova olika analysatorer på en sträng för att visa de token som det avger.
+Om du vill uppfylla både sök-som-du-typ-upplevelser lägger du till alla fält som du behöver för automatisk komplettering, men använder sedan **$select,** **$top,** **$filter**och **sökfält** för att styra resultat för förslag.
+
+### <a name="choose-analyzers"></a>Välj analysatorer
+
+Ditt val av en analysator avgör hur fält tokeniseras och därefter föregås. För en avstavad sträng som "kontextkänslig" resulterar till exempel dessa tokenkombinationer med hjälp av en språkanalysator: "kontext", "känslig", "kontextkänslig". Om du hade använt Lucene-standardanalysatorn skulle den avstavade strängen inte existera. 
+
+När du utvärderar analysatorer bör du överväga att använda [API:et](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) analysera text för att få insikt i hur termer tokeniseras och därefter föregås. När du har byggt ett index kan du prova olika analysatorer på en sträng för att visa tokenutdata.
+
+Fält som använder [anpassade analysatorer](index-add-custom-analyzers.md) eller [fördefinierade analysatorer](index-add-custom-analyzers.md#predefined-analyzers-reference) (med undantag för standard Lucene) tillåts uttryckligen för att förhindra dåliga resultat.
+
+> [!NOTE]
+> Om du behöver kringgå analysbegränsningen, till exempel om du behöver ett nyckelord eller ngram-analysator för vissa frågescenarier, bör du använda två separata fält för samma innehåll. Detta gör att ett av fälten kan ha en förslagsman, medan det andra kan ställas in med en anpassad analysatorkonfiguration.
 
 ### <a name="when-to-create-a-suggester"></a>När du ska skapa en förslagsman
 
@@ -161,7 +170,7 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
 
 ## <a name="next-steps"></a>Nästa steg
 
-Vi rekommenderar följande exempel för att se hur begäranden formuleras.
+Vi rekommenderar följande artikel om du vill veta mer om hur formuleringen begärs.
 
 > [!div class="nextstepaction"]
 > [Lägga till komplettera automatiskt och förslag i klientkoden](search-autocomplete-tutorial.md) 

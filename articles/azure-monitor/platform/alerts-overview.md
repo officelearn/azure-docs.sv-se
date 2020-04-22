@@ -4,12 +4,12 @@ description: Översikt över aviseringar i Azure. Aviseringar, klassiska aviseri
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: 7ca77531ed3e1fae8ec297e430597452c7512aea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e02c23623062f5cb3e4c597b0bb257b30aa9f44a
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79274793"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81769773"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Översikt över aviseringar i Microsoft Azure 
 
@@ -125,7 +125,10 @@ Om du vill visa sidan **Regler** väljer du **Hantera varningsregler**. Regelsid
 
 
 ## <a name="create-an-alert-rule"></a>Skapa en varningsregel
-Du kan skapa aviseringar på ett konsekvent sätt, oavsett övervakningstjänst eller signaltyp. Alla avfyrade aviseringar och relaterad information finns på en sida.
+Du kan skapa varningsregler på ett konsekvent sätt, oavsett övervakningstjänst eller signaltyp.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tflw]
+
  
 Så här skapar du en ny aviseringsregel:
 1. Välj _målet_ för aviseringen.

@@ -3,12 +3,12 @@ title: Azure Service Fabric Central Secrets Store
 description: I den här artikeln beskrivs hur du använder Central Secrets Store i Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.openlocfilehash: 11fb94a9fba40e6f2474ad64f5eb0c454be28ca0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4087e7ccdcb2281c4a08af155d35a10c66147a85
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77589172"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770418"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Central Secrets Store i Azure Service Fabric 
 I den här artikeln beskrivs hur du använder Css (Central Secrets Store) i Azure Service Fabric för att skapa hemligheter i Service Fabric-program. CSS är en lokal hemlig lagringscache som behåller känsliga data, till exempel ett lösenord, token och nycklar, krypterade i minnet.
@@ -47,31 +47,9 @@ Lägg till följande skript i `fabricSettings` klusterkonfigurationen under för
      ]
 ```
 ## <a name="declare-a-secret-resource"></a>Deklarera en hemlig resurs
-Du kan skapa en hemlig resurs med hjälp av antingen Azure Resource Manager-mallen eller REST API.
-
-### <a name="use-resource-manager"></a>Använda Resurshanteraren
-
-Använd följande mall om du vill använda Resource Manager för att skapa den hemliga resursen. Mallen skapar `supersecret` en hemlig resurs, men inget värde har angetts för den hemliga resursen ännu.
-
-
-```json
-   "resources": [
-      {
-        "apiVersion": "2018-07-01-preview",
-        "name": "supersecret",
-        "type": "Microsoft.ServiceFabricMesh/secrets",
-        "location": "[parameters('location')]", 
-        "dependsOn": [],
-        "properties": {
-          "kind": "inlinedValue",
-            "description": "Application Secret",
-            "contentType": "text/plain",
-          }
-        }
-      ]
-```
-
-### <a name="use-the-rest-api"></a>Använd REST API
+Du kan skapa en hemlig resurs med hjälp av REST API.
+  > [!NOTE] 
+  > Om klustret använder Windows-autentisering skickas REST-begäran via osäker HTTP-kanal. Rekommendationen är att använda ett X509-baserat kluster med säkra slutpunkter.
 
 Om du `supersecret` vill skapa en hemlig resurs med `https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview`hjälp av REST API gör du en PUT-begäran till . Du behöver klustercertifikatet eller administratörsklientcertifikatet för att skapa en hemlig resurs.
 
@@ -81,48 +59,6 @@ Invoke-WebRequest  -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecre
 ```
 
 ## <a name="set-the-secret-value"></a>Ange det hemliga värdet
-
-### <a name="use-the-resource-manager-template"></a>Använda mallen Resurshanteraren
-
-Använd följande Resource Manager-mall för att skapa och ange det hemliga värdet. Den här mallen anger `supersecret` det hemliga värdet för den hemliga resursen som version `ver1`.
-```json
-  {
-  "parameters": {
-  "supersecret": {
-      "type": "string",
-      "metadata": {
-        "description": "supersecret value"
-      }
-   }
-  },
-  "resources": [
-    {
-      "apiVersion": "2018-07-01-preview",
-        "name": "supersecret",
-        "type": "Microsoft.ServiceFabricMesh/secrets",
-        "location": "[parameters('location')]", 
-        "dependsOn": [],
-        "properties": {
-          "kind": "inlinedValue",
-            "description": "Application Secret",
-            "contentType": "text/plain",
-        }
-    },
-    {
-      "apiVersion": "2018-07-01-preview",
-      "name": "supersecret/ver1",
-      "type": "Microsoft.ServiceFabricMesh/secrets/values",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "Microsoft.ServiceFabricMesh/secrets/supersecret"
-      ],
-      "properties": {
-        "value": "[parameters('supersecret')]"
-      }
-    }
-  ],
-  ```
-### <a name="use-the-rest-api"></a>Använd REST API
 
 Använd följande skript för att använda REST API för att ange det hemliga värdet.
 ```powershell

@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: 14946a05f021a9b155fd9a9621f73bde980970fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4dd959d75fd582d787e68db4a415a4a694b9cda8
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75750463"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770650"
 ---
 # <a name="deployment-best-practices"></a>Metodtips för distribution
 
@@ -37,6 +37,92 @@ Distributionsmekanismen är den åtgärd som används för att placera det inbyg
 
 Distributionsverktyg som Azure Pipelines, Jenkins och editor plugins använder en av dessa distributionsmekanismer.
 
+## <a name="use-deployment-slots"></a>Använda distributionsplatser
+
+Använd [distributionsplatser](deploy-staging-slots.md) när du distribuerar en ny produktionsversion när det är möjligt. När du använder en standardapptjänstplansnivå eller bättre kan du distribuera appen till en mellanlagringsmiljö, validera dina ändringar och göra röktester. När du är redo kan du byta mellanlagring och produktionsplatser. Växlingsåtgärden värms upp de nödvändiga arbetsinstanserna för att matcha din produktionsskala, vilket eliminerar driftstopp.
+
+### <a name="continuously-deploy-code"></a>Distribuera kod kontinuerligt
+
+Om projektet har utsett grenar för testning, QA och mellanlagring bör var och en av dessa grenar distribueras kontinuerligt till en mellanlagringsplats. (Detta kallas [Gitflow-designen](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).) På så sätt kan dina intressenter enkelt bedöma och testa den distribuerade grenen. 
+
+Kontinuerlig distribution bör aldrig aktiveras för din produktionsplats. I stället bör din produktionsgren (ofta huvudbehärskning) distribueras på en plats som inte är produktionsplats. När du är redo att släppa basgrenen byter du ut den i produktionsplatsen. Att byta till produktion – i stället för att distribuera till produktion – förhindrar driftstopp och gör att du kan återställa ändringarna genom att byta igen. 
+
+![Visuellt objekt för kortplatsanvändning](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
+
+### <a name="continuously-deploy-containers"></a>Distribuera behållare kontinuerligt
+
+För anpassade behållare från Docker eller andra behållarregister distribuerar du avbildningen till en mellanlagringsplats och byter till produktion för att förhindra driftstopp. Automatiseringen är mer komplex än koddistributionen eftersom du måste skicka avbildningen till ett behållarregister och uppdatera avbildningstaggen på webbappen.
+
+För varje gren som du vill distribuera till en plats ställer du in automatisering för att göra följande på varje åtagande till grenen.
+
+1. **Skapa och tagga bilden**. Som en del av build-pipelinen taggar du avbildningen med git commit ID, tidsstämpel eller annan identifierbar information. Det är bäst att inte använda standardtaggen "senaste". Annars är det svårt att spåra tillbaka vilken kod som för närvarande distribueras, vilket gör felsökning mycket svårare.
+1. **Tryck på den taggade bilden**. När avbildningen har byggts och taggats, skickar pipelinen avbildningen till vårt behållarregister. I nästa steg hämtar distributionsplatsen den taggade avbildningen från behållarregistret.
+1. **Uppdatera distributionsplatsen med den nya avbildningstaggen**. När den här egenskapen uppdateras startas platsen automatiskt om och hämtar den nya behållaravbildningen.
+
+![Visuellt objekt för kortplatsanvändning](media/app-service-deploy-best-practices/slot_flow_container_diagram.png)
+
+Det finns exempel nedan för gemensamma automatiseringsramverk.
+
+### <a name="use-azure-devops"></a>Använda Azure DevOps
+
+App Service har [inbyggd kontinuerlig leverans](deploy-continuous-deployment.md) för behållare via Distributionscenter. Navigera till din app i [Azure-portalen](https://portal.azure.com/) och välj **Distributionscenter** under **Distribution**. Följ instruktionerna för att välja din databas och gren. Detta konfigurerar en DevOps-bygg- och frigöringspipeline för att automatiskt skapa, tagga och distribuera din behållare när nya åtaganden skjuts till den valda grenen.
+
+### <a name="use-github-actions"></a>Använda GitHub-åtgärder
+
+Du kan också automatisera behållardistributionen [med GitHub-åtgärder](containers/deploy-container-github-action.md).  Arbetsflödesfilen nedan skapar och taggar behållaren med commit-ID: t, skickar den till ett behållarregister och uppdaterar den angivna platsplatsen med den nya avbildningstaggen.
+
+```yaml
+name: Build and deploy a container image to Azure Web Apps
+
+on:
+  push:
+    branches:
+    - <your-branch-name>
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@master
+
+    -name: Authenticate using a Service Principal
+      uses: azure/actions/login@v1
+      with:
+        creds: ${{ secrets.AZURE_SP }}
+
+    - uses: azure/container-actions/docker-login@v1
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build and push the image tagged with the git commit hash
+      run: |
+        docker build . -t contoso/demo:${{ github.sha }}
+        docker push contoso/demo:${{ github.sha }}
+
+    - name: Update image tag on the Azure Web App
+      uses: azure/webapps-container-deploy@v1
+      with:
+        app-name: '<your-webapp-name>'
+        slot-name: '<your-slot-name>'
+        images: 'contoso/demo:${{ github.sha }}'
+```
+
+### <a name="use-other-automation-providers"></a>Använda andra automationsleverantörer
+
+Stegen som tidigare angetts gäller för andra automatiseringsverktyg som CircleCI eller Travis CI. Du måste dock använda Azure CLI för att uppdatera distributionsplatserna med nya avbildningstaggar i det sista steget. Om du vill använda Azure CLI i ditt automatiseringsskript genererar du ett tjänsthuvudnamn med följande kommando.
+
+```shell
+az ad sp create-for-rbac --name "myServicePrincipal" --role contributor \
+   --scopes /subscriptions/{subscription}/resourceGroups/{resource-group} \
+   --sdk-auth
+```
+
+Logga in med `az login --service-principal`skriptet och ange huvudmannens information i skriptet. Du kan `az webapp config container set` sedan använda för att ange behållarnamn, tagg, register-URL och registerlösenord. Nedan finns några användbara länkar för dig att konstruera din container CI process.
+
+- [Så här loggar du in på Azure CLI på Circle CI](https://circleci.com/orbs/registry/orb/circleci/azure-cli) 
+
 ## <a name="language-specific-considerations"></a>Språkspecifika överväganden
 
 ### <a name="java"></a>Java
@@ -49,13 +135,9 @@ Som standard kör Kudu byggstegen för nodprogrammet (`npm install`). Om du anv�
 
 ### <a name="net"></a>.NET 
 
-Som standard kör Kudu byggstegen för ditt`dotnet build`.Net-program ( ). Om du använder en byggtjänst som Azure DevOps är Kudu-versionen onödig. Om du vill inaktivera Kudu-versionen `SCM_DO_BUILD_DURING_DEPLOYMENT`skapar du `false`en appinställning med värdet .
+Som standard kör Kudu byggstegen för ditt`dotnet build`.NET-program ( ). Om du använder en byggtjänst som Azure DevOps är Kudu-versionen onödig. Om du vill inaktivera Kudu-versionen `SCM_DO_BUILD_DURING_DEPLOYMENT`skapar du `false`en appinställning med värdet .
 
 ## <a name="other-deployment-considerations"></a>Andra spridningsöverväganden
-
-### <a name="use-deployment-slots"></a>Använda distributionsplatser
-
-Använd [distributionsplatser](deploy-staging-slots.md) när du distribuerar en ny produktionsversion när det är möjligt. När du använder en standardapptjänstplansnivå eller bättre kan du distribuera appen till en mellanlagringsmiljö, validera dina ändringar och göra röktester. När du är redo kan du byta mellanlagring och produktionsplatser. Växlingsåtgärden värms upp de nödvändiga arbetsinstanserna för att matcha din produktionsskala, vilket eliminerar driftstopp. 
 
 ### <a name="local-cache"></a>Lokal cache
 

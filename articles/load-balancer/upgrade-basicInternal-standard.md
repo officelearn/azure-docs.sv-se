@@ -7,40 +7,36 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 02/23/2020
 ms.author: irenehua
-ms.openlocfilehash: c2c909d8ef2be982d4dd4a70b5f35d03e8e71418
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 239dc0f3133a5adf59a23d333131c91d3a655597
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659976"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770377"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Uppgradera Azure Intern belastningsutjämning- ingen utgående anslutning krävs
 [Azure Standard Load Balancer](load-balancer-overview.md) erbjuder en omfattande uppsättning funktioner och hög tillgänglighet via zonredundans. Mer information om belastningsutjämnare SKU finns i [jämförelsetabellen](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
 
-Det finns två steg i en uppgradering:
-
-1. Migrera konfigurationen
-2. Lägga till virtuella datorer i backend-pooler med standardbelastningsutjämning
-
-Den här artikeln beskriver konfigurationsmigrering. Att lägga till virtuella datorer i backend-pooler kan variera beroende på din specifika miljö. Vissa allmänna rekommendationer på hög nivå [ges](#add-vms-to-backend-pools-of-standard-load-balancer)dock.
+Den här artikeln introducerar ett PowerShell-skript som skapar en standardbelastningsjämningsfaktor med samma konfiguration som den grundläggande belastningsutjämnaren tillsammans med migrerande trafik från grundläggande belastningsutjämnare till standardbelastningsutjämning.
 
 ## <a name="upgrade-overview"></a>Översikt över uppgradering
 
 Ett Azure PowerShell-skript är tillgängligt som gör följande:
 
 * Skapar en intern SKU-belastningsutjämning för standard på den plats som du anger. Observera att ingen [utgående anslutning](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) inte kommer att tillhandahållas av standardintern belastningsutjämnare.
-* Kopierar sömlöst konfigurationerna för den grundläggande SKU-belastningsutjämnaren till den nyligen skapande standardbelastningsutjämningen.
+* Kopierar sömlöst konfigurationerna för den grundläggande SKU-belastningsutjämnaren till den nyligen skapade standardbelastningsutjämningsapparaten.
+* Flytta de privata IPs-adresserna sömlöst från grundläggande belastningsutjämning till den nyligen skapade standardbelastningsutjämningsapparaten.
+* Flytta de virtuella datorerna sömlöst från backend-poolen i den grundläggande belastningsutjämnaren till backend-poolen på standardbelastningsutjämningsapparaten
 
 ### <a name="caveatslimitations"></a>Varningar\Begränsningar
 
 * Skriptet stöder endast intern belastningsutjämningsuppgradering där ingen utgående anslutning krävs. Om du behöver [utgående anslutning](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) för några av dina virtuella datorer läser du den här [sidan](upgrade-InternalBasic-To-PublicStandard.md) för instruktioner. 
-* Standardbelastningsutjämningsapparaten har nya offentliga adresser. Det är omöjligt att flytta IP-adresser som är associerade med befintliga grundläggande belastningsutjämnare sömlöst till Standard Load Balancer eftersom de har olika SKU: er.
 * Om standardbelastningsutjämkaren skapas i en annan region kan du inte associera de virtuella datorerna som finns i den gamla regionen till den nyligen skapade standardbelastningsutjämningsapparaten. Du kan komma runt den här begränsningen och se till att skapa en ny virtuell dator i den nya regionen.
 * Om din belastningsutjämnare inte har någon ip-konfiguration eller serverdelspool i frontend kommer du troligen att orsaka ett fel som kör skriptet. Se till att de inte är tomma.
 
 ## <a name="download-the-script"></a>Ladda ner skriptet
 
-Hämta migreringsskriptet från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureILBUpgrade/1.0).
+Hämta migreringsskriptet från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureILBUpgrade/2.0).
 ## <a name="use-the-script"></a>Använda skriptet
 
 Det finns två alternativ för dig beroende på din lokala PowerShell-miljö inställning och inställningar:
@@ -84,30 +80,6 @@ Kör skriptet så här:
    AzureILBUpgrade.ps1 -rgName "test_InternalUpgrade_rg" -oldLBName "LBForInternal" -newlocation "centralus" -newLbName "LBForUpgrade"
    ```
 
-### <a name="add-vms-to-backend-pools-of-standard-load-balancer"></a>Lägga till virtuella datorer i backend-pooler med standardbelastningsutjämning
-
-Kontrollera först att skriptet har skapat en ny intern standardbelastningsutjämning med exakt den exakta konfigurationen som har migrerats från din grundläggande interna belastningsutjämnare. Du kan verifiera detta från Azure-portalen.
-
-Var noga med att skicka en liten mängd trafik genom standardbelastningsutjämningsutfärdaren som ett manuellt test.
-  
-Här är några scenarier med hur du lägger till virtuella datorer i serverdapooler i den nyligen skapade standardintern belastningsutjämnaren kan konfigureras och våra rekommendationer för var och en:
-
-* **Flytta befintliga virtuella datorer från backend-pooler med gamla grundläggande interna belastningsutjämnare till backend-pooler av nyskapade standardintern belastningsutjämnar**.
-    1. Logga in på [Azure-portalen](https://portal.azure.com) för att genomföra alla uppgifter i den här snabbstarten.
- 
-    1. Välj **Alla resurser** på den vänstra menyn och välj sedan den nyligen skapade **standardbelastningsutjämningsaren** i resurslistan.
-   
-    1. Under **Inställningar**väljer du **Backend-pooler**.
-   
-    1. Välj den backend-pool som matchar backend-poolen för basic load balancer, välj följande värde: 
-      - **Virtuell dator:** Släpp ned och välj de virtuella datorerna från den matchande servergruppspoolen i den grundläggande belastningsutjämnaren.
-    1. Välj **Spara**.
-    >[!NOTE]
-    >För virtuella datorer som har offentliga IP-adresser måste du först skapa standard-IP-adresser där samma IP-adress inte är garanterad. Ta bort virtuella datorer från grundläggande IP-adresser och associera dem med de nyligen skapade standard-IP-adresserna. Sedan kan du följa instruktionerna för att lägga till virtuella datorer i backend-poolen för standardbelastningsutjämnaren. 
-
-* **Skapa nya virtuella datorer som du vill lägga till i backend-poolerna i den nyligen skapade standardintern belastningsutjämnaren**.
-    * Fler instruktioner om hur du skapar virtuell dator och associerar den med standardbelastningsutjämnaren finns [här](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
-
 ## <a name="common-questions"></a>Vanliga frågor
 
 ### <a name="are-there-any-limitations-with-the-azure-powershell-script-to-migrate-the-configuration-from-v1-to-v2"></a>Finns det några begränsningar med Azure PowerShell-skriptet för att migrera konfigurationen från v1 till v2?
@@ -116,7 +88,7 @@ Ja. Se [varningar/begränsningar](#caveatslimitations).
 
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>Växlar Azure PowerShell-skriptet också över trafiken från min grundläggande belastningsutjämnare till den nyligen skapade standardbelastningsutjämningen?
 
-Nej. Azure PowerShell-skriptet migrerar bara konfigurationen. Faktisk trafikmigrering är ditt ansvar och i din kontroll.
+Ja det migrerar trafik. Om du vill migrera trafik personligen använder du [det här skriptet](https://www.powershellgallery.com/packages/AzureILBUpgrade/1.0) som inte flyttar virtuella datorer åt dig.
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Jag stötte på några problem med att använda detta skript. Hur kan jag få hjälp?
   

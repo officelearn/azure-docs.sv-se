@@ -1,27 +1,24 @@
 ---
-title: Azure Data Lake Storage Gen2 PowerShell för filer & ACL:er (förhandsversion)
+title: Azure Data Lake Storage Gen2 PowerShell för filer & ACL:er
 description: Använd PowerShell-cmdletar för att hantera kataloger och ACL (File and Directory Access Control List) i lagringskonton med hierarkiskt namnområde (HNS).
 services: storage
 author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: b59c68e3f2edc0fbe5eee3c3861a3e5116d4fac6
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 68ffe40f93be3d10666ebad2eaa153fc9dc9687f
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262391"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768013"
 ---
-# <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Använda PowerShell för att hantera kataloger, filer och ACL:er i Azure Data Lake Storage Gen2 (förhandsversion)
+# <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Använda PowerShell för att hantera kataloger, filer och ACL:er i Azure Data Lake Storage Gen2
 
 Den här artikeln visar hur du använder PowerShell för att skapa och hantera kataloger, filer och behörigheter i lagringskonton som har aktiverat hierarkiskt namnområde (HNS). 
-
-> [!IMPORTANT]
-> PowerShell-modulen som finns med i den här artikeln är för närvarande i offentlig förhandsversion.
 
 [Gen1 till Gen2-mappning](#gen1-gen2-map) | [Ge feedback](https://github.com/Azure/azure-powershell/issues)
 
@@ -33,7 +30,7 @@ Den här artikeln visar hur du använder PowerShell för att skapa och hantera k
 > * .NET Framework är 4.7.2 eller mer installerat. Se [Hämta .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
 > * PowerShell-version `5.1` eller högre.
 
-## <a name="install-powershell-modules"></a>Installera PowerShell-moduler
+## <a name="install-the-powershell-module"></a>Installera PowerShell-modulen
 
 1. Kontrollera att den version av PowerShell som har installerats är `5.1` eller högre med hjälp av följande kommando.    
 
@@ -43,16 +40,10 @@ Den här artikeln visar hur du använder PowerShell för att skapa och hantera k
     
    Information om hur du uppgraderar din version av PowerShell finns i [Uppgradera befintliga Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
     
-2. Installera den senaste **PowershellGet-modulen.** Stäng sedan och öppna PowerShell-konsolen igen.
+2. Installera **Modulen Az.Storage.**
 
    ```powershell
-   Install-Module PowerShellGet –Repository PSGallery –Force 
-   ```
-
-3. Installera förhandsversionen av **Az.Storage.**
-
-   ```powershell
-   Install-Module az.storage -RequiredVersion 1.13.3-preview -Repository PSGallery -AllowClobber -AllowPrerelease -Force 
+   Install-Module Az.Storage -Repository PSGallery -Force  
    ```
 
    Mer information om hur du installerar PowerShell-moduler finns i [Installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)

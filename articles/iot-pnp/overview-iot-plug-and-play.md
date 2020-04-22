@@ -1,20 +1,20 @@
 ---
 title: Introduktion till IoT Plug and Play Preview | Microsoft-dokument
 description: Läs mer om förhandsversionen av IoT Plug and Play. IoT Plug and Play baseras på ett öppet modelleringsspråk som gör det möjligt för IoT-enheter att deklarera sina funktioner. IoT-enheter presenterar den deklarationen, som kallas en enhetskapacitetsmodell, när de ansluter till molnlösningar som Azure IoT Central eller partnerprogram. Molnlösningen kan sedan automatiskt förstå enheten och börja interagera med den – allt utan att skriva någon kod.
-author: ChrisGMsft
-ms.author: chrisgre
+author: Philmea
+ms.author: philmea
 ms.date: 12/23/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 0399e1659fb7cc6a650c6b3c1d0189c8802d4904
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 12f3febac2c5c8ed01b9b156a64dc77f6ed0704f
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80064318"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770438"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>Vad är IoT Plug and Play Preview?
 

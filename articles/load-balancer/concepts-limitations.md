@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/14/2020
 ms.author: allensu
-ms.openlocfilehash: a94b51e49951948974b8f42f6c89cd3c84f95d65
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7a7210915920ed9ab2a5ddc47a27c2587895a57a
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80064282"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768265"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Belastningsutjämnareskomponenter och begränsningar
 Azure Load Balancer innehåller flera viktiga komponenter för dess funktion.  Dessa komponenter kan konfigureras i din prenumeration via Azure-portalen, Azure CLI eller Azure PowerShell.  
@@ -95,7 +95,7 @@ Följande bild visar den hash-baserade distributionen:
 
     - belastningsutjämningsregler drar slutsatsen hur SNAT programmeras. Belastningsutjämningsregler är protokollspecifika. SNAT är protokollspecifikt och konfigurationen bör återspegla detta i stället för att skapa en bieffekt.
 
-    - **Flera frontends** När flera frontends är tillgängliga används alla klientdels och varje klientdel multiplicerar antalet tillgängliga SNAT-portar. Om du vill ha fler SNAT-portar eftersom du förväntar dig eller redan har en hög efterfrågan på utgående anslutningar, kan du också lägga till inkrementella SNAT-portar genom att konfigurera ytterligare frontends, regler och serverdelspooler till samma virtuella dator Resurser.
+    - **Flera frontends** När flera frontends är tillgängliga används alla klientdels och varje klientdel multiplicerar antalet tillgängliga SNAT-portar. Om du vill ha fler SNAT-portar eftersom du förväntar dig eller redan har en hög efterfrågan på utgående anslutningar, kan du också lägga till inkrementella SNAT-portar genom att konfigurera ytterligare frontends, regler och serverdelspooler till samma virtuella datorresurser.
 
     - **Styr vilken frontsida som används för utgående** Du kan välja och styra om du inte vill att en viss klientdel ska användas för utgående anslutningar. Om du vill begränsa utgående anslutningar till endast kommer från en specifik ip-adress för klientdel kan du inaktivera utgående SNAT på regeln som uttrycker den utgående mappningen.
 
@@ -171,6 +171,8 @@ Belastningsutjämnaren stöder både basic- och standardsku:er. Dessa SKU:er ski
 
 Den fullständiga scenariokonfigurationen kan skilja sig något beroende på SKU. Dokumentation av belastningsutjämnare ropar när en artikel endast gäller för en viss SKU. Du kan jämföra och se skillnaderna i tabellen nedan. Mer information finns i [översikt över Azure Standard Load Balancer](load-balancer-standard-overview.md).
 
+Information om hur du uppgraderar grundläggande belastningsutjämnare till standard finns i [Uppgradera en grundläggande belastningsutjämnare](upgrade-basic-standard.md).
+
 >[!NOTE]
 > Microsoft rekommenderar standardbelastningsutjämning.
 Fristående virtuella datorer, tillgänglighetsuppsättningar och VM-skalningsuppsättningar kan bara anslutas till en SKU, aldrig båda. Belastningsutjämnare och den offentliga IP-adressen SKU måste matcha när du använder dem med offentliga IP-adresser. Belastningsutjämnare och offentliga IP-SKU:er kan inte stängas av.
@@ -207,6 +209,7 @@ Mer information finns i [Belastningsutjämnadgränser](https://docs.microsoft.co
 
 ## <a name="next-steps"></a>Nästa steg
 
+- Se [Uppgradera en grundläggande belastningsutjämnare](upgrade-basic-standard.md) för att uppgradera grundläggande belastningsutjämnare till standardbelastningsutjämnare.
 - Se [Skapa en offentlig standardbelastningsutjämnare](quickstart-load-balancer-standard-public-portal.md) för att komma igång med att använda en belastningsutjämnare: skapa en, skapa virtuella datorer med ett anpassat IIS-tillägg installerat och belastningsbalans webbappen mellan de virtuella datorerna.
 - Läs mer om [Azure Load Balancer](load-balancer-overview.md).
 - Lär dig mer om hur du använder [standardbelastningsutjämning och tillgänglighetszoner](load-balancer-standard-availability-zones.md).

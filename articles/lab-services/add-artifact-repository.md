@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/21/2019
 ms.author: spelluru
-ms.openlocfilehash: a0dbd92533703a56f1ec2478fab8944656129247
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2bb871119bece71c705ad9621a7c76c4b5ed0bc7
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80295514"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770248"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Lägga till en artefaktdatabas i labbet i DevTest Labs
 DevTest Labs kan du ange en artefakt som ska läggas till en virtuell dator vid tidpunkten för skapandet av den virtuella datorn eller efter att den virtuella datorn har skapats. Den här artefakten kan vara ett verktyg eller ett program som du vill installera på den virtuella datorn. Artefakter definieras i en JSON-fil som läses in från en GitHub- eller Azure DevOps Git-databas.
@@ -52,13 +52,13 @@ Om du vill lägga till en databas i labbet får du först viktig information fr�
 4. Spara webbadressen. Du använder webbadressen senare.
 5. Om du vill skapa en personlig åtkomsttoken väljer du **Min profil**i den nedrullningsbara menyn Användarkonto .
 6. På sidan med profilinformation väljer du **Säkerhet**.
-7. Välj **Lägg till**på fliken **Säkerhet** .
-8. På sidan **Skapa en personlig åtkomsttoken:**
-   1. Ange en **beskrivning** för token.
-   2. Välj **180 dagar**i listan **Upphör att gälla** i .
-   3. I listan **Konton** väljer du **Alla tillgängliga konton**.
-   4. Välj alternativet **Alla scope.**
-   5. Välj **Skapa token**.
+7. Välj **+ Ny token**på fliken Säkerhet > Personliga **åtkomsttoken.**
+8. På sidan Skapa en ny token för **personlig åtkomst:**
+   1. Ange ett **namn** för token.
+   2. I **organisationslistan** väljer du **Alla tillgängliga organisationer**.
+   3. Välj **90 dagar**eller en anpassad definierad förfalloperiod i listan **Utc (EXPIRATION).**
+   4. Välj alternativet **Fullständig åtkomst** för scope.
+   5. Välj **Skapa**.
 9. Den nya token visas i listan **Token för personlig åtkomst.** Välj **Kopiera token**och spara sedan tokenvärdet för senare användning.
 10. Fortsätt till avsnittet Anslut labbet till databasavsnittet.
 

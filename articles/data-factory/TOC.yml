@@ -595,6 +595,10 @@
           href: self-hosted-integration-runtime-proxy-ssis.md
         - name: Aktivera Azure AD-autentisering för Azure-SSIS IR
           href: enable-aad-authentication-azure-ssis-ir.md
+        - name: Ansluta till data med Windows-autentisering
+          href: ssis-azure-connect-with-windows-auth.md
+        - name: Spara filer och anslut till filresurser
+          href: ssis-azure-files-file-shares.md
         - name: Etablera Enterprise Edition för Azure-SSIS IR
           href: how-to-configure-azure-ssis-ir-enterprise-edition.md
         - name: Anpassa konfiguration för Azure-SSIS IR

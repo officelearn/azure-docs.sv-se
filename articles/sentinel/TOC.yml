@@ -21,13 +21,13 @@
       href: tutorial-investigate-cases.md
     - name: Reagera på hot
       href: tutorial-respond-threats-playbook.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Tilldela behörigheter med hjälp av roller
       href: roles.md
     - name: Avancerad attackidentifiering i flera faser
       href: fusion.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Ansluta till datakällor
       href: connect-data-sources.md
@@ -87,7 +87,7 @@
             - name: CEF-baserade lösningar
               href: connect-common-event-format.md
               items:
-                - name: STEG 1 Distribuera agenten
+                - name: STEG 1 Distribuera vidarebefordrare av loggar
                   href: connect-cef-agent.md
                 - name: STEG 2 Konfigurera din säkerhetslösning
                   href: connect-cef-solution-config.md

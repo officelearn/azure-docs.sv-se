@@ -208,6 +208,8 @@
           href: how-to-connect-pta-quick-start.md
         - name: Vanliga frågor och svar om direktautentisering
           href: how-to-connect-pta-faq.md
+        - name: Inaktivera PTA med funktionen ”Konfigurera inte” i Azure AD Connect
+          href: how-to-connect-pta-disable-do-not-configure.md
     - name: Hantera Federation Services
       items:
         - name: Hantera federation med Azure AD Connect

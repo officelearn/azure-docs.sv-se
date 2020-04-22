@@ -102,6 +102,8 @@
               href: hdinsight-hadoop-customize-cluster-linux.md
             - name: Utveckla skriptåtgärder
               href: hdinsight-hadoop-script-actions-linux.md
+            - name: Programstöd med öppen källkod
+              href: open-source-software.md
             - name: Lägga till Apache Hive-bibliotek
               href: hdinsight-hadoop-add-hive-libraries.md
             - name: Använd Hue
@@ -210,6 +212,10 @@
               href: ./hdinsight-key-scenarios-to-monitor.md
             - name: Övervaka klustertillgänglighet med Ambari- och Azure Monitor-loggar
               href: ./hdinsight-cluster-availability.md
+        - name: Felsöka
+          items:
+            - name: Felsöka skriptåtgärder
+              href: ./troubleshoot-script-action.md
     - name: Referens
       items:
         - name: Azure PowerShell
@@ -878,6 +884,8 @@
           href: ./domain-joined/apache-domain-joined-architecture.md
         - name: Arkitektur för virtuellt HDInsight-nätverk
           href: ./hdinsight-virtual-network-architecture.md
+        - name: Transport Layer Security
+          href: ./transport-layer-security.md
         - name: Planera virtuella nätverk för HDInsight
           href: ./hdinsight-plan-virtual-network-deployment.md
         - name: IP-adresser som krävs för nätverkssäkerhetsgrupper och användardefinierade vägar

@@ -13,6 +13,9 @@
     - name: Livehändelse med portal och Wirecast
       displayName: 'live, event, portal, wirecast'
       href: live-events-wirecast-quickstart.md
+    - name: Livehändelse med portal och OBS
+      displayName: 'live, event, portal, obs'
+      href: live-events-obs-quickstart.md
 - name: Självstudier
   items:
     - name: Koda fjärrfiler och strömma videor
@@ -406,3 +409,5 @@
       href: limits-quotas-constraints.md
     - name: Azure-moln och -regioner
       href: azure-clouds-regions.md
+    - name: Dokumentationsuppdateringar
+      href: docs-release-notes.md

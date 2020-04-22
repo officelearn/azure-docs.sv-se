@@ -1,0 +1,48 @@
+- name: Översikt
+  items:
+    - name: Översikt över Azure Media Player
+      href: azure-media-player-overview.md
+    - name: Viktig information
+      href: azure-media-player-release-notes.md
+    - name: Ändringslogg
+      href: azure-media-player-changelog.md
+- name: Snabbstarter
+  items:
+    - name: Snabbstart för Azure Media Player
+      href: azure-media-player-quickstart.md
+- name: Självstudier
+  items:
+    - name: Fullständig installation av Azure Media Player
+      href: azure-media-player-full-setup.md
+- name: Begrepp
+  items:
+    - name: Uppspelningsteknik
+      href: azure-media-player-playback-technology.md
+    - name: Skyddat innehåll
+      href: azure-media-player-protected-content.md
+    - name: Funktionslista
+      href: azure-media-player-feature-list.md
+    - name: URL-omskrivare
+      href: azure-media-player-url-rewriter.md
+    - name: Hjälpmedel
+      href: azure-media-player-accessibility.md
+    - name: Skriva plugin-program
+      href: azure-media-player-writing-plugins.md
+    - name: Galleri för plugin-program
+      href: azure-media-player-plugin-gallery.md
+    - name: Lokalisering
+      href: azure-media-player-localization.md
+- name: Referens
+  items:
+    - name: Exempel
+      href: 'https://github.com/Azure-Samples/azure-media-player-samples'
+    - name: API
+      href: 'https://docs.microsoft.com/en-us/javascript/api/azuremediaplayer/?view=azure-node-latest'
+    - name: API-metoder
+      href: azure-media-player-api-methods.md
+    - name: Alternativ
+      href: azure-media-player-options.md
+    - name: Felkoder
+      href: azure-media-player-error-codes.md
+    - name: Kända problem
+      href: azure-media-player-known-issues.md

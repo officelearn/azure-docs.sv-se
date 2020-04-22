@@ -1,0 +1,141 @@
+- name: Allmänt
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Om Azure Key Vault
+      href: overview.md
+    - name: 'Om nycklar, hemligheter och certifikat'
+      href: about-keys-secrets-certificates.md
+- name: Självstudier
+  items:
+    - name: Virtuell Azure-dator
+      items:
+        - name: Använda Azure Key Vault med en virtuell Windows-dator i .NET
+          href: tutorial-net-windows-virtual-machine.md
+        - name: Använda Azure Key Vault med en virtuell Windows-dator i Python
+          href: tutorial-python-windows-virtual-machine.md
+    - name: Använda Azure Key Vault med en Azure-webbapp i .NET
+      href: tutorial-net-create-vault-azure-web-app.md
+- name: Begrepp
+  items:
+    - name: Grundläggande begrepp
+      href: basic-concepts.md
+    - name: Säkerhet
+      items:
+        - name: Azure Key Vault-säkerhet
+          href: overview-security.md
+        - name: Metodtips för användning av Key Vault – Azure Key Vault
+          href: best-practices.md
+        - name: Azure Key Vault-säkerhetsvärldar
+          href: overview-security-worlds.md
+        - name: Nätverkssäkerhet
+          href: network-security.md
+        - name: Säker åtkomst till ett nyckelvalv – Azure Key Vault
+          href: secure-your-key-vault.md
+        - name: Azures säkerhetsbaslinje för Key Vault
+          href: security-baseline.md
+        - name: Säkerhetsrekommendationer för Azure Key Vault
+          href: security-recommendations.md
+    - name: Meddelanden (förhandsversion)
+      items:
+        - name: Övervaka med Azure Event Grid (förhandsversion)
+          href: event-grid-overview.md
+    - name: Mjuk borttagning
+      items:
+        - name: Mjuk borttagning för Azure Key Vault
+          href: overview-soft-delete.md
+    - name: 'Autentisering, begäranden och svar'
+      href: authentication-requests-and-responses.md
+    - name: Riktlinjer för begränsning i Azure Key Vault
+      href: overview-throttling.md
+    - name: Tjänstslutpunkter för virtuellt nätverk för Azure Key Vault – Azure Key Vault
+      href: overview-vnet-service-endpoints.md
+- name: Anvisningar
+  items:
+    - name: Autentisera
+      items:
+        - name: Använda en hanterad identitet i App Service
+          href: managed-identity.md
+        - name: Använda en princip för åtkomstkontroll
+          href: group-permissions-for-apps.md
+    - name: Utveckla
+      items:
+        - name: Utvecklarguide för Azure Key Vault
+          href: developers-guide.md
+        - name: Spara hemligheter för webbappar
+          href: vs-secure-secret-appsettings.md
+        - name: Tjänst-till-tjänst-autentisering med .NET
+          href: service-to-service-authentication.md
+        - name: Använda den anslutna tjänsten i Key Vault
+          href: vs-key-vault-add-connected-service.md
+    - name: Övervaka och styra
+      items:
+        - name: Konfigurera övervakning och avisering för Azure Key Vault
+          href: alert.md
+        - name: Integrera Azure Key Vault med Azure Policy
+          href: azure-policy.md
+        - name: Azure Key Vault-loggning
+          href: logging.md
+        - name: Ta emot meddelanden via Azure Event Grid och Logic Apps
+          href: event-grid-logicapps.md
+        - name: Ta emot meddelanden via Azure Event Grid och Azure Automation
+          href: event-grid-tutorial.md
+    - name: Skydda
+      items:
+        - name: Integrera med Azure Private Link-tjänsten
+          href: private-link-service.md
+        - name: Få åtkomst till Azure Key Vault bakom en brandvägg – Azure Key Vault
+          href: access-behind-firewall.md
+    - name: Mjuk borttagning
+      items:
+        - name: Använda mjuk borttagning med CLI
+          href: soft-delete-cli.md
+        - name: Använda mjuk borttagning med PowerShell
+          href: soft-delete-powershell.md
+    - name: Felsöka
+      items:
+        - name: 'Ändra klient-ID:t för nyckelvalv efter en prenumerationsflytt'
+          href: subscription-move-fix.md
+- name: Referens
+  items:
+    - name: REST API-felkoder – Azure Key Vault
+      href: rest-error-codes.md
+    - name: Vanliga parametrar och sidhuvuden
+      href: common-parameters-and-headers.md
+    - name: Azure PowerShell
+      href: '/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault'
+    - name: Azure CLI
+      href: /cli/azure/keyvault
+    - name: .NET
+      href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+    - name: Java
+      href: /java/api/overview/azure/keyvault?view=azure-java-stable
+    - name: Node.js
+      href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
+    - name: Python
+      href: /python/api/overview/azure/key-vault?view=azure-python
+    - name: REST
+      href: /rest/api/keyvault
+    - name: Resource Manager-mall
+      href: /azure/templates/microsoft.keyvault/allversions
+      displayName: ARM
+- name: Resurser
+  items:
+    - name: Utveckla dina färdigheter med Microsoft Learn
+      href: /learn/browse/?products=azure-key-vault
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/key-vault/'
+    - name: Regional tillgänglighet
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=key-vault'
+    - name: Serviceavtal (SLA)
+      href: 'https://azure.microsoft.com/support/legal/sla/key-vault/'
+    - name: Tjänstbegränsningar
+      href: ../general/service-limits.md
+    - name: Tjänststatus
+      href: 'https://azure.microsoft.com/status/'
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates/?product=key-vault'
+    - name: Blogg
+      href: 'https://blogs.technet.com/b/kv/'
+    - name: Produktfeedback
+      href: 'https://feedback.azure.com/forums/906355-azure-key-vault'

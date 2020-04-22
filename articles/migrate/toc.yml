@@ -96,14 +96,16 @@
       href: how-to-assess.md
     - name: Distribuera Azure Migrate-installation
       items:
-        - name: Distribuera installation för VMware (OVA)
+        - name: Distribuera apparat med mall (VMware)
           href: how-to-set-up-appliance-vmware.md
-        - name: Distribuera installation för Hyper-V (VHD)
+        - name: Distribuera apparat med mall (Hyper-V)
           href: how-to-set-up-appliance-hyper-v.md
-        - name: Distribuera installation för VMware/Hyper-V (skript)
+        - name: Distribuera apparat med skript (VMware/Hyper-V)
           href: deploy-appliance-script.md
         - name: Distribuera installation för fysiska servrar
           href: how-to-set-up-appliance-physical.md
+        - name: Distribuera apparat i Azure Government
+          href: deploy-appliance-script-government.md
     - name: Begränsa identifieringsomfång för virtuella VMware-datorer
       href: set-discovery-scope.md
     - name: Identifiera program/roller/funktioner

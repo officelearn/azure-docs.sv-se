@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a6c9eb354bce09a5f652895f4af34df1f6750bec
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2609ff908b3c2f872cb63d3dcd7dcd481d316484
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80045750"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085868"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Självstudiekurs: Skapa en anpassad avbildning och kör i App Service från ett privat register
 
 [App Service](app-service-linux-intro.md) ger inbyggda Docker-avbildningar på Linux med stöd för specifika versioner, till exempel PHP 7.3 och Node.js 10.14. App Service använder Docker-behållartekniken för att vara värd för både inbyggda avbildningar och anpassade avbildningar som en plattform som en tjänst. I den här självstudien får du lära dig hur du skapar en anpassad avbildning och kör den i App Service. Det här mönstret är användbart när de inbyggda avbildningarna inte inkluderar ditt språkval eller när ditt program kräver en specifik konfiguration som inte ingår i de inbyggda avbildningarna.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Distribuera en anpassad avbildning till ett privat behållarregister
@@ -123,7 +123,7 @@ az acr credential show --name <azure-container-registry-name>
 
 Utdata visar två lösenord tillsammans med användarnamnet.
 
-```json
+<pre>
 {
   "passwords": [
     {
@@ -135,9 +135,9 @@ Utdata visar två lösenord tillsammans med användarnamnet.
       "value": "{password}"
     }
   ],
-  "username": "<registry-username>"
+  "username": "&lt;registry-username&gt;"
 }
-```
+</pre>
 
 Logga in i Azure Container-registret från det `docker login` lokala terminalfönstret med kommandot, som visas i följande exempel. Ersätt * \<azure-container-register-name>* och * \<register-användarnamn>* med värden för registret. Skriv in ett av lösenorden från föregående steg när du uppmanas att göra det.
 
@@ -168,11 +168,11 @@ az acr repository list -n <azure-container-registry-name>
 
 Du bör få följande utgång.
 
-```json
+<pre>
 [
   "mydockerimage"
 ]
-```
+</pre>
 
 ### <a name="create-app-service-plan"></a>Skapa apptjänstplan
 
@@ -188,7 +188,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 När webbappen har skapats visar Azure CLI utdata liknande den i följande exempel:
 
-```json
+<pre>
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -196,12 +196,12 @@ När webbappen har skapats visar Azure CLI utdata liknande den i följande exemp
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app-name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git",
+  "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git",
   "enabled": true,
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
 }
-```
+</pre>
 
 ### <a name="configure-registry-credentials-in-web-app"></a>Konfigurera registerautentiseringsuppgifter i webbapp
 

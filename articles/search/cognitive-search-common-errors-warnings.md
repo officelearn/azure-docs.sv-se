@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 72bf08dce36d857c1fe91bbe9806336dfa185f7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ed10e998ea05b6687190b1f87095f8bc28265905
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78671978"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086623"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Felsöka vanliga indexfel och varningar i Azure Cognitive Search
 
@@ -91,6 +91,8 @@ Indexer kunde inte köra en färdighet i kompetensen.
 
 ## <a name="error-could-not-execute-skill-because-the-web-api-request-failed"></a>Fel: Det gick inte att köra färdighet eftersom webb-API-begäran misslyckades
 Körning av färdighet misslyckades eftersom anropet till webb-API:et misslyckades. Vanligtvis inträffar den här felklassen när anpassade kunskaper används, i vilket fall du måste felsöka din anpassade kod för att lösa problemet. Om felet i stället kommer från en inbyggd färdighet läser du felmeddelandet om hjälp med att åtgärda problemet.
+
+När du felsöker det här problemet, se till att vara uppmärksam på [eventuella varningar för färdighetsinmatning](#warning-skill-input-was-invalid) för den här färdigheten. Slutpunkten för webb-API kan misslyckas eftersom indexeraren skickar den oväntad indata.
 
 <a name="could-not-execute-skill-because-web-api-skill-response-is-invalid"/>
 

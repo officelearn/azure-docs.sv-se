@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 0ceef2561d84a1fa491ab9577e1eac789b62bef7
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 0b32f7e8fa2ec0d1d28f2fd42147e140d2d03341
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81454636"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086121"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Säkerhetsrekommendationer för Blob-lagring
 
@@ -57,6 +57,7 @@ Azure Security Center analyserar regelbundet säkerhetstillståndet för dina Az
 | Aktivera brandväggsregler | Konfigurera brandväggsregler för att begränsa åtkomsten till ditt lagringskonto till begäranden som kommer från angivna IP-adresser eller intervall, eller från en lista över undernät i ett Virtuellt Azure-nätverk (VNet). Mer information om hur du konfigurerar brandväggsregler finns i [Azure File Sync proxy och brandväggsinställningar](../files/storage-sync-files-firewall-and-proxy.md). | - |
 | Tillåt betrodda Microsoft-tjänster att komma åt lagringskontot | Om du aktiverar brandväggsregler för ditt lagringskonto blockeras inkommande begäranden om data som standard, såvida inte begäranden kommer från en tjänst som arbetar inom ett Virtuellt Azure-nätverk (VNet) eller från tillåtna offentliga IP-adresser. Begäranden som blockeras inkluderar de från andra Azure-tjänster, från Azure-portalen, från loggning och måtttjänster och så vidare. Du kan tillåta begäranden från andra Azure-tjänster genom att lägga till ett undantag för att tillåta betrodda Microsoft-tjänster att komma åt lagringskontot. Mer information om hur du lägger till ett undantag för betrodda Microsoft-tjänster finns i [Proxy- och brandväggsinställningar för Azure File Sync](../files/storage-sync-files-firewall-and-proxy.md).| - |
 | Använda privata slutpunkter | En privat slutpunkt tilldelar en privat IP-adress från ditt Virtuella Azure-nätverk (VNet) till lagringskontot. Det säkrar all trafik mellan ditt virtuella nätverk och lagringskontot via en privat länk. Mer information om privata slutpunkter finns i [Ansluta privat till ett lagringskonto med Azure Private Endpoint](../../private-link/create-private-endpoint-storage-portal.md). | - |
+| Använda VNet-tjänsttaggar | En tjänsttagg representerar en grupp IP-adressprefix från en viss Azure-tjänst. Microsoft hanterar adressprefixen som omfattas av servicetag och uppdaterar automatiskt servicetag när adresserna ändras. Mer information om tjänsttaggar som stöds av Azure Storage finns i [översikt över Azure-tjänsttaggar](../../virtual-network/service-tags-overview.md). En självstudiekurs som visar hur du använder tjänsttaggar för att skapa utgående nätverksregler finns i [Begränsa åtkomsten till PaaS-resurser](../../virtual-network/tutorial-restrict-network-access-to-resources.md). | - |
 | Begränsa nätverksåtkomsten till specifika nätverk | Om du begränsar nätverksåtkomsten till nätverk som är värdar för klienter som behöver åtkomst minskar exponeringen för dina resurser för nätverksattacker. | [Ja](../../security-center/security-center-sql-service-recommendations.md) |
 
 ## <a name="loggingmonitoring"></a>Loggning/övervakning
@@ -67,5 +68,5 @@ Azure Security Center analyserar regelbundet säkerhetstillståndet för dina Az
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Dokumentation om Azure-säkerhet](https://docs.microsoft.com//azure/security/)
+- [Azure-säkerhetsdokumentation](https://docs.microsoft.com//azure/security/)
 - [Säker utvecklingsdokumentation](https://docs.microsoft.com/azure/security/develop/).

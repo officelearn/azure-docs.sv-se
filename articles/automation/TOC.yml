@@ -134,7 +134,7 @@
           href: source-control-integration.md
     - name: Konfigurationshantering
       items:
-        - name: Hantera State Configuration (DSC)
+        - name: Tillståndskonfiguration (DSC)
           items:
             - name: Översikt
               href: automation-dsc-overview.md
@@ -156,7 +156,7 @@
               href: automation-dsc-diagnostics.md
             - name: Felsöka problem med DSC
               href: troubleshoot/desired-state-configuration.md
-        - name: Hantera ändringsspårning och inventering
+        - name: Ändringsspårning och inventering
           items:
             - name: Översikt
               href: change-tracking.md

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: b6b6d10165eed331c397e17a18e382b095e1f74f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6a5bc947c3ea414f197df9cfcdd5f233e4654cbc
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79216747"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085033"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Självstudiekurs: Använd Key Vault-referenser i en Java Spring-app
 
@@ -35,7 +35,7 @@ Den här självstudien visar hur du implementerar Key Vault-referenser i koden. 
 
 Du kan använda vilken kodredigerare som helst för att göra stegen i den här självstudien. [Visual Studio Code](https://code.visualstudio.com/) är till exempel en plattformsoberoende kodredigerare som är tillgänglig för operativsystemen Windows, macOS och Linux.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en appkonfigurationsnyckel som refererar till ett värde som lagras i Key Vault.
@@ -140,6 +140,14 @@ Om du vill lägga till en hemlighet i valvet måste du bara ta några ytterligar
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Uppdatera koden för att använda en Referens för Nyckelvalv
 
+1. Skapa en miljövariabel som kallas **APP_CONFIGURATION_ENDPOINT**. Ange dess värde till slutpunkten för appkonfigurationsarkivet. Du hittar slutpunkten på **bladet Access Keys** i Azure-portalen.
+
+1. Öppna *bootstrap.properties* i *resursmappen.* Uppdatera den här filen om du vill använda slutpunkten för appkonfiguration i stället för en anslutningssträng.
+
+    ```properties
+    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
+    ```
+
 1. Öppna *MessageProperties.java*. Lägg till en ny variabel som kallas *keyVaultMessage:*
 
     ```java
@@ -166,7 +174,7 @@ Om du vill lägga till en hemlighet i valvet måste du bara ta några ytterligar
 1. Skapa en ny fil som heter *AzureCredentials.java* och lägg till koden nedan.
 
     ```java
-    package com.example;
+    package com.example.demo;
 
     import com.azure.core.credential.TokenCredential;
     import com.azure.identity.EnvironmentCredentialBuilder;
@@ -195,7 +203,7 @@ Om du vill lägga till en hemlighet i valvet måste du bara ta några ytterligar
 1. Skapa en ny fil med namnet *AppConfiguration.java*. Och lägg till koden nedan.
 
     ```java
-    package com.example;
+    package com.example.demo;
 
     import org.springframework.context.annotation.Bean;
     import org.springframework.context.annotation.Configuration;
@@ -214,7 +222,7 @@ Om du vill lägga till en hemlighet i valvet måste du bara ta några ytterligar
 
     ```factories
     org.springframework.cloud.bootstrap.BootstrapConfiguration=\
-    com.example.AppConfiguration
+    com.example.demo.AppConfiguration
     ```
 
 1. Bygg din Spring Boot ansökan med Maven och kör den, till exempel:

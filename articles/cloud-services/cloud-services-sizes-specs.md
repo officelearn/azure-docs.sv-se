@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 34cb4282f64544e67b3724699380d1d54fd9b806
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2549cb0408c9dad3e92f2cec9625757de45a10dc
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247480"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086257"
 ---
 # <a name="sizes-for-cloud-services"></a>Storlekar för molntjänster
 I det här avsnittet beskrivs tillgängliga storlekar och alternativ för molntjänstrollinstanser (webbroller och arbetsroller). Det ger också distributionsöverväganden att vara medveten om när du planerar att använda dessa resurser. Varje storlek har ett ID som du lägger i [tjänstdefinitionsfilen](cloud-services-model-and-package.md#csdef). Priserna för varje storlek är tillgängliga på sidan [Cloud Services-priser.](https://azure.microsoft.com/pricing/details/cloud-services/)
@@ -147,6 +147,7 @@ Information och funderingar om hur du använder dessa storlekar finns i [Hög pr
 | Standard_D8_v3  | 8         | 32            | 200                  | 4 / hög |
 | Standard_D16_v3 | 16        | 64            | 400                  | 8 / extremt hög |
 | Standard_D32_v3 | 32        | 128           | 800                  | 8 / extremt hög |
+| Standard_D48_v3 | 48        | 192           | 1200                 | 8 / extremt hög |
 | Standard_D64_v3 | 64        | 256           | 1600                 | 8 / extremt hög |
 
 ## <a name="ev3-series"></a>Ev3-serien
@@ -158,6 +159,7 @@ Information och funderingar om hur du använder dessa storlekar finns i [Hög pr
 | Standard_E8_v3  | 8         | 64            | 200                  | 4 / hög |
 | Standard_E16_v3 | 16        | 128           | 400                  | 8 / extremt hög |
 | Standard_E32_v3 | 32        | 256           | 800                  | 8 / extremt hög |
+| Standard_E48_v3 | 48        | 384           | 1200                 | 8 / extremt hög |
 | Standard_E64_v3 | 64        | 432           | 1600                 | 8 / extremt hög |
 
 

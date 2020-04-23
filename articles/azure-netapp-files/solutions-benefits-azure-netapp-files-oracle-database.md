@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: b-juche
-ms.openlocfilehash: d28f5469174a2659869ebb01ef01653b7190e30e
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: a73da39dafcc8be78fbe1c023693ffa4a19aa1d3
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772085"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085016"
 ---
-# <a name="benefits-of-using-azure-netapp-files-with-oracle-database"></a>Fördelar med att använda Azure NetApp-filer med Oracle Database
+# <a name="benefits-of-using-azure-netapp-files-with-oracle-database"></a>Fördelar med att använda Azure NetApp Files med Oracle Database
 
 Oracle Direct NFS (dNFS) gör det möjligt att driva högre prestanda än operativsystemets egen NFS-drivrutin. Den här artikeln förklarar tekniken och ger en prestandajämförelse mellan dNFS och den traditionella NFS-klienten (Kernel NFS). Det visar också fördelarna och enkelheten med att använda dNFS med Azure NetApp-filer.  
 
@@ -39,7 +39,7 @@ Oracle dNFS förbättrar däremot prestanda genom att belastningsbalansera nätv
 
 [Oracle FAQ för Direct NFS](http://www.orafaq.com/wiki/Direct_NFS) visar att Oracle dNFS är en optimerad NFS-klient. Det ger snabb och skalbar åtkomst till NFS-lagring som finns på NAS-lagringsenheter (tillgänglig via TCP/IP). dNFS är inbyggt i databaskärnan precis som ASM, som främst används med DAS eller SAN-lagring. Som sådan *är riktlinjen att använda dNFS vid implementering av NAS-lagring och använda ASM vid implementering av SAN-lagring.*
 
-dNFS är standardalternativet i Oracle 18c och standard för RAC.
+dNFS är standardalternativet i Oracle 18c.
 
 dNFS är tillgängligt från och med Oracle Database 11g. Diagrammet nedan jämför dNFS med inbyggt NFS. När du använder dNFS kan en Oracle-databas som körs på en virtuell Azure-dator köra mer I/O än den inbyggda NFS-klienten.
 

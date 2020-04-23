@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cfc66789360f78c927dd157305074ed5ea6f32a
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 8b2f4e7a16c967b26b545d1405f973bf8b8afaae
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81768441"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086138"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Vilken SAP-programvara som stöds för Azure-distributioner
 I den här artikeln beskrivs hur du kan ta reda på vad SAP-programvara som stöds för Azure-distributioner och vilka nödvändiga operativsystemversioner eller DBMS-versioner som behövs.
@@ -135,7 +135,7 @@ SAP Datahub/Vora-stöd i Azure Kubernetes Services (AKS) beskrivs i [SAP-support
 
 Stöd för SAP BPC 10.1 SP08 beskrivs i [SAP-supportmeddelande #2451795](https://launchpad.support.sap.com/#/notes/2451795)
 
-Stöd för SAP Hybris Commerce Platform på Azure beskrivs i [Hybris Wiki](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud). Som av stöds DBMS för SAP Hybris Commerce Platform, den listar som:
+Stöd för SAP Hybris Commerce Platform på Azure beskrivs i [Hybris-dokumentationen](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1811/en-US/8c71300f866910149b40c88dfc0de431.html). Som av stöds DBMS för SAP Hybris Commerce Platform, den listar som:
 
 - SQL Server och Oracle på Windows operativsystem plattform. Samma minimiversioner gäller som för SAP NetWeaver. Se [SAP-supportanteckning #1928533](https://launchpad.support.sap.com/#/notes/1928533) för mer information
 - SAP HANA på Red Hat och SUSE Linux. SAP HANA-certifierade VM-typer krävs som dokumenterade tidigare i [det här dokumentet](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#sap-hana-support). SAP (Hybris) Commerce Platform anses OLTP arbetsbelastning

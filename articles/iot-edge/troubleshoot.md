@@ -4,19 +4,19 @@ description: Använd den här artikeln om du vill lära dig vanliga diagnostiska
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/20/2019
+ms.date: 04/21/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 3529d6a67c6c8c19c053fe3170298658e90b4a54
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 2e15dffac73b4a50b1ef9288feaeb6073dea91e0
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81729279"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086529"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Vanliga problem och lösningar för Azure IoT Edge
 
@@ -40,20 +40,19 @@ Du kan `check` köra kommandot på följande `--help` sätt eller inkludera flag
   iotedge check
   ```
 
-De typer av kontroller som körs av verktyget kan klassificeras som:
+Felsökningsverktyget kör många kontroller som sorteras i de följande tre kategorierna:
 
 * Konfigurationskontroller: Undersöker information som kan hindra Edge-enheter från att ansluta till molnet, inklusive problem med *config.yaml* och behållarmotorn.
 * Anslutningskontroller: Verifierar att IoT Edge-körningen kan komma åt portar på värdenheten och alla IoT Edge-komponenter kan ansluta till IoT Hub.
 * Kontroller av produktionsberedskap: Söker efter rekommenderade metodtips för produktion, till exempel tillståndet för certifikatutfärdarecertifikat (Device Certificate Authority) och moduleloggfilskonfiguration.
 
-En fullständig lista över diagnostikkontroller finns [i Inbyggda felsökningsfunktioner](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
+Information om var och en av diagnostikkontrollerna som det här verktyget körs, inklusive vad du ska göra om du får ett fel eller en varning, finns i [felsökning av IoT Edge.](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md)
 
 ## <a name="gather-debug-information-with-iotedge-support-bundle-command"></a>Samla in felsökningsinformation med kommandot iotedge 'support-bundle'
 
 När du behöver samla in loggar från en IoT Edge-enhet `support-bundle` är det bekvämaste sättet att använda kommandot. Som standard samlar det här kommandot in modul, IoT Edge Security Manager och containermotorloggar, "iotedge check" JSON-utdata och annan användbar felsökningsinformation. Det komprimerar dem till en enda fil för enkel delning. Kommandot `support-bundle` är tillgängligt i [version 1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) och senare.
 
 Kör `support-bundle` kommandot med `--since` flaggan för att ange hur länge från det förflutna du vill hämta loggar. Till `6h` exempel kommer att få loggar sedan `6d` de senaste 6 timmarna, sedan de senaste 6 dagarna, `6m` sedan de senaste 6 minuterna och så vidare. Inkludera `--help` flaggan om du vill visa en fullständig lista med alternativ.
-
 
 * På Linux:
 

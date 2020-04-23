@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/02/2019
-ms.openlocfilehash: c6a3ac701442fb30e471bcc2c8f317e3988980f7
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 24e622f76e604d7c0c48e2f3c354e3b4aa64e549
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261983"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084914"
 ---
 # <a name="microsoft-commercial-marketplace-roadmap"></a>Microsofts färdplan för kommersiella marknadsplatser
 
@@ -33,7 +33,7 @@ När en funktion är live tas den bort från översikten. Funktioner som har lag
 * [Standardavtal](https://aka.ms/standardcontract)
 * [Api för SaaS-uppfyllelse](https://aka.ms/saasapiv2)
 * [Marknadsplatsgeo och valutor](https://aka.ms/marketplacegeos)
-* [Säljarinsikter](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/si-changes)
+* [Säljarinsikter](./partner-center-portal/analytics.md)
 * [Microsoft Build Marketplace-blogg](https://aka.ms/marketplacebuildblog)
 * [Marketplace maj Uppdateringar Blogg](https://azure.microsoft.com/blog/microsoft-commercial-marketplace-updates-may-2019/)
 * Partnercenter: [Skapa kontohantering](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) / [kontomigrering](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account) / [från CPP](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc)

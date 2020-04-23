@@ -1,25 +1,19 @@
 ---
 title: Ladda ned mallen för en virtuell Azure-dator
-description: Ladda ned mallarna för en virtuell dator för att hjälpa till med att automatisera distributioner i Resurshanterarens distributionsmodell
-services: virtual-machines-windows
-documentationcenter: ''
+description: Hämta mallen för en virtuell dator med portalen eller PowerShell.
 author: cynthn
 manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 51ef4f51-0942-4249-afea-4a3f87ce1ff8
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: c73026515f0d7fde4e2f82838696700b1bb17c77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: af6905f0ba62a9053e44134348721312ade6b9d7
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74033548"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085390"
 ---
 # <a name="download-the-template-for-a-vm"></a>Ladda ned mallen för en virtuell dator
 När du skapar en virtuell dator i Azure med hjälp av portalen eller PowerShell skapas en Resource Manager-mall automatiskt åt dig. Du kan använda den här mallen för att snabbt duplicera en distribution. Mallen innehåller information om alla resurser i en resursgrupp. För en virtuell dator innebär det att mallen innehåller allt som skapas till stöd för den virtuella datorn i den resursgruppen, inklusive nätverksresurserna.

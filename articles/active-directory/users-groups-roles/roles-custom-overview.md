@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 04/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5c7919dcc89e34831cb4cae7921b60b35eb4c69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ae244d93d679199aaa0bd08891cd34d4ca3a2ddc
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74024973"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085118"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Anpassade administratörsroller i Azure Active Directory (förhandsversion)
 
@@ -35,6 +35,22 @@ Att bevilja behörighet med hjälp av anpassade Azure AD-roller är en tvåstegs
 När du har skapat din rolldefinition kan du tilldela den till en användare genom att skapa en rolltilldelning. En rolltilldelning ger användaren behörigheterna i en rolldefinition med ett angivet scope. Med den här tvåstegsprocessen kan du skapa en enda rolldefinition och tilldela den många gånger i olika scope. Ett scope definierar uppsättningen Azure AD-resurser som rollmedlemmen har åtkomst till. Det vanligaste omfånget är organisationsomfattande (organisationsomfattande) scope. En anpassad roll kan tilldelas i organisationsomfattande omfång, vilket innebär att rollmedlemmen har rollbehörigheter över alla resurser i organisationen. En anpassad roll kan också tilldelas vid ett objektomfång. Ett exempel på ett objektomfång skulle vara ett enda program. Samma roll kan tilldelas en användare över alla program i organisationen och sedan till en annan användare med ett scope med endast contoso utgiftsrapporter app.  
 
 Azure AD-inbyggda och anpassade roller fungerar på begrepp som liknar [Azure-rollbaserad åtkomstkontroll](../../role-based-access-control/overview.md). [Skillnaden mellan dessa två rollbaserade åtkomstkontrollsystem](../../role-based-access-control/rbac-and-directory-admin-roles.md) är att Azure RBAC styr åtkomst till Azure-resurser som virtuella datorer eller lagring med Azure Resource Management och Azure AD-anpassade roller styr åtkomsten till Azure AD-resurser med Graph API. Båda systemen utnyttjar begreppet rolldefinitioner och rolltilldelningar.
+
+### <a name="how-azure-ad-determines-if-a-user-has-access-to-a-resource"></a>Så här avgör Azure AD om en användare har åtkomst till en resurs
+
+Följande är de steg på hög nivå som Azure AD använder för att avgöra om du har åtkomst till en hanteringsresurs. Använd den här informationen för att felsöka åtkomstproblem.
+
+1. En användare (eller tjänsthuvudnamn) förvärvar en token till Slutpunkten för Microsoft Graph eller Azure AD Graph.
+
+1. Användaren gör ett API-anrop till Azure Active Directory (Azure AD) via Microsoft Graph eller Azure AD Graph med hjälp av den utfärdade token.
+
+1. Beroende på omständigheterna vidtar Azure AD någon av följande åtgärder:
+
+    - Utvärderar användarens rollmedlemskap baserat på [wids-anspråket](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) i användarens åtkomsttoken.
+    - Hämtar alla rolltilldelningar som gäller för användaren, antingen direkt eller via gruppmedlemskap, till den resurs som åtgärden vidtas på.
+
+1. Azure AD avgör om åtgärden i API-anropet ingår i de roller som användaren har för den här resursen.
+1. Om användaren inte har en roll med åtgärden i det begärda scopet beviljas inte åtkomst. Annars beviljas åtkomst.
 
 ### <a name="role-assignments"></a>Rolltilldelningar
 

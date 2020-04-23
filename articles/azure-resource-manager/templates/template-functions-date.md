@@ -2,13 +2,13 @@
 title: Mallfunktioner - datum
 description: Beskriver de funktioner som ska användas i en Azure Resource Manager-mall för att arbeta med datum.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 75234a142b9f2fbe61c337bfeb378b47534bac79
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 04/22/2020
+ms.openlocfilehash: 364b41e9e92cb248a7bd2fac5a41eb535adbf440
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80986283"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084795"
 ---
 # <a name="date-functions-for-arm-templates"></a>Datumfunktioner för ARM-mallar
 
@@ -21,7 +21,7 @@ Resource Manager innehåller följande funktioner för att arbeta med datum i di
 
 `dateTimeAdd(base, duration, [format])`
 
-Lägger till en tidslängd till ett basdatumvärde.
+Lägger till en tidslängd till ett basvärde. ISO 8601-format förväntas.
 
 ### <a name="parameters"></a>Parametrar
 

@@ -3,14 +3,14 @@ title: 'Snabbstart: Skapa en C# ASP.NET Core-app'
 description: Lär dig hur du kör webbappar i Azure App Service genom att distribuera standardmallen C# ASP.NET Core-webbapp från Visual Studio.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 03/17/2020
+ms.date: 04/22/2020
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: be7c4a2fb65f913bc97617af1a0f21ee8fcca714
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 6c7ab1290033792cf356c4882811670011df5efe
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313288"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086053"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Snabbstart: Skapa en ASP.NET Core-webbapp i Azure
 
@@ -81,7 +81,7 @@ Så här skapar du apptjänsten och publicerar webbappen:
    | -------- | --------------- | ----------- |
    | **Värdplan**  | *myFirstAzureWebAppPlan* | Namnet på App Service-planen. |
    | **Location**      | *Europa, västra* | Datacenter som är värd för webbappen. |
-   | **Storlek**          | *Gratis* | [Prisnivån](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avgör tillgängliga värdfunktioner. |
+   | **Storlek**          | *Kostnadsfri* | [Prisnivån](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avgör tillgängliga värdfunktioner. |
    
    ![Skapa ny värdplan](./media/app-service-web-get-started-dotnet/create-new-hosting-plan-vs2019.png)
 
@@ -107,7 +107,7 @@ Så här uppdaterar och distribuerar du webbappen:
 
 1. Öppna **Sidor** > **Index.cshtml**i **Solution Explorer**.
 
-1. Ersätt de två `<div>`-taggarna med följande kod:
+1. Ersätt hela `<div>` taggen med följande kod:
 
    ```HTML
    <div class="jumbotron">

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c895a13eb9b2bed9e3a8a5a250c4e925dfa834c5
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ba0630474224c34eb96429cd7592028362e03381
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80331814"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024446"
 ---
 # <a name="what-is-a-device-identity"></a>Vad är en enhetsidentitet?
 
@@ -53,6 +53,9 @@ För att få en enhet i Azure AD har du flera alternativ:
 
 ![Enheter som visas i azure AD-enheter](./media/overview/azure-active-directory-devices-all-devices.png)
 
+> [!NOTE]
+> Ett hybridtillstånd refererar till mer än bara tillståndet för en enhet. För att ett hybridtillstånd ska vara giltigt krävs även en giltig Azure AD-användare.
+
 ## <a name="device-management"></a>Enhetshantering
 
 Enheter i Azure AD kan hanteras med hjälp av MDM-verktyg (Mobile Device Management) som Microsoft Intune, Microsoft Endpoint Configuration Manager, Group Policy (hybrid Azure AD join), MAM-verktyg (Mobile Application Management) eller andra verktyg från tredje part.
@@ -63,6 +66,8 @@ Om du registrerar och ansluter till enheter till Azure AD får användarna söml
 
 > [!NOTE]
 > Enhetsbaserade principer för villkorlig åtkomst kräver antingen hybrid Azure AD-anslutna enheter eller kompatibla Azure AD-anslutna eller Azure AD-registrerade enheter.
+
+Den primära uppdateringstoken (PRT) innehåller information om enheten och krävs för SSO. Om du har en enhetsbaserad princip för villkorlig åtkomst inställd på ett program, utan PRT, nekas åtkomst. Principer för hybrid villkorlig åtkomst kräver en hybridtillståndsenhet och en giltig användare som är inloggad.
 
 Enheter som är Azure AD-anslutna eller hybrid Azure AD-anslutna dra nytta av SSO till organisationens lokala resurser samt molnresurser. Mer information finns i artikeln, [Hur SSO till lokala resurser fungerar på Azure AD-anslutna enheter](azuread-join-sso.md).
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: 4a8b3cf47235e061e5dbcc08a409fce84d421771
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 57ca5b0880d4b027e33bc0d01fc6225eb886029b
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77562215"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084999"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Distribuera till App Service med GitHub-åtgärder
 
@@ -62,7 +62,7 @@ Du kan också använda autentiseringsuppgifter på appnivå, dvs. Följ stegen f
 4. Nu i arbetsflödesfilen i `.github/workflows/workflow.yml` din gren: `publish-profile` ersätt hemligheten för indata från den distribuerade Azure Web App-åtgärden.
     
     ```yaml
-        - uses: azure/webapps-deploy@v1
+        - uses: azure/webapps-deploy@v2
           with:
             creds: ${{ secrets.azureWebAppPublishProfile }}
     ```
@@ -79,12 +79,12 @@ Ställa in miljön kan göras med hjälp av en av inställningsåtgärderna.
 |---------|---------|
 |**.NET**     | `actions/setup-dotnet` |
 |**Java**     | `actions/setup-java` |
-|**Javascript** | `actions/setup-node` |
+|**JavaScript** | `actions/setup-node` |
 |**Python**     | `actions/setup-python` |
 
 I följande exempel visas den del av arbetsflödet som ställer in miljön för de olika språk som stöds:
 
-**Javascript**
+**JavaScript**
 
 ```yaml
     - name: Setup Node 10.x
@@ -127,7 +127,7 @@ Detta beror på språket och för språk som stöds av Azure App Service, bör d
 
 I följande exempel visas den del av arbetsflödet som bygger webbappen på de olika språk som stöds.
 
-**Javascript**
+**JavaScript**
 
 ```yaml
     - name: 'Run npm'
@@ -182,7 +182,7 @@ I följande exempel visas den del av arbetsflödet som bygger webbappen på de o
 ```
 ## <a name="deploy-to-app-service"></a>Distribuera till App Service
 
-Om du vill distribuera koden till `azure/webapps-deploy@v1 ` en App Service-app använder du åtgärden. Den här åtgärden har fyra parametrar:
+Om du vill distribuera koden till `azure/webapps-deploy@v2` en App Service-app använder du åtgärden. Den här åtgärden har fyra parametrar:
 
 | **Parametern**  | **Förklaring**  |
 |---------|---------|
@@ -219,7 +219,7 @@ jobs:
         npm run test --if-present
        
     - name: 'Run Azure webapp deploy action using publish profile credentials'
-          uses: azure/webapps-deploy@v1
+          uses: azure/webapps-deploy@v2
           with: 
             app-name: node-rn
             publish-profile: ${{ secrets.azureWebAppPublishProfile }}
@@ -258,7 +258,7 @@ jobs:
         npm run test --if-present
                
     # deploy web app using Azure credentials
-    - uses: azure/webapps-deploy@v1
+    - uses: azure/webapps-deploy@v2
       with:
         app-name: 'node-rn'
 

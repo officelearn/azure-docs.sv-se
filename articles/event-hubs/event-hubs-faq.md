@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: d2d74a90d6712089cff681381e11b1caec9d469d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f6e1896c97c96cd484d15fb9e6a3056e5c5d6b2
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283675"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086376"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Evenemangshubbar ställde vanliga frågor
 
@@ -182,7 +182,7 @@ I testet användes följande kriterier:
 Resultaten ger dig en uppfattning om vad som kan uppnås med ett dedikerat Event Hubs-kluster. Dessutom levereras ett dedikeringskluster med händelsehubbar capture aktiverat för dina mikrobatch- och långsiktiga lagringsscenarier.
 
 ### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>Hur skapar jag ett dedikerat kluster för händelsehubbar?
-Du skapar ett dedikerat kluster för händelsehubbar genom att skicka en [supportbegäran för kvotökning](https://portal.azure.com/#create/Microsoft.Support) eller genom att kontakta [eventhubs-teamet](mailto:askeventhubs@microsoft.com). Det tar vanligtvis ungefär två veckor att få klustret distribuerat och överlämnat för att användas av dig. Den här processen är tillfällig tills en fullständig självbetjäning görs tillgänglig via Azure-portalen eller Azure Resource Manager-mallarna, vilket tar ungefär två timmar att distribuera klustret.
+Du skapar ett dedikerat kluster för händelsehubbar genom att skicka en [supportbegäran för kvotökning](https://portal.azure.com/#create/Microsoft.Support) eller genom att kontakta [eventhubs-teamet](mailto:askeventhubs@microsoft.com). Det tar vanligtvis ungefär två veckor att få klustret distribuerat och överlämnat för att användas av dig. Den här processen är tillfällig tills en fullständig självbetjäning görs tillgänglig via Azure-portalen.
 
 ## <a name="best-practices"></a>Bästa praxis
 

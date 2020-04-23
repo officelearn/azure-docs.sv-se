@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 04/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 8eae528c965e599e7adfb546a09b0d5879e7c54f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a26e403671a2f69eeb785d92fa0c1d37a19e3ac5
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80369532"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085084"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Lösningsarkitekturer med Azure NetApp Files
 Den här artikeln innehåller referenser till metodtips som kan hjälpa dig att förstå lösningsarkitekturerna för att använda Azure NetApp-filer.  
@@ -38,6 +38,7 @@ Den här artikeln innehåller referenser till metodtips som kan hjälpa dig att 
 
 * [Guide för bästa praxis för Oracle på Azure-distribution med Hjälp av Azure NetApp-filer](https://www.netapp.com/us/media/tr-4780.pdf)
 * [Oracle VM-avbildningar och deras distribution på Microsoft Azure: Konfigurationsalternativ för delad lagring](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-vm-solutions#shared-storage-configuration-options)
+* [Fördelar med att använda Azure NetApp Files med Oracle Database](https://docs.microsoft.com/azure/azure-netapp-files/solutions-benefits-azure-netapp-files-oracle-database)
 
 ## <a name="sap-application-solutions"></a>SAP-applikationslösningar 
 

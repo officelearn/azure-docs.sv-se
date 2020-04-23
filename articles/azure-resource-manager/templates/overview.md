@@ -3,12 +3,12 @@ title: Översikt över mallar
 description: Beskriver fördelarna med Azure Resource Manager-mallar för distribution av resurser.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 02602b4d12ae4333c88b352e4c13923d67f2c591
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: b3b5fb383ac89d0968a437f35aab656afa1913f0
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885743"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086342"
 ---
 # <a name="what-are-arm-templates"></a>Vad är ARM-mallar?
 
@@ -50,7 +50,7 @@ Om du försöker välja mellan att använda ARM-mallar och någon av de andra in
 
 * **Distributionsritningar**: Du kan dra nytta av [ritningar](../../governance/blueprints/overview.md) som tillhandahålls av Microsoft för att uppfylla lagstadgade och efterlevnadsstandarder. Dessa ritningar innehåller färdiga mallar för olika arkitekturer.
 
-* **CI/CD-integrering:** Du kan integrera mallar i dina ci/cd-verktyg (continuous integration and continuous deployment), som kan automatisera dina versionspipelor för snabba och tillförlitliga program- och infrastrukturuppdateringar. Genom att använda Azure DevOps och Resource Manager-mallaktivitet kan du använda Azure Pipelines för att kontinuerligt skapa och distribuera ARM-mallprojekt. Mer information finns i [VS-projekt med pipelines](add-template-to-azure-pipelines.md) och [kontinuerlig integrering med Azure Pipelines](template-tutorial-use-azure-pipelines.md).
+* **CI/CD-integrering:** Du kan integrera mallar i dina ci/cd-verktyg (continuous integration and continuous deployment), som kan automatisera dina versionspipelor för snabba och tillförlitliga program- och infrastrukturuppdateringar. Genom att använda Azure DevOps och Resource Manager-mallaktivitet kan du använda Azure Pipelines för att kontinuerligt skapa och distribuera ARM-mallprojekt. Mer information finns i [VS-projektet med pipelines](add-template-to-azure-pipelines.md) och [självstudiekurs: Kontinuerlig integrering av Azure Resource Manager-mallar med Azure Pipelines](./deployment-tutorial-pipeline.md).
 
 * **Exportbar kod**: Du kan hämta en mall för en befintlig resursgrupp genom att antingen exportera resursgruppens aktuella tillstånd eller visa mallen som används för en viss distribution. Att granska den [exporterade mallen](export-template-portal.md) är ett bra sätt att lära sig mer om mallsyntaxen.
 

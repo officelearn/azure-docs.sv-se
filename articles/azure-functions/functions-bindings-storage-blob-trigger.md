@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 39e3521339947263161979033406fb39e397373f
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 61fbaf37577efdab0b147d437ae78fc4df0764cb
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80348979"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084965"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Azure Blob-lagringsutlösare för Azure-funktioner
 
@@ -103,7 +103,7 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 I följande exempel visas en blob-utlösare som binder i en *function.json-fil* och [JavaScript-kod](functions-reference-node.md) som använder bindningen. Funktionen skriver en logg när en blob läggs `samples-workitems` till eller uppdateras i behållaren.
 
@@ -256,7 +256,7 @@ Det lagringskonto som ska användas bestäms i följande ordning:
 
 Attribut stöds inte av C# Script.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Attribut stöds inte av JavaScript.
 
@@ -294,7 +294,7 @@ I följande tabell beskrivs de bindningskonfigurationsegenskaper som `BlobTrigge
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Åtkomst blob `context.bindings.<NAME>` data `<NAME>` med var matchar det värde som definieras i *function.json*.
 
@@ -360,7 +360,7 @@ Om blobben heter `name` * {20140101}-soundfile.mp3*är variabelvärdet i funktio
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 module.exports = function (context, myBlob) {
@@ -391,7 +391,7 @@ Azure Functions lagrar blob-kvitton i en behållare med namnet *azure-webjobs-ho
 * Blob-namnet
 * ETag (en blob-versionsidentifierare, till exempel: "0x8D1DC6E70A277EF")
 
-Om du vill tvinga fram upparbetning av en blob tar du bort blob-inleveransen för bloben från behållaren *azure-webjobs-hosts* manuellt. Även om upparbetning kanske inte sker omedelbart, är det garanterat att ske vid en senare tidpunkt.
+Om du vill tvinga fram upparbetning av en blob tar du bort blob-inleveransen för bloben från behållaren *azure-webjobs-hosts* manuellt. Även om upparbetning kanske inte sker omedelbart, är det garanterat att ske vid en senare tidpunkt. Om du vill bearbeta om direkt kan *scaninfo-blob* i *azure-webjobs-hosts/blobscaninfo* uppdateras. Alla blobbar med en senast ändrad tidsstämpel efter att egenskapen `LatestScan` har skannats igen.
 
 ## <a name="poison-blobs"></a>Giftblobar
 

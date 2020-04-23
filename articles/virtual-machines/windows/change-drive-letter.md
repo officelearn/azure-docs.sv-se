@@ -2,24 +2,19 @@
 title: 'Göra D:-enheten för en virtuell dator till en datadisk '
 description: I artikeln beskrivs hur du ändrar enhetsbeteckningar för en Virtuell Windows så att du kan använda D:-enheten som en dataenhet.
 services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 0867a931-0055-4e31-8403-9b38a3eeb904
 ms.service: virtual-machines-windows
+ms.subservice: disks
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
-ms.openlocfilehash: 491e7b7be084017cc370fe431c3175ac5b2673f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 15df3178f2860fa066a82cb1429e0c1a6e5c2b08
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74033655"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82083430"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Använda D:-enheten som en dataenhet på en Windows VM
 Om ditt program behöver använda D-enheten för att lagra data följer du dessa instruktioner för att använda en annan enhetsbeteckning för den temporära disken. Använd aldrig den temporära disken för att lagra data som du behöver behålla.

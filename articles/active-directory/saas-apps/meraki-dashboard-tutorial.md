@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/17/2020
+ms.date: 04/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 571f4421a5d890fab31eda0125802d33918144ef
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 6d5fd75a737a0a866b6e5c26c417458ee95845fb
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81726384"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084166"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-meraki-dashboard"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med Meraki Dashboard
 
@@ -57,7 +57,6 @@ Om du vill konfigurera integreringen av Meraki Dashboard i Azure AD måste du l�
 1. Skriv Meraki Dashboard i sökrutan i avsnittet **Lägg till från galleriet.** **Meraki Dashboard**
 1. Välj **Meraki Dashboard** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
 
-
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-meraki-dashboard"></a>Konfigurera och testa en azure AD-inloggning för Meraki Dashboard
 
 Konfigurera och testa Azure AD SSO med Meraki Dashboard med hjälp av en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i Meraki Dashboard.
@@ -81,8 +80,14 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I avsnittet **Grundläggande SAML-konfiguration** är programmet förkonfigurerat och nödvändiga url:er är redan förifyllda med Azure. Användaren måste spara konfigurationen genom att klicka på **knappen Spara.**
+1. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
+     
+    Skriv en URL med följande mönster i textrutan **Svara URL:**`https://n27.meraki.com/saml/login/m9ZEgb/< UNIQUE ID >`
 
+    > [!NOTE]
+    > Värdet för svars-URL:en är inte verkligt. Uppdatera det här värdet med det faktiska svars-URL-värdet, vilket förklaras senare i självstudien.
+
+1. Klicka på knappen **Spara**.
 
 1. Meraki Dashboard-programmet förväntar sig SAML-påståenden i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. I följande skärmbild visas listan över standardattribut.
 
@@ -92,8 +97,8 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
     
     | Namn | Källattribut|
     | ---------------| --------- |
-    | användarnamn | user.userprincipalname |
-    | roll | user.assignedroles |
+    | `https://dashboard.meraki.com/saml/attributes/username` | user.userprincipalname |
+    | `https://dashboard.meraki.com/saml/attributes/role` | user.assignedroles |
 
     > [!NOTE]
     > Information om hur du konfigurerar roller i Azure AD finns [här](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
@@ -106,7 +111,7 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
     ![Kopiera tumavtrycksvärdet](common/copy-thumbprint.png)
 
-1. Kopiera lämpliga webbadresser i avsnittet **Konfigurera Meraki-instrumentpanelen** baserat på dina krav.
+1. Kopiera url-värdet för utloggning på konfigurera **Meraki Dashboard** och spara det på datorn.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -156,7 +161,7 @@ I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning ge
 
     ![Konfiguration av Meraki-instrumentpanelen](./media/meraki-dashboard-tutorial/configure3.png)
 
-1. Klistra in **tumavtrycksvärdet,** som du har kopierat från Azure-portalen i **X.590 cert SHA1** fingeravtryckstextruta. Klicka sedan på **Spara**.
+1. Klistra in **tumavtrycksvärdet,** som du har kopierat från Azure-portalen i **X.590 cert SHA1** fingeravtryckstextruta. Klicka sedan på **Spara**. När du har sparat visas konsument-URL:en. Kopiera konsument-URL-värdet och klistra in det i textrutan **Svara på URL** i avsnittet Grundläggande **SAML-konfiguration** i Azure-portalen.
 
     ![Konfiguration av Meraki-instrumentpanelen](./media/meraki-dashboard-tutorial/configure4.png)
 

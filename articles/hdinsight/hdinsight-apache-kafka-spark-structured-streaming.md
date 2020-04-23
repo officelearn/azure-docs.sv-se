@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,seodec18
-ms.date: 03/11/2020
-ms.openlocfilehash: 66bfa0d3ee4cb03f1b48e2db24be7a90d97f60d6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/22/2020
+ms.openlocfilehash: 5fa25f54faecbc7caf130ffeb0d24c3d8fef7e09
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79117212"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084812"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Självstudie: Använda Apache Spark Structured Streaming med Apache Kafka i HDInsight
 
@@ -21,7 +21,7 @@ Den här självstudien visar hur du använder [Apache Spark Structured Streaming
 
 Spark Structured Streaming är en strömbearbetningsmotor byggd på Spark SQL. Med den kan du uttrycka strömmande beräkningar på samma sätt som batchberäkningar av statiska data.  
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Använda en Azure Resource Manager-mall för att skapa kluster
@@ -35,7 +35,7 @@ När du är klar med stegen i det här dokumentet, kom ihåg att ta bort kluster
 
 * Kunskaper om [Jupyter Notebooks](https://jupyter.org/) med Spark på HDInsight. Mer information finns i dokumentet [Läsa in data och köra frågor med Apache Spark på HDInsight](spark/apache-spark-load-data-run-query.md).
 
-* Kunskaper i programmeringsspråket [Scala](https://www.scala-lang.org/). Koden som används i den här självstudien är skriven i Scala.
+* Kunskaper i programmeringsspråket Scala. Koden som används i den här självstudien är skriven i Scala.
 
 * Om du vet hur man skapar Kafka-avsnitt. Mer information finns i dokumentet [Snabbstart för Apache Kafka i HDInsight](kafka/apache-kafka-get-started.md).
 
@@ -48,7 +48,7 @@ När du är klar med stegen i det här dokumentet, kom ihåg att ta bort kluster
 
 ## <a name="structured-streaming-with-apache-kafka"></a>Structured Streaming med Apache Kafka
 
-Apache Spark Structured Streaming är en bearbetningsmotor för dataströmmar som bygger på Apache Spark SQL-motorn. När du använder Structured Streaming kan du skriva strömningsfrågor på samma sätt som du skriver batch-frågor.
+Apache Spark Structured Streaming är en bearbetningsmotor för dataströmmar som bygger på Apache Spark SQL-motorn. När du använder strukturerad strömning kan du skriva direktuppspelade frågor på samma sätt som du skriver batchfrågor.
 
 Följande kodfragment visar läsning från Kafka och lagring på en fil. Den första är en batchåtgärd och den andra är en strömningsåtgärd:
 
@@ -182,7 +182,7 @@ Det här exemplet visar hur du använder Spark Structured Streaming med Kafka p�
 
 1. Välj **Ny > Spark** om du vill skapa en anteckningsbok.
 
-1. Spark streaming har mikrobatching, vilket innebär att data kommer som batchar och utförare körs på buntar av data. Om utföraren har inaktiv tidsgränsen mindre än den tid det tar att bearbeta batchen, läggs körarna ständigt till och tas bort. Om den inaktiva timeouten för köror är större än batch-varaktigheten tas utföraren aldrig bort. Därför **rekommenderar vi att du inaktiverar dynamisk allokering genom att ange spark.dynamicAllocation.enabled till false när du kör strömmande program.**
+1. Spark streaming har mikrobatching, vilket innebär att data kommer som batchar och utförare körs på buntar av data. Om utföraren har inaktiv tidsgränsen mindre än den tid det tar att bearbeta batchen, läggs körarna ständigt till och tas bort. Om den inaktiva timeouten för köror är större än batch-varaktigheten tas utföraren aldrig bort. Vi **rekommenderar därför att du inaktiverar dynamisk allokering genom att ange spark.dynamicAllocation.enabled till false när du kör strömmande program.**
 
     Läs in paket som används av anteckningsboken genom att ange följande information i en anteckningsbokscell. Kör kommandot med **CTRL + RETUR**.
 
@@ -277,7 +277,7 @@ Det här exemplet visar hur du använder Spark Structured Streaming med Kafka p�
     println("Schema declared")
     ```
 
-1. Välj data och starta strömmen. Följande kommando visar hur du hämtar data från kafka med hjälp av en batchfråga och skriver sedan resultaten ut till HDFS i Spark-klustret. I det `select` här exemplet hämtar meddelandet (värdefältet) från Kafka och schemat tillämpas på det. Uppgifterna skrivs sedan till HDFS (WASB eller ADL) i parkettformat. Ange kommandot i nästa Jupyter-cell.
+1. Välj data och starta strömmen. Följande kommando visar hur du hämtar data från Kafka med hjälp av en batchfråga. Och skriv sedan resultaten ut till HDFS på Spark-klustret. I det `select` här exemplet hämtar meddelandet (värdefältet) från Kafka och schemat tillämpas på det. Uppgifterna skrivs sedan till HDFS (WASB eller ADL) i parkettformat. Ange kommandot i nästa Jupyter-cell.
 
     ```scala
     // Read a batch from Kafka
@@ -316,7 +316,7 @@ Det här exemplet visar hur du använder Spark Structured Streaming med Kafka p�
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill rensa resurserna som har skapats med den här självstudien kan du ta bort resursgruppen. När du tar bort resursgruppen raderas även det kopplade HDInsight-klustret och eventuella andra resurser som är associerade med resursgruppen.
+Om du vill rensa resurserna som har skapats med den här självstudien kan du ta bort resursgruppen. Om du tar bort resursgruppen tas också det associerade HDInsight-klustret bort. Och alla andra resurser som är associerade med resursgruppen.
 
 Ta bort en resursgrupp med Azure Portal:
 
@@ -331,7 +331,7 @@ Ta bort en resursgrupp med Azure Portal:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig att använda [Structured Streaming med Apache Spark](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) för att skriva och läsa data från [Apache Kafka](./kafka/apache-kafka-introduction.md) i HDInsight. Via följande länk kan du lära dig att använda [Apache Storm](./storm/apache-storm-overview.md) med Kafka.
+I den här självstudien lärde du dig hur du använder Apache Spark Structured Streaming. Att skriva och läsa data från Apache Kafka på HDInsight. Via följande länk kan du lära dig att använda Apache Storm med Kafka.
 
 > [!div class="nextstepaction"]
 > [Använda Apache Storm med Apache Kafka](hdinsight-apache-storm-with-kafka.md)

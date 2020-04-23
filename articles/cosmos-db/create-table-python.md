@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 9de9739efce13fc96bf550759eb0ef68d732af1e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 673155706c3b7d44b41562c2dc8ce24a94ac6a58
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77212730"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82083639"
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Snabbstart: Skapa en tabell-API-app med Python och Azure Cosmos DB
 
@@ -72,6 +72,8 @@ Nu ska vi klona en Table-app från GitHub, ange anslutningssträngen och köra a
     ```
 
 3. Öppna därefter lösningsfilen i Visual Studio. 
+
+> ! -Jag har inte tid med det här. En mer detaljerad genomgång av liknande kod finns i [exempelartikeln för Cosmos DB Table API.](table-storage-how-to-use-python.md)
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 

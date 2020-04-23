@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: c4c8f21234cfbf040d57c0e1c8dbecbb698d7d50
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 9da8b6d8e5151bd6487d68c2796c261f19c11b55
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81685912"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086563"
 ---
 # <a name="cloud-solution-providers"></a>Leverantörer av molnlösningar
 
@@ -195,4 +195,4 @@ Besök [Azure Marketplace och AppSource Publisher Guide](https://docs.microsoft.
 
 Mer information om GTM-marknadsplatstjänster finns i [Gå till marknaden.](https://partner.microsoft.com/reach-customers/gtm)
 
-Logga in [på Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) eller Cloud Partner [Portal](https://cloudpartner.azure.com/) för att skapa och konfigurera ditt erbjudande.
+Logga in [på Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) för att skapa och konfigurera erbjudandet.

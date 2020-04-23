@@ -6,21 +6,21 @@ ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: glenga
-ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
+ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 4c568c95a5dbc1799a765c95a2b224de53dfbe9f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 028551f04b2e44e9456e2f7343159ad9b52fd25f
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79279148"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085152"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Köra bakgrundsuppgifter med WebJobs i Azure App Service
 
 Den här artikeln visar hur du distribuerar WebJobs med hjälp av [Azure-portalen](https://portal.azure.com) för att ladda upp en körbar eller skript. Information om hur du utvecklar och distribuerar WebJobs med Visual Studio finns i [Distribuera WebJobs med Visual Studio](webjobs-dotnet-deploy-vs.md).
 
 ## <a name="overview"></a>Översikt
-WebJobs är en funktion i [Azure App Service](index.yml) som gör att du kan köra ett program eller skript i samma sammanhang som en webbapp, API-app eller mobilapp. Det finns ingen extra kostnad för att använda WebJobs.
+WebJobs är en funktion i [Azure App Service](index.yml) som gör att du kan köra ett program eller skript i samma instans som en webbapp, API-app eller mobilapp. Det finns ingen extra kostnad för att använda WebJobs.
 
 > [!IMPORTANT]
 > WebJobs stöds ännu inte för App Service på Linux.

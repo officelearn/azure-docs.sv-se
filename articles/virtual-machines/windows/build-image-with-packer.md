@@ -1,24 +1,19 @@
 ---
-title: Så här skapar du Windows VM-avbildningar med Packer i Azure
+title: Så här skapar du Windows VM-avbildningar med Packer
 description: Lär dig hur du använder Packer för att skapa avbildningar av virtuella Windows-datorer i Azure
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
+ms.subservice: imaging
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: cb81cbb12605a9d4b8870aab4bb461c8af079cf5
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: f813551ed665628898bb219a611947c3026ac67c
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460757"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084489"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Så här använder du Packer för att skapa windows-avbildningar för virtuella datorer i Azure
 Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar Windows-distributions- och OS-versionen. Avbildningar kan innehålla förinstallerade program och konfigurationer. Azure Marketplace innehåller många avbildningar från första och tredje part för de vanligaste operativsystem- och programmiljöerna, eller så kan du skapa egna anpassade avbildningar som är anpassade efter dina behov. I den här artikeln beskrivs hur du använder verktyget med öppen källkod för att definiera och skapa anpassade [avbildningar](https://www.packer.io/) i Azure.

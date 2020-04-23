@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 8674438032ebd925296c95e9ffa0a2a0b95322f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3659070d4ffd4346a8827d2748e67db436fc15b3
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79369785"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085747"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Anpassad entitetsuppslag kognitiv färdighet (förhandsgranskning)
 
@@ -29,7 +29,7 @@ Microsoft.Skills.Text.CustomEntityLookupSkill
 
 ## <a name="data-limits"></a>Databegränsningar
 + Den maximala indatapoststorleken som stöds är 256 MB. Om du behöver dela upp dina data innan du skickar dem till den anpassade entitetsuppslagsfärdigheten kan du överväga att använda [textdelningsfärdigheten](cognitive-search-skill-textsplit.md).
-+ Den maximala entitetsdefinitionstabellen som stöds är 10 MB om den tillhandahålls med parametern *EntitiesDefitionUri.* 
++ Den maximala entitetsdefinitionstabellen som stöds är 10 MB om den tillhandahålls med parametern *entitiesDefinitionUri.* 
 + Om entiteterna definieras infogade, med parametern *infogadeentitiesDefinition,* är den maximala storleken som stöds 10 kB.
 
 ## <a name="skill-parameters"></a>Färdighetsparametrar
@@ -63,13 +63,13 @@ Parametrar är skiftlägeskänsliga.
 
 Det finns tre olika sätt att tillhandahålla listan över anpassade entiteter till skillen för anpassad entitetsökning. Du kan ange listan i en . CSV-fil, en . JSON-fil eller som en infogad definition som en del av färdighetsdefinitionen.  
 
-Om definitionsfilen är en . CSV eller . JSON-filen måste filens sökväg tillhandahållas som en del av parametern *entitiesDefitionUri.* I det här fallet hämtas filen en gång i början av varje indexeringskörning. Filen måste vara tillgänglig så länge indexeraren är avsedd att köras. Dessutom måste filen kodas UTF-8.
+Om definitionsfilen är en . CSV eller . JSON-filen måste filens sökväg tillhandahållas som en del av parametern *entitiesDefinitionUri.* I det här fallet hämtas filen en gång i början av varje indexeringskörning. Filen måste vara tillgänglig så länge indexeraren är avsedd att köras. Dessutom måste filen kodas UTF-8.
 
 Om definitionen anges i linje bör den anges så infogat som innehållet i *skillparametern InlineEntitiesDefinition.* 
 
 ### <a name="csv-format"></a>CSV-format
 
-Du kan ange definitionen av de anpassade entiteterna att leta efter i en CSV-fil (Comma-Separated Value) genom att ange sökvägen till filen och ange den i skill-parametern *DefitionUri.* Sökvägen ska vara på en https-plats. Definitionsfilen kan vara upp till 10 MB i storlek.
+Du kan ange definitionen av de anpassade entiteterna att leta efter i en CSV-fil (Comma-Separated Value) genom att ange sökvägen till filen och ange den i skill-parametern *entitiesDefinitionUri.* Sökvägen ska vara på en https-plats. Definitionsfilen kan vara upp till 10 MB i storlek.
 
 CSV-formatet är enkelt. Varje rad representerar en unik entitet, som visas nedan:
 
@@ -85,7 +85,7 @@ I det här fallet finns det tre entiteter som kan returneras som entiteter hitta
 
 Du kan också ange definitionen av anpassade entiteter som ska sökas i en JSON-fil. JSON-formatet ger dig lite mer flexibilitet eftersom det gör att du kan definiera matchande regler per term. Du kan till exempel ange det luddiga matchande avståndet (Damerau-Levenshtein-avståndet) för varje term eller om matchningen ska vara skiftlägeskänslig eller inte. 
 
- Precis som med CSV-filer måste du ange sökvägen till JSON-filen och ange den i skill-parametern *DefitionUri.* Sökvägen ska vara på en https-plats. Definitionsfilen kan vara upp till 10 MB i storlek.
+ Precis som med CSV-filer måste du ange sökvägen till JSON-filen och ange den i skill-parametern *entitiesDefinitionUri.* Sökvägen ska vara på en https-plats. Definitionsfilen kan vara upp till 10 MB i storlek.
 
 Den mest grundläggande JSON-definitionen av anpassad entitetslista kan vara en lista över entiteter som ska matchas:
 

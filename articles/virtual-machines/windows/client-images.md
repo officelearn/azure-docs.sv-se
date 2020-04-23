@@ -1,24 +1,19 @@
 ---
 title: Använda Windows-klientavbildningar i Azure
 description: Så här använder du prenumerationsförmåner för Visual Studio för att distribuera Windows 7, Windows 8 eller Windows 10 i Azure för utvecklings-/testscenarier
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-ms.assetid: 91c3880a-cede-44f1-ae25-f8f9f5b6eaa4
+ms.subservice: imaging
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 812e6d251943d4418666f221ad8b5d2b6e501736
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 51e4862fe55428f112841ef7176cdb916653de0b
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74039508"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82083282"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Använda en Windows-klient i Azure för dev/test-scenarier
 Du kan använda Windows 7, Windows 8 eller Windows 10 Enterprise (x64) i Azure för utvecklings-/testscenarier förutsatt att du har en lämplig Visual Studio-prenumeration (tidigare MSDN). I den här artikeln beskrivs berättigandekraven för att köra Windows 7, Windows 8.1, Windows 10 Enterprise i Azure och användning av följande Azure Gallery-avbildningar.

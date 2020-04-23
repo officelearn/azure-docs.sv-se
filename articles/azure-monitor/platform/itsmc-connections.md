@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 9441e7bb970508df4c002897ab726d6e683fa848
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 0773492c3042a6f8c906aa6ba1bc3c76ea8c0d8f
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81733345"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870596"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Anslut ITSM-produkter/-tjänster med IT Service Management Connector
 Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan DIN ITSM-produkt/tjänst och ITSMC (IT Service Management Connector) i Log Analytics för att centralt hantera dina arbetsobjekt. Mer information om ITSMC finns i [Översikt](../../azure-monitor/platform/itsmc-overview.md).
@@ -197,12 +197,12 @@ Se till att följande förutsättningar är uppfyllda:
 > [!NOTE]
 > Som en del av definitionen av "Ställ in OAuth" rekommenderar vi:
 >
-> 1) **Uppdatera livslängden för uppdateringstoken till 90 dagar (7 776 000 sekunder):** Som en del av [Konfigurera OAuth](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_SettingUpOAuth.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696739125&sdata=Q7mF6Ej8MCupKaEJpabTM56EDZ1T8vFVyihhoM594aA%3D&reserved=0) i fas 2: [Skapa en slutpunkt för klienter att komma åt instansen](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_CreateEndpointforExternalClients.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696749123&sdata=hoAJHJAFgUeszYCX1Q%2FXr4N%2FAKiFcm5WV7mwR2UqeWA%3D&reserved=0) Efter definitionen av slutpunkten, i ServiceNow blad sökning efter System OAuth->Application Registry välja namnet på OAuth som definierades och uppdatera fältet "Uppdatera token Lifespan" till 7.776.000.
+> 1) **Uppdatera livslängden för uppdateringstoken till 90 dagar (7 776 000 sekunder):** Som en del av [Konfigurera OAuth](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_SettingUpOAuth.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696739125&sdata=Q7mF6Ej8MCupKaEJpabTM56EDZ1T8vFVyihhoM594aA%3D&reserved=0) i fas 2: [Skapa en slutpunkt för klienter att komma åt instansen](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_CreateEndpointforExternalClients.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696749123&sdata=hoAJHJAFgUeszYCX1Q%2FXr4N%2FAKiFcm5WV7mwR2UqeWA%3D&reserved=0) Efter definitionen av slutpunkten, i ServiceNow blad sökning efter System OAuth än välj Programregistret. Välj namnet på OAuth som definierades och uppdatera fältet Uppdatera token Lifespan till 7 776 000 (90 dagar i sekunder).
 > Klicka på uppdatera i slutet.
-> 2) **Vi rekommenderar att upprätta ett internt förfarande för att säkerställa att anslutningen förblir vid liv:** Enligt "Uppdatera tokenlivslängd" för att uppdatera token. Se till att utföra följande åtgärder före uppdateringstoken förväntad utgångstid (Par dagar innan "Uppdatera tokenlivslängd" löper ut rekommenderar vi):
+> 2) **Vi rekommenderar att upprätta ett internt förfarande för att säkerställa att anslutningen förblir vid liv:** Enligt uppdateringstokens livslängd för att uppdatera token. Se till att utföra följande åtgärder före uppdateringstoken förväntad utgångstid (Par dagar innan uppdateringstokens livslängd löper ut rekommenderar vi):
 >
 >>  1) [Slutföra en manuell synkroniseringsprocess för ITSM-anslutningskonfiguration](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow)
- >> 2) Återkalla till den gamla uppdateringstoken eftersom det inte rekommenderas att gamla nycklar ska skyddas av säkerhetsskäl. I ServiceNow bladsökning efter "System OAuth"->"Hantera tokens" och välj sedan den gamla token från listan enligt OAuth namn och utgångsdatum. Klicka på "Återkalla åtkomst"->"Återkalla.
+ >> 2) Återkalla till den gamla uppdateringstoken eftersom det inte rekommenderas att gamla nycklar ska skyddas av säkerhetsskäl. I ServiceNow bladsökning efter System OAuth än välj Hantera tokens. Välj den gamla token från listan enligt OAuth namn och utgångsdatum. Klicka på Återkalla åtkomst och än på Återkalla.
 
 - Installera User App för Microsoft Log Analytics-integrering (ServiceNow-appen). [Läs mer](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Skapa användarroll för integrering för användarappen som är installerad. Information om hur du skapar rollen integrationsanvändare finns [här](#create-integration-user-role-in-servicenow-app).

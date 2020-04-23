@@ -1,15 +1,15 @@
 ---
 title: Skapa, skapa, & distribuera smart kontrakt handledning - Azure Blockchain Service
 description: Självstudiekurs om hur du använder Azure Blockchain Development Kit for Ethereum-tillägget i Visual Studio Code för att skapa, skapa och distribuera ett smart kontrakt på Azure Blockchain Service.
-ms.date: 12/06/2019
+ms.date: 04/22/2020
 ms.topic: tutorial
-ms.reviewer: chrisseg
-ms.openlocfilehash: 5b901ab904425a22d2fe9643ffa75a4e978efa88
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.reviewer: caleteet
+ms.openlocfilehash: dc23c680dfb2ed33cae2a251af16e1b1f25c6ac7
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74972880"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086665"
 ---
 # <a name="tutorial-create-buildanddeploysmartcontracts-on-azure-blockchain-service"></a>Självstudiekurs: Skapa, skapa och distribuera smarta kontrakt på Azure Blockchain Service
 
@@ -27,7 +27,7 @@ Du använder Azure Blockchain Development Kit för Ethereum för att:
 ## <a name="prerequisites"></a>Krav
 
 * Fullständig [snabbstart: Använd Visual Studio-kod för att ansluta till ett Azure Blockchain Service-konsortiumnätverk](connect-vscode.md)
-* [Visual Studio-kod](https://code.visualstudio.com/Download)
+* [Visual Studio-koden](https://code.visualstudio.com/Download)
 * [Azure Blockchain Development Kit för Ethereum-tillägg](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
 * [Nod.js 10.15.x eller högre](https://nodejs.org/download)
 * [Git 2.10.x eller högre](https://git-scm.com)
@@ -41,7 +41,7 @@ I Windows krävs en installerad C++-kompilator för nod-gyp-modulen. Du kan anv�
 * Om Visual Studio 2019 är installerat ställer du in sökvägen ms build tools för npm. Till exempel, `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
 * Annars installerar du de fristående VS `npm install --global windows-build-tools` Build-verktygen med hjälp av ett upphöjt *kommandoskal för körning som administratör.*
 
-Mer information om nod-gyp finns i [nod-gyp-databasen på GitHub](https://github.com/node-gyp).
+Mer information om nod-gyp finns i [nod-gyp-databasen på GitHub](https://github.com/nodejs/node-gyp).
 
 ## <a name="create-a-smart-contract"></a>Skapa ett smart kontrakt
 

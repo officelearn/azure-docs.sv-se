@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 7c26487018b9632b5780dcd7c56ab36f286f8cac
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ceadbb4297ad0c5ce28470dd75b3f3496c9c5152
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80060004"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084751"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>Självstudiekurs: Skapa en NAT-gateway med Azure-portalen och testa NAT-tjänsten
 
@@ -46,9 +46,9 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 | **\<resursgruppnamn>**  | myResourceGroupNAT |
 | **\<>virtuellt nätverksnamn** | myVNetsource          |
 | **\<regionnamn>**          | USA, östra 2      |
-| **\<IPv4-adress-utrymme>**   | 192.168.0.0\16          |
+| **\<IPv4-adress-utrymme>**   | 192.168.0.0/16          |
 | **\<>i>**          | mySubnetsource        |
-| **\<>för>** | 192.168.0.0\24          |
+| **\<>för>** | 192.168.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -169,9 +169,9 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 | **\<resursgruppnamn>**  | myResourceGroupNAT |
 | **\<>virtuellt nätverksnamn** | myVNetdestination          |
 | **\<regionnamn>**          | USA, östra 2      |
-| **\<IPv4-adress-utrymme>**   | 192.168.0.0\16          |
+| **\<IPv4-adress-utrymme>**   | 192.168.0.0/16          |
 | **\<>i>**          | mySubnetdestination        |
-| **\<>för>** | 192.168.0.0\24          |
+| **\<>för>** | 192.168.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 

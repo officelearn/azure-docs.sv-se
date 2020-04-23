@@ -132,7 +132,7 @@
     - name: Mallar för branschprogram
       items:
         - name: Detaljhandeln
-          href: ../retail/overview-iot-central-retail-pnp.md
+          href: ../retail/overview-iot-central-retail.md
         - name: Energi
           href: ../energy/overview-iot-central-energy.md
         - name: Government

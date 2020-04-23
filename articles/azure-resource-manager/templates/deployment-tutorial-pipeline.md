@@ -1,15 +1,15 @@
 ---
 title: Kontinuerlig integrering med Azure Pipelines
 description: Lär dig hur du kontinuerligt skapar, testar och distribuerar Azure Resource Manager-mallar.
-ms.date: 03/13/2020
+ms.date: 04/22/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6ce6f176a52a742a3216a5b761b34254027a1c5b
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: d1c56ce913a1b63bab90f5dd5aaada382abbf493
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255081"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084336"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Självstudiekurs: Kontinuerlig integrering av Azure Resource Manager-mallar med Azure Pipelines
 
@@ -57,11 +57,7 @@ Om du inte har ett GitHub-konto läser du [Förutsättningar](#prerequisites).
 
 1. Välj **Ny**, en grön knapp.
 1. Ange ett databasnamn i **databasnamn.**  **AzureRmPipeline-repo**. Kom ihåg att ersätta någon av **AzureRmPipeline** med ditt projektnamn. Du kan välja antingen **Offentlig** eller **privat** för att gå igenom den här självstudien. Och välj sedan **Skapa databas**.
-1. Skriv ned webbadressen. Databasens URL är följande format:
-
-    ```url
-    https://github.com/[YourAccountName]/[YourRepositoryName]
-    ```
+1. Skriv ned webbadressen. Databas-URL:en är följande format - ** https://github.com/[YourAccountName]/[YourRepositoryName]**.
 
 Den här databasen kallas en *fjärrdatabas*. Var och en av utvecklarna i samma projekt kan klona sin egen *lokala databas*och sammanfoga ändringarna till fjärrdatabasen.
 

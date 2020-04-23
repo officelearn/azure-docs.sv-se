@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/03/2020
+ms.date: 04/21/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a4c2cddbc9086c80922fcf9c5d96cd197ab4778
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5f4dc7223d64fd299da70375329260f7b4f8b322
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81422531"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82083469"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trend-micro-web-securitytmws"></a>Självstudiekurs: Azure Active Directory single sign-on (SSO) integration med Trend Micro Web Security(TMWS)
 
@@ -87,7 +87,7 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
     b. Skriv en URL i textrutan **Svars-URL**: `https://auth.iws-hybrid.trendmicro.com/simplesaml/module.php/saml/sp/saml2-acs.php/ics-sp`
 
     > [!NOTE]
-    > Identifierarvärdet är inte verkligt. Uppdatera det här värdet med den faktiska identifieraren. Kontakta [Trend Micro Web Security(TMWS) Client support team](https://success.trendmicro.com/contact-support-north-america) för att få identifierare värde. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Identifierarvärdet är inte verkligt. Uppdatera det här värdet med den faktiska identifieraren. Du kan hämta dessa värden under **tjänstproviderinställningarna för** Azure Admin Portal-området på skärmen **Autentiseringsmetod** för Azure AD från **Administration > Directory Services**.
 
 1. Trend Micro Web Security(TMWS) programmet förväntar sig SAML-påståenden i ett visst format, vilket kräver att du lägger till anpassade attributmappningar till din SAML token attribut konfiguration. I följande skärmbild visas listan över standardattribut.
 
@@ -173,7 +173,41 @@ I det här avsnittet ska du aktivera B.Simon för att använda Azure enkel inlog
 
 ## <a name="configure-trend-micro-web-security-sso"></a>Konfigurera Trend Micro Web Security SSO
 
-Om du vill konfigurera enkel inloggning på **sidan Trend Micro Web Security(TMWS)** måste du skicka det nedladdade **certifikatet (Base64)** och lämpliga kopierade URL:er från Azure-portalen till [Trend Micro Web Security(TMWS) supportteam](https://success.trendmicro.com/contact-support-north-america). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+1. Logga in på TMWS-hanteringskonsolen och gå till **Administration** > **USERS & AUTHENTICATION** > **Directory Services**.
+
+1. Klicka här på den övre delen av skärmen.
+
+1. Klicka på **Azure AD**på skärmen Autentiseringsmetod .
+
+1. Klicka **på På** eller **Av** för att bestämma om AD-användarna i din organisation ska tillåtas att besöka webbplatser via TMWS om deras data inte synkroniseras med TMWS.
+
+    > [!NOTE]
+    > Användare som inte synkroniseras från Azure AD kan autentiseras endast via kända TMWS-gateways eller den dedikerade porten för din organisation.
+
+1. Gör följande i avsnittet **Inställningar för identitetsprovider:**
+
+    a. I fältet **Tjänst-URL** klistrar du in värdet **för inloggnings-URL,** som du har kopierat från Azure-portalen
+
+    b. I **attributfältet Inloggningsnamn** klistrar du in användaranspråksnamnet med källattributet **user.onpremisessamaccountname** från Azure-portalen.
+
+    c. I fältet **Offentligt SSL-certifikat** använder du det hämtade **certifikatet (Base64)** från Azure-portalen.
+
+1. Gör följande i avsnittet **Synkroniseringsinställningar:**
+
+    a. I fältet **Klient** använder du **katalog-ID eller** **anpassat domännamnsvärde** från Azure-portalen.
+
+    b. I fältet **Program-ID,** **Application (klient) ID-värde** från Azure-portalen.
+
+    c. Använd **klienthemlighet** från Azure-portalen i fältet **Klienthemlighet.**
+
+    d. Välj att synkronisera med Azure AD manuellt eller enligt ett schema i fältet **Synkroniseringsschema.** Om du väljer Manuellt, när det finns ändringar i Active Directory-användarinformation, kom ihåg att gå tillbaka till katalogtjänstskärmen och utföra manuell synkronisering så att informationen i TMWS förblir aktuell.
+
+    e. Klicka på **Testa anslutning** för att kontrollera om Azure AD-tjänsten kan anslutas. 
+    
+    f. Klicka på **Spara**.
+ 
+ > [!NOTE]
+ > Mer information om hur du konfigurerar Trend Micro Web Security med Azure AD finns [i det här](https://docs.trendmicro.com/en-us/enterprise/trend-micro-web-security-online-help/administration_001/directory-services/azure-active-directo/configuring-azure-ad.aspx) dokumentet.
 
 ## <a name="test-sso"></a>Testa SSO 
 

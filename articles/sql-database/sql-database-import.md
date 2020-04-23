@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 7db3f6f50745526876ef2ca6e3253f1931420f0f
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 4fe8eb0b363fc95ac5913e66884a2ed8f3d225a6
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81683251"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086495"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Snabbstart: Importera en BACPAC-fil till en databas i Azure SQL Database
 
@@ -61,7 +61,7 @@ Att migrera en databas till en [hanterad instans](sql-database-managed-instance.
 
 ## <a name="using-sqlpackage"></a>Använda SqlPackage
 
-Information om hur du importerar en SQL Server-databas med kommandoradsverktyget [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) finns i [importparametrar och egenskaper](https://docs.microsoft.com/sql/tools/sqlpackage#import-parameters-and-properties). SqlPackage har de senaste [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) och SQL Server Data Tools för Visual [Studio](https://msdn.microsoft.com/library/mt204009.aspx). Du kan också hämta det senaste [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) från Microsoft Download Center.
+Information om hur du importerar en SQL Server-databas med kommandoradsverktyget [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) finns i [importparametrar och egenskaper](https://docs.microsoft.com/sql/tools/sqlpackage#import-parameters-and-properties). [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) och [SQL Server Data Tools för Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx) inkluderar SqlPackage. Du kan också hämta det senaste [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) från Microsoft Download Center.
 
 För skalning och prestanda rekommenderar vi att du använder SqlPackage i de flesta produktionsmiljöer i stället för att använda Azure-portalen. En blogg för SQL Server Customer Advisory `BACPAC` Team om migrering med filer finns [i migrera från SQL Server till Azure SQL Database med BACPAC-filer](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 

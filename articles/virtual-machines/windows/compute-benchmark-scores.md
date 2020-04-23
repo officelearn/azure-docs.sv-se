@@ -1,26 +1,20 @@
 ---
 title: Beräkna benchmark-poäng för virtuella Azure Windows-datorer
 description: Jämför SPECint-beräkningsriktmärken för virtuella Azure-datorer som kör Windows Server.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 69ae72ec-e8be-4e46-a8f0-e744aebb5cc2
 ms.service: virtual-machines-windows
+ms.subservice: sizes
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: 14e2cdd5d4a1662e86a055165fdd15a38d29225b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ea6bca1367d4b34aa54b65e92e7cbfdd02642f4c
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77651057"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086240"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Beräkna benchmark-poäng för virtuella Windows-datorer
 Följande REFERENSPOÄNG för SPECInt visar beräkningsprestanda för utvalda Virtuella Azure-datorer som kör Windows Server. Beräkningsriktmärken är också tillgängliga för [virtuella Linux-datorer.](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

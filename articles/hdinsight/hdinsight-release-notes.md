@@ -7,15 +7,15 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/20/2020
-ms.openlocfilehash: cdb31f1a46d7f46b69e9e0ad47a77ba6b32a50a0
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.date: 04/22/2020
+ms.openlocfilehash: f8331b64792781a89428f8c5070375c31c0da48d
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770820"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084897"
 ---
-# <a name="release-notes"></a>Viktig information
+# <a name="release-notes"></a>Versionsanmärkningar
 
 Den här artikeln innehåller information om de **senaste** uppdateringarna av Azure HDInsight-versionen. Information om tidigare versioner finns i [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
 
@@ -66,14 +66,3 @@ HDInsight fortsätter att göra klustertillförlitlighet och prestandaförbättr
 ## <a name="component-version-change"></a>Ändring av komponentversion
 Ingen ändring av komponentversion för den här versionen. Du kan hitta de aktuella komponentversionerna för HDInsight 4.0 ad HDInsight 3.6 här.
 
-## <a name="known-issues"></a>Kända problem
-
-Från och med den 18 mars 2020 har vissa Azure HDInsight-kunder i Västeuropa eller Norra Europa fått felmeddelanden när hdinsight-kluster skapas eller skalas i dessa regioner. Fel relaterade till det här problemet är:
-
-- Internt serverfel uppstod vid bearbetning av begäran. Försök igen förfrågan eller kontakta supporten.
-- Det gick inte att driften av minst en resursdistribution. Vänligen lista distributionsåtgärder för mer information. Se https://aka.ms/DeployOperations för användningsinformation
-- User SubscriptionId\<'\>Prenumeration ID ' har inte\<kärnor kvar för att skapa resursens klusternamn>'. \<Obligatoriskt:\>X , Tillgänglig: 0.
-
-Tekniker är medvetna om problemet och undersöker aktivt.
-
-Om du vill ha mer hjälp kan du skapa en [supportbegäran](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

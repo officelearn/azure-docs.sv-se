@@ -10,12 +10,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
-ms.openlocfilehash: 85b966a9423fa6c8b2dc9e97cab1e24d9756caa4
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 69b9733f4d79f5fc42fe86ca0f8a97305205aeef
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81687343"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085067"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Snabbstart: Skapa en Java Spring-app med Azure App-konfiguration
 
@@ -143,7 +143,7 @@ Använd [Spring Initializr](https://start.spring.io/) för att skapa ett nytt Sp
 1. Skapa en ny `bootstrap.properties` fil som namnges under appens resurskatalog och lägg till följande rader i filen. Ersätt exempelvärdena med lämpliga egenskaper för App Configuration Store.
 
     ```CLI
-    spring.cloud.azure.appconfiguration.stores[0].connection-string=${APP_CONFIGURATION_CONNECTION_STRING}
+    spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
 1. Ange en miljövariabel med namnet **APP_CONFIGURATION_CONNECTION_STRING**och ange den till åtkomstnyckeln till appkonfigurationsarkivet. På kommandoraden kör du följande kommando och startar om kommandotolken så att ändringen kan börja gälla:

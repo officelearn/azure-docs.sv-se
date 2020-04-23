@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 8bb56db9eed962ac8f8202c61a7446527c15dfc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 11e16453cc2a6044c4b153bd1556d85545ff9625
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80060903"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086631"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>Säkerhetsrekommendationer för kölagring
 
@@ -29,7 +29,7 @@ Azure Security Center analyserar regelbundet säkerhetstillståndet för dina Az
 
 | Rekommendation | Kommentarer | Security Center |
 |-|----|--|
-| Använda distributionsmodellen för Azure Resource Manager | Skapa nya lagringskonton med hjälp av distributionsmodellen för Azure Resource Manager för viktiga säkerhetsförbättringar, inklusive bättre åtkomstkontroll (RBAC) och granskning, Resurshanteraren-baserad distribution och styrning, åtkomst till hanterade identiteter, åtkomst till hanterade identiteter, åtkomst till Azure Key Vault för hemligheter och Azure AD-baserad autentisering och auktorisering för åtkomst till Azure Storage-data och resurser. Om möjligt migrera befintliga lagringskonton som använder den klassiska distributionsmodellen för att använda Azure Resource Manager. Mer information om Azure Resource Manager finns i [Översikt över Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview). | - |
+| Använda distributionsmodellen för Azure Resource Manager | Skapa nya lagringskonton med hjälp av distributionsmodellen för Azure Resource Manager för viktiga säkerhetsförbättringar, inklusive rbac -kontroll (Superior Access Control) och granskning, Resurshanterarens distribution och styrning, åtkomst till hanterade identiteter, åtkomst till Azure Key Vault för hemligheter och Azure AD-baserad autentisering och auktorisering för åtkomst till Azure Storage-data och resurser. Om möjligt migrera befintliga lagringskonton som använder den klassiska distributionsmodellen för att använda Azure Resource Manager. Mer information om Azure Resource Manager finns i [Översikt över Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview). | - |
 | Aktivera alternativet **Säker överföring som krävs** på alla dina lagringskonton | När du aktiverar alternativet **Säker överföring måste** alla begäranden som görs mot lagringskontot ske via säkra anslutningar. Alla begäranden som görs via HTTP misslyckas. Mer information finns [i Kräv säker överföring i Azure Storage](../common/storage-require-secure-transfer.md). | [Ja](../../security-center/security-center-sql-service-recommendations.md) |
 | Aktivera avancerat hotskydd för alla dina lagringskonton | Avancerat hotskydd för Azure Storage ger ett extra lager av säkerhetsinformation som identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagringskonton. Säkerhetsaviseringar utlöses i Azure Security Center när avvikelser i aktivitet inträffar och skickas även via e-post till prenumerationsadministratörer, med information om misstänkt aktivitet och rekommendationer om hur du undersöker och åtgärdar hot. Mer information finns i [Avancerat hotskydd för Azure Storage](../common/storage-advanced-threat-protection.md). | [Ja](../../security-center/security-center-sql-service-recommendations.md) |
 | Begränsa SAS-token (Shared Access Signature) till endast HTTPS-anslutningar | Att kräva HTTPS när en klient använder en SAS-token för att komma åt ködata hjälper till att minimera risken för avlyssning. Mer information finns i [Bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av SAS (Shared Access Signatures).](../common/storage-sas-overview.md) | - |
@@ -53,6 +53,7 @@ Azure Security Center analyserar regelbundet säkerhetstillståndet för dina Az
 | Aktivera brandväggsregler | Konfigurera brandväggsregler för att begränsa åtkomsten till ditt lagringskonto till begäranden som kommer från angivna IP-adresser eller intervall, eller från en lista över undernät i ett Virtuellt Azure-nätverk (VNet). Mer information om hur du konfigurerar brandväggsregler finns i [Azure File Sync proxy och brandväggsinställningar](../files/storage-sync-files-firewall-and-proxy.md). | - |
 | Tillåt betrodda Microsoft-tjänster att komma åt lagringskontot | Om du aktiverar brandväggsregler för ditt lagringskonto blockeras inkommande begäranden om data som standard, såvida inte begäranden kommer från en tjänst som arbetar inom ett Virtuellt Azure-nätverk (VNet) eller från tillåtna offentliga IP-adresser. Begäranden som blockeras inkluderar de från andra Azure-tjänster, från Azure-portalen, från loggning och måtttjänster och så vidare. Du kan tillåta begäranden från andra Azure-tjänster genom att lägga till ett undantag för att tillåta betrodda Microsoft-tjänster att komma åt lagringskontot. Mer information om hur du lägger till ett undantag för betrodda Microsoft-tjänster finns i [Proxy- och brandväggsinställningar för Azure File Sync](../files/storage-sync-files-firewall-and-proxy.md).| - |
 | Använda privata slutpunkter | En privat slutpunkt tilldelar en privat IP-adress från ditt Virtuella Azure-nätverk (VNet) till lagringskontot. Det säkrar all trafik mellan ditt virtuella nätverk och lagringskontot via en privat länk. Mer information om privata slutpunkter finns i [Ansluta privat till ett lagringskonto med Azure Private Endpoint](../../private-link/create-private-endpoint-storage-portal.md). | - |
+| Använda VNet-tjänsttaggar | En tjänsttagg representerar en grupp IP-adressprefix från en viss Azure-tjänst. Microsoft hanterar adressprefixen som omfattas av servicetag och uppdaterar automatiskt servicetag när adresserna ändras. Mer information om tjänsttaggar som stöds av Azure Storage finns i [översikt över Azure-tjänsttaggar](../../virtual-network/service-tags-overview.md). En självstudiekurs som visar hur du använder tjänsttaggar för att skapa utgående nätverksregler finns i [Begränsa åtkomsten till PaaS-resurser](../../virtual-network/tutorial-restrict-network-access-to-resources.md). | - |
 | Begränsa nätverksåtkomsten till specifika nätverk | Om du begränsar nätverksåtkomsten till nätverk som är värdar för klienter som behöver åtkomst minskar exponeringen för dina resurser för nätverksattacker. | [Ja](../../security-center/security-center-sql-service-recommendations.md) |
 
 ## <a name="loggingmonitoring"></a>Loggning/övervakning

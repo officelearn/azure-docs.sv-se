@@ -3,12 +3,12 @@ title: CI/CD med Azure Pipelines och mallar
 description: Beskriver hur du konfigurerar kontinuerlig integrering i Azure Pipelines med hjälp av Azure Resource Group-distributionsprojekt i Visual Studio för att distribuera Resource Manager-mallar.
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 7617bf47595fce7baa533b0f7cc94a1803ddd349
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d8eff1c7efae319106eb8a85af7823a820a0da39
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80153462"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82084659"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrera ARM-mallar med Azure Pipelines
 
@@ -28,7 +28,7 @@ Den här artikeln förutsätter att visual studio-projektet och Azure DevOps-org
 
 * Du har en Azure DevOps-organisation. Om du inte har en, [skapa en gratis](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops). Om ditt team redan har en Azure DevOps-organisation kontrollerar du att du är administratör för Azure DevOps-projektet som du vill använda.
 
-* Du har konfigurerat en [tjänstanslutning](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) till din Azure-prenumeration. Aktiviteterna i pipelinen körs under identiteten för tjänstens huvudnamn. Steg för att skapa anslutningen finns i [Skapa ett DevOps-projekt](template-tutorial-use-azure-pipelines.md#create-a-devops-project).
+* Du har konfigurerat en [tjänstanslutning](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) till din Azure-prenumeration. Aktiviteterna i pipelinen körs under identiteten för tjänstens huvudnamn. Steg för att skapa anslutningen finns i [Skapa ett DevOps-projekt](deployment-tutorial-pipeline.md#create-a-devops-project).
 
 * Du har ett Visual Studio-projekt som har skapats från startmallen **för Azure Resource Group.** Information om hur du skapar den typen av projekt finns i [Skapa och distribuera Azure-resursgrupper via Visual Studio](create-visual-studio-deployment-project.md).
 
@@ -261,4 +261,4 @@ Du kan välja den pipeline som körs för att se information om aktiviteterna. N
 
 ## <a name="next-steps"></a>Nästa steg
 
-Stegvis process för att använda Azure Pipelines med ARM-mallar finns i [Självstudiekurs: Kontinuerlig integrering av ARM-mallar med Azure Pipelines](template-tutorial-use-azure-pipelines.md).
+Stegvis process för att använda Azure Pipelines med ARM-mallar finns i [Självstudiekurs: Kontinuerlig integrering av Azure Resource Manager-mallar med Azure Pipelines](deployment-tutorial-pipeline.md).

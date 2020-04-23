@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 9e8aa9bbbdf166ba0caf29cd0bce22b8ed321e4e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 48cdbc8188604ce1992a1cb15289576ba92902a3
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81685192"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086155"
 ---
 # <a name="azure-sql-auditing"></a>Azure SQL-granskning
 
@@ -89,7 +89,7 @@ I följande avsnitt beskrivs konfigurationen av granskning med Hjälp av Azure-p
   
    ![lagringsalternativ](./media/sql-database-auditing-get-started/auditing-select-destination.png)
    
-### <a name=""></a><a id="audit-storage-destination">Granskning till lagringsmål</a>
+### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>Granskning till lagringsmål
 
 Om du vill konfigurera skriva granskningsloggar till ett lagringskonto väljer du **Lagring** och öppnar **Lagringsinformation**. Välj det Azure-lagringskonto där loggar ska sparas och välj sedan kvarhållningsperioden. Klicka sedan på **OK**. Loggar som är äldre än kvarhållningsperioden tas bort.
 
@@ -108,13 +108,13 @@ Om du vill konfigurera skriva granskningsloggar till ett lagringskonto väljer d
 - När du använder AAD-autentisering visas *inte* misslyckade inloggningsposter i SQL-granskningsloggen. Om du vill visa misslyckade inloggningsgranskningsposter måste du besöka [Azure Active Directory-portalen]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), som loggar information om dessa händelser.
 - Granskning av [skrivskyddade repliker](sql-database-read-scale-out.md) aktiveras automatiskt. Mer information om hierarkin för lagringsmappar, namngivningskonventioner och loggformat finns i [LOGGFORMATET FÖR SQL Database Audit](sql-database-audit-log-format.md). 
 
-### <a name=""></a><a id="audit-log-analytics-destination">Granskning till logganalysmål</a>
+### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Granskning till logganalysmål
   
 Om du vill konfigurera skriva granskningsloggar till en Log Analytics-arbetsyta väljer du **Log Analytics (Preview)** och öppnar **Log Analytics-information**. Markera eller skapa arbetsytan Log Analytics där loggar ska skrivas och klicka sedan på **OK**.
    
    ![LogAnalyticsworkspace](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
-### <a name=""></a><a id="audit-event-hub-destination">Granskning till händelsehubbmål</a>
+### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Granskning till händelsehubbmål
 
 > [!WARNING]
 > Om du aktiverar granskning på en server som har en SQL-pool på **den återupptas SQL-poolen och pausas igen,** vilket kan medföra faktureringsavgifter.
@@ -199,7 +199,7 @@ Om du väljer att skriva granskningsloggar till ett Azure-lagringskonto finns de
 
 <!--The description in this section refers to preceding screen captures.-->
 
-#### <a name="auditing-geo-replicated-databases"></a>Granska geo-replikerade databaser
+### <a name="auditing-geo-replicated-databases"></a>Granska geo-replikerade databaser
 
 Med geo-replikerade databaser har den sekundära databasen en identisk granskningsprincip när du aktiverar granskning i den primära databasen. Det är också möjligt att ställa in granskning i den sekundära databasen genom att aktivera granskning på den **sekundära servern**, oberoende av den primära databasen.
 
@@ -211,7 +211,7 @@ Med geo-replikerade databaser har den sekundära databasen en identisk gransknin
     >[!IMPORTANT]
     >Med granskning på databasnivå är lagringsinställningarna för den sekundära databasen identiska med de primära databasens, vilket orsakar gränsöverskridande trafik. Vi rekommenderar att du endast aktiverar granskning på servernivå och låter granskningen på databasnivå inaktiveras för alla databaser.
 
-#### <a name="storage-key-regeneration"></a>Regenerering av lagringsnyckel
+### <a name="storage-key-regeneration"></a>Regenerering av lagringsnyckel
 
 I produktion är det troligt att du uppdaterar lagringsnycklarna med jämna mellanrum. När du skriver granskningsloggar till Azure-lagring måste du spara din granskningsprincip igen när du uppdaterar dina nycklar. Processen är följande:
 
@@ -226,7 +226,7 @@ I produktion är det troligt att du uppdaterar lagringsnycklarna med jämna mell
 
 ## <a name="manage-azure-sql-server-and-database-auditing"></a><a id="manage-auditing"></a>Hantera Granskning av Azure SQL Server och databas
 
-#### <a name="using-azure-powershell"></a>Använda Azure PowerShell
+### <a name="using-azure-powershell"></a>Använda Azure PowerShell
 
 **PowerShell-cmdlets (inklusive WHERE-satsstöd för ytterligare filtrering):**
 
@@ -239,7 +239,7 @@ I produktion är det troligt att du uppdaterar lagringsnycklarna med jämna mell
 
 Ett skriptexempel finns i [Konfigurera granskning och hotidentifiering med PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
-#### <a name="using-rest-api"></a>Använda REST-API:et
+### <a name="using-rest-api"></a>Använda REST-API:et
 
 **REST API**:
 
@@ -255,7 +255,7 @@ Utökad princip med WHERE-satsstöd för ytterligare filtrering:
 - [Hämta *databas utökad* granskningsprincip](/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Hämta princip *för utökad* granskning av servern](/rest/api/sql/server%20auditing%20settings/get)
 
-#### <a name="using-azure-resource-manager-templates"></a>Använda Azure Resource Manager-mallar
+### <a name="using-azure-resource-manager-templates"></a>Använda Azure Resource Manager-mallar
 
 Du kan hantera Granskning av Azure SQL-databaser med Azure Resource Manager-mallar, vilket visas i följande exempel: [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 

@@ -7,12 +7,12 @@ ms.date: 08/23/2019
 ms.custom: mvc, devcenter, seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: 84953c79093ebd4e53e7e7feef5ab72b8afce002
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a185565ec125e327297883c63b1d50a2548c7853
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80047534"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086017"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Skapa en Node.js-webbapp i Azure
 
@@ -77,7 +77,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 När webbappen har skapats visar Azure CLI utdata liknande den i följande exempel:
 
-```json
+<pre>
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -85,11 +85,11 @@ När webbappen har skapats visar Azure CLI utdata liknande den i följande exemp
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
+  "defaultHostName": "&lt;app_name&gt;.azurewebsites.net",
   "enabled": true,
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
 }
-```
+</pre>
 
 ### <a name="set-nodejs-runtime"></a>Ange Node.js-körning
 

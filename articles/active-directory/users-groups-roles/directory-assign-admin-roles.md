@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 04/14/2020
+ms.date: 04/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3f284efd6a9a2fd83c8e2a8f9fb7a962c1cacc1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 4ac49209fb1debca604a6aeb8ad3993ff898c331
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81406472"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82083010"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
 
@@ -52,17 +52,18 @@ Följande administratörsroller är tillgängliga:
 Användare i den här rollen kan skapa och hantera alla aspekter av företagsprogram, programregistreringar och programproxyinställningar. Observera att användare som tilldelats den här rollen inte läggs till som ägare när nya programregistreringar eller företagsprogram skapas.
 
 Programadministratörer kan hantera programautentiseringsuppgifter som gör att de kan personifiera programmet. Så användare som tilldelats den här rollen kan hantera programautentiseringsuppgifter för endast de program som antingen inte har tilldelats några Azure AD-roller eller de som endast har tilldelats följande administratörsroller:
+
 * Programadministratör
 * Programutvecklare
 * Molnprogramadministratör
 * Katalogläsare
 
-Om ett program tilldelas någon annan roll som inte nämns ovan kan programadministratören inte hantera autentiseringsuppgifter för det programmet. 
- 
+Om ett program tilldelas någon annan roll som inte nämns ovan kan programadministratören inte hantera autentiseringsuppgifter för det programmet.
+
 Den här rollen ger också möjlighet att _godkänna_ delegerade behörigheter och programbehörigheter, med undantag för behörigheter på Microsoft Graph API.
 
 > [!IMPORTANT]
-> Det här undantaget innebär att du fortfarande kan samtycka till behörigheter för _andra_ appar (t.ex. appar eller appar från tredje part som du har registrerat), men inte till behörigheter för Azure AD själv. Du kan fortfarande _begära_ dessa behörigheter som en del av appregistreringen, men _om du beviljar_ (dvs. medgivande till) kräver dessa behörigheter en Azure AD-administratör. Det innebär att en obehörig användare inte enkelt kan höja sina behörigheter, till exempel genom att skapa och samtycka till en app som kan skriva till hela katalogen och genom appens behörigheter höja sig till att bli en global administratör.
+> Det här undantaget innebär att du fortfarande kan samtycka till behörigheter för _andra_ appar (till exempel appar eller appar som inte kommer från Microsoft som du har registrerat), men inte behörigheter för Azure AD själv. Du kan fortfarande _begära_ dessa behörigheter som en del av appregistreringen, men _om du beviljar_ (det vill säga medgivande till) kräver dessa behörigheter en Azure AD-administratör. Det innebär att en obehörig användare inte enkelt kan höja sina behörigheter, till exempel genom att skapa och samtycka till en app som kan skriva till hela katalogen och genom appens behörigheter höja sig till att bli en global administratör.
 
 ### <a name="application-developer"></a>[Programutvecklare](#application-developer-permissions)
 
@@ -70,13 +71,15 @@ Användare i den här rollen kan skapa programregistreringar när inställningen
 
 ### <a name="authentication-administrator"></a>[Administratör för autentisering](#authentication-administrator-permissions)
 
-Rollen Autentiseringsadministratör är för närvarande i offentlig förhandsversion. Användare med den här rollen kan ange eller återställa autentiseringsuppgifter som inte är lösenord och kan uppdatera lösenord för alla användare. Autentiseringsadministratörer kan kräva att användare registrerar sig mot befintliga icke-lösenordsautentiseringsuppgifter (till exempel MFA eller FIDO) och **återkallar kom ihåg MFA på enheten**, som frågar efter MFA vid nästa inloggning av användare som inte är administratörer eller endast tilldelat följande roller:
+Användare med den här rollen kan ange eller återställa autentiseringsuppgifter för icke-lösenord för vissa användare och kan uppdatera lösenord för alla användare. Autentiseringsadministratörer kan kräva att användare som inte är administratörer eller har tilldelats vissa roller omregistrerar sig mot befintliga autentiseringsuppgifter som inte är lösenord (till exempel MFA eller FIDO) och kan också återkalla **kom ihåg MFA på enheten**, som frågar efter MFA vid nästa inloggning. Dessa åtgärder gäller endast användare som inte är administratörer eller som har tilldelats en eller flera av följande roller:
 
 * Administratör för autentisering
 * Katalogläsare
 * Gäst inbjudna
 * Läsare av Meddelandecenter
 * Rapporter Reader
+
+Rollen [Privilegierad autentiseringsadministratör](#privileged-authentication-administrator) har behörighet kan tvinga fram omregistrering och multifaktorautentisering för alla användare.
 
 > [!IMPORTANT]
 > Användare med den här rollen kan ändra autentiseringsuppgifter för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Om du ändrar en användares autentiseringsuppgifter kan det innebära att användarens identitet och behörigheter kan antas. Ett exempel:
@@ -103,7 +106,7 @@ Användare med den här rollen kan skapa och hantera B2C-användarflöden (kalla
 
 ### <a name="b2c-user-flow-attribute-administrator"></a>[Administratör för användarflödesattribut för B2C](#b2c-user-flow-attribute-administrator-permissions)
 
-Användare med den här rollen lägger till eller tar bort anpassade attribut som är tillgängliga för alla användarflöden i klienten.Användare med den här rollen kan därför ändra eller lägga till nya element i slutanvändarschemat och påverka beteendet för alla användarflöden och indirekt resultera i ändringar av vilka data som kan begäras av slutanvändare och slutligen skickas som anspråk till program.Den här rollen kan inte redigera användarflöden.
+Användare med den här rollen lägger till eller tar bort anpassade attribut som är tillgängliga för alla användarflöden i klienten.Användare med den här rollen kan därför ändra eller lägga till nya element i slutanvändarschemat och påverka beteendet för alla användarflöden och indirekt resultera i ändringar av vilka data som kan tillfrågas av slutanvändare och slutligen skickas som anspråk till program.Den här rollen kan inte redigera användarflöden.
 
 ### <a name="b2c-ief-keyset-administrator"></a>[B2C IEF Keyset Administratör](#b2c-ief-keyset-administrator-permissions)
 
@@ -128,6 +131,7 @@ Gör inköp, hanterar prenumerationer, hanterar supportärenden och övervakar t
 Användare i den här rollen har samma behörigheter som rollen Programadministratör, exklusive möjligheten att hantera programproxy. Den här rollen ger möjlighet att skapa och hantera alla aspekter av företagsansökningar och programregistreringar. Den här rollen ger också möjlighet att godkänna delegerade behörigheter och programbehörigheter exklusive Microsoft Graph API. Användare som tilldelats den här rollen läggs inte till som ägare när nya programregistreringar eller företagsprogram skapas.
 
 Cloud Application Administrators kan hantera programautentiseringsuppgifter som gör att de kan personifiera programmet. Så användare som tilldelats den här rollen kan hantera programautentiseringsuppgifter för endast de program som antingen inte har tilldelats några Azure AD-roller eller de som endast har tilldelats följande administratörsroller:
+
 * Programutvecklare
 * Molnprogramadministratör
 * Katalogläsare
@@ -350,7 +354,13 @@ Användare med den här rollen kan registrera skrivare och hantera skrivarstatus
 
 ### <a name="privileged-authentication-administrator"></a>[Privilegierad autentiseringsadministratör](#privileged-authentication-administrator-permissions)
 
-Användare med den här rollen kan ange eller återställa autentiseringsuppgifter för icke-lösenord för alla användare, inklusive globala administratörer, och kan uppdatera lösenord för alla användare. Privilegierade autentiseringsadministratörer kan tvinga användare att registrera sig mot befintliga icke-lösenordsautentiseringsuppgifter (t.ex.
+Användare med den här rollen kan ange eller återställa autentiseringsuppgifter för icke-lösenord för alla användare, inklusive globala administratörer, och kan uppdatera lösenord för alla användare. Privilegierade autentiseringsadministratörer kan tvinga användare att registrera sig mot befintliga icke-lösenordsautentiseringsuppgifter (till exempel MFA eller FIDO) och återkalla "kom ihåg MFA på enheten", vilket uppmanar MFA att logga in vid nästa inloggning av alla användare. [Rollen Autentiseringsadministratör](#authentication-administrator) kan tvinga fram omregistrering och MFA för endast icke-administratörer och användare som tilldelats följande Azure AD-roller:
+
+* Administratör för autentisering
+* Katalogläsare
+* Gäst inbjudna
+* Läsare av Meddelandecenter
+* Rapporter Reader
 
 ### <a name="privileged-role-administrator"></a>[Administratör för privilegierad roll](#privileged-role-administrator-permissions)
 

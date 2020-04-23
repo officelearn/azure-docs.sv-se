@@ -2,13 +2,13 @@
 title: Begränsningar för namngivning av resurser
 description: Visar regler och begränsningar för att namnge Azure-resurser.
 ms.topic: conceptual
-ms.date: 03/27/2020
-ms.openlocfilehash: f6203f987654b33b32da72bfec030a9d0ab69df8
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.date: 04/22/2020
+ms.openlocfilehash: fab1ab2bb779b3826c852e49da7970030d34594d
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981536"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086393"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Namngivningsregler och begränsningar för Azure-resurser
 
@@ -534,6 +534,13 @@ I följande tabeller refererar termen alfanumerisk till:
 > | --- | --- | --- | --- |
 > | Kluster | Resursgrupp | 4-63 | Alfanumeriska och bindestreck.<br><br>Börja och sluta med alfanumeriskt. |
 > | arbetsytor | Resursgrupp | 4-63 | Alfanumeriska och bindestreck.<br><br>Börja och sluta med alfanumeriskt. |
+
+## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
+
+> [!div class="mx-tableFixed"]
+> | Entitet | Omfång | Längd | Giltiga tecken |
+> | --- | --- | --- | --- |
+> | lösningar | arbetsyta | Ej tillämpligt | För lösningar som skapats av Microsoft måste namnet finnas i mönstret:<br>`SolutionType(WorkspaceName)`<br><br>För lösningar som skapats av tredje part måste namnet finnas i mönstret:<br>`SolutionType[WorkspaceName]`<br><br>Ett giltigt namn är till exempel:<br>`AntiMalware(contoso-IT)`<br><br>Lösningstypen är skiftlägeskänslig. |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 

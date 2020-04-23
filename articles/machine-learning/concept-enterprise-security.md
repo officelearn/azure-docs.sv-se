@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 9f3a1c3455aadfbd243cdc6ab2920849c8558841
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1af1a1ccd8bff8fc4b578ecdeec3ac5f7c2352b1
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414632"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082143"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företagssäkerhet för Azure Machine Learning
 
@@ -183,7 +183,7 @@ Så här aktiverar du etablering av en Cosmos DB-instans i din prenumeration med
         > [!NOTE]
         > Den här nyckelvalvsinstansen kan skilja sig från nyckelvalvet som skapas av Azure Machine Learning när du etablerar arbetsytan. Om du vill använda samma nyckelvalvsinstans för arbetsytan skickar du samma nyckelvalv medan arbetsytan etableras med [parametern key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
-Den här Cosmos DB-instansen skapas i en Microsoft-hanterad resursgrupp i din prenumeration. 
+Den här Cosmos DB-instansen skapas i en Microsoft-hanterad resursgrupp i din prenumeration. Den hanterade resursgruppen namnges i formatet<AML Workspace Resource Group Name><GUID>
 
 > [!IMPORTANT]
 > * Om du behöver ta bort den här Cosmos DB-instansen måste du ta bort arbetsytan Azure Machine Learning som använder den. 

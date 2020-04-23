@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 37cc0d15890ef350834251c9838ab102deb67dda
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 1c98fd9b9146a0c6784d482ed61b32df1ef23d03
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81684210"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082398"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Riktlinjer för listning av Azure Marketplace
 
@@ -30,7 +30,7 @@ Alla erbjudanden måste uppfylla [alla noteringskrav](https://docs.microsoft.com
 | 3 | Logotyp | Logotypen visas korrekt | Logotypen visas korrekt och innehåller [hjältebild som är den stora bilden i Azure-portalen |
 | 4 |  Beskrivning av erbjudandet | <br>* 2-3 stycken <br>* Lösningserbjudande är lätt att förstå på ett ögonblick <br>* Erbjudandet beskrivning är fri från stavning och misstag grammatik <br>* Erbjudande beskrivning är omfattande och fångar: målgrupp, typ av användare, varför det är värdefullt (värde prop) <br>* Erbjudande beskrivning är i punkt berättande form med korta meningar som är lätt att förstå | <br>* Målindustrin beskrivs (om relevant) <br>* Bra stil formatering med varje stycke rubrik med en en mening eller fras sammanfatta innehåll som följer och inklusive punkter (när det är lämpligt) för att betona viktiga fördelar. Målet här är att läsaren ska förstå erbjudandet med ett ögonkast i ett lättskådligt format och inte behöva läsa stycken. <br>* Det finns avstånd mellan varje stycke och läser som en bil broschyr. Vilket innebär inte tekniska funktioner eller kod lingo men beskrivande av erbjudandet i enkla ordalag och är omfattande. | 
 | 5 | Kategorier & Branscher | <br>* Kategorier match lösning erbjuder funktioner <br>* Sträck dig inte till kategorier som lösningen inte passar <br>* Optimal industri, eller alla branscher som valts ut (om inte optimala industrier) | <br>* Max. 3 kategorier <br>* Max. 3 branscher |
-| 6 | Avbildningar | <br>* Ingen bild krävs, men om sådan finns måste visa och en högupplöst bild. <br>* Bildkrav listas i CPP och även här <br>* Text som ingår i skärmdumpen är läsbar med tydlig bild | Lösningserbjudande är lätt att förstå med ett ögonkast |
+| 6 | Avbildningar | <br>* Ingen bild krävs, men om sådan finns måste visa och en högupplöst bild. <br>* Bildkrav listas i Partner Center och även här <br>* Text som ingår i skärmdumpen är läsbar med tydlig bild | Lösningserbjudande är lätt att förstå med ett ögonkast |
 | 7 | Videoklipp | <br>* Inga videor krävs, men om sådana anges måste spela upp utan några fel. <br>* Om sådana finns, får inte hänvisa till konkurrerande företag om inte visar en migrationslösning |<br>* Helst 3 minuter eller mer <br>* Lösning erbjuder lätt att förstå genom videoinnehåll <br>* Demo av lösningsfunktioner |
 | 8 | Liststatus (uppmaning) | <br>Måste märkas av någon av följande typer: <ul>o Kontakta mig</ul><ul>o Test/Få testversion nu/starta testversion/provkörning</ul><ul>o Köp nu/Hämta den nu</ul> | Kunden kan lätt förstå vilka nästa steg som är tillgängliga: <ul>1. Prova rättegången</ul> <ul>2. Köp nu</ul><ul>3. Kontakta via e-post eller telefonnummer för att ordna med PoC, Assessment eller Briefing.</ul> | 
 | 9 | Lösningsprissättning | Måste ha lösningsprisfliken/information och i den lokala valutan för partnerlösningserbjudandet | Flera faktureringsalternativ tillgängliga med nivåprissättning för kunden att ha alternativ |    
@@ -56,11 +56,11 @@ Alla erbjudanden måste uppfylla [alla noteringskrav](https://docs.microsoft.com
 | 4 | Skyltfönster detaljer: Erbjudande Sammanfattning | Detta visas på appens söksida med högst 100 tecken | |
 | 5 | Skyltfönster detaljer: Industries | Branscher (Max 2): Välj de branscher som appen är bäst justerad och tillämplig på. | |
 | 6 | Beskrivning av erbjudandet | <br>* Enkel HTML är tillåtet, inklusive p, em, ul, li, ol och header taggar. Högst 3 000 tecken. <br>* 2-3 stycken <br>* Lösningserbjudande är lätt att förstå på ett ögonblick <br>* Beskrivning är omfattande och fångar:*målgrupp, typ av användare, varför <br> det är värdefullt (värde prop)* Erbjudande beskrivning är i punkt berättande form med korta meningar som är lätt att förstå. | <br>* Målindustrin beskrivs (om relevant) <br>* Bra stil formatering med varje stycke rubrik med en en mening eller fras sammanfatta innehåll som följer och inklusive punkter (när det är lämpligt) för att betona viktiga fördelar. Målet här är att läsaren ska förstå erbjudandet med ett ögonkast i ett lättskådligt format och inte behöva läsa stycken. <br>* Det finns avstånd mellan varje stycke och läser som en bil broschyr. Vilket innebär inte tekniska funktioner eller kod lingo men beskrivande av erbjudandet i enkla ordalag och är omfattande. | 
-| 7 | Marknadsföring Artefakter | Logotyper visas korrekt | <br>* Logotypen innehåller "hjältebild", som är den stora bilden i Azure-portalen <br>* Logotyper: Små (48x48) & Large (216x216) är krav <br>* Hero bildkrav:https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish <br>* Skärmdump (Max 5): CPP kräver en .png bild med upplösning 1280 x 720. |
+| 7 | Marknadsföring Artefakter | Logotyper visas korrekt | <br>* Logotypen innehåller "hjälteavbildning" i Azure-portalen. Måste vara 815 x 290 pixlar. <br>* Logotyper: Små (48x48) & Large (216x216) är krav <br> * Skärmdump (Max 5): Kräver en .png-bild (1280 x 720 pixlar). |
 | 8 | Kategorier & Branscher | <br>* Kategorier match lösning erbjuder funktioner <br>* Minst 1 objekt bör väljas från popup-rutan <br>* Sträck dig inte till kategorier som lösningen inte passar <br>* Optimal industri, eller alla branscher som valts ut (om inte optimala industrier <br>* Sträck dig inte till kategorier som lösningen inte passar <br>* Optimal industri, eller alla branscher som valts ut (om inte optimala industrier) | Max. 3 kategorier som valts ut i förekommande fall. |
 | 9 | Lead Management | Välj det system där dina leads ska lagras. Se [få kundleads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) att ansluta ditt CRM-system. |  |
 | 10 | Kontakter: Lösningssupport & Hjälp | <br>* Teknisk kontaktnamn: Ange namnet på den tekniska kontakten för din app. Den här kontakten tar emot teknisk kommunikation från Microsoft.<br>* Teknisk kontakt e-post: Ange e-postadressen till den tekniska kontakten för din app.<br>* Tekniska kontakter Telefon: Ange telefonnumret till den tekniska kontakten. ISO-telefonnummer anteckningar stöds; Mer information https://en.wikipedia.org/wiki/E.123finns i .<br>* Supportkontakt Namn: Ange namnet på supportkontakten för din app. Den här kontakten tar emot supportrelaterad kommunikation från Microsoft.<br>* E-post för supportkontakt: Ange e-postadressen till supportkontakten för din app. <br>* Support kontakt telefon: Ange telefonnumret till supportkontakten. ISO-telefonnummer anteckningar stöds; Mer information https://en.wikipedia.org/wiki/E.123finns i . <br>* Support-URL: Ange webbadressen till supportsidan. | <br>* Alla supportmetoder som anges: telefon & e-postsupport. <br>* Betald support erbjuds gratis under prov- eller provkörningsperiod |
-| 11 | Juridisk information |<br>* Webbadressen till sekretesspolicyn: Ange webbadressen till appens sekretesspolicy i fältet Webbadress för sekretesspolicy i CPP. <br>* Användarvillkor: Ange användarvillkoren för din app. Kunderna måste acceptera dessa villkor innan de kan prova din app. |    Policyer eller villkor som är tillgängliga via en offentlig webbadress |
+| 11 | Juridisk information |<br>* Webbadressen till sekretesspolicyn: Ange webbadressen till appens sekretesspolicy i url-fältet för sekretesspolicy i Partnercenter. <br>* Användarvillkor: Ange användarvillkoren för din app. Kunderna måste acceptera dessa villkor innan de kan prova din app. |    Policyer eller villkor som är tillgängliga via en offentlig webbadress |
 
 ---
 
@@ -70,7 +70,7 @@ Alla erbjudanden måste uppfylla [alla noteringskrav](https://docs.microsoft.com
 |:--- |:--- |:--- |:--- |
 |1 |Inställningar för erbjudande | <br>* Erbjudande ID: Max 50 Tecken <br>* Publisher-ID: Välj från listrutan <br>* Namn: Max 50 tecken | Speglar den titelstil som redan finns i beskrivningen- vill inte ha långa titlar. | 
 | 2 | SKU: er | Partnerklick på nya SKU:er| Speglar den titelstil som redan finns i beskrivningen- vill inte ha långa titlar.  |
-| 3 | Marknadsplatsartefakter | Logotyper visas korrekt |<br>* Logotypen innehåller "hjältebild", som är den stora bilden i Azure-portalen <br>* Logotyper: Små (48x48) & Large (216x216) är krav <br>* Hero bildkrav:https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>* Skärmdump (Max 5): CPP kräver en .png bild med upplösning 1280 x 720.|
+| 3 | Marknadsplatsartefakter | Logotyper visas korrekt |<br>* Logotypen innehåller "hjältebild", som är den stora bilden i Azure-portalen <br>* Logotyper: Små (48x48) & Large (216x216) är krav <br>* Hero bildkrav: 815 x 290 pixlar <br>* Skärmdump (Max 5): Kräver en .png-bild med upplösning 1280 x 720.|
 | 4 | Lead Management |<br>* Lead Management: Välj det system där dina leads kommer att lagras. <br>* Se [få kund leder](./partner-center-portal/commercial-marketplace-get-customer-leads.md) att ansluta ditt CRM-system. | |
 
 ---

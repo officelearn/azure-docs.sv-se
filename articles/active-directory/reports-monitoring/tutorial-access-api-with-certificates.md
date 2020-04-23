@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d723af5d994006c4ae4f90905ede73fa87326bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2808c8431a6b98b162920fb58a6e2ac0498d2055
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74014270"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081718"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Självstudiekurs: Hämta data med azure Active Directory-rapporterings-API:et med certifikat
 
@@ -44,9 +44,9 @@ I den här självstudien får du lära dig hur du använder ett testcertifikat f
     - Åtkomsttoken från användare, programnycklar och certifikat med ADAL
     - Växlingsbara resultat för Graph API-hantering
 
-6. Om det är första gången du använder modulen kör **Install-MSCloudIdUtilsModule**, annars importera den med **kommandot Import-Module** Powershell. Sessionen ska se ut ungefär ![som den här skärmen: Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. Om det är första gången du använder modulen kör **Install-MSCloudIdUtilsModule**, annars importera den med **kommandot Import-Module** PowerShell. Sessionen ska se ut ungefär ![som den här skärmen: Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
   
-7. Använd commandleten **New-SelfSignedCertificate** Powershell för att skapa ett testcertifikat.
+7. Använd commandleten **New-SelfSignedCertificate** PowerShell för att skapa ett testcertifikat.
 
    ```
    $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
@@ -63,13 +63,13 @@ I den här självstudien får du lära dig hur du använder ett testcertifikat f
 
 1. Navigera till [Azure-portalen,](https://portal.azure.com)välj **Azure Active Directory**och välj sedan **Appregistreringar** och välj ditt program i listan. 
 
-2. Välj **Inställningsnycklar** > **Keys** och välj **Ladda upp offentlig nyckel**.
+2. Välj **Certifikat & hemligheter** under Avsnittet **Hantera** på Programregistreringsbladet och välj Ladda **upp certifikat**.
 
-3. Markera certifikatfilen i föregående steg och välj **Spara**. 
+3. Markera certifikatfilen i föregående steg och välj **Lägg till**. 
 
-4. Observera ansöknings-ID: t och tumavtrycket för certifikatet som du just registrerade med din ansökan. Om du vill hitta tumavtrycket går du till **Inställningar** från programsidan i portalen och klickar på **Tangenter**. Tumavtrycket kommer att vara under listan **Offentliga nycklar.**
+4. Observera ansöknings-ID: t och tumavtrycket för certifikatet som du just registrerade med din ansökan. Om du vill hitta tumavtrycket går du till **Certifikat & hemligheter** under Avsnittet **Hantera** från programsidan i portalen. Tumavtrycket kommer att vara under **listan Certifikat.**
 
-5. Öppna programmanifestet i den infogade manifestredigeraren och ersätt egenskapen *keyCredentials* med din nya certifikatinformation med hjälp av följande schema. 
+5. Öppna programmanifestet i den infogade manifestredigeraren och verifiera att egenskapen *keyCredentials uppdateras* med din nya certifikatinformation enligt nedan - 
 
    ```
    "keyCredentials": [
@@ -81,23 +81,20 @@ I den här självstudien får du lära dig hur du använder ett testcertifikat f
             "value":  "$base64Value" //base64 encoding of the certificate raw data
         }
     ]
-   ```
-
-6. Spara manifestet. 
-  
-7. Nu kan du få en åtkomsttoken för MS Graph API med det här certifikatet. Använd **cmdleten Get-MSCloudIdMSGraphAccessTokenFromCert** från MODULEN MSCloudIdUtils PowerShell, som skickar in program-ID:t och det tumavtryck du fick från föregående steg. 
+   ``` 
+6. Nu kan du få en åtkomsttoken för MS Graph API med det här certifikatet. Använd **cmdleten Get-MSCloudIdMSGraphAccessTokenFromCert** från MODULEN MSCloudIdUtils PowerShell, som skickar in program-ID:t och det tumavtryck du fick från föregående steg. 
 
    ![Azure Portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
-8. Använd åtkomsttoken i Powershell-skriptet för att fråga graph-API:et. Använd cmdleten **Invoke-MSCloudIdMSGraphQuery** från MSCloudIDUtils för att räkna upp signinerna och katalogenAudits-slutpunkten. Den här cmdleten hanterar flersidiga resultat och skickar dessa resultat till PowerShell-pipelinen.
+7. Använd åtkomsttoken i PowerShell-skriptet för att fråga graph-API:et. Använd cmdleten **Invoke-MSCloudIdMSGraphQuery** från MSCloudIDUtils för att räkna upp signinerna och katalogenAudits-slutpunkten. Den här cmdleten hanterar flersidiga resultat och skickar dessa resultat till PowerShell-pipelinen.
 
-9. Fråga katalogenSlutpunkten för att hämta granskningsloggarna. 
+8. Fråga katalogenSlutpunkten för att hämta granskningsloggarna. 
    ![Azure-portalen](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
-10. Fråga signinslutpunkten för att hämta inloggningsloggarna.
+9. Fråga signinslutpunkten för att hämta inloggningsloggarna.
     ![Azure-portalen](./media/tutorial-access-api-with-certificates/query-signins.png)
 
-11. Du kan nu välja att exportera dessa data till en CSV och spara till ett SIEM-system. Du kan också ta med skriptet i en schemalagd aktivitet för att regelbundet hämta Azure AD-data från din klientorganisation utan att behöva lagra programnycklar i källkoden. 
+10. Du kan nu välja att exportera dessa data till en CSV och spara till ett SIEM-system. Du kan också ta med skriptet i en schemalagd aktivitet för att regelbundet hämta Azure AD-data från din klientorganisation utan att behöva lagra programnycklar i källkoden. 
 
 ## <a name="next-steps"></a>Nästa steg
 

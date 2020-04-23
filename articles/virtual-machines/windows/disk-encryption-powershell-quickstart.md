@@ -3,15 +3,16 @@ title: Skapa och kryptera en virtuell Windows-dator med Azure PowerShell
 description: I den här snabbstarten får du lära dig hur du använder Azure PowerShell för att skapa och kryptera en virtuell Windows-dator
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: security
+ms.service: virtual-machines-windows
+ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
-ms.openlocfilehash: b5e5b44742c85591b913b94e622c76a2aba111ce
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6f564a9a4f13136bbe7e28a3600ca71892c82439
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "72246083"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081599"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-in-azure-with-powershell"></a>Snabbstart: Skapa och kryptera en virtuell Windows-dator i Azure med PowerShell
 

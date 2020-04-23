@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b0943098041af4c247ccd35715161bfb2e91895
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 972f4119fa17b4449fae4038283a183f097ccc4d
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81726244"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081446"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ally"></a>Självstudiekurs: Azure Active Directory single sign-on (SSO) integration med Ally
 
@@ -37,7 +37,7 @@ Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är progr
 För att komma igång behöver du följande:
 
 * En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
-* Ally enkel inloggning (SSO) aktiverad prenumeration.
+* En Allierad enkel inloggning (SSO) aktiverad prenumeration. Om du inte har en prenumeration [startar du din kostnadsfria provperiod](https://www.ally.io/?utm_source=azure&utm_medium=mktgplace&utm_term=tutorial).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -83,13 +83,13 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
 1. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** anger du värdena för följande fält:
 
-    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://app.ally.io/saml/consume/<CUSTOM_GUID>`
+    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://app.ally.io/saml/consume/<CUSTOM_UUID>`
 
-    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://app.ally.io/saml/consume/<CUSTOM_GUID>`
+    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://app.ally.io/saml/consume/<CUSTOM_UUID>`
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    Skriv en URL i textrutan **Sign-on-URL:**`https://app.ally.io/saml/consume/<CUSTOM_GUID>`
+    Skriv en URL i textrutan **Sign-on-URL:**`https://app.ally.io/saml/consume/<CUSTOM_UUID>`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [Ally Client supportteam](mailto:contact@ally.io) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

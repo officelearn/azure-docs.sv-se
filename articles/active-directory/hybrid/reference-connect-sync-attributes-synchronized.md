@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 04/24/2019
+ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a82766be01476890bbf18b518ce21febe0d07f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ab51030ad39e1360cabc7d63390af7c1654d2891
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79253616"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082126"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synkronisering: Attribut synkroniserade till Azure Active Directory
 I det här avsnittet visas de attribut som synkroniseras av Azure AD Connect-synkronisering.  
@@ -375,7 +375,7 @@ Den här gruppen är en uppsättning attribut som används som minimala attribut
 * Yammer (endast användare förbrukas)
 * [Hybrid Business-to-Business (B2B) kors-org samarbete scenarier som erbjuds av resurser som SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
 
-Den här gruppen är en uppsättning attribut som kan användas om Azure AD-katalogen inte används för att stödja Office 365, Dynamics eller Intune. Den har en liten uppsättning kärnattribut.
+Den här gruppen är en uppsättning attribut som kan användas om Azure AD-katalogen inte används för att stödja Office 365, Dynamics eller Intune. Den har en liten uppsättning kärnattribut. Observera att enkel inloggning eller etablering till vissa program från tredje part kräver att synkronisering av attribut konfigureras utöver de attribut som beskrivs här. Programkrav beskrivs i [saas-apphandledningen](../saas-apps/tutorial-list.md) för varje program.
 
 | Attributnamn | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |

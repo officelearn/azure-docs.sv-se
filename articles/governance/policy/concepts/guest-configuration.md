@@ -3,12 +3,12 @@ title: Lär dig att granska innehållet i virtuella datorer
 description: Lär dig hur Azure Policy använder agenten Gästkonfiguration för att granska inställningar i virtuella datorer.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1721c0f1ca7c084d636278aabc96f8dac3293038
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 89f7cc3931971d70b441490f77b67ace89434c2b
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81759090"
+ms.locfileid: "82025228"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure-principens gästkonfiguration
 
@@ -31,8 +31,8 @@ Om du vill granska inställningarna i en dator aktiveras ett [tillägg för den 
 > [!Important]
 > Tillägget Gästkonfiguration krävs för att utföra granskningar i virtuella Azure-datorer.
 > Om du vill distribuera tillägget i stor skala tilldelar du följande principdefinitioner:
->   - Distribuera förutsättningar för att aktivera princip för gästkonfiguration på virtuella datorer i Windows.
->   - Distribuera förutsättningar för att aktivera princip för gästkonfiguration på virtuella Linux-datorer.
+>   - [Distribuera förutsättningar för att aktivera princip för gästkonfiguration på virtuella datorer i Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+>   - [Distribuera förutsättningar för att aktivera princip för gästkonfiguration på virtuella Linux-datorer.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ### <a name="limits-set-on-the-extension"></a>Gränser för förlängningen
 
@@ -67,6 +67,8 @@ Principer för gästkonfiguration ingår i nya versioner. Äldre versioner av op
 |OpenLogic|CentOS|7.3 och senare|
 |Red Hat|Red Hat Enterprise Linux|7.4 och senare|
 |Suse|SLES|12 SP3 och senare|
+
+Anpassade avbildningar för virtuella datorer stöds av principer för gästkonfiguration så länge de är ett av operativsystemen i tabellen ovan.
 
 ### <a name="unsupported-client-types"></a>Klienttyper som inte stöds
 

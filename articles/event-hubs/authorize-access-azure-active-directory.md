@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 1fa8f7a48c03ead7e939185b23834b3049b3e21c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6216b56c8e8f0de4f9cd60306bbf9c5ed49a11ad
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80064868"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025211"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Auktorisera åtkomst till eventhubbar-resurser med Azure Active Directory
 Azure Event Hubs stöder användning av Azure Active Directory (Azure AD) för att auktorisera begäranden till eventhubbar-resurser. Med Azure AD kan du använda rollbaserad åtkomstkontroll (RBAC) för att bevilja behörigheter till ett säkerhetsobjekt, som kan vara en användare, eller ett programtjänsthuvudnamn. Mer information om roller och rolltilldelningar finns i [Förstå de olika rollerna](../role-based-access-control/overview.md).
@@ -65,7 +65,7 @@ Mer information om hur inbyggda roller definieras finns i [Förstå rolldefiniti
 ## <a name="samples"></a>Exempel
 - [Exempel på Microsoft.Azure.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
-    Dessa exempel använder det gamla **Microsoft.Azure.EventHubs-biblioteket,** men du kan enkelt uppdatera det till det senaste **Azure.Messaging.EventHubs-biblioteket.** Information om hur du flyttar exemplet från att använda det gamla biblioteket till ett nytt finns i [guiden för att migrera från Microsoft.Azure.EventHubs till Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).
+    Dessa exempel använder det gamla **Microsoft.Azure.EventHubs-biblioteket,** men du kan enkelt uppdatera det till det senaste **Azure.Messaging.EventHubs-biblioteket.** Information om hur du flyttar exemplet från att använda det gamla biblioteket till ett nytt finns i [guiden för att migrera från Microsoft.Azure.EventHubs till Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 - [Exempel på Azure.Messaging.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
 
     Det här exemplet har uppdaterats för att använda det senaste **Azure.Messaging.EventHubs-biblioteket.**

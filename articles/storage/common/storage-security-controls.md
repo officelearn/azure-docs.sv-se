@@ -1,23 +1,24 @@
 ---
-title: Säkerhetskontroller för Azure Storage
-description: En checklista över säkerhetskontroller för utvärdering av Azure Storage
+title: Säkerhetskontroller
+titleSuffix: Azure Storage
+description: En checklista med säkerhetskontroller för utvärdering av Azure Storage.
 services: storage
 author: msmbaldwin
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 379acaf48c02f0a579c07773cd48366d962a44f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f03f497051367d36bd229a3f358d28a1130ec620
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80061120"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082364"
 ---
 # <a name="security-controls-for-azure-storage"></a>Säkerhetskontroller för Azure Storage
 
-Den här artikeln dokumenterar de säkerhetskontroller som är inbyggda i Azure Storage. 
+Den här artikeln dokumenterar de säkerhetskontroller som är inbyggda i Azure Storage.
 
 [!INCLUDE [Security controls Header](../../../includes/security-controls-header.md)]
 
@@ -36,8 +37,9 @@ Den här artikeln dokumenterar de säkerhetskontroller som är inbyggda i Azure 
 | Säkerhetskontroll | Ja/nej | Anteckningar |
 |---|---|--|
 | Support för tjänstens slutpunkt| Ja |  |
+| Support för servicetaggar| Ja | Se [översikt över Azure-tjänsttaggar](../../virtual-network/service-tags-overview.md) för mer information om tjänsttaggar som stöds av Azure Storage. |
 | Stöd för VNet-injektion| Ej tillämpligt |  |
-| Stöd för nätverksisolering och brandväggar| Ja | |
+| Stöd för nätverksisolering och brandvägg| Ja | |
 | Stöd för påtvingad tunnelning| Ej tillämpligt |  |
 
 ## <a name="monitoring--logging"></a>Övervakning & loggning

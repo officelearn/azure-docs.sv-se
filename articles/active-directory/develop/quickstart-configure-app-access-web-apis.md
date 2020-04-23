@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 03/09/2020
+ms.date: 04/22/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 5e628626f2db49ff67d6d7ab425a3a19870b1ebd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 210ed5b8ad53fd59a46e160fe5fc72633d115d44
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79240900"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82082330"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Snabbstart: Konfigurera ett klientprogram för åtkomst till webb-API:er
 
@@ -110,7 +110,10 @@ Om du vill konfigurera programinställningar baserat på plattformen eller enhet
    | **Webb**              | Ange **Redirect URI** för ditt program. |
    | **iOS / macOS**              | Ange **apppaket-ID**, som du hittar i XCode i Info.plist eller Bygginställningar. Om du lägger till bunt-ID:et skapas automatiskt en omdirigerings-URI för programmet. |
    | **Android**          | Ange appen **Paketnamn**, som du hittar i filen AndroidManifest.xml.<br/>Generera och ange **signaturhhen**. Om du lägger till signaturhhen skapas automatiskt en omdirigerings-URI för programmet.  |
-   | **Mobila och stationära program**  | Valfri. Välj en av de rekommenderade **föreslagna omdirigerings-URI:erna** om du skapar appar för stationära datorer och enheter.<br/>Valfri. Ange en **anpassad omdirigerings-URI**, som används som den plats där Azure AD omdirigerar användare som svar på autentiseringsbegäranden. För .NET Core-program där du vill `https://localhost`ha interaktion använder du till exempel . |
+   | **Mobila och stationära program**  | Valfri. Välj en av de rekommenderade **föreslagna omdirigerings-URI:erna** om du skapar appar för stationära datorer och enheter.<br/>Valfri. Ange en **anpassad omdirigerings-URI**, som används som den plats där Azure AD omdirigerar användare som svar på autentiseringsbegäranden. För .NET Core-program där du vill `http://localhost`ha interaktion använder du till exempel . |
+
+   > [!NOTE]
+   > På Active Directory Federation Services (AD FS) och Azure AD B2C måste du också ange ett portnummer.  Till exempel: `http://localhost:1234`. 
 
    > [!IMPORTANT]
    > För mobila program som inte använder det senaste MSAL-biblioteket (Microsoft Authentication Library) eller inte använder en mäklare måste du konfigurera omdirigerings-URI:erna för dessa program i **Stationära + enheter**.

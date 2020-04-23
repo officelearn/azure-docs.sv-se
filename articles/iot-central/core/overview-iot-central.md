@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: ffaab22efb2f6969f03720abba4a7afc6387021a
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 38152889ad43b41aeb345f59963cbfb869964b98
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758216"
+ms.locfileid: "82025245"
 ---
 # <a name="what-is-azure-iot-central"></a>Vad är Azure IoT Central?
 
@@ -60,7 +60,7 @@ Som lösningsbyggare använder du IoT Central för att skapa en anpassad, molnba
 - ett molnbaserat program som tar emot telemetri från dina enheter och låter dig hantera dessa enheter.
 - flera enheter som kör anpassad kod är anslutna till ditt molnbaserade program.
 
-Du kan snabbt distribuera ett nytt IoT Central-program och sedan anpassa det till dina specifika krav i din webbläsare. Du kan börja med en allmän _programmall_ eller med en av de branschfokuserade programmallarna för [Detaljhandel,](../retail/overview-iot-central-retail-pnp.md) [Energi,](../energy/overview-iot-central-energy.md) [Myndigheter](../government/overview-iot-central-government.md)eller [Sjukvård](../healthcare/overview-iot-central-healthcare.md).
+Du kan snabbt distribuera ett nytt IoT Central-program och sedan anpassa det till dina specifika krav i din webbläsare. Du kan börja med en allmän _programmall_ eller med en av de branschfokuserade programmallarna för [Detaljhandel,](../retail/overview-iot-central-retail.md) [Energi,](../energy/overview-iot-central-energy.md) [Myndigheter](../government/overview-iot-central-government.md)eller [Sjukvård](../healthcare/overview-iot-central-healthcare.md).
 
 Som lösningsbyggare använder du de webbaserade verktygen för att skapa en _enhetsmall_ för de enheter som ansluter till ditt program. En enhetsmall är skissen som definierar egenskaperna och beteendet hos en typ av enhet, till exempel:
 

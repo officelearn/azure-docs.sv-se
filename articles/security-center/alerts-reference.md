@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: f9b39a672cb5640a36490f2cd088092f40065870
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: ef715ed7df1cc203e66bb33cd1493a7f7a713327
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81454789"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82081616"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Säkerhetsvarningar - en referensguide
 
@@ -399,8 +399,8 @@ Security Centers stödda döda kedja avsikter är baserade på [MITRE&trade; ATT
 
 |Avsikt|Beskrivning|
 |------|-------|
-|**Föreattack**</br>(ersätter Sondering)|PreAttack kan vara antingen ett försök att komma åt en viss resurs oavsett ett ont uppsåt, eller ett misslyckat försök att få tillgång till ett målsystem för att samla in information före utnyttjande. Det här steget identifieras vanligtvis som ett försök, som kommer från utanför nätverket, att söka igenom målsystemet och identifiera en startpunkt.</br>Mer information om PreAttack-stadiet kan läsas på [MITRE:s sida](https://attack.mitre.org/matrices/pre/).|
-|**InitialAccess (InitialAccess)**</br>(ersätter exploatering)|InitialAccess är det stadium där en angripare lyckas få fotfäste på den attackerade resursen. Den här fasen är relevant för beräkningsvärdar och resurser som användarkonton, certifikat etc. Hotaktörer kommer ofta att kunna kontrollera resursen efter detta skede.|
+|**Föreattack**|PreAttack kan vara antingen ett försök att komma åt en viss resurs oavsett ett ont uppsåt, eller ett misslyckat försök att få tillgång till ett målsystem för att samla in information före utnyttjande. Det här steget identifieras vanligtvis som ett försök, som kommer från utanför nätverket, att söka igenom målsystemet och identifiera en startpunkt.</br>Mer information om PreAttack-stadiet kan läsas på [MITRE:s sida](https://attack.mitre.org/matrices/pre/).|
+|**InitialAccess (InitialAccess)**|InitialAccess är det stadium där en angripare lyckas få fotfäste på den attackerade resursen. Den här fasen är relevant för beräkningsvärdar och resurser som användarkonton, certifikat etc. Hotaktörer kommer ofta att kunna kontrollera resursen efter detta skede.|
 |**Bevarande**|Persistens är alla åtkomst-, åtgärders- eller konfigurationsändringar till ett system som ger en hotaktör en beständig närvaro på det systemet. Hotaktörer måste ofta upprätthålla åtkomsten till system genom avbrott som omstarter av systemet, förlust av autentiseringsuppgifter eller andra fel som skulle kräva ett fjärråtkomstverktyg för att starta om eller tillhandahålla en alternativ bakdörr för att de ska få åtkomst.|
 |**PrivilegiumScalation**|Eskalering av privilegier är resultatet av åtgärder som gör det möjligt för en motståndare att få en högre behörighetsnivå för ett system eller nätverk. Vissa verktyg eller åtgärder kräver en högre nivå av privilegium att arbeta och är sannolikt nödvändiga på många ställen under en operation. Användarkonton med behörighet att komma åt specifika system eller utföra specifika funktioner som krävs för att motståndare ska kunna uppnå sitt mål kan också betraktas som en eskalering av privilegier.|
 |**FörsvarEvasion**|Defense skatteflykt består av tekniker en motståndare kan använda för att undgå upptäckt eller undvika andra försvar. Ibland är dessa åtgärder samma som (eller variationer av) tekniker i andra kategorier som har den extra fördelen att undergräva ett visst försvar eller begränsning.|

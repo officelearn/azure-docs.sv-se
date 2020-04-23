@@ -8,47 +8,47 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 608c2619c19a2b5fa7e39c1ecb82be40ff4e83f4
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 47bd550bbd8d75a06d38babe88b5a95f3790af50
+ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82072628"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106565"
 ---
-## <a name="2-assign-access-permissions-to-an-identity"></a>2. Tilldela åtkomstbehörigheter till en identitet
+## <a name="2-assign-access-permissions-to-an-identity"></a>2. tilldela åtkomst behörigheter till en identitet
 
-För att komma åt Azure Files-resurser med identitetsbaserad autentisering måste en identitet (en användare, grupp eller tjänsthuvudnamn) ha de behörigheter som krävs på resursnivå. Den här processen påminner om att ange Windows-resursbehörigheter, där du anger vilken typ av åtkomst som en viss användare har till en filresurs. Vägledningen i det här avsnittet visar hur du tilldelar läs-, skriv- eller borttagningsbehörigheter för en filresurs till en identitet. 
+För att få åtkomst till Azure Files resurser med identitets baserad autentisering måste en identitet (användare, grupp eller tjänstens huvud namn) ha nödvändig behörighet på delnings nivå. Den här processen liknar att ange behörigheter för Windows-resurs, där du anger vilken typ av åtkomst som en viss användare har till en fil resurs. Rikt linjerna i det här avsnittet visar hur du tilldelar behörigheterna läsa, skriva eller ta bort för en fil resurs till en identitet. 
 
-Vi har introducerat tre azure-inbyggda roller för att bevilja behörigheter på delningsnivå till användare:
+Vi har introducerat tre inbyggda Azure-roller för att bevilja behörigheter på resurs nivå till användare:
 
-- **Storage File Data SMB Share Reader** tillåter läsåtkomst i Azure Storage-filresurser över SMB.
-- **Storage File Data SMB Share Contributor** tillåter läs-, skriv- och borttagningsåtkomst i Azure Storage-filresurser över SMB.
-- **Storage File Data SMB Share Elevated Contributor** tillåter läsa, skriva, ta bort och ändra NTFS-behörigheter i Azure Storage-filresurser över SMB.
+- **Lagrings fil data SMB Share Reader** tillåter Läs åtkomst i Azure Storage fil resurser över SMB.
+- **Storage File data SMB Share Contributor** tillåter Läs-, skriv-och borttagnings åtkomst i Azure Storage fil resurser över SMB.
+- **Lagrings fil data SMB dela utökad deltagare** tillåter Läs-, Skriv-, borttagnings-och ändrings-NTFS-behörigheter i Azure Storage fil resurser över SMB.
 
 > [!IMPORTANT]
-> Fullständig administrativ kontroll av en filresurs, inklusive möjligheten att bli ägare till en fil, kräver att du använder lagringskontonyckeln. Administrativ kontroll stöds inte med Azure AD-autentiseringsuppgifter.
+> Fullständig administrativ kontroll av en fil resurs, inklusive möjligheten att bli ägare till en fil, kräver att du använder lagrings konto nyckeln. Administrativ kontroll stöds inte med autentiseringsuppgifter för Azure AD.
 
-Du kan använda Azure-portalen, PowerShell eller Azure CLI för att tilldela de inbyggda rollerna till Azure AD-identiteten för en användare för att bevilja behörigheter på delningsnivå.
+Du kan använda Azure Portal, PowerShell eller Azure CLI för att tilldela de inbyggda rollerna till Azure AD-identiteten för en användare för att bevilja behörigheter på resurs nivå.
 
 > [!NOTE]
-> Kom ihåg att [synkronisera dina AD DS-autentiseringsuppgifter till Azure AD](../articles/active-directory/hybrid/how-to-connect-install-roadmap.md) om du planerar att använda din lokala AD DS för autentisering. Synkronisering av lösenord hash från AD DS till Azure AD är valfritt. Behörighet på delningsnivå beviljas till Azure AD-identiteten som synkroniseras från din lokala AD DS.
+> Kom ihåg att [Synkronisera dina AD DS-autentiseringsuppgifter till Azure AD](../articles/active-directory/hybrid/how-to-connect-install-roadmap.md) om du planerar att använda din lokala AD DS för autentisering. Password hash Sync från AD DS till Azure AD är valfritt. Behörigheten på resurs nivå beviljas den Azure AD-identitet som synkroniseras från din lokala AD DS.
 
-Den allmänna rekommendationen är att använda behörighet på resursnivå för åtkomsthantering på hög nivå till en AD-grupp som representerar en grupp användare och identiteter och sedan utnyttja NTFS-behörigheter för detaljerad åtkomstkontroll på katalog-/filnivå. 
+Den allmänna rekommendationen är att använda behörighet på resurs nivå för åtkomst hantering på hög nivå till en AD-grupp som representerar en grupp användare och identiteter, och sedan utnyttja NTFS-behörigheter för detaljerad åtkomst kontroll på katalog-/filnivå. 
 
 #### <a name="azure-portal"></a>Azure Portal
-Så här tilldelar du en RBAC-roll till en Azure AD-identitet: [Azure portal](https://portal.azure.com)
+Följ dessa steg om du vill tilldela en RBAC-roll till en Azure AD-identitet med hjälp av [Azure Portal](https://portal.azure.com):
 
-1. Gå till filresursen i Azure-portalen eller [Skapa en filresurs](../articles/storage/files/storage-how-to-create-file-share.md).
-2. Välj **Åtkomstkontroll (IAM)**.
-3. Välj **Lägg till en rolltilldelning**
-4. I bladet **Lägg till rolltilldelning** väljer du lämplig inbyggd roll (Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor) i **rolllistan.** Lämna **tilldela åtkomst till** vid standardinställningen: Azure **AD-användare, grupp eller tjänsthuvudnamn**. Välj målet Azure AD-identitet efter namn eller e-postadress.
-5. Välj **Spara** om du vill slutföra rolltilldelningsåtgärden.
+1. I Azure Portal går du till fil resursen eller [skapar en fil resurs](../articles/storage/files/storage-how-to-create-file-share.md).
+2. Välj **Access Control (IAM)**.
+3. Välj **Lägg till en roll tilldelning**
+4. På bladet **Lägg till roll tilldelning** väljer du lämplig inbyggd roll (lagrings fil data SMB Share Reader, Storage File data SMB Share Contributor) från **roll** listan. Lämna inställningen **tilldela till gång till** standardinställningen: **Azure AD-användare, grupp eller tjänstens huvud namn**. Välj målets Azure AD-identitet efter namn eller e-postadress.
+5. Klicka på **Spara** för att slutföra roll tilldelnings åtgärden.
 
 #### <a name="powershell"></a>PowerShell
 
-Följande PowerShell-exempel visar hur du tilldelar en RBAC-roll till en Azure AD-identitet, baserat på inloggningsnamn. Mer information om hur du tilldelar RBAC-roller med PowerShell finns i [Hantera åtkomst med RBAC och Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
+Följande PowerShell-exempel visar hur du tilldelar en RBAC-roll till en Azure AD-identitet baserat på inloggnings namn. Mer information om hur du tilldelar RBAC-roller med PowerShell finns i [Hantera åtkomst med RBAC och Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
-Innan du kör följande exempelskript bör du komma ihåg att ersätta platshållarvärden, inklusive parenteser, med dina egna värden.
+Innan du kör följande exempel skript måste du komma ihåg att ersätta plats hållarnas värden, inklusive hakparenteser, med dina egna värden.
 
 ```powershell
 #Get the name of the custom role
@@ -61,9 +61,9 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 #### <a name="cli"></a>CLI
   
-Följande CLI 2.0-kommando visar hur du tilldelar en RBAC-roll till en Azure AD-identitet, baserat på inloggningsnamn. Mer information om hur du tilldelar RBAC-roller med Azure CLI finns i [Hantera åtkomst med hjälp av RBAC och Azure CLI](../articles/role-based-access-control/role-assignments-cli.md). 
+Följande CLI 2,0-kommando visar hur du tilldelar en RBAC-roll till en Azure AD-identitet baserat på inloggnings namn. Mer information om hur du tilldelar RBAC-roller med Azure CLI finns i [Hantera åtkomst med RBAC och Azure CLI](../articles/role-based-access-control/role-assignments-cli.md). 
 
-Innan du kör följande exempelskript bör du komma ihåg att ersätta platshållarvärden, inklusive parenteser, med dina egna värden.
+Innan du kör följande exempel skript måste du komma ihåg att ersätta plats hållarnas värden, inklusive hakparenteser, med dina egna värden.
 
 ```azurecli-interactive
 #Assign the built-in role to the target identity: Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor, Storage File Data SMB Share Elevated Contributor
@@ -71,60 +71,63 @@ az role assignment create --role "<role-name>" --assignee <user-principal-name> 
 ```
 
 ## <a name="3-configure-ntfs-permissions-over-smb"></a>3. Konfigurera NTFS-behörigheter över SMB 
-När du har tilldelat behörigheter på resursnivå med RBAC måste du tilldela rätt NTFS-behörigheter på rot-, katalog- eller filnivå. Tänk på behörigheter på resursnivå som gatekeeper på hög nivå som avgör om en användare kan komma åt resursen. Medan NTFS-behörigheter fungerar på en mer detaljerad nivå för att avgöra vilka åtgärder användaren kan göra på katalog- eller filnivå.
+När du har tilldelat behörigheter på resurs nivå med RBAC måste du tilldela rätt NTFS-behörighet på rot-, katalog-eller filnivå. Tänk på behörigheter på resurs nivå som den övergripande gatekeepern som avgör om en användare har åtkomst till resursen. NTFS-behörigheter fungerar på en mer detaljerad nivå för att avgöra vilka åtgärder användaren kan göra på katalog-eller filnivå.
 
-Azure Files stöder den fullständiga uppsättningen ntfs-grundläggande och avancerade behörigheter. Du kan visa och konfigurera NTFS-behörigheter för kataloger och filer i en Azure-filresurs genom att montera resursen och sedan använda Utforskaren i Windows eller köra kommandot Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) eller [Set-ACL.](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) 
+Azure Files stöder en fullständig uppsättning NTFS Basic-och Advanced-behörigheter. Du kan visa och konfigurera NTFS-behörigheter för kataloger och filer i en Azure-filresurs genom att montera resursen och sedan använda Utforskaren i Windows eller köra kommandot Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) eller [set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) . 
 
-Om du vill konfigurera NTFS med superanvändarbehörigheter måste du montera resursen med hjälp av lagringskontonyckeln från domänens anslutna virtuella dator. Följ instruktionerna i nästa avsnitt för att montera en Azure-filresurs från kommandotolken och konfigurera NTFS-behörigheter därefter.
+Om du vill konfigurera NTFS med behörigheter för superanvändare måste du montera resursen med hjälp av lagrings konto nyckeln från din domänanslutna VM. Följ anvisningarna i nästa avsnitt för att montera en Azure-filresurs från kommando tolken och konfigurera NTFS-behörigheter enligt detta.
 
-Följande behörighetsgrupper stöds i rotkatalogen för en filresurs:
+Följande behörighets uppsättningar stöds i rot katalogen för en fil resurs:
 
-- BUILTIN\Administratörer:(OI)(CI)(F)
-- NT AUTHORITY\SYSTEM:(OI)(CI)(F)
-- BUILTIN\Användare:(RX)
-- BUILTIN\Användare:(OI)(CI)(IO)(GR,GE)
-- NT AUTHORITY\Autentiserade användare:(OI)(CI)(M)
-- NT AUTHORITY\SYSTEM:(F)
-- SKAPARE ÄGARE:(OI)(CI)(IO)(F)
+- BUILTIN\Administrators: (OI) (CI) (F)
+- NT INSTANS\SYSTEM: (OI) (CI) (F)
+- BUILTIN\Users: (RX)
+- BUILTIN\Users: (OI) (CI) (IO) (GR, GE)
+- NT Instans\autentiserade-användare: (OI) (CI) (M)
+- NT INSTANS\SYSTEM: (F)
+- SKAPARE ÄGARE: (OI) (CI) (IO) (F)
 
-### <a name="mount-a-file-share-from-the-command-prompt"></a>Montera en filresurs från kommandotolken
+### <a name="mount-a-file-share-from-the-command-prompt"></a>Montera en fil resurs från kommando tolken
 
-Använd kommandot Windows **net use** för att montera Azure-filresursen. Kom ihåg att ersätta platshållarvärdena i följande exempel med dina egna värden. Mer information om hur du monterar filresurser finns i [Använda en Azure-filresurs med Windows](../articles/storage/files/storage-how-to-use-files-windows.md). 
+Använd kommandot Windows **net use** för att montera Azure-filresursen. Kom ihåg att ersätta plats hållarnas värden i följande exempel med dina egna värden. Mer information om hur du monterar fil resurser finns i [använda en Azure-filresurs med Windows](../articles/storage/files/storage-how-to-use-files-windows.md). 
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
 ```
 
-### <a name="configure-ntfs-permissions-with-windows-file-explorer"></a>Konfigurera NTFS-behörigheter med Utforskaren
-Använd Utforskaren i Utforskaren för att ge fullständig behörighet till alla kataloger och filer under filresursen, inklusive rotkatalogen.
+Om du får problem med att ansluta till Azure Files kan du läsa [fel söknings verktyget som vi publicerade för Azure Files monterings fel i Windows](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5). Vi ger också [vägledning](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) för att lösa scenarier när port 445 är blockerad. 
 
-1. Öppna Utforskaren i Utforskaren och högerklicka på filen/katalogen och välj **Egenskaper**.
-2. Välj fliken **Säkerhet.**
-3. Välj **Redigera..** för att ändra behörigheter.
-4. Du kan ändra behörigheterna för befintliga användare eller välja **Lägg till...** om du vill bevilja behörigheter till nya användare.
-5. I snabbfönstret för att lägga till nya användare anger du det målanvändarnamn som du vill bevilja behörighet till i rutan **Ange objektnamnen som ska markeras** och väljer **Kontrollera namn** för att hitta målanvändarens fullständiga UPN-namn.
+
+### <a name="configure-ntfs-permissions-with-windows-file-explorer"></a>Konfigurera NTFS-behörigheter med Windows Utforskaren
+Använd Utforskaren i Windows för att ge fullständig behörighet till alla kataloger och filer under fil resursen, inklusive rot katalogen.
+
+1. Öppna Utforskaren i Windows och högerklicka på filen/katalogen och välj **Egenskaper**.
+2. Välj fliken **säkerhet** .
+3. Välj **Redigera...** ändra behörigheter.
+4. Du kan ändra behörigheter för befintliga användare eller välja **Lägg till...** om du vill ge nya användare behörigheter.
+5. I fönstret prompt för att lägga till nya användare anger du det mål användar namn som du vill ge behörighet i rutan **Ange de objekt namn som ska väljas** och väljer **kontrol lera namn** för att hitta det fullständiga UPN-namnet för mål användaren.
 7.    Välj **OK**.
-8.    På fliken **Säkerhet** väljer du alla behörigheter som du vill bevilja den nya användaren.
+8.    På fliken **säkerhet** väljer du alla behörigheter som du vill ge den nya användaren.
 9.    Välj **Använd**.
 
 ### <a name="configure-ntfs-permissions-with-icacls"></a>Konfigurera NTFS-behörigheter med icacls
-Använd följande Windows-kommando för att ge alla kataloger och filer fullständiga behörigheter under filresursen, inklusive rotkatalogen. Kom ihåg att ersätta platshållarvärdena i exemplet med dina egna värden.
+Använd följande Windows-kommando för att ge fullständig behörighet till alla kataloger och filer under fil resursen, inklusive rot katalogen. Kom ihåg att ersätta plats hållarnas värden i exemplet med dina egna värden.
 
 ```
 icacls <mounted-drive-letter>: /grant <user-email>:(f)
 ```
 
-Mer information om hur du använder icacls för att ange NTFS-behörigheter och om de olika typerna av behörigheter som stöds finns [i kommandoradsreferensen för icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
+Mer information om hur du använder icacls för att ange NTFS-behörigheter och de olika typerna av behörigheter som stöds finns i [kommando rads referens för icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
 
-## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4. Montera en filresurs från en domänansluten virtuell dator
+## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4. Montera en fil resurs från en domänansluten virtuell dator
 
-Följande process verifierar att filresurs- och åtkomstbehörigheterna har konfigurerats korrekt och att du kan komma åt en Azure File-resurs från en domänansluten virtuell dator. Tänk på att rbac-rolltilldelningen på resursnivå kan ta lite tid att vara i kraft. 
+Följande process kontrollerar att fil resursen och åtkomst behörigheterna har ställts in korrekt och att du kan komma åt en Azure-filresurs från en domänansluten virtuell dator. Tänk på att tilldelningen av RBAC-rollen resurs nivå kan ta lite tid. 
 
-Logga in på den virtuella datorn med hjälp av Azure AD-identitet som du har beviljat behörigheter till, vilket visas i följande avbildning. Om du har aktiverat lokal AD DS-autentisering för Azure-filer använder du dina AD DS-autentiseringsuppgifter. För Azure AD DS-autentisering loggar du in med Azure AD-autentiseringsuppgifter.
+Logga in på den virtuella datorn med hjälp av den Azure AD-identitet som du har beviljat behörigheter för, som visas i följande bild. Om du har aktiverat AD DS-autentisering på plats för Azure Files använder du dina AD DS-autentiseringsuppgifter. Logga in med Azure AD-autentiseringsuppgifter för Azure AD DS-autentisering.
 
-![Skärmbild som visar inloggningsskärmen för Azure AD för användarautentisering](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
+![Skärm bild som visar inloggnings skärmen för Azure AD för användarautentisering](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
 
-Använd följande kommando för att montera Azure-filresursen. Kom ihåg att ersätta platshållarvärdena med dina egna värden. Eftersom du har autentiserats behöver du inte ange lagringskontonyckeln, de lokala AD DS-autentiseringsuppgifterna eller Azure AD DS-autentiseringsuppgifterna. Enkel inloggningsupplevelse stöds för autentisering med antingen lokalt AD DS eller Azure AD DS. Om du stöter på problem med montering med AD DS-autentiseringsuppgifter läser du [Felsöka Azure Files-problem i Windows](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) för vägledning.
+Använd följande kommando för att montera Azure-filresursen. Kom ihåg att ersätta plats hållarnas värden med dina egna värden. Eftersom du har autentiserats behöver du inte ange lagrings konto nyckeln, lokala AD DS-autentiseringsuppgifter eller autentiseringsuppgifter för Azure AD DS. Enkel inloggning stöds för autentisering med antingen lokal AD DS eller Azure AD DS. Om du stöter på problem med att montera med AD DS-autentiseringsuppgifter läser du [felsöka Azure Files problem i Windows](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) för vägledning.
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
